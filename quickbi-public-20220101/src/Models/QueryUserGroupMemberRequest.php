@@ -14,6 +14,8 @@ class QueryUserGroupMemberRequest extends Model
     public $keyword;
 
     /**
+     * @example 2fe4fbd8-588f-489a-b3e1-e92c7af0****
+     *
      * @var string
      */
     public $userGroupId;

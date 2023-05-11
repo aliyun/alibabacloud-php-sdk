@@ -10,76 +10,144 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the workspace to which the work belongs.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $auth3rdFlag;
 
     /**
+     * @description The hierarchical structure of the directory ID to which the directory belongs. Separate the hierarchical structure with a /.
+     *
+     * @example The hierarchical structure of the directory to which the directory belongs. Separate the hierarchical structure with a (/).
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the directory.
+     *
      * @var directory
      */
     public $directory;
 
     /**
+     * @description Test directory
+     *
+     * @example 1496651577000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description Test Workspace
+     *
+     * @example 1572334870000
+     *
      * @var string
      */
     public $gmtModify;
 
     /**
+     * @description Description
+     *
+     * @example The name of the work.
+     *
      * @var string
      */
     public $modifyName;
 
     /**
+     * @description Security policies for collaborative authorization of works. Valid values:
+     *
+     *   0: private
+     *   12: Authorize specified members
+     *   1 or 11: Authorize all workspace members
+     *
+     * >
+     *
+     *   If you use legacy permissions, the return value is 1.
+     *
+     *   If you use the new permissions, the return value is 11.
+     *
+     * @example Remarks on the work.
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @description The Alibaba Cloud account name of the person who modified the work.
+     *
+     * @example Tom
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @description The directory to which the work belongs.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $securityLevel;
 
     /**
+     * @description Li Si
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description Test directory
+     *
+     * @example The name of the directory.
+     *
      * @var string
      */
     public $workName;
 
     /**
+     * @description The name of the workspace to which the work belongs.
+     *
+     * @example PAGE
+     *
      * @var string
      */
     public $workType;
 
     /**
+     * @description The user ID of the work owner in the Quick BI.
+     *
+     * @example 897ce25e-****-****-af84-d13c5610****
+     *
      * @var string
      */
     public $worksId;
 
     /**
+     * @description Test report
+     *
+     * @example The timestamp of the creation of the work in milliseconds.
+     *
      * @var string
      */
     public $workspaceId;
 
     /**
+     * @description The ID of the workspace to which the work belongs.
+     *
+     * @example The name of the Alibaba Cloud account that modified the work.
+     *
      * @var string
      */
     public $workspaceName;

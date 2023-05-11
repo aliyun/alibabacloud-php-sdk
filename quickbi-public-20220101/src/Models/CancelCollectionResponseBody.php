@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CancelCollectionResponseBody extends Model
 {
     /**
+     * @example 7c7223ae-****-3c744528014b
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

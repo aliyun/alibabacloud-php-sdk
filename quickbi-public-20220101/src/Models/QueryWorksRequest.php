@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryWorksRequest extends Model
 {
     /**
+     * @example abcd****
+     *
      * @var string
      */
     public $worksId;

@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F2775AB6-DE99-5FA6-86A4-72EA0A8AFEE3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The execution result of the interface is returned. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

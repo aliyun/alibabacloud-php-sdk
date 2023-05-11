@@ -10,76 +10,158 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The timestamp of the creation time in milliseconds.
+     *
+     * @example 1530078690000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description Remarks on the work.
+     *
+     * @example Description of the test report
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Information about the directory where the work is located.
+     *
      * @var directory
      */
     public $directory;
 
     /**
+     * @description The name of the Alibaba Cloud account to which the modifier belongs.
+     *
+     * @example 13855265****@163.com
+     *
      * @var string
      */
     public $modifyName;
 
     /**
+     * @description The timestamp of the modification time in milliseconds.
+     *
+     * @example 1530078690000
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The UserID of the work owner in Quickbi.
+     *
+     * @example 74f5527216d14e9892245320ebf2****
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @description The Alibaba Cloud account name of the work owner.
+     *
+     * @example w****@aliyun.com
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @description Security policies for collaborative authorization of works. Valid values:
+     *
+     *   0: private
+     *   12: Authorize specified members
+     *   1 or 11: Authorize all workspace members
+     *
+     * >
+     *
+     *   If you use legacy permissions, the return value is 1.
+     *
+     *   If you use the new permissions, the return value is 11.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $securityLevel;
 
     /**
+     * @description The publishing status of the report. Valid values:
+     *
+     *   0: unpublished
+     *   1: published
+     *   2: modified but not published
+     *   3: unpublished
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description Third-party embedding status. Valid values:
+     *
+     *   0: No embedding is enabled.
+     *   1: Embed is enabled.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $thirdPartAuthFlag;
 
     /**
+     * @description The name of the report.
+     *
+     * @example Test report
+     *
      * @var string
      */
     public $workName;
 
     /**
+     * @description The type of the work. Valid values:
+     *
+     *   DATAPRODUCT: BI portal
+     *   PAGE: Dashboard
+     *   FULLPAGE: full-screen dashboards
+     *   REPORT: workbook
+     *   dashboardOfflineQuery: self-service data retrieval
+     *
+     * @example DATAFORM
+     *
      * @var string
      */
     public $workType;
 
     /**
+     * @description The ID of the operations report.
+     *
+     * @example 97f7f4c1-543a-4069-8e8d-a56cfcd6****
+     *
      * @var string
      */
     public $worksId;
 
     /**
+     * @description The ID of the workspace to which the report belongs.
+     *
+     * @example c5f86ad2-ef53-4c51-8720-162ecfdb****
+     *
      * @var string
      */
     public $workspaceId;
 
     /**
+     * @description The name of the workspace to which the report belongs.
+     *
+     * @example Return to Professional Edition
+     *
      * @var string
      */
     public $workspaceName;

@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The timestamp of the creation time in milliseconds.
+     *
+     * @example 1611023338000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description Remarks on the work.
+     *
+     * @example Description
+     *
      * @var string
      */
     public $description;
@@ -25,61 +33,128 @@ class result extends Model
     public $directory;
 
     /**
+     * @description The name of the Alibaba Cloud account to which the modifier belongs.
+     *
+     * @example Li Si
+     *
      * @var string
      */
     public $modifyName;
 
     /**
+     * @example 1611023338000
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The Quick BI UserID of the work owner.
+     *
+     * @example 46e5374665ba4b679ee22e2a2927****
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @description The Alibaba Cloud account name of the owner.
+     *
+     * @example Tom
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @description Security policies for collaborative authorization of works. Valid values:
+     *
+     *   0: private
+     *   12: Authorize specified members
+     *   1 or 11: Authorize all workspace members
+     *
+     * >
+     *
+     *   If you use legacy permissions, the return value is 1.
+     *
+     *   If you use the new permissions, the return value is 11.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $securityLevel;
 
     /**
+     * @description The status of the report. Valid values:
+     *
+     *   0: unpublished
+     *   1: published
+     *   2: modified but not published
+     *   3: unpublished
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description Third-party embedding status. Valid values:
+     *
+     *   0: The embed service is not enabled.
+     *   1: Embed is enabled.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $thirdPartAuthFlag;
 
     /**
+     * @description The name of the work.
+     *
      * @var string
      */
     public $workName;
 
     /**
+     * @description The type of the work. Valid values:
+     *
+     *   DATAPRODUCT: BI portal
+     *   PAGE: Dashboard
+     *   FULLPAGE: full-screen dashboards
+     *   REPORT: workbook
+     *
+     * @example PAGE
+     *
      * @var string
      */
     public $workType;
 
     /**
+     * @description The ID of the work.
+     *
+     * @example 03366b16-69ce-43c8-b782-56c2f6ec****
+     *
      * @var string
      */
     public $worksId;
 
     /**
+     * @description The ID of the workspace to which the work belongs.
+     *
+     * @example 89713491-cb4f-4579-b889-e82c35f1****
+     *
      * @var string
      */
     public $workspaceId;
 
     /**
+     * @description The name of the workspace to which the work belongs.
+     *
+     * @example Test Workspace
+     *
      * @var string
      */
     public $workspaceName;

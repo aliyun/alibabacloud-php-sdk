@@ -15,11 +15,15 @@ class result extends Model
     public $detail;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $embeddedCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $maxCount;

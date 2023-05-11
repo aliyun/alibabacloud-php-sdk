@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CancelCollectionRequest extends Model
 {
     /**
+     * @example 121344444790****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 5d6ae4e7-cede-43cd-b4d3-d2fd442a9202
+     *
      * @var string
      */
     public $worksId;

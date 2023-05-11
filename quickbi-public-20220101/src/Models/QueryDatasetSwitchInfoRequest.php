@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDatasetSwitchInfoRequest extends Model
 {
     /**
+     * @example 7c7223ae-****-3c744528014b
+     *
      * @var string
      */
     public $cubeId;

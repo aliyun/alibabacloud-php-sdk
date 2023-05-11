@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class AddUserGroupMemberRequest extends Model
 {
     /**
+     * @description The result of adding members to a user group is returned. Valid values:
+     *
+     *   true: The task is added.
+     *   false: The tag failed to be added.
+     *
+     * @example 555c4cd****
+     *
      * @var string
      */
     public $userGroupId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
+     * @example 46e537a5****,3dadsu****
+     *
      * @var string
      */
     public $userIdList;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class dataSource extends Model
 {
     /**
+     * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
+     *
+     * @example 261b252d-c3c3-498a-a0a7-5d1ec6cd****
+     *
      * @var string
      */
     public $dsId;
 
     /**
+     * @description The time when the scaling group was modified.
+     *
+     * @example The name of the training dataset.
+     *
      * @var string
      */
     public $dsName;
 
     /**
+     * @description The user ID of the dataset owner in the Quick BI.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $dsType;

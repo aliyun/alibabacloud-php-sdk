@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserGroupMemberResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example DC4E1E63-B337-44F8-8C22-6F00DF67E2C3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Returns the result of deleting a user group member. Valid values:
+     *
+     *   true: The task is deleted.
+     *   false: The deletion failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

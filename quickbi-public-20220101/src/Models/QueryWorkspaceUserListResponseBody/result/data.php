@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 16020915****8429
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example pop****@aliyunid.test
+     *
      * @var string
      */
     public $accountName;
@@ -30,6 +34,8 @@ class data extends Model
     public $role;
 
     /**
+     * @example de4bc5f9429141cc8091cdd1c15b****
+     *
      * @var string
      */
     public $userId;

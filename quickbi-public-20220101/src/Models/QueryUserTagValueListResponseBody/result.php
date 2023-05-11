@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example pop_001
+     *
      * @var string
      */
     public $tagId;

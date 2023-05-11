@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryUserGroupMemberResponseBody extends Model
 {
     /**
+     * @example 48C930FF-DFCF-5986-902B-E24C202E2443
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class QueryUserGroupMemberResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example role_workspace_admin
+     *
      * @var string
      */
     public $roleCode;
 
     /**
+     * @example 25
+     *
      * @var int
      */
     public $roleId;

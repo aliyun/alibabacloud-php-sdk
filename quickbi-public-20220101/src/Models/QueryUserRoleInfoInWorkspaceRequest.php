@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryUserRoleInfoInWorkspaceRequest extends Model
 {
     /**
+     * @example f5698bedeb384b1986afccd9e434****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
+     *
      * @var string
      */
     public $workspaceId;

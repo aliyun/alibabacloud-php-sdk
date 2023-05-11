@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ChangeVisibilityModelRequest extends Model
 {
     /**
+     * @description The number of menus that are successfully modified.
+     *
+     * @example 0d173abb53e84c8ca7495429163b****
+     *
      * @var string
      */
     public $dataPortalId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
+     * @example 54kqgoa****,pg1n135****
+     *
      * @var string
      */
     public $menuIds;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $showOnlyWithAccess;

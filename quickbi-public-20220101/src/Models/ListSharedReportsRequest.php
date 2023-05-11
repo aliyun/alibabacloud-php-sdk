@@ -14,16 +14,22 @@ class ListSharedReportsRequest extends Model
     public $keyword;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example PAGE
+     *
      * @var string
      */
     public $treeType;
 
     /**
+     * @example b5d8fd9348cc4327****afb604
+     *
      * @var string
      */
     public $userId;

@@ -10,76 +10,160 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Third-party embedding status. Valid values:
+     *
+     *   0: The embed service is not enabled.
+     *   1: Embed is enabled.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $auth3rdFlag;
 
     /**
+     * @description Remarks on the work.
+     *
+     * @example Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The directory to which the work belongs.
+     *
      * @var directory
      */
     public $directory;
 
     /**
+     * @description The timestamp of the creation of the work in milliseconds.
+     *
+     * @example 1496651577000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The timestamp of the modification of the work in milliseconds.
+     *
+     * @example 1572334870000
+     *
      * @var string
      */
     public $gmtModify;
 
     /**
+     * @description Nickname of the work modifier.
+     *
+     * @example Tom
+     *
      * @var string
      */
     public $modifyName;
 
     /**
+     * @description The user ID of the work owner in the Quick BI.
+     *
+     * @example The name of the workspace to which the work belongs.
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @description The nickname of the work owner.
+     *
+     * @example Li Si
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @description Security policies for collaborative authorization of works. Valid values:
+     *
+     *   0: private
+     *   12: Authorize specified members
+     *   1 or 11: Authorize all workspace members
+     *
+     * >
+     *
+     *   If you use legacy permissions, the return value is 1.
+     *
+     *   If you use the new permissions, the return value is 11.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $securityLevel;
 
     /**
+     * @description Status of dashboards, full-screen dashboards, spreadsheets. The default value of other work types is 1. Valid values:
+     *
+     *   0: unpublished
+     *   1: published
+     *   2: modified but not published
+     *   3: unpublished
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The name of the work.
+     *
+     * @example Test report
+     *
      * @var string
      */
     public $workName;
 
     /**
+     * @description The type of the work. Valid values:
+     *
+     *   DATAPRODUCT: BI portal
+     *   PAGE: Dashboard
+     *   FULLPAGE: full-screen dashboards
+     *   REPORT: workbook
+     *   dashboardOfflineQuery: self-service data retrieval
+     *   Analysis: Ad hoc analysis
+     *   DATAFORM: form filling
+     *
+     * @example PAGE
+     *
      * @var string
      */
     public $workType;
 
     /**
+     * @description The ID of the work.
+     *
+     * @example 897ce25e-f993-4abd-af84-d13c5610****
+     *
      * @var string
      */
     public $worksId;
 
     /**
+     * @description The ID of the workspace to which the work belongs.
+     *
+     * @example 87c6b145-090c-43e1-9426-8f93be23****
+     *
      * @var string
      */
     public $workspaceId;
 
     /**
+     * @description The name of the workspace to which the work belongs.
+     *
+     * @example Test Workspace
+     *
      * @var string
      */
     public $workspaceName;

@@ -9,46 +9,90 @@ use AlibabaCloud\Tea\Model;
 class dimensionList extends Model
 {
     /**
+     * @description The unique ID of the field that is referenced by the group measure. Non-NULL if and only if the metric is a grouping metric.
+     *
+     * @example city
+     *
      * @var string
      */
     public $caption;
 
     /**
+     * @description A list of all dimensions in the dataset.
+     *
+     * @example string
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @description The actual physical field.
+     *
+     * @example group_dimension
+     *
      * @var string
      */
     public $dimensionType;
 
     /**
+     * @description Data type; value:
+     *
+     *   string: character
+     *   number: a number
+     *   datetime: time
+     *
+     * @example example_expression
+     *
      * @var string
      */
     public $expression;
 
     /**
+     * @description Expression for a calculated dimension; valid only for calculated dimensions.
+     *
+     * @example city
+     *
      * @var string
      */
     public $factColumn;
 
     /**
+     * @description The type of the dimension. Valid values:
+     *
+     *   standard_dimension: General Dimension
+     *   calculate_dimension: calculating dimensions
+     *   group_dimension: grouping dimensions
+     *
+     * @example example_granularity
+     *
      * @var string
      */
     public $granularity;
 
     /**
+     * @description The granularity.
+     *
+     * @example 308f7****
+     *
      * @var string
      */
     public $refUid;
 
     /**
+     * @description The ARN.
+     *
+     * @example 7a62530***
+     *
      * @var string
      */
     public $tableUniqueId;
 
     /**
+     * @description The display name of the dimension.
+     *
+     * @example a69774***
+     *
      * @var string
      */
     public $uid;

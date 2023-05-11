@@ -14,16 +14,22 @@ class QueryOrganizationWorkspaceListRequest extends Model
     public $keyword;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example fe67f61a35a94b7da1a34ba174a7****
+     *
      * @var string
      */
     public $userId;

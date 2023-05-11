@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class QueryDatasetInfoResponseBody extends Model
 {
     /**
+     * @description Whether the operation is successfully returned. Valid values:
+     *
+     *   true: The call is successful.
+     *   false: The call fails.
+     *
+     * @example a4d1a221d-41za1-****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the request.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description The unique ID of the dataset.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

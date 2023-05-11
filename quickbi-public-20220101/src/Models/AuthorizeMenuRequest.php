@@ -9,26 +9,57 @@ use AlibabaCloud\Tea\Model;
 class AuthorizeMenuRequest extends Model
 {
     /**
+     * @description Authorizes the permissions of the menu. Valid values:
+     *
+     *   1: view
+     *   3: View + Export (default)
+     *
+     * @example 3
+     *
      * @var int
      */
     public $authPointsValue;
 
     /**
+     * @description The ID of the BI portal.
+     *
+     * @example 0d173abb53e84c8ca7495429163b****
+     *
      * @var string
      */
     public $dataPortalId;
 
     /**
+     * @description The menu ID of the BI portal leaf node.
+     *
+     *   The directory menu cannot be authorized.
+     *   You can upload multiple parameters at a time. Separate multiple IDs with commas (,). The maximum number of parameters that can be modified at a time is 100.
+     *
+     * @example 54kqgoa****,pg1n135****
+     *
      * @var string
      */
     public $menuIds;
 
     /**
+     * @description The IDs of the user groups.
+     *
+     *   You can upload multiple parameters at a time. Separate multiple IDs with commas (,). The maximum number of parameters that can be modified at a time is 200.
+     *   UserGroupIds and UserIds cannot be empty at the same time
+     *
+     * @example 34fd141d-4598-4093-8c33-8e066dcb****,3d2c23d4-2b41-4af8-a1f5-f6390f32****
+     *
      * @var string
      */
     public $userGroupIds;
 
     /**
+     * @description The IDs of the end users. The UserID of the Quick BI is used instead of the UID of Alibaba Cloud.
+     *
+     *   You can upload multiple parameters at a time. Separate multiple IDs with commas (,). The maximum number of parameters that can be modified at a time is 200.
+     *
+     * @example 204627493484****,121344444790****
+     *
      * @var string
      */
     public $userIds;

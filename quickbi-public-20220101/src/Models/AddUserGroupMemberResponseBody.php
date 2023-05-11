@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AddUserGroupMemberResponseBody extends Model
 {
     /**
+     * @example B6141A5A-A9EF-5F16-BF34-EFB9C1CCE4F3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

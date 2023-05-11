@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateTicketResponseBody extends Model
 {
     /**
+     * @example D787E1A3-A93C-424A-B626-C2B05DF8D885
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ccd3428c-****-****-a608-26bae29dffee
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

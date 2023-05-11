@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The details of the list of works.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of rows per page set when the interface is requested.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of rows in the table.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalPages;

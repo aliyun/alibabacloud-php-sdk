@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListByUserGroupIdRequest extends Model
 {
     /**
+     * @description The ID of the user group that you want to query. Separate multiple user groups with commas (,).
+     *
+     * @example 34fe-***-6dcb,84q9-****-4a274
+     *
      * @var string
      */
     public $userGroupIds;

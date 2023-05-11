@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class userGroupModels extends Model
 {
     /**
+     * @description The time when the Secret was created.
+     *
+     * @example 2021-03-15 17:13:55
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The UserID of the creator in the Quick BI.
+     *
+     * @example 46e5*******ee22e2a292704c8
+     *
      * @var string
      */
     public $createUser;
 
     /**
+     * @description The path of the user group.
+     *
+     * @example 2fe4fbd8-****-af083ea/34fd1-****-dcbc33f
+     *
      * @var string
      */
     public $identifiedPath;
 
     /**
+     * @description The time when the protection policy was last modified.
+     *
+     * @example 2021-03-15 20:36:40
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The UserID of the modifier in the Quick BI.
+     *
+     * @example 46e5*******ee22e2a292704c8
+     *
      * @var string
      */
     public $modifyUser;
 
     /**
+     * @description The ID of the parent user group.
+     *
+     * @example 2fe4fbd8-588f-489a-b3e1-e92c7af083ea
+     *
      * @var string
      */
     public $parentUsergroupId;
 
     /**
+     * @description The description of the user group.
+     *
+     * @example Description
+     *
      * @var string
      */
     public $usergroupDesc;
 
     /**
+     * @description The ID of the user group.
+     *
+     * @example 34fd141d-****-4093-8c33-8e066dcbc33f
+     *
      * @var string
      */
     public $usergroupId;
 
     /**
+     * @description The name of the user group.
+     *
+     * @example Test user group
+     *
      * @var string
      */
     public $usergroupName;

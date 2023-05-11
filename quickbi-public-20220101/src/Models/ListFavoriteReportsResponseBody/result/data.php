@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $favorite;
 
     /**
+     * @example 1640088615000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 1640595729000
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasEditAuth;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasViewAuth;
@@ -44,26 +54,36 @@ class data extends Model
     public $ownerName;
 
     /**
+     * @example 1365*****238860
+     *
      * @var string
      */
     public $ownerNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $publishStatus;
 
     /**
+     * @example 977c7698-****-****-****-44b7304d20fc
+     *
      * @var string
      */
     public $treeId;
 
     /**
+     * @example PAGE
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 523793cb-****-****-****-aa71c65ffa39
+     *
      * @var string
      */
     public $workspaceId;

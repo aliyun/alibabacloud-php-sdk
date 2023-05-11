@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SetDataLevelPermissionExtraConfigRequest extends Model
 {
     /**
+     * @example 7c7223ae-******-3c744528014b
+     *
      * @var string
      */
     public $cubeId;
 
     /**
+     * @example NONE
+     *
      * @var string
      */
     public $missHitPolicy;
 
     /**
+     * @example ROW_LEVEL
+     *
      * @var string
      */
     public $ruleType;

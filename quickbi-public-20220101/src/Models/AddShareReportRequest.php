@@ -9,26 +9,57 @@ use AlibabaCloud\Tea\Model;
 class AddShareReportRequest extends Model
 {
     /**
+     * @description The scope of authorization. Valid values:
+     *
+     *   1: view only
+     *   3: View and export
+     *
+     * @example 3
+     *
      * @var int
      */
     public $authPoint;
 
     /**
+     * @description The validity period of the share. The value is a timestamp in milliseconds.
+     *
+     * @example 1608202110838
+     *
      * @var int
      */
     public $expireDate;
 
     /**
+     * @description The ID of the person to be shared, which may be the user ID of the Quick BI or the user group ID.
+     *
+     *   If ShareToType is 0 (user), ShareTo is the user ID.
+     *   When ShareToType is set to 1 (user group), ShareTo is the user group ID.
+     *   When ShareToType=2 (organization), ShareTo is the ID of the organization.
+     *
+     * @example de4bc5f9429141cc8091cdd1c15b****
+     *
      * @var string
      */
     public $shareToId;
 
     /**
+     * @description The share type of the template. Valid values:
+     *
+     *   0: user
+     *   1: user group
+     *   2: organization
+     *
+     * @example 0
+     *
      * @var int
      */
     public $shareToType;
 
     /**
+     * @description The ID of the shared work. The works here include BI portal, dashboards, spreadsheets, and self-service access.
+     *
+     * @example 6b407e50-e774-406b-9956-da2425c2****
+     *
      * @var string
      */
     public $worksId;

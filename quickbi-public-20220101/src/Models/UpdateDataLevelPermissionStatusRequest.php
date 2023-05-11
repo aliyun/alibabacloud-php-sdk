@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class UpdateDataLevelPermissionStatusRequest extends Model
 {
     /**
+     * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
+     *
+     * @example 7c7223ae-****-3c744528014b
+     *
      * @var string
      */
     public $cubeId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isOpen;
 
     /**
+     * @example ROW_LEVEL
+     *
      * @var string
      */
     public $ruleType;

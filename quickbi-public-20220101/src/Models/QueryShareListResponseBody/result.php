@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $authPoint;
 
     /**
+     * @example 1640102400000
+     *
      * @var int
      */
     public $expireDate;
 
     /**
+     * @example 6b407e50-e774-406b-9956-da2425c2****
+     *
      * @var string
      */
     public $reportId;
 
     /**
+     * @example 0ab9659e-29cf-47d7-a364-3a91553b****
+     *
      * @var string
      */
     public $shareId;
 
     /**
+     * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
+     *
      * @var string
      */
     public $shareToId;
@@ -39,11 +49,15 @@ class result extends Model
     public $shareToName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $shareToType;
 
     /**
+     * @example product
+     *
      * @var string
      */
     public $shareType;

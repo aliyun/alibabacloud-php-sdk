@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class BatchAddFeishuUsersResponseBody extends Model
 {
     /**
+     * @example D8749D65-E80A-433C-AF1B-CE9C180FF3B4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example True
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $success;

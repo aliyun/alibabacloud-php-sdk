@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListDataLevelPermissionWhiteListResponseBody extends Model
 {
     /**
+     * @example D8749D65-E80A-433C-AF1B-CE9C180FF3B4
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class ListDataLevelPermissionWhiteListResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

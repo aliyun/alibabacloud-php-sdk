@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddWorkspaceUsersResponseBody extends Model
 {
     /**
+     * @example 7AAB95D7-2E11-4FE2-94BC-858E4FC0C976
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class AddWorkspaceUsersResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

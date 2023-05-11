@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateTicketNumRequest extends Model
 {
     /**
+     * @example 040e6f79d33444838***83c7206c070
+     *
      * @var string
      */
     public $ticket;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ticketNum;

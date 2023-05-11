@@ -14,31 +14,43 @@ class CreateTicketRequest extends Model
     public $accountName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $accountType;
 
     /**
+     * @example 0fc6a275c7f64f17b1****a306ce0f31
+     *
      * @var string
      */
     public $cmptId;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @example [{"paramKey":"price","joinType":"and","conditionList":[{"operate":">","value":"0"}]}]
+     *
      * @var string
      */
     public $globalParam;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $ticketNum;
 
     /**
+     * @example 46e537466****92704c8
+     *
      * @var string
      */
     public $userId;
@@ -49,6 +61,8 @@ class CreateTicketRequest extends Model
     public $watermarkParam;
 
     /**
+     * @example a206f5f3-****-e9b17c835b03
+     *
      * @var string
      */
     public $worksId;

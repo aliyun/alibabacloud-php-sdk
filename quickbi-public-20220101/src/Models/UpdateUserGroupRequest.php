@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserGroupRequest extends Model
 {
     /**
+     * @description The description of the user group.
+     *
+     *   Format verification: Maximum length 255
+     *   Special format verification: Chinese and English digits\_ \ / | () ] \[
+     *
+     * @example Description
+     *
      * @var string
      */
     public $userGroupDescription;
 
     /**
+     * @description The ID of the user group.
+     *
+     * @example f5eeb52e-d9c2-4a8b-80e3-47ab55c2****
+     *
      * @var string
      */
     public $userGroupId;
 
     /**
+     * @description The name of the user group.
+     *
+     *   Format verification: Maximum length 255
+     *   Special format verification: Chinese and English digits\_ \ / | () ] \[
+     *
+     * @example pop0001
+     *
      * @var string
      */
     public $userGroupName;

@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class QueryDataServiceResponseBody extends Model
 {
     /**
+     * @description The list of parameter names of the returned parameters. The value is a string of the List type.
+     *
+     * @example 78C1AA2D-9201-599E-A0BA-6FC462E57A95
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description { "area": \["East China", "North China"], "shopping_date": "2019Q1", }
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

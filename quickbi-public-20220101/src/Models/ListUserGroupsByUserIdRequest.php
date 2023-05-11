@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListUserGroupsByUserIdRequest extends Model
 {
     /**
+     * @description The ID of the user group.
+     *
+     * @example 46e5374665ba4b679ee22e2a2927****
+     *
      * @var string
      */
     public $userId;

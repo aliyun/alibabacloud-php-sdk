@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class QueryReadableResourcesListByUserIdRequest extends Model
 {
     /**
+     * @description Quick BI the user ID.
+     *
+     * @example de4bc5f9429141cc8091cdd1c15b****
+     *
      * @var string
      */
     public $userId;

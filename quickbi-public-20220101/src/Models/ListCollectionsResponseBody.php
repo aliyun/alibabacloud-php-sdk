@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ListCollectionsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 162A632E-0A88-51CF-98F8-94FDEE82DB7D
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +24,10 @@ class ListCollectionsResponseBody extends Model
     public $result;
 
     /**
+     * @description The primary key ID of the favorite record.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

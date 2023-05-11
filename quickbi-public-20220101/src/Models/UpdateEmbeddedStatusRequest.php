@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateEmbeddedStatusRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $thirdPartAuthFlag;
 
     /**
+     * @example 897ce25e-f993-4abd-af84-d13c5610****
+     *
      * @var string
      */
     public $worksId;

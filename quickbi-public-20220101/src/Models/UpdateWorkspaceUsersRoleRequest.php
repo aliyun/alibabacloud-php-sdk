@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkspaceUsersRoleRequest extends Model
 {
     /**
+     * @example 25
+     *
      * @var int
      */
     public $roleId;
 
     /**
+     * @example 136516262323****,124498444445****
+     *
      * @var string
      */
     public $userIds;
 
     /**
+     * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
+     *
      * @var string
      */
     public $workspaceId;

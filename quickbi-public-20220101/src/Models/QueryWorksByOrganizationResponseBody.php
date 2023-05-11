@@ -10,16 +10,31 @@ use AlibabaCloud\Tea\Model;
 class QueryWorksByOrganizationResponseBody extends Model
 {
     /**
+     * @description The details of the list of works.
+     *
+     * @example D787E1A3-A93C-424A-B626-C2B05DF8D885
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the report. Valid values:
+     *
+     *   0: unpublished
+     *   1: published
+     *   2: modified but not published
+     *   3: unpublished
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description The total number of rows in the table.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

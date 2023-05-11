@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class directory extends Model
 {
     /**
+     * @example 83d37ba6-d909-48a2-a517-f4d05c3a****
+     *
      * @var string
      */
     public $id;
@@ -19,11 +21,19 @@ class directory extends Model
     public $name;
 
     /**
+     * @description The hierarchical structure of the directory ID to which the directory belongs. Separate the hierarchical structure with a /.
+     *
+     * @example 83d37ba6-d909-48a2-a517-f4d05c3a****
+     *
      * @var string
      */
     public $pathId;
 
     /**
+     * @description The hierarchical structure of the directory to which the directory belongs. Separate the hierarchical structure with a (/).
+     *
+     * @example Test directory
+     *
      * @var string
      */
     public $pathName;

@@ -9,6 +9,18 @@ use AlibabaCloud\Tea\Model;
 class QueryShareListRequest extends Model
 {
     /**
+     * @description The type of work being shared. Valid values:
+     *
+     *   product: BI portal
+     *   dashboard: dashboard
+     *   worksheet: workbook
+     *   dashboardOfflineQuery: self-service data retrieval
+     *   Analysis: Ad hoc analysis
+     *   DATAFORM
+     *   SCREEN: Data dashboard
+     *
+     * @example 6b407e50-e774-406b-9956-da2425c2****
+     *
      * @var string
      */
     public $reportId;

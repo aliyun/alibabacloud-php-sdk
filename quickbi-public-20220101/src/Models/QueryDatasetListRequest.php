@@ -9,31 +9,57 @@ use AlibabaCloud\Tea\Model;
 class QueryDatasetListRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example schemaad8aad00-9c55-4984-a767-b4e0ec60****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description Information about the directory where the dataset is located
+     *
+     * @example Queries the datasets of a specified workspace. The datasets are sorted in descending order by creation time.
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The ID of the workspace.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description Specifies the directory ID.
+     *
+     *   If this field is not empty, all datasets in the directory are obtained.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $withChildren;
 
     /**
+     * @description The name of the data source.
+     *
+     * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
+     *
      * @var string
      */
     public $workspaceId;

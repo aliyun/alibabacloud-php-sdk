@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 12373
+     *
      * @var int
      */
     public $favoriteId;
 
     /**
+     * @example fe67f61a35a94b7da1a34ba174a7****
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
+     *
      * @var string
      */
     public $worksId;
@@ -29,11 +35,15 @@ class result extends Model
     public $worksName;
 
     /**
+     * @example dashboardOfflineQuery
+     *
      * @var string
      */
     public $worksType;
 
     /**
+     * @example 9337d121-a78f-4c1b-a8bc-f81de117****
+     *
      * @var string
      */
     public $workspaceId;

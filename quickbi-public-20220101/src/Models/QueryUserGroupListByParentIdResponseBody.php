@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class QueryUserGroupListByParentIdResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 72B19D61-B37A-5C7A-9389-0856CD7935B3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the sub-user group.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

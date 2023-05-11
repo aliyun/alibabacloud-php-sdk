@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserGroupMemberRequest extends Model
 {
     /**
+     * @description The ID of the user group.
+     *
+     * @example 46e537****
+     *
      * @var string
      */
     public $userGroupId;
 
     /**
+     * @description The user ID of the Quick BI.
+     *
+     * @example 2fe4fbd8****
+     *
      * @var string
      */
     public $userId;

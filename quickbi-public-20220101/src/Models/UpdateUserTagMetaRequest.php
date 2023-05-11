@@ -14,6 +14,8 @@ class UpdateUserTagMetaRequest extends Model
     public $tagDescription;
 
     /**
+     * @example e82f6c6c0333431bad0225b2f85e****
+     *
      * @var string
      */
     public $tagId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AddUserTagMetaResponseBody extends Model
 {
     /**
+     * @example D787E1A3-A93C-424A-B626-C2B05DF8D885
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 0822a7d9-****-****-****-f20163ab9b0d
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

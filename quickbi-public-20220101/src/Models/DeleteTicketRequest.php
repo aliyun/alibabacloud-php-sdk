@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteTicketRequest extends Model
 {
     /**
+     * @description Deletes a specified ticket from an embedded report.
+     *
+     * @example 040e6f79d****7d283c7206c070
+     *
      * @var string
      */
     public $ticket;

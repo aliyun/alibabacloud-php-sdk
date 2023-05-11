@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The menu ID of the BI portal leaf node.
+     *
+     * @example 54kqgoa****
+     *
      * @var string
      */
     public $menuId;
 
     /**
+     * @description The details of the object to which the menu is authorized.
+     *
      * @var receivers[]
      */
     public $receivers;
 
     /**
+     * @description Whether only authorization is visible. Valid values:
+     *
+     *   true: Only the authorization is visible.
+     *   false: Both are visible.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $showOnlyWithAccess;

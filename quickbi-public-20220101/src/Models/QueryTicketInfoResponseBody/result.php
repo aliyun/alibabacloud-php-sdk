@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example a27a9aec-****-****-bd40-1a21ea41d7c5
+     *
      * @var string
      */
     public $accessTicket;
 
     /**
+     * @example sfdgsds-****-****-a608-mghdgd
+     *
      * @var string
      */
     public $cmptId;
@@ -24,31 +28,43 @@ class result extends Model
     public $globalParam;
 
     /**
+     * @example 2022-01-30 03:03:49
+     *
      * @var string
      */
     public $invalidTime;
 
     /**
+     * @example 9999
+     *
      * @var int
      */
     public $maxTicketNum;
 
     /**
+     * @example 2fe4fbd8-****-****-b3e1-e92c7af083ea
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example 2022-01-09 22:23:49
+     *
      * @var string
      */
     public $registerTime;
 
     /**
+     * @example 47
+     *
      * @var int
      */
     public $usedTicketNum;
 
     /**
+     * @example 974e50**********9033f46
+     *
      * @var string
      */
     public $userId;
@@ -59,6 +75,8 @@ class result extends Model
     public $watermarkParam;
 
     /**
+     * @example ccd3428c-****-****-a608-26bae29dffee
+     *
      * @var string
      */
     public $worksId;

@@ -14,6 +14,8 @@ class result extends Model
     public $tagDescription;
 
     /**
+     * @example pop_001
+     *
      * @var string
      */
     public $tagId;

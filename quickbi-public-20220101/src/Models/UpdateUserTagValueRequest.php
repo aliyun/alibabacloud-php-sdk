@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserTagValueRequest extends Model
 {
     /**
+     * @example pop_001
+     *
      * @var string
      */
     public $tagId;
@@ -19,6 +21,8 @@ class UpdateUserTagValueRequest extends Model
     public $tagValue;
 
     /**
+     * @example fe67f61a35a94b7da1a34ba174a7****
+     *
      * @var string
      */
     public $userId;

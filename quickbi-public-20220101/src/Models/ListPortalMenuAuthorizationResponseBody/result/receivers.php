@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class receivers extends Model
 {
     /**
+     * @description The ID of the authorization object.
+     *
+     * @example 121344444790****
+     *
      * @var string
      */
     public $receiverId;
 
     /**
+     * @description The type of the authorization object. Valid values:
+     *
+     *   0: user
+     *   1: user group
+     *
+     * @example 0
+     *
      * @var int
      */
     public $receiverType;

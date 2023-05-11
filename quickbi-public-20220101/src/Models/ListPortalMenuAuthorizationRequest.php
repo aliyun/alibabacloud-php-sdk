@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListPortalMenuAuthorizationRequest extends Model
 {
     /**
+     * @description The ID of the BI portal.
+     *
+     * @example 0d173abb53e84c8ca7495429163b****
+     *
      * @var string
      */
     public $dataPortalId;

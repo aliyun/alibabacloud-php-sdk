@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $dashboardOfflineQuery;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $report;

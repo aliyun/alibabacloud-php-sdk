@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the sub-user group was created.
+     *
+     * @example 2020-10-30 10:03:09
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The creator of the sub-user group. The UserID of the Quick BI is used instead of the UID of Alibaba Cloud.
+     *
+     * @example 136516262323****
+     *
      * @var string
      */
     public $createUser;
 
     /**
+     * @description Directory level of the sub-user group.
+     *
+     * @example 2fe4fbd8-588f-489a-b3e1-e92c7af0****\/3d2c23d4-2b41-4af8-a1f5-f6390f32****\/f5eeb52e-d9c2-4a8b-80e3-47ab55c2****
+     *
      * @var string
      */
     public $identifiedPath;
 
     /**
+     * @description The time when the sub-user group was last modified.
+     *
+     * @example 2020-11-16 15:49:08
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The user who modified the subgroup. The UserID of the Quick BI is used instead of the UID of Alibaba Cloud.
+     *
+     * @example 136516262323****
+     *
      * @var string
      */
     public $modifyUser;
 
     /**
+     * @description The ID of the parent user group.
+     *
+     * @example 3d2c23d4-2b41-4af8-a1f5-f6390f32****
+     *
      * @var string
      */
     public $parentUserGroupId;
 
     /**
+     * @description The description of the sub-user group.
+     *
+     * @example User Group for Testing
+     *
      * @var string
      */
     public $userGroupDescription;
 
     /**
+     * @description The ID of the sub-user group.
+     *
+     * @example f5eeb52e-d9c2-4a8b-80e3-47ab55c2****
+     *
      * @var string
      */
     public $userGroupId;
 
     /**
+     * @description The name of the sub-user group.
+     *
+     * @example popapi test group
+     *
      * @var string
      */
     public $userGroupName;

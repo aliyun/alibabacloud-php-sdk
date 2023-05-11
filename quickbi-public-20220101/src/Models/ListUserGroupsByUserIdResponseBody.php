@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListUserGroupsByUserIdResponseBody extends Model
 {
     /**
+     * @example E2440604-3059-561A-AD68-DEDBC870EB2B
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,10 @@ class ListUserGroupsByUserIdResponseBody extends Model
     public $result;
 
     /**
+     * @description The user group modifier. The UserID of the Quick BI is used instead of the UID of Alibaba Cloud.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

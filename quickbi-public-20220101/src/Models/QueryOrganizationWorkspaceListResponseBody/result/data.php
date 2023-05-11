@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allowPublishOperation;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $allowShareOperation;
 
     /**
+     * @example 2020-11-10 17:51:07
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example de4bc5f9429141cc8091cdd1c15b****
+     *
      * @var string
      */
     public $createUser;
 
     /**
+     * @example pop****@aliyun.com
+     *
      * @var string
      */
     public $createUserAccountName;
 
     /**
+     * @example 2020-11-10 17:51:07
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example de4bc5f9429141cc8091cdd1c15b****
+     *
      * @var string
      */
     public $modifyUser;
 
     /**
+     * @example pop****@aliyun.com
+     *
      * @var string
      */
     public $modifyUserAccountName;
 
     /**
+     * @example 2fe4fbd8-588f-489a-b3e1-e92c7af0****
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example de4bc5f9429141cc8091cdd1c15b****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example pop****@aliyun.com
+     *
      * @var string
      */
     public $ownerAccountName;
@@ -69,6 +91,8 @@ class data extends Model
     public $workspaceDescription;
 
     /**
+     * @example 7350a155-0e94-4c6c-8620-57bbec38****
+     *
      * @var string
      */
     public $workspaceId;

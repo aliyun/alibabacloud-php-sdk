@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryShareListResponseBody extends Model
 {
     /**
+     * @example DC4E1E63-B337-44F8-8C22-6F00DF67E2C3
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class QueryShareListResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

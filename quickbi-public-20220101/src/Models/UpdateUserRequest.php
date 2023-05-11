@@ -9,26 +9,59 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserRequest extends Model
 {
     /**
+     * @description Indicates whether the organization administrator. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $adminUser;
 
     /**
+     * @description Indicate whether the RAM user is a permission administrator. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $authAdminUser;
 
     /**
+     * @description The nickname of the account.
+     *
+     *   Format check: The value can be up to 50 characters in length.
+     *   Special format verification: Chinese and English digits\_ \ / | () ] \[
+     *
+     * @example Xiao Zhang
+     *
      * @var string
      */
     public $nickName;
 
     /**
+     * @description The ID of the user to be updated. The user ID is the UserID of the Quick BI, not the UID of Alibaba Cloud.
+     *
+     * @example fe67f61a35a94b7da1a34ba174a7****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The role type of the organization member. Valid values:
+     *
+     *   1 : developer
+     *   2 : visitors
+     *   3 : Analyst
+     *
+     * @example 1
+     *
      * @var int
      */
     public $userType;

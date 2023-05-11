@@ -15,21 +15,29 @@ class result extends Model
     public $data;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalPages;

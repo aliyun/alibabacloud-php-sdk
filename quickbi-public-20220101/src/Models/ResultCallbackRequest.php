@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResultCallbackRequest extends Model
 {
     /**
+     * @example c5ea0db8-****-****-9081-04bc0df4c6a3
+     *
      * @var string
      */
     public $applicationId;
@@ -19,6 +21,8 @@ class ResultCallbackRequest extends Model
     public $handleReason;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

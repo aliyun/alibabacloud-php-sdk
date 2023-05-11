@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class directory extends Model
 {
     /**
+     * @description The ID of the directory path.
+     *
+     * @example schemaad8aad00-9c55-4984-a767-b4e0ec60****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The ID of the data source.
+     *
+     * @example Information about the directory where the dataset is located
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the data source.
+     *
+     * @example schemaad8aad00-9c55-4984-a767-b4e0ec60****
+     *
      * @var string
      */
     public $pathId;
 
     /**
+     * @description The name of the data source.
+     *
+     * @example Test a data source
+     *
      * @var string
      */
     public $pathName;

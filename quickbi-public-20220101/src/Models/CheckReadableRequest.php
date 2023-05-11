@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CheckReadableRequest extends Model
 {
     /**
+     * @example de4bc5f9429141cc8091cdd1c15b****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
+     *
      * @var string
      */
     public $worksId;

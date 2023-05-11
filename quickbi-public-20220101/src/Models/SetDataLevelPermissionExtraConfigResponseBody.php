@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SetDataLevelPermissionExtraConfigResponseBody extends Model
 {
     /**
+     * @example B70E1FBD-E533-52F2-A7A1-E02B92F78DDF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

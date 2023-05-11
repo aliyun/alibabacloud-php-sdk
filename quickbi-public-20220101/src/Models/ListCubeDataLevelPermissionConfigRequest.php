@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListCubeDataLevelPermissionConfigRequest extends Model
 {
     /**
+     * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
+     *
+     * @example 7c7223ae-****-3c744528014b
+     *
      * @var string
      */
     public $cubeId;
 
     /**
+     * @description The type of the dataset row and column permission. Valid values:
+     *
+     *   ROW_LEVEL: row-level permissions
+     *   COLUMN_LEVEL: column-level permissions
+     *
+     * @example ROW_LEVEL
+     *
      * @var string
      */
     public $ruleType;

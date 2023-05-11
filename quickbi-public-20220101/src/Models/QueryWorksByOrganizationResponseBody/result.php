@@ -10,26 +10,52 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The Alibaba Cloud account name of the work owner.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The timestamp of the modification of the work in milliseconds.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The ID of the work.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The type of the work. Valid values:
+     *
+     *   DATAPRODUCT: BI portal
+     *   PAGE: Dashboard
+     *   FULLPAGE: full-screen dashboards
+     *   REPORT: workbook
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @description Third-party embedding status. Valid values:
+     *
+     *   0: The embed service is not enabled.
+     *   1: Embed is enabled.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalPages;

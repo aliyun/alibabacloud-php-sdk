@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class QuerySharesToUserListResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example DC4E1E63-B337-44F8-8C22-6F00DF67E2C3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Returns a list of works authorized to the user.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

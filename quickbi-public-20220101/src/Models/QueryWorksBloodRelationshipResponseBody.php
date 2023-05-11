@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class QueryWorksBloodRelationshipResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
+     * @example D787E1A3-A93C-424A-B626-C2B05DF8D885
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the request.
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The response.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

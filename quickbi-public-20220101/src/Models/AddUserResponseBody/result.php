@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example xxxxxx@163.com
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $adminUser;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $authAdminUser;
@@ -29,11 +35,15 @@ class result extends Model
     public $nickName;
 
     /**
+     * @example b5d8fd9348cc4327****afb604
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $userType;

@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The SQL of the request query.
+     *
      * @var headers[]
      */
     public $headers;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example The query result of the API operation is returned.
+     *
      * @var string
      */
     public $sql;
 
     /**
+     * @description Physical Field Name
+     *
      * @var mixed[][]
      */
     public $values;

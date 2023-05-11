@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDatasetSwitchInfoResponseBody extends Model
 {
     /**
+     * @example FAECEFA8-09BB-58AB-BC58-C8ACEFE4D232
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class QueryDatasetSwitchInfoResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

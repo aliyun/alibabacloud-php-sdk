@@ -13,86 +13,157 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The unique ID of the dataset.
+     *
      * @var cubeTableList[]
      */
     public $cubeTableList;
 
     /**
+     * @description The unique ID of the workspace to which the dataset belongs.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $custimzeSql;
 
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   mysql
+     *   odps
+     *   oracle
+     *   ... Data source types supported by Quick BI such as
+     *
+     * @example a201c85c-******
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @description The user ID of the dataset owner in the Quick BI.
+     *
+     * @example opds_40
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @description If it is a custom SQL table, this is the specific SQL.
+     *
      * @var dimensionList[]
      */
     public $dimensionList;
 
     /**
+     * @description The unique ID of the metric.
+     *
      * @var directory
      */
     public $directory;
 
     /**
+     * @description The name of the data source.
+     *
+     * @example a201c85c-******
+     *
      * @var string
      */
     public $dsId;
 
     /**
+     * @description The time when the dataset was last modified.
+     *
+     * @example odps
+     *
      * @var string
      */
     public $dsName;
 
     /**
+     * @description The point in time when the training dataset was created.
+     *
+     * @example odps
+     *
      * @var string
      */
     public $dsType;
 
     /**
+     * @description Indicates whether to customize SQL statements. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example 1629450382000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The information about the dataset.
+     *
+     * @example 1629450382000
+     *
      * @var string
      */
     public $gmtModify;
 
     /**
+     * @description The unique ID of the table to which the table belongs, which corresponds to the UniqueId of the CubeTypeList.
+     *
      * @var measureList[]
      */
     public $measureList;
 
     /**
+     * @description Test Space
+     *
+     * @example b8494aab26124*****
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @description The unique ID of the data source.
+     *
+     * @example The name of the dataset owner.
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @description The name of the training dataset.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $rowLevel;
 
     /**
+     * @description Whether row-level permissions are enabled. Valid values:
+     *
+     *   true: The VIP Netty channel is enabled.
+     *   false: The VIP Netty channel is disabled.
+     *
+     * @example 420abef4-a79b-4289-b12****
+     *
      * @var string
      */
     public $workspaceId;
 
     /**
+     * @description Big Baby
+     *
+     * @example The name of the workspace in which the dataset resides.
+     *
      * @var string
      */
     public $workspaceName;

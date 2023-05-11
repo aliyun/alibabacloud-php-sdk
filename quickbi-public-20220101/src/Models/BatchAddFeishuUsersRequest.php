@@ -14,21 +14,29 @@ class BatchAddFeishuUsersRequest extends Model
     public $feishuUsers;
 
     /**
+     * @example False
+     *
      * @var bool
      */
     public $isAdmin;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isAuthAdmin;
 
     /**
+     * @example "0d5fb19b-5555-41f0-99da-1248fc27ca51,0f868dd6_68dd_4d13_8422_c5dca3bd4b61"
+     *
      * @var string
      */
     public $userGroupIds;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $userType;

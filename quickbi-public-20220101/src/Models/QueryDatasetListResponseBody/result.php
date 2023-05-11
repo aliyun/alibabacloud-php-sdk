@@ -10,26 +10,53 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Returns the pagination results of the dataset list. The detailed information of the dataset list is stored in the response parameter Data.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The number of rows per page in a paged query.
+     *
+     *   Default value: 10.
+     *   Maximum value: 1,000.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @description Current page number for dataset list:
+     *
+     *   Pages start from page 1.
+     *   Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalPages;

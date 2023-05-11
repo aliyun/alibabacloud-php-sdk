@@ -15,6 +15,8 @@ class result extends Model
     public $failedUserGroupIds;
 
     /**
+     * @description The details of the user group that was queried.
+     *
      * @var userGroupModels[]
      */
     public $userGroupModels;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDataLevelPermissionRuleConfigResponseBody extends Model
 {
     /**
+     * @example D8749D65-E80A-433C-AF1B-CE9C180FF3B4
+     *
      * @var string
      */
     public $requestId;
@@ -19,6 +21,8 @@ class SetDataLevelPermissionRuleConfigResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveFavoritesRequest extends Model
 {
     /**
+     * @example 121344444790****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example d23e84a1-82a0-4292-bfdb-521306c3****
+     *
      * @var string
      */
     public $worksId;

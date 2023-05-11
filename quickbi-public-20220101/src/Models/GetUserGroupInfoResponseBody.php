@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserGroupInfoResponseBody extends Model
 {
     /**
+     * @example D7980306-1F08-5A88-9FE7-ECB8B9C4C0F5
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class GetUserGroupInfoResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

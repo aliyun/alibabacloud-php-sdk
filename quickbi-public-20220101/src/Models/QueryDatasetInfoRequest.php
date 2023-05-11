@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class QueryDatasetInfoRequest extends Model
 {
     /**
+     * @description Queries information about a specified dataset.
+     *
+     * @example a201c85c-******
+     *
      * @var string
      */
     public $datasetId;

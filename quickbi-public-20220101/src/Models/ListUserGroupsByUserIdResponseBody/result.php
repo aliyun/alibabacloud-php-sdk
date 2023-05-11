@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 2021-03-15 17:13:55
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 46e5374665ba4b679ee22e2a2927****
+     *
      * @var string
      */
     public $createUser;
 
     /**
+     * @example 2fe4fbd8-588f-489a-b3e1-e92c7af0****\/3d2c23d4-2b41-4af8-a1f5-f6390f32****\/f5eeb52e-d9c2-4a8b-80e3-47ab55c2****
+     *
      * @var string
      */
     public $identifiedPath;
 
     /**
+     * @example 2021-03-15 20:36:40
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example 46e5374665ba4b679ee22e2a2927****
+     *
      * @var string
      */
     public $modifyUser;
 
     /**
+     * @example 2fe4fbd8-588f-489a-b3e1-e92c7af0****
+     *
      * @var string
      */
     public $parentUsergroupId;
@@ -44,6 +56,8 @@ class result extends Model
     public $usergroupDesc;
 
     /**
+     * @example 34fd141d-4598-4093-8c33-8e066dcb****
+     *
      * @var string
      */
     public $usergroupId;

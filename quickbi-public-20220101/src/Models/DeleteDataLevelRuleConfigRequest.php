@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataLevelRuleConfigRequest extends Model
 {
     /**
+     * @example 7c7223ae-****-3c744528014b
+     *
      * @var string
      */
     public $cubeId;
 
     /**
+     * @example a5bb24da-****-a891683e14da
+     *
      * @var string
      */
     public $ruleId;

@@ -11,61 +11,108 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The details of the dataset list.
+     *
+     * @example 2020-11-02 10:36:05
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description Test Space
+     *
      * @var dataSource
      */
     public $dataSource;
 
     /**
+     * @description The name of the workspace.
+     *
+     * @example 5820f58c-c734-4d8a-baf1-7979af4f****
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @description Tom
+     *
+     * @example company_sales_record_copy12
+     *
      * @var string
      */
     public $datasetName;
 
     /**
+     * @description The number of rows per page set when the interface is requested.
+     *
+     * @example The total number of rows in the table.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The information about the data source to which the dataset belongs.
+     *
      * @var directory
      */
     public $directory;
 
     /**
+     * @description The nickname of the dataset owner.
+     *
+     * @example 2020-11-02 10:36:05
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The creation time.
+     *
+     * @example 136516262323****
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @description Whether to enable row-level permissions. Valid values:
+     *
+     *   true: The VIP Netty channel is enabled.
+     *   false: The incremental log backup feature is disabled.
+     *
+     * @example The ID of the workspace.
+     *
      * @var string
      */
     public $ownerName;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $rowLevel;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 95296e95-ca89-4c7d-8af9-dedf0ad06adf
+     *
      * @var string
      */
     public $workspaceId;
 
     /**
+     * @description The description of the dataset.
+     *
+     * @example Test dataset
+     *
      * @var string
      */
     public $workspaceName;

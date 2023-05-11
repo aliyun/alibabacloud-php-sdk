@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @description The field name, which corresponds to the physical table field name.
+     *
+     * @example SUM
+     *
      * @var string
      */
     public $aggregator;
 
     /**
+     * @description The granularity of the dimension field. This field is returned only when the requested field is a date dimension or a geographical dimension. Valid values:
+     *
+     *   Date granularity: yearRegion (year), monthRegion (month), weekRegion (week), dayRegion (day), hourRegion (hour), minRegion (minute), secRegion (second)
+     *   Geographic information granularity: COUNTRY (international level), PROVINCE (provincial level), CITY (municipal level), XIAN (district /county), and REGION (regional level)
+     *
+     * @example The alias of the field. The key of the map data row in the result parameter values.
+     *
      * @var string
      */
     public $column;
 
     /**
+     * @description The column header.
+     *
+     * @example string
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @description The field type, which is used to distinguish whether the field type is a dimension or a measure.
+     *
+     * @example yearRegion
+     *
      * @var string
      */
     public $granularity;
 
     /**
+     * @description The data type of the field. generally have number, string, date, datetime, time, and geographic.
+     *
+     * @example area
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description SELECT COMPANY_T\_1\_.\"area\" AS D_AREA\_2\_, COMPANY_T\_1\_.\"city\" AS D_CITY\_3\_, SUM(COMPANY_T\_1\_.\"profit_amt\") AS D_PROFIT\_4\_ FROM \"quickbi_test\".\"company_sales_record_copy\" AS COMPANY_T\_1\_ WHERE COMPANY_T\_1\_.\"area\" LIKE \"% China East %\" GROUP BY COMPANY_T\_1\_.\"area\", COMPANY_T\_1\_.\"city\" HAVING SUM(COMPANY_T\_1\_.\"order_amt\") > 1 LIMIT 0,10
+     *
+     * @example StandardDimension
+     *
      * @var string
      */
     public $type;

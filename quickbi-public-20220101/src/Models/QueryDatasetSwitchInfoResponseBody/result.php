@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 7c7223ae-****-3c744528014b
+     *
      * @var string
      */
     public $cubeId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isOpenColumnLevelPermission;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isOpenRowLevelPermission;

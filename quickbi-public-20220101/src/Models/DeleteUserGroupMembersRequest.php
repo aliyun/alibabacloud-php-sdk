@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserGroupMembersRequest extends Model
 {
     /**
+     * @example 34fd141d-4598-4093-8c33-8e066dcb****,3d2c23d4-2b41-4af8-a1f5-f6390f32****
+     *
      * @var string
      */
     public $userGroupIds;
 
     /**
+     * @example 204627493484****
+     *
      * @var string
      */
     public $userId;

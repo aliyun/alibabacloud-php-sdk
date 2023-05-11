@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class AuthorizeMenuResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 188F0B12-00EF-41B3-944A-FB7EF06C9F43
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of authorized menus.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $result;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

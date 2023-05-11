@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class QueryWorksByOrganizationRequest extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of rows per page set when the interface is requested.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Returns a list of all works in the organization that meet the requested criteria.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $thirdPartAuthFlag;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example PAGE
+     *
      * @var string
      */
     public $worksType;

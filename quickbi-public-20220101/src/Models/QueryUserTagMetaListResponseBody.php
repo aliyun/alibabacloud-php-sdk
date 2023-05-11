@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryUserTagMetaListResponseBody extends Model
 {
     /**
+     * @example D787E1A3-A93C-424A-B626-C2B05DF8D885
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,10 @@ class QueryUserTagMetaListResponseBody extends Model
     public $result;
 
     /**
+     * @description Queries the metadata list of member tags in an organization.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

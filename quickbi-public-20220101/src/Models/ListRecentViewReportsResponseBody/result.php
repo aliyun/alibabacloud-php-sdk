@@ -10,30 +10,46 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 当前API返回的分页参数如TotalNum等即将下线，如有使用请及时修改
+     *
+     * @var string
+     */
+    public $attention;
+
+    /**
      * @var data[]
      */
     public $data;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalPages;
     protected $_name = [
+        'attention'  => 'Attention',
         'data'       => 'Data',
         'pageNum'    => 'PageNum',
         'pageSize'   => 'PageSize',
@@ -48,6 +64,9 @@ class result extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->attention) {
+            $res['Attention'] = $this->attention;
+        }
         if (null !== $this->data) {
             $res['Data'] = [];
             if (null !== $this->data && \is_array($this->data)) {
@@ -81,6 +100,9 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Attention'])) {
+            $model->attention = $map['Attention'];
+        }
         if (isset($map['Data'])) {
             if (!empty($map['Data'])) {
                 $model->data = [];

@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DelayTicketExpireTimeRequest extends Model
 {
     /**
+     * @description The time to postpone.
+     *
+     *   Unit: minutes. Valid values: 0 to 240. Unit: minutes. Valid values: 4 hours.
+     *   Expired bills cannot be extended.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @description The value of the third-party embedded ticket, that is, the accessTicket value in the URL.
+     *
+     * @example 040e6f79d33444838e*****c7206c070
+     *
      * @var string
      */
     public $ticket;

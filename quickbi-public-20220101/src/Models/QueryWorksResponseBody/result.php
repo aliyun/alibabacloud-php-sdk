@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $auth3rdFlag;
@@ -25,11 +27,15 @@ class result extends Model
     public $directory;
 
     /**
+     * @example 1496651577000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 1496651577000
+     *
      * @var string
      */
     public $gmtModify;
@@ -40,6 +46,8 @@ class result extends Model
     public $modifyName;
 
     /**
+     * @example 9187a612aa474e2a8ac1414d5529****
+     *
      * @var string
      */
     public $ownerId;
@@ -50,11 +58,15 @@ class result extends Model
     public $ownerName;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $securityLevel;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
@@ -65,16 +77,22 @@ class result extends Model
     public $workName;
 
     /**
+     * @example PAGE
+     *
      * @var string
      */
     public $workType;
 
     /**
+     * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
+     *
      * @var string
      */
     public $worksId;
 
     /**
+     * @example 87c6b145-090c-43e1-9426-8f93be23****
+     *
      * @var string
      */
     public $workspaceId;

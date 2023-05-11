@@ -14,26 +14,36 @@ class ListRecentViewReportsRequest extends Model
     public $keyword;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $offsetDay;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $queryMode;
 
     /**
+     * @example PAGE
+     *
      * @var string
      */
     public $treeType;
 
     /**
+     * @example b5d8fd9348cc4327****afb604
+     *
      * @var string
      */
     public $userId;

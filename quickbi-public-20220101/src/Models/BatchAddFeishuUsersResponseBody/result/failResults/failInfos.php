@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class failInfos extends Model
 {
     /**
+     * @example ACCOUNT_EXIST
+     *
      * @var string
      */
     public $code;
@@ -19,6 +21,8 @@ class failInfos extends Model
     public $codeDesc;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $input;

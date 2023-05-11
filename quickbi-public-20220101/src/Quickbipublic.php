@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddUserToWorkspaceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddUserToWorkspaceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddWorkspaceUsersRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AddWorkspaceUsersResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AllotDatasetAccelerationTaskRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AllotDatasetAccelerationTaskResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AuthorizeMenuRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\AuthorizeMenuResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\BatchAddFeishuUsersRequest;
@@ -64,6 +66,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteUserTagMetaRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\DeleteUserTagMetaResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetUserGroupInfoRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\GetUserGroupInfoResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListApiDatasourceRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListApiDatasourceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListByUserGroupIdRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListByUserGroupIdResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListCollectionsRequest;
@@ -84,6 +88,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListSharedReportsRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListSharedReportsResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListUserGroupsByUserIdRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListUserGroupsByUserIdResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataServiceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataServiceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetDetailInfoRequest;
@@ -202,10 +208,14 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddDataLevelPermissionRuleUsersRequest $request
-     * @param RuntimeOptions                         $runtime
+     * Indicates whether the request is successful. Valid values:
+     *   * *   true: The request was successful.
+     *   * *   false: The request failed.
+     *   *
+     * @param AddDataLevelPermissionRuleUsersRequest $request AddDataLevelPermissionRuleUsersRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDataLevelPermissionRuleUsersResponse
+     * @return AddDataLevelPermissionRuleUsersResponse AddDataLevelPermissionRuleUsersResponse
      */
     public function addDataLevelPermissionRuleUsersWithOptions($request, $runtime)
     {
@@ -233,9 +243,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddDataLevelPermissionRuleUsersRequest $request
+     * Indicates whether the request is successful. Valid values:
+     *   * *   true: The request was successful.
+     *   * *   false: The request failed.
+     *   *
+     * @param AddDataLevelPermissionRuleUsersRequest $request AddDataLevelPermissionRuleUsersRequest
      *
-     * @return AddDataLevelPermissionRuleUsersResponse
+     * @return AddDataLevelPermissionRuleUsersResponse AddDataLevelPermissionRuleUsersResponse
      */
     public function addDataLevelPermissionRuleUsers($request)
     {
@@ -245,10 +259,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddDataLevelPermissionWhiteListRequest $request
-     * @param RuntimeOptions                         $runtime
+     * ROW_LEVEL.
+     *   *
+     * @param AddDataLevelPermissionWhiteListRequest $request AddDataLevelPermissionWhiteListRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddDataLevelPermissionWhiteListResponse
+     * @return AddDataLevelPermissionWhiteListResponse AddDataLevelPermissionWhiteListResponse
      */
     public function addDataLevelPermissionWhiteListWithOptions($request, $runtime)
     {
@@ -288,9 +304,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param AddDataLevelPermissionWhiteListRequest $request
+     * ROW_LEVEL.
+     *   *
+     * @param AddDataLevelPermissionWhiteListRequest $request AddDataLevelPermissionWhiteListRequest
      *
-     * @return AddDataLevelPermissionWhiteListResponse
+     * @return AddDataLevelPermissionWhiteListResponse AddDataLevelPermissionWhiteListResponse
      */
     public function addDataLevelPermissionWhiteList($request)
     {
@@ -643,6 +661,49 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addWorkspaceUsersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AllotDatasetAccelerationTaskRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return AllotDatasetAccelerationTaskResponse
+     */
+    public function allotDatasetAccelerationTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AllotDatasetAccelerationTask',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AllotDatasetAccelerationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AllotDatasetAccelerationTaskRequest $request
+     *
+     * @return AllotDatasetAccelerationTaskResponse
+     */
+    public function allotDatasetAccelerationTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->allotDatasetAccelerationTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1163,10 +1224,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataLevelPermissionRuleUsersRequest $request
-     * @param RuntimeOptions                            $runtime
+     * {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}.
+     *   *
+     * @param DeleteDataLevelPermissionRuleUsersRequest $request DeleteDataLevelPermissionRuleUsersRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataLevelPermissionRuleUsersResponse
+     * @return DeleteDataLevelPermissionRuleUsersResponse DeleteDataLevelPermissionRuleUsersResponse
      */
     public function deleteDataLevelPermissionRuleUsersWithOptions($request, $runtime)
     {
@@ -1194,9 +1257,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataLevelPermissionRuleUsersRequest $request
+     * {"ruleId":"a5bb24da-***-a891683e14da","cubeId":"7c7223ae-***-3c744528014b","delModel":{"userGroups":["0d5fb19b-***-1248fc27ca51","3d2c23d4-***-f6390f325c2d"],"users":["4334***358","Huang***3fa822"]}}.
+     *   *
+     * @param DeleteDataLevelPermissionRuleUsersRequest $request DeleteDataLevelPermissionRuleUsersRequest
      *
-     * @return DeleteDataLevelPermissionRuleUsersResponse
+     * @return DeleteDataLevelPermissionRuleUsersResponse DeleteDataLevelPermissionRuleUsersResponse
      */
     public function deleteDataLevelPermissionRuleUsers($request)
     {
@@ -1206,10 +1271,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataLevelRuleConfigRequest $request
-     * @param RuntimeOptions                   $runtime
+     * The ID of the training dataset that you want to remove from the specified custom linguistic model.
+     *   *
+     * @param DeleteDataLevelRuleConfigRequest $request DeleteDataLevelRuleConfigRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDataLevelRuleConfigResponse
+     * @return DeleteDataLevelRuleConfigResponse DeleteDataLevelRuleConfigResponse
      */
     public function deleteDataLevelRuleConfigWithOptions($request, $runtime)
     {
@@ -1240,9 +1307,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param DeleteDataLevelRuleConfigRequest $request
+     * The ID of the training dataset that you want to remove from the specified custom linguistic model.
+     *   *
+     * @param DeleteDataLevelRuleConfigRequest $request DeleteDataLevelRuleConfigRequest
      *
-     * @return DeleteDataLevelRuleConfigResponse
+     * @return DeleteDataLevelRuleConfigResponse DeleteDataLevelRuleConfigResponse
      */
     public function deleteDataLevelRuleConfig($request)
     {
@@ -1608,6 +1677,58 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @param ListApiDatasourceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListApiDatasourceResponse
+     */
+    public function listApiDatasourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->keyWord)) {
+            $query['KeyWord'] = $request->keyWord;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApiDatasource',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApiDatasourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListApiDatasourceRequest $request
+     *
+     * @return ListApiDatasourceResponse
+     */
+    public function listApiDatasource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApiDatasourceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListByUserGroupIdRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -1694,10 +1815,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListCubeDataLevelPermissionConfigRequest $request
-     * @param RuntimeOptions                           $runtime
+     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+     *   *
+     * @param ListCubeDataLevelPermissionConfigRequest $request ListCubeDataLevelPermissionConfigRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCubeDataLevelPermissionConfigResponse
+     * @return ListCubeDataLevelPermissionConfigResponse ListCubeDataLevelPermissionConfigResponse
      */
     public function listCubeDataLevelPermissionConfigWithOptions($request, $runtime)
     {
@@ -1728,9 +1851,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param ListCubeDataLevelPermissionConfigRequest $request
+     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+     *   *
+     * @param ListCubeDataLevelPermissionConfigRequest $request ListCubeDataLevelPermissionConfigRequest
      *
-     * @return ListCubeDataLevelPermissionConfigResponse
+     * @return ListCubeDataLevelPermissionConfigResponse ListCubeDataLevelPermissionConfigResponse
      */
     public function listCubeDataLevelPermissionConfig($request)
     {
@@ -2080,10 +2205,61 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryDataServiceRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param ModifyApiDatasourceParametersRequest $request
+     * @param RuntimeOptions                       $runtime
      *
-     * @return QueryDataServiceResponse
+     * @return ModifyApiDatasourceParametersResponse
+     */
+    public function modifyApiDatasourceParametersWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->apiId)) {
+            $query['ApiId'] = $request->apiId;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyApiDatasourceParameters',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyApiDatasourceParametersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyApiDatasourceParametersRequest $request
+     *
+     * @return ModifyApiDatasourceParametersResponse
+     */
+    public function modifyApiDatasourceParameters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyApiDatasourceParametersWithOptions($request, $runtime);
+    }
+
+    /**
+     * f4cc43bc3***.
+     *   *
+     * @param QueryDataServiceRequest $request QueryDataServiceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return QueryDataServiceResponse QueryDataServiceResponse
      */
     public function queryDataServiceWithOptions($request, $runtime)
     {
@@ -2117,9 +2293,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryDataServiceRequest $request
+     * f4cc43bc3***.
+     *   *
+     * @param QueryDataServiceRequest $request QueryDataServiceRequest
      *
-     * @return QueryDataServiceResponse
+     * @return QueryDataServiceResponse QueryDataServiceResponse
      */
     public function queryDataService($request)
     {
@@ -2129,10 +2307,14 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryDatasetDetailInfoRequest $request
-     * @param RuntimeOptions                $runtime
+     * The execution result of the interface is returned. Valid values:
+     *   * *   true: The request was successful.
+     *   * *   false: The request fails.
+     *   *
+     * @param QueryDatasetDetailInfoRequest $request QueryDatasetDetailInfoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryDatasetDetailInfoResponse
+     * @return QueryDatasetDetailInfoResponse QueryDatasetDetailInfoResponse
      */
     public function queryDatasetDetailInfoWithOptions($request, $runtime)
     {
@@ -2160,9 +2342,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param QueryDatasetDetailInfoRequest $request
+     * The execution result of the interface is returned. Valid values:
+     *   * *   true: The request was successful.
+     *   * *   false: The request fails.
+     *   *
+     * @param QueryDatasetDetailInfoRequest $request QueryDatasetDetailInfoRequest
      *
-     * @return QueryDatasetDetailInfoResponse
+     * @return QueryDatasetDetailInfoResponse QueryDatasetDetailInfoResponse
      */
     public function queryDatasetDetailInfo($request)
     {
@@ -3345,10 +3531,14 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param SetDataLevelPermissionRuleConfigRequest $request
-     * @param RuntimeOptions                          $runtime
+     * Indicates whether the request is successful. Valid values:
+     *   * *   true: The request was successful.
+     *   * *   false: The request failed.
+     *   *
+     * @param SetDataLevelPermissionRuleConfigRequest $request SetDataLevelPermissionRuleConfigRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDataLevelPermissionRuleConfigResponse
+     * @return SetDataLevelPermissionRuleConfigResponse SetDataLevelPermissionRuleConfigResponse
      */
     public function setDataLevelPermissionRuleConfigWithOptions($request, $runtime)
     {
@@ -3376,9 +3566,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param SetDataLevelPermissionRuleConfigRequest $request
+     * Indicates whether the request is successful. Valid values:
+     *   * *   true: The request was successful.
+     *   * *   false: The request failed.
+     *   *
+     * @param SetDataLevelPermissionRuleConfigRequest $request SetDataLevelPermissionRuleConfigRequest
      *
-     * @return SetDataLevelPermissionRuleConfigResponse
+     * @return SetDataLevelPermissionRuleConfigResponse SetDataLevelPermissionRuleConfigResponse
      */
     public function setDataLevelPermissionRuleConfig($request)
     {
@@ -3388,10 +3582,12 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param SetDataLevelPermissionWhiteListRequest $request
-     * @param RuntimeOptions                         $runtime
+     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+     *   *
+     * @param SetDataLevelPermissionWhiteListRequest $request SetDataLevelPermissionWhiteListRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDataLevelPermissionWhiteListResponse
+     * @return SetDataLevelPermissionWhiteListResponse SetDataLevelPermissionWhiteListResponse
      */
     public function setDataLevelPermissionWhiteListWithOptions($request, $runtime)
     {
@@ -3419,9 +3615,11 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param SetDataLevelPermissionWhiteListRequest $request
+     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.
+     *   *
+     * @param SetDataLevelPermissionWhiteListRequest $request SetDataLevelPermissionWhiteListRequest
      *
-     * @return SetDataLevelPermissionWhiteListResponse
+     * @return SetDataLevelPermissionWhiteListResponse SetDataLevelPermissionWhiteListResponse
      */
     public function setDataLevelPermissionWhiteList($request)
     {
@@ -3431,10 +3629,14 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDataLevelPermissionStatusRequest $request
-     * @param RuntimeOptions                         $runtime
+     * The execution result of the interface. Valid values:
+     *   * *   true: The request was successful.
+     *   * *   false: The request failed.
+     *   *
+     * @param UpdateDataLevelPermissionStatusRequest $request UpdateDataLevelPermissionStatusRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDataLevelPermissionStatusResponse
+     * @return UpdateDataLevelPermissionStatusResponse UpdateDataLevelPermissionStatusResponse
      */
     public function updateDataLevelPermissionStatusWithOptions($request, $runtime)
     {
@@ -3468,9 +3670,13 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * @param UpdateDataLevelPermissionStatusRequest $request
+     * The execution result of the interface. Valid values:
+     *   * *   true: The request was successful.
+     *   * *   false: The request failed.
+     *   *
+     * @param UpdateDataLevelPermissionStatusRequest $request UpdateDataLevelPermissionStatusRequest
      *
-     * @return UpdateDataLevelPermissionStatusResponse
+     * @return UpdateDataLevelPermissionStatusResponse UpdateDataLevelPermissionStatusResponse
      */
     public function updateDataLevelPermissionStatus($request)
     {

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 3d2c23d4-2b41-4af8-a1f5-f6390f32****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isUserGroup;
@@ -24,6 +28,8 @@ class result extends Model
     public $name;
 
     /**
+     * @example 2fe4fbd8-588f-489a-b3e1-e92c7af0****
+     *
      * @var string
      */
     public $parentUserGroupId;

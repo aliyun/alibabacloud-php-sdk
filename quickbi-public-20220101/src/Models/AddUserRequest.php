@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class AddUserRequest extends Model
 {
     /**
+     * @example xxxxxx@163.com
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description Add organization members.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $adminUser;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $authAdminUser;
@@ -29,6 +37,8 @@ class AddUserRequest extends Model
     public $nickName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $userType;

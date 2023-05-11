@@ -9,36 +9,71 @@ use AlibabaCloud\Tea\Model;
 class measureList extends Model
 {
     /**
+     * @description The actual physical field.
+     *
+     * @example profit_amt
+     *
      * @var string
      */
     public $caption;
 
     /**
+     * @description A list of all measures for the dataset.
+     *
+     * @example string
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @description Data type; value:
+     *
+     *   string: character
+     *   number: a number
+     *   datetime: time
+     *
+     * @example example_expression
+     *
      * @var string
      */
     public $expression;
 
     /**
+     * @description The type of the measure. Valid values:
+     *
+     *   standard_measure: General Metrics
+     *   calculate_measure: Calculating Measures
+     *
+     * @example profit_amt
+     *
      * @var string
      */
     public $factColumn;
 
     /**
+     * @description An expression that calculates a measure; valid only for calculated measures.
+     *
+     * @example calculate_measure
+     *
      * @var string
      */
     public $measureType;
 
     /**
+     * @description The display name of the metric.
+     *
+     * @example 7a62530b36
+     *
      * @var string
      */
     public $tableUniqueId;
 
     /**
+     * @description The unique ID of the table to which the table belongs, which corresponds to the UniqueId of the CubeTypeList.
+     *
+     * @example 88b680****
+     *
      * @var string
      */
     public $uid;

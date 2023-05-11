@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $failure;
 
     /**
+     * @example {"2046274934845893" : "AE0150010001: This user already exists.", "1213444447906552" : "AE0150010001: This user already exists."}
+     *
      * @var mixed[]
      */
     public $failureDetail;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $success;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $total;

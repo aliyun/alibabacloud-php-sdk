@@ -9,26 +9,53 @@ use AlibabaCloud\Tea\Model;
 class AddDataLevelPermissionWhiteListRequest extends Model
 {
     /**
+     * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
+     *
+     * @example 7c7223ae-***-3c744528014b
+     *
      * @var string
      */
     public $cubeId;
 
     /**
+     * @description Operation Type: You can set this parameter to one of the following values.
+     *
+     *   ADD: Add a whitelist
+     *   DELETE: deletes a whitelist.
+     *
+     * @example ADD
+     *
      * @var string
      */
     public $operateType;
 
     /**
+     * @description The type of row-level permissions.
+     *
+     *   ROW_LEVEL: row-level permissions,
+     *   COLUMN_LEVEL: column-level permissions
+     *
+     * @example ROW_LEVEL
+     *
      * @var string
      */
     public $ruleType;
 
     /**
+     * @example 43342***435,1553a****41231
+     *
      * @var string
      */
     public $targetIds;
 
     /**
+     * @description Modify the type of the whitelist:
+     *
+     *   1: user
+     *   2: user group
+     *
+     * @example 1
+     *
      * @var string
      */
     public $targetType;

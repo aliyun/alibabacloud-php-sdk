@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $failCount;
@@ -20,6 +22,8 @@ class result extends Model
     public $failResults;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $okCount;

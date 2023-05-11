@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 4AEF8C5C-D5D2-55D3-BB2F-9D3AA1B6F4FA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Whether the interface is successfully executed. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

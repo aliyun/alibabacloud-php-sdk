@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserTagValueResponseBody extends Model
 {
     /**
+     * @example 46e5374665ba4b679ee22e2a29270
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

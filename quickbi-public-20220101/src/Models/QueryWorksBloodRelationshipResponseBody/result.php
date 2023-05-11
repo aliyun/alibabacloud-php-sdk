@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description List of work blood information.
+     *
+     * @example 0696083a-ca72-4d89-8e7a-c017910e0***
+     *
      * @var string
      */
     public $componentId;
 
     /**
+     * @description The ID of the component that you want to modify.
+     *
+     * @example The name of the component.
+     *
      * @var string
      */
     public $componentName;
 
     /**
+     * @description Line
+     *
+     * @example 3
+     *
      * @var int
      */
     public $componentType;
 
     /**
+     * @description The type of the image component.
+     *
+     * @example LINE
+     *
      * @var string
      */
     public $componentTypeName;
 
     /**
+     * @description Column (Measure)
+     *
+     * @example dc78a4ed-880d-452e-b017-90cfc10c83e5_company_sales_record
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @description The name of the component type.
+     *
      * @var queryParams[]
      */
     public $queryParams;

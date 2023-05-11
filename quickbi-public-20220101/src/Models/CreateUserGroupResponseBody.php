@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateUserGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 36829379-0C38-5BC0-830A-92665BF77D4F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the added user group is returned. An empty string \"\" is returned if the add fails.
+     *
+     * @example f5eeb52e-d9c2-4a8b-80e3-47ab55c2****
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

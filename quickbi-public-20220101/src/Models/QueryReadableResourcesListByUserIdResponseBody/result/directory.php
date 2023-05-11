@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class directory extends Model
 {
     /**
+     * @example e4276ea5-b232-4fb1-8f0f-efcee4a2****
+     *
      * @var string
      */
     public $id;
@@ -19,6 +21,8 @@ class directory extends Model
     public $name;
 
     /**
+     * @example e4276ea5-b232-4fb1-8f0f-efcee4a2****
+     *
      * @var string
      */
     public $pathId;

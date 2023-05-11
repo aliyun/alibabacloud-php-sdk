@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryEmbeddedStatusRequest extends Model
 {
     /**
+     * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
+     *
      * @var string
      */
     public $worksId;
