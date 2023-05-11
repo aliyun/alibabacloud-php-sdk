@@ -59,6 +59,8 @@ use AlibabaCloud\SDK\PTS\V20201020\Models\ListJMeterReportsRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\ListJMeterReportsResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\ListOpenJMeterScenesRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\ListOpenJMeterScenesResponse;
+use AlibabaCloud\SDK\PTS\V20201020\Models\ListPtsReportsRequest;
+use AlibabaCloud\SDK\PTS\V20201020\Models\ListPtsReportsResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\ListPtsSceneRequest;
 use AlibabaCloud\SDK\PTS\V20201020\Models\ListPtsSceneResponse;
 use AlibabaCloud\SDK\PTS\V20201020\Models\ModifyPtsSceneRequest;
@@ -1409,6 +1411,67 @@ class PTS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listOpenJMeterScenesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPtsReportsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListPtsReportsResponse
+     */
+    public function listPtsReportsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $body['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $body['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $body['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->sceneId)) {
+            $body['SceneId'] = $request->sceneId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPtsReports',
+            'version'     => '2020-10-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPtsReportsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPtsReportsRequest $request
+     *
+     * @return ListPtsReportsResponse
+     */
+    public function listPtsReports($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPtsReportsWithOptions($request, $runtime);
     }
 
     /**

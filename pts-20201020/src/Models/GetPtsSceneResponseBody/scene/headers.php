@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @example key1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example value1
+     *
      * @var string
      */
     public $value;
