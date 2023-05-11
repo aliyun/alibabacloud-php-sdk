@@ -14,7 +14,7 @@ class snapshots extends Model
     public $format;
 
     /**
-     * @var int
+     * @var float
      */
     public $height;
 
@@ -44,7 +44,7 @@ class snapshots extends Model
     public $URI;
 
     /**
-     * @var int
+     * @var float
      */
     public $width;
     protected $_name = [

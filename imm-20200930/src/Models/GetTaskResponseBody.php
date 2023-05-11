@@ -37,6 +37,11 @@ class GetTaskResponseBody extends Model
     public $message;
 
     /**
+     * @var int
+     */
+    public $progress;
+
+    /**
      * @example immtest
      *
      * @var string
@@ -79,6 +84,11 @@ class GetTaskResponseBody extends Model
     public $taskId;
 
     /**
+     * @var string
+     */
+    public $taskRequestDefinition;
+
+    /**
      * @example VideoLabelClassification
      *
      * @var string
@@ -92,18 +102,20 @@ class GetTaskResponseBody extends Model
      */
     public $userData;
     protected $_name = [
-        'code'        => 'Code',
-        'endTime'     => 'EndTime',
-        'eventId'     => 'EventId',
-        'message'     => 'Message',
-        'projectName' => 'ProjectName',
-        'requestId'   => 'RequestId',
-        'startTime'   => 'StartTime',
-        'status'      => 'Status',
-        'tags'        => 'Tags',
-        'taskId'      => 'TaskId',
-        'taskType'    => 'TaskType',
-        'userData'    => 'UserData',
+        'code'                  => 'Code',
+        'endTime'               => 'EndTime',
+        'eventId'               => 'EventId',
+        'message'               => 'Message',
+        'progress'              => 'Progress',
+        'projectName'           => 'ProjectName',
+        'requestId'             => 'RequestId',
+        'startTime'             => 'StartTime',
+        'status'                => 'Status',
+        'tags'                  => 'Tags',
+        'taskId'                => 'TaskId',
+        'taskRequestDefinition' => 'TaskRequestDefinition',
+        'taskType'              => 'TaskType',
+        'userData'              => 'UserData',
     ];
 
     public function validate()
@@ -125,6 +137,9 @@ class GetTaskResponseBody extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->progress) {
+            $res['Progress'] = $this->progress;
+        }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
         }
@@ -142,6 +157,9 @@ class GetTaskResponseBody extends Model
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->taskRequestDefinition) {
+            $res['TaskRequestDefinition'] = $this->taskRequestDefinition;
         }
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
@@ -173,6 +191,9 @@ class GetTaskResponseBody extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['Progress'])) {
+            $model->progress = $map['Progress'];
+        }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
         }
@@ -190,6 +211,9 @@ class GetTaskResponseBody extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TaskRequestDefinition'])) {
+            $model->taskRequestDefinition = $map['TaskRequestDefinition'];
         }
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];

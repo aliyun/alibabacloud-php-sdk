@@ -19,7 +19,7 @@ class animations extends Model
     public $frameRate;
 
     /**
-     * @var int
+     * @var float
      */
     public $height;
 
@@ -49,7 +49,7 @@ class animations extends Model
     public $URI;
 
     /**
-     * @var int
+     * @var float
      */
     public $width;
     protected $_name = [

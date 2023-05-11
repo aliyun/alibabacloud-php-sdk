@@ -11,14 +11,8 @@ class MNS extends Model
     /**
      * @var string
      */
-    public $endpoint;
-
-    /**
-     * @var string
-     */
     public $topicName;
     protected $_name = [
-        'endpoint'  => 'Endpoint',
         'topicName' => 'TopicName',
     ];
 
@@ -29,9 +23,6 @@ class MNS extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->endpoint) {
-            $res['Endpoint'] = $this->endpoint;
-        }
         if (null !== $this->topicName) {
             $res['TopicName'] = $this->topicName;
         }
@@ -47,9 +38,6 @@ class MNS extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Endpoint'])) {
-            $model->endpoint = $map['Endpoint'];
-        }
         if (isset($map['TopicName'])) {
             $model->topicName = $map['TopicName'];
         }

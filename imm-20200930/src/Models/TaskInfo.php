@@ -24,6 +24,11 @@ class TaskInfo extends Model
     public $message;
 
     /**
+     * @var int
+     */
+    public $progress;
+
+    /**
      * @var string
      */
     public $startTime;
@@ -46,6 +51,11 @@ class TaskInfo extends Model
     /**
      * @var string
      */
+    public $taskRequestDefinition;
+
+    /**
+     * @var string
+     */
     public $taskType;
 
     /**
@@ -53,15 +63,17 @@ class TaskInfo extends Model
      */
     public $userData;
     protected $_name = [
-        'code'      => 'Code',
-        'endTime'   => 'EndTime',
-        'message'   => 'Message',
-        'startTime' => 'StartTime',
-        'status'    => 'Status',
-        'tags'      => 'Tags',
-        'taskId'    => 'TaskId',
-        'taskType'  => 'TaskType',
-        'userData'  => 'UserData',
+        'code'                  => 'Code',
+        'endTime'               => 'EndTime',
+        'message'               => 'Message',
+        'progress'              => 'Progress',
+        'startTime'             => 'StartTime',
+        'status'                => 'Status',
+        'tags'                  => 'Tags',
+        'taskId'                => 'TaskId',
+        'taskRequestDefinition' => 'TaskRequestDefinition',
+        'taskType'              => 'TaskType',
+        'userData'              => 'UserData',
     ];
 
     public function validate()
@@ -80,6 +92,9 @@ class TaskInfo extends Model
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->progress) {
+            $res['Progress'] = $this->progress;
+        }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
@@ -91,6 +106,9 @@ class TaskInfo extends Model
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->taskRequestDefinition) {
+            $res['TaskRequestDefinition'] = $this->taskRequestDefinition;
         }
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
@@ -119,6 +137,9 @@ class TaskInfo extends Model
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['Progress'])) {
+            $model->progress = $map['Progress'];
+        }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
         }
@@ -130,6 +151,9 @@ class TaskInfo extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TaskRequestDefinition'])) {
+            $model->taskRequestDefinition = $map['TaskRequestDefinition'];
         }
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];

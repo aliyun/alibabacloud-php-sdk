@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateFigureClusterRequest extends Model
 {
     /**
-     * @example dataset001
-     *
      * @var string
      */
     public $datasetName;
@@ -21,8 +19,6 @@ class UpdateFigureClusterRequest extends Model
     public $figureCluster;
 
     /**
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;

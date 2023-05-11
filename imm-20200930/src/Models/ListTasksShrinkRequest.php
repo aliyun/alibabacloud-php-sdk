@@ -42,6 +42,11 @@ class ListTasksShrinkRequest extends Model
     public $projectName;
 
     /**
+     * @var bool
+     */
+    public $requestDefinition;
+
+    /**
      * @example TaskId
      *
      * @var string
@@ -77,6 +82,7 @@ class ListTasksShrinkRequest extends Model
         'nextToken'            => 'NextToken',
         'order'                => 'Order',
         'projectName'          => 'ProjectName',
+        'requestDefinition'    => 'RequestDefinition',
         'sort'                 => 'Sort',
         'startTimeRangeShrink' => 'StartTimeRange',
         'status'               => 'Status',
@@ -105,6 +111,9 @@ class ListTasksShrinkRequest extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->requestDefinition) {
+            $res['RequestDefinition'] = $this->requestDefinition;
         }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
@@ -147,6 +156,9 @@ class ListTasksShrinkRequest extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['RequestDefinition'])) {
+            $model->requestDefinition = $map['RequestDefinition'];
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];

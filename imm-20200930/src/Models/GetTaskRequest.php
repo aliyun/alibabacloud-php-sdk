@@ -16,6 +16,11 @@ class GetTaskRequest extends Model
     public $projectName;
 
     /**
+     * @var bool
+     */
+    public $requestDefinition;
+
+    /**
      * @example c2b277b9-0d30-4882-ad6d-ad661382****
      *
      * @var string
@@ -29,9 +34,10 @@ class GetTaskRequest extends Model
      */
     public $taskType;
     protected $_name = [
-        'projectName' => 'ProjectName',
-        'taskId'      => 'TaskId',
-        'taskType'    => 'TaskType',
+        'projectName'       => 'ProjectName',
+        'requestDefinition' => 'RequestDefinition',
+        'taskId'            => 'TaskId',
+        'taskType'          => 'TaskType',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class GetTaskRequest extends Model
         $res = [];
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
+        }
+        if (null !== $this->requestDefinition) {
+            $res['RequestDefinition'] = $this->requestDefinition;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -64,6 +73,9 @@ class GetTaskRequest extends Model
         $model = new self();
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
+        }
+        if (isset($map['RequestDefinition'])) {
+            $model->requestDefinition = $map['RequestDefinition'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

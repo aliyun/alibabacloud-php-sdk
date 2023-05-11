@@ -4400,6 +4400,9 @@ class Imm extends OpenApiClient
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
         }
+        if (!Utils::isUnset($request->requestDefinition)) {
+            $query['RequestDefinition'] = $request->requestDefinition;
+        }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;
         }
@@ -4932,6 +4935,9 @@ class Imm extends OpenApiClient
         }
         if (!Utils::isUnset($request->projectName)) {
             $query['ProjectName'] = $request->projectName;
+        }
+        if (!Utils::isUnset($request->requestDefinition)) {
+            $query['RequestDefinition'] = $request->requestDefinition;
         }
         if (!Utils::isUnset($request->sort)) {
             $query['Sort'] = $request->sort;
