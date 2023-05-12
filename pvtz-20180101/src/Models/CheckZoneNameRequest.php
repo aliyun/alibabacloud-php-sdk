@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CheckZoneNameRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
-     * @var string
-     */
-    public $zoneName;
-
-    /**
+     * @example 192.0.2.0
+     *
      * @var string
      */
     public $userClientIp;
+
+    /**
+     * @example example.com
+     *
+     * @var string
+     */
+    public $zoneName;
     protected $_name = [
         'lang'         => 'Lang',
-        'zoneName'     => 'ZoneName',
         'userClientIp' => 'UserClientIp',
+        'zoneName'     => 'ZoneName',
     ];
 
     public function validate()
@@ -38,11 +44,11 @@ class CheckZoneNameRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->zoneName) {
-            $res['ZoneName'] = $this->zoneName;
-        }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
+        }
+        if (null !== $this->zoneName) {
+            $res['ZoneName'] = $this->zoneName;
         }
 
         return $res;
@@ -59,11 +65,11 @@ class CheckZoneNameRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['ZoneName'])) {
-            $model->zoneName = $map['ZoneName'];
-        }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
+        }
+        if (isset($map['ZoneName'])) {
+            $model->zoneName = $map['ZoneName'];
         }
 
         return $model;

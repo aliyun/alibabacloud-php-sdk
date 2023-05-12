@@ -11,32 +11,7 @@ class DescribeRequestGraphRequest extends Model
     /**
      * @var string
      */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $vpcId;
-
-    /**
-     * @var int
-     */
-    public $startTimestamp;
-
-    /**
-     * @var int
-     */
-    public $endTimestamp;
+    public $bizId;
 
     /**
      * @var string
@@ -44,18 +19,59 @@ class DescribeRequestGraphRequest extends Model
     public $bizType;
 
     /**
+     * @example 1571673600000
+     *
+     * @var int
+     */
+    public $endTimestamp;
+
+    /**
+     * @example en
+     *
      * @var string
      */
-    public $bizId;
+    public $lang;
+
+    /**
+     * @example 1571587200000
+     *
+     * @var int
+     */
+    public $startTimestamp;
+
+    /**
+     * @example 127.0.0.1
+     *
+     * @var string
+     */
+    public $userClientIp;
+
+    /**
+     * @description VPC ID
+     *
+     * @example vpc-1111
+     *
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @description zone ID
+     *
+     * @example 29c752a01cd281a20ddcfaecef
+     *
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'lang'           => 'Lang',
-        'userClientIp'   => 'UserClientIp',
-        'zoneId'         => 'ZoneId',
-        'vpcId'          => 'VpcId',
-        'startTimestamp' => 'StartTimestamp',
-        'endTimestamp'   => 'EndTimestamp',
-        'bizType'        => 'BizType',
         'bizId'          => 'BizId',
+        'bizType'        => 'BizType',
+        'endTimestamp'   => 'EndTimestamp',
+        'lang'           => 'Lang',
+        'startTimestamp' => 'StartTimestamp',
+        'userClientIp'   => 'UserClientIp',
+        'vpcId'          => 'VpcId',
+        'zoneId'         => 'ZoneId',
     ];
 
     public function validate()
@@ -65,29 +81,29 @@ class DescribeRequestGraphRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
-        }
-        if (null !== $this->startTimestamp) {
-            $res['StartTimestamp'] = $this->startTimestamp;
-        }
-        if (null !== $this->endTimestamp) {
-            $res['EndTimestamp'] = $this->endTimestamp;
+        if (null !== $this->bizId) {
+            $res['BizId'] = $this->bizId;
         }
         if (null !== $this->bizType) {
             $res['BizType'] = $this->bizType;
         }
-        if (null !== $this->bizId) {
-            $res['BizId'] = $this->bizId;
+        if (null !== $this->endTimestamp) {
+            $res['EndTimestamp'] = $this->endTimestamp;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->startTimestamp) {
+            $res['StartTimestamp'] = $this->startTimestamp;
+        }
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -101,29 +117,29 @@ class DescribeRequestGraphRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
-        }
-        if (isset($map['StartTimestamp'])) {
-            $model->startTimestamp = $map['StartTimestamp'];
-        }
-        if (isset($map['EndTimestamp'])) {
-            $model->endTimestamp = $map['EndTimestamp'];
+        if (isset($map['BizId'])) {
+            $model->bizId = $map['BizId'];
         }
         if (isset($map['BizType'])) {
             $model->bizType = $map['BizType'];
         }
-        if (isset($map['BizId'])) {
-            $model->bizId = $map['BizId'];
+        if (isset($map['EndTimestamp'])) {
+            $model->endTimestamp = $map['EndTimestamp'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
+        if (isset($map['StartTimestamp'])) {
+            $model->startTimestamp = $map['StartTimestamp'];
+        }
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

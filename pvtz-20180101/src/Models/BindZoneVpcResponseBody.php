@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BindZoneVpcResponseBody extends Model
 {
     /**
+     * @example 46973D4C-E3E4-4ABA-9190-9A9DE406C7E
+     *
      * @var string
      */
     public $requestId;

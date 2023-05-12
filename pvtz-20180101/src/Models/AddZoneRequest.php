@@ -9,47 +9,53 @@ use AlibabaCloud\Tea\Model;
 class AddZoneRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
-     * @var string
-     */
-    public $zoneName;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
+     * @example ZONE
+     *
      * @var string
      */
     public $proxyPattern;
 
     /**
+     * @example rg-resourcegroupid1
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
-    public $zoneType;
+    public $zoneName;
 
     /**
+     * @example BLINK
+     *
      * @var string
      */
     public $zoneTag;
+
+    /**
+     * @example CLOUD_PRODUCT_ZONE
+     *
+     * @var string
+     */
+    public $zoneType;
     protected $_name = [
         'lang'            => 'Lang',
-        'zoneName'        => 'ZoneName',
-        'userClientIp'    => 'UserClientIp',
         'proxyPattern'    => 'ProxyPattern',
         'resourceGroupId' => 'ResourceGroupId',
-        'zoneType'        => 'ZoneType',
+        'zoneName'        => 'ZoneName',
         'zoneTag'         => 'ZoneTag',
+        'zoneType'        => 'ZoneType',
     ];
 
     public function validate()
@@ -62,23 +68,20 @@ class AddZoneRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->zoneName) {
-            $res['ZoneName'] = $this->zoneName;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->proxyPattern) {
             $res['ProxyPattern'] = $this->proxyPattern;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->zoneType) {
-            $res['ZoneType'] = $this->zoneType;
+        if (null !== $this->zoneName) {
+            $res['ZoneName'] = $this->zoneName;
         }
         if (null !== $this->zoneTag) {
             $res['ZoneTag'] = $this->zoneTag;
+        }
+        if (null !== $this->zoneType) {
+            $res['ZoneType'] = $this->zoneType;
         }
 
         return $res;
@@ -95,23 +98,20 @@ class AddZoneRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['ZoneName'])) {
-            $model->zoneName = $map['ZoneName'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['ProxyPattern'])) {
             $model->proxyPattern = $map['ProxyPattern'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['ZoneType'])) {
-            $model->zoneType = $map['ZoneType'];
+        if (isset($map['ZoneName'])) {
+            $model->zoneName = $map['ZoneName'];
         }
         if (isset($map['ZoneTag'])) {
             $model->zoneTag = $map['ZoneTag'];
+        }
+        if (isset($map['ZoneType'])) {
+            $model->zoneType = $map['ZoneType'];
         }
 
         return $model;

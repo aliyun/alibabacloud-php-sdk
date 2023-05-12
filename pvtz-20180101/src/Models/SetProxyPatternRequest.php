@@ -9,29 +9,37 @@ use AlibabaCloud\Tea\Model;
 class SetProxyPatternRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
+     * @example ZONE
+     *
      * @var string
      */
     public $proxyPattern;
 
     /**
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $userClientIp;
+
+    /**
+     * @example AgIDE0OQ_149
+     *
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'lang'         => 'Lang',
-        'zoneId'       => 'ZoneId',
         'proxyPattern' => 'ProxyPattern',
         'userClientIp' => 'UserClientIp',
+        'zoneId'       => 'ZoneId',
     ];
 
     public function validate()
@@ -44,14 +52,14 @@ class SetProxyPatternRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->proxyPattern) {
             $res['ProxyPattern'] = $this->proxyPattern;
         }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -68,14 +76,14 @@ class SetProxyPatternRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['ProxyPattern'])) {
             $model->proxyPattern = $map['ProxyPattern'];
         }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

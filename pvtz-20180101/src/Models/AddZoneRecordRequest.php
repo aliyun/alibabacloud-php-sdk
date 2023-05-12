@@ -9,31 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddZoneRecordRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
-     * @var string
-     */
-    public $rr;
-
-    /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $ttl;
-
-    /**
+     * @example 5
+     *
      * @var int
      */
     public $priority;
@@ -41,21 +25,61 @@ class AddZoneRecordRequest extends Model
     /**
      * @var string
      */
-    public $value;
+    public $remark;
 
     /**
+     * @example www
+     *
+     * @var string
+     */
+    public $rr;
+
+    /**
+     * @example 60
+     *
+     * @var int
+     */
+    public $ttl;
+
+    /**
+     * @example A
+     *
+     * @var string
+     */
+    public $type;
+
+    /**
+     * @example 2.2.2.2
+     *
      * @var string
      */
     public $userClientIp;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $value;
+
+    /**
+     * @description Zone ID。
+     *
+     * @example CAgICA1OA_58
+     *
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'zoneId'       => 'ZoneId',
         'lang'         => 'Lang',
-        'rr'           => 'Rr',
-        'type'         => 'Type',
-        'ttl'          => 'Ttl',
         'priority'     => 'Priority',
-        'value'        => 'Value',
+        'remark'       => 'Remark',
+        'rr'           => 'Rr',
+        'ttl'          => 'Ttl',
+        'type'         => 'Type',
         'userClientIp' => 'UserClientIp',
+        'value'        => 'Value',
+        'zoneId'       => 'ZoneId',
     ];
 
     public function validate()
@@ -65,29 +89,32 @@ class AddZoneRecordRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->rr) {
-            $res['Rr'] = $this->rr;
-        }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->ttl) {
-            $res['Ttl'] = $this->ttl;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
         }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->rr) {
+            $res['Rr'] = $this->rr;
+        }
+        if (null !== $this->ttl) {
+            $res['Ttl'] = $this->ttl;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
+        }
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -101,29 +128,32 @@ class AddZoneRecordRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['Rr'])) {
-            $model->rr = $map['Rr'];
-        }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Ttl'])) {
-            $model->ttl = $map['Ttl'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
         }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
+        if (isset($map['Rr'])) {
+            $model->rr = $map['Rr'];
+        }
+        if (isset($map['Ttl'])) {
+            $model->ttl = $map['Ttl'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
+        }
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

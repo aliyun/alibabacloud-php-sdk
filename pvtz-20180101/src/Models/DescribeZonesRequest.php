@@ -4,88 +4,99 @@
 
 namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
+use AlibabaCloud\SDK\Pvtz\V20180101\Models\DescribeZonesRequest\resourceTag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeZonesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
+     * @example test
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example en
+     *
      * @var string
      */
-    public $userClientIp;
+    public $lang;
 
     /**
-     * @var string
+     * @example 1
+     *
+     * @var int
      */
-    public $searchMode;
+    public $pageNumber;
 
     /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $queryRegionId;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-xxxxx
+     *
      * @var string
      */
     public $queryVpcId;
 
     /**
+     * @example rg-xxxxx
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @var string
+     * @var resourceTag[]
      */
-    public $orderBy;
+    public $resourceTag;
 
     /**
+     * @example LIKE
+     *
      * @var string
      */
-    public $direction;
+    public $searchMode;
 
     /**
-     * @var string
-     */
-    public $zoneType;
-
-    /**
+     * @example BLINK
+     *
      * @var string[]
      */
     public $zoneTag;
+
+    /**
+     * @example CLOUD_PRODUCT_ZONE
+     *
+     * @var string
+     */
+    public $zoneType;
     protected $_name = [
+        'keyword'         => 'Keyword',
         'lang'            => 'Lang',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'keyword'         => 'Keyword',
-        'userClientIp'    => 'UserClientIp',
-        'searchMode'      => 'SearchMode',
         'queryRegionId'   => 'QueryRegionId',
         'queryVpcId'      => 'QueryVpcId',
         'resourceGroupId' => 'ResourceGroupId',
-        'orderBy'         => 'OrderBy',
-        'direction'       => 'Direction',
-        'zoneType'        => 'ZoneType',
+        'resourceTag'     => 'ResourceTag',
+        'searchMode'      => 'SearchMode',
         'zoneTag'         => 'ZoneTag',
+        'zoneType'        => 'ZoneType',
     ];
 
     public function validate()
@@ -95,6 +106,9 @@ class DescribeZonesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->keyword) {
+            $res['Keyword'] = $this->keyword;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -103,15 +117,6 @@ class DescribeZonesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->keyword) {
-            $res['Keyword'] = $this->keyword;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
-        if (null !== $this->searchMode) {
-            $res['SearchMode'] = $this->searchMode;
         }
         if (null !== $this->queryRegionId) {
             $res['QueryRegionId'] = $this->queryRegionId;
@@ -122,17 +127,23 @@ class DescribeZonesRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
-        if (null !== $this->orderBy) {
-            $res['OrderBy'] = $this->orderBy;
+        if (null !== $this->resourceTag) {
+            $res['ResourceTag'] = [];
+            if (null !== $this->resourceTag && \is_array($this->resourceTag)) {
+                $n = 0;
+                foreach ($this->resourceTag as $item) {
+                    $res['ResourceTag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
-        if (null !== $this->direction) {
-            $res['Direction'] = $this->direction;
-        }
-        if (null !== $this->zoneType) {
-            $res['ZoneType'] = $this->zoneType;
+        if (null !== $this->searchMode) {
+            $res['SearchMode'] = $this->searchMode;
         }
         if (null !== $this->zoneTag) {
             $res['ZoneTag'] = $this->zoneTag;
+        }
+        if (null !== $this->zoneType) {
+            $res['ZoneType'] = $this->zoneType;
         }
 
         return $res;
@@ -146,6 +157,9 @@ class DescribeZonesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Keyword'])) {
+            $model->keyword = $map['Keyword'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
@@ -154,15 +168,6 @@ class DescribeZonesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['Keyword'])) {
-            $model->keyword = $map['Keyword'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
-        if (isset($map['SearchMode'])) {
-            $model->searchMode = $map['SearchMode'];
         }
         if (isset($map['QueryRegionId'])) {
             $model->queryRegionId = $map['QueryRegionId'];
@@ -173,19 +178,25 @@ class DescribeZonesRequest extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
-        if (isset($map['OrderBy'])) {
-            $model->orderBy = $map['OrderBy'];
+        if (isset($map['ResourceTag'])) {
+            if (!empty($map['ResourceTag'])) {
+                $model->resourceTag = [];
+                $n                  = 0;
+                foreach ($map['ResourceTag'] as $item) {
+                    $model->resourceTag[$n++] = null !== $item ? resourceTag::fromMap($item) : $item;
+                }
+            }
         }
-        if (isset($map['Direction'])) {
-            $model->direction = $map['Direction'];
-        }
-        if (isset($map['ZoneType'])) {
-            $model->zoneType = $map['ZoneType'];
+        if (isset($map['SearchMode'])) {
+            $model->searchMode = $map['SearchMode'];
         }
         if (isset($map['ZoneTag'])) {
             if (!empty($map['ZoneTag'])) {
                 $model->zoneTag = $map['ZoneTag'];
             }
+        }
+        if (isset($map['ZoneType'])) {
+            $model->zoneType = $map['ZoneType'];
         }
 
         return $model;

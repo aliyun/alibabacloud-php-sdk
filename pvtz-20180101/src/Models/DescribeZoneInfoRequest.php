@@ -9,23 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeZoneInfoRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description Zone ID。
+     *
+     * @example AgIDE1MA_149
+     *
      * @var string
      */
     public $zoneId;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
     protected $_name = [
-        'lang'         => 'Lang',
-        'zoneId'       => 'ZoneId',
-        'userClientIp' => 'UserClientIp',
+        'lang'   => 'Lang',
+        'zoneId' => 'ZoneId',
     ];
 
     public function validate()
@@ -40,9 +40,6 @@ class DescribeZoneInfoRequest extends Model
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -61,9 +58,6 @@ class DescribeZoneInfoRequest extends Model
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

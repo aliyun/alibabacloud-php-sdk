@@ -9,16 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
+     * @example zh-CN
+     *
      * @var string
      */
     public $acceptLanguage;
@@ -27,11 +19,31 @@ class DescribeRegionsRequest extends Model
      * @var int
      */
     public $authorizedUserId;
+
+    /**
+     * @example en
+     *
+     * @var string
+     */
+    public $lang;
+
+    /**
+     * @example 1.1.1.1
+     *
+     * @var string
+     */
+    public $userClientIp;
+
+    /**
+     * @var string
+     */
+    public $vpcType;
     protected $_name = [
-        'lang'             => 'Lang',
-        'userClientIp'     => 'UserClientIp',
         'acceptLanguage'   => 'AcceptLanguage',
         'authorizedUserId' => 'AuthorizedUserId',
+        'lang'             => 'Lang',
+        'userClientIp'     => 'UserClientIp',
+        'vpcType'          => 'VpcType',
     ];
 
     public function validate()
@@ -41,17 +53,20 @@ class DescribeRegionsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->authorizedUserId) {
+            $res['AuthorizedUserId'] = $this->authorizedUserId;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
-        if (null !== $this->acceptLanguage) {
-            $res['AcceptLanguage'] = $this->acceptLanguage;
-        }
-        if (null !== $this->authorizedUserId) {
-            $res['AuthorizedUserId'] = $this->authorizedUserId;
+        if (null !== $this->vpcType) {
+            $res['VpcType'] = $this->vpcType;
         }
 
         return $res;
@@ -65,17 +80,20 @@ class DescribeRegionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['AuthorizedUserId'])) {
+            $model->authorizedUserId = $map['AuthorizedUserId'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }
-        if (isset($map['AcceptLanguage'])) {
-            $model->acceptLanguage = $map['AcceptLanguage'];
-        }
-        if (isset($map['AuthorizedUserId'])) {
-            $model->authorizedUserId = $map['AuthorizedUserId'];
+        if (isset($map['VpcType'])) {
+            $model->vpcType = $map['VpcType'];
         }
 
         return $model;

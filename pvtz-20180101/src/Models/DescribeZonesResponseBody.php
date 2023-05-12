@@ -10,40 +10,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeZonesResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
-    public $totalPages;
+    public $pageSize;
 
     /**
+     * @example 6856BCF6-11D6-4D7E-AC53-FD579933522B
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example 3
+     *
      * @var int
      */
     public $totalItems;
+
+    /**
+     * @example 3
+     *
+     * @var int
+     */
+    public $totalPages;
 
     /**
      * @var zones
      */
     public $zones;
     protected $_name = [
+        'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
-        'pageNumber' => 'PageNumber',
-        'totalPages' => 'TotalPages',
         'totalItems' => 'TotalItems',
+        'totalPages' => 'TotalPages',
         'zones'      => 'Zones',
     ];
 
@@ -54,20 +64,20 @@ class DescribeZonesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->totalItems) {
+            $res['TotalItems'] = $this->totalItems;
         }
         if (null !== $this->totalPages) {
             $res['TotalPages'] = $this->totalPages;
-        }
-        if (null !== $this->totalItems) {
-            $res['TotalItems'] = $this->totalItems;
         }
         if (null !== $this->zones) {
             $res['Zones'] = null !== $this->zones ? $this->zones->toMap() : null;
@@ -84,20 +94,20 @@ class DescribeZonesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['TotalItems'])) {
+            $model->totalItems = $map['TotalItems'];
         }
         if (isset($map['TotalPages'])) {
             $model->totalPages = $map['TotalPages'];
-        }
-        if (isset($map['TotalItems'])) {
-            $model->totalItems = $map['TotalItems'];
         }
         if (isset($map['Zones'])) {
             $model->zones = zones::fromMap($map['Zones']);

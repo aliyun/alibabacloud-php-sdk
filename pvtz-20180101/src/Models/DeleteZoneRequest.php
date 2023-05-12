@@ -9,23 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DeleteZoneRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $userClientIp;
+
+    /**
+     * @description zone ID
+     *
+     * @example AgIDE1MA_150
+     *
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'lang'         => 'Lang',
-        'zoneId'       => 'ZoneId',
         'userClientIp' => 'UserClientIp',
+        'zoneId'       => 'ZoneId',
     ];
 
     public function validate()
@@ -38,11 +46,11 @@ class DeleteZoneRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -59,11 +67,11 @@ class DeleteZoneRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

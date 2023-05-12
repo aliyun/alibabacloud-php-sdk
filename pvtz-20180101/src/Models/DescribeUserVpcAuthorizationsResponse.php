@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeUserServiceStatusResponse extends Model
+class DescribeUserVpcAuthorizationsResponse extends Model
 {
     /**
      * @var string[]
@@ -14,17 +14,24 @@ class DescribeUserServiceStatusResponse extends Model
     public $headers;
 
     /**
-     * @var DescribeUserServiceStatusResponseBody
+     * @var int
+     */
+    public $statusCode;
+
+    /**
+     * @var DescribeUserVpcAuthorizationsResponseBody
      */
     public $body;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
         Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
         Model::validateRequired('body', $this->body, true);
     }
 
@@ -33,6 +40,9 @@ class DescribeUserServiceStatusResponse extends Model
         $res = [];
         if (null !== $this->headers) {
             $res['headers'] = $this->headers;
+        }
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
         if (null !== $this->body) {
             $res['body'] = null !== $this->body ? $this->body->toMap() : null;
@@ -44,7 +54,7 @@ class DescribeUserServiceStatusResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeUserServiceStatusResponse
+     * @return DescribeUserVpcAuthorizationsResponse
      */
     public static function fromMap($map = [])
     {
@@ -52,8 +62,11 @@ class DescribeUserServiceStatusResponse extends Model
         if (isset($map['headers'])) {
             $model->headers = $map['headers'];
         }
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
         if (isset($map['body'])) {
-            $model->body = DescribeUserServiceStatusResponseBody::fromMap($map['body']);
+            $model->body = DescribeUserVpcAuthorizationsResponseBody::fromMap($map['body']);
         }
 
         return $model;

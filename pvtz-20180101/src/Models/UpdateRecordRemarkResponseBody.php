@@ -9,17 +9,21 @@ use AlibabaCloud\Tea\Model;
 class UpdateRecordRemarkResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @example 18954952
+     *
      * @var int
      */
     public $recordId;
+
+    /**
+     * @example 0B7AD377-7E86-44A8-B9A8-53E8666E72FE
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'recordId'  => 'RecordId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class UpdateRecordRemarkResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->recordId) {
             $res['RecordId'] = $this->recordId;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +51,11 @@ class UpdateRecordRemarkResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['RecordId'])) {
             $model->recordId = $map['RecordId'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

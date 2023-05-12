@@ -11,29 +11,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeStatisticSummaryResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $totalCount;
-
-    /**
+     * @example A73F3BD0-B1A8-42A9-A9B6-689BBABC4891
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var zoneRequestTops
+     * @example 2254
+     *
+     * @var int
      */
-    public $zoneRequestTops;
+    public $totalCount;
 
     /**
      * @var vpcRequestTops
      */
     public $vpcRequestTops;
+
+    /**
+     * @var zoneRequestTops
+     */
+    public $zoneRequestTops;
     protected $_name = [
-        'totalCount'      => 'TotalCount',
         'requestId'       => 'RequestId',
-        'zoneRequestTops' => 'ZoneRequestTops',
+        'totalCount'      => 'TotalCount',
         'vpcRequestTops'  => 'VpcRequestTops',
+        'zoneRequestTops' => 'ZoneRequestTops',
     ];
 
     public function validate()
@@ -43,17 +47,17 @@ class DescribeStatisticSummaryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->zoneRequestTops) {
-            $res['ZoneRequestTops'] = null !== $this->zoneRequestTops ? $this->zoneRequestTops->toMap() : null;
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->vpcRequestTops) {
             $res['VpcRequestTops'] = null !== $this->vpcRequestTops ? $this->vpcRequestTops->toMap() : null;
+        }
+        if (null !== $this->zoneRequestTops) {
+            $res['ZoneRequestTops'] = null !== $this->zoneRequestTops ? $this->zoneRequestTops->toMap() : null;
         }
 
         return $res;
@@ -67,17 +71,17 @@ class DescribeStatisticSummaryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['ZoneRequestTops'])) {
-            $model->zoneRequestTops = zoneRequestTops::fromMap($map['ZoneRequestTops']);
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['VpcRequestTops'])) {
             $model->vpcRequestTops = vpcRequestTops::fromMap($map['VpcRequestTops']);
+        }
+        if (isset($map['ZoneRequestTops'])) {
+            $model->zoneRequestTops = zoneRequestTops::fromMap($map['ZoneRequestTops']);
         }
 
         return $model;

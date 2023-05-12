@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteZoneRecordRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 5808
+     *
      * @var int
      */
     public $recordId;
 
     /**
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $userClientIp;

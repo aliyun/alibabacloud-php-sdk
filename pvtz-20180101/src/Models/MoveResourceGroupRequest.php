@@ -9,29 +9,31 @@ use AlibabaCloud\Tea\Model;
 class MoveResourceGroupRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
-     * @var string
-     */
-    public $resourceId;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
+     * @example rg-aekzzk7hx3glaoq
+     *
      * @var string
      */
     public $newResourceGroupId;
+
+    /**
+     * @description Zone Id。
+     *
+     * @example AgIDE1MA_149
+     *
+     * @var string
+     */
+    public $resourceId;
     protected $_name = [
         'lang'               => 'Lang',
-        'resourceId'         => 'ResourceId',
-        'userClientIp'       => 'UserClientIp',
         'newResourceGroupId' => 'NewResourceGroupId',
+        'resourceId'         => 'ResourceId',
     ];
 
     public function validate()
@@ -44,14 +46,11 @@ class MoveResourceGroupRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
-        }
         if (null !== $this->newResourceGroupId) {
             $res['NewResourceGroupId'] = $this->newResourceGroupId;
+        }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
 
         return $res;
@@ -68,14 +67,11 @@ class MoveResourceGroupRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['ResourceId'])) {
-            $model->resourceId = $map['ResourceId'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
-        }
         if (isset($map['NewResourceGroupId'])) {
             $model->newResourceGroupId = $map['NewResourceGroupId'];
+        }
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
 
         return $model;

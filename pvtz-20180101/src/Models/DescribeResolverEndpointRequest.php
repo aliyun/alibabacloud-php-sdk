@@ -6,20 +6,24 @@ namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeUserServiceStatusRequest extends Model
+class DescribeResolverEndpointRequest extends Model
 {
     /**
+     * @example hra0**
+     *
+     * @var string
+     */
+    public $endpointId;
+
+    /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
     protected $_name = [
-        'lang'         => 'Lang',
-        'userClientIp' => 'UserClientIp',
+        'endpointId' => 'EndpointId',
+        'lang'       => 'Lang',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class DescribeUserServiceStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endpointId) {
+            $res['EndpointId'] = $this->endpointId;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -42,16 +46,16 @@ class DescribeUserServiceStatusRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeUserServiceStatusRequest
+     * @return DescribeResolverEndpointRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndpointId'])) {
+            $model->endpointId = $map['EndpointId'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

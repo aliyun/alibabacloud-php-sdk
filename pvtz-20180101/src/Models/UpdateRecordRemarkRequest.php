@@ -9,29 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateRecordRemarkRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 18954952
+     *
      * @var int
      */
     public $recordId;
 
     /**
+     * @example test record
+     *
      * @var string
      */
     public $remark;
-
-    /**
-     * @var string
-     */
-    public $userClientIp;
     protected $_name = [
-        'lang'         => 'Lang',
-        'recordId'     => 'RecordId',
-        'remark'       => 'Remark',
-        'userClientIp' => 'UserClientIp',
+        'lang'     => 'Lang',
+        'recordId' => 'RecordId',
+        'remark'   => 'Remark',
     ];
 
     public function validate()
@@ -49,9 +49,6 @@ class UpdateRecordRemarkRequest extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
         }
 
         return $res;
@@ -73,9 +70,6 @@ class UpdateRecordRemarkRequest extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
-        }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
         }
 
         return $model;

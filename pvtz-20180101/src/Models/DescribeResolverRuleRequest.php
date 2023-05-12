@@ -6,20 +6,24 @@ namespace AlibabaCloud\SDK\Pvtz\V20180101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeUserServiceStatusResponseBody extends Model
+class DescribeResolverRuleRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
-    public $status;
+    public $lang;
 
     /**
+     * @example hra1**
+     *
      * @var string
      */
-    public $requestId;
+    public $ruleId;
     protected $_name = [
-        'status'    => 'Status',
-        'requestId' => 'RequestId',
+        'lang'   => 'Lang',
+        'ruleId' => 'RuleId',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class DescribeUserServiceStatusResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->ruleId) {
+            $res['RuleId'] = $this->ruleId;
         }
 
         return $res;
@@ -42,16 +46,16 @@ class DescribeUserServiceStatusResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeUserServiceStatusResponseBody
+     * @return DescribeResolverRuleRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['RuleId'])) {
+            $model->ruleId = $map['RuleId'];
         }
 
         return $model;

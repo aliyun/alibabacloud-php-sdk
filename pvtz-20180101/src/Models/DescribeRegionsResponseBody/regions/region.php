@@ -9,29 +9,35 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
+     * @example China South 1
+     *
      * @var string
      */
     public $localName;
 
     /**
-     * @var string
-     */
-    public $regionName;
-
-    /**
+     * @example pvtz.aliyuncs.com
+     *
      * @var string
      */
     public $regionEndpoint;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $regionName;
     protected $_name = [
         'localName'      => 'LocalName',
-        'regionName'     => 'RegionName',
         'regionEndpoint' => 'RegionEndpoint',
         'regionId'       => 'RegionId',
+        'regionName'     => 'RegionName',
     ];
 
     public function validate()
@@ -44,14 +50,14 @@ class region extends Model
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
-        if (null !== $this->regionName) {
-            $res['RegionName'] = $this->regionName;
-        }
         if (null !== $this->regionEndpoint) {
             $res['RegionEndpoint'] = $this->regionEndpoint;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->regionName) {
+            $res['RegionName'] = $this->regionName;
         }
 
         return $res;
@@ -68,14 +74,14 @@ class region extends Model
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }
-        if (isset($map['RegionName'])) {
-            $model->regionName = $map['RegionName'];
-        }
         if (isset($map['RegionEndpoint'])) {
             $model->regionEndpoint = $map['RegionEndpoint'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RegionName'])) {
+            $model->regionName = $map['RegionName'];
         }
 
         return $model;

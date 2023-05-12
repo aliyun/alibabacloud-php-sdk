@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class vpcRequestTop extends Model
 {
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
-    public $vpcId;
+    public $regionId;
 
     /**
      * @var string
@@ -19,25 +21,39 @@ class vpcRequestTop extends Model
     public $regionName;
 
     /**
-     * @var string
-     */
-    public $tunnelId;
-
-    /**
+     * @example 2254
+     *
      * @var int
      */
     public $requestCount;
 
     /**
+     * @example 46574
+     *
      * @var string
      */
-    public $regionId;
+    public $tunnelId;
+
+    /**
+     * @description VPC ID
+     *
+     * @example vpc-2zeisd8c0j6wk1451jr6o
+     *
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $vpcType;
     protected $_name = [
-        'vpcId'        => 'VpcId',
-        'regionName'   => 'RegionName',
-        'tunnelId'     => 'TunnelId',
-        'requestCount' => 'RequestCount',
         'regionId'     => 'RegionId',
+        'regionName'   => 'RegionName',
+        'requestCount' => 'RequestCount',
+        'tunnelId'     => 'TunnelId',
+        'vpcId'        => 'VpcId',
+        'vpcType'      => 'VpcType',
     ];
 
     public function validate()
@@ -47,20 +63,23 @@ class vpcRequestTop extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcId) {
-            $res['VpcId'] = $this->vpcId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->regionName) {
             $res['RegionName'] = $this->regionName;
         }
-        if (null !== $this->tunnelId) {
-            $res['TunnelId'] = $this->tunnelId;
-        }
         if (null !== $this->requestCount) {
             $res['RequestCount'] = $this->requestCount;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->tunnelId) {
+            $res['TunnelId'] = $this->tunnelId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->vpcType) {
+            $res['VpcType'] = $this->vpcType;
         }
 
         return $res;
@@ -74,20 +93,23 @@ class vpcRequestTop extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['VpcId'])) {
-            $model->vpcId = $map['VpcId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RegionName'])) {
             $model->regionName = $map['RegionName'];
         }
-        if (isset($map['TunnelId'])) {
-            $model->tunnelId = $map['TunnelId'];
-        }
         if (isset($map['RequestCount'])) {
             $model->requestCount = $map['RequestCount'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['TunnelId'])) {
+            $model->tunnelId = $map['TunnelId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['VpcType'])) {
+            $model->vpcType = $map['VpcType'];
         }
 
         return $model;

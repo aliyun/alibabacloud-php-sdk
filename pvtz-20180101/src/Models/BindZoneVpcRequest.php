@@ -10,16 +10,15 @@ use AlibabaCloud\Tea\Model;
 class BindZoneVpcRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
-     * @var string
-     */
-    public $zoneId;
-
-    /**
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $userClientIp;
@@ -28,11 +27,18 @@ class BindZoneVpcRequest extends Model
      * @var vpcs[]
      */
     public $vpcs;
+
+    /**
+     * @example AgIDE0OQ_149
+     *
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'lang'         => 'Lang',
-        'zoneId'       => 'ZoneId',
         'userClientIp' => 'UserClientIp',
         'vpcs'         => 'Vpcs',
+        'zoneId'       => 'ZoneId',
     ];
 
     public function validate()
@@ -45,9 +51,6 @@ class BindZoneVpcRequest extends Model
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
-        }
         if (null !== $this->userClientIp) {
             $res['UserClientIp'] = $this->userClientIp;
         }
@@ -59,6 +62,9 @@ class BindZoneVpcRequest extends Model
                     $res['Vpcs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -75,9 +81,6 @@ class BindZoneVpcRequest extends Model
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
-        }
         if (isset($map['UserClientIp'])) {
             $model->userClientIp = $map['UserClientIp'];
         }
@@ -89,6 +92,9 @@ class BindZoneVpcRequest extends Model
                     $model->vpcs[$n++] = null !== $item ? vpcs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

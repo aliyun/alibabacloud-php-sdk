@@ -9,65 +9,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeZoneRecordsRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $lang;
-
-    /**
+     * @example test
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example en
+     *
      * @var string
      */
-    public $zoneId;
+    public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @var string
-     */
-    public $userClientIp;
-
-    /**
-     * @var string
-     */
-    public $tag;
-
-    /**
+     * @example LIKE
+     *
      * @var string
      */
     public $searchMode;
 
     /**
+     * @example tag
+     *
      * @var string
      */
-    public $orderBy;
+    public $tag;
 
     /**
+     * @example 1.1.1.1
+     *
      * @var string
      */
-    public $direction;
+    public $userClientIp;
+
+    /**
+     * @description Zone ID。
+     *
+     * @example CAgICA1OA_58
+     *
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'lang'         => 'Lang',
         'keyword'      => 'Keyword',
-        'zoneId'       => 'ZoneId',
+        'lang'         => 'Lang',
         'pageNumber'   => 'PageNumber',
         'pageSize'     => 'PageSize',
-        'userClientIp' => 'UserClientIp',
-        'tag'          => 'Tag',
         'searchMode'   => 'SearchMode',
-        'orderBy'      => 'OrderBy',
-        'direction'    => 'Direction',
+        'tag'          => 'Tag',
+        'userClientIp' => 'UserClientIp',
+        'zoneId'       => 'ZoneId',
     ];
 
     public function validate()
@@ -77,14 +83,11 @@ class DescribeZoneRecordsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->lang) {
-            $res['Lang'] = $this->lang;
-        }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
         }
-        if (null !== $this->zoneId) {
-            $res['ZoneId'] = $this->zoneId;
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -92,20 +95,17 @@ class DescribeZoneRecordsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->userClientIp) {
-            $res['UserClientIp'] = $this->userClientIp;
+        if (null !== $this->searchMode) {
+            $res['SearchMode'] = $this->searchMode;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
-        if (null !== $this->searchMode) {
-            $res['SearchMode'] = $this->searchMode;
+        if (null !== $this->userClientIp) {
+            $res['UserClientIp'] = $this->userClientIp;
         }
-        if (null !== $this->orderBy) {
-            $res['OrderBy'] = $this->orderBy;
-        }
-        if (null !== $this->direction) {
-            $res['Direction'] = $this->direction;
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -119,14 +119,11 @@ class DescribeZoneRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Lang'])) {
-            $model->lang = $map['Lang'];
-        }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
         }
-        if (isset($map['ZoneId'])) {
-            $model->zoneId = $map['ZoneId'];
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -134,20 +131,17 @@ class DescribeZoneRecordsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['UserClientIp'])) {
-            $model->userClientIp = $map['UserClientIp'];
+        if (isset($map['SearchMode'])) {
+            $model->searchMode = $map['SearchMode'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }
-        if (isset($map['SearchMode'])) {
-            $model->searchMode = $map['SearchMode'];
+        if (isset($map['UserClientIp'])) {
+            $model->userClientIp = $map['UserClientIp'];
         }
-        if (isset($map['OrderBy'])) {
-            $model->orderBy = $map['OrderBy'];
-        }
-        if (isset($map['Direction'])) {
-            $model->direction = $map['Direction'];
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

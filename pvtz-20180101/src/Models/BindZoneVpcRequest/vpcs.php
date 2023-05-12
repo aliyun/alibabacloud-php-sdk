@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class vpcs extends Model
 {
     /**
+     * @example cn-beijing
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @example daily-vpc-id
+     *
      * @var string
      */
     public $vpcId;
@@ -16,10 +25,11 @@ class vpcs extends Model
     /**
      * @var string
      */
-    public $regionId;
+    public $vpcType;
     protected $_name = [
-        'vpcId'    => 'VpcId',
         'regionId' => 'RegionId',
+        'vpcId'    => 'VpcId',
+        'vpcType'  => 'VpcType',
     ];
 
     public function validate()
@@ -29,11 +39,14 @@ class vpcs extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
+        if (null !== $this->vpcType) {
+            $res['VpcType'] = $this->vpcType;
         }
 
         return $res;
@@ -47,11 +60,14 @@ class vpcs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
         }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
+        if (isset($map['VpcType'])) {
+            $model->vpcType = $map['VpcType'];
         }
 
         return $model;

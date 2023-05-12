@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SetZoneRecordStatusRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 5809
+     *
      * @var int
      */
     public $recordId;
 
     /**
+     * @example DISABLE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1.1.1.1
+     *
      * @var string
      */
     public $userClientIp;
