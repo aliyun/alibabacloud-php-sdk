@@ -167,6 +167,9 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightRefundPreCalShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightSearchListHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightSearchListRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightSearchListResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupCorpTokenHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupCorpTokenRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupCorpTokenResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupDepartSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupDepartSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupDepartSaveResponse;
@@ -3920,6 +3923,65 @@ class BtripOpen extends OpenApiClient
         $headers = new FlightSearchListHeaders([]);
 
         return $this->flightSearchListWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GroupCorpTokenRequest $request
+     * @param GroupCorpTokenHeaders $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GroupCorpTokenResponse
+     */
+    public function groupCorpTokenWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appSecret)) {
+            $query['app_secret'] = $request->appSecret;
+        }
+        if (!Utils::isUnset($request->corpId)) {
+            $query['corp_id'] = $request->corpId;
+        }
+        if (!Utils::isUnset($request->subCorpId)) {
+            $query['sub_corp_id'] = $request->subCorpId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripAccessToken)) {
+            $realHeaders['x-acs-btrip-access-token'] = Utils::toJSONString($headers->xAcsBtripAccessToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GroupCorpToken',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/btrip-open-auth/v1/group-corp-token/action/take',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GroupCorpTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GroupCorpTokenRequest $request
+     *
+     * @return GroupCorpTokenResponse
+     */
+    public function groupCorpToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GroupCorpTokenHeaders([]);
+
+        return $this->groupCorpTokenWithOptions($request, $headers, $runtime);
     }
 
     /**
