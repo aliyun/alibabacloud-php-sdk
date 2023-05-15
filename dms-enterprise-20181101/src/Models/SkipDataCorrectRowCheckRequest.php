@@ -6,28 +6,29 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ExecuteStructSyncRequest extends Model
+class SkipDataCorrectRowCheckRequest extends Model
 {
     /**
-     * @description The ID of the ticket.
-     *
-     * @example 112345
+     * @example 420****
      *
      * @var int
      */
     public $orderId;
 
     /**
-     * @description The ID of the tenant.
-     *
-     * > To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](~~181330~~).
-     * @example 1
+     * @var string
+     */
+    public $reason;
+
+    /**
+     * @example 3***
      *
      * @var int
      */
     public $tid;
     protected $_name = [
         'orderId' => 'OrderId',
+        'reason'  => 'Reason',
         'tid'     => 'Tid',
     ];
 
@@ -41,6 +42,9 @@ class ExecuteStructSyncRequest extends Model
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
+        }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
@@ -51,13 +55,16 @@ class ExecuteStructSyncRequest extends Model
     /**
      * @param array $map
      *
-     * @return ExecuteStructSyncRequest
+     * @return SkipDataCorrectRowCheckRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

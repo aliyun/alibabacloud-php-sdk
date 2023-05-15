@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class structSyncJobDetail extends Model
 {
     /**
+     * @description The ID of the SQL task group.
+     *
      * @example 12345
      *
      * @var int
@@ -16,6 +18,8 @@ class structSyncJobDetail extends Model
     public $DBTaskGroupId;
 
     /**
+     * @description The number of SQL statements that have been executed.
+     *
      * @example 1
      *
      * @var int
@@ -23,7 +27,17 @@ class structSyncJobDetail extends Model
     public $executeCount;
 
     /**
-     * @description The number of SQL statements that have been executed.
+     * @description The status of the task. Valid values:
+     *
+     *   **NEW**: The task was created.
+     *   **COMPARING**: The schemas of tables were being compared.
+     *   **COMPARE_BREAK**: The schema comparison was interrupted.
+     *   **COMPARE_FINISH**: The comparison was finished.
+     *   **NOT_SCRIPTS**: The comparison was finished but no executable script was available.
+     *   **SUBMITED_DBTASK**: The task was submitted.
+     *   **DBTASK_SUCCESS**: The task was complete.
+     *   **SUBMITED_WORKFLOW**: The ticket was submitted.
+     *   **WORKFLOW_SUCCESS**: The ticket was approved.
      *
      * @example DBTASK_SUCCESS
      *
@@ -32,7 +46,7 @@ class structSyncJobDetail extends Model
     public $jobStatus;
 
     /**
-     * @description The details of the schema synchronization task.
+     * @description The description of the task.
      *
      * @example test
      *
@@ -41,6 +55,12 @@ class structSyncJobDetail extends Model
     public $message;
 
     /**
+     * @description The type of security rule. Valid values:
+     *
+     *   **CANNOT_SYNC**: Synchronization cannot be performed.
+     *   **WITH_APPROVE**: The schema synchronization can be performed after the ticket is approved. You can call the [SubmitStructSyncOrderApproval](~~206166~~) operation to submit the ticket for approval.
+     *   **WITHOUT_APPROVE**: The schema synchronization can be performed without approval.
+     *
      * @example WITHOUT_APPROVE
      *
      * @var string
@@ -48,7 +68,7 @@ class structSyncJobDetail extends Model
     public $securityRule;
 
     /**
-     * @description The number of tables that have been analyzed.
+     * @description The total number of SQL statements.
      *
      * @example 1
      *
@@ -57,11 +77,7 @@ class structSyncJobDetail extends Model
     public $sqlCount;
 
     /**
-     * @description The type of security rule. Valid values:
-     *
-     *   **CANNOT_SYNC**: The schema synchronization is not allowed.
-     *   **WITH_APPROVE**: The schema synchronization can be performed after the ticket is approved. You can call the [SubmitStructSyncOrderApproval](~~206166~~) operation to submit the ticket for approval.
-     *   **WITHOUT_APPROVE**: The schema synchronization can be performed without approval.
+     * @description The number of tables that have been analyzed.
      *
      * @example 2
      *
@@ -70,7 +86,7 @@ class structSyncJobDetail extends Model
     public $tableAnalyzed;
 
     /**
-     * @description The ID of the request.
+     * @description The total number of tables.
      *
      * @example 2
      *

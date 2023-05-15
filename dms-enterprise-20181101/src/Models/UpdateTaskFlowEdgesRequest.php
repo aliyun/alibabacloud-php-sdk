@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowEdgesRequest extends Model
 {
     /**
-     * @description $.parameters[3].schema.example
+     * @description The task flow ID. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
      *
      * @example 15***
      *
@@ -19,15 +19,16 @@ class UpdateTaskFlowEdgesRequest extends Model
     public $dagId;
 
     /**
-     * @description $.parameters[3].schema.enumValueTitles
+     * @description The list of updated task flow edges.
      *
      * @var edges[]
      */
     public $edges;
 
     /**
-     * @description $.parameters[3].schema.description
+     * @description The tenant ID.
      *
+     * > To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Manage DMS tenants](~~181330~~).
      * @example 3***
      *
      * @var int

@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\Dmsenterprise\V20181101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ExecuteStructSyncResponseBody extends Model
+class SkipDataCorrectRowCheckResponseBody extends Model
 {
     /**
-     * @description The error code.
-     *
      * @example UnknownError
      *
      * @var string
@@ -18,8 +16,6 @@ class ExecuteStructSyncResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message.
-     *
      * @example UnknownError
      *
      * @var string
@@ -27,17 +23,13 @@ class ExecuteStructSyncResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 4E1D2B4D-3E53-4ABC-999D-1D2520B3471A
+     * @example 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
-     *
      * @example true
      *
      * @var bool
@@ -76,7 +68,7 @@ class ExecuteStructSyncResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ExecuteStructSyncResponseBody
+     * @return SkipDataCorrectRowCheckResponseBody
      */
     public static function fromMap($map = [])
     {

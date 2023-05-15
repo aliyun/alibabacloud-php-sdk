@@ -385,6 +385,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SearchTableResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SetOwnersResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SkipDataCorrectRowCheckRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SkipDataCorrectRowCheckResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\StopTaskFlowInstanceRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\StopTaskFlowInstanceResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\SubmitOrderApprovalRequest;
@@ -3385,10 +3387,13 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ExecuteStructSyncRequest $request
-     * @param RuntimeOptions           $runtime
+     * If the security rules of an instance indicate that a ticket must be approved before you perform schema synchronization, you can call the [SubmitStructSyncOrderApproval](~~206166~~) operation to submit the ticket for approval.
+     *   * >  You can call the [GetStructSyncJobDetail](~~206160~~) operation to query whether you need to submit a ticket for approval.
+     *   *
+     * @param ExecuteStructSyncRequest $request ExecuteStructSyncRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ExecuteStructSyncResponse
+     * @return ExecuteStructSyncResponse ExecuteStructSyncResponse
      */
     public function executeStructSyncWithOptions($request, $runtime)
     {
@@ -3419,9 +3424,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ExecuteStructSyncRequest $request
+     * If the security rules of an instance indicate that a ticket must be approved before you perform schema synchronization, you can call the [SubmitStructSyncOrderApproval](~~206166~~) operation to submit the ticket for approval.
+     *   * >  You can call the [GetStructSyncJobDetail](~~206160~~) operation to query whether you need to submit a ticket for approval.
+     *   *
+     * @param ExecuteStructSyncRequest $request ExecuteStructSyncRequest
      *
-     * @return ExecuteStructSyncResponse
+     * @return ExecuteStructSyncResponse ExecuteStructSyncResponse
      */
     public function executeStructSync($request)
     {
@@ -9992,6 +10000,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param SkipDataCorrectRowCheckRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SkipDataCorrectRowCheckResponse
+     */
+    public function skipDataCorrectRowCheckWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->reason)) {
+            $query['Reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SkipDataCorrectRowCheck',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SkipDataCorrectRowCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SkipDataCorrectRowCheckRequest $request
+     *
+     * @return SkipDataCorrectRowCheckResponse
+     */
+    public function skipDataCorrectRowCheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->skipDataCorrectRowCheckWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StopTaskFlowInstanceRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -10771,9 +10828,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Indicates whether the request was successful. Valid values:
-     *   * *   **true**: The request was successful.
-     *   * *   **false**: The request failed.
+     * ###
+     *   * The edges can be updated only when the following conditions are met:
+     *   * 1.  The specified edge exists in the directed acyclic graph (DAG) of the task flow specified by DagId.
+     *   * 2.  The specified edge nodes exist in the DAG of the task flow specified by DagId.
+     *   * 3.  After the update, rings do not exist in the DAG.
      *   *
      * @param UpdateTaskFlowEdgesRequest $tmpReq  UpdateTaskFlowEdgesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -10817,9 +10876,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * Indicates whether the request was successful. Valid values:
-     *   * *   **true**: The request was successful.
-     *   * *   **false**: The request failed.
+     * ###
+     *   * The edges can be updated only when the following conditions are met:
+     *   * 1.  The specified edge exists in the directed acyclic graph (DAG) of the task flow specified by DagId.
+     *   * 2.  The specified edge nodes exist in the DAG of the task flow specified by DagId.
+     *   * 3.  After the update, rings do not exist in the DAG.
      *   *
      * @param UpdateTaskFlowEdgesRequest $request UpdateTaskFlowEdgesRequest
      *
