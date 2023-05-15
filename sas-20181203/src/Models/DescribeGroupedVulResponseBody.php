@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedVulResponseBody extends Model
 {
     /**
+     * @description The number of entries to return on each page. Default value: 10.
+     *
      * @example 1
      *
      * @var int
@@ -17,11 +19,22 @@ class DescribeGroupedVulResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description The data returned.
+     *
      * @var groupedVulItems[]
      */
     public $groupedVulItems;
 
     /**
+     * @description The tag that is used to search for the vulnerabilities. Valid values:
+     *
+     *   Restart required
+     *   Remote exploitation
+     *   Exploit exists
+     *   Exploitable
+     *   Privilege escalation
+     *   Code execution
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +42,8 @@ class DescribeGroupedVulResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the asset group.
+     *
      * @example 9BFA6D78-07EA-5C0A-9358-E4434573507B
      *
      * @var string
@@ -36,6 +51,9 @@ class DescribeGroupedVulResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The types of the vulnerabilities.
+     *
+     * > This parameter is valid only for application vulnerabilities and vulnerabilities that are detected based on software component analysis.
      * @example 1
      *
      * @var int

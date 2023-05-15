@@ -78,6 +78,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateJenkinsImageRegistryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateJenkinsImageRegistryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateAssetGroupResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateDingTalkRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateOrUpdateDingTalkResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateRestoreJobRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateRestoreJobResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleRequest;
@@ -2401,6 +2403,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->downloadUrl)) {
+            $query['DownloadUrl'] = $request->downloadUrl;
+        }
         if (!Utils::isUnset($request->hashKey)) {
             $query['HashKey'] = $request->hashKey;
         }
@@ -3017,6 +3022,67 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createOrUpdateAssetGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateOrUpdateDingTalkRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateOrUpdateDingTalkResponse
+     */
+    public function createOrUpdateDingTalkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configList)) {
+            $query['ConfigList'] = $request->configList;
+        }
+        if (!Utils::isUnset($request->dingTalkLang)) {
+            $query['DingTalkLang'] = $request->dingTalkLang;
+        }
+        if (!Utils::isUnset($request->groupIdList)) {
+            $query['GroupIdList'] = $request->groupIdList;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->intervalTime)) {
+            $query['IntervalTime'] = $request->intervalTime;
+        }
+        if (!Utils::isUnset($request->ruleActionName)) {
+            $query['RuleActionName'] = $request->ruleActionName;
+        }
+        if (!Utils::isUnset($request->sendUrl)) {
+            $query['SendUrl'] = $request->sendUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateOrUpdateDingTalk',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateOrUpdateDingTalkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateOrUpdateDingTalkRequest $request
+     *
+     * @return CreateOrUpdateDingTalkResponse
+     */
+    public function createOrUpdateDingTalk($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createOrUpdateDingTalkWithOptions($request, $runtime);
     }
 
     /**

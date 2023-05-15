@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class extendContentJson extends Model
 {
     /**
-     * @description The package path of the software that has the vulnerability.
+     * @description The complete version number.
      *
      * @example /roo/www/web
      *
@@ -20,7 +20,7 @@ class extendContentJson extends Model
     public $absolutePath;
 
     /**
-     * @description The alias of the vulnerability.
+     * @description The RPM Package Manager (RPM) packages.
      *
      * @example RHSA-2019:0230-Important: polkit security update
      *
@@ -29,7 +29,7 @@ class extendContentJson extends Model
     public $aliasName;
 
     /**
-     * @description The description of the vulnerability.
+     * @description The alias of the vulnerability.
      *
      * @example kernel version:5.10.84-10.2.al8.x86_64
      *
@@ -38,7 +38,7 @@ class extendContentJson extends Model
     public $description;
 
     /**
-     * @description The public IP address of the asset that is associated with the vulnerability.
+     * @description The name of the operating system.
      *
      * @example 1.2.XX.XX
      *
@@ -47,7 +47,7 @@ class extendContentJson extends Model
     public $ip;
 
     /**
-     * @description The timestamp when the vulnerability was last detected. Unit: milliseconds.
+     * @description The release of the operating system.
      *
      * @example 1620404763000
      *
@@ -56,14 +56,14 @@ class extendContentJson extends Model
     public $lastTs;
 
     /**
-     * @description Indicates whether the vulnerability needs to be fixed.
+     * @description The time score.
      *
      * @var necessity
      */
     public $necessity;
 
     /**
-     * @description The name of the operating system.
+     * @description The timestamp when the vulnerability was last detected. Unit: milliseconds.
      *
      * @example centos
      *
@@ -72,7 +72,7 @@ class extendContentJson extends Model
     public $os;
 
     /**
-     * @description The release of the operating system.
+     * @description The package path of the software that has the vulnerability.
      *
      * @example 7
      *
@@ -81,7 +81,7 @@ class extendContentJson extends Model
     public $osRelease;
 
     /**
-     * @description The ID of the vulnerability.
+     * @description The tag that is added to the vulnerability.
      *
      * @example 111
      *
@@ -90,28 +90,14 @@ class extendContentJson extends Model
     public $primaryId;
 
     /**
-     * @description The RPM Package Manager (RPM) packages.
+     * @description The package version number of the software that has the vulnerability.
      *
      * @var rpmEntityList[]
      */
     public $rpmEntityList;
 
     /**
-     * @description The status of the vulnerability. Valid values:
-     *
-     *   **1**: unfixed
-     *   **2**: fix failed
-     *   3: rollback failed
-     *   **4**: fixing
-     *   **5**: being rolled back
-     *   **6**: being verified
-     *   **7**: fixed
-     *   **8**: fixed and to be restarted
-     *   **9**: rolled back
-     *   **10**: ignored
-     *   **11**: rolled back and to be restarted
-     *   **12**: not found
-     *   **20**: expired
+     * @description The ID of the vulnerability.
      *
      * @example 1
      *
@@ -120,7 +106,7 @@ class extendContentJson extends Model
     public $status;
 
     /**
-     * @description The tag that is added to the vulnerability.
+     * @description The description of the vulnerability.
      *
      * @example oval
      *
@@ -129,7 +115,7 @@ class extendContentJson extends Model
     public $tag;
 
     /**
-     * @description The CVE list.
+     * @description Indicates whether the vulnerability needs to be fixed.
      *
      * @var string[]
      */

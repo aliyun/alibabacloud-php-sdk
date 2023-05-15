@@ -9,11 +9,7 @@ use AlibabaCloud\Tea\Model;
 class necessity extends Model
 {
     /**
-     * @description The asset importance score. Valid values:
-     *
-     *   **2**: an important asset
-     *   **1**: a common asset
-     *   **0**: a test asset
+     * @description The name of the operating system for your asset.
      *
      * @example 1
      *
@@ -22,56 +18,16 @@ class necessity extends Model
     public $assetsFactor;
 
     /**
-     * @description The Common Vulnerability Scoring System (CVSS) score.
+     * @description Indicates whether Security Center is authorized to protect the asset. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example 7.8
      *
      * @var string
      */
     public $cvssFactor;
-
-    /**
-     * @description The environment score.
-     *
-     * @example 1.0
-     *
-     * @var string
-     */
-    public $enviromentFactor;
-
-    /**
-     * @description Indicates whether the score of urgency to fix a vulnerability is calculated. Valid values:
-     *
-     *   **0**: no
-     *   **1**: yes
-     *
-     * @example 1
-     *
-     * @var string
-     */
-    public $isCalc;
-
-    /**
-     * @description The status of the score of urgency to fix a vulnerability. Valid values:
-     *
-     *   **none**: No score is generated.
-     *   **pending**: The score is pending calculation.
-     *   **normal**: The calculation is normal.
-     *
-     * @example normal
-     *
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @description The time score.
-     *
-     * @example 1.0
-     *
-     * @var string
-     */
-    public $timeFactor;
 
     /**
      * @description The score of urgency to fix a vulnerability.
@@ -81,6 +37,49 @@ class necessity extends Model
      *   If the score is from **13.5 to 15**, the vulnerability is a high-risk vulnerability. You must fix the vulnerability at the earliest opportunity.
      *   If the score is **greater than or equal to 7 but less than 13.5**, the vulnerability is a medium-risk vulnerability. You can fix the vulnerability at your convenience.
      *   If the score is **less than 7**, the vulnerability is a low-risk vulnerability. You can ignore the vulnerability.
+     *
+     * @example 1.0
+     *
+     * @var string
+     */
+    public $enviromentFactor;
+
+    /**
+     * @description The Common Vulnerability Scoring System (CVSS) score.
+     *
+     * @example 1
+     *
+     * @var string
+     */
+    public $isCalc;
+
+    /**
+     * @description The environment score.
+     *
+     * @example normal
+     *
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @description Indicates whether the score of urgency to fix a vulnerability is calculated. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * @example 1.0
+     *
+     * @var string
+     */
+    public $timeFactor;
+
+    /**
+     * @description The asset importance score. Valid values:
+     *
+     *   **2**: an important asset
+     *   **1**: a common asset
+     *   **0**: a test asset
      *
      * @example 7.8
      *

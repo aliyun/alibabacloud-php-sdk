@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateFileDetectRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $downloadUrl;
+
+    /**
      * @example 0a212417e65c26ff133cfff28f6c****
      *
      * @var string
@@ -36,10 +41,11 @@ class CreateFileDetectRequest extends Model
      */
     public $type;
     protected $_name = [
-        'hashKey'  => 'HashKey',
-        'ossKey'   => 'OssKey',
-        'sourceIp' => 'SourceIp',
-        'type'     => 'Type',
+        'downloadUrl' => 'DownloadUrl',
+        'hashKey'     => 'HashKey',
+        'ossKey'      => 'OssKey',
+        'sourceIp'    => 'SourceIp',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class CreateFileDetectRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->downloadUrl) {
+            $res['DownloadUrl'] = $this->downloadUrl;
+        }
         if (null !== $this->hashKey) {
             $res['HashKey'] = $this->hashKey;
         }
@@ -73,6 +82,9 @@ class CreateFileDetectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DownloadUrl'])) {
+            $model->downloadUrl = $map['DownloadUrl'];
+        }
         if (isset($map['HashKey'])) {
             $model->hashKey = $map['HashKey'];
         }

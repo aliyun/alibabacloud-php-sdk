@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedVulRequest extends Model
 {
     /**
+     * @description $.parameters[10].schema.example
+     *
      * @example RHSA-2019:0230-Important: polkit security update
      *
      * @var string
@@ -16,6 +18,10 @@ class DescribeGroupedVulRequest extends Model
     public $aliasName;
 
     /**
+     * @description Specifies whether the vulnerability is handled. Valid values:
+     *
+     **y**: handled **n**: The vulnerability is not handled.
+     *
      * @example ECS,CONTAINER
      *
      * @var string
@@ -23,6 +29,12 @@ class DescribeGroupedVulRequest extends Model
     public $assetType;
 
     /**
+     * @description The priorities to fix the vulnerabilities. Separate multiple priorities with commas (,). Valid values:
+     *
+     *   **asap**: high
+     *   **later**: medium
+     *   **nntf**: low
+     *
      * @example sca
      *
      * @var string
@@ -30,6 +42,15 @@ class DescribeGroupedVulRequest extends Model
     public $attachTypes;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerability
+     *   **app**: application vulnerability
+     *   **emg**: urgent vulnerability
+     *   **sca**: vulnerability that is detected based on software component analysis
+     *
      * @example appName
      *
      * @var string
@@ -37,6 +58,8 @@ class DescribeGroupedVulRequest extends Model
     public $containerFieldName;
 
     /**
+     * @description $.parameters[11].schema.example
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +67,8 @@ class DescribeGroupedVulRequest extends Model
     public $currentPage;
 
     /**
+     * @description $.parameters[11].schema.description
+     *
      * @example n
      *
      * @var string
@@ -51,6 +76,11 @@ class DescribeGroupedVulRequest extends Model
     public $dealed;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example 235454
      *
      * @var string
@@ -58,7 +88,7 @@ class DescribeGroupedVulRequest extends Model
     public $groupId;
 
     /**
-     * @description The name of the vulnerability.
+     * @description Code Execution
      *
      * @example zh
      *
@@ -67,6 +97,8 @@ class DescribeGroupedVulRequest extends Model
     public $lang;
 
     /**
+     * @description $.parameters[10].schema.enumValueTitles
+     *
      * @example asap,later,nntf
      *
      * @var string
@@ -74,6 +106,8 @@ class DescribeGroupedVulRequest extends Model
     public $necessity;
 
     /**
+     * @description $.parameters[11].schema.enumValueTitles
+     *
      * @example 20
      *
      * @var int
@@ -81,6 +115,8 @@ class DescribeGroupedVulRequest extends Model
     public $pageSize;
 
     /**
+     * @description The alias of the vulnerability.
+     *
      * @example Code Execution
      *
      * @var string
@@ -88,6 +124,8 @@ class DescribeGroupedVulRequest extends Model
     public $searchTags;
 
     /**
+     * @description The UUID of the server. Separate multiple UUIDs with commas (,).
+     *
      * @example containerId
      *
      * @var string
@@ -95,7 +133,7 @@ class DescribeGroupedVulRequest extends Model
     public $targetType;
 
     /**
-     * @description The total number of fixed vulnerabilities.
+     * @description Queries vulnerabilities by group.
      *
      * @example cve
      *
@@ -104,7 +142,7 @@ class DescribeGroupedVulRequest extends Model
     public $type;
 
     /**
-     * @description The number of vulnerabilities that have the **high** priority.
+     * @description $.parameters[10].schema.description
      *
      * @example d42f938c-d962-48a0-90f9-05e4ea****
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class rpmEntityList extends Model
 {
     /**
-     * @description The name of the container.
+     * @description The command that is used to fix the vulnerability.
      *
      * @example k8s_67895c4_xxx
      *
@@ -18,7 +18,7 @@ class rpmEntityList extends Model
     public $containerName;
 
     /**
-     * @description The complete version number.
+     * @description The reason why the vulnerability is detected.
      *
      * @example 3.10.0-693.2.2.el7
      *
@@ -27,7 +27,7 @@ class rpmEntityList extends Model
     public $fullVersion;
 
     /**
-     * @description The name of the image.
+     * @description The name of the container.
      *
      * @example registry_387ytb_xxx
      *
@@ -36,7 +36,7 @@ class rpmEntityList extends Model
     public $imageName;
 
     /**
-     * @description The reason why the vulnerability is detected.
+     * @description The path of the software that has the vulnerability.
      *
      * @example python-perf version less than 0:3.10.0-693.21.1.el7
      *
@@ -45,14 +45,14 @@ class rpmEntityList extends Model
     public $matchDetail;
 
     /**
-     * @description The rule that is used to detect the vulnerability.
+     * @description The process ID.
      *
      * @var string[]
      */
     public $matchList;
 
     /**
-     * @description The name of the RPM package.
+     * @description The rule that is used to detect the vulnerability.
      *
      * @example python-perf
      *
@@ -61,7 +61,7 @@ class rpmEntityList extends Model
     public $name;
 
     /**
-     * @description The path of the software that has the vulnerability.
+     * @description The name of the RPM package.
      *
      * @example /usr/lib64/python2.7/site-packages
      *
@@ -70,7 +70,7 @@ class rpmEntityList extends Model
     public $path;
 
     /**
-     * @description The process ID.
+     * @description The CVE list.
      *
      * @example 8664
      *
@@ -79,7 +79,7 @@ class rpmEntityList extends Model
     public $pid;
 
     /**
-     * @description The command that is used to fix the vulnerability.
+     * @description The rule that is used to detect the vulnerability.
      *
      * @example *** update python-perf
      *
@@ -88,7 +88,7 @@ class rpmEntityList extends Model
     public $updateCmd;
 
     /**
-     * @description The package version number of the software that has the vulnerability.
+     * @description The name of the image.
      *
      * @example 3.10.0
      *

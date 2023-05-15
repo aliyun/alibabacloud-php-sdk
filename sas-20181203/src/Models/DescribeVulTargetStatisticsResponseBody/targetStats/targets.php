@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class targets extends Model
 {
     /**
-     * @description Indicates whether the configurations are applied to the server. Valid values:
-     *
-     *   **add**: yes
-     *   **del**: no
+     * @description The group ID or UUID of the server to which the configurations are applied.
      *
      * @example add
      *
@@ -21,7 +18,10 @@ class targets extends Model
     public $flag;
 
     /**
-     * @description The group ID or UUID of the server to which the configurations are applied.
+     * @description The condition by which the configurations are applied to the server. Valid values:
+     *
+     *   **uuid**: the UUID of the server
+     *   **groupId**: the ID of the server group
      *
      * @example 0011ea53-738c-4bff-93be-ce6a1cc9****
      *
@@ -30,11 +30,6 @@ class targets extends Model
     public $target;
 
     /**
-     * @description The condition by which the configurations are applied to the server. Valid values:
-     *
-     *   **uuid**: the UUID of the server
-     *   **groupId**: the ID of the server group
-     *
      * @example uuid
      *
      * @var string

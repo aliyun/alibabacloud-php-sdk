@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sensitiveFileList extends Model
 {
     /**
-     * @description The timestamp when the first scan was performed. Unit: milliseconds.
+     * @description The suggestion.
      *
      * @example Assess risks based on business conditions, remove risky content, and rebuild image
      *
@@ -18,13 +18,62 @@ class sensitiveFileList extends Model
     public $advice;
 
     /**
-     * @description The UUID of the image.
+     * @description The file path.
      *
      * @example /usr/lib/abc.txt
      *
      * @var string
      */
     public $filePath;
+
+    /**
+     * @description The timestamp when the first scan was performed. Unit: milliseconds.
+     *
+     * @example 1663321552000
+     *
+     * @var int
+     */
+    public $firstScanTime;
+
+    /**
+     * @description The timestamp when the last scan was performed. Unit: milliseconds.
+     *
+     * @example 1663691592000
+     *
+     * @var int
+     */
+    public $lastScanTime;
+
+    /**
+     * @description The digest of the image layer.
+     *
+     * @example 0083a31cc0083a31ccf7c10367a6e783e8601e290f7c10367a6e783e860****
+     *
+     * @var string
+     */
+    public $layerDigest;
+
+    /**
+     * @description The sensitive content.
+     *
+     * @example AKPIDteow289f9s************
+     *
+     * @var string
+     */
+    public $promt;
+
+    /**
+     * @description The risk level of the sensitive file. Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
+     * @example low
+     *
+     * @var string
+     */
+    public $riskLevel;
 
     /**
      * @description The alert type of the sensitive file. Valid values:
@@ -84,7 +133,7 @@ class sensitiveFileList extends Model
      *   **github_oauth_token**: Github OAuth Token
      *   **pulumi_token**: Pulumi Token
      *   **ventrilo_voip**: Ventrilo VoIP Server Config
-     *   **macos_keychain**: MacOS Keychain
+     *   **macos_keychain**: macOS Keychain
      *   **amazon_mws_token**: Amazon MWS Token
      *   **dynatrace_token**: Dynatrace Token
      *   **java_keystore**: Java Keystore
@@ -141,57 +190,6 @@ class sensitiveFileList extends Model
      *   **newrelic_api_key**: New Relic User API Key
      *   **github_hub**: Github Token
      *   **rubygem**: Rubygem Token
-     *
-     * @example 1663321552000
-     *
-     * @var int
-     */
-    public $firstScanTime;
-
-    /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example 1663691592000
-     *
-     * @var int
-     */
-    public $lastScanTime;
-
-    /**
-     * @description The type of the asset that you want to scan. Valid values:
-     *
-     *   **image**
-     *   **container**
-     *
-     * @example 0083a31cc0083a31ccf7c10367a6e783e8601e290f7c10367a6e783e860****
-     *
-     * @var string
-     */
-    public $layerDigest;
-
-    /**
-     * @description The number of entries returned on the current page.
-     *
-     * @example AKPIDteow289f9s************
-     *
-     * @var string
-     */
-    public $promt;
-
-    /**
-     * @description The suggestion.
-     *
-     * @example low
-     *
-     * @var string
-     */
-    public $riskLevel;
-
-    /**
-     * @description The pagination information.
      *
      * @example google_oauth_key
      *

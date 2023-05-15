@@ -6,18 +6,16 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeVulTargetStatisticsRequest extends Model
+class CreateOrUpdateDingTalkResponseBody extends Model
 {
     /**
-     * @description The data returned.
-     *
-     * @example cve
+     * @example 76975B7A-34DC-5CB6-9538-91700D4F112E
      *
      * @var string
      */
-    public $type;
+    public $requestId;
     protected $_name = [
-        'type' => 'Type',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class DescribeVulTargetStatisticsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class DescribeVulTargetStatisticsRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeVulTargetStatisticsRequest
+     * @return CreateOrUpdateDingTalkResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
