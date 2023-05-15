@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedVulRequest extends Model
 {
     /**
-     * @description $.parameters[10].schema.example
+     * @description The alias of the vulnerability.
      *
      * @example RHSA-2019:0230-Important: polkit security update
      *
@@ -18,9 +18,10 @@ class DescribeGroupedVulRequest extends Model
     public $aliasName;
 
     /**
-     * @description Specifies whether the vulnerability is handled. Valid values:
+     * @description The type of the asset on which the vulnerability is detected. Separate multiple types with commas (,). Valid values:
      *
-     **y**: handled **n**: The vulnerability is not handled.
+     *   **ECS**: Elastic Compute Service (ECS) instance
+     *   **CONTAINER**: container
      *
      * @example ECS,CONTAINER
      *
@@ -29,11 +30,10 @@ class DescribeGroupedVulRequest extends Model
     public $assetType;
 
     /**
-     * @description The priorities to fix the vulnerabilities. Separate multiple priorities with commas (,). Valid values:
+     * @description The type of the vulnerability. This parameter is valid only for application vulnerabilities. Valid values:
      *
-     *   **asap**: high
-     *   **later**: medium
-     *   **nntf**: low
+     *   **sca**: vulnerability that is detected based on software component analysis
+     *   **app**: application vulnerability
      *
      * @example sca
      *
@@ -42,14 +42,20 @@ class DescribeGroupedVulRequest extends Model
     public $attachTypes;
 
     /**
-     * @description The type of the vulnerability. Valid values:
+     * @description The key of the condition that is used to query containers. Valid values:
      *
-     *   **cve**: Linux software vulnerability
-     *   **sys**: Windows system vulnerability
-     *   **cms**: Web-CMS vulnerability
-     *   **app**: application vulnerability
-     *   **emg**: urgent vulnerability
-     *   **sca**: vulnerability that is detected based on software component analysis
+     *   **instanceId**: the ID of the asset
+     *   **appName**: the name of the application
+     *   **clusterId**: the ID of the cluster
+     *   **regionId**: the ID of the region
+     *   **nodeName**: the name of the node
+     *   **namespace**: the namespace
+     *   **clusterName**: the name of the cluster
+     *   **image**: the name of the image
+     *   **imageRepoName**: the name of the image repository
+     *   **imageRepoNamespace**: the namespace to which the image repository belongs
+     *   **imageRepoTag**: the tag that is added to the image
+     *   **imageDigest**: the digest of the image
      *
      * @example appName
      *
@@ -58,7 +64,7 @@ class DescribeGroupedVulRequest extends Model
     public $containerFieldName;
 
     /**
-     * @description $.parameters[11].schema.example
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -67,7 +73,9 @@ class DescribeGroupedVulRequest extends Model
     public $currentPage;
 
     /**
-     * @description $.parameters[11].schema.description
+     * @description Specifies whether the vulnerability is handled. Valid values:
+     *
+     **y**: yes **n**: no
      *
      * @example n
      *
@@ -76,10 +84,7 @@ class DescribeGroupedVulRequest extends Model
     public $dealed;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
+     * @description The ID of the asset group.
      *
      * @example 235454
      *
@@ -88,7 +93,10 @@ class DescribeGroupedVulRequest extends Model
     public $groupId;
 
     /**
-     * @description Code Execution
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example zh
      *
@@ -97,7 +105,11 @@ class DescribeGroupedVulRequest extends Model
     public $lang;
 
     /**
-     * @description $.parameters[10].schema.enumValueTitles
+     * @description The priorities to fix the vulnerabilities. Separate multiple priorities with commas (,). Valid values:
+     *
+     *   **asap**: high
+     *   **later**: medium
+     *   **nntf**: low
      *
      * @example asap,later,nntf
      *
@@ -106,7 +118,7 @@ class DescribeGroupedVulRequest extends Model
     public $necessity;
 
     /**
-     * @description $.parameters[11].schema.enumValueTitles
+     * @description The number of entries per page. Default value: 10.
      *
      * @example 20
      *
@@ -115,7 +127,14 @@ class DescribeGroupedVulRequest extends Model
     public $pageSize;
 
     /**
-     * @description The alias of the vulnerability.
+     * @description The tag that is used to filter vulnerabilities. Valid values:
+     *
+     *   Restart required
+     *   Remote utilization
+     *   EXP exists
+     *   Available
+     *   Elevation of Privilege
+     *   Code Execution
      *
      * @example Code Execution
      *
@@ -124,7 +143,10 @@ class DescribeGroupedVulRequest extends Model
     public $searchTags;
 
     /**
-     * @description The UUID of the server. Separate multiple UUIDs with commas (,).
+     * @description The query type for containers. Valid values:
+     *
+     *   **containerId**: the ID of the container
+     *   **uuid**: the ID of the asset
      *
      * @example containerId
      *
@@ -133,7 +155,14 @@ class DescribeGroupedVulRequest extends Model
     public $targetType;
 
     /**
-     * @description Queries vulnerabilities by group.
+     * @description The type of the vulnerabilities. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerability
+     *   **app**: application vulnerability
+     *   **emg**: urgent vulnerabilities
+     *   **sca**: vulnerability that is detected based on software component analysis
      *
      * @example cve
      *
@@ -142,7 +171,7 @@ class DescribeGroupedVulRequest extends Model
     public $type;
 
     /**
-     * @description $.parameters[10].schema.description
+     * @description The UUID of the server. Separate multiple UUIDs with commas (,).
      *
      * @example d42f938c-d962-48a0-90f9-05e4ea****
      *

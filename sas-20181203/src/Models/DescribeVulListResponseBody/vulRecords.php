@@ -10,154 +10,13 @@ use AlibabaCloud\Tea\Model;
 class vulRecords extends Model
 {
     /**
-     * @description The status of the vulnerability. Valid values:
-     *
-     *   **1**: unfixed
-     *   **2**: fix failed
-     *   3: rollback failed
-     *   **4**: fixing
-     *   **5**: being rolled back
-     *   **6**: being verified
-     *   **7**: fixed
-     *   **8**: fixed and to be restarted
-     *   **9**: rolled back
-     *   **10**: ignored
-     *   **11**: rolled back and to be restarted
-     *   **12**: not found
-     *   **20**: expired
+     * @description The alias of the vulnerability.
      *
      * @example RHSA-2019:0230-Important: polkit security update
      *
      * @var string
      */
     public $aliasName;
-
-    /**
-     * @example 3
-     *
-     * @var string
-     */
-    public $authVersion;
-
-    /**
-     * @description CentOS 7.2 64-bit
-     *
-     * @example true
-     *
-     * @var bool
-     */
-    public $bind;
-
-    /**
-     * @description The public IP address of the asset that is associated with the vulnerability.
-     *
-     * @var extendContentJson
-     */
-    public $extendContentJson;
-
-    /**
-     * @description The priority to fix the vulnerability. Valid values:
-     *
-     *   **asap**: high
-     *   **later**: medium
-     *   **nntf**: low
-     *
-     * > We recommend that you fix the vulnerabilities that have the **high** priority at the earliest opportunity.
-     * @example 1554189334000
-     *
-     * @var int
-     */
-    public $firstTs;
-
-    /**
-     * @description The name of the vulnerability.
-     *
-     * @example 281801
-     *
-     * @var int
-     */
-    public $groupId;
-
-    /**
-     * @description The private IP address of the asset.
-     *
-     * @example i-bp18t***
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @description The name of the operating system for your asset.
-     *
-     * @example testInstance
-     *
-     * @var string
-     */
-    public $instanceName;
-
-    /**
-     * @description The tag that is added to the vulnerability.
-     *
-     * @example 1.2.XX.XX
-     *
-     * @var string
-     */
-    public $internetIp;
-
-    /**
-     * @description The timestamp when the vulnerability was first detected. Unit: milliseconds.
-     *
-     * @example 1.2.XX.XX
-     *
-     * @var string
-     */
-    public $intranetIp;
-
-    /**
-     * @description The ID of the region in which the server resides.
-     *
-     * @example 1620404763000
-     *
-     * @var int
-     */
-    public $lastTs;
-
-    /**
-     * @description The ID of the vulnerability.
-     *
-     * @example 1620404763000
-     *
-     * @var int
-     */
-    public $modifyTs;
-
-    /**
-     * @description The instance ID of the asset.
-     *
-     * @example oval:com.redhat.rhsa:def:20170574
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @description The UUID of the asset.
-     *
-     * @example asap
-     *
-     * @var string
-     */
-    public $necessity;
-
-    /**
-     * @description The name of the vulnerability.
-     *
-     * @example true
-     *
-     * @var bool
-     */
-    public $online;
 
     /**
      * @description The edition of Security Center that is authorized to protect the asset. Valid values:
@@ -169,12 +28,149 @@ class vulRecords extends Model
      *   **7**: Ultimate edition
      *   **10**: Value-added Plan edition
      *
+     * @example 3
+     *
+     * @var string
+     */
+    public $authVersion;
+
+    /**
+     * @description Indicates whether Security Center is authorized to protect the asset. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $bind;
+
+    /**
+     * @description The extended information about the vulnerability.
+     *
+     * @var extendContentJson
+     */
+    public $extendContentJson;
+
+    /**
+     * @description The timestamp when the vulnerability was first detected. Unit: milliseconds.
+     *
+     * @example 1554189334000
+     *
+     * @var int
+     */
+    public $firstTs;
+
+    /**
+     * @description The ID of the asset group.
+     *
+     * @example 281801
+     *
+     * @var int
+     */
+    public $groupId;
+
+    /**
+     * @description The instance ID of the asset.
+     *
+     * @example i-bp18t***
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @description The name of the asset.
+     *
+     * @example testInstance
+     *
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @description The public IP address of the asset.
+     *
+     * @example 1.2.XX.XX
+     *
+     * @var string
+     */
+    public $internetIp;
+
+    /**
+     * @description The private IP address of the asset.
+     *
+     * @example 1.2.XX.XX
+     *
+     * @var string
+     */
+    public $intranetIp;
+
+    /**
+     * @description The timestamp when the vulnerability was last detected. Unit: milliseconds.
+     *
+     * @example 1620404763000
+     *
+     * @var int
+     */
+    public $lastTs;
+
+    /**
+     * @description The timestamp when the vulnerability status was modified. Unit: milliseconds.
+     *
+     * @example 1620404763000
+     *
+     * @var int
+     */
+    public $modifyTs;
+
+    /**
+     * @description The name of the vulnerability.
+     *
+     * @example oval:com.redhat.rhsa:def:20170574
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @description The priority to fix the vulnerability. Valid values:
+     *
+     *   **asap**: high
+     *   **later**: medium
+     *   **nntf**: low
+     *
+     * > We recommend that you fix the vulnerabilities that have the **high** priority at the earliest opportunity.
+     * @example asap
+     *
+     * @var string
+     */
+    public $necessity;
+
+    /**
+     * @description Indicates whether the Security Center agent on the asset is online. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $online;
+
+    /**
+     * @description The name of the operating system for your asset.
+     *
+     * @example CentOS 7.2 64-bit
+     *
      * @var string
      */
     public $osName;
 
     /**
-     * @description The code that indicates the vulnerability fixing result.
+     * @description The name of the operating system for your asset.
      *
      * @example linux
      *
@@ -183,7 +179,7 @@ class vulRecords extends Model
     public $osVersion;
 
     /**
-     * @description The name of the asset.
+     * @description The ID of the vulnerability.
      *
      * @example 101162078
      *
@@ -192,15 +188,12 @@ class vulRecords extends Model
     public $primaryId;
 
     /**
-     * @description The type of the vulnerability. Valid values:
+     * @description Indicates whether the application protection feature is supported.
      *
-     *   **cve**: Linux software vulnerability
-     *   **sys**: Windows system vulnerability
-     *   **cms**: Web-CMS vulnerability
-     *   **emg**: urgent vulnerability
-     *   **app**: application vulnerability
-     *   **sca**: application vulnerability that is detected by using software component analysis
+     *   **0**: no
+     *   **1**: yes
      *
+     * > If this parameter is not returned, the application protection feature is not supported.
      * @example 1
      *
      * @var int
@@ -208,7 +201,12 @@ class vulRecords extends Model
     public $raspDefend;
 
     /**
-     * @description The timestamp when the vulnerability status was modified. Unit: milliseconds.
+     * @description The protection mode of the application protection feature. Valid values:
+     *
+     *   **0**: unprotected
+     *   **1**: the Monitor mode
+     *   **2**: the Block mode
+     *   **3**: disabled
      *
      * @example 1
      *
@@ -217,7 +215,7 @@ class vulRecords extends Model
     public $raspStatus;
 
     /**
-     * @description The timestamp when the vulnerability was fixed. Unit: milliseconds.
+     * @description The ID of the region in which the server resides.
      *
      * @example cn-hangzhou
      *
@@ -226,7 +224,7 @@ class vulRecords extends Model
     public $regionId;
 
     /**
-     * @description The timestamp when the vulnerability was last detected. Unit: milliseconds.
+     * @description The Common Vulnerabilities and Exposures (CVE) IDs related to the vulnerability. Multiple CVE IDs are separated by commas (,).
      *
      * @example CVE-2017-7518,CVE-2017-12188
      *
@@ -235,7 +233,7 @@ class vulRecords extends Model
     public $related;
 
     /**
-     * @description The ID of the asset group.
+     * @description The timestamp when the vulnerability was fixed. Unit: milliseconds.
      *
      * @example 1541207563000
      *
@@ -244,7 +242,7 @@ class vulRecords extends Model
     public $repairTs;
 
     /**
-     * @description The Common Vulnerabilities and Exposures (CVE) IDs related to the vulnerability. Multiple CVE IDs are separated by commas (,).
+     * @description The code that indicates the vulnerability fixing result.
      *
      * @example 0
      *
@@ -253,7 +251,7 @@ class vulRecords extends Model
     public $resultCode;
 
     /**
-     * @description The extended information about the vulnerability.
+     * @description The message that indicates the vulnerability fixing result.
      *
      * @example timeout
      *
@@ -285,10 +283,7 @@ class vulRecords extends Model
     public $status;
 
     /**
-     * @description Indicates whether the Security Center agent on the asset is online. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
+     * @description The tag that is added to the vulnerability.
      *
      * @example oval
      *
@@ -297,7 +292,14 @@ class vulRecords extends Model
     public $tag;
 
     /**
-     * @description The public IP address of the asset.
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerability
+     *   **emg**: urgent vulnerability
+     *   **app**: application vulnerability
+     *   **sca**: application vulnerability that is detected by using software component analysis
      *
      * @example cve
      *
@@ -306,7 +308,7 @@ class vulRecords extends Model
     public $type;
 
     /**
-     * @description The message that indicates the vulnerability fixing result.
+     * @description The UUID of the asset.
      *
      * @example 04c56617-23fc-43a5-ab9b-****
      *

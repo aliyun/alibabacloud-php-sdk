@@ -19,7 +19,7 @@ class DescribeVulListResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 20
      *

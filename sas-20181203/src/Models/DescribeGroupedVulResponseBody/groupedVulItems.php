@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class groupedVulItems extends Model
 {
     /**
-     * @description The number of handled vulnerabilities.
+     * @description The alias of the vulnerability.
      *
      * @example RHSA-2017:0184-Important: mysql security update
      *
@@ -18,14 +18,7 @@ class groupedVulItems extends Model
     public $aliasName;
 
     /**
-     * @description The tag that is added to the vulnerability. Valid values:
-     *
-     *   Restart required
-     *   Remote exploitation
-     *   Exploit exists
-     *   Exploitable
-     *   Privilege escalation
-     *   Code execution
+     * @description The number of vulnerabilities that have the **high** priority.
      *
      * @example 0
      *
@@ -34,7 +27,7 @@ class groupedVulItems extends Model
     public $asapCount;
 
     /**
-     * @description An array that consists of the details about the vulnerability.
+     * @description The timestamp when the vulnerability was last detected. Unit: milliseconds.
      *
      * @example 1639371446000
      *
@@ -43,7 +36,7 @@ class groupedVulItems extends Model
     public $gmtLast;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of handled vulnerabilities.
      *
      * @example 0
      *
@@ -52,7 +45,7 @@ class groupedVulItems extends Model
     public $handledCount;
 
     /**
-     * @description The number of vulnerabilities that have the **low** priority.
+     * @description The number of vulnerabilities that have the **medium** priority.
      *
      * @example 0
      *
@@ -61,7 +54,7 @@ class groupedVulItems extends Model
     public $laterCount;
 
     /**
-     * @description The timestamp when the vulnerability was last detected. Unit: milliseconds.
+     * @description The name of the vulnerability.
      *
      * @example oval:com.redhat.rhsa:def:20170184
      *
@@ -70,7 +63,7 @@ class groupedVulItems extends Model
     public $name;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The number of vulnerabilities that have the **low** priority.
      *
      * @example 59
      *
@@ -79,8 +72,12 @@ class groupedVulItems extends Model
     public $nntfCount;
 
     /**
-     * @description The number of entries returned per page. Default value: 10.
+     * @description Indicates whether the application protection feature is supported.
      *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * > If this parameter is not returned, the application protection feature is not supported.
      * @example 1
      *
      * @var int
@@ -88,14 +85,14 @@ class groupedVulItems extends Model
     public $raspDefend;
 
     /**
-     * @description The type of the vulnerability. Valid values:
+     * @description The tag that is added to the vulnerability. Valid values:
      *
-     *   **cve**: Linux software vulnerability
-     *   **sys**: Windows system vulnerability
-     *   **cms**: Web-CMS vulnerability
-     *   **app**: application vulnerability
-     *   **emg**: urgent vulnerability
-     *   **sca**: vulnerability that is detected based on software component analysis
+     *   Restart required
+     *   Remote utilization
+     *   EXP exists
+     *   Available
+     *   Elevation of Privilege
+     *   Code Execution
      *
      * @example Code Execution
      *
@@ -104,7 +101,7 @@ class groupedVulItems extends Model
     public $tags;
 
     /**
-     * @description gmtLast
+     * @description The total number of fixed vulnerabilities.
      *
      * @example 0
      *
@@ -113,7 +110,14 @@ class groupedVulItems extends Model
     public $totalFixCount;
 
     /**
-     * @description The page number of the returned page.
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerability
+     *   **app**: application vulnerabilitiy
+     *   **emg**: urgent vulnerabilities
+     *   **sca**: vulnerability that is detected based on software component analysis
      *
      * @example cve
      *

@@ -93,7 +93,7 @@ class DescribeVulListRequest extends Model
     public $necessity;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
+     * @description The number of entries per page. Default value: **10**.
      *
      * @example 20
      *
@@ -115,9 +115,9 @@ class DescribeVulListRequest extends Model
      *
      *   **cve**: Linux software vulnerability
      *   **sys**: Windows system vulnerability
-     *   **cms**: Web-CMS vulnerability
+     *   **cms**: Web-CMS vulnerability.
      *   **app**: application vulnerability that is detected by using web scanner
-     *   **emg**: urgent vulnerability
+     *   **emg**: urgent vulnerability.
      *   **sca**: application vulnerability that is detected by using software component analysis
      *
      * @example cve
@@ -136,7 +136,7 @@ class DescribeVulListRequest extends Model
     public $uuids;
 
     /**
-     * @description The IDs of the virtual private clouds (VPCs) in which the vulnerability is detected. Separate multiple IDs with commas (,).
+     * @description The ID of the virtual private cloud (VPC) in which the vulnerabilities are detected. Separate multiple IDs with commas (,).
      *
      * @example ins-133****,ins-5414****
      *
