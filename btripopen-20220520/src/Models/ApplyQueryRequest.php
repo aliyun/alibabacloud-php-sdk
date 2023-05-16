@@ -23,8 +23,6 @@ class ApplyQueryRequest extends Model
     public $applyShowId;
 
     /**
-     * @description 子企业Id
-     *
      * @example btrip123
      *
      * @var string

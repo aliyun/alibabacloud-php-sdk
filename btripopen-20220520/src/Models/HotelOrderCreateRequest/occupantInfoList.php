@@ -16,6 +16,8 @@ class occupantInfoList extends Model
     public $cardNo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cardType;

@@ -320,6 +320,15 @@ class dataList extends Model
     public $status;
 
     /**
+     * @description 税率
+     *
+     * @example 6%
+     *
+     * @var string
+     */
+    public $taxRate;
+
+    /**
      * @example 2
      *
      * @var int
@@ -399,6 +408,7 @@ class dataList extends Model
         'settlementTime'     => 'settlement_time',
         'settlementType'     => 'settlement_type',
         'status'             => 'status',
+        'taxRate'            => 'tax_rate',
         'totalNights'        => 'total_nights',
         'travelerId'         => 'traveler_id',
         'travelerJobNo'      => 'traveler_job_no',
@@ -559,6 +569,9 @@ class dataList extends Model
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+        if (null !== $this->taxRate) {
+            $res['tax_rate'] = $this->taxRate;
         }
         if (null !== $this->totalNights) {
             $res['total_nights'] = $this->totalNights;
@@ -733,6 +746,9 @@ class dataList extends Model
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+        if (isset($map['tax_rate'])) {
+            $model->taxRate = $map['tax_rate'];
         }
         if (isset($map['total_nights'])) {
             $model->totalNights = $map['total_nights'];

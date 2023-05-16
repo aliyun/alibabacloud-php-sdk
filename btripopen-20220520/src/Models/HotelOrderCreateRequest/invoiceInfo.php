@@ -90,6 +90,8 @@ class invoiceInfo extends Model
     public $invoiceTitle;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $invoiceType;

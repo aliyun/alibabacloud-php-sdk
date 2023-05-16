@@ -444,6 +444,15 @@ class dataList extends Model
     public $taxFee;
 
     /**
+     * @description 税率
+     *
+     * @example 6%
+     *
+     * @var string
+     */
+    public $taxRate;
+
+    /**
      * @example 781-6586234234324
      *
      * @var string
@@ -550,6 +559,7 @@ class dataList extends Model
         'status'                 => 'status',
         'subOrderId'             => 'sub_order_id',
         'taxFee'                 => 'tax_fee',
+        'taxRate'                => 'tax_rate',
         'ticketId'               => 'ticket_id',
         'trade'                  => 'trade',
         'travelerId'             => 'traveler_id',
@@ -765,6 +775,9 @@ class dataList extends Model
         }
         if (null !== $this->taxFee) {
             $res['tax_fee'] = $this->taxFee;
+        }
+        if (null !== $this->taxRate) {
+            $res['tax_rate'] = $this->taxRate;
         }
         if (null !== $this->ticketId) {
             $res['ticket_id'] = $this->ticketId;
@@ -996,6 +1009,9 @@ class dataList extends Model
         }
         if (isset($map['tax_fee'])) {
             $model->taxFee = $map['tax_fee'];
+        }
+        if (isset($map['tax_rate'])) {
+            $model->taxRate = $map['tax_rate'];
         }
         if (isset($map['ticket_id'])) {
             $model->ticketId = $map['ticket_id'];

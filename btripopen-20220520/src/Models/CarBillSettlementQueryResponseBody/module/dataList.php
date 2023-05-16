@@ -336,6 +336,15 @@ class dataList extends Model
     public $subOrderId;
 
     /**
+     * @description 税率
+     *
+     * @example 6%
+     *
+     * @var string
+     */
+    public $taxRate;
+
+    /**
      * @var string
      */
     public $travelerId;
@@ -417,6 +426,7 @@ class dataList extends Model
         'specialReason'         => 'special_reason',
         'status'                => 'status',
         'subOrderId'            => 'sub_order_id',
+        'taxRate'               => 'tax_rate',
         'travelerId'            => 'traveler_id',
         'travelerJobNo'         => 'traveler_job_no',
         'travelerName'          => 'traveler_name',
@@ -589,6 +599,9 @@ class dataList extends Model
         }
         if (null !== $this->subOrderId) {
             $res['sub_order_id'] = $this->subOrderId;
+        }
+        if (null !== $this->taxRate) {
+            $res['tax_rate'] = $this->taxRate;
         }
         if (null !== $this->travelerId) {
             $res['traveler_id'] = $this->travelerId;
@@ -775,6 +788,9 @@ class dataList extends Model
         }
         if (isset($map['sub_order_id'])) {
             $model->subOrderId = $map['sub_order_id'];
+        }
+        if (isset($map['tax_rate'])) {
+            $model->taxRate = $map['tax_rate'];
         }
         if (isset($map['traveler_id'])) {
             $model->travelerId = $map['traveler_id'];

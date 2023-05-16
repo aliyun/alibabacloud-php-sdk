@@ -65,8 +65,6 @@ class ApplyListQueryRequest extends Model
     public $startTime;
 
     /**
-     * @description 子企业Id
-     *
      * @example btrip123
      *
      * @var string
