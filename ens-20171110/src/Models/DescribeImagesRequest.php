@@ -16,8 +16,6 @@ class DescribeImagesRequest extends Model
     public $ensRegionId;
 
     /**
-     * @example m-5qm2r6xo7njrpdkx04q1oxb4z
-     *
      * @var string
      */
     public $imageId;

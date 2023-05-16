@@ -31,6 +31,16 @@ class AICInstances extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $latestAction;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
      * @var networkAttributes
      */
     public $networkAttributes;
@@ -66,6 +76,8 @@ class AICInstances extends Model
         'frequency'         => 'Frequency',
         'imageId'           => 'ImageId',
         'instanceId'        => 'InstanceId',
+        'latestAction'      => 'LatestAction',
+        'name'              => 'Name',
         'networkAttributes' => 'NetworkAttributes',
         'resolution'        => 'Resolution',
         'spec'              => 'Spec',
@@ -88,6 +100,12 @@ class AICInstances extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->latestAction) {
+            $res['LatestAction'] = $this->latestAction;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
         }
         if (null !== $this->networkAttributes) {
             $res['NetworkAttributes'] = null !== $this->networkAttributes ? $this->networkAttributes->toMap() : null;
@@ -124,6 +142,12 @@ class AICInstances extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['LatestAction'])) {
+            $model->latestAction = $map['LatestAction'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
         }
         if (isset($map['NetworkAttributes'])) {
             $model->networkAttributes = networkAttributes::fromMap($map['NetworkAttributes']);

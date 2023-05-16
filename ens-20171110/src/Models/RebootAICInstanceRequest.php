@@ -16,14 +16,20 @@ class RebootAICInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @var string[]
+     */
+    public $instanceIds;
+
+    /**
      * @example cas-instance****
      *
      * @var string
      */
     public $serverId;
     protected $_name = [
-        'instanceId' => 'InstanceId',
-        'serverId'   => 'ServerId',
+        'instanceId'  => 'InstanceId',
+        'instanceIds' => 'InstanceIds',
+        'serverId'    => 'ServerId',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class RebootAICInstanceRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
         }
         if (null !== $this->serverId) {
             $res['ServerId'] = $this->serverId;
@@ -53,6 +62,11 @@ class RebootAICInstanceRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = $map['InstanceIds'];
+            }
         }
         if (isset($map['ServerId'])) {
             $model->serverId = $map['ServerId'];

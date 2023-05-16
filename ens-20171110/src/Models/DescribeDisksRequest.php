@@ -23,15 +23,11 @@ class DescribeDisksRequest extends Model
     public $diskChargeType;
 
     /**
-     * @example d-5soak1gqa507lyfzvz0xoy9ko
-     *
      * @var string
      */
     public $diskId;
 
     /**
-     * @example [\"d-wz99njena32z90kiy7sp\"]
-     *
      * @var string
      */
     public $diskIds;
@@ -70,8 +66,6 @@ class DescribeDisksRequest extends Model
     public $instanceId;
 
     /**
-     * @example {"EnsRegionId":"desc"}
-     *
      * @var string
      */
     public $orderByParams;

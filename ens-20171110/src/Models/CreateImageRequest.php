@@ -16,13 +16,13 @@ class CreateImageRequest extends Model
     public $deleteAfterImageUpload;
 
     /**
+     * @example ImageName
+     *
      * @var string
      */
     public $imageName;
 
     /**
-     * @example i-5rr1bnyrc4tswr8cq3w6y1fjw
-     *
      * @var string
      */
     public $instanceId;

@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class AttachDiskRequest extends Model
 {
     /**
-     * @example False
-     *
      * @var string
      */
     public $deleteWithInstance;
 
     /**
-     * @example d-5saf13yy6sopmmg88mzsgovj5
-     *
      * @var string
      */
     public $diskId;
 
     /**
-     * @example i-5rr19av7tkpgi9os52ag1enu1
-     *
      * @var string
      */
     public $instanceId;

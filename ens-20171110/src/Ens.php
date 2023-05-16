@@ -41,6 +41,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEipInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEipInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEnsRouteEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEnsRouteEntryResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEnsSaleControlRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEnsSaleControlResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEnsSaleControlShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEnsServiceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEnsServiceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\CreateEpnInstanceRequest;
@@ -93,6 +96,12 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsRouteEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsRouteEntryResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsSaleConditionControlRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsSaleConditionControlResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsSaleConditionControlShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsSaleControlRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsSaleControlResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEnsSaleControlShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteEpnInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteFileSystemRequest;
@@ -156,6 +165,10 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeDisksResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEipAddressesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEipAddressesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeElbAvailableResourceInfoResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsCommodityCodeRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsCommodityCodeResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsCommodityModuleCodeRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsCommodityModuleCodeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsEipAddressesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsEipAddressesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsNetDistrictRequest;
@@ -174,6 +187,12 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsResourceUsageRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsResourceUsageResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRouteEntryListRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsRouteEntryListResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlAvailableResourceRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlAvailableResourceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlStockRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEnsSaleControlStockResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEpnBandWidthDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEpnBandWidthDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeEpnBandwitdhByInternetChargeTypeRequest;
@@ -247,6 +266,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePrePaidInstanceStockResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribePriceShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionBandwidthQuotaRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionBandwidthQuotaResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionIspsRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionIspsResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeRegionResourceRequest;
@@ -327,8 +348,10 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\PushApplicationDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\PushApplicationDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootAICInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootAICInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RebootAICInstanceShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootARMServerInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootARMServerInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RebootARMServerInstanceShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RebootInstancesRequest;
@@ -370,6 +393,7 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\RescaleDeviceServiceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RescaleDeviceServiceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetAICInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetAICInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\ResetAICInstanceShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetDeviceInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetDeviceInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResetDiskRequest;
@@ -426,6 +450,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkAclRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassociateNetworkAclResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UpdateEnsSaleControlRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UpdateEnsSaleControlResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\UpdateEnsSaleControlShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeAICInstanceImageRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeAICInstanceImageResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UpgradeAICInstanceImageShrinkRequest;
@@ -1372,6 +1399,60 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEnsRouteEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateEnsSaleControlRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateEnsSaleControlResponse
+     */
+    public function createEnsSaleControlWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateEnsSaleControlShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->saleControls)) {
+            $request->saleControlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->saleControls, 'SaleControls', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->aliUidAccount)) {
+            $query['AliUidAccount'] = $request->aliUidAccount;
+        }
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->saleControlsShrink)) {
+            $query['SaleControls'] = $request->saleControlsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateEnsSaleControl',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateEnsSaleControlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateEnsSaleControlRequest $request
+     *
+     * @return CreateEnsSaleControlResponse
+     */
+    public function createEnsSaleControl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createEnsSaleControlWithOptions($request, $runtime);
     }
 
     /**
@@ -2880,6 +2961,114 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DeleteEnsSaleConditionControlRequest $tmpReq
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DeleteEnsSaleConditionControlResponse
+     */
+    public function deleteEnsSaleConditionControlWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteEnsSaleConditionControlShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->saleControls)) {
+            $request->saleControlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->saleControls, 'SaleControls', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->aliUidAccount)) {
+            $query['AliUidAccount'] = $request->aliUidAccount;
+        }
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->saleControlsShrink)) {
+            $query['SaleControls'] = $request->saleControlsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEnsSaleConditionControl',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEnsSaleConditionControlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteEnsSaleConditionControlRequest $request
+     *
+     * @return DeleteEnsSaleConditionControlResponse
+     */
+    public function deleteEnsSaleConditionControl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEnsSaleConditionControlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteEnsSaleControlRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteEnsSaleControlResponse
+     */
+    public function deleteEnsSaleControlWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteEnsSaleControlShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->saleControls)) {
+            $request->saleControlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->saleControls, 'SaleControls', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->aliUidAccount)) {
+            $query['AliUidAccount'] = $request->aliUidAccount;
+        }
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->saleControlsShrink)) {
+            $query['SaleControls'] = $request->saleControlsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteEnsSaleControl',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteEnsSaleControlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteEnsSaleControlRequest $request
+     *
+     * @return DeleteEnsSaleControlResponse
+     */
+    public function deleteEnsSaleControl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteEnsSaleControlWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteEpnInstanceRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -3509,17 +3698,32 @@ class Ens extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
         }
+        if (!Utils::isUnset($request->imageType)) {
+            $query['ImageType'] = $request->imageType;
+        }
         if (!Utils::isUnset($request->imageUrl)) {
             $query['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->maxDate)) {
+            $query['MaxDate'] = $request->maxDate;
+        }
+        if (!Utils::isUnset($request->minDate)) {
+            $query['MinDate'] = $request->minDate;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3562,11 +3766,20 @@ class Ens extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new DescribeARMServerInstancesShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->AICSpecs)) {
+            $request->AICSpecsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->AICSpecs, 'AICSpecs', 'json');
+        }
         if (!Utils::isUnset($tmpReq->ensRegionIds)) {
             $request->ensRegionIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ensRegionIds, 'EnsRegionIds', 'json');
         }
         if (!Utils::isUnset($tmpReq->serverIds)) {
             $request->serverIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverIds, 'ServerIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->serverSpecs)) {
+            $request->serverSpecsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverSpecs, 'ServerSpecs', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->states)) {
+            $request->statesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->states, 'States', 'json');
         }
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
@@ -4374,6 +4587,95 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DescribeEnsCommodityCodeRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeEnsCommodityCodeResponse
+     */
+    public function describeEnsCommodityCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEnsCommodityCode',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEnsCommodityCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEnsCommodityCodeRequest $request
+     *
+     * @return DescribeEnsCommodityCodeResponse
+     */
+    public function describeEnsCommodityCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEnsCommodityCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEnsCommodityModuleCodeRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeEnsCommodityModuleCodeResponse
+     */
+    public function describeEnsCommodityModuleCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->moduleCode)) {
+            $query['ModuleCode'] = $request->moduleCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEnsCommodityModuleCode',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEnsCommodityModuleCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEnsCommodityModuleCodeRequest $request
+     *
+     * @return DescribeEnsCommodityModuleCodeResponse
+     */
+    public function describeEnsCommodityModuleCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEnsCommodityModuleCodeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeEnsEipAddressesRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -4834,6 +5136,156 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeEnsRouteEntryListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEnsSaleControlRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeEnsSaleControlResponse
+     */
+    public function describeEnsSaleControlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliUidAccount)) {
+            $query['AliUidAccount'] = $request->aliUidAccount;
+        }
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->moduleCode)) {
+            $query['ModuleCode'] = $request->moduleCode;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEnsSaleControl',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEnsSaleControlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEnsSaleControlRequest $request
+     *
+     * @return DescribeEnsSaleControlResponse
+     */
+    public function describeEnsSaleControl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEnsSaleControlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEnsSaleControlAvailableResourceRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DescribeEnsSaleControlAvailableResourceResponse
+     */
+    public function describeEnsSaleControlAvailableResourceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEnsSaleControlAvailableResource',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEnsSaleControlAvailableResourceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEnsSaleControlAvailableResourceRequest $request
+     *
+     * @return DescribeEnsSaleControlAvailableResourceResponse
+     */
+    public function describeEnsSaleControlAvailableResource($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEnsSaleControlAvailableResourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeEnsSaleControlStockRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeEnsSaleControlStockResponse
+     */
+    public function describeEnsSaleControlStockWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliUidAccount)) {
+            $query['AliUidAccount'] = $request->aliUidAccount;
+        }
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->moduleCode)) {
+            $query['ModuleCode'] = $request->moduleCode;
+        }
+        if (!Utils::isUnset($request->orderType)) {
+            $query['OrderType'] = $request->orderType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeEnsSaleControlStock',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEnsSaleControlStockResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeEnsSaleControlStockRequest $request
+     *
+     * @return DescribeEnsSaleControlStockResponse
+     */
+    public function describeEnsSaleControlStock($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEnsSaleControlStockWithOptions($request, $runtime);
     }
 
     /**
@@ -6648,6 +7100,46 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describePriceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRegionBandwidthQuotaRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeRegionBandwidthQuotaResponse
+     */
+    public function describeRegionBandwidthQuotaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRegionBandwidthQuota',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRegionBandwidthQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRegionBandwidthQuotaRequest $request
+     *
+     * @return DescribeRegionBandwidthQuotaResponse
+     */
+    public function describeRegionBandwidthQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRegionBandwidthQuotaWithOptions($request, $runtime);
     }
 
     /**
@@ -8593,14 +9085,19 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RebootAICInstanceRequest $request
+     * @param RebootAICInstanceRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
      * @return RebootAICInstanceResponse
      */
-    public function rebootAICInstanceWithOptions($request, $runtime)
+    public function rebootAICInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new RebootAICInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -8633,14 +9130,19 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param RebootARMServerInstanceRequest $request
+     * @param RebootARMServerInstanceRequest $tmpReq
      * @param RuntimeOptions                 $runtime
      *
      * @return RebootARMServerInstanceResponse
      */
-    public function rebootARMServerInstanceWithOptions($request, $runtime)
+    public function rebootARMServerInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new RebootARMServerInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->serverIds)) {
+            $request->serverIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverIds, 'ServerIds', 'json');
+        }
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -9487,14 +9989,19 @@ class Ens extends OpenApiClient
     }
 
     /**
-     * @param ResetAICInstanceRequest $request
+     * @param ResetAICInstanceRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
      * @return ResetAICInstanceResponse
      */
-    public function resetAICInstanceWithOptions($request, $runtime)
+    public function resetAICInstanceWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ResetAICInstanceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'InstanceIds', 'json');
+        }
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -9916,6 +10423,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->imageId)) {
             $query['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->instanceChargeStrategy)) {
+            $query['InstanceChargeStrategy'] = $request->instanceChargeStrategy;
         }
         if (!Utils::isUnset($request->instanceChargeType)) {
             $query['InstanceChargeType'] = $request->instanceChargeType;
@@ -11033,6 +11543,60 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unassociateNetworkAclWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateEnsSaleControlRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpdateEnsSaleControlResponse
+     */
+    public function updateEnsSaleControlWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateEnsSaleControlShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->saleControls)) {
+            $request->saleControlsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->saleControls, 'SaleControls', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->aliUidAccount)) {
+            $query['AliUidAccount'] = $request->aliUidAccount;
+        }
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->saleControlsShrink)) {
+            $query['SaleControls'] = $request->saleControlsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateEnsSaleControl',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateEnsSaleControlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateEnsSaleControlRequest $request
+     *
+     * @return UpdateEnsSaleControlResponse
+     */
+    public function updateEnsSaleControl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateEnsSaleControlWithOptions($request, $runtime);
     }
 
     /**

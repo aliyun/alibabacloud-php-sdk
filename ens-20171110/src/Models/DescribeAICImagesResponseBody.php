@@ -15,14 +15,32 @@ class DescribeAICImagesResponseBody extends Model
     public $images;
 
     /**
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @example 72DC6C0A-D9A8-5345-A2BE-FE354CC728A0
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
-        'images'    => 'Images',
-        'requestId' => 'RequestId',
+        'images'     => 'Images',
+        'pageNumber' => 'PageNumber',
+        'pageSize'   => 'PageSize',
+        'requestId'  => 'RequestId',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -41,8 +59,17 @@ class DescribeAICImagesResponseBody extends Model
                 }
             }
         }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -65,8 +92,17 @@ class DescribeAICImagesResponseBody extends Model
                 }
             }
         }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

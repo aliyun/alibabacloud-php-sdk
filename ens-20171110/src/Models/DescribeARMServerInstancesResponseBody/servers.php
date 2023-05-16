@@ -29,8 +29,6 @@ class servers extends Model
     public $ensRegionId;
 
     /**
-     * @example String	2027-05-07 11:59:09
-     *
      * @var string
      */
     public $expiredTime;
@@ -38,7 +36,24 @@ class servers extends Model
     /**
      * @var string
      */
+    public $latestAction;
+
+    /**
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @example default
+     *
+     * @var string
+     */
     public $namespace;
+
+    /**
+     * @var string
+     */
+    public $payType;
 
     /**
      * @example cas-******
@@ -72,7 +87,10 @@ class servers extends Model
         'creationTime' => 'CreationTime',
         'ensRegionId'  => 'EnsRegionId',
         'expiredTime'  => 'ExpiredTime',
+        'latestAction' => 'LatestAction',
+        'name'         => 'Name',
         'namespace'    => 'Namespace',
+        'payType'      => 'PayType',
         'serverId'     => 'ServerId',
         'specName'     => 'SpecName',
         'state'        => 'State',
@@ -104,8 +122,17 @@ class servers extends Model
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
+        if (null !== $this->latestAction) {
+            $res['LatestAction'] = $this->latestAction;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->payType) {
+            $res['PayType'] = $this->payType;
         }
         if (null !== $this->serverId) {
             $res['ServerId'] = $this->serverId;
@@ -149,8 +176,17 @@ class servers extends Model
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
+        if (isset($map['LatestAction'])) {
+            $model->latestAction = $map['LatestAction'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['PayType'])) {
+            $model->payType = $map['PayType'];
         }
         if (isset($map['ServerId'])) {
             $model->serverId = $map['ServerId'];

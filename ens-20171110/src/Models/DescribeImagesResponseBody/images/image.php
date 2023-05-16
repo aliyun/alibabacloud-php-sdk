@@ -23,8 +23,6 @@ class image extends Model
     public $creationTime;
 
     /**
-     * @example centos_6_08_64_20G_alibase_20171208
-     *
      * @var string
      */
     public $imageId;

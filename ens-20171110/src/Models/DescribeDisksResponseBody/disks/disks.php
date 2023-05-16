@@ -30,15 +30,11 @@ class disks extends Model
     public $diskChargeType;
 
     /**
-     * @example d-5svum1dx1w4a4spr54lgrnoaa
-     *
      * @var string
      */
     public $diskId;
 
     /**
-     * @example fvt-ecs-5cf009f6
-     *
      * @var string
      */
     public $diskName;
@@ -51,8 +47,6 @@ class disks extends Model
     public $ensRegionId;
 
     /**
-     * @example i-5t77rb0yoz79m28ku60sxuhn4
-     *
      * @var string
      */
     public $instanceId;

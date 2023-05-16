@@ -1,3 +1,6 @@
+2023-05-16 Version: 3.0.14
+- Support RunInstances API.
+
 2023-03-28 Version: 3.0.13
 - Support ARM API.
 

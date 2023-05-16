@@ -14,8 +14,14 @@ class RebootARMServerInstanceRequest extends Model
      * @var string
      */
     public $serverId;
+
+    /**
+     * @var string[]
+     */
+    public $serverIds;
     protected $_name = [
-        'serverId' => 'ServerId',
+        'serverId'  => 'ServerId',
+        'serverIds' => 'ServerIds',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class RebootARMServerInstanceRequest extends Model
         $res = [];
         if (null !== $this->serverId) {
             $res['ServerId'] = $this->serverId;
+        }
+        if (null !== $this->serverIds) {
+            $res['ServerIds'] = $this->serverIds;
         }
 
         return $res;
@@ -42,6 +51,11 @@ class RebootARMServerInstanceRequest extends Model
         $model = new self();
         if (isset($map['ServerId'])) {
             $model->serverId = $map['ServerId'];
+        }
+        if (isset($map['ServerIds'])) {
+            if (!empty($map['ServerIds'])) {
+                $model->serverIds = $map['ServerIds'];
+            }
         }
 
         return $model;

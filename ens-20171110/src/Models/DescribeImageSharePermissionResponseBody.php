@@ -15,8 +15,6 @@ class DescribeImageSharePermissionResponseBody extends Model
     public $accounts;
 
     /**
-     * @example m-5qkf6jv9a0tzd5ipwx5fi8u1c
-     *
      * @var string
      */
     public $imageId;

@@ -56,6 +56,11 @@ class RunInstancesShrinkRequest extends Model
     public $imageId;
 
     /**
+     * @var string
+     */
+    public $instanceChargeStrategy;
+
+    /**
      * @example PostPaid
      *
      * @var string
@@ -212,6 +217,7 @@ class RunInstancesShrinkRequest extends Model
         'ensRegionId'             => 'EnsRegionId',
         'hostName'                => 'HostName',
         'imageId'                 => 'ImageId',
+        'instanceChargeStrategy'  => 'InstanceChargeStrategy',
         'instanceChargeType'      => 'InstanceChargeType',
         'instanceName'            => 'InstanceName',
         'instanceType'            => 'InstanceType',
@@ -263,6 +269,9 @@ class RunInstancesShrinkRequest extends Model
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
+        }
+        if (null !== $this->instanceChargeStrategy) {
+            $res['InstanceChargeStrategy'] = $this->instanceChargeStrategy;
         }
         if (null !== $this->instanceChargeType) {
             $res['InstanceChargeType'] = $this->instanceChargeType;
@@ -362,6 +371,9 @@ class RunInstancesShrinkRequest extends Model
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
+        }
+        if (isset($map['InstanceChargeStrategy'])) {
+            $model->instanceChargeStrategy = $map['InstanceChargeStrategy'];
         }
         if (isset($map['InstanceChargeType'])) {
             $model->instanceChargeType = $map['InstanceChargeType'];

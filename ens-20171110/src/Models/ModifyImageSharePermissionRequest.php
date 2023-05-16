@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ModifyImageSharePermissionRequest extends Model
 {
     /**
-     * @example 112233445566
-     *
      * @var string
      */
     public $addAccounts;
 
     /**
-     * @example m-5s7qotzavwbrnzaqh4unm7lt7
-     *
      * @var string
      */
     public $imageId;
 
     /**
-     * @example 11335577
-     *
      * @var string
      */
     public $removeAccounts;

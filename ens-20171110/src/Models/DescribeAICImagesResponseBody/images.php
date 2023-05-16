@@ -16,6 +16,11 @@ class images extends Model
     public $creationTime;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @example m-ad0ddaddc2d54adeaa09b7c0f1e****
      *
      * @var string
@@ -44,6 +49,7 @@ class images extends Model
     public $user;
     protected $_name = [
         'creationTime' => 'CreationTime',
+        'description'  => 'Description',
         'imageId'      => 'ImageId',
         'imageUrl'     => 'ImageUrl',
         'status'       => 'Status',
@@ -59,6 +65,9 @@ class images extends Model
         $res = [];
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -86,6 +95,9 @@ class images extends Model
         $model = new self();
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
