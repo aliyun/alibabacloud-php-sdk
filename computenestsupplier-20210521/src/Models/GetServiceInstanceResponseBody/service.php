@@ -81,6 +81,11 @@ class service extends Model
     public $supplierUrl;
 
     /**
+     * @var string[]
+     */
+    public $upgradableServiceVersions;
+
+    /**
      * @example 1
      *
      * @var string
@@ -92,19 +97,20 @@ class service extends Model
      */
     public $versionName;
     protected $_name = [
-        'deployMetadata'    => 'DeployMetadata',
-        'deployType'        => 'DeployType',
-        'publishTime'       => 'PublishTime',
-        'serviceDocUrl'     => 'ServiceDocUrl',
-        'serviceId'         => 'ServiceId',
-        'serviceInfos'      => 'ServiceInfos',
-        'serviceProductUrl' => 'ServiceProductUrl',
-        'serviceType'       => 'ServiceType',
-        'status'            => 'Status',
-        'supplierName'      => 'SupplierName',
-        'supplierUrl'       => 'SupplierUrl',
-        'version'           => 'Version',
-        'versionName'       => 'VersionName',
+        'deployMetadata'            => 'DeployMetadata',
+        'deployType'                => 'DeployType',
+        'publishTime'               => 'PublishTime',
+        'serviceDocUrl'             => 'ServiceDocUrl',
+        'serviceId'                 => 'ServiceId',
+        'serviceInfos'              => 'ServiceInfos',
+        'serviceProductUrl'         => 'ServiceProductUrl',
+        'serviceType'               => 'ServiceType',
+        'status'                    => 'Status',
+        'supplierName'              => 'SupplierName',
+        'supplierUrl'               => 'SupplierUrl',
+        'upgradableServiceVersions' => 'UpgradableServiceVersions',
+        'version'                   => 'Version',
+        'versionName'               => 'VersionName',
     ];
 
     public function validate()
@@ -152,6 +158,9 @@ class service extends Model
         }
         if (null !== $this->supplierUrl) {
             $res['SupplierUrl'] = $this->supplierUrl;
+        }
+        if (null !== $this->upgradableServiceVersions) {
+            $res['UpgradableServiceVersions'] = $this->upgradableServiceVersions;
         }
         if (null !== $this->version) {
             $res['Version'] = $this->version;
@@ -209,6 +218,11 @@ class service extends Model
         }
         if (isset($map['SupplierUrl'])) {
             $model->supplierUrl = $map['SupplierUrl'];
+        }
+        if (isset($map['UpgradableServiceVersions'])) {
+            if (!empty($map['UpgradableServiceVersions'])) {
+                $model->upgradableServiceVersions = $map['UpgradableServiceVersions'];
+            }
         }
         if (isset($map['Version'])) {
             $model->version = $map['Version'];

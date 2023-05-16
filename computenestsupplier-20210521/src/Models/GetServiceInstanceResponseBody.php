@@ -26,6 +26,13 @@ class GetServiceInstanceResponseBody extends Model
     public $enableInstanceOps;
 
     /**
+     * @example true
+     *
+     * @var string
+     */
+    public $enableUserPrometheus;
+
+    /**
      * @example 2022-01-01T12:00:00
      *
      * @var string
@@ -108,6 +115,11 @@ class GetServiceInstanceResponseBody extends Model
      * @var int
      */
     public $progress;
+
+    /**
+     * @var string
+     */
+    public $rdAccountLoginUrl;
 
     /**
      * @example 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
@@ -196,6 +208,7 @@ class GetServiceInstanceResponseBody extends Model
     protected $_name = [
         'createTime'                => 'CreateTime',
         'enableInstanceOps'         => 'EnableInstanceOps',
+        'enableUserPrometheus'      => 'EnableUserPrometheus',
         'endTime'                   => 'EndTime',
         'isOperated'                => 'IsOperated',
         'licenseMetadata'           => 'LicenseMetadata',
@@ -208,6 +221,7 @@ class GetServiceInstanceResponseBody extends Model
         'parameters'                => 'Parameters',
         'payType'                   => 'PayType',
         'progress'                  => 'Progress',
+        'rdAccountLoginUrl'         => 'RdAccountLoginUrl',
         'requestId'                 => 'RequestId',
         'resources'                 => 'Resources',
         'service'                   => 'Service',
@@ -235,6 +249,9 @@ class GetServiceInstanceResponseBody extends Model
         }
         if (null !== $this->enableInstanceOps) {
             $res['EnableInstanceOps'] = $this->enableInstanceOps;
+        }
+        if (null !== $this->enableUserPrometheus) {
+            $res['EnableUserPrometheus'] = $this->enableUserPrometheus;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -271,6 +288,9 @@ class GetServiceInstanceResponseBody extends Model
         }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
+        }
+        if (null !== $this->rdAccountLoginUrl) {
+            $res['RdAccountLoginUrl'] = $this->rdAccountLoginUrl;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -335,6 +355,9 @@ class GetServiceInstanceResponseBody extends Model
         if (isset($map['EnableInstanceOps'])) {
             $model->enableInstanceOps = $map['EnableInstanceOps'];
         }
+        if (isset($map['EnableUserPrometheus'])) {
+            $model->enableUserPrometheus = $map['EnableUserPrometheus'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
@@ -370,6 +393,9 @@ class GetServiceInstanceResponseBody extends Model
         }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
+        }
+        if (isset($map['RdAccountLoginUrl'])) {
+            $model->rdAccountLoginUrl = $map['RdAccountLoginUrl'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

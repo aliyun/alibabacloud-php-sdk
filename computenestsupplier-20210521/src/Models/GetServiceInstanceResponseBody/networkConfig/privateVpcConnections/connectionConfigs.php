@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class connectionConfigs extends Model
 {
     /**
+     * @var int
+     */
+    public $connectBandwidth;
+
+    /**
+     * @var string
+     */
+    public $domainName;
+
+    /**
      * @var string[]
      */
     public $endpointIps;
 
     /**
+     * @example Ready
+     *
      * @var string
      */
     public $ingressEndpointStatus;
 
     /**
+     * @example Ready
+     *
      * @var string
      */
     public $networkServiceStatus;
@@ -34,10 +48,14 @@ class connectionConfigs extends Model
     public $vSwitches;
 
     /**
+     * @example vpc-bp1vwnn14rqpyiczj****
+     *
      * @var string
      */
     public $vpcId;
     protected $_name = [
+        'connectBandwidth'      => 'ConnectBandwidth',
+        'domainName'            => 'DomainName',
         'endpointIps'           => 'EndpointIps',
         'ingressEndpointStatus' => 'IngressEndpointStatus',
         'networkServiceStatus'  => 'NetworkServiceStatus',
@@ -53,6 +71,12 @@ class connectionConfigs extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->connectBandwidth) {
+            $res['ConnectBandwidth'] = $this->connectBandwidth;
+        }
+        if (null !== $this->domainName) {
+            $res['DomainName'] = $this->domainName;
+        }
         if (null !== $this->endpointIps) {
             $res['EndpointIps'] = $this->endpointIps;
         }
@@ -83,6 +107,12 @@ class connectionConfigs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectBandwidth'])) {
+            $model->connectBandwidth = $map['ConnectBandwidth'];
+        }
+        if (isset($map['DomainName'])) {
+            $model->domainName = $map['DomainName'];
+        }
         if (isset($map['EndpointIps'])) {
             if (!empty($map['EndpointIps'])) {
                 $model->endpointIps = $map['EndpointIps'];

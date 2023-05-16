@@ -37,15 +37,23 @@ class ListServiceInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $showDeleted;
+
+    /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'filter'     => 'Filter',
-        'maxResults' => 'MaxResults',
-        'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
-        'tag'        => 'Tag',
+        'filter'      => 'Filter',
+        'maxResults'  => 'MaxResults',
+        'nextToken'   => 'NextToken',
+        'regionId'    => 'RegionId',
+        'showDeleted' => 'ShowDeleted',
+        'tag'         => 'Tag',
     ];
 
     public function validate()
@@ -72,6 +80,9 @@ class ListServiceInstancesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->showDeleted) {
+            $res['ShowDeleted'] = $this->showDeleted;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -111,6 +122,9 @@ class ListServiceInstancesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ShowDeleted'])) {
+            $model->showDeleted = $map['ShowDeleted'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

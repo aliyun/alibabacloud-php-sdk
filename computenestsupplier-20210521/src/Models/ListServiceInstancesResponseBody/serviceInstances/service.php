@@ -22,6 +22,13 @@ class service extends Model
     public $deployType;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $enablePrivateVpcConnection;
+
+    /**
      * @example 2021-05-21T00:00:00Z
      *
      * @var string
@@ -78,17 +85,18 @@ class service extends Model
      */
     public $versionName;
     protected $_name = [
-        'deployMetadata' => 'DeployMetadata',
-        'deployType'     => 'DeployType',
-        'publishTime'    => 'PublishTime',
-        'serviceId'      => 'ServiceId',
-        'serviceInfos'   => 'ServiceInfos',
-        'serviceType'    => 'ServiceType',
-        'status'         => 'Status',
-        'supplierName'   => 'SupplierName',
-        'supplierUrl'    => 'SupplierUrl',
-        'version'        => 'Version',
-        'versionName'    => 'VersionName',
+        'deployMetadata'             => 'DeployMetadata',
+        'deployType'                 => 'DeployType',
+        'enablePrivateVpcConnection' => 'EnablePrivateVpcConnection',
+        'publishTime'                => 'PublishTime',
+        'serviceId'                  => 'ServiceId',
+        'serviceInfos'               => 'ServiceInfos',
+        'serviceType'                => 'ServiceType',
+        'status'                     => 'Status',
+        'supplierName'               => 'SupplierName',
+        'supplierUrl'                => 'SupplierUrl',
+        'version'                    => 'Version',
+        'versionName'                => 'VersionName',
     ];
 
     public function validate()
@@ -103,6 +111,9 @@ class service extends Model
         }
         if (null !== $this->deployType) {
             $res['DeployType'] = $this->deployType;
+        }
+        if (null !== $this->enablePrivateVpcConnection) {
+            $res['EnablePrivateVpcConnection'] = $this->enablePrivateVpcConnection;
         }
         if (null !== $this->publishTime) {
             $res['PublishTime'] = $this->publishTime;
@@ -154,6 +165,9 @@ class service extends Model
         }
         if (isset($map['DeployType'])) {
             $model->deployType = $map['DeployType'];
+        }
+        if (isset($map['EnablePrivateVpcConnection'])) {
+            $model->enablePrivateVpcConnection = $map['EnablePrivateVpcConnection'];
         }
         if (isset($map['PublishTime'])) {
             $model->publishTime = $map['PublishTime'];

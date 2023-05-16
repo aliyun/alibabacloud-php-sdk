@@ -9,12 +9,17 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateArtifactRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateArtifactResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateArtifactShrinkRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateServiceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteArtifactRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteArtifactResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRepositoryCredentialsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRepositoryCredentialsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceEstimateCostRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceEstimateCostResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceEstimateCostShrinkRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceInstanceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsRequest;
@@ -23,6 +28,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsRe
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceInstancesResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServicesRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServicesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ReleaseArtifactRequest;
@@ -133,6 +140,109 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createArtifactWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateServiceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateServiceResponse
+     */
+    public function createServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->alarmMetadata)) {
+            $query['AlarmMetadata'] = $request->alarmMetadata;
+        }
+        if (!Utils::isUnset($request->approvalType)) {
+            $query['ApprovalType'] = $request->approvalType;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->deployMetadata)) {
+            $query['DeployMetadata'] = $request->deployMetadata;
+        }
+        if (!Utils::isUnset($request->deployType)) {
+            $query['DeployType'] = $request->deployType;
+        }
+        if (!Utils::isUnset($request->duration)) {
+            $query['Duration'] = $request->duration;
+        }
+        if (!Utils::isUnset($request->isSupportOperated)) {
+            $query['IsSupportOperated'] = $request->isSupportOperated;
+        }
+        if (!Utils::isUnset($request->licenseMetadata)) {
+            $query['LicenseMetadata'] = $request->licenseMetadata;
+        }
+        if (!Utils::isUnset($request->operationMetadata)) {
+            $query['OperationMetadata'] = $request->operationMetadata;
+        }
+        if (!Utils::isUnset($request->policyNames)) {
+            $query['PolicyNames'] = $request->policyNames;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceInfo)) {
+            $query['ServiceInfo'] = $request->serviceInfo;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
+        }
+        if (!Utils::isUnset($request->shareType)) {
+            $query['ShareType'] = $request->shareType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->tenantType)) {
+            $query['TenantType'] = $request->tenantType;
+        }
+        if (!Utils::isUnset($request->trialDuration)) {
+            $query['TrialDuration'] = $request->trialDuration;
+        }
+        if (!Utils::isUnset($request->upgradeMetadata)) {
+            $query['UpgradeMetadata'] = $request->upgradeMetadata;
+        }
+        if (!Utils::isUnset($request->versionName)) {
+            $query['VersionName'] = $request->versionName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateService',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateServiceRequest $request
+     *
+     * @return CreateServiceResponse
+     */
+    public function createService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServiceWithOptions($request, $runtime);
     }
 
     /**
@@ -271,6 +381,72 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getArtifactRepositoryCredentialsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetServiceEstimateCostRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetServiceEstimateCostResponse
+     */
+    public function getServiceEstimateCostWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetServiceEstimateCostShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceEstimateCost',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetServiceEstimateCostResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetServiceEstimateCostRequest $request
+     *
+     * @return GetServiceEstimateCostResponse
+     */
+    public function getServiceEstimateCost($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceEstimateCostWithOptions($request, $runtime);
     }
 
     /**
@@ -439,6 +615,9 @@ class ComputeNestSupplier extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->showDeleted)) {
+            $query['ShowDeleted'] = $request->showDeleted;
+        }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
         }
@@ -519,6 +698,67 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listServiceUsagesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListServicesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListServicesResponse
+     */
+    public function listServicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allVersions)) {
+            $query['AllVersions'] = $request->allVersions;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServices',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListServicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListServicesRequest $request
+     *
+     * @return ListServicesResponse
+     */
+    public function listServices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServicesWithOptions($request, $runtime);
     }
 
     /**

@@ -32,6 +32,8 @@ class serviceInstances extends Model
     public $endTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isOperated;

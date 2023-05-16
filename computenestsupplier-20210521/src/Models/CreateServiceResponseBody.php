@@ -9,29 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
+     * @example 4DB0F536-B3BE-4F0D-BD29-E83FB56D550C
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @var string
-     */
-    public $version;
-
-    /**
+     * @example service-0e6fca6a51a544xxxxxx
+     *
      * @var string
      */
     public $serviceId;
+
+    /**
+     * @example Created
+     *
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @example draft
+     *
+     * @var string
+     */
+    public $version;
     protected $_name = [
-        'status'    => 'Status',
         'requestId' => 'RequestId',
-        'version'   => 'Version',
         'serviceId' => 'ServiceId',
+        'status'    => 'Status',
+        'version'   => 'Version',
     ];
 
     public function validate()
@@ -41,17 +49,17 @@ class CreateServiceResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->version) {
-            $res['Version'] = $this->version;
-        }
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -65,17 +73,17 @@ class CreateServiceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Version'])) {
-            $model->version = $map['Version'];
-        }
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

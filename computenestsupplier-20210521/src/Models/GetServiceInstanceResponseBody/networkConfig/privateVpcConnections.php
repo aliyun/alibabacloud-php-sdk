@@ -29,6 +29,8 @@ class privateVpcConnections extends Model
     public $endpointServiceId;
 
     /**
+     * @example test.computenest.aliyuncs.com
+     *
      * @var string
      */
     public $privateZoneName;

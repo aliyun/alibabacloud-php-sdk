@@ -2,24 +2,28 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceRegistrationsRequest;
+namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServicesRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class filter extends Model
+class tag extends Model
 {
     /**
-     * @var string[]
-     */
-    public $value;
-
-    /**
+     * @example key1
+     *
      * @var string
      */
-    public $name;
+    public $key;
+
+    /**
+     * @example value1
+     *
+     * @var string
+     */
+    public $value;
     protected $_name = [
+        'key'   => 'Key',
         'value' => 'Value',
-        'name'  => 'Name',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class filter extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->key) {
+            $res['Key'] = $this->key;
+        }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
         }
 
         return $res;
@@ -42,18 +46,16 @@ class filter extends Model
     /**
      * @param array $map
      *
-     * @return filter
+     * @return tag
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            if (!empty($map['Value'])) {
-                $model->value = $map['Value'];
-            }
+        if (isset($map['Key'])) {
+            $model->key = $map['Key'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Value'])) {
+            $model->value = $map['Value'];
         }
 
         return $model;

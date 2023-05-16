@@ -9,29 +9,35 @@ use AlibabaCloud\Tea\Model;
 class serviceInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $locale;
-
-    /**
-     * @var string
-     */
-    public $shortDescription;
-
-    /**
+     * @example http://img.tidb.oss.url
+     *
      * @var string
      */
     public $image;
 
     /**
+     * @example zh-CN
+     *
+     * @var string
+     */
+    public $locale;
+
+    /**
+     * @example TiDB Database
+     *
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $shortDescription;
     protected $_name = [
-        'locale'           => 'Locale',
-        'shortDescription' => 'ShortDescription',
         'image'            => 'Image',
+        'locale'           => 'Locale',
         'name'             => 'Name',
+        'shortDescription' => 'ShortDescription',
     ];
 
     public function validate()
@@ -41,17 +47,17 @@ class serviceInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->locale) {
-            $res['Locale'] = $this->locale;
-        }
-        if (null !== $this->shortDescription) {
-            $res['ShortDescription'] = $this->shortDescription;
-        }
         if (null !== $this->image) {
             $res['Image'] = $this->image;
         }
+        if (null !== $this->locale) {
+            $res['Locale'] = $this->locale;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->shortDescription) {
+            $res['ShortDescription'] = $this->shortDescription;
         }
 
         return $res;
@@ -65,17 +71,17 @@ class serviceInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Locale'])) {
-            $model->locale = $map['Locale'];
-        }
-        if (isset($map['ShortDescription'])) {
-            $model->shortDescription = $map['ShortDescription'];
-        }
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
         }
+        if (isset($map['Locale'])) {
+            $model->locale = $map['Locale'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ShortDescription'])) {
+            $model->shortDescription = $map['ShortDescription'];
         }
 
         return $model;
