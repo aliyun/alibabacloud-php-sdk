@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateOrganizationalUnitRequest extends Model
 {
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example ou_wovwffm62xifdziem7an7xxxxx
+     *
      * @var string
      */
     public $organizationalUnitExternalId;
 
     /**
+     * @example name001
+     *
      * @var string
      */
     public $organizationalUnitName;
 
     /**
+     * @example ou_wovwffm62xifdziem7an7xxxxx
+     *
      * @var string
      */
     public $parentId;

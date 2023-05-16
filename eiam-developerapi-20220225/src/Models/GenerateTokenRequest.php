@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class GenerateTokenRequest extends Model
 {
     /**
+     * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @example CSEHDcHcrUKHw1CuxkJEHPveWRXBGqVqRsxxxx
+     *
      * @var string
      */
     public $clientSecret;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $codeVerifier;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $deviceCode;
 
     /**
+     * @example ATxxx
+     *
      * @var string
      */
     public $exclusiveTag;
 
     /**
+     * @example client_credentials
+     *
      * @var string
      */
     public $grantType;
 
     /**
+     * @example xxxxxx
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $redirectUri;
 
     /**
+     * @example ATxxx
+     *
      * @var string
      */
     public $refreshToken;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @example uesrname_001
+     *
      * @var string
      */
     public $username;

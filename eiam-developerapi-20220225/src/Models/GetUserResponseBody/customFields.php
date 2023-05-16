@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class customFields extends Model
 {
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $fieldName;
 
     /**
+     * @example 字段数据值
+     *
      * @var string
      */
     public $fieldValue;

@@ -5,17 +5,22 @@
 namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserResponseBody\customFields;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserResponseBody\groups;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\GetUserResponseBody\organizationalUnits;
 use AlibabaCloud\Tea\Model;
 
 class GetUserResponseBody extends Model
 {
     /**
+     * @example 1652085686179
+     *
      * @var int
      */
     public $accountExpireTime;
 
     /**
+     * @example 1652085686179
+     *
      * @var int
      */
     public $createTime;
@@ -26,31 +31,48 @@ class GetUserResponseBody extends Model
     public $customFields;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example display_name001
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example example@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $emailVerified;
 
     /**
+     * @var groups[]
+     */
+    public $groups;
+
+    /**
+     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1652085686179
+     *
      * @var int
      */
     public $lockExpireTime;
@@ -61,66 +83,92 @@ class GetUserResponseBody extends Model
     public $organizationalUnits;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $passwordSet;
 
     /**
+     * @example 156xxxxxxx
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $phoneNumberVerified;
 
     /**
+     * @example 86
+     *
      * @var string
      */
     public $phoneRegion;
 
     /**
+     * @example ou_wovwffm62xifdziem7an7xxxxx
+     *
      * @var string
      */
     public $primaryOrganizationalUnitId;
 
     /**
+     * @example 1652085686179
+     *
      * @var int
      */
     public $registerTime;
 
     /**
+     * @example enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1652085686179
+     *
      * @var int
      */
     public $updateTime;
 
     /**
+     * @example user_d6sbsuumeta4h66ec3il7yxxxx
+     *
      * @var string
      */
     public $userExternalId;
 
     /**
+     * @example user_d6sbsuumeta4h66ec3il7yxxxx
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
+     *
      * @var string
      */
     public $userSourceId;
 
     /**
+     * @example build_in
+     *
      * @var string
      */
     public $userSourceType;
 
     /**
+     * @example name001
+     *
      * @var string
      */
     public $username;
@@ -132,6 +180,7 @@ class GetUserResponseBody extends Model
         'displayName'                 => 'displayName',
         'email'                       => 'email',
         'emailVerified'               => 'emailVerified',
+        'groups'                      => 'groups',
         'instanceId'                  => 'instanceId',
         'lockExpireTime'              => 'lockExpireTime',
         'organizationalUnits'         => 'organizationalUnits',
@@ -183,6 +232,15 @@ class GetUserResponseBody extends Model
         }
         if (null !== $this->emailVerified) {
             $res['emailVerified'] = $this->emailVerified;
+        }
+        if (null !== $this->groups) {
+            $res['groups'] = [];
+            if (null !== $this->groups && \is_array($this->groups)) {
+                $n = 0;
+                foreach ($this->groups as $item) {
+                    $res['groups'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->instanceId) {
             $res['instanceId'] = $this->instanceId;
@@ -276,6 +334,15 @@ class GetUserResponseBody extends Model
         }
         if (isset($map['emailVerified'])) {
             $model->emailVerified = $map['emailVerified'];
+        }
+        if (isset($map['groups'])) {
+            if (!empty($map['groups'])) {
+                $model->groups = [];
+                $n             = 0;
+                foreach ($map['groups'] as $item) {
+                    $model->groups[$n++] = null !== $item ? groups::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['instanceId'])) {
             $model->instanceId = $map['instanceId'];

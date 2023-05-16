@@ -11,6 +11,8 @@ class GetUserIdByUsernameHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example Bearer xxxx
+     *
      * @var string
      */
     public $authorization;

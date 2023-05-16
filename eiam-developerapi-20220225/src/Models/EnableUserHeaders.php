@@ -11,6 +11,8 @@ class EnableUserHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example Bearer xxxx
+     *
      * @var string
      */
     public $authorization;

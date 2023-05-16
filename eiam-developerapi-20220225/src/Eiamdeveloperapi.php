@@ -6,6 +6,9 @@ namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\AddUserToOrganizationalUnitsHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\AddUserToOrganizationalUnitsRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\AddUserToOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateOrganizationalUnitHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateOrganizationalUnitRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\CreateOrganizationalUnitResponse;
@@ -61,8 +64,17 @@ use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchOrganizationalUnitRe
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchUserHeaders;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchUserRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\PatchUserResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RemoveUserFromOrganizationalUnitsHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RemoveUserFromOrganizationalUnitsRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RemoveUserFromOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RevokeTokenRequest;
 use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\RevokeTokenResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\SetUserPrimaryOrganizationalUnitHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\SetUserPrimaryOrganizationalUnitRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\SetUserPrimaryOrganizationalUnitResponse;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\UpdateUserPasswordHeaders;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\UpdateUserPasswordRequest;
+use AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models\UpdateUserPasswordResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -104,18 +116,62 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string                          $instanceId
-     * @param string                          $applicationId
-     * @param CreateOrganizationalUnitRequest $request
+     * @param string                              $instanceId
+     * @param string                              $applicationId
+     * @param string                              $userId
+     * @param AddUserToOrganizationalUnitsRequest $request
+     * @param AddUserToOrganizationalUnitsHeaders $headers
+     * @param RuntimeOptions                      $runtime
      *
-     * @return CreateOrganizationalUnitResponse
+     * @return AddUserToOrganizationalUnitsResponse
      */
-    public function createOrganizationalUnit($instanceId, $applicationId, $request)
+    public function addUserToOrganizationalUnitsWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->organizationalUnitIds)) {
+            $body['organizationalUnitIds'] = $request->organizationalUnitIds;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddUserToOrganizationalUnits',
+            'version'     => '2022-02-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/addUserToOrganizationalUnits',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return AddUserToOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                              $instanceId
+     * @param string                              $applicationId
+     * @param string                              $userId
+     * @param AddUserToOrganizationalUnitsRequest $request
+     *
+     * @return AddUserToOrganizationalUnitsResponse
+     */
+    public function addUserToOrganizationalUnits($instanceId, $applicationId, $userId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CreateOrganizationalUnitHeaders([]);
+        $headers = new AddUserToOrganizationalUnitsHeaders([]);
 
-        return $this->createOrganizationalUnitWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+        return $this->addUserToOrganizationalUnitsWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime);
     }
 
     /**
@@ -170,18 +226,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string            $instanceId
-     * @param string            $applicationId
-     * @param CreateUserRequest $request
+     * @param string                          $instanceId
+     * @param string                          $applicationId
+     * @param CreateOrganizationalUnitRequest $request
      *
-     * @return CreateUserResponse
+     * @return CreateOrganizationalUnitResponse
      */
-    public function createUser($instanceId, $applicationId, $request)
+    public function createOrganizationalUnit($instanceId, $applicationId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CreateUserHeaders([]);
+        $headers = new CreateOrganizationalUnitHeaders([]);
 
-        return $this->createUserWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+        return $this->createOrganizationalUnitWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
     }
 
     /**
@@ -263,18 +319,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string $instanceId
-     * @param string $applicationId
-     * @param string $organizationalUnitId
+     * @param string            $instanceId
+     * @param string            $applicationId
+     * @param CreateUserRequest $request
      *
-     * @return DeleteOrganizationalUnitResponse
+     * @return CreateUserResponse
      */
-    public function deleteOrganizationalUnit($instanceId, $applicationId, $organizationalUnitId)
+    public function createUser($instanceId, $applicationId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteOrganizationalUnitHeaders([]);
+        $headers = new CreateUserHeaders([]);
 
-        return $this->deleteOrganizationalUnitWithOptions($instanceId, $applicationId, $organizationalUnitId, $headers, $runtime);
+        return $this->createUserWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
     }
 
     /**
@@ -316,16 +372,16 @@ class Eiamdeveloperapi extends OpenApiClient
     /**
      * @param string $instanceId
      * @param string $applicationId
-     * @param string $userId
+     * @param string $organizationalUnitId
      *
-     * @return DeleteUserResponse
+     * @return DeleteOrganizationalUnitResponse
      */
-    public function deleteUser($instanceId, $applicationId, $userId)
+    public function deleteOrganizationalUnit($instanceId, $applicationId, $organizationalUnitId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteUserHeaders([]);
+        $headers = new DeleteOrganizationalUnitHeaders([]);
 
-        return $this->deleteUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime);
+        return $this->deleteOrganizationalUnitWithOptions($instanceId, $applicationId, $organizationalUnitId, $headers, $runtime);
     }
 
     /**
@@ -369,14 +425,14 @@ class Eiamdeveloperapi extends OpenApiClient
      * @param string $applicationId
      * @param string $userId
      *
-     * @return DisableUserResponse
+     * @return DeleteUserResponse
      */
-    public function disableUser($instanceId, $applicationId, $userId)
+    public function deleteUser($instanceId, $applicationId, $userId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DisableUserHeaders([]);
+        $headers = new DeleteUserHeaders([]);
 
-        return $this->disableUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime);
+        return $this->deleteUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime);
     }
 
     /**
@@ -420,14 +476,14 @@ class Eiamdeveloperapi extends OpenApiClient
      * @param string $applicationId
      * @param string $userId
      *
-     * @return EnableUserResponse
+     * @return DisableUserResponse
      */
-    public function enableUser($instanceId, $applicationId, $userId)
+    public function disableUser($instanceId, $applicationId, $userId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new EnableUserHeaders([]);
+        $headers = new DisableUserHeaders([]);
 
-        return $this->enableUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime);
+        return $this->disableUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime);
     }
 
     /**
@@ -467,18 +523,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string                    $instanceId
-     * @param string                    $applicationId
-     * @param GenerateDeviceCodeRequest $request
+     * @param string $instanceId
+     * @param string $applicationId
+     * @param string $userId
      *
-     * @return GenerateDeviceCodeResponse
+     * @return EnableUserResponse
      */
-    public function generateDeviceCode($instanceId, $applicationId, $request)
+    public function enableUser($instanceId, $applicationId, $userId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new EnableUserHeaders([]);
 
-        return $this->generateDeviceCodeWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+        return $this->enableUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime);
     }
 
     /**
@@ -517,18 +573,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string               $instanceId
-     * @param string               $applicationId
-     * @param GenerateTokenRequest $request
+     * @param string                    $instanceId
+     * @param string                    $applicationId
+     * @param GenerateDeviceCodeRequest $request
      *
-     * @return GenerateTokenResponse
+     * @return GenerateDeviceCodeResponse
      */
-    public function generateToken($instanceId, $applicationId, $request)
+    public function generateDeviceCode($instanceId, $applicationId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->generateTokenWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+        return $this->generateDeviceCodeWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
     }
 
     /**
@@ -600,17 +656,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string $instanceId
-     * @param string $applicationId
+     * @param string               $instanceId
+     * @param string               $applicationId
+     * @param GenerateTokenRequest $request
      *
-     * @return GetApplicationProvisioningScopeResponse
+     * @return GenerateTokenResponse
      */
-    public function getApplicationProvisioningScope($instanceId, $applicationId)
+    public function generateToken($instanceId, $applicationId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetApplicationProvisioningScopeHeaders([]);
+        $headers = [];
 
-        return $this->getApplicationProvisioningScopeWithOptions($instanceId, $applicationId, $headers, $runtime);
+        return $this->generateTokenWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
     }
 
     /**
@@ -651,16 +708,15 @@ class Eiamdeveloperapi extends OpenApiClient
     /**
      * @param string $instanceId
      * @param string $applicationId
-     * @param string $organizationalUnitId
      *
-     * @return GetOrganizationalUnitResponse
+     * @return GetApplicationProvisioningScopeResponse
      */
-    public function getOrganizationalUnit($instanceId, $applicationId, $organizationalUnitId)
+    public function getApplicationProvisioningScope($instanceId, $applicationId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetOrganizationalUnitHeaders([]);
+        $headers = new GetApplicationProvisioningScopeHeaders([]);
 
-        return $this->getOrganizationalUnitWithOptions($instanceId, $applicationId, $organizationalUnitId, $headers, $runtime);
+        return $this->getApplicationProvisioningScopeWithOptions($instanceId, $applicationId, $headers, $runtime);
     }
 
     /**
@@ -700,18 +756,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string                                     $instanceId
-     * @param string                                     $applicationId
-     * @param GetOrganizationalUnitIdByExternalIdRequest $request
+     * @param string $instanceId
+     * @param string $applicationId
+     * @param string $organizationalUnitId
      *
-     * @return GetOrganizationalUnitIdByExternalIdResponse
+     * @return GetOrganizationalUnitResponse
      */
-    public function getOrganizationalUnitIdByExternalId($instanceId, $applicationId, $request)
+    public function getOrganizationalUnit($instanceId, $applicationId, $organizationalUnitId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetOrganizationalUnitIdByExternalIdHeaders([]);
+        $headers = new GetOrganizationalUnitHeaders([]);
 
-        return $this->getOrganizationalUnitIdByExternalIdWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+        return $this->getOrganizationalUnitWithOptions($instanceId, $applicationId, $organizationalUnitId, $headers, $runtime);
     }
 
     /**
@@ -763,18 +819,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string $instanceId
-     * @param string $applicationId
-     * @param string $userId
+     * @param string                                     $instanceId
+     * @param string                                     $applicationId
+     * @param GetOrganizationalUnitIdByExternalIdRequest $request
      *
-     * @return GetUserResponse
+     * @return GetOrganizationalUnitIdByExternalIdResponse
      */
-    public function getUser($instanceId, $applicationId, $userId)
+    public function getOrganizationalUnitIdByExternalId($instanceId, $applicationId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetUserHeaders([]);
+        $headers = new GetOrganizationalUnitIdByExternalIdHeaders([]);
 
-        return $this->getUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime);
+        return $this->getOrganizationalUnitIdByExternalIdWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
     }
 
     /**
@@ -814,18 +870,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string                  $instanceId
-     * @param string                  $applicationId
-     * @param GetUserIdByEmailRequest $request
+     * @param string $instanceId
+     * @param string $applicationId
+     * @param string $userId
      *
-     * @return GetUserIdByEmailResponse
+     * @return GetUserResponse
      */
-    public function getUserIdByEmail($instanceId, $applicationId, $request)
+    public function getUser($instanceId, $applicationId, $userId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetUserIdByEmailHeaders([]);
+        $headers = new GetUserHeaders([]);
 
-        return $this->getUserIdByEmailWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+        return $this->getUserWithOptions($instanceId, $applicationId, $userId, $headers, $runtime);
     }
 
     /**
@@ -871,18 +927,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string                        $instanceId
-     * @param string                        $applicationId
-     * @param GetUserIdByPhoneNumberRequest $request
+     * @param string                  $instanceId
+     * @param string                  $applicationId
+     * @param GetUserIdByEmailRequest $request
      *
-     * @return GetUserIdByPhoneNumberResponse
+     * @return GetUserIdByEmailResponse
      */
-    public function getUserIdByPhoneNumber($instanceId, $applicationId, $request)
+    public function getUserIdByEmail($instanceId, $applicationId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetUserIdByPhoneNumberHeaders([]);
+        $headers = new GetUserIdByEmailHeaders([]);
 
-        return $this->getUserIdByPhoneNumberWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+        return $this->getUserIdByEmailWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
     }
 
     /**
@@ -928,18 +984,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string                           $instanceId
-     * @param string                           $applicationId
-     * @param GetUserIdByUserExternalIdRequest $request
+     * @param string                        $instanceId
+     * @param string                        $applicationId
+     * @param GetUserIdByPhoneNumberRequest $request
      *
-     * @return GetUserIdByUserExternalIdResponse
+     * @return GetUserIdByPhoneNumberResponse
      */
-    public function getUserIdByUserExternalId($instanceId, $applicationId, $request)
+    public function getUserIdByPhoneNumber($instanceId, $applicationId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetUserIdByUserExternalIdHeaders([]);
+        $headers = new GetUserIdByPhoneNumberHeaders([]);
 
-        return $this->getUserIdByUserExternalIdWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+        return $this->getUserIdByPhoneNumberWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
     }
 
     /**
@@ -991,18 +1047,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string                     $instanceId
-     * @param string                     $applicationId
-     * @param GetUserIdByUsernameRequest $request
+     * @param string                           $instanceId
+     * @param string                           $applicationId
+     * @param GetUserIdByUserExternalIdRequest $request
      *
-     * @return GetUserIdByUsernameResponse
+     * @return GetUserIdByUserExternalIdResponse
      */
-    public function getUserIdByUsername($instanceId, $applicationId, $request)
+    public function getUserIdByUserExternalId($instanceId, $applicationId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetUserIdByUsernameHeaders([]);
+        $headers = new GetUserIdByUserExternalIdHeaders([]);
 
-        return $this->getUserIdByUsernameWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+        return $this->getUserIdByUserExternalIdWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
     }
 
     /**
@@ -1048,17 +1104,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string $instanceId
-     * @param string $applicationId
+     * @param string                     $instanceId
+     * @param string                     $applicationId
+     * @param GetUserIdByUsernameRequest $request
      *
-     * @return GetUserInfoResponse
+     * @return GetUserIdByUsernameResponse
      */
-    public function getUserInfo($instanceId, $applicationId)
+    public function getUserIdByUsername($instanceId, $applicationId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetUserInfoHeaders([]);
+        $headers = new GetUserIdByUsernameHeaders([]);
 
-        return $this->getUserInfoWithOptions($instanceId, $applicationId, $headers, $runtime);
+        return $this->getUserIdByUsernameWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
     }
 
     /**
@@ -1099,16 +1156,15 @@ class Eiamdeveloperapi extends OpenApiClient
     /**
      * @param string $instanceId
      * @param string $applicationId
-     * @param string $organizationalUnitId
      *
-     * @return ListOrganizationalUnitParentIdsResponse
+     * @return GetUserInfoResponse
      */
-    public function listOrganizationalUnitParentIds($instanceId, $applicationId, $organizationalUnitId)
+    public function getUserInfo($instanceId, $applicationId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListOrganizationalUnitParentIdsHeaders([]);
+        $headers = new GetUserInfoHeaders([]);
 
-        return $this->listOrganizationalUnitParentIdsWithOptions($instanceId, $applicationId, $organizationalUnitId, $headers, $runtime);
+        return $this->getUserInfoWithOptions($instanceId, $applicationId, $headers, $runtime);
     }
 
     /**
@@ -1148,18 +1204,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string                         $instanceId
-     * @param string                         $applicationId
-     * @param ListOrganizationalUnitsRequest $request
+     * @param string $instanceId
+     * @param string $applicationId
+     * @param string $organizationalUnitId
      *
-     * @return ListOrganizationalUnitsResponse
+     * @return ListOrganizationalUnitParentIdsResponse
      */
-    public function listOrganizationalUnits($instanceId, $applicationId, $request)
+    public function listOrganizationalUnitParentIds($instanceId, $applicationId, $organizationalUnitId)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListOrganizationalUnitsHeaders([]);
+        $headers = new ListOrganizationalUnitParentIdsHeaders([]);
 
-        return $this->listOrganizationalUnitsWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+        return $this->listOrganizationalUnitParentIdsWithOptions($instanceId, $applicationId, $organizationalUnitId, $headers, $runtime);
     }
 
     /**
@@ -1211,18 +1267,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string           $instanceId
-     * @param string           $applicationId
-     * @param ListUsersRequest $request
+     * @param string                         $instanceId
+     * @param string                         $applicationId
+     * @param ListOrganizationalUnitsRequest $request
      *
-     * @return ListUsersResponse
+     * @return ListOrganizationalUnitsResponse
      */
-    public function listUsers($instanceId, $applicationId, $request)
+    public function listOrganizationalUnits($instanceId, $applicationId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListUsersHeaders([]);
+        $headers = new ListOrganizationalUnitsHeaders([]);
 
-        return $this->listUsersWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+        return $this->listOrganizationalUnitsWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
     }
 
     /**
@@ -1274,19 +1330,18 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string                         $instanceId
-     * @param string                         $applicationId
-     * @param string                         $organizationalUnitId
-     * @param PatchOrganizationalUnitRequest $request
+     * @param string           $instanceId
+     * @param string           $applicationId
+     * @param ListUsersRequest $request
      *
-     * @return PatchOrganizationalUnitResponse
+     * @return ListUsersResponse
      */
-    public function patchOrganizationalUnit($instanceId, $applicationId, $organizationalUnitId, $request)
+    public function listUsers($instanceId, $applicationId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new PatchOrganizationalUnitHeaders([]);
+        $headers = new ListUsersHeaders([]);
 
-        return $this->patchOrganizationalUnitWithOptions($instanceId, $applicationId, $organizationalUnitId, $request, $headers, $runtime);
+        return $this->listUsersWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
     }
 
     /**
@@ -1336,19 +1391,19 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string           $instanceId
-     * @param string           $applicationId
-     * @param string           $userId
-     * @param PatchUserRequest $request
+     * @param string                         $instanceId
+     * @param string                         $applicationId
+     * @param string                         $organizationalUnitId
+     * @param PatchOrganizationalUnitRequest $request
      *
-     * @return PatchUserResponse
+     * @return PatchOrganizationalUnitResponse
      */
-    public function patchUser($instanceId, $applicationId, $userId, $request)
+    public function patchOrganizationalUnit($instanceId, $applicationId, $organizationalUnitId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new PatchUserHeaders([]);
+        $headers = new PatchOrganizationalUnitHeaders([]);
 
-        return $this->patchUserWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime);
+        return $this->patchOrganizationalUnitWithOptions($instanceId, $applicationId, $organizationalUnitId, $request, $headers, $runtime);
     }
 
     /**
@@ -1416,18 +1471,78 @@ class Eiamdeveloperapi extends OpenApiClient
     }
 
     /**
-     * @param string             $instanceId
-     * @param string             $applicationId
-     * @param RevokeTokenRequest $request
+     * @param string           $instanceId
+     * @param string           $applicationId
+     * @param string           $userId
+     * @param PatchUserRequest $request
      *
-     * @return RevokeTokenResponse
+     * @return PatchUserResponse
      */
-    public function revokeToken($instanceId, $applicationId, $request)
+    public function patchUser($instanceId, $applicationId, $userId, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new PatchUserHeaders([]);
 
-        return $this->revokeTokenWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+        return $this->patchUserWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                                   $instanceId
+     * @param string                                   $applicationId
+     * @param string                                   $userId
+     * @param RemoveUserFromOrganizationalUnitsRequest $request
+     * @param RemoveUserFromOrganizationalUnitsHeaders $headers
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return RemoveUserFromOrganizationalUnitsResponse
+     */
+    public function removeUserFromOrganizationalUnitsWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->organizationalUnitIds)) {
+            $body['organizationalUnitIds'] = $request->organizationalUnitIds;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveUserFromOrganizationalUnits',
+            'version'     => '2022-02-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/removeUserFromOrganizationalUnits',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return RemoveUserFromOrganizationalUnitsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                                   $instanceId
+     * @param string                                   $applicationId
+     * @param string                                   $userId
+     * @param RemoveUserFromOrganizationalUnitsRequest $request
+     *
+     * @return RemoveUserFromOrganizationalUnitsResponse
+     */
+    public function removeUserFromOrganizationalUnits($instanceId, $applicationId, $userId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new RemoveUserFromOrganizationalUnitsHeaders([]);
+
+        return $this->removeUserFromOrganizationalUnitsWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime);
     }
 
     /**
@@ -1472,5 +1587,138 @@ class Eiamdeveloperapi extends OpenApiClient
         ]);
 
         return RevokeTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string             $instanceId
+     * @param string             $applicationId
+     * @param RevokeTokenRequest $request
+     *
+     * @return RevokeTokenResponse
+     */
+    public function revokeToken($instanceId, $applicationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->revokeTokenWithOptions($instanceId, $applicationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                                  $instanceId
+     * @param string                                  $applicationId
+     * @param string                                  $userId
+     * @param SetUserPrimaryOrganizationalUnitRequest $request
+     * @param SetUserPrimaryOrganizationalUnitHeaders $headers
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return SetUserPrimaryOrganizationalUnitResponse
+     */
+    public function setUserPrimaryOrganizationalUnitWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->organizationalUnitId)) {
+            $body['organizationalUnitId'] = $request->organizationalUnitId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetUserPrimaryOrganizationalUnit',
+            'version'     => '2022-02-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/setUserPrimaryOrganizationalUnit',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return SetUserPrimaryOrganizationalUnitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                                  $instanceId
+     * @param string                                  $applicationId
+     * @param string                                  $userId
+     * @param SetUserPrimaryOrganizationalUnitRequest $request
+     *
+     * @return SetUserPrimaryOrganizationalUnitResponse
+     */
+    public function setUserPrimaryOrganizationalUnit($instanceId, $applicationId, $userId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new SetUserPrimaryOrganizationalUnitHeaders([]);
+
+        return $this->setUserPrimaryOrganizationalUnitWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $instanceId
+     * @param string                    $applicationId
+     * @param string                    $userId
+     * @param UpdateUserPasswordRequest $request
+     * @param UpdateUserPasswordHeaders $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateUserPasswordResponse
+     */
+    public function updateUserPasswordWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->password)) {
+            $body['password'] = $request->password;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateUserPassword',
+            'version'     => '2022-02-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/' . OpenApiUtilClient::getEncodeParam($instanceId) . '/' . OpenApiUtilClient::getEncodeParam($applicationId) . '/users/' . OpenApiUtilClient::getEncodeParam($userId) . '/actions/updateUserPassword',
+            'method'      => 'POST',
+            'authType'    => 'Anonymous',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateUserPasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $instanceId
+     * @param string                    $applicationId
+     * @param string                    $userId
+     * @param UpdateUserPasswordRequest $request
+     *
+     * @return UpdateUserPasswordResponse
+     */
+    public function updateUserPassword($instanceId, $applicationId, $userId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateUserPasswordHeaders([]);
+
+        return $this->updateUserPasswordWithOptions($instanceId, $applicationId, $userId, $request, $headers, $runtime);
     }
 }

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class GenerateDeviceCodeResponseBody extends Model
 {
     /**
+     * @example xxxxx
+     *
      * @var string
      */
     public $deviceCode;
 
     /**
+     * @example 1653288641
+     *
      * @var int
      */
     public $expiresAt;
 
     /**
+     * @example 1200
+     *
      * @var int
      */
     public $expiresIn;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @example xxxxx
+     *
      * @var string
      */
     public $userCode;
 
     /**
+     * @example https://example.com/authorize/device
+     *
      * @var string
      */
     public $verificationUri;
 
     /**
+     * @example https://example.com/authorize/device?user_code=
+     * xxxx
      * @var string
      */
     public $verificationUriComplete;

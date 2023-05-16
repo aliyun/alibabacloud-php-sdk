@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RevokeTokenRequest extends Model
 {
     /**
+     * @example app_mkv7rgt4d7i4u7zqtzev2mxxxx
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @example CSEHDcHcrUKHw1CuxkJEHPveWRXBGqVqRsxxxx
+     *
      * @var string
      */
     public $clientSecret;
 
     /**
+     * @example ATxxxx
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @example access_token
+     *
      * @var string
      */
     public $tokenTypeHint;

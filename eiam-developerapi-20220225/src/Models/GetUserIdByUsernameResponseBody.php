@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserIdByUsernameResponseBody extends Model
 {
     /**
+     * @example user_d6sbsuumeta4h66ec3il7yxxxx
+     *
      * @var string
      */
     public $userId;

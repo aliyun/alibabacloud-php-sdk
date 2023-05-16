@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class passwordInitializationConfig extends Model
 {
     /**
+     * @example enabled
+     *
      * @var string
      */
     public $passwordForcedUpdateStatus;
 
     /**
+     * @example global
+     *
      * @var string
      */
     public $passwordInitializationPolicyPriority;
 
     /**
+     * @example random
+     *
      * @var string
      */
     public $passwordInitializationType;
 
     /**
+     * @example sms
+     *
      * @var string[]
      */
     public $userNotificationChannels;

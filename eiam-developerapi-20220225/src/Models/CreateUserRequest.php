@@ -16,26 +16,36 @@ class CreateUserRequest extends Model
     public $customFields;
 
     /**
+     * @example xxxxx
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example display_name001
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example example@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $emailVerified;
 
     /**
+     * @example xxxxx
+     *
      * @var string
      */
     public $password;
@@ -46,31 +56,43 @@ class CreateUserRequest extends Model
     public $passwordInitializationConfig;
 
     /**
+     * @example 156xxxxxxx
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $phoneNumberVerified;
 
     /**
+     * @example 86
+     *
      * @var string
      */
     public $phoneRegion;
 
     /**
+     * @example ou_wovwffm62xifdziem7an7xxxxx
+     *
      * @var string
      */
     public $primaryOrganizationalUnitId;
 
     /**
+     * @example user_d6sbsuumeta4h66ec3il7yxxxx
+     *
      * @var string
      */
     public $userExternalId;
 
     /**
+     * @example name001
+     *
      * @var string
      */
     public $username;

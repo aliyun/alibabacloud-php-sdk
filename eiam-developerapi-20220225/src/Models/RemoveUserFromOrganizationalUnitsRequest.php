@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetApplicationProvisioningScopeResponseBody extends Model
+class RemoveUserFromOrganizationalUnitsRequest extends Model
 {
     /**
-     * @example [ou_xxx001]
+     * @example [ou_wovwffm62xifdziem7an7xxxxx]
      *
      * @var string[]
      */
@@ -35,7 +35,7 @@ class GetApplicationProvisioningScopeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetApplicationProvisioningScopeResponseBody
+     * @return RemoveUserFromOrganizationalUnitsRequest
      */
     public static function fromMap($map = [])
     {

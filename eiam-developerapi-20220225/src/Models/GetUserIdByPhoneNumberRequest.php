@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserIdByPhoneNumberRequest extends Model
 {
     /**
+     * @example 156xxxxxxx
+     *
      * @var string
      */
     public $phoneNumber;

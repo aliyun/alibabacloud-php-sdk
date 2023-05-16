@@ -6,16 +6,16 @@ namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateUserResponseBody extends Model
+class UpdateUserPasswordRequest extends Model
 {
     /**
-     * @example user_d6sbsuumeta4h66ec3il7yxxxx
+     * @example xxxx
      *
      * @var string
      */
-    public $userId;
+    public $password;
     protected $_name = [
-        'userId' => 'userId',
+        'password' => 'password',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class CreateUserResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->userId) {
-            $res['userId'] = $this->userId;
+        if (null !== $this->password) {
+            $res['password'] = $this->password;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class CreateUserResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateUserResponseBody
+     * @return UpdateUserPasswordRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['userId'])) {
-            $model->userId = $map['userId'];
+        if (isset($map['password'])) {
+            $model->password = $map['password'];
         }
 
         return $model;

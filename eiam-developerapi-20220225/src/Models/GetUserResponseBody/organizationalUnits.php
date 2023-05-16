@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class organizationalUnits extends Model
 {
     /**
+     * @example ou_wovwffm62xifdziem7an7xxxxx
+     *
      * @var string
      */
     public $organizationalUnitId;
 
     /**
+     * @example name001
+     *
      * @var string
      */
     public $organizationalUnitName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $primary;

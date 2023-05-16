@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetOrganizationalUnitIdByExternalIdRequest extends Model
 {
     /**
+     * @example ou_wovwffm62xifdziem7an7xxxxx
+     *
      * @var string
      */
     public $organizationalUnitExternalId;
 
     /**
+     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
+     *
      * @var string
      */
     public $organizationalUnitSourceId;
 
     /**
+     * @example build_in
+     *
      * @var string
      */
     public $organizationalUnitSourceType;

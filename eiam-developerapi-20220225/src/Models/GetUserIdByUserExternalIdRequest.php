@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetUserIdByUserExternalIdRequest extends Model
 {
     /**
+     * @example xxx001
+     *
      * @var string
      */
     public $userExternalId;
 
     /**
+     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
+     *
      * @var string
      */
     public $userSourceId;
 
     /**
+     * @example build_in
+     *
      * @var string
      */
     public $userSourceType;

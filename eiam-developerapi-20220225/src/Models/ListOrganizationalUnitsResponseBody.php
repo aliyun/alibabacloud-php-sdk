@@ -15,6 +15,8 @@ class ListOrganizationalUnitsResponseBody extends Model
     public $data;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $totalCount;

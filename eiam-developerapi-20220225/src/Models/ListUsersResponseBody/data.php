@@ -9,101 +9,143 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1652085686179
+     *
      * @var int
      */
     public $accountExpireTime;
 
     /**
+     * @example 1652085686179
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example display_name001
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example example@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $emailVerified;
 
     /**
+     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1652085686179
+     *
      * @var int
      */
     public $lockExpireTime;
 
     /**
+     * @description 密码是否已设置
+     *
+     * @example true
+     *
      * @var bool
      */
     public $passwordSet;
 
     /**
+     * @example 156xxxxxxx
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $phoneNumberVerified;
 
     /**
+     * @example 86
+     *
      * @var string
      */
     public $phoneRegion;
 
     /**
+     * @example 1652085686179
+     *
      * @var int
      */
     public $registerTime;
 
     /**
+     * @example enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1652085686179
+     *
      * @var int
      */
     public $updateTime;
 
     /**
+     * @example user_d6sbsuumeta4h66ec3il7yxxxx
+     *
      * @var string
      */
     public $userExternalId;
 
     /**
+     * @example user_d6sbsuumeta4h66ec3il7yxxxx
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example idaas_ue2jvisn35ea5lmthk267xxxxx
+     *
      * @var string
      */
     public $userSourceId;
 
     /**
+     * @example build_in
+     *
      * @var string
      */
     public $userSourceType;
 
     /**
+     * @example name001
+     *
      * @var string
      */
     public $username;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetOrganizationalUnitIdByExternalIdResponseBody extends Model
 {
     /**
+     * @example ou_wovwffm62xifdziem7an7xxxxx
+     *
      * @var string
      */
     public $organizationalUnitId;

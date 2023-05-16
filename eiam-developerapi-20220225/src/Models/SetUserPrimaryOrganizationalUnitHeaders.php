@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetUserPasswordPolicyHeaders extends Model
+class SetUserPrimaryOrganizationalUnitHeaders extends Model
 {
     public $commonHeaders;
 
     /**
-     * @description 认证信息，格式:Bearer access_token
+     * @example Bearer xxxx
      *
      * @var string
      */
@@ -40,7 +40,7 @@ class GetUserPasswordPolicyHeaders extends Model
     /**
      * @param array $map
      *
-     * @return GetUserPasswordPolicyHeaders
+     * @return SetUserPrimaryOrganizationalUnitHeaders
      */
     public static function fromMap($map = [])
     {

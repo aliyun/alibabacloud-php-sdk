@@ -15,36 +15,50 @@ class PatchUserRequest extends Model
     public $customFields;
 
     /**
+     * @example display_name001
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example example@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $emailVerified;
 
     /**
+     * @example 156xxxxxxx
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $phoneNumberVerified;
 
     /**
+     * @example 86
+     *
      * @var string
      */
     public $phoneRegion;
 
     /**
+     * @example name001
+     *
      * @var string
      */
     public $username;

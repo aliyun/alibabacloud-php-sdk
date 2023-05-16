@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListOrganizationalUnitParentIdsResponseBody extends Model
 {
     /**
+     * @example [ou_xxx001]
+     *
      * @var string[]
      */
     public $parentIds;

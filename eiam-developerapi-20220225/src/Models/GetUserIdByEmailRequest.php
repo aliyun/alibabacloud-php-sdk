@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetUserIdByEmailRequest extends Model
 {
     /**
+     * @example example@example.com
+     *
      * @var string
      */
     public $email;

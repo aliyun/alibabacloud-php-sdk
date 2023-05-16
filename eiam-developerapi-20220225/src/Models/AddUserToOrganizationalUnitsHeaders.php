@@ -6,12 +6,12 @@ namespace AlibabaCloud\SDK\Eiamdeveloperapi\V20220225\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListOrganizationalUnitsHeaders extends Model
+class AddUserToOrganizationalUnitsHeaders extends Model
 {
     public $commonHeaders;
 
     /**
-     * @example Bearer AT8csE2seYxxxxxij
+     * @example Bearer xxxx
      *
      * @var string
      */
@@ -40,7 +40,7 @@ class ListOrganizationalUnitsHeaders extends Model
     /**
      * @param array $map
      *
-     * @return ListOrganizationalUnitsHeaders
+     * @return AddUserToOrganizationalUnitsHeaders
      */
     public static function fromMap($map = [])
     {

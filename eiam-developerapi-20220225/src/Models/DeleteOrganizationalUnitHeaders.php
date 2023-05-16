@@ -11,6 +11,8 @@ class DeleteOrganizationalUnitHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example Bearer AT8csE2seYxxxxxij
+     *
      * @var string
      */
     public $authorization;
