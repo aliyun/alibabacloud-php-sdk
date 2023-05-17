@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Green\V20220302;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageResultExtRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageResultExtResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationRequest;
@@ -73,6 +75,52 @@ class Green extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param DescribeImageResultExtRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeImageResultExtResponse
+     */
+    public function describeImageResultExtWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->infoType)) {
+            $body['InfoType'] = $request->infoType;
+        }
+        if (!Utils::isUnset($request->reqId)) {
+            $body['ReqId'] = $request->reqId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeImageResultExt',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeImageResultExtResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeImageResultExtRequest $request
+     *
+     * @return DescribeImageResultExtResponse
+     */
+    public function describeImageResultExt($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeImageResultExtWithOptions($request, $runtime);
     }
 
     /**

@@ -16,6 +16,11 @@ class sliceDetails extends Model
     public $endTime;
 
     /**
+     * @var int
+     */
+    public $endTimestamp;
+
+    /**
      * @var string
      */
     public $extend;
@@ -57,6 +62,11 @@ class sliceDetails extends Model
     public $startTime;
 
     /**
+     * @var int
+     */
+    public $startTimestamp;
+
+    /**
      * @var string
      */
     public $text;
@@ -67,6 +77,7 @@ class sliceDetails extends Model
     public $url;
     protected $_name = [
         'endTime'          => 'EndTime',
+        'endTimestamp'     => 'EndTimestamp',
         'extend'           => 'Extend',
         'labels'           => 'Labels',
         'originAlgoResult' => 'OriginAlgoResult',
@@ -74,6 +85,7 @@ class sliceDetails extends Model
         'riskWords'        => 'RiskWords',
         'score'            => 'Score',
         'startTime'        => 'StartTime',
+        'startTimestamp'   => 'StartTimestamp',
         'text'             => 'Text',
         'url'              => 'Url',
     ];
@@ -87,6 +99,9 @@ class sliceDetails extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->endTimestamp) {
+            $res['EndTimestamp'] = $this->endTimestamp;
         }
         if (null !== $this->extend) {
             $res['Extend'] = $this->extend;
@@ -109,6 +124,9 @@ class sliceDetails extends Model
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
         }
+        if (null !== $this->startTimestamp) {
+            $res['StartTimestamp'] = $this->startTimestamp;
+        }
         if (null !== $this->text) {
             $res['Text'] = $this->text;
         }
@@ -130,6 +148,9 @@ class sliceDetails extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
+        if (isset($map['EndTimestamp'])) {
+            $model->endTimestamp = $map['EndTimestamp'];
+        }
         if (isset($map['Extend'])) {
             $model->extend = $map['Extend'];
         }
@@ -150,6 +171,9 @@ class sliceDetails extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['StartTimestamp'])) {
+            $model->startTimestamp = $map['StartTimestamp'];
         }
         if (isset($map['Text'])) {
             $model->text = $map['Text'];
