@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Linkedmall\V20220531\Models\InitModifyRefund4DistributionRe
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\InitModifyRefund4DistributionResponse;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\ListDistributionItemRequest;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\ListDistributionItemResponse;
+use AlibabaCloud\SDK\Linkedmall\V20220531\Models\ListDistributionItemWithoutCacheRequest;
+use AlibabaCloud\SDK\Linkedmall\V20220531\Models\ListDistributionItemWithoutCacheResponse;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\ListDistributionMallRequest;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\ListDistributionMallResponse;
 use AlibabaCloud\SDK\Linkedmall\V20220531\Models\ModifyRefund4DistributionRequest;
@@ -620,6 +622,67 @@ class Linkedmall extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDistributionItemWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDistributionItemWithoutCacheRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return ListDistributionItemWithoutCacheResponse
+     */
+    public function listDistributionItemWithoutCacheWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->distributionMallId)) {
+            $body['DistributionMallId'] = $request->distributionMallId;
+        }
+        if (!Utils::isUnset($request->distributorId)) {
+            $body['DistributorId'] = $request->distributorId;
+        }
+        if (!Utils::isUnset($request->itemStatus)) {
+            $body['ItemStatus'] = $request->itemStatus;
+        }
+        if (!Utils::isUnset($request->lmItemId)) {
+            $body['LmItemId'] = $request->lmItemId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDistributionItemWithoutCache',
+            'version'     => '2022-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDistributionItemWithoutCacheResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDistributionItemWithoutCacheRequest $request
+     *
+     * @return ListDistributionItemWithoutCacheResponse
+     */
+    public function listDistributionItemWithoutCache($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDistributionItemWithoutCacheWithOptions($request, $runtime);
     }
 
     /**

@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class itemInfoLists extends Model
 {
     /**
-     * @example 1
-     *
      * @var string
      */
     public $distributionMallId;
 
     /**
-     * @example 10000035-634597869198
-     *
      * @var string
      */
     public $lmItemId;
@@ -30,7 +26,7 @@ class itemInfoLists extends Model
     public $quantity;
 
     /**
-     * @example 4562023539561
+     * @description SKU
      *
      * @var string
      */

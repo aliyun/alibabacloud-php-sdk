@@ -4,19 +4,20 @@
 
 namespace AlibabaCloud\SDK\Linkedmall\V20220531\Models;
 
+use AlibabaCloud\SDK\Linkedmall\V20220531\Models\ListDistributionItemWithoutCacheResponseBody\model_;
 use AlibabaCloud\Tea\Model;
 
-class ApplyCreateDistributionOrderResponseBody extends Model
+class ListDistributionItemWithoutCacheResponseBody extends Model
 {
     /**
-     * @example 0000
+     * @example SUCCESS
      *
      * @var string
      */
     public $code;
 
     /**
-     * @example B1756669-4A***F-A6E0E8605FEC
+     * @example 1
      *
      * @var string
      */
@@ -30,9 +31,7 @@ class ApplyCreateDistributionOrderResponseBody extends Model
     public $message;
 
     /**
-     * @example T213***342
-     *
-     * @var string
+     * @var model_[]
      */
     public $model;
 
@@ -44,8 +43,6 @@ class ApplyCreateDistributionOrderResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description pageSize
-     *
      * @example 20
      *
      * @var int
@@ -53,11 +50,15 @@ class ApplyCreateDistributionOrderResponseBody extends Model
     public $pageSize;
 
     /**
+     * @example 5127621C-****-5DCA-9745-2936B31DFD12
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 205
+     *
      * @var string
      */
     public $subCode;
@@ -77,7 +78,7 @@ class ApplyCreateDistributionOrderResponseBody extends Model
     public $success;
 
     /**
-     * @example 10
+     * @example 27303
      *
      * @var int
      */
@@ -113,7 +114,13 @@ class ApplyCreateDistributionOrderResponseBody extends Model
             $res['Message'] = $this->message;
         }
         if (null !== $this->model) {
-            $res['Model'] = $this->model;
+            $res['Model'] = [];
+            if (null !== $this->model && \is_array($this->model)) {
+                $n = 0;
+                foreach ($this->model as $item) {
+                    $res['Model'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -143,7 +150,7 @@ class ApplyCreateDistributionOrderResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ApplyCreateDistributionOrderResponseBody
+     * @return ListDistributionItemWithoutCacheResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -158,7 +165,13 @@ class ApplyCreateDistributionOrderResponseBody extends Model
             $model->message = $map['Message'];
         }
         if (isset($map['Model'])) {
-            $model->model = $map['Model'];
+            if (!empty($map['Model'])) {
+                $model->model = [];
+                $n            = 0;
+                foreach ($map['Model'] as $item) {
+                    $model->model[$n++] = null !== $item ? model_::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

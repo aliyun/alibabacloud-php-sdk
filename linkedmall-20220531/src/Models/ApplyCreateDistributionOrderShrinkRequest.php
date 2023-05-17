@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApplyCreateDistributionOrderShrinkRequest extends Model
 {
     /**
+     * @example u***01
+     *
      * @var string
      */
     public $buyerId;
@@ -19,27 +21,23 @@ class ApplyCreateDistributionOrderShrinkRequest extends Model
     public $deliveryAddress;
 
     /**
+     * @example 789***3323
+     *
      * @var string
      */
     public $distributionOutTradeId;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $distributionSupplierId;
 
     /**
-     * @example 1
-     *
      * @var string
      */
     public $distributorId;
 
     /**
-     * @example {"key":"value"}
-     *
      * @var string
      */
     public $extInfo;
@@ -50,6 +48,8 @@ class ApplyCreateDistributionOrderShrinkRequest extends Model
     public $itemInfoListsShrink;
 
     /**
+     * @example 12***29
+     *
      * @var string
      */
     public $tenantId;

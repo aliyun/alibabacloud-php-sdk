@@ -1,3 +1,6 @@
+2023-05-17 Version: 1.0.10
+- ADD ListDistributionItemWithoutCache.
+
 2023-01-03 Version: 1.0.9
 - Modify ListDistributionItem.
 
