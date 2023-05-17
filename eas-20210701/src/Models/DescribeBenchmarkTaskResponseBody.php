@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeBenchmarkTaskResponseBody extends Model
 {
     /**
-     * @description 实际可用的压测实例个数。
-     *
      * @example 4
      *
      * @var int
@@ -18,7 +16,7 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $availableAgent;
 
     /**
-     * @description 调用者的UID。
+     * @description 压测任务的状态。
      *
      * @example 1640133467****
      *
@@ -36,17 +34,11 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $desiredAgent;
 
     /**
-     * @description 服务对外公开的访问路径。
-     *
-     * @example http://15990xxxx.cn-hangzhou.pai-eas.aliyuncs.com/api/predict/xxx
-     *
      * @var string
      */
     public $endpoint;
 
     /**
-     * @description 当前压测任务的运行进度信息。
-     *
      * @example Benchmar task is Running
      *
      * @var string
@@ -54,8 +46,6 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $message;
 
     /**
-     * @description 资源拥有者的UID。
-     *
      * @example 1029728669****
      *
      * @var string
@@ -63,8 +53,6 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $parentUid;
 
     /**
-     * @description 当前压测任务状态产生的原因。
-     *
      * @example RUNNING
      *
      * @var string
@@ -81,7 +69,7 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 压测的eas服务名。
+     * @description 访问eas服务的鉴权token。
      *
      * @example foo
      *
@@ -90,8 +78,6 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $serviceName;
 
     /**
-     * @description 压测任务的状态。
-     *
      * @example Running
      *
      * @var string
@@ -108,7 +94,7 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $taskId;
 
     /**
-     * @description 压测任务名字。
+     * @description 当前压测任务状态产生的原因。
      *
      * @example benchmark-larec-test-ae70
      *
@@ -117,7 +103,7 @@ class DescribeBenchmarkTaskResponseBody extends Model
     public $taskName;
 
     /**
-     * @description 访问eas服务的鉴权token。
+     * @description 资源拥有者的UID。
      *
      * @example 6062787a-9301****
      *

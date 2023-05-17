@@ -74,6 +74,11 @@ class ResourceInstance extends Model
     public $instanceStatus;
 
     /**
+     * @var int
+     */
+    public $instanceSystemDiskSize;
+
+    /**
      * @var string
      */
     public $instanceTenantIp;
@@ -111,29 +116,36 @@ class ResourceInstance extends Model
     /**
      * @var string
      */
+    public $resourceId;
+
+    /**
+     * @var string
+     */
     public $zone;
     protected $_name = [
-        'arch'                  => 'Arch',
-        'autoRenewal'           => 'AutoRenewal',
-        'chargeType'            => 'ChargeType',
-        'createTime'            => 'CreateTime',
-        'expiredTime'           => 'ExpiredTime',
-        'instanceCpuCount'      => 'InstanceCpuCount',
-        'instanceGpuCount'      => 'InstanceGpuCount',
-        'instanceGpuMemory'     => 'InstanceGpuMemory',
-        'instanceId'            => 'InstanceId',
-        'instanceIp'            => 'InstanceIp',
-        'instanceMemory'        => 'InstanceMemory',
-        'instanceName'          => 'InstanceName',
-        'instanceStatus'        => 'InstanceStatus',
-        'instanceTenantIp'      => 'InstanceTenantIp',
-        'instanceType'          => 'InstanceType',
-        'instanceUsedCpu'       => 'InstanceUsedCpu',
-        'instanceUsedGpu'       => 'InstanceUsedGpu',
-        'instanceUsedGpuMemory' => 'InstanceUsedGpuMemory',
-        'instanceUsedMemory'    => 'InstanceUsedMemory',
-        'region'                => 'Region',
-        'zone'                  => 'Zone',
+        'arch'                   => 'Arch',
+        'autoRenewal'            => 'AutoRenewal',
+        'chargeType'             => 'ChargeType',
+        'createTime'             => 'CreateTime',
+        'expiredTime'            => 'ExpiredTime',
+        'instanceCpuCount'       => 'InstanceCpuCount',
+        'instanceGpuCount'       => 'InstanceGpuCount',
+        'instanceGpuMemory'      => 'InstanceGpuMemory',
+        'instanceId'             => 'InstanceId',
+        'instanceIp'             => 'InstanceIp',
+        'instanceMemory'         => 'InstanceMemory',
+        'instanceName'           => 'InstanceName',
+        'instanceStatus'         => 'InstanceStatus',
+        'instanceSystemDiskSize' => 'InstanceSystemDiskSize',
+        'instanceTenantIp'       => 'InstanceTenantIp',
+        'instanceType'           => 'InstanceType',
+        'instanceUsedCpu'        => 'InstanceUsedCpu',
+        'instanceUsedGpu'        => 'InstanceUsedGpu',
+        'instanceUsedGpuMemory'  => 'InstanceUsedGpuMemory',
+        'instanceUsedMemory'     => 'InstanceUsedMemory',
+        'region'                 => 'Region',
+        'resourceId'             => 'ResourceId',
+        'zone'                   => 'Zone',
     ];
 
     public function validate()
@@ -182,6 +194,9 @@ class ResourceInstance extends Model
         if (null !== $this->instanceStatus) {
             $res['InstanceStatus'] = $this->instanceStatus;
         }
+        if (null !== $this->instanceSystemDiskSize) {
+            $res['InstanceSystemDiskSize'] = $this->instanceSystemDiskSize;
+        }
         if (null !== $this->instanceTenantIp) {
             $res['InstanceTenantIp'] = $this->instanceTenantIp;
         }
@@ -202,6 +217,9 @@ class ResourceInstance extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->zone) {
             $res['Zone'] = $this->zone;
@@ -257,6 +275,9 @@ class ResourceInstance extends Model
         if (isset($map['InstanceStatus'])) {
             $model->instanceStatus = $map['InstanceStatus'];
         }
+        if (isset($map['InstanceSystemDiskSize'])) {
+            $model->instanceSystemDiskSize = $map['InstanceSystemDiskSize'];
+        }
         if (isset($map['InstanceTenantIp'])) {
             $model->instanceTenantIp = $map['InstanceTenantIp'];
         }
@@ -277,6 +298,9 @@ class ResourceInstance extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
         }
         if (isset($map['Zone'])) {
             $model->zone = $map['Zone'];

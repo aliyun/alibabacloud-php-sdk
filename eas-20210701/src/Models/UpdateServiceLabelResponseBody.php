@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceLabelResponseBody extends Model
 {
     /**
-     * @example Success.
-     *
      * @var string
      */
     public $message;

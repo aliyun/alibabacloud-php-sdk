@@ -16,6 +16,11 @@ class CreateResourceResponseBody extends Model
     public $clusterId;
 
     /**
+     * @var string[]
+     */
+    public $instanceIds;
+
+    /**
      * @example 14401087478****
      *
      * @var string
@@ -44,6 +49,7 @@ class CreateResourceResponseBody extends Model
     public $resourceName;
     protected $_name = [
         'clusterId'    => 'ClusterId',
+        'instanceIds'  => 'InstanceIds',
         'ownerUid'     => 'OwnerUid',
         'requestId'    => 'RequestId',
         'resourceId'   => 'ResourceId',
@@ -59,6 +65,9 @@ class CreateResourceResponseBody extends Model
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
         }
         if (null !== $this->ownerUid) {
             $res['OwnerUid'] = $this->ownerUid;
@@ -86,6 +95,11 @@ class CreateResourceResponseBody extends Model
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = $map['InstanceIds'];
+            }
         }
         if (isset($map['OwnerUid'])) {
             $model->ownerUid = $map['OwnerUid'];

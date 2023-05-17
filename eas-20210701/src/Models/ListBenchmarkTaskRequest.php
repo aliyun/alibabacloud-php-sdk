@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListBenchmarkTaskRequest extends Model
 {
     /**
+     * @example test_bench
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example test_bench_srv
+     *
      * @var string
      */
     public $serviceName;

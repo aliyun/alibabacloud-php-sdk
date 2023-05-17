@@ -16,8 +16,6 @@ class DevelopServiceResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
-     *
      * @example 40325405-579C-4D82****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceShrinkRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var string
      */
     public $develop;

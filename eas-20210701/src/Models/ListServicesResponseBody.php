@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListServicesResponseBody extends Model
 {
     /**
-     * @description 页码。
-     *
      * @example 1
      *
      * @var int
@@ -18,8 +16,6 @@ class ListServicesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description 每页显示的服务数。
-     *
      * @example 100
      *
      * @var int

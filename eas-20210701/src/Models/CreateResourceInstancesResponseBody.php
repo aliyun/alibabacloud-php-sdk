@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceInstancesResponseBody extends Model
 {
     /**
+     * @var string[]
+     */
+    public $instanceIds;
+
+    /**
      * @example Create 5 new ecs instance(s) in resource [eas-r-asdasdasd] successfully
      *
      * @var string
@@ -22,8 +27,9 @@ class CreateResourceInstancesResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
+        'instanceIds' => 'InstanceIds',
+        'message'     => 'Message',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -33,6 +39,9 @@ class CreateResourceInstancesResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceIds) {
+            $res['InstanceIds'] = $this->instanceIds;
+        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -51,6 +60,11 @@ class CreateResourceInstancesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceIds'])) {
+            if (!empty($map['InstanceIds'])) {
+                $model->instanceIds = $map['InstanceIds'];
+            }
+        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Eas\V20210701\Models;
 
+use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceAutoScalerRequest\behavior;
 use AlibabaCloud\SDK\Eas\V20210701\Models\CreateServiceAutoScalerRequest\scaleStrategies;
 use AlibabaCloud\Tea\Model;
 
 class CreateServiceAutoScalerRequest extends Model
 {
+    /**
+     * @var behavior
+     */
+    public $behavior;
+
     /**
      * @example 8
      *
@@ -28,6 +34,7 @@ class CreateServiceAutoScalerRequest extends Model
      */
     public $scaleStrategies;
     protected $_name = [
+        'behavior'        => 'behavior',
         'max'             => 'max',
         'min'             => 'min',
         'scaleStrategies' => 'scaleStrategies',
@@ -40,6 +47,9 @@ class CreateServiceAutoScalerRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->behavior) {
+            $res['behavior'] = null !== $this->behavior ? $this->behavior->toMap() : null;
+        }
         if (null !== $this->max) {
             $res['max'] = $this->max;
         }
@@ -67,6 +77,9 @@ class CreateServiceAutoScalerRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['behavior'])) {
+            $model->behavior = behavior::fromMap($map['behavior']);
+        }
         if (isset($map['max'])) {
             $model->max = $map['max'];
         }

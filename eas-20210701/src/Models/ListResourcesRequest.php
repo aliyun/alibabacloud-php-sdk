@@ -23,11 +23,15 @@ class ListResourcesRequest extends Model
     public $pageSize;
 
     /**
+     * @example eas-r-h7lcw24dyqztwxxxxxx
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example MyResource
+     *
      * @var string
      */
     public $resourceName;

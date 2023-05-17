@@ -9,11 +9,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceLogRequest extends Model
 {
     /**
+     * @description 服务实例的容器名称。
+     *
+     * @example worker0
+     *
+     * @var string
+     */
+    public $containerName;
+
+    /**
      * @example 2006-01-02 15:04:05
      *
      * @var string
      */
     public $endTime;
+
+    /**
+     * @example echo-da290ac8-7fckm
+     *
+     * @var string
+     */
+    public $instanceName;
 
     /**
      * @example 10.0.0.1
@@ -44,18 +60,28 @@ class DescribeServiceLogRequest extends Model
     public $pageSize;
 
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $previous;
+
+    /**
      * @example 2006-01-02 15:04:05
      *
      * @var string
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'ip'        => 'Ip',
-        'keyword'   => 'Keyword',
-        'pageNum'   => 'PageNum',
-        'pageSize'  => 'PageSize',
-        'startTime' => 'StartTime',
+        'containerName' => 'ContainerName',
+        'endTime'       => 'EndTime',
+        'instanceName'  => 'InstanceName',
+        'ip'            => 'Ip',
+        'keyword'       => 'Keyword',
+        'pageNum'       => 'PageNum',
+        'pageSize'      => 'PageSize',
+        'previous'      => 'Previous',
+        'startTime'     => 'StartTime',
     ];
 
     public function validate()
@@ -65,8 +91,14 @@ class DescribeServiceLogRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->containerName) {
+            $res['ContainerName'] = $this->containerName;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
@@ -79,6 +111,9 @@ class DescribeServiceLogRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->previous) {
+            $res['Previous'] = $this->previous;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -95,8 +130,14 @@ class DescribeServiceLogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContainerName'])) {
+            $model->containerName = $map['ContainerName'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
@@ -109,6 +150,9 @@ class DescribeServiceLogRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Previous'])) {
+            $model->previous = $map['Previous'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

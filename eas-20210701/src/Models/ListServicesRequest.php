@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListServicesRequest extends Model
 {
     /**
-     * @description 关键字搜索。
-     *
+     * @description {
+     * }
      * @example foo
      *
      * @var string
@@ -18,8 +18,6 @@ class ListServicesRequest extends Model
     public $filter;
 
     /**
-     * @description 所属的group。
-     *
      * @example foo
      *
      * @var string
@@ -32,7 +30,7 @@ class ListServicesRequest extends Model
     public $label;
 
     /**
-     * @description 排序顺序，支持升序或将序。
+     * @description 所属的group。
      *
      * @example asc
      *
@@ -41,7 +39,7 @@ class ListServicesRequest extends Model
     public $order;
 
     /**
-     * @description 页号。
+     * @description 376577
      *
      * @example 1
      *
@@ -50,8 +48,6 @@ class ListServicesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description 每页大小。
-     *
      * @example 100
      *
      * @var int
@@ -59,25 +55,51 @@ class ListServicesRequest extends Model
     public $pageSize;
 
     /**
-     * @description Band类型服务主服务的UID
-     *
-     * @example eas-m-baxkc20nsyxxxx
-     *
      * @var string
      */
     public $parentServiceUid;
 
     /**
-     * @description 服务的类型，例如Async, OfflineTask和Standard等
+     * @description 服务所属的资源组名称或ID。
      *
-     * @example Async
+     * @example eas-r-hd0qwy8cxxxx
      *
+     * @var string
+     */
+    public $resourceName;
+
+    /**
+     * @description 服务名。
+     *
+     * @example echo_test
+     *
+     * @var string
+     */
+    public $serviceName;
+
+    /**
+     * @description 服务运行的状态。
+     *
+     * @example Running
+     *
+     * @var string
+     */
+    public $serviceStatus;
+
+    /**
      * @var string
      */
     public $serviceType;
 
     /**
-     * @description 排序字段。
+     * @example eas-m-c9iw3yitxxxx
+     *
+     * @var string
+     */
+    public $serviceUid;
+
+    /**
+     * @description 服务的类型定义。
      *
      * @example CreateTime
      *
@@ -92,7 +114,11 @@ class ListServicesRequest extends Model
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
         'parentServiceUid' => 'ParentServiceUid',
+        'resourceName'     => 'ResourceName',
+        'serviceName'      => 'ServiceName',
+        'serviceStatus'    => 'ServiceStatus',
         'serviceType'      => 'ServiceType',
+        'serviceUid'       => 'ServiceUid',
         'sort'             => 'Sort',
     ];
 
@@ -124,8 +150,20 @@ class ListServicesRequest extends Model
         if (null !== $this->parentServiceUid) {
             $res['ParentServiceUid'] = $this->parentServiceUid;
         }
+        if (null !== $this->resourceName) {
+            $res['ResourceName'] = $this->resourceName;
+        }
+        if (null !== $this->serviceName) {
+            $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->serviceStatus) {
+            $res['ServiceStatus'] = $this->serviceStatus;
+        }
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
+        }
+        if (null !== $this->serviceUid) {
+            $res['ServiceUid'] = $this->serviceUid;
         }
         if (null !== $this->sort) {
             $res['Sort'] = $this->sort;
@@ -163,8 +201,20 @@ class ListServicesRequest extends Model
         if (isset($map['ParentServiceUid'])) {
             $model->parentServiceUid = $map['ParentServiceUid'];
         }
+        if (isset($map['ResourceName'])) {
+            $model->resourceName = $map['ResourceName'];
+        }
+        if (isset($map['ServiceName'])) {
+            $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['ServiceStatus'])) {
+            $model->serviceStatus = $map['ServiceStatus'];
+        }
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
+        }
+        if (isset($map['ServiceUid'])) {
+            $model->serviceUid = $map['ServiceUid'];
         }
         if (isset($map['Sort'])) {
             $model->sort = $map['Sort'];

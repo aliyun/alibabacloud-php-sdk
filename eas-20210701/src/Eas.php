@@ -266,6 +266,12 @@ class Eas extends OpenApiClient
         if (!Utils::isUnset($request->ecsInstanceType)) {
             $body['EcsInstanceType'] = $request->ecsInstanceType;
         }
+        if (!Utils::isUnset($request->systemDiskSize)) {
+            $body['SystemDiskSize'] = $request->systemDiskSize;
+        }
+        if (!Utils::isUnset($request->zone)) {
+            $body['Zone'] = $request->zone;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -323,8 +329,14 @@ class Eas extends OpenApiClient
         if (!Utils::isUnset($request->ecsInstanceType)) {
             $body['EcsInstanceType'] = $request->ecsInstanceType;
         }
+        if (!Utils::isUnset($request->systemDiskSize)) {
+            $body['SystemDiskSize'] = $request->systemDiskSize;
+        }
         if (!Utils::isUnset($request->userData)) {
             $body['UserData'] = $request->userData;
+        }
+        if (!Utils::isUnset($request->zone)) {
+            $body['Zone'] = $request->zone;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -481,6 +493,9 @@ class Eas extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->behavior)) {
+            $body['behavior'] = $request->behavior;
+        }
         if (!Utils::isUnset($request->max)) {
             $body['max'] = $request->max;
         }
@@ -1526,6 +1541,12 @@ class Eas extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
         if (!Utils::isUnset($request->pageNum)) {
             $query['PageNum'] = $request->pageNum;
         }
@@ -1582,8 +1603,14 @@ class Eas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->containerName)) {
+            $query['ContainerName'] = $request->containerName;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
         }
         if (!Utils::isUnset($request->ip)) {
             $query['Ip'] = $request->ip;
@@ -1596,6 +1623,9 @@ class Eas extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->previous)) {
+            $query['Previous'] = $request->previous;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -1904,17 +1934,32 @@ class Eas extends OpenApiClient
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
         }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->instanceIP)) {
+            $query['InstanceIP'] = $request->instanceIP;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->instanceName)) {
             $query['InstanceName'] = $request->instanceName;
         }
+        if (!Utils::isUnset($request->instanceStatus)) {
+            $query['InstanceStatus'] = $request->instanceStatus;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2071,11 +2116,44 @@ class Eas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->hostIP)) {
+            $query['HostIP'] = $request->hostIP;
+        }
+        if (!Utils::isUnset($request->instanceIP)) {
+            $query['InstanceIP'] = $request->instanceIP;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->instanceStatus)) {
+            $query['InstanceStatus'] = $request->instanceStatus;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->isSpot)) {
+            $query['IsSpot'] = $request->isSpot;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->role)) {
+            $query['Role'] = $request->role;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -2201,8 +2279,20 @@ class Eas extends OpenApiClient
         if (!Utils::isUnset($request->parentServiceUid)) {
             $query['ParentServiceUid'] = $request->parentServiceUid;
         }
+        if (!Utils::isUnset($request->resourceName)) {
+            $query['ResourceName'] = $request->resourceName;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceStatus)) {
+            $query['ServiceStatus'] = $request->serviceStatus;
+        }
         if (!Utils::isUnset($request->serviceType)) {
             $query['ServiceType'] = $request->serviceType;
+        }
+        if (!Utils::isUnset($request->serviceUid)) {
+            $query['ServiceUid'] = $request->serviceUid;
         }
         if (!Utils::isUnset($request->sort)) {
             $query['Sort'] = $request->sort;
@@ -2726,6 +2816,9 @@ class Eas extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->behavior)) {
+            $body['behavior'] = $request->behavior;
+        }
         if (!Utils::isUnset($request->max)) {
             $body['max'] = $request->max;
         }

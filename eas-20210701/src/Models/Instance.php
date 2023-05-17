@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class Instance extends Model
 {
     /**
+     * @example 0.444
+     *
+     * @var float
+     */
+    public $currentAmount;
+
+    /**
      * @var string
      */
     public $hostIP;
@@ -34,6 +41,13 @@ class Instance extends Model
     public $instancePort;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $isSpot;
+
+    /**
      * @var mixed[][]
      */
     public $lastState;
@@ -42,6 +56,13 @@ class Instance extends Model
      * @var string
      */
     public $namespace;
+
+    /**
+     * @example 2.2
+     *
+     * @var float
+     */
+    public $originalAmount;
 
     /**
      * @var int
@@ -101,13 +122,16 @@ class Instance extends Model
      */
     public $totalProcesses;
     protected $_name = [
+        'currentAmount'    => 'CurrentAmount',
         'hostIP'           => 'HostIP',
         'hostName'         => 'HostName',
         'innerIP'          => 'InnerIP',
         'instanceName'     => 'InstanceName',
         'instancePort'     => 'InstancePort',
+        'isSpot'           => 'IsSpot',
         'lastState'        => 'LastState',
         'namespace'        => 'Namespace',
+        'originalAmount'   => 'OriginalAmount',
         'readyProcesses'   => 'ReadyProcesses',
         'reason'           => 'Reason',
         'resourceType'     => 'ResourceType',
@@ -127,6 +151,9 @@ class Instance extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->currentAmount) {
+            $res['CurrentAmount'] = $this->currentAmount;
+        }
         if (null !== $this->hostIP) {
             $res['HostIP'] = $this->hostIP;
         }
@@ -142,11 +169,17 @@ class Instance extends Model
         if (null !== $this->instancePort) {
             $res['InstancePort'] = $this->instancePort;
         }
+        if (null !== $this->isSpot) {
+            $res['IsSpot'] = $this->isSpot;
+        }
         if (null !== $this->lastState) {
             $res['LastState'] = $this->lastState;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->originalAmount) {
+            $res['OriginalAmount'] = $this->originalAmount;
         }
         if (null !== $this->readyProcesses) {
             $res['ReadyProcesses'] = $this->readyProcesses;
@@ -190,6 +223,9 @@ class Instance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CurrentAmount'])) {
+            $model->currentAmount = $map['CurrentAmount'];
+        }
         if (isset($map['HostIP'])) {
             $model->hostIP = $map['HostIP'];
         }
@@ -205,6 +241,9 @@ class Instance extends Model
         if (isset($map['InstancePort'])) {
             $model->instancePort = $map['InstancePort'];
         }
+        if (isset($map['IsSpot'])) {
+            $model->isSpot = $map['IsSpot'];
+        }
         if (isset($map['LastState'])) {
             if (!empty($map['LastState'])) {
                 $model->lastState = $map['LastState'];
@@ -212,6 +251,9 @@ class Instance extends Model
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['OriginalAmount'])) {
+            $model->originalAmount = $map['OriginalAmount'];
         }
         if (isset($map['ReadyProcesses'])) {
             $model->readyProcesses = $map['ReadyProcesses'];

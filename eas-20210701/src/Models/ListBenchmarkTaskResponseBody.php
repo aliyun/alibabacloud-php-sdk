@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListBenchmarkTaskResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
@@ -32,6 +36,8 @@ class ListBenchmarkTaskResponseBody extends Model
     public $tasks;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

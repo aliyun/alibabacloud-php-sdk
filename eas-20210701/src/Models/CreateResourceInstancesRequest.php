@@ -37,17 +37,33 @@ class CreateResourceInstancesRequest extends Model
     public $ecsInstanceType;
 
     /**
+     * @example 200
+     *
+     * @var int
+     */
+    public $systemDiskSize;
+
+    /**
      * @example x112223333
      *
      * @var string
      */
     public $userData;
+
+    /**
+     * @example cn-shanghai-f
+     *
+     * @var string
+     */
+    public $zone;
     protected $_name = [
         'autoRenewal'      => 'AutoRenewal',
         'chargeType'       => 'ChargeType',
         'ecsInstanceCount' => 'EcsInstanceCount',
         'ecsInstanceType'  => 'EcsInstanceType',
+        'systemDiskSize'   => 'SystemDiskSize',
         'userData'         => 'UserData',
+        'zone'             => 'Zone',
     ];
 
     public function validate()
@@ -69,8 +85,14 @@ class CreateResourceInstancesRequest extends Model
         if (null !== $this->ecsInstanceType) {
             $res['EcsInstanceType'] = $this->ecsInstanceType;
         }
+        if (null !== $this->systemDiskSize) {
+            $res['SystemDiskSize'] = $this->systemDiskSize;
+        }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
+        }
+        if (null !== $this->zone) {
+            $res['Zone'] = $this->zone;
         }
 
         return $res;
@@ -96,8 +118,14 @@ class CreateResourceInstancesRequest extends Model
         if (isset($map['EcsInstanceType'])) {
             $model->ecsInstanceType = $map['EcsInstanceType'];
         }
+        if (isset($map['SystemDiskSize'])) {
+            $model->systemDiskSize = $map['SystemDiskSize'];
+        }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
+        }
+        if (isset($map['Zone'])) {
+            $model->zone = $map['Zone'];
         }
 
         return $model;

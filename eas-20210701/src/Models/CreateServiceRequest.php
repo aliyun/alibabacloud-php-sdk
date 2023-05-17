@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var string
      */
     public $develop;

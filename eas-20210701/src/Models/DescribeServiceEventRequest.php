@@ -16,6 +16,20 @@ class DescribeServiceEventRequest extends Model
     public $endTime;
 
     /**
+     * @example Normal
+     *
+     * @var string
+     */
+    public $eventType;
+
+    /**
+     * @example echo-test-784xxxx85d-hhnd8
+     *
+     * @var string
+     */
+    public $instanceName;
+
+    /**
      * @example 1
      *
      * @var string
@@ -36,10 +50,12 @@ class DescribeServiceEventRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'endTime'   => 'EndTime',
-        'pageNum'   => 'PageNum',
-        'pageSize'  => 'PageSize',
-        'startTime' => 'StartTime',
+        'endTime'      => 'EndTime',
+        'eventType'    => 'EventType',
+        'instanceName' => 'InstanceName',
+        'pageNum'      => 'PageNum',
+        'pageSize'     => 'PageSize',
+        'startTime'    => 'StartTime',
     ];
 
     public function validate()
@@ -51,6 +67,12 @@ class DescribeServiceEventRequest extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->eventType) {
+            $res['EventType'] = $this->eventType;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->pageNum) {
             $res['PageNum'] = $this->pageNum;
@@ -75,6 +97,12 @@ class DescribeServiceEventRequest extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['EventType'])) {
+            $model->eventType = $map['EventType'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['PageNum'])) {
             $model->pageNum = $map['PageNum'];
