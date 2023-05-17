@@ -88,9 +88,6 @@ class Dytnsapi extends OpenApiClient
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
         }
-        if (!Utils::isUnset($request->extendFunction)) {
-            $query['ExtendFunction'] = $request->extendFunction;
-        }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
         }
@@ -216,9 +213,6 @@ class Dytnsapi extends OpenApiClient
         if (!Utils::isUnset($request->carrier)) {
             $query['Carrier'] = $request->carrier;
         }
-        if (!Utils::isUnset($request->extendFunction)) {
-            $query['ExtendFunction'] = $request->extendFunction;
-        }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
         }
@@ -277,9 +271,6 @@ class Dytnsapi extends OpenApiClient
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
         }
-        if (!Utils::isUnset($request->extendFunction)) {
-            $query['ExtendFunction'] = $request->extendFunction;
-        }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
         }
@@ -337,9 +328,6 @@ class Dytnsapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
-        }
-        if (!Utils::isUnset($request->extendFunction)) {
-            $query['ExtendFunction'] = $request->extendFunction;
         }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
@@ -518,9 +506,6 @@ class Dytnsapi extends OpenApiClient
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
         }
-        if (!Utils::isUnset($request->extendFunction)) {
-            $query['ExtendFunction'] = $request->extendFunction;
-        }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
         }
@@ -637,9 +622,6 @@ class Dytnsapi extends OpenApiClient
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
         }
-        if (!Utils::isUnset($request->extendFunction)) {
-            $query['ExtendFunction'] = $request->extendFunction;
-        }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
         }
@@ -697,9 +679,6 @@ class Dytnsapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
-        }
-        if (!Utils::isUnset($request->extendFunction)) {
-            $query['ExtendFunction'] = $request->extendFunction;
         }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
@@ -759,9 +738,6 @@ class Dytnsapi extends OpenApiClient
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
         }
-        if (!Utils::isUnset($request->extendFunction)) {
-            $query['ExtendFunction'] = $request->extendFunction;
-        }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
         }
@@ -819,9 +795,6 @@ class Dytnsapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
-        }
-        if (!Utils::isUnset($request->extendFunction)) {
-            $query['ExtendFunction'] = $request->extendFunction;
         }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
@@ -884,9 +857,6 @@ class Dytnsapi extends OpenApiClient
         if (!Utils::isUnset($request->certCode)) {
             $query['CertCode'] = $request->certCode;
         }
-        if (!Utils::isUnset($request->extendFunction)) {
-            $query['ExtendFunction'] = $request->extendFunction;
-        }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;
         }
@@ -947,9 +917,6 @@ class Dytnsapi extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->authCode)) {
             $query['AuthCode'] = $request->authCode;
-        }
-        if (!Utils::isUnset($request->extendFunction)) {
-            $query['ExtendFunction'] = $request->extendFunction;
         }
         if (!Utils::isUnset($request->inputNumber)) {
             $query['InputNumber'] = $request->inputNumber;

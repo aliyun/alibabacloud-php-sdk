@@ -23,11 +23,6 @@ class ThreeElementsVerificationRequest extends Model
     public $certCode;
 
     /**
-     * @var string
-     */
-    public $extendFunction;
-
-    /**
      * @example 1390000****
      *
      * @var string
@@ -63,7 +58,6 @@ class ThreeElementsVerificationRequest extends Model
     protected $_name = [
         'authCode'             => 'AuthCode',
         'certCode'             => 'CertCode',
-        'extendFunction'       => 'ExtendFunction',
         'inputNumber'          => 'InputNumber',
         'mask'                 => 'Mask',
         'name'                 => 'Name',
@@ -84,9 +78,6 @@ class ThreeElementsVerificationRequest extends Model
         }
         if (null !== $this->certCode) {
             $res['CertCode'] = $this->certCode;
-        }
-        if (null !== $this->extendFunction) {
-            $res['ExtendFunction'] = $this->extendFunction;
         }
         if (null !== $this->inputNumber) {
             $res['InputNumber'] = $this->inputNumber;
@@ -123,9 +114,6 @@ class ThreeElementsVerificationRequest extends Model
         }
         if (isset($map['CertCode'])) {
             $model->certCode = $map['CertCode'];
-        }
-        if (isset($map['ExtendFunction'])) {
-            $model->extendFunction = $map['ExtendFunction'];
         }
         if (isset($map['InputNumber'])) {
             $model->inputNumber = $map['InputNumber'];
