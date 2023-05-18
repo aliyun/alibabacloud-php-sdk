@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class deviceInfo extends Model
 {
     /**
+     * @example 20180101
+     *
      * @var string
      */
     public $beginDay;
 
     /**
+     * @example FACE_TEST
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example wd.6ziUffspAeW5FVYbaqmexR-1qwNjM
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example 20180101
+     *
      * @var string
      */
     public $expiredDay;
 
     /**
+     * @example 3iJ1AY$oHcu7mC69
+     *
      * @var string
      */
     public $userDeviceId;

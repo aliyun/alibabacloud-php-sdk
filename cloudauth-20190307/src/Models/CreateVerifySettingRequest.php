@@ -14,26 +14,36 @@ class CreateVerifySettingRequest extends Model
     public $bizName;
 
     /**
+     * @example UserRegister
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $guideStep;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $privacyStep;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $resultStep;
 
     /**
+     * @example RPBasic
+     *
      * @var string
      */
     public $solution;

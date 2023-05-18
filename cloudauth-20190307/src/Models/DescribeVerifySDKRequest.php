@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVerifySDKRequest extends Model
 {
     /**
+     * @example 1KQMcnLd4m37LN2D0F0WCD
+     *
      * @var string
      */
     public $taskId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DetectFaceAttributesRequest extends Model
 {
     /**
+     * @example RPBasicTest
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg
+     *
      * @var string
      */
     public $materialValue;

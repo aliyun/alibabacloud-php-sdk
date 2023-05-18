@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeVerifyTokenRequest extends Model
 {
     /**
+     * @example 39ecf51e-2f81-4dc5-90ee-ff86125be683
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example RPBasicTest
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example -
+     *
      * @var string
      */
     public $callbackSeed;
 
     /**
+     * @example -
+     *
      * @var string
      */
     public $callbackUrl;
 
     /**
+     * @example http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
+     *
      * @var string
      */
     public $faceRetainedImageUrl;
 
     /**
+     * @example -
+     *
      * @var string
      */
     public $failedRedirectUrl;
 
     /**
+     * @example http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
+     *
      * @var string
      */
     public $idCardBackImageUrl;
 
     /**
+     * @example http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
+     *
      * @var string
      */
     public $idCardFrontImageUrl;
 
     /**
+     * @example 330100xxxxxxxxxxxx
+     *
      * @var string
      */
     public $idCardNumber;
@@ -59,26 +77,36 @@ class DescribeVerifyTokenRequest extends Model
     public $name;
 
     /**
+     * @example -
+     *
      * @var string
      */
     public $passedRedirectUrl;
 
     /**
+     * @example user111
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example 192.168.***.***
+     *
      * @var string
      */
     public $userIp;
 
     /**
+     * @example 187********
+     *
      * @var string
      */
     public $userPhoneNumber;
 
     /**
+     * @example 1577808000000
+     *
      * @var int
      */
     public $userRegistTime;

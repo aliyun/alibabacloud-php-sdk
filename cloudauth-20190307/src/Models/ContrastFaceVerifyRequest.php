@@ -14,16 +14,22 @@ class ContrastFaceVerifyRequest extends Model
     public $certName;
 
     /**
+     * @example 330103xxxxxxxxxxxx
+     *
      * @var string
      */
     public $certNo;
 
     /**
+     * @example IDENTITY_CARD
+     *
      * @var string
      */
     public $certType;
 
     /**
+     * @example 0bfa7c493f850e5178b9f8613634c9xx
+     *
      * @var string
      */
     public $certifyId;
@@ -34,6 +40,8 @@ class ContrastFaceVerifyRequest extends Model
     public $crop;
 
     /**
+     * @example McozS1ZWRcRZStlERcZZo_QOytx5jcgZoZJEoRLOxxxxxxx
+     *
      * @var string
      */
     public $deviceToken;
@@ -49,21 +57,29 @@ class ContrastFaceVerifyRequest extends Model
     public $faceContrastFile;
 
     /**
+     * @example /9j/4AAQSkZJRgABAQAASxxxxxxx
+     *
      * @var string
      */
     public $faceContrastPicture;
 
     /**
+     * @example https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
+     *
      * @var string
      */
     public $faceContrastPictureUrl;
 
     /**
+     * @example 114.xxx.xxx.xxx
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example 130xxxxxxxx
+     *
      * @var string
      */
     public $mobile;
@@ -74,31 +90,43 @@ class ContrastFaceVerifyRequest extends Model
     public $model;
 
     /**
+     * @example cn-shanghai-aliyun-cloudauth-xxxxx
+     *
      * @var string
      */
     public $ossBucketName;
 
     /**
+     * @example verify/xxxxx/xxxxxx.jpeg
+     *
      * @var string
      */
     public $ossObjectName;
 
     /**
+     * @example e0c34a77f5ac40a5aa5e6ed20c353888
+     *
      * @var string
      */
     public $outerOrderNo;
 
     /**
+     * @example ID_MIN
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example 1000000006
+     *
      * @var int
      */
     public $sceneId;
 
     /**
+     * @example 123456789
+     *
      * @var string
      */
     public $userId;

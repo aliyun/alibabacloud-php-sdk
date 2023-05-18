@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateAuthKeyResponseBody extends Model
 {
     /**
+     * @example auth.1KQMcnLd4m37LN2D0F0WCD-1qtQI$
+     *
      * @var string
      */
     public $authKey;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

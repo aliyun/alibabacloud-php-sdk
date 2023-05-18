@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CompareFacesRequest extends Model
 {
     /**
+     * @example FacePic
+     *
      * @var string
      */
     public $sourceImageType;
 
     /**
+     * @example http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
+     *
      * @var string
      */
     public $sourceImageValue;
 
     /**
+     * @example FacePic
+     *
      * @var string
      */
     public $targetImageType;
 
     /**
+     * @example http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
+     *
      * @var string
      */
     public $targetImageValue;

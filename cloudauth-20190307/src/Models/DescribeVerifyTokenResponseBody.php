@@ -15,16 +15,22 @@ class DescribeVerifyTokenResponseBody extends Model
     public $ossUploadToken;
 
     /**
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example http%3A%2F%2Fjiangsu.china.com.cn%2Fuploadfile%2F2015%2F0114%2F1421221304095989.jpg
+     *
      * @var string
      */
     public $verifyPageUrl;
 
     /**
+     * @example c302c0797679457685410ee51a5ba375
+     *
      * @var string
      */
     public $verifyToken;

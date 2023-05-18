@@ -14,16 +14,22 @@ class CreateVerifySettingResponseBody extends Model
     public $bizName;
 
     /**
+     * @example UserRegister
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example D6163397-15C5-419C-9ACC-B7C83E0B4C10
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example RPBasic
+     *
      * @var string
      */
     public $solution;

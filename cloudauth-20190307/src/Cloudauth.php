@@ -924,6 +924,9 @@ class Cloudauth extends OpenApiClient
         if (!Utils::isUnset($request->outerOrderNo)) {
             $query['OuterOrderNo'] = $request->outerOrderNo;
         }
+        if (!Utils::isUnset($request->procedurePriority)) {
+            $query['ProcedurePriority'] = $request->procedurePriority;
+        }
         if (!Utils::isUnset($request->productCode)) {
             $query['ProductCode'] = $request->productCode;
         }
@@ -932,6 +935,9 @@ class Cloudauth extends OpenApiClient
         }
         if (!Utils::isUnset($request->sceneId)) {
             $query['SceneId'] = $request->sceneId;
+        }
+        if (!Utils::isUnset($request->suitableType)) {
+            $query['SuitableType'] = $request->suitableType;
         }
         if (!Utils::isUnset($request->userId)) {
             $query['UserId'] = $request->userId;

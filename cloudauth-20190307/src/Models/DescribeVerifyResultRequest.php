@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVerifyResultRequest extends Model
 {
     /**
+     * @example 39ecf51e-2f81-4dc5-90ee-ff86125b****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example FVBioOnlyTest
+     *
      * @var string
      */
     public $bizType;

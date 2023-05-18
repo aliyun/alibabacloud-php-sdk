@@ -14,66 +14,92 @@ class CompareFaceVerifyRequest extends Model
     public $crop;
 
     /**
+     * @example e0c34a77f5ac40a5aa5e6ed20c353888
+     *
      * @var string
      */
     public $outerOrderNo;
 
     /**
+     * @example PV_FC
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example 1000000006
+     *
      * @var int
      */
     public $sceneId;
 
     /**
+     * @example 0bfa7c493f850e5178b9f8613634c9xx
+     *
      * @var string
      */
     public $sourceCertifyId;
 
     /**
+     * @example /9j/4AAQSkZJRgABAQAASxxxxxxx
+     *
      * @var string
      */
     public $sourceFaceContrastPicture;
 
     /**
+     * @example https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
+     *
      * @var string
      */
     public $sourceFaceContrastPictureUrl;
 
     /**
+     * @example cn-shanghai-aliyun-cloudauth-xxxxx
+     *
      * @var string
      */
     public $sourceOssBucketName;
 
     /**
+     * @example verify/xxxxx/xxxxxx.jpeg
+     *
      * @var string
      */
     public $sourceOssObjectName;
 
     /**
+     * @example 0bfa7c493f850e5178b9f8613634c9xx
+     *
      * @var string
      */
     public $targetCertifyId;
 
     /**
+     * @example /9j/4AAQSkZJRgABAQAASxxxxxxx
+     *
      * @var string
      */
     public $targetFaceContrastPicture;
 
     /**
+     * @example https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
+     *
      * @var string
      */
     public $targetFaceContrastPictureUrl;
 
     /**
+     * @example cn-shanghai-aliyun-cloudauth-xxxxx
+     *
      * @var string
      */
     public $targetOssBucketName;
 
     /**
+     * @example verify/xxxxx/xxxxxx.jpeg
+     *
      * @var string
      */
     public $targetOssObjectName;

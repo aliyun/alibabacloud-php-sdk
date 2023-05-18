@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ossUploadToken extends Model
 {
     /**
+     * @example cloudauth-zhangjiakou-external
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @example https://oss-cn-zhangjiakou.aliyuncs.com
+     *
      * @var string
      */
     public $endPoint;
 
     /**
+     * @example 1582636610000
+     *
      * @var int
      */
     public $expired;
 
     /**
+     * @example STS.NU8rUBj****
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example prod/RdNLC@Ox2n-1s7NMt
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example FwmnyoqT8dHj7nJLuM67T****
+     *
      * @var string
      */
     public $secret;
 
     /**
+     * @example uWia500nTS5knZaDzq4/KqpvhcLnO****
+     *
      * @var string
      */
     public $token;

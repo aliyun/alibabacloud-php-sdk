@@ -15,11 +15,15 @@ class data extends Model
     public $faceInfos;
 
     /**
+     * @example 1920
+     *
      * @var int
      */
     public $imgHeight;
 
     /**
+     * @example 1080
+     *
      * @var int
      */
     public $imgWidth;

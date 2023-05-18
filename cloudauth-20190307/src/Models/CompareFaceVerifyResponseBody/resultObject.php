@@ -14,11 +14,15 @@ class resultObject extends Model
     public $certifyId;
 
     /**
+     * @example T
+     *
      * @var string
      */
     public $passed;
 
     /**
+     * @example 99.60875
+     *
      * @var float
      */
     public $verifyScore;

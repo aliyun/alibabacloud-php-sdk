@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeviceInfoRequest extends Model
 {
     /**
+     * @example FACE_TEST
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example wd.6ziUffspAeW5FVYbaqmexR-1qwNjM
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example 20200330
+     *
      * @var string
      */
     public $expiredEndDay;
 
     /**
+     * @example 20190401
+     *
      * @var string
      */
     public $expiredStartDay;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 3iJ1AY$oHcu7mC69
+     *
      * @var string
      */
     public $userDeviceId;

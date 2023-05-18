@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DetectFaceAttributesResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,16 +22,22 @@ class DetectFaceAttributesResponseBody extends Model
     public $data;
 
     /**
+     * @example Error.InternalError
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

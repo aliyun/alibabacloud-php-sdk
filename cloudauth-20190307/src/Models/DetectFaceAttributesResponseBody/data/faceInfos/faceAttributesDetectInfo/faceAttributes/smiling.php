@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class smiling extends Model
 {
     /**
+     * @example 95
+     *
      * @var float
      */
     public $threshold;
 
     /**
+     * @example 97
+     *
      * @var float
      */
     public $value;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateAuthKeyRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $authYears;
 
     /**
+     * @example FACE_TEST
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $test;
 
     /**
+     * @example 3iJ1AY$oHcu7mC69
+     *
      * @var string
      */
     public $userDeviceId;

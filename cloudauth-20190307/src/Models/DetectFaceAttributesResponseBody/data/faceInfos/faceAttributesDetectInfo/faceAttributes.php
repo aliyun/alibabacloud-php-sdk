@@ -11,21 +11,29 @@ use AlibabaCloud\Tea\Model;
 class faceAttributes extends Model
 {
     /**
+     * @example 0.1419367790222168
+     *
      * @var float
      */
     public $blur;
 
     /**
+     * @example 60
+     *
      * @var float
      */
     public $facequal;
 
     /**
+     * @example Face
+     *
      * @var string
      */
     public $facetype;
 
     /**
+     * @example None
+     *
      * @var string
      */
     public $glasses;
@@ -36,11 +44,15 @@ class faceAttributes extends Model
     public $headpose;
 
     /**
+     * @example 70
+     *
      * @var int
      */
     public $integrity;
 
     /**
+     * @example Wear
+     *
      * @var string
      */
     public $respirator;

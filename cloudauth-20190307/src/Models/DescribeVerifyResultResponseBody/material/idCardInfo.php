@@ -19,21 +19,29 @@ class idCardInfo extends Model
     public $authority;
 
     /**
+     * @example http://image-demo.img-cn-hangzhou.aliyuncs.com/example3.jpg
+     *
      * @var string
      */
     public $backImageUrl;
 
     /**
+     * @example 19900101
+     *
      * @var string
      */
     public $birth;
 
     /**
+     * @example 20201101
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example http://image-demo.img-cn-hangzhou.aliyuncs.com/example2.jpg
+     *
      * @var string
      */
     public $frontImageUrl;
@@ -49,11 +57,15 @@ class idCardInfo extends Model
     public $nationality;
 
     /**
+     * @example 02343218901123****
+     *
      * @var string
      */
     public $number;
 
     /**
+     * @example 20201101
+     *
      * @var string
      */
     public $startDate;

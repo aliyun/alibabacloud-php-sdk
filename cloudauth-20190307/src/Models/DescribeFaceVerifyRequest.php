@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeFaceVerifyRequest extends Model
 {
     /**
+     * @example 91707dc296d469ad38e4c5efa6a0f24b
+     *
      * @var string
      */
     public $certifyId;
 
     /**
+     * @example JPG
+     *
      * @var string
      */
     public $pictureReturnType;
 
     /**
+     * @example 1000000006
+     *
      * @var int
      */
     public $sceneId;

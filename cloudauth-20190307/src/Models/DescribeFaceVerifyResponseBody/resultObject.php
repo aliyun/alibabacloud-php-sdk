@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class resultObject extends Model
 {
     /**
+     * @example McozS1ZWRcRZStlERcZZo_QOytx5jcgZoZJEoRLOxxxxxxx
+     *
      * @var string
      */
     public $deviceToken;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $identityInfo;
 
     /**
+     * @example {"faceAttack": "F","facialPictureFront": {"qualityScore": 88.3615493774414,"pictureUrl": "https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg","ossBucketName": "cn-shanghai-aliyun-cloudauth-1260051251634779","ossObjectName": "verify/1260051251634779/6ba7bcfccf33f56cdb44ed086f36ce3e0.jpeg"}}
+     *
      * @var string
      */
     public $materialInfo;
 
     /**
+     * @example T
+     *
      * @var string
      */
     public $passed;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $subCode;

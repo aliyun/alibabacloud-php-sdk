@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class material extends Model
 {
     /**
+     * @example http://image-demo.img-cn-hangzhou.aliyuncs.com/face-global-example.jpg
+     *
      * @var string
      */
     public $faceGlobalUrl;
 
     /**
+     * @example http://image-demo.img-cn-hangzhou.aliyuncs.com/example.jpg
+     *
      * @var string
      */
     public $faceImageUrl;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $faceMask;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $faceQuality;
@@ -40,6 +48,8 @@ class material extends Model
     public $idCardName;
 
     /**
+     * @example 02343218901123****
+     *
      * @var string
      */
     public $idCardNumber;

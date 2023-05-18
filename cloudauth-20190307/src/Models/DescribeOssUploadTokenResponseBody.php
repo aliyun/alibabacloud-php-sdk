@@ -15,6 +15,8 @@ class DescribeOssUploadTokenResponseBody extends Model
     public $ossUploadToken;
 
     /**
+     * @example 2FA2C773-47DB-4156-B1EE-5B047321A939
+     *
      * @var string
      */
     public $requestId;

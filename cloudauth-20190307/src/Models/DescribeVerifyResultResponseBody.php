@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeVerifyResultResponseBody extends Model
 {
     /**
+     * @example 97
+     *
      * @var float
      */
     public $authorityComparisionScore;
 
     /**
+     * @example 97
+     *
      * @var float
      */
     public $faceComparisonScore;
 
     /**
+     * @example 97
+     *
      * @var float
      */
     public $idCardFaceComparisonScore;
@@ -30,11 +36,15 @@ class DescribeVerifyResultResponseBody extends Model
     public $material;
 
     /**
+     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $verifyStatus;

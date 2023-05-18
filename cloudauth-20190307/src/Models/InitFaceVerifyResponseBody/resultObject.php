@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resultObject extends Model
 {
     /**
+     * @example 91707dc296d469ad38e4c5efa6a0f24b
+     *
      * @var string
      */
     public $certifyId;

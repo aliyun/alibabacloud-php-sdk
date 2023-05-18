@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CompareFaceVerifyResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 130A2C10-B9EE-4D84-88E3-5384FF039795
+     *
      * @var string
      */
     public $requestId;

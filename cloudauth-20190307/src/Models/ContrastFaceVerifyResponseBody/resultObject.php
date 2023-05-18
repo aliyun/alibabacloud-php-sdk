@@ -14,21 +14,29 @@ class resultObject extends Model
     public $certifyId;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $identityInfo;
 
     /**
+     * @example {"faceAttack": "F","facialPictureFront": {"qualityScore": 88.3615493774414,"verifyScore": 50.28594166529785}}
+     *
      * @var string
      */
     public $materialInfo;
 
     /**
+     * @example T
+     *
      * @var string
      */
     public $passed;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $subCode;

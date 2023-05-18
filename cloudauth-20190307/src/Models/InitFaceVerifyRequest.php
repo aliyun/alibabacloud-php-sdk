@@ -29,16 +29,22 @@ class InitFaceVerifyRequest extends Model
     public $certName;
 
     /**
+     * @example 330103xxxxxxxxxxxx
+     *
      * @var string
      */
     public $certNo;
 
     /**
+     * @example IDENTITY_CARD
+     *
      * @var string
      */
     public $certType;
 
     /**
+     * @example 0bfa7c493f850e5178b9f8613634c9xx
+     *
      * @var string
      */
     public $certifyId;
@@ -59,26 +65,36 @@ class InitFaceVerifyRequest extends Model
     public $encryptType;
 
     /**
+     * @example /9j/4AAQSkZJRgABAQAASxxxxxxx
+     *
      * @var string
      */
     public $faceContrastPicture;
 
     /**
+     * @example https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
+     *
      * @var string
      */
     public $faceContrastPictureUrl;
 
     /**
+     * @example 114.xxx.xxx.xxx
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example {"zimVer":"3.0.0","appVersion": "1","bioMetaInfo": "4.1.0:11501568,0","appName": "com.aliyun.antcloudauth","deviceType": "ios","osVersion": "iOS 10.3.2","apdidToken": "","deviceModel": "iPhone9,1"}
+     *
      * @var string
      */
     public $metaInfo;
 
     /**
+     * @example 130xxxxxxxx
+     *
      * @var string
      */
     public $mobile;
@@ -89,16 +105,22 @@ class InitFaceVerifyRequest extends Model
     public $model;
 
     /**
+     * @example cn-shanghai-aliyun-cloudauth-xxxxx
+     *
      * @var string
      */
     public $ossBucketName;
 
     /**
+     * @example verify/xxxxx/xxxxxx.jpeg
+     *
      * @var string
      */
     public $ossObjectName;
 
     /**
+     * @example e0c34a77f5ac40a5aa5e6ed20c353888
+     *
      * @var string
      */
     public $outerOrderNo;
@@ -106,19 +128,37 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
+    public $procedurePriority;
+
+    /**
+     * @example ID_PRO
+     *
+     * @var string
+     */
     public $productCode;
 
     /**
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $returnUrl;
 
     /**
+     * @example 1000000006
+     *
      * @var int
      */
     public $sceneId;
 
     /**
+     * @var string
+     */
+    public $suitableType;
+
+    /**
+     * @example 123456789
+     *
      * @var string
      */
     public $userId;
@@ -147,9 +187,11 @@ class InitFaceVerifyRequest extends Model
         'ossBucketName'              => 'OssBucketName',
         'ossObjectName'              => 'OssObjectName',
         'outerOrderNo'               => 'OuterOrderNo',
+        'procedurePriority'          => 'ProcedurePriority',
         'productCode'                => 'ProductCode',
         'returnUrl'                  => 'ReturnUrl',
         'sceneId'                    => 'SceneId',
+        'suitableType'               => 'SuitableType',
         'userId'                     => 'UserId',
         'voluntaryCustomizedContent' => 'VoluntaryCustomizedContent',
     ];
@@ -218,6 +260,9 @@ class InitFaceVerifyRequest extends Model
         if (null !== $this->outerOrderNo) {
             $res['OuterOrderNo'] = $this->outerOrderNo;
         }
+        if (null !== $this->procedurePriority) {
+            $res['ProcedurePriority'] = $this->procedurePriority;
+        }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
@@ -226,6 +271,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (null !== $this->sceneId) {
             $res['SceneId'] = $this->sceneId;
+        }
+        if (null !== $this->suitableType) {
+            $res['SuitableType'] = $this->suitableType;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -302,6 +350,9 @@ class InitFaceVerifyRequest extends Model
         if (isset($map['OuterOrderNo'])) {
             $model->outerOrderNo = $map['OuterOrderNo'];
         }
+        if (isset($map['ProcedurePriority'])) {
+            $model->procedurePriority = $map['ProcedurePriority'];
+        }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
@@ -310,6 +361,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (isset($map['SceneId'])) {
             $model->sceneId = $map['SceneId'];
+        }
+        if (isset($map['SuitableType'])) {
+            $model->suitableType = $map['SuitableType'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

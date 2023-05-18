@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class headpose extends Model
 {
     /**
+     * @example -1.5683923959732056
+     *
      * @var float
      */
     public $pitchAngle;
 
     /**
+     * @example 7.163370132446289
+     *
      * @var float
      */
     public $rollAngle;
 
     /**
+     * @example -6.925303936004639
+     *
      * @var float
      */
     public $yawAngle;

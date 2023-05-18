@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyDeviceInfoRequest extends Model
 {
     /**
+     * @example FACE_TEST
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @example wd.6ziUffspAeW5FVYbaqmexR-1qwNjM
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 20190401
+     *
      * @var string
      */
     public $expiredDay;
 
     /**
+     * @example 3iJ1AY$oHcu7mC69
+     *
      * @var string
      */
     public $userDeviceId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example {"0.0001":"90.07","0.001":"80.01","0.01":"70.02"}
+     *
      * @var string
      */
     public $confidenceThresholds;
 
     /**
+     * @example 98.7913
+     *
      * @var float
      */
     public $similarityScore;
