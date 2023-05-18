@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListResourceSharesResponseBody extends Model
 {
     /**
+     * @description The information of the resource shares.
+     *
+     * @example TGlzdFJlc291cm****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The time when the resource share was updated.
+     *
+     * @example 2F23CFB6-A721-4E90-AC1E-0E30FA8B45DA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the resource share.
+     *
      * @var resourceShares[]
      */
     public $resourceShares;

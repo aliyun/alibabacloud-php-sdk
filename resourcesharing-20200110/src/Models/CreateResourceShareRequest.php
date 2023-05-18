@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceShareRequest extends Model
 {
     /**
+     * @description The information of the resource share.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $allowExternalTargets;
@@ -20,6 +24,11 @@ class CreateResourceShareRequest extends Model
     public $permissionNames;
 
     /**
+     * @description The ID of a shared resource.
+     *
+     * >  `Resources.N.ResourceId` and `Resources.N.ResourceType` must be used in pairs.
+     * @example test
+     *
      * @var string
      */
     public $resourceShareName;
@@ -30,6 +39,8 @@ class CreateResourceShareRequest extends Model
     public $resources;
 
     /**
+     * @example 172050525300****
+     *
      * @var string[]
      */
     public $targets;

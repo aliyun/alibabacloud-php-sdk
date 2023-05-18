@@ -9,41 +9,71 @@ use AlibabaCloud\Tea\Model;
 class permission extends Model
 {
     /**
+     * @example 2020-12-07T07:39:01.818Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $defaultPermission;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $defaultVersion;
 
     /**
+     * @description The update time.
+     *
+     * @example {"Effect":"Allow","Action":["vpc:DescribeVSwitches","vpc:DescribeVSwitchAttributes"]}
+     *
      * @var string
      */
     public $permission;
 
     /**
+     * @description Indicates whether the version is the default version. Valid values:
+     *
+     *   false: The version is not the default version.
+     *   true: The version is the default version.
+     *
+     * @example AliyunRSDefaultPermissionVSwitch
+     *
      * @var string
      */
     public $permissionName;
 
     /**
+     * @description The creation time.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $permissionVersion;
 
     /**
+     * @description Indicates whether the permission is the default permission. Valid values:
+     *
+     *   false: The permission is not the default permission.
+     *   true: The permission is the default permission.
+     *
+     * @example VSwitch
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example 2020-12-07T07:39:01.818Z
+     *
      * @var string
      */
     public $updateTime;

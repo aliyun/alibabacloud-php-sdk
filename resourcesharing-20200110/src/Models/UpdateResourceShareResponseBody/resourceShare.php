@@ -9,36 +9,69 @@ use AlibabaCloud\Tea\Model;
 class resourceShare extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $allowExternalTargets;
 
     /**
+     * @description The status of the resource share. Valid values:
+     *
+     *   Active: The resource share is enabled.
+     *   Pending: The resource share is associated with one or more resource sharing invitations that are waiting for confirmation.
+     *   Deleting: The resource share is being deleted.
+     *   Deleted: The resource share is deleted.
+     *
+     * >  The system deletes the records of resource shares in the Deleted state within 48 hours to 96 hours after you delete the resource shares.
+     * @example 2020-12-03T08:02:22.413Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description Indicates whether resources in the resource share can be shared with accounts outside the resource directory. Valid values:
+     *
+     *   false: Resources in the resource share can be shared only with accounts in the resource directory.
+     *   true: Resources in the resource share can be shared with both accounts in the resource directory and accounts outside the resource directory.
+     *
+     * @example rs-qSkW1HBY****
+     *
      * @var string
      */
     public $resourceShareId;
 
     /**
+     * @description The time when the resource share was created.
+     *
+     * @example new
+     *
      * @var string
      */
     public $resourceShareName;
 
     /**
+     * @description The ID of the resource share.
+     *
+     * @example 151266687691****
+     *
      * @var string
      */
     public $resourceShareOwner;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $resourceShareStatus;
 
     /**
+     * @description The owner of the resource share.
+     *
+     * @example 2020-12-04T08:55:25.382Z
+     *
      * @var string
      */
     public $updateTime;

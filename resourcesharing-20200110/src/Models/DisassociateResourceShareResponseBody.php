@@ -10,11 +10,23 @@ use AlibabaCloud\Tea\Model;
 class DisassociateResourceShareResponseBody extends Model
 {
     /**
+     * @description The time when the disassociation of the entity was updated. The value of this parameter depends on the value of the AssociationType parameter:
+     *
+     *   If the value of `AssociationType` is `Resource`, the value of this parameter is the time when the disassociation of the resource was updated.
+     *   If the value of `AssociationType` is `Target`, the value of this parameter is the time when the disassociation of the principal was updated.
+     *
+     * @example 95230BC9-A8E8-4493-96BD-4F0C758E37F8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the entity. The value of this parameter depends on the value of the AssociationType parameter:
+     *
+     *   If the value of `AssociationType` is `Resource`, the value of this parameter is the ID of the resource.
+     *   If the value of `AssociationType` is `Target`, the value of this parameter is the ID of the resource directory, folder, or member.
+     *
      * @var resourceShareAssociations[]
      */
     public $resourceShareAssociations;

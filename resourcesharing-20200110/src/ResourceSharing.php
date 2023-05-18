@@ -85,10 +85,13 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param AcceptResourceShareInvitationRequest $request
-     * @param RuntimeOptions                       $runtime
+     * The ID of the resource sharing invitation.
+     *   * You can call the [ListResourceShareInvitations](~~450564~~) operation to obtain the ID of a resource sharing invitation.
+     *   *
+     * @param AcceptResourceShareInvitationRequest $request AcceptResourceShareInvitationRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AcceptResourceShareInvitationResponse
+     * @return AcceptResourceShareInvitationResponse AcceptResourceShareInvitationResponse
      */
     public function acceptResourceShareInvitationWithOptions($request, $runtime)
     {
@@ -116,9 +119,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param AcceptResourceShareInvitationRequest $request
+     * The ID of the resource sharing invitation.
+     *   * You can call the [ListResourceShareInvitations](~~450564~~) operation to obtain the ID of a resource sharing invitation.
+     *   *
+     * @param AcceptResourceShareInvitationRequest $request AcceptResourceShareInvitationRequest
      *
-     * @return AcceptResourceShareInvitationResponse
+     * @return AcceptResourceShareInvitationResponse AcceptResourceShareInvitationResponse
      */
     public function acceptResourceShareInvitation($request)
     {
@@ -128,10 +134,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param AssociateResourceShareRequest $request
-     * @param RuntimeOptions                $runtime
+     * The operation that you want to perform. Set the value to AssociateResourceShare.
+     *   *
+     * @param AssociateResourceShareRequest $request AssociateResourceShareRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateResourceShareResponse
+     * @return AssociateResourceShareResponse AssociateResourceShareResponse
      */
     public function associateResourceShareWithOptions($request, $runtime)
     {
@@ -168,9 +176,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param AssociateResourceShareRequest $request
+     * The operation that you want to perform. Set the value to AssociateResourceShare.
+     *   *
+     * @param AssociateResourceShareRequest $request AssociateResourceShareRequest
      *
-     * @return AssociateResourceShareResponse
+     * @return AssociateResourceShareResponse AssociateResourceShareResponse
      */
     public function associateResourceShare($request)
     {
@@ -180,10 +190,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param AssociateResourceSharePermissionRequest $request
-     * @param RuntimeOptions                          $runtime
+     * The name of the permission.
+     *   *
+     * @param AssociateResourceSharePermissionRequest $request AssociateResourceSharePermissionRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateResourceSharePermissionResponse
+     * @return AssociateResourceSharePermissionResponse AssociateResourceSharePermissionResponse
      */
     public function associateResourceSharePermissionWithOptions($request, $runtime)
     {
@@ -217,9 +229,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param AssociateResourceSharePermissionRequest $request
+     * The name of the permission.
+     *   *
+     * @param AssociateResourceSharePermissionRequest $request AssociateResourceSharePermissionRequest
      *
-     * @return AssociateResourceSharePermissionResponse
+     * @return AssociateResourceSharePermissionResponse AssociateResourceSharePermissionResponse
      */
     public function associateResourceSharePermission($request)
     {
@@ -229,10 +243,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceShareRequest $request
-     * @param RuntimeOptions             $runtime
+     * The operation that you want to perform. Set the value to CreateResourceShare.
+     *   *
+     * @param CreateResourceShareRequest $request CreateResourceShareRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateResourceShareResponse
+     * @return CreateResourceShareResponse CreateResourceShareResponse
      */
     public function createResourceShareWithOptions($request, $runtime)
     {
@@ -272,9 +288,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceShareRequest $request
+     * The operation that you want to perform. Set the value to CreateResourceShare.
+     *   *
+     * @param CreateResourceShareRequest $request CreateResourceShareRequest
      *
-     * @return CreateResourceShareResponse
+     * @return CreateResourceShareResponse CreateResourceShareResponse
      */
     public function createResourceShare($request)
     {
@@ -284,10 +302,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param DeleteResourceShareRequest $request
-     * @param RuntimeOptions             $runtime
+     * The operation that you want to perform. Set the value to DeleteResourceShare.
+     *   *
+     * @param DeleteResourceShareRequest $request DeleteResourceShareRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteResourceShareResponse
+     * @return DeleteResourceShareResponse DeleteResourceShareResponse
      */
     public function deleteResourceShareWithOptions($request, $runtime)
     {
@@ -315,9 +335,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param DeleteResourceShareRequest $request
+     * The operation that you want to perform. Set the value to DeleteResourceShare.
+     *   *
+     * @param DeleteResourceShareRequest $request DeleteResourceShareRequest
      *
-     * @return DeleteResourceShareResponse
+     * @return DeleteResourceShareResponse DeleteResourceShareResponse
      */
     public function deleteResourceShare($request)
     {
@@ -370,10 +392,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param DisassociateResourceShareRequest $request
-     * @param RuntimeOptions                   $runtime
+     * The operation that you want to perform. Set the value to DisassociateResourceShare.
+     *   *
+     * @param DisassociateResourceShareRequest $request DisassociateResourceShareRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisassociateResourceShareResponse
+     * @return DisassociateResourceShareResponse DisassociateResourceShareResponse
      */
     public function disassociateResourceShareWithOptions($request, $runtime)
     {
@@ -410,9 +434,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param DisassociateResourceShareRequest $request
+     * The operation that you want to perform. Set the value to DisassociateResourceShare.
+     *   *
+     * @param DisassociateResourceShareRequest $request DisassociateResourceShareRequest
      *
-     * @return DisassociateResourceShareResponse
+     * @return DisassociateResourceShareResponse DisassociateResourceShareResponse
      */
     public function disassociateResourceShare($request)
     {
@@ -422,10 +448,14 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param DisassociateResourceSharePermissionRequest $request
-     * @param RuntimeOptions                             $runtime
+     * This topic provides an example on how to call the API operation to disassociate the `AliyunRSDefaultPermissionVSwitch` permission from the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DisassociateResourceSharePermissionRequest $request DisassociateResourceSharePermissionRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisassociateResourceSharePermissionResponse
+     * @return DisassociateResourceSharePermissionResponse DisassociateResourceSharePermissionResponse
      */
     public function disassociateResourceSharePermissionWithOptions($request, $runtime)
     {
@@ -456,9 +486,13 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param DisassociateResourceSharePermissionRequest $request
+     * This topic provides an example on how to call the API operation to disassociate the `AliyunRSDefaultPermissionVSwitch` permission from the `rs-6GRmdD3X****` resource share in the `cn-hangzhou` region.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DisassociateResourceSharePermissionRequest $request DisassociateResourceSharePermissionRequest
      *
-     * @return DisassociateResourceSharePermissionResponse
+     * @return DisassociateResourceSharePermissionResponse DisassociateResourceSharePermissionResponse
      */
     public function disassociateResourceSharePermission($request)
     {
@@ -468,9 +502,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * The operation that you want to perform. Set the value to EnableSharingWithResourceDirectory.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableSharingWithResourceDirectoryResponse
+     * @return EnableSharingWithResourceDirectoryResponse EnableSharingWithResourceDirectoryResponse
      */
     public function enableSharingWithResourceDirectoryWithOptions($runtime)
     {
@@ -491,7 +527,9 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @return EnableSharingWithResourceDirectoryResponse
+     * The operation that you want to perform. Set the value to EnableSharingWithResourceDirectory.
+     *   *
+     * @return EnableSharingWithResourceDirectoryResponse EnableSharingWithResourceDirectoryResponse
      */
     public function enableSharingWithResourceDirectory()
     {
@@ -501,10 +539,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param GetPermissionRequest $request
-     * @param RuntimeOptions       $runtime
+     * The version of the permission.
+     *   *
+     * @param GetPermissionRequest $request GetPermissionRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPermissionResponse
+     * @return GetPermissionResponse GetPermissionResponse
      */
     public function getPermissionWithOptions($request, $runtime)
     {
@@ -535,9 +575,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param GetPermissionRequest $request
+     * The version of the permission.
+     *   *
+     * @param GetPermissionRequest $request GetPermissionRequest
      *
-     * @return GetPermissionResponse
+     * @return GetPermissionResponse GetPermissionResponse
      */
     public function getPermission($request)
     {
@@ -547,10 +589,13 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListPermissionVersionsRequest $request
-     * @param RuntimeOptions                $runtime
+     * The maximum number of entries to return for a single request.
+     *   * Valid values: 1 to 100. Default value: 20.
+     *   *
+     * @param ListPermissionVersionsRequest $request ListPermissionVersionsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPermissionVersionsResponse
+     * @return ListPermissionVersionsResponse ListPermissionVersionsResponse
      */
     public function listPermissionVersionsWithOptions($request, $runtime)
     {
@@ -584,9 +629,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListPermissionVersionsRequest $request
+     * The maximum number of entries to return for a single request.
+     *   * Valid values: 1 to 100. Default value: 20.
+     *   *
+     * @param ListPermissionVersionsRequest $request ListPermissionVersionsRequest
      *
-     * @return ListPermissionVersionsResponse
+     * @return ListPermissionVersionsResponse ListPermissionVersionsResponse
      */
     public function listPermissionVersions($request)
     {
@@ -596,10 +644,13 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListPermissionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * The maximum number of entries to return for a single request.
+     *   * Valid values: 1 to 100. Default value: 20.
+     *   *
+     * @param ListPermissionsRequest $request ListPermissionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPermissionsResponse
+     * @return ListPermissionsResponse ListPermissionsResponse
      */
     public function listPermissionsWithOptions($request, $runtime)
     {
@@ -633,9 +684,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListPermissionsRequest $request
+     * The maximum number of entries to return for a single request.
+     *   * Valid values: 1 to 100. Default value: 20.
+     *   *
+     * @param ListPermissionsRequest $request ListPermissionsRequest
      *
-     * @return ListPermissionsResponse
+     * @return ListPermissionsResponse ListPermissionsResponse
      */
     public function listPermissions($request)
     {
@@ -645,10 +699,16 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListResourceShareAssociationsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * This topic provides an example on how to call the API operation to query the association records of the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows the following records:
+     *   * *   The resource `vsw-bp1upw03qyz8n7us9****` of the `VSwitch` type has been associated with the resource share `rs-6GRmdD3X****`. The resource is in the `Associated` state. This indicates that the resource is being shared.
+     *   * *   The resource `vsw-bp183p93qs667muql****` of the `VSwitch` type has been disassociated from the resource share `rs-6GRmdD3X****`. The resource is in the `Disassociated` state. This indicates that the sharing of the resource is stopped.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListResourceShareAssociationsRequest $request ListResourceShareAssociationsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourceShareAssociationsResponse
+     * @return ListResourceShareAssociationsResponse ListResourceShareAssociationsResponse
      */
     public function listResourceShareAssociationsWithOptions($request, $runtime)
     {
@@ -694,9 +754,15 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListResourceShareAssociationsRequest $request
+     * This topic provides an example on how to call the API operation to query the association records of the resource shares that are created by using the current Alibaba Cloud account in the `cn-hangzhou` region. The response shows the following records:
+     *   * *   The resource `vsw-bp1upw03qyz8n7us9****` of the `VSwitch` type has been associated with the resource share `rs-6GRmdD3X****`. The resource is in the `Associated` state. This indicates that the resource is being shared.
+     *   * *   The resource `vsw-bp183p93qs667muql****` of the `VSwitch` type has been disassociated from the resource share `rs-6GRmdD3X****`. The resource is in the `Disassociated` state. This indicates that the sharing of the resource is stopped.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListResourceShareAssociationsRequest $request ListResourceShareAssociationsRequest
      *
-     * @return ListResourceShareAssociationsResponse
+     * @return ListResourceShareAssociationsResponse ListResourceShareAssociationsResponse
      */
     public function listResourceShareAssociations($request)
     {
@@ -706,10 +772,13 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListResourceShareInvitationsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * The maximum number of entries to return for a single request.
+     *   * Valid values: 1 to 100. Default value: 20.
+     *   *
+     * @param ListResourceShareInvitationsRequest $request ListResourceShareInvitationsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourceShareInvitationsResponse
+     * @return ListResourceShareInvitationsResponse ListResourceShareInvitationsResponse
      */
     public function listResourceShareInvitationsWithOptions($request, $runtime)
     {
@@ -746,9 +815,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListResourceShareInvitationsRequest $request
+     * The maximum number of entries to return for a single request.
+     *   * Valid values: 1 to 100. Default value: 20.
+     *   *
+     * @param ListResourceShareInvitationsRequest $request ListResourceShareInvitationsRequest
      *
-     * @return ListResourceShareInvitationsResponse
+     * @return ListResourceShareInvitationsResponse ListResourceShareInvitationsResponse
      */
     public function listResourceShareInvitations($request)
     {
@@ -758,10 +830,13 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListResourceSharePermissionsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * The maximum number of entries to return for a single request.
+     *   * Valid values: 1 to 100. Default value: 20.
+     *   *
+     * @param ListResourceSharePermissionsRequest $request ListResourceSharePermissionsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourceSharePermissionsResponse
+     * @return ListResourceSharePermissionsResponse ListResourceSharePermissionsResponse
      */
     public function listResourceSharePermissionsWithOptions($request, $runtime)
     {
@@ -798,9 +873,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListResourceSharePermissionsRequest $request
+     * The maximum number of entries to return for a single request.
+     *   * Valid values: 1 to 100. Default value: 20.
+     *   *
+     * @param ListResourceSharePermissionsRequest $request ListResourceSharePermissionsRequest
      *
-     * @return ListResourceSharePermissionsResponse
+     * @return ListResourceSharePermissionsResponse ListResourceSharePermissionsResponse
      */
     public function listResourceSharePermissions($request)
     {
@@ -810,10 +888,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListResourceSharesRequest $request
-     * @param RuntimeOptions            $runtime
+     * The operation that you want to perform. Set the value to ListResourceShares.
+     *   *
+     * @param ListResourceSharesRequest $request ListResourceSharesRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourceSharesResponse
+     * @return ListResourceSharesResponse ListResourceSharesResponse
      */
     public function listResourceSharesWithOptions($request, $runtime)
     {
@@ -859,9 +939,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListResourceSharesRequest $request
+     * The operation that you want to perform. Set the value to ListResourceShares.
+     *   *
+     * @param ListResourceSharesRequest $request ListResourceSharesRequest
      *
-     * @return ListResourceSharesResponse
+     * @return ListResourceSharesResponse ListResourceSharesResponse
      */
     public function listResourceShares($request)
     {
@@ -871,10 +953,14 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListSharedResourcesRequest $request
-     * @param RuntimeOptions             $runtime
+     * This topic provides an example on how to call the API operation to query the resources that you share with other accounts in the `cn-hangzhou` region. The response shows that in the resource share `rs-6GRmdD3X****`, you share the `vsw-bp1upw03qyz8n7us9****` resource of the `VSwitch` type with other accounts.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListSharedResourcesRequest $request ListSharedResourcesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSharedResourcesResponse
+     * @return ListSharedResourcesResponse ListSharedResourcesResponse
      */
     public function listSharedResourcesWithOptions($request, $runtime)
     {
@@ -920,9 +1006,13 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListSharedResourcesRequest $request
+     * This topic provides an example on how to call the API operation to query the resources that you share with other accounts in the `cn-hangzhou` region. The response shows that in the resource share `rs-6GRmdD3X****`, you share the `vsw-bp1upw03qyz8n7us9****` resource of the `VSwitch` type with other accounts.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListSharedResourcesRequest $request ListSharedResourcesRequest
      *
-     * @return ListSharedResourcesResponse
+     * @return ListSharedResourcesResponse ListSharedResourcesResponse
      */
     public function listSharedResources($request)
     {
@@ -932,10 +1022,16 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListSharedTargetsRequest $request
-     * @param RuntimeOptions           $runtime
+     * If you are a resource owner, you can query the principals with which you share your resources.
+     *   * If you are a principal, you can query the resources that are shared with you.
+     *   * This topic provides an example on how to call the API operation to query the principals with which you share your resources in the `cn-hangzhou` region. The response shows that you share your resources with the principals `114240524784****` and `172050525300****`.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListSharedTargetsRequest $request ListSharedTargetsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSharedTargetsResponse
+     * @return ListSharedTargetsResponse ListSharedTargetsResponse
      */
     public function listSharedTargetsWithOptions($request, $runtime)
     {
@@ -981,9 +1077,15 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param ListSharedTargetsRequest $request
+     * If you are a resource owner, you can query the principals with which you share your resources.
+     *   * If you are a principal, you can query the resources that are shared with you.
+     *   * This topic provides an example on how to call the API operation to query the principals with which you share your resources in the `cn-hangzhou` region. The response shows that you share your resources with the principals `114240524784****` and `172050525300****`.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 500 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListSharedTargetsRequest $request ListSharedTargetsRequest
      *
-     * @return ListSharedTargetsResponse
+     * @return ListSharedTargetsResponse ListSharedTargetsResponse
      */
     public function listSharedTargets($request)
     {
@@ -993,10 +1095,13 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param RejectResourceShareInvitationRequest $request
-     * @param RuntimeOptions                       $runtime
+     * The ID of the resource sharing invitation.
+     *   * You can call the [ListResourceShareInvitations](~~450564~~) operation to obtain the ID of a resource sharing invitation.
+     *   *
+     * @param RejectResourceShareInvitationRequest $request RejectResourceShareInvitationRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RejectResourceShareInvitationResponse
+     * @return RejectResourceShareInvitationResponse RejectResourceShareInvitationResponse
      */
     public function rejectResourceShareInvitationWithOptions($request, $runtime)
     {
@@ -1024,9 +1129,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param RejectResourceShareInvitationRequest $request
+     * The ID of the resource sharing invitation.
+     *   * You can call the [ListResourceShareInvitations](~~450564~~) operation to obtain the ID of a resource sharing invitation.
+     *   *
+     * @param RejectResourceShareInvitationRequest $request RejectResourceShareInvitationRequest
      *
-     * @return RejectResourceShareInvitationResponse
+     * @return RejectResourceShareInvitationResponse RejectResourceShareInvitationResponse
      */
     public function rejectResourceShareInvitation($request)
     {
@@ -1036,10 +1144,12 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param UpdateResourceShareRequest $request
-     * @param RuntimeOptions             $runtime
+     * The operation that you want to perform. Set the value to UpdateResourceShare.
+     *   *
+     * @param UpdateResourceShareRequest $request UpdateResourceShareRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateResourceShareResponse
+     * @return UpdateResourceShareResponse UpdateResourceShareResponse
      */
     public function updateResourceShareWithOptions($request, $runtime)
     {
@@ -1073,9 +1183,11 @@ class ResourceSharing extends OpenApiClient
     }
 
     /**
-     * @param UpdateResourceShareRequest $request
+     * The operation that you want to perform. Set the value to UpdateResourceShare.
+     *   *
+     * @param UpdateResourceShareRequest $request UpdateResourceShareRequest
      *
-     * @return UpdateResourceShareResponse
+     * @return UpdateResourceShareResponse UpdateResourceShareResponse
      */
     public function updateResourceShare($request)
     {

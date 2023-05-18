@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListResourceSharePermissionsRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The information about the permissions.
+     *
+     * @example TGlzdFJlc291cm****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The name of the permission.
+     *
+     * @example Self
+     *
      * @var string
      */
     public $resourceOwner;
 
     /**
+     * @description The `token` that is used to initiate the next request. If the response of the current request is truncated, you can use the token to initiate another request and obtain the remaining records.
+     *
+     * @example rs-6GRmdD3X****
+     *
      * @var string
      */
     public $resourceShareId;

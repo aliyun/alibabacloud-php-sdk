@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AssociateResourceSharePermissionRequest extends Model
 {
     /**
+     * @example AliyunRSDefaultPermissionVSwitch
+     *
      * @var string
      */
     public $permissionName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $replace;
 
     /**
+     * @example rs-6GRmdD3X****
+     *
      * @var string
      */
     public $resourceShareId;

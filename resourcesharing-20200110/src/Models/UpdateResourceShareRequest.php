@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceShareRequest extends Model
 {
     /**
+     * @description The information of the resource share.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $allowExternalTargets;
 
     /**
+     * @description Specifies whether resources in the resource share can be shared with accounts outside the resource directory. Valid values:
+     *
+     *   false: Resources in the resource share can be shared only with accounts in the resource directory.
+     *   true: Resources in the resource share can be shared with both accounts in the resource directory and accounts outside the resource directory.
+     *
+     * @example rs-qSkW1HBY****
+     *
      * @var string
      */
     public $resourceShareId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example new
+     *
      * @var string
      */
     public $resourceShareName;

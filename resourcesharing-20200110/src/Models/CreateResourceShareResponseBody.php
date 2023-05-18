@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceShareResponseBody extends Model
 {
     /**
+     * @description The time when the resource share was updated.
+     *
+     * @example 2C3FA051-61DC-4F3E-81E9-E4830524DF4B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the resource share.
+     *
      * @var resourceShare
      */
     public $resourceShare;

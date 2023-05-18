@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteResourceShareRequest extends Model
 {
     /**
+     * @example rs-qSkW1HBY****
+     *
      * @var string
      */
     public $resourceShareId;

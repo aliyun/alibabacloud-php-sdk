@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetPermissionRequest extends Model
 {
     /**
+     * @description The name of the permission.
+     *
+     * @example AliyunRSDefaultPermissionVSwitch
+     *
      * @var string
      */
     public $permissionName;
 
     /**
+     * @description The version of the permission.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $permissionVersion;

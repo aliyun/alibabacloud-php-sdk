@@ -9,36 +9,60 @@ use AlibabaCloud\Tea\Model;
 class permissions extends Model
 {
     /**
+     * @example 2020-12-07T07:39:01.818Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $defaultPermission;
 
     /**
+     * @description Indicates whether the permission is the default permission. Valid values:
+     *
+     *   false: The permission is not the default permission.
+     *   true: The permission is the default permission.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $defaultVersion;
 
     /**
+     * @description The update time.
+     *
+     * @example AliyunRSDefaultPermissionVSwitch
+     *
      * @var string
      */
     public $permissionName;
 
     /**
+     * @description The type of the shared resources.
+     *
+     * For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](~~450526~~).
+     * @example v1
+     *
      * @var string
      */
     public $permissionVersion;
 
     /**
+     * @example VSwitch
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example 2020-12-07T07:39:01.818Z
+     *
      * @var string
      */
     public $updateTime;

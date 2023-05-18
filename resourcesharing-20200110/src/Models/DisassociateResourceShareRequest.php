@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class DisassociateResourceShareRequest extends Model
 {
     /**
+     * @description The information of the entities that are associated with the resource share.
+     *
+     * @example Self
+     *
      * @var string
      */
     public $resourceOwner;
 
     /**
+     * @description The ID of a shared resource.
+     *
+     * >  Resources.N.ResourceId and Resources.N.ResourceType must be used in pairs.
+     * @example rs-6GRmdD3X****
+     *
      * @var string
      */
     public $resourceShareId;
@@ -25,6 +34,8 @@ class DisassociateResourceShareRequest extends Model
     public $resources;
 
     /**
+     * @example 172050525300****
+     *
      * @var string[]
      */
     public $targets;

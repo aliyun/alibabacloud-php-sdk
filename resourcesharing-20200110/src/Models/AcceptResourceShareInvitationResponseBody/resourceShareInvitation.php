@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class resourceShareInvitation extends Model
 {
     /**
+     * @example 2022-09-02T06:43:12.353Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 134254031178****
+     *
      * @var string
      */
     public $receiverAccountId;
 
     /**
+     * @description The Alibaba Cloud account ID of the invitee.
+     *
+     * @example rs-ysGRci9z****
+     *
      * @var string
      */
     public $resourceShareId;
 
     /**
+     * @description The Alibaba Cloud account ID of the inviter.
+     *
+     * @example i-pMnItMX19fBJ****
+     *
      * @var string
      */
     public $resourceShareInvitationId;
 
     /**
+     * @description The time when the invitation was created. The time is displayed in UTC.
+     *
+     * @example example
+     *
      * @var string
      */
     public $resourceShareName;
 
     /**
+     * @description The status of the invitation. Valid values:
+     *
+     *   Pending: The invitation is waiting for confirmation.
+     *   Accepted: The invitation is accepted.
+     *   Cancelled: The invitation is canceled.
+     *   Rejected: The invitation is rejected.
+     *   Expired: The invitation has expired.
+     *
+     * @example 151266687691****
+     *
      * @var string
      */
     public $senderAccountId;
 
     /**
+     * @example Accepted
+     *
      * @var string
      */
     public $status;

@@ -10,11 +10,23 @@ use AlibabaCloud\Tea\Model;
 class AssociateResourceShareResponseBody extends Model
 {
     /**
+     * @description The time when the association of the entity was updated. The value of this parameter depends on the value of the AssociationType parameter:
+     *
+     *   If the value of `AssociationType` is `Resource`, the value of this parameter is the time when the association of the shared resource was updated.
+     *   If the value of `AssociationType` is `Target`, the value of this parameter is the time when the association of the principal was updated.
+     *
+     * @example 111FB84A-60A9-403E-9067-E55D7EE95BD1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the entity. The value of this parameter depends on the value of the AssociationType parameter:
+     *
+     *   If the value of `AssociationType` is `Resource`, the value of this parameter is the ID of the shared resource.
+     *   If the value of `AssociationType` is `Target`, the value of this parameter is the ID of the principal.
+     *
      * @var resourceShareAssociations[]
      */
     public $resourceShareAssociations;

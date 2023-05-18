@@ -9,36 +9,69 @@ use AlibabaCloud\Tea\Model;
 class ListResourceSharesRequest extends Model
 {
     /**
+     * @description The ID of a resource share.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The name of the permission. For more information, see [Permission library](~~465474~~).
+     *
+     * @example TGlzdFJlc291cm****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example AliyunRSDefaultPermissionVSwitch
+     *
      * @var string
      */
     public $permissionName;
 
     /**
+     * @description The status of the resource share. Valid values:
+     *
+     *   Active: The resource share is enabled.
+     *   Pending: The resource share is associated with one or more resource sharing invitations that are waiting for confirmation.
+     *   Deleting: The resource share is being deleted.
+     *   Deleted: The resource share is deleted.
+     *
+     * >  The system deletes the records of resource shares in the Deleted state within 48 hours to 96 hours after you delete the resource shares.
+     * @example Self
+     *
      * @var string
      */
     public $resourceOwner;
 
     /**
+     * @example rs-PqysnzIj****
+     *
      * @var string[]
      */
     public $resourceShareIds;
 
     /**
+     * @description The maximum number of entries to return for a single request.
+     *
+     * Valid values: 1 to 100. Default value: 20.
+     * @example test
+     *
      * @var string
      */
     public $resourceShareName;
 
     /**
+     * @description The `token` that is used to initiate the next request. If the response of the current request is truncated, you can use the token to initiate another request and obtain the remaining records.
+     *
+     * @example Active
+     *
      * @var string
      */
     public $resourceShareStatus;

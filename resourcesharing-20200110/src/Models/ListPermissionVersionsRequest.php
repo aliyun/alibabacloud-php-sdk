@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ListPermissionVersionsRequest extends Model
 {
     /**
+     * @description The information about the permission.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The name of the permission.
+     *
+     * @example TGlzdFJlc291cm****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example AliyunRSDefaultPermissionVSwitch
+     *
      * @var string
      */
     public $permissionName;

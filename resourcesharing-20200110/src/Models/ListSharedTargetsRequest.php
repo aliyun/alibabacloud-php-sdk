@@ -9,36 +9,65 @@ use AlibabaCloud\Tea\Model;
 class ListSharedTargetsRequest extends Model
 {
     /**
+     * @description The maximum number of entries to return for a single request.
+     *
+     * Valid values: 1 to 100. Default value: 20.
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The `token` that is used to initiate the next request. If the response of the current request is truncated, you can use the token to initiate another request and obtain the remaining records.
+     *
+     * @example TGlzdFJlc291cm****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the shared resource.
+     *
+     * @example vsw-bp1upw03qyz8n7us9****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The owner of the resource share.
+     *
+     *   Self: your account. If you set the value to Self, the principals that are associated with your resource shares are queried.
+     *   OtherAccounts: another account. If you set the value to OtherAccounts, the resource shares with which your account is associated and the owners of the resource shares are queried.
+     *
+     * @example Self
+     *
      * @var string
      */
     public $resourceOwner;
 
     /**
+     * @example rs-6GRmdD3X****
+     *
      * @var string[]
      */
     public $resourceShareIds;
 
     /**
+     * @description The type of the shared resources.
+     *
+     * For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](~~450526~~).
+     * @example VSwitch
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example 114240524784****
+     *
      * @var string[]
      */
     public $targets;

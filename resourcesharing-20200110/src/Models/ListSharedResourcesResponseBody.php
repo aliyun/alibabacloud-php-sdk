@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListSharedResourcesResponseBody extends Model
 {
     /**
+     * @description The token that is used to initiate the next request. If the response of the current request is truncated, you can use the token to initiate another request and obtain the remaining records.
+     *
+     * @example TGlzdFJlc291cm****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 04677DCA-7C33-464B-8811-1B1DA3C3D197
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information of the shared resources.
+     *
      * @var sharedResources[]
      */
     public $sharedResources;

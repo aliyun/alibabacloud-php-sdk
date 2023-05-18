@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListResourceSharePermissionsResponseBody extends Model
 {
     /**
+     * @description The version of the permission.
+     *
+     * @example TGlzdFJlc291cm****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The creation time.
+     *
      * @var permissions[]
      */
     public $permissions;
 
     /**
+     * @description Indicates whether the version is the default version. Valid values:
+     *
+     *   false: The version is not the default version.
+     *   true: The version is the default version.
+     *
+     * @example 2F23CFB6-A721-4E90-AC1E-0E30FA8B45DA
+     *
      * @var string
      */
     public $requestId;

@@ -9,36 +9,58 @@ use AlibabaCloud\Tea\Model;
 class resourceShareInvitations extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the inviter.
+     *
+     * @example 2022-08-18T05:36:45.024Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 134254031178****
+     *
      * @var string
      */
     public $receiverAccountId;
 
     /**
+     * @description The Alibaba Cloud account ID of the invitee.
+     *
+     * @example rs-ysGRci9z****
+     *
      * @var string
      */
     public $resourceShareId;
 
     /**
+     * @example i-p6eRytrkjVvM****
+     *
      * @var string
      */
     public $resourceShareInvitationId;
 
     /**
+     * @description The ID of the invitation.
+     *
+     * @example example
+     *
      * @var string
      */
     public $resourceShareName;
 
     /**
+     * @example 151266687691****
+     *
      * @var string
      */
     public $senderAccountId;
 
     /**
+     * @description The name of the resource share.
+     *
+     * @example Pending
+     *
      * @var string
      */
     public $status;

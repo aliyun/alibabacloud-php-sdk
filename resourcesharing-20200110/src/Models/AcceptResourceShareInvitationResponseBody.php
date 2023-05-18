@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class AcceptResourceShareInvitationResponseBody extends Model
 {
     /**
+     * @description The ID of the resource share.
+     *
+     * @example 08F18B04-47CB-5C0E-A6D2-37DEF5C2A961
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the resource share.
+     *
      * @var resourceShareInvitation
      */
     public $resourceShareInvitation;
