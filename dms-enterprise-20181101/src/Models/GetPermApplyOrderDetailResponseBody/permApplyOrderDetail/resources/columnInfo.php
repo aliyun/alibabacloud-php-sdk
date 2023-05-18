@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class columnInfo extends Model
 {
     /**
+     * @description The name of the column.
+     *
      * @example test_col
      *
      * @var string
@@ -16,6 +18,8 @@ class columnInfo extends Model
     public $columnName;
 
     /**
+     * @description The name of the table.
+     *
      * @example test_tb
      *
      * @var string

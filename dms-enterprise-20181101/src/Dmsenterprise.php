@@ -4997,10 +4997,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetPermApplyOrderDetailRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can call this operation to query the information about tickets that apply for permissions on databases, tables, and sensitive columns.
+     *   *
+     * @param GetPermApplyOrderDetailRequest $request GetPermApplyOrderDetailRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPermApplyOrderDetailResponse
+     * @return GetPermApplyOrderDetailResponse GetPermApplyOrderDetailResponse
      */
     public function getPermApplyOrderDetailWithOptions($request, $runtime)
     {
@@ -5031,9 +5033,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetPermApplyOrderDetailRequest $request
+     * You can call this operation to query the information about tickets that apply for permissions on databases, tables, and sensitive columns.
+     *   *
+     * @param GetPermApplyOrderDetailRequest $request GetPermApplyOrderDetailRequest
      *
-     * @return GetPermApplyOrderDetailResponse
+     * @return GetPermApplyOrderDetailResponse GetPermApplyOrderDetailResponse
      */
     public function getPermApplyOrderDetail($request)
     {

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class dataExportOrderDetail extends Model
 {
     /**
+     * @description The information about the ticket.
+     *
      * @var keyInfo
      */
     public $keyInfo;
 
     /**
+     * @description The details of the ticket.
+     *
      * @var orderDetail
      */
     public $orderDetail;

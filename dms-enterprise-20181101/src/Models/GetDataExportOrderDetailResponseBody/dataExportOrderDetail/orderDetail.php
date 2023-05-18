@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class orderDetail extends Model
 {
     /**
+     * @description The number of rows that were affected by the SQL statement.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class orderDetail extends Model
     public $actualAffectRows;
 
     /**
+     * @description The category of the reason for the data export.
+     *
      * @example text
      *
      * @var string
@@ -23,6 +27,8 @@ class orderDetail extends Model
     public $classify;
 
     /**
+     * @description The name of the database from which data was exported.
+     *
      * @example xxx@xxx:3306
      *
      * @var string
@@ -30,11 +36,17 @@ class orderDetail extends Model
     public $database;
 
     /**
+     * @description The ID of the database from which data was exported.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $dbId;
 
     /**
+     * @description The type of the environment to which the database belongs.
+     *
      * @example test
      *
      * @var string
@@ -42,11 +54,17 @@ class orderDetail extends Model
     public $envType;
 
     /**
+     * @description The SQL statement that was executed to export data.
+     *
+     * @example select 1
+     *
      * @var string
      */
     public $exeSQL;
 
     /**
+     * @description Indicates whether the affected rows are skipped.
+     *
      * @example false
      *
      * @var bool
@@ -54,6 +72,8 @@ class orderDetail extends Model
     public $ignoreAffectRows;
 
     /**
+     * @description The reason why the affected rows are skipped.
+     *
      * @example empty
      *
      * @var string
@@ -61,6 +81,8 @@ class orderDetail extends Model
     public $ignoreAffectRowsReason;
 
     /**
+     * @description Indicates whether the database is a logical database.
+     *
      * @example false
      *
      * @var bool

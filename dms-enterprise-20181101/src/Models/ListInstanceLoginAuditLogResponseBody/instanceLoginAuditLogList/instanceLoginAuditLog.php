@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceLoginAuditLog extends Model
 {
     /**
+     * @description The database account that is used to log on to the instance.
+     *
      * @example test_User
      *
      * @var string
@@ -16,6 +18,8 @@ class instanceLoginAuditLog extends Model
     public $dbUser;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example 177****
      *
      * @var int
@@ -23,16 +27,16 @@ class instanceLoginAuditLog extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the instance.
      *
-     * @example rm-bp144d5ky4l4rli0417****.mysql.rds.aliyuncs.com:3306【rm-bp144d5ky4l4r****】
+     * @example rm-bp144d5ky4l4rli0417****.mysql.rds.aliyuncs.com:3306[rm-bp144d5ky4l4r****]
      *
      * @var string
      */
     public $instanceName;
 
     /**
-     * @description The name of the instance.
+     * @description The time when the user performed an operation on the instance.
      *
      * @example 2021-11-18 11:13:26
      *
@@ -41,6 +45,8 @@ class instanceLoginAuditLog extends Model
     public $opTime;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 117.36.XX.XX,100.104.XX.XX
      *
      * @var string
@@ -48,7 +54,7 @@ class instanceLoginAuditLog extends Model
     public $requestIp;
 
     /**
-     * @description The source IP address of the request.
+     * @description The ID of the user.
      *
      * @example 12****
      *

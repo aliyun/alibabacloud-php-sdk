@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetPhysicalDatabaseResponseBody extends Model
 {
     /**
-     * @description The information about the physical database.
-     *
      * @var database
      */
     public $database;
 
     /**
-     * @description The error code returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -26,8 +22,6 @@ class GetPhysicalDatabaseResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned if the request failed.
-     *
      * @example UnknownError
      *
      * @var string
@@ -35,8 +29,6 @@ class GetPhysicalDatabaseResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
      *
      * @var string
@@ -44,8 +36,6 @@ class GetPhysicalDatabaseResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
-     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tableInfo extends Model
 {
     /**
+     * @description The name of the table.
+     *
      * @example test_tb
      *
      * @var string

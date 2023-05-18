@@ -84,6 +84,11 @@ class database extends Model
     public $host;
 
     /**
+     * @var string
+     */
+    public $instanceAlias;
+
+    /**
      * @description The status of the database. Valid values:
      *
      *   **NORMAL**: The database is running as expected.
@@ -164,6 +169,7 @@ class database extends Model
         'encoding'      => 'Encoding',
         'envType'       => 'EnvType',
         'host'          => 'Host',
+        'instanceAlias' => 'InstanceAlias',
         'instanceId'    => 'InstanceId',
         'ownerIdList'   => 'OwnerIdList',
         'ownerNameList' => 'OwnerNameList',
@@ -204,6 +210,9 @@ class database extends Model
         }
         if (null !== $this->host) {
             $res['Host'] = $this->host;
+        }
+        if (null !== $this->instanceAlias) {
+            $res['InstanceAlias'] = $this->instanceAlias;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -264,6 +273,9 @@ class database extends Model
         }
         if (isset($map['Host'])) {
             $model->host = $map['Host'];
+        }
+        if (isset($map['InstanceAlias'])) {
+            $model->instanceAlias = $map['InstanceAlias'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
