@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeEduQuestionOcrRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needRotate;
 
     /**
+     * @example https://img.alicdn.com/tfs/TB1Wo7eXAvoK1RjSZFDXXXY3pXa-2512-3509.jpg
+     *
      * @var string
      */
     public $url;

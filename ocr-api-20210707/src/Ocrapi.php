@@ -137,8 +137,6 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTradeMarkCertificationRequ
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTradeMarkCertificationResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTrainInvoiceRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTrainInvoiceResponse;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTravelCardRequest;
-use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeTravelCardResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeUsedCarInvoiceRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeUsedCarInvoiceResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeVehicleCertificationRequest;
@@ -2622,6 +2620,9 @@ class Ocrapi extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->outputMultiOrders)) {
+            $query['OutputMultiOrders'] = $request->outputMultiOrders;
+        }
         if (!Utils::isUnset($request->url)) {
             $query['Url'] = $request->url;
         }
@@ -2991,6 +2992,9 @@ class Ocrapi extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->isHandWriting)) {
+            $query['IsHandWriting'] = $request->isHandWriting;
+        }
         if (!Utils::isUnset($request->lineLess)) {
             $query['LineLess'] = $request->lineLess;
         }
@@ -3312,51 +3316,6 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeTrainInvoiceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RecognizeTravelCardRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return RecognizeTravelCardResponse
-     */
-    public function recognizeTravelCardWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
-        }
-        $req = new OpenApiRequest([
-            'query'  => OpenApiUtilClient::query($query),
-            'body'   => $request->body,
-            'stream' => $request->body,
-        ]);
-        $params = new Params([
-            'action'      => 'RecognizeTravelCard',
-            'version'     => '2021-07-07',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return RecognizeTravelCardResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param RecognizeTravelCardRequest $request
-     *
-     * @return RecognizeTravelCardResponse
-     */
-    public function recognizeTravelCard($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->recognizeTravelCardWithOptions($request, $runtime);
     }
 
     /**

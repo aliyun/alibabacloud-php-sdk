@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeBusShipTicketRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/imgextra/i2/O1CN010iDcM7218ZQJtJyGX_!!6000000006940-0-tps-936-541.jpg
+     *
      * @var string
      */
     public $url;

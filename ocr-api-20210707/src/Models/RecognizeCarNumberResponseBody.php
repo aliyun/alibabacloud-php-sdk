@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecognizeCarNumberResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -19,6 +21,8 @@ class RecognizeCarNumberResponseBody extends Model
     public $data;
 
     /**
+     * @example message
+     *
      * @var string
      */
     public $message;

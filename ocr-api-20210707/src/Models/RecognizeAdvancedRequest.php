@@ -10,46 +10,64 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeAdvancedRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needRotate;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needSortPage;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $noStamp;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputCharInfo;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputFigure;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputTable;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $paragraph;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $row;
 
     /**
+     * @example https://img.alicdn.com/tfs/TB1Wo7eXAvoK1RjSZFDXXXY3pXa-2512-3509.jpg
+     *
      * @var string
      */
     public $url;

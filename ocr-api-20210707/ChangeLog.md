@@ -1,3 +1,6 @@
+2023-05-18 Version: 1.1.14
+- RecognizePurchaseRecord.
+
 2022-11-24 Version: 1.1.13
 - RecognizeIdcard, VerifyBusinessLicense, VerifyVATInvoice.
 

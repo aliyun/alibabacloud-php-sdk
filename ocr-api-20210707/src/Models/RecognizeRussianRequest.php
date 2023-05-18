@@ -10,21 +10,29 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeRussianRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needRotate;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputCharInfo;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputTable;
 
     /**
+     * @example https://img.alicdn.com/tfs/TB1Wo7eXAvoK1RjSZFDXXXY3pXa-2512-3509.jpg
+     *
      * @var string
      */
     public $url;

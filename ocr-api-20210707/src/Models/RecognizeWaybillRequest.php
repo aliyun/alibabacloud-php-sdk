@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeWaybillRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/tfs/TB1lOe6VqL7gK0jSZFBXXXZZpXa-480-640.png
+     *
      * @var string
      */
     public $url;

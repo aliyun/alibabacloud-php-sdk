@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeBankAccountLicenseRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/tfs/TB17liGda67gK0jSZFHXXa9jVXa-1375-1000.png
+     *
      * @var string
      */
     public $url;

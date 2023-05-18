@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeEstateCertificationRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/tfs/TB1idy2XDZmx1VjSZFGXXax2XXa-713-1133.png
+     *
      * @var string
      */
     public $url;

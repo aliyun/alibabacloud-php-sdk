@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeFoodProduceLicenseRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/tfs/TB1YaMhXKT2gK0jSZFvXXXnFXXa-1414-1000.png
+     *
      * @var string
      */
     public $url;

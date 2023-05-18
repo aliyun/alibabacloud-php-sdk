@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeTollInvoiceRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/imgextra/i3/O1CN01uUHo411DCwPsBWDMJ_!!6000000000181-0-tps-199-254.jpg
+     *
      * @var string
      */
     public $url;

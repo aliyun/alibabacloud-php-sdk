@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeVehicleRegistrationRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/imgextra/i1/O1CN01NA1F7A1cSO8cnFQ7m_!!6000000003599-0-tps-844-1125.jpg
+     *
      * @var string
      */
     public $url;

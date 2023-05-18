@@ -24,6 +24,8 @@ class RecognizeIdcardResponseBody extends Model
     public $message;
 
     /**
+     * @example 86B83935-DD36-195B-B6E4-D07BE370C8B6
+     *
      * @var string
      */
     public $requestId;

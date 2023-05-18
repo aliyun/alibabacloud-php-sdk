@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecognizeBusinessLicenseResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class RecognizeBusinessLicenseResponseBody extends Model
     public $data;
 
     /**
+     * @example message
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 43A29C77-405E-4CC0-BC55-EE694AD00655
+     *
      * @var string
      */
     public $requestId;

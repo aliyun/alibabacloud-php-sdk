@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeBusinessLicenseRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/tfs/TB1nnHJNSrqK1RjSZK9XXXyypXa-564-829.png
+     *
      * @var string
      */
     public $url;

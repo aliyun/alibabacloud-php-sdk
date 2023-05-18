@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeAirItineraryRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/tfs/TB1hBCIcBr0gK0jSZFnXXbRRXXa-1833-785.png
+     *
      * @var string
      */
     public $url;

@@ -24,6 +24,8 @@ class RecognizeTableOcrResponseBody extends Model
     public $message;
 
     /**
+     * @example 43A29C77-405E-4CC0-BC55-EE694AD00655
+     *
      * @var string
      */
     public $requestId;

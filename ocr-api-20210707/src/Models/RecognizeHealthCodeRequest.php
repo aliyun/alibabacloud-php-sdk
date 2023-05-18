@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeHealthCodeRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/imgextra/i3/O1CN01ME0L7j29f6VRZKo5e_!!6000000008094-0-tps-1237-1981.jpg
+     *
      * @var string
      */
     public $url;

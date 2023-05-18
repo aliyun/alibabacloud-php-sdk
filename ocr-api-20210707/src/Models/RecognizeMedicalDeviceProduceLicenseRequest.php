@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeMedicalDeviceProduceLicenseRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/tfs/TB13MJ.MuT2gK0jSZFvXXXnFXXa-1417-994.png
+     *
      * @var string
      */
     public $url;

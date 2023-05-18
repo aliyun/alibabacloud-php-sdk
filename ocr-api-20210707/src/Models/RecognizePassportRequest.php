@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizePassportRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/tfs/TB1uHglUgHqK1RjSZFEXXcGMXXa-800-502.png
+     *
      * @var string
      */
     public $url;

@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeInternationalIdcardRequest extends Model
 {
     /**
+     * @example Vietnam
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example http://example.jpg
+     *
      * @var string
      */
     public $url;

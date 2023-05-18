@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeTaxClearanceCertificateRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/imgextra/i1/O1CN0131X3Xs1d1CHG8oypS_!!6000000003675-0-tps-1080-712.jpg
+     *
      * @var string
      */
     public $url;

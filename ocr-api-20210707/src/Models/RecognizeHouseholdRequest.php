@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeHouseholdRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isResidentPage;
 
     /**
+     * @example https://img.alicdn.com/tfs/TB11ZxTMxD1gK0jSZFsXXbldVXa-920-606.png
+     *
      * @var string
      */
     public $url;

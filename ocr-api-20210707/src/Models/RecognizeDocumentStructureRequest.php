@@ -10,51 +10,71 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeDocumentStructureRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needRotate;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needSortPage;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $noStamp;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputCharInfo;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputTable;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $page;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $paragraph;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $row;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i4/O1CN01amMFBF1GUki3NHNzI_!!6000000000626-2-tps-978-1346.png
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $useNewStyleOutput;

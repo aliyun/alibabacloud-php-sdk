@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RecognizeDrivingLicenseResponseBody extends Model
 {
     /**
+     * @example unmatchedImageType
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class RecognizeDrivingLicenseResponseBody extends Model
     public $data;
 
     /**
+     * @example The type of image didn\"t match the api.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 43A29C77-405E-4CC0-BC55-EE694AD00655
+     *
      * @var string
      */
     public $requestId;

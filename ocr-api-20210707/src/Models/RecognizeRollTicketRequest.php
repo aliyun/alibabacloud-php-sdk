@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeRollTicketRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/tfs/TB1Y2ryJKT2gK0jSZFvXXXnFXXa-438-934.png
+     *
      * @var string
      */
     public $url;

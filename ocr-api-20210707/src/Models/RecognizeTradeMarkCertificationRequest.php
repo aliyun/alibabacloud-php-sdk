@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeTradeMarkCertificationRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/tfs/TB1SZiGdfb2gK0jSZK9XXaEgFXa-1654-2340.png
+     *
      * @var string
      */
     public $url;

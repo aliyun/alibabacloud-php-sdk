@@ -10,21 +10,36 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeTableOcrRequest extends Model
 {
     /**
+     * @example "false"
+     *
+     * @var string
+     */
+    public $isHandWriting;
+
+    /**
+     * @example false
+     *
      * @var bool
      */
     public $lineLess;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needRotate;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $skipDetection;
 
     /**
+     * @example https://img.alicdn.com/tfs/TB1Wo7eXAvoK1RjSZFDXXXY3pXa-2512-3509.jpg
+     *
      * @var string
      */
     public $url;
@@ -34,6 +49,7 @@ class RecognizeTableOcrRequest extends Model
      */
     public $body;
     protected $_name = [
+        'isHandWriting' => 'IsHandWriting',
         'lineLess'      => 'LineLess',
         'needRotate'    => 'NeedRotate',
         'skipDetection' => 'SkipDetection',
@@ -48,6 +64,9 @@ class RecognizeTableOcrRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->isHandWriting) {
+            $res['IsHandWriting'] = $this->isHandWriting;
+        }
         if (null !== $this->lineLess) {
             $res['LineLess'] = $this->lineLess;
         }
@@ -75,6 +94,9 @@ class RecognizeTableOcrRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['IsHandWriting'])) {
+            $model->isHandWriting = $map['IsHandWriting'];
+        }
         if (isset($map['LineLess'])) {
             $model->lineLess = $map['LineLess'];
         }

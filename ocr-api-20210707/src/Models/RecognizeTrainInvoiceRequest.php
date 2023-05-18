@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeTrainInvoiceRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/tfs/TB1u1HrUmzqK1RjSZFpXXakSXXa-1200-900.jpg
+     *
      * @var string
      */
     public $url;

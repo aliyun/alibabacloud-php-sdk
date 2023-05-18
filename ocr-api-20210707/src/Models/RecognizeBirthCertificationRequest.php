@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeBirthCertificationRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/tfs/TB1P6Yll8Bh1e4jSZFhXXcC9VXa-1381-962.png
+     *
      * @var string
      */
     public $url;

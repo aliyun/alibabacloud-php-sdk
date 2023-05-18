@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeUsedCarInvoiceRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/imgextra/i4/O1CN01NiY6e220zrtvT6dFJ_!!6000000006921-0-tps-3468-4624.jpg
+     *
      * @var string
      */
     public $url;

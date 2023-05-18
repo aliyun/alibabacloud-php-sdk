@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeSocialSecurityCardRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/imgextra/i4/O1CN01zpM9bJ1Pa5pCwJat7_!!6000000001856-0-tps-282-179.jpg
+     *
      * @var string
      */
     public $url;

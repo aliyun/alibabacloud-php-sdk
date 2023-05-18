@@ -10,16 +10,22 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeIdcardRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputFigure;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $outputQualityInfo;
 
     /**
+     * @example https://img.alicdn.com/tfs/TB1q5IeXAvoK1RjSZFNXXcxMVXa-483-307.jpg
+     *
      * @var string
      */
     public $url;

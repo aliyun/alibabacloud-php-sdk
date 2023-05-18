@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeExitEntryPermitToMainlandRequest extends Model
 {
     /**
+     * @example true/false
+     *
      * @var bool
      */
     public $outputFigure;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i2/O1CN01VpucoK1PtmovU859J_!!6000000001899-0-tps-928-626.jpg
+     *
      * @var string
      */
     public $url;

@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeQuotaInvoiceRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/tfs/TB1SwAeXHr1gK0jSZR0XXbP8XXa-870-604.jpg
+     *
      * @var string
      */
     public $url;

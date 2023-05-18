@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeChinesePassportRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $outputFigure;
 
     /**
+     * @example https://img.alicdn.com/imgextra/i2/O1CN01yaQKCT1PrUsTWqgSK_!!6000000001894-0-tps-271-186.jpg
+     *
      * @var string
      */
     public $url;

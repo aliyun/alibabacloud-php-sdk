@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeShoppingReceiptRequest extends Model
 {
     /**
+     * @example http://duguang-database-public.oss-cn-hangzhou.aliyuncs.com/multi_receipt_shopping_receipt/shop_receipt__ticket_2020-05-14-11-59-30.540668_01_List.jpg
+     *
      * @var string
      */
     public $url;

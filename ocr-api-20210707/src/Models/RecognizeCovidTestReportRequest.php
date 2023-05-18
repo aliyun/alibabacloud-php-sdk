@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeCovidTestReportRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $multipleResult;
 
     /**
+     * @example http://duguang-database-public.oss-cn-hangzhou.aliyuncs.com/covid_init_covid_test_report/test_report__data_pool_15a4f85478cb1bd69a5d631b182aba69.jpg_item_0_cls_covid_test_report.jpg
+     *
      * @var string
      */
     public $url;

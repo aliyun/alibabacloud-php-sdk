@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeEduOralCalculationRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/imgextra/i4/O1CN01diDxZe21hNSkCBf5n_!!6000000007016-0-tps-2268-3024.jpg
+     *
      * @var string
      */
     public $url;

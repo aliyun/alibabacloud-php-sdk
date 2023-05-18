@@ -10,6 +10,8 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeMixedInvoicesRequest extends Model
 {
     /**
+     * @example https://img.alicdn.com/tfs/TB1.bnGbRWD3KVjSZFsXXcqkpXa-1654-2341.jpg
+     *
      * @var string
      */
     public $url;

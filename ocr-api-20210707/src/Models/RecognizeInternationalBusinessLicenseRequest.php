@@ -10,11 +10,15 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeInternationalBusinessLicenseRequest extends Model
 {
     /**
+     * @example India
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @example https://www.example.com
+     *
      * @var string
      */
     public $url;
