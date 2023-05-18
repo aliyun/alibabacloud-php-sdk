@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ListPolicyAttachmentsRequest extends Model
 {
     /**
+     * @description The language that is used to return the description of the system policy. Valid values:
+     *
+     *   en: English
+     *   zh-CN: Chinese
+     *   ja: Japanese
+     *
      * @example zh-CN
      *
      * @var string
@@ -16,6 +22,9 @@ class ListPolicyAttachmentsRequest extends Model
     public $language;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -23,6 +32,9 @@ class ListPolicyAttachmentsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: 1 to 100. Default value: 10.
      * @example 10
      *
      * @var int
@@ -30,6 +42,9 @@ class ListPolicyAttachmentsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the policy.
+     *
+     * The name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
      * @example AdministratorAccess
      *
      * @var string
@@ -37,6 +52,11 @@ class ListPolicyAttachmentsRequest extends Model
     public $policyName;
 
     /**
+     * @description The type of the policy. If you do not specify this parameter, the system lists all types of policies. Valid values:
+     *
+     *   Custom: custom policy
+     *   System: system policy
+     *
      * @example System
      *
      * @var string
@@ -44,6 +64,8 @@ class ListPolicyAttachmentsRequest extends Model
     public $policyType;
 
     /**
+     * @description The name of the object to which the policy is attached.
+     *
      * @example alice@demo.onaliyun.com
      *
      * @var string
@@ -51,6 +73,12 @@ class ListPolicyAttachmentsRequest extends Model
     public $principalName;
 
     /**
+     * @description The type of the object to which the policy is attached. If you do not specify this parameter, the system lists all types of objects. Valid values:
+     *
+     *   IMSUser: RAM user
+     *   IMSGroup: RAM user group
+     *   ServiceRole: RAM role
+     *
      * @example IMSUser
      *
      * @var string
@@ -58,6 +86,8 @@ class ListPolicyAttachmentsRequest extends Model
     public $principalType;
 
     /**
+     * @description The ID of the resource group or the ID of the Alibaba Cloud account to which the resource group belongs. If you do not specify this parameter, the system lists all policy attachment records under the current account.
+     *
      * @example rg-001
      *
      * @var string

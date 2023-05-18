@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class role extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the role.
+     *
      * @example acs:ram::177242285274****:role/aliyunserviceroleforpolardb
      *
      * @var string
@@ -16,6 +18,8 @@ class role extends Model
     public $arn;
 
     /**
+     * @description The document of the trust policy for the role.
+     *
      * @example {\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":[\"polardb.aliyuncs.com\"]}}],\"Version\":\"1\"}
      *
      * @var string
@@ -23,6 +27,8 @@ class role extends Model
     public $assumeRolePolicyDocument;
 
     /**
+     * @description The time when the role was created. The time is displayed in UTC.
+     *
      * @example 2020-06-30T08:14:16Z
      *
      * @var string
@@ -30,6 +36,8 @@ class role extends Model
     public $createDate;
 
     /**
+     * @description The description of the role.
+     *
      * @example Service Linked Role for PolarDB. PolarDB will use this role to access your resources in other services.
      *
      * @var string
@@ -37,6 +45,11 @@ class role extends Model
     public $description;
 
     /**
+     * @description Indicates whether the role is a service-linked role. Valid values:
+     *
+     *   true: The role is a service-linked role.
+     *   false: The role is not a service-linked role.
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +57,8 @@ class role extends Model
     public $isServiceLinkedRole;
 
     /**
+     * @description The ID of the role.
+     *
      * @example 32833240981067****
      *
      * @var string
@@ -51,6 +66,8 @@ class role extends Model
     public $roleId;
 
     /**
+     * @description The name of the role.
+     *
      * @example AliyunServiceRoleForPolarDB
      *
      * @var string
@@ -58,6 +75,8 @@ class role extends Model
     public $roleName;
 
     /**
+     * @description The role name that uses a domain name as the suffix.
+     *
      * @example AliyunServiceRoleForPolarDB@role.test.onaliyunservice.com
      *
      * @var string

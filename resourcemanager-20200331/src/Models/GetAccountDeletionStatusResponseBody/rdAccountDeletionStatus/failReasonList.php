@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class failReasonList extends Model
 {
     /**
+     * @example This account has a payer account. Please release the financial relationship of this account first.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example Others
+     *
      * @var string
      */
     public $name;

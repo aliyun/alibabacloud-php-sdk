@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class GetRoleRequest extends Model
 {
     /**
+     * @description The language that is used to return the description of the RAM role. Valid values:
+     *
+     *   en: English
+     *   zh-CN: Chinese
+     *   ja: Japanese
+     *
      * @example zh-CN
      *
      * @var string
@@ -16,6 +22,9 @@ class GetRoleRequest extends Model
     public $language;
 
     /**
+     * @description The name of the RAM role.
+     *
+     * The name must be 1 to 64 characters in length and can contain letters, digits, periods (.), and hyphens (-).
      * @example ECSAdmin
      *
      * @var string

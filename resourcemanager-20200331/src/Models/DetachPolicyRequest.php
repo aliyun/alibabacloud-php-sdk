@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DetachPolicyRequest extends Model
 {
     /**
+     * @description The name of the policy.
+     *
+     * The name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
      * @example OSS-Administrator
      *
      * @var string
@@ -16,6 +19,11 @@ class DetachPolicyRequest extends Model
     public $policyName;
 
     /**
+     * @description The type of the policy. Valid values:
+     *
+     *   Custom: custom policy
+     *   System: system policy
+     *
      * @example Custom
      *
      * @var string
@@ -23,6 +31,8 @@ class DetachPolicyRequest extends Model
     public $policyType;
 
     /**
+     * @description The name of the object to which the policy is attached.
+     *
      * @example alice@demo.onaliyun.com
      *
      * @var string
@@ -30,6 +40,12 @@ class DetachPolicyRequest extends Model
     public $principalName;
 
     /**
+     * @description The type of the object to which the policy is attached. Valid values:
+     *
+     *   IMSUser: RAM user
+     *   IMSGroup: RAM user group
+     *   ServiceRole: RAM role
+     *
      * @example IMSUser
      *
      * @var string
@@ -37,6 +53,9 @@ class DetachPolicyRequest extends Model
     public $principalType;
 
     /**
+     * @description The ID of the resource group or the ID of the Alibaba Cloud account to which the resource group belongs.
+     *
+     * This parameter specifies the resource group or Alibaba Cloud account for which you want to revoke permissions.
      * @example rg-9gLOoK****
      *
      * @var string

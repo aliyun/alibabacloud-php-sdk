@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SendVerificationCodeForEnableRDRequest extends Model
 {
     /**
+     * @description The mobile phone number that is bound to the newly created account. If you leave this parameter empty, the mobile phone number that is bound to the current account is used.
+     *
+     * >  Mobile phone numbers in the `86-<Mobile phone number>` format in the Chinese mainland are not supported.
      * @example xx-13900001234
      *
      * @var string

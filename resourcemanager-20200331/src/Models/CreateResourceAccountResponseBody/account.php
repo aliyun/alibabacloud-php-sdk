@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class account extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member.
+     *
      * @example 112730938585****
      *
      * @var string
@@ -16,6 +18,8 @@ class account extends Model
     public $accountId;
 
     /**
+     * @description The Alibaba Cloud account name of the member.
+     *
      * @example alice@rd-3g****.aliyunid.com
      *
      * @var string
@@ -23,6 +27,8 @@ class account extends Model
     public $accountName;
 
     /**
+     * @description The display name of the member.
+     *
      * @example Dev
      *
      * @var string
@@ -30,6 +36,8 @@ class account extends Model
     public $displayName;
 
     /**
+     * @description The ID of the folder.
+     *
      * @example fd-r23M55****
      *
      * @var string
@@ -37,6 +45,11 @@ class account extends Model
     public $folderId;
 
     /**
+     * @description The way in which the member joins the resource directory. Valid values:
+     *
+     *   invited: The member is invited to join the resource directory.
+     *   created: The member is directly created in the resource directory.
+     *
      * @example created
      *
      * @var string
@@ -44,6 +57,8 @@ class account extends Model
     public $joinMethod;
 
     /**
+     * @description The time when the member joined the resource directory. The time is displayed in UTC.
+     *
      * @example 2020-12-31T03:37:39.456Z
      *
      * @var string
@@ -51,6 +66,8 @@ class account extends Model
     public $joinTime;
 
     /**
+     * @description The time when the member was modified. The time is displayed in UTC.
+     *
      * @example 2020-12-31T03:37:39.456Z
      *
      * @var string
@@ -58,6 +75,8 @@ class account extends Model
     public $modifyTime;
 
     /**
+     * @description The ID of the resource directory.
+     *
      * @example rd-3G****
      *
      * @var string
@@ -65,6 +84,8 @@ class account extends Model
     public $resourceDirectoryId;
 
     /**
+     * @description The status of the member. The value CreateSuccess indicates that the member is created.
+     *
      * @example CreateSuccess
      *
      * @var string
@@ -72,6 +93,8 @@ class account extends Model
     public $status;
 
     /**
+     * @description The type of the member. The value ResourceAccount indicates that the member is a resource account.
+     *
      * @example ResourceAccount
      *
      * @var string

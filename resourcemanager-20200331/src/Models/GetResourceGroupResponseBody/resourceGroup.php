@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class resourceGroup extends Model
 {
     /**
+     * @description The identifier of the resource group.
+     *
      * @example 123456789****
      *
      * @var string
@@ -18,6 +20,8 @@ class resourceGroup extends Model
     public $accountId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example 2015-01-23T12:33:18Z
      *
      * @var string
@@ -25,6 +29,12 @@ class resourceGroup extends Model
     public $createDate;
 
     /**
+     * @description The status of the resource group. Valid values:
+     *
+     *   Creating: The resource group is being created.
+     *   OK: The resource group is created.
+     *   PendingDelete: The resource group is waiting to be deleted.
+     *
      * @example my-project
      *
      * @var string
@@ -32,6 +42,8 @@ class resourceGroup extends Model
     public $displayName;
 
     /**
+     * @description The tags that are added to the resource group.
+     *
      * @example rg-9gLOoK****
      *
      * @var string
@@ -39,6 +51,8 @@ class resourceGroup extends Model
     public $id;
 
     /**
+     * @description The time when the resource group was created. The time is displayed in UTC.
+     *
      * @example my-project
      *
      * @var string
@@ -46,11 +60,20 @@ class resourceGroup extends Model
     public $name;
 
     /**
+     * @description The status of the resource group. Valid values:
+     *
+     *   Creating: The resource group is being created.
+     *   OK: The resource group is created.
+     *   PendingDelete: The resource group is waiting to be deleted.
+     *   Deleting: The resource group is being deleted.
+     *
      * @var regionStatuses
      */
     public $regionStatuses;
 
     /**
+     * @description The status of the resource group in all regions.
+     *
      * @example OK
      *
      * @var string
@@ -58,6 +81,8 @@ class resourceGroup extends Model
     public $status;
 
     /**
+     * @description The tag key.
+     *
      * @var tags
      */
     public $tags;

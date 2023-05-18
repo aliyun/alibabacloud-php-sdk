@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreatePolicyVersionRequest extends Model
 {
     /**
+     * @description The document of the policy.
+     *
+     * The document must be 1 to 2,048 characters in length.
      * @example { "Statement": [{ "Action": ["oss:*"], "Effect": "Allow", "Resource": ["acs:oss:*:*:*"]}], "Version": "1"}
      *
      * @var string
@@ -16,6 +19,9 @@ class CreatePolicyVersionRequest extends Model
     public $policyDocument;
 
     /**
+     * @description The name of the policy.
+     *
+     * The name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
      * @example OSS-Administrator
      *
      * @var string
@@ -23,6 +29,12 @@ class CreatePolicyVersionRequest extends Model
     public $policyName;
 
     /**
+     * @description Specifies whether to set the policy version as the default version. Valid values:
+     *
+     *   false: The policy version is not set as the default version.
+     *   true: The policy version is set as the default version.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool

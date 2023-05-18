@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysRequest extends Model
 {
     /**
+     * @description The tag key for a fuzzy query.
+     *
+     * @example team
+     *
      * @var string
      */
     public $keyFilter;
 
     /**
+     * @description The maximum number of entries to return for a single request.
+     *
+     * Valid values: 1 to 100. Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to start the next query.
+     *
+     * @example TGlzdFJlc291cm****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The resource type.
+     *
+     * The value Account indicates the members of the resource directory.
+     * @example Account
+     *
      * @var string
      */
     public $resourceType;

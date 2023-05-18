@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetControlPolicyRequest extends Model
 {
     /**
+     * @description The language in which you want to return the description of the access control policy. Valid values:
+     *
+     *   zh-CN (default value): Chinese
+     *   en: English
+     *   ja: Japanese
+     *
+     * >  This parameter is valid only for system access control policies.
      * @example zh-CN
      *
      * @var string
@@ -16,6 +23,8 @@ class GetControlPolicyRequest extends Model
     public $language;
 
     /**
+     * @description The ID of the access control policy.
+     *
      * @example cp-SImPt8GCEwiq****
      *
      * @var string

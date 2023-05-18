@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class roleUsage extends Model
 {
     /**
+     * @description The IDs of the regions in which the resources are to be queried.
+     *
      * @example global
      *
      * @var string
@@ -17,6 +19,8 @@ class roleUsage extends Model
     public $region;
 
     /**
+     * @description The returned resources.
+     *
      * @var resources
      */
     public $resources;

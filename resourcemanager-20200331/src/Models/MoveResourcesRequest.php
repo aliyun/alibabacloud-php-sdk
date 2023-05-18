@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class MoveResourcesRequest extends Model
 {
     /**
+     * @description The ID of the resource group to which you want to move the resources.
+     *
      * @example rg-aekzmeobk5w****
      *
      * @var string
@@ -17,6 +19,9 @@ class MoveResourcesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The resources that you want to move.
+     *
+     * >  You can move a maximum of 10 resources at a time. If you want to move more than 10 resources, move them in batches.
      * @var resources[]
      */
     public $resources;

@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListResourceGroupsRequest extends Model
 {
     /**
+     * @description The display name of the resource group. This parameter specifies a filter condition for the query. Fuzzy match is supported.
+     *
+     * The display name can be a maximum of 50 characters in length.
      * @example my-project
      *
      * @var string
@@ -17,6 +20,12 @@ class ListResourceGroupsRequest extends Model
     public $displayName;
 
     /**
+     * @description Specifies whether to return the information of tags. Valid values:
+     *
+     *   false (default value)
+     *   true
+     *
+     * >  If you configure the Tag parameter, the system returns the information of tags regardless of the setting of the `IncludeTags` parameter.
      * @example false
      *
      * @var bool
@@ -24,6 +33,9 @@ class ListResourceGroupsRequest extends Model
     public $includeTags;
 
     /**
+     * @description The identifier of the resource group. This parameter specifies a filter condition for the query. Fuzzy match is supported.
+     *
+     * The identifier can be a maximum of 50 characters in length and can contain letters, digits, and hyphens (-).
      * @example my-project
      *
      * @var string
@@ -31,6 +43,9 @@ class ListResourceGroupsRequest extends Model
     public $name;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -38,6 +53,9 @@ class ListResourceGroupsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: 1 to 100. Default value: 10.
      * @example 10
      *
      * @var int
@@ -45,6 +63,9 @@ class ListResourceGroupsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the resource group. This parameter specifies a filter condition for the query.
+     *
+     * >  This parameter is incorporated into the `ResourceGroupIds` parameter. If you configure both the `ResourceGroupId` and `ResourceGroupIds` parameters, the value of the `ResourceGroupIds` parameter prevails.
      * @example rg-9gLOoK****
      *
      * @var string
@@ -52,11 +73,20 @@ class ListResourceGroupsRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The IDs of the resource groups. This parameter specifies a filter condition for the query.
+     *
+     * >  If you configure both the `ResourceGroupId` and `ResourceGroupIds` parameters, the value of the `ResourceGroupIds` parameter prevails.
      * @var string[]
      */
     public $resourceGroupIds;
 
     /**
+     * @description The status of the resource group. This parameter specifies a filter condition for the query. Valid values:
+     *
+     *   Creating: The resource group is being created.
+     *   OK: The resource group is created.
+     *   PendingDelete: The resource group is waiting to be deleted.
+     *
      * @example OK
      *
      * @var string
@@ -64,6 +94,8 @@ class ListResourceGroupsRequest extends Model
     public $status;
 
     /**
+     * @description The tag. This parameter specifies a filter condition for the query.
+     *
      * @var tag[]
      */
     public $tag;

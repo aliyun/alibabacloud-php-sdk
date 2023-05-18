@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteResourceGroupRequest extends Model
 {
     /**
+     * @description The ID of the resource group.
+     *
+     * You can call the [ListResourceGroups](~~158855~~) operation to obtain the ID.
      * @example rg-9gLOoK****
      *
      * @var string

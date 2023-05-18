@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class rdAccountDeletionStatus extends Model
 {
     /**
+     * @example 169946124551****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @example 2022-08-23T17:05:30+08:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2022-08-23T17:06:01+08:00
+     *
      * @var string
      */
     public $deletionTime;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $deletionType;
@@ -35,6 +43,8 @@ class rdAccountDeletionStatus extends Model
     public $failReasonList;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ListRolesRequest extends Model
 {
     /**
+     * @description The language that is used to return the descriptions of the RAM roles. Valid values:
+     *
+     *   en: English
+     *   zh-CN: Chinese
+     *   ja: Japanese
+     *
      * @example zh-CN
      *
      * @var string
@@ -16,6 +22,9 @@ class ListRolesRequest extends Model
     public $language;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -23,6 +32,9 @@ class ListRolesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: 1 to 100. Default value: 10.
      * @example 10
      *
      * @var int

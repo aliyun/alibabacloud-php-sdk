@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListAccountsForParentRequest extends Model
 {
     /**
+     * @description Specifies whether to return the information of tags. Valid values:
+     *
+     * true
      * @example true
      *
      * @var bool
@@ -17,6 +20,9 @@ class ListAccountsForParentRequest extends Model
     public $includeTags;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -24,6 +30,9 @@ class ListAccountsForParentRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: 1 to 100. Default value: 10.
      * @example 10
      *
      * @var int
@@ -31,6 +40,8 @@ class ListAccountsForParentRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the folder.
+     *
      * @example fd-bVaRIG****
      *
      * @var string
@@ -38,6 +49,9 @@ class ListAccountsForParentRequest extends Model
     public $parentFolderId;
 
     /**
+     * @description The keyword used for the query, such as the display name of a member.
+     *
+     * Fuzzy match is supported.
      * @example admin
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateCloudAccountRequest extends Model
 {
     /**
+     * @description The display name of the member account.
+     *
+     * The name must be unique in the current resource directory.
      * @example admin-****
      *
      * @var string
@@ -16,6 +19,8 @@ class CreateCloudAccountRequest extends Model
     public $displayName;
 
     /**
+     * @description The email address used to log on to the cloud account.
+     *
      * @example someone@example.com
      *
      * @var string
@@ -23,6 +28,8 @@ class CreateCloudAccountRequest extends Model
     public $email;
 
     /**
+     * @description The ID of the parent folder.
+     *
      * @example fd-bVaRIG****
      *
      * @var string
@@ -30,6 +37,8 @@ class CreateCloudAccountRequest extends Model
     public $parentFolderId;
 
     /**
+     * @description The ID of the settlement account. If you do not specify this parameter, the current account is used for settlement.
+     *
      * @example 12323344****
      *
      * @var string

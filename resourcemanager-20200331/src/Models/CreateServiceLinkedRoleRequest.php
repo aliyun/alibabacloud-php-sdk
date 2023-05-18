@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceLinkedRoleRequest extends Model
 {
     /**
+     * @description The suffix of the role name.
+     *
+     * For example, if the suffix is `Example`, the role name is `ServiceLinkedRoleName_Example`.
      * @example Example
      *
      * @var string
@@ -16,6 +19,9 @@ class CreateServiceLinkedRoleRequest extends Model
     public $customSuffix;
 
     /**
+     * @description The description of the service-linked role.
+     *
+     * The description must be 1 to 1,024 characters in length.
      * @example Service Linked Role for PolarDB. PolarDB will use this role to access your resources in other services.
      *
      * @var string
@@ -23,6 +29,9 @@ class CreateServiceLinkedRoleRequest extends Model
     public $description;
 
     /**
+     * @description The name of the service.
+     *
+     * For more information about the service name, see [Alibaba Cloud services that support service-linked roles](~~461722~~).
      * @example polardb.aliyuncs.com
      *
      * @var string

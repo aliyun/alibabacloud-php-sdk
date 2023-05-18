@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CreatePolicyRequest extends Model
 {
     /**
+     * @description The description of the policy.
+     *
+     * The description must be 1 to 1,024 characters in length.
      * @var string
      */
     public $description;
 
     /**
+     * @description The document of the policy.
+     *
+     * The document must be 1 to 2,048 characters in length.
      * @example { "Statement": [{ "Action": ["oss:*"], "Effect": "Allow", "Resource": ["acs:oss:*:*:*"]}], "Version": "1"}
      *
      * @var string
@@ -21,6 +27,9 @@ class CreatePolicyRequest extends Model
     public $policyDocument;
 
     /**
+     * @description The name of the policy.
+     *
+     * The name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
      * @example OSS-Administrator
      *
      * @var string

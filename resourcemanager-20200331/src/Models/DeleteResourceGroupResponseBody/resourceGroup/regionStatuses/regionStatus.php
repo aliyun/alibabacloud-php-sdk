@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class regionStatus extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -16,6 +18,13 @@ class regionStatus extends Model
     public $regionId;
 
     /**
+     * @description The status of the resource group. Valid values:
+     *
+     *   Creating: The resource group is being created.
+     *   OK: The resource group is created.
+     *   PendingDelete: The resource group is waiting to be deleted.
+     *   Deleting: The resource group is being deleted.
+     *
      * @example PendingDelete
      *
      * @var string

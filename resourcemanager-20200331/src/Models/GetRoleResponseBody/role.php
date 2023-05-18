@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class role extends Model
 {
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role.
+     *
      * @example acs:ram::123456789012****:role/ECSAdmin
      *
      * @var string
@@ -17,6 +19,8 @@ class role extends Model
     public $arn;
 
     /**
+     * @description The document of the policy that specifies the trusted entity to assume the RAM role.
+     *
      * @example { \"Statement\": [ { \"Action\": \"sts:AssumeRole\", \"Effect\": \"Allow\", \"Principal\": { \"RAM\": \"acs:ram::12345678901234****:root\" } } ], \"Version\": \"1\" }
      *
      * @var string
@@ -24,6 +28,8 @@ class role extends Model
     public $assumeRolePolicyDocument;
 
     /**
+     * @description The time when the RAM role was created.
+     *
      * @example 2015-01-23T12:33:18Z
      *
      * @var string
@@ -31,11 +37,15 @@ class role extends Model
     public $createDate;
 
     /**
+     * @description The description of the RAM role.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the RAM role is a service linked role.
+     *
      * @example true
      *
      * @var bool
@@ -43,11 +53,15 @@ class role extends Model
     public $isServiceLinkedRole;
 
     /**
+     * @description The information of the most recent deletion task.
+     *
      * @var latestDeletionTask
      */
     public $latestDeletionTask;
 
     /**
+     * @description The maximum session duration of the RAM role.
+     *
      * @example 3600
      *
      * @var int
@@ -55,6 +69,8 @@ class role extends Model
     public $maxSessionDuration;
 
     /**
+     * @description The ID of the RAM role.
+     *
      * @example 90123456789****
      *
      * @var string
@@ -62,6 +78,8 @@ class role extends Model
     public $roleId;
 
     /**
+     * @description The name of the RAM role.
+     *
      * @example ECSAdmin
      *
      * @var string
@@ -69,6 +87,8 @@ class role extends Model
     public $roleName;
 
     /**
+     * @description The name of the RAM role after authorization.
+     *
      * @example ECSAdmin@role.123456.onaliyunservice.com
      *
      * @var string
@@ -76,6 +96,8 @@ class role extends Model
     public $rolePrincipalName;
 
     /**
+     * @description The time when the RAM role was updated.
+     *
      * @example 2016-01-23T12:33:18Z
      *
      * @var string

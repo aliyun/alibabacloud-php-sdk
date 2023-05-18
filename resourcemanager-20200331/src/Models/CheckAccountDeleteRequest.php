@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckAccountDeleteRequest extends Model
 {
     /**
+     * @description The ID of the member that you want to delete.
+     *
      * @example 179855839641****
      *
      * @var string

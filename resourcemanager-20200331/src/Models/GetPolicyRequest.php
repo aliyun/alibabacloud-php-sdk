@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class GetPolicyRequest extends Model
 {
     /**
+     * @description The language that is used to return the description of the system policy. Valid values:
+     *
+     *   en: English
+     *   zh-CN: Chinese
+     *   ja: Japanese
+     *
      * @example zh-CN
      *
      * @var string
@@ -16,6 +22,9 @@ class GetPolicyRequest extends Model
     public $language;
 
     /**
+     * @description The name of the policy.
+     *
+     * The name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
      * @example OSS-Administrator
      *
      * @var string
@@ -23,6 +32,11 @@ class GetPolicyRequest extends Model
     public $policyName;
 
     /**
+     * @description The type of the policy. Valid values:
+     *
+     *   Custom: custom policy
+     *   System: system policy
+     *
      * @example Custom
      *
      * @var string

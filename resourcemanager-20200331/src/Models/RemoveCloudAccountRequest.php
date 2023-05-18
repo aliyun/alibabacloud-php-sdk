@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveCloudAccountRequest extends Model
 {
     /**
+     * @description The ID of the member.
+     *
      * @example 177242285274****
      *
      * @var string

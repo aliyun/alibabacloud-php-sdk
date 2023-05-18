@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListResourcesRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -16,6 +19,9 @@ class ListResourcesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: 1 to 100. Default value: 10.
      * @example 10
      *
      * @var int
@@ -23,6 +29,8 @@ class ListResourcesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +38,8 @@ class ListResourcesRequest extends Model
     public $region;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-uPJpP****
      *
      * @var string
@@ -37,6 +47,8 @@ class ListResourcesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the resource.
+     *
      * @example i-23v38****
      *
      * @var string
@@ -44,6 +56,9 @@ class ListResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The resource type.
+     *
+     * For more information about the supported resource types, see the **Resource type** column in [Alibaba Cloud services that support resource groups](~~94479~~).
      * @example instance
      *
      * @var string
@@ -51,6 +66,9 @@ class ListResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The ID of the Alibaba Cloud service.
+     *
+     * You can obtain the ID from the **Service code** column in [Alibaba Cloud services that support resource groups](~~94479~~).
      * @example ecs
      *
      * @var string

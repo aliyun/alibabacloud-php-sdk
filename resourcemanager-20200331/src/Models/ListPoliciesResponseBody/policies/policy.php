@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class policy extends Model
 {
     /**
+     * @description The number of times the policy is referenced.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class policy extends Model
     public $attachmentCount;
 
     /**
+     * @description The time when the policy was created.
+     *
      * @example 2015-01-23T12:33:18Z
      *
      * @var string
@@ -23,6 +27,8 @@ class policy extends Model
     public $createDate;
 
     /**
+     * @description The default version of the policy.
+     *
      * @example v1
      *
      * @var string
@@ -30,11 +36,15 @@ class policy extends Model
     public $defaultVersion;
 
     /**
+     * @description The description of the policy.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the policy.
+     *
      * @example OSS-Administrator
      *
      * @var string
@@ -42,6 +52,11 @@ class policy extends Model
     public $policyName;
 
     /**
+     * @description The type of the policy. Valid values:
+     *
+     *   Custom: custom policy
+     *   System: system policy
+     *
      * @example Custom
      *
      * @var string
@@ -49,6 +64,8 @@ class policy extends Model
     public $policyType;
 
     /**
+     * @description The time when the policy was updated.
+     *
      * @example 2016-02-11T18:39:12Z
      *
      * @var string

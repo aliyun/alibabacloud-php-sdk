@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListPolicyVersionsResponseBody extends Model
 {
     /**
+     * @description The information of the policy versions.
+     *
      * @var policyVersions
      */
     public $policyVersions;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7B8A4E7D-6CFF-471D-84DF-195A7A241ECB
      *
      * @var string

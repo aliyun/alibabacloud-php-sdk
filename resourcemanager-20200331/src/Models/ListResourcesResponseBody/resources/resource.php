@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @description The time when the resource was created. The time is displayed in UTC.
+     *
      * @example 2015-01-23T12:33:18Z
      *
      * @var string
@@ -16,6 +18,8 @@ class resource extends Model
     public $createDate;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +27,8 @@ class resource extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-uPJpP****
      *
      * @var string
@@ -30,6 +36,8 @@ class resource extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the resource.
+     *
      * @example i-23v38****
      *
      * @var string
@@ -37,6 +45,8 @@ class resource extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource.
+     *
      * @example instance
      *
      * @var string
@@ -44,6 +54,8 @@ class resource extends Model
     public $resourceType;
 
     /**
+     * @description The ID of the Alibaba Cloud service.
+     *
      * @example ecs
      *
      * @var string

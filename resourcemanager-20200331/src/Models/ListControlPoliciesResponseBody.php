@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListControlPoliciesResponseBody extends Model
 {
     /**
+     * @description The access control policies.
+     *
      * @var controlPolicies
      */
     public $controlPolicies;
 
     /**
+     * @description The number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListControlPoliciesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class ListControlPoliciesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 9424A34C-3471-45AD-B6AB-924BBDFE42F9
      *
      * @var string
@@ -36,6 +44,8 @@ class ListControlPoliciesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of access control policies.
+     *
      * @example 1
      *
      * @var int

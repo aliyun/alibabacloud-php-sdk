@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class regionStatus extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource group belongs.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -16,6 +18,8 @@ class regionStatus extends Model
     public $regionId;
 
     /**
+     * @description The region ID.
+     *
      * @example OK
      *
      * @var string

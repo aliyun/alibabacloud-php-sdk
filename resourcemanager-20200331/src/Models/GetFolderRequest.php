@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFolderRequest extends Model
 {
     /**
+     * @description The ID of the folder.
+     *
      * @example fd-Jyl5U7****
      *
      * @var string

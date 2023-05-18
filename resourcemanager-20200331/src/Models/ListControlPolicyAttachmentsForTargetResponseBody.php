@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListControlPolicyAttachmentsForTargetResponseBody extends Model
 {
     /**
+     * @description The attached access control policies.
+     *
      * @var controlPolicyAttachments
      */
     public $controlPolicyAttachments;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C276B600-7B7A-49E8-938C-E16CFA955A82
      *
      * @var string

@@ -15,6 +15,12 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the objects to which you want to add tags. Valid values:
+     *
+     *   ResourceGroup : resource group. This is the default value.
+     *   Account: member.
+     *
+     * >  This parameter is required if you add tags to members in a resource directory.
      * @example ResourceGroup
      *
      * @var string

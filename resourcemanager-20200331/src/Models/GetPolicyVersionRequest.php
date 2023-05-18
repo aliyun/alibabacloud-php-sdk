@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetPolicyVersionRequest extends Model
 {
     /**
+     * @description The name of the policy.
+     *
+     * The name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
      * @example OSS-Administrator
      *
      * @var string
@@ -16,6 +19,11 @@ class GetPolicyVersionRequest extends Model
     public $policyName;
 
     /**
+     * @description The type of the policy. Valid values:
+     *
+     *   Custom: custom policy
+     *   System: system policy
+     *
      * @example Custom
      *
      * @var string
@@ -23,6 +31,8 @@ class GetPolicyVersionRequest extends Model
     public $policyType;
 
     /**
+     * @description The ID of the policy version.
+     *
      * @example v3
      *
      * @var string

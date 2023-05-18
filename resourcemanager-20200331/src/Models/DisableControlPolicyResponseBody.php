@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DisableControlPolicyResponseBody extends Model
 {
     /**
+     * @description The status of the Control Policy feature. Valid values:
+     *
+     *   Enabled: The Control Policy feature is enabled.
+     *   PendingEnable: The Control Policy feature is being enabled.
+     *   Disabled: The Control Policy feature is disabled.
+     *   PendingDisable: The Control Policy feature is being disabled.
+     *
      * @example PendingDisable
      *
      * @var string
@@ -16,6 +23,8 @@ class DisableControlPolicyResponseBody extends Model
     public $enablementStatus;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7C709979-451D-4C92-835D-7DDCCAA562E9
      *
      * @var string

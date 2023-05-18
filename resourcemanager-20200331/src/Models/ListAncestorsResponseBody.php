@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListAncestorsResponseBody extends Model
 {
     /**
+     * @description The information of the folders.
+     *
      * @var folders
      */
     public $folders;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 83AFBEB6-DC03-406E-9686-867461FF6698
      *
      * @var string

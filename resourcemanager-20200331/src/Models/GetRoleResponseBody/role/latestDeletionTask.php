@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class latestDeletionTask extends Model
 {
     /**
+     * @description The time when the deletion task was created.
+     *
      * @example 2018-10-23T12:33:18Z
      *
      * @var string
@@ -16,6 +18,8 @@ class latestDeletionTask extends Model
     public $createDate;
 
     /**
+     * @description The ID of the deletion task.
+     *
      * @example ECSAdmin/cc61514b-26eb-4453-ab53-b142eb702a3d
      *
      * @var string

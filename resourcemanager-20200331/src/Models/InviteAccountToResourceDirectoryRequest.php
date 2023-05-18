@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class InviteAccountToResourceDirectoryRequest extends Model
 {
     /**
+     * @description The comment on the invitation.
+     *
+     * The comment can be up to 1,024 characters in length.
      * @var string
      */
     public $note;
@@ -20,6 +23,8 @@ class InviteAccountToResourceDirectoryRequest extends Model
     public $tag;
 
     /**
+     * @description The ID or logon email address of the account that you want to invite.
+     *
      * @example someone@example.com
      *
      * @var string
@@ -27,6 +32,11 @@ class InviteAccountToResourceDirectoryRequest extends Model
     public $targetEntity;
 
     /**
+     * @description The type of the account. Valid values:
+     *
+     *   Account: indicates the ID of the account.
+     *   Email: indicates the logon email address of the account.
+     *
      * @example Email
      *
      * @var string

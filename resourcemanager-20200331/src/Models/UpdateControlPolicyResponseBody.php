@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateControlPolicyResponseBody extends Model
 {
     /**
+     * @description The details of the access control policy.
+     *
      * @var controlPolicy
      */
     public $controlPolicy;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 2DFCE4C9-04A9-4C83-BB14-FE791275EC53
      *
      * @var string

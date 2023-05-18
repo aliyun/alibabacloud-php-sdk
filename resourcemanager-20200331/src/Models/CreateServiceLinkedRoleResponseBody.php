@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateServiceLinkedRoleResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example FE58D7CF-03BC-432A-B42D-BC3390C8C2E1
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateServiceLinkedRoleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the role.
+     *
      * @var role
      */
     public $role;

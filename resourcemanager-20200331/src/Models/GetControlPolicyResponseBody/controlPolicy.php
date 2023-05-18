@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class controlPolicy extends Model
 {
     /**
+     * @description The number of times that the access control policy is referenced.
+     *
      * @example 0
      *
      * @var string
@@ -16,6 +18,8 @@ class controlPolicy extends Model
     public $attachmentCount;
 
     /**
+     * @description The time when the access control policy was created.
+     *
      * @example 2021-03-18T08:51:33Z
      *
      * @var string
@@ -23,6 +27,8 @@ class controlPolicy extends Model
     public $createDate;
 
     /**
+     * @description The description of the access control policy.
+     *
      * @example ExampleControlPolicy
      *
      * @var string
@@ -30,6 +36,11 @@ class controlPolicy extends Model
     public $description;
 
     /**
+     * @description The effective scope of the access control policy. Valid values:
+     *
+     *   All: The access control policy is in effect for Alibaba Cloud accounts, RAM users, and RAM roles.
+     *   RAM: The access control policy is in effect only for RAM users and RAM roles.
+     *
      * @example RAM
      *
      * @var string
@@ -37,6 +48,8 @@ class controlPolicy extends Model
     public $effectScope;
 
     /**
+     * @description The document of the access control policy.
+     *
      * @example {\"Version\":\"1\",\"Statement\":[{\"Effect\":\"Deny\",\"Action\":[\"ram:UpdateRole\",\"ram:DeleteRole\",\"ram:AttachPolicyToRole\",\"ram:DetachPolicyFromRole\"],\"Resource\":\"acs:ram:*:*:role/ResourceDirectoryAccountAccessRole\"}]}
      *
      * @var string
@@ -44,6 +57,8 @@ class controlPolicy extends Model
     public $policyDocument;
 
     /**
+     * @description The ID of the access control policy.
+     *
      * @example cp-SImPt8GCEwiq****
      *
      * @var string
@@ -51,6 +66,8 @@ class controlPolicy extends Model
     public $policyId;
 
     /**
+     * @description The name of the access control policy.
+     *
      * @example test
      *
      * @var string
@@ -58,6 +75,11 @@ class controlPolicy extends Model
     public $policyName;
 
     /**
+     * @description The type of the access control policy. Valid values:
+     *
+     *   System: system access control policy
+     *   Custom: custom access control policy
+     *
      * @example Custom
      *
      * @var string
@@ -65,6 +87,8 @@ class controlPolicy extends Model
     public $policyType;
 
     /**
+     * @description The time when the access control policy was updated.
+     *
      * @example 2021-03-18T08:51:33Z
      *
      * @var string

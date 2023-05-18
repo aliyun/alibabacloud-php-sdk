@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRoleResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateRoleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information of the RAM role.
+     *
      * @var role
      */
     public $role;

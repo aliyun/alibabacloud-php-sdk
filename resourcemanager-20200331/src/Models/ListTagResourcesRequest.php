@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: 1 to 100. Default value: 10.
      * @example 10
      *
      * @var int
@@ -17,6 +20,8 @@ class ListTagResourcesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used to start the next query.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
      * @var string
@@ -29,6 +34,11 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the objects whose tags you want to query. This parameter specifies a filter condition for the query. Valid values:
+     *
+     *   ResourceGroup: resource group. This is the default value.
+     *   Account: member.
+     *
      * @example ResourceGroup
      *
      * @var string

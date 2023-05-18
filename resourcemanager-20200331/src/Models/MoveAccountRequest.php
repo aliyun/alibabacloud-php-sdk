@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MoveAccountRequest extends Model
 {
     /**
+     * @description The ID of the account you want to move.
+     *
      * @example 12323344****
      *
      * @var string
@@ -16,6 +18,8 @@ class MoveAccountRequest extends Model
     public $accountId;
 
     /**
+     * @description The ID of the destination folder.
+     *
      * @example fd-bVaRIG****
      *
      * @var string

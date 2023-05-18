@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class account extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member.
+     *
      * @example 184311716100****
      *
      * @var string
@@ -17,6 +19,8 @@ class account extends Model
     public $accountId;
 
     /**
+     * @description The display name of the member.
+     *
      * @example admin
      *
      * @var string
@@ -24,6 +28,8 @@ class account extends Model
     public $displayName;
 
     /**
+     * @description The ID of the folder.
+     *
      * @example fd-bVaRIG****
      *
      * @var string
@@ -31,6 +37,11 @@ class account extends Model
     public $folderId;
 
     /**
+     * @description The way in which the member joins the resource directory.
+     *
+     *   invited: The member is invited to join the resource directory.
+     *   created: The member is directly created in the resource directory.
+     *
      * @example created
      *
      * @var string
@@ -38,6 +49,8 @@ class account extends Model
     public $joinMethod;
 
     /**
+     * @description The time when the member joined the resource directory. The time is displayed in UTC.
+     *
      * @example 2015-01-23T12:33:18Z
      *
      * @var string
@@ -45,6 +58,8 @@ class account extends Model
     public $joinTime;
 
     /**
+     * @description The time when the member was modified. The time is displayed in UTC.
+     *
      * @example 2015-01-23T12:33:18Z
      *
      * @var string
@@ -52,6 +67,8 @@ class account extends Model
     public $modifyTime;
 
     /**
+     * @description The ID of the resource directory.
+     *
      * @example rd-k4****
      *
      * @var string
@@ -59,6 +76,16 @@ class account extends Model
     public $resourceDirectoryId;
 
     /**
+     * @description The status of the member. Valid values:
+     *
+     *   CreateSuccess: The member is created.
+     *   PromoteVerifying: The upgrade of the member is being confirmed.
+     *   PromoteFailed: The upgrade of the member fails.
+     *   PromoteExpired: The upgrade of the member expires.
+     *   PromoteCancelled: The upgrade of the member is canceled.
+     *   PromoteSuccess: The member is upgraded.
+     *   InviteSuccess: The member accepts the invitation.
+     *
      * @example CreateSuccess
      *
      * @var string
@@ -66,11 +93,18 @@ class account extends Model
     public $status;
 
     /**
+     * @description The tags that are added to the member.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The type of the member.
+     *
+     *   CloudAccount: cloud account
+     *   ResourceAccount: resource account
+     *
      * @example ResourceAccount
      *
      * @var string

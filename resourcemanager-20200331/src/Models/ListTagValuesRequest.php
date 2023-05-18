@@ -9,26 +9,48 @@ use AlibabaCloud\Tea\Model;
 class ListTagValuesRequest extends Model
 {
     /**
+     * @description The maximum number of entries to return for a single request.
+     *
+     * Valid values: 1 to 100. Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to start the next query.
+     *
+     * @example TGlzdFJlc291cm****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The resource type.
+     *
+     * The value Account indicates the members of the resource directory.
+     * @example Account
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tag key. This parameter specifies a filter condition for the query.
+     *
+     * @example k1
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value for a fuzzy query.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $valueFilter;

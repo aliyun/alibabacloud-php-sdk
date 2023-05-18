@@ -15,6 +15,8 @@ class GetAccountDeletionStatusResponseBody extends Model
     public $rdAccountDeletionStatus;
 
     /**
+     * @example 8AA43293-7C8F-5730-8F2D-7F864EC092C5
+     *
      * @var string
      */
     public $requestId;

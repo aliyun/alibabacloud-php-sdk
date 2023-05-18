@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ListPoliciesRequest extends Model
 {
     /**
+     * @description The language that is used to return the description of the system policy. Valid values:
+     *
+     *   en: English
+     *   zh-CN: Chinese
+     *   ja: Japanese
+     *
      * @example zh-CN
      *
      * @var string
@@ -16,6 +22,9 @@ class ListPoliciesRequest extends Model
     public $language;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -23,6 +32,9 @@ class ListPoliciesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: 1 to 100. Default value: 10.
      * @example 10
      *
      * @var int
@@ -30,6 +42,11 @@ class ListPoliciesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the policy. If you do not specify this parameter, the system lists all types of policies. Valid values:
+     *
+     *   Custom: custom policy
+     *   System: system policy
+     *
      * @example Custom
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class responses extends Model
 {
     /**
+     * @description The error code returned.
+     *
+     * >  This parameter is returned if the resource failed to be moved.
      * @example NoPermission
      *
      * @var string
@@ -16,11 +19,16 @@ class responses extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
+     * >  This parameter is returned if the resource failed to be moved.
      * @var string
      */
     public $errorMsg;
 
     /**
+     * @description The region ID of the resource.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -28,6 +36,8 @@ class responses extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C00B89D3-3247-11DE-95D8-A7C01FB0AB4F
      *
      * @var string
@@ -35,6 +45,8 @@ class responses extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource.
+     *
      * @example vpc-bp1sig0mjktx5ewx1****
      *
      * @var string
@@ -42,6 +54,8 @@ class responses extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource.
+     *
      * @example vpc
      *
      * @var string
@@ -49,6 +63,8 @@ class responses extends Model
     public $resourceType;
 
     /**
+     * @description The ID of the Alibaba Cloud service.
+     *
      * @example vpc
      *
      * @var string
@@ -56,6 +72,11 @@ class responses extends Model
     public $service;
 
     /**
+     * @description The status of the move task. Valid values:
+     *
+     *   SUCCESS
+     *   FAIL
+     *
      * @example FAIL
      *
      * @var string

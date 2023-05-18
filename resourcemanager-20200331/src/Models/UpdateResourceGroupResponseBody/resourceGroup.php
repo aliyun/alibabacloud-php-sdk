@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceGroup extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource group belongs.
+     *
      * @example 123456789****
      *
      * @var string
@@ -16,6 +18,8 @@ class resourceGroup extends Model
     public $accountId;
 
     /**
+     * @description The time when the resource group was created. The time is displayed in UTC.
+     *
      * @example 2015-01-23T12:33:18+08:00
      *
      * @var string
@@ -23,6 +27,8 @@ class resourceGroup extends Model
     public $createDate;
 
     /**
+     * @description The display name of the resource group.
+     *
      * @example project
      *
      * @var string
@@ -30,6 +36,8 @@ class resourceGroup extends Model
     public $displayName;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-9gLOoK****
      *
      * @var string
@@ -37,6 +45,8 @@ class resourceGroup extends Model
     public $id;
 
     /**
+     * @description The unique identifier of the resource group.
+     *
      * @example my-project
      *
      * @var string

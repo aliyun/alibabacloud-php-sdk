@@ -11,11 +11,19 @@ use AlibabaCloud\Tea\Model;
 class accountDeletionCheckResultInfo extends Model
 {
     /**
+     * @description The check items that you can choose to ignore for the member deletion.
+     *
+     * >  This parameter may be returned if the value of AllowDelete is true.
      * @var abandonableChecks[]
      */
     public $abandonableChecks;
 
     /**
+     * @description Indicates whether the member can be deleted. Valid values:
+     *
+     *   true: The member can be deleted.
+     *   false: The member cannot be deleted.
+     *
      * @example false
      *
      * @var string
@@ -23,11 +31,19 @@ class accountDeletionCheckResultInfo extends Model
     public $allowDelete;
 
     /**
+     * @description The reasons why the member cannot be deleted.
+     *
+     * >  This parameter is returned only if the value of AllowDelete is false.
      * @var notAllowReason[]
      */
     public $notAllowReason;
 
     /**
+     * @description The status of the check. Valid values:
+     *
+     *   PreCheckComplete: The check is complete.
+     *   PreChecking: The check is in progress.
+     *
      * @example PreCheckComplete
      *
      * @var string

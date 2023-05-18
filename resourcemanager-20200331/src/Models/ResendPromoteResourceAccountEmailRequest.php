@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResendPromoteResourceAccountEmailRequest extends Model
 {
     /**
+     * @description The account record ID.
+     *
      * @example 06950264-3f0d-4ca9-82dd-6ee7a3d33d6b
      *
      * @var string

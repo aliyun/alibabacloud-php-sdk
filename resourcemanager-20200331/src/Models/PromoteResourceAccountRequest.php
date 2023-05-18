@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PromoteResourceAccountRequest extends Model
 {
     /**
+     * @description The ID of the resource account you want to upgrade.
+     *
      * @example 12323344****
      *
      * @var string
@@ -16,6 +18,8 @@ class PromoteResourceAccountRequest extends Model
     public $accountId;
 
     /**
+     * @description The email address used to log on to the cloud account after the upgrade.
+     *
      * @example someone@example.com
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceGroupRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,11 @@ class GetResourceGroupRequest extends Model
     public $includeTags;
 
     /**
+     * @description Specifies whether to return the information of tags. Valid values:
+     *
+     *   false (default value)
+     *   true
+     *
      * @example rg-9gLOoK****
      *
      * @var string

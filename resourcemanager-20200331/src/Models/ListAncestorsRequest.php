@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAncestorsRequest extends Model
 {
     /**
+     * @description The ID of the child folder.
+     *
      * @example fd-i1c9nr****
      *
      * @var string

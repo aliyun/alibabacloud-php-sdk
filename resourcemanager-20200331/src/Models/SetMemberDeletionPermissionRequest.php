@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SetMemberDeletionPermissionRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the member deletion feature. Valid values:
+     *
+     *   Enabled: enables the member deletion feature
+     *   Disabled: disables the member deletion feature
+     *
      * @example Enabled
      *
      * @var string

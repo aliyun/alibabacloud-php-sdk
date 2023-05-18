@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTargetAttachmentsForControlPolicyResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListTargetAttachmentsForControlPolicyResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class ListTargetAttachmentsForControlPolicyResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B32BD3D6-1089-41F3-8E70-E0079BC7D760
      *
      * @var string
@@ -31,11 +37,15 @@ class ListTargetAttachmentsForControlPolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of objects to which the control policy is attached.
+     *
      * @var targetAttachments
      */
     public $targetAttachments;
 
     /**
+     * @description The total number of objects to which the control policy is attached.
+     *
      * @example 1
      *
      * @var int

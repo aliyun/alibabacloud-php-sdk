@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceDirectory extends Model
 {
     /**
+     * @description The time when the resource directory was enabled.
+     *
      * @example 2019-02-18T15:32:10.473Z
      *
      * @var string
@@ -16,6 +18,8 @@ class resourceDirectory extends Model
     public $createTime;
 
     /**
+     * @description The ID of the enterprise management account.
+     *
      * @example 172841235500****
      *
      * @var string
@@ -23,6 +27,8 @@ class resourceDirectory extends Model
     public $masterAccountId;
 
     /**
+     * @description The name of the enterprise management account.
+     *
      * @example aliyun-****
      *
      * @var string
@@ -30,6 +36,8 @@ class resourceDirectory extends Model
     public $masterAccountName;
 
     /**
+     * @description The ID of the resource directory.
+     *
      * @example rd-Ss****
      *
      * @var string
@@ -37,6 +45,8 @@ class resourceDirectory extends Model
     public $resourceDirectoryId;
 
     /**
+     * @description The ID of the root folder.
+     *
      * @example r-Zo****
      *
      * @var string

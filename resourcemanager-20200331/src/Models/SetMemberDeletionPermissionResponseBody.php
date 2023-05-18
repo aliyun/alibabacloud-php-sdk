@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetMemberDeletionPermissionResponseBody extends Model
 {
     /**
+     * @description The ID of the management account of the resource directory.
+     *
      * @example 151266687691****
      *
      * @var string
@@ -16,6 +18,11 @@ class SetMemberDeletionPermissionResponseBody extends Model
     public $managementAccountId;
 
     /**
+     * @description The status of the member deletion feature. Valid values:
+     *
+     *   Enabled: The feature is enabled.
+     *   Disabled: The feature is disabled.
+     *
      * @example Enabled
      *
      * @var string
@@ -23,6 +30,8 @@ class SetMemberDeletionPermissionResponseBody extends Model
     public $memberDeletionStatus;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C55A4CAA-9039-1DDF-91CE-FCC134513D29
      *
      * @var string
@@ -30,6 +39,8 @@ class SetMemberDeletionPermissionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource directory.
+     *
      * @example rd-3G****
      *
      * @var string

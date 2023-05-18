@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceGroupResponseBody extends Model
 {
     /**
+     * @description The information of the resource group.
+     *
      * @example 2D69A58F-345C-4FDE-88E4-BF5189484043
      *
      * @var string
@@ -17,6 +19,8 @@ class GetResourceGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The display name of the resource group.
+     *
      * @var resourceGroup
      */
     public $resourceGroup;

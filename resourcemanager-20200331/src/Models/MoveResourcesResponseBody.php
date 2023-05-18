@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class MoveResourcesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example C00B89D3-3247-11DE-95D8-A7C01FB0AB4F
      *
      * @var string
@@ -17,6 +19,8 @@ class MoveResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The returned results.
+     *
      * @var responses[]
      */
     public $responses;

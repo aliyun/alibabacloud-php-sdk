@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeletePolicyVersionRequest extends Model
 {
     /**
+     * @description The name of the policy.
+     *
+     * The name must be 1 to 128 characters in length and can contain letters, digits, and hyphens (-).
      * @example OSS-Administrator
      *
      * @var string
@@ -16,6 +19,9 @@ class DeletePolicyVersionRequest extends Model
     public $policyName;
 
     /**
+     * @description The ID of the policy version.
+     *
+     * You can call the [ListPolicyVersions](~~159982~~) operation to query the ID.
      * @example v3
      *
      * @var string

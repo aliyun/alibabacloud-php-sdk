@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceGroupRequest extends Model
 {
     /**
+     * @description The display name of the resource group.
+     *
+     * The name must be 1 to 50 characters in length.
      * @example project
      *
      * @var string
@@ -16,6 +19,9 @@ class UpdateResourceGroupRequest extends Model
     public $newDisplayName;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * You can call the [ListResourceGroups](~~158855~~) operation to obtain the ID.
      * @example rg-9gLOoK****
      *
      * @var string

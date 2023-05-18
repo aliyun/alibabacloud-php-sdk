@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class policyAttachment extends Model
 {
     /**
+     * @description The time when the policy was attached.
+     *
      * @example 2015-01-23T12:33:18Z
      *
      * @var string
@@ -16,11 +18,15 @@ class policyAttachment extends Model
     public $attachDate;
 
     /**
+     * @description The description of the policy.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the policy.
+     *
      * @example AdministratorAccess
      *
      * @var string
@@ -28,6 +34,11 @@ class policyAttachment extends Model
     public $policyName;
 
     /**
+     * @description The type of the policy. Valid values:
+     *
+     *   Custom: custom policy
+     *   System: system policy
+     *
      * @example System
      *
      * @var string
@@ -35,6 +46,8 @@ class policyAttachment extends Model
     public $policyType;
 
     /**
+     * @description The name of the object to which the policy is attached.
+     *
      * @example alice@demo.onaliyun.com
      *
      * @var string
@@ -42,6 +55,12 @@ class policyAttachment extends Model
     public $principalName;
 
     /**
+     * @description The type of the object to which the policy is attached. Valid values:
+     *
+     *   IMSUser: RAM user
+     *   IMSGroup: RAM user group
+     *   ServiceRole: RAM role
+     *
      * @example IMSUser
      *
      * @var string
@@ -49,6 +68,8 @@ class policyAttachment extends Model
     public $principalType;
 
     /**
+     * @description The ID of the resource group or the ID of the Alibaba Cloud account to which the resource group belongs.
+     *
      * @example rg-9gLOoK****
      *
      * @var string

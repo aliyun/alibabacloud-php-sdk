@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SendVerificationCodeForBindSecureMobilePhoneResponseBody extends Model
 {
     /**
+     * @description The time when the verification code expires.
+     *
      * @example 2021-12-17T07:38:41.747Z
      *
      * @var string
@@ -16,6 +18,8 @@ class SendVerificationCodeForBindSecureMobilePhoneResponseBody extends Model
     public $expirationDate;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DCD43660-75DD-5D15-B342-1B83FCA5B913
      *
      * @var string

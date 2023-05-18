@@ -94,7 +94,6 @@ use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetPolicyResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetPolicyVersionRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetPolicyVersionResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceDirectoryResponse;
-use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceGroupListAclModeResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceGroupRequest;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetResourceGroupResponse;
 use AlibabaCloud\SDK\ResourceManager\V20200331\Models\GetRoleRequest;
@@ -249,10 +248,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param AcceptHandshakeRequest $request
-     * @param RuntimeOptions         $runtime
+     * After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
+     *   * This topic provides an example on how to call the API operation to accept the invitation `h-Ih8IuPfvV0t0****` that is initiated to invite the Alibaba Cloud account `177242285274****` to join the resource directory `rd-3G****`.
+     *   *
+     * @param AcceptHandshakeRequest $request AcceptHandshakeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AcceptHandshakeResponse
+     * @return AcceptHandshakeResponse AcceptHandshakeResponse
      */
     public function acceptHandshakeWithOptions($request, $runtime)
     {
@@ -280,9 +282,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param AcceptHandshakeRequest $request
+     * After an invited Alibaba Cloud account joins a resource directory, it becomes a member of the resource directory. By default, the name of the invited Alibaba Cloud account is used as the display name of the account in the resource directory.
+     *   * This topic provides an example on how to call the API operation to accept the invitation `h-Ih8IuPfvV0t0****` that is initiated to invite the Alibaba Cloud account `177242285274****` to join the resource directory `rd-3G****`.
+     *   *
+     * @param AcceptHandshakeRequest $request AcceptHandshakeRequest
      *
-     * @return AcceptHandshakeResponse
+     * @return AcceptHandshakeResponse AcceptHandshakeResponse
      */
     public function acceptHandshake($request)
     {
@@ -292,10 +297,16 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param AttachControlPolicyRequest $request
-     * @param RuntimeOptions             $runtime
+     * After you attach an access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
+     *   * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
+     *   * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
+     *   * A maximum of 10 access control policies can be attached to a folder or member.
+     *   * This topic provides an example on how to call the API operation to attach the custom access control policy `cp-jExXAqIYkwHN****` to the folder `fd-ZDNPiT****`.
+     *   *
+     * @param AttachControlPolicyRequest $request AttachControlPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachControlPolicyResponse
+     * @return AttachControlPolicyResponse AttachControlPolicyResponse
      */
     public function attachControlPolicyWithOptions($request, $runtime)
     {
@@ -326,9 +337,15 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param AttachControlPolicyRequest $request
+     * After you attach an access control policy, the operations performed on resources by using members are limited by the policy. Make sure that the attached policy meets your expectations. Otherwise, your business may be affected.
+     *   * By default, the system access control policy FullAliyunAccess is attached to each folder and member.
+     *   * The access control policy that is attached to a folder also applies to all its subfolders and all members in the subfolders.
+     *   * A maximum of 10 access control policies can be attached to a folder or member.
+     *   * This topic provides an example on how to call the API operation to attach the custom access control policy `cp-jExXAqIYkwHN****` to the folder `fd-ZDNPiT****`.
+     *   *
+     * @param AttachControlPolicyRequest $request AttachControlPolicyRequest
      *
-     * @return AttachControlPolicyResponse
+     * @return AttachControlPolicyResponse AttachControlPolicyResponse
      */
     public function attachControlPolicy($request)
     {
@@ -338,10 +355,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param AttachPolicyRequest $request
-     * @param RuntimeOptions      $runtime
+     * In this example, the policy `AdministratorAccess` is attached to the RAM user `alice@demo.onaliyun.com` and takes effect only for resources in the `rg-9gLOoK****` resource group.
+     *   *
+     * @param AttachPolicyRequest $request AttachPolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachPolicyResponse
+     * @return AttachPolicyResponse AttachPolicyResponse
      */
     public function attachPolicyWithOptions($request, $runtime)
     {
@@ -381,9 +400,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param AttachPolicyRequest $request
+     * In this example, the policy `AdministratorAccess` is attached to the RAM user `alice@demo.onaliyun.com` and takes effect only for resources in the `rg-9gLOoK****` resource group.
+     *   *
+     * @param AttachPolicyRequest $request AttachPolicyRequest
      *
-     * @return AttachPolicyResponse
+     * @return AttachPolicyResponse AttachPolicyResponse
      */
     public function attachPolicy($request)
     {
@@ -393,10 +414,14 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param BindSecureMobilePhoneRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
+     *   * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+     *   * This topic provides an example on how to call the API operation to bind a mobile phone number to the member `138660628348****` for security purposes.
+     *   *
+     * @param BindSecureMobilePhoneRequest $request BindSecureMobilePhoneRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return BindSecureMobilePhoneResponse
+     * @return BindSecureMobilePhoneResponse BindSecureMobilePhoneResponse
      */
     public function bindSecureMobilePhoneWithOptions($request, $runtime)
     {
@@ -430,9 +455,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param BindSecureMobilePhoneRequest $request
+     * You can call this API operation only to bind a mobile phone number to a member of the resource account type. You cannot call this API operation to change the mobile phone number that is bound to a member of the resource account type.
+     *   * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this API operation.
+     *   * This topic provides an example on how to call the API operation to bind a mobile phone number to the member `138660628348****` for security purposes.
+     *   *
+     * @param BindSecureMobilePhoneRequest $request BindSecureMobilePhoneRequest
      *
-     * @return BindSecureMobilePhoneResponse
+     * @return BindSecureMobilePhoneResponse BindSecureMobilePhoneResponse
      */
     public function bindSecureMobilePhone($request)
     {
@@ -528,10 +557,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param CancelHandshakeRequest $request
-     * @param RuntimeOptions         $runtime
+     * This topic provides an example on how to call the API operation to cancel the invitation whose ID is `h-ycm4rp****`.
+     *   *
+     * @param CancelHandshakeRequest $request CancelHandshakeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CancelHandshakeResponse
+     * @return CancelHandshakeResponse CancelHandshakeResponse
      */
     public function cancelHandshakeWithOptions($request, $runtime)
     {
@@ -559,9 +590,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param CancelHandshakeRequest $request
+     * This topic provides an example on how to call the API operation to cancel the invitation whose ID is `h-ycm4rp****`.
+     *   *
+     * @param CancelHandshakeRequest $request CancelHandshakeRequest
      *
-     * @return CancelHandshakeResponse
+     * @return CancelHandshakeResponse CancelHandshakeResponse
      */
     public function cancelHandshake($request)
     {
@@ -660,10 +693,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param CheckAccountDeleteRequest $request
-     * @param RuntimeOptions            $runtime
+     * Before you delete a member, you must call this API operation to check whether the member can be deleted.
+     *   * This topic provides an example on how to call the API operation to perform a deletion check on the member whose ID is `179855839641****`.
+     *   *
+     * @param CheckAccountDeleteRequest $request CheckAccountDeleteRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckAccountDeleteResponse
+     * @return CheckAccountDeleteResponse CheckAccountDeleteResponse
      */
     public function checkAccountDeleteWithOptions($request, $runtime)
     {
@@ -691,9 +727,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param CheckAccountDeleteRequest $request
+     * Before you delete a member, you must call this API operation to check whether the member can be deleted.
+     *   * This topic provides an example on how to call the API operation to perform a deletion check on the member whose ID is `179855839641****`.
+     *   *
+     * @param CheckAccountDeleteRequest $request CheckAccountDeleteRequest
      *
-     * @return CheckAccountDeleteResponse
+     * @return CheckAccountDeleteResponse CheckAccountDeleteResponse
      */
     public function checkAccountDelete($request)
     {
@@ -703,10 +742,15 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param CreateCloudAccountRequest $request
-     * @param RuntimeOptions            $runtime
+     * A resource directory supports two types of member accounts: resource accounts and cloud accounts.
+     *   * *   Resource account (recommended): A resource account is only used as a resource container and fully depends on a resource directory. Such member accounts are secure and easy-to-create. For more information about how to create a resource account, see [CreateResourceAccount](~~159392~~).
+     *   * >  A resource account can be upgraded to a cloud account. For more information, see [PromoteResourceAccount](~~159395~~) .
+     *   * *   Cloud account: A cloud account has all the features of an Alibaba Cloud account, including root permissions.
+     *   *
+     * @param CreateCloudAccountRequest $request CreateCloudAccountRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCloudAccountResponse
+     * @return CreateCloudAccountResponse CreateCloudAccountResponse
      */
     public function createCloudAccountWithOptions($request, $runtime)
     {
@@ -743,9 +787,14 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param CreateCloudAccountRequest $request
+     * A resource directory supports two types of member accounts: resource accounts and cloud accounts.
+     *   * *   Resource account (recommended): A resource account is only used as a resource container and fully depends on a resource directory. Such member accounts are secure and easy-to-create. For more information about how to create a resource account, see [CreateResourceAccount](~~159392~~).
+     *   * >  A resource account can be upgraded to a cloud account. For more information, see [PromoteResourceAccount](~~159395~~) .
+     *   * *   Cloud account: A cloud account has all the features of an Alibaba Cloud account, including root permissions.
+     *   *
+     * @param CreateCloudAccountRequest $request CreateCloudAccountRequest
      *
-     * @return CreateCloudAccountResponse
+     * @return CreateCloudAccountResponse CreateCloudAccountResponse
      */
     public function createCloudAccount($request)
     {
@@ -755,10 +804,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param CreateControlPolicyRequest $request
-     * @param RuntimeOptions             $runtime
+     * This topic provides an example on how to call the API operation to create a custom access control policy named `ExampleControlPolicy`. This access control policy is used to prohibit modifications to the ResourceDirectoryAccountAccessRole role and the permissions of the role.
+     *   *
+     * @param CreateControlPolicyRequest $request CreateControlPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateControlPolicyResponse
+     * @return CreateControlPolicyResponse CreateControlPolicyResponse
      */
     public function createControlPolicyWithOptions($request, $runtime)
     {
@@ -795,9 +846,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param CreateControlPolicyRequest $request
+     * This topic provides an example on how to call the API operation to create a custom access control policy named `ExampleControlPolicy`. This access control policy is used to prohibit modifications to the ResourceDirectoryAccountAccessRole role and the permissions of the role.
+     *   *
+     * @param CreateControlPolicyRequest $request CreateControlPolicyRequest
      *
-     * @return CreateControlPolicyResponse
+     * @return CreateControlPolicyResponse CreateControlPolicyResponse
      */
     public function createControlPolicy($request)
     {
@@ -807,10 +860,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param CreateFolderRequest $request
-     * @param RuntimeOptions      $runtime
+     * >  A maximum of five levels of folders can be created under the root folder.
+     *   * In this example, a folder named `rdFolder` is created under the root folder.
+     *   *
+     * @param CreateFolderRequest $request CreateFolderRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFolderResponse
+     * @return CreateFolderResponse CreateFolderResponse
      */
     public function createFolderWithOptions($request, $runtime)
     {
@@ -841,9 +897,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param CreateFolderRequest $request
+     * >  A maximum of five levels of folders can be created under the root folder.
+     *   * In this example, a folder named `rdFolder` is created under the root folder.
+     *   *
+     * @param CreateFolderRequest $request CreateFolderRequest
      *
-     * @return CreateFolderResponse
+     * @return CreateFolderResponse CreateFolderResponse
      */
     public function createFolder($request)
     {
@@ -951,10 +1010,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceAccountRequest $request
-     * @param RuntimeOptions               $runtime
+     * A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
+     *   * This topic provides an example on how to call the API operation to create a member in the `fd-r23M55****` folder. The display name of the member is `Dev`, and the prefix for the Alibaba Cloud account name of the member is `alice`.
+     *   *
+     * @param CreateResourceAccountRequest $request CreateResourceAccountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateResourceAccountResponse
+     * @return CreateResourceAccountResponse CreateResourceAccountResponse
      */
     public function createResourceAccountWithOptions($request, $runtime)
     {
@@ -997,9 +1059,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceAccountRequest $request
+     * A member serves as a container for resources and is also an organizational unit in a resource directory. A member indicates a project or application. The resources of different members are isolated.
+     *   * This topic provides an example on how to call the API operation to create a member in the `fd-r23M55****` folder. The display name of the member is `Dev`, and the prefix for the Alibaba Cloud account name of the member is `alice`.
+     *   *
+     * @param CreateResourceAccountRequest $request CreateResourceAccountRequest
      *
-     * @return CreateResourceAccountResponse
+     * @return CreateResourceAccountResponse CreateResourceAccountResponse
      */
     public function createResourceAccount($request)
     {
@@ -1009,10 +1074,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * For more information about common request parameters, see [Common parameters](~~159973~~).
+     *   *
+     * @param CreateResourceGroupRequest $request CreateResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateResourceGroupResponse
+     * @return CreateResourceGroupResponse CreateResourceGroupResponse
      */
     public function createResourceGroupWithOptions($request, $runtime)
     {
@@ -1043,9 +1110,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param CreateResourceGroupRequest $request
+     * For more information about common request parameters, see [Common parameters](~~159973~~).
+     *   *
+     * @param CreateResourceGroupRequest $request CreateResourceGroupRequest
      *
-     * @return CreateResourceGroupResponse
+     * @return CreateResourceGroupResponse CreateResourceGroupResponse
      */
     public function createResourceGroup($request)
     {
@@ -1199,10 +1268,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $tmpReq
-     * @param RuntimeOptions       $runtime
+     * The ID of the member that you want to delete.
+     *   *
+     * @param DeleteAccountRequest $tmpReq  DeleteAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccountWithOptions($tmpReq, $runtime)
     {
@@ -1238,9 +1309,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request
+     * The ID of the member that you want to delete.
+     *   *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -1250,10 +1323,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DeleteControlPolicyRequest $request
-     * @param RuntimeOptions             $runtime
+     * If you want to delete a custom control policy that is attached to folders or member accounts, you must call the [DetachControlPolicy](~~208331~~) operation to detach the policy before you delete it.
+     *   * In this example, the custom control policy `cp-SImPt8GCEwiq****` is deleted.
+     *   *
+     * @param DeleteControlPolicyRequest $request DeleteControlPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteControlPolicyResponse
+     * @return DeleteControlPolicyResponse DeleteControlPolicyResponse
      */
     public function deleteControlPolicyWithOptions($request, $runtime)
     {
@@ -1281,9 +1357,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DeleteControlPolicyRequest $request
+     * If you want to delete a custom control policy that is attached to folders or member accounts, you must call the [DetachControlPolicy](~~208331~~) operation to detach the policy before you delete it.
+     *   * In this example, the custom control policy `cp-SImPt8GCEwiq****` is deleted.
+     *   *
+     * @param DeleteControlPolicyRequest $request DeleteControlPolicyRequest
      *
-     * @return DeleteControlPolicyResponse
+     * @return DeleteControlPolicyResponse DeleteControlPolicyResponse
      */
     public function deleteControlPolicy($request)
     {
@@ -1293,10 +1372,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DeleteFolderRequest $request
-     * @param RuntimeOptions      $runtime
+     * >  Before you delete a folder, make sure that the folder does not contain any member accounts or child folders.
+     *   *
+     * @param DeleteFolderRequest $request DeleteFolderRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteFolderResponse
+     * @return DeleteFolderResponse DeleteFolderResponse
      */
     public function deleteFolderWithOptions($request, $runtime)
     {
@@ -1324,9 +1405,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DeleteFolderRequest $request
+     * >  Before you delete a folder, make sure that the folder does not contain any member accounts or child folders.
+     *   *
+     * @param DeleteFolderRequest $request DeleteFolderRequest
      *
-     * @return DeleteFolderResponse
+     * @return DeleteFolderResponse DeleteFolderResponse
      */
     public function deleteFolder($request)
     {
@@ -1336,10 +1419,14 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyRequest $request
-     * @param RuntimeOptions      $runtime
+     * >
+     *   * *   Before you delete a policy, you must delete all non-default versions of the policy. For more information about how to delete a policy version, see [DeletePolicyVersion](~~159041~~).
+     *   * *   Before you delete a policy, make sure that the policy is not referenced. This means that the policy is not attached to RAM users, RAM user groups, or RAM roles. For more information about how to detach a policy, see [DetachPolicy](~~159168~~).
+     *   *
+     * @param DeletePolicyRequest $request DeletePolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePolicyResponse
+     * @return DeletePolicyResponse DeletePolicyResponse
      */
     public function deletePolicyWithOptions($request, $runtime)
     {
@@ -1367,9 +1454,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyRequest $request
+     * >
+     *   * *   Before you delete a policy, you must delete all non-default versions of the policy. For more information about how to delete a policy version, see [DeletePolicyVersion](~~159041~~).
+     *   * *   Before you delete a policy, make sure that the policy is not referenced. This means that the policy is not attached to RAM users, RAM user groups, or RAM roles. For more information about how to detach a policy, see [DetachPolicy](~~159168~~).
+     *   *
+     * @param DeletePolicyRequest $request DeletePolicyRequest
      *
-     * @return DeletePolicyResponse
+     * @return DeletePolicyResponse DeletePolicyResponse
      */
     public function deletePolicy($request)
     {
@@ -1379,10 +1470,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyVersionRequest $request
-     * @param RuntimeOptions             $runtime
+     * >  The default version of a permission policy cannot be deleted.
+     *   *
+     * @param DeletePolicyVersionRequest $request DeletePolicyVersionRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePolicyVersionResponse
+     * @return DeletePolicyVersionResponse DeletePolicyVersionResponse
      */
     public function deletePolicyVersionWithOptions($request, $runtime)
     {
@@ -1413,9 +1506,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyVersionRequest $request
+     * >  The default version of a permission policy cannot be deleted.
+     *   *
+     * @param DeletePolicyVersionRequest $request DeletePolicyVersionRequest
      *
-     * @return DeletePolicyVersionResponse
+     * @return DeletePolicyVersionResponse DeletePolicyVersionResponse
      */
     public function deletePolicyVersion($request)
     {
@@ -1425,10 +1520,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DeleteResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * >  Before you delete a resource group, you must delete all the resources in it.
+     *   * In this example, the resource group whose ID is `rg-9gLOoK****` is deleted.
+     *   *
+     * @param DeleteResourceGroupRequest $request DeleteResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteResourceGroupResponse
+     * @return DeleteResourceGroupResponse DeleteResourceGroupResponse
      */
     public function deleteResourceGroupWithOptions($request, $runtime)
     {
@@ -1456,9 +1554,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DeleteResourceGroupRequest $request
+     * >  Before you delete a resource group, you must delete all the resources in it.
+     *   * In this example, the resource group whose ID is `rg-9gLOoK****` is deleted.
+     *   *
+     * @param DeleteResourceGroupRequest $request DeleteResourceGroupRequest
      *
-     * @return DeleteResourceGroupResponse
+     * @return DeleteResourceGroupResponse DeleteResourceGroupResponse
      */
     public function deleteResourceGroup($request)
     {
@@ -1554,10 +1655,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DeregisterDelegatedAdministratorRequest $request
-     * @param RuntimeOptions                          $runtime
+     * >  If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
+     *   * This topic provides an example on how to call the API operation to remove the delegated administrator account `181761095690****` for Cloud Firewall.
+     *   *
+     * @param DeregisterDelegatedAdministratorRequest $request DeregisterDelegatedAdministratorRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeregisterDelegatedAdministratorResponse
+     * @return DeregisterDelegatedAdministratorResponse DeregisterDelegatedAdministratorResponse
      */
     public function deregisterDelegatedAdministratorWithOptions($request, $runtime)
     {
@@ -1588,9 +1692,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DeregisterDelegatedAdministratorRequest $request
+     * >  If the delegated administrator account that you want to remove has historical management tasks in the related trusted service, the trusted service may be affected after the delegated administrator account is removed. Therefore, proceed with caution.
+     *   * This topic provides an example on how to call the API operation to remove the delegated administrator account `181761095690****` for Cloud Firewall.
+     *   *
+     * @param DeregisterDelegatedAdministratorRequest $request DeregisterDelegatedAdministratorRequest
      *
-     * @return DeregisterDelegatedAdministratorResponse
+     * @return DeregisterDelegatedAdministratorResponse DeregisterDelegatedAdministratorResponse
      */
     public function deregisterDelegatedAdministrator($request)
     {
@@ -1600,9 +1707,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * Before you disable a resource directory, make sure that the following requirements are met:
+     *   * *   All member accounts must be removed from the resource directory. For more information about how to remove a member account, see [RemoveCloudAccount](~~159431~~).
+     *   * *   All folders except the root folder must be deleted from the resource directory. For more information about how to delete a folder, see [DeleteFolder](~~159432~~).
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DestroyResourceDirectoryResponse
+     * @return DestroyResourceDirectoryResponse DestroyResourceDirectoryResponse
      */
     public function destroyResourceDirectoryWithOptions($runtime)
     {
@@ -1623,7 +1734,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @return DestroyResourceDirectoryResponse
+     * Before you disable a resource directory, make sure that the following requirements are met:
+     *   * *   All member accounts must be removed from the resource directory. For more information about how to remove a member account, see [RemoveCloudAccount](~~159431~~).
+     *   * *   All folders except the root folder must be deleted from the resource directory. For more information about how to delete a folder, see [DeleteFolder](~~159432~~).
+     *   *
+     * @return DestroyResourceDirectoryResponse DestroyResourceDirectoryResponse
      */
     public function destroyResourceDirectory()
     {
@@ -1633,10 +1748,14 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DetachControlPolicyRequest $request
-     * @param RuntimeOptions             $runtime
+     * After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
+     *   * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
+     *   * This topic provides an example on how to call the API operation to detach the custom control policy `cp-jExXAqIYkwHN****` from the folder `fd-ZDNPiT****`.
+     *   *
+     * @param DetachControlPolicyRequest $request DetachControlPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachControlPolicyResponse
+     * @return DetachControlPolicyResponse DetachControlPolicyResponse
      */
     public function detachControlPolicyWithOptions($request, $runtime)
     {
@@ -1667,9 +1786,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param DetachControlPolicyRequest $request
+     * After you detach an access control policy, the operations performed on resources by using members are not limited by the policy. Make sure that the detached policy meets your expectations. Otherwise, your business may be affected.
+     *   * Both the system and custom access control policies can be detached. If an object has only one access control policy attached, the policy cannot be detached.
+     *   * This topic provides an example on how to call the API operation to detach the custom control policy `cp-jExXAqIYkwHN****` from the folder `fd-ZDNPiT****`.
+     *   *
+     * @param DetachControlPolicyRequest $request DetachControlPolicyRequest
      *
-     * @return DetachControlPolicyResponse
+     * @return DetachControlPolicyResponse DetachControlPolicyResponse
      */
     public function detachControlPolicy($request)
     {
@@ -1734,9 +1857,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * After you disable the Control Policy feature, the system automatically detaches all control policies that are attached to folders and member accounts. The system does not delete these control policies, but you cannot attach them to folders or member accounts again.
+     *   * >  If you disable the Control Policy feature, the permissions of all folders and member accounts in a resource directory are affected. You must proceed with caution.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableControlPolicyResponse
+     * @return DisableControlPolicyResponse DisableControlPolicyResponse
      */
     public function disableControlPolicyWithOptions($runtime)
     {
@@ -1757,7 +1883,10 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @return DisableControlPolicyResponse
+     * After you disable the Control Policy feature, the system automatically detaches all control policies that are attached to folders and member accounts. The system does not delete these control policies, but you cannot attach them to folders or member accounts again.
+     *   * >  If you disable the Control Policy feature, the permissions of all folders and member accounts in a resource directory are affected. You must proceed with caution.
+     *   *
+     * @return DisableControlPolicyResponse DisableControlPolicyResponse
      */
     public function disableControlPolicy()
     {
@@ -1767,9 +1896,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * The Control Policy feature allows you to manage the permission boundaries of the folders or member accounts in a resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member account in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](~~178671~~).
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableControlPolicyResponse
+     * @return EnableControlPolicyResponse EnableControlPolicyResponse
      */
     public function enableControlPolicyWithOptions($runtime)
     {
@@ -1790,7 +1921,9 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @return EnableControlPolicyResponse
+     * The Control Policy feature allows you to manage the permission boundaries of the folders or member accounts in a resource directory in a centralized manner. This feature is implemented based on the resource directory. You can use this feature to develop common or dedicated rules for access control. The Control Policy feature does not grant permissions but only defines permission boundaries. A member account in a resource directory can be used to access resources only after it is granted the required permissions by using the Resource Access Management (RAM) service. For more information, see [Overview of the Control Policy feature](~~178671~~).
+     *   *
+     * @return EnableControlPolicyResponse EnableControlPolicyResponse
      */
     public function enableControlPolicy()
     {
@@ -1800,10 +1933,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param EnableResourceDirectoryRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](~~111215~~).
+     *   * In this example, the current account is used to enable a resource directory.
+     *   *
+     * @param EnableResourceDirectoryRequest $request EnableResourceDirectoryRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableResourceDirectoryResponse
+     * @return EnableResourceDirectoryResponse EnableResourceDirectoryResponse
      */
     public function enableResourceDirectoryWithOptions($request, $runtime)
     {
@@ -1840,9 +1976,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param EnableResourceDirectoryRequest $request
+     * You can use the current account or a newly created account to enable a resource directory. For more information, see [Enable a resource directory](~~111215~~).
+     *   * In this example, the current account is used to enable a resource directory.
+     *   *
+     * @param EnableResourceDirectoryRequest $request EnableResourceDirectoryRequest
      *
-     * @return EnableResourceDirectoryResponse
+     * @return EnableResourceDirectoryResponse EnableResourceDirectoryResponse
      */
     public function enableResourceDirectory($request)
     {
@@ -1852,10 +1991,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param GetAccountRequest $request
-     * @param RuntimeOptions    $runtime
+     * This topic provides an example on how to call the API operation to query the information of the member whose Alibaba Cloud account ID is `181761095690****`.
+     *   *
+     * @param GetAccountRequest $request GetAccountRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccountResponse
+     * @return GetAccountResponse GetAccountResponse
      */
     public function getAccountWithOptions($request, $runtime)
     {
@@ -1886,9 +2027,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param GetAccountRequest $request
+     * This topic provides an example on how to call the API operation to query the information of the member whose Alibaba Cloud account ID is `181761095690****`.
+     *   *
+     * @param GetAccountRequest $request GetAccountRequest
      *
-     * @return GetAccountResponse
+     * @return GetAccountResponse GetAccountResponse
      */
     public function getAccount($request)
     {
@@ -1898,10 +2041,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param GetAccountDeletionCheckResultRequest $request
-     * @param RuntimeOptions                       $runtime
+     * After you call the [CheckAccountDelete](~~448542~~) operation to perform a member deletion check, you can call the GetAccountDeletionCheckResult operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
+     *   * This topic provides an example on how to call the API operation to query the result of the deletion check for the member whose ID is `179855839641****`. The response shows that the member does not meet deletion requirements.
+     *   *
+     * @param GetAccountDeletionCheckResultRequest $request GetAccountDeletionCheckResultRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccountDeletionCheckResultResponse
+     * @return GetAccountDeletionCheckResultResponse GetAccountDeletionCheckResultResponse
      */
     public function getAccountDeletionCheckResultWithOptions($request, $runtime)
     {
@@ -1929,9 +2075,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param GetAccountDeletionCheckResultRequest $request
+     * After you call the [CheckAccountDelete](~~448542~~) operation to perform a member deletion check, you can call the GetAccountDeletionCheckResult operation to query the check result. If the check result shows that the member meets deletion requirements, you can delete the member. Otherwise, you need to first modify the items that do not meet requirements.
+     *   * This topic provides an example on how to call the API operation to query the result of the deletion check for the member whose ID is `179855839641****`. The response shows that the member does not meet deletion requirements.
+     *   *
+     * @param GetAccountDeletionCheckResultRequest $request GetAccountDeletionCheckResultRequest
      *
-     * @return GetAccountDeletionCheckResultResponse
+     * @return GetAccountDeletionCheckResultResponse GetAccountDeletionCheckResultResponse
      */
     public function getAccountDeletionCheckResult($request)
     {
@@ -1984,10 +2133,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param GetControlPolicyRequest $request
-     * @param RuntimeOptions          $runtime
+     * This topic provides an example on how to call the API operation to query the details of the access control policy whose ID is `cp-SImPt8GCEwiq****`.
+     *   *
+     * @param GetControlPolicyRequest $request GetControlPolicyRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetControlPolicyResponse
+     * @return GetControlPolicyResponse GetControlPolicyResponse
      */
     public function getControlPolicyWithOptions($request, $runtime)
     {
@@ -2018,9 +2169,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param GetControlPolicyRequest $request
+     * This topic provides an example on how to call the API operation to query the details of the access control policy whose ID is `cp-SImPt8GCEwiq****`.
+     *   *
+     * @param GetControlPolicyRequest $request GetControlPolicyRequest
      *
-     * @return GetControlPolicyResponse
+     * @return GetControlPolicyResponse GetControlPolicyResponse
      */
     public function getControlPolicy($request)
     {
@@ -2063,10 +2216,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param GetFolderRequest $request
-     * @param RuntimeOptions   $runtime
+     * In this example, the information of the folder `fd-Jyl5U7****` is queried.
+     *   *
+     * @param GetFolderRequest $request GetFolderRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetFolderResponse
+     * @return GetFolderResponse GetFolderResponse
      */
     public function getFolderWithOptions($request, $runtime)
     {
@@ -2094,9 +2249,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param GetFolderRequest $request
+     * In this example, the information of the folder `fd-Jyl5U7****` is queried.
+     *   *
+     * @param GetFolderRequest $request GetFolderRequest
      *
-     * @return GetFolderResponse
+     * @return GetFolderResponse GetFolderResponse
      */
     public function getFolder($request)
     {
@@ -2106,10 +2263,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param GetHandshakeRequest $request
-     * @param RuntimeOptions      $runtime
+     * In this example, the information of the invitation whose ID is `h-ycm4rp****` is queried.
+     *   *
+     * @param GetHandshakeRequest $request GetHandshakeRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetHandshakeResponse
+     * @return GetHandshakeResponse GetHandshakeResponse
      */
     public function getHandshakeWithOptions($request, $runtime)
     {
@@ -2137,9 +2296,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param GetHandshakeRequest $request
+     * In this example, the information of the invitation whose ID is `h-ycm4rp****` is queried.
+     *   *
+     * @param GetHandshakeRequest $request GetHandshakeRequest
      *
-     * @return GetHandshakeResponse
+     * @return GetHandshakeResponse GetHandshakeResponse
      */
     public function getHandshake($request)
     {
@@ -2290,9 +2451,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * This topic provides an example on how to use a management account to call the API operation to query the information of the resource directory that is enabled by using the management account.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResourceDirectoryResponse
+     * @return GetResourceDirectoryResponse GetResourceDirectoryResponse
      */
     public function getResourceDirectoryWithOptions($runtime)
     {
@@ -2313,7 +2476,9 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @return GetResourceDirectoryResponse
+     * This topic provides an example on how to use a management account to call the API operation to query the information of the resource directory that is enabled by using the management account.
+     *   *
+     * @return GetResourceDirectoryResponse GetResourceDirectoryResponse
      */
     public function getResourceDirectory()
     {
@@ -2323,10 +2488,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param GetResourceGroupRequest $request
-     * @param RuntimeOptions          $runtime
+     * For more information about common request parameters, see [Common parameters](~~159973~~).
+     *   *
+     * @param GetResourceGroupRequest $request GetResourceGroupRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetResourceGroupResponse
+     * @return GetResourceGroupResponse GetResourceGroupResponse
      */
     public function getResourceGroupWithOptions($request, $runtime)
     {
@@ -2357,48 +2524,17 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param GetResourceGroupRequest $request
+     * For more information about common request parameters, see [Common parameters](~~159973~~).
+     *   *
+     * @param GetResourceGroupRequest $request GetResourceGroupRequest
      *
-     * @return GetResourceGroupResponse
+     * @return GetResourceGroupResponse GetResourceGroupResponse
      */
     public function getResourceGroup($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->getResourceGroupWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param RuntimeOptions $runtime
-     *
-     * @return GetResourceGroupListAclModeResponse
-     */
-    public function getResourceGroupListAclModeWithOptions($runtime)
-    {
-        $req    = new OpenApiRequest([]);
-        $params = new Params([
-            'action'      => 'GetResourceGroupListAclMode',
-            'version'     => '2020-03-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetResourceGroupListAclModeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @return GetResourceGroupListAclModeResponse
-     */
-    public function getResourceGroupListAclMode()
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getResourceGroupListAclModeWithOptions($runtime);
     }
 
     /**
@@ -2491,9 +2627,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * >
+     *   * *   An account can be used to enable a resource directory only after it passes enterprise real-name verification. An account that only passed individual real-name verification cannot be used to enable a resource directory.
+     *   * *   We recommend that you only use the enterprise management account as the administrator of the resource directory. Do not use the enterprise management account to purchase cloud resources.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return InitResourceDirectoryResponse
+     * @return InitResourceDirectoryResponse InitResourceDirectoryResponse
      */
     public function initResourceDirectoryWithOptions($runtime)
     {
@@ -2514,7 +2654,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @return InitResourceDirectoryResponse
+     * >
+     *   * *   An account can be used to enable a resource directory only after it passes enterprise real-name verification. An account that only passed individual real-name verification cannot be used to enable a resource directory.
+     *   * *   We recommend that you only use the enterprise management account as the administrator of the resource directory. Do not use the enterprise management account to purchase cloud resources.
+     *   *
+     * @return InitResourceDirectoryResponse InitResourceDirectoryResponse
      */
     public function initResourceDirectory()
     {
@@ -2524,10 +2668,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param InviteAccountToResourceDirectoryRequest $request
-     * @param RuntimeOptions                          $runtime
+     * This topic provides an example on how to call the API operation to invite the account `someone@example.com` to join a resource directory.
+     *   *
+     * @param InviteAccountToResourceDirectoryRequest $request InviteAccountToResourceDirectoryRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return InviteAccountToResourceDirectoryResponse
+     * @return InviteAccountToResourceDirectoryResponse InviteAccountToResourceDirectoryResponse
      */
     public function inviteAccountToResourceDirectoryWithOptions($request, $runtime)
     {
@@ -2564,9 +2710,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param InviteAccountToResourceDirectoryRequest $request
+     * This topic provides an example on how to call the API operation to invite the account `someone@example.com` to join a resource directory.
+     *   *
+     * @param InviteAccountToResourceDirectoryRequest $request InviteAccountToResourceDirectoryRequest
      *
-     * @return InviteAccountToResourceDirectoryResponse
+     * @return InviteAccountToResourceDirectoryResponse InviteAccountToResourceDirectoryResponse
      */
     public function inviteAccountToResourceDirectory($request)
     {
@@ -2576,10 +2724,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListAccountsRequest $request
-     * @param RuntimeOptions      $runtime
+     * You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
+     *   *
+     * @param ListAccountsRequest $request ListAccountsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAccountsResponse
+     * @return ListAccountsResponse ListAccountsResponse
      */
     public function listAccountsWithOptions($request, $runtime)
     {
@@ -2616,9 +2766,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListAccountsRequest $request
+     * You can use only the management account of a resource directory or a delegated administrator account of a trusted service to call this operation.
+     *   *
+     * @param ListAccountsRequest $request ListAccountsRequest
      *
-     * @return ListAccountsResponse
+     * @return ListAccountsResponse ListAccountsResponse
      */
     public function listAccounts($request)
     {
@@ -2729,10 +2881,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListControlPoliciesRequest $request
-     * @param RuntimeOptions             $runtime
+     * This topic provides an example on how to call the API operation to query the system access control policies within a resource directory. The response shows that the resource directory has only one system access control policy. The policy is named `FullAliyunAccess`.
+     *   *
+     * @param ListControlPoliciesRequest $request ListControlPoliciesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListControlPoliciesResponse
+     * @return ListControlPoliciesResponse ListControlPoliciesResponse
      */
     public function listControlPoliciesWithOptions($request, $runtime)
     {
@@ -2769,9 +2923,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListControlPoliciesRequest $request
+     * This topic provides an example on how to call the API operation to query the system access control policies within a resource directory. The response shows that the resource directory has only one system access control policy. The policy is named `FullAliyunAccess`.
+     *   *
+     * @param ListControlPoliciesRequest $request ListControlPoliciesRequest
      *
-     * @return ListControlPoliciesResponse
+     * @return ListControlPoliciesResponse ListControlPoliciesResponse
      */
     public function listControlPolicies($request)
     {
@@ -2781,10 +2937,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListControlPolicyAttachmentsForTargetRequest $request
-     * @param RuntimeOptions                               $runtime
+     * This topic provides an example on how to call the API operation to query the access control policies that are attached to the folder `fd-ZDNPiT****`.
+     *   *
+     * @param ListControlPolicyAttachmentsForTargetRequest $request ListControlPolicyAttachmentsForTargetRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListControlPolicyAttachmentsForTargetResponse
+     * @return ListControlPolicyAttachmentsForTargetResponse ListControlPolicyAttachmentsForTargetResponse
      */
     public function listControlPolicyAttachmentsForTargetWithOptions($request, $runtime)
     {
@@ -2815,9 +2973,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListControlPolicyAttachmentsForTargetRequest $request
+     * This topic provides an example on how to call the API operation to query the access control policies that are attached to the folder `fd-ZDNPiT****`.
+     *   *
+     * @param ListControlPolicyAttachmentsForTargetRequest $request ListControlPolicyAttachmentsForTargetRequest
      *
-     * @return ListControlPolicyAttachmentsForTargetResponse
+     * @return ListControlPolicyAttachmentsForTargetResponse ListControlPolicyAttachmentsForTargetResponse
      */
     public function listControlPolicyAttachmentsForTarget($request)
     {
@@ -2827,10 +2987,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListDelegatedAdministratorsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * This topic provides an example on how to call the API operation to query all delegated administrator accounts in a resource directory. The response shows that two delegated administrator accounts for Cloud Firewall exist in the resource directory.
+     *   *
+     * @param ListDelegatedAdministratorsRequest $request ListDelegatedAdministratorsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDelegatedAdministratorsResponse
+     * @return ListDelegatedAdministratorsResponse ListDelegatedAdministratorsResponse
      */
     public function listDelegatedAdministratorsWithOptions($request, $runtime)
     {
@@ -2864,9 +3026,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListDelegatedAdministratorsRequest $request
+     * This topic provides an example on how to call the API operation to query all delegated administrator accounts in a resource directory. The response shows that two delegated administrator accounts for Cloud Firewall exist in the resource directory.
+     *   *
+     * @param ListDelegatedAdministratorsRequest $request ListDelegatedAdministratorsRequest
      *
-     * @return ListDelegatedAdministratorsResponse
+     * @return ListDelegatedAdministratorsResponse ListDelegatedAdministratorsResponse
      */
     public function listDelegatedAdministrators($request)
     {
@@ -2876,10 +3040,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListDelegatedServicesForAccountRequest $request
-     * @param RuntimeOptions                         $runtime
+     * This topic provides an example on how to call the API operation to query the trusted services for which the member `138660628348****` is specified as a delegated administrator account. The response shows that the member is specified as a delegated administrator account of Cloud Firewall.
+     *   *
+     * @param ListDelegatedServicesForAccountRequest $request ListDelegatedServicesForAccountRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDelegatedServicesForAccountResponse
+     * @return ListDelegatedServicesForAccountResponse ListDelegatedServicesForAccountResponse
      */
     public function listDelegatedServicesForAccountWithOptions($request, $runtime)
     {
@@ -2907,9 +3073,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListDelegatedServicesForAccountRequest $request
+     * This topic provides an example on how to call the API operation to query the trusted services for which the member `138660628348****` is specified as a delegated administrator account. The response shows that the member is specified as a delegated administrator account of Cloud Firewall.
+     *   *
+     * @param ListDelegatedServicesForAccountRequest $request ListDelegatedServicesForAccountRequest
      *
-     * @return ListDelegatedServicesForAccountResponse
+     * @return ListDelegatedServicesForAccountResponse ListDelegatedServicesForAccountResponse
      */
     public function listDelegatedServicesForAccount($request)
     {
@@ -2919,10 +3087,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListFoldersForParentRequest $request
-     * @param RuntimeOptions              $runtime
+     * >  You can view the information of only the first-level subfolders of a folder.
+     *   *
+     * @param ListFoldersForParentRequest $request ListFoldersForParentRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListFoldersForParentResponse
+     * @return ListFoldersForParentResponse ListFoldersForParentResponse
      */
     public function listFoldersForParentWithOptions($request, $runtime)
     {
@@ -2959,9 +3129,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListFoldersForParentRequest $request
+     * >  You can view the information of only the first-level subfolders of a folder.
+     *   *
+     * @param ListFoldersForParentRequest $request ListFoldersForParentRequest
      *
-     * @return ListFoldersForParentResponse
+     * @return ListFoldersForParentResponse ListFoldersForParentResponse
      */
     public function listFoldersForParent($request)
     {
@@ -2971,10 +3143,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListHandshakesForAccountRequest $request
-     * @param RuntimeOptions                  $runtime
+     * This topic provides an example on how to call the API operation to query the invitations that are associated with the management account `172841235500****`. The response shows that two invitations are associated with the management account.
+     *   *
+     * @param ListHandshakesForAccountRequest $request ListHandshakesForAccountRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListHandshakesForAccountResponse
+     * @return ListHandshakesForAccountResponse ListHandshakesForAccountResponse
      */
     public function listHandshakesForAccountWithOptions($request, $runtime)
     {
@@ -3005,9 +3179,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListHandshakesForAccountRequest $request
+     * This topic provides an example on how to call the API operation to query the invitations that are associated with the management account `172841235500****`. The response shows that two invitations are associated with the management account.
+     *   *
+     * @param ListHandshakesForAccountRequest $request ListHandshakesForAccountRequest
      *
-     * @return ListHandshakesForAccountResponse
+     * @return ListHandshakesForAccountResponse ListHandshakesForAccountResponse
      */
     public function listHandshakesForAccount($request)
     {
@@ -3115,10 +3291,15 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListPolicyAttachmentsRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can view the following information:
+     *   * *   Policy attachment records under an Alibaba Cloud account or a resource group
+     *   * *   Policies attached to RAM users, RAM user groups, or RAM roles
+     *   * *   RAM users, RAM user groups, or RAM roles to which policies are attached under an Alibaba Cloud account or a resource group.
+     *   *
+     * @param ListPolicyAttachmentsRequest $request ListPolicyAttachmentsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPolicyAttachmentsResponse
+     * @return ListPolicyAttachmentsResponse ListPolicyAttachmentsResponse
      */
     public function listPolicyAttachmentsWithOptions($request, $runtime)
     {
@@ -3167,9 +3348,14 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListPolicyAttachmentsRequest $request
+     * You can view the following information:
+     *   * *   Policy attachment records under an Alibaba Cloud account or a resource group
+     *   * *   Policies attached to RAM users, RAM user groups, or RAM roles
+     *   * *   RAM users, RAM user groups, or RAM roles to which policies are attached under an Alibaba Cloud account or a resource group.
+     *   *
+     * @param ListPolicyAttachmentsRequest $request ListPolicyAttachmentsRequest
      *
-     * @return ListPolicyAttachmentsResponse
+     * @return ListPolicyAttachmentsResponse ListPolicyAttachmentsResponse
      */
     public function listPolicyAttachments($request)
     {
@@ -3225,10 +3411,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListResourceGroupsRequest $request
-     * @param RuntimeOptions            $runtime
+     * You can call this API operation to query all resource groups within the current account. You can also call this API operation to query a specific resource group based on the status, ID, identifier, or display name of the resource group.
+     *   * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
+     *   *
+     * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourceGroupsResponse
+     * @return ListResourceGroupsResponse ListResourceGroupsResponse
      */
     public function listResourceGroupsWithOptions($request, $runtime)
     {
@@ -3280,9 +3469,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListResourceGroupsRequest $request
+     * You can call this API operation to query all resource groups within the current account. You can also call this API operation to query a specific resource group based on the status, ID, identifier, or display name of the resource group.
+     *   * This topic provides an example on how to call the API operation to query the basic information about the resource groups `rg-1hSBH2****` and `rg-9gLOoK****` within the current account.
+     *   *
+     * @param ListResourceGroupsRequest $request ListResourceGroupsRequest
      *
-     * @return ListResourceGroupsResponse
+     * @return ListResourceGroupsResponse ListResourceGroupsResponse
      */
     public function listResourceGroups($request)
     {
@@ -3292,10 +3484,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListResourcesRequest $request
-     * @param RuntimeOptions       $runtime
+     * >  You can use a RAM role that is not associated with a session policy to call this API operation.
+     *   * This topic provides an example on how to call the API operation to query the resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
+     *   *
+     * @param ListResourcesRequest $request ListResourcesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourcesResponse
+     * @return ListResourcesResponse ListResourcesResponse
      */
     public function listResourcesWithOptions($request, $runtime)
     {
@@ -3341,9 +3536,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListResourcesRequest $request
+     * >  You can use a RAM role that is not associated with a session policy to call this API operation.
+     *   * This topic provides an example on how to call the API operation to query the resources that can be accessed by the current account in resource groups. The response shows that the current account can access only the Elastic Compute Service (ECS) instance `i-23v38****` in the resource group `rg-uPJpP****`.
+     *   *
+     * @param ListResourcesRequest $request ListResourcesRequest
      *
-     * @return ListResourcesResponse
+     * @return ListResourcesResponse ListResourcesResponse
      */
     public function listResources($request)
     {
@@ -3402,10 +3600,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request
-     * @param RuntimeOptions     $runtime
+     * This topic provides an example on how to call the API operation to query tag keys. The response shows that the custom tag key team exists.
+     *   *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
@@ -3442,9 +3642,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request
+     * This topic provides an example on how to call the API operation to query tag keys. The response shows that the custom tag key team exists.
+     *   *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
      *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -3454,10 +3656,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * This topic provides an example on how to call the API operation to query the tags that are added to the resource group with an ID of `rg-aekz6bre2uq****`. The response shows that only the `k1:v1` tag is added to the resource group.
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -3497,9 +3701,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * This topic provides an example on how to call the API operation to query the tags that are added to the resource group with an ID of `rg-aekz6bre2uq****`. The response shows that only the `k1:v1` tag is added to the resource group.
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -3509,10 +3715,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListTagValuesRequest $request
-     * @param RuntimeOptions       $runtime
+     * This topic provides an example on how to call the API operation to query the tag values of the tag key k1. The response shows that the tag value of the tag key k1 is v1.
+     *   *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValuesWithOptions($request, $runtime)
     {
@@ -3552,9 +3760,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListTagValuesRequest $request
+     * This topic provides an example on how to call the API operation to query the tag values of the tag key k1. The response shows that the tag value of the tag key k1 is v1.
+     *   *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
      *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValues($request)
     {
@@ -3564,10 +3774,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListTargetAttachmentsForControlPolicyRequest $request
-     * @param RuntimeOptions                               $runtime
+     * In this example, the folders or member accounts to which the control policy `cp-jExXAqIYkwHN****` is attached are queried. The returned result shows that the control policy is attached to the folder `fd-ZDNPiT****`.
+     *   *
+     * @param ListTargetAttachmentsForControlPolicyRequest $request ListTargetAttachmentsForControlPolicyRequest
+     * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTargetAttachmentsForControlPolicyResponse
+     * @return ListTargetAttachmentsForControlPolicyResponse ListTargetAttachmentsForControlPolicyResponse
      */
     public function listTargetAttachmentsForControlPolicyWithOptions($request, $runtime)
     {
@@ -3601,9 +3813,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListTargetAttachmentsForControlPolicyRequest $request
+     * In this example, the folders or member accounts to which the control policy `cp-jExXAqIYkwHN****` is attached are queried. The returned result shows that the control policy is attached to the folder `fd-ZDNPiT****`.
+     *   *
+     * @param ListTargetAttachmentsForControlPolicyRequest $request ListTargetAttachmentsForControlPolicyRequest
      *
-     * @return ListTargetAttachmentsForControlPolicyResponse
+     * @return ListTargetAttachmentsForControlPolicyResponse ListTargetAttachmentsForControlPolicyResponse
      */
     public function listTargetAttachmentsForControlPolicy($request)
     {
@@ -3613,10 +3827,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListTrustedServiceStatusRequest $request
-     * @param RuntimeOptions                  $runtime
+     * >  Only an enterprise management account or delegated administrator account can be used to call this operation.
+     *   * In this example, the trusted services that are enabled within an enterprise management account are queried. The returned result shows that the trusted services Cloud Config and ActionTrail are enabled within the enterprise management account.
+     *   *
+     * @param ListTrustedServiceStatusRequest $request ListTrustedServiceStatusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTrustedServiceStatusResponse
+     * @return ListTrustedServiceStatusResponse ListTrustedServiceStatusResponse
      */
     public function listTrustedServiceStatusWithOptions($request, $runtime)
     {
@@ -3650,9 +3867,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param ListTrustedServiceStatusRequest $request
+     * >  Only an enterprise management account or delegated administrator account can be used to call this operation.
+     *   * In this example, the trusted services that are enabled within an enterprise management account are queried. The returned result shows that the trusted services Cloud Config and ActionTrail are enabled within the enterprise management account.
+     *   *
+     * @param ListTrustedServiceStatusRequest $request ListTrustedServiceStatusRequest
      *
-     * @return ListTrustedServiceStatusResponse
+     * @return ListTrustedServiceStatusResponse ListTrustedServiceStatusResponse
      */
     public function listTrustedServiceStatus($request)
     {
@@ -3708,10 +3928,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param MoveResourcesRequest $request
-     * @param RuntimeOptions       $runtime
+     * For more information about Alibaba Cloud services whose resources can be moved between resource groups, see the **Supported by the API** column in [Alibaba Cloud services that support resource groups](~~94479~~).
+     *   * In this example, two virtual private clouds (VPCs) `vpc-bp1sig0mjktx5ewx1****` and `vpc-bp1visxm225pv49dz****` that reside in different regions and belong to different resource groups are moved to the resource group `rg-aekzmeobk5w****`.
+     *   *
+     * @param MoveResourcesRequest $request MoveResourcesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return MoveResourcesResponse
+     * @return MoveResourcesResponse MoveResourcesResponse
      */
     public function moveResourcesWithOptions($request, $runtime)
     {
@@ -3742,9 +3965,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param MoveResourcesRequest $request
+     * For more information about Alibaba Cloud services whose resources can be moved between resource groups, see the **Supported by the API** column in [Alibaba Cloud services that support resource groups](~~94479~~).
+     *   * In this example, two virtual private clouds (VPCs) `vpc-bp1sig0mjktx5ewx1****` and `vpc-bp1visxm225pv49dz****` that reside in different regions and belong to different resource groups are moved to the resource group `rg-aekzmeobk5w****`.
+     *   *
+     * @param MoveResourcesRequest $request MoveResourcesRequest
      *
-     * @return MoveResourcesResponse
+     * @return MoveResourcesResponse MoveResourcesResponse
      */
     public function moveResources($request)
     {
@@ -3800,10 +4026,17 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param RegisterDelegatedAdministratorRequest $request
-     * @param RuntimeOptions                        $runtime
+     * The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory.
+     *   * When you call this operation, you must take note of the following limits:
+     *   * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](~~208133~~).
+     *   * *   Only the management account of a resource directory or an authorized RAM user or RAM role of the management account can be used to call this operation.
+     *   * *   The number of delegated administrator accounts that are allowed for a trusted service is defined by the trusted service.
+     *   * This topic provides an example on how to call the API operation to specify the member `181761095690****` as a delegated administrator account of Cloud Firewall.
+     *   *
+     * @param RegisterDelegatedAdministratorRequest $request RegisterDelegatedAdministratorRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return RegisterDelegatedAdministratorResponse
+     * @return RegisterDelegatedAdministratorResponse RegisterDelegatedAdministratorResponse
      */
     public function registerDelegatedAdministratorWithOptions($request, $runtime)
     {
@@ -3834,9 +4067,16 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param RegisterDelegatedAdministratorRequest $request
+     * The delegated administrator account can be used to access the information of the resource directory and view the structure and members of the resource directory. The delegated administrator account can also be used to perform service-related management operations in the trusted service on behalf of the management account of the resource directory.
+     *   * When you call this operation, you must take note of the following limits:
+     *   * *   Only some trusted services support delegated administrator accounts. For more information, see [Supported trusted services](~~208133~~).
+     *   * *   Only the management account of a resource directory or an authorized RAM user or RAM role of the management account can be used to call this operation.
+     *   * *   The number of delegated administrator accounts that are allowed for a trusted service is defined by the trusted service.
+     *   * This topic provides an example on how to call the API operation to specify the member `181761095690****` as a delegated administrator account of Cloud Firewall.
+     *   *
+     * @param RegisterDelegatedAdministratorRequest $request RegisterDelegatedAdministratorRequest
      *
-     * @return RegisterDelegatedAdministratorResponse
+     * @return RegisterDelegatedAdministratorResponse RegisterDelegatedAdministratorResponse
      */
     public function registerDelegatedAdministrator($request)
     {
@@ -3846,10 +4086,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param RemoveCloudAccountRequest $request
-     * @param RuntimeOptions            $runtime
+     * This topic provides an example on how to call the API operation to remove the member `177242285274****` from a resource directory.
+     *   *
+     * @param RemoveCloudAccountRequest $request RemoveCloudAccountRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveCloudAccountResponse
+     * @return RemoveCloudAccountResponse RemoveCloudAccountResponse
      */
     public function removeCloudAccountWithOptions($request, $runtime)
     {
@@ -3877,9 +4119,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param RemoveCloudAccountRequest $request
+     * This topic provides an example on how to call the API operation to remove the member `177242285274****` from a resource directory.
+     *   *
+     * @param RemoveCloudAccountRequest $request RemoveCloudAccountRequest
      *
-     * @return RemoveCloudAccountResponse
+     * @return RemoveCloudAccountResponse RemoveCloudAccountResponse
      */
     public function removeCloudAccount($request)
     {
@@ -4018,10 +4262,13 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request
-     * @param RuntimeOptions                                      $runtime
+     * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
+     *   * In this example, a verification code is sent to the mobile phone number that you want to bind to the resource account `138660628348****`.
+     *   *
+     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request SendVerificationCodeForBindSecureMobilePhoneRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendVerificationCodeForBindSecureMobilePhoneResponse
+     * @return SendVerificationCodeForBindSecureMobilePhoneResponse SendVerificationCodeForBindSecureMobilePhoneResponse
      */
     public function sendVerificationCodeForBindSecureMobilePhoneWithOptions($request, $runtime)
     {
@@ -4052,9 +4299,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request
+     * To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
+     *   * In this example, a verification code is sent to the mobile phone number that you want to bind to the resource account `138660628348****`.
+     *   *
+     * @param SendVerificationCodeForBindSecureMobilePhoneRequest $request SendVerificationCodeForBindSecureMobilePhoneRequest
      *
-     * @return SendVerificationCodeForBindSecureMobilePhoneResponse
+     * @return SendVerificationCodeForBindSecureMobilePhoneResponse SendVerificationCodeForBindSecureMobilePhoneResponse
      */
     public function sendVerificationCodeForBindSecureMobilePhone($request)
     {
@@ -4064,10 +4314,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param SendVerificationCodeForEnableRDRequest $request
-     * @param RuntimeOptions                         $runtime
+     * Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
+     *   *
+     * @param SendVerificationCodeForEnableRDRequest $request SendVerificationCodeForEnableRDRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendVerificationCodeForEnableRDResponse
+     * @return SendVerificationCodeForEnableRDResponse SendVerificationCodeForEnableRDResponse
      */
     public function sendVerificationCodeForEnableRDWithOptions($request, $runtime)
     {
@@ -4095,9 +4347,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param SendVerificationCodeForEnableRDRequest $request
+     * Each Alibaba Cloud account can be used to send a maximum of 100 verification codes per day.
+     *   *
+     * @param SendVerificationCodeForEnableRDRequest $request SendVerificationCodeForEnableRDRequest
      *
-     * @return SendVerificationCodeForEnableRDResponse
+     * @return SendVerificationCodeForEnableRDResponse SendVerificationCodeForEnableRDResponse
      */
     public function sendVerificationCodeForEnableRD($request)
     {
@@ -4153,10 +4407,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param SetMemberDeletionPermissionRequest $request
-     * @param RuntimeOptions                     $runtime
+     * Members of the resource account type can be deleted only after the member deletion feature is enabled.
+     *   *
+     * @param SetMemberDeletionPermissionRequest $request SetMemberDeletionPermissionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetMemberDeletionPermissionResponse
+     * @return SetMemberDeletionPermissionResponse SetMemberDeletionPermissionResponse
      */
     public function setMemberDeletionPermissionWithOptions($request, $runtime)
     {
@@ -4184,9 +4440,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param SetMemberDeletionPermissionRequest $request
+     * Members of the resource account type can be deleted only after the member deletion feature is enabled.
+     *   *
+     * @param SetMemberDeletionPermissionRequest $request SetMemberDeletionPermissionRequest
      *
-     * @return SetMemberDeletionPermissionResponse
+     * @return SetMemberDeletionPermissionResponse SetMemberDeletionPermissionResponse
      */
     public function setMemberDeletionPermission($request)
     {
@@ -4196,10 +4454,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * This topic provides an example on how to call the API operation to add the tag `k1:v1` to the resource group with an ID of `rg-aekz6bre2uq****`.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -4233,9 +4493,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * This topic provides an example on how to call the API operation to add the tag `k1:v1` to the resource group with an ID of `rg-aekz6bre2uq****`.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -4245,10 +4507,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * This topic provides an example on how to call the API operation to remove the tag whose tag key is `k1` from the resource group whose ID is `rg-aek2dpwyrfr****`.
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -4285,9 +4549,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * This topic provides an example on how to call the API operation to remove the tag whose tag key is `k1` from the resource group whose ID is `rg-aek2dpwyrfr****`.
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -4297,10 +4563,15 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
+     *   * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](~~111233~~).
+     *   * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](~~209980~~).
+     *   * This example provides an example on how to call the API operation to change the display name of the member `12323344****` to `admin`.
+     *   *
+     * @param UpdateAccountRequest $request UpdateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAccountResponse
+     * @return UpdateAccountResponse UpdateAccountResponse
      */
     public function updateAccountWithOptions($request, $runtime)
     {
@@ -4334,9 +4605,14 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccountRequest $request
+     * *   To ensure that the system can record the operators of management operations, you must use a RAM user or RAM role to which the AliyunResourceDirectoryFullAccess policy is attached within the management account of your resource directory to call this operation.
+     *   * *   Before you switch the type of a member from resource account to cloud account, make sure that specific conditions are met. For more information about the conditions, see [Switch a resource account to a cloud account](~~111233~~).
+     *   * *   Before you switch the type of a member from cloud account to resource account, make sure that specific conditions are met. For more information about the conditions, see [Switch a cloud account to a resource account](~~209980~~).
+     *   * This example provides an example on how to call the API operation to change the display name of the member `12323344****` to `admin`.
+     *   *
+     * @param UpdateAccountRequest $request UpdateAccountRequest
      *
-     * @return UpdateAccountResponse
+     * @return UpdateAccountResponse UpdateAccountResponse
      */
     public function updateAccount($request)
     {
@@ -4346,10 +4622,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param UpdateControlPolicyRequest $request
-     * @param RuntimeOptions             $runtime
+     * In this example, the name of the access control policy whose ID is `cp-jExXAqIYkwHN****` is changed to `NewControlPolicy`.
+     *   *
+     * @param UpdateControlPolicyRequest $request UpdateControlPolicyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateControlPolicyResponse
+     * @return UpdateControlPolicyResponse UpdateControlPolicyResponse
      */
     public function updateControlPolicyWithOptions($request, $runtime)
     {
@@ -4386,9 +4664,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param UpdateControlPolicyRequest $request
+     * In this example, the name of the access control policy whose ID is `cp-jExXAqIYkwHN****` is changed to `NewControlPolicy`.
+     *   *
+     * @param UpdateControlPolicyRequest $request UpdateControlPolicyRequest
      *
-     * @return UpdateControlPolicyResponse
+     * @return UpdateControlPolicyResponse UpdateControlPolicyResponse
      */
     public function updateControlPolicy($request)
     {
@@ -4444,10 +4724,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param UpdateResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * In this example, the display name of the resource group `rg-9gLOoK****` is changed to `project`.
+     *   *
+     * @param UpdateResourceGroupRequest $request UpdateResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateResourceGroupResponse
+     * @return UpdateResourceGroupResponse UpdateResourceGroupResponse
      */
     public function updateResourceGroupWithOptions($request, $runtime)
     {
@@ -4478,9 +4760,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param UpdateResourceGroupRequest $request
+     * In this example, the display name of the resource group `rg-9gLOoK****` is changed to `project`.
+     *   *
+     * @param UpdateResourceGroupRequest $request UpdateResourceGroupRequest
      *
-     * @return UpdateResourceGroupResponse
+     * @return UpdateResourceGroupResponse UpdateResourceGroupResponse
      */
     public function updateResourceGroup($request)
     {
@@ -4490,10 +4774,12 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param UpdateRoleRequest $request
-     * @param RuntimeOptions    $runtime
+     * In this example, the description of the RAM role `ECSAdmin` is updated to `ECS administrator`.
+     *   *
+     * @param UpdateRoleRequest $request UpdateRoleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRoleResponse
+     * @return UpdateRoleResponse UpdateRoleResponse
      */
     public function updateRoleWithOptions($request, $runtime)
     {
@@ -4530,9 +4816,11 @@ class ResourceManager extends OpenApiClient
     }
 
     /**
-     * @param UpdateRoleRequest $request
+     * In this example, the description of the RAM role `ECSAdmin` is updated to `ECS administrator`.
+     *   *
+     * @param UpdateRoleRequest $request UpdateRoleRequest
      *
-     * @return UpdateRoleResponse
+     * @return UpdateRoleResponse UpdateRoleResponse
      */
     public function updateRole($request)
     {

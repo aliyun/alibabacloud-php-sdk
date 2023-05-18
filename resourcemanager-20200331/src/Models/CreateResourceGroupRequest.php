@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceGroupRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example my-project
      *
      * @var string
@@ -16,6 +18,9 @@ class CreateResourceGroupRequest extends Model
     public $displayName;
 
     /**
+     * @description The display name of the resource group.
+     *
+     * The name must be 1 to 50 characters in length.
      * @example my-project
      *
      * @var string

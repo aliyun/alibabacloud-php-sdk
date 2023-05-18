@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class resourceGroup extends Model
 {
     /**
+     * @description The unique identifier of the resource group.
+     *
      * @example 151266687691****
      *
      * @var string
@@ -17,6 +19,8 @@ class resourceGroup extends Model
     public $accountId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example 2021-06-05T14:39:13+08:00
      *
      * @var string
@@ -24,6 +28,11 @@ class resourceGroup extends Model
     public $createDate;
 
     /**
+     * @description The status of the resource group. Valid values:
+     *
+     *   Creating: The resource group is being created.
+     *   OK: The resource group is created.
+     *
      * @example my-project
      *
      * @var string
@@ -38,6 +47,8 @@ class resourceGroup extends Model
     public $id;
 
     /**
+     * @description The time when the resource group was created. The time is displayed in UTC.
+     *
      * @example my-project
      *
      * @var string
@@ -45,11 +56,18 @@ class resourceGroup extends Model
     public $name;
 
     /**
+     * @description The status of the resource group. Valid values:
+     *
+     *   Creating: The resource group is being created.
+     *   OK: The resource group is created.
+     *
      * @var regionStatuses
      */
     public $regionStatuses;
 
     /**
+     * @description The status of the resource group in all regions.
+     *
      * @example Creating
      *
      * @var string

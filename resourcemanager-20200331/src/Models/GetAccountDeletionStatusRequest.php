@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAccountDeletionStatusRequest extends Model
 {
     /**
+     * @example 169946124551****
+     *
      * @var string
      */
     public $accountId;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetServiceLinkedRoleDeletionStatusResponseBody extends Model
 {
     /**
+     * @description The reason why the deletion task failed.
+     *
      * @var reason
      */
     public $reason;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 07194EB1-DB50-4513-A51D-99B30D635AEF
      *
      * @var string
@@ -22,6 +26,9 @@ class GetServiceLinkedRoleDeletionStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the task.
+     *
+     * - INTERNAL_ERROR
      * @example FAILED
      *
      * @var string

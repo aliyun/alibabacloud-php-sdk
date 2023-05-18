@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class account extends Model
 {
     /**
+     * @description The ID of the account.
+     *
      * @example 12323344****
      *
      * @var string
@@ -16,6 +18,8 @@ class account extends Model
     public $accountId;
 
     /**
+     * @description The name of the account.
+     *
      * @example someone@example.com
      *
      * @var string
@@ -23,6 +27,8 @@ class account extends Model
     public $accountName;
 
     /**
+     * @description The display name of the member account.
+     *
      * @example admin
      *
      * @var string
@@ -30,6 +36,8 @@ class account extends Model
     public $displayName;
 
     /**
+     * @description The ID of the folder.
+     *
      * @example fd-bVaRIG****
      *
      * @var string
@@ -37,6 +45,11 @@ class account extends Model
     public $folderId;
 
     /**
+     * @description The way in which the member account joined the resource directory. Valid values:
+     *
+     *   invited: The member account is invited to join the resource directory.
+     *   created: The member account is directly created in the resource directory.
+     *
      * @example created
      *
      * @var string
@@ -44,6 +57,8 @@ class account extends Model
     public $joinMethod;
 
     /**
+     * @description The time when the member account joined the resource directory.
+     *
      * @example 2015-01-23T12:33:18Z
      *
      * @var string
@@ -51,6 +66,8 @@ class account extends Model
     public $joinTime;
 
     /**
+     * @description The time when the member account was modified.
+     *
      * @example 2015-01-23T12:33:18Z
      *
      * @var string
@@ -58,6 +75,8 @@ class account extends Model
     public $modifyTime;
 
     /**
+     * @description The account record ID.
+     *
      * @example 16950264-3f0d-4ca9-82dd-6ee7a3d33d6b
      *
      * @var string
@@ -65,6 +84,8 @@ class account extends Model
     public $recordId;
 
     /**
+     * @description The ID of the resource directory.
+     *
      * @example rd-k3****
      *
      * @var string
@@ -72,6 +93,21 @@ class account extends Model
     public $resourceDirectoryId;
 
     /**
+     * @description The status of the member account. Valid values:
+     *
+     *   CreateSuccess: The member account is created.
+     *   CreateVerifying: The creation of the member account is under confirmation.
+     *   CreateFailed: The member account failed to be created.
+     *   CreateExpired: The creation of the member account expired.
+     *   CreateCancelled: The creation of the member account is canceled.
+     *   PromoteVerifying: The upgrade of the member account is under confirmation.
+     *   PromoteFailed: The member account failed to be upgraded.
+     *   PromoteExpired: The upgrade of the member account expired.
+     *   PromoteCancelled: The upgrade of the member account is canceled.
+     *   PromoteSuccess: The member account is upgraded.
+     *   InviteSuccess: The owner of the member account accepted the invitation.
+     *   Removed: The member account is removed from the resource directory.
+     *
      * @example PromoteVerifying
      *
      * @var string
@@ -79,6 +115,11 @@ class account extends Model
     public $status;
 
     /**
+     * @description The type of the member account. Valid values:
+     *
+     *   CloudAccount: cloud account
+     *   ResourceAccount: resource account
+     *
      * @example ResourceAccount
      *
      * @var string

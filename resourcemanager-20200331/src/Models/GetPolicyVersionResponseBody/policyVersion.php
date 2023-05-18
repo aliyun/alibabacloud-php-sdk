@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class policyVersion extends Model
 {
     /**
+     * @description The time when the policy version was created.
+     *
      * @example 2015-01-23T12:33:18Z
      *
      * @var string
@@ -16,6 +18,8 @@ class policyVersion extends Model
     public $createDate;
 
     /**
+     * @description Indicates whether the policy version is the default version.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class policyVersion extends Model
     public $isDefaultVersion;
 
     /**
+     * @description The document of the policy.
+     *
      * @example { \"Statement\": [{ \"Action\": [\"oss:*\"], \"Effect\": \"Allow\", \"Resource\": [\"acs:oss:*:*:*\"]}], \"Version\": \"1\"}
      *
      * @var string
@@ -30,6 +36,8 @@ class policyVersion extends Model
     public $policyDocument;
 
     /**
+     * @description The ID of the policy version.
+     *
      * @example v3
      *
      * @var string
