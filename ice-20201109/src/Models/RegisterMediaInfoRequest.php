@@ -77,8 +77,6 @@ class RegisterMediaInfoRequest extends Model
     public $referenceId;
 
     /**
-     * @example {"NeedSprite": "false"}
-     *
      * @var string
      */
     public $registerConfig;
@@ -91,8 +89,6 @@ class RegisterMediaInfoRequest extends Model
     public $title;
 
     /**
-     * @example userData
-     *
      * @var string
      */
     public $userData;

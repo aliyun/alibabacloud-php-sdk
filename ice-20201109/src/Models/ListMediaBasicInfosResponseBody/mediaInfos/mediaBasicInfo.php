@@ -96,6 +96,8 @@ class mediaBasicInfo extends Model
     public $modifiedTime;
 
     /**
+     * @example 123-123
+     *
      * @var string
      */
     public $referenceId;

@@ -14,21 +14,29 @@ class aiRoughData extends Model
     public $aiCategory;
 
     /**
+     * @example ****483915d4f2cd8ac20b48fb04****
+     *
      * @var string
      */
     public $aiJobId;
 
     /**
+     * @example https://sample-bucket.cn-shanghai.aliyuncs.com/result.json
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @example TEXT
+     *
      * @var string
      */
     public $saveType;
 
     /**
+     * @example Analyzing
+     *
      * @var string
      */
     public $status;

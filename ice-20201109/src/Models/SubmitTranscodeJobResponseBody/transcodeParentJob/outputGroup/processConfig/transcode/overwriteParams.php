@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobResponseBody\t
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobResponseBody\transcodeParentJob\outputGroup\processConfig\transcode\overwriteParams\audio;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobResponseBody\transcodeParentJob\outputGroup\processConfig\transcode\overwriteParams\container;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobResponseBody\transcodeParentJob\outputGroup\processConfig\transcode\overwriteParams\muxConfig;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobResponseBody\transcodeParentJob\outputGroup\processConfig\transcode\overwriteParams\transConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobResponseBody\transcodeParentJob\outputGroup\processConfig\transcode\overwriteParams\video;
 use AlibabaCloud\Tea\Model;
 
@@ -28,14 +29,20 @@ class overwriteParams extends Model
     public $muxConfig;
 
     /**
+     * @var transConfig
+     */
+    public $transConfig;
+
+    /**
      * @var video
      */
     public $video;
     protected $_name = [
-        'audio'     => 'Audio',
-        'container' => 'Container',
-        'muxConfig' => 'MuxConfig',
-        'video'     => 'Video',
+        'audio'       => 'Audio',
+        'container'   => 'Container',
+        'muxConfig'   => 'MuxConfig',
+        'transConfig' => 'TransConfig',
+        'video'       => 'Video',
     ];
 
     public function validate()
@@ -53,6 +60,9 @@ class overwriteParams extends Model
         }
         if (null !== $this->muxConfig) {
             $res['MuxConfig'] = null !== $this->muxConfig ? $this->muxConfig->toMap() : null;
+        }
+        if (null !== $this->transConfig) {
+            $res['TransConfig'] = null !== $this->transConfig ? $this->transConfig->toMap() : null;
         }
         if (null !== $this->video) {
             $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
@@ -77,6 +87,9 @@ class overwriteParams extends Model
         }
         if (isset($map['MuxConfig'])) {
             $model->muxConfig = muxConfig::fromMap($map['MuxConfig']);
+        }
+        if (isset($map['TransConfig'])) {
+            $model->transConfig = transConfig::fromMap($map['TransConfig']);
         }
         if (isset($map['Video'])) {
             $model->video = video::fromMap($map['Video']);

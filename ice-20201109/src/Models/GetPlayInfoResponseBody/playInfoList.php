@@ -93,6 +93,8 @@ class playInfoList extends Model
     public $height;
 
     /**
+     * @example 36c9d38e70bf43ed9f7f8f48d6356***
+     *
      * @var string
      */
     public $jobId;
@@ -133,6 +135,8 @@ class playInfoList extends Model
     public $status;
 
     /**
+     * @example "{\"ims.audioServiceType\": \"AudioEnhancement\"}"
+     *
      * @var string
      */
     public $streamTags;

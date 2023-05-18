@@ -51,7 +51,7 @@ class template extends Model
     public $previewMedia;
 
     /**
-     * @example Normal
+     * @example Available
      *
      * @var string
      */

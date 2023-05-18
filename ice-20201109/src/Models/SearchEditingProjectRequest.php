@@ -23,11 +23,15 @@ class SearchEditingProjectRequest extends Model
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

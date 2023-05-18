@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\tran
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\transcode\overwriteParams\audio;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\transcode\overwriteParams\container;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\transcode\overwriteParams\muxConfig;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\transcode\overwriteParams\transConfig;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetTranscodeJobResponseBody\transcodeParentJob\transcodeJobList\processConfig\transcode\overwriteParams\video;
 use AlibabaCloud\Tea\Model;
 
@@ -33,15 +34,21 @@ class overwriteParams extends Model
     public $tags;
 
     /**
+     * @var transConfig
+     */
+    public $transConfig;
+
+    /**
      * @var video
      */
     public $video;
     protected $_name = [
-        'audio'     => 'Audio',
-        'container' => 'Container',
-        'muxConfig' => 'MuxConfig',
-        'tags'      => 'Tags',
-        'video'     => 'Video',
+        'audio'       => 'Audio',
+        'container'   => 'Container',
+        'muxConfig'   => 'MuxConfig',
+        'tags'        => 'Tags',
+        'transConfig' => 'TransConfig',
+        'video'       => 'Video',
     ];
 
     public function validate()
@@ -62,6 +69,9 @@ class overwriteParams extends Model
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
+        }
+        if (null !== $this->transConfig) {
+            $res['TransConfig'] = null !== $this->transConfig ? $this->transConfig->toMap() : null;
         }
         if (null !== $this->video) {
             $res['Video'] = null !== $this->video ? $this->video->toMap() : null;
@@ -89,6 +99,9 @@ class overwriteParams extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];
+        }
+        if (isset($map['TransConfig'])) {
+            $model->transConfig = transConfig::fromMap($map['TransConfig']);
         }
         if (isset($map['Video'])) {
             $model->video = video::fromMap($map['Video']);

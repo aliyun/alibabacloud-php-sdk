@@ -51,7 +51,7 @@ class AddTemplateRequest extends Model
     public $source;
 
     /**
-     * @example Normal
+     * @example Available
      *
      * @var string
      */
