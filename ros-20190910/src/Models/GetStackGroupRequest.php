@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetStackGroupRequest extends Model
 {
     /**
-     * @description The ID of the stack group.
+     * @description The name of the stack group. The name must be unique within a region.
      *
      * >  You must specify one of the StackGroupName and StackGroupId parameters.
      * @example cn-hangzhou
@@ -19,7 +19,7 @@ class GetStackGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The details of the stack group.
+     * @description The ID of the request.
      *
      * @example fd0ddef9-9540-4b42-a464-94f77835****
      *
@@ -28,8 +28,9 @@ class GetStackGroupRequest extends Model
     public $stackGroupId;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the stack group.
      *
+     * >  You must specify one of the StackGroupName and StackGroupId parameters.
      * @example MyStackGroup
      *
      * @var string

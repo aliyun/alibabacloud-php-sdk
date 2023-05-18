@@ -43,6 +43,11 @@ class GetTemplateEstimateCostRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $stackId;
+
+    /**
      * @description The version of the template. This parameter takes effect only when the TemplateId parameter is specified.
      *
      * @example The parameters.
@@ -103,6 +108,7 @@ class GetTemplateEstimateCostRequest extends Model
         'clientToken'             => 'ClientToken',
         'parameters'              => 'Parameters',
         'regionId'                => 'RegionId',
+        'stackId'                 => 'StackId',
         'templateBody'            => 'TemplateBody',
         'templateId'              => 'TemplateId',
         'templateScratchId'       => 'TemplateScratchId',
@@ -132,6 +138,9 @@ class GetTemplateEstimateCostRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->stackId) {
+            $res['StackId'] = $this->stackId;
         }
         if (null !== $this->templateBody) {
             $res['TemplateBody'] = $this->templateBody;
@@ -177,6 +186,9 @@ class GetTemplateEstimateCostRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StackId'])) {
+            $model->stackId = $map['StackId'];
         }
         if (isset($map['TemplateBody'])) {
             $model->templateBody = $map['TemplateBody'];

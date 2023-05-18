@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class autoDeployment extends Model
 {
     /**
-     * @description The folder IDs of the resource directory. This parameter is used to deploy stack instances within all the accounts in the folders.
+     * @description Indicates whether stacks in the member account are retained when the member account is deleted from the folder.
      *
-     * >  This parameter is returned only when the PermissionModel parameter is set to SERVICE_MANAGED.
+     * Valid values:
+     *
+     *   true: The stacks are retained.
+     *   false: The stacks are deleted.
+     *
+     * >  This parameter is returned only when the Enabled parameter is set to true.
      * @example true
      *
      * @var bool

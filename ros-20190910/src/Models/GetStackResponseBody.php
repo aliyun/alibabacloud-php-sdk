@@ -97,6 +97,11 @@ class GetStackResponseBody extends Model
     public $operationInfo;
 
     /**
+     * @var string[]
+     */
+    public $orderIds;
+
+    /**
      * @description The output parameters of the stack.
      *
      * >  This parameter is returned if the OutputOption parameter is set to Enabled.
@@ -366,6 +371,7 @@ class GetStackResponseBody extends Model
         'log'                 => 'Log',
         'notificationURLs'    => 'NotificationURLs',
         'operationInfo'       => 'OperationInfo',
+        'orderIds'            => 'OrderIds',
         'outputs'             => 'Outputs',
         'parameters'          => 'Parameters',
         'parentStackId'       => 'ParentStackId',
@@ -426,6 +432,9 @@ class GetStackResponseBody extends Model
         }
         if (null !== $this->operationInfo) {
             $res['OperationInfo'] = null !== $this->operationInfo ? $this->operationInfo->toMap() : null;
+        }
+        if (null !== $this->orderIds) {
+            $res['OrderIds'] = $this->orderIds;
         }
         if (null !== $this->outputs) {
             $res['Outputs'] = $this->outputs;
@@ -554,6 +563,11 @@ class GetStackResponseBody extends Model
         }
         if (isset($map['OperationInfo'])) {
             $model->operationInfo = operationInfo::fromMap($map['OperationInfo']);
+        }
+        if (isset($map['OrderIds'])) {
+            if (!empty($map['OrderIds'])) {
+                $model->orderIds = $map['OrderIds'];
+            }
         }
         if (isset($map['Outputs'])) {
             if (!empty($map['Outputs'])) {

@@ -9,8 +9,14 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
-     * @description The folders in which you want to use service-managed permissions to update stacks.
+     * @description Specifies whether to retain stacks in a member when you remove the member from the folder.
      *
+     * Valid values:
+     *
+     *   true: retains the stacks.
+     *   false: deletes the stacks.
+     *
+     * >  This parameter is required if the Enabled parameter is set to true.
      * @example Amount
      *
      * @var string
@@ -18,15 +24,8 @@ class parameters extends Model
     public $parameterKey;
 
     /**
-     * @description The folder IDs in the resource directory. You can specify a maximum of five folder IDs.
+     * @description The folders in which you want to use service-managed permissions to update stacks.
      *
-     * You must set at least one of the RdFolderIds and AccountIds parameters. The parameters are subject to the following items:
-     *
-     *   If you set only the RdFolderIds parameter, stacks are deployed within all the members in the specified folders. If you specify the Root folder, ROS deploys the stacks within all the members in the resource directory.
-     *   If you set only the AccountIds parameter, stacks are deployed within the specified members.
-     *   If you set both parameters, the accounts specified by AccountIds must be contained in the folders specified by RdFolderIds.
-     *
-     * >  To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information of a folder](~~111223~~).
      * @example 1
      *
      * @var string

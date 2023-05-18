@@ -9,13 +9,35 @@ use AlibabaCloud\Tea\Model;
 class GetStackResourceRequest extends Model
 {
     /**
-     * @description The logical ID of the resource defined in the template.
+     * @description Specifies whether to query the resource properties. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
      */
     public $clientToken;
+
+    /**
+     * @description The name of resource property N that you want to query.
+     *
+     * >  Maximum value of N: 20.
+     * @example WebServer
+     *
+     * @var string
+     */
+    public $logicalResourceId;
+
+    /**
+     * @description The logical ID of the resource defined in the template.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @description The status of the resource. Valid values:
@@ -35,24 +57,6 @@ class GetStackResourceRequest extends Model
      *   IMPORT_FAILED
      *   IMPORT_COMPLETE
      *
-     * @example WebServer
-     *
-     * @var string
-     */
-    public $logicalResourceId;
-
-    /**
-     * @description The name of resource property N that you want to query.
-     *
-     * @example cn-hangzhou
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @description The description of the resource.
-     *
      * @var string[]
      */
     public $resourceAttributes;
@@ -60,7 +64,6 @@ class GetStackResourceRequest extends Model
     /**
      * @description The name of resource property N that you want to query.
      *
-     * >  Maximum value of N: 20.
      * @example true
      *
      * @var bool
@@ -68,10 +71,7 @@ class GetStackResourceRequest extends Model
     public $showResourceAttributes;
 
     /**
-     * @description Specifies whether to query the resource properties. Valid values:
-     *
-     *   true
-     *   false
+     * @description The ID of the region to which the stack belongs. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *

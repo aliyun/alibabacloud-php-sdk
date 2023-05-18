@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description The name of the stack.
+     *
+     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
      * @example 2019-08-01T06:01:23
      *
      * @var string
@@ -17,12 +20,7 @@ class resources extends Model
     public $createTime;
 
     /**
-     * @description The drift status of the resource in the most recent successful drift detection. Valid values:
-     *
-     *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
-     *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
-     *   NOT_CHECKED: ROS did not check whether the actual configuration of the resource differs from its expected template configuration.
-     *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
+     * @description The type of the resource.
      *
      * @example 2020-02-27T07:47:47
      *
@@ -31,7 +29,7 @@ class resources extends Model
     public $driftDetectionTime;
 
     /**
-     * @description The ID of the stack.
+     * @description The time when the resource was updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      *
      * @example dummy
      *
@@ -45,7 +43,7 @@ class resources extends Model
     public $moduleInfo;
 
     /**
-     * @description The type of the resource.
+     * @description The most recent point in time when a successful drift detection operation was performed.
      *
      * @example d04af923-e6b7-4272-aeaa-47ec9777****
      *
@@ -54,7 +52,7 @@ class resources extends Model
     public $physicalResourceId;
 
     /**
-     * @description The time when the resource was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     * @description The reason why the resource is in a specific state.
      *
      * @example IN_SYNC
      *
@@ -63,7 +61,12 @@ class resources extends Model
     public $resourceDriftStatus;
 
     /**
-     * @description The reason why the resource is in a specific state.
+     * @description The drift status of the resource in the most recent successful drift detection. Valid values:
+     *
+     *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
+     *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
+     *   NOT_CHECKED: ROS did not check whether the actual configuration of the resource differs from its expected template configuration.
+     *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
      *
      * @example ALIYUN::ROS::Stack
      *
@@ -72,7 +75,7 @@ class resources extends Model
     public $resourceType;
 
     /**
-     * @description The most recent point in time when a successful drift detection operation was performed.
+     * @description The physical ID of the resource.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
@@ -88,7 +91,7 @@ class resources extends Model
     public $stackName;
 
     /**
-     * @description The time when the resource was updated. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
+     * @description The logical ID of the resource. The logical ID is the resource name that is defined in the template.
      *
      * @example UPDATE_COMPLETE
      *
@@ -97,9 +100,8 @@ class resources extends Model
     public $status;
 
     /**
-     * @description The name of the stack.
+     * @description The time when the resource was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      *
-     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
      * @example state changed
      *
      * @var string
@@ -107,7 +109,7 @@ class resources extends Model
     public $statusReason;
 
     /**
-     * @description The physical ID of the resource.
+     * @description The ID of the stack.
      *
      * @example 2019-08-01T06:01:29
      *

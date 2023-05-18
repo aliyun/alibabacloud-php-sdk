@@ -18,7 +18,7 @@ class resourceDrifts extends Model
     public $actualProperties;
 
     /**
-     * @description The actual resource properties in JSON format.
+     * @description The expected value of the resource property as defined in the template.
      *
      * @example 2020-02-27T07:47:47
      *
@@ -27,7 +27,7 @@ class resourceDrifts extends Model
     public $driftDetectionTime;
 
     /**
-     * @description The ID of the request.
+     * @description The query token value returned in this call.
      *
      * @example {"ScalingRuleName": "test2"}
      *
@@ -36,11 +36,7 @@ class resourceDrifts extends Model
     public $expectedProperties;
 
     /**
-     * @description The drift type of the resource property. Valid values:
-     *
-     *   ADD: The value has been added to a resource property whose data type was Array or List.
-     *   REMOVE: The property has been deleted from the current resource configuration.
-     *   NOT_EQUAL: The current property value differs from the expected value defined in the stack template.
+     * @description The actual value of the resource property.
      *
      * @example ScalingRule
      *
@@ -54,7 +50,7 @@ class resourceDrifts extends Model
     public $moduleInfo;
 
     /**
-     * @description The expected value of the resource property as defined in the template.
+     * @description The path of the resource property.
      *
      * @example asr-2ze4zzc3kf9yz1kd****
      *
@@ -63,14 +59,14 @@ class resourceDrifts extends Model
     public $physicalResourceId;
 
     /**
-     * @description __null__
+     * @description http://ros.aliyun-inc.com:8080/V2/ListStackResourceDrifts
      *
      * @var propertyDifferences[]
      */
     public $propertyDifferences;
 
     /**
-     * @description http://ros.aliyun-inc.com:8080/V2/ListStackResourceDrifts
+     * @description The ID of the request.
      *
      * @example MODIFIED
      *
@@ -79,7 +75,7 @@ class resourceDrifts extends Model
     public $resourceDriftStatus;
 
     /**
-     * @description The query token value returned in this call.
+     * @description The actual resource properties in JSON format.
      *
      * @example ALIYUN::ESS::ScalingRule
      *
@@ -88,7 +84,11 @@ class resourceDrifts extends Model
     public $resourceType;
 
     /**
-     * @description The path of the resource property.
+     * @description The drift type of the resource property. Valid values:
+     *
+     *   ADD: The value has been added to a resource property whose data type was Array or List.
+     *   REMOVE: The property has been deleted from the current resource configuration.
+     *   NOT_EQUAL: The current property value differs from the expected value defined in the stack template.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *

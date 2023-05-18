@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetStackResourceResponseBody extends Model
 {
     /**
-     * @description The list of the resource properties.
+     * @description The resource type.
      *
      * @example 2019-08-01T06:01:23
      *
@@ -19,7 +19,7 @@ class GetStackResourceResponseBody extends Model
     public $createTime;
 
     /**
-     * @description The physical ID of the resource.
+     * @description The reason why the resource is in its current state.
      *
      * @example no description
      *
@@ -28,6 +28,8 @@ class GetStackResourceResponseBody extends Model
     public $description;
 
     /**
+     * @description The ID of the stack.
+     *
      * @example 2020-02-27T07:47:47
      *
      * @var string
@@ -35,8 +37,9 @@ class GetStackResourceResponseBody extends Model
     public $driftDetectionTime;
 
     /**
-     * @description The time when the last successful drift detection was performed on the stack.
+     * @description The time when the resource was updated.
      *
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      * @example WebServer
      *
      * @var string
@@ -44,7 +47,7 @@ class GetStackResourceResponseBody extends Model
     public $logicalResourceId;
 
     /**
-     * @description The logical ID of the resource defined in the template.
+     * @description The list of the resource properties.
      *
      * @example {"key": "value"}
      *
@@ -58,7 +61,7 @@ class GetStackResourceResponseBody extends Model
     public $moduleInfo;
 
     /**
-     * @description The resource type.
+     * @description The metadata.
      *
      * @example d04af923-e6b7-4272-aeaa-47ec9777****
      *
@@ -67,32 +70,13 @@ class GetStackResourceResponseBody extends Model
     public $physicalResourceId;
 
     /**
-     * @description The time when the resource was created.
+     * @description The physical ID of the resource.
      *
-     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
      *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description The time when the resource was updated.
-     *
-     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
-     * @var mixed[][]
-     */
-    public $resourceAttributes;
-
-    /**
-     * @description The name of the stack.
-     *
-     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
-     * @example IN_SYNC
-     *
-     * @var string
-     */
-    public $resourceDriftStatus;
 
     /**
      * @description The status of the resource in the last successful drift detection. Valid values:
@@ -101,6 +85,22 @@ class GetStackResourceResponseBody extends Model
      *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
      *   NOT_CHECKED: ROS has not checked whether the actual configuration of the resource differs from its expected template configuration.
      *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
+     *
+     * @var mixed[][]
+     */
+    public $resourceAttributes;
+
+    /**
+     * @description The time when the last successful drift detection was performed on the stack.
+     *
+     * @example IN_SYNC
+     *
+     * @var string
+     */
+    public $resourceDriftStatus;
+
+    /**
+     * @description The logical ID of the resource defined in the template.
      *
      * @example ALIYUN::ROS::WaitConditionHandle
      *
@@ -123,7 +123,7 @@ class GetStackResourceResponseBody extends Model
     public $stackName;
 
     /**
-     * @description The reason why the resource is in its current state.
+     * @description The ID of the request.
      *
      * @example CREATE_COMPLETE
      *
@@ -132,8 +132,9 @@ class GetStackResourceResponseBody extends Model
     public $status;
 
     /**
-     * @description The metadata.
+     * @description The time when the resource was created.
      *
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      * @example state changed
      *
      * @var string
@@ -141,8 +142,9 @@ class GetStackResourceResponseBody extends Model
     public $statusReason;
 
     /**
-     * @description The ID of the stack.
+     * @description The name of the stack.
      *
+     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
      * @example 2019-08-01T06:01:29
      *
      * @var string

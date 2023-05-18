@@ -9,46 +9,13 @@ use AlibabaCloud\Tea\Model;
 class stackGroupDriftDetectionDetail extends Model
 {
     /**
-     * @description The ID of the resource group. This parameter is specified when you create the stack group.
+     * @description The number of stack instances that have drifted.
      *
      * @example 0
      *
      * @var int
      */
     public $cancelledStackInstancesCount;
-
-    /**
-     * @description The number of stack instances on which drift detection was being performed.
-     *
-     * @example COMPLETED
-     *
-     * @var string
-     */
-    public $driftDetectionStatus;
-
-    /**
-     * @description The number of stack instances that failed drift detection.
-     *
-     * @example 2020-02-27T07:47:47
-     *
-     * @var string
-     */
-    public $driftDetectionTime;
-
-    /**
-     * @description The permission model.
-     *
-     * Valid values:
-     *
-     *   SELF_MANAGED: the self-managed permission model
-     *   SERVICE_MANAGED: the service-managed permission model
-     *
-     * >  For more information about the permission models of stack groups, see [Overview](~~154578~~).
-     * @example 1
-     *
-     * @var int
-     */
-    public $driftedStackInstancesCount;
 
     /**
      * @description The drift status of the stack group.
@@ -59,38 +26,29 @@ class stackGroupDriftDetectionDetail extends Model
      *   NOT_CHECKED: No drift detection is completed on the stack group.
      *   IN_SYNC: All the stack instances in the stack group are being synchronized.
      *
-     * @example 0
+     * @example COMPLETED
      *
-     * @var int
+     * @var string
      */
-    public $failedStackInstancesCount;
+    public $driftDetectionStatus;
 
     /**
-     * @description The number of stack instances for which drift detection was canceled.
+     * @description The number of stack instances.
      *
-     * @example 0
+     * @example 2020-02-27T07:47:47
      *
-     * @var int
+     * @var string
      */
-    public $inProgressStackInstancesCount;
+    public $driftDetectionTime;
 
     /**
-     * @description The number of stack instances that have drifted.
+     * @description The ID of the resource group. This parameter is specified when you create the stack group.
      *
      * @example 1
      *
      * @var int
      */
-    public $inSyncStackInstancesCount;
-
-    /**
-     * @description The number of stack instances that were being synchronized.
-     *
-     * @example DRIFTED
-     *
-     * @var string
-     */
-    public $stackGroupDriftStatus;
+    public $driftedStackInstancesCount;
 
     /**
      * @description The status of drift detection on the stack group.
@@ -102,6 +60,42 @@ class stackGroupDriftDetectionDetail extends Model
      *   PARTIAL_SUCCESS: Drift detection is performed. The number of stack instances that failed the drift detection does not exceed the specified threshold.
      *   IN_PROGRESS: Drift detection is being performed on the stack group.
      *   STOPPED: Drift detection is canceled for the stack group.
+     *
+     * @example 0
+     *
+     * @var int
+     */
+    public $failedStackInstancesCount;
+
+    /**
+     * @description The number of stack instances that were being synchronized.
+     *
+     * @example 0
+     *
+     * @var int
+     */
+    public $inProgressStackInstancesCount;
+
+    /**
+     * @description The number of stack instances for which drift detection was canceled.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $inSyncStackInstancesCount;
+
+    /**
+     * @description The number of stack instances on which drift detection was being performed.
+     *
+     * @example DRIFTED
+     *
+     * @var string
+     */
+    public $stackGroupDriftStatus;
+
+    /**
+     * @description The number of stack instances that failed drift detection.
      *
      * @example 2
      *

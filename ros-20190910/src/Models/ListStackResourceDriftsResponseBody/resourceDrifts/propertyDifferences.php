@@ -27,6 +27,8 @@ class propertyDifferences extends Model
     public $differenceType;
 
     /**
+     * @description ListStackResourceDrifts
+     *
      * @example test2
      *
      * @var string
@@ -34,7 +36,7 @@ class propertyDifferences extends Model
     public $expectedValue;
 
     /**
-     * @description ListStackResourceDrifts
+     * @description __null__
      *
      * @example /ScalingRuleName
      *

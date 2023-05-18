@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetStackGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the stack group.
+     * @description The details of the stack group.
      *
      * @example 14A07460-EBE7-47CA-9757-12CC4761D47A
      *
@@ -19,12 +19,7 @@ class GetStackGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the stack group.
-     *
-     * Valid values:
-     *
-     *   ACTIVE
-     *   DELETED
+     * @description The ID of the stack group.
      *
      * @var stackGroup
      */

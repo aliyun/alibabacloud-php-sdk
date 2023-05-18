@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTypeRequest extends Model
 {
     /**
-     * @description The attributes of the resource.
+     * @description The ID of the request.
      *
      * @example ALIYUN::ROS::WaitConditionHandle
      *

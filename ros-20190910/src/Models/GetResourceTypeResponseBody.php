@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTypeResponseBody extends Model
 {
     /**
-     * @description The properties of the resource.
+     * @description The type of the resource.
      *
      * @var mixed[]
      */
@@ -58,10 +58,10 @@ class GetResourceTypeResponseBody extends Model
     public $latestVersionId;
 
     /**
-     * @description Indicates whether the resource supports scratch detection. Default value: false. Valid values:
+     * @description Indicates whether the resource supports drift detection. Default value: false. Valid values:
      *
-     *   true: Scratch detection is supported.
-     *   false: Scratch detection is not supported.
+     *   true: Drift detection is supported.
+     *   false: Drift detection is not supported.
      *
      * @var mixed[]
      */
@@ -75,7 +75,7 @@ class GetResourceTypeResponseBody extends Model
     public $provider;
 
     /**
-     * @description The type of the resource.
+     * @description The attributes of the resource.
      *
      * @example A28FBA2E-B6B3-5822-AA45-AB875EF23641
      *
@@ -84,10 +84,7 @@ class GetResourceTypeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the resource supports drift detection. Default value: false. Valid values:
-     *
-     *   true: Drift detection is supported.
-     *   false: Drift detection is not supported.
+     * @description The properties of the resource.
      *
      * @example ALIYUN::ROS::WaitConditionHandle
      *
@@ -96,10 +93,10 @@ class GetResourceTypeResponseBody extends Model
     public $resourceType;
 
     /**
-     * @description The entity type. Valid values:
+     * @description Indicates whether the resource supports scratch detection. Default value: false. Valid values:
      *
-     *   Resource: resources other than DataSource resources. For more information, see [Resources](~~28863~~).
-     *   DataSource: DataSource resources.
+     *   true: Scratch detection is supported.
+     *   false: Scratch detection is not supported.
      *
      * @example false
      *
@@ -108,6 +105,11 @@ class GetResourceTypeResponseBody extends Model
     public $supportDriftDetection;
 
     /**
+     * @description The entity type. Valid values:
+     *
+     *   Resource: resources other than DataSource resources. For more information, see [Resources](~~28863~~).
+     *   DataSource: DataSource resources.
+     *
      * @example false
      *
      * @var bool

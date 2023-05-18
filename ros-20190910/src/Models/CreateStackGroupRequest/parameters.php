@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
+     * @description The ID of the resource group. If you do not specify this parameter, the stack group is added to the default resource group.
+     *
+     * For more information about resource groups, see the "Resource Group" section of the [What is Resource Management?](~~94475~~) topic.
+     * @example Amount
+     *
+     * @var string
+     */
+    public $parameterKey;
+
+    /**
      * @description The permission model.
      *
      * Default value: SELF_MANAGED. Valid values:
@@ -17,15 +27,6 @@ class parameters extends Model
      *   SERVICE_MANAGED: the service-managed permission model. If you create a service-managed stack group, ROS creates service-linked roles for the administrator and execution accounts, and the administrator account uses its role to deploy stacks within the execution account.
      *
      * >  When you use the service-managed permission model to deploy stacks, make sure that your account is the management account or a delegated administrator account in the resource directory and the trusted access feature is enabled for your account. For more information, see [Step 1: (Optional) Create a delegated administrator account](~~308253~~) and [Step 2: Enable trusted access](~~298229~~).
-     * @example Amount
-     *
-     * @var string
-     */
-    public $parameterKey;
-
-    /**
-     * @description The tags.
-     *
      * @example 12
      *
      * @var string

@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class CreateStackGroupShrinkRequest extends Model
 {
     /**
-     * @description The version of the template. If you do not specify this parameter, the latest version is used.
+     * @description The ID of the template. This parameter applies to shared and private templates.
      *
-     * >  This parameter takes effect only when the TemplateId parameter is specified.
+     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
      * @example AliyunROSStackGroupAdministrationRole
      *
      * @var string
@@ -21,8 +21,14 @@ class CreateStackGroupShrinkRequest extends Model
     public $administrationRoleName;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to retain stacks within a member when you remove the member from the folder.
      *
+     * Valid values:
+     *
+     *   true: retains the stacks.
+     *   false: deletes the stacks.
+     *
+     * >  This parameter is required if the Enabled parameter is set to true.
      * @example {"Enabled": true, "RetainStacksOnAccountRemoval": true}
      *
      * @var string
@@ -35,9 +41,9 @@ class CreateStackGroupShrinkRequest extends Model
     public $capabilities;
 
     /**
-     * @description The ID of the template. This parameter applies to shared and private templates.
+     * @description The name of the RAM role that you specify for the execution account when you create a self-managed stack group. The administrator role AliyunROSStackGroupAdministrationRole assumes the execution role to perform operations. If you do not specify this parameter, the default value AliyunROSStackGroupExecutionRole is used. ROS assumes the execution role to perform operations on the stacks in the stack group.
      *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
+     * The name must be 1 to 64 characters in length, and can contain letters, digits, and hyphens (-).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -45,9 +51,9 @@ class CreateStackGroupShrinkRequest extends Model
     public $clientToken;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.
+     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body must be 1 to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of the RegionId parameter is used.
      *
-     * For more information, see [Ensure idempotence](~~134212~~).
+     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
      * @example StackGroup Description
      *
      * @var string
@@ -55,8 +61,9 @@ class CreateStackGroupShrinkRequest extends Model
     public $description;
 
     /**
-     * @description The parameters.
+     * @description The version of the template. If you do not specify this parameter, the latest version is used.
      *
+     * >  This parameter takes effect only when the TemplateId parameter is specified.
      * @example AliyunROSStackGroupExecutionRole
      *
      * @var string
@@ -64,16 +71,17 @@ class CreateStackGroupShrinkRequest extends Model
     public $executionRoleName;
 
     /**
-     * @description The ID of the resource group. If you do not specify this parameter, the stack group is added to the default resource group.
+     * @description The value of parameter N.
      *
-     * For more information about resource groups, see the "Resource Group" section of the [What is Resource Management?](~~94475~~) topic.
+     * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterValue parameter.
      * @var parameters[]
      */
     public $parameters;
 
     /**
-     * @description The value of tag N that you want to add to the stack group.
+     * @description The key of tag N that you want to add to the stack group.
      *
+     * >  The Tags parameter is optional. If you specify the Tags parameter, you must specify the Tags.N.Key parameter.
      * @example SELF_MANAGED
      *
      * @var string
@@ -81,9 +89,9 @@ class CreateStackGroupShrinkRequest extends Model
     public $permissionModel;
 
     /**
-     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
+     * @description The description of the stack group.
      *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
+     * The description must be 1 to 256 characters in length.
      * @example cn-hangzhou
      *
      * @var string
@@ -91,9 +99,8 @@ class CreateStackGroupShrinkRequest extends Model
     public $regionId;
 
     /**
-     * @description The key of tag N that you want to add to the stack group.
+     * @description The tags.
      *
-     * >  The Tags parameter is optional. If you specify the Tags parameter, you must specify the Tags.N.Key parameter.
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -101,7 +108,7 @@ class CreateStackGroupShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body must be 1 to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of the RegionId parameter is used.
+     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
      *
      * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
      * @example MyStackGroup
@@ -111,17 +118,16 @@ class CreateStackGroupShrinkRequest extends Model
     public $stackGroupName;
 
     /**
-     * @description The information about automatic deployment settings.
+     * @description The value of tag N that you want to add to the stack group.
      *
-     * >  This parameter is required only if the PermissionModel parameter is set to SERVICE_MANAGED.
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The name of the RAM role that you specify for the administrator account when you create a self-managed stack group. ROS assumes the administrator role to perform operations. If you do not specify this parameter, the default value AliyunROSStackGroupAdministrationRole is used. ROS uses the administrator role to assume the execution role AliyunROSStackGroupExecutionRole to perform operations on the stacks in the stack group.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.
      *
-     * The name must be 1 to 64 characters in length, and can contain letters, digits, and hyphens (-).
+     * For more information, see [Ensure idempotence](~~134212~~).
      * @example {"ROSTemplateFormatVersion":"2015-09-01"}
      *
      * @var string
@@ -129,9 +135,8 @@ class CreateStackGroupShrinkRequest extends Model
     public $templateBody;
 
     /**
-     * @description The name of parameter N. If you do not specify the name and value of a parameter, ROS uses the default name and value that are defined in the template.
+     * @description The parameters.
      *
-     * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterKey parameter.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string
@@ -139,7 +144,7 @@ class CreateStackGroupShrinkRequest extends Model
     public $templateId;
 
     /**
-     * @description The name of the RAM role that you specify for the execution account when you create a self-managed stack group. The administrator role AliyunROSStackGroupAdministrationRole assumes the execution role to perform operations. If you do not specify this parameter, the default value AliyunROSStackGroupExecutionRole is used. ROS assumes the execution role to perform operations on the stacks in the stack group.
+     * @description The name of the RAM role that you specify for the administrator account when you create a self-managed stack group. ROS assumes the administrator role to perform operations. If you do not specify this parameter, the default value AliyunROSStackGroupAdministrationRole is used. ROS uses the administrator role to assume the execution role AliyunROSStackGroupExecutionRole to perform operations on the stacks in the stack group.
      *
      * The name must be 1 to 64 characters in length, and can contain letters, digits, and hyphens (-).
      * @example oss://ros-template/demo
@@ -149,9 +154,9 @@ class CreateStackGroupShrinkRequest extends Model
     public $templateURL;
 
     /**
-     * @description The value of parameter N.
+     * @description The name of parameter N. If you do not specify the name and value of a parameter, ROS uses the default name and value that are defined in the template.
      *
-     * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterValue parameter.
+     * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterKey parameter.
      * @example v1
      *
      * @var string

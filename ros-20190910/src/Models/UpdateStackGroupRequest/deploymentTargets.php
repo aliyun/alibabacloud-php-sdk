@@ -14,6 +14,8 @@ class deploymentTargets extends Model
     public $accountIds;
 
     /**
+     * @description The ID of the operation.
+     *
      * @var string[]
      */
     public $rdFolderIds;

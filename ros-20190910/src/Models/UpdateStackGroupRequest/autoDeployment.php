@@ -19,8 +19,9 @@ class autoDeployment extends Model
     public $enabled;
 
     /**
-     * @description The ID of the request.
+     * @description The IDs of the members in the resource directory. You can specify a maximum of 20 member IDs.
      *
+     * >  To view the member IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the detailed information of a member](~~111624~~).
      * @example true
      *
      * @var bool

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
-     * @description The description of the stack group.
+     * @description The value of the parameter.
      *
      * @example Amount
      *
@@ -18,7 +18,7 @@ class parameters extends Model
     public $parameterKey;
 
     /**
-     * @description The name of the stack group.
+     * @description The description of the stack group.
      *
      * @example 12
      *

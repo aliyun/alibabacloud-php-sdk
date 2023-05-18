@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListStackResourceDriftsRequest extends Model
 {
     /**
-     * @description The type of the resource.
+     * @description The time when the resource drift detection operation was initiated.
      *
      * @example 50
      *
@@ -18,7 +18,7 @@ class ListStackResourceDriftsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The resource properties as defined in the template, in JSON format.
+     * @description The type of the resource.
      *
      * @example AAAAAdDWBF2****w==
      *
@@ -27,7 +27,7 @@ class ListStackResourceDriftsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The time when the resource drift detection operation was initiated.
+     * @description The physical ID of the resource.
      *
      * @example cn-hangzhou
      *
@@ -36,12 +36,7 @@ class ListStackResourceDriftsRequest extends Model
     public $regionId;
 
     /**
-     * @description The drift status of the resource. Valid values:
-     *
-     *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource had been deleted.
-     *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
-     *   NOT_CHECKED: ROS has not checked whether the actual configuration of the resource differs from its expected template configuration.
-     *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
+     * @description The resource properties as defined in the template, in JSON format.
      *
      * @example MODIFIED
      *
@@ -50,7 +45,7 @@ class ListStackResourceDriftsRequest extends Model
     public $resourceDriftStatus;
 
     /**
-     * @description The physical ID of the resource.
+     * @description The ID of the stack.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *

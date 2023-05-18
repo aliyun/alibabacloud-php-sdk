@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class autoDeployment extends Model
 {
     /**
-     * @description The ID of the stack group.
+     * @description The ID of the request.
      *
      * @example true
      *
@@ -18,6 +18,8 @@ class autoDeployment extends Model
     public $enabled;
 
     /**
+     * @description The ID of the stack group.
+     *
      * @example true
      *
      * @var bool

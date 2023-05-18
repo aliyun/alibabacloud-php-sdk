@@ -10,6 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListStackResourcesResponseBody extends Model
 {
     /**
+     * @description Details about resources.
+     *
+     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @description The status of the resource. Valid values:
      *
      *   INIT_COMPLETE: The resource is in the pending creation state.
@@ -28,15 +37,6 @@ class ListStackResourcesResponseBody extends Model
      *   IMPORT_IN_PROGRESS: The resource is being imported.
      *   IMPORT_FAILED: The resource fails to be imported.
      *   IMPORT_COMPLETE: The resource is imported.
-     *
-     * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description The logical ID of the resource. The logical ID is the resource name that is defined in the template.
      *
      * @var resources[]
      */

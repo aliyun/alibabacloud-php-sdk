@@ -24,7 +24,7 @@ class ListStackResourceDriftsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The actual value of the resource property.
+     * @description The property differences of the resource.
      *
      * @var resourceDrifts[]
      */
