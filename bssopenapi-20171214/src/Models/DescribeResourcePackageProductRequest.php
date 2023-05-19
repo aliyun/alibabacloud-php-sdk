@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourcePackageProductRequest extends Model
 {
     /**
-     * @description The code of the service.
-     *
      * @example ossbag
      *
      * @var string

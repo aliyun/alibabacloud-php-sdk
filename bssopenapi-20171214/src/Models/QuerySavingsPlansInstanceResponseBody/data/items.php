@@ -23,7 +23,11 @@ class items extends Model
     public $allocationStatus;
 
     /**
-     * @description The currency. Valid values: CNY and USD.
+     * @description The status of the instance. Valid values:
+     *
+     *   NORMAL: normal
+     *   LIMIT: stopped due to overdue payment
+     *   RELEASE: released
      *
      * @example CNY
      *
@@ -46,7 +50,7 @@ class items extends Model
     public $deductCycleType;
 
     /**
-     * @description The time when the instance expires. The time is in the format of yyyy-MM-dd HH:mm:ss.
+     * @description The ID of the savings plan instance.
      *
      * @example 2021-01-01 00:00:00
      *
@@ -62,7 +66,7 @@ class items extends Model
     public $endTimestamp;
 
     /**
-     * @description The instance family information. For an instance of the Elastic Compute Service (ECS) compute type, the value indicates the ECS instance family or the ECS instance family package.
+     * @description The value of the tag.
      *
      * @example ecs.g6
      *
@@ -71,7 +75,7 @@ class items extends Model
     public $instanceFamily;
 
     /**
-     * @description The ID of the savings plan instance.
+     * @description The time when the instance takes effect. The time is in the format of yyyy-MM-dd HH:mm:ss.
      *
      * @example spn-xxxxxxxx
      *
@@ -94,12 +98,6 @@ class items extends Model
     public $lastBillUtilization;
 
     /**
-     * @description The payment type. Valid values:
-     *
-     *   total: All Upfront
-     *   half: Partial Upfront
-     *   zero: No Upfront
-     *
      * @example total
      *
      * @var string
@@ -107,7 +105,7 @@ class items extends Model
     public $payMode;
 
     /**
-     * @description The commitment.
+     * @description The total amount that is saved.
      *
      * @example 1.00
      *
@@ -116,7 +114,7 @@ class items extends Model
     public $poolValue;
 
     /**
-     * @description The prepaid amount.
+     * @description The page number of the returned page.
      *
      * @example 8760.00
      *
@@ -125,7 +123,7 @@ class items extends Model
     public $prepayFee;
 
     /**
-     * @description The region.
+     * @description The total number of entries.
      *
      * @example cn-zhangjiakou-na62-a01
      *
@@ -134,10 +132,14 @@ class items extends Model
     public $region;
 
     /**
-     * @description The type of the savings plan. Valid values:
+     * @example 100.0
      *
-     *   universal: general-purpose
-     *   ecs: ECS compute
+     * @var string
+     */
+    public $restPoolValue;
+
+    /**
+     * @description The key of the tag.
      *
      * @example ECS
      *
@@ -146,7 +148,11 @@ class items extends Model
     public $savingsType;
 
     /**
-     * @description The time when the instance takes effect. The time is in the format of yyyy-MM-dd HH:mm:ss.
+     * @description The payment type. Valid values:
+     *
+     *   total: All Upfront
+     *   half: Partial Upfront
+     *   zero: No Upfront
      *
      * @example 2020-01-01 00:00:00
      *
@@ -162,11 +168,7 @@ class items extends Model
     public $startTimestamp;
 
     /**
-     * @description The status of the instance. Valid values:
-     *
-     *   NORMAL: normal
-     *   LIMIT: stopped due to overdue payment
-     *   RELEASE: released
+     * @description The value of the tag to query.
      *
      * @example NORMAL
      *
@@ -175,14 +177,12 @@ class items extends Model
     public $status;
 
     /**
-     * @description The details about the tags.
-     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The total amount that is saved.
+     * @description The ID of the request.
      *
      * @example 20.00
      *
@@ -191,7 +191,7 @@ class items extends Model
     public $totalSave;
 
     /**
-     * @description The total usage.
+     * @description The currency. Valid values: CNY and USD.
      *
      * @example 1.0
      *
@@ -213,6 +213,7 @@ class items extends Model
         'poolValue'           => 'PoolValue',
         'prepayFee'           => 'PrepayFee',
         'region'              => 'Region',
+        'restPoolValue'       => 'RestPoolValue',
         'savingsType'         => 'SavingsType',
         'startTime'           => 'StartTime',
         'startTimestamp'      => 'StartTimestamp',
@@ -270,6 +271,9 @@ class items extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->restPoolValue) {
+            $res['RestPoolValue'] = $this->restPoolValue;
         }
         if (null !== $this->savingsType) {
             $res['SavingsType'] = $this->savingsType;
@@ -351,6 +355,9 @@ class items extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['RestPoolValue'])) {
+            $model->restPoolValue = $map['RestPoolValue'];
         }
         if (isset($map['SavingsType'])) {
             $model->savingsType = $map['SavingsType'];

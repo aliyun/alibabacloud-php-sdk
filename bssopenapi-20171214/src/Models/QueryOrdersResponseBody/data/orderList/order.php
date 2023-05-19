@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class order extends Model
 {
     /**
+     * @description The aftertax amount of the order.
+     *
      * @example 66
      *
      * @var string
@@ -16,6 +18,8 @@ class order extends Model
     public $afterTaxAmount;
 
     /**
+     * @description The service code.
+     *
      * @example ecs
      *
      * @var string
@@ -23,6 +27,8 @@ class order extends Model
     public $commodityCode;
 
     /**
+     * @description The time when the order was created.
+     *
      * @example 2017-06-08T09:41:30Z
      *
      * @var string
@@ -30,6 +36,8 @@ class order extends Model
     public $createTime;
 
     /**
+     * @description The currency.
+     *
      * @example CNY
      *
      * @var string
@@ -37,6 +45,8 @@ class order extends Model
     public $currency;
 
     /**
+     * @description The ID of the order.
+     *
      * @example 34532532
      *
      * @var string
@@ -44,6 +54,13 @@ class order extends Model
     public $orderId;
 
     /**
+     * @description The type of the order. Valid values:
+     *
+     *   New: purchases an instance.
+     *   Renew: renews an instance.
+     *   Upgrade: upgrades the configurations of an instance.
+     *   Refund: applies for a refund.
+     *
      * @example New
      *
      * @var string
@@ -51,6 +68,8 @@ class order extends Model
     public $orderType;
 
     /**
+     * @description The currency of payment.
+     *
      * @example CNY
      *
      * @var string
@@ -58,6 +77,13 @@ class order extends Model
     public $paymentCurrency;
 
     /**
+     * @description The status of payment. Valid values for a non-refund order:
+     *
+     *   Unpaid: The order is not paid.
+     *   Paid: The order is paid.
+     *   Cancelled: The order is canceled.
+     *
+     * > : The value is NULL for a refund order.
      * @example Paid
      *
      * @var string
@@ -65,6 +91,8 @@ class order extends Model
     public $paymentStatus;
 
     /**
+     * @description The time of payment.
+     *
      * @example 2017-06-08T09:41:30Z
      *
      * @var string
@@ -72,6 +100,8 @@ class order extends Model
     public $paymentTime;
 
     /**
+     * @description The pretax amount of the order.
+     *
      * @example 0
      *
      * @var string
@@ -79,6 +109,8 @@ class order extends Model
     public $pretaxAmount;
 
     /**
+     * @description The pretax amount of the order in local currency.
+     *
      * @example 0
      *
      * @var string
@@ -86,6 +118,8 @@ class order extends Model
     public $pretaxAmountLocal;
 
     /**
+     * @description The pretax gross amount of the order.
+     *
      * @example 0
      *
      * @var string
@@ -93,6 +127,8 @@ class order extends Model
     public $pretaxGrossAmount;
 
     /**
+     * @description The code of the main service.
+     *
      * @example rds
      *
      * @var string
@@ -100,6 +136,8 @@ class order extends Model
     public $productCode;
 
     /**
+     * @description The type of the main service.
+     *
      * @example rds
      *
      * @var string
@@ -107,6 +145,8 @@ class order extends Model
     public $productType;
 
     /**
+     * @description The ID of the associated order.
+     *
      * @example 234535345345342
      *
      * @var string
@@ -114,6 +154,11 @@ class order extends Model
     public $relatedOrderId;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: subscription
+     *   PayAsYouGo: pay-as-you-go
+     *
      * @example PayAsYouGo
      *
      * @var string
@@ -121,6 +166,8 @@ class order extends Model
     public $subscriptionType;
 
     /**
+     * @description The tax of the order.
+     *
      * @example 1
      *
      * @var string

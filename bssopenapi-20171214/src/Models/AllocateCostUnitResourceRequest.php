@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class AllocateCostUnitResourceRequest extends Model
 {
     /**
+     * @description The ID of the source cost center.
+     *
+     *   A value of 0 indicates that the resources to be transferred have not been allocated to a cost center.
+     *   A value greater than 0 indicates the ID of an existing cost center.
+     *
      * @example 0
      *
      * @var int
@@ -17,6 +22,8 @@ class AllocateCostUnitResourceRequest extends Model
     public $fromUnitId;
 
     /**
+     * @description The user ID of the owner of the source cost center.
+     *
      * @example 273394581313325532
      *
      * @var int
@@ -24,11 +31,18 @@ class AllocateCostUnitResourceRequest extends Model
     public $fromUnitUserId;
 
     /**
+     * @description The resource instances to be transferred.
+     *
      * @var resourceInstanceList[]
      */
     public $resourceInstanceList;
 
     /**
+     * @description The ID of the destination cost center.
+     *
+     *   A value of -1 indicates that the allocated resources are changed to unallocated.
+     *   A value greater than 0 indicates the ID of an existing cost center.
+     *
      * @example 186419
      *
      * @var int
@@ -36,6 +50,8 @@ class AllocateCostUnitResourceRequest extends Model
     public $toUnitId;
 
     /**
+     * @description The user ID of the owner of the destination cost center.
+     *
      * @example 241021678450941490
      *
      * @var int

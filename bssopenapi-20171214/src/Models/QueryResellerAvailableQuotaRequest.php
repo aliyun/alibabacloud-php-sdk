@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class QueryResellerAvailableQuotaRequest extends Model
 {
     /**
-     * @description You do not need to specify the parameter.
-     *
-     * @example N/A
-     *
      * @var string
      */
     public $itemCodes;

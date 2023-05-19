@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The SKUs of the pricing object.
+     *
      * @var skuPricePage
      */
     public $skuPricePage;

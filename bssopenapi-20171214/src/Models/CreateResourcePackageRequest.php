@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateResourcePackageRequest extends Model
 {
     /**
+     * @description The validity period of the resource plan.
+     *
      * @example 6
      *
      * @var int
@@ -16,6 +18,9 @@ class CreateResourcePackageRequest extends Model
     public $duration;
 
     /**
+     * @description The time when the resource plan takes effect. If you leave this parameter empty, the resource plan immediately takes effect by default.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2020-03-03T12:00:00Z
      *
      * @var string
@@ -28,6 +33,8 @@ class CreateResourcePackageRequest extends Model
     public $ownerId;
 
     /**
+     * @description The type of the resource plan. Set this parameter to the code of the **resource plan** returned by calling the **DescribeResourcePackageProduct** operation.
+     *
      * @example FPT_ossbag_absolute_Storage_sh
      *
      * @var string
@@ -35,6 +42,12 @@ class CreateResourcePackageRequest extends Model
     public $packageType;
 
     /**
+     * @description The unit of the validity period of the resource plan. Valid values:
+     *
+     *   Month
+     *   Year
+     *
+     * Default value: Month.
      * @example Month
      *
      * @var string
@@ -42,6 +55,8 @@ class CreateResourcePackageRequest extends Model
     public $pricingCycle;
 
     /**
+     * @description The code of the service. You can query the code by calling the **QueryProductList** operation or viewing **Codes of Alibaba Cloud services**.
+     *
      * @example ossbag
      *
      * @var string
@@ -49,6 +64,8 @@ class CreateResourcePackageRequest extends Model
     public $productCode;
 
     /**
+     * @description The specifications of the resource plan. Set this parameter to the value of the **specifications** returned by calling the **DescribeResourcePackageProduct** operation.
+     *
      * @example 40
      *
      * @var string

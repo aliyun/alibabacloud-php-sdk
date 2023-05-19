@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class QueryResellerAvailableQuotaResponseBody extends Model
 {
     /**
-     * @description The error code returned if the call failed. For more information, see the "Error codes" section of this topic.
-     *
      * @example 200
      *
      * @var string
@@ -18,8 +16,6 @@ class QueryResellerAvailableQuotaResponseBody extends Model
     public $code;
 
     /**
-     * @description The remaining quota of the account.
-     *
      * @example 300
      *
      * @var string
@@ -27,8 +23,6 @@ class QueryResellerAvailableQuotaResponseBody extends Model
     public $data;
 
     /**
-     * @description The error message returned.
-     *
      * @example Successful!
      *
      * @var string
@@ -36,8 +30,6 @@ class QueryResellerAvailableQuotaResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
      *
      * @var string
@@ -45,8 +37,6 @@ class QueryResellerAvailableQuotaResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful. A value of true indicates that the call is successful. A value of false indicates that the call failed.
-     *
      * @example true
      *
      * @var bool

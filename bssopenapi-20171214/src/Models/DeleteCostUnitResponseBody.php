@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCostUnitResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class DeleteCostUnitResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message.
+     *
      * @example Successful！
      *
      * @var string
@@ -29,6 +35,8 @@ class DeleteCostUnitResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F5B803CF-94D8-43AF-ADB3-D819AAD30E27
      *
      * @var string
@@ -36,6 +44,8 @@ class DeleteCostUnitResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

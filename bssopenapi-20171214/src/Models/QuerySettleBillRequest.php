@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class QuerySettleBillRequest extends Model
 {
     /**
-     * @description The ID of the member. If you specify a value for this parameter, you can query the bills of the specified member. If you leave this parameter empty, the bills of the current account are queried by default.
-     *
      * @example 123
      *
      * @var int
@@ -18,8 +16,6 @@ class QuerySettleBillRequest extends Model
     public $billOwnerId;
 
     /**
-     * @description The billing cycle, in the YYYY-MM format.
-     *
      * @example 2018-07
      *
      * @var string
@@ -27,8 +23,6 @@ class QuerySettleBillRequest extends Model
     public $billingCycle;
 
     /**
-     * @description Specifies whether to display local currency information in bills.
-     *
      * @example false
      *
      * @var bool
@@ -36,11 +30,6 @@ class QuerySettleBillRequest extends Model
     public $isDisplayLocalCurrency;
 
     /**
-     * @description Specifies whether to filter out a bill whose pretax gross amount is 0. By default, a bill whose pretax gross amount is 0 is not filtered out.
-     *
-     *   true: filters out a bill whose pretax gross amount is 0.
-     *   false: does not filter out a bill whose pretax gross amount is 0.
-     *
      * @example true
      *
      * @var bool
@@ -48,8 +37,6 @@ class QuerySettleBillRequest extends Model
     public $isHideZeroCharge;
 
     /**
-     * @description The maximum number of entries to return. Default value: 20. Maximum value: 300.
-     *
      * @example 20
      *
      * @var int
@@ -57,8 +44,6 @@ class QuerySettleBillRequest extends Model
     public $maxResults;
 
     /**
-     * @description The starting position of the query. If this parameter is left empty, the query starts from the beginning.
-     *
      * @example CAESEgoQCg4KCmdtdF9jcmVhdGUEARgBIkgKCQBwhGmPcAEAAAo7AzYAAAAxTDgwMDcxMjg3ZDJhNmM3ZDguTDgwMDAwMDAwMDAwMzE1MTIuTDgwMDcyZDMyZTJkYzg3N2U
      *
      * @var string
@@ -71,8 +56,6 @@ class QuerySettleBillRequest extends Model
     public $ownerId;
 
     /**
-     * @description The code of the service.
-     *
      * @example rds
      *
      * @var string
@@ -80,8 +63,6 @@ class QuerySettleBillRequest extends Model
     public $productCode;
 
     /**
-     * @description The type of the service.
-     *
      * @example rds
      *
      * @var string
@@ -89,8 +70,6 @@ class QuerySettleBillRequest extends Model
     public $productType;
 
     /**
-     * @description The ID of the bill or order.
-     *
      * @example 12233
      *
      * @var string
@@ -98,15 +77,6 @@ class QuerySettleBillRequest extends Model
     public $recordID;
 
     /**
-     * @description The billing method. Valid values:
-     *
-     *   Subscription: the subscription billing method
-     *   PayAsYouGo: the pay-as-you-go billing method
-     *
-     **
-     *
-     ****This parameter must be used together with the ProductCode parameter.
-     *
      * @example Subscription
      *
      * @var string
@@ -114,13 +84,6 @@ class QuerySettleBillRequest extends Model
     public $subscriptionType;
 
     /**
-     * @description The type of the bill. Valid values:
-     *
-     *   SubscriptionOrder: subscription order
-     *   PayAsYouGoBill: pay-as-you-go bill
-     *   Refund: refund
-     *   Adjustment: reconciliation
-     *
      * @example SubscriptionOrder
      *
      * @var string

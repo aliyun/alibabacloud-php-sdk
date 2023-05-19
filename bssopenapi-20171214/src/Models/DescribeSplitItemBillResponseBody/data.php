@@ -43,7 +43,7 @@ class data extends Model
     public $maxResults;
 
     /**
-     * @example CAESEgoQCg4KCmdtdF9jcmVhdGUQARgBIkgKCQBwhGmPcAEAAAo7AzYAAAAxTDgwMDcxMjg3ZDJhNmM3ZDguTDgwMDAwMDAwMDAwMzE1MTIuTDgwMDcyZDMyZTJkYzg3N2U
+     * @example CAESEgoQCg4K
      *
      * @var string
      */

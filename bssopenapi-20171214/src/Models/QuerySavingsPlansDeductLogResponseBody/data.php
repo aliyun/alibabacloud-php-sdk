@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The deduction details.
+     * @description The deduction rate.
      *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of entries to return on each page.
      *
      * @example 1
      *
@@ -26,7 +26,10 @@ class data extends Model
     public $pageNum;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The language of the return data. Valid values:
+     *
+     *   ZH: Chinese
+     *   EN: English
      *
      * @example 20
      *
@@ -35,7 +38,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The total number of entries.
+     * @description The end of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
      *
      * @example 20
      *

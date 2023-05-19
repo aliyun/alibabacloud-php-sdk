@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The details of the service.
+     *
+     * @example Pay-as-you-go Elastic Compute Service (ECS) instance
+     *
      * @var string
      */
     public $commodityName;
 
     /**
+     * @description The contracted discount.
+     *
      * @example 0.85
      *
      * @var string
@@ -21,6 +27,8 @@ class items extends Model
     public $contractDiscountRate;
 
     /**
+     * @description The cycle based on which queries were performed.
+     *
      * @example 1:Year
      *
      * @var string
@@ -28,6 +36,8 @@ class items extends Model
     public $cycle;
 
     /**
+     * @description The discount provided by the official website.
+     *
      * @example 0.85
      *
      * @var string
@@ -35,11 +45,21 @@ class items extends Model
     public $discountRate;
 
     /**
+     * @description The name of the pricing module.
+     *
+     * @example Instance
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @description The payment mode. Valid values:
+     *
+     *   total: all upfront
+     *   half: half upfront
+     *   zero: no upfront
+     *
      * @example total
      *
      * @var string
@@ -47,6 +67,8 @@ class items extends Model
     public $payMode;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-zhangjiakou-na62-a01
      *
      * @var string
@@ -54,6 +76,8 @@ class items extends Model
     public $region;
 
     /**
+     * @description The type of the resource.
+     *
      * @example ecs.g6
      *
      * @var string
@@ -61,6 +85,8 @@ class items extends Model
     public $spec;
 
     /**
+     * @description The type of the savings plan.
+     *
      * @example universal
      *
      * @var string

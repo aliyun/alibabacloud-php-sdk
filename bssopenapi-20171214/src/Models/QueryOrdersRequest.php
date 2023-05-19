@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryOrdersRequest extends Model
 {
     /**
+     * @description The end time of the period during which the orders were created. By default, orders within the last hour are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2016-05-23T12:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryOrdersRequest extends Model
     public $createTimeEnd;
 
     /**
+     * @description The start time of the period during which the orders were created. By default, orders within the last hour are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2016-05-23T13:00:00Z
      *
      * @var string
@@ -23,6 +27,13 @@ class QueryOrdersRequest extends Model
     public $createTimeStart;
 
     /**
+     * @description The type of the order. Valid values:
+     *
+     *   New: purchases an instance.
+     *   Renew: renews an instance.
+     *   Upgrade: upgrades the configurations of an instance.
+     *   Refund: applies for a refund.
+     *
      * @example New
      *
      * @var string
@@ -35,6 +46,8 @@ class QueryOrdersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -42,6 +55,8 @@ class QueryOrdersRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return per page.
+     *
      * @example 20
      *
      * @var int
@@ -49,6 +64,13 @@ class QueryOrdersRequest extends Model
     public $pageSize;
 
     /**
+     * @description The status of payment. Valid values for a non-refund order:
+     *
+     *   Unpaid: The order is not paid.
+     *   Paid: The order is paid.
+     *   Cancelled: The order is canceled.
+     *
+     * > : You can set this parameter to NULL for a refund order.
      * @example Paid
      *
      * @var string
@@ -56,6 +78,8 @@ class QueryOrdersRequest extends Model
     public $paymentStatus;
 
     /**
+     * @description The code of the service.
+     *
      * @example rds
      *
      * @var string
@@ -63,6 +87,8 @@ class QueryOrdersRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service.
+     *
      * @example rds
      *
      * @var string
@@ -70,6 +96,11 @@ class QueryOrdersRequest extends Model
     public $productType;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: subscription
+     *   PayAsYouGo: pay-as-you-go
+     *
      * @example Subscription
      *
      * @var string

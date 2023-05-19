@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateResellerUserQuotaRequest extends Model
 {
     /**
-     * @description The amount. Unit: CNY. This parameter is required if you create a quota account.
-     *
      * @example 100
      *
      * @var string
@@ -18,8 +16,6 @@ class CreateResellerUserQuotaRequest extends Model
     public $amount;
 
     /**
-     * @description The name of the currency.
-     *
      * @example CNY
      *
      * @var string
@@ -27,8 +23,6 @@ class CreateResellerUserQuotaRequest extends Model
     public $currency;
 
     /**
-     * @description The ID of business in an external system.
-     *
      * @example 7ed0bedc-056e-4a71-9249-4581615c028f
      *
      * @var string

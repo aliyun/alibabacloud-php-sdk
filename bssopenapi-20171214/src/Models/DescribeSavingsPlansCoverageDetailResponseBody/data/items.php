@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The coverage.
+     * @description The region.
      *
      * @example 0.9
      *
@@ -18,7 +18,7 @@ class items extends Model
     public $coveragePercentage;
 
     /**
-     * @description The currency.
+     * @description The specifications.
      *
      * @example CNY
      *
@@ -27,7 +27,7 @@ class items extends Model
     public $currency;
 
     /**
-     * @description The deducted amount.
+     * @description The start time.
      *
      * @example 100
      *
@@ -36,8 +36,6 @@ class items extends Model
     public $deductAmount;
 
     /**
-     * @description The end time.
-     *
      * @example 2021-05-05 15:00:00
      *
      * @var string
@@ -45,7 +43,7 @@ class items extends Model
     public $endPeriod;
 
     /**
-     * @description The ID of the instance.
+     * @description The currency.
      *
      * @example spn-a1fhs54c243hP22
      *
@@ -54,7 +52,7 @@ class items extends Model
     public $instanceId;
 
     /**
-     * @description The specifications.
+     * @description The pay-as-you-go cost.
      *
      * @example 7th_generation_X86_group
      *
@@ -63,7 +61,7 @@ class items extends Model
     public $instanceSpec;
 
     /**
-     * @description The pay-as-you-go cost.
+     * @description The coverage.
      *
      * @example 200
      *
@@ -72,14 +70,14 @@ class items extends Model
     public $postpaidCost;
 
     /**
-     * @description The region.
+     * @description The deducted amount.
      *
      * @var string
      */
     public $region;
 
     /**
-     * @description The start time.
+     * @description The total expenditure.
      *
      * @example 2021-05-05 14:00:00
      *
@@ -88,7 +86,7 @@ class items extends Model
     public $startPeriod;
 
     /**
-     * @description The total expenditure.
+     * @description The username of the account.
      *
      * @example 100
      *
@@ -97,7 +95,7 @@ class items extends Model
     public $totalAmount;
 
     /**
-     * @description The ID of the account.
+     * @description The ID of the instance.
      *
      * @example 2831685687844416
      *
@@ -106,7 +104,7 @@ class items extends Model
     public $userId;
 
     /**
-     * @description The username of the account.
+     * @description The end time.
      *
      * @example tester1@test.aliyun.com
      *

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class cskuPriceList extends Model
 {
     /**
+     * @description The unique code of the SKU price.
+     *
      * @example ac74dd7b52ae6389ddef099283fb8275
      *
      * @var string
@@ -17,6 +19,8 @@ class cskuPriceList extends Model
     public $cskuCode;
 
     /**
+     * @description The currency.
+     *
      * @example CNY
      *
      * @var string
@@ -24,6 +28,8 @@ class cskuPriceList extends Model
     public $currency;
 
     /**
+     * @description The price.
+     *
      * @example 100
      *
      * @var string
@@ -31,6 +37,8 @@ class cskuPriceList extends Model
     public $price;
 
     /**
+     * @description The pricing mode.
+     *
      * @example STEP_ARRIVE
      *
      * @var string
@@ -38,6 +46,8 @@ class cskuPriceList extends Model
     public $priceMode;
 
     /**
+     * @description The pricing type.
+     *
      * @example hourPrice
      *
      * @var string
@@ -45,16 +55,26 @@ class cskuPriceList extends Model
     public $priceType;
 
     /**
+     * @description The unit of the price.
+     *
+     * @example USD (per unit)
+     *
      * @var string
      */
     public $priceUnit;
 
     /**
+     * @description If the PriceMode parameter is set to STEP_ACCUMULATION or STEP_ARRIVE, the value of this field exists and specifies the range. If the PriceMode parameter is set to NORMAL_PRICE, the value of this field is null.
+     *
      * @var rangeList[]
      */
     public $rangeList;
 
     /**
+     * @description The usage unit.
+     *
+     * @example Count
+     *
      * @var string
      */
     public $usageUnit;

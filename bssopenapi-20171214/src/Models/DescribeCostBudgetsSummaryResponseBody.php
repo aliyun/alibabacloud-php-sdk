@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCostBudgetsSummaryResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeCostBudgetsSummaryResponseBody extends Model
     public $code;
 
     /**
+     * @description The data that is returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message.
+     *
      * @example Successful!
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeCostBudgetsSummaryResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 3BFC23FE-A182-4D96-A1E4-7521B30B8E43
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeCostBudgetsSummaryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests.
+     *
      * @example JAKSJFHFAKJSF
      *
      * @var string
@@ -17,6 +19,8 @@ class ModifyInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the instance for which you want to modify the configurations.
+     *
      * @example rm-akjhkdsjhfskjfhd
      *
      * @var string
@@ -24,6 +28,11 @@ class ModifyInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The type of configuration modifications. Valid values:
+     *
+     *   Upgrade: upgrades the configurations of the instance.
+     *   Downgrade: downgrades the configurations of the instance.
+     *
      * @example Upgrade
      *
      * @var string
@@ -36,11 +45,15 @@ class ModifyInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The details about the parameters.
+     *
      * @var parameter[]
      */
     public $parameter;
 
     /**
+     * @description The code of the service to which the instance belongs.
+     *
      * @example rds
      *
      * @var string
@@ -48,6 +61,8 @@ class ModifyInstanceRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service to which the instance belongs.
+     *
      * @example rds
      *
      * @var string
@@ -55,6 +70,11 @@ class ModifyInstanceRequest extends Model
     public $productType;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: subscription
+     *   PayAsYouGo: pay-as-you-go
+     *
      * @example Subscription
      *
      * @var string

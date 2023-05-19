@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The site of the host.
+     *
      * @example cn
      *
      * @var string
@@ -17,11 +19,15 @@ class data extends Model
     public $hostId;
 
     /**
+     * @description The data that is returned.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The maximum number of entries that are returned.
+     *
      * @example 5
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page
+     *
      * @example eyJwYWdlTnVtIjoyLCJwYWdlU2l6ZSI6NH0=
      *
      * @var string
@@ -36,6 +44,8 @@ class data extends Model
     public $nextToken;
 
     /**
+     * @description The total number of entries that are returned.
+     *
      * @example 20
      *
      * @var int

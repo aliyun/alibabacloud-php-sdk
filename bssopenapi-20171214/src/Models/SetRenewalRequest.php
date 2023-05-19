@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetRenewalRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can enable auto-renewal for up to 100 subscription instances at a time. Separate multiple instance IDs with commas (,).
+     *
      * @example rm-askjdhaskfjh
      *
      * @var string
@@ -21,6 +23,8 @@ class SetRenewalRequest extends Model
     public $ownerId;
 
     /**
+     * @description The code of the service.
+     *
      * @example rds
      *
      * @var string
@@ -28,6 +32,8 @@ class SetRenewalRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service.
+     *
      * @example rds
      *
      * @var string
@@ -35,6 +41,15 @@ class SetRenewalRequest extends Model
     public $productType;
 
     /**
+     * @description The auto-renewal period. Valid values:
+     *
+     *   1
+     *   2
+     *   3
+     *   6
+     *   12
+     *
+     * >  This parameter is required if the RenewalStatus parameter is set to AutoRenewal.
      * @example 1
      *
      * @var int
@@ -42,6 +57,12 @@ class SetRenewalRequest extends Model
     public $renewalPeriod;
 
     /**
+     * @description The unit of the auto-renewal period. Valid values:
+     *
+     *   M: months
+     *   Y: years
+     *
+     * >  This parameter is required if the RenewalStatus parameter is set to AutoRenewal.
      * @example M
      *
      * @var string
@@ -49,6 +70,12 @@ class SetRenewalRequest extends Model
     public $renewalPeriodUnit;
 
     /**
+     * @description The status of renewal. Valid values:
+     *
+     *   AutoRenewal: The instance is automatically renewed.
+     *   ManualRenewal: The instance is manually renewed.
+     *   NotRenewal: The instance is not renewed.
+     *
      * @example AutoRenewal
      *
      * @var string
@@ -56,6 +83,11 @@ class SetRenewalRequest extends Model
     public $renewalStatus;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: subscription
+     *   PayAsYouGo: pay-as-you-go
+     *
      * @example PayAsYouGo
      *
      * @var string

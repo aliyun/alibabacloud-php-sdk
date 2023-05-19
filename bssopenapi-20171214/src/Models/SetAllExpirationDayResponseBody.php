@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetAllExpirationDayResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -16,16 +18,26 @@ class SetAllExpirationDayResponseBody extends Model
     public $code;
 
     /**
+     * @description The message that is returned.
+     *
+     * @example The message that is returned
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example The ID of the request
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

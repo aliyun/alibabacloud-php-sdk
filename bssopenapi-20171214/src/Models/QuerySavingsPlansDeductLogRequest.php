@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class QuerySavingsPlansDeductLogRequest extends Model
 {
     /**
-     * @description The end of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+     * @description The type of the instance ID based on which the data is queried. Valid values:
+     *
+     *   spn: queries data based on the ID of the savings plan instance.
+     *   product: queries data based on the ID of the cloud service instance.
      *
      * @example 2022-01-05 00:00:00
      *
@@ -18,7 +21,7 @@ class QuerySavingsPlansDeductLogRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the instance.
+     * @description The message returned.
      *
      * @example spn-XXXXXXX
      *
@@ -27,10 +30,7 @@ class QuerySavingsPlansDeductLogRequest extends Model
     public $instanceId;
 
     /**
-     * @description The type of the instance ID based on which the data is queried. Valid values:
-     *
-     *   spn: queries data based on the ID of the savings plan instance.
-     *   product: queries data based on the ID of the cloud service instance.
+     * @description The error code.
      *
      * @example spn
      *
@@ -39,10 +39,7 @@ class QuerySavingsPlansDeductLogRequest extends Model
     public $instanceType;
 
     /**
-     * @description The language of the return data. Valid values:
-     *
-     *   ZH: Chinese
-     *   EN: English
+     * @description The end of the billing cycle for which the fee is deducted.
      *
      * @example ZH
      *
@@ -51,7 +48,7 @@ class QuerySavingsPlansDeductLogRequest extends Model
     public $locale;
 
     /**
-     * @description The number of the page to return.
+     * @description The ID of the instance.
      *
      * @example 1
      *
@@ -60,7 +57,7 @@ class QuerySavingsPlansDeductLogRequest extends Model
     public $pageNum;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The operation that you want to perform. Set the value to QuerySavingsPlansDeductLog.
      *
      * @example 20
      *

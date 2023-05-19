@@ -14,6 +14,8 @@ class DescribePricingModuleRequest extends Model
     public $ownerId;
 
     /**
+     * @description The service code. You can query the service code by calling the **QueryProductList** operation.
+     *
      * @example rds
      *
      * @var string
@@ -21,6 +23,8 @@ class DescribePricingModuleRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service. You can query the service type by calling the **QueryProductList** operation.
+     *
      * @example rds
      *
      * @var string
@@ -28,6 +32,11 @@ class DescribePricingModuleRequest extends Model
     public $productType;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: subscription
+     *   PayAsYouGo: pay-as-you-go
+     *
      * @example Subscription
      *
      * @var string

@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class QueryInstanceGaapCostResponseBody extends Model
 {
     /**
-     * @description The status code returned.
-     *
      * @example Success
      *
      * @var string
@@ -19,15 +17,11 @@ class QueryInstanceGaapCostResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The message returned.
-     *
      * @example Successful!
      *
      * @var string
@@ -35,8 +29,6 @@ class QueryInstanceGaapCostResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
      * @example CCBB1BB9-22F1-4177-867B-7A75D665B488
      *
      * @var string
@@ -44,8 +36,6 @@ class QueryInstanceGaapCostResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
-     *
      * @example true
      *
      * @var bool

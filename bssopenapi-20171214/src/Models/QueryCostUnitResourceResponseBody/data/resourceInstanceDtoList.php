@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceInstanceDtoList extends Model
 {
     /**
+     * @description The split code of the resource.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class resourceInstanceDtoList extends Model
     public $apportionCode;
 
     /**
+     * @description The split name of the resource.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class resourceInstanceDtoList extends Model
     public $apportionName;
 
     /**
+     * @description The product code of the resource.
+     *
      * @example rds
      *
      * @var string
@@ -30,11 +36,17 @@ class resourceInstanceDtoList extends Model
     public $commodityCode;
 
     /**
+     * @description The commodity name of the resource.
+     *
+     * @example ApsaraDB
+     *
      * @var string
      */
     public $commodityName;
 
     /**
+     * @description The resources related to the resource instance.
+     *
      * @example oss
      *
      * @var string
@@ -42,11 +54,17 @@ class resourceInstanceDtoList extends Model
     public $relatedResources;
 
     /**
+     * @description The resource group to which the resource belongs.
+     *
+     * @example Default Resource Group
+     *
      * @var string
      */
     public $resourceGroup;
 
     /**
+     * @description The instance ID of the resource.
+     *
      * @example OSSBAG-cn-v0h1s4hma018
      *
      * @var string
@@ -54,6 +72,8 @@ class resourceInstanceDtoList extends Model
     public $resourceId;
 
     /**
+     * @description The custom name of the resource.
+     *
      * @example testResource
      *
      * @var string
@@ -61,6 +81,8 @@ class resourceInstanceDtoList extends Model
     public $resourceNick;
 
     /**
+     * @description The status of the resource.
+     *
      * @example Available
      *
      * @var string
@@ -68,6 +90,8 @@ class resourceInstanceDtoList extends Model
     public $resourceStatus;
 
     /**
+     * @description The tags of the resource.
+     *
      * @example testResource
      *
      * @var string
@@ -75,6 +99,8 @@ class resourceInstanceDtoList extends Model
     public $resourceTag;
 
     /**
+     * @description The type of the resource.
+     *
      * @example FPT_ossbag_absolute_Storage_bj
      *
      * @var string
@@ -82,6 +108,8 @@ class resourceInstanceDtoList extends Model
     public $resourceType;
 
     /**
+     * @description The user ID of the resource owner.
+     *
      * @example 2424242134
      *
      * @var int
@@ -89,6 +117,8 @@ class resourceInstanceDtoList extends Model
     public $resourceUserId;
 
     /**
+     * @description The username of the resource owner.
+     *
      * @example test@test.aliyun.com
      *
      * @var string

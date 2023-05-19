@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether resources are allocated to the specified cost center. Valid values:
+     *
+     *   true: The resources are allocated to the specified cost center.
+     *   false: The resources fail to be allocated to the specified cost center.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class data extends Model
     public $isSuccess;
 
     /**
+     * @description The ID of the destination cost center.
+     *
      * @example 32857346527
      *
      * @var int
@@ -23,6 +30,8 @@ class data extends Model
     public $toUnitId;
 
     /**
+     * @description The user ID of the owner of the destination cost center.
+     *
      * @example 34857693874
      *
      * @var int

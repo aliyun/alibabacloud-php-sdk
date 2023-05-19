@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the cost center was modified.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class data extends Model
     public $isSuccess;
 
     /**
+     * @description The user ID of the cost center owner.
+     *
      * @example 823756287
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $ownerUid;
 
     /**
+     * @description The ID of the cost center.
+     *
      * @example 356349875
      *
      * @var int

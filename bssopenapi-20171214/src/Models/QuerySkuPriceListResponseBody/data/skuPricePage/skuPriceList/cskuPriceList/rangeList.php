@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class rangeList extends Model
 {
     /**
+     * @description The code of the pricing factor.
+     *
+     * @example 212fbd27866307fc79ecf06934a88b2c
+     *
      * @var string
      */
     public $factorCode;
 
     /**
+     * @description The maximum value.
+     *
      * @example 10
      *
      * @var string
@@ -21,6 +27,8 @@ class rangeList extends Model
     public $max;
 
     /**
+     * @description The minimum value.
+     *
      * @example 1
      *
      * @var string
@@ -28,6 +36,8 @@ class rangeList extends Model
     public $min;
 
     /**
+     * @description The closure type of the interval.
+     *
      * @example LORC
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class QuerySavingsPlansDeductLogResponseBody extends Model
 {
     /**
-     * @description The error code.
+     * @description The number of entries returned per page.
      *
      * @example PARAM_ERROR
      *
@@ -19,21 +19,24 @@ class QuerySavingsPlansDeductLogResponseBody extends Model
     public $code;
 
     /**
-     * @description The return data.
+     * @description The type of the savings plan. Valid values:
+     *
+     *   universal: general-purpose
+     *   ecs: ECS compute
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The message returned.
+     * @description The ID of the savings plan instance.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The deduction details.
      *
      * @example 61293E7A-3406-4447-8620-EC88B0AA66AD
      *
@@ -42,7 +45,7 @@ class QuerySavingsPlansDeductLogResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the operation was successful.
+     * @description The return data.
      *
      * @example true
      *

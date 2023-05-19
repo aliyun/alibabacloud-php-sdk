@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConvertChargeTypeRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example rm-kasjgfjshgf
      *
      * @var string
@@ -21,6 +23,13 @@ class ConvertChargeTypeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The subscription duration. Unit: months. This parameter is required if you switch the billing method to subscription. Valid values:
+     *
+     *   1 to 9
+     *   12
+     *   24
+     *   36
+     *
      * @example 6
      *
      * @var int
@@ -28,6 +37,8 @@ class ConvertChargeTypeRequest extends Model
     public $period;
 
     /**
+     * @description The code of the service to which the instance belongs.
+     *
      * @example rds
      *
      * @var string
@@ -35,6 +46,8 @@ class ConvertChargeTypeRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service to which the instance belongs.
+     *
      * @example rds
      *
      * @var string
@@ -42,6 +55,12 @@ class ConvertChargeTypeRequest extends Model
     public $productType;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   Subscription: subscription
+     *   PayAsYouGo: pay-as-you-go
+     *
+     * >  After the call is successful, the billing method of the instance is switched.
      * @example Subscription
      *
      * @var string

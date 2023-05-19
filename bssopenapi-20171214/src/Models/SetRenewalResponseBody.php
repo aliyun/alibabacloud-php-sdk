@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetRenewalResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
      * @example Success
      *
      * @var string
@@ -16,6 +18,8 @@ class SetRenewalResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned.
+     *
      * @example Successful
      *
      * @var string
@@ -23,6 +27,8 @@ class SetRenewalResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 6000EE23-274B-4E07-A697-FF2E999520A4
      *
      * @var string
@@ -30,6 +36,8 @@ class SetRenewalResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

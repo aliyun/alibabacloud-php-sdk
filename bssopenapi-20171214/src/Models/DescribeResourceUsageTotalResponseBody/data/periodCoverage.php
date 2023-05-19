@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class periodCoverage extends Model
 {
     /**
-     * @description The period.
+     * @description The returned data.
      *
      * @example 2021071500
      *
@@ -18,7 +18,7 @@ class periodCoverage extends Model
     public $period;
 
     /**
-     * @description The usage of deduction plans within the specified period.
+     * @description The fee of purchased deduction plans.
      *
      * @example 0.1
      *

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The data entries.
+     * @description The usage of deduction plans.
      *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The data entries.
      *
      * @example 200
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $maxResults;
 
     /**
-     * @description The token of the next page.
+     * @description The beginning of the time range to query. The beginning is included in the time range. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
      *
      * @example eyJwYWdlTnVtIjoyLCJwYWdlU2l6ZSI6MTB9
      *
@@ -35,7 +35,7 @@ class data extends Model
     public $nextToken;
 
     /**
-     * @description The total number of entries returned.
+     * @description The ID of a deduction plan.
      *
      * @example 10000
      *

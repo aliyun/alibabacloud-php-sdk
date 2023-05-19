@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class QueryInstanceGaapCostRequest extends Model
 {
     /**
-     * @description The billing cycle. Format: YYYY-MM.
-     *
      * @example 2020-03
      *
      * @var string
@@ -18,8 +16,6 @@ class QueryInstanceGaapCostRequest extends Model
     public $billingCycle;
 
     /**
-     * @description The number of the page to return. Default value: 1.
-     *
      * @example 1
      *
      * @var int
@@ -27,8 +23,6 @@ class QueryInstanceGaapCostRequest extends Model
     public $pageNum;
 
     /**
-     * @description The number of entries to return on each page. Default value: 20. Maximum value: 100.
-     *
      * @example 20
      *
      * @var int
@@ -36,8 +30,6 @@ class QueryInstanceGaapCostRequest extends Model
     public $pageSize;
 
     /**
-     * @description The code of the service.
-     *
      * @example rds
      *
      * @var string
@@ -45,8 +37,6 @@ class QueryInstanceGaapCostRequest extends Model
     public $productCode;
 
     /**
-     * @description The type of the service.
-     *
      * @example rds
      *
      * @var string
@@ -54,11 +44,6 @@ class QueryInstanceGaapCostRequest extends Model
     public $productType;
 
     /**
-     * @description The billing method. Valid values:
-     *
-     *   Subscription: the subscription billing method
-     *   PayAsYouGo: the pay-as-you-go billing method
-     *
      * @example PayAsYouGo
      *
      * @var string

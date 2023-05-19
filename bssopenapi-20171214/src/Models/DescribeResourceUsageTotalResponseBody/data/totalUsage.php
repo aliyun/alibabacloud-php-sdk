@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class totalUsage extends Model
 {
     /**
-     * @description The total costs of pay-as-you-go instances.
+     * @description The ID of the request.
      *
      * @example 200
      *
@@ -18,8 +18,6 @@ class totalUsage extends Model
     public $postpaidCost;
 
     /**
-     * @description The total potential savings.
-     *
      * @example 100
      *
      * @var float
@@ -27,8 +25,6 @@ class totalUsage extends Model
     public $potentialSavedCost;
 
     /**
-     * @description The fee of purchased deduction plans.
-     *
      * @example 10
      *
      * @var float
@@ -36,7 +32,7 @@ class totalUsage extends Model
     public $reservationCost;
 
     /**
-     * @description The total savings.
+     * @description Queries the total usage data of reserved instances (RIs) or storage capacity units (SCUs).
      *
      * @example 100
      *
@@ -45,8 +41,6 @@ class totalUsage extends Model
     public $savedCost;
 
     /**
-     * @description The total usage of deduction plans.
-     *
      * @example 1
      *
      * @var float

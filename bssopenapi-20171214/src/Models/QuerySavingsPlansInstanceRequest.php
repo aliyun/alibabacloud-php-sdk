@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class QuerySavingsPlansInstanceRequest extends Model
 {
     /**
-     * @description The end of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+     * @description The number of entries returned per page.
      *
      * @example 2021-01-01 00:00:00
      *
@@ -19,7 +19,7 @@ class QuerySavingsPlansInstanceRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the savings plan instance.
+     * @description The end of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
      *
      * @example spn-xxxxxxx
      *
@@ -28,10 +28,7 @@ class QuerySavingsPlansInstanceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The language of the return data. Valid values:
-     *
-     *   ZH: Chinese
-     *   EN: English
+     * @description The beginning of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
      *
      * @example ZH
      *
@@ -40,7 +37,7 @@ class QuerySavingsPlansInstanceRequest extends Model
     public $locale;
 
     /**
-     * @description The number of the page to return.
+     * @description The message returned.
      *
      * @example 1
      *
@@ -49,7 +46,7 @@ class QuerySavingsPlansInstanceRequest extends Model
     public $pageNum;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The time when the instance expires. The time is in the format of yyyy-MM-dd HH:mm:ss.
      *
      * @example 20
      *
@@ -58,7 +55,7 @@ class QuerySavingsPlansInstanceRequest extends Model
     public $pageSize;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+     * @description The number of entries to return on each page.
      *
      * @example 2020-01-01 00:00:00
      *
@@ -67,6 +64,8 @@ class QuerySavingsPlansInstanceRequest extends Model
     public $startTime;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;

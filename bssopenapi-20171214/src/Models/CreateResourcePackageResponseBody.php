@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateResourcePackageResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class CreateResourcePackageResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
      * @example Successful!
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateResourcePackageResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the order.
+     *
      * @example 202407022550621
      *
      * @var int
@@ -36,6 +44,8 @@ class CreateResourcePackageResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 6000EE23-274B-4E07-A697-FF2E999520A4
      *
      * @var string
@@ -43,6 +53,8 @@ class CreateResourcePackageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

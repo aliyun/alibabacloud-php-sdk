@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class priceFactorList extends Model
 {
     /**
+     * @description The code of the factor.
+     *
      * @example vm_region_no
      *
      * @var string
@@ -16,11 +18,17 @@ class priceFactorList extends Model
     public $priceFactorCode;
 
     /**
+     * @description The name of the factor.
+     *
+     * @example Region
+     *
      * @var string
      */
     public $priceFactorName;
 
     /**
+     * @description The values of the factor.
+     *
      * @var string[]
      */
     public $priceFactorValueList;

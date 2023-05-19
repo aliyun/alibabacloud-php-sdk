@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The information about the coverage rate of deduction plans within a period.
+     * @description The ID of the account for which you want to query total coverage data. If you do not set this parameter, the data of the current Alibaba Cloud account and its RAM users is queried. To query the data of a RAM user, specify the ID of the RAM user.
      *
      * @var periodCoverage[]
      */
     public $periodCoverage;
 
     /**
-     * @description The information about the total coverage data of deduction plans.
+     * @description The unit that is used to measure the resources deducted from deduction plans.
      *
      * @var totalCoverage
      */

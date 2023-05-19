@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The currency.
+     *
      * @example CNY
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $currency;
 
     /**
+     * @description The site of the execution host.
+     *
      * @example cn
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $hostId;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-bp1etb69sqxgl4*******
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The refundable amount.
+     *
      * @example 12.34
      *
      * @var float

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of the tag to query.
+     * @description The ID of the savings plan instance.
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description The value of the tag to query.
+     * @description The instance family information. For an instance of the Elastic Compute Service (ECS) compute type, the value indicates the ECS instance family or the ECS instance family package.
      *
      * @var string
      */

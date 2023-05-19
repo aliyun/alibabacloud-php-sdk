@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCostUnitRequest extends Model
 {
     /**
+     * @description The cost centers to be modified.
+     *
      * @var unitEntityList[]
      */
     public $unitEntityList;

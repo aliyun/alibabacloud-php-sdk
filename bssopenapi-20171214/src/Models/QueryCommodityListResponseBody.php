@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryCommodityListResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example NotApplicable
      *
      * @var string
@@ -17,11 +19,15 @@ class QueryCommodityListResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example Successful!
      *
      * @var string
@@ -38,6 +44,8 @@ class QueryCommodityListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the information about the service was queried.
+     *
      * @example True
      *
      * @var bool

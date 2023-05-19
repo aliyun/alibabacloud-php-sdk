@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class skuPricePage extends Model
 {
     /**
+     * @description The token that is used to query the next page.
+     *
      * @example 080112060a0422020800180022490a470342000000315333303332363436363336333433393636333136333338333733373333333133373336363336323634363336363337333836333636333636313336363433363332
      *
      * @var string
@@ -17,11 +19,15 @@ class skuPricePage extends Model
     public $nextPageToken;
 
     /**
+     * @description The SKUs.
+     *
      * @var skuPriceList[]
      */
     public $skuPriceList;
 
     /**
+     * @description The total number of SKUs.
+     *
      * @example 18732
      *
      * @var int

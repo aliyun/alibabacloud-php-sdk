@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class product extends Model
 {
     /**
+     * @description The code of the service.
+     *
      * @example cdn
      *
      * @var string
@@ -16,11 +18,17 @@ class product extends Model
     public $productCode;
 
     /**
+     * @description The name of the service.
+     *
+     * @example CDN (Pay-as-you-go)
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @description The type of the service.
+     *
      * @example CDN
      *
      * @var string
@@ -28,6 +36,11 @@ class product extends Model
     public $productType;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: subscription
+     *   PayAsYouGo: pay-as-you-go
+     *
      * @example PayAsYouGo
      *
      * @var string

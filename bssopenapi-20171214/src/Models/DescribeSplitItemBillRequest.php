@@ -52,7 +52,7 @@ class DescribeSplitItemBillRequest extends Model
     public $maxResults;
 
     /**
-     * @example CAESEgoQCg4KCmdtdF9jcmVhdGUEARgBIkgKCQBwhGmPcAEAAAo7AzYAAAAxTDgwMDcxMjg3ZDJhNmM3ZDguTDgwMDAwMDAwMDAwMzE1MTIuTDgwMDcyZDMyZTJkYzg3N2U
+     * @example CAESEgoQCg4KCmd
      *
      * @var string
      */

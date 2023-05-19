@@ -10,24 +10,16 @@ use AlibabaCloud\Tea\Model;
 class resourcePackage extends Model
 {
     /**
-     * @description The name of the resource plan.
-     *
-     * @example Object Storage Service (OSS) resource plan (monthly)
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The types of the resource plans.
-     *
      * @var packageTypes
      */
     public $packageTypes;
 
     /**
-     * @description The code of the service.
-     *
      * @example ossbag
      *
      * @var string
@@ -35,8 +27,6 @@ class resourcePackage extends Model
     public $productCode;
 
     /**
-     * @description The type of the service.
-     *
      * @example ossbag
      *
      * @var string

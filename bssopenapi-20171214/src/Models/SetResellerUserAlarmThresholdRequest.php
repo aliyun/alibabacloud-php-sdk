@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SetResellerUserAlarmThresholdRequest extends Model
 {
     /**
-     * @description The alert rules corresponding to the specified alert type. If you leave this parameter empty, no alert threshold exists.
-     *
      * @example [{\"denominator\":100,\"numerator\":30,\"thresholdType\":1}]
      *
      * @var string
@@ -18,8 +16,6 @@ class SetResellerUserAlarmThresholdRequest extends Model
     public $alarmThresholds;
 
     /**
-     * @description The type of the alert. Set the value to `quota_low_balance`.
-     *
      * @example quota_low_balance
      *
      * @var string

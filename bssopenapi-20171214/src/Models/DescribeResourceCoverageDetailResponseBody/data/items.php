@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The unit that is used to measure the resources deducted from deduction plans.
+     * @description The type of deduction plans whose coverage details are queried. Valid values: RI and SCU.
      *
      * @var string
      */
     public $capacityUnit;
 
     /**
-     * @description The code of the service.
+     * @description The returned data.
      *
      * @example ecs
      *
@@ -25,14 +25,14 @@ class items extends Model
     public $commodityCode;
 
     /**
-     * @description The name and billing method of the service.
+     * @description The time granularity at which coverage details are queried. Valid values: MONTH, DAY, and HOUR.
      *
      * @var string
      */
     public $commodityName;
 
     /**
-     * @description The coverage rate of a deduction plan.
+     * @description The total number of entries returned.
      *
      * @example 1
      *
@@ -41,7 +41,7 @@ class items extends Model
     public $coveragePercentage;
 
     /**
-     * @description The currency in which deduction plans were priced.
+     * @description The specifications of a deduction plan.
      *
      * @example CNY
      *
@@ -50,7 +50,7 @@ class items extends Model
     public $currency;
 
     /**
-     * @description The amount of the resources deducted from a deduction plan.
+     * @description The unit that is used to measure the resources deducted from deduction plans.
      *
      * @example 1
      *
@@ -59,7 +59,7 @@ class items extends Model
     public $deductQuantity;
 
     /**
-     * @description The end of the time range in which the coverage details were queried.
+     * @description The beginning of the time range in which the coverage details were queried.
      *
      * @example 2021-04-01 01:00:00
      *
@@ -68,7 +68,7 @@ class items extends Model
     public $endTime;
 
     /**
-     * @description The ID of a pay-as-you-go instance.
+     * @description The code of the service.
      *
      * @example i-bp1d9x623987rlj0dx4xx
      *
@@ -77,7 +77,7 @@ class items extends Model
     public $instanceId;
 
     /**
-     * @description The specifications of a deduction plan.
+     * @description The name of the service.
      *
      * @example ecs.t5-lc2m1.nano
      *
@@ -86,7 +86,7 @@ class items extends Model
     public $instanceSpec;
 
     /**
-     * @description The amount of the bill.
+     * @description The coverage rate of a deduction plan.
      *
      * @example 0
      *
@@ -95,8 +95,6 @@ class items extends Model
     public $paymentAmount;
 
     /**
-     * @description The code of the service.
-     *
      * @example ecs
      *
      * @var string
@@ -104,21 +102,21 @@ class items extends Model
     public $productCode;
 
     /**
-     * @description The name of the service.
+     * @description The region.
      *
      * @var string
      */
     public $productName;
 
     /**
-     * @description The region.
+     * @description The ID of the request.
      *
      * @var string
      */
     public $region;
 
     /**
-     * @description The code of the region.
+     * @description The end of the time range to query. The end is excluded from the time range. If you do not set this parameter, the end time is the current time. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
      *
      * @example cn-hangzhou-dg-a01
      *
@@ -127,7 +125,7 @@ class items extends Model
     public $regionNo;
 
     /**
-     * @description The beginning of the time range in which the coverage details were queried.
+     * @description The token that is used to retrieve the next page of results. You do not need to set this parameter if you query coverage details within a specific time range for the first time. The response returns a token that you can use to query coverage details that are displayed on the next page. If a null value is returned for the NextToken parameter, no more coverage details can be queried.
      *
      * @example 2021-04-01 00:00:00
      *
@@ -136,7 +134,7 @@ class items extends Model
     public $startTime;
 
     /**
-     * @description The total amount of resources consumed.
+     * @description The username of the account.
      *
      * @example 1
      *
@@ -145,7 +143,7 @@ class items extends Model
     public $totalQuantity;
 
     /**
-     * @description The ID of the account.
+     * @description The code of the zone.
      *
      * @example 123745698925000
      *
@@ -154,8 +152,6 @@ class items extends Model
     public $userId;
 
     /**
-     * @description The username of the account.
-     *
      * @example test13@test.aliyun.com
      *
      * @var string
@@ -163,8 +159,6 @@ class items extends Model
     public $userName;
 
     /**
-     * @description The code of the zone.
-     *
      * @example cn-hangzhou-i
      *
      * @var string
@@ -172,7 +166,7 @@ class items extends Model
     public $zone;
 
     /**
-     * @description The zone.
+     * @description The currency in which deduction plans were priced.
      *
      * @var string
      */

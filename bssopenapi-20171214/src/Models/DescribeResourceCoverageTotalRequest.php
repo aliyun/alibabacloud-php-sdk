@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceCoverageTotalRequest extends Model
 {
     /**
-     * @description The ID of the account for which you want to query total coverage data. If you do not set this parameter, the data of the current Alibaba Cloud account and its RAM users is queried. To query the data of a RAM user, specify the ID of the RAM user.
+     * @description The time granularity at which total coverage data is queried. Valid values: MONTH, DAY, and HOUR.
      *
      * @example 123745698925000
      *
@@ -18,7 +18,7 @@ class DescribeResourceCoverageTotalRequest extends Model
     public $billOwnerId;
 
     /**
-     * @description The end of the time range to query. The end is excluded from the time range. If you do not set this parameter, the end time is the current time. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+     * @description The information about the coverage rate of deduction plans within a period.
      *
      * @example 2021-01-02 00:00:00
      *
@@ -27,7 +27,7 @@ class DescribeResourceCoverageTotalRequest extends Model
     public $endPeriod;
 
     /**
-     * @description The time granularity at which total coverage data is queried. Valid values: MONTH, DAY, and HOUR.
+     * @description The end of the time range to query. The end is excluded from the time range. If you do not set this parameter, the end time is the current time. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
      *
      * @example HOUR
      *
@@ -36,7 +36,7 @@ class DescribeResourceCoverageTotalRequest extends Model
     public $periodType;
 
     /**
-     * @description The type of deduction plans whose total coverage data is queried. Valid values: RI and SCU.
+     * @description The status code.
      *
      * @example RI
      *
@@ -45,7 +45,7 @@ class DescribeResourceCoverageTotalRequest extends Model
     public $resourceType;
 
     /**
-     * @description The beginning of the time range to query. The beginning is included in the time range. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+     * @description The total amount of the resources deducted from deduction plans.
      *
      * @example 2021-01-01 00:00:00
      *

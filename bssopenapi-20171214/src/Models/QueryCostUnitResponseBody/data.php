@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The cost centers.
+     *
      * @var costUnitDtoList[]
      */
     public $costUnitDtoList;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class data extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries returned on each page.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 1
      *
      * @var int

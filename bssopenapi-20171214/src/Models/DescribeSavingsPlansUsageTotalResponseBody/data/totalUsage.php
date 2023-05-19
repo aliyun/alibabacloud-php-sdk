@@ -9,37 +9,21 @@ use AlibabaCloud\Tea\Model;
 class totalUsage extends Model
 {
     /**
-     * @description The total amount of the savings plan.
-     *
-     * @example 100
-     *
      * @var float
      */
     public $poolValue;
 
     /**
-     * @description The pay-as-you-go cost.
-     *
-     * @example 200
-     *
      * @var float
      */
     public $postpaidCost;
 
     /**
-     * @description The amount that is saved.
-     *
-     * @example 100
-     *
      * @var float
      */
     public $savedCost;
 
     /**
-     * @description The total usage.
-     *
-     * @example 1
-     *
      * @var float
      */
     public $usagePercentage;

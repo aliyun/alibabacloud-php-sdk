@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryProductListRequest extends Model
 {
     /**
+     * @description The page number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryProductListRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class QueryProductListRequest extends Model
     public $pageSize;
 
     /**
+     * @description Specifies whether to return the total number of services. Default value: false.
+     *
      * @example true
      *
      * @var bool

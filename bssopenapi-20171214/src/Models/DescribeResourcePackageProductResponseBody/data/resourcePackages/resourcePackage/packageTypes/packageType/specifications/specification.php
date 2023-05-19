@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class specification extends Model
 {
     /**
-     * @description The validity periods available for the resource plan.
-     *
      * @var availableDurations
      */
     public $availableDurations;
 
     /**
-     * @description The name of the specification.
-     *
      * @example 1TB
      *
      * @var string
@@ -26,8 +22,6 @@ class specification extends Model
     public $name;
 
     /**
-     * @description The value of the specification.
-     *
      * @example 1024
      *
      * @var string

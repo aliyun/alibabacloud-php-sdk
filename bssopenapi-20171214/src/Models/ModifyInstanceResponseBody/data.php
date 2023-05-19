@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the host.
+     *
      * @example testId
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $hostId;
 
     /**
+     * @description The ID of the order that was created.
+     *
      * @example 202653252354351
      *
      * @var string

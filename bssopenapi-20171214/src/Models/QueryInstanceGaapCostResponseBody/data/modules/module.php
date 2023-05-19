@@ -9,22 +9,11 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
-     * @description The accounting unit. This parameter is reserved and unavailable now.
-     *
-     * @example N/A
-     *
      * @var string
      */
     public $accountingUnit;
 
     /**
-     * @description The type of the bill. Valid values:
-     *
-     *   SubscriptionOrder: subscription order
-     *   PayAsYouGoBill: pay-as-you-go bill
-     *   Refund: refund
-     *   Adjustment: reconciliation
-     *
      * @example SubscriptionOrder
      *
      * @var string
@@ -32,8 +21,6 @@ class module extends Model
     public $billType;
 
     /**
-     * @description The billing cycle, in the YYYY-MM format.
-     *
      * @example 2020-03
      *
      * @var string
@@ -41,12 +28,6 @@ class module extends Model
     public $billingCycle;
 
     /**
-     * @description The type of the currency. Valid values:
-     *
-     *   CNY
-     *   USD
-     *   JPY
-     *
      * @example CNY
      *
      * @var string
@@ -54,8 +35,6 @@ class module extends Model
     public $currency;
 
     /**
-     * @description The amount deducted by using vouchers.
-     *
      * @example 0
      *
      * @var string
@@ -63,8 +42,6 @@ class module extends Model
     public $deductedByCashCoupons;
 
     /**
-     * @description The amount deducted by using coupons.
-     *
      * @example 0
      *
      * @var string
@@ -72,8 +49,6 @@ class module extends Model
     public $deductedByCoupons;
 
     /**
-     * @description The amount deducted by using prepaid cards.
-     *
      * @example 0
      *
      * @var string
@@ -81,8 +56,6 @@ class module extends Model
     public $deductedByPrepaidCard;
 
     /**
-     * @description The allocated amount deducted by using vouchers.
-     *
      * @example 0
      *
      * @var string
@@ -90,8 +63,6 @@ class module extends Model
     public $gaapDeductedByCashCoupons;
 
     /**
-     * @description The allocated amount deducted by using coupons.
-     *
      * @example 0
      *
      * @var string
@@ -99,8 +70,6 @@ class module extends Model
     public $gaapDeductedByCoupons;
 
     /**
-     * @description The allocated amount deducted by using prepaid cards.
-     *
      * @example 0
      *
      * @var string
@@ -108,8 +77,6 @@ class module extends Model
     public $gaapDeductedByPrepaidCard;
 
     /**
-     * @description The allocated amount paid in cash.
-     *
      * @example 0
      *
      * @var string
@@ -117,8 +84,6 @@ class module extends Model
     public $gaapPaymentAmount;
 
     /**
-     * @description The allocated pretax amount.
-     *
      * @example 0
      *
      * @var string
@@ -126,8 +91,6 @@ class module extends Model
     public $gaapPretaxAmount;
 
     /**
-     * @description The allocated pretax amount paid with the local currency.
-     *
      * @example 0
      *
      * @var string
@@ -135,8 +98,6 @@ class module extends Model
     public $gaapPretaxAmountLocal;
 
     /**
-     * @description The allocated pretax gross amount.
-     *
      * @example 0
      *
      * @var string
@@ -144,8 +105,6 @@ class module extends Model
     public $gaapPretaxGrossAmount;
 
     /**
-     * @description The allocated pricing discount.
-     *
      * @example 0
      *
      * @var string
@@ -153,8 +112,6 @@ class module extends Model
     public $gaapPricingDiscount;
 
     /**
-     * @description The ID of the instance.
-     *
      * @example OSSBAG-cn-0xl0xxxxxx
      *
      * @var string
@@ -162,8 +119,6 @@ class module extends Model
     public $instanceID;
 
     /**
-     * @description The amount deducted by using vouchers and allocated to the current month.
-     *
      * @example 0.75
      *
      * @var string
@@ -171,8 +126,6 @@ class module extends Model
     public $monthGaapDeductedByCashCoupons;
 
     /**
-     * @description The amount deducted by using coupons and allocated to the current month.
-     *
      * @example 0
      *
      * @var string
@@ -180,8 +133,6 @@ class module extends Model
     public $monthGaapDeductedByCoupons;
 
     /**
-     * @description The amount deducted by using prepaid cards and allocated to the current month.
-     *
      * @example 0
      *
      * @var string
@@ -189,8 +140,6 @@ class module extends Model
     public $monthGaapDeductedByPrepaidCard;
 
     /**
-     * @description The amount paid in cash and allocated to the current month.
-     *
      * @example 0
      *
      * @var string
@@ -198,8 +147,6 @@ class module extends Model
     public $monthGaapPaymentAmount;
 
     /**
-     * @description The pretax amount allocated to the current month.
-     *
      * @example 0
      *
      * @var string
@@ -207,8 +154,6 @@ class module extends Model
     public $monthGaapPretaxAmount;
 
     /**
-     * @description The pretax amount paid with the local currency and allocated to the current month (Alibaba Cloud International site).
-     *
      * @example 0.99
      *
      * @var string
@@ -216,8 +161,6 @@ class module extends Model
     public $monthGaapPretaxAmountLocal;
 
     /**
-     * @description The pretax gross amount allocated to the current month.
-     *
      * @example 0.99
      *
      * @var string
@@ -225,8 +168,6 @@ class module extends Model
     public $monthGaapPretaxGrossAmount;
 
     /**
-     * @description The pricing discount allocated to the current month.
-     *
      * @example 0,.25
      *
      * @var string
@@ -234,8 +175,6 @@ class module extends Model
     public $monthGaapPricingDiscount;
 
     /**
-     * @description The ID of the order.
-     *
      * @example 213123213123
      *
      * @var string
@@ -243,13 +182,6 @@ class module extends Model
     public $orderId;
 
     /**
-     * @description The type of the order. Valid values:
-     *
-     *   New
-     *   Renewal
-     *   Upgrade
-     *   Degrade
-     *
      * @example New
      *
      * @var string
@@ -257,8 +189,6 @@ class module extends Model
     public $orderType;
 
     /**
-     * @description The ID of the bill owner.
-     *
      * @example 123213123123
      *
      * @var string
@@ -266,8 +196,6 @@ class module extends Model
     public $ownerID;
 
     /**
-     * @description The time when the bill was paid.
-     *
      * @example 2018-06-15 15:59:57
      *
      * @var string
@@ -275,8 +203,6 @@ class module extends Model
     public $payTime;
 
     /**
-     * @description The account of the payer.
-     *
      * @example 23534534
      *
      * @var string
@@ -284,8 +210,6 @@ class module extends Model
     public $payerAccount;
 
     /**
-     * @description The amount paid in cash.
-     *
      * @example 0
      *
      * @var string
@@ -293,8 +217,6 @@ class module extends Model
     public $paymentAmount;
 
     /**
-     * @description The type of the currency (Alibaba Cloud International site).
-     *
      * @example CNY
      *
      * @var string
@@ -302,8 +224,6 @@ class module extends Model
     public $paymentCurrency;
 
     /**
-     * @description The pretax amount.
-     *
      * @example 0
      *
      * @var string
@@ -311,8 +231,6 @@ class module extends Model
     public $pretaxAmount;
 
     /**
-     * @description The allocated pretax amount paid with the local currency (Alibaba Cloud International site).
-     *
      * @example 0
      *
      * @var string
@@ -320,8 +238,6 @@ class module extends Model
     public $pretaxAmountLocal;
 
     /**
-     * @description The pretax gross amount.
-     *
      * @example 123
      *
      * @var string
@@ -329,8 +245,6 @@ class module extends Model
     public $pretaxGrossAmount;
 
     /**
-     * @description The pricing discount.
-     *
      * @example 1
      *
      * @var string
@@ -338,8 +252,6 @@ class module extends Model
     public $pricingDiscount;
 
     /**
-     * @description The code of the service.
-     *
      * @example rds
      *
      * @var string
@@ -347,8 +259,6 @@ class module extends Model
     public $productCode;
 
     /**
-     * @description The type of the service.
-     *
      * @example rds
      *
      * @var string
@@ -356,8 +266,6 @@ class module extends Model
     public $productType;
 
     /**
-     * @description The ID of the region.
-     *
      * @example cn-hangzhou
      *
      * @var string
@@ -365,17 +273,11 @@ class module extends Model
     public $region;
 
     /**
-     * @description The resource group.
-     *
-     * @example Default resource group
-     *
      * @var string
      */
     public $resourceGroup;
 
     /**
-     * @description The ID of the sub-order.
-     *
      * @example 12434345
      *
      * @var string
@@ -383,11 +285,6 @@ class module extends Model
     public $subOrderId;
 
     /**
-     * @description The billing method. Valid values:
-     *
-     *   Subscription: the subscription billing method
-     *   PayAsYouGo: the pay-as-you-go billing method
-     *
      * @example PayAsYouGo
      *
      * @var string
@@ -395,8 +292,6 @@ class module extends Model
     public $subscriptionType;
 
     /**
-     * @description The tag.
-     *
      * @example tag
      *
      * @var string
@@ -404,8 +299,6 @@ class module extends Model
     public $tag;
 
     /**
-     * @description The unallocated amount deducted by using vouchers.
-     *
      * @example 0
      *
      * @var string
@@ -413,8 +306,6 @@ class module extends Model
     public $unallocatedDeductedByCashCoupons;
 
     /**
-     * @description The unallocated amount deducted by using coupons.
-     *
      * @example 0
      *
      * @var string
@@ -422,8 +313,6 @@ class module extends Model
     public $unallocatedDeductedByCoupons;
 
     /**
-     * @description The unallocated amount deducted by using prepaid cards.
-     *
      * @example 0
      *
      * @var string
@@ -431,8 +320,6 @@ class module extends Model
     public $unallocatedDeductedByPrepaidCard;
 
     /**
-     * @description The unallocated amount paid in cash.
-     *
      * @example 0
      *
      * @var string
@@ -440,8 +327,6 @@ class module extends Model
     public $unallocatedPaymentAmount;
 
     /**
-     * @description The unallocated pretax amount.
-     *
      * @example 0
      *
      * @var string
@@ -449,8 +334,6 @@ class module extends Model
     public $unallocatedPretaxAmount;
 
     /**
-     * @description The unallocated pretax amount paid with the local currency.
-     *
      * @example 0
      *
      * @var string
@@ -458,8 +341,6 @@ class module extends Model
     public $unallocatedPretaxAmountLocal;
 
     /**
-     * @description The unallocated pretax gross amount.
-     *
      * @example 0
      *
      * @var string
@@ -467,8 +348,6 @@ class module extends Model
     public $unallocatedPretaxGrossAmount;
 
     /**
-     * @description The unallocated pricing discount.
-     *
      * @example 0
      *
      * @var string
@@ -476,8 +355,6 @@ class module extends Model
     public $unallocatedPricingDiscount;
 
     /**
-     * @description The time when the service usage ended.
-     *
      * @example 2019-05-01 00:00:00
      *
      * @var string
@@ -485,8 +362,6 @@ class module extends Model
     public $usageEndDate;
 
     /**
-     * @description The time when the service usage started.
-     *
      * @example 2019-04-01 00:00:00
      *
      * @var string

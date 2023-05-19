@@ -15,6 +15,8 @@ class module extends Model
     public $configList;
 
     /**
+     * @description The currency. Default value: CNY.
+     *
      * @example CNY
      *
      * @var string
@@ -22,6 +24,8 @@ class module extends Model
     public $currency;
 
     /**
+     * @description The code of the pricing module.
+     *
      * @example InstanceType
      *
      * @var string
@@ -29,11 +33,24 @@ class module extends Model
     public $moduleCode;
 
     /**
+     * @description The name of the pricing module.
+     *
+     * @example Instance
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @description The price type. Valid values:
+     *
+     *   Usage: usage price
+     *   Hour: hourly price
+     *   Day: daily price
+     *   Week: weekly price
+     *   Month: monthly price
+     *   Year: annual price
+     *
      * @example Month
      *
      * @var string

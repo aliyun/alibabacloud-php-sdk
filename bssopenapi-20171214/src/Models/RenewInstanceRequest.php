@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RenewInstanceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
      * @example ASKJHKLASJHAFSLKJH
      *
      * @var string
@@ -16,6 +18,8 @@ class RenewInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the instance
+     *
      * @example rm-skjdhaskjdh
      *
      * @var string
@@ -28,6 +32,8 @@ class RenewInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The code of the service to which the instance belongs.
+     *
      * @example rds
      *
      * @var string
@@ -35,6 +41,8 @@ class RenewInstanceRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service.
+     *
      * @example rds
      *
      * @var string
@@ -42,6 +50,13 @@ class RenewInstanceRequest extends Model
     public $productType;
 
     /**
+     * @description The duration of the subscription renewal. Unit: months. Valid values:
+     *
+     *   1 to 9
+     *   12
+     *   24
+     *   36
+     *
      * @example 6
      *
      * @var int

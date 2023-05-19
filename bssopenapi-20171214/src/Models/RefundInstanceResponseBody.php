@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RefundInstanceResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example ResourceNotExists
      *
      * @var string
@@ -17,13 +19,15 @@ class RefundInstanceResponseBody extends Model
     public $code;
 
     /**
-     * @description data
+     * @description The returned data.
      *
      * @var data
      */
     public $data;
 
     /**
+     * @description The description of the execution result.
+     *
      * @example success
      *
      * @var string
@@ -31,6 +35,8 @@ class RefundInstanceResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example UUID
      *
      * @var string
@@ -38,6 +44,8 @@ class RefundInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values: true and false.
+     *
      * @example false
      *
      * @var bool

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCostUnitRequest extends Model
 {
     /**
+     * @description The list of cost centers.
+     *
      * @var unitEntityList[]
      */
     public $unitEntityList;

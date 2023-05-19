@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySkuPriceListShrinkRequest extends Model
 {
     /**
+     * @description The code of the service.
+     *
      * @example ecs
      *
      * @var string
@@ -16,6 +18,8 @@ class QuerySkuPriceListShrinkRequest extends Model
     public $commodityCode;
 
     /**
+     * @description The token that is used to retrieve the next page. You do not need to set this parameter if you query coverage details for the first time. The response returns a token that you can use to query coverage details of the next page. If a null value is returned for the NextPageToken parameter, no more coverage details can be queried.
+     *
      * @example 080112060a0422020800180022490a470342000000315333303332363436363336333433393636333136333338333733373333333133373336363336323634363336363337333836333636333636313336363433363332
      *
      * @var string
@@ -23,6 +27,8 @@ class QuerySkuPriceListShrinkRequest extends Model
     public $nextPageToken;
 
     /**
+     * @description The number of entries to be returned on each page. Maximum value: 50.
+     *
      * @example 20
      *
      * @var int
@@ -30,11 +36,17 @@ class QuerySkuPriceListShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description The code of the pricing object.
+     *
+     * @example instance_type
+     *
      * @var string
      */
     public $priceEntityCode;
 
     /**
+     * @description The conditions of the pricing factors.
+     *
      * @var string
      */
     public $priceFactorConditionMapShrink;

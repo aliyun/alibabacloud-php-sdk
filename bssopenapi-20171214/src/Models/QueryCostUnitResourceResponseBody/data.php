@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about the cost center.
+     *
      * @var costUnit
      */
     public $costUnit;
 
     /**
+     * @description The statistical information about the cost center.
+     *
      * @var costUnitStatisInfo
      */
     public $costUnitStatisInfo;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class data extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 20
      *
      * @var int
@@ -36,11 +44,15 @@ class data extends Model
     public $pageSize;
 
     /**
+     * @description The resource instances.
+     *
      * @var resourceInstanceDtoList[]
      */
     public $resourceInstanceDtoList;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 12
      *
      * @var int

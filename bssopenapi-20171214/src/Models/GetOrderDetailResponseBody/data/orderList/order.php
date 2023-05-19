@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class order extends Model
 {
     /**
+     * @description The aftertaxt amount of the order.
+     *
      * @example 0
      *
      * @var string
@@ -16,11 +18,17 @@ class order extends Model
     public $afterTaxAmount;
 
     /**
+     * @description The service code.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description The configurations of the main service.
+     *
      * @example DBInstanceClass:[DBInstanceClass:rds.mysql.s1.small;EngineVersion:8.0;Region:cn-qingdao;]DBFlowType:[Region:cn-qingdao;]
      *
      * @var string
@@ -28,6 +36,8 @@ class order extends Model
     public $config;
 
     /**
+     * @description The time when the order was created.
+     *
      * @example 2017-06-08T09:41:30Z
      *
      * @var string
@@ -35,6 +45,8 @@ class order extends Model
     public $createTime;
 
     /**
+     * @description The currency.
+     *
      * @example CNY
      *
      * @var string
@@ -42,6 +54,8 @@ class order extends Model
     public $currency;
 
     /**
+     * @description The instance IDs.
+     *
      * @example ["rm-bp1a2vsr018313t6o"]
      *
      * @var string
@@ -49,6 +63,8 @@ class order extends Model
     public $instanceIDs;
 
     /**
+     * @description The ID of the Resource Access Management (RAM) user who performs operations on the order. If no RAM user is involved, leave this parameter blank.
+     *
      * @example 23424243432
      *
      * @var string
@@ -56,6 +72,8 @@ class order extends Model
     public $operator;
 
     /**
+     * @description The ID of the order.
+     *
      * @example 3453425324
      *
      * @var string
@@ -63,11 +81,28 @@ class order extends Model
     public $orderId;
 
     /**
+     * @description The type of the suborder. Valid values:
+     *
+     *   ProductSubOrder: the service suborder
+     *   RefundSubOrder: the refund suborder
+     *
+     * @example ProductSubOrder
+     *
      * @var string
      */
     public $orderSubType;
 
     /**
+     * @description The type of the order. Valid values:
+     *
+     *   New: purchases an instance.
+     *   Renew: renews an instance.
+     *   Upgrade: upgrades the configurations of an instance.
+     *   Refund: applies for a refund.
+     *   Convert: switches the billing method.
+     *   Downgrade: downgrades the configurations of an instance.
+     *   ResizeDisk: resizes the disk.
+     *
      * @example New
      *
      * @var string
@@ -75,6 +110,8 @@ class order extends Model
     public $orderType;
 
     /**
+     * @description The module information without standardized conversion.
+     *
      * @example DBInstanceClass:[DBInstanceClass:rds.mysql.s1.small;EngineVersion:8.0;Region:cn-qingdao;]DBFlowType:[Region:cn-qingdao;]
      *
      * @var string
@@ -82,6 +119,8 @@ class order extends Model
     public $originalConfig;
 
     /**
+     * @description The currency of payment.
+     *
      * @example CNY
      *
      * @var string
@@ -89,6 +128,12 @@ class order extends Model
     public $paymentCurrency;
 
     /**
+     * @description The status of payment. Valid values:
+     *
+     *   Unpaid: The order is not paid.
+     *   Paid: The order is paid.
+     *   Cancelled: The order is canceled.
+     *
      * @example Paid
      *
      * @var string
@@ -96,6 +141,8 @@ class order extends Model
     public $paymentStatus;
 
     /**
+     * @description The time of payment.
+     *
      * @example 2017-06-08T09:41:30Z
      *
      * @var string
@@ -103,6 +150,8 @@ class order extends Model
     public $paymentTime;
 
     /**
+     * @description The pretax amount of the order.
+     *
      * @example 0
      *
      * @var string
@@ -110,6 +159,8 @@ class order extends Model
     public $pretaxAmount;
 
     /**
+     * @description The pretax amount of the order in local currency.
+     *
      * @example 0
      *
      * @var string
@@ -117,6 +168,8 @@ class order extends Model
     public $pretaxAmountLocal;
 
     /**
+     * @description The pretax gross amount of the order.
+     *
      * @example 0
      *
      * @var string
@@ -124,6 +177,8 @@ class order extends Model
     public $pretaxGrossAmount;
 
     /**
+     * @description The code of the main service.
+     *
      * @example rds
      *
      * @var string
@@ -131,6 +186,8 @@ class order extends Model
     public $productCode;
 
     /**
+     * @description The type of the main service.
+     *
      * @example rds
      *
      * @var string
@@ -138,6 +195,8 @@ class order extends Model
     public $productType;
 
     /**
+     * @description The number of main services.
+     *
      * @example 1
      *
      * @var string
@@ -145,6 +204,8 @@ class order extends Model
     public $quantity;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -152,6 +213,8 @@ class order extends Model
     public $region;
 
     /**
+     * @description The ID of the associated order.
+     *
      * @example 4353453534543
      *
      * @var string
@@ -159,6 +222,8 @@ class order extends Model
     public $relatedOrderId;
 
     /**
+     * @description The ID of the suborder.
+     *
      * @example 234343
      *
      * @var string
@@ -166,6 +231,11 @@ class order extends Model
     public $subOrderId;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   Subscription: subscription
+     *   PayAsYouGo: pay-as-you-go
+     *
      * @example PayAsYouGo
      *
      * @var string
@@ -173,6 +243,8 @@ class order extends Model
     public $subscriptionType;
 
     /**
+     * @description The tax of the order.
+     *
      * @example 1
      *
      * @var string
@@ -180,6 +252,8 @@ class order extends Model
     public $tax;
 
     /**
+     * @description The time when the service ends.
+     *
      * @example 2117-06-08T16:00:00Z
      *
      * @var string
@@ -187,6 +261,8 @@ class order extends Model
     public $usageEndTime;
 
     /**
+     * @description The time when the service starts.
+     *
      * @example 2017-06-08T16:00:00Z
      *
      * @var string

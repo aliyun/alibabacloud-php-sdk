@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class costUnitStatisInfo extends Model
 {
     /**
+     * @description The number of resource instances in the cost center.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class costUnitStatisInfo extends Model
     public $resourceCount;
 
     /**
+     * @description The number of resource groups in the cost center.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class costUnitStatisInfo extends Model
     public $resourceGroupCount;
 
     /**
+     * @description The number of sub-cost centers in the cost center.
+     *
      * @example 2
      *
      * @var int
@@ -30,6 +36,8 @@ class costUnitStatisInfo extends Model
     public $subUnitCount;
 
     /**
+     * @description The total number of resource instances, including resource instances of sub-cost centers, in the cost center.
+     *
      * @example 3
      *
      * @var int
@@ -37,6 +45,8 @@ class costUnitStatisInfo extends Model
     public $totalResourceCount;
 
     /**
+     * @description The total number of resource groups, including resource groups of sub-cost centers, in the cost center.
+     *
      * @example 2
      *
      * @var int
@@ -44,6 +54,8 @@ class costUnitStatisInfo extends Model
     public $totalResourceGroupCount;
 
     /**
+     * @description The total number of the associated accounts, including associated accounts of sub-cost centers, in the cost center.
+     *
      * @example 2
      *
      * @var int
@@ -51,6 +63,8 @@ class costUnitStatisInfo extends Model
     public $totalUserCount;
 
     /**
+     * @description The number of sub-cost centers in the cost center.
+     *
      * @example 0
      *
      * @var int

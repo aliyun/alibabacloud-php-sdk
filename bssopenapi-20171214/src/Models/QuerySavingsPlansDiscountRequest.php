@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySavingsPlansDiscountRequest extends Model
 {
     /**
+     * @description The code of the service.
+     *
      * @example ecs
      *
      * @var string
@@ -16,6 +18,8 @@ class QuerySavingsPlansDiscountRequest extends Model
     public $commodityCode;
 
     /**
+     * @description The cycle based on which queries are performed.
+     *
      * @example 1:Year
      *
      * @var string
@@ -23,6 +27,8 @@ class QuerySavingsPlansDiscountRequest extends Model
     public $cycle;
 
     /**
+     * @description The identifier of the language.
+     *
      * @example ZH
      *
      * @var string
@@ -30,6 +36,8 @@ class QuerySavingsPlansDiscountRequest extends Model
     public $locale;
 
     /**
+     * @description The code of the pricing module.
+     *
      * @example instance_type
      *
      * @var string
@@ -37,6 +45,8 @@ class QuerySavingsPlansDiscountRequest extends Model
     public $moduleCode;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class QuerySavingsPlansDiscountRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -51,6 +63,8 @@ class QuerySavingsPlansDiscountRequest extends Model
     public $pageSize;
 
     /**
+     * @description The payment mode.
+     *
      * @example total
      *
      * @var string
@@ -58,6 +72,8 @@ class QuerySavingsPlansDiscountRequest extends Model
     public $payMode;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +81,8 @@ class QuerySavingsPlansDiscountRequest extends Model
     public $region;
 
     /**
+     * @description The type of the resource.
+     *
      * @example ecs.g6
      *
      * @var string
@@ -72,6 +90,8 @@ class QuerySavingsPlansDiscountRequest extends Model
     public $spec;
 
     /**
+     * @description The type of the savings plan.
+     *
      * @example universal
      *
      * @var string

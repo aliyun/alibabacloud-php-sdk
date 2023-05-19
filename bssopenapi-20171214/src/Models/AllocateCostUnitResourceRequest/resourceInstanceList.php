@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class resourceInstanceList extends Model
 {
     /**
+     * @description The split item of the shared instance. This parameter is required only for shared instances.
+     *
+     *   Eight cloud services support bill splitting. The commodity codes of the eight services are oss, dcdn, snapshot, vod, cdn, live, cbwp, and pcdn.
+     *   You can obtain the split item of a shared instance by calling QueryCostUnitResource operation to obtain all resource instances within a cost center.
+     *
      * @example qwer1-cn-beijing
      *
      * @var string
@@ -16,6 +21,8 @@ class resourceInstanceList extends Model
     public $apportionCode;
 
     /**
+     * @description The commodity code of the resource instance.
+     *
      * @example oss
      *
      * @var string
@@ -23,6 +30,8 @@ class resourceInstanceList extends Model
     public $commodityCode;
 
     /**
+     * @description The ID of the resource instance.
+     *
      * @example cn-hangzhou;standard
      *
      * @var string
@@ -30,6 +39,8 @@ class resourceInstanceList extends Model
     public $resourceId;
 
     /**
+     * @description The user ID of the resource instance owner.
+     *
      * @example 273394581313325532
      *
      * @var int

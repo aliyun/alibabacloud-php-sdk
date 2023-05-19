@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the order.
-     *
      * @example 202110260001
      *
      * @var int

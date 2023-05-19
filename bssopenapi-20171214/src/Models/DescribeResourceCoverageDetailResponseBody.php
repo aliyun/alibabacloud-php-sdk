@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceCoverageDetailResponseBody extends Model
 {
     /**
-     * @description The status code.
+     * @description The end of the time range in which the coverage details were queried.
      *
      * @example Success
      *
@@ -19,14 +19,14 @@ class DescribeResourceCoverageDetailResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The ID of the account for which you want to query coverage details. If you do not set this parameter, the data of the current Alibaba Cloud account and its RAM users is queried. To query the data of a RAM user, specify the ID of the RAM user.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The message returned.
+     * @description The maximum number of entries to return. Default value: 20. Maximum value: 300.
      *
      * @example Successful!
      *
@@ -35,7 +35,7 @@ class DescribeResourceCoverageDetailResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The message returned.
      *
      * @example 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
      *
@@ -44,7 +44,7 @@ class DescribeResourceCoverageDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the operation was successful.
+     * @description The amount of the bill.
      *
      * @example true
      *

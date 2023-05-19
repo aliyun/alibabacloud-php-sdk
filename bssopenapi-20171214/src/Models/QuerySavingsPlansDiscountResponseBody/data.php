@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The IP address of the request.
+     *
      * @example 100.104.180.109
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $hostId;
 
     /**
+     * @description The information about the discounts on saving plans.
+     *
      * @var items[]
      */
     public $items;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryCommodityListRequest extends Model
 {
     /**
+     * @description The code of the service.
+     *
      * @example ecs
      *
      * @var string

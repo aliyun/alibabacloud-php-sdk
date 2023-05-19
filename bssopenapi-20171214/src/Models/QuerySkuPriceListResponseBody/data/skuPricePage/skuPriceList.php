@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class skuPriceList extends Model
 {
     /**
+     * @description The prices of the SKUs.
+     *
      * @var cskuPriceList[]
      */
     public $cskuPriceList;
 
     /**
-     * @description sku code
+     * @description The code of the SKU.
      *
      * @example 017c15a31507bc6de22aa93777461adc
      *
@@ -24,6 +26,8 @@ class skuPriceList extends Model
     public $skuCode;
 
     /**
+     * @description The values of the pricing factors.
+     *
      * @var string[]
      */
     public $skuFactorMap;

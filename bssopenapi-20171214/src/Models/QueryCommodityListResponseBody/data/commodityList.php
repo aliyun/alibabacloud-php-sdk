@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class commodityList extends Model
 {
     /**
+     * @description The payment type. Valid values: POSTPAY (pay-as-you-go) and PREPAY (subscription).
+     *
      * @example POSTPAY
      *
      * @var string
@@ -16,6 +18,8 @@ class commodityList extends Model
     public $chargeType;
 
     /**
+     * @description The code of the service, which is the same as that on the Billing Management page.
+     *
      * @example ecs
      *
      * @var string
@@ -23,6 +27,10 @@ class commodityList extends Model
     public $commodityCode;
 
     /**
+     * @description The name of the service.
+     *
+     * @example ECS (Pay-As-You-Go)
+     *
      * @var string
      */
     public $commodityName;

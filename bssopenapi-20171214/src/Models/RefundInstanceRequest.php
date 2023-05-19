@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefundInstanceRequest extends Model
 {
     /**
+     * @description This parameter is required for scenarios that need idempotence. The UUID that is used to ensure the idempotence of the request.
+     *
      * @example 793F021C-B589-1225-82A9-99232AEBE494
      *
      * @var string
@@ -16,6 +18,8 @@ class RefundInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @description This parameter is required for unsubscription scenarios. Valid values: 1 and 0. A value of 1 specifies that the instance is immediately released. A value of 0 specifies that the instance is shut down based on the shutdown policy. This parameter is supported only for specified services. Default value: 1.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class RefundInstanceRequest extends Model
     public $immediatelyRelease;
 
     /**
+     * @description The ID of the instance. This parameter is required for unsubscription scenarios. Do not specify a custom name for this parameter.
+     *
      * @example i-bp1etb69sqxgl4*******
      *
      * @var string
@@ -30,6 +36,8 @@ class RefundInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The code of the service. This parameter is required for unsubscription scenarios.
+     *
      * @example ecs
      *
      * @var string
@@ -37,6 +45,8 @@ class RefundInstanceRequest extends Model
     public $productCode;
 
     /**
+     * @description The type of the service. This parameter is required for unsubscription scenarios. Unless otherwise specified, set this parameter to an empty string.
+     *
      * @example ”“
      *
      * @var string

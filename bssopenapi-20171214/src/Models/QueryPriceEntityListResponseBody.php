@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryPriceEntityListResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class QueryPriceEntityListResponseBody extends Model
     public $code;
 
     /**
+     * @description The data that is returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message that is returned.
+     *
      * @example Successful！
      *
      * @var string
@@ -29,7 +35,7 @@ class QueryPriceEntityListResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
      *
@@ -38,6 +44,8 @@ class QueryPriceEntityListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

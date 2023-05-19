@@ -9,37 +9,38 @@ use AlibabaCloud\Tea\Model;
 class DescribeSavingsPlansUsageTotalRequest extends Model
 {
     /**
-     * @description The ID of the account for which you want to query usage summary. If you do not set this parameter, the data of the current Alibaba Cloud account and its RAM users is queried. To query the data of a RAM user, specify the ID of the RAM user.
+     * @description The total amount of the savings plan.
      *
-     * @example 123745698925000
+     * @example Queries the usage summary of savings plans.
      *
      * @var int
      */
     public $billOwnerId;
 
     /**
-     * @description The end of the time range to query. The end is excluded from the time range. If you do not set this parameter, the end time is the current time. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+     * @description The usage summary.
      *
-     * @example 2021-01-02 00:00:00
+     * @example The pay-as-you-go cost.
      *
      * @var string
      */
     public $endPeriod;
 
     /**
-     * @description The time granularity at which usage summary are queried. Valid values: MONTH, DAY, and HOUR.
+     * @description The amount that is saved.
      *
-     * @example HOUR
+     * @example The total usage.
      *
      * @var string
      */
     public $periodType;
 
     /**
-     * @description The beginning of the time range to query. The beginning is included in the time range. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+     * @description The usage.
      *
-     * @example 2021-01-01 00:00:00
+     * @example The period.
      *
+     * The value is in the format of yyyyMMddHH.
      * @var string
      */
     public $startPeriod;

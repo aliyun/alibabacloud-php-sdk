@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetOrderDetailRequest extends Model
 {
     /**
+     * @description The ID of the order.
+     *
      * @example 32453453
      *
      * @var string

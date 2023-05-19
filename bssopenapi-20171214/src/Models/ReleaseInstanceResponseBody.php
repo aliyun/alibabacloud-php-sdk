@@ -17,8 +17,6 @@ class ReleaseInstanceResponseBody extends Model
     public $code;
 
     /**
-     * @description data
-     *
      * @var data
      */
     public $data;

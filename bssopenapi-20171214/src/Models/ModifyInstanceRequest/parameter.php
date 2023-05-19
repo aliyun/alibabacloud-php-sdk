@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
+     * @description The code of the parameter n. Valid values of n: 1 to 100. Multiple parameters are concatenated in the order of n.
+     *
+     * >  Only the parameters of the attributes that you want to modify for the instance must be configured. For example, if the instance has Attribute A and Attribute B and only Attribute A must be modified, configure only the parameter of Attribute A.
      * @example test
      *
      * @var string
@@ -16,6 +19,8 @@ class parameter extends Model
     public $code;
 
     /**
+     * @description The value of the parameter n. Valid values of n: 1 to 100.
+     *
      * @example test
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePricingModuleResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribePricingModuleResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned.
+     *
      * @example This API is not applicable for caller.
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribePricingModuleResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C40A8EE0-8084-49FE-B66E-5E1C3B6AE025
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribePricingModuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

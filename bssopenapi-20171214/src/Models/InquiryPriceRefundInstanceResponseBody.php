@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class InquiryPriceRefundInstanceResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -24,6 +26,8 @@ class InquiryPriceRefundInstanceResponseBody extends Model
     public $data;
 
     /**
+     * @description The description of the execution result.
+     *
      * @example success
      *
      * @var string
@@ -31,6 +35,8 @@ class InquiryPriceRefundInstanceResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example UUID
      *
      * @var string
@@ -38,6 +44,8 @@ class InquiryPriceRefundInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values: true and false.
+     *
      * @example true
      *
      * @var bool

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CancelOrderResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
      * @example Success
      *
      * @var string
@@ -17,11 +19,15 @@ class CancelOrderResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message.
+     *
      * @example Successful!
      *
      * @var string
@@ -29,6 +35,8 @@ class CancelOrderResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 30D2285E-A848-4ECB-AA74-4954C60858A1
      *
      * @var string
@@ -36,6 +44,8 @@ class CancelOrderResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
      * @example true
      *
      * @var bool

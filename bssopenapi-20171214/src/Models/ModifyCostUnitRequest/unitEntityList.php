@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class unitEntityList extends Model
 {
     /**
+     * @description The new name of the cost center.
+     *
      * @example newTest
      *
      * @var string
@@ -16,6 +18,8 @@ class unitEntityList extends Model
     public $newUnitName;
 
     /**
+     * @description The user ID of the cost center owner.
+     *
      * @example 1321312312
      *
      * @var int
@@ -23,6 +27,8 @@ class unitEntityList extends Model
     public $ownerUid;
 
     /**
+     * @description The ID of the cost center.
+     *
      * @example 2524352
      *
      * @var int

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The module attributes.
+     *
      * @var attributeList
      */
     public $attributeList;
 
     /**
+     * @description The pricing information of modules.
+     *
      * @var moduleList
      */
     public $moduleList;

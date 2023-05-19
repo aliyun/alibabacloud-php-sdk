@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class costUnitDtoList extends Model
 {
     /**
+     * @description The user ID of the cost center owner.
+     *
      * @example 2343464
      *
      * @var int
@@ -16,6 +18,8 @@ class costUnitDtoList extends Model
     public $ownerUid;
 
     /**
+     * @description The ID of the parent cost center. A value of -1 indicates the root cost center.
+     *
      * @example -1
      *
      * @var int
@@ -23,6 +27,8 @@ class costUnitDtoList extends Model
     public $parentUnitId;
 
     /**
+     * @description The ID of the cost center.
+     *
      * @example 23534
      *
      * @var int
@@ -30,6 +36,8 @@ class costUnitDtoList extends Model
     public $unitId;
 
     /**
+     * @description The name of the cost center.
+     *
      * @example test
      *
      * @var string

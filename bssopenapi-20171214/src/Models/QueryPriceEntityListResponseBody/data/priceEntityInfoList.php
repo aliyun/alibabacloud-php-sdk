@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class priceEntityInfoList extends Model
 {
     /**
+     * @description The code of the billable item.
+     *
      * @example instance_type
      *
      * @var string
@@ -17,11 +19,17 @@ class priceEntityInfoList extends Model
     public $priceEntityCode;
 
     /**
+     * @description The name of the billable item.
+     *
+     * @example Elastic Compute Service (ECS) instance
+     *
      * @var string
      */
     public $priceEntityName;
 
     /**
+     * @description The factors of the billable item.
+     *
      * @var priceFactorList[]
      */
     public $priceFactorList;

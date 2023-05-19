@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCostUnitRequest extends Model
 {
     /**
+     * @description The user ID of the cost center owner.
+     *
      * @example 2135342
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteCostUnitRequest extends Model
     public $ownerUid;
 
     /**
+     * @description The ID of the cost center. A value of -1 indicates the root cost center.
+     *
      * @example 376348
      *
      * @var int

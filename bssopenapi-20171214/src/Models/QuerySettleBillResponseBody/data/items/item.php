@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
-     * @description The amount deducted by using credit refunds.
-     *
      * @example 0
      *
      * @var float
@@ -18,8 +16,6 @@ class item extends Model
     public $adjustAmount;
 
     /**
-     * @description The amount paid after the tax is deducted.
-     *
      * @example 0
      *
      * @var float
@@ -27,8 +23,6 @@ class item extends Model
     public $afterTaxAmount;
 
     /**
-     * @description The ID of the account to which the bill belongs.
-     *
      * @example 185xxxxx489
      *
      * @var string
@@ -36,8 +30,6 @@ class item extends Model
     public $billAccountID;
 
     /**
-     * @description The name of the account to which the bill belongs.
-     *
      * @example test@test.aliyunid.com
      *
      * @var string
@@ -45,8 +37,6 @@ class item extends Model
     public $billAccountName;
 
     /**
-     * @description The business type.
-     *
      * @example trusteeship
      *
      * @var string
@@ -54,8 +44,6 @@ class item extends Model
     public $bizType;
 
     /**
-     * @description The amount paid in cash. The amount that was deducted by using credit refunds is not included.
-     *
      * @example 0
      *
      * @var float
@@ -63,8 +51,6 @@ class item extends Model
     public $cashAmount;
 
     /**
-     * @description The code of the commodity. The commodity code is the same as that displayed in User Center.
-     *
      * @example rds
      *
      * @var string
@@ -72,12 +58,6 @@ class item extends Model
     public $commodityCode;
 
     /**
-     * @description The type of the currency.
-     *
-     *   CNY
-     *   USD
-     *   JPY
-     *
      * @example CNY
      *
      * @var string
@@ -85,8 +65,6 @@ class item extends Model
     public $currency;
 
     /**
-     * @description The amount deducted by using vouchers.
-     *
      * @example 0
      *
      * @var float
@@ -94,8 +72,6 @@ class item extends Model
     public $deductedByCashCoupons;
 
     /**
-     * @description The amount deducted by using coupons.
-     *
      * @example 0
      *
      * @var float
@@ -103,8 +79,6 @@ class item extends Model
     public $deductedByCoupons;
 
     /**
-     * @description The amount deducted by using prepaid cards.
-     *
      * @example 0
      *
      * @var float
@@ -112,8 +86,6 @@ class item extends Model
     public $deductedByPrepaidCard;
 
     /**
-     * @description The discount amount.
-     *
      * @example 0
      *
      * @var float
@@ -121,13 +93,6 @@ class item extends Model
     public $invoiceDiscount;
 
     /**
-     * @description The type of the bill. Valid values:
-     *
-     *   Subscription
-     *   OrderPayAsYouGoBill
-     *   Refund
-     *   Adjustment
-     *
      * @example SubscriptionOrder
      *
      * @var string
@@ -135,8 +100,6 @@ class item extends Model
     public $item;
 
     /**
-     * @description The unsettled amount.
-     *
      * @example 0
      *
      * @var float
@@ -144,8 +107,6 @@ class item extends Model
     public $outstandingAmount;
 
     /**
-     * @description The ID of the member. This parameter is returned in a multi-account payment scenario.
-     *
      * @example 3532535235
      *
      * @var string
@@ -153,8 +114,6 @@ class item extends Model
     public $ownerID;
 
     /**
-     * @description The amount paid in cash. The amount that was deducted by using credit refunds is included.
-     *
      * @example 0
      *
      * @var float
@@ -162,8 +121,6 @@ class item extends Model
     public $paymentAmount;
 
     /**
-     * @description The currency used for payment.
-     *
      * @example USD
      *
      * @var string
@@ -171,8 +128,6 @@ class item extends Model
     public $paymentCurrency;
 
     /**
-     * @description The time when the bill was paid.
-     *
      * @example 2020-03-11 08:00:00
      *
      * @var string
@@ -180,8 +135,6 @@ class item extends Model
     public $paymentTime;
 
     /**
-     * @description The ID of the transaction.
-     *
      * @example 2O3AADJFEAF2PDKSFAMFCB11918
      *
      * @var string
@@ -189,8 +142,6 @@ class item extends Model
     public $paymentTransactionID;
 
     /**
-     * @description The code of the service. The service code is the same as that displayed in User Center.
-     *
      * @example rds
      *
      * @var string
@@ -198,8 +149,6 @@ class item extends Model
     public $pipCode;
 
     /**
-     * @description The pretax amount.
-     *
      * @example 100
      *
      * @var float
@@ -207,8 +156,6 @@ class item extends Model
     public $pretaxAmount;
 
     /**
-     * @description The pretax amount paid in local currency.
-     *
      * @example 0
      *
      * @var float
@@ -216,8 +163,6 @@ class item extends Model
     public $pretaxAmountLocal;
 
     /**
-     * @description The pretax gross amount.
-     *
      * @example 0
      *
      * @var float
@@ -225,8 +170,6 @@ class item extends Model
     public $pretaxGrossAmount;
 
     /**
-     * @description The code of the service.
-     *
      * @example rds
      *
      * @var string
@@ -234,26 +177,16 @@ class item extends Model
     public $productCode;
 
     /**
-     * @description The details of the service.
-     *
-     * @example ApsaraDB RDS (subscription)
-     *
      * @var string
      */
     public $productDetail;
 
     /**
-     * @description The name of the service.
-     *
-     * @example ApsaraDB RDS
-     *
      * @var string
      */
     public $productName;
 
     /**
-     * @description The type of the service.
-     *
      * @example rds
      *
      * @var string
@@ -261,8 +194,6 @@ class item extends Model
     public $productType;
 
     /**
-     * @description The ID of the bill or order.
-     *
      * @example 2020xxxx5912
      *
      * @var string
@@ -270,8 +201,6 @@ class item extends Model
     public $recordID;
 
     /**
-     * @description The round down discount.
-     *
      * @example 0
      *
      * @var string
@@ -279,13 +208,6 @@ class item extends Model
     public $roundDownDiscount;
 
     /**
-     * @description The payment status of the bill. Valid values:
-     *
-     *   PayFinish: The bill is paid.
-     *   PayUnclear: The bill is not cleared.
-     *   PayUnsettle: The bill is not settled.
-     *   NoSettle: The bill is free of settlement.
-     *
      * @example PayFinish
      *
      * @var string
@@ -293,8 +215,6 @@ class item extends Model
     public $status;
 
     /**
-     * @description The ID of the order corresponding to the bill.
-     *
      * @example 325345254353
      *
      * @var string
@@ -302,11 +222,6 @@ class item extends Model
     public $subOrderId;
 
     /**
-     * @description The billing method. Valid values:
-     *
-     *   Subscription
-     *   PayAsYouGo
-     *
      * @example PayAsYouGo
      *
      * @var string
@@ -314,8 +229,6 @@ class item extends Model
     public $subscriptionType;
 
     /**
-     * @description The tax.
-     *
      * @example 0
      *
      * @var float
@@ -323,8 +236,6 @@ class item extends Model
     public $tax;
 
     /**
-     * @description The end time of the bill.
-     *
      * @example 2020-03-11 08:00:00
      *
      * @var string
@@ -332,8 +243,6 @@ class item extends Model
     public $usageEndTime;
 
     /**
-     * @description The start time of the bill.
-     *
      * @example 2020-03-11 07:00:00
      *
      * @var string

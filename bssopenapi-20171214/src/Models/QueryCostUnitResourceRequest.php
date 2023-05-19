@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryCostUnitResourceRequest extends Model
 {
     /**
+     * @description The user ID of the cost center owner.
+     *
      * @example 23453245
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryCostUnitResourceRequest extends Model
     public $ownerUid;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class QueryCostUnitResourceRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -30,6 +36,8 @@ class QueryCostUnitResourceRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the cost center.
+     *
      * @example 235325
      *
      * @var int
