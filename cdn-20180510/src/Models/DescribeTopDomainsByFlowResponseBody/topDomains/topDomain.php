@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class topDomain extends Model
 {
     /**
-     * @description The accelerated domain name.
+     * @description The total number of accelerated domain names that belong to the current Alibaba Cloud account.
      *
      * @example example.com
      *
@@ -18,8 +18,9 @@ class topDomain extends Model
     public $domainName;
 
     /**
-     * @description The peak bandwidth value.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * >  Set StartTime to UTC time in the yyyy-MM-ddTHH:mm:ssZ format. For example, if the local time is 00:00, June 1, 2021, set StartTime to 2021-05-31T16:00:00Z.
      * @example 22139626
      *
      * @var float
@@ -27,7 +28,7 @@ class topDomain extends Model
     public $maxBps;
 
     /**
-     * @description The time when the bandwidth reached the peak value.
+     * @description Queries the top N domain names ranked by network traffic. You can query data collected within the last 30 days.
      *
      * @example 1457111400
      *
@@ -36,7 +37,7 @@ class topDomain extends Model
     public $maxBpsTime;
 
     /**
-     * @description The ranking of the accelerated domain name.
+     * @description The time when the bandwidth reached the peak value.
      *
      * @example 1
      *
@@ -45,7 +46,7 @@ class topDomain extends Model
     public $rank;
 
     /**
-     * @description The number of visits to the domain name.
+     * @description The top N domain names ranked by network traffic.
      *
      * @example 107784230
      *
@@ -54,7 +55,7 @@ class topDomain extends Model
     public $totalAccess;
 
     /**
-     * @description The total volume of traffic.
+     * @description The ID of the request.
      *
      * @example 2043859876683.9001
      *
@@ -63,7 +64,7 @@ class topDomain extends Model
     public $totalTraffic;
 
     /**
-     * @description The proportion of network traffic consumed to access the domain name.
+     * @description The beginning of the time range during which data was queried.
      *
      * @example 30.64191989360235
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDomainsByLogConfigIdRequest extends Model
 {
     /**
-     * @description The ID of the custom configuration.
+     * @description >  The maximum number of times that each user can call this operation per second is 100.
      *
      * @example 123
      *

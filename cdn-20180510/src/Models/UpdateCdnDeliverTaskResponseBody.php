@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateCdnDeliverTaskResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The parameters that specify the time interval at which the tracking task sends operations reports. The settings must be escaped in JSON.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *

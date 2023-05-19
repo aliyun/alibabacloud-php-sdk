@@ -9,9 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainsUsageByDayRequest extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify only one domain name.
-     *
-     * If you do not specify an accelerated domain name, the data of all accelerated domain names that belong to your account is queried.
      * @example example.com
      *
      * @var string
@@ -19,9 +16,6 @@ class DescribeDomainsUsageByDayRequest extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range to query.
-     *
-     * > The end time must be later than the start time.
      * @example 2019-12-23T09:00:00Z
      *
      * @var string
@@ -29,9 +23,6 @@ class DescribeDomainsUsageByDayRequest extends Model
     public $endTime;
 
     /**
-     * @description The beginning of the time range to query.
-     *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2019-12-22T08:00:00Z
      *
      * @var string

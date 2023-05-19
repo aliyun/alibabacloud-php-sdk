@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BatchStopCdnDomainRequest extends Model
 {
     /**
-     * @description The names of the accelerated domain names. You can specify one or more domain names in each request. Separate multiple domain names with commas (,).
+     * @description *   After an accelerated domain name is disabled, Alibaba Cloud CDN retains its information and reroutes all the requests that are destined for the accelerated domain name to the origin.
+     *   If you need to temporarily disable CDN acceleration for a domain name, we recommend that you call the StopDomain operation.
+     *   You can call this operation up to 30 times per second per account.
+     *   You can specify up to 50 domain names in each request.
      *
      * @example example.com
      *

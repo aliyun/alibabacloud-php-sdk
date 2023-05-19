@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRegionDataRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * The end time must be later than the start time.
      * @example example.com
      *
      * @var string
@@ -18,7 +19,7 @@ class DescribeDomainRegionDataRequest extends Model
     public $domainName;
 
     /**
-     * @description The time interval between the data entries returned. Unit: seconds.
+     * @description The proportion of bytes transferred from each region. For example, a value of 90 indicates that 90% of the bytes are transferred from the specified area.
      *
      * @example 2015-12-07T12:00:00Z
      *
@@ -27,7 +28,7 @@ class DescribeDomainRegionDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The accelerated domain name.
+     * @description The information of the regions.
      *
      * @example 2015-12-05T12:00:00Z
      *

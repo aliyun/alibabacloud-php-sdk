@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @description The timestamp of the data returned.
-     *
      * @example 2015-12-10T20:35:00Z
      *
      * @var string
@@ -18,8 +16,6 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The total number of times that HTTP status codes were returned.
-     *
      * @example 110
      *
      * @var string
@@ -27,8 +23,6 @@ class dataModule extends Model
     public $totalValue;
 
     /**
-     * @description The number of times that the HTTP status code was returned.
-     *
      * @example { "200": 10, "206": 100}
      *
      * @var string

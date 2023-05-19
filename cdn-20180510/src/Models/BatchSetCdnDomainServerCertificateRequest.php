@@ -18,7 +18,10 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $certName;
 
     /**
-     * @description Specifies whether to check the certificate name for duplicates. If you set the value to 1, the system does not perform the check and overwrites the information about the existing certificate that uses the same name.
+     * @description Specifies whether to enable the SSL certificate. Valid values:
+     *
+     *   **on**: enables the SSL certificate.
+     *   **off**: disables the SSL certificate. This is the default value.
      *
      * @example cas
      *
@@ -27,7 +30,10 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $certType;
 
     /**
-     * @description The private key. Specify the private key only if you enable the SSL certificate.
+     * @description The type of the SSL certificate. Valid values:
+     *
+     *   **upload**: a user-uploaded SSL certificate.
+     *   **cas**: a certificate that is issued by SSL Certificates Service.
      *
      * @example example.com
      *
@@ -36,8 +42,6 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $domainName;
 
     /**
-     * @description Specifies whether to check the certificate name for duplicates. If you set the value to 1, the system does not perform the check and overwrites the information about the existing certificate that uses the same name.
-     *
      * @example 1
      *
      * @var string
@@ -50,9 +54,6 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $ownerId;
 
     /**
-     * @description The accelerated domain name to which the SSL certificate belongs. The type of request supported by the accelerated domain name must be HTTPS. You can specify multiple accelerated domain names and separate them with commas (,).
-     *
-     * >  You can manage the SSL certificates of up to 50 accelerated domain names in each call.
      * @example your region
      *
      * @var string
@@ -60,7 +61,7 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $region;
 
     /**
-     * @description The private key. Specify the private key only if you enable the SSL certificate.
+     * @description The content of the SSL certificate. Specify the content of the certificate only if you want to enable the SSL certificate.
      *
      * @example yourSSLPri
      *
@@ -78,8 +79,7 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $SSLProtocol;
 
     /**
-     * @description > *   The maximum number of times that each user can call this operation per second is 10.
-     *   You can specify multiple domain names (no more than 50) and separate them with commas (,).
+     * @description The operation that you want to perform. Set the value to **BatchSetCdnDomainServerCertificate**.
      *
      * @example yourSSLPub
      *

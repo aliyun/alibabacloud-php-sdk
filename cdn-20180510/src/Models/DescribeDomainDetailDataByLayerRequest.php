@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainDetailDataByLayerRequest extends Model
 {
     /**
-     * @description The name of the Internet service provider (ISP) for your Alibaba Cloud CDN service. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query ISP names.
+     * @description The bandwidth. Unit: bit/s.
      *
-     * If you do not specify an ISP, data of all ISPs is queried.
      * @example example.com
      *
      * @var string
@@ -29,9 +28,8 @@ class DescribeDomainDetailDataByLayerRequest extends Model
     public $endTime;
 
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The number of queries per second.
      *
-     * >  The end time must be later than the start time.
      * @example bps,ipv6_traf,traf,http_code,qps
      *
      * @var string
@@ -39,7 +37,7 @@ class DescribeDomainDetailDataByLayerRequest extends Model
     public $field;
 
     /**
-     * @description The ID of the request.
+     * @description The amount of network traffic. Unit: bytes.
      *
      * @example telecom
      *
@@ -48,7 +46,7 @@ class DescribeDomainDetailDataByLayerRequest extends Model
     public $ispNameEn;
 
     /**
-     * @description The amount of network traffic. Unit: bytes.
+     * @description The operation that you want to perform. Set the value to **DescribeDomainDetailDataByLayer**.
      *
      * @example all
      *
@@ -57,7 +55,7 @@ class DescribeDomainDetailDataByLayerRequest extends Model
     public $layer;
 
     /**
-     * @description The detailed data of the accelerated domain names.
+     * @description The number of IPv6 requests per second.
      *
      * @example hangzhou
      *
@@ -66,9 +64,8 @@ class DescribeDomainDetailDataByLayerRequest extends Model
     public $locationNameEn;
 
     /**
-     * @description The name of the region. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * If you do not specify a region, data in all regions is queried.
      * @example 2020-07-05T22:00:00Z
      *
      * @var string

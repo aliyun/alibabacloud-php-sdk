@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomLogConfigRequest extends Model
 {
     /**
-     * @description The ID of the custom configuration.
+     * @description A sample log configuration.
      *
      * @example 123
      *

@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class clientIpList extends Model
 {
     /**
-     * @description The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
+     * @description Queries client IP addresses that are ranked by the number of requests or the amount of network traffic within a specific time range for one or more accelerated domain names. You can query data collected within the last 90 days.
      *
-     * - You can call this operation up to 10 times per second per account.
      * @example 256
      *
      * @var int
@@ -19,7 +18,7 @@ class clientIpList extends Model
     public $acc;
 
     /**
-     * @description The total amount of network traffic consumed. Unit: bytes.
+     * @description The ID of the request.
      *
      * @example 1.1.xxx
      *
@@ -28,7 +27,7 @@ class clientIpList extends Model
     public $clientIp;
 
     /**
-     * @description The total number of requests.
+     * @description The total amount of network traffic consumed. Unit: bytes.
      *
      * @example 2
      *
@@ -37,8 +36,6 @@ class clientIpList extends Model
     public $rank;
 
     /**
-     * @description The total number of requests.
-     *
      * @example 1024
      *
      * @var int

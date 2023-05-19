@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class urlList extends Model
 {
     /**
-     * @description Queries frequently requested back-to-origin URLs of one or more accelerated domain names.
-     *
      * @example 460486880
      *
      * @var string

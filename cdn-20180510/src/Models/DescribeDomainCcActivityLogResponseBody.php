@@ -10,14 +10,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainCcActivityLogResponseBody extends Model
 {
     /**
-     * @description The list of rate limiting logs.
+     * @description A custom rule name. Valid values:
      *
+     *   Default mode: default_normal.
+     *   Emergency mode: default_attack.
+     *
+     * If you do not set this parameter, all events that triggered rate limiting are queried.
      * @var activityLog[]
      */
     public $activityLog;
 
     /**
-     * @description The page number of the returned page.
+     * @description The period of time that rate limiting remains effective.
      *
      * @example 1
      *
@@ -26,7 +30,7 @@ class DescribeDomainCcActivityLogResponseBody extends Model
     public $pageIndex;
 
     /**
-     * @description The number of entries returned per page.
+     * @description Set the value to **DescribeDomainCcActivityLog**.
      *
      * @example 30
      *
@@ -35,7 +39,7 @@ class DescribeDomainCcActivityLogResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the rule that was triggered
      *
      * @example 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
      *
@@ -44,8 +48,9 @@ class DescribeDomainCcActivityLogResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The value of the object that triggered rate limiting.
      *
+     * If you do not set this parameter, the values of all events that triggered rate limiting are queried.
      * @example 20
      *
      * @var int

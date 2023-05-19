@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @description The timestamp of the data returned.
-     *
      * @example 2019-12-10T20:01:00Z
      *
      * @var string
@@ -18,8 +16,6 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The amount of traffic.
-     *
      * @example 0
      *
      * @var string

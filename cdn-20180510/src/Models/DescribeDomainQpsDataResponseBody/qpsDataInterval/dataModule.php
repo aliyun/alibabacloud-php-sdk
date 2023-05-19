@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @description The number of requests in the Chinese mainland.
-     *
      * @example 0
      *
      * @var string
@@ -18,8 +16,6 @@ class dataModule extends Model
     public $accDomesticValue;
 
     /**
-     * @description The number of requests outside the Chinese mainland.
-     *
      * @example 0
      *
      * @var string
@@ -27,8 +23,6 @@ class dataModule extends Model
     public $accOverseasValue;
 
     /**
-     * @description The total number of requests.
-     *
      * @example 0
      *
      * @var string
@@ -36,8 +30,6 @@ class dataModule extends Model
     public $accValue;
 
     /**
-     * @description The number of queries per second in the Chinese mainland.
-     *
      * @example 0
      *
      * @var string
@@ -45,8 +37,6 @@ class dataModule extends Model
     public $domesticValue;
 
     /**
-     * @description The number of HTTPS requests sent to POPs in the Chinese mainland.
-     *
      * @example 1
      *
      * @var string
@@ -54,8 +44,6 @@ class dataModule extends Model
     public $httpsAccDomesticValue;
 
     /**
-     * @description The number of HTTPS requests sent to POPs outside the Chinese mainland.
-     *
      * @example 1
      *
      * @var string
@@ -63,8 +51,6 @@ class dataModule extends Model
     public $httpsAccOverseasValue;
 
     /**
-     * @description The number of HTTPS requests sent to POPs.
-     *
      * @example 1
      *
      * @var string
@@ -72,8 +58,6 @@ class dataModule extends Model
     public $httpsAccValue;
 
     /**
-     * @description The number of queries per second that is calculated based on the HTTPS requests sent to POPs in the Chinese mainland.
-     *
      * @example 1
      *
      * @var string
@@ -81,8 +65,6 @@ class dataModule extends Model
     public $httpsDomesticValue;
 
     /**
-     * @description The number of queries per second that is calculated based on the HTTPS requests sent to POPs outside the Chinese mainland.
-     *
      * @example 1
      *
      * @var string
@@ -90,8 +72,6 @@ class dataModule extends Model
     public $httpsOverseasValue;
 
     /**
-     * @description The number of queries per second that is calculated based on the HTTPS requests sent to points of presence (POPs).
-     *
      * @example 1
      *
      * @var string
@@ -99,8 +79,6 @@ class dataModule extends Model
     public $httpsValue;
 
     /**
-     * @description The number of queries per second outside the Chinese mainland.
-     *
      * @example 0
      *
      * @var string
@@ -108,8 +86,6 @@ class dataModule extends Model
     public $overseasValue;
 
     /**
-     * @description The timestamp of the data returned.
-     *
      * @example 2019-11-30T05:40:00Z
      *
      * @var string
@@ -117,8 +93,6 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The total QPS.
-     *
      * @example 0
      *
      * @var string

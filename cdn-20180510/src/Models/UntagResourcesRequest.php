@@ -9,12 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to remove all tags. Valid values:
+     * @description The operation that you want to perform. Set the value to **UntagResources**.
      *
-     *   **true**: yes.
-     *   **false**: no.
-     *
-     * Default value: **false**.
      * @example false
      *
      * @var bool
@@ -22,7 +18,7 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
-     * @description The list of resource IDs. You can specify up to 50 resource IDs in the list.
+     * @description Removes tags from a resource.
      *
      * @example example.com
      *
@@ -31,7 +27,7 @@ class UntagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resources from which you want to remove tags. Set this parameter to **DOMAIN**.
+     * @description The ID of the request.
      *
      * @example DOMAIN
      *
@@ -40,8 +36,6 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The list of tag keys. You can specify up to 20 tag keys in the list.
-     *
      * @example env
      *
      * @var string[]

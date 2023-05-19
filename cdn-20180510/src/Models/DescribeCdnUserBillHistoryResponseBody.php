@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnUserBillHistoryResponseBody extends Model
 {
     /**
-     * @description The billing history returned.
+     * @description Invalid Parameter StartTime.
      *
      * @var billHistoryData
      */
     public $billHistoryData;
 
     /**
-     * @description The ID of the request.
+     * @description Invalid Parameter AliUid.
      *
      * @example ED61C6C3-8241-4187-AAA7-5157AE175CEC
      *

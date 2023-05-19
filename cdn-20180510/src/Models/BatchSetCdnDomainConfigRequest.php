@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BatchSetCdnDomainConfigRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the configuration.
      *
      * @example www.example.com
      *
@@ -18,7 +18,7 @@ class BatchSetCdnDomainConfigRequest extends Model
     public $domainNames;
 
     /**
-     * @description The list of domain configurations.
+     * @description The domain name.
      *
      * @example [{"functionArgs": [{"argName": "key","argValue": "Content-Encoding"},{"argName": "value","argValue": "gzip"}],"functionName": "set_resp_header"} ]
      *

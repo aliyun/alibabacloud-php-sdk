@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class urlList extends Model
 {
     /**
-     * @description The proportion of network traffic consumed to access the URL.
+     * @description The complete URL.
      *
      * @example 460486880
      *
@@ -18,7 +18,10 @@ class urlList extends Model
     public $flow;
 
     /**
-     * @description The complete URL.
+     * @description The method that is used to sort the returned URLs.**** Valid values:
+     *
+     *   **traf**: by network traffic.
+     *   **pv**: by the number of page views. This is the default value.
      *
      * @example 0.35
      *
@@ -27,7 +30,7 @@ class urlList extends Model
     public $flowProportion;
 
     /**
-     * @description The amount of network traffic. Unit: bytes.
+     * @description The beginning of the time range that was queried.
      *
      * @example http://example.com/nn_live/nn_x64/a0.m3u8
      *
@@ -36,7 +39,7 @@ class urlList extends Model
     public $urlDetail;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The ID of the request.
      *
      * @example 161673
      *
@@ -45,10 +48,7 @@ class urlList extends Model
     public $visitData;
 
     /**
-     * @description The method that is used to sort the returned URLs.**** Valid values:
-     *
-     *   **traf**: by network traffic.
-     *   **pv**: by the number of page views. This is the default value.
+     * @description Queries frequently requested back-to-origin URLs of one or more accelerated domain names.
      *
      * @example 0.35
      *

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeRealtimeDeliveryAccResponseBody extends Model
 {
     /**
-     * @description The statistics about real-time log deliveries.
+     * @description The operation that you want to perform. Set the value to **DescribeRealtimeDeliveryAcc**.
      *
      * @var reatTimeDeliveryAccData
      */
     public $reatTimeDeliveryAccData;
 
     /**
-     * @description The ID of the request.
+     * @description The number of failed attempts to deliver log data to Log Service.
      *
      * @example 684306D2-2511-4977-991D-CE97E91FD7C0
      *

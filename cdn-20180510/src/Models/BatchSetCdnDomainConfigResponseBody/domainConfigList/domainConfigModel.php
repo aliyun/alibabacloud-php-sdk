@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class domainConfigModel extends Model
 {
     /**
-     * @description The name of the feature.
+     * @description The list of domain configurations.
      *
      * @example 1234567
      *
@@ -18,9 +18,7 @@ class domainConfigModel extends Model
     public $configId;
 
     /**
-     * @description > *   You can call this operation up to 30 times per second per account.
-     *   You can specify multiple domain names and must separate them with commas (,). You can specify up to 50 domain names in each call.
-     *   If the BatchSetCdnDomainConfig operation is successful, a unique configuration ID (ConfigId) is generated. You can use configuration IDs to update or delete configurations. For more information, see [Usage notes on ConfigId](~~388994~~).
+     * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
      *
      * @example www.example.com
      *
@@ -29,7 +27,7 @@ class domainConfigModel extends Model
     public $domainName;
 
     /**
-     * @description The list of domain configurations.
+     * @description The domain name.
      *
      * @example set_resp_header
      *

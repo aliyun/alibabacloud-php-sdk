@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainTopClientIpVisitRequest extends Model
 {
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The ranking of the client IP address returned.
      *
      * @example example.com
      *
@@ -18,9 +18,8 @@ class DescribeDomainTopClientIpVisitRequest extends Model
     public $domainName;
 
     /**
-     * @description The maximum number of entries to return. Maximum value: 100.
+     * @description A list of client IP addresses.
      *
-     * Default value: 20. The default value 20 specifies that the top 20 data entries are returned.
      * @example 2019-10-01T16:00:00Z
      *
      * @var string
@@ -28,8 +27,9 @@ class DescribeDomainTopClientIpVisitRequest extends Model
     public $endTime;
 
     /**
-     * @description A list of client IP addresses.
+     * @description The maximum number of entries to return. Maximum value: 100.
      *
+     * Default value: 20. The default value 20 specifies that the top 20 data entries are returned.
      * @example 20
      *
      * @var string
@@ -37,9 +37,8 @@ class DescribeDomainTopClientIpVisitRequest extends Model
     public $limit;
 
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The client IP address returned. Only IPv4 addressed are supported.
      *
-     * The end time must be later than the start time.
      * @example beijing
      *
      * @var string
@@ -47,7 +46,10 @@ class DescribeDomainTopClientIpVisitRequest extends Model
     public $locationNameEn;
 
     /**
-     * @description The ID of the request.
+     * @description The method that is used to sort the client IP addresses. Valid values:
+     *
+     *   **traf**: by network traffic. This is the default value.
+     *   **acc**: by the number of requests.
      *
      * @example traf
      *
@@ -56,10 +58,7 @@ class DescribeDomainTopClientIpVisitRequest extends Model
     public $sortBy;
 
     /**
-     * @description The method that is used to sort the client IP addresses. Valid values:
-     *
-     *   **traf**: by network traffic. This is the default value.
-     *   **acc**: by the number of requests.
+     * @description The operation that you want to perform. Set the value to **DescribeDomainTopClientIpVisit**.
      *
      * @example 2019-09-30T16:00:00Z
      *

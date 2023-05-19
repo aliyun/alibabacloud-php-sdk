@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class accData extends Model
 {
     /**
-     * @description The number of failed attempts to deliver log data to Log Service.
+     * @description Queries the number of real-time log deliveries.
      *
      * @example 2
      *
@@ -18,8 +18,6 @@ class accData extends Model
     public $failedNum;
 
     /**
-     * @description The number of successful deliveries of log data to Log Service.
-     *
      * @example 2
      *
      * @var int
@@ -27,7 +25,7 @@ class accData extends Model
     public $successNum;
 
     /**
-     * @description The timestamp of the data returned.
+     * @description The name of the Logstore that collects log data from Alibaba Cloud Content Delivery Network (CDN) in real time. By default, all Logstores are queried.
      *
      * @example 2018-09-03T06:00:00Z
      *

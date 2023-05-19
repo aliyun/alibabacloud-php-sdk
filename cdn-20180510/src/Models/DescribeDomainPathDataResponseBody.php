@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainPathDataResponseBody extends Model
 {
     /**
-     * @description The time interval. Unit: seconds.
-     *
      * @example 300
      *
      * @var string
@@ -19,8 +17,6 @@ class DescribeDomainPathDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The accelerated domain name.
-     *
      * @example example.com
      *
      * @var string
@@ -28,8 +24,6 @@ class DescribeDomainPathDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range during which data was queried.
-     *
      * @example 2017-09-30T17:00:00Z
      *
      * @var string
@@ -37,8 +31,6 @@ class DescribeDomainPathDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The page number of the returned page. Pages start from page **1**.
-     *
      * @example 1
      *
      * @var int
@@ -46,8 +38,6 @@ class DescribeDomainPathDataResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
-     *
      * @example 20
      *
      * @var int
@@ -55,15 +45,11 @@ class DescribeDomainPathDataResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description A list of bandwidth values collected at each time interval.
-     *
      * @var pathDataPerInterval
      */
     public $pathDataPerInterval;
 
     /**
-     * @description The start of the time range during which data was queried.
-     *
      * @example 2017-09-30T16:00:00Z
      *
      * @var string
@@ -71,8 +57,6 @@ class DescribeDomainPathDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The total number of entries returned.
-     *
      * @example 2
      *
      * @var int

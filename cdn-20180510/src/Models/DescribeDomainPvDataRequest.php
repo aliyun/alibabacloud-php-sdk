@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainPvDataRequest extends Model
 {
     /**
-     * @description The beginning of the time range during which data was queried.
+     * @description The timestamp of the returned data.
      *
      * @example example.com
      *
@@ -18,7 +18,7 @@ class DescribeDomainPvDataRequest extends Model
     public $domainName;
 
     /**
-     * @description The accelerated domain name.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2015-11-29T00:00:00Z
      *
@@ -27,7 +27,7 @@ class DescribeDomainPvDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the request.
+     * @description The number of PVs at each interval.
      *
      * @example 2015-11-28T00:00:00Z
      *

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class points extends Model
 {
     /**
-     * @description The data points.
-     *
      * @var string[]
      */
     public $points;

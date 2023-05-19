@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTopDomainsByFlowResponseBody extends Model
 {
     /**
-     * @description The total number of accelerated domain names that belong to the current Alibaba Cloud account.
+     * @description The number of visits to the accelerated domain name.
      *
      * @example 68
      *
@@ -19,7 +19,7 @@ class DescribeTopDomainsByFlowResponseBody extends Model
     public $domainCount;
 
     /**
-     * @description The total number of accelerated domain names that are in the **Enabled** state within the current Alibaba Cloud account.
+     * @description The ranking of the accelerated domain name.
      *
      * @example 68
      *
@@ -28,7 +28,7 @@ class DescribeTopDomainsByFlowResponseBody extends Model
     public $domainOnlineCount;
 
     /**
-     * @description The end of the time range during which data was queried.
+     * @description The operation that you want to perform. Set the value to **DescribeTopDomainsByFlow**.
      *
      * @example 2019-12-23T08:00:00Z
      *
@@ -37,7 +37,7 @@ class DescribeTopDomainsByFlowResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The ID of the request.
+     * @description The proportion of the amount of network traffic consumed for visiting the web page.
      *
      * @example 4E09C5D7-E1CF-4CAA-A45E-8727F4C8FD70
      *
@@ -46,7 +46,7 @@ class DescribeTopDomainsByFlowResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The start of the time range during which data was queried.
+     * @description The total amount of network traffic.
      *
      * @example 2019-12-22T08:00:00Z
      *
@@ -55,7 +55,7 @@ class DescribeTopDomainsByFlowResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The top N domain names ranked by network traffic.
+     * @description The end of the time range during which data was queried.
      *
      * @var topDomains
      */

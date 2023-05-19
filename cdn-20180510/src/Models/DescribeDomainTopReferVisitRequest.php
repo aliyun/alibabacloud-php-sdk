@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainTopReferVisitRequest extends Model
 {
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The operation that you want to perform. Set the value to **DescribeDomainTopReferVisit**.
      *
      * @example example.com
      *
@@ -18,7 +18,7 @@ class DescribeDomainTopReferVisitRequest extends Model
     public $domainName;
 
     /**
-     * @description The accelerated domain name.
+     * @description The accelerated domain names. Separate multiple accelerated domain names with commas (,).
      *
      * @example 2019-12-22T12:00:00Z
      *
@@ -36,7 +36,7 @@ class DescribeDomainTopReferVisitRequest extends Model
     public $sortBy;
 
     /**
-     * @description The ID of the request.
+     * @description The number of visits to the web page.
      *
      * @example 2019-12-21T12:00:00Z
      *

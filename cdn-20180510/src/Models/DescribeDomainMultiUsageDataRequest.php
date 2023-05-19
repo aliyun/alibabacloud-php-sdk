@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainMultiUsageDataRequest extends Model
 {
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The operation that you want to perform. Set the value to **DescribeDomainMultiUsageData**.
      *
      * @example example.com
      *
@@ -18,7 +18,7 @@ class DescribeDomainMultiUsageDataRequest extends Model
     public $domainName;
 
     /**
-     * @description The information about requests collected every 5 minutes.
+     * @description The number of requests.
      *
      * @example 2017-12-10T21:00:00Z
      *
@@ -27,7 +27,7 @@ class DescribeDomainMultiUsageDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the request.
+     * @description The information about requests collected every 5 minutes.
      *
      * @example 2017-12-10T20:00:00Z
      *

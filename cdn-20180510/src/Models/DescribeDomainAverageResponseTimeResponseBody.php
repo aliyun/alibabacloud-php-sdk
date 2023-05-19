@@ -10,16 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainAverageResponseTimeResponseBody extends Model
 {
     /**
-     * @description The name of the region. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query the most recent region list. If you do not set this parameter, all regions are queried.
+     * @description The timestamp of the returned data.
      *
      * @var avgRTPerInterval
      */
     public $avgRTPerInterval;
 
     /**
-     * @description The statistical analytics feature of Alibaba Cloud CDN is discontinued. The API operations related to the statistical analytics feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
+     * @description The ID of the request.
      *
-     * - You can specify multiple domain names and separate them with commas (,). You can specify at most 50 domain names in each call.
      * @example 300
      *
      * @var string
@@ -27,7 +26,7 @@ class DescribeDomainAverageResponseTimeResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The timestamp of the returned data.
+     * @description The average response time collected at each time interval.
      *
      * @example example.com
      *
@@ -36,7 +35,7 @@ class DescribeDomainAverageResponseTimeResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The time interval between the data entries returned.
+     * @description The beginning of the time range during which data was queried.
      *
      * @example 2019-11-30T05:40:00Z
      *
@@ -45,7 +44,7 @@ class DescribeDomainAverageResponseTimeResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The average response time.
+     * @description The time interval between the data entries returned.
      *
      * @example 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
      *
@@ -54,7 +53,7 @@ class DescribeDomainAverageResponseTimeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The average response time collected at each time interval.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2019-11-30T05:33:00Z
      *

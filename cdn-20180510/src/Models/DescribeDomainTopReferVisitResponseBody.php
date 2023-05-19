@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainTopReferVisitResponseBody extends Model
 {
     /**
-     * @description The number of visits to the web page.
+     * @description The sorting method. Valid values:
+     *
+     *   **traf**: by network traffic.
+     *   **pv**: by the number of page views. This is the default value.
      *
      * @example example.com
      *
@@ -19,7 +22,7 @@ class DescribeDomainTopReferVisitResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The proportion of the amount of network traffic consumed for visiting the web page.
+     * @description The URLs to the most frequently requested web pages.
      *
      * @example 95994621-8382-464B-8762-C708E73568D1
      *
@@ -28,7 +31,7 @@ class DescribeDomainTopReferVisitResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The amount of network traffic. Unit: bytes.
+     * @description The beginning of the time range that was queried.
      *
      * @example 2019-12-21T12:00:00Z
      *
@@ -37,7 +40,7 @@ class DescribeDomainTopReferVisitResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The URLs to the most frequently requested web pages.
+     * @description The amount of network traffic. Unit: bytes.
      *
      * @var topReferList
      */

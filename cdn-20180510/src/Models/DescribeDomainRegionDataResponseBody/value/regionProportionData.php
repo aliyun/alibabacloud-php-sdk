@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class regionProportionData extends Model
 {
     /**
-     * @description cn-shenzhen
+     * @description The bandwidth.
      *
      * @example 800019.0
      *
@@ -18,7 +18,7 @@ class regionProportionData extends Model
     public $avgObjectSize;
 
     /**
-     * @description The number of queries per second.
+     * @description The beginning of the time range that was queried.
      *
      * @example 154.3345765545624
      *
@@ -27,7 +27,7 @@ class regionProportionData extends Model
     public $avgResponseRate;
 
     /**
-     * @description The name of the region.
+     * @description The average response time. Unit: milliseconds.
      *
      * @example 5183.666666666667
      *
@@ -36,7 +36,7 @@ class regionProportionData extends Model
     public $avgResponseTime;
 
     /**
-     * @description The proportion of visits from each region. For example, a value of 90 indicates that 90% of the visits are from the specified area.
+     * @description The average response size. Unit: bytes.
      *
      * @example 380.9614285714286
      *
@@ -45,8 +45,6 @@ class regionProportionData extends Model
     public $bps;
 
     /**
-     * @description The accelerated domain name.
-     *
      * @example 0.003544181046236794
      *
      * @var string
@@ -54,8 +52,6 @@ class regionProportionData extends Model
     public $bytesProportion;
 
     /**
-     * @description The request error rate. A value of 90 indicates that 90% of the requests encountered errors.
-     *
      * @example 0.01155980271270037
      *
      * @var string
@@ -63,7 +59,7 @@ class regionProportionData extends Model
     public $proportion;
 
     /**
-     * @description The proportion of bytes transferred from each region. For example, a value of 90 indicates that 90% of the bytes are transferred from the specified area.
+     * @description The ID of the request.
      *
      * @example 5.9523809523809524E-5
      *
@@ -72,19 +68,15 @@ class regionProportionData extends Model
     public $qps;
 
     /**
-     * @description The start of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-     *
-     * @example The total traffic. Unit: bytes.
+     * @description DescribeDomainRegionData
      *
      * @var string
      */
     public $region;
 
     /**
-     * @description The statistical analytics feature of Alibaba Cloud CDN is discontinued. The API operations related to the statistical analytics feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
+     * @description Queries the geographic distribution of users. The data is collected at an interval of 1 day. You can query data collected within the last 90 days.
      *
-     * > - If you do not set **StartTime** or **EndTime**, data collected within the last **24** hours is queried. If you set both **StartTime** and **EndTime**, data collected within the specified time range is queried.
-     * - You can call this operation up to 100 times per second per account.
      * @example japan
      *
      * @var string
@@ -92,7 +84,7 @@ class regionProportionData extends Model
     public $regionEname;
 
     /**
-     * @description The information of the regions.
+     * @description The time interval between the data entries returned. Unit: seconds.
      *
      * @example 0.0
      *
@@ -101,7 +93,7 @@ class regionProportionData extends Model
     public $reqErrRate;
 
     /**
-     * @description The bandwidth.
+     * @description The total number of requests.
      *
      * @example 2400057
      *
@@ -110,7 +102,7 @@ class regionProportionData extends Model
     public $totalBytes;
 
     /**
-     * @description The average response size. Unit: bytes.
+     * @description The proportions of requests initiated from each area.
      *
      * @example 3
      *

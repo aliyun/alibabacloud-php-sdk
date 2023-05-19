@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainPvDataResponseBody extends Model
 {
     /**
-     * @description The statistical analytics feature of Alibaba Cloud CDN is discontinued. The API operations related to the statistical analytics feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
+     * @description The ID of the request.
      *
-     * - You can call this operation up to 50 times per second per account.
      * @example 3600
      *
      * @var string
@@ -20,7 +19,7 @@ class DescribeDomainPvDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The timestamp of the returned data.
+     * @description The time interval between the data entries. Unit: seconds.
      *
      * @example example.com
      *
@@ -29,7 +28,7 @@ class DescribeDomainPvDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The time interval between the data entries. Unit: seconds.
+     * @description The accelerated domain name.
      *
      * @example 2015-11-28T04:00:00Z
      *
@@ -38,15 +37,16 @@ class DescribeDomainPvDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The end of the time range during which data was queried.
+     * @description The operation that you want to perform. Set the value to **DescribeDomainPvData**.
      *
      * @var pvDataInterval
      */
     public $pvDataInterval;
 
     /**
-     * @description The number of PVs.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * The end time must be later than the start time.
      * @example BCD7D917-76F1-442F-BB75-C810DE34C761
      *
      * @var string
@@ -54,7 +54,7 @@ class DescribeDomainPvDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of PVs at each interval.
+     * @description The beginning of the time range during which data was queried.
      *
      * @example 2015-11-28T03:00:00Z
      *

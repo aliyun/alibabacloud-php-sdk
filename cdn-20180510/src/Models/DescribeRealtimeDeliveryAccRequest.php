@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRealtimeDeliveryAccRequest extends Model
 {
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
      *
-     * The end time must be later than the start time.
+     * The end of the time range to query. The end time must be later than the start time.
      * @example 2016-10-20T05:00:00Z
      *
      * @var string
@@ -19,10 +19,10 @@ class DescribeRealtimeDeliveryAccRequest extends Model
     public $endTime;
 
     /**
-     * @description The time granularity of the data entries. Unit: seconds. The value varies based on the values of the **StartTime** and **EndTime** parameters. Valid values:
+     * @description The time interval between the data entries. Unit: seconds. The value varies based on the values of the **StartTime** and **EndTime** parameters. Valid values:
      *
      *   If the time span between StartTime and EndTime is less than 3 days, valid values are **300**, **3600**, and **86400**. Default value: **300**.
-     *   If the time span between StartTime and EndTime is greater than or equal to 3 days and less than 31 days, valid values are **3600** and **86400**. Default value: **3600**.
+     *   If the time span between StartTime and EndTime is from 3 to 31 days (31 days excluded), valid values are **3600** and **86400**. Default value: **3600**.
      *   If the time span between StartTime and EndTime is 31 days or longer, the valid value is **86400**. Default value: **86400**.
      *
      * @example 300
@@ -32,7 +32,7 @@ class DescribeRealtimeDeliveryAccRequest extends Model
     public $interval;
 
     /**
-     * @description The name of the Logstore that stores log data. If you do leave this parameter empty, real-time log deliveries of all Logstores are queried.
+     * @description The timestamp of the data.
      *
      * @example LogStore
      *
@@ -41,7 +41,7 @@ class DescribeRealtimeDeliveryAccRequest extends Model
     public $logStore;
 
     /**
-     * @description The name of the Log Service project that is used for real-time log delivery. If you do leave this parameter empty, real-time log deliveries of all projects are queried.
+     * @description The name of the Log Service project that is used for real-time log delivery. By default, all projects are queried.
      *
      * @example Project
      *
@@ -50,7 +50,7 @@ class DescribeRealtimeDeliveryAccRequest extends Model
     public $project;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The information about real-time log delivery.
      *
      * @example 2016-10-20T04:00:00Z
      *

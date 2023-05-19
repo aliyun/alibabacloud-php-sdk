@@ -30,8 +30,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnDeliverTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnDeliverTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnSubTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnSubTaskResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateIllegalUrlExportTaskRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateIllegalUrlExportTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateRealTimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateRealTimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateUsageDetailDataExportTaskRequest;
@@ -210,8 +208,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeEsExecuteDataRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeEsExecuteDataResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeFCTriggerRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeFCTriggerResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeIllegalUrlExportTaskRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeIllegalUrlExportTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeIpInfoRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeIpInfoResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeIpStatusRequest;
@@ -570,8 +566,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can specify up to 50 domain names in each request.
-     *   * *   You can call this operation up to 30 times per second per account.
+     * The ID of the request.
      *   *
      * @param BatchDeleteCdnDomainConfigRequest $request BatchDeleteCdnDomainConfigRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -616,8 +611,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can specify up to 50 domain names in each request.
-     *   * *   You can call this operation up to 30 times per second per account.
+     * The ID of the request.
      *   *
      * @param BatchDeleteCdnDomainConfigRequest $request BatchDeleteCdnDomainConfigRequest
      *
@@ -631,61 +625,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The features that you want to configure. Format:
-     *   * *   **functionName**: the name of the feature. This parameter is required. Separate multiple values with commas (,). For more information, see [A list of features](~~388460~~).
-     *   * *   **argName**: the feature parameter for **functionName**. This parameter is required. You can specify multiple feature parameters.
-     *   * *   **argValue**: the parameter value that is specified for **functionName**. This parameter is required.
-     *   * *   **parentid**: the rule condition ID. This parameter is optional. You can use the **condition** rule engine to create a rule condition. For information, see [BatchSetCdnDomainConfig and SetCdnDomainStagingConfig](~~388460~~). A rule condition can identify parameters that are included in requests and filter requests based on the identified parameters. After you create a rule condition, a [configid](~~388994~~) is generated. configid can be used as parentId that is referenced by other features. This way, you can combine rule conditions and features for flexible configurations.
-     *   * If you set **parentId** to **-1**, the existing rule conditions in the configurations are deleted.
-     *   *     [{
-     *   *        "functionArgs": [{
-     *   *          "argName": "Parameter A",
-     *   *          "argValue": Value of parameter A"
-     *   *         },
-     *   *       {
-     *   *         "argName": "Parameter B",
-     *   *         "argValue": "Value of parameter B"
-     *   *          }],
-     *   *      "functionName": "Feature name"
-     *   *      "parentId": "Optional, which corresponds to configid of the referenced rule condition"
-     *   *     }]
-     *   * The following code shows a sample configuration if **parentId** is not used.
-     *   * In this example, the **origin_request_header** feature is used to add back-to-origin HTTP headers, and the rule condition whose configuration ID is **222728944812032** is referenced.
-     *   *     [{
-     *   *             "functionArgs": [{
-     *   *                 "argName": "header_operation_type",
-     *   *                 "argValue": "add"
-     *   *             }, {
-     *   *                 "argName": "header_name",
-     *   *                 "argValue": "Accept-Encoding"
-     *   *             }, {
-     *   *                 "argName": "header_value",
-     *   *                 "argValue": "gzip"
-     *   *             }, {
-     *   *                 "argName": "duplicate",
-     *   *                 "argValue": "off"
-     *   *             }],
-     *   *             "functionName": "origin_request_header"
-     *   *     }]
-     *   * The following code shows a sample configuration if **parentId** is used.
-     *   * In this example, the **origin_request_header** feature is used to add back-to-origin HTTP headers, and the rule condition whose configuration ID is **222728944812032** is referenced.
-     *   *     [{
-     *   *             "functionArgs": [{
-     *   *                 "argName": "header_operation_type",
-     *   *                 "argValue": "add"
-     *   *             }, {
-     *   *                 "argName": "header_name",
-     *   *                 "argValue": "Accept-Encoding"
-     *   *             }, {
-     *   *                 "argName": "header_value",
-     *   *                 "argValue": "gzip"
-     *   *             }, {
-     *   *                 "argName": "duplicate",
-     *   *                 "argValue": "off"
-     *   *             }],
-     *   *             "functionName": "origin_request_header",
-     *   *             "parentId": "222728944812032"
-     *   *     }].
+     * The list of domain configurations.
      *   *
      * @param BatchSetCdnDomainConfigRequest $request BatchSetCdnDomainConfigRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -730,61 +670,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The features that you want to configure. Format:
-     *   * *   **functionName**: the name of the feature. This parameter is required. Separate multiple values with commas (,). For more information, see [A list of features](~~388460~~).
-     *   * *   **argName**: the feature parameter for **functionName**. This parameter is required. You can specify multiple feature parameters.
-     *   * *   **argValue**: the parameter value that is specified for **functionName**. This parameter is required.
-     *   * *   **parentid**: the rule condition ID. This parameter is optional. You can use the **condition** rule engine to create a rule condition. For information, see [BatchSetCdnDomainConfig and SetCdnDomainStagingConfig](~~388460~~). A rule condition can identify parameters that are included in requests and filter requests based on the identified parameters. After you create a rule condition, a [configid](~~388994~~) is generated. configid can be used as parentId that is referenced by other features. This way, you can combine rule conditions and features for flexible configurations.
-     *   * If you set **parentId** to **-1**, the existing rule conditions in the configurations are deleted.
-     *   *     [{
-     *   *        "functionArgs": [{
-     *   *          "argName": "Parameter A",
-     *   *          "argValue": Value of parameter A"
-     *   *         },
-     *   *       {
-     *   *         "argName": "Parameter B",
-     *   *         "argValue": "Value of parameter B"
-     *   *          }],
-     *   *      "functionName": "Feature name"
-     *   *      "parentId": "Optional, which corresponds to configid of the referenced rule condition"
-     *   *     }]
-     *   * The following code shows a sample configuration if **parentId** is not used.
-     *   * In this example, the **origin_request_header** feature is used to add back-to-origin HTTP headers, and the rule condition whose configuration ID is **222728944812032** is referenced.
-     *   *     [{
-     *   *             "functionArgs": [{
-     *   *                 "argName": "header_operation_type",
-     *   *                 "argValue": "add"
-     *   *             }, {
-     *   *                 "argName": "header_name",
-     *   *                 "argValue": "Accept-Encoding"
-     *   *             }, {
-     *   *                 "argName": "header_value",
-     *   *                 "argValue": "gzip"
-     *   *             }, {
-     *   *                 "argName": "duplicate",
-     *   *                 "argValue": "off"
-     *   *             }],
-     *   *             "functionName": "origin_request_header"
-     *   *     }]
-     *   * The following code shows a sample configuration if **parentId** is used.
-     *   * In this example, the **origin_request_header** feature is used to add back-to-origin HTTP headers, and the rule condition whose configuration ID is **222728944812032** is referenced.
-     *   *     [{
-     *   *             "functionArgs": [{
-     *   *                 "argName": "header_operation_type",
-     *   *                 "argValue": "add"
-     *   *             }, {
-     *   *                 "argName": "header_name",
-     *   *                 "argValue": "Accept-Encoding"
-     *   *             }, {
-     *   *                 "argName": "header_value",
-     *   *                 "argValue": "gzip"
-     *   *             }, {
-     *   *                 "argName": "duplicate",
-     *   *                 "argValue": "off"
-     *   *             }],
-     *   *             "functionName": "origin_request_header",
-     *   *             "parentId": "222728944812032"
-     *   *     }].
+     * The list of domain configurations.
      *   *
      * @param BatchSetCdnDomainConfigRequest $request BatchSetCdnDomainConfigRequest
      *
@@ -798,7 +684,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The content of the SSL certificate. Specify the content of the certificate only if you want to enable the SSL certificate.
+     * The name of the certificate.
      *   *
      * @param BatchSetCdnDomainServerCertificateRequest $request BatchSetCdnDomainServerCertificateRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -858,7 +744,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The content of the SSL certificate. Specify the content of the certificate only if you want to enable the SSL certificate.
+     * The name of the certificate.
      *   *
      * @param BatchSetCdnDomainServerCertificateRequest $request BatchSetCdnDomainServerCertificateRequest
      *
@@ -925,10 +811,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   After an accelerated domain name is disabled, Alibaba Cloud CDN retains its information and reroutes all the requests that are destined for the accelerated domain name to the origin.
-     *   * *   If you need to temporarily disable CDN acceleration for a domain name, we recommend that you call the StopDomain operation.
-     *   * *   You can call this operation up to 30 times per second per account.
-     *   * *   You can specify up to 50 domain names in each request.
+     * Disables one or more accelerated domain names at a time. After an accelerated domain name is disabled, the value of the DomainStatus parameter is changed to Offline.
      *   *
      * @param BatchStopCdnDomainRequest $request BatchStopCdnDomainRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -967,10 +850,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   After an accelerated domain name is disabled, Alibaba Cloud CDN retains its information and reroutes all the requests that are destined for the accelerated domain name to the origin.
-     *   * *   If you need to temporarily disable CDN acceleration for a domain name, we recommend that you call the StopDomain operation.
-     *   * *   You can call this operation up to 30 times per second per account.
-     *   * *   You can specify up to 50 domain names in each request.
+     * Disables one or more accelerated domain names at a time. After an accelerated domain name is disabled, the value of the DomainStatus parameter is changed to Offline.
      *   *
      * @param BatchStopCdnDomainRequest $request BatchStopCdnDomainRequest
      *
@@ -1175,8 +1055,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
-     *   * *   You can call this operation up to three times per second per account.
+     * The ID of the request.
      *   *
      * @param CreateCdnSubTaskRequest $request CreateCdnSubTaskRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1212,8 +1091,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   This operation allows you to create a custom operations report for a specific domain name. You can view the statistics about the domain name in the report.
-     *   * *   You can call this operation up to three times per second per account.
+     * The ID of the request.
      *   *
      * @param CreateCdnSubTaskRequest $request CreateCdnSubTaskRequest
      *
@@ -1224,60 +1102,6 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCdnSubTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * *   You can query data only by day. You can query data within the last 31 days.
-     *   * *   Typically, a file that contains invalid URLs is generated five minutes after you create an export task. You can call the [DescribeIllegalUrlExportTask](~~156506~~) operation to query the URL from which you can download the file.
-     *   * *   You can call this operation only once per second per account.
-     *   *
-     * @param CreateIllegalUrlExportTaskRequest $request CreateIllegalUrlExportTaskRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
-     *
-     * @return CreateIllegalUrlExportTaskResponse CreateIllegalUrlExportTaskResponse
-     */
-    public function createIllegalUrlExportTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->taskName)) {
-            $query['TaskName'] = $request->taskName;
-        }
-        if (!Utils::isUnset($request->timePoint)) {
-            $query['TimePoint'] = $request->timePoint;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateIllegalUrlExportTask',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return CreateIllegalUrlExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * *   You can query data only by day. You can query data within the last 31 days.
-     *   * *   Typically, a file that contains invalid URLs is generated five minutes after you create an export task. You can call the [DescribeIllegalUrlExportTask](~~156506~~) operation to query the URL from which you can download the file.
-     *   * *   You can call this operation only once per second per account.
-     *   *
-     * @param CreateIllegalUrlExportTaskRequest $request CreateIllegalUrlExportTaskRequest
-     *
-     * @return CreateIllegalUrlExportTaskResponse CreateIllegalUrlExportTaskResponse
-     */
-    public function createIllegalUrlExportTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->createIllegalUrlExportTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -1325,8 +1149,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can create a task to query data in the last year. The maximum time range that can be queried is one month.
-     *   * *   You can call this operation up to 100 times per second per account.
+     * The ID of the task.
      *   *
      * @param CreateUsageDetailDataExportTaskRequest $request CreateUsageDetailDataExportTaskRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -1377,8 +1200,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can create a task to query data in the last year. The maximum time range that can be queried is one month.
-     *   * *   You can call this operation up to 100 times per second per account.
+     * The ID of the task.
      *   *
      * @param CreateUsageDetailDataExportTaskRequest $request CreateUsageDetailDataExportTaskRequest
      *
@@ -1392,8 +1214,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can create a task to query data in the last year. The maximum time range that can be queried is one month.
-     *   * *   You can call this operation up to 100 times per second per account.
+     * The ID of the task.
      *   *
      * @param CreateUserUsageDataExportTaskRequest $request CreateUserUsageDataExportTaskRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -1435,8 +1256,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can create a task to query data in the last year. The maximum time range that can be queried is one month.
-     *   * *   You can call this operation up to 100 times per second per account.
+     * The ID of the task.
      *   *
      * @param CreateUserUsageDataExportTaskRequest $request CreateUserUsageDataExportTaskRequest
      *
@@ -1718,7 +1538,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 30 times per second per account.
+     * The ID of the request.
      *   *
      * @param DeleteSpecificConfigRequest $request DeleteSpecificConfigRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1760,7 +1580,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 30 times per second per account.
+     * The ID of the request.
      *   *
      * @param DeleteSpecificConfigRequest $request DeleteSpecificConfigRequest
      *
@@ -1774,7 +1594,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > The maximum number of times that each user can call this operation per second is 20.
+     * The ID of the request.
      *   *
      * @param DeleteSpecificStagingConfigRequest $request DeleteSpecificStagingConfigRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -1816,7 +1636,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > The maximum number of times that each user can call this operation per second is 20.
+     * The ID of the request.
      *   *
      * @param DeleteSpecificStagingConfigRequest $request DeleteSpecificStagingConfigRequest
      *
@@ -2333,10 +2153,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   If you do not set **StartTime** or **EndTime**, the request returns the data collected in the last 24 hours. If you set both **StartTime** and **EndTime**, the request returns the data collected within the specified time range.
-     *   * *   The log data is collected every hour.
-     *   * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can query only logs in the last month. The start time and the current time cannot exceed 31 days.
+     * The total number of entries returned.
      *   *
      * @param DescribeCdnDomainLogsRequest $request DescribeCdnDomainLogsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -2381,10 +2198,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   If you do not set **StartTime** or **EndTime**, the request returns the data collected in the last 24 hours. If you set both **StartTime** and **EndTime**, the request returns the data collected within the specified time range.
-     *   * *   The log data is collected every hour.
-     *   * *   You can call this operation up to 100 times per second per account.
-     *   * *   You can query only logs in the last month. The start time and the current time cannot exceed 31 days.
+     * The total number of entries returned.
      *   *
      * @param DescribeCdnDomainLogsRequest $request DescribeCdnDomainLogsRequest
      *
@@ -2602,7 +2416,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to three times per second per account.
+     * The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *   *
      * @param DescribeCdnReportRequest $request DescribeCdnReportRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -2653,7 +2467,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to three times per second per account.
+     * The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *   *
      * @param DescribeCdnReportRequest $request DescribeCdnReportRequest
      *
@@ -2909,8 +2723,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can query billing history up to the last one month.
-     *   * *   You can call this operation up to 100 times per second per account.
+     * The billing method. Valid values:
+     *   * *   **StaticHttp**: static HTTP requests
+     *   * *   **DynamicHttp**: dynamic HTTP requests
+     *   * *   **DynamicHttps**: dynamic HTTPS requests.
      *   *
      * @param DescribeCdnUserBillHistoryRequest $request DescribeCdnUserBillHistoryRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -2946,8 +2762,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can query billing history up to the last one month.
-     *   * *   You can call this operation up to 100 times per second per account.
+     * The billing method. Valid values:
+     *   * *   **StaticHttp**: static HTTP requests
+     *   * *   **DynamicHttp**: dynamic HTTP requests
+     *   * *   **DynamicHttps**: dynamic HTTPS requests.
      *   *
      * @param DescribeCdnUserBillHistoryRequest $request DescribeCdnUserBillHistoryRequest
      *
@@ -2961,18 +2779,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * You can call this operation to estimate resource usage of the current month based on the metering method that is specified on the first day of the current month. You can call this operation to estimate resource usage only of the current month within your Alibaba Cloud account. The time range used for the estimation starts at 00:00 on the first day of the current month and ends 2 hours earlier than the current time.
-     *   * *   Pay by monthly 95th percentile: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
-     *   * *   Pay by average daily peak bandwidth per month: Estimated value = Sum of daily peak bandwidth values/Number of days. The current day is excluded.
-     *   * *   Pay by 4th peak bandwidth per month: The estimated value is the 4th peak bandwidth value between the start time and end time. If the time range is less than four days, the estimated value is 0.
-     *   * *   Pay by average daily 95th percentile bandwidth per month: Estimated value = Sum of daily 95th percentile bandwidth values/Number of days. The current day is excluded.
-     *   * *   Pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
-     *   * > You can call this operation only once per second per account.
-     *   *
-     * @param DescribeCdnUserBillPredictionRequest $request DescribeCdnUserBillPredictionRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param DescribeCdnUserBillPredictionRequest $request
+     * @param RuntimeOptions                       $runtime
      *
-     * @return DescribeCdnUserBillPredictionResponse DescribeCdnUserBillPredictionResponse
+     * @return DescribeCdnUserBillPredictionResponse
      */
     public function describeCdnUserBillPredictionWithOptions($request, $runtime)
     {
@@ -3009,17 +2819,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * You can call this operation to estimate resource usage of the current month based on the metering method that is specified on the first day of the current month. You can call this operation to estimate resource usage only of the current month within your Alibaba Cloud account. The time range used for the estimation starts at 00:00 on the first day of the current month and ends 2 hours earlier than the current time.
-     *   * *   Pay by monthly 95th percentile: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
-     *   * *   Pay by average daily peak bandwidth per month: Estimated value = Sum of daily peak bandwidth values/Number of days. The current day is excluded.
-     *   * *   Pay by 4th peak bandwidth per month: The estimated value is the 4th peak bandwidth value between the start time and end time. If the time range is less than four days, the estimated value is 0.
-     *   * *   Pay by average daily 95th percentile bandwidth per month: Estimated value = Sum of daily 95th percentile bandwidth values/Number of days. The current day is excluded.
-     *   * *   Pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
-     *   * > You can call this operation only once per second per account.
-     *   *
-     * @param DescribeCdnUserBillPredictionRequest $request DescribeCdnUserBillPredictionRequest
+     * @param DescribeCdnUserBillPredictionRequest $request
      *
-     * @return DescribeCdnUserBillPredictionResponse DescribeCdnUserBillPredictionResponse
+     * @return DescribeCdnUserBillPredictionResponse
      */
     public function describeCdnUserBillPrediction($request)
     {
@@ -3029,7 +2831,13 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
+     * The dimension. Valid values:
+     *   * *   flow: traffic and bandwidth
+     *   * *   vas: value-added services (HTTPS and requests for dynamic content)
+     *   * *   quic: the number of QUIC requests
+     *   * *   websocket: the WebSocket communications protocol
+     *   * *   rtlog2sls: log entries delivered to Log Service in real time
+     *   * *   stationflow: traffic over the internal network.
      *   *
      * @param DescribeCdnUserBillTypeRequest $request DescribeCdnUserBillTypeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -3065,7 +2873,13 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 100 times per second per account.
+     * The dimension. Valid values:
+     *   * *   flow: traffic and bandwidth
+     *   * *   vas: value-added services (HTTPS and requests for dynamic content)
+     *   * *   quic: the number of QUIC requests
+     *   * *   websocket: the WebSocket communications protocol
+     *   * *   rtlog2sls: log entries delivered to Log Service in real time
+     *   * *   stationflow: traffic over the internal network.
      *   *
      * @param DescribeCdnUserBillTypeRequest $request DescribeCdnUserBillTypeRequest
      *
@@ -3394,7 +3208,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * The format of the log configuration.
      *   *
      * @param DescribeCustomLogConfigRequest $request DescribeCustomLogConfigRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -3424,7 +3238,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 100.
+     * The format of the log configuration.
      *   *
      * @param DescribeCustomLogConfigRequest $request DescribeCustomLogConfigRequest
      *
@@ -3438,7 +3252,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * The accelerated domain name.
      *   *
      * @param DescribeDomainAverageResponseTimeRequest $request DescribeDomainAverageResponseTimeRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -3492,7 +3306,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * The accelerated domain name.
      *   *
      * @param DescribeDomainAverageResponseTimeRequest $request DescribeDomainAverageResponseTimeRequest
      *
@@ -3568,15 +3382,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 20 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The timestamp of the returned data.
      *   *
      * @param DescribeDomainBpsDataByLayerRequest $request DescribeDomainBpsDataByLayerRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -3627,15 +3433,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 20 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The timestamp of the returned data.
      *   *
      * @param DescribeDomainBpsDataByLayerRequest $request DescribeDomainBpsDataByLayerRequest
      *
@@ -3649,10 +3447,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   The bandwidth is measured in bit/s.
-     *   * *   You can specify only one accelerated domain name in each request.
-     *   * *   The data is collected every 5 minutes.
-     *   * *   You can call this operation up to 20 times per second per account.
+     * The bandwidth value.
      *   *
      * @param DescribeDomainBpsDataByTimeStampRequest $request DescribeDomainBpsDataByTimeStampRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -3694,10 +3489,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   The bandwidth is measured in bit/s.
-     *   * *   You can specify only one accelerated domain name in each request.
-     *   * *   The data is collected every 5 minutes.
-     *   * *   You can call this operation up to 20 times per second per account.
+     * The bandwidth value.
      *   *
      * @param DescribeDomainBpsDataByTimeStampRequest $request DescribeDomainBpsDataByTimeStampRequest
      *
@@ -3711,10 +3503,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both parameters empty.
-     *   * *   You can specify up to 20 domain names in reach request. If you specify multiple domain names, separate them with commas (,).
-     *   * *   You can query data collected over the last 30 days.
-     *   * *   You can call this operation up to 50 times per second per account.
+     * The timestamp of the data.
      *   *
      * @param DescribeDomainCcActivityLogRequest $request DescribeDomainCcActivityLogRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -3768,10 +3557,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range. You must set both parameters or leave both parameters empty.
-     *   * *   You can specify up to 20 domain names in reach request. If you specify multiple domain names, separate them with commas (,).
-     *   * *   You can query data collected over the last 30 days.
-     *   * *   You can call this operation up to 50 times per second per account.
+     * The timestamp of the data.
      *   *
      * @param DescribeDomainCcActivityLogRequest $request DescribeDomainCcActivityLogRequest
      *
@@ -3919,7 +3705,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * The domain name that you want to query. You can specify multiple domain names and separate them with commas (,). You can specify at most 30 domain names in each call.
      *   *
      * @param DescribeDomainDetailDataByLayerRequest $request DescribeDomainDetailDataByLayerRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -3949,7 +3735,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * The domain name that you want to query. You can specify multiple domain names and separate them with commas (,). You can specify at most 30 domain names in each call.
      *   *
      * @param DescribeDomainDetailDataByLayerRequest $request DescribeDomainDetailDataByLayerRequest
      *
@@ -4019,20 +3805,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
-     *   *
-     * @param DescribeDomainHttpCodeDataRequest $request DescribeDomainHttpCodeDataRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param DescribeDomainHttpCodeDataRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return DescribeDomainHttpCodeDataResponse DescribeDomainHttpCodeDataResponse
+     * @return DescribeDomainHttpCodeDataResponse
      */
     public function describeDomainHttpCodeDataWithOptions($request, $runtime)
     {
@@ -4075,19 +3851,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
-     *   *
-     * @param DescribeDomainHttpCodeDataRequest $request DescribeDomainHttpCodeDataRequest
+     * @param DescribeDomainHttpCodeDataRequest $request
      *
-     * @return DescribeDomainHttpCodeDataResponse DescribeDomainHttpCodeDataResponse
+     * @return DescribeDomainHttpCodeDataResponse
      */
     public function describeDomainHttpCodeData($request)
     {
@@ -4097,15 +3863,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 20 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * ### Time granularity
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The total number of times that HTTP status codes were returned.
      *   *
      * @param DescribeDomainHttpCodeDataByLayerRequest $request DescribeDomainHttpCodeDataByLayerRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -4156,15 +3914,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 20 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * ### Time granularity
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The total number of times that HTTP status codes were returned.
      *   *
      * @param DescribeDomainHttpCodeDataByLayerRequest $request DescribeDomainHttpCodeDataByLayerRequest
      *
@@ -4178,7 +3928,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The end of the time range that was queried.
+     * The total amount of network traffic.
      *   *
      * @param DescribeDomainISPDataRequest $request DescribeDomainISPDataRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -4217,7 +3967,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The end of the time range that was queried.
+     * The total amount of network traffic.
      *   *
      * @param DescribeDomainISPDataRequest $request DescribeDomainISPDataRequest
      *
@@ -4231,11 +3981,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   The unit of the bandwidth is bit/s.
-     *   * *   The time granularity of the queried data is 5 minutes.
-     *   * *   You can query data in the last 90 days.
-     *   * *   You can specify the StartTime and EndTime parameters, or the TimePoint and Cycle parameters to query the 95th percentile bandwidth data. If you specify the StartTime and EndTime parameters and the time range that is specified by these parameters is less than or equal to 24 hours, the 95th percentile bandwidth data on the day of the start time is returned. If the time range that is specified by these parameters is more than 24 hours, the 95th percentile bandwidth data in the month of the start time is returned. If you specify the TimePoint and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned. If you do not specify parameters as previously mentioned, the 95th percentile bandwidth data in the last 24 hours is returned.
-     *   * *   You can call this operation up to 100 times per second per account.
+     * The 95th percentile bandwidth in the Chinese mainland.
      *   *
      * @param DescribeDomainMax95BpsDataRequest $request DescribeDomainMax95BpsDataRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -4280,11 +4026,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   The unit of the bandwidth is bit/s.
-     *   * *   The time granularity of the queried data is 5 minutes.
-     *   * *   You can query data in the last 90 days.
-     *   * *   You can specify the StartTime and EndTime parameters, or the TimePoint and Cycle parameters to query the 95th percentile bandwidth data. If you specify the StartTime and EndTime parameters and the time range that is specified by these parameters is less than or equal to 24 hours, the 95th percentile bandwidth data on the day of the start time is returned. If the time range that is specified by these parameters is more than 24 hours, the 95th percentile bandwidth data in the month of the start time is returned. If you specify the TimePoint and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned. If you do not specify parameters as previously mentioned, the 95th percentile bandwidth data in the last 24 hours is returned.
-     *   * *   You can call this operation up to 100 times per second per account.
+     * The 95th percentile bandwidth in the Chinese mainland.
      *   *
      * @param DescribeDomainMax95BpsDataRequest $request DescribeDomainMax95BpsDataRequest
      *
@@ -4298,7 +4040,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The end of the time range that was queried.
+     * The timestamp of the data returned.
      *   *
      * @param DescribeDomainMultiUsageDataRequest $request DescribeDomainMultiUsageDataRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -4337,7 +4079,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The end of the time range that was queried.
+     * The timestamp of the data returned.
      *   *
      * @param DescribeDomainMultiUsageDataRequest $request DescribeDomainMultiUsageDataRequest
      *
@@ -4351,13 +4093,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to users that are on the whitelist. If the daily peak bandwidth value of your workloads reaches 10 Gbit/s, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply to be included in the whitelist.
-     *   * *   You can call this API operation up to 6,000 times per second per account.
-     *   * *   Data collection by directory is available only to specified domain names within your Alibaba Cloud account. It cannot be enabled for all domain names within your Alibaba Cloud account.
-     *   * *   The average size of the files that belong to the domain name must be larger than 1 MB.
-     *   * *   The number of directories specified for a single domain name cannot exceed 100. If the number of directories exceeds 100, the data accuracy reduces.
-     *   * *   If you do not set StartTime or EndTime, data collected within the last 24 hours is queried. If you set both StartTime and EndTime, data within the specified time range is queried.
-     *   * *   You can query data collected within the last 30 days.
+     * The amount of network traffic. Unit: bytes.
      *   *
      * @param DescribeDomainPathDataRequest $request DescribeDomainPathDataRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -4387,13 +4123,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   This operation is available only to users that are on the whitelist. If the daily peak bandwidth value of your workloads reaches 10 Gbit/s, you can [submit a ticket](https://workorder-intl.console.aliyun.com/?spm=5176.2020520001.aliyun_topbar.18.dbd44bd3e4f845#/ticket/createIndex) to apply to be included in the whitelist.
-     *   * *   You can call this API operation up to 6,000 times per second per account.
-     *   * *   Data collection by directory is available only to specified domain names within your Alibaba Cloud account. It cannot be enabled for all domain names within your Alibaba Cloud account.
-     *   * *   The average size of the files that belong to the domain name must be larger than 1 MB.
-     *   * *   The number of directories specified for a single domain name cannot exceed 100. If the number of directories exceeds 100, the data accuracy reduces.
-     *   * *   If you do not set StartTime or EndTime, data collected within the last 24 hours is queried. If you set both StartTime and EndTime, data within the specified time range is queried.
-     *   * *   You can query data collected within the last 30 days.
+     * The amount of network traffic. Unit: bytes.
      *   *
      * @param DescribeDomainPathDataRequest $request DescribeDomainPathDataRequest
      *
@@ -4407,7 +4137,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The end of the time range during which data was queried.
+     * The accelerated domain name. You can specify only one domain name.
      *   *
      * @param DescribeDomainPvDataRequest $request DescribeDomainPvDataRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -4446,7 +4176,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The end of the time range during which data was queried.
+     * The accelerated domain name. You can specify only one domain name.
      *   *
      * @param DescribeDomainPvDataRequest $request DescribeDomainPvDataRequest
      *
@@ -4460,15 +4190,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The number of HTTPS requests sent to POPs in the Chinese mainland.
      *   *
      * @param DescribeDomainQpsDataRequest $request DescribeDomainQpsDataRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -4516,15 +4238,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The number of HTTPS requests sent to POPs in the Chinese mainland.
      *   *
      * @param DescribeDomainQpsDataRequest $request DescribeDomainQpsDataRequest
      *
@@ -4538,15 +4252,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 20 times per second per user.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The number of queries per second in the Chinese mainland.
      *   *
      * @param DescribeDomainQpsDataByLayerRequest $request DescribeDomainQpsDataByLayerRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -4597,15 +4303,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 20 times per second per user.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The number of queries per second in the Chinese mainland.
      *   *
      * @param DescribeDomainQpsDataByLayerRequest $request DescribeDomainQpsDataByLayerRequest
      *
@@ -4619,14 +4317,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *   *
      * @param DescribeDomainRealTimeBpsDataRequest $request DescribeDomainRealTimeBpsDataRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -4656,14 +4347,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *   *
      * @param DescribeDomainRealTimeBpsDataRequest $request DescribeDomainRealTimeBpsDataRequest
      *
@@ -4677,16 +4361,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 10 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
-     *   * * The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *   *
      * @param DescribeDomainRealTimeByteHitRateDataRequest $request DescribeDomainRealTimeByteHitRateDataRequest
      * @param RuntimeOptions                               $runtime runtime options for this request RuntimeOptions
@@ -4716,16 +4391,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 10 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
-     *   * * The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *   *
      * @param DescribeDomainRealTimeByteHitRateDataRequest $request DescribeDomainRealTimeByteHitRateDataRequest
      *
@@ -4739,8 +4405,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The beginning of the time range to query.
-     *   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Example: 2019-11-30T05:33:00Z.
+     * Specifies whether to merge the results. Valid values:
+     *   * *   **true**: groups the results by domain name and merges the results by region and ISP.
+     *   * *   **false**: groups the results by domain name.
+     *   * Default value: **false**.
      *   *
      * @param DescribeDomainRealTimeDetailDataRequest $request DescribeDomainRealTimeDetailDataRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -4770,8 +4438,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The beginning of the time range to query.
-     *   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. Example: 2019-11-30T05:33:00Z.
+     * Specifies whether to merge the results. Valid values:
+     *   * *   **true**: groups the results by domain name and merges the results by region and ISP.
+     *   * *   **false**: groups the results by domain name.
+     *   * Default value: **false**.
      *   *
      * @param DescribeDomainRealTimeDetailDataRequest $request DescribeDomainRealTimeDetailDataRequest
      *
@@ -4785,12 +4455,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The total number of entries.
-     *   *
-     * @param DescribeDomainRealTimeHttpCodeDataRequest $request DescribeDomainRealTimeHttpCodeDataRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * @param DescribeDomainRealTimeHttpCodeDataRequest $request
+     * @param RuntimeOptions                            $runtime
      *
-     * @return DescribeDomainRealTimeHttpCodeDataResponse DescribeDomainRealTimeHttpCodeDataResponse
+     * @return DescribeDomainRealTimeHttpCodeDataResponse
      */
     public function describeDomainRealTimeHttpCodeDataWithOptions($request, $runtime)
     {
@@ -4830,11 +4498,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The total number of entries.
-     *   *
-     * @param DescribeDomainRealTimeHttpCodeDataRequest $request DescribeDomainRealTimeHttpCodeDataRequest
+     * @param DescribeDomainRealTimeHttpCodeDataRequest $request
      *
-     * @return DescribeDomainRealTimeHttpCodeDataResponse DescribeDomainRealTimeHttpCodeDataResponse
+     * @return DescribeDomainRealTimeHttpCodeDataResponse
      */
     public function describeDomainRealTimeHttpCodeData($request)
     {
@@ -4844,15 +4510,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 10 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The timestamp of the data returned. The time follows the yyyy-MM-ddTHH:mm:ssZ format in the ISO 8601 standard and is in UTC.
      *   *
      * @param DescribeDomainRealTimeQpsDataRequest $request DescribeDomainRealTimeQpsDataRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -4882,15 +4540,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 10 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The timestamp of the data returned. The time follows the yyyy-MM-ddTHH:mm:ssZ format in the ISO 8601 standard and is in UTC.
      *   *
      * @param DescribeDomainRealTimeQpsDataRequest $request DescribeDomainRealTimeQpsDataRequest
      *
@@ -4904,7 +4554,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * The request hit ratio.
      *   *
      * @param DescribeDomainRealTimeReqHitRateDataRequest $request DescribeDomainRealTimeReqHitRateDataRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
@@ -4934,7 +4584,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * The request hit ratio.
      *   *
      * @param DescribeDomainRealTimeReqHitRateDataRequest $request DescribeDomainRealTimeReqHitRateDataRequest
      *
@@ -5060,15 +4710,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 10 times per second per account.
-     *   * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last hour by default. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The timestamp of the data returned.
      *   *
      * @param DescribeDomainRealTimeSrcTrafficDataRequest $request DescribeDomainRealTimeSrcTrafficDataRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
@@ -5107,15 +4749,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 10 times per second per account.
-     *   * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last hour by default. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The timestamp of the data returned.
      *   *
      * @param DescribeDomainRealTimeSrcTrafficDataRequest $request DescribeDomainRealTimeSrcTrafficDataRequest
      *
@@ -5129,15 +4763,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 50 times per second per account.
-     *   * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The timestamp of the returned data.
      *   *
      * @param DescribeDomainRealTimeTrafficDataRequest $request DescribeDomainRealTimeTrafficDataRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -5182,15 +4808,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 50 times per second per account.
-     *   * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |1 minute|1 hour|7 days|5 minutes|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|.
+     * The timestamp of the returned data.
      *   *
      * @param DescribeDomainRealTimeTrafficDataRequest $request DescribeDomainRealTimeTrafficDataRequest
      *
@@ -5248,7 +4866,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The beginning of the time range that was queried.
+     * The accelerated domain name.
      *   *
      * @param DescribeDomainRegionDataRequest $request DescribeDomainRegionDataRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -5287,7 +4905,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The beginning of the time range that was queried.
+     * The accelerated domain name.
      *   *
      * @param DescribeDomainRegionDataRequest $request DescribeDomainRegionDataRequest
      *
@@ -5301,20 +4919,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
-     *   *
-     * @param DescribeDomainReqHitRateDataRequest $request DescribeDomainReqHitRateDataRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param DescribeDomainReqHitRateDataRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return DescribeDomainReqHitRateDataResponse DescribeDomainReqHitRateDataResponse
+     * @return DescribeDomainReqHitRateDataResponse
      */
     public function describeDomainReqHitRateDataWithOptions($request, $runtime)
     {
@@ -5351,19 +4959,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
-     *   *
-     * @param DescribeDomainReqHitRateDataRequest $request DescribeDomainReqHitRateDataRequest
+     * @param DescribeDomainReqHitRateDataRequest $request
      *
-     * @return DescribeDomainReqHitRateDataResponse DescribeDomainReqHitRateDataResponse
+     * @return DescribeDomainReqHitRateDataResponse
      */
     public function describeDomainReqHitRateData($request)
     {
@@ -5373,15 +4971,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the time range to query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The bandwidth values of origin HTTPS requests.
      *   *
      * @param DescribeDomainSrcBpsDataRequest $request DescribeDomainSrcBpsDataRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -5423,15 +5013,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not specify the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you specify both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the time range to query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The bandwidth values of origin HTTPS requests.
      *   *
      * @param DescribeDomainSrcBpsDataRequest $request DescribeDomainSrcBpsDataRequest
      *
@@ -5445,15 +5027,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The total number of entries.
      *   *
      * @param DescribeDomainSrcHttpCodeDataRequest $request DescribeDomainSrcHttpCodeDataRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -5495,15 +5069,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter varies with the maximum time range per query. The following table describes the time period within which historical data is available and the data delay.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The total number of entries.
      *   *
      * @param DescribeDomainSrcHttpCodeDataRequest $request DescribeDomainSrcHttpCodeDataRequest
      *
@@ -5517,15 +5083,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * ### Time granularity
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The timestamp of the data returned.
      *   *
      * @param DescribeDomainSrcQpsDataRequest $request DescribeDomainSrcQpsDataRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -5567,15 +5125,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * ### Time granularity
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The timestamp of the data returned.
      *   *
      * @param DescribeDomainSrcQpsDataRequest $request DescribeDomainSrcQpsDataRequest
      *
@@ -5589,9 +5139,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
-     *   * > - The data is collected at an interval of 5 minutes.
-     *   * - You can call this operation up to 10 times per second per account.
+     * The operation that you want to perform. Set the value to **DescribeDomainSrcTopUrlVisit**.
      *   *
      * @param DescribeDomainSrcTopUrlVisitRequest $request DescribeDomainSrcTopUrlVisitRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -5633,9 +5181,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](https://www.alibabacloud.com/help/en/alibaba-cloud-cdn/latest/customize-an-operations-report-template-and-create-a-tracking-task) feature to for data analysis.
-     *   * > - The data is collected at an interval of 5 minutes.
-     *   * - You can call this operation up to 10 times per second per account.
+     * The operation that you want to perform. Set the value to **DescribeDomainSrcTopUrlVisit**.
      *   *
      * @param DescribeDomainSrcTopUrlVisitRequest $request DescribeDomainSrcTopUrlVisitRequest
      *
@@ -5649,15 +5195,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The amount of traffic generated by origin HTTPS requests.
      *   *
      * @param DescribeDomainSrcTrafficDataRequest $request DescribeDomainSrcTrafficDataRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -5699,15 +5237,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366 days|04:00 on the next day|.
+     * The amount of traffic generated by origin HTTPS requests.
      *   *
      * @param DescribeDomainSrcTrafficDataRequest $request DescribeDomainSrcTrafficDataRequest
      *
@@ -5721,8 +5251,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The name of the region. Separate multiple region names with commas (,).
-     *   * You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions.
+     * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *   *
      * @param DescribeDomainTopClientIpVisitRequest $request DescribeDomainTopClientIpVisitRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -5770,8 +5299,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The name of the region. Separate multiple region names with commas (,).
-     *   * You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions.
+     * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *   *
      * @param DescribeDomainTopClientIpVisitRequest $request DescribeDomainTopClientIpVisitRequest
      *
@@ -5785,9 +5313,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The sorting method. Valid values:
-     *   * *   **traf**: by network traffic.
-     *   * *   **pv**: by the number of page views. This is the default value.
+     * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *   * The end time must be later than the start time.
      *   *
      * @param DescribeDomainTopReferVisitRequest $request DescribeDomainTopReferVisitRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -5829,9 +5356,8 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The sorting method. Valid values:
-     *   * *   **traf**: by network traffic.
-     *   * *   **pv**: by the number of page views. This is the default value.
+     * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *   * The end time must be later than the start time.
      *   *
      * @param DescribeDomainTopReferVisitRequest $request DescribeDomainTopReferVisitRequest
      *
@@ -5845,12 +5371,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](~~279577~~) feature for data analysis.
-     *   * >
-     *   * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * *   You can query data collected in the last 90 days.
-     *   * *   You can specify only one domain name in each call.
-     *   * *   You can call this operation up to 10 times per second per account.
+     * The proportion of visits to the URL.
      *   *
      * @param DescribeDomainTopUrlVisitRequest $request DescribeDomainTopUrlVisitRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -5892,12 +5413,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](~~279577~~) feature for data analysis.
-     *   * >
-     *   * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * *   You can query data collected in the last 90 days.
-     *   * *   You can specify only one domain name in each call.
-     *   * *   You can call this operation up to 10 times per second per account.
+     * The proportion of visits to the URL.
      *   *
      * @param DescribeDomainTopUrlVisitRequest $request DescribeDomainTopUrlVisitRequest
      *
@@ -5911,15 +5427,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366|04:00 on the next day|.
+     * The amount of network traffic in the Chinese mainland.
      *   *
      * @param DescribeDomainTrafficDataRequest $request DescribeDomainTrafficDataRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -5967,15 +5475,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 100 times per second per account.
-     *   * * If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity**
-     *   * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|366 days|366|04:00 on the next day|.
+     * The amount of network traffic in the Chinese mainland.
      *   *
      * @param DescribeDomainTrafficDataRequest $request DescribeDomainTrafficDataRequest
      *
@@ -5989,13 +5489,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 10 times per second per account.
-     *   * * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|90 days|366 days|04:00 on the next day|.
+     * $.parameters[2].schema.enumValueTitles.
      *   *
      * @param DescribeDomainUsageDataRequest $request DescribeDomainUsageDataRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -6049,13 +5543,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * * You can call this operation up to 10 times per second per account.
-     *   * * The time granularity supported by the Interval parameter, the maximum time period within which historical data is available, and the data delay vary with the maximum time range per query, as described in the following table.
-     *   * |Time granularity|Maximum time range per query|Historical data available|Data delay|
-     *   * |---|---|---|---|
-     *   * |5 minutes|3 days|93 days|15 minutes|
-     *   * |1 hour|31 days|186 days|4 hours|
-     *   * |1 day|90 days|366 days|04:00 on the next day|.
+     * $.parameters[2].schema.enumValueTitles.
      *   *
      * @param DescribeDomainUsageDataRequest $request DescribeDomainUsageDataRequest
      *
@@ -6183,9 +5671,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 10 times per second per account.
-     *   * *   If you do not set StartTime or EndTime, data within the last 24 hours is queried. If you set both StartTime and EndTime, data within the specified time range is queried.
-     *   * *   You can query the monitoring data of a specific accelerated domain name or all accelerated domain names that belong to your Alibaba Cloud account.
+     * The time when the bandwidth reached the peak value.
      *   *
      * @param DescribeDomainsUsageByDayRequest $request DescribeDomainsUsageByDayRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -6224,9 +5710,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 10 times per second per account.
-     *   * *   If you do not set StartTime or EndTime, data within the last 24 hours is queried. If you set both StartTime and EndTime, data within the specified time range is queried.
-     *   * *   You can query the monitoring data of a specific accelerated domain name or all accelerated domain names that belong to your Alibaba Cloud account.
+     * The time when the bandwidth reached the peak value.
      *   *
      * @param DescribeDomainsUsageByDayRequest $request DescribeDomainsUsageByDayRequest
      *
@@ -6240,7 +5724,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 30 times per second per account.
+     * The name of the chart that shows the errors of the script.
      *   *
      * @param DescribeEsExceptionDataRequest $request DescribeEsExceptionDataRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -6279,7 +5763,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 30 times per second per account.
+     * The name of the chart that shows the errors of the script.
      *   *
      * @param DescribeEsExceptionDataRequest $request DescribeEsExceptionDataRequest
      *
@@ -6293,7 +5777,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 30 times per second per account.
+     * The ID of the script that you want to query. You can call the [DescribeCdnDomainConfigs](~~90924~~) operation to query script IDs.
      *   *
      * @param DescribeEsExecuteDataRequest $request DescribeEsExecuteDataRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -6332,7 +5816,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 30 times per second per account.
+     * The ID of the script that you want to query. You can call the [DescribeCdnDomainConfigs](~~90924~~) operation to query script IDs.
      *   *
      * @param DescribeEsExecuteDataRequest $request DescribeEsExecuteDataRequest
      *
@@ -6383,53 +5867,6 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeFCTriggerWithOptions($request, $runtime);
-    }
-
-    /**
-     * The URL where you can download the file that contains invalid URLs. This parameter is valid only if the export task is successful.
-     *   *
-     * @param DescribeIllegalUrlExportTaskRequest $request DescribeIllegalUrlExportTaskRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeIllegalUrlExportTaskResponse DescribeIllegalUrlExportTaskResponse
-     */
-    public function describeIllegalUrlExportTaskWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeIllegalUrlExportTask',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeIllegalUrlExportTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * The URL where you can download the file that contains invalid URLs. This parameter is valid only if the export task is successful.
-     *   *
-     * @param DescribeIllegalUrlExportTaskRequest $request DescribeIllegalUrlExportTaskRequest
-     *
-     * @return DescribeIllegalUrlExportTaskResponse DescribeIllegalUrlExportTaskResponse
-     */
-    public function describeIllegalUrlExportTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeIllegalUrlExportTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -6622,8 +6059,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   The data is collected every 5 minutes.
-     *   * *   You can call this operation up to 20 times per second per account.
+     * The ID of the request.
      *   *
      * @param DescribeRangeDataByLocateAndIspServiceRequest $request DescribeRangeDataByLocateAndIspServiceRequest
      * @param RuntimeOptions                                $runtime runtime options for this request RuntimeOptions
@@ -6668,8 +6104,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   The data is collected every 5 minutes.
-     *   * *   You can call this operation up to 20 times per second per account.
+     * The ID of the request.
      *   *
      * @param DescribeRangeDataByLocateAndIspServiceRequest $request DescribeRangeDataByLocateAndIspServiceRequest
      *
@@ -6683,7 +6118,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
+     * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
      *   *
      * @param DescribeRealtimeDeliveryAccRequest $request DescribeRealtimeDeliveryAccRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6728,7 +6163,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
+     * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
      *   *
      * @param DescribeRealtimeDeliveryAccRequest $request DescribeRealtimeDeliveryAccRequest
      *
@@ -6742,8 +6177,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call the [RefreshObjectCaches](~~448057~~) operation to refresh content and call the [PushObjectCache](~~448058~~) operation to prefetch content.
-     *   * *   You can call this operation up to 20 times per second per account.
+     * The remaining number of URLs and directories that can be blocked on the current day.
      *   *
      * @param DescribeRefreshQuotaRequest $request DescribeRefreshQuotaRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -6779,8 +6213,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call the [RefreshObjectCaches](~~448057~~) operation to refresh content and call the [PushObjectCache](~~448058~~) operation to prefetch content.
-     *   * *   You can call this operation up to 20 times per second per account.
+     * The remaining number of URLs and directories that can be blocked on the current day.
      *   *
      * @param DescribeRefreshQuotaRequest $request DescribeRefreshQuotaRequest
      *
@@ -6794,7 +6227,11 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The tasks.
+     * The status of the task. Valid values:
+     *   * *   **Complete**: The task is complete.
+     *   * *   **Pending**: The task is pending.
+     *   * *   **Refreshing**: The task is running.
+     *   * *   **Failed**: The task failed.
      *   *
      * @param DescribeRefreshTaskByIdRequest $request DescribeRefreshTaskByIdRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -6827,7 +6264,11 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The tasks.
+     * The status of the task. Valid values:
+     *   * *   **Complete**: The task is complete.
+     *   * *   **Pending**: The task is pending.
+     *   * *   **Refreshing**: The task is running.
+     *   * *   **Failed**: The task failed.
      *   *
      * @param DescribeRefreshTaskByIdRequest $request DescribeRefreshTaskByIdRequest
      *
@@ -6841,12 +6282,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The ID of the task.
-     *   *
-     * @param DescribeRefreshTasksRequest $request DescribeRefreshTasksRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param DescribeRefreshTasksRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return DescribeRefreshTasksResponse DescribeRefreshTasksResponse
+     * @return DescribeRefreshTasksResponse
      */
     public function describeRefreshTasksWithOptions($request, $runtime)
     {
@@ -6907,11 +6346,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The ID of the task.
-     *   *
-     * @param DescribeRefreshTasksRequest $request DescribeRefreshTasksRequest
+     * @param DescribeRefreshTasksRequest $request
      *
-     * @return DescribeRefreshTasksResponse DescribeRefreshTasksResponse
+     * @return DescribeRefreshTasksResponse
      */
     public function describeRefreshTasks($request)
     {
@@ -6921,7 +6358,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * The operation that you want to perform. Set the value to **DescribeStagingIp**.
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -6946,7 +6383,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * >  The maximum number of times that each user can call this operation per second is 30.
+     * The operation that you want to perform. Set the value to **DescribeStagingIp**.
      *   *
      * @return DescribeStagingIpResponse DescribeStagingIpResponse
      */
@@ -7007,10 +6444,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](~~279577~~) feature for data analysis.
-     *   * >
-     *   * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the current month. If you set both these parameters, the request returns the data collected within the specified time range.********
-     *   * *   You can call this operation up to 100 times per second per account.
+     * The peak bandwidth value.
      *   *
      * @param DescribeTopDomainsByFlowRequest $request DescribeTopDomainsByFlowRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -7049,10 +6483,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The statistical analysis feature of Alibaba Cloud CDN is no longer available. The API operations related to the statistical analysis feature are no longer maintained. We recommend that you do not use the API operations because data may be missing or inaccurate. You can use the [operations report](~~279577~~) feature for data analysis.
-     *   * >
-     *   * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the current month. If you set both these parameters, the request returns the data collected within the specified time range.********
-     *   * *   You can call this operation up to 100 times per second per account.
+     * The peak bandwidth value.
      *   *
      * @param DescribeTopDomainsByFlowRequest $request DescribeTopDomainsByFlowRequest
      *
@@ -7565,7 +6996,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
+     * The domain name.
      *   *
      * @param ListDomainsByLogConfigIdRequest $request ListDomainsByLogConfigIdRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -7595,7 +7026,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
+     * The domain name.
      *   *
      * @param ListDomainsByLogConfigIdRequest $request ListDomainsByLogConfigIdRequest
      *
@@ -8111,19 +7542,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   Alibaba Cloud CDN supports POST requests in which parameters are sent as a form.
-     *   * *   You can call the [RefreshObjectCaches](~~91164~~) operation to refresh content and call the [PushObjectCache](~~91161~~) operation to prefetch content.
-     *   * *   You can call the RefreshObjectCaches operation up to 50 times per second per account.
-     *   * *   For more information about how to automatically refresh or prefetch tasks, see [Run scripts to refresh and prefetch content](~~151829~~).
-     *   * ## Precautions
-     *   * *   After a refresh task is submitted and completed, specific resources are removed from POPs. When a POP receives a request for the removed resources, the POP forwards the request to the origin server to retrieve the resources. The retrieved resources are returned to the client and cached on the POP. Multiple refresh tasks may cause a large number of resources to be removed from the POPs. This increases the number of requests that are forwarded to the origin server. The back-to-origin routing process consumes more bandwidth resources and the origin server may be overwhelmed.
-     *   * *   A refresh task takes effect 5 to 6 minutes after being submitted. This means that if the resource you want to refresh has a TTL of less than five minutes, you wait for it to expire instead of manually running a refresh task.
-     *   * *   If you want to use RAM users to refresh or prefetch resources, you must obtain the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](~~260300~~).
-     *   * ### Refresh quota
-     *   * *   By default, each Alibaba Cloud account can refresh content from up to 10,000 URLs and 100 directories per day. The directories include subdirectories. If the daily peak bandwidth value exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to request a quota increase. Alibaba Cloud CDN evaluates your application based on your workloads.
-     *   * *   By default, each Alibaba Cloud account can submit up to 20 refresh rules that contain regular expressions per day. If the daily peak bandwidth of your Alibaba Cloud account exceeds 10 Gbit/s, you can [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to request a quota increase.
-     *   * *   You can specify up to 1,000 URL refresh rules, 100 directory refresh rules, or 1 refresh rule that contains regular expressions in each call.
-     *   * *   You can refresh up to 1,000 URLs per minute for each domain name.
+     * The request ID.
      *   *
      * @param RefreshObjectCachesRequest $request RefreshObjectCachesRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -8165,19 +7584,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   Alibaba Cloud CDN supports POST requests in which parameters are sent as a form.
-     *   * *   You can call the [RefreshObjectCaches](~~91164~~) operation to refresh content and call the [PushObjectCache](~~91161~~) operation to prefetch content.
-     *   * *   You can call the RefreshObjectCaches operation up to 50 times per second per account.
-     *   * *   For more information about how to automatically refresh or prefetch tasks, see [Run scripts to refresh and prefetch content](~~151829~~).
-     *   * ## Precautions
-     *   * *   After a refresh task is submitted and completed, specific resources are removed from POPs. When a POP receives a request for the removed resources, the POP forwards the request to the origin server to retrieve the resources. The retrieved resources are returned to the client and cached on the POP. Multiple refresh tasks may cause a large number of resources to be removed from the POPs. This increases the number of requests that are forwarded to the origin server. The back-to-origin routing process consumes more bandwidth resources and the origin server may be overwhelmed.
-     *   * *   A refresh task takes effect 5 to 6 minutes after being submitted. This means that if the resource you want to refresh has a TTL of less than five minutes, you wait for it to expire instead of manually running a refresh task.
-     *   * *   If you want to use RAM users to refresh or prefetch resources, you must obtain the required permissions. For more information, see [Authorize a RAM user to prefetch and refresh resources](~~260300~~).
-     *   * ### Refresh quota
-     *   * *   By default, each Alibaba Cloud account can refresh content from up to 10,000 URLs and 100 directories per day. The directories include subdirectories. If the daily peak bandwidth value exceeds 200 Mbit/s, you can [submit a ticket](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A//ticket-intl.console.aliyun.com/%23/ticket/createIndex) to request a quota increase. Alibaba Cloud CDN evaluates your application based on your workloads.
-     *   * *   By default, each Alibaba Cloud account can submit up to 20 refresh rules that contain regular expressions per day. If the daily peak bandwidth of your Alibaba Cloud account exceeds 10 Gbit/s, you can [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) to request a quota increase.
-     *   * *   You can specify up to 1,000 URL refresh rules, 100 directory refresh rules, or 1 refresh rule that contains regular expressions in each call.
-     *   * *   You can refresh up to 1,000 URLs per minute for each domain name.
+     * The request ID.
      *   *
      * @param RefreshObjectCachesRequest $request RefreshObjectCachesRequest
      *
@@ -8191,7 +7598,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 30 times per second per account.
+     * The accelerated domain name. You can specify only one domain name in each call.
      *   *
      * @param RollbackStagingConfigRequest $request RollbackStagingConfigRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -8224,7 +7631,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 30 times per second per account.
+     * The accelerated domain name. You can specify only one domain name in each call.
      *   *
      * @param RollbackStagingConfigRequest $request RollbackStagingConfigRequest
      *
@@ -8417,32 +7824,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The features that you want to configure. Format:
-     *   * > - **functionName**: The name of the feature. Separate multiple values with commas (,).
-     *   * > - **argName**: The feature parameters for **functionName**.
-     *   * > - **argValue**: The parameter values set for **functionName**.
-     *   * ```
-     *   *         [
-     *   *          {
-     *   *            "functionArgs": [
-     *   *             {
-     *   *              "argName": "Parameter A",
-     *   *              "argValue": "Parameter value"
-     *   *             },
-     *   *           {
-     *   *             "argName": "Parameter B",
-     *   *             "argValue": "Parameter value"
-     *   *              }
-     *   *          ],
-     *   *          "functionName": "Feature name"
-     *   *             }
-     *   *         ]
-     *   *  ```.
-     *   *
-     * @param SetCdnDomainStagingConfigRequest $request SetCdnDomainStagingConfigRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param SetCdnDomainStagingConfigRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return SetCdnDomainStagingConfigResponse SetCdnDomainStagingConfigResponse
+     * @return SetCdnDomainStagingConfigResponse
      */
     public function setCdnDomainStagingConfigWithOptions($request, $runtime)
     {
@@ -8473,31 +7858,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The features that you want to configure. Format:
-     *   * > - **functionName**: The name of the feature. Separate multiple values with commas (,).
-     *   * > - **argName**: The feature parameters for **functionName**.
-     *   * > - **argValue**: The parameter values set for **functionName**.
-     *   * ```
-     *   *         [
-     *   *          {
-     *   *            "functionArgs": [
-     *   *             {
-     *   *              "argName": "Parameter A",
-     *   *              "argValue": "Parameter value"
-     *   *             },
-     *   *           {
-     *   *             "argName": "Parameter B",
-     *   *             "argValue": "Parameter value"
-     *   *              }
-     *   *          ],
-     *   *          "functionName": "Feature name"
-     *   *             }
-     *   *         ]
-     *   *  ```.
-     *   *
-     * @param SetCdnDomainStagingConfigRequest $request SetCdnDomainStagingConfigRequest
+     * @param SetCdnDomainStagingConfigRequest $request
      *
-     * @return SetCdnDomainStagingConfigResponse SetCdnDomainStagingConfigResponse
+     * @return SetCdnDomainStagingConfigResponse
      */
     public function setCdnDomainStagingConfig($request)
     {
@@ -8861,7 +8224,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
+     * The key of the tag. Valid values of N: **1** to **20**.
      *   *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -8903,7 +8266,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
+     * The key of the tag. Valid values of N: **1** to **20**.
      *   *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
@@ -8917,7 +8280,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to three times per second per account.
+     * UpdateCdnDeliverTask.
      *   *
      * @param UpdateCdnDeliverTaskRequest $request UpdateCdnDeliverTaskRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -8965,7 +8328,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to three times per second per account.
+     * UpdateCdnDeliverTask.
      *   *
      * @param UpdateCdnDeliverTaskRequest $request UpdateCdnDeliverTaskRequest
      *
@@ -8979,7 +8342,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to three times per second per account.
+     * The end time of the operations report. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
      *   *
      * @param UpdateCdnSubTaskRequest $request UpdateCdnSubTaskRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -9021,7 +8384,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to three times per second per account.
+     * The end time of the operations report. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
      *   *
      * @param UpdateCdnSubTaskRequest $request UpdateCdnSubTaskRequest
      *
@@ -9092,12 +8455,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
-     *   *
-     * @param VerifyDomainOwnerRequest $request VerifyDomainOwnerRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param VerifyDomainOwnerRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return VerifyDomainOwnerResponse VerifyDomainOwnerResponse
+     * @return VerifyDomainOwnerResponse
      */
     public function verifyDomainOwnerWithOptions($request, $runtime)
     {
@@ -9105,6 +8466,9 @@ class Cdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->globalResourcePlan)) {
+            $query['GlobalResourcePlan'] = $request->globalResourcePlan;
         }
         if (!Utils::isUnset($request->verifyType)) {
             $query['VerifyType'] = $request->verifyType;
@@ -9128,11 +8492,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
-     *   *
-     * @param VerifyDomainOwnerRequest $request VerifyDomainOwnerRequest
+     * @param VerifyDomainOwnerRequest $request
      *
-     * @return VerifyDomainOwnerResponse VerifyDomainOwnerResponse
+     * @return VerifyDomainOwnerResponse
      */
     public function verifyDomainOwner($request)
     {

@@ -10,13 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRefreshTaskByIdResponseBody extends Model
 {
     /**
-     * @description The type of the task. Valid values:
+     * @description The ID of the task that you want to query.
      *
-     *   **file**: refreshes an individual file.
-     *   **directory**: refreshes files under the specified directory.
-     *   **preload**: prefetches an individual file.
-     *   **regex**: refreshes content based on a regular expression.
-     *
+     * You can specify up to 10 task IDs. Separate task IDs with commas (,).
      * @example E0C2EF95-B1EC-4C93-855E-2059A7DA2B7B
      *
      * @var string
@@ -24,14 +20,18 @@ class DescribeRefreshTaskByIdResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The progress of the task, in percentage.
+     * @description The error returned when the refresh or prefetch task failed. Valid values:
+     *
+     *   **Internal Error**: An internal error occurred.
+     *   **Origin Timeout**: The response from the origin server timed out.
+     *   **Origin Return StatusCode 5XX**: The origin server returned a 5XX error.
      *
      * @var tasks[]
      */
     public $tasks;
 
     /**
-     * @description The time when the task was created. The time is displayed in UTC.
+     * @description The total number of tasks.
      *
      * @example 2
      *

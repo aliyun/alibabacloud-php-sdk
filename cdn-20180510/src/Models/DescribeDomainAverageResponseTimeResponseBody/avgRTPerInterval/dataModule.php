@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @description The accelerated domain name.
-     *
      * @example 2015-12-10T20:00:00Z
      *
      * @var string
@@ -18,7 +16,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The type of the query condition. Valid values: When you set the value to dynamic, this operation queries the average response time of dynamic resources and static resources. If you do not set this parameter, this operation queries the average response time of only static resources. By default, this parameter is not set.
+     * @description Queries the average response time of one or more accelerated domain names. You can query data collected within the last 90 days.
      *
      * @example 3
      *

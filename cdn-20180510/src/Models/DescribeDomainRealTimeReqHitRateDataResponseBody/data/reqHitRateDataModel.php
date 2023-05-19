@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class reqHitRateDataModel extends Model
 {
     /**
-     * @description You can specify multiple domain names and separate them with commas (,). You can specify at most 100 domain names in each call.
+     * @description The timestamp. The time follows the ISO 8601 standard. The time is displayed in UTC.
      *
      * @example 0.8956940476262277
      *
@@ -18,7 +18,7 @@ class reqHitRateDataModel extends Model
     public $reqHitRate;
 
     /**
-     * @description The request hit ratio.
+     * @description Queries the request hit ratios for one or more accelerated domain names.
      *
      * @example 2018-01-02T11:26:00Z
      *

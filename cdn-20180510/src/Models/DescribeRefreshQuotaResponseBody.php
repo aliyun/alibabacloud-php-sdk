@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRefreshQuotaResponseBody extends Model
 {
     /**
-     * @description The maximum number of URLs and directories that can be blocked on the current day.
+     * @description The maximum number of URLs that can be refreshed on the current day.
      *
      * @example 300
      *
@@ -18,7 +18,7 @@ class DescribeRefreshQuotaResponseBody extends Model
     public $blockQuota;
 
     /**
-     * @description The remaining number of URLs that can be blocked on the current day.
+     * @description The remaining number of times that you can prefetch content to L1 nodes on the current day.
      *
      * @example 100
      *
@@ -27,7 +27,7 @@ class DescribeRefreshQuotaResponseBody extends Model
     public $blockRemain;
 
     /**
-     * @description The maximum number of directories that can be refreshed on the current day.
+     * @description The remaining number of directories that can be refreshed on the current day.
      *
      * @example 100
      *
@@ -36,7 +36,7 @@ class DescribeRefreshQuotaResponseBody extends Model
     public $dirQuota;
 
     /**
-     * @description The remaining number of directories that can be refreshed on the current day.
+     * @description The operation that you want to perform. Set this parameter to **DescribeRefreshQuota**.
      *
      * @example 99
      *
@@ -45,17 +45,25 @@ class DescribeRefreshQuotaResponseBody extends Model
     public $dirRemain;
 
     /**
+     * @description 当天忽略参数刷新数量上限。
+     *
+     * @example 100
+     *
      * @var string
      */
     public $ignoreParamsQuota;
 
     /**
+     * @description 当天剩余忽略参数刷新数量。
+     *
+     * @example 10
+     *
      * @var string
      */
     public $ignoreParamsRemain;
 
     /**
-     * @description The maximum number of times that you can prefetch content to L1 POPs on the current day.
+     * @description The maximum number of directories that can be refreshed on the current day.
      *
      * @example 20
      *
@@ -64,7 +72,7 @@ class DescribeRefreshQuotaResponseBody extends Model
     public $preloadEdgeQuota;
 
     /**
-     * @description The remaining number of times that you can prefetch content to L1 POPs on the current day.
+     * @description The maximum number of times that you can prefetch content to L2 nodes on the current day.
      *
      * @example 20
      *
@@ -73,7 +81,7 @@ class DescribeRefreshQuotaResponseBody extends Model
     public $preloadEdgeRemain;
 
     /**
-     * @description The maximum number of times that you can prefetch content to L2 POPs on the current day.
+     * @description The remaining number of times that you can use regular expressions to refresh directories or URLs on the current day.
      *
      * @example 500
      *
@@ -82,7 +90,7 @@ class DescribeRefreshQuotaResponseBody extends Model
     public $preloadQuota;
 
     /**
-     * @description The remaining number of times that you can prefetch content to L2 points of presence (POPs) on the current day.
+     * @description The maximum number of URLs and directories that can be blocked on the current day.
      *
      * @example 400
      *
@@ -91,7 +99,7 @@ class DescribeRefreshQuotaResponseBody extends Model
     public $preloadRemain;
 
     /**
-     * @description The maximum number of URLs or directories that can be refreshed by using regular expressions on the current day.
+     * @description The ID of the request
      *
      * @example 20
      *
@@ -100,7 +108,7 @@ class DescribeRefreshQuotaResponseBody extends Model
     public $regexQuota;
 
     /**
-     * @description The remaining number of URLs or directories that can be refreshed by using regular expressions on the current day.
+     * @description The remaining number of times that you can prefetch content to L2 nodes on the current day.
      *
      * @example 10
      *
@@ -109,7 +117,7 @@ class DescribeRefreshQuotaResponseBody extends Model
     public $regexRemain;
 
     /**
-     * @description The ID of the request.
+     * @description The remaining number of URLs that can be refreshed on the current day.
      *
      * @example 42E0554B-80F4-4921-AED6-ACFB22CAAAD0
      *
@@ -118,7 +126,7 @@ class DescribeRefreshQuotaResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The maximum number of URLs that can be refreshed on the current day.
+     * @description The maximum number of times that you can prefetch content to L1 nodes on the current day.
      *
      * @example 2000
      *
@@ -127,7 +135,7 @@ class DescribeRefreshQuotaResponseBody extends Model
     public $urlQuota;
 
     /**
-     * @description The remaining number of URLs that can be refreshed on the current day.
+     * @description The maximum number of times that you can use regular expressions to refresh directories or URLs on the current day.
      *
      * @example 1996
      *

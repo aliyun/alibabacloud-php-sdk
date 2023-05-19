@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class usageData extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify only one domain name.
-     *
      * @example 2015-11-28T03:00:00Z
      *
      * @var string
@@ -18,7 +16,7 @@ class usageData extends Model
     public $timeStamp;
 
     /**
-     * @description The number of PVs.
+     * @description Queries the page view (PV) data of an accelerated domain name. The data is collected at an interval of 1 hour. You can query data within the last 90 days.
      *
      * @example 9292
      *

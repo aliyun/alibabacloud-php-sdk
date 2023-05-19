@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomLogConfigResponseBody extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeCustomLogConfig**.
+     * @description The format of the log configuration.
      *
      * @example $time_iso8601_$request_method_$
      *
@@ -18,7 +18,7 @@ class DescribeCustomLogConfigResponseBody extends Model
     public $remark;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the custom configuration.
      *
      * @example 94E3559F-7B6A-4A5E-AFFD-44E2A208A249
      *
@@ -27,7 +27,7 @@ class DescribeCustomLogConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description A sample log configuration.
+     * @description The ID of the request.
      *
      * @example "[9/Jun/2015:01:58:09 +0800] 188.165.15.75 - 1542 \"-\" \"GEThttp: //www.aliyun.com/index.html\" 200
      *
@@ -36,7 +36,7 @@ class DescribeCustomLogConfigResponseBody extends Model
     public $sample;
 
     /**
-     * @description The format of the log configuration.
+     * @description >  The maximum number of times that each user can call this operation per second is 100.
      *
      * @example img1
      *

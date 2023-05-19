@@ -9,12 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRefreshTaskByIdRequest extends Model
 {
     /**
-     * @description The status of the task. Valid values:
-     *
-     *   **Complete**: The task is complete.
-     *   **Pending**: The task is pending.
-     *   **Refreshing**: The task is running.
-     *   **Failed**: The task failed.
+     * @description The path of the object refreshed by the refresh task.
      *
      * @example 12345678
      *

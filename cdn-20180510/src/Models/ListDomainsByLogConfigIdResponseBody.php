@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListDomainsByLogConfigIdResponseBody extends Model
 {
     /**
-     * @description The domain names.
+     * @description The ID of the request.
      *
      * @var domains
      */
     public $domains;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the custom configuration.
      *
      * @example 9732E117-8A37-49FD-A36F-ABBB87556CA7
      *

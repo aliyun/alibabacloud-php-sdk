@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class VerifyDomainOwnerRequest extends Model
 {
     /**
-     * @description The domain name of which you want to verify the ownership. You can specify only one domain name.
-     *
      * @example example.com
      *
      * @var string
@@ -18,19 +16,20 @@ class VerifyDomainOwnerRequest extends Model
     public $domainName;
 
     /**
-     * @description The verification method. Valid values:
-     *
-     *   **dnsCheck**: by DNS record
-     *   **fileCheck**: by verification file
-     *
+     * @var string
+     */
+    public $globalResourcePlan;
+
+    /**
      * @example dnsCheck
      *
      * @var string
      */
     public $verifyType;
     protected $_name = [
-        'domainName' => 'DomainName',
-        'verifyType' => 'VerifyType',
+        'domainName'         => 'DomainName',
+        'globalResourcePlan' => 'GlobalResourcePlan',
+        'verifyType'         => 'VerifyType',
     ];
 
     public function validate()
@@ -42,6 +41,9 @@ class VerifyDomainOwnerRequest extends Model
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->globalResourcePlan) {
+            $res['GlobalResourcePlan'] = $this->globalResourcePlan;
         }
         if (null !== $this->verifyType) {
             $res['VerifyType'] = $this->verifyType;
@@ -60,6 +62,9 @@ class VerifyDomainOwnerRequest extends Model
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['GlobalResourcePlan'])) {
+            $model->globalResourcePlan = $map['GlobalResourcePlan'];
         }
         if (isset($map['VerifyType'])) {
             $model->verifyType = $map['VerifyType'];

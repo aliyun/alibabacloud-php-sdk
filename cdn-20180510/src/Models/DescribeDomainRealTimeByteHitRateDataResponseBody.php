@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeByteHitRateDataResponseBody extends Model
 {
     /**
-     * @description The data returned.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 70A26B11-3673-479C-AEA8-E03FC5D3496D
      *
      * @var string

@@ -14,15 +14,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainTopUrlVisitResponseBody extends Model
 {
     /**
-     * @description A list of frequently requested URLs.
-     *
      * @var allUrlList
      */
     public $allUrlList;
 
     /**
-     * @description The accelerated domain name.
-     *
      * @example example.com
      *
      * @var string
@@ -30,8 +26,6 @@ class DescribeDomainTopUrlVisitResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 64D28B53-5902-409B-94F6-FD46680144FE
      *
      * @var string
@@ -39,8 +33,6 @@ class DescribeDomainTopUrlVisitResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The start of the time range during which data was queried.
-     *
      * @example 2019-10-03T16:00:00Z
      *
      * @var string
@@ -48,29 +40,21 @@ class DescribeDomainTopUrlVisitResponseBody extends Model
     public $startTime;
 
     /**
-     * @description A list of URLs for which 2xx status codes were returned.
-     *
      * @var url200List
      */
     public $url200List;
 
     /**
-     * @description A list of URLs for which 3xx status codes were returned.
-     *
      * @var url300List
      */
     public $url300List;
 
     /**
-     * @description A list of URLs for which 4xx status codes were returned.
-     *
      * @var url400List
      */
     public $url400List;
 
     /**
-     * @description A list of URLs for which 5xx status codes were returned.
-     *
      * @var url500List
      */
     public $url500List;

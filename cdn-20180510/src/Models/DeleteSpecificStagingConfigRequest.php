@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteSpecificStagingConfigRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The configuration IDs. Separate configuration IDs with commas (,). For more information about ConfigId, see [Usage notes on ConfigId](~~388994~~).
      *
      * @example 2317
      *
@@ -18,7 +18,7 @@ class DeleteSpecificStagingConfigRequest extends Model
     public $configId;
 
     /**
-     * @description The accelerated domain names (no more than 50). Separate domain names with commas (,).
+     * @description The operation that you want to perform. Set the value to **DeleteSpecificStagingConfig**.
      *
      * @example example.com
      *

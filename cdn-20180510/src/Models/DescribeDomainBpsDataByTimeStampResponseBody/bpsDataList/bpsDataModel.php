@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class bpsDataModel extends Model
 {
     /**
-     * @description The bandwidth value.
-     *
      * @example 52119553
      *
      * @var int
@@ -18,8 +16,6 @@ class bpsDataModel extends Model
     public $bps;
 
     /**
-     * @description The name of the ISP.
-     *
      * @example unicom
      *
      * @var string
@@ -27,8 +23,6 @@ class bpsDataModel extends Model
     public $ispName;
 
     /**
-     * @description The name of the region.
-     *
      * @example Liaoning
      *
      * @var string
@@ -36,8 +30,6 @@ class bpsDataModel extends Model
     public $locationName;
 
     /**
-     * @description The timestamp of the data returned.
-     *
      * @example 2019-11-30T05:40:00Z
      *
      * @var string

@@ -10,14 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainDetailDataByLayerResponseBody extends Model
 {
     /**
-     * @description The number of IPv6 requests per second.
+     * @description The name of the Internet service provider (ISP) for your Alibaba Cloud CDN service. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query ISP names.
      *
+     * If you do not specify an ISP, data of all ISPs is queried.
      * @var data
      */
     public $data;
 
     /**
-     * @description The number of queries per second.
+     * @description The timestamp of the data returned.
      *
      * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
      *

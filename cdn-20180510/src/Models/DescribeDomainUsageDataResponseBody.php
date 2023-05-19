@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainUsageDataResponseBody extends Model
 {
     /**
-     * @description The ID of the billable region where the data was collected.
-     *
      * @example CN
      *
      * @var string
@@ -19,8 +17,6 @@ class DescribeDomainUsageDataResponseBody extends Model
     public $area;
 
     /**
-     * @description The time interval between the data entries returned. Unit: seconds.
-     *
      * @example 300
      *
      * @var string
@@ -28,8 +24,6 @@ class DescribeDomainUsageDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The accelerated domain name.
-     *
      * @example example.com
      *
      * @var string
@@ -37,8 +31,6 @@ class DescribeDomainUsageDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range during which data was queried.
-     *
      * @example 2015-12-10T22:00:00Z
      *
      * @var string
@@ -46,8 +38,9 @@ class DescribeDomainUsageDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The ID of the request.
+     * @description The resource usage in a specific scenario.
      *
+     * > SpecialValue indicates the data usage in a specific scenario. If no special billable item is specified, ignore this parameter.
      * @example B955107D-E658-4E77-B913-E0AC3D31693E
      *
      * @var string
@@ -55,8 +48,6 @@ class DescribeDomainUsageDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which data was queried.
-     *
      * @example 2015-12-10T20:00:00Z
      *
      * @var string
@@ -64,17 +55,11 @@ class DescribeDomainUsageDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The type of content.
-     *
-     * @example static
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The resource usage that was collected at each interval.
-     *
      * @var usageDataPerInterval
      */
     public $usageDataPerInterval;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteCdnDomainConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description Deletes configurations of multiple accelerated domain names at a time.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *

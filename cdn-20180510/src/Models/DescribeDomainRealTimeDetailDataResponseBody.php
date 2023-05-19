@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeDetailDataResponseBody extends Model
 {
     /**
-     * @description The name of the Internet service provider. You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query ISPs.
+     * @description DescribeDomainRealTimeDetailData
      *
      * @example [
      * ]
@@ -18,8 +18,6 @@ class DescribeDomainRealTimeDetailDataResponseBody extends Model
     public $data;
 
     /**
-     * @description The accelerated domain name for which you want to query data. You can specify multiple accelerated domain names and separate them with commas (,).
-     *
      * @example B49E6DDA-F413-422B-B58E-2FA23F286726
      *
      * @var string

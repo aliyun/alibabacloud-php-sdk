@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteSpecificStagingConfigResponseBody extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DeleteSpecificStagingConfig**.
-     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string

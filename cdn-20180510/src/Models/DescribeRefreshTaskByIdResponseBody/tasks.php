@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
-     * @description The path of the object refreshed by the refresh task.
+     * @description The progress of the task, in percentage.
      *
      * @example 2020-08-03T08:54:23Z
      *
@@ -18,7 +18,7 @@ class tasks extends Model
     public $creationTime;
 
     /**
-     * @description The tasks.
+     * @description The ID of the task.
      *
      * @example Internal Error
      *
@@ -27,12 +27,7 @@ class tasks extends Model
     public $description;
 
     /**
-     * @description The type of the task. Valid values:
-     *
-     *   **file**: refreshes an individual file.
-     *   **directory**: refreshes files under the specified directory.
-     *   **preload**: prefetches an individual file.
-     *   **regex**: refreshes content based on a regular expression.
+     * @description Queries the status of refresh or prefetch tasks by ID for an accelerated domain name.
      *
      * @example http://example.com/abc.jpg
      *
@@ -41,7 +36,7 @@ class tasks extends Model
     public $objectPath;
 
     /**
-     * @description The ID of the task.
+     * @description The ID of the request.
      *
      * @example file
      *
@@ -50,8 +45,8 @@ class tasks extends Model
     public $objectType;
 
     /**
-     * @description > - You can query data within the last three days.
-     * - You can call this operation up to 30 times per second per account.
+     * @description The operation that you want to perform. Set the value to **DescribeRefreshTaskById**.
+     *
      * @example 100%
      *
      * @var string
@@ -59,11 +54,7 @@ class tasks extends Model
     public $process;
 
     /**
-     * @description The error returned when the refresh or prefetch task failed. Valid values:
-     *
-     *   **Internal Error**: An internal error occurred.
-     *   **Origin Timeout**: The response from the origin server timed out.
-     *   **Origin Return StatusCode 5XX**: The origin server returned a 5XX error.
+     * @description The time when the task was created. The time is displayed in UTC.
      *
      * @example Complete
      *
@@ -72,13 +63,6 @@ class tasks extends Model
     public $status;
 
     /**
-     * @description The status of the task. Valid values:
-     *
-     *   **Complete**: The task is complete.
-     *   **Pending**: The task is pending.
-     *   **Refreshing**: The task is running.
-     *   **Failed**: The task failed.
-     *
      * @example 24840
      *
      * @var string
