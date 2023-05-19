@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class diskSize extends Model
 {
     /**
-     * @description The size of the data disk, in GB.
+     * @description The ID of the OceanBase cluster.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class diskSize extends Model
     public $dataUsedSize;
 
     /**
-     * @description The server with the highest disk usage.
+     * @description The time in UTC when the cluster expires.
      *
      * @var string[]
      */
@@ -34,8 +34,8 @@ class diskSize extends Model
     public $maxDiskUsedPercent;
 
     /**
-     * @description The total storage space of the cluster, in GB.
-     *
+     * @description The data replica distribution mode of the cluster. Valid values:
+     * > <br>The integer n represents the number of OBServer nodes in each IDC.
      * @example 200
      *
      * @var int
@@ -43,7 +43,7 @@ class diskSize extends Model
     public $totalDiskSize;
 
     /**
-     * @description The storage space of each replica node in the cluster, in GB.
+     * @description The list of zones.
      *
      * @example 200
      *
@@ -52,8 +52,8 @@ class diskSize extends Model
     public $unitDiskSize;
 
     /**
-     * @description The size of used storage space of the cluster, in GB.
-     *
+     * @description The specifications of the cluster.  You can specify one of the following four plans:
+     * - 62C400G: indicates 62 CPU cores and 400 GB of memory.
      * @example 100
      *
      * @var int

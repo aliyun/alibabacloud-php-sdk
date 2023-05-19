@@ -19,7 +19,7 @@ class CreateInstanceRequest extends Model
 
     /**
      * @description The automatic renewal period of the instance. This parameter is required when the AutoRenew parameter is set to true. Valid values:
-     * - If the PeriodUnit parameter is set to Month: 1, 2, 3, 6, and 12.
+     * - If the PeriodUnit parameter is set to Month: "1", "2", "3", "6", and "12".
      * @example 2
      *
      * @var int
@@ -36,7 +36,7 @@ class CreateInstanceRequest extends Model
     public $chargeType;
 
     /**
-     * @description The size of the storage space, in GB.
+     * @description The size of the storage space,in GB.
      * The preceding minimum storage space sizes are the default storage space sizes of the corresponding cluster specification plans.
      * @example 200
      *
@@ -45,6 +45,10 @@ class CreateInstanceRequest extends Model
     public $diskSize;
 
     /**
+     * @description The return result of the request.
+     *
+     * @example cloud_essd_pl1
+     *
      * @var string
      */
     public $diskType;
@@ -68,7 +72,9 @@ class CreateInstanceRequest extends Model
     public $instanceName;
 
     /**
-     * @example 3.2.3.3
+     * @description OceanBase Server version number.
+     *
+     * @example 2.2.77
      *
      * @var string
      */
@@ -76,7 +82,7 @@ class CreateInstanceRequest extends Model
 
     /**
      * @description The valid duration of the purchased resources. The unit is specified by the PeriodUnit parameter.
-     * - If the PeriodUnit parameter is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+     * - When the PeriodUnit parameter is set to Year: "1", "2", "3".
      * @example 1
      *
      * @var int
@@ -103,7 +109,7 @@ class CreateInstanceRequest extends Model
 
     /**
      * @description The series of the OceanBase cluster. Valid values:
-     * normal: the high availability edition. This is the default value.
+     * - history: History Database Cluster Edition.
      * @example Normal
      *
      * @var string
@@ -112,7 +118,7 @@ class CreateInstanceRequest extends Model
 
     /**
      * @description The ID of the zone to which the instance belongs.
-     * For more information about how to obtain the list of zones, see [DescribeZones](https://www.alibabacloud.com/help/zh/doc-detail/25610.htm).
+     * For more information about how to obtain the list of zones, see [DescribeZones](~~25610~~).
      * @example cn-hangzhou-h,cn-hangzhou-i,cn-hangzhou-j
      *
      * @var string

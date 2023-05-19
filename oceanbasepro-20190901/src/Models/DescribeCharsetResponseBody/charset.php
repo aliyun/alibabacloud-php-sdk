@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class charset extends Model
 {
     /**
-     * @description The character set name.
+     * @description DescribeCharset
      *
      * @example utf8
      *
@@ -18,8 +18,6 @@ class charset extends Model
     public $charset;
 
     /**
-     * @description The collation set.
-     *
      * @var string[]
      */
     public $collations;

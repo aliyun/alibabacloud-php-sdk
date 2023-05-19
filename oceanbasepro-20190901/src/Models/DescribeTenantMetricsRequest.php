@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantMetricsRequest extends Model
 {
     /**
-     * @description The end time of the time range for querying monitoring data.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 2021-06-13T15:45:43Z
      *
      * @var string
@@ -18,7 +16,7 @@ class DescribeTenantMetricsRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description 2021-06-13T15:40:43Z
      *
      * @example ob317v4uif****
      *
@@ -27,8 +25,8 @@ class DescribeTenantMetricsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The monitoring metrics.
-     * For more information about supported metrics, see [View tenant statistics](~~212125~~).
+     * @description {"name":"DescribeTenantMetrics","product":"OceanBasePro","version":"2019-09-01","path":"/","deprecated":0,"method":"POST|GET","protocol":"HTTP|HTTPS","hidden":0,"timeout":10000,"parameter_type":"Single","params":"[{\"name\":\"Action\",\"position\":\"Query\",\"required\":true,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"description\":\"\",\"example\":\"DescribeTenantMetrics\"},{\"name\":\"InstanceId\",\"position\":\"Body\",\"required\":true,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"ob317v4uif****\"},{\"name\":\"PageSize\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Integer\",\"title\":\"\",\"description\":\"\",\"example\":\"10\"},{\"name\":\"PageNumber\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Integer\",\"title\":\"\",\"description\":\"\",\"example\":\"1\"},{\"name\":\"TenantName\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":true,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"pay_online\"},{\"name\":\"StartTime\",\"position\":\"Body\",\"required\":true,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"2021-06-13T15:40:43Z\"},{\"name\":\"EndTime\",\"position\":\"Body\",\"required\":true,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"2021-06-13T15:45:43Z\"},{\"name\":\"Metrics\",\"position\":\"Body\",\"required\":true,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"tps\"},{\"name\":\"TenantId\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":true,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"tfafd34fs****\"},{\"name\":\"TenantIdList\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"[tdak3nac****,tdakc42df****]\"}]","response_headers":"[]","response":"{\"type\":\"Object\",\"children\":[{\"name\":\"TotalCount\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Integer\",\"title\":\"\",\"description\":\"\",\"example\":\"9\"},{\"name\":\"RequestId\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C\"},{\"name\":\"TenantMetrics\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"\\\"Metrics\\\":[ {\\\"request_queue_rt\\\":0.0,\\\"TimeStamp\\\":\\\"2022-02-23T01:58:00Z\\\"}]\"}],\"title\":\"\",\"description\":\"\"}","errors":"{}"}
+     *
      * @example tps
      *
      * @var string
@@ -36,8 +34,8 @@ class DescribeTenantMetricsRequest extends Model
     public $metrics;
 
     /**
-     * @description The number of the page to return.
-     * - Default value: 1
+     * @description The ID of the OceanBase cluster.
+     *
      * @example 1
      *
      * @var int
@@ -45,8 +43,8 @@ class DescribeTenantMetricsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of rows to return on each page.
-     * - Default value: 10
+     * @description tfafd34fs****
+     *
      * @example 10
      *
      * @var int
@@ -54,8 +52,8 @@ class DescribeTenantMetricsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The start time of the time range for querying monitoring data.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @description Example 1
+     *
      * @example 2021-06-13T15:40:43Z
      *
      * @var string
@@ -63,8 +61,6 @@ class DescribeTenantMetricsRequest extends Model
     public $startTime;
 
     /**
-     * @description The ID of the tenant.
-     * > <br>This parameter will be deprecated. We recommend that you use the TenantIdList parameter instead.
      * @example tfafd34fs****
      *
      * @deprecated
@@ -74,8 +70,6 @@ class DescribeTenantMetricsRequest extends Model
     public $tenantId;
 
     /**
-     * @description The list of tenant IDs.
-     *
      * @example [tdak3nac****,tdakc42df****]
      *
      * @var string
@@ -83,8 +77,8 @@ class DescribeTenantMetricsRequest extends Model
     public $tenantIdList;
 
     /**
-     * @description The name of the tenant.
-     * > <br>This parameter will be deprecated. We recommend that you use the TenantIdList parameter instead.
+     * @description 2021-06-13T15:45:43Z
+     *
      * @example pay_online
      *
      * @deprecated

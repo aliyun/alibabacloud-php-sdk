@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The number of rows affected.
+     * @description The wait time of the client.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class list_ extends Model
     public $affectedRows;
 
     /**
-     * @description The wait time of the client.
+     * @description The IP address of the client.
      *
      * @example 0.0
      *
@@ -27,7 +27,7 @@ class list_ extends Model
     public $appWaitTime;
 
     /**
-     * @description The number of block cache hits.
+     * @description The number of logical reads.
      *
      * @example 14
      *
@@ -45,7 +45,7 @@ class list_ extends Model
     public $blockIndexCacheHit;
 
     /**
-     * @description The number of Bloom filter cache hits.
+     * @description The username.
      *
      * @example 0
      *
@@ -54,7 +54,7 @@ class list_ extends Model
     public $bloomFilterCacheHit;
 
     /**
-     * @description The IP address of the client.
+     * @description The number of remote plans.
      *
      * @example 1*2.***.1*3.***
      *
@@ -63,7 +63,7 @@ class list_ extends Model
     public $clientIp;
 
     /**
-     * @description The wait time in concurrent execution.
+     * @description The number of block cache hits.
      *
      * @example 0.0
      *
@@ -72,7 +72,7 @@ class list_ extends Model
     public $concurrencyWaitTime;
 
     /**
-     * @description The average CPU time.
+     * @description The page number.
      *
      * @example 50.13
      *
@@ -81,7 +81,7 @@ class list_ extends Model
     public $cpuTime;
 
     /**
-     * @description The name of the database.
+     * @description The number of retries.
      *
      * @example testdb
      *
@@ -90,7 +90,7 @@ class list_ extends Model
     public $dbName;
 
     /**
-     * @description The time to wait for decoding.
+     * @description The number of rows read from the disk.
      *
      * @example 0.0
      *
@@ -99,7 +99,7 @@ class list_ extends Model
     public $decodeTime;
 
     /**
-     * @description The number of physical reads.
+     * @description Alibaba Cloud provides SDKs in different languages to help you quickly integrate Alibaba Cloud products and services by using APIs. We recommend that you use an SDK to call APIs. In this way, you do not need to sign for verification.
      *
      * @example 0
      *
@@ -108,7 +108,7 @@ class list_ extends Model
     public $diskRead;
 
     /**
-     * @description The average response time.
+     * @description The number of row cache hits.
      *
      * @example 76.382
      *
@@ -117,7 +117,7 @@ class list_ extends Model
     public $elapsedTime;
 
     /**
-     * @description The end time.
+     * @description The maximum CPU time.
      *
      * @example 2021-12-28T02:08:18Z
      *
@@ -126,7 +126,7 @@ class list_ extends Model
     public $endTime;
 
     /**
-     * @description The end time in UTC +0.
+     * @description The number of rows read from the memory.
      *
      * @example 2021-12-28T02:08:18Z
      *
@@ -135,7 +135,7 @@ class list_ extends Model
     public $endTimeUTCString;
 
     /**
-     * @description The wait event.
+     * @description The number of rows returned.
      *
      * @example mysql response wait client
      *
@@ -144,7 +144,7 @@ class list_ extends Model
     public $event;
 
     /**
-     * @description The number of executions per second.
+     * @description The queuing time.
      *
      * @example 163.0
      *
@@ -153,7 +153,7 @@ class list_ extends Model
     public $execPerSecond;
 
     /**
-     * @description The internal execution time.
+     * @description The execution history of the SQL statement.
      *
      * @example 61.044
      *
@@ -162,7 +162,7 @@ class list_ extends Model
     public $executeTime;
 
     /**
-     * @description The number of executions.
+     * @description The wait time in concurrent execution.
      *
      * @example 89403
      *
@@ -171,7 +171,7 @@ class list_ extends Model
     public $executions;
 
     /**
-     * @description The number of failures.
+     * @description Example 1
      *
      * @example 0
      *
@@ -180,7 +180,7 @@ class list_ extends Model
     public $failTimes;
 
     /**
-     * @description The time spent in hard parsing.
+     * @description The number of RPCs.
      *
      * @example 0.052
      *
@@ -189,7 +189,7 @@ class list_ extends Model
     public $getPlanTime;
 
     /**
-     * @description The I/O wait time.
+     * @description The number of rows affected.
      *
      * @example 0.0
      *
@@ -198,8 +198,6 @@ class list_ extends Model
     public $IOWaitTime;
 
     /**
-     * @description The number of logical reads.
-     *
      * @example 19
      *
      * @var int
@@ -207,7 +205,7 @@ class list_ extends Model
     public $logicalRead;
 
     /**
-     * @description The maximum CPU time.
+     * @description The number of row cache hits.
      *
      * @example 257.967
      *
@@ -216,7 +214,7 @@ class list_ extends Model
     public $maxCpuTime;
 
     /**
-     * @description The maximum response time.
+     * @description The scheduling duration.
      *
      * @example 260.44
      *
@@ -225,8 +223,8 @@ class list_ extends Model
     public $maxElapsedTime;
 
     /**
-     * @description The number of rows read from the memory.
-     *
+     * @description The operation that you want to perform.
+     * Set the value to **DescribeSQLHistoryList**.
      * @example 527
      *
      * @var int
@@ -234,7 +232,7 @@ class list_ extends Model
     public $memstoreReadRowCount;
 
     /**
-     * @description The number of plan misses.
+     * @description The number of Bloom filter cache hits.
      *
      * @example 0
      *
@@ -243,7 +241,7 @@ class list_ extends Model
     public $missPlans;
 
     /**
-     * @description The network latency.
+     * @description The return result of the request.
      *
      * @example 0.0
      *
@@ -252,7 +250,7 @@ class list_ extends Model
     public $netWaitTime;
 
     /**
-     * @description The IP address of the node.
+     * @description It is an Alibaba Cloud asset management and configuration tool, with which you can manage multiple Alibaba Cloud products and services by using commands. It is easy to use and a good helper in migration to cloud.
      *
      * @example i-bp18qljorblo8es*****
      *
@@ -261,8 +259,6 @@ class list_ extends Model
     public $nodeIp;
 
     /**
-     * @description The queuing time.
-     *
      * @example 15.275
      *
      * @var float
@@ -270,7 +266,7 @@ class list_ extends Model
     public $queueTime;
 
     /**
-     * @description The number of RPCs.
+     * @description The quantity.
      *
      * @example 0
      *
@@ -279,7 +275,7 @@ class list_ extends Model
     public $RPCCount;
 
     /**
-     * @description The number of remote plans.
+     * @description The list.
      *
      * @example 0
      *
@@ -288,7 +284,7 @@ class list_ extends Model
     public $remotePlans;
 
     /**
-     * @description The number of retries.
+     * @description The number of executions.
      *
      * @example 0
      *
@@ -297,7 +293,7 @@ class list_ extends Model
     public $retryCount;
 
     /**
-     * @description The number of rows returned.
+     * @description The I/O wait time.
      *
      * @example 1
      *
@@ -306,7 +302,7 @@ class list_ extends Model
     public $returnRows;
 
     /**
-     * @description The number of row cache hits.
+     * @description {"name":"DescribeSQLHistoryList","product":"OceanBasePro","version":"2019-09-01","path":"/","deprecated":0,"method":"POST|GET","protocol":"HTTP|HTTPS","hidden":0,"timeout":10000,"parameter_type":"Single","params":"[{\"name\":\"Action\",\"position\":\"Query\",\"required\":true,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"description\":\"\",\"example\":\"DescribeSQLHistoryList\"},{\"name\":\"TenantId\",\"position\":\"Body\",\"required\":true,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"t2mr3oae0****\"},{\"name\":\"StartTime\",\"position\":\"Body\",\"required\":true,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"2021-06-13T15:40:43Z\"},{\"name\":\"EndTime\",\"position\":\"Body\",\"required\":true,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"2021-09-13T15:40:43Z\"},{\"name\":\"SQLId\",\"position\":\"Body\",\"required\":true,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"SQLID\",\"description\":\"SQLID。\",\"example\":\"8D6E84****0B8FB1823D199E2CA1****\"},{\"name\":\"PageNumber\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Integer\",\"title\":\"\",\"description\":\"\",\"example\":\"1\"},{\"name\":\"PageSize\",\"position\":\"Body\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Integer\",\"title\":\"\",\"description\":\"\",\"example\":\"10\"}]","response_headers":"[]","response":"{\"type\":\"Object\",\"children\":[{\"name\":\"RequestId\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E\"},{\"name\":\"SQLHistoryList\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Object\",\"children\":[{\"name\":\"List\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Array\",\"subType\":\"Object\",\"description\":\"  \",\"children\":[{\"name\":\"ExecPerSecond\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"163.0\"},{\"name\":\"MaxCpuTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"title\":\"\",\"description\":\"\",\"example\":\"257.967\"},{\"name\":\"BlockCacheHit\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"14\"},{\"name\":\"DecodeTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"title\":\"\",\"description\":\"\",\"example\":\"0.0\"},{\"name\":\"RemotePlans\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"RPCCount\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"NetWaitTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"title\":\"\",\"description\":\"\",\"example\":\"0.0\"},{\"name\":\"DiskRead\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"NodeIp\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"i-bp18qljorblo8es*****\"},{\"name\":\"ConcurrencyWaitTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"title\":\"\",\"description\":\"\",\"example\":\"0.0\"},{\"name\":\"DbName\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"testdb\"},{\"name\":\"MemstoreReadRowCount\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"527\"},{\"name\":\"AppWaitTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"title\":\"\",\"description\":\"\",\"example\":\"0.0\"},{\"name\":\"ElapsedTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"title\":\"\",\"description\":\"\",\"example\":\"76.382\"},{\"name\":\"MissPlans\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"AffectedRows\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"ScheduleTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"title\":\"\",\"description\":\"\",\"example\":\"0.0\"},{\"name\":\"Event\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"mysql response wait client\"},{\"name\":\"TotalWaitTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"title\":\"\",\"description\":\"\",\"example\":\"10.966\"},{\"name\":\"ReturnRows\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"1\"},{\"name\":\"ExecuteTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"title\":\"\",\"description\":\"\",\"example\":\"61.044\"},{\"name\":\"UserName\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"tester\"},{\"name\":\"Executions\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"89403\"},{\"name\":\"GetPlanTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"title\":\"\",\"description\":\"\",\"example\":\"0.052\"},{\"name\":\"CpuTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"title\":\"\",\"description\":\"\",\"example\":\"50.13\"},{\"name\":\"MaxElapsedTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"title\":\"\",\"description\":\"\",\"example\":\"260.44\"},{\"name\":\"BlockIndexCacheHit\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"4\"},{\"name\":\"EndTimeUTCString\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"2021-12-28T02:08:18Z\"},{\"name\":\"EndTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"2021-12-28T02:08:18Z\"},{\"name\":\"RetryCount\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"ClientIp\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"String\",\"title\":\"\",\"description\":\"\",\"example\":\"1*2.***.1*3.***\"},{\"name\":\"BloomFilterCacheHit\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"IOWaitTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"title\":\"\",\"description\":\"\",\"example\":\"0.0\"},{\"name\":\"FailTimes\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"QueueTime\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Float\",\"title\":\"\",\"description\":\"\",\"example\":\"15.275\"},{\"name\":\"RowCacheHit\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"0\"},{\"name\":\"LogicalRead\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"19\"},{\"name\":\"SsstoreReadRowCount\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"43086\"}],\"title\":\"\"},{\"name\":\"Count\",\"required\":false,\"checkBlank\":false,\"visibility\":\"Public\",\"deprecated\":false,\"type\":\"Long\",\"title\":\"\",\"description\":\"\",\"example\":\"1\"}],\"title\":\"\",\"description\":\"\"}],\"title\":\"\",\"description\":\"\"}","errors":"{\"2014\":[{\"code\":\"2014\",\"defaultError\":false,\"errorCode\":\"InternalError\",\"errorMessage\":\"The request processing has failed due to some unknown error.\",\"errorMessageCn\":\"\",\"type\":\"user\"}]}"}
      *
      * @example 0
      *
@@ -315,8 +311,8 @@ class list_ extends Model
     public $rowCacheHit;
 
     /**
-     * @description The scheduling duration.
-     *
+     * @description The end time of the time range for querying the SQL execution history.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 0.0
      *
      * @var float
@@ -324,8 +320,6 @@ class list_ extends Model
     public $scheduleTime;
 
     /**
-     * @description The number of rows read from the disk.
-     *
      * @example 43086
      *
      * @var int
@@ -333,7 +327,7 @@ class list_ extends Model
     public $ssstoreReadRowCount;
 
     /**
-     * @description The internal wait time.
+     * @description The average response time.
      *
      * @example 10.966
      *
@@ -342,7 +336,7 @@ class list_ extends Model
     public $totalWaitTime;
 
     /**
-     * @description The username.
+     * @description The network latency.
      *
      * @example tester
      *

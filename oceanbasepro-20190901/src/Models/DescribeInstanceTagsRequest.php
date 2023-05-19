@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTagsRequest extends Model
 {
     /**
-     * @description The list of cluster IDs.
+     * @description The list of tags.
      *
      * @example ["ob3za5w73as8rk"]
      *
@@ -18,7 +18,7 @@ class DescribeInstanceTagsRequest extends Model
     public $instanceIds;
 
     /**
-     * @description The tags.
+     * @description The returned response.
      *
      * @example [{"Key": "xxx", "Value", "xxx"},{}]
      *

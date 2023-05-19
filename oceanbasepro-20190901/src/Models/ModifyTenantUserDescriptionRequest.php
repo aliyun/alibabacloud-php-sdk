@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyTenantUserDescriptionRequest extends Model
 {
     /**
-     * @description The description of the database.
-     *
+     * @description The operation that you want to perform.
+     * Set the value to **ModifyTenantUserDescription**.
      * @example this is a test database
      *
      * @var string
@@ -36,8 +36,8 @@ class ModifyTenantUserDescriptionRequest extends Model
     public $tenantId;
 
     /**
-     * @description The name of the database account.
-     * You cannot use reserved keywords, such as SYS and root.
+     * @description The description of the database.
+     *
      * @example pay_test
      *
      * @var string

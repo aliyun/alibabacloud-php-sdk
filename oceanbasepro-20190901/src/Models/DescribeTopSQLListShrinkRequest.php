@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTopSQLListShrinkRequest extends Model
 {
     /**
-     * @description The name of the database.
+     * @description The number of block index cache hits.
      *
      * @example testdb
      *
@@ -18,8 +18,8 @@ class DescribeTopSQLListShrinkRequest extends Model
     public $dbName;
 
     /**
-     * @description The end time of the time range for querying TOP SQL statements.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @description The SQL type.
+     *
      * @example 2021-09-13T15:40:43Z
      *
      * @var string
@@ -27,8 +27,8 @@ class DescribeTopSQLListShrinkRequest extends Model
     public $endTime;
 
     /**
-     * @description The filter condition.
-     *
+     * @description The average number of logical reads of the SQL statement during the specified period of time.
+     * > <br> A higher ratio of the number of logical reads to the number of returned rows indicates poorer filtering performance. General causes include non-standard content written by SQL statements, non-standard table indexes created, and non-standard SQL execution plans.
      * @example [dbName:sys]
      *
      * @var string
@@ -36,7 +36,7 @@ class DescribeTopSQLListShrinkRequest extends Model
     public $filterConditionShrink;
 
     /**
-     * @description The IP address of the node.
+     * @description The number of failures.
      *
      * @example i-bp19y05uq6xpacyqnlrc
      *
@@ -45,8 +45,8 @@ class DescribeTopSQLListShrinkRequest extends Model
     public $nodeIp;
 
     /**
-     * @description The number of the page to return.
-     * - Default value: 1
+     * @description The queuing time, in ms.
+     *
      * @example 1
      *
      * @var int
@@ -54,8 +54,8 @@ class DescribeTopSQLListShrinkRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of rows to return on each page.
-     * - Default value: 10
+     * @description The number of row cache hits.
+     *
      * @example 10
      *
      * @var int
@@ -63,7 +63,7 @@ class DescribeTopSQLListShrinkRequest extends Model
     public $pageSize;
 
     /**
-     * @description SQLID.
+     * @description The I/O wait time, in ms.
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -72,7 +72,7 @@ class DescribeTopSQLListShrinkRequest extends Model
     public $SQLId;
 
     /**
-     * @description The search keyword.
+     * @description The number of retries.
      *
      * @example update
      *
@@ -81,7 +81,7 @@ class DescribeTopSQLListShrinkRequest extends Model
     public $searchKeyWord;
 
     /**
-     * @description The search parameter.
+     * @description SQLID.
      *
      * @example cputime
      *
@@ -90,7 +90,7 @@ class DescribeTopSQLListShrinkRequest extends Model
     public $searchParameter;
 
     /**
-     * @description The search rule.
+     * @description The IP address of the client.
      *
      * @example >
      *
@@ -99,7 +99,7 @@ class DescribeTopSQLListShrinkRequest extends Model
     public $searchRule;
 
     /**
-     * @description The search value.
+     * @description The number of Bloom filter cache hits.
      *
      * @example 0.01
      *
@@ -108,7 +108,7 @@ class DescribeTopSQLListShrinkRequest extends Model
     public $searchValue;
 
     /**
-     * @description The sorted column.
+     * @description The number of rows read from the disk.
      *
      * @example cputime
      *
@@ -117,7 +117,7 @@ class DescribeTopSQLListShrinkRequest extends Model
     public $sortColumn;
 
     /**
-     * @description The sorting rule.
+     * @description The list of top SQL statements.
      *
      * @example desc
      *
@@ -126,8 +126,8 @@ class DescribeTopSQLListShrinkRequest extends Model
     public $sortOrder;
 
     /**
-     * @description The start time of the time range for querying TOP SQL statements.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @description The maximum response time, in ms.
+     *
      * @example 2021-06-13T15:40:43Z
      *
      * @var string
@@ -135,7 +135,7 @@ class DescribeTopSQLListShrinkRequest extends Model
     public $startTime;
 
     /**
-     * @description The ID of the tenant.
+     * @description The average CPU time, in ms.
      *
      * @example t2mr3oae0****
      *

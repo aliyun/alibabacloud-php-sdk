@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNodeMetricsRequest extends Model
 {
     /**
-     * @description The end time of the time range for querying monitoring data.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @description $.parameters[7].schema.description
+     *
      * @example 2021-09-13T15:40:43Z
      *
      * @var string
@@ -18,7 +18,7 @@ class DescribeNodeMetricsRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description The list of nodes.
      *
      * @example ob317v4uif****
      *
@@ -27,8 +27,8 @@ class DescribeNodeMetricsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The monitoring metrics.
-     * For more information about supported metrics, see [Node statistics](~~212099~~).
+     * @description $.parameters[7].schema.enumValueTitles
+     *
      * @example tps
      *
      * @var string
@@ -36,7 +36,7 @@ class DescribeNodeMetricsRequest extends Model
     public $metrics;
 
     /**
-     * @description The list of nodes.
+     * @description $.parameters[10].schema.description
      *
      * @example [i-bp16niirq4zdmgvm****,i-bp16n56hq4z4fgvm****]
      *
@@ -45,7 +45,7 @@ class DescribeNodeMetricsRequest extends Model
     public $nodeIdList;
 
     /**
-     * @description The name of the node.
+     * @description $.parameters[8].schema.example
      *
      * @example i-bp16niirq4zdmgvm****
      *
@@ -54,8 +54,8 @@ class DescribeNodeMetricsRequest extends Model
     public $nodeName;
 
     /**
-     * @description The number of the page to return.
-     * - Default value: 1
+     * @description $.parameters[6].schema.description
+     *
      * @example 1
      *
      * @var int
@@ -63,8 +63,8 @@ class DescribeNodeMetricsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of rows to return on each page.
-     * - Default value: 10
+     * @description The ID of the tenant.
+     *
      * @example 10
      *
      * @var int
@@ -72,8 +72,8 @@ class DescribeNodeMetricsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The start time of the time range for querying monitoring data.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @description $.parameters[9].schema.example
+     *
      * @example 2021-06-13T15:40:43Z
      *
      * @var string
@@ -81,7 +81,7 @@ class DescribeNodeMetricsRequest extends Model
     public $startTime;
 
     /**
-     * @description The ID of the tenant.
+     * @description $.parameters[6].schema.enumValueTitles
      *
      * @example tfafd34fs****
      *

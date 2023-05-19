@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cpu extends Model
 {
     /**
-     * @description The total number of CPU cores of the cluster.
-     *
+     * @description The series of the OceanBase cluster. Valid values:
+     * - BASIC: the basic edition.
      * @example 14
      *
      * @var int
@@ -18,8 +18,9 @@ class cpu extends Model
     public $totalCpu;
 
     /**
-     * @description The number of CPU cores of each replica node in the cluster.
+     * @description The type of the storage disk where the cluster is deployed.
      *
+     * The default value is cloud_essd_pl1, which indicates an ESSD cloud disk.
      * @example 10
      *
      * @var int
@@ -27,7 +28,7 @@ class cpu extends Model
     public $unitCpu;
 
     /**
-     * @description The number of CPU cores used in the cluster.
+     * @description Indicates whether automatic upgrade of the OBServer version is enabled.
      *
      * @example 10
      *

@@ -9,14 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeCharsetRequest extends Model
 {
     /**
-     * @description The tenant mode.
-     * For more information, see [DescribeInstanceTenantModes](~~410354~~).
+     * @description 实例的系列  - normal（默认）：标准集群版（云盘）  - normal_ssd：标准集群版（本地盘） - history：历史库集群版。
+     *
+     * @example normal
+     *
+     * @var string
+     */
+    public $series;
+
+    /**
+     * @description The return result of the request.
+     *
      * @example Oracle
      *
      * @var string
      */
     public $tenantMode;
     protected $_name = [
+        'series'     => 'Series',
         'tenantMode' => 'TenantMode',
     ];
 
@@ -27,6 +37,9 @@ class DescribeCharsetRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->series) {
+            $res['Series'] = $this->series;
+        }
         if (null !== $this->tenantMode) {
             $res['TenantMode'] = $this->tenantMode;
         }
@@ -42,6 +55,9 @@ class DescribeCharsetRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Series'])) {
+            $model->series = $map['Series'];
+        }
         if (isset($map['TenantMode'])) {
             $model->tenantMode = $map['TenantMode'];
         }

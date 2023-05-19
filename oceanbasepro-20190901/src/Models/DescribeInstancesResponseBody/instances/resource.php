@@ -12,29 +12,27 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
-     * @description The information about the CPU resources of the cluster.
+     * @description Indicates whether new nodes can be added.
      *
      * @var cpu
      */
     public $cpu;
 
     /**
-     * @description The information about the storage resources of the cluster.
+     * @description The time elapsed since the expiration of the cluster, in seconds.
      *
      * @var diskSize
      */
     public $diskSize;
 
     /**
-     * @description The information about the memory resources of the cluster.
-     *
+     * @description The status of the cluster. Valid values:
+     * Generally, the cluster is in the ONLINE state.
      * @var memory
      */
     public $memory;
 
     /**
-     * @description The number of resource units in the cluster.
-     *
      * @example 1
      *
      * @var int

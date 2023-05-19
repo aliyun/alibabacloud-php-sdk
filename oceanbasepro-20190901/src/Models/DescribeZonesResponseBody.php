@@ -10,8 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeZonesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
+     * @description ```
+     * ```
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -19,7 +19,7 @@ class DescribeZonesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of zones.
+     * @description You can call this operation to learn of zones where a cluster can be created in an Alibaba Cloud region.
      *
      * @var zones[]
      */

@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class zoneResource extends Model
 {
     /**
-     * @description The information about the storage resources of the node.
-     *
      * @var diskSize
      */
     public $diskSize;

@@ -10,15 +10,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabasesResponseBody extends Model
 {
     /**
-     * @description The list of databases in the tenant.
+     * @description The ID of the tenant.
      *
      * @var databases[]
      */
     public $databases;
 
     /**
-     * @description The request ID.
-     *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
      * @var string
@@ -26,7 +24,7 @@ class DescribeDatabasesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of databases in the tenant.
+     * @description The search keyword.
      *
      * @example 1
      *

@@ -10,15 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCharsetResponseBody extends Model
 {
     /**
-     * @description The list of character sets.
-     *
+     * @description ```
+     * ```
      * @var charset[]
      */
     public $charset;
 
     /**
-     * @description The request ID.
-     *
+     * @description The operation that you want to perform.
+     * Set the value to **DescribeCharset**.
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
      * @var string

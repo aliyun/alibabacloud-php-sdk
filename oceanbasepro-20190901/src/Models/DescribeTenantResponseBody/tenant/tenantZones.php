@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tenantZones extends Model
 {
     /**
-     * @description The region where the zone of the tenant resides.
+     * @description 是否允许开启读写分离地址
      *
      * @example cn-hangzhou
      *
@@ -18,7 +18,7 @@ class tenantZones extends Model
     public $region;
 
     /**
-     * @description The ID of the zone.
+     * @description The intranet port for accessing the tenant.
      *
      * @example cn-hangzhou-i
      *
@@ -27,7 +27,7 @@ class tenantZones extends Model
     public $tenantZoneId;
 
     /**
-     * @description The role of the zone of the tenant.
+     * @description The character set.
      *
      * @example ReadOnly
      *

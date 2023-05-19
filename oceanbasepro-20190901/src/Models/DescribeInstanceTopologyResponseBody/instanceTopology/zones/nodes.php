@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description The ID of the replica node.
+     * @description The information of zones.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class nodes extends Model
     public $nodeCopyId;
 
     /**
-     * @description The ID of the node.
+     * @description The ID of the resource unit.
      *
      * @example i-bp16niirq4zdmgvm****
      *
@@ -28,14 +28,14 @@ class nodes extends Model
     public $nodeId;
 
     /**
-     * @description The information of node resources.
+     * @description The ID of the node.
      *
      * @var nodeResource[]
      */
     public $nodeResource;
 
     /**
-     * @description The status of the node.
+     * @description The ID of the OBServer where the resource unit resides.
      *
      * @example ONLINE
      *

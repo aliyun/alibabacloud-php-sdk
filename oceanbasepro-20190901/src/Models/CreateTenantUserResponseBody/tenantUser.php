@@ -26,8 +26,8 @@ class tenantUser extends Model
     public $userName;
 
     /**
-     * @description The status of the database account. Valid values:
-     * - ONLINE: The account is unlocked. The default status of a new account is ONLINE after it is created.
+     * @description The status of the database account. Valid values:  - Locked: The account is locked. - ONLINE: The account is unlocked. The default status of a new account is ONLINE after it is created.
+     *
      * @example ONLINE
      *
      * @var string
@@ -35,8 +35,8 @@ class tenantUser extends Model
     public $userStatus;
 
     /**
-     * @description The type of the database account. Valid values:
-     * - Normal: a general account.
+     * @description The type of the database account. Valid values:  - Admin: the super administrator account. - Normal: a general account.
+     *
      * @example Normal
      *
      * @var string

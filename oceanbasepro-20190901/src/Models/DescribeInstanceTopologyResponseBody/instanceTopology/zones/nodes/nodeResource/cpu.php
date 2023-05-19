@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class cpu extends Model
 {
     /**
-     * @description The total number of CPU cores for the node.
+     * @description The size of used storage space of the node, in GB.
      *
      * @example 14
      *
@@ -18,7 +18,7 @@ class cpu extends Model
     public $totalCpu;
 
     /**
-     * @description The number of CPU cores used by the node.
+     * @description Indicates whether migration can be performed.
      *
      * @example 4
      *

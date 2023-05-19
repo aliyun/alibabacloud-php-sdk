@@ -19,14 +19,12 @@ class DescribeSecurityIpGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information of the IP address whitelist group.
-     *
      * @var securityIpGroups[]
      */
     public $securityIpGroups;
 
     /**
-     * @description The number of whitelist groups returned.
+     * @description Example 1
      *
      * @example 2
      *

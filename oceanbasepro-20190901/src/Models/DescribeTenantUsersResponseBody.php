@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantUsersResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description The name of the database account.
      *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
@@ -19,15 +19,15 @@ class DescribeTenantUsersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of database accounts in the tenant.
-     *
+     * @description The type of the database account. Valid values:
+     * - NORMAL: a general account.
      * @var tenantUsers[]
      */
     public $tenantUsers;
 
     /**
-     * @description The total number of database accounts in the tenant.
-     *
+     * @description The role of the account.
+     * > <br>By default, an Oracle account has the read and write privileges on its own schema, which are not listed here.
      * @example 1
      *
      * @var int

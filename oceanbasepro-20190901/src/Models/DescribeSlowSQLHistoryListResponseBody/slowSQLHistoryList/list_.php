@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The number of rows affected.
+     * @description The wait event.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class list_ extends Model
     public $affectedRows;
 
     /**
-     * @description The wait time of the client.
+     * @description The number of row cache hits.
      *
      * @example 0.0
      *
@@ -27,7 +27,7 @@ class list_ extends Model
     public $appWaitTime;
 
     /**
-     * @description The number of block cache hits.
+     * @description The average CPU time.
      *
      * @example 14
      *
@@ -36,8 +36,8 @@ class list_ extends Model
     public $blockCacheHit;
 
     /**
-     * @description The number of block index cache hits.
-     *
+     * @description The number of rows to return on each page.
+     * - Default value: 10
      * @example 4
      *
      * @var float
@@ -45,7 +45,7 @@ class list_ extends Model
     public $blockIndexCacheHit;
 
     /**
-     * @description The number of Bloom filter cache hits.
+     * @description The number of executions.
      *
      * @example 0
      *
@@ -54,7 +54,7 @@ class list_ extends Model
     public $bloomFilterCacheHit;
 
     /**
-     * @description The IP address of the client.
+     * @description The number of retries.
      *
      * @example 1*2.***.1*3.***
      *
@@ -63,7 +63,7 @@ class list_ extends Model
     public $clientIp;
 
     /**
-     * @description The wait time in concurrent execution.
+     * @description $.parameters[6].schema.example
      *
      * @example 0.0
      *
@@ -72,7 +72,7 @@ class list_ extends Model
     public $concurrencyWaitTime;
 
     /**
-     * @description The average CPU time.
+     * @description $.parameters[6].schema.enumValueTitles
      *
      * @example 50.13
      *
@@ -81,7 +81,7 @@ class list_ extends Model
     public $cpuTime;
 
     /**
-     * @description The name of the database.
+     * @description The IP address of the node.
      *
      * @example testdb
      *
@@ -90,7 +90,7 @@ class list_ extends Model
     public $dbName;
 
     /**
-     * @description The time to wait for decoding.
+     * @description $.parameters[7].schema.description
      *
      * @example 0.0
      *
@@ -99,7 +99,7 @@ class list_ extends Model
     public $decodeTime;
 
     /**
-     * @description The number of physical reads.
+     * @description SQLID.
      *
      * @example 0
      *
@@ -108,7 +108,7 @@ class list_ extends Model
     public $diskRead;
 
     /**
-     * @description The average response time.
+     * @description The queuing time.
      *
      * @example 76.382
      *
@@ -117,8 +117,6 @@ class list_ extends Model
     public $elapsedTime;
 
     /**
-     * @description The end time.
-     *
      * @example 2021-12-28T02:08:18Z
      *
      * @var string
@@ -126,7 +124,7 @@ class list_ extends Model
     public $endTimeUTCString;
 
     /**
-     * @description The wait event.
+     * @description The internal wait time.
      *
      * @example mysql response wait client
      *
@@ -135,7 +133,7 @@ class list_ extends Model
     public $event;
 
     /**
-     * @description The number of executions per second.
+     * @description The number of failures.
      *
      * @example 163.0
      *
@@ -144,7 +142,7 @@ class list_ extends Model
     public $execPerSecond;
 
     /**
-     * @description The internal execution time.
+     * @description The request ID.
      *
      * @example 61.044
      *
@@ -153,7 +151,7 @@ class list_ extends Model
     public $executeTime;
 
     /**
-     * @description The number of executions.
+     * @description The maximum CPU time.
      *
      * @example 89403
      *
@@ -162,7 +160,7 @@ class list_ extends Model
     public $executions;
 
     /**
-     * @description The number of failures.
+     * @description The number of rows returned.
      *
      * @example 0
      *
@@ -171,7 +169,7 @@ class list_ extends Model
     public $failTimes;
 
     /**
-     * @description Hard parsing time.
+     * @description Example 1
      *
      * @example 0.052
      *
@@ -180,7 +178,7 @@ class list_ extends Model
     public $getPlanTime;
 
     /**
-     * @description The I/O wait time.
+     * @description $.parameters[7].schema.enumValueTitles
      *
      * @example 0.0
      *
@@ -189,7 +187,7 @@ class list_ extends Model
     public $IOWaitTime;
 
     /**
-     * @description The number of logical reads.
+     * @description The quantity.
      *
      * @example 19
      *
@@ -198,7 +196,7 @@ class list_ extends Model
     public $logicalRead;
 
     /**
-     * @description The maximum CPU time.
+     * @description DescribeSlowSQLHistoryList
      *
      * @example 257.967
      *
@@ -207,8 +205,12 @@ class list_ extends Model
     public $maxCpuTime;
 
     /**
-     * @description The maximum response time.
-     *
+     * @description ```
+     * http(s)://[Endpoint]/?Action=DescribeSlowSQLHistoryList
+     * &TenantId=t384tolsj****
+     * &EndTime=2021-12-14T08:34:49Z
+     * &SQLId=8D6E84735C0****1823D199E2CA1****
+     * ```
      * @example 260.044
      *
      * @var float
@@ -216,7 +218,7 @@ class list_ extends Model
     public $maxElapsedTime;
 
     /**
-     * @description The number of rows read from the memory.
+     * @description The wait time of the client.
      *
      * @example 527
      *
@@ -225,7 +227,7 @@ class list_ extends Model
     public $memstoreReadRowCount;
 
     /**
-     * @description The number of plan misses.
+     * @description The number of rows read from the disk.
      *
      * @example 0
      *
@@ -234,7 +236,7 @@ class list_ extends Model
     public $missPlans;
 
     /**
-     * @description The wait time for network.
+     * @description $.parameters[7].schema.example
      *
      * @example 0.0
      *
@@ -243,8 +245,8 @@ class list_ extends Model
     public $netWaitTime;
 
     /**
-     * @description The IP address of the node.
-     *
+     * @description The number of the page to return.
+     * - Default value: 1
      * @example i-bp18qljorblo8es*****
      *
      * @var string
@@ -252,7 +254,7 @@ class list_ extends Model
     public $nodeIp;
 
     /**
-     * @description The queuing time.
+     * @description $.parameters[6].schema.description
      *
      * @example 15.275
      *
@@ -261,7 +263,7 @@ class list_ extends Model
     public $queueTime;
 
     /**
-     * @description The number of RPCs.
+     * @description The end time.
      *
      * @example 0
      *
@@ -270,7 +272,7 @@ class list_ extends Model
     public $RPCCount;
 
     /**
-     * @description The number of remote plans.
+     * @description The time to wait for decoding.
      *
      * @example 0
      *
@@ -279,7 +281,7 @@ class list_ extends Model
     public $remotePlans;
 
     /**
-     * @description The number of retries.
+     * @description The number of block index cache hits.
      *
      * @example 0
      *
@@ -288,7 +290,7 @@ class list_ extends Model
     public $retryCount;
 
     /**
-     * @description The number of rows returned.
+     * @description The number of executions per second.
      *
      * @example 1
      *
@@ -297,7 +299,7 @@ class list_ extends Model
     public $returnRows;
 
     /**
-     * @description The number of row cache hits.
+     * @description The execution history of the slow SQL statement.
      *
      * @example 0
      *
@@ -306,7 +308,7 @@ class list_ extends Model
     public $rowCacheHit;
 
     /**
-     * @description The scheduling duration.
+     * @description You can call this operation to query the execution history of an SQL statement by SQL ID that is determined as a slow SQL statement during a specified period of time.
      *
      * @example 0.0
      *
@@ -315,7 +317,7 @@ class list_ extends Model
     public $scheduleTime;
 
     /**
-     * @description SQLID.
+     * @description The return result of the request.
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -324,7 +326,7 @@ class list_ extends Model
     public $sqlId;
 
     /**
-     * @description The SQL type.
+     * @description The IP address of the client.
      *
      * @example 1
      *
@@ -333,7 +335,7 @@ class list_ extends Model
     public $sqlType;
 
     /**
-     * @description The number of rows read from the disk.
+     * @description The scheduling duration.
      *
      * @example 43086
      *
@@ -342,7 +344,7 @@ class list_ extends Model
     public $ssstoreReadRowCount;
 
     /**
-     * @description The name of the tenant.
+     * @description The return result of the request.
      *
      * @example pay_online
      *
@@ -351,8 +353,6 @@ class list_ extends Model
     public $tenantName;
 
     /**
-     * @description The internal wait time.
-     *
      * @example 10.966
      *
      * @var float
@@ -360,7 +360,7 @@ class list_ extends Model
     public $totalWaitTime;
 
     /**
-     * @description The username.
+     * @description The number of physical reads.
      *
      * @example tester
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class StopOmsOpenAPIProjectResponseBody extends Model
 {
     /**
-     * @description The suggestions (old).
+     * @description Indicates whether the project is paused.
      *
      * @example Contact the administrator.
      *
@@ -19,7 +19,7 @@ class StopOmsOpenAPIProjectResponseBody extends Model
     public $advice;
 
     /**
-     * @description The error code (old).
+     * @description The page size, which takes effect in a pagination query.
      *
      * @example INNER_ERROR
      *
@@ -28,8 +28,6 @@ class StopOmsOpenAPIProjectResponseBody extends Model
     public $code;
 
     /**
-     * @description The time spent in processing the request, in seconds.
-     *
      * @example 1
      *
      * @var string
@@ -37,8 +35,6 @@ class StopOmsOpenAPIProjectResponseBody extends Model
     public $cost;
 
     /**
-     * @description Indicates whether the project is paused.
-     *
      * @example True
      *
      * @var bool
@@ -46,14 +42,14 @@ class StopOmsOpenAPIProjectResponseBody extends Model
     public $data;
 
     /**
-     * @description The error details.
+     * @description A system error occurred.
      *
      * @var errorDetail
      */
     public $errorDetail;
 
     /**
-     * @description The error description (old).
+     * @description The page size, which takes effect in a pagination query.
      *
      * @example A system error occurred.
      *
@@ -62,7 +58,7 @@ class StopOmsOpenAPIProjectResponseBody extends Model
     public $message;
 
     /**
-     * @description The page number, which takes effect in a pagination query.
+     * @description Pause a data synchronization project
      *
      * @example 1
      *
@@ -71,8 +67,6 @@ class StopOmsOpenAPIProjectResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The page size, which takes effect in a pagination query.
-     *
      * @example 1
      *
      * @var int
@@ -80,7 +74,7 @@ class StopOmsOpenAPIProjectResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The request ID.
+     * @description A system error occurred.
      *
      * @example XCVSADGDFSGDFGFDGFDGDFGDFGDFGDFGDSGDS
      *
@@ -89,7 +83,7 @@ class StopOmsOpenAPIProjectResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful.
+     * @description The ID of the migration instance. Generally, if you want to create a project on a public cloud, you must first purchase a migration instance.
      *
      * @example true
      *
@@ -98,8 +92,6 @@ class StopOmsOpenAPIProjectResponseBody extends Model
     public $success;
 
     /**
-     * @description The total count, which takes effect in a pagination query.
-     *
      * @example 1
      *
      * @var int

@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTenantModesRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
-     *
+     * @description The operation that you want to perform.
+     * Set the value to **DescribeInstanceTenantModes**.
      * @example ob317v4uif****
      *
      * @var string

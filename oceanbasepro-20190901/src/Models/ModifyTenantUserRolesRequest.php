@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyTenantUserRolesRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
-     *
+     * @description The type of the privilege modification operation.
+     * delete: deletes a privilege.
      * @example ob317v4uif****
      *
      * @var string
@@ -18,8 +18,8 @@ class ModifyTenantUserRolesRequest extends Model
     public $instanceId;
 
     /**
-     * @description The type of the privilege modification operation.
-     * delete: deletes a privilege.
+     * @description The name of the table.
+     *
      * @example update
      *
      * @var string
@@ -27,8 +27,8 @@ class ModifyTenantUserRolesRequest extends Model
     public $modifyType;
 
     /**
-     * @description The ID of the tenant.
-     *
+     * @description The operation that you want to perform.
+     * Set the value to **ModifyTenantUserRoles**.
      * @example ob2mr3oae0****
      *
      * @var string
@@ -36,8 +36,8 @@ class ModifyTenantUserRolesRequest extends Model
     public $tenantId;
 
     /**
-     * @description The name of the database account.
-     * You cannot use reserved keywords, such as SYS and root.
+     * @description The role of the database account.
+     *
      * @example pay_test
      *
      * @var string
@@ -45,8 +45,8 @@ class ModifyTenantUserRolesRequest extends Model
     public $userName;
 
     /**
-     * @description The role of the database account.
-     *
+     * @description The type of the account. Valid values:
+     * - Normal: a general account.
      * @example [{"Database":"20210824160559","Role":"readwrite"}]
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StopOmsOpenAPIProjectRequest extends Model
 {
     /**
-     * @description The page number, which takes effect in a pagination query.
+     * @description The suggestions (old).
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class StopOmsOpenAPIProjectRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The page size, which takes effect in a pagination query.
+     * @description Contact the administrator.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class StopOmsOpenAPIProjectRequest extends Model
     public $pageSize;
 
     /**
-     * @description The project ID.
+     * @description The total count, which takes effect in a pagination query.
      *
      * @example p_abcdefj
      *
@@ -36,7 +36,7 @@ class StopOmsOpenAPIProjectRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the migration instance. Generally, if you want to create a project on a public cloud, you must first purchase a migration instance.
+     * @description Alibaba Cloud CLI
      *
      * @example g_abcdefj***
      *

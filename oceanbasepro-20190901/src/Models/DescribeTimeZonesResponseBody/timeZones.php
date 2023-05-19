@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class timeZones extends Model
 {
     /**
-     * @description The default time zone.
-     *
      * @example Asia/Shanghai
      *
      * @var string

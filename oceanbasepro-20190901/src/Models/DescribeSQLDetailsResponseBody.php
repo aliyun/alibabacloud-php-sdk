@@ -10,8 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLDetailsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
+     * @description The operation that you want to perform.
+     * Set the value to **DescribeSQLDetails**.
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string
@@ -19,8 +19,11 @@ class DescribeSQLDetailsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details of the SQL statement.
-     *
+     * @description ```
+     * http(s)://[Endpoint]/?Action=DescribeSQLDetails
+     * &TenantId=t2mr3oae0****
+     * &SQLId=8D6E84****0B8FB1823D199E2CA1****
+     * ```
      * @var SQLDetails[]
      */
     public $SQLDetails;

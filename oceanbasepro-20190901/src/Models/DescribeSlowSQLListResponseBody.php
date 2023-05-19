@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowSQLListResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description The SQL text.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -19,14 +19,14 @@ class DescribeSlowSQLListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of slow SQL statements.
+     * @description The sorting rule.
      *
      * @var slowSQLList[]
      */
     public $slowSQLList;
 
     /**
-     * @description The total count.
+     * @description The name of the database.
      *
      * @example 2
      *

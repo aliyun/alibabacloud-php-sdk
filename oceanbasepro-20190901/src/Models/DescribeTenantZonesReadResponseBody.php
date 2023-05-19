@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantZonesReadResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description Indicates whether a read-only connection needs to be created for the zone.
      *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
@@ -19,7 +19,7 @@ class DescribeTenantZonesReadResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The zone information of the tenant.
+     * @description The request ID.
      *
      * @var tenantZones[]
      */

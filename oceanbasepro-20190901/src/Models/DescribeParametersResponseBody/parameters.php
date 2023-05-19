@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
-     * @description The valid value range of the parameter.  It is an array with two string elements, which represents a range. The first element represents the minimum value and the second element represents the maximum value.
+     * @description DescribeParameters
      *
      * @var string[]
      */
     public $acceptableValue;
 
     /**
-     * @description The current value of the parameter.
+     * @description The ID of the OceanBase cluster.
      *
      * @example 600
      *
@@ -25,8 +25,12 @@ class parameters extends Model
     public $currentValue;
 
     /**
-     * @description The default value of the parameter.
-     *
+     * @description ```
+     * http(s)://[Endpoint]/?Action=DescribeParameters
+     * &InstanceId=ob317v4uif****
+     * &Dimension=TENANT
+     * &DimensionValue=ob2mr3oae0****
+     * ```
      * @example 600s
      *
      * @var string
@@ -36,14 +40,14 @@ class parameters extends Model
     /**
      * @description The description of the parameter.
      *
-     * @example The maximum delay allowed in weak-consistency reads.
-     *
+     * @example The operation that you want to perform.
+     * Set the value to **DescribeParameters**.
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the parameter.
+     * @description The request ID.
      *
      * @example connect_timeout
      *
@@ -52,8 +56,8 @@ class parameters extends Model
     public $name;
 
     /**
-     * @description Indicates whether a restart is required for changes to the parameter to take effect. Valid values:
-     * - false: A restart is not required.
+     * @description The name of the parameter.
+     *
      * @example false
      *
      * @var bool
@@ -61,15 +65,22 @@ class parameters extends Model
     public $needReboot;
 
     /**
-     * @description The invalid value range of the parameter.
-     * It is an array with two string elements, which represents a range. The first element represents the minimum value and the second element represents the maximum value.
+     * @description 参数是否只读
+     *
+     * @var bool
+     */
+    public $readonly;
+
+    /**
+     * @description {
+     * }
      * @var string[]
      */
     public $rejectedValue;
 
     /**
-     * @description The type of the parameter value.    Valid values:
-     * - CAPACITY: a storage capacity, in KB, MB, or GB.
+     * @description The invalid value range of the parameter.
+     * It is an array with two string elements, which represents a range. The first element represents the minimum value and the second element represents the maximum value.
      * @example CAPACITY
      *
      * @var string
@@ -82,6 +93,7 @@ class parameters extends Model
         'description'     => 'Description',
         'name'            => 'Name',
         'needReboot'      => 'NeedReboot',
+        'readonly'        => 'Readonly',
         'rejectedValue'   => 'RejectedValue',
         'valueType'       => 'ValueType',
     ];
@@ -110,6 +122,9 @@ class parameters extends Model
         }
         if (null !== $this->needReboot) {
             $res['NeedReboot'] = $this->needReboot;
+        }
+        if (null !== $this->readonly) {
+            $res['Readonly'] = $this->readonly;
         }
         if (null !== $this->rejectedValue) {
             $res['RejectedValue'] = $this->rejectedValue;
@@ -148,6 +163,9 @@ class parameters extends Model
         }
         if (isset($map['NeedReboot'])) {
             $model->needReboot = $map['NeedReboot'];
+        }
+        if (isset($map['Readonly'])) {
+            $model->readonly = $map['Readonly'];
         }
         if (isset($map['RejectedValue'])) {
             if (!empty($map['RejectedValue'])) {

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class tenants extends Model
 {
     /**
-     * @description The deployment type of the primary zone.
+     * @description The server with the highest disk usage.
      *
      * @example RANDOM
      *
@@ -19,7 +19,7 @@ class tenants extends Model
     public $primaryZoneDeployType;
 
     /**
-     * @description The number of CPU cores of the tenant.
+     * @description The information about the memory resources of the node.
      *
      * @example 2
      *
@@ -28,8 +28,8 @@ class tenants extends Model
     public $tenantCpu;
 
     /**
-     * @description The deployment type of the tenant.
-     * - dual: dual-IDC deployment
+     * @description The name of the tenant.
+     *
      * @example multiple
      *
      * @var string
@@ -37,7 +37,7 @@ class tenants extends Model
     public $tenantDeployType;
 
     /**
-     * @description The ID of the tenant.
+     * @description The size of used memory of the node, in GB.
      *
      * @example t33h8y08k****
      *
@@ -46,7 +46,7 @@ class tenants extends Model
     public $tenantId;
 
     /**
-     * @description The memory size of the tenant, in GB.
+     * @description The total storage space of the node, in GB.
      *
      * @example 10
      *
@@ -55,8 +55,8 @@ class tenants extends Model
     public $tenantMemory;
 
     /**
-     * @description The tenant mode. Valid values:
-     * - MySQL
+     * @description The size of used storage space of the node, in GB.
+     *
      * @example Oracle
      *
      * @var string
@@ -64,7 +64,7 @@ class tenants extends Model
     public $tenantMode;
 
     /**
-     * @description The name of the tenant.
+     * @description The total memory size of the node, in GB.
      *
      * @example pay_online
      *
@@ -73,8 +73,8 @@ class tenants extends Model
     public $tenantName;
 
     /**
-     * @description The status of the tenant.
-     * - WHITE_LIST_MODIFYING: The whitelist is being modified.
+     * @description The size of used memory of the node, in GB.
+     *
      * @example ONLINE
      *
      * @var string
@@ -82,7 +82,7 @@ class tenants extends Model
     public $tenantStatus;
 
     /**
-     * @description The number of resource units in the tenant.
+     * @description The number of CPU cores of the tenant.
      *
      * @example 1
      *
@@ -91,7 +91,7 @@ class tenants extends Model
     public $tenantUnitNum;
 
     /**
-     * @description The zone information of the tenant.
+     * @description The information about the storage resources of the node.
      *
      * @var tenantZones[]
      */

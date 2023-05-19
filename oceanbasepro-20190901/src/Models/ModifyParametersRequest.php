@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyParametersRequest extends Model
 {
     /**
-     * @description The type of the parameter.
-     * Valid values: CLUSTER and TENANT.
+     * @description The ID of the OceanBase cluster.
+     *
      * @example TENANT
      *
      * @var string
@@ -18,8 +18,8 @@ class ModifyParametersRequest extends Model
     public $dimension;
 
     /**
-     * @description The resource ID of the parameter type.
-     * You can leave this parameter unspecified when you call this operation to modify cluster parameters. In the case of tenant parameters, pass the tenant ID.
+     * @description The cause of the modification failure.
+     *
      * @example ob2mr3oae0****
      *
      * @var string
@@ -27,7 +27,7 @@ class ModifyParametersRequest extends Model
     public $dimensionValue;
 
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description Alibaba Cloud CLI
      *
      * @example ob317v4uif****
      *
@@ -36,8 +36,8 @@ class ModifyParametersRequest extends Model
     public $instanceId;
 
     /**
-     * @description The parameters.
-     * > <br>The names and values of cluster parameters that can be modified are different from those of tenant parameters. For more information, see DescribeParameters.
+     * @description The resource ID of the parameter type.
+     * You can leave this parameter unspecified when you call this operation to modify cluster parameters. In the case of tenant parameters, pass the tenant ID.
      * @example [{"Name":"connect_timeout","Value":"20"}]
      *
      * @var string

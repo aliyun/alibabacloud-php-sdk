@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteSecurityIpGroupResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description Example 1
      *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
@@ -19,8 +19,6 @@ class DeleteSecurityIpGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information of the deleted IP whitelist group.
-     *
      * @var securityIpGroup
      */
     public $securityIpGroup;

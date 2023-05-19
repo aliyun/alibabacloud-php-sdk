@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyTenantPrimaryZoneRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
-     *
+     * @description The primary zone of the tenant.
+     * It is one of the zones in which the cluster is deployed.
      * @example ob317v4uif****
      *
      * @var string
@@ -18,8 +18,11 @@ class ModifyTenantPrimaryZoneRequest extends Model
     public $instanceId;
 
     /**
-     * @description The availability zone where the primary node is located.
-     *
+     * @description ```
+     * http(s)://[Endpoint]/?Action=ModifyTenantPrimaryZone
+     * &TenantId=ob2mr3oae0****
+     * &InstanceId=ob317v4uif****
+     * ```
      * @example cn-hangzhou-h
      *
      * @var string
@@ -36,8 +39,8 @@ class ModifyTenantPrimaryZoneRequest extends Model
     public $modifyType;
 
     /**
-     * @description The primary zone of the tenant.
-     * It is one of the zones in which the cluster is deployed.
+     * @description The ID of the vSwitch.
+     *
      * @example cn-hangzhou-h
      *
      * @var string
@@ -45,7 +48,7 @@ class ModifyTenantPrimaryZoneRequest extends Model
     public $primaryZone;
 
     /**
-     * @description The deployment type of the primary zone.
+     * @description Example 1
      *
      * @example RANDOM
      *
@@ -54,7 +57,7 @@ class ModifyTenantPrimaryZoneRequest extends Model
     public $primaryZoneDeployType;
 
     /**
-     * @description The ID of the tenant.
+     * @description The return result of the request.
      *
      * @example ob2mr3oae0****
      *
@@ -63,7 +66,7 @@ class ModifyTenantPrimaryZoneRequest extends Model
     public $tenantId;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The request ID.
      *
      * @example vsw-xxx
      *

@@ -12,28 +12,28 @@ use AlibabaCloud\Tea\Model;
 class tenantResource extends Model
 {
     /**
-     * @description The information about the CPU resources of the tenant.
-     *
+     * @description The enabling status of the Clog service.
+     * - ONLINE: The Clog service is running.
      * @var cpu
      */
     public $cpu;
 
     /**
-     * @description The information about the disk resources of the tenant.
-     *
+     * @description The status of the intranet address for accessing the tenant.
+     * The value ONLINE indicates that the address is in service.
      * @var diskSize
      */
     public $diskSize;
 
     /**
-     * @description The information about the memory resources of the tenant.
+     * @description The description of the tenant.
      *
      * @var memory
      */
     public $memory;
 
     /**
-     * @description The number of resource units in the tenant.
+     * @description Alibaba Cloud CLI
      *
      * @example 1
      *

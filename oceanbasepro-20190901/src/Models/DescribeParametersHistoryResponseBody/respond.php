@@ -10,23 +10,23 @@ use AlibabaCloud\Tea\Model;
 class respond extends Model
 {
     /**
-     * @description The number of returned entries on each page.
+     * @description The end time for the query of parameter modification history.
      *
-     * @example Default value: 10.
+     * @example -
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The parameter modification history.
-     *
+     * @description The number of rows to return on each page.
+     * - Default value: 10
      * @var parameters[]
      */
     public $parameters;
 
     /**
-     * @description The number of parameter modification records.
+     * @description The list of parameter modification records.
      *
      * @example 2
      *

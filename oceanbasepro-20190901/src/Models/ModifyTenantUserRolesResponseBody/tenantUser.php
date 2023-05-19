@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class tenantUser extends Model
 {
     /**
-     * @description The ID of the tenant.
-     *
      * @example t33h8y08k****
      *
      * @var string
@@ -19,8 +17,6 @@ class tenantUser extends Model
     public $tenantId;
 
     /**
-     * @description The name of the account.
-     *
      * @example pay_test
      *
      * @var string
@@ -28,9 +24,9 @@ class tenantUser extends Model
     public $userName;
 
     /**
-     * @description The type of the account. Valid values:
-     * - Normal: a general account.
-     * @example The list of database privileges of the account.
+     * @description The name of the database (MySQL mode) or schema (Oracle mode).
+     *
+     * @example 账号具备的数据库权限信息列表。
      *
      * @var userRole[]
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class diskSize extends Model
 {
     /**
-     * @description The total storage space of the node, in GB.
+     * @description The deployment type of the primary zone.
      *
      * @example 400
      *
@@ -18,8 +18,8 @@ class diskSize extends Model
     public $totalDiskSize;
 
     /**
-     * @description The size of used storage space of the node, in GB.
-     *
+     * @description The status of the tenant.
+     * - WHITE_LIST_MODIFYING: The whitelist is being modified.
      * @example 200
      *
      * @var float

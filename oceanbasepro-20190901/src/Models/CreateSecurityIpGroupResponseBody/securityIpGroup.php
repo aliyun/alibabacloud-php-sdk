@@ -9,8 +9,10 @@ use AlibabaCloud\Tea\Model;
 class securityIpGroup extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
-     *
+     * @description ```
+     * http(s)://[Endpoint]/?Action=CreateSecurityIpGroup
+     * &InstanceId=ob317v4uif****
+     * ```
      * @example ob317v4uif****
      *
      * @var string
@@ -18,7 +20,7 @@ class securityIpGroup extends Model
     public $instanceId;
 
     /**
-     * @description The name of the whitelist group.
+     * @description You can call this operation to create an IP address whitelist group.
      *
      * @example pay_online
      *
@@ -27,8 +29,6 @@ class securityIpGroup extends Model
     public $securityIpGroupName;
 
     /**
-     * @description The IP addresses or CIDR blocks in the IP address whitelist group.
-     * The return values of SecurityIps are strings that are separated with commas (,).
      * @example 192.168.1.1,192.168.0.0.1/8
      *
      * @var string

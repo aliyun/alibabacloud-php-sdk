@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class memory extends Model
 {
     /**
-     * @description The total memory size of the cluster, in GB.
+     * @description The number of CPU cores of the cluster.
      *
      * @example 70
      *
@@ -18,7 +18,7 @@ class memory extends Model
     public $totalMemory;
 
     /**
-     * @description The memory size of each replica node in the cluster, in GB.
+     * @description The size of used storage space of the cluster, in GB.
      *
      * @example 10
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class errorDetail extends Model
 {
     /**
-     * @description The error code (new).
+     * @description The error details.
      *
      * @example CM-RESOAT111111
      *
@@ -18,7 +18,7 @@ class errorDetail extends Model
     public $code;
 
     /**
-     * @description The error level. Valid values: CRITICAL, ERROR, and WARN.
+     * @description Valid values: CRITICAL, ERROR, and WARN.
      *
      * @example ERROR
      *
@@ -27,7 +27,7 @@ class errorDetail extends Model
     public $level;
 
     /**
-     * @description The error description (new).
+     * @description A system error occurred.
      *
      * @example A system error occurred.
      *
@@ -36,9 +36,9 @@ class errorDetail extends Model
     public $message;
 
     /**
-     * @description The suggestions (new).
+     * @description Contact the administrator.
      *
-     * @example Contact the administrator.
+     * @example The error details.
      *
      * @var string
      */

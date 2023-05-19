@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cpu extends Model
 {
     /**
-     * @description The total number of CPU cores of the cluster.
-     *
+     * @description The name of the OceanBase cluster.
+     * If this parameter is not specified, the value is the instance ID of the cluster by default.
      * @example 14
      *
      * @var int
@@ -18,8 +18,9 @@ class cpu extends Model
     public $totalCpu;
 
     /**
-     * @description The number of CPU cores of each replica node in the cluster.
+     * @description The data replica distribution mode of the cluster. Valid values:
      *
+     * - n-n-n: indicates the multi-IDC mode. The integer n represents the number of OBServer nodes in each IDC.
      * @example 10
      *
      * @var int
@@ -27,7 +28,7 @@ class cpu extends Model
     public $unitCpu;
 
     /**
-     * @description The number of CPU cores used in the cluster.
+     * @description The search keyword.
      *
      * @example 10
      *

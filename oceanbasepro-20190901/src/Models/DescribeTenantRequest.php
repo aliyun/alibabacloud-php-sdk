@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
-     *
+     * @description The status of the Internet address for accessing the tenant. Valid values:
+     * - ONLINE: The address is in service.
      * @example ob317v4uif****
      *
      * @var string
@@ -18,7 +18,7 @@ class DescribeTenantRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the tenant.
+     * @description Indicates whether to enable transaction splitting.
      *
      * @example ob2mr3oae0****
      *

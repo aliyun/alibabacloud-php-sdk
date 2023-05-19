@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteTenantsRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description You can call this operation to delete one or more tenants from an OceanBase cluster.
      *
      * @example ob317v4uif****
      *
@@ -18,8 +18,11 @@ class DeleteTenantsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The list of tenant IDs.
-     * It is a JSON array. Each object in the array is a tenant name string.
+     * @description ```
+     * http(s)://[Endpoint]/?Action=DeleteTenants
+     * &TenantIds=["ob2mr3oae0****", "ob2mr3oae1****"]
+     * &InstanceId=ob317v4uif****
+     * ```
      * @example ["ob2mr3oae0****", "ob2mr3oae1****"]
      *
      * @var string

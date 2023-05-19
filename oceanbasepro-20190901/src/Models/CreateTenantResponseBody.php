@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateTenantResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description WB01144930
      *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
@@ -18,7 +18,7 @@ class CreateTenantResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the tenant.
+     * @description You can call this operation to create a tenant.
      *
      * @example t33h8y08k****
      *

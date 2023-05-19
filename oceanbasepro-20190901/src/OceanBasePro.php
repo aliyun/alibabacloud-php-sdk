@@ -108,6 +108,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTopSQLListResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTopSQLListShrinkRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeZonesResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\KillProcessListRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\KillProcessListResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyDatabaseDescriptionRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyDatabaseDescriptionResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyDatabaseUserRolesRequest;
@@ -333,7 +335,8 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
+     * The description of the data source.
+     *   * It must be 2 to 256 characters in length. The default value is null.
      *   *
      * @param CreateOmsMysqlDataSourceRequest $request CreateOmsMysqlDataSourceRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -396,7 +399,8 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * To call this operation, you must add the IP address of the OceanBase Migration Service (OMS) server to the whitelist of the Alibaba Cloud database instance, the security rules of the ECS instance, or the security settings of your self-managed database (usually the firewall of your self-managed database) to ensure that OMS can successfully access your database instance. To obtain the IP address of the OMS server, go to the OMS data source management page in the OMS console.
+     * The description of the data source.
+     *   * It must be 2 to 256 characters in length. The default value is null.
      *   *
      * @param CreateOmsMysqlDataSourceRequest $request CreateOmsMysqlDataSourceRequest
      *
@@ -784,9 +788,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, ensure that the following requirements are met:
-     *   * - The cluster is in the Running state.
-     *   * - The cluster is a primary cluster and the billing method is pay-as-you-go.
+     * Alibaba Cloud provides SDKs in different languages to help you quickly integrate Alibaba Cloud products and services by using APIs. We recommend that you use an SDK to call APIs. In this way, you do not need to sign for verification.
      *   *
      * @param DeleteInstancesRequest $request DeleteInstancesRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -822,9 +824,7 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
-     * Before you call this operation, ensure that the following requirements are met:
-     *   * - The cluster is in the Running state.
-     *   * - The cluster is a primary cluster and the billing method is pay-as-you-go.
+     * Alibaba Cloud provides SDKs in different languages to help you quickly integrate Alibaba Cloud products and services by using APIs. We recommend that you use an SDK to call APIs. In this way, you do not need to sign for verification.
      *   *
      * @param DeleteInstancesRequest $request DeleteInstancesRequest
      *
@@ -1234,6 +1234,9 @@ class OceanBasePro extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->series)) {
+            $body['Series'] = $request->series;
+        }
         if (!Utils::isUnset($request->tenantMode)) {
             $body['TenantMode'] = $request->tenantMode;
         }
@@ -2949,6 +2952,55 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param KillProcessListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return KillProcessListResponse
+     */
+    public function killProcessListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->sessionList)) {
+            $body['SessionList'] = $request->sessionList;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'KillProcessList',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return KillProcessListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param KillProcessListRequest $request
+     *
+     * @return KillProcessListResponse
+     */
+    public function killProcessList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->killProcessListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyDatabaseDescriptionRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -3564,6 +3616,9 @@ class OceanBasePro extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->encryptionType)) {
+            $body['EncryptionType'] = $request->encryptionType;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $body['InstanceId'] = $request->instanceId;
         }

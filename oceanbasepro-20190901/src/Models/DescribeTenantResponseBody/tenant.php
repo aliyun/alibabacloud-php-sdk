@@ -12,14 +12,14 @@ use AlibabaCloud\Tea\Model;
 class tenant extends Model
 {
     /**
-     * @description The list of zones.
+     * @description DescribeTenant
      *
      * @var string[]
      */
     public $availableZones;
 
     /**
-     * @description The character set.
+     * @description The number of CPU cores in each resource unit of the tenant.
      *
      * @example utf8mb4
      *
@@ -28,8 +28,8 @@ class tenant extends Model
     public $charset;
 
     /**
-     * @description The enabling status of the clog service.
-     * - ONLINE: The clog service is running.
+     * @description 地址类型
+     *
      * @example CLOSED
      *
      * @var string
@@ -37,7 +37,7 @@ class tenant extends Model
     public $clogServiceStatus;
 
     /**
-     * @description The collation.
+     * @description The request ID.
      *
      * @example utf8mb4_general_ci
      *
@@ -46,7 +46,7 @@ class tenant extends Model
     public $collation;
 
     /**
-     * @description The time when the tenant was created.
+     * @description You can call this operation to create a single tenant in a specific cluster.
      *
      * @example 2021-09-17 15:52:17
      *
@@ -55,9 +55,8 @@ class tenant extends Model
     public $createTime;
 
     /**
-     * @description The data replica distribution mode of the tenant.
+     * @description The list of zones.
      *
-     * > <br>N represents the number of nodes in a single zone.
      * @example 1-1-1
      *
      * @var string
@@ -65,8 +64,8 @@ class tenant extends Model
     public $deployMode;
 
     /**
-     * @description The deployment type of the cluster. Valid values:
-     * - dual: dual-IDC deployment
+     * @description The series of the instance.
+     *
      * @example multiple
      *
      * @var string
@@ -74,16 +73,16 @@ class tenant extends Model
     public $deployType;
 
     /**
-     * @description The description of the tenant.
+     * @description Indicates whether to enable read/write splitting endpoint.
      *
-     * @example PayCore business database
+     * @example The information of the tenant.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The type of the disk.
+     * @description You can call this operation to query the information of a specific tenant in a specific cluster.
      *
      * @example cloud_essd_pl1
      *
@@ -92,7 +91,14 @@ class tenant extends Model
     public $diskType;
 
     /**
-     * @description Indicates whether the clog service is available. To enable the clog service, submit a ticket.
+     * @description 是否可以申请Binlog服务
+     *
+     * @var bool
+     */
+    public $enableBinlogService;
+
+    /**
+     * @description The intranet address for accessing the tenant.
      *
      * @example false
      *
@@ -101,7 +107,7 @@ class tenant extends Model
     public $enableClogService;
 
     /**
-     * @description Indicates whether the Internet address can be enabled for the tenant.
+     * @description The deployment type of the primary zone.
      *
      * @example true
      *
@@ -110,8 +116,6 @@ class tenant extends Model
     public $enableInternetAddressService;
 
     /**
-     * @description Indicates whether to enable read/write splitting endpoint.
-     *
      * @example false
      *
      * @var bool
@@ -119,8 +123,19 @@ class tenant extends Model
     public $enableReadWriteSplit;
 
     /**
-     * @description The type of the instance.
-     *
+     * @description {
+     * "Tenant": {
+     * "TenantId": "t33h8y08k****",
+     * "TenantMode": "Oracle",
+     * "VpcId": "vpc-bp1d2q3mhg9i23ofi****",
+     * "ConnectionRole": "ReadWrite",
+     * "IntranetAddress": "t32a7ru5u****.oceanbase.aliyuncs.com",
+     * "IntranetPort": 3306,
+     * "InternetAddress": "t32a7ru5u****mo.oceanbase.aliyuncs.com",
+     * "InternetPort": 3306,
+     * "VpcId": "vpc-bp1qiail1asmfe23t****",
+     * "VSwitchId": "vsw-bp11k1aypnzu1l3whi****",
+     * }
      * @example KAFKA_PUBLIC
      *
      * @var string
@@ -128,8 +143,11 @@ class tenant extends Model
     public $instanceType;
 
     /**
-     * @description The zone where the primary node is located.
-     *
+     * @description ```
+     * http(s)://[Endpoint]/?Action=DescribeTenant
+     * &InstanceId=ob317v4uif****
+     * &TenantId=ob2mr3oae0****
+     * ```
      * @example cn-hangzhou-h
      *
      * @var string
@@ -137,8 +155,6 @@ class tenant extends Model
     public $masterIntranetAddressZone;
 
     /**
-     * @description The type of the payment.
-     *
      * @example POSTPAY
      *
      * @var string
@@ -146,7 +162,7 @@ class tenant extends Model
     public $payType;
 
     /**
-     * @description The primary zone of the tenant.
+     * @description The type of the payment.
      *
      * @example cn-hangzhou-i
      *
@@ -155,7 +171,7 @@ class tenant extends Model
     public $primaryZone;
 
     /**
-     * @description The deployment type of the primary zone.
+     * @description Example 1
      *
      * @example RANDOM
      *
@@ -164,8 +180,19 @@ class tenant extends Model
     public $primaryZoneDeployType;
 
     /**
-     * @description The series of the instance.
-     *
+     * @description <DescribeTenantResponse>
+     * <Tenant>
+     * <TenantId>t33h8y08k****</TenantId>
+     * <TenantMode>Oracle</TenantMode>
+     * <VpcId>vpc-bp1d2q3mhg9i23ofi****</VpcId>
+     * <ConnectionRole>ReadWrite</ConnectionRole>
+     * <IntranetAddress>t32a7ru5u****.oceanbase.aliyuncs.com</IntranetAddress>
+     * <IntranetPort>3306</IntranetPort>
+     * <InternetAddress>t32a7ru5u****mo.oceanbase.aliyuncs.com</InternetAddress>
+     * <InternetPort>3306</InternetPort>
+     * <VpcId>vpc-bp1qiail1asmfe23t****</VpcId>
+     * <VSwitchId>vsw-bp11k1aypnzu1l3whi****</VSwitchId>
+     * </DescribeTenantResponse>
      * @example normal
      *
      * @var string
@@ -173,8 +200,8 @@ class tenant extends Model
     public $series;
 
     /**
-     * @description The status of the tenant.
-     * - WHITE_LIST_MODIFYING: The whitelist is being modified.
+     * @description The character set.
+     *
      * @example ONLINE
      *
      * @var string
@@ -182,14 +209,14 @@ class tenant extends Model
     public $status;
 
     /**
-     * @description The connection information of the tenant.
-     *
+     * @description The status of the tenant.
+     * - WHITE_LIST_MODIFYING: The whitelist is being modified.
      * @var tenantConnections[]
      */
     public $tenantConnections;
 
     /**
-     * @description The ID of the tenant.
+     * @description The region where the zone of the tenant resides.
      *
      * @example t33h8y08k****
      *
@@ -198,8 +225,8 @@ class tenant extends Model
     public $tenantId;
 
     /**
-     * @description The tenant mode.
-     * - MySQL
+     * @description The enabling status of the clog service.
+     * - ONLINE: The clog service is running.
      * @example Oracle
      *
      * @var string
@@ -207,7 +234,7 @@ class tenant extends Model
     public $tenantMode;
 
     /**
-     * @description The name of the tenant.
+     * @description The request type of the zone of the tenant.  ReadWrite: The zone supports data reads and writes. ReadOnly: The zone supports only data reads. For a high availability cluster with multiple IDCs, the primary zone provides ReadWrite services, and the standby zone provides ReadOnly services. For a high availability cluster with a single IDC, all zones provide ReadWrite services.
      *
      * @example pay_online
      *
@@ -216,22 +243,22 @@ class tenant extends Model
     public $tenantName;
 
     /**
-     * @description The resource information of the tenant.
+     * @description It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
      *
      * @var tenantResource
      */
     public $tenantResource;
 
     /**
-     * @description The zone information of the tenant.
+     * @description The standby zone corresponding to the address for accessing the tenant.
      *
      * @var tenantZones[]
      */
     public $tenantZones;
 
     /**
-     * @description The ID of the VPC.
-     * If no suitable VPC is available, create a VPC as prompted. For more information, see "What is a VPC".
+     * @description Indicates whether the clog service is available. To enable the clog service, submit a ticket.
+     *
      * @example vpc-bp1d2q3mhg9i23ofi****
      *
      * @var string
@@ -247,6 +274,7 @@ class tenant extends Model
         'deployType'                   => 'DeployType',
         'description'                  => 'Description',
         'diskType'                     => 'DiskType',
+        'enableBinlogService'          => 'EnableBinlogService',
         'enableClogService'            => 'EnableClogService',
         'enableInternetAddressService' => 'EnableInternetAddressService',
         'enableReadWriteSplit'         => 'EnableReadWriteSplit',
@@ -299,6 +327,9 @@ class tenant extends Model
         }
         if (null !== $this->diskType) {
             $res['DiskType'] = $this->diskType;
+        }
+        if (null !== $this->enableBinlogService) {
+            $res['EnableBinlogService'] = $this->enableBinlogService;
         }
         if (null !== $this->enableClogService) {
             $res['EnableClogService'] = $this->enableClogService;
@@ -403,6 +434,9 @@ class tenant extends Model
         }
         if (isset($map['DiskType'])) {
             $model->diskType = $map['DiskType'];
+        }
+        if (isset($map['EnableBinlogService'])) {
+            $model->enableBinlogService = $map['EnableBinlogService'];
         }
         if (isset($map['EnableClogService'])) {
             $model->enableClogService = $map['EnableClogService'];

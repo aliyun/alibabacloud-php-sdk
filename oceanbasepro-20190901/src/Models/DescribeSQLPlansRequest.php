@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLPlansRequest extends Model
 {
     /**
-     * @description SQLID.
+     * @description The time when the plan was loaded for the first time, .
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -18,7 +18,7 @@ class DescribeSQLPlansRequest extends Model
     public $SQLId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The time when the plan was loaded for the first time, .
      *
      * @example t2mr3oae0****
      *

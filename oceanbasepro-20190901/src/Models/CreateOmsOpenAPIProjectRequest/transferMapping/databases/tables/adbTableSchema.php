@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class adbTableSchema extends Model
 {
     /**
-     * @description The list of distribution key columns.
-     *
      * @var string[]
      */
     public $distributedKeys;
 
     /**
-     * @description The lifecycle of the table.
-     *
      * @example 30
      *
      * @var int
@@ -25,8 +21,6 @@ class adbTableSchema extends Model
     public $partitionLifeCycle;
 
     /**
-     * @description The partitioning expression.
-     *
      * @example PARTITION BY VALUE(\"id\")
      *
      * @var string
@@ -34,8 +28,6 @@ class adbTableSchema extends Model
     public $partitionStatement;
 
     /**
-     * @description The list of primary key columns.
-     *
      * @var string[]
      */
     public $primaryKeys;

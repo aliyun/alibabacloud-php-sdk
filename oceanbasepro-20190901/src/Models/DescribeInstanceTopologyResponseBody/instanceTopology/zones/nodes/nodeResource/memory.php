@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class memory extends Model
 {
     /**
-     * @description The total memory size of the node, in GB.
+     * @description The ID of the replica node.
      *
      * @example 70
      *
@@ -18,7 +18,7 @@ class memory extends Model
     public $totalMemory;
 
     /**
-     * @description The size of used memory of the node, in GB.
+     * @description The information of node resources.
      *
      * @example 10
      *

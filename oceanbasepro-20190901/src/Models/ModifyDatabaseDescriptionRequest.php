@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDatabaseDescriptionRequest extends Model
 {
     /**
-     * @description The name of the database.
-     * You cannot use reserved keywords, such as test and mysql.
+     * @description Example 1
+     *
      * @example sms_pre
      *
      * @var string
@@ -18,8 +18,6 @@ class ModifyDatabaseDescriptionRequest extends Model
     public $databaseName;
 
     /**
-     * @description The description of the database.
-     *
      * @example this is a test database
      *
      * @var string
@@ -27,7 +25,7 @@ class ModifyDatabaseDescriptionRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description The description of the database.
      *
      * @example ob317v4uif****
      *
@@ -36,8 +34,8 @@ class ModifyDatabaseDescriptionRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the tenant.
-     *
+     * @description The operation that you want to perform.
+     * Set the value to **ModifyDatabaseDescription**.
      * @example ob2mr3oae0****
      *
      * @var string

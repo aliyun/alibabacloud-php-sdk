@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description The number of CPU cores used in the cluster.
      *
      * @example ob317v4uif****
      *
@@ -18,8 +18,8 @@ class DescribeInstancesRequest extends Model
     public $instanceId;
 
     /**
-     * @description The name of the OceanBase cluster.
-     * If this parameter is not specified, the value is the instance ID of the cluster by default.
+     * @description The size of used memory in the cluster, in GB.
+     *
      * @example ob4prod
      *
      * @var string
@@ -27,9 +27,8 @@ class DescribeInstancesRequest extends Model
     public $instanceName;
 
     /**
-     * @description The number of the page to return.
+     * @description The total memory size of the cluster, in GB.
      *
-     * - Default value: 1
      * @example 1
      *
      * @var int
@@ -37,8 +36,8 @@ class DescribeInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of rows to return on each page.
-     * - Default value: 10
+     * @description The information about the memory resources of the cluster.
+     *
      * @example 10
      *
      * @var int
@@ -46,7 +45,7 @@ class DescribeInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the resource group.
+     * @description The number of CPU cores of each replica node in the cluster.
      *
      * @example group1
      *
@@ -55,7 +54,7 @@ class DescribeInstancesRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The search keyword.
+     * @description The memory size of each replica node in the cluster, in GB.
      *
      * @example pay
      *

@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDatabaseUserRolesRequest extends Model
 {
     /**
-     * @description The name of the database.
-     * You cannot use reserved keywords, such as test and mysql.
+     * @description The ID of the tenant.
+     *
      * @example sms_pre
      *
      * @var string
@@ -18,7 +18,7 @@ class ModifyDatabaseUserRolesRequest extends Model
     public $databaseName;
 
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description The account information.
      *
      * @example ob317v4uif****
      *
@@ -27,7 +27,7 @@ class ModifyDatabaseUserRolesRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the tenant.
+     * @description A list of usernames and their respective roles.
      *
      * @example ob2mr3oae0****
      *
@@ -36,7 +36,7 @@ class ModifyDatabaseUserRolesRequest extends Model
     public $tenantId;
 
     /**
-     * @description A list of usernames and their respective roles.
+     * @description The ID of the OceanBase cluster.
      *
      * @example [{"UserName":"omstest","Role":"readwrite"}]
      *

@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeOutlineBindingRequest extends Model
 {
     /**
-     * @description The name of the database.
-     *
+     * @description - When the value is set to True, the throttling information in the database is queried based on the SQL ID.
+     * - When the value is set to False, the bound index or execution plan in the database is queried based on the SQL ID.
      * @example testdb
      *
      * @var string
@@ -18,7 +18,7 @@ class DescribeOutlineBindingRequest extends Model
     public $databaseName;
 
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description SQLID.
      *
      * @example ob317v4uif****
      *
@@ -27,8 +27,8 @@ class DescribeOutlineBindingRequest extends Model
     public $instanceId;
 
     /**
-     * @description - When the value is set to True, the throttling information in the database is queried based on the SQL ID.
-     * - When the value is set to False, the bound index or execution plan in the database is queried based on the SQL ID.
+     * @description The ID of the tenant.
+     *
      * @example false
      *
      * @var bool
@@ -36,7 +36,7 @@ class DescribeOutlineBindingRequest extends Model
     public $isConcurrentLimit;
 
     /**
-     * @description SQLID.
+     * @description false
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -45,8 +45,8 @@ class DescribeOutlineBindingRequest extends Model
     public $SQLId;
 
     /**
-     * @description The name of the tenant.
-     * It must start with a letter or an underscore (_), and contain 2 to 20 characters, which can be uppercase letters, lowercase letters, digits, and underscores (_). It cannot be set to SYS.
+     * @description The name of the database.
+     *
      * @example pay_online
      *
      * @var string
@@ -54,8 +54,8 @@ class DescribeOutlineBindingRequest extends Model
     public $tableName;
 
     /**
-     * @description The ID of the tenant.
-     *
+     * @description The name of the tenant.
+     * It must start with a letter or an underscore (_), and contain 2 to 20 characters, which can be uppercase letters, lowercase letters, digits, and underscores (_). It cannot be set to SYS.
      * @example t2mr3oae0****
      *
      * @var string

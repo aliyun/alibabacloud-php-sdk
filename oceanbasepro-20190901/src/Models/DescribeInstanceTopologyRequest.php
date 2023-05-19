@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTopologyRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description The status of the node.
      *
      * @example ob317v4uif****
      *

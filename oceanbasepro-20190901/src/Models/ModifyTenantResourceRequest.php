@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyTenantResourceRequest extends Model
 {
     /**
-     * @description The information about the CPU resources of the tenant.
+     * @description The memory size of the tenant, in GB.
      *
      * @example 2
      *
@@ -18,8 +18,8 @@ class ModifyTenantResourceRequest extends Model
     public $cpu;
 
     /**
-     * @description The ID of the OceanBase cluster.
-     *
+     * @description The operation that you want to perform.
+     * Set the value to **ModifyTenantResource**.
      * @example ob317v4uif****
      *
      * @var string
@@ -27,7 +27,7 @@ class ModifyTenantResourceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The memory size of the tenant, in GB.
+     * @description The ID of the tenant.
      *
      * @example 2
      *
@@ -36,7 +36,7 @@ class ModifyTenantResourceRequest extends Model
     public $memory;
 
     /**
-     * @description The ID of the tenant.
+     * @description The information about the CPU resources of the tenant.
      *
      * @example ob2mr3oae0****
      *

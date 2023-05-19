@@ -10,8 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSecurityIpGroupResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
+     * @description The IP addresses or CIDR blocks in the IP address whitelist group.
+     * The return values of SecurityIps are strings that are separated with commas (,).
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
      * @var string
@@ -19,8 +19,8 @@ class CreateSecurityIpGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information of the whitelist group.
-     *
+     * @description The operation that you want to perform.
+     * Set the value to **CreateSecurityIpGroup**.
      * @var securityIpGroup
      */
     public $securityIpGroup;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceNameRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description It is an Alibaba Cloud asset management and configuration tool, with which you can manage multiple Alibaba Cloud products and services by using commands. It is easy to use and a good helper in migration to cloud.
      *
      * @example ob317v4uif****
      *
@@ -18,8 +18,8 @@ class ModifyInstanceNameRequest extends Model
     public $instanceId;
 
     /**
-     * @description The name of the OceanBase cluster.
-     * It must be 1 to 20 characters in length.
+     * @description The ID of the OceanBase cluster.
+     *
      * @example ob4prod
      *
      * @var string

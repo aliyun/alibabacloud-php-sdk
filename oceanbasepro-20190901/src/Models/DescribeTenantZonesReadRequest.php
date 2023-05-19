@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantZonesReadRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description The zone information of the tenant.
      *
      * @example ob317v4uif****
      *
@@ -18,7 +18,7 @@ class DescribeTenantZonesReadRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The return result of the request.
      *
      * @example ob2mr3oae0****
      *

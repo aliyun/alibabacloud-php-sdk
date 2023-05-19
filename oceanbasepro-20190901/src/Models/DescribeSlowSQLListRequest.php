@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowSQLListRequest extends Model
 {
     /**
-     * @description The name of the database.
+     * @description It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
      *
      * @example testdb
      *
@@ -18,8 +18,6 @@ class DescribeSlowSQLListRequest extends Model
     public $dbName;
 
     /**
-     * @description The end time of the time range for querying slow SQL statements.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 2021-09-13T15:40:43Z
      *
      * @var string
@@ -36,7 +34,7 @@ class DescribeSlowSQLListRequest extends Model
     public $filterCondition;
 
     /**
-     * @description The IP address of the database node.
+     * @description The number of plan misses.
      *
      * @example i-bp18qljorblo8es*****
      *
@@ -45,8 +43,8 @@ class DescribeSlowSQLListRequest extends Model
     public $nodeIp;
 
     /**
-     * @description The number of rows to return on each page.
-     * - Default value: 10
+     * @description The number of the page to return.
+     * - Default value: 1
      * @example 10
      *
      * @var int
@@ -54,8 +52,8 @@ class DescribeSlowSQLListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of the page to return.
-     * - Default value: 1
+     * @description The return result of the request.
+     *
      * @example 1
      *
      * @var int
@@ -63,7 +61,7 @@ class DescribeSlowSQLListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The SQL ID, which uniquely identifies an SQL statement.
+     * @description The internal wait time.
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -72,7 +70,7 @@ class DescribeSlowSQLListRequest extends Model
     public $SQLId;
 
     /**
-     * @description The search keyword.
+     * @description Alibaba Cloud CLI
      *
      * @example update
      *
@@ -81,7 +79,7 @@ class DescribeSlowSQLListRequest extends Model
     public $searchKeyWord;
 
     /**
-     * @description The search parameter.
+     * @description The IP address of the database node.
      *
      * @example cputime
      *
@@ -90,7 +88,7 @@ class DescribeSlowSQLListRequest extends Model
     public $searchParameter;
 
     /**
-     * @description The search rule.
+     * @description The queuing time.
      *
      * @example >
      *
@@ -99,7 +97,7 @@ class DescribeSlowSQLListRequest extends Model
     public $searchRule;
 
     /**
-     * @description The search value.
+     * @description The list of slow SQL statements.
      *
      * @example 0.01
      *
@@ -108,8 +106,8 @@ class DescribeSlowSQLListRequest extends Model
     public $searchValue;
 
     /**
-     * @description The sorted column.
-     *
+     * @description The number of rows to return on each page.
+     * - Default value: 10
      * @example cputime
      *
      * @var string
@@ -117,7 +115,7 @@ class DescribeSlowSQLListRequest extends Model
     public $sortColumn;
 
     /**
-     * @description The sorting rule.
+     * @description The average CPU time.
      *
      * @example desc
      *
@@ -126,8 +124,8 @@ class DescribeSlowSQLListRequest extends Model
     public $sortOrder;
 
     /**
-     * @description The start time of the time range for querying slow SQL statements.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @description The list of slow SQL statements.
+     *
      * @example 2021-06-13T15:40:43Z
      *
      * @var string
@@ -135,7 +133,7 @@ class DescribeSlowSQLListRequest extends Model
     public $startTime;
 
     /**
-     * @description The ID of the tenant.
+     * @description The number of logical reads.
      *
      * @example t2mr3oae0****
      *

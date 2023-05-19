@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
-     * @description The time when the parameter modification was initiated.
+     * @description The request ID.
      *
      * @example 2021-09-14 10:57:44
      *
@@ -18,8 +18,12 @@ class parameters extends Model
     public $createTime;
 
     /**
-     * @description The resource ID of the parameter type.
-     * - When you called this operation to query the modification history of tenant parameters, the value is the tenant ID.
+     * @description ```
+     * http(s)://[Endpoint]/?Action=DescribeParametersHistory
+     * &InstanceId=ob317v4uif****
+     * &Dimension=TENANT
+     * &DimensionValue=ob2mr3oae0****
+     * ```
      * @example DEFAULT_DIMENSION_VALUE
      *
      * @var string
@@ -27,7 +31,7 @@ class parameters extends Model
     public $dimensionValue;
 
     /**
-     * @description The name of the parameter.
+     * @description You can call this operation to query the modification history of cluster or tenant parameters.
      *
      * @example connect_timeout
      *
@@ -36,8 +40,6 @@ class parameters extends Model
     public $name;
 
     /**
-     * @description The value of the parameter after the modification.
-     *
      * @example 200
      *
      * @var string
@@ -45,7 +47,7 @@ class parameters extends Model
     public $newValue;
 
     /**
-     * @description The parameter value before modification.
+     * @description The start time of the time range for querying the parameter modification history.
      *
      * @example 300
      *
@@ -54,8 +56,8 @@ class parameters extends Model
     public $oldValue;
 
     /**
-     * @description The modification status. Valid values:
-     * - SCHEDULING: The modification was to be made.
+     * @description -
+     *
      * @example APPLIED
      *
      * @var string
@@ -63,7 +65,7 @@ class parameters extends Model
     public $status;
 
     /**
-     * @description The time when the parameter modification took effect.
+     * @description The name of the parameter.
      *
      * @example 2021-09-14 10:57:44
      *

@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyTenantUserStatusRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
-     *
+     * @description The operation that you want to perform.
+     * Set the value to **ModifyTenantUserStatus**.
      * @example ob317v4uif****
      *
      * @var string
@@ -27,8 +27,8 @@ class ModifyTenantUserStatusRequest extends Model
     public $tenantId;
 
     /**
-     * @description The name of the database account.
-     * You cannot use reserved keywords, such as SYS and root.
+     * @description The list of database accounts in the tenant.
+     *
      * @example pay_test
      *
      * @var string
@@ -38,7 +38,7 @@ class ModifyTenantUserStatusRequest extends Model
     /**
      * @description The status of the database account. Valid values:
      * - Online: The account is unlocked.
-     * @example Locked
+     * @example The ID of the tenant.
      *
      * @var string
      */

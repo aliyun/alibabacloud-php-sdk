@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceCreatableZoneRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description The ID of the zone.
      *
      * @example ob317v4uif****
      *

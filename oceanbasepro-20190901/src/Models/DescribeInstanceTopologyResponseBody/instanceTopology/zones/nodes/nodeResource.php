@@ -12,22 +12,22 @@ use AlibabaCloud\Tea\Model;
 class nodeResource extends Model
 {
     /**
-     * @description The information about the CPU resources of the node.
+     * @description The memory size of the tenant, in GB.
      *
      * @var cpu
      */
     public $cpu;
 
     /**
-     * @description The information about the storage resources of the node.
+     * @description The information about the CPU resources of the node.
      *
      * @var diskSize
      */
     public $diskSize;
 
     /**
-     * @description The information about the memory resources of the node.
-     *
+     * @description The role to access the zone. Valid values:
+     * - ReadOnly: a role that has only the read-only privilege.
      * @var memory
      */
     public $memory;

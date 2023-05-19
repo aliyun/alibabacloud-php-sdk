@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyTenantUserDescriptionResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description You can call this operation to modify the description of a specified account in a tenant.
      *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *

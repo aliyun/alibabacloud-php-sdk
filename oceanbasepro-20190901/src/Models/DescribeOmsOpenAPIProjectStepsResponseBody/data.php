@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The estimated time remained.
+     * @description The request ID.
      *
      * @example 2020-05-22T17:04:18
      *
@@ -20,14 +20,14 @@ class data extends Model
     public $estimatedRemainingSeconds;
 
     /**
-     * @description The additional information. The value is a JSON string.
+     * @description A system error occurred.
      *
      * @var extraInfo
      */
     public $extraInfo;
 
     /**
-     * @description The end time, in the format of "2020-05-22T17:04:18".
+     * @description $.parameters[3].schema.example
      *
      * @example 2020-05-22T17:05:18
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $finishTime;
 
     /**
-     * @description Indicates whether the current step must be confirmed by the user, rather than scheduled in the backend.
+     * @description $.parameters[5].schema.description
      *
      * @example false
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $interactive;
 
     /**
-     * @description The start time, in the format of "2020-05-22T17:04:18".
+     * @description The error details.
      *
      * @example 2020-05-22T17:04:18
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $startTime;
 
     /**
-     * @description The description of the step, for example, schema migration, full migration, full verification, incremental log pull, incremental synchronization, or incremental verification.
+     * @description It is an Alibaba Cloud asset management and configuration tool, with which you can manage multiple Alibaba Cloud products and services by using commands. It is easy to use and a good helper in migration to cloud.
      *
      * @example Schema migration
      *
@@ -63,14 +63,14 @@ class data extends Model
     public $stepDescription;
 
     /**
-     * @description The step details. The value is a JSON string.
+     * @description The error related parameters.
      *
      * @var stepInfo
      */
     public $stepInfo;
 
     /**
-     * @description The step name. Valid values: struct_migration, full_migration, full_validation, incr_log_pull, incr_sync/incr_validation, PRE_CHECK, PREPARE, STRUCT_MIGRATION, INDEX_MIGRATION, STRUCT_SYNC, FULL_MIGRATION, APP_SWITCH, REVERSE_INCR_SYNC, FULL_VALIDATION, INCR_LOG_PULL, INCR_SYNC, INCR_VALIDATION, SYNC_PREPARE, SYNC_INCR_LOG_PULL, CONNECTOR_FULL_SYNC, or CONNECTOR_INCR_SYNC.
+     * @description Alibaba Cloud provides SDKs in different languages to help you quickly integrate Alibaba Cloud products and services by using APIs. We recommend that you use an SDK to call APIs. In this way, you do not need to sign for verification.
      *
      * @example structmigration
      *
@@ -79,7 +79,7 @@ class data extends Model
     public $stepName;
 
     /**
-     * @description The sequence of steps.
+     * @description DescribeOmsOpenAPIProjectSteps
      *
      * @example 1
      *
@@ -88,7 +88,7 @@ class data extends Model
     public $stepOrder;
 
     /**
-     * @description The step progress.
+     * @description cn-hangzhou
      *
      * @example 10
      *
@@ -97,7 +97,7 @@ class data extends Model
     public $stepProgress;
 
     /**
-     * @description The step status. Valid values: INIT, RUNNING, FAILED, FINISHED, SUSPEND, and MONITORING. The value MONITORING indicates the continuous monitoring of incremental synchronization and incremental verification.
+     * @description Indicates whether the call is successful.
      *
      * @example INIT
      *

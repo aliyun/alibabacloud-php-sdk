@@ -17,8 +17,6 @@ class data extends Model
     public $dataPoints;
 
     /**
-     * @description The name of the metric.
-     *
      * @example CONNECTOR_TPS
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class tenantZones extends Model
 {
     /**
-     * @description Indicates whether the zone is the primary zone.
+     * @description The maximum disk usage, in percentage.
      *
      * @example true
      *
@@ -19,7 +19,7 @@ class tenantZones extends Model
     public $isPrimaryTenantZone;
 
     /**
-     * @description The ID of the zone.
+     * @description The server with the highest disk usage.
      *
      * @example cn-hangzhou-h
      *
@@ -28,8 +28,8 @@ class tenantZones extends Model
     public $tenantZoneId;
 
     /**
-     * @description The role to access the zone. Valid values:
-     * - ReadOnly: a role that has only the read-only privilege.
+     * @description The information of zones.
+     *
      * @example ReadWrite
      *
      * @var string
@@ -37,7 +37,7 @@ class tenantZones extends Model
     public $tenantZoneRole;
 
     /**
-     * @description The information about resource units.
+     * @description The information about the storage resources.
      *
      * @var units[]
      */

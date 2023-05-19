@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class errorDetails extends Model
 {
     /**
-     * @description The error code.
+     * @description The suggestions (old).
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class errorDetails extends Model
     public $code;
 
     /**
-     * @description Valid values: CRITICAL, ERROR, and WARN.
+     * @description Contact the administrator.
      *
      * @example CRITICAL
      *
@@ -27,7 +27,7 @@ class errorDetails extends Model
     public $level;
 
     /**
-     * @description The error message.
+     * @description A sub-status that indicates whether the checker has completed full verification.
      *
      * @example A system error occurred.
      *
@@ -36,9 +36,9 @@ class errorDetails extends Model
     public $message;
 
     /**
-     * @description The suggestions.
+     * @description The amount of data migrated.
      *
-     * @example Contact the administrator.
+     * @example A system error occurred.
      *
      * @var string
      */

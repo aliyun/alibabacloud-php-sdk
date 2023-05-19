@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersRequest extends Model
 {
     /**
-     * @description The type of the parameter.
-     * Valid values: CLUSTER and TENANT.
+     * @description It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
+     *
      * @example TENANT
      *
      * @var string
@@ -18,8 +18,8 @@ class DescribeParametersRequest extends Model
     public $dimension;
 
     /**
-     * @description The resource ID of the parameter type.
-     * You can leave this parameter unspecified when you call this operation to query cluster parameters. In the case of tenant parameters, pass the tenant ID.
+     * @description Alibaba Cloud CLI
+     *
      * @example ob2mr3oae0****
      *
      * @var string
@@ -27,7 +27,7 @@ class DescribeParametersRequest extends Model
     public $dimensionValue;
 
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description 498529
      *
      * @example ob317v4uif****
      *

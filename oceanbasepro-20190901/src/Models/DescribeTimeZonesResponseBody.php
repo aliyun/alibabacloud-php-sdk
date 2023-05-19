@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTimeZonesResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description DescribeTimeZones
      *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
@@ -19,7 +19,7 @@ class DescribeTimeZonesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The time zones supported by the tenant.
+     * @description The description of the time zone.
      *
      * @var timeZones
      */

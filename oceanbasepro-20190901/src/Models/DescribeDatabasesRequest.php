@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabasesRequest extends Model
 {
     /**
-     * @description The name of the database.
-     * You cannot use reserved keywords, such as test and mysql.
+     * @description It is an Alibaba Cloud asset management and configuration tool, with which you can manage multiple Alibaba Cloud products and services by using commands. It is easy to use and a good helper in migration to cloud.
+     *
      * @example sms_pre
      *
      * @var string
@@ -18,8 +18,8 @@ class DescribeDatabasesRequest extends Model
     public $databaseName;
 
     /**
-     * @description The number of the page to return.
-     * - Default value: 1
+     * @description The return result of the request.
+     *
      * @example 1
      *
      * @var int
@@ -27,8 +27,8 @@ class DescribeDatabasesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of rows to return on each page.
-     * - Default value: 10
+     * @description Alibaba Cloud provides SDKs in different languages to help you quickly integrate Alibaba Cloud products and services by using APIs. We recommend that you use an SDK to call APIs. In this way, you do not need to sign for verification.
+     *
      * @example 10
      *
      * @var int
@@ -36,7 +36,7 @@ class DescribeDatabasesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The search keyword.
+     * @description The information about the database tables.
      *
      * @example pay
      *
@@ -45,7 +45,7 @@ class DescribeDatabasesRequest extends Model
     public $searchKey;
 
     /**
-     * @description The ID of the tenant.
+     * @description The request ID.
      *
      * @example ob2mr3oae0****
      *
@@ -54,8 +54,8 @@ class DescribeDatabasesRequest extends Model
     public $tenantId;
 
     /**
-     * @description Specifies whether to return the information of tables in the database.
-     * Default value: false.
+     * @description The role of the account.
+     * - DML: a role that has the DML privileges such as SELECT, INSERT, UPDATE, DELETE, and SHOW VIEW.
      * @example true
      *
      * @var bool

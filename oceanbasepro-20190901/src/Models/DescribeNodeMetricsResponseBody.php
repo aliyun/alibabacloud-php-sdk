@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeNodeMetricsResponseBody extends Model
 {
     /**
-     * @description The metrics of the node.
-     *
      * @example -
      *
      * @var string
@@ -18,7 +16,7 @@ class DescribeNodeMetricsResponseBody extends Model
     public $nodeMetrics;
 
     /**
-     * @description The request ID.
+     * @description You can call this operation to query the detailed metrics information of an OceanBase Database node.
      *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
@@ -27,8 +25,14 @@ class DescribeNodeMetricsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total count.
-     *
+     * @description ```
+     * http(s)://[Endpoint]/?Action=DescribeNodeMetrics
+     * &InstanceId=ob317v4uif****
+     * &PageNumber=1
+     * &TenantId=ob2mr3oae0****
+     * &Metrics=tps
+     * &NodeName=i-bp16niirq4zdmgvm****
+     * ```
      * @example 9
      *
      * @var int

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class topSQLList extends Model
 {
     /**
-     * @description The number of rows affected.
+     * @description The internal wait time, in ms.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class topSQLList extends Model
     public $affectedRows;
 
     /**
-     * @description The wait time of the client, in ms.
+     * @description The wait time in concurrent execution, in ms.
      *
      * @example 0.0
      *
@@ -27,7 +27,7 @@ class topSQLList extends Model
     public $appWaitTime;
 
     /**
-     * @description The number of block cache hits.
+     * @description The average CPU time, in ms.
      *
      * @example 14
      *
@@ -36,7 +36,7 @@ class topSQLList extends Model
     public $blockCacheHit;
 
     /**
-     * @description The number of block index cache hits.
+     * @description $.parameters[16].schema.example
      *
      * @example 4
      *
@@ -45,7 +45,7 @@ class topSQLList extends Model
     public $blockIndexCacheHit;
 
     /**
-     * @description The number of Bloom filter cache hits.
+     * @description $.parameters[14].schema.enumValueTitles
      *
      * @example 0
      *
@@ -54,7 +54,7 @@ class topSQLList extends Model
     public $bloomFilterCacheHit;
 
     /**
-     * @description The IP address of the client.
+     * @description $.parameters[14].schema.description
      *
      * @example 1*2.***.1*3.***
      *
@@ -63,7 +63,7 @@ class topSQLList extends Model
     public $clientIp;
 
     /**
-     * @description The wait time in concurrent execution, in ms.
+     * @description The number of rows returned.
      *
      * @example 0.0
      *
@@ -72,7 +72,7 @@ class topSQLList extends Model
     public $concurrencyWaitTime;
 
     /**
-     * @description The average CPU time, in ms.
+     * @description The maximum CPU time, in ms.
      *
      * @example 50.13
      *
@@ -81,7 +81,7 @@ class topSQLList extends Model
     public $cpuTime;
 
     /**
-     * @description The name of the database.
+     * @description The number of remote plans.
      *
      * @example testdb
      *
@@ -90,8 +90,8 @@ class topSQLList extends Model
     public $dbName;
 
     /**
-     * @description The time to wait for decoding, in ms.
-     *
+     * @description The number of rows to return on each page.
+     * - Default value: 10
      * @example 0.0
      *
      * @var float
@@ -99,7 +99,7 @@ class topSQLList extends Model
     public $decodeTime;
 
     /**
-     * @description The number of physical reads.
+     * @description The IP address of the client.
      *
      * @example 0
      *
@@ -108,7 +108,7 @@ class topSQLList extends Model
     public $diskRead;
 
     /**
-     * @description The average response time, in ms.
+     * @description The sorting rule.
      *
      * @example 76.382
      *
@@ -117,7 +117,7 @@ class topSQLList extends Model
     public $elapsedTime;
 
     /**
-     * @description The wait event.
+     * @description The number of rows read from the disk.
      *
      * @example mysql response wait client
      *
@@ -126,8 +126,8 @@ class topSQLList extends Model
     public $event;
 
     /**
-     * @description The number of executions per second.
-     *
+     * @description The operation that you want to perform.
+     * Set the value to **DescribeTopSQLList**.
      * @example 163.0
      *
      * @var float
@@ -135,7 +135,7 @@ class topSQLList extends Model
     public $execPerSecond;
 
     /**
-     * @description The internal execution time, in ms.
+     * @description The number of rows read from the memory.
      *
      * @example 61.044
      *
@@ -144,7 +144,7 @@ class topSQLList extends Model
     public $executeTime;
 
     /**
-     * @description The number of executions.
+     * @description The number of executions per second.
      *
      * @example 89403
      *
@@ -153,7 +153,7 @@ class topSQLList extends Model
     public $executions;
 
     /**
-     * @description The number of failures.
+     * @description $.parameters[12].schema.description
      *
      * @example 0
      *
@@ -162,7 +162,7 @@ class topSQLList extends Model
     public $failTimes;
 
     /**
-     * @description The time spent in hard parsing, in ms.
+     * @description The queuing time, in ms.
      *
      * @example 0.052
      *
@@ -171,7 +171,7 @@ class topSQLList extends Model
     public $getPlanTime;
 
     /**
-     * @description The I/O wait time, in ms.
+     * @description $.parameters[15].schema.example
      *
      * @example 0.0
      *
@@ -180,7 +180,7 @@ class topSQLList extends Model
     public $IOWaitTime;
 
     /**
-     * @description The sequence number of the returned SQL statement.
+     * @description The name of the database.
      *
      * @example 1
      *
@@ -189,8 +189,8 @@ class topSQLList extends Model
     public $key;
 
     /**
-     * @description The average number of logical reads of the SQL statement during the specified period of time.
-     * > <br> A higher ratio of the number of logical reads to the number of returned rows indicates poorer filtering performance. General causes include non-standard content written by SQL statements, non-standard table indexes created, and non-standard SQL execution plans.
+     * @description You can call this operation to query SQL execution performance data collected by the diagnostic system.
+     *
      * @example 19
      *
      * @var int
@@ -198,7 +198,7 @@ class topSQLList extends Model
     public $logicalRead;
 
     /**
-     * @description The maximum CPU time, in ms.
+     * @description SQLID.
      *
      * @example 257.967
      *
@@ -207,7 +207,7 @@ class topSQLList extends Model
     public $maxCpuTime;
 
     /**
-     * @description The maximum response time, in ms.
+     * @description The sequence number of the returned SQL statement.
      *
      * @example 260.044
      *
@@ -216,7 +216,7 @@ class topSQLList extends Model
     public $maxElapsedTime;
 
     /**
-     * @description The number of rows read from the memory.
+     * @description The name of the database.
      *
      * @example 527
      *
@@ -225,7 +225,7 @@ class topSQLList extends Model
     public $memstoreReadRowCount;
 
     /**
-     * @description The number of plan misses.
+     * @description The total count.
      *
      * @example 0
      *
@@ -234,8 +234,8 @@ class topSQLList extends Model
     public $missPlans;
 
     /**
-     * @description The network latency, in ms.
-     *
+     * @description The end time of the time range for querying TOP SQL statements.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 0.0
      *
      * @var float
@@ -243,7 +243,7 @@ class topSQLList extends Model
     public $netWaitTime;
 
     /**
-     * @description The IP address of the node.
+     * @description The username.
      *
      * @example i-bp18qljorblo8es*****
      *
@@ -252,7 +252,7 @@ class topSQLList extends Model
     public $nodeIp;
 
     /**
-     * @description The queuing time, in ms.
+     * @description $.parameters[12].schema.enumValueTitles
      *
      * @example 15.275
      *
@@ -261,8 +261,8 @@ class topSQLList extends Model
     public $queueTime;
 
     /**
-     * @description The number of RPCs.
-     *
+     * @description The start time of the time range for querying TOP SQL statements.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 0
      *
      * @var int
@@ -270,7 +270,7 @@ class topSQLList extends Model
     public $RPCCount;
 
     /**
-     * @description The number of remote plans.
+     * @description The return result of the request.
      *
      * @example 0
      *
@@ -279,7 +279,7 @@ class topSQLList extends Model
     public $remotePlans;
 
     /**
-     * @description The number of retries.
+     * @description $.parameters[13].schema.description
      *
      * @example 0
      *
@@ -288,7 +288,7 @@ class topSQLList extends Model
     public $retryCount;
 
     /**
-     * @description The number of rows returned.
+     * @description The wait event.
      *
      * @example 1
      *
@@ -297,8 +297,12 @@ class topSQLList extends Model
     public $returnRows;
 
     /**
-     * @description The number of row cache hits.
-     *
+     * @description ```
+     * http(s)://[Endpoint]/?Action=DescribeTopSQLList
+     * &TenantId=t2mr3oae0****
+     * &SearchValue=0.01
+     * &SQLId=8D6E84****0B8FB1823D199E2CA1****
+     * ```
      * @example 0
      *
      * @var int
@@ -306,7 +310,7 @@ class topSQLList extends Model
     public $rowCacheHit;
 
     /**
-     * @description SQLID.
+     * @description $.parameters[13].schema.example
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -315,7 +319,7 @@ class topSQLList extends Model
     public $SQLId;
 
     /**
-     * @description The SQL text.
+     * @description The list of top SQL statements.
      *
      * @example SELECT  ****   FROM ****   WHERE **** = ? AND **** = ?   ORDER BY **** ASC
      *
@@ -324,7 +328,7 @@ class topSQLList extends Model
     public $SQLText;
 
     /**
-     * @description The SQL type.
+     * @description The request ID.
      *
      * @example 1
      *
@@ -333,7 +337,7 @@ class topSQLList extends Model
     public $SQLType;
 
     /**
-     * @description The scheduling duration, in ms.
+     * @description The search keyword.
      *
      * @example 0.0
      *
@@ -342,8 +346,6 @@ class topSQLList extends Model
     public $scheduleTime;
 
     /**
-     * @description The number of rows read from the disk.
-     *
      * @example 43086
      *
      * @var int
@@ -351,7 +353,7 @@ class topSQLList extends Model
     public $ssstoreReadRowCount;
 
     /**
-     * @description The internal wait time, in ms.
+     * @description -
      *
      * @example 10.966
      *
@@ -360,7 +362,7 @@ class topSQLList extends Model
     public $totalWaitTime;
 
     /**
-     * @description The username.
+     * @description The number of Bloom filter cache hits.
      *
      * @example tester
      *

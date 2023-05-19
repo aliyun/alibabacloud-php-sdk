@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ResetOmsOpenAPIProjectRequest extends Model
 {
     /**
-     * @description The page number, which takes effect in a pagination query.
+     * @description The total count, which takes effect in a pagination query.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class ResetOmsOpenAPIProjectRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The page size, which takes effect in a pagination query.
+     * @description Contact the administrator.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class ResetOmsOpenAPIProjectRequest extends Model
     public $pageSize;
 
     /**
-     * @description The project ID.
+     * @description The error level. Valid values: CRITICAL, ERROR, and WARN.
      *
      * @example p_abcdefj
      *
@@ -36,7 +36,7 @@ class ResetOmsOpenAPIProjectRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the migration instance. Generally, if you want to create a project on a public cloud, you must first purchase a migration instance.
+     * @description Indicates whether the call is successful.
      *
      * @example g_abcdefj***
      *

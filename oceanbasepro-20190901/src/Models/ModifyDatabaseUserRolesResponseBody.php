@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyDatabaseUserRolesResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
      * @var string
@@ -19,7 +17,7 @@ class ModifyDatabaseUserRolesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The account information.
+     * @description The name of the database.
      *
      * @var tenantUser
      */

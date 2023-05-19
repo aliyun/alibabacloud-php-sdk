@@ -10,15 +10,15 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description The information about the zone in which the cluster is deployed.
+     * @description The time in UTC when the cluster expires.
      *
      * @var string[]
      */
     public $availableZones;
 
     /**
-     * @description The product code of the OceanBase cluster.
-     * - oceanbase_obpre_public_intl: indicates an OceanBase cluster that is billed based on the subscription plan and that is deployed in an international site.
+     * @description The storage space of each replica node in the cluster, in GB.
+     *
      * @example oceanbase_oceanbasepost_public_cn
      *
      * @var string
@@ -26,8 +26,8 @@ class instances extends Model
     public $commodityCode;
 
     /**
-     * @description The number of CPU cores of the cluster.
-     *
+     * @description The product code of the OceanBase cluster.
+     * - oceanbase_obpre_public_intl: indicates an OceanBase cluster that is billed based on the subscription plan and that is deployed in an international site.
      * @example 14
      *
      * @var int
@@ -35,7 +35,7 @@ class instances extends Model
     public $cpu;
 
     /**
-     * @description The time in UTC when the cluster was created.
+     * @description The number of OceanBase clusters queried.
      *
      * @example 2021-10-19T07:13:41Z
      *
@@ -44,9 +44,8 @@ class instances extends Model
     public $createTime;
 
     /**
-     * @description The data replica distribution mode of the cluster. Valid values:
+     * @description The request ID.
      *
-     * - n-n-n: indicates the multi-IDC mode. The integer n represents the number of OBServer nodes in each IDC.
      * @example 1-1-1
      *
      * @var string
@@ -54,8 +53,8 @@ class instances extends Model
     public $deployMode;
 
     /**
-     * @description The deployment type of the cluster. Valid values:
-     * - dual: dual-IDC deployment
+     * @description Alibaba Cloud provides SDKs in different languages to help you quickly integrate Alibaba Cloud products and services by using APIs. We recommend that you use an SDK to call APIs. In this way, you do not need to sign for verification.
+     *
      * @example multiple
      *
      * @var string
@@ -63,7 +62,7 @@ class instances extends Model
     public $deployType;
 
     /**
-     * @description The size of the storage space, in GB.
+     * @description The information about the memory resources of the cluster.
      *
      * @example 200
      *
@@ -72,8 +71,8 @@ class instances extends Model
     public $diskSize;
 
     /**
-     * @description The type of the storage disk where the cluster is deployed.
-     * The default value is cloud_essd_pl1, which indicates an ESSD cloud disk.
+     * @description The number of CPU cores used in the cluster.
+     *
      * @example cloud_essd_pl1
      *
      * @var string
@@ -81,7 +80,7 @@ class instances extends Model
     public $diskType;
 
     /**
-     * @description Indicates whether new nodes can be added.
+     * @description The ID of the OceanBase cluster.
      *
      * @example true
      *
@@ -90,7 +89,7 @@ class instances extends Model
     public $enableUpgradeNodes;
 
     /**
-     * @description The time elapsed since the expiration of the cluster, in seconds.
+     * @description The whitelist information of the cluster.
      *
      * @example 2606682
      *
@@ -99,7 +98,7 @@ class instances extends Model
     public $expireSeconds;
 
     /**
-     * @description The time in UTC when the cluster expires.
+     * @description The information about the storage resources of the cluster.
      *
      * @example 2021-10-17T16:00:00Z
      *
@@ -108,8 +107,8 @@ class instances extends Model
     public $expireTime;
 
     /**
-     * @description The specifications of the cluster.  You can specify one of the following four plans:
-     * - 62C400G: indicates 62 CPU cores and 400 GB of memory.
+     * @description The instance type.
+     *
      * @example 14C70G
      *
      * @var string
@@ -117,7 +116,7 @@ class instances extends Model
     public $instanceClass;
 
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description The total storage space of the cluster, in GB.
      *
      * @example ob317v4uif****
      *
@@ -126,7 +125,7 @@ class instances extends Model
     public $instanceId;
 
     /**
-     * @description The name of the OceanBase cluster.
+     * @description The return result of the request.
      *
      * @example ob4test
      *
@@ -140,7 +139,7 @@ class instances extends Model
     public $instanceRole;
 
     /**
-     * @description The instance type.
+     * @description You can call this operation to obtain the list of OceanBase clusters.
      *
      * @example KAFKA_PUBLIC
      *
@@ -149,7 +148,7 @@ class instances extends Model
     public $instanceType;
 
     /**
-     * @description The time period in UTC for the daily routine maintenance of the cluster.
+     * @description The return result of the request.
      *
      * @example 2021-10-19T07:13:41Z
      *
@@ -158,7 +157,7 @@ class instances extends Model
     public $maintainTime;
 
     /**
-     * @description The memory size of the instance, in GB.
+     * @description The information about the CPU resources of the cluster.
      *
      * @example 70
      *
@@ -167,8 +166,8 @@ class instances extends Model
     public $mem;
 
     /**
-     * @description The billing method for the OceanBase cluster. Valid values:
-     * - POSTPAY: the pay-as-you-go billing method.
+     * @description It is an Alibaba Cloud asset management and configuration tool, with which you can manage multiple Alibaba Cloud products and services by using commands. It is easy to use and a good helper in migration to cloud.
+     *
      * @example PREPAY
      *
      * @var string
@@ -176,14 +175,14 @@ class instances extends Model
     public $payType;
 
     /**
-     * @description The information about cluster resources.
-     *
+     * @description The type of the storage disk where the cluster is deployed.
+     * The default value is cloud_essd_pl1, which indicates an ESSD cloud disk.
      * @var resource
      */
     public $resource;
 
     /**
-     * @description The ID of the resource group.
+     * @description The number of OceanBase clusters queried.
      *
      * @example group1
      *
@@ -192,15 +191,16 @@ class instances extends Model
     public $resourceGroupId;
 
     /**
-     * @description The whitelist information of the cluster.
+     * @description The number of the page to return.
      *
+     * - Default value: 1
      * @var string[]
      */
     public $securityIps;
 
     /**
-     * @description The series of the OceanBase cluster. Valid values:
-     * - BASIC: the basic edition.
+     * @description The billing method for the OceanBase cluster. Valid values:
+     * - POSTPAY: the pay-as-you-go billing method.
      * @example NORMAL
      *
      * @var string
@@ -208,8 +208,8 @@ class instances extends Model
     public $series;
 
     /**
-     * @description The status of the cluster. Valid values:
-     * Generally, the cluster is in the ONLINE state.
+     * @description The number of resource units in the cluster.
+     *
      * @example ONLINE
      *
      * @var string
@@ -217,7 +217,7 @@ class instances extends Model
     public $state;
 
     /**
-     * @description The size of used storage space of the cluster, in GB.
+     * @description The number of resource units in the cluster.
      *
      * @example 20
      *
@@ -226,7 +226,7 @@ class instances extends Model
     public $usedDiskSize;
 
     /**
-     * @description The OBServer version.
+     * @description The total number of CPU cores of the cluster.
      *
      * @example 2.2.77
      *

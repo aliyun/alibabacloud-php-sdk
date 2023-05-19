@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
-     * @description Indicates whether automatic renewal is enabled.
+     * @description The operation that you want to perform. <br>Set the value to **DescribeInstance**.
      *
-     * This parameter is valid only for clusters whose billing methods are set to PREPAY.
      * @example true
      *
      * @var bool
@@ -20,7 +19,7 @@ class instance extends Model
     public $autoRenewal;
 
     /**
-     * @description Indicates whether automatic upgrade of the OBServer version is enabled.
+     * @description Example 1
      *
      * @example true
      *
@@ -29,14 +28,12 @@ class instance extends Model
     public $autoUpgradeObVersion;
 
     /**
-     * @description The list of zones.
-     *
      * @var string[]
      */
     public $availableZones;
 
     /**
-     * @description The time in UTC when the cluster was created.
+     * @description Indicates whether the log disk specifications can be upgraded.
      *
      * @example 2021-10-19T07:13:41Z
      *
@@ -45,7 +42,7 @@ class instance extends Model
     public $createTime;
 
     /**
-     * @description The time when the major compaction of cluster data is performed.
+     * @description The total number of CPU cores of the cluster.
      *
      * @example 02:00
      *
@@ -54,8 +51,8 @@ class instance extends Model
     public $dataMergeTime;
 
     /**
-     * @description The data replica distribution mode of the cluster. Valid values:
-     * > <br>The integer n represents the number of OBServer nodes in each IDC.
+     * @description Alibaba Cloud CLI
+     *
      * @example 1-1-1
      *
      * @var string
@@ -63,8 +60,8 @@ class instance extends Model
     public $deployMode;
 
     /**
-     * @description The deployment type of the cluster. Valid values:
-     * - dual: dual-IDC deployment
+     * @description It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
+     *
      * @example multiple
      *
      * @var string
@@ -72,9 +69,8 @@ class instance extends Model
     public $deployType;
 
     /**
-     * @description The type of the storage disk where the cluster is deployed.
+     * @description The total storage space of the cluster, in GB.
      *
-     * The default value is cloud_essd_pl1, which indicates an ESSD cloud disk.
      * @example cloud_essd_pl1
      *
      * @var string
@@ -82,8 +78,11 @@ class instance extends Model
     public $diskType;
 
     /**
-     * @description Indicates whether the log disk specifications can be upgraded.
-     *
+     * @var bool
+     */
+    public $enableIsolationOptimization;
+
+    /**
      * @example false
      *
      * @var bool
@@ -91,7 +90,7 @@ class instance extends Model
     public $enableUpgradeLogDisk;
 
     /**
-     * @description The time in UTC when the cluster expires.
+     * @description The information of the OceanBase cluster.
      *
      * @example 2021-10-17T16:00:00Z
      *
@@ -100,8 +99,8 @@ class instance extends Model
     public $expireTime;
 
     /**
-     * @description The specifications of the cluster.  You can specify one of the following four plans:
-     * - 62C400G: indicates 62 CPU cores and 400 GB of memory.
+     * @description The detailed information of the OBServer version.
+     *
      * @example 14C70G
      *
      * @var string
@@ -109,7 +108,7 @@ class instance extends Model
     public $instanceClass;
 
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description The information about the log disk space of the cluster.
      *
      * @example ob317v4uif****
      *
@@ -118,7 +117,7 @@ class instance extends Model
     public $instanceId;
 
     /**
-     * @description The name of the OceanBase cluster.
+     * @description Indicates whether automatic upgrade of the OBServer version is enabled.
      *
      * @example ob4test
      *
@@ -127,13 +126,13 @@ class instance extends Model
     public $instanceName;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $instanceRole;
 
     /**
-     * @description Indicates whether the OBServer version is the latest.
-     *
      * @example true
      *
      * @var bool
@@ -141,7 +140,7 @@ class instance extends Model
     public $isLatestObVersion;
 
     /**
-     * @description Indicates whether trusted ECS instances are used.
+     * @description The information about the CPU resources of the cluster.
      *
      * @example true
      *
@@ -150,7 +149,12 @@ class instance extends Model
     public $isTrustEcs;
 
     /**
-     * @description The time period in UTC for the daily routine maintenance of the cluster.
+     * @var bool
+     */
+    public $isolationOptimization;
+
+    /**
+     * @description The time when the major compaction of cluster data is performed.
      *
      * @example 19:00Z-20:00Z
      *
@@ -159,13 +163,13 @@ class instance extends Model
     public $maintainTime;
 
     /**
+     * @example 6
+     *
      * @var string
      */
     public $nodeNum;
 
     /**
-     * @description The detailed information of the OBServer version.
-     *
      * @example 2.2.77-20210526202046
      *
      * @var string
@@ -173,8 +177,8 @@ class instance extends Model
     public $obRpmVersion;
 
     /**
-     * @description The billing method of the OceanBase cluster. Valid values:
-     * - POSTPAY: the pay-as-you-go billing method.
+     * @description The list of zones.
+     *
      * @example PREPAY
      *
      * @var string
@@ -182,24 +186,24 @@ class instance extends Model
     public $payType;
 
     /**
-     * @description The information about cluster resources.
+     * @description The size of used memory in the cluster, in GB.
      *
      * @var resource
      */
     public $resource;
 
     /**
-     * @description The series of the OceanBase cluster. Valid values:
-     * - BASIC: the basic edition.
-     * @example NORMAL
+     * @description Indicates whether the OBServer version is the latest.
+     *
+     * @example Indicates whether the OBServer version is the latest.
      *
      * @var string
      */
     public $series;
 
     /**
-     * @description The status of the cluster. Valid values:
-     * Generally, the cluster is in the ONLINE state.
+     * @description The information about cluster resources.
+     *
      * @example ONLINE
      *
      * @var string
@@ -207,7 +211,7 @@ class instance extends Model
     public $status;
 
     /**
-     * @description The OBServer version.
+     * @description You can call this operation to query the detailed information of an OceanBase cluster.
      *
      * @example 2.2.77
      *
@@ -220,31 +224,33 @@ class instance extends Model
      */
     public $zones;
     protected $_name = [
-        'autoRenewal'          => 'AutoRenewal',
-        'autoUpgradeObVersion' => 'AutoUpgradeObVersion',
-        'availableZones'       => 'AvailableZones',
-        'createTime'           => 'CreateTime',
-        'dataMergeTime'        => 'DataMergeTime',
-        'deployMode'           => 'DeployMode',
-        'deployType'           => 'DeployType',
-        'diskType'             => 'DiskType',
-        'enableUpgradeLogDisk' => 'EnableUpgradeLogDisk',
-        'expireTime'           => 'ExpireTime',
-        'instanceClass'        => 'InstanceClass',
-        'instanceId'           => 'InstanceId',
-        'instanceName'         => 'InstanceName',
-        'instanceRole'         => 'InstanceRole',
-        'isLatestObVersion'    => 'IsLatestObVersion',
-        'isTrustEcs'           => 'IsTrustEcs',
-        'maintainTime'         => 'MaintainTime',
-        'nodeNum'              => 'NodeNum',
-        'obRpmVersion'         => 'ObRpmVersion',
-        'payType'              => 'PayType',
-        'resource'             => 'Resource',
-        'series'               => 'Series',
-        'status'               => 'Status',
-        'version'              => 'Version',
-        'zones'                => 'Zones',
+        'autoRenewal'                 => 'AutoRenewal',
+        'autoUpgradeObVersion'        => 'AutoUpgradeObVersion',
+        'availableZones'              => 'AvailableZones',
+        'createTime'                  => 'CreateTime',
+        'dataMergeTime'               => 'DataMergeTime',
+        'deployMode'                  => 'DeployMode',
+        'deployType'                  => 'DeployType',
+        'diskType'                    => 'DiskType',
+        'enableIsolationOptimization' => 'EnableIsolationOptimization',
+        'enableUpgradeLogDisk'        => 'EnableUpgradeLogDisk',
+        'expireTime'                  => 'ExpireTime',
+        'instanceClass'               => 'InstanceClass',
+        'instanceId'                  => 'InstanceId',
+        'instanceName'                => 'InstanceName',
+        'instanceRole'                => 'InstanceRole',
+        'isLatestObVersion'           => 'IsLatestObVersion',
+        'isTrustEcs'                  => 'IsTrustEcs',
+        'isolationOptimization'       => 'IsolationOptimization',
+        'maintainTime'                => 'MaintainTime',
+        'nodeNum'                     => 'NodeNum',
+        'obRpmVersion'                => 'ObRpmVersion',
+        'payType'                     => 'PayType',
+        'resource'                    => 'Resource',
+        'series'                      => 'Series',
+        'status'                      => 'Status',
+        'version'                     => 'Version',
+        'zones'                       => 'Zones',
     ];
 
     public function validate()
@@ -278,6 +284,9 @@ class instance extends Model
         if (null !== $this->diskType) {
             $res['DiskType'] = $this->diskType;
         }
+        if (null !== $this->enableIsolationOptimization) {
+            $res['EnableIsolationOptimization'] = $this->enableIsolationOptimization;
+        }
         if (null !== $this->enableUpgradeLogDisk) {
             $res['EnableUpgradeLogDisk'] = $this->enableUpgradeLogDisk;
         }
@@ -301,6 +310,9 @@ class instance extends Model
         }
         if (null !== $this->isTrustEcs) {
             $res['IsTrustEcs'] = $this->isTrustEcs;
+        }
+        if (null !== $this->isolationOptimization) {
+            $res['IsolationOptimization'] = $this->isolationOptimization;
         }
         if (null !== $this->maintainTime) {
             $res['MaintainTime'] = $this->maintainTime;
@@ -367,6 +379,9 @@ class instance extends Model
         if (isset($map['DiskType'])) {
             $model->diskType = $map['DiskType'];
         }
+        if (isset($map['EnableIsolationOptimization'])) {
+            $model->enableIsolationOptimization = $map['EnableIsolationOptimization'];
+        }
         if (isset($map['EnableUpgradeLogDisk'])) {
             $model->enableUpgradeLogDisk = $map['EnableUpgradeLogDisk'];
         }
@@ -390,6 +405,9 @@ class instance extends Model
         }
         if (isset($map['IsTrustEcs'])) {
             $model->isTrustEcs = $map['IsTrustEcs'];
+        }
+        if (isset($map['IsolationOptimization'])) {
+            $model->isolationOptimization = $map['IsolationOptimization'];
         }
         if (isset($map['MaintainTime'])) {
             $model->maintainTime = $map['MaintainTime'];

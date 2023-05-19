@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDatabaseRequest extends Model
 {
     /**
-     * @description The token used to ensure idempotence.
-     * > <br>ClientToken can contain only ASCII characters, and cannot exceed 64 characters in length.
+     * @description The name of the database.
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -18,8 +18,8 @@ class CreateDatabaseRequest extends Model
     public $clientToken;
 
     /**
-     * @description The collation.
-     *
+     * @description The encoding standard of the database.
+     * For more information, see the Charset field returned by the DescribeCharset operation.
      * @example utf8mb4_general_ci
      *
      * @var string
@@ -27,8 +27,8 @@ class CreateDatabaseRequest extends Model
     public $collation;
 
     /**
-     * @description The name of the database.
-     * You cannot use reserved keywords, such as test and mysql.
+     * @description Alibaba Cloud CLI
+     *
      * @example sms_pre
      *
      * @var string
@@ -36,8 +36,8 @@ class CreateDatabaseRequest extends Model
     public $databaseName;
 
     /**
-     * @description The description of the database.
-     *
+     * @description The operation that you want to perform.
+     * Set the value to **CreateDatabase**.
      * @example this is a test database
      *
      * @var string
@@ -45,8 +45,8 @@ class CreateDatabaseRequest extends Model
     public $description;
 
     /**
-     * @description The encoding standard of the database.
-     * For more information, see the Charset field returned by the DescribeCharset operation.
+     * @description The ID of the tenant.
+     *
      * @example utf8mb4
      *
      * @var string
@@ -54,7 +54,7 @@ class CreateDatabaseRequest extends Model
     public $encoding;
 
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description The collation.
      *
      * @example ob317v4uif****
      *
@@ -63,8 +63,8 @@ class CreateDatabaseRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the tenant.
-     *
+     * @description The name of the database.
+     * You cannot use reserved keywords, such as test and mysql.
      * @example ob2mr3oae0****
      *
      * @var string

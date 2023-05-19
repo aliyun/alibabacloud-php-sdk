@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class cpu extends Model
 {
     /**
-     * @description The total number of CPU cores of the tenant.
+     * @description The data replica distribution mode of the tenant.
      *
+     * > <br>N represents the number of nodes in a single zone.
      * @example 10
      *
      * @var float
@@ -18,7 +19,7 @@ class cpu extends Model
     public $totalCpu;
 
     /**
-     * @description The number of CPU cores in each resource unit of the tenant.
+     * @description The zone corresponding to the tenant connection.
      *
      * @example 8
      *
@@ -27,8 +28,8 @@ class cpu extends Model
     public $unitCpu;
 
     /**
-     * @description The number of used CPU cores of the tenant.
-     *
+     * @description The tenant mode.
+     * MySQL
      * @example 8
      *
      * @var float

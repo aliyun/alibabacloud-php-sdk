@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class connectorFullProgressOverview extends Model
 {
     /**
-     * @description The estimated maximum time remained, in seconds.
+     * @description A sub-status that indicates whether this step is skipped.
      *
      * @example 100
      *
@@ -18,7 +18,7 @@ class connectorFullProgressOverview extends Model
     public $estimatedRemainingTimeOfSec;
 
     /**
-     * @description The estimated amount of data to migrate.
+     * @description The read RPS baseline of the source data source.
      *
      * @example 100
      *
@@ -27,7 +27,7 @@ class connectorFullProgressOverview extends Model
     public $estimatedTotalCount;
 
     /**
-     * @description The amount of data migrated.
+     * @description The read/write RT per record of the destination data source, in ms.
      *
      * @example 50
      *
@@ -36,7 +36,7 @@ class connectorFullProgressOverview extends Model
     public $finishedCount;
 
     /**
-     * @description finishedCount / estimatedTotalCount
+     * @description The business data returned.
      *
      * @example 1120
      *

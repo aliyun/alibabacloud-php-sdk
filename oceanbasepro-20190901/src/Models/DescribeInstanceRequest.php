@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description The size of the data disk, in GB.
      *
      * @example ob317v4uif****
      *
@@ -18,8 +18,8 @@ class DescribeInstanceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The number of the page to return.
-     * - Default value: 1
+     * @description The information about the storage resources of the cluster.
+     *
      * @example 1
      *
      * @var int
@@ -27,8 +27,8 @@ class DescribeInstanceRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of rows to return on each page.
-     * - Default value: 10
+     * @description The server with the highest disk usage.
+     *
      * @example 10
      *
      * @var int

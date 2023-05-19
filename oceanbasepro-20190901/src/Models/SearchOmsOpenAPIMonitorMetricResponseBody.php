@@ -11,16 +11,16 @@ use AlibabaCloud\Tea\Model;
 class SearchOmsOpenAPIMonitorMetricResponseBody extends Model
 {
     /**
-     * @description The suggestions (old).
+     * @description The ID of the migration instance. Generally, if you want to create a project on a public cloud, you must first purchase a migration instance.
      *
-     * @example Contact the administrator.
+     * @example The page number, which takes effect in a pagination query.
      *
      * @var string
      */
     public $advice;
 
     /**
-     * @description The error code (old).
+     * @description The business data returned.
      *
      * @example INNER_ERROR
      *
@@ -29,7 +29,7 @@ class SearchOmsOpenAPIMonitorMetricResponseBody extends Model
     public $code;
 
     /**
-     * @description The time spent in processing the request, in seconds.
+     * @description The request ID.
      *
      * @example 1
      *
@@ -38,30 +38,28 @@ class SearchOmsOpenAPIMonitorMetricResponseBody extends Model
     public $cost;
 
     /**
-     * @description The business data returned.
-     *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The error details.
+     * @description A system error occurred.
      *
      * @var errorDetail
      */
     public $errorDetail;
 
     /**
-     * @description The error description (old).
+     * @description The suggestions (old).
      *
-     * @example A system error occurred.
+     * @example Contact the administrator.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The page number, which takes effect in a pagination query.
+     * @description The error code (new).
      *
      * @example 1
      *
@@ -70,7 +68,7 @@ class SearchOmsOpenAPIMonitorMetricResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The page size, which takes effect in a pagination query.
+     * @description The page number, which takes effect in a pagination query.
      *
      * @example 1
      *
@@ -79,7 +77,7 @@ class SearchOmsOpenAPIMonitorMetricResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The request ID.
+     * @description The time spent in processing the request, in seconds.
      *
      * @example XCVSADGDFSGDFGFDGFDGDFGDFGDFGDFGDSGDS
      *
@@ -88,7 +86,7 @@ class SearchOmsOpenAPIMonitorMetricResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful.
+     * @description The total count, which takes effect in a pagination query.
      *
      * @example true
      *
@@ -97,7 +95,7 @@ class SearchOmsOpenAPIMonitorMetricResponseBody extends Model
     public $success;
 
     /**
-     * @description The total count, which takes effect in a pagination query.
+     * @description The error details.
      *
      * @example 1
      *

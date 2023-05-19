@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class diskSize extends Model
 {
     /**
-     * @description The size of used disk space of the tenant, in GB.
+     * @description The total memory size of the tenant, in GB.
      *
      * @example 86
      *

@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAnomalySQLListShrinkRequest extends Model
 {
     /**
-     * @description The language of the returned data.
-     * Default value: CN for a China site and EN for an International site.
+     * @description The search value.
+     *
      * @example zh-CN
      *
      * @var string
@@ -18,8 +18,8 @@ class DescribeAnomalySQLListShrinkRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The name of the database.
-     *
+     * @description {
+     * }
      * @example testdb
      *
      * @var string
@@ -27,8 +27,8 @@ class DescribeAnomalySQLListShrinkRequest extends Model
     public $dbName;
 
     /**
-     * @description The end time of the time range for querying suspicious SQL statements.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @description zh-CN
+     *
      * @example 2021-09-13T15:40:43Z
      *
      * @var string
@@ -36,8 +36,8 @@ class DescribeAnomalySQLListShrinkRequest extends Model
     public $endTime;
 
     /**
-     * @description The filter condition.
-     * > <br> - All fields in OceanBase Database support filtering. <br> - You can write the key-value pair of a parameter in a JSON string in the JSON format to filter the parameter.
+     * @description The number of the page to return.
+     * - Default value: 1
      * @example {
      * }
      * @var string
@@ -45,8 +45,8 @@ class DescribeAnomalySQLListShrinkRequest extends Model
     public $filterConditionShrink;
 
     /**
-     * @description The IP address of the node.
-     *
+     * @description The number of rows to return on each page.
+     * - Default value: 10
      * @example i-bp19y05uq6xpacyqnlrc
      *
      * @var string
@@ -54,8 +54,8 @@ class DescribeAnomalySQLListShrinkRequest extends Model
     public $nodeIp;
 
     /**
-     * @description The number of the page to return.
-     * - Default value: 1
+     * @description desc
+     *
      * @example 1
      *
      * @var int
@@ -63,8 +63,8 @@ class DescribeAnomalySQLListShrinkRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of rows to return on each page.
-     * - Default value: 10
+     * @description The start time of the time range for querying suspicious SQL statements.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example 10
      *
      * @var int
@@ -72,7 +72,7 @@ class DescribeAnomalySQLListShrinkRequest extends Model
     public $pageSize;
 
     /**
-     * @description SQLID.
+     * @description 1
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -90,7 +90,7 @@ class DescribeAnomalySQLListShrinkRequest extends Model
     public $searchKeyWord;
 
     /**
-     * @description The search parameter.
+     * @description The ID of the tenant.
      *
      * @example cputime
      *
@@ -99,8 +99,8 @@ class DescribeAnomalySQLListShrinkRequest extends Model
     public $searchParameter;
 
     /**
-     * @description The search rule.
-     * Valid values: "=", ">", ">=", "<", and "<="
+     * @description Utilization above threshold
+     *
      * @example >
      *
      * @var string
@@ -108,7 +108,7 @@ class DescribeAnomalySQLListShrinkRequest extends Model
     public $searchRule;
 
     /**
-     * @description The search value.
+     * @description 10
      *
      * @example 0.01
      *
@@ -117,8 +117,8 @@ class DescribeAnomalySQLListShrinkRequest extends Model
     public $searchValue;
 
     /**
-     * @description The sorted column.
-     *
+     * @description The end time of the time range for querying suspicious SQL statements.
+     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
      * @example cputime
      *
      * @var string
@@ -126,7 +126,7 @@ class DescribeAnomalySQLListShrinkRequest extends Model
     public $sortColumn;
 
     /**
-     * @description The sorting rule.
+     * @description The request time, in ms.
      *
      * @example desc
      *
@@ -135,8 +135,8 @@ class DescribeAnomalySQLListShrinkRequest extends Model
     public $sortOrder;
 
     /**
-     * @description The start time of the time range for querying suspicious SQL statements.
-     * The value must be UTC time in the format of YYYY-MM-DDThh:mm:ssZ.
+     * @description The total count.
+     *
      * @example 2021-06-13T15:40:43Z
      *
      * @var string
@@ -144,7 +144,7 @@ class DescribeAnomalySQLListShrinkRequest extends Model
     public $startTime;
 
     /**
-     * @description The ID of the tenant.
+     * @description Alibaba Cloud CLI
      *
      * @example t2mr3oae0****
      *

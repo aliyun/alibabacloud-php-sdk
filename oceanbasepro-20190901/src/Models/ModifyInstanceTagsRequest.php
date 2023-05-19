@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceTagsRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description The tags.
      *
      * @example ob317v4uif****
      *
@@ -18,7 +18,7 @@ class ModifyInstanceTagsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The tags.
+     * @description You can call this operation to modify the value of the cluster tags.
      *
      * @example [{"Key": "xxx", "Value", "xxx"},{}]
      *

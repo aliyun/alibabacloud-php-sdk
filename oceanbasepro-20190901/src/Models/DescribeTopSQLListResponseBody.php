@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTopSQLListResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description Alibaba Cloud CLI
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -19,14 +19,14 @@ class DescribeTopSQLListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of top SQL statements.
+     * @description The I/O wait time, in ms.
      *
      * @var topSQLList[]
      */
     public $topSQLList;
 
     /**
-     * @description The total count.
+     * @description It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
      *
      * @example 9
      *

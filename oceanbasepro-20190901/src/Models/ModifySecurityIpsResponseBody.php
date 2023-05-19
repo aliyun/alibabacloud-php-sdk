@@ -19,7 +19,7 @@ class ModifySecurityIpsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information of the IP address whitelist group.
+     * @description Example 1
      *
      * @var securityIpGroup
      */

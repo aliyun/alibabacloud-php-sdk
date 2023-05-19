@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class userRole extends Model
 {
     /**
-     * @description The name of the database (MySQL mode) or schema (Oracle mode).
-     *
+     * @description ```
+     * &UserName=pay_test
+     * &TenantId=ob2mr3oae0****
+     * &UserRole=[{"Database":"20210824160559","Role":"readwrite"}]
+     * &InstanceId=ob317v4uif****
+     * ```
      * @example db_pay1
      *
      * @var string
@@ -18,8 +22,6 @@ class userRole extends Model
     public $database;
 
     /**
-     * @description Indicates whether the privilege was granted to the role.
-     *
      * @example true
      *
      * @var bool
@@ -27,7 +29,7 @@ class userRole extends Model
     public $isSuccess;
 
     /**
-     * @description The role of the account.
+     * @description You can call this operation to modify the database privileges of a specified account in a tenant.
      *
      * @example ReadOnly
      *
@@ -36,8 +38,6 @@ class userRole extends Model
     public $role;
 
     /**
-     * @description The name of the table.
-     *
      * @example tbl_pay1
      *
      * @var string

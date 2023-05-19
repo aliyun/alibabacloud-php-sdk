@@ -10,16 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DeleteOmsOpenAPIProjectResponseBody extends Model
 {
     /**
-     * @description The suggestions (old).
-     *
-     * @example Contact the administrator.
+     * @description You can call this operation to delete a data synchronization project.
      *
      * @var string
      */
     public $advice;
 
     /**
-     * @description The error code (old).
+     * @description Indicates whether the project has been deleted.
      *
      * @example INNER_ERROR
      *
@@ -28,8 +26,6 @@ class DeleteOmsOpenAPIProjectResponseBody extends Model
     public $code;
 
     /**
-     * @description The time spent in processing the request, in seconds.
-     *
      * @example 1
      *
      * @var string
@@ -37,8 +33,6 @@ class DeleteOmsOpenAPIProjectResponseBody extends Model
     public $cost;
 
     /**
-     * @description Indicates whether the project has been deleted.
-     *
      * @example true
      *
      * @var bool
@@ -46,14 +40,14 @@ class DeleteOmsOpenAPIProjectResponseBody extends Model
     public $data;
 
     /**
-     * @description The error details.
+     * @description The suggestions (new).
      *
      * @var errorDetail
      */
     public $errorDetail;
 
     /**
-     * @description The error description (old).
+     * @description A system error occurred.
      *
      * @example A system error occurred.
      *
@@ -62,8 +56,6 @@ class DeleteOmsOpenAPIProjectResponseBody extends Model
     public $message;
 
     /**
-     * @description The page number, which takes effect in a pagination query.
-     *
      * @example 1
      *
      * @var int
@@ -71,8 +63,6 @@ class DeleteOmsOpenAPIProjectResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The page size, which takes effect in a pagination query.
-     *
      * @example 1
      *
      * @var int
@@ -80,8 +70,6 @@ class DeleteOmsOpenAPIProjectResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The request ID.
-     *
      * @example XCVSADGDFSGDFGFDGFDGDFGDFGDFGDFGDSGDS
      *
      * @var string
@@ -89,7 +77,7 @@ class DeleteOmsOpenAPIProjectResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful.
+     * @description The page number, which takes effect in a pagination query.
      *
      * @example true
      *
@@ -98,8 +86,6 @@ class DeleteOmsOpenAPIProjectResponseBody extends Model
     public $success;
 
     /**
-     * @description The total count, which takes effect in a pagination query.
-     *
      * @example 1
      *
      * @var int

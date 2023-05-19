@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StartOmsOpenAPIProjectRequest extends Model
 {
     /**
-     * @description The page number, which takes effect in a pagination query.
+     * @description Contact the administrator.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class StartOmsOpenAPIProjectRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The page size, which takes effect in a pagination query.
+     * @description The ID of the migration instance. Generally, if you want to create a project on a public cloud, you must first purchase a migration instance.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class StartOmsOpenAPIProjectRequest extends Model
     public $pageSize;
 
     /**
-     * @description The project ID.
+     * @description The page number, which takes effect in a pagination query.
      *
      * @example p_12345
      *
@@ -36,7 +36,7 @@ class StartOmsOpenAPIProjectRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the migration instance. Generally, if you want to create a project on a public cloud, you must first purchase a migration instance.
+     * @description The total count, which takes effect in a pagination query.
      *
      * @example g_abcd
      *

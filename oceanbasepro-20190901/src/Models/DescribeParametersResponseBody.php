@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersResponseBody extends Model
 {
     /**
-     * @description The information of parameters.
-     *
+     * @description Indicates whether a restart is required for changes to the parameter to take effect. Valid values:
+     * - false: A restart is not required.
      * @var parameters[]
      */
     public $parameters;
 
     /**
-     * @description The request ID.
+     * @description The return result of the request.
      *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *

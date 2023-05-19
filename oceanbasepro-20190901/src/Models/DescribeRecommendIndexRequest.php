@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecommendIndexRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description The return result of the request.
      *
      * @example ob317v4uif****
      *
@@ -18,7 +18,7 @@ class DescribeRecommendIndexRequest extends Model
     public $instanceId;
 
     /**
-     * @description You can obtain the SQL ID from the return value of the DescribeSlowSQLList or DescribeTopSQLList operation.
+     * @description The ID of the OceanBase cluster.
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -27,8 +27,8 @@ class DescribeRecommendIndexRequest extends Model
     public $SQLId;
 
     /**
-     * @description The ID of the tenant.
-     *
+     * @description The index recommended for the SQL statement after calculation by the diagnostic system.
+     * The system recommends only one index for an SQL statement. You can call the DescribeIndexes operation to view the indexes of a table.
      * @example t2mr3oae0****
      *
      * @var string

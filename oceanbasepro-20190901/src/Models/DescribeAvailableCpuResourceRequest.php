@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableCpuResourceRequest extends Model
 {
     /**
-     * @description The ID of the OceanBase cluster.
+     * @description The CPU resources available.
      *
      * @example ob317v4uif****
      *
@@ -18,8 +18,11 @@ class DescribeAvailableCpuResourceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The type of the privilege modification operation.
-     * delete: deletes a privilege.
+     * @description ```
+     * http(s)://[Endpoint]/?Action=DescribeAvailableCpuResource
+     * &InstanceId=ob317v4uif****
+     * &TenantId=ob2mr3oae0****
+     * ```
      * @example update
      *
      * @var string
@@ -27,8 +30,8 @@ class DescribeAvailableCpuResourceRequest extends Model
     public $modifyType;
 
     /**
-     * @description The ID of the tenant.
-     *
+     * @description The operation that you want to perform.
+     * Set the value to **DescribeAvailableCpuResource**.
      * @example ob2mr3oae0****
      *
      * @var string

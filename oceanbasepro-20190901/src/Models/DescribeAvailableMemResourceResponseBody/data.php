@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The maximum memory size for each resource unit, in GB.
-     *
      * @example 10
      *
      * @var int
@@ -18,7 +16,7 @@ class data extends Model
     public $maxMem;
 
     /**
-     * @description The minimum memory size required for each resource unit, in GB.
+     * @description You can call this operation to query the available memory resource of an OceanBase Database tenant.
      *
      * @example 5
      *
@@ -27,8 +25,6 @@ class data extends Model
     public $minMem;
 
     /**
-     * @description The number of resource units in the tenant.
-     *
      * @example 2
      *
      * @var int

@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class StartOmsOpenAPIProjectResponseBody extends Model
 {
     /**
-     * @description The suggestions.
-     *
      * @example cepmgjxp
      *
      * @var string
@@ -19,7 +17,7 @@ class StartOmsOpenAPIProjectResponseBody extends Model
     public $advice;
 
     /**
-     * @description The error code (old).
+     * @description The request ID.
      *
      * @example 200
      *
@@ -28,8 +26,6 @@ class StartOmsOpenAPIProjectResponseBody extends Model
     public $code;
 
     /**
-     * @description The time spent in processing the request, in seconds.
-     *
      * @example 1
      *
      * @var string
@@ -37,8 +33,6 @@ class StartOmsOpenAPIProjectResponseBody extends Model
     public $cost;
 
     /**
-     * @description Indicates whether the project is started.
-     *
      * @example True
      *
      * @var bool
@@ -46,15 +40,13 @@ class StartOmsOpenAPIProjectResponseBody extends Model
     public $data;
 
     /**
-     * @description The error details.
+     * @description The operation that you want to perform. Set the value to **StartOmsOpenAPIProject**.
      *
      * @var errorDetail
      */
     public $errorDetail;
 
     /**
-     * @description The error description (old).
-     *
      * @example successful
      *
      * @var string
@@ -62,8 +54,6 @@ class StartOmsOpenAPIProjectResponseBody extends Model
     public $message;
 
     /**
-     * @description The page number, which takes effect in a pagination query.
-     *
      * @example 1
      *
      * @var int
@@ -71,8 +61,6 @@ class StartOmsOpenAPIProjectResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The page size, which takes effect in a pagination query.
-     *
      * @example 10
      *
      * @var int
@@ -80,8 +68,6 @@ class StartOmsOpenAPIProjectResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The request ID.
-     *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
      * @var string
@@ -89,7 +75,7 @@ class StartOmsOpenAPIProjectResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful.
+     * @description The suggestions (new).
      *
      * @example True
      *
@@ -98,8 +84,6 @@ class StartOmsOpenAPIProjectResponseBody extends Model
     public $success;
 
     /**
-     * @description The total count, which takes effect in a pagination query.
-     *
      * @example 168
      *
      * @var int

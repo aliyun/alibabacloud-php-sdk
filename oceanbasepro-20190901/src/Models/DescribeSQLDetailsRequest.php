@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLDetailsRequest extends Model
 {
     /**
-     * @description SQLID.
+     * @description The SQL text.
      *
      * @example 8D6E84****0B8FB1823D199E2CA1****
      *
@@ -18,7 +18,7 @@ class DescribeSQLDetailsRequest extends Model
     public $SQLId;
 
     /**
-     * @description The ID of the tenant.
+     * @description SQLID.
      *
      * @example t2mr3oae0****
      *

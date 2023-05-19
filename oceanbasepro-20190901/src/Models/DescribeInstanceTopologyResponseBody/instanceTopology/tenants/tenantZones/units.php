@@ -18,7 +18,7 @@ class units extends Model
     public $enableCancelMigrateUnit;
 
     /**
-     * @description Indicates whether migration can be performed.
+     * @description The return result of the request.
      *
      * @example true
      *
@@ -27,7 +27,7 @@ class units extends Model
     public $enableMigrateUnit;
 
     /**
-     * @description Indicates whether the migration is manually performed.
+     * @description The return result of the request.
      *
      * @example true
      *
@@ -36,7 +36,7 @@ class units extends Model
     public $manualMigrate;
 
     /**
-     * @description The ID of the OBServer where the resource unit resides.
+     * @description It is an online CLI tool that allows you to quickly retrieve and debug APIs. It can dynamically generate executable SDK code samples.
      *
      * @example i-bp16niirq4zdmgvm****
      *
@@ -45,7 +45,7 @@ class units extends Model
     public $nodeId;
 
     /**
-     * @description The number of CPU cores of the resource unit.
+     * @description Alibaba Cloud CLI
      *
      * @example 2
      *
@@ -54,8 +54,8 @@ class units extends Model
     public $unitCpu;
 
     /**
-     * @description The data size of the unit.
-     *
+     * @description The operation that you want to perform.
+     * Set the value to **DescribeInstanceTopology**.
      * @example 10
      *
      * @var int
@@ -63,7 +63,7 @@ class units extends Model
     public $unitDataSize;
 
     /**
-     * @description The ID of the resource unit.
+     * @description The topology of the cluster.
      *
      * @example 1002
      *
@@ -72,7 +72,7 @@ class units extends Model
     public $unitId;
 
     /**
-     * @description The memory size of the resource unit, in GB.
+     * @description The ID of the tenant.
      *
      * @example 10
      *
@@ -81,9 +81,8 @@ class units extends Model
     public $unitMemory;
 
     /**
-     * @description The status of the resource unit. Valid values:
+     * @description You can call this operation to query the topology of an OceanBase cluster.
      *
-     * - DELETING: The resource unit is being deleted.
      * @example ONLINE
      *
      * @var string

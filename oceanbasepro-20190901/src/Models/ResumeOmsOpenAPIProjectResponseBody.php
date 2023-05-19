@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ResumeOmsOpenAPIProjectResponseBody extends Model
 {
     /**
-     * @description The suggestions (old).
+     * @description The request ID.
      *
      * @example Contact the administrator.
      *
@@ -19,7 +19,7 @@ class ResumeOmsOpenAPIProjectResponseBody extends Model
     public $advice;
 
     /**
-     * @description The error code (old).
+     * @description The page number, which takes effect in a pagination query.
      *
      * @example INNER_ERROR
      *
@@ -28,8 +28,6 @@ class ResumeOmsOpenAPIProjectResponseBody extends Model
     public $code;
 
     /**
-     * @description The time spent, in seconds.
-     *
      * @example 1
      *
      * @var string
@@ -37,8 +35,6 @@ class ResumeOmsOpenAPIProjectResponseBody extends Model
     public $cost;
 
     /**
-     * @description Indicates whether the project is resumed.
-     *
      * @example True
      *
      * @var bool
@@ -46,14 +42,14 @@ class ResumeOmsOpenAPIProjectResponseBody extends Model
     public $data;
 
     /**
-     * @description The error details.
+     * @description The page number, which takes effect in a pagination query.
      *
      * @var errorDetail
      */
     public $errorDetail;
 
     /**
-     * @description The error description (old).
+     * @description The error details.
      *
      * @example A system error occurred.
      *
@@ -62,8 +58,6 @@ class ResumeOmsOpenAPIProjectResponseBody extends Model
     public $message;
 
     /**
-     * @description The page number, which takes effect in a pagination query.
-     *
      * @example 1
      *
      * @var int
@@ -71,8 +65,6 @@ class ResumeOmsOpenAPIProjectResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The page size, which takes effect in a pagination query.
-     *
      * @example 1
      *
      * @var int
@@ -80,7 +72,7 @@ class ResumeOmsOpenAPIProjectResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The request ID.
+     * @description Example 1
      *
      * @example XCVSADGDFSGDFGFDGFDGDFGDFGDFGDFGDSGDS
      *
@@ -89,7 +81,7 @@ class ResumeOmsOpenAPIProjectResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful.
+     * @description The error level. Valid values: CRITICAL, ERROR, and WARN.
      *
      * @example true
      *
@@ -98,8 +90,6 @@ class ResumeOmsOpenAPIProjectResponseBody extends Model
     public $success;
 
     /**
-     * @description The total count, which takes effect in a pagination query.
-     *
      * @example 1
      *
      * @var int

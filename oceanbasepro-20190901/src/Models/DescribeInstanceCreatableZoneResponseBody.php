@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceCreatableZoneResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description Indicates whether the cluster is deployed in the zone.
      *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
@@ -19,8 +19,8 @@ class DescribeInstanceCreatableZoneResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of zones.
-     *
+     * @description The operation that you want to perform.
+     * Set the value to **DescribeInstanceCreatableZone**.
      * @var zoneList[]
      */
     public $zoneList;

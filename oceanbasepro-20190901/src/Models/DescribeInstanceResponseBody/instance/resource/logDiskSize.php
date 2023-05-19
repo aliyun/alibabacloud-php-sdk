@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class logDiskSize extends Model
 {
     /**
-     * @description The total log disk space of the cluster, in GB.
+     * @description The ID of the region.
      *
      * @example 400
      *
@@ -18,7 +18,7 @@ class logDiskSize extends Model
     public $totalDiskSize;
 
     /**
-     * @description The log disk space of each replica node in the cluster. Unit: GB.
+     * @description The request ID.
      *
      * @example 200
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description The zone information of the tenant.
      *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
@@ -19,7 +19,7 @@ class DescribeTenantResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information of the tenant.
+     * @description The ID of the zone.
      *
      * @var tenant
      */

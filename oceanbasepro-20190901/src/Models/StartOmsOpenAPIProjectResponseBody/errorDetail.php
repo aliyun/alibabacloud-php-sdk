@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class errorDetail extends Model
 {
     /**
-     * @description The error code (new).
+     * @description The error description (old).
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class errorDetail extends Model
     public $code;
 
     /**
-     * @description Valid values: CRITICAL, ERROR, and WARN.
+     * @description The error code (new).
      *
      * @example WARN
      *
@@ -27,7 +27,7 @@ class errorDetail extends Model
     public $level;
 
     /**
-     * @description The error description (new).
+     * @description The page number, which takes effect in a pagination query.
      *
      * @example successful
      *
@@ -36,7 +36,7 @@ class errorDetail extends Model
     public $message;
 
     /**
-     * @description The suggestions (new).
+     * @description The error details.
      *
      * @example Contact the administrator.
      *

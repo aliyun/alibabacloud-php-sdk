@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateOmsOpenAPIProjectShrinkRequest extends Model
 {
     /**
-     * @description The business system identifier, which is optional and is a specific field of the Post message.
-     *
      * @example OMS_TEST
      *
      * @var string
@@ -18,21 +16,17 @@ class CreateOmsOpenAPIProjectShrinkRequest extends Model
     public $businessName;
 
     /**
-     * @description The settings of the destination data source.
-     *
      * @var string
      */
     public $destConfigShrink;
 
     /**
-     * @description A collection of label IDs.
-     *
      * @var string
      */
     public $labelIdsShrink;
 
     /**
-     * @description The page number, which takes effect in a pagination query.
+     * @description 页序号，分页查询时生效
      *
      * @example 1
      *
@@ -41,7 +35,7 @@ class CreateOmsOpenAPIProjectShrinkRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The page size, which takes effect in a pagination query.
+     * @description 页大小，分页查询时生效
      *
      * @example 10
      *
@@ -50,8 +44,6 @@ class CreateOmsOpenAPIProjectShrinkRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the project.
-     *
      * @example test-l
      *
      * @var string
@@ -59,22 +51,16 @@ class CreateOmsOpenAPIProjectShrinkRequest extends Model
     public $projectName;
 
     /**
-     * @description The settings of the source data source.
-     *
      * @var string
      */
     public $sourceConfigShrink;
 
     /**
-     * @description The mappings for the synchronization objects.
-     *
      * @var string
      */
     public $transferMappingShrink;
 
     /**
-     * @description The settings of synchronization steps.
-     *
      * @example OMS_TEST
      *
      * @var string
@@ -82,7 +68,7 @@ class CreateOmsOpenAPIProjectShrinkRequest extends Model
     public $transferStepConfigShrink;
 
     /**
-     * @description The ID of the migration instance. Generally, if you want to create a project on a public cloud, you must first purchase a migration instance.
+     * @description 实例规格 ID，创建项目时生效
      *
      * @example g_abcd
      *

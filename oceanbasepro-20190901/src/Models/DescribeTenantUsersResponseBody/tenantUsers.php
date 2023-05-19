@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class tenantUsers extends Model
 {
     /**
-     * @description The database privileges of the account.
-     *
      * @var databases[]
      */
     public $databases;
 
     /**
-     * @description The description of the database account.
-     *
      * @example use for test
      *
      * @var string
@@ -26,6 +22,8 @@ class tenantUsers extends Model
     public $description;
 
     /**
+     * @description 所属集群Id
+     *
      * @example obshc32****
      *
      * @var string
@@ -33,6 +31,8 @@ class tenantUsers extends Model
     public $instanceId;
 
     /**
+     * @description 所属租户Id
+     *
      * @example tshfs3****
      *
      * @var string
@@ -40,8 +40,6 @@ class tenantUsers extends Model
     public $tenantId;
 
     /**
-     * @description The name of the database account.
-     *
      * @example pay_test
      *
      * @var string
@@ -49,8 +47,6 @@ class tenantUsers extends Model
     public $userName;
 
     /**
-     * @description The status of the database account. Valid values:
-     * - NORMAL: The account is unlocked.
      * @example NORMAL
      *
      * @var string
@@ -58,8 +54,6 @@ class tenantUsers extends Model
     public $userStatus;
 
     /**
-     * @description The type of the database account. Valid values:
-     * - NORMAL: a general account.
      * @example NORMAL
      *
      * @var string

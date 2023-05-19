@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLPlansResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @description The return result of the request.
      *
      * @example EE205C00-30E4-XXXX-XXXX-87E3A8A2AA0C
      *
@@ -19,7 +19,7 @@ class DescribeSQLPlansResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the execution plan.
+     * @description master
      *
      * @var SQLPlans[]
      */

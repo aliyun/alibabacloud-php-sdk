@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SQLPlans extends Model
 {
     /**
-     * @description The average execution duration, in ms.
+     * @description The time when the plan was bound.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class SQLPlans extends Model
     public $avgExecutionMS;
 
     /**
-     * @description The average execution duration when the database uses this execution plan, in ms.
+     * @description The time when the plan was loaded for the first time, in UTC +0.
      *
      * @example 288
      *
@@ -27,8 +27,6 @@ class SQLPlans extends Model
     public $avgExecutionTimeMS;
 
     /**
-     * @description The time when the plan was loaded for the first time, .
-     *
      * @example 1641492303000
      *
      * @var int
@@ -36,7 +34,7 @@ class SQLPlans extends Model
     public $firstLoadTime;
 
     /**
-     * @description The time when the plan was loaded for the first time, in UTC +0.
+     * @description Example 1
      *
      * @example 2022-01-06T18:05:03Z
      *
@@ -45,7 +43,7 @@ class SQLPlans extends Model
     public $firstLoadTimeUTCString;
 
     /**
-     * @description The number of hits.
+     * @description It is an Alibaba Cloud asset management and configuration tool, with which you can manage multiple Alibaba Cloud products and services by using commands. It is easy to use and a good helper in migration to cloud.
      *
      * @example 3
      *
@@ -54,7 +52,7 @@ class SQLPlans extends Model
     public $hitCount;
 
     /**
-     * @description The major compaction version.
+     * @description The unique identifier of the SQL execution plan in the diagnostic system.
      *
      * @example 132
      *
@@ -63,7 +61,7 @@ class SQLPlans extends Model
     public $mergedVersion;
 
     /**
-     * @description The IP address of the node.
+     * @description The complete execution plan of the SQL statement.
      *
      * @example i-bp16niirq4zdmgvm****
      *
@@ -72,7 +70,7 @@ class SQLPlans extends Model
     public $nodeIp;
 
     /**
-     * @description The outline data.
+     * @description The information about the plan.
      *
      * @example /*+ BEGIN_OUTLINE_DATA FULL(@\"SEL$1\" \"testdb1.bmsql_order_line\"@\"SEL$1\") END_OUTLINE_DATA*\/
      *
@@ -81,7 +79,7 @@ class SQLPlans extends Model
     public $outlineData;
 
     /**
-     * @description OutlineID.
+     * @description SQLID.
      *
      * @example -1
      *
@@ -90,7 +88,7 @@ class SQLPlans extends Model
     public $outlineId;
 
     /**
-     * @description The time when the plan was bound.
+     * @description The ID of the SQL execution plan in the database.
      *
      * @example 1641492303000
      *
@@ -99,7 +97,7 @@ class SQLPlans extends Model
     public $outlineTime;
 
     /**
-     * @description The time when the plan was bound, in UTC +0.
+     * @description The major compaction version.
      *
      * @example 2022-01-06T18:05:03Z
      *
@@ -108,7 +106,7 @@ class SQLPlans extends Model
     public $outlineTimeUTCString;
 
     /**
-     * @description The complete execution plan of the SQL statement.
+     * @description The information about the execution plan.
      *
      * @example PHY_TABLE_SCAN | bmsql_order_line | 40 ******
      *
@@ -117,7 +115,7 @@ class SQLPlans extends Model
     public $planFull;
 
     /**
-     * @description The ID of the SQL execution plan in the database.
+     * @description OutlineID.
      *
      * @example 9114
      *
@@ -126,8 +124,6 @@ class SQLPlans extends Model
     public $planId;
 
     /**
-     * @description The information about the plan.
-     *
      * @example PHY_TABLE_SCAN
      *
      * @var string
@@ -135,7 +131,7 @@ class SQLPlans extends Model
     public $planInfo;
 
     /**
-     * @description The unique identifier of the SQL execution plan in the diagnostic system.
+     * @description The return result of the request.
      *
      * @example 859ef7ee****b23ac98cdeb2476f****
      *
@@ -144,7 +140,7 @@ class SQLPlans extends Model
     public $planUnionHash;
 
     /**
-     * @description The query SQL statement.
+     * @description The request ID.
      *
      * @example SELECT ol_i_id, ***, *** FROM aaa
      *

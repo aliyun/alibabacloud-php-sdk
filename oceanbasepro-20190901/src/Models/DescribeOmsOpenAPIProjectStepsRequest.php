@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeOmsOpenAPIProjectStepsRequest extends Model
 {
     /**
-     * @description The page number, which takes effect in a pagination query.
+     * @description The read RT baseline of the source data source.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeOmsOpenAPIProjectStepsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The page size, which takes effect in a pagination query.
+     * @description The read/write RPS baseline of the destination data source.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class DescribeOmsOpenAPIProjectStepsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The project ID.
+     * @description The read/write RT baseline of the destination data source.
      *
      * @example p_abcdefj
      *
@@ -36,7 +36,7 @@ class DescribeOmsOpenAPIProjectStepsRequest extends Model
     public $projectId;
 
     /**
-     * @description The ID of the migration instance. Generally, if you want to create a project on a public cloud, you must first purchase a migration instance.
+     * @description The read RT baseline of the source data source.
      *
      * @example g_abcdefj***
      *

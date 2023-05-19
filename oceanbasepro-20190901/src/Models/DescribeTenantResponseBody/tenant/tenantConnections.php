@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tenantConnections extends Model
 {
     /**
-     * @description The type of the address.
+     * @description The primary zone of the tenant.
      *
      * @example MASTER
      *
@@ -18,8 +18,8 @@ class tenantConnections extends Model
     public $addressType;
 
     /**
-     * @description The service mode of the connection address. Valid values:
-     * - Clog: provides transaction log services.
+     * @description 是否开启事务拆分
+     *
      * @example ReadWrite
      *
      * @var string
@@ -27,7 +27,7 @@ class tenantConnections extends Model
     public $connectionRole;
 
     /**
-     * @description The list of zones corresponding to the tenant connection.
+     * @description The Internet address for accessing the tenant.
      *
      * @example ["cn-hangzhou-i", "cn-hangzhou-j"]
      *
@@ -36,7 +36,7 @@ class tenantConnections extends Model
     public $connectionZones;
 
     /**
-     * @description The Internet address for accessing the tenant.
+     * @description The ID of the VPC.
      *
      * @example t32a7ru5u****mo.oceanbase.aliyuncs.com
      *
@@ -45,8 +45,8 @@ class tenantConnections extends Model
     public $internetAddress;
 
     /**
-     * @description The status of the Internet address for accessing the tenant. Valid values:
-     * - ONLINE: The address is in service.
+     * @description 实例系列
+     *
      * @example CLOSED
      *
      * @var string
@@ -54,7 +54,7 @@ class tenantConnections extends Model
     public $internetAddressStatus;
 
     /**
-     * @description The Internet port for accessing the tenant.
+     * @description 实例类型
      *
      * @example 3306
      *
@@ -63,8 +63,8 @@ class tenantConnections extends Model
     public $internetPort;
 
     /**
-     * @description The intranet address for accessing the tenant.
-     *
+     * @description The deployment type of the cluster. Valid values:
+     * - dual: dual-IDC deployment
      * @example t32a7ru5u****.oceanbase.aliyuncs.com
      *
      * @var string
@@ -72,7 +72,7 @@ class tenantConnections extends Model
     public $intranetAddress;
 
     /**
-     * @description The primary zone corresponding to the address for accessing the tenant.
+     * @description PayCore business database
      *
      * @example cn-hangzhou-i
      *
@@ -81,7 +81,7 @@ class tenantConnections extends Model
     public $intranetAddressMasterZoneId;
 
     /**
-     * @description The standby zone corresponding to the address for accessing the tenant.
+     * @description The total number of CPU cores of the tenant.
      *
      * @example cn-hangzhou-j
      *
@@ -90,8 +90,8 @@ class tenantConnections extends Model
     public $intranetAddressSlaveZoneId;
 
     /**
-     * @description The status of the intranet address for accessing the tenant.
-     * The value ONLINE indicates that the address is in service.
+     * @description 付费类型
+     *
      * @example ONLINE
      *
      * @var string
@@ -99,7 +99,7 @@ class tenantConnections extends Model
     public $intranetAddressStatus;
 
     /**
-     * @description The intranet port for accessing the tenant.
+     * @description The ID of the tenant.
      *
      * @example 3306
      *
@@ -108,7 +108,7 @@ class tenantConnections extends Model
     public $intranetPort;
 
     /**
-     * @description Indicates whether to enable transaction splitting.
+     * @description The primary zone corresponding to the address for accessing the tenant.
      *
      * @example true
      *
@@ -117,7 +117,7 @@ class tenantConnections extends Model
     public $transactionSplit;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The connection access information of the tenant.
      *
      * @example vsw-bp11k1aypnzu1l3whi****
      *
@@ -126,8 +126,8 @@ class tenantConnections extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the VPC.
-     *
+     * @description The service mode of the connection address. Valid values:
+     * Clog: provides transaction log services.
      * @example vpc-bp1qiail1asmfe23t****
      *
      * @var string

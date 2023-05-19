@@ -9,8 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTenantUsersRequest extends Model
 {
     /**
-     * @description The number of the page to return.
-     * Start value: 1. Default value: 1.
+     * @description The database privileges of the account.
+     *
      * @example 1
      *
      * @var int
@@ -18,8 +18,8 @@ class DescribeTenantUsersRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of rows to return on each page.
-     * Maximum value: 100. Default value: 10.
+     * @description The return result of the request.
+     *
      * @example 10
      *
      * @var int
@@ -27,7 +27,7 @@ class DescribeTenantUsersRequest extends Model
     public $pageSize;
 
     /**
-     * @description The search keyword.
+     * @description The return result of the request.
      *
      * @example pay
      *
@@ -36,7 +36,7 @@ class DescribeTenantUsersRequest extends Model
     public $searchKey;
 
     /**
-     * @description The ID of the tenant.
+     * @description The return result of the request.
      *
      * @example ob2mr3oae0****
      *
@@ -45,8 +45,8 @@ class DescribeTenantUsersRequest extends Model
     public $tenantId;
 
     /**
-     * @description The name of the database account.
-     * You cannot use reserved keywords, such as SYS and root.
+     * @description The operation that you want to perform.
+     * Set the value to **DescribeTenantUsers**.
      * @example pay_test
      *
      * @var string
