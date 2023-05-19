@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnStagingIpResponseBody extends Model
 {
     /**
-     * @description The IPv4 addresses.format
-     *
      * @var IPV4s
      */
     public $IPV4s;

@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainHttpCodeDataByLayerRequest extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify multiple domain names and separate them with commas (,). You can specify up to 500 domain names in each request. The query results of multiple domain names are aggregated.
+     * @description The accelerated domain name. You can specify multiple domain names and separate them with commas (,). You can specify up to 500 domain names in each request. The query results of multiple domain names are aggregated. If you do not specify this parameter, data of all accelerated domain names under your account is queried.
      *
-     * If you do not specify a domain name, data of all domain names is queried.
      * @example example.com
      *
      * @var string
@@ -19,9 +18,9 @@ class DescribeDcdnDomainHttpCodeDataByLayerRequest extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time needs to be in UTC.
      *
-     * >  The end time must be later than the start time.
+     * > The end time needs to be later than the start time.
      * @example 2015-12-10T21:00:00Z
      *
      * @var string
@@ -29,9 +28,9 @@ class DescribeDcdnDomainHttpCodeDataByLayerRequest extends Model
     public $endTime;
 
     /**
-     * @description The time interval between the data entries to return. Unit: seconds.
+     * @description The time interval between the data entries. Unit: seconds.
      *
-     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Description**.
+     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
      * @example 300
      *
      * @var string
@@ -48,9 +47,8 @@ class DescribeDcdnDomainHttpCodeDataByLayerRequest extends Model
     public $ispNameEn;
 
     /**
-     * @description The layer at which you want to query the distribution of HTTP status codes. The network layer supports IPv4 and IPv6. The application layer supports http, https, and quic. You can also set the value to all.
+     * @description The layer at which you want to query the bandwidth data. The network layer supports IPv4 and IPv6. The application layer supports http, https, and quic. You can also set the value to all. Default value: all.
      *
-     * Default value: all.
      * @example all
      *
      * @var string
@@ -67,9 +65,8 @@ class DescribeDcdnDomainHttpCodeDataByLayerRequest extends Model
     public $locationNameEn;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time needs to be in UTC. The minimum data granularity is 5 minutes. If you do not set this parameter, data in the last 24 hours is queried.
      *
-     * If you do not set this parameter, data in the last 24 hours is queried.
      * @example 2015-12-10T20:00:00Z
      *
      * @var string

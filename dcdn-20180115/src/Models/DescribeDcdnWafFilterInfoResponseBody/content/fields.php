@@ -10,14 +10,16 @@ use AlibabaCloud\Tea\Model;
 class fields extends Model
 {
     /**
-     * @description The description of the match field. If this parameter is not returned or if this parameter is empty, the match field does not have a description.
+     * @description The description of the match field. This parameter is not returned or is empty if no match fields are found.
+     *
+     * @example Custom Header
      *
      * @var string
      */
     public $extendField;
 
     /**
-     * @description The information about the logical symbol.
+     * @description The logical operator.
      *
      * @var logicalSymbol[]
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserRealTimeDeliveryFieldResponseBody extends Model
 {
     /**
-     * @description The configuration results of the domain name.
+     * @description The data returned.
      *
      * @var content
      */

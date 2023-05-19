@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnReportListResponseBody extends Model
 {
     /**
-     * @description The information about the report that is queried.
-     *
      * @example "data": [{"reportId":2,"deliver":{"report":{"title":"DomainPvUv","format":"chart","shape":"line","xAxis":"ds","yAxis":"cnt","legend":"cnt_type","header":["ds","cnt_type","cnt"]}}}
      *
      * @var string
@@ -18,8 +16,6 @@ class DescribeDcdnReportListResponseBody extends Model
     public $content;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string

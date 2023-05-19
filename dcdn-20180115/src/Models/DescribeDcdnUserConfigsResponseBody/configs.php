@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
-     * @description The name of the configuration.
+     * @description The configuration returned.
      *
-     * The configuration that is specified by enterprise users and public service sectors.
      * @example allow_function
      *
      * @var string
@@ -36,7 +35,11 @@ class configs extends Model
     public $argValue;
 
     /**
-     * @description The configuration returned.
+     * @description The configuration that you want to query. Valid values:
+     *
+     *   domain_business_control: user configurations
+     *   bot_basic: the basic edition of bot traffic management, which supports authorized crawlers and provides threat intelligence
+     *   bot_Advance: the advanced edition of bot traffic management, which supports authorized crawlers and AI intelligent protection and provides threat intelligence
      *
      * @example domain_business_control
      *

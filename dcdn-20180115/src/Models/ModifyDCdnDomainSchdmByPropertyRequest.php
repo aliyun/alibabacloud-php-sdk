@@ -22,7 +22,7 @@ class ModifyDCdnDomainSchdmByPropertyRequest extends Model
      *
      *   **domestic**: Chinese mainland
      *   **overseas**: outside the Chinese mainland
-     *   **global**: all the countries around the world
+     *   **global**: global
      *
      * @example {"coverage":"overseas"}
      *

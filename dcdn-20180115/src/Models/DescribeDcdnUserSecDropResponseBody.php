@@ -20,8 +20,8 @@ class DescribeDcdnUserSecDropResponseBody extends Model
     /**
      * @description Indicates whether the information is found.
      *
-     *   Found: yes
-     *   Not Found: no
+     *   Found
+     *   Not Found
      *
      * @example Found
      *

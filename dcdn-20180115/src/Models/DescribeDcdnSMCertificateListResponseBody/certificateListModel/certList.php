@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class certList extends Model
 {
     /**
-     * @description The ID of the certificate.
-     *
      * @example yourCertldentifier
      *
      * @var string
@@ -18,8 +16,6 @@ class certList extends Model
     public $certIdentifier;
 
     /**
-     * @description The name of the certificate.
-     *
      * @example yourCertName
      *
      * @var string
@@ -27,8 +23,6 @@ class certList extends Model
     public $certName;
 
     /**
-     * @description The common name of the certificate.
-     *
      * @example yourCertCommon
      *
      * @var string
@@ -36,8 +30,6 @@ class certList extends Model
     public $common;
 
     /**
-     * @description The certificate authority (CA) that issued the certificate.
-     *
      * @example yourCertIssuer
      *
      * @var string

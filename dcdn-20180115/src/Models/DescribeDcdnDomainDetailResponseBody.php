@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainDetailResponseBody extends Model
 {
     /**
-     * @description The detailed information about the accelerated domain name.
+     * @description The information about the accelerated domain name.
      *
      * @var domainDetail
      */

@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateDcdnDeliverTaskRequest extends Model
 {
     /**
-     * @description The method that is used to send operations reports. Operations reports are sent to you only by email. The settings must be escaped in JSON.
+     * @description The ID of the request.
      *
-     * @example {"email":{"subject":"subject name","to":["username@example.com","username@example.com"]}}
+     * @example The operation that you want to perform. Set the value to **UpdateDcdnDeliverTask**.
      *
      * @var string
      */
     public $deliver;
 
     /**
-     * @description The ID of the tracking task that you want to update.
+     * @description Domain Subscription
      *
      * @example 92
      *
@@ -27,7 +27,7 @@ class UpdateDcdnDeliverTaskRequest extends Model
     public $deliverId;
 
     /**
-     * @description The domain names from which the tracking task collects data. Separate domain names with commas (,). If you do not specify a domain name, the task collects data from all domain names that belong to your Alibaba Cloud account.
+     * @description {"schedName":"subscription task name","description":"description","crontab":"000**?","frequency":"d","status":"enable","effectiveFrom": "2020-09-17T00:00:00Z","effectiveEnd":"2020-11-17T00:00:00Z"}
      *
      * @example www.example.com
      *
@@ -38,7 +38,7 @@ class UpdateDcdnDeliverTaskRequest extends Model
     /**
      * @description The name of the tracking task.
      *
-     * @example Domain Subscription
+     * @example [{\"reportId\":2,\"conditions\":[{\"field\":\"prov\",\"op\":\"in\",\"value\":[\ "Heilongjiang\",\"Beijing\"]}]}]
      *
      * @var string
      */
@@ -47,17 +47,37 @@ class UpdateDcdnDeliverTaskRequest extends Model
     /**
      * @description The operations reports that are tracked by the task. The data must be escaped in JSON.
      *
-     * @example [{\"reportId\":2,\"conditions\":[{\"field\":\"prov\",\"op\":\"in\",\"value\":[\ "Heilongjiang\",\"Beijing\"]}]}]
+     * @example The domain names from which the tracking task collects data. Separate domain names with commas (,). If you do not specify a domain name, the task collects data from all domain names that belong to your Alibaba Cloud account.
      *
      * @var string
      */
     public $reports;
 
     /**
-     * @description The parameters that specify the time interval at which the tracking task sends operations reports. The settings must be escaped in JSON.
+     * @description The method that is used to send operations reports. Operations reports are sent to you only by email. The settings must be escaped in JSON.
      *
-     * @example {"schedName":"subscription task name","description":"description","crontab":"000**?","frequency":"d","status":"enable","effectiveFrom": "2020-09-17T00:00:00Z","effectiveEnd":"2020-11-17T00:00:00Z"}
+     * @example **Fields of the Reports parameter**| Field | Type | Required | Description |
+     * | conditions | ConDatas[] | No | The filter conditions for the report. |
+     **Fields of the conditions parameter**| Field | Type | Required | Description |
+     * | field | String | No | The filter fields. |
+     * | op | String | No | The filter action. Only **in** is supported. |
+     * | value | String[] | No | The array of field values. |
+     **Fields of the Deliver parameter**| Field | Type | Required | Description |
+     * | to | String[] | Yes | The email addresses to which operations reports are sent. |
+     **Fields of the Schedule parameter**| Field | Type | Required | Description |
+     * | frequency | String | Yes | The interval at which the reports are sent. Valid values:
      *
+     **h**: every hour
+     *
+     **d**: every day
+     *
+     **w**: every week |
+     * | status | String | No | The status of the tracking task. Valid values:
+     *
+     **enable**: enabled
+     *
+     **disable**: disabled |
+     * | effectiveEnd | String | No | The end time of the tracking task. |
      * @var string
      */
     public $schedule;

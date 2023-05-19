@@ -19,7 +19,7 @@ class TagDcdnResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resources from which you want to detach tags. Set this value to **DOMAIN**.
+     * @description The type of the resource. Set the value to **DOMAIN**.
      *
      * @example DOMAIN
      *
@@ -28,7 +28,7 @@ class TagDcdnResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description Details about the tags.
+     * @description The tags.
      *
      * @var tag[]
      */

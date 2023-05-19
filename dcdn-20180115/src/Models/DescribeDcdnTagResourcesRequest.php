@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnTagResourcesRequest extends Model
 {
     /**
+     * @description The tags of the instance.
+     *
      * @example example.com
      *
      * @var string[]
@@ -17,7 +19,7 @@ class DescribeDcdnTagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource. Set the value to **DOMAIN**.
+     * @description The ID of the request.
      *
      * @example DOMAIN
      *
@@ -26,6 +28,8 @@ class DescribeDcdnTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

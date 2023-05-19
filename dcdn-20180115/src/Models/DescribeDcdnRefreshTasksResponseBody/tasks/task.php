@@ -31,7 +31,7 @@ class task extends Model
     public $description;
 
     /**
-     * @description The URL of the object to be refreshed.
+     * @description The URL of the object refreshed.
      *
      * @example http://example.com/examplefile.txt
      *
@@ -53,7 +53,7 @@ class task extends Model
     public $objectType;
 
     /**
-     * @description The progress of the task, in percentage.
+     * @description The progress of the task in percentage.
      *
      * @example 10
      *
@@ -64,7 +64,7 @@ class task extends Model
     /**
      * @description The status of the task.
      *
-     *   **Complete**: The task has completed.
+     *   **Complete**: The task is complete.
      *   **Refreshing**: The task is in progress.
      *   **Failed**: The task failed.
      *

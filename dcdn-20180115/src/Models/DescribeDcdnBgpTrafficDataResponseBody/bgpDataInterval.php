@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class bgpDataInterval extends Model
 {
     /**
-     * @description The inbound traffic. Unit: bytes.
-     *
      * @example 318
      *
      * @var int
@@ -18,8 +16,6 @@ class bgpDataInterval extends Model
     public $in;
 
     /**
-     * @description The outbound traffic. Unit: bytes.
-     *
      * @example 183
      *
      * @var int
@@ -27,8 +23,6 @@ class bgpDataInterval extends Model
     public $out;
 
     /**
-     * @description The timestamp of the data returned.
-     *
      * @example 2018-11-29T20:00:00Z
      *
      * @var string

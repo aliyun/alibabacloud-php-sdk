@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @description The timestamp of the data returned.
+     * @description The timestamp of the returned data.
      *
      * @example 2017-12-10T20:00:00Z
      *

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class infoItem extends Model
 {
     /**
-     * @description The district to which the country or region belongs.
+     * @description The larger region to which the country or region belongs.
      *
-     * @example middle East
+     * @example Middle East
      *
      * @var string
      */
@@ -29,7 +29,7 @@ class infoItem extends Model
     /**
      * @description The name of the country or region.
      *
-     * @example united arab emirates
+     * @example United Arab Emirates
      *
      * @var string
      */

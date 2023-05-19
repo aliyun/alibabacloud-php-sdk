@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnRefreshTasksRequest extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify only one domain name in each call.
+     * @description The accelerated domain name. You can specify only one domain name in each request.
      *
      * @example example.com
      *
@@ -20,7 +20,7 @@ class DescribeDcdnRefreshTasksRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2017-01-01T12:13:20Z
      *
      * @var string
@@ -43,7 +43,7 @@ class DescribeDcdnRefreshTasksRequest extends Model
      *   **directory**: directory-based refresh
      *   **preload**: URL-based prefetch
      *
-     * If you set the **DomainName** or **Status** parameter, you must also set this parameter.
+     * If you set **DomainName** or **Status**, you must also set this parameter.
      * @example file
      *
      * @var string
@@ -79,7 +79,7 @@ class DescribeDcdnRefreshTasksRequest extends Model
     public $securityToken;
 
     /**
-     * @description The start of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2017-01-01T12:12:20Z
      *
@@ -90,7 +90,7 @@ class DescribeDcdnRefreshTasksRequest extends Model
     /**
      * @description The status of the task.
      *
-     *   **Complete**: The task has completed.
+     *   **Complete**: The task is complete.
      *   **Refreshing**: The task is in progress.
      *   **Failed**: The task failed.
      *

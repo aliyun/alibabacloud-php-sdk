@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class certInfo extends Model
 {
     /**
-     * @description Indicates whether the CA certificate has been revoked. Valid values:
+     * @description Indicates whether the SSL certificate is obsolete. Valid values:
      *
-     *   **yes**: The certificate has been revoked.
-     *   **no**: The certificate is normal.
+     *   **yes**: The SSL certificate is obsolete.
+     *   **no**: The SSL certificate is working as expected.
      *
      * @example yes
      *
@@ -21,7 +21,7 @@ class certInfo extends Model
     public $certCaIsLegacy;
 
     /**
-     * @description The time when the certificate expires.
+     * @description The time at which the certificate expires.
      *
      * @example Nov 29 00:00:00 2016 GMT
      *
@@ -30,10 +30,10 @@ class certInfo extends Model
     public $certExpireTime;
 
     /**
-     * @description Indicates whether the certificate is expired. Valid values:
+     * @description Indicates whether the SSL certificate is expired. Valid values:
      *
-     *   **yes**: The certificate is expired.
-     *   **no**: The certificate is not expired.
+     *   **yes**: The SSL certificate is expired.
+     *   **no**: The SSL certificate is not expired.
      *
      * @example yes
      *
@@ -42,7 +42,7 @@ class certInfo extends Model
     public $certExpired;
 
     /**
-     * @description The time at which the certificate started to take effect.
+     * @description The time at which the certificate became effective.
      *
      * @example Nov 29 23:59:59 2017 GMT
      *
@@ -88,7 +88,7 @@ class certInfo extends Model
     public $domainNames;
 
     /**
-     * @description The certificate authority CA that issued the certificate.
+     * @description The certificate authority (CA) that issued the certificate.
      *
      * @example C=US, O=Symantec Corporation, OU=Symantec Trust Network, OU=Domain Validated SSL, CN=Symantec Basic DV SSL CA - G1
      *

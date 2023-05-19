@@ -53,7 +53,7 @@ class DescribeDcdnDomainRealTimeHttpCodeDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The start of the time range during which data was queried.
+     * @description The beginning of the time range during which data was queried.
      *
      * @example 2017-12-10T20:00:00Z
      *

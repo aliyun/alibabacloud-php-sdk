@@ -48,12 +48,12 @@ class domainDetail extends Model
     /**
      * @description The status of the accelerated domain name. Valid values:
      *
-     *   **online**: The domain name is enabled.
-     *   **offline**: The domain name is disabled.
-     *   **configuring**: The domain name is being configured.
-     *   **configure_failed**: The domain name failed to be configured.
-     *   **checking**: The domain name is under review.
-     *   **check_failed**: The domain name failed the review.
+     *   **online**: enabled
+     *   **offline**: disabled
+     *   **configuring**: configuring
+     *   **configure_failed**: configuration failed
+     *   **checking**: reviewing
+     *   **check_failed:** review failed
      *
      * @example online
      *
@@ -62,7 +62,7 @@ class domainDetail extends Model
     public $domainStatus;
 
     /**
-     * @description The time when the accelerated domain name was created.
+     * @description The creation time.
      *
      * @example 2017-11-27T06:51:26Z
      *
@@ -71,7 +71,7 @@ class domainDetail extends Model
     public $gmtCreated;
 
     /**
-     * @description The time when the accelerated domain name was last modified.
+     * @description The time when the domain name was last modified.
      *
      * @example 2017-11-27T06:51:26Z
      *
@@ -91,8 +91,8 @@ class domainDetail extends Model
     /**
      * @description Indicates whether the Security Socket Layer (SSL) certificate is enabled. Valid values:
      *
-     *   **on**: The SSL certificate is enabled.
-     *   **off**: The SSL certificate is disabled.
+     *   **on**
+     *   **off**.
      *
      * @example on
      *
@@ -101,7 +101,7 @@ class domainDetail extends Model
     public $SSLProtocol;
 
     /**
-     * @description Indicates the public key of the certificate if the HTTPS protocol is enabled.
+     * @description The public key of the certificate if HTTPS is enabled.
      *
      * @example SSLPub
      *
@@ -110,10 +110,10 @@ class domainDetail extends Model
     public $SSLPub;
 
     /**
-     * @description The accelerated region. Valid values:
+     * @description The acceleration region. Valid values:
      *
      *   domestic: Chinese mainland
-     *   overseas: global (excluding the Chinese mainland)
+     *   overseas: outside the Chinese mainland
      *   global: global
      *
      * @example overseas

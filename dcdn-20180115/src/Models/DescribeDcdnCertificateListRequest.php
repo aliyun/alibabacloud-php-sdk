@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnCertificateListRequest extends Model
 {
     /**
-     * @description The accelerated domain name. If you need to specify multiple accelerated domain names, separate them with commas (,).
+     * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
      *
      * By default, this operation queries the certificates of all accelerated domain names.
      * @example example.com

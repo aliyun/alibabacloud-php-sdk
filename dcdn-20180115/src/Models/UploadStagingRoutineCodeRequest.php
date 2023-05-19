@@ -18,7 +18,7 @@ class UploadStagingRoutineCodeRequest extends Model
     public $codeDescription;
 
     /**
-     * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
+     * @description The name of the routine. The name needs to be unique among the routines that belong to the same Alibaba Cloud account.
      *
      * @example test
      *

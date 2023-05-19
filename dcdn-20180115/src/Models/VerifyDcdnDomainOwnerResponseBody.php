@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class VerifyDcdnDomainOwnerResponseBody extends Model
 {
     /**
-     * @description The verification information.
+     * @description The verification result.
      *
      * @example verify_dffeb6610035dcb77b413a59c32cd9**
      *

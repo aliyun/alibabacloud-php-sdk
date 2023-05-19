@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDeletedDomainsRequest extends Model
 {
     /**
-     * @description The number of the page to return. Valid values: **1** to **100000**. Default value: **1**.
+     * @description The ID of the request.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeDcdnDeletedDomainsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of domain names to return per page. Valid values: an integer between **1** and **500**. Default value: **20**.
+     * @description The page number of the returned page, which is the same as the **PageNumber** parameter in request parameters.
      *
      * @example 5
      *

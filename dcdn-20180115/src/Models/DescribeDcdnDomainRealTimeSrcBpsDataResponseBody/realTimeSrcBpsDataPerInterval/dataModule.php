@@ -18,7 +18,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The bandwidth data during back-to-origin routing.
+     * @description The bandwidth value.
      *
      * @example 0
      *

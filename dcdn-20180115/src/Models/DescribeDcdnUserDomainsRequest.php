@@ -20,7 +20,7 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $changeEndTime;
 
     /**
-     * @description The start of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
      *
      * @example 2018-05-10T12:00:00Z
      *
@@ -32,7 +32,7 @@ class DescribeDcdnUserDomainsRequest extends Model
      * @description Specifies whether to display domain names that are under review, failed the review, or failed to be configured. Valid values:
      *
      *   true: displays domain names.
-     *   false: does not display domain names.
+     *   false: does not display detailed information.
      *
      * @example false
      *
@@ -44,7 +44,7 @@ class DescribeDcdnUserDomainsRequest extends Model
      * @description The acceleration region. By default, all acceleration regions are queried.
      *
      *   **domestic**: Chinese mainland
-     *   **overseas**: global (excluding the Chinese mainland)
+     *   **overseas**: outside the Chinese mainland
      *   **global**: global
      *
      * @example domestic
@@ -68,7 +68,7 @@ class DescribeDcdnUserDomainsRequest extends Model
      *   **fuzzy_match**: fuzzy match
      *   **pre_match**: prefix match
      *   **suf_match**: suffix match
-     *   **full_match**: exact match
+     *   **full_match** (default): exact match
      *
      * > If you specify the domain names to query but do not set the DomainSearchType parameter, the exact match mode is used.
      * @example fuzzy_match
@@ -99,7 +99,7 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Valid values: **1** to **100000**.
+     * @description The number of returned pages. Valid values: **1** to **100000**.
      *
      * @example 1
      *
@@ -131,7 +131,7 @@ class DescribeDcdnUserDomainsRequest extends Model
     public $securityToken;
 
     /**
-     * @description The tags of the domain names.
+     * @description The list of tags.
      *
      * @var tag[]
      */

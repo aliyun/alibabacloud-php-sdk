@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
-     * @description The type of the protection policy, which is the same as the DefenseScenes parameter in request parameters.
+     * @description The type of the protection policy. The value of this parameter is the same as that of the DefenseScenes parameter in the request.
      *
      * @example custom_acl
      *

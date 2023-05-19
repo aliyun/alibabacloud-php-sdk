@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The value of the tag. Valid values of N: **1** to **20**.
+     * @description The key of the tag. Valid values of N: **1** to **20**.
      *
      * @example env
      *

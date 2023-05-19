@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainWebsocketBpsDataResponseBody extends Model
 {
     /**
-     * @description The bandwidth values returned at each interval.
+     * @description The bandwidth data returned at each interval.
      *
      * @var bpsDataPerInterval
      */
@@ -53,7 +53,7 @@ class DescribeDcdnDomainWebsocketBpsDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which data was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2017-12-10T20:00:00Z
      *

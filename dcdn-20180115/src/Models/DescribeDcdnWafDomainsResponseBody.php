@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafDomainsResponseBody extends Model
 {
     /**
-     * @description The protected domain names.
+     * @description The protected domain name.
      *
      * @var domains[]
      */

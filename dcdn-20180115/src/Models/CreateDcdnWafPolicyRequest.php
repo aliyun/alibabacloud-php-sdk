@@ -9,14 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDcdnWafPolicyRequest extends Model
 {
     /**
-     * @description The type of the WAF protection policy. Valid values:
-     *
-     *   waf_group: basic web protection
-     *   custom_acl: custom protection
-     *   whitelist: IP address whitelist
-     *   ip_blacklist: IP address blacklist
-     *   region_block: region blacklist
-     *   bot: bot management
+     * @description The ID of the protection policy that you created.
      *
      * @example waf_group
      *
@@ -25,7 +18,7 @@ class CreateDcdnWafPolicyRequest extends Model
     public $defenseScene;
 
     /**
-     * @description The name of the protection policy. The name can be up to 64 characters in length and can contain letters, digits, and underscores (\_).
+     * @description The ID of the protection policy that you created.
      *
      * @example policy_test
      *
@@ -34,10 +27,8 @@ class CreateDcdnWafPolicyRequest extends Model
     public $policyName;
 
     /**
-     * @description The status of the protection policy. Valid values:
-     *
-     *   on: enabled
-     *   off: disabled
+     * @description >*   You can call this operation up to 20 times per second per account.
+     *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
      *
      * @example on
      *
@@ -46,10 +37,7 @@ class CreateDcdnWafPolicyRequest extends Model
     public $policyStatus;
 
     /**
-     * @description Specifies whether to set the current policy as the default policy. Valid values:
-     *
-     *   default: sets the current policy as the default policy.
-     *   custom: does not set the current policy as the default policy.
+     * @description The ID of the request.
      *
      * @example default
      *

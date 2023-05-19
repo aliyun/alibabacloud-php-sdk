@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafUsageDataRequest extends Model
 {
     /**
-     * @description The domain name that you want to query. If you do not specify an accelerated domain name, all accelerated domain names are queried by default.
+     * @description The timestamp of the data returned.
      *
      * @example example.com
      *
@@ -28,9 +28,8 @@ class DescribeDcdnWafUsageDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The time granularity for a query. Unit: seconds.
+     * @description The number of used SeCUs.
      *
-     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day).
      * @example 300
      *
      * @var string
@@ -38,10 +37,7 @@ class DescribeDcdnWafUsageDataRequest extends Model
     public $interval;
 
     /**
-     * @description Specifies how query results are grouped. By default, this parameter is empty. Valid values:
-     *
-     *   domain: Query results are grouped by accelerated domain name.
-     *   An empty string: Query results are not grouped.
+     * @description The WAF information about the accelerated domain name.
      *
      * @example domain
      *

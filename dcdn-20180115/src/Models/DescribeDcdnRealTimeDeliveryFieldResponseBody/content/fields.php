@@ -11,14 +11,14 @@ class fields extends Model
     /**
      * @description The description of the field.
      *
-     * @example interview time
+     * @example Access time
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the field. For more information about the fields in real-time log entries, see [Fields in a real-time log](~~324199~~).
+     * @description The name of the field. For more information about fields in real-time log entries, see [Fields in a real-time log](~~324199~~).
      *
      * @example unixtime
      *

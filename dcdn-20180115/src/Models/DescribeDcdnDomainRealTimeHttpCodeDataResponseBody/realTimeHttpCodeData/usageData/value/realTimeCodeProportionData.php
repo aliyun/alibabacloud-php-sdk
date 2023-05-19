@@ -18,7 +18,7 @@ class realTimeCodeProportionData extends Model
     public $code;
 
     /**
-     * @description The total number of entries.
+     * @description The count of each HTTP status code.
      *
      * @example 1
      *

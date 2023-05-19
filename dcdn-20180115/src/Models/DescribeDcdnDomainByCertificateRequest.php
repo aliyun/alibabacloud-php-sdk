@@ -19,10 +19,10 @@ class DescribeDcdnDomainByCertificateRequest extends Model
     public $SSLPub;
 
     /**
-     * @description Indicates the returned domain name list contains only domain names with HTTPS enabled or disabled.
+     * @description Specifies whether the domain name list to return contains only domain names with HTTPS enabled or disabled.
      *
      *   true: The list contains only domain names with HTTPS enabled.
-     *   false: The list contains only domain names with HTTPS disabled..
+     *   false: The list contains only domain names with HTTPS disabled.
      *
      * @example true
      *

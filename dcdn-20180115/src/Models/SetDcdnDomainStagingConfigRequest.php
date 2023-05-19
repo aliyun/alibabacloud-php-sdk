@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetDcdnDomainStagingConfigRequest extends Model
 {
     /**
-     * @description The accelerated domain names. Separate multiple accelerated domain names with commas (,).
+     * @description The ID of the request.
      *
      * @example example.com
      *
@@ -18,9 +18,8 @@ class SetDcdnDomainStagingConfigRequest extends Model
     public $domainName;
 
     /**
-     * @description The list of features. Specify the features in the following format:
+     * @description >  The maximum number of times that users can call this operation per second is 30.
      *
-     * >  Separate multiple parameters with commas (,).
      * @example [{\"functionArgs\":[{\"argName\":\"enable\",\"argValue\":\"on\",\"argName\":\"pri\",\"argValue\":\"1\",\"argName\":\"rule\",\"argValue\":\"xxx\"}],\"functionName\":\"edge_function\"}]
      *
      * @var string

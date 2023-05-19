@@ -11,8 +11,8 @@ class DescribeDcdnUserSecDropRequest extends Model
     /**
      * @description The date or month that you want to query.
      *
-     *   If data is collected every day, set the date in the format of yyyymmdd, such as 20201203.
-     *   If data is collected every month, set the month in the format of yyyymm, such as 202012.
+     *   If data is collected every day, set Data in the format of yyyymmdd, such as 20201203.
+     *   If data is collected every month, set Data in the format of yyyymm, such as 202012.
      *
      * @example 20201203
      *
@@ -38,7 +38,7 @@ class DescribeDcdnUserSecDropRequest extends Model
      *   waf: WAF
      *   tmd: rate limiting
      *   robot: bot traffic recognition
-     *   l4\_dm_drop: domain name blocking on Layer 4
+     *   l4\_dm_drop: domain name blocking at Layer 4
      *
      * @example waf
      *

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserConfigsResponseBody extends Model
 {
     /**
-     * @description The user configurations.
+     * @description >You can call this operation up to 30 times per second per account.
      *
      * @var configs[]
      */
     public $configs;
 
     /**
-     * @description The ID of the request.
+     * @description The configuration returned.
      *
      * @example 06D29681-B7CD-4034-A8CC-28AFFA213539
      *

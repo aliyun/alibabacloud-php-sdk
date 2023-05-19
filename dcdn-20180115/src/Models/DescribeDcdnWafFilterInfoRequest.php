@@ -12,10 +12,13 @@ class DescribeDcdnWafFilterInfoRequest extends Model
      * @description The type of the protection policy. Separate multiple types with commas (,). Valid values:
      *
      *   waf_group: basic web protection
-     *   custom_acl: custom
-     *   whitelist: whitelist
+     *   custom_acl: custom protection
+     *   whitelist: IP address whitelist
      *
-     * >  If you do not specify this parameter, all types are returned.
+     **
+     *
+     **If you do not specify this parameter, all types are returned.
+     *
      * @example custom_acl
      *
      * @var string
@@ -23,7 +26,7 @@ class DescribeDcdnWafFilterInfoRequest extends Model
     public $defenseScenes;
 
     /**
-     * @description The language of the returned information. Default value: en. Valid values:
+     * @description The language of the returned information. Valid values:
      *
      *   en: English
      *   cn: Simplified Chinese

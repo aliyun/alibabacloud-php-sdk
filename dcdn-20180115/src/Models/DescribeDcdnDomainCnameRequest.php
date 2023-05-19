@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainCnameRequest extends Model
 {
     /**
-     * @description The names of the accelerated domains. If you need to specify multiple accelerated domain names, separate them with commas (,).
+     * @description The accelerated domain name. Separate multiple domain names with commas (,).
      *
      * @example example.com,example.org
      *

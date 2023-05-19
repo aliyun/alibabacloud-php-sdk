@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListDcdnRealTimeDeliveryProjectRequest extends Model
 {
     /**
-     * @description The type of the collected logs. Valid values:
+     * @description The type of the collected logs. Default value: cdn_log_access_l1. Valid values:
      *
-     *   **cdn_log_access_l1**: access logs of Dynamic Route for CDN (DCDN) points of presence (POP)
+     *   **cdn_log_access_l1**: access logs of Dynamic Content Delivery Network (DCDN) points of presence (POPs)
      *   **cdn_log_origin**: back-to-origin logs
      *   **cdn_log_er**: EdgeRoutine logs
      *   By default, this parameter is left empty, and all logs are returned.

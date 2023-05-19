@@ -27,7 +27,7 @@ class billingDataItem extends Model
     public $cdnRegion;
 
     /**
-     * @description The billing type. Valid values: **StaticHttp**, **DynamicHttp**, and **DynamicHttps**.
+     * @description The billing method of the disk. Valid values: Valid values: **StaticHttp**, **DynamicHttp**, and **DynamicHttps**.
      *
      * @example DynamicHttp
      *
@@ -45,7 +45,7 @@ class billingDataItem extends Model
     public $count;
 
     /**
-     * @description The traffic. Unit: byte.
+     * @description The amount of network traffic. Unit: bytes.
      *
      * @example 2456
      *

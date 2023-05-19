@@ -9,15 +9,6 @@ use AlibabaCloud\Tea\Model;
 class BatchSetDcdnDomainConfigsRequest extends Model
 {
     /**
-     * @description The accelerated domain names. Specify multiple accelerated domain names with commas (,).
-     *
-     * @example example.com,example.org
-     *
-     * @var string
-     */
-    public $domainNames;
-
-    /**
      * @description The features that you want to configure. Format:
      *
      * >
@@ -26,6 +17,15 @@ class BatchSetDcdnDomainConfigsRequest extends Model
      *   **argValue**: The parameter values set for **functionName**.
      *
      * ]
+     * @example example.com,example.org
+     *
+     * @var string
+     */
+    public $domainNames;
+
+    /**
+     * @description The ID of the request.
+     *
      * @example [{"functionArgs":[{"argName":"switch","argValue":"on"},{"argName":"region","argValue":"*"}],"functionName":"ipv6"}]
      *
      * @var string

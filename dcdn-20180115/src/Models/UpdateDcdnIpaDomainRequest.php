@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateDcdnIpaDomainRequest extends Model
 {
     /**
-     * @description The accelerated domain name that you want to modify. You can specify only one domain name in each call.
-     *
      * @example example.com
      *
      * @var string
@@ -23,8 +21,6 @@ class UpdateDcdnIpaDomainRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
-     *
      * @example rg-acfmyuji4b6r4**
      *
      * @var string
@@ -37,8 +33,6 @@ class UpdateDcdnIpaDomainRequest extends Model
     public $securityToken;
 
     /**
-     * @description The list of origin URLs.
-     *
      * @example [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
      *
      * @var string
@@ -46,8 +40,6 @@ class UpdateDcdnIpaDomainRequest extends Model
     public $sources;
 
     /**
-     * @description The top-level domain name.
-     *
      * @example example.edu
      *
      * @var string

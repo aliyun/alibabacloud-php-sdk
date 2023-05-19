@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafDomainResponseBody extends Model
 {
     /**
-     * @description Details about the accelerated domain names.
+     * @description The accelerated domain name.
      *
      * @var outPutDomains[]
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBody extends Model
 {
     /**
-     * @description The time interval between the data entries returned. Unit: seconds.
+     * @description The HTTP status code.
      *
      * @example 60
      *
@@ -19,7 +19,7 @@ class DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The accelerated domain name.
+     * @description The proportions of HTTP status codes.
      *
      * @example example.com,example.org
      *
@@ -28,9 +28,8 @@ class DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range during which data was queried.
+     * @description The time interval between the data entries returned. Unit: seconds.
      *
-     * The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
      * @example 2019-11-30T05:40:00Z
      *
      * @var string
@@ -38,14 +37,14 @@ class DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The proportions of HTTP status codes at each time interval.
+     * @description The proportion of the HTTP status code.
      *
      * @var realTimeSrcHttpCodeData
      */
     public $realTimeSrcHttpCodeData;
 
     /**
-     * @description The ID of the request.
+     * @description The timestamp of the data returned.
      *
      * @example BC858082-736F-4A25-867B-E5B67C85ACF7
      *
@@ -54,9 +53,8 @@ class DescribeDcdnDomainRealTimeSrcHttpCodeDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which data was queried.
+     * @description The proportions of HTTP status codes at each time interval.
      *
-     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      * @example 2019-11-30T05:33:00Z
      *
      * @var string

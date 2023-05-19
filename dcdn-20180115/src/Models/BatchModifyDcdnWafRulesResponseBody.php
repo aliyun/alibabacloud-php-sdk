@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class BatchModifyDcdnWafRulesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example CB1A380B-09F0-41BB-XXXX-72F8FD6DA2FE
      *
      * @var string

@@ -9,6 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainUsageDataRequest extends Model
 {
     /**
+     * @description The type of data that you want to query. Valid values:
+     *
+     *   **bps**: bandwidth
+     *   **traf**: traffic
+     *   **acc**: requests
+     *
+     * > If the value is set to **acc**, the **Area** parameter is not supported.
+     * @example CN
+     *
+     * @var string
+     */
+    public $area;
+
+    /**
      * @description The billable region. Valid values:
      *
      *   **CN**: Chinese mainland
@@ -23,11 +37,40 @@ class DescribeDcdnDomainUsageDataRequest extends Model
      *   **all**: all the preceding billable regions
      *
      * Default value: **CN**
-     * @example CN
+     * @example all
      *
      * @var string
      */
-    public $area;
+    public $dataProtocol;
+
+    /**
+     * @description domainName
+     *
+     * @example example.com
+     *
+     * @var string
+     */
+    public $domainName;
+
+    /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * > The minimum time granularity at which the data is queried is 5 minutes.
+     * @example 2015-12-10T22:00:00Z
+     *
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * > The end time must be later than the start time. The maximum time range that can be queried is 31 days.
+     * @example bps
+     *
+     * @var string
+     */
+    public $field;
 
     /**
      * @description The protocol of the data that you want query. Valid values:
@@ -38,50 +81,6 @@ class DescribeDcdnDomainUsageDataRequest extends Model
      *   **all**: HTTP, HTTPS, and QUIC
      *
      * Default value: **all**
-     * @example all
-     *
-     * @var string
-     */
-    public $dataProtocol;
-
-    /**
-     * @description The accelerated domain name. You can specify up to 100 domain names in each request. Separate multiple domain names with commas (,).
-     *
-     * > If you do not specify this parameter, the usage data of all accelerated domain names that belong to your Alibaba Cloud account is returned.
-     * @example example.com
-     *
-     * @var string
-     */
-    public $domainName;
-
-    /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-     *
-     * > The end time must be later than the start time. The maximum time range that can be queried is 31 days.
-     * @example 2015-12-10T22:00:00Z
-     *
-     * @var string
-     */
-    public $endTime;
-
-    /**
-     * @description The type of data that you want to query. Valid values:
-     *
-     *   **bps**: bandwidth
-     *   **traf**: traffic
-     *   **acc**: requests
-     *
-     * > If the value is set to **acc**, the **Area** parameter is not supported.
-     * @example bps
-     *
-     * @var string
-     */
-    public $field;
-
-    /**
-     * @description The time interval between the data entries to return. Unit: seconds.
-     *
-     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
      * @example 300
      *
      * @var string
@@ -89,9 +88,9 @@ class DescribeDcdnDomainUsageDataRequest extends Model
     public $interval;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The accelerated domain name. You can specify up to 100 domain names in each request. Separate multiple domain names with commas (,).
      *
-     * > The minimum time granularity at which the data is queried is 5 minutes.
+     * > If you do not specify this parameter, the usage data of all accelerated domain names that belong to your Alibaba Cloud account is returned.
      * @example 2015-12-10T20:00:00Z
      *
      * @var string

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainConfigsRequest extends Model
 {
     /**
-     * @description The ID of the configuration.
-     *
      * @example 5003576
      *
      * @var string
@@ -18,8 +16,6 @@ class DescribeDcdnDomainConfigsRequest extends Model
     public $configId;
 
     /**
-     * @description The accelerated domain name. You can specify only one domain name in each call.
-     *
      * @example example.com
      *
      * @var string
@@ -27,8 +23,6 @@ class DescribeDcdnDomainConfigsRequest extends Model
     public $domainName;
 
     /**
-     * @description The names of the features to query. Separate features with commas (,).
-     *
      * @example filetype_based_ttl_set,set_req_host_header
      *
      * @var string

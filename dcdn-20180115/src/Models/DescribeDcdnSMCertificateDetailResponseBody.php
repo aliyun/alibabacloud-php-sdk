@@ -72,7 +72,7 @@ class DescribeDcdnSMCertificateDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The subdomain name.
+     * @description The domain name on the additional certificate.
      *
      * @example ***.example.com
      *

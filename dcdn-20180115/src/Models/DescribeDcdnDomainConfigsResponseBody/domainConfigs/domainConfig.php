@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class domainConfig extends Model
 {
     /**
-     * @description The ID of the configuration.
-     *
      * @example 5068995
      *
      * @var string
@@ -19,15 +17,11 @@ class domainConfig extends Model
     public $configId;
 
     /**
-     * @description The configurations of the features.
-     *
      * @var functionArgs
      */
     public $functionArgs;
 
     /**
-     * @description The name of the feature.
-     *
      * @example set_req_host_header
      *
      * @var string
@@ -35,8 +29,6 @@ class domainConfig extends Model
     public $functionName;
 
     /**
-     * @description The ID of the advanced condition configuration.
-     *
      * @example 1234567
      *
      * @var string
@@ -44,13 +36,8 @@ class domainConfig extends Model
     public $parentId;
 
     /**
-     * @description The status of the configuration. Valid values:
-     *
-     *   **success**
-     *   **testing**
-     *   **failed**
-     *   **configuring**
-     *
+     * @description *   ****
+     *   ****
      * @example success
      *
      * @var string

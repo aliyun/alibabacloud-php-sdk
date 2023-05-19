@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class billHistoryDataItem extends Model
 {
     /**
-     * @description The start time of the billing cycle.
+     * @description The beginning of the time range that was queried.
      *
      * @example 2018-09-30T17:00:00Z
      *
@@ -19,7 +19,7 @@ class billHistoryDataItem extends Model
     public $billTime;
 
     /**
-     * @description The billing method.
+     * @description The metering method.
      *
      * @example month_4th_day_bandwidth
      *
@@ -28,7 +28,7 @@ class billHistoryDataItem extends Model
     public $billType;
 
     /**
-     * @description The billing data.
+     * @description The billable items.
      *
      * @var billingData
      */

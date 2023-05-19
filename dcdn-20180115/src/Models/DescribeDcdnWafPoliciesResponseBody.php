@@ -28,7 +28,7 @@ class DescribeDcdnWafPoliciesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The protection policies.
+     * @description The information about protection policies.
      *
      * @var policies[]
      */

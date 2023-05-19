@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetDcdnDomainSMCertificateRequest extends Model
 {
     /**
-     * @description The identifier of the certificate. The value must be Certificate ID-cn-hangzhou. If the ID of the certificate is 123, CertIdentifier is set to 123-cn-hangzhou.
+     * @description The identifier of the certificate. The value is Certificate ID-cn-hangzhou. If the ID of the certificate is 123, CertIdentifier is set to 123-cn-hangzhou.
      *
      * @example 123-cn-hangzhou
      *
@@ -20,7 +20,7 @@ class SetDcdnDomainSMCertificateRequest extends Model
     /**
      * @description The accelerated domain name for which the SM certificate is configured.
      *
-     * >  HTTPS acceleration must be enabled for the accelerated domain name.
+     * > The domain name must have HTTPS secure acceleration enabled.
      * @example example.com
      *
      * @var string

@@ -11,7 +11,7 @@ class DescribeDcdnDeliverListResponseBody extends Model
     /**
      * @description The information about the tracking task.
      *
-     * @example "data": [{"deliverId": 1,"status": "enable","createTime": "2021-06-14T11:19:26Z","crontab": "0 0 0 * * ?"," frequency": "d","name": "Domain Subscription","dmList": ["www.example.com"],"reports": [{"reportId": 1,"conditions": [{"op ": "in","field": "prov","value": ["Heilongjiang","Beijing"]}]},{"reportId": 2}],"deliver": {"email": { "subject": "subject","to": ["username@example.com","username@example.org"],"copy":["username@example.com","username@example.org" ]}}}]}
+     * @example "data": \[{"deliverId": 1,"status": "enable","createTime": "2021-06-14T11:19:26Z","crontab": "0 0 0 \* \* ?","frequency": "d","name": "Domain name report","dmList": \["www.example.com"],"reports": \[{"reportId": 1,"conditions": \[{"op": "in","field": "prov","value": \["Heilongjiang","Beijing"]}]},{"reportId": 2}],"deliver": {"email": {"subject": "subject","to": \["username@example.com","username@example.org"],"copy":\["username@example.com","username@example.org"]}}}]}
      *
      * @var string
      */

@@ -62,7 +62,7 @@ class pageData extends Model
     public $domainStatus;
 
     /**
-     * @description The time when the accelerated domain name was added.
+     * @description The time when the accelerated domain name was added to Dynamic Content Delivery Network (DCDN).
      *
      * @example 2015-10-28T11:05:50Z
      *
@@ -89,7 +89,7 @@ class pageData extends Model
     public $resourceGroupId;
 
     /**
-     * @description Indicates whether HTTPS is enabled.
+     * @description The status of HTTPS.
      *
      *   **on**
      *   **off**

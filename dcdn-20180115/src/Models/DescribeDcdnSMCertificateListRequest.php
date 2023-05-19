@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnSMCertificateListRequest extends Model
 {
     /**
-     * @description The accelerated domain name whose SM certificates you want to query.
-     *
      * @example example.com
      *
      * @var string

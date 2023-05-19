@@ -21,7 +21,7 @@ class DescribeDcdnDomainWebsocketBpsDataRequest extends Model
     /**
      * @description The end of the time range to query.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2017-12-10T21:00:00Z
      *
      * @var string
@@ -29,9 +29,9 @@ class DescribeDcdnDomainWebsocketBpsDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The time interval between the data entries to return. Unit: seconds.
+     * @description The time granularity for a query. Unit: seconds.
      *
-     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Description**.
+     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
      * @example 300
      *
      * @var string

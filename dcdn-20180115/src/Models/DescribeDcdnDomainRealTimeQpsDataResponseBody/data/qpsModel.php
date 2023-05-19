@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class qpsModel extends Model
 {
     /**
-     * @description The QPS data.
+     * @description The name of the Internet service provider (ISP).
      *
+     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query ISPs.
      * @example 1851.25
      *
      * @var float
@@ -18,7 +19,7 @@ class qpsModel extends Model
     public $qps;
 
     /**
-     * @description The timestamp of the data returned. The time follows the ISO 8601 standard. The time is displayed in UTC.
+     * @description The QPS data.
      *
      * @example 2018-01-02T11:26:00Z
      *

@@ -11,7 +11,7 @@ class fields extends Model
     /**
      * @description The description of the field.
      *
-     * @example interview time
+     * @example The timestamp of the request
      *
      * @var string
      */
@@ -27,10 +27,10 @@ class fields extends Model
     public $fieldName;
 
     /**
-     * @description Indicates whether a field was selected.
+     * @description Indicates whether the field was selected.
      *
-     *   **true**: The field was selected.
-     *   **false**: The field was not selected.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

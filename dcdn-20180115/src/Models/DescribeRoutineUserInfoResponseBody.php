@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoutineUserInfoResponseBody extends Model
 {
     /**
-     * @description The content returned by calling the operation.
+     * @description The ID of the request.
      *
      * @var mixed[]
      */
     public $content;
 
     /**
-     * @description The ID of the request.
+     * @description The operation that you want to perform. Set the value to **DescribeRoutineUserInfo**.
      *
      * @example 691DEEE5-4BDB-47F3-930E-F57176427717
      *

@@ -29,7 +29,7 @@ class DescribeDcdnDomainBpsDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The time granularity for a query. Unit: seconds.
+     * @description The time granularity of the data entries. Unit: seconds.
      *
      * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
      * @example 300
@@ -41,7 +41,7 @@ class DescribeDcdnDomainBpsDataRequest extends Model
     /**
      * @description The name of the Internet service provider (ISP).
      *
-     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query ISPs.
+     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query ISPs. If you do not specify an ISP, bandwidth data of all ISPs is queried.
      * @example beijing
      *
      * @var string
@@ -51,7 +51,7 @@ class DescribeDcdnDomainBpsDataRequest extends Model
     /**
      * @description The name of the region.
      *
-     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query regions.
+     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query regions. If you do not specify a region, bandwidth data in all regions is queried.
      * @example unicom
      *
      * @var string

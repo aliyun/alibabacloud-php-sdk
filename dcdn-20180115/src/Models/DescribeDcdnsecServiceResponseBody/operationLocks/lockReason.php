@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class lockReason extends Model
 {
     /**
-     * @description The reason why secure DCDN was locked.
+     * @description The reason why the instance was locked.
      *
      * @example financial
      *

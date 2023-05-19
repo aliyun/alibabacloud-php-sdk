@@ -18,7 +18,7 @@ class DescribeDcdnWafServiceResponseBody extends Model
     public $edition;
 
     /**
-     * @description The activation status of WAF. Valid values:
+     * @description The status of WAF. Valid values:
      *
      *   on
      *   off
@@ -39,7 +39,7 @@ class DescribeDcdnWafServiceResponseBody extends Model
     public $openingTime;
 
     /**
-     * @description The billing method for requests.
+     * @description The metering method for requests.
      *
      * @example dcdn_waf_req
      *
@@ -57,7 +57,7 @@ class DescribeDcdnWafServiceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The billing method for rules. You are charged for the number of SeCUs.
+     * @description The metering method for rules. You are charged for the number of SeCUs.
      *
      * @example dcdn_waf_rule
      *

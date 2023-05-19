@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The CNAME.
+     * @description The CNAME assigned to the domain name.
      *
      * @example *.com
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $cname;
 
     /**
-     * @description The name of the accelerated domain returned.
+     * @description The accelerated domain name.
      *
      * @example .example.com
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $domain;
 
     /**
-     * @description The configuration status of the CNAME record. If the operations returns 0 for the parameter, the configuration was successful. Otherwise, the configuration failed.
+     * @description The configuration status of the CNAME record. If the operation returns 0 for the parameter, the configuration was successful. Otherwise, the configuration failed.
      *
      * @example 0
      *

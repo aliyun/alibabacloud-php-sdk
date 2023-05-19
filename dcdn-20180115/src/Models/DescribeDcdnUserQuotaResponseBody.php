@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserQuotaResponseBody extends Model
 {
     /**
-     * @description The maximum number of URLs that can be blocked.
-     *
      * @example 20
      *
      * @var int
@@ -18,8 +16,6 @@ class DescribeDcdnUserQuotaResponseBody extends Model
     public $blockQuota;
 
     /**
-     * @description The remaining number of URLs that can be blocked.
-     *
      * @example 500
      *
      * @var int
@@ -27,8 +23,6 @@ class DescribeDcdnUserQuotaResponseBody extends Model
     public $blockRemain;
 
     /**
-     * @description The maximum number of accelerated domains.
-     *
      * @example 50
      *
      * @var int
@@ -46,8 +40,6 @@ class DescribeDcdnUserQuotaResponseBody extends Model
     public $ignoreParamsRemain;
 
     /**
-     * @description The maximum number of URLs that can be prefetched.
-     *
      * @example 500
      *
      * @var int
@@ -55,8 +47,6 @@ class DescribeDcdnUserQuotaResponseBody extends Model
     public $preloadQuota;
 
     /**
-     * @description The remaining number of URLs that can be prefetched.
-     *
      * @example 300
      *
      * @var int
@@ -64,8 +54,6 @@ class DescribeDcdnUserQuotaResponseBody extends Model
     public $preloadRemain;
 
     /**
-     * @description The maximum number of directories that can be refreshed.
-     *
      * @example 100
      *
      * @var int
@@ -73,8 +61,6 @@ class DescribeDcdnUserQuotaResponseBody extends Model
     public $refreshDirQuota;
 
     /**
-     * @description The remaining number of directories that can be refreshed.
-     *
      * @example 100
      *
      * @var int
@@ -82,8 +68,6 @@ class DescribeDcdnUserQuotaResponseBody extends Model
     public $refreshDirRemain;
 
     /**
-     * @description The maximum number of URLs that can be refreshed.
-     *
      * @example 100
      *
      * @var int
@@ -91,8 +75,6 @@ class DescribeDcdnUserQuotaResponseBody extends Model
     public $refreshUrlQuota;
 
     /**
-     * @description The remaining number of URLs that can be refreshed.
-     *
      * @example 100
      *
      * @var int
@@ -100,8 +82,6 @@ class DescribeDcdnUserQuotaResponseBody extends Model
     public $refreshUrlRemain;
 
     /**
-     * @description The ID of the request.
-     *
      * @example BFFCDFAD-DACC-484E-9BE6-0AF3B3A0DD23
      *
      * @var string

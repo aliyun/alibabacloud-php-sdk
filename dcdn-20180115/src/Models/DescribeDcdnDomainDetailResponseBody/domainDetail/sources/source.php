@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
-     * @description The origin address.
+     * @description The address of the origin server.
      *
      * @example example.org
      *
@@ -18,7 +18,7 @@ class source extends Model
     public $content;
 
     /**
-     * @description The status of the origin server.
+     * @description The status.
      *
      * @example online
      *
@@ -27,7 +27,7 @@ class source extends Model
     public $enabled;
 
     /**
-     * @description The port over which back-to-origin requests are transmitted. Ports 443 and 80 are supported.
+     * @description The port over which requests are redirected to the origin server. Ports 443 and 80 are supported.
      *
      * @example 80
      *
@@ -36,7 +36,7 @@ class source extends Model
     public $port;
 
     /**
-     * @description The priority of the origin server.
+     * @description The priority.
      *
      * @example 50
      *
@@ -45,11 +45,11 @@ class source extends Model
     public $priority;
 
     /**
-     * @description The type of origin server. Valid values:
+     * @description The type of the origin server. Valid values:
      *
-     *   **ipaddr**: the IP address of the origin server.
-     *   **domain**: the domain name of the origin server.
-     *   **oss**: the URL of an Object Storage Service (OSS) bucket.
+     *   **ipaddr**: an origin IP address
+     *   **domain**: an origin domain name
+     *   **oss**: the domain name of an Object Storage Service (OSS) bucket
      *
      * @example oss
      *

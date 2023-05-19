@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class OpenDcdnServiceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The metering method of DCDN. Valid values:
+     *
+     *   **PayByTraffic**: pay-by-traffic
+     *   **PayByBandwidth**: pay-by-bandwidth
      *
      * @example 97C68796-EB7F-4D41-9D5B-12B909D76503
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafUsageDataResponseBody extends Model
 {
     /**
-     * @description The end of the time range during which data was queried.
+     * @description The operation that you want to perform. Set the value to **DescribeDcdnWafUsageData**.
      *
      * @example 2018-10-01T16:00:00Z
      *
@@ -19,7 +19,10 @@ class DescribeDcdnWafUsageDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies how query results are grouped. By default, this parameter is empty. Valid values:
+     *
+     *   domain: Query results are grouped by accelerated domain name.
+     *   An empty string: Query results are not grouped.
      *
      * @example CB1A380B-09F0-41BB-802B-72F8FD6DA2FE
      *
@@ -28,7 +31,7 @@ class DescribeDcdnWafUsageDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which data was queried.
+     * @description The accelerated domain name.
      *
      * @example 2018-09-30T16:00:00Z",
      *
@@ -37,7 +40,7 @@ class DescribeDcdnWafUsageDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The WAF information about the accelerated domain name.
+     * @description The number of monitored requests.
      *
      * @var wafUsageData
      */

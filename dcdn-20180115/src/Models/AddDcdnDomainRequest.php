@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AddDcdnDomainRequest extends Model
 {
     /**
-     * @description The URL that is used to check the accessibility of the origin server.
+     * @description The URL that is used for health checks.
      *
      * @example example.com
      *
@@ -51,7 +51,7 @@ class AddDcdnDomainRequest extends Model
      * @description The acceleration region. Valid values:
      *
      *   **domestic**: Chinese mainland
-     *   **overseas**: global (excluding the Chinese mainland)
+     *   **overseas**: outside the Chinese mainland
      *   **global**: global
      *
      * Default value: **domestic**.

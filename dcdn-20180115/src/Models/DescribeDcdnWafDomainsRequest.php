@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafDomainsRequest extends Model
 {
     /**
-     * @description The page number of the returned page. Valid values: **1** to **100000**.
+     * @description The number of the page to return. Valid values: **1** to **100000**.
      *
      * Default value: **1**.
      * @example 1
@@ -19,7 +19,7 @@ class DescribeDcdnWafDomainsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of domain names to return per page. Valid values: an integer from **1** to **500**. Default value: **20**.
+     * @description The number of domain names to return on each page. Valid values: an integer from **1** to **500**. Default value: **20**.
      *
      * @example 20
      *
@@ -28,9 +28,8 @@ class DescribeDcdnWafDomainsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The query conditions. You can filter domain names by name. Fuzzy match is supported
+     * @description The query conditions. You can filter domain names by name. Fuzzy match is supported `QueryArgs={"DomainName":"Accelerated domain name"}`
      *
-     * QueryArgs={"DomainName":"Accelerated domain name"}
      * @example {"DomainName":"example.com"}
      *
      * @var string

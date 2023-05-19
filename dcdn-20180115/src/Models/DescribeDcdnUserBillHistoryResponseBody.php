@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserBillHistoryResponseBody extends Model
 {
     /**
-     * @description The billing records.
+     * @description The billing history returned.
      *
      * @var billHistoryData
      */

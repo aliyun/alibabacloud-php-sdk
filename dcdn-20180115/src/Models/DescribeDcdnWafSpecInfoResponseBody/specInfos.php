@@ -20,8 +20,8 @@ class specInfos extends Model
      * @description The type of the protection policy. Valid values:
      *
      *   waf_group: basic web protection
-     *   custom_acl: custom protection
-     *   whitelist: IP address whitelist
+     *   custom_acl: custom
+     *   whitelist: whitelist
      *   ip_blacklist: IP address blacklist
      *   region_block: region blacklist
      *   bot: bot management

@@ -19,7 +19,7 @@ class DeleteDcdnSpecificStagingConfigRequest extends Model
     public $configId;
 
     /**
-     * @description The name of the accelerated domain. You can specify only one domain name.
+     * @description The accelerated domain name. You can specify only one domain name in each call.
      *
      * @example example.com
      *

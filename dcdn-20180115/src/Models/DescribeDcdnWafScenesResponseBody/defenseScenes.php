@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class defenseScenes extends Model
 {
     /**
-     * @description The type of the protection policy, which is the same as the DefenseScenes parameter in request parameters.
+     * @description The types of the protection policies.
      *
      * @example waf_group
      *
@@ -18,7 +18,7 @@ class defenseScenes extends Model
     public $defenseScene;
 
     /**
-     * @description The total number of policies of this type that were configured.
+     * @description The total number of protection rules that were configured in this type of the policy.
      *
      * @example 10
      *
@@ -27,8 +27,16 @@ class defenseScenes extends Model
     public $policyCount;
 
     /**
-     * @description The total number of protection rules that were configured in this type of the policy.
+     * @description The types of the protection policies that you want to query. Separate multiple types with commas (,). Valid values:
      *
+     *   waf_group: basic web protection
+     *   custom_acl: custom protection
+     *   whitelist: IP address whitelist
+     *   ip_blacklist: IP address blacklist
+     *   region_block: region blacklist
+     *   bot: bot management
+     *
+     * >  If you do not set this parameter, all types of protection policies are queried.
      * @example 12
      *
      * @var int

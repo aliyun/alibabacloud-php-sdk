@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class bpsModel extends Model
 {
     /**
-     * @description The bandwidth, in bit/s.
-     *
      * @example 16710625.733333332
      *
      * @var float
@@ -18,8 +16,6 @@ class bpsModel extends Model
     public $bps;
 
     /**
-     * @description The timestamp of the data returned. The time follows the ISO 8601 standard. The time is displayed in UTC.
-     *
      * @example 2018-01-02T11:05:00Z
      *
      * @var string

@@ -11,7 +11,10 @@ class rule extends Model
     /**
      * @description The type of the protection policy. Valid values:
      *
-     * - whitelist: whitelist
+     *   waf_group: basic web protection
+     *   custom_acl: custom protection
+     *   whitelist: IP address whitelist
+     *
      * @example custom_acl
      *
      * @var string
@@ -19,7 +22,7 @@ class rule extends Model
     public $defenseScene;
 
     /**
-     * @description The time at which the protection rule was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the scaling group was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2021-12-29T17:08:45Z
      *
@@ -66,7 +69,9 @@ class rule extends Model
     /**
      * @description The status of the protection rule. Valid values:
      *
-     * - off
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string

@@ -18,10 +18,10 @@ class VerifyDcdnDomainOwnerRequest extends Model
     public $domainName;
 
     /**
-     * @description The verification method, value:
+     * @description The verification method. Valid values:
      *
-     *   dnsCheck: DNS verification
-     *   fileCheck: File verification
+     *   **dnsCheck**: by DNS record
+     *   **fileCheck**: by verification file
      *
      * @example dnsCheck
      *

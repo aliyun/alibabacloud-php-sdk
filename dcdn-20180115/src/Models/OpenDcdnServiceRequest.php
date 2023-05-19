@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OpenDcdnServiceRequest extends Model
 {
     /**
-     * @description The metering method of DCDN. Valid values:
-     *
-     *   **PayByTraffic**: pay-by-traffic
-     *   **PayByBandwidth**: pay-by-bandwidth
+     * @description Activates Dynamic Route for CDN (DCDN).
      *
      * @example PayByTraffic
      *
@@ -31,11 +28,8 @@ class OpenDcdnServiceRequest extends Model
     public $securityToken;
 
     /**
-     * @description The metering method of WebSocket. Valid values:
-     *
-     *   **websockettraffic**: pay-by-data-transfer
-     *   **websocketbps**: pay-by-bandwidth
-     *
+     * @description > *   DCDN can be activated only once per Alibaba Cloud account. The Alibaba Cloud account must pass real-name verification.
+     * >*   You can call this operation up to 5 times per second per account.
      * @example websockettraffic
      *
      * @var string

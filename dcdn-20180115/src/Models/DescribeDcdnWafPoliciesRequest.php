@@ -18,7 +18,7 @@ class DescribeDcdnWafPoliciesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of protection policies to return per page. Valid values: an integer from **1** to **500**. Default value: **20**.
+     * @description The number of protection policies to return on each page. Valid values: an integer from **1** to **500**. Default value: **20**.
      *
      * @example 20
      *
@@ -27,9 +27,9 @@ class DescribeDcdnWafPoliciesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The query conditions. The value is a string in the JSON format.
+     * @description The query conditions. The value is a JSON string. The format is `QueryArgs={"PolicyIds":"The IDs of protection policies","RuleIds":"The IDs of protection rules","PolicyNameLike":"The name of the protection policy","DomainNames":"The protected domain names","PolicyType":"default","DefenseScenes":"waf_group","PolicyStatus":"on","OrderBy":"GmtModified","Desc":"false"}`
      *
-     * >  If you do not set this parameter, all protection policies are queried.
+     * > If you do not set this parameter, all protection policies are queried.
      * @example {"PolicyNameLIike":"test_policy"}
      *
      * @var string

@@ -11,8 +11,8 @@ class content extends Model
     /**
      * @description Indicates whether the real-time log delivery project exists. Valid values:
      *
-     *   **false**: The real-time log delivery project does not exist.
-     *   **true**: The real-time log delivery project exists.
+     *   **false**
+     *   **true**
      *
      * @example false
      *

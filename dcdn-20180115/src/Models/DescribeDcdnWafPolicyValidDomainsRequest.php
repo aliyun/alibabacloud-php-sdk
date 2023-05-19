@@ -34,7 +34,7 @@ class DescribeDcdnWafPolicyValidDomainsRequest extends Model
     public $domainNameLike;
 
     /**
-     * @description The number of the page to return. Valid values: **1** to **100000**. Default value: **1**.
+     * @description The page number of the returned page. Valid values: **1** to **100000**. Default value: **1**.
      *
      * @example 1
      *

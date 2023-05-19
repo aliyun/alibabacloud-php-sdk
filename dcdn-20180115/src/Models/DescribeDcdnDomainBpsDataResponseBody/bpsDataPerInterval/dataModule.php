@@ -18,7 +18,7 @@ class dataModule extends Model
     public $bps;
 
     /**
-     * @description The bandwidth that was consumed to deliver dynamic content over HTTP, in bit/s.
+     * @description The bandwidth that was consumed to deliver dynamic content over HTTP. Unit: bit/s.
      *
      * @example 11286111
      *
@@ -27,7 +27,7 @@ class dataModule extends Model
     public $dynamicHttpBps;
 
     /**
-     * @description The bandwidth that was consumed to deliver dynamic content over HTTPS, in bit/s.
+     * @description The bandwidth that was consumed to deliver dynamic content over HTTPS. Unit: bit/s.
      *
      * @example 12312
      *
@@ -36,7 +36,7 @@ class dataModule extends Model
     public $dynamicHttpsBps;
 
     /**
-     * @description The bandwidth that was consumed to deliver static content over HTTP, in bit/s.
+     * @description The bandwidth that was consumed to deliver static content over HTTP. Unit: bit/s.
      *
      * @example 123
      *
@@ -45,7 +45,7 @@ class dataModule extends Model
     public $staticHttpBps;
 
     /**
-     * @description The bandwidth that was consumed to deliver static content over HTTPS, in bit/s.
+     * @description The bandwidth that was consumed to deliver static content over HTTPS. Unit: bit/s.
      *
      * @example 123
      *
@@ -54,7 +54,7 @@ class dataModule extends Model
     public $staticHttpsBps;
 
     /**
-     * @description The timestamp of the returned data.
+     * @description The timestamp of the data returned.
      *
      * @example 2017-12-10T20:00:00Z
      *

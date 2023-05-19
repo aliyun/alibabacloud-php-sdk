@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class BatchModifyDcdnWafRulesRequest extends Model
 {
     /**
-     * @description The ID of the protection policy.
-     *
      * @example 10000001
      *
      * @var int
@@ -18,8 +16,6 @@ class BatchModifyDcdnWafRulesRequest extends Model
     public $policyId;
 
     /**
-     * @description The configurations of the protection rule.
-     *
      * @example [{"id":135,"type":"web_sdk","status":"on","config":{"mode":"automatic","crossDomain":"example.com"},"action":""},{"id":149,"type":"intelligence_fake_crawler","status":"on","config":{},"action":"deny"}]
      *
      * @var string

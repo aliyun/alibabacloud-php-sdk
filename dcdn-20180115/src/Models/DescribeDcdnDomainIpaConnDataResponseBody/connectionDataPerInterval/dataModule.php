@@ -27,7 +27,7 @@ class dataModule extends Model
     public $domain;
 
     /**
-     * @description The timestamp of the data returned.
+     * @description The timestamp of the returned data.
      *
      * @example 2022-02-21T15:00:00+08:00
      *

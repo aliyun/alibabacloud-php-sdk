@@ -11,6 +11,8 @@ class regexp extends Model
     /**
      * @description The error message returned because no items match the regular expression.
      *
+     * @example Specify this field.
+     *
      * @var string
      */
     public $errMsg;

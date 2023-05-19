@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
-     * @description The type of the protection policy, which is the same as the DefenseScenes field in the QueryArgs parameter in request parameters.
+     * @description The type of the protection policy, which is the same as the DefenseScenes field in the QueryArgs parameter.
      *
      * @example custom_acl
      *
@@ -18,7 +18,7 @@ class policies extends Model
     public $defenseScene;
 
     /**
-     * @description The number of domain names that use this protection policy.
+     * @description The number of domain names that use the protection policy.
      *
      * @example 22
      *
@@ -54,7 +54,7 @@ class policies extends Model
     public $policyName;
 
     /**
-     * @description The status of the protection policy, which is the same as the PolicyStatus field in the QueryArgs parameter in request parameters.
+     * @description The status of the protection policy, which is the same as the PolicyStatus field in the QueryArgs parameter.
      *
      * @example on
      *
@@ -63,7 +63,7 @@ class policies extends Model
     public $policyStatus;
 
     /**
-     * @description Indicates whether this protection policy is the default policy, which is the same as the PolicyType field in the QueryArgs parameter in request parameters.
+     * @description Indicates whether this protection policy is the default policy, which is the same as the PolicyType field in the QueryArgs parameter.
      *
      * @example default
      *
@@ -72,7 +72,7 @@ class policies extends Model
     public $policyType;
 
     /**
-     * @description The number of protection rules in this protection policy.
+     * @description The number of protection rules in the protection policy.
      *
      * @example 9
      *

@@ -12,7 +12,7 @@ class DescribeDcdnDomainRealTimeSrcBpsDataResponseBody extends Model
     /**
      * @description The time interval between the data entries returned. Unit: seconds.
      *
-     * The time granularity varies with the maximum time range per query. Valid values: 60 (1 minute), 300 (5 minutes), and 3600(1 hour). For more information, see **Description**.
+     * The time granularity varies with the maximum time range per query. The returned value is 60 (1 minute), 300 (5 minutes), or 3600(1 hour). For more information, see **Usage notes**.
      * @example 60
      *
      * @var string
@@ -38,7 +38,7 @@ class DescribeDcdnDomainRealTimeSrcBpsDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The back-to-origin bandwidth data returned at each time interval. Unit: bit/s.
+     * @description The origin bandwidth data returned at each time interval. Unit: bit/s.
      *
      * @var realTimeSrcBpsDataPerInterval
      */
@@ -54,7 +54,7 @@ class DescribeDcdnDomainRealTimeSrcBpsDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which data was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2015-12-10T20:00:00Z
      *

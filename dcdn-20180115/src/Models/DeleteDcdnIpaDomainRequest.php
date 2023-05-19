@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteDcdnIpaDomainRequest extends Model
 {
     /**
-     * @description The name of the accelerated domain name to be deleted. You can specify only one domain name.
+     * @description The accelerated domain name that you want to delete. You can specify only one accelerated domain name in each request.
      *
      * @example example.com
      *

@@ -49,7 +49,7 @@ class projects extends Model
     public $fieldName;
 
     /**
-     * @description The name of the Log Service project
+     * @description The name of the project.
      *
      * @example example
      *
@@ -67,7 +67,7 @@ class projects extends Model
     public $SLSLogStore;
 
     /**
-     * @description The name of the Log Service project.
+     * @description The name of the log file.
      *
      * @example example-cn
      *

@@ -10,18 +10,20 @@ use AlibabaCloud\Tea\Model;
 class logicalSymbol extends Model
 {
     /**
-     * @description The logical symbol that is displayed in the Dynamic Route for CDN (DCDN) console.
+     * @description The logical symbol that is displayed in the Dynamic Content Delivery Network (DCDN) console.
+     *
+     * @example Equal to one of multiple values.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The maximum number of match contents that you can specify. The value of this parameter varies based on the value of the Type parameter. Valid values:
+     * @description The maximum number of match contents that can be returned. The value of this parameter varies based on the value of the Type parameter. Valid values:
      *
-     *   If the value of the Type parameter is **multi**, the value of this parameter is the maximum number of match contents.
-     *   If the value of the Type parameter is **single**, the value of this parameter is 1.
-     *   If the value of the Type parameter is **none**, the value of this parameter is 0.
+     *   If **multi** is returned for the Type parameter, the value of this parameter indicates the maximum number of match contents.
+     *   If **single** is returned for the Type parameter, the value of this parameter is 1.
+     *   If **none** is returned for the Type parameter, the value of this parameter is 0.
      *
      * @example 50
      *
@@ -30,7 +32,7 @@ class logicalSymbol extends Model
     public $maxLength;
 
     /**
-     * @description The information about the regular expression.
+     * @description The regular expression.
      *
      * @var regexp
      */
@@ -48,16 +50,18 @@ class logicalSymbol extends Model
     /**
      * @description The tips that are displayed in the match content.
      *
+     * @example You can enter up to 50 tips. Press the Enter key.
+     *
      * @var string
      */
     public $tip;
 
     /**
-     * @description The number of match contents that you can specify. Valid values:
+     * @description The number of match contents. Valid values:
      *
-     *   multi: You can specify multiple match contents.
-     *   single: You can specify only a match content.
-     *   none: You cannot specify a match content.
+     *   multi: multiple match contents
+     *   single: one match content
+     *   none: no match contents
      *
      * @example multi
      *

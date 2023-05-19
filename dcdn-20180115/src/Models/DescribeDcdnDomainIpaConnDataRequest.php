@@ -11,7 +11,7 @@ class DescribeDcdnDomainIpaConnDataRequest extends Model
     /**
      * @description The domain names accelerated by IPA. Separate multiple domain names with commas (,).
      *
-     * >  If you do not specify this parameter, the merged data of all accelerated domain names is returned.
+     * > If you do not specify this parameter, the merged data of all accelerated domain names is returned.
      * @example example1.com
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeDcdnDomainIpaConnDataRequest extends Model
     /**
      * @description The end of the time range to query.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2015-02-22T7:00:00Z
      *
      * @var string
