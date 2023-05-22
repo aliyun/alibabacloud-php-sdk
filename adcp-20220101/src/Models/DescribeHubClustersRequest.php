@@ -9,12 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeHubClustersRequest extends Model
 {
     /**
-     * @description The scenario where master instances are used. Valid values:
-     *
-     *   `Default`: standard scenarios.
-     *   `XFlow`: workflow scenarios.
-     *
-     * Default value: `Default`.
      * @example Default
      *
      * @var string

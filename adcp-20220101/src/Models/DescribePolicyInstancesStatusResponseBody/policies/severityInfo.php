@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class severityInfo extends Model
 {
     /**
+     * @description The number of policy instances.
+     *
      * @example 2
      *
      * @var string
@@ -16,6 +18,8 @@ class severityInfo extends Model
     public $severityCount;
 
     /**
+     * @description The severity level.
+     *
      * @example low
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AttachClusterToHubResponseBody extends Model
 {
     /**
-     * @description The ID of the master instance.
+     * @description You can call the AttachClusterToHub operation to associate an Container Service for Kubernetes (ACK) cluster with a master instance of ACK One.
      *
      * @example c8e28143817db4b039b8548d7c899****
      *
@@ -18,14 +18,14 @@ class AttachClusterToHubResponseBody extends Model
     public $clusterId;
 
     /**
-     * @description A list of the IDs of the clusters that you want to associate with the master instance.
+     * @description Zhishi
      *
      * @var string[]
      */
     public $managedClusterIds;
 
     /**
-     * @description The ID of the request.
+     * @description Example 1
      *
      * @example EA06613B-37A3-549E-BAE0-E4AD8A6E93D7
      *
@@ -34,8 +34,6 @@ class AttachClusterToHubResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the task.
-     *
      * @example T-623a96b7bbeaac074b00****
      *
      * @var string

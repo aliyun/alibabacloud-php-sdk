@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class network extends Model
 {
     /**
-     * @description The domain name of the master instance.
-     *
      * @example cluster.local
      *
      * @var string
@@ -18,22 +16,16 @@ class network extends Model
     public $clusterDomain;
 
     /**
-     * @description The security group IDs of the master instance.
-     *
      * @var string[]
      */
     public $securityGroupIDs;
 
     /**
-     * @description The IDs of the vSwitches to which the master instance is connected.
-     *
      * @var string[]
      */
     public $vSwitches;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the master instance belongs.
-     *
      * @example vpc-2zeusrwi7c2mlww4a****
      *
      * @var string

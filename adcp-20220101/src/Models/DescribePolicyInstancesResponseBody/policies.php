@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
+     * @description The ID of the associated cluster.
+     *
      * @example cd0e6882394f7496589837cac3585****
      *
      * @var string
@@ -16,6 +18,8 @@ class policies extends Model
     public $clusterId;
 
     /**
+     * @description The name of the policy instance.
+     *
      * @example no-env-var-secrets-****
      *
      * @var string
@@ -23,6 +27,11 @@ class policies extends Model
     public $instanceName;
 
     /**
+     * @description The action of the policy. Valid values:
+     *
+     *   deny: blocks deployments that match the policy.
+     *   warn: generates alerts for deployments that match the policy.
+     *
      * @example warn
      *
      * @var string
@@ -30,6 +39,8 @@ class policies extends Model
     public $policyAction;
 
     /**
+     * @description The type of the policy.
+     *
      * @example k8s-general
      *
      * @var string
@@ -37,6 +48,8 @@ class policies extends Model
     public $policyCategory;
 
     /**
+     * @description The description of the policy.
+     *
      * @example Restricts secrets used in pod envs
      *
      * @var string
@@ -44,6 +57,8 @@ class policies extends Model
     public $policyDescription;
 
     /**
+     * @description The name of the policy.
+     *
      * @example ACKPSPCapabilities
      *
      * @var string
@@ -51,11 +66,18 @@ class policies extends Model
     public $policyName;
 
     /**
+     * @description The parameters of the policy instance.
+     *
      * @var string[]
      */
     public $policyParameters;
 
     /**
+     * @description The applicable scope of the policy instance.
+     *
+     * A value of \* indicates all namespaces. This is the default value.
+     *
+     * Multiple namespaces are separated by commas (,).
      * @example *
      *
      * @var string
@@ -63,6 +85,8 @@ class policies extends Model
     public $policyScope;
 
     /**
+     * @description The severity level of the policy.
+     *
      * @example low
      *
      * @var string
@@ -70,6 +94,8 @@ class policies extends Model
     public $policySeverity;
 
     /**
+     * @description The total number of deployments that match the policy in the associated cluster, including the deployments that are blocked and the deployments that have triggered alerting.
+     *
      * @example 2
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class onState extends Model
 {
     /**
+     * @description The types of policies that are enabled in the associated cluster.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class onState extends Model
     public $enabledCount;
 
     /**
+     * @description The severity level.
+     *
      * @example low
      *
      * @var string
@@ -23,6 +27,8 @@ class onState extends Model
     public $severity;
 
     /**
+     * @description The types of policies of each severity level.
+     *
      * @example 2
      *
      * @var int

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class policyGovernances extends Model
 {
     /**
+     * @description The information about the associated clusters in which the policies are deployed.
+     *
      * @var cluster
      */
     public $cluster;
 
     /**
+     * @description The detailed policy information.
+     *
      * @var policyGovernance
      */
     public $policyGovernance;

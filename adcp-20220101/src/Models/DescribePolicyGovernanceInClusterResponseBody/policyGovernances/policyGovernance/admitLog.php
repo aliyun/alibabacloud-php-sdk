@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class admitLog extends Model
 {
     /**
+     * @description The number of log entries in the query result.
+     *
      * @example 100
      *
      * @var string
@@ -16,6 +18,8 @@ class admitLog extends Model
     public $count;
 
     /**
+     * @description The name of the Log Service project.
+     *
      * @example demo
      *
      * @var string
@@ -23,6 +27,8 @@ class admitLog extends Model
     public $logProject;
 
     /**
+     * @description The name of the Logstore.
+     *
      * @example demo
      *
      * @var string
@@ -30,11 +36,18 @@ class admitLog extends Model
     public $logStore;
 
     /**
+     * @description The content of the audit log.
+     *
      * @var string[][]
      */
     public $logs;
 
     /**
+     * @description The status of the query. Valid values:
+     *
+     *   Complete: The query is successful, and the complete result is returned.
+     *   Incomplete: The query is successful, but the query result is incomplete. To obtain the complete result, you must call the operation again.
+     *
      * @example Complete
      *
      * @var string

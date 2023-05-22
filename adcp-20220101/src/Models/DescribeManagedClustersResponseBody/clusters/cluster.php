@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class cluster extends Model
 {
     /**
-     * @description The ID of the master instance.
+     * @description Information about the master instance.
      *
      * @example c2f41fd4599454a9c9ad8b3daafe873ad
      *
@@ -18,7 +18,7 @@ class cluster extends Model
     public $clusterID;
 
     /**
-     * @description The specification of the master instance. Valid values: - ack.pro.small: ACK Pro.
+     * @description The ID of the master instance.
      *
      * @example ack.pro.small
      *
@@ -27,7 +27,7 @@ class cluster extends Model
     public $clusterSpec;
 
     /**
-     * @description The type of the master instance.
+     * @description The time when the master instance was created.
      *
      * @example One
      *
@@ -36,7 +36,7 @@ class cluster extends Model
     public $clusterType;
 
     /**
-     * @description The time when the master instance was created.
+     * @description The ID of the master instance.
      *
      * @example 2022-03-23T06:22:28Z
      *
@@ -45,7 +45,7 @@ class cluster extends Model
     public $created;
 
     /**
-     * @description The current Kubernetes version of the master instance.
+     * @description The name of the master instance.
      *
      * @example 1.22.3-aliyun.1
      *
@@ -54,7 +54,7 @@ class cluster extends Model
     public $currentVersion;
 
     /**
-     * @description The original Kubernetes version of the master instance.
+     * @description The specification of the master instance. Valid values: - ack.pro.small: ACK Pro.
      *
      * @example 1.20.4-aliyun.1
      *
@@ -63,7 +63,7 @@ class cluster extends Model
     public $initVersion;
 
     /**
-     * @description The name of the master instance.
+     * @description The status information.
      *
      * @example ackone-heyuan
      *
@@ -72,7 +72,7 @@ class cluster extends Model
     public $name;
 
     /**
-     * @description The name of the master instance.
+     * @description The ID of the request.
      *
      * @example Default
      *
@@ -81,7 +81,7 @@ class cluster extends Model
     public $profile;
 
     /**
-     * @description The region in which the master instance resides.
+     * @description The ID of the master instance.
      *
      * @example cn-hangzhou
      *
@@ -90,7 +90,7 @@ class cluster extends Model
     public $region;
 
     /**
-     * @description The ID of the resource group.
+     * @description The name of the master instance.
      *
      * @example rg-acfmx7o7ewyqcby
      *
@@ -99,7 +99,7 @@ class cluster extends Model
     public $resourceGroupId;
 
     /**
-     * @description The status of the associated clusters. Valid values: - initial: The associated clusters are being initialized. - failed: The associated clustersfailed to be created. - running: The associated clusters are running. - inactive: The associated clusters are inactive. - deleting: The associated clusters are being deleted. - deleted: The associated clusters are deleted.
+     * @description The current Kubernetes version of the master instance.
      *
      * @example running
      *
@@ -108,7 +108,7 @@ class cluster extends Model
     public $state;
 
     /**
-     * @description The time when the master instance was updated.
+     * @description The ID of the vSwitch.
      *
      * @example 2022-03-23T06:22:28Z
      *
@@ -117,7 +117,7 @@ class cluster extends Model
     public $updated;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The original Kubernetes version of the master instance.
      *
      * @example vsw-m5e0pbkgmhvzecf7enfym
      *
@@ -126,7 +126,7 @@ class cluster extends Model
     public $vSwitchID;
 
     /**
-     * @description VPC ID.
+     * @description The status of the association between the clusters and the master instance. Valid values: - Installing: The clusters are being associated with the master instance. - Successed: The clusters are associated with the master instance. - Failed: The clusters failed to be associated with the master instance. - Deleting: The clusters are being disassociated from the master instance. - Deleted: The clusters are disassociated from the master instance.
      *
      * @example vpc-bp1fhizs9fxuvit06zeb9
      *

@@ -18,6 +18,11 @@ class GrantUserPermissionRequest extends Model
     public $clusterId;
 
     /**
+     * @var bool
+     */
+    public $isRamRole;
+
+    /**
      * @description The namespace to which the permissions are scoped. By default, this parameter is empty when you set role_type to cluster.
      *
      * @example default
@@ -60,6 +65,7 @@ class GrantUserPermissionRequest extends Model
     public $userId;
     protected $_name = [
         'clusterId' => 'ClusterId',
+        'isRamRole' => 'IsRamRole',
         'namespace' => 'Namespace',
         'roleName'  => 'RoleName',
         'roleType'  => 'RoleType',
@@ -75,6 +81,9 @@ class GrantUserPermissionRequest extends Model
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->isRamRole) {
+            $res['IsRamRole'] = $this->isRamRole;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -102,6 +111,9 @@ class GrantUserPermissionRequest extends Model
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['IsRamRole'])) {
+            $model->isRamRole = $map['IsRamRole'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

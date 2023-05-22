@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class deny extends Model
 {
     /**
+     * @description The severity level.
+     *
      * @example low
      *
      * @var string
@@ -16,6 +18,8 @@ class deny extends Model
     public $severity;
 
     /**
+     * @description The number of deployments that are blocked.
+     *
      * @example 2
      *
      * @var int

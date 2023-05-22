@@ -16,50 +16,36 @@ use AlibabaCloud\Tea\Model;
 class clusters extends Model
 {
     /**
-     * @description The details of the Kubernetes API server.
-     *
      * @var apiServer
      */
     public $apiServer;
 
     /**
-     * @description The details of the master instance.
-     *
      * @var clusterInfo
      */
     public $clusterInfo;
 
     /**
-     * @description The list of the deletion conditions of the master instance.
-     *
      * @var conditions[]
      */
     public $conditions;
 
     /**
-     * @description The endpoint of the master instance.
-     *
      * @var endpoints
      */
     public $endpoints;
 
     /**
-     * @description The logging configurations.
-     *
      * @var logConfig
      */
     public $logConfig;
 
     /**
-     * @description The configurations of Alibaba Cloud Service Mesh (ASM).
-     *
      * @var meshConfig
      */
     public $meshConfig;
 
     /**
-     * @description The network configurations of the master instance.
-     *
      * @var network
      */
     public $network;

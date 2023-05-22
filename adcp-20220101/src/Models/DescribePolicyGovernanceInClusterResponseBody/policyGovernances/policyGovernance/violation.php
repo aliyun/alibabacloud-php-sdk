@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class violation extends Model
 {
     /**
+     * @description The number of deployments that match the policies in the associated cluster, including deployments that are blocked and deployments that have triggered alerting. The deployments are classified by severity level.
+     *
      * @var totalViolations
      */
     public $totalViolations;
 
     /**
+     * @description The number of deployments that match the policies in the associated cluster, including deployments that are blocked and deployments that have triggered alerting. The deployments are classified by policy type.
+     *
      * @var violations
      */
     public $violations;

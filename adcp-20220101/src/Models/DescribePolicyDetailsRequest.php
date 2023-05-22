@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyDetailsRequest extends Model
 {
     /**
+     * @description The name of the policy.
+     *
      * @example ACKAllowedRepos
      *
      * @var string

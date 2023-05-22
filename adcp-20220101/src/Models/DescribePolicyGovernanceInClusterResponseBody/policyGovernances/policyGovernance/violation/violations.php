@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class violations extends Model
 {
     /**
+     * @description The information about the deployments that are blocked.
+     *
      * @var deny[]
      */
     public $deny;
 
     /**
+     * @description The information about the deployments that have triggered alerting.
+     *
      * @var warn[]
      */
     public $warn;

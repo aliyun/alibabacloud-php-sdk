@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeployPolicyInstanceRequest extends Model
 {
     /**
+     * @description The ID of the master instance.
+     *
      * @example c102fe5f1ee5d4c87a68121a77d8b****
      *
      * @var string
@@ -16,16 +18,25 @@ class DeployPolicyInstanceRequest extends Model
     public $clusterId;
 
     /**
+     * @description An array of JSON strings. The JSON strings in the array indicate the IDs of the associated clusters in which the policy instance is deployed.
+     *
      * @var string[]
      */
     public $clusterIds;
 
     /**
+     * @description A list of namespaces.
+     *
      * @var string[]
      */
     public $namespaces;
 
     /**
+     * @description The action of the policy. Valid values:
+     *
+     *   deny: blocks deployments that match the policy.
+     *   warn: generates alerts for deployments that match the policy.
+     *
      * @example warn
      *
      * @var string
@@ -33,6 +44,8 @@ class DeployPolicyInstanceRequest extends Model
     public $policyAction;
 
     /**
+     * @description The name of the policy.
+     *
      * @example ACKNoEnvVarSecrets
      *
      * @var string

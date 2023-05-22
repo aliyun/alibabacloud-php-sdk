@@ -1035,6 +1035,9 @@ class Adcp extends OpenApiClient
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
+        if (!Utils::isUnset($request->isRamRole)) {
+            $query['IsRamRole'] = $request->isRamRole;
+        }
         if (!Utils::isUnset($request->namespace_)) {
             $query['Namespace'] = $request->namespace_;
         }

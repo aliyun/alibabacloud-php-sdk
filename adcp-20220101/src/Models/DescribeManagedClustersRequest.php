@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeManagedClustersRequest extends Model
 {
     /**
-     * @description The ID of the master instance.
+     * @description The status of the association between the clusters and Service Mesh (ASM).
      *
      * @example c2f41fd4599454a9c9ad8b3daafe873ad
      *

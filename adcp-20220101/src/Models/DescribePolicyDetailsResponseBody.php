@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyDetailsResponseBody extends Model
 {
     /**
+     * @description Detailed information about the policy.
+     *
      * @var policy
      */
     public $policy;
 
     /**
+     * @description The request ID.
+     *
      * @example 2D676EFC-8C04-5CCE-A08E-BB97D24B47E8
      *
      * @var string

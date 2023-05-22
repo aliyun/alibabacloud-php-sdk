@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class policyInstances extends Model
 {
     /**
+     * @description The type of the policy.
+     *
      * @example cis-k8s
      *
      * @var string
@@ -17,11 +19,15 @@ class policyInstances extends Model
     public $policyCategory;
 
     /**
+     * @description The associated clusters in which the policy instances are deployed.
+     *
      * @var policyClusters[]
      */
     public $policyClusters;
 
     /**
+     * @description The description of the policy.
+     *
      * @example Restricts use of the cluster-admin role.
      *
      * @var string
@@ -29,6 +35,8 @@ class policyInstances extends Model
     public $policyDescription;
 
     /**
+     * @description The number of policy instances that are deployed. If this parameter is empty, no policy instance is deployed.
+     *
      * @example 2
      *
      * @var int
@@ -36,6 +44,8 @@ class policyInstances extends Model
     public $policyInstancesCount;
 
     /**
+     * @description The name of the policy.
+     *
      * @example ACKRestrictRoleBindings
      *
      * @var string
@@ -43,6 +53,8 @@ class policyInstances extends Model
     public $policyName;
 
     /**
+     * @description The severity level of the policy.
+     *
      * @example low
      *
      * @var string

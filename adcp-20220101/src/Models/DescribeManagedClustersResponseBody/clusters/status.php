@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class status extends Model
 {
     /**
-     * @description The status information.
+     * @description Query the clusters that are associated with a master instance.
      *
      * @example SUCCESS
      *
@@ -18,7 +18,7 @@ class status extends Model
     public $message;
 
     /**
-     * @description The status of the association between the clusters and the master instance. Valid values: - Installing: The clusters are being associated with the master instance. - Successed: The clusters are associated with the master instance. - Failed: The clusters failed to be associated with the master instance. - Deleting: The clusters are being disassociated from the master instance. - Deleted: The clusters are disassociated from the master instance.
+     * @description You can call the DescribeManagedClusters operation to query the clusters that are associated with a master instance.
      *
      * @example Successed
      *

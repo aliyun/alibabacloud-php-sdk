@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeletePolicyInstanceRequest extends Model
 {
     /**
+     * @description The ID of the master instance.
+     *
      * @example c09946603cd764dac96135f51d1ba****
      *
      * @var string
@@ -16,11 +18,15 @@ class DeletePolicyInstanceRequest extends Model
     public $clusterId;
 
     /**
+     * @description A array of JSON strings. The JSON strings in the array indicate the IDs of the associated clusters for which the policy is deleted.
+     *
      * @var string[]
      */
     public $clusterIds;
 
     /**
+     * @description The name of the policy.
+     *
      * @example ACKNoEnvVarSecrets
      *
      * @var string

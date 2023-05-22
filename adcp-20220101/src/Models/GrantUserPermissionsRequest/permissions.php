@@ -16,6 +16,11 @@ class permissions extends Model
     public $clusterId;
 
     /**
+     * @var bool
+     */
+    public $isRamRole;
+
+    /**
      * @example test
      *
      * @var string
@@ -37,6 +42,7 @@ class permissions extends Model
     public $roleType;
     protected $_name = [
         'clusterId' => 'ClusterId',
+        'isRamRole' => 'IsRamRole',
         'namespace' => 'Namespace',
         'roleName'  => 'RoleName',
         'roleType'  => 'RoleType',
@@ -51,6 +57,9 @@ class permissions extends Model
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->isRamRole) {
+            $res['IsRamRole'] = $this->isRamRole;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -75,6 +84,9 @@ class permissions extends Model
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['IsRamRole'])) {
+            $model->isRamRole = $map['IsRamRole'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

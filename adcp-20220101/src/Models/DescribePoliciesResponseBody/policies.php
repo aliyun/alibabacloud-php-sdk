@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
+     * @description The policy type.
+     *
      * @example psp
      *
      * @var string
@@ -16,6 +18,8 @@ class policies extends Model
     public $category;
 
     /**
+     * @description The names of the policies of each policy type.
+     *
      * @var string[]
      */
     public $names;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class policy extends Model
 {
     /**
+     * @description The action of the policy. Valid values:
+     *
+     *   enforce: blocks deployments that match the policy.
+     *   inform: generates alerts for deployments that match the policy.
+     *
      * @example enforce
      *
      * @var string
@@ -16,6 +21,8 @@ class policy extends Model
     public $action;
 
     /**
+     * @description The type of the policy.
+     *
      * @example k8s-general
      *
      * @var string
@@ -23,6 +30,8 @@ class policy extends Model
     public $category;
 
     /**
+     * @description The time when the policy was created.
+     *
      * @example 2021-11-18T10:52:17+08:00
      *
      * @var string
@@ -30,6 +39,8 @@ class policy extends Model
     public $created;
 
     /**
+     * @description The description of the policy.
+     *
      * @example Requires container images to begin with a repo string from a specified list
      *
      * @var string
@@ -37,6 +48,8 @@ class policy extends Model
     public $description;
 
     /**
+     * @description The name of the policy.
+     *
      * @example ACKAllowedRepos
      *
      * @var string
@@ -44,6 +57,11 @@ class policy extends Model
     public $name;
 
     /**
+     * @description Indicates whether parameters are required. Valid values:
+     *
+     *   0: Parameters are required.
+     *   1: Parameters are optional.
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +69,8 @@ class policy extends Model
     public $noConfig;
 
     /**
+     * @description The severity level of the policy.
+     *
      * @example high
      *
      * @var string
@@ -58,11 +78,15 @@ class policy extends Model
     public $severity;
 
     /**
+     * @description The content of the policy.
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @description The time when the policy was last updated.
+     *
      * @example 2021-11-18T10:52:17+08:00
      *
      * @var string

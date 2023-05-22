@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyGovernanceInClusterResponseBody extends Model
 {
     /**
+     * @description The detailed information about the policies.
+     *
      * @var policyGovernances[]
      */
     public $policyGovernances;
 
     /**
+     * @description The request ID.
+     *
      * @example 96C6A284-0EC3-5486-9A97-E8E9EE27E9EF
      *
      * @var string

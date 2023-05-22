@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class apiServer extends Model
 {
     /**
-     * @description The ID of the elastic IP address (EIP).
-     *
      * @example eip-xxx
      *
      * @var string
@@ -18,11 +16,6 @@ class apiServer extends Model
     public $apiServerEipId;
 
     /**
-     * @description Indicates whether the API server is accessible over the Internet. Valid values:
-     *
-     *   true: The API server is accessible over the Internet.
-     *   false: The API server is inaccessible over the Internet.
-     *
      * @example true
      *
      * @var bool
@@ -30,8 +23,6 @@ class apiServer extends Model
     public $enabledPublic;
 
     /**
-     * @description The ID of the Server Load Balancer (SLB) instance that is associated with the Kubernetes API server.
-     *
      * @example lb-bp1qyp4l6bscqxw69****
      *
      * @var string

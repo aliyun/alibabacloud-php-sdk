@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
+     * @description The number of policy instances of each policy type.
+     *
      * @var policyInstances[]
      */
     public $policyInstances;
 
     /**
+     * @description The number of policy instances that are deployed in the cluster.
+     *
      * @var severityInfo[]
      */
     public $severityInfo;

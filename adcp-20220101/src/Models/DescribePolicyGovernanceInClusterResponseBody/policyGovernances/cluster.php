@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cluster extends Model
 {
     /**
+     * @description The ID of the associated cluster.
+     *
      * @example ca5cf1b5edb5c4736a6ea0dfb4061****
      *
      * @var string
@@ -16,6 +18,8 @@ class cluster extends Model
     public $clusterId;
 
     /**
+     * @description The specifications of the associated cluster.
+     *
      * @example ack.pro.small
      *
      * @var string
@@ -23,6 +27,8 @@ class cluster extends Model
     public $clusterSpec;
 
     /**
+     * @description The type of the associated cluster.
+     *
      * @example ManagedKubernetes
      *
      * @var string
@@ -30,6 +36,8 @@ class cluster extends Model
     public $clusterType;
 
     /**
+     * @description The name of the associated cluster.
+     *
      * @example ack-001
      *
      * @var string
@@ -37,6 +45,8 @@ class cluster extends Model
     public $name;
 
     /**
+     * @description The identifier of the associated cluster.
+     *
      * @example Default
      *
      * @var string
@@ -44,6 +54,8 @@ class cluster extends Model
     public $profile;
 
     /**
+     * @description The region ID of the associated cluster.
+     *
      * @example cn-heyuan
      *
      * @var string
@@ -51,6 +63,8 @@ class cluster extends Model
     public $regionId;
 
     /**
+     * @description The status of the associated cluster.
+     *
      * @example running
      *
      * @var string

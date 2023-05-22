@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyInstancesStatusResponseBody extends Model
 {
     /**
+     * @description The number of policy instances of each policy type.
+     *
      * @var policies
      */
     public $policies;
 
     /**
+     * @description The request ID.
+     *
      * @example 5D89C59A-A7EB-5BF8-B094-6479175346CA
      *
      * @var string

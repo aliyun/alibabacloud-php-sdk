@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyInstancesRequest extends Model
 {
     /**
+     * @description The ID of the master instance.
+     *
      * @example c102fe5f1ee5d4c87a68121a77d8b****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribePolicyInstancesRequest extends Model
     public $clusterId;
 
     /**
+     * @description The name of the policy.
+     *
      * @example ACKNoEnvVarSecrets
      *
      * @var string

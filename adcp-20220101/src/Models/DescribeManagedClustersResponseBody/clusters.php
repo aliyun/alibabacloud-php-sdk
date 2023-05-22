@@ -19,14 +19,14 @@ class clusters extends Model
     public $cluster;
 
     /**
-     * @description The status of the association between the clusters and Service Mesh (ASM).
+     * @description Zhishi
      *
      * @var meshStatus
      */
     public $meshStatus;
 
     /**
-     * @description The status of the association between the clusters and the master instance.
+     * @description Example 1
      *
      * @var status
      */

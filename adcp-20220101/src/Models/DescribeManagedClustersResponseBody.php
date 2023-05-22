@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeManagedClustersResponseBody extends Model
 {
     /**
-     * @description Information about the master instance.
+     * @description The status of the associated clusters. Valid values: - initial: The associated clusters are being initialized. - failed: The associated clustersfailed to be created. - running: The associated clusters are running. - inactive: The associated clusters are inactive. - deleting: The associated clusters are being deleted. - deleted: The associated clusters are deleted.
      *
      * @var clusters[]
      */
     public $clusters;
 
     /**
-     * @description The ID of the request.
+     * @description VPC ID
      *
      * @example BDA85C7A-FC81-56C4-9BC2-9112EE970059
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyGovernanceInClusterRequest extends Model
 {
     /**
+     * @description The ID of the master instance.
+     *
      * @example c09946603cd764dac96135f51d1ba****
      *
      * @var string
