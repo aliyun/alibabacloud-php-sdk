@@ -30,7 +30,7 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
     public $funcFilter;
 
     /**
-     * @description The ID of the feature. For more information about how to query feature IDs, see [Feature settings for a domain name](~~410622~~). For example, the ID of the origin host feature (set_req_host_header) is 18.
+     * @description The ID of the feature. For more information about how to query feature IDs, see [Parameters for configuring features for domain names](~~410622~~). For example, the ID of the origin host feature (set_req_host_header) is 18.
      *
      * @example 7
      *

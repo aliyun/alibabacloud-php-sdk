@@ -18,7 +18,7 @@ class reqHitRateDataModel extends Model
     public $reqHitRate;
 
     /**
-     * @description The timestamp of the data returned. The time follows the ISO 8601 standard. The time is displayed in UTC.
+     * @description The timestamp of the data returned. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2016-10-20T04:00:00Z
      *

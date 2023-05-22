@@ -12,6 +12,8 @@ class continents extends Model
     /**
      * @description The district to which the country or region belongs.
      *
+     * @example China
+     *
      * @var string
      */
     public $name;

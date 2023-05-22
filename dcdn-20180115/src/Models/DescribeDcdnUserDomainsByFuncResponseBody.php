@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserDomainsByFuncResponseBody extends Model
 {
     /**
-     * @description The detailed information about each accelerated domain name. The returned information is displayed in the format that is specified by the PageData parameter.
+     * @description The array that consists of multiple PageData parameters. The details about each accelerated domain name are included in a separate PageData parameter.
      *
      * @var domains
      */
     public $domains;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of the returned page.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class DescribeDcdnUserDomainsByFuncResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example AA75AADB-5E25-4970-B480-EAA1F5658483
      *

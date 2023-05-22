@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnFullDomainsBlockIPHistoryResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $description;
@@ -25,6 +29,8 @@ class DescribeDcdnFullDomainsBlockIPHistoryResponseBody extends Model
     public $IPBlockInfo;
 
     /**
+     * @example 13A2B792-9212-1CC9-8525-59EBEF3FFE01
+     *
      * @var string
      */
     public $requestId;

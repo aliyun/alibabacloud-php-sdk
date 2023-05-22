@@ -9,8 +9,26 @@ use AlibabaCloud\Tea\Model;
 class BatchAddDcdnDomainRequest extends Model
 {
     /**
-     * @description The URL that is used to check whether the origin server can be accessed.
+     * @description The following table describes the fields in the Sources parameter.
      *
+     * | ----- | ---- | -------- | ----------- |
+     * | type | String | Yes | The type of the origin server. Valid values: **ipaddr**: the IP address
+     *
+     **domain**: the domain name
+     *
+     **oss**: the endpoint of an Object Storage Service (OSS) bucket
+     *
+     **fc_domain**: the domain name of Function Compute |
+     * | content | String | Yes | The address of the origin server. You can specify an IP address or a domain name. |
+     * | port | Integer | No | The port. Valid values: **80**: the default port
+     *
+     **443**: the HTTPS port
+     *
+     * A custom port |
+     * | priority | String | No | The priority of the origin server if multiple origin servers are specified. Default value: 20. Valid values: **20**: the primary origin server
+     *
+     **30**: the secondary origin server |
+     * | weight | String | No | The weight of the origin server if multiple origin servers are specified. Valid values: 0 to 100. Default value: 10. |
      * @example www.example.com/test.html
      *
      * @var string
@@ -18,7 +36,7 @@ class BatchAddDcdnDomainRequest extends Model
     public $checkUrl;
 
     /**
-     * @description You can add up to 50 domain names to DCDN for each of your Alibaba Cloud account. Separate multiple domain names with commas (,).
+     * @description The top-level domain name.
      *
      * @example example.com,example.org
      *
@@ -37,7 +55,7 @@ class BatchAddDcdnDomainRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group. If you do not specify a value for this parameter, the system automatically assigns the ID of the default resource group.
+     * @description The ID of the request.
      *
      * @example testID
      *
@@ -46,11 +64,7 @@ class BatchAddDcdnDomainRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The accelerated region. Default value: domestic. Valid values:
-     *
-     *   domestic: Chinese mainland
-     *   overseas: global (excluding the Chinese mainland)
-     *   global: global
+     * @description Adds one or more domain names to Dynamic Route for CDN (DCDN).
      *
      * @example domestic
      *
@@ -64,7 +78,15 @@ class BatchAddDcdnDomainRequest extends Model
     public $securityToken;
 
     /**
-     * @description The information about the addresses of origin servers.
+     * @description **Prerequisites**:
+     *
+     *   The [DCDN service is activated](~~64926~~).
+     *   Internet Content Provider (ICP) filing is complete for the accelerated domain names.
+     *
+     * >
+     *   If the content of the origin server is not stored on Alibaba Cloud, the content must be reviewed. After you submit the request, the review is complete by the end of the following business day.
+     *   The maximum number of domain names configured at a time is 50.
+     *   The maximum number of times that each user can call this operation per second is 30.
      *
      * @example [{"content":"10.10.10.10","type":"ipaddr","priority":"20","port":80,"weight":"15"}]
      *
@@ -73,8 +95,6 @@ class BatchAddDcdnDomainRequest extends Model
     public $sources;
 
     /**
-     * @description The top-level domain name.
-     *
      * @example example.com
      *
      * @var string

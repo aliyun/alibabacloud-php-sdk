@@ -20,7 +20,7 @@ class ModifyDcdnWafPolicyRequest extends Model
     /**
      * @description The new name of the protection policy.
      *
-     * >  You must specify PolicyName or PolicyStatus.
+     * > You must specify PolicyName or PolicyStatus.
      * @example policy_test
      *
      * @var string
@@ -33,7 +33,7 @@ class ModifyDcdnWafPolicyRequest extends Model
      *   **on**
      *   **off**
      *
-     * >  You must specify PolicyName or PolicyStatus.
+     * > You must specify PolicyName or PolicyStatus.
      * @example on
      *
      * @var string

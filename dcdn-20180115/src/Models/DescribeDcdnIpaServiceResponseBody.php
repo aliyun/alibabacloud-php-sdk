@@ -21,13 +21,13 @@ class DescribeDcdnIpaServiceResponseBody extends Model
     /**
      * @description The new billing method to take effect. Valid values:
      *
-     *   **PayByTraffic**
-     *   **PayByBandwidth**
-     *   **PayByBandwidth95**
-     *   **PayByBandwidth_monthavg**
-     *   **PayByBandwidth_month4th**
-     *   **PayByBandwidth_monthday95avg**
-     *   **PayByBandwidth_nighthalf95**
+     *   **PayByTraffic**: pay-by-data-transfer
+     *   **PayByBandwidth**: pay-by-bandwidth
+     *   **PayByBandwidth95**: pay-by-95th percentile bandwidth
+     *   **PayByBandwidth_monthavg**: pay-by-monthly average bandwidth
+     *   **PayByBandwidth_month4th**: pay-by-fourth peak bandwidth per month
+     *   **PayByBandwidth_monthday95avg**: pay-by-monthly average 95th percentile bandwidth
+     *   **PayByBandwidth_nighthalf95**: pay-by-95th percentile bandwidth (50% off during nighttime)
      *
      * @example PayByBandwidth
      *
@@ -45,15 +45,15 @@ class DescribeDcdnIpaServiceResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The current billing method. Valid values:
+     * @description The billing method of the instance. Valid values:
      *
-     *   **PayByTraffic**
-     *   **PayByBandwidth**
-     *   **PayByBandwidth95**
-     *   **PayByBandwidth_monthavg**
-     *   **PayByBandwidth_month4th**
-     *   **PayByBandwidth_monthday95avg**
-     *   **PayByBandwidth_nighthalf95**
+     *   **PayByTraffic**: pay-by-data-transfer
+     *   **PayByBandwidth**: pay-by-bandwidth
+     *   **PayByBandwidth95**: pay-by-95th percentile bandwidth
+     *   **PayByBandwidth_monthavg**: pay-by-monthly average bandwidth
+     *   **PayByBandwidth_month4th**: pay-by-fourth peak bandwidth per month
+     *   **PayByBandwidth_monthday95avg**: pay-by-monthly average 95th percentile bandwidth
+     *   **PayByBandwidth_nighthalf95**: pay-by-95th percentile bandwidth (50% off during nighttime)
      *
      * @example PayByBandwidth
      *
@@ -62,7 +62,7 @@ class DescribeDcdnIpaServiceResponseBody extends Model
     public $internetChargeType;
 
     /**
-     * @description The time when the IPA service was activated. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format.
+     * @description The time when the DCDN service was activated. The time follows the ISO 8601 standard.
      *
      * @example 2018-03-19T11:16:11Z
      *
@@ -71,7 +71,7 @@ class DescribeDcdnIpaServiceResponseBody extends Model
     public $openingTime;
 
     /**
-     * @description The lock status of the IPA service.
+     * @description The lock status of secure DCDN.
      *
      * @var operationLocks
      */

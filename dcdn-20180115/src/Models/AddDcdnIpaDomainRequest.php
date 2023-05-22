@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddDcdnIpaDomainRequest extends Model
 {
     /**
-     * @description The URL that is used to check the accessibility of the origin server.
+     * @description The URL that is used for health checks.
      *
      * @example example.com/image_01.png
      *
@@ -43,7 +43,10 @@ class AddDcdnIpaDomainRequest extends Model
      *   **udp**
      *   **tcp**
      *
-     * >  Example: `{"protocol":"udp"}`.
+     **
+     *
+     **Description** For example: `{"protocol":"udp"}`.
+     *
      * @example udp
      *
      * @var string
@@ -60,10 +63,10 @@ class AddDcdnIpaDomainRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The acceleration region. Valid values:
+     * @description The acceleration region. Default value: domestic. Valid values:
      *
      *   **domestic**: Chinese mainland
-     *   **overseas**: global (excluding the Chinese mainland)
+     *   **overseas**: outside the Chinese mainland
      *   **global**: global
      *
      * @example domestic
@@ -87,7 +90,7 @@ class AddDcdnIpaDomainRequest extends Model
     public $sources;
 
     /**
-     * @description The top-level domain name.
+     * @description The top-level domain.
      *
      * @example *.com
      *

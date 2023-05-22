@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestDataModule extends Model
 {
     /**
-     * @description The accelerated domain name.
+     * @description The domain name.
      *
      * @example example.com
      *
@@ -27,7 +27,7 @@ class requestDataModule extends Model
     public $request;
 
     /**
-     * @description The timestamp of the data entry.
+     * @description The timestamp of the returned data.
      *
      * @example 2017-12-10T20:00:00Z
      *

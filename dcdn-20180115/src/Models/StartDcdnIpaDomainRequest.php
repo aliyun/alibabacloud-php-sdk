@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class StartDcdnIpaDomainRequest extends Model
 {
     /**
-     * @description The name of the accelerated domain to be enabled. You can specify only one accelerated domain name at a time.
-     *
      * @example example.com
      *
      * @var string

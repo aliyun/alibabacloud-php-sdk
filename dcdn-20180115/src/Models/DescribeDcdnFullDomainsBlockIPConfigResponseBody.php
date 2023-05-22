@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnFullDomainsBlockIPConfigResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example http://xxxx-api.oss-cn-hangzhou.aliyuncs.com/blocklist%2Fxxxxxxxxxxxx.txt?Expires=1682663947&OSSAccessKeyId=xxxxxxxxxx&Signature=xxxxxx
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 0C58632F-BA12-1A1E-986D-09285752B42C
+     *
      * @var string
      */
     public $requestId;

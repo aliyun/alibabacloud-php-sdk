@@ -18,7 +18,7 @@ class DescribeUserDcdnIpaStatusResponseBody extends Model
     public $enabled;
 
     /**
-     * @description Indicates whether your IPA service has overdue payments.
+     * @description Indicates whether you have overdue payments.
      *
      * @example false
      *
@@ -27,7 +27,7 @@ class DescribeUserDcdnIpaStatusResponseBody extends Model
     public $inDebt;
 
     /**
-     * @description Indicates whether an overdue bill has been paid within a specified period.
+     * @description Indicates whether the grace period for your overdue payments expired.
      *
      * @example false
      *

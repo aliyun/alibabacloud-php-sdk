@@ -18,7 +18,7 @@ class domains extends Model
     public $desc;
 
     /**
-     * @description The domain name for which the real-time log delivery project was updated.
+     * @description The domain name.
      *
      * @example example.com
      *
@@ -27,7 +27,7 @@ class domains extends Model
     public $domainName;
 
     /**
-     * @description The region from which logs were collected.
+     * @description The name of the region.
      *
      * @example cn
      *

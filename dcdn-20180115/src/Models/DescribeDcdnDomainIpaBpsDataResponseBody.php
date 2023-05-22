@@ -17,7 +17,7 @@ class DescribeDcdnDomainIpaBpsDataResponseBody extends Model
     public $bpsDataPerInterval;
 
     /**
-     * @description The time interval at which data is collected. Unit: seconds.
+     * @description The time interval at which data was collected. Unit: seconds.
      *
      * @example 300
      *

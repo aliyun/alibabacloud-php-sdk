@@ -21,7 +21,7 @@ class BatchSetDcdnDomainCertificateRequest extends Model
      * @description The type of the certificate. Valid values:
      *
      *   **upload**: a custom certificate that you upload.
-     *   **cas**: a certificate that is purchased from Alibaba Cloud SSL Certificates Service
+     *   **cas**: a certificate that is acquired through Certificate Management Service.
      *
      * @example cas
      *
@@ -30,9 +30,9 @@ class BatchSetDcdnDomainCertificateRequest extends Model
     public $certType;
 
     /**
-     * @description The name of the accelerated domain for which you want to configure the HTTPS certificate. The accelerated domain must have HTTPS acceleration enabled. You can specify multiple domain names and separate them with commas (,).
+     * @description The accelerated domain name for which you want to configure the HTTPS certificate. The accelerated domain must have HTTPS acceleration enabled. You can specify multiple domain names and separate them with commas (,).
      *
-     * >  You can configure up to 10 domain names at a time.
+     * > You can configure up to 10 domain names in each request.
      * @example **example**.com
      *
      * @var string
@@ -65,10 +65,10 @@ class BatchSetDcdnDomainCertificateRequest extends Model
     /**
      * @description Specifies whether to enable the HTTPS certificate. Valid values:
      *
-     *   **on:**
-     *   **off**
+     *   \*\*on\*\*: enables the HTTPS certificate.
+     *   **off**: does not enable the HTTPS certificate.
      *
-     * The default value is **off**.
+     * This is the default value.
      * @example on
      *
      * @var string

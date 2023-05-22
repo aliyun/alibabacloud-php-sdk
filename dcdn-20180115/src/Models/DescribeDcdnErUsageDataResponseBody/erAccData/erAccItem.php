@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class erAccItem extends Model
 {
     /**
-     * @description The number of ER requests.
+     * @description The number of requests.
      *
      * @example 125
      *
@@ -18,7 +18,7 @@ class erAccItem extends Model
     public $erAcc;
 
     /**
-     * @description The ID of the ER. This parameter is returned only when SplitBy is set to routine.
+     * @description The ID of the routine. This parameter is returned only when SplitBy is set to routine.
      *
      * @example routine1.test
      *
@@ -27,7 +27,7 @@ class erAccItem extends Model
     public $routine;
 
     /**
-     * @description The specification of the ER. This parameter is returned only when SplitBy is set to spec.
+     * @description The specification of the routine. This parameter is returned only when SplitBy is set to spec.
      *
      * @example 50ms
      *

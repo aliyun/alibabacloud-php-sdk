@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnIpInfoResponseBody extends Model
 {
     /**
-     * @description Indicates whether the specified IP address is assigned to an Alibaba Cloud DCDN node.
+     * @description Indicates whether the specified IP address is assigned to an Alibaba Cloud DCDN POP.
      *
-     *   True: The specified IP address is assigned to an Alibaba Cloud DCDN node.
-     *   False: The specified IP address is not assigned to an Alibaba Cloud DCDN node.
+     *   True
+     *   False
      *
      * @example True
      *
@@ -21,16 +21,16 @@ class DescribeDcdnIpInfoResponseBody extends Model
     public $dcdnIp;
 
     /**
-     * @description The Internet service provider (ISP) to which the specified IP address belongs.
+     * @description The ISP to which the specified IP address belongs.
      *
-     * @example telecom
+     * @example China Telecom
      *
      * @var string
      */
     public $ISP;
 
     /**
-     * @description The name of the ISP.
+     * @description The name of the Internet service provider (ISP).
      *
      * @example telecom
      *
@@ -39,16 +39,16 @@ class DescribeDcdnIpInfoResponseBody extends Model
     public $ispEname;
 
     /**
-     * @description The region to which the specified IP address belongs.
+     * @description The Chinese name of the region.
      *
-     * @example China - Guizhou Province - Guiyang City
+     * @example >  The maximum number of times that users can call this operation per second is 50.
      *
      * @var string
      */
     public $region;
 
     /**
-     * @description The name of the region.
+     * @description The English name of the region.
      *
      * @example China-Guizhou-guiyang
      *

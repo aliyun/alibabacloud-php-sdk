@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafLogsResponseBody extends Model
 {
     /**
-     * @description Details about domain logs.
+     * @description Details about logs returned.
      *
      * @var domainLogDetails[]
      */

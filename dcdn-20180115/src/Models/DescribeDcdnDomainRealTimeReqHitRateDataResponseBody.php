@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeReqHitRateDataResponseBody extends Model
 {
     /**
-     * @description The list of request hit ratios.
+     * @description The list of byte hit ratios.
      *
      * @var data
      */

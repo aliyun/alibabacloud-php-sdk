@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainLogResponseBody extends Model
 {
     /**
-     * @description The log information. The log information is indicated by the DomainLogDetail parameter.
+     * @description The size of the log file. Unit: bytes.
      *
      * @var domainLogDetails
      */
     public $domainLogDetails;
 
     /**
-     * @description The domain name.
+     * @description The log information. The log information is indicated by the LogInfoDetail parameter.
      *
      * @example example.com
      *
@@ -26,7 +26,7 @@ class DescribeDcdnDomainLogResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The ID of the request.
+     * @description The end of the time range during which data was queried.
      *
      * @example 95594003-CAC5-5636-AF72-2A094364****
      *

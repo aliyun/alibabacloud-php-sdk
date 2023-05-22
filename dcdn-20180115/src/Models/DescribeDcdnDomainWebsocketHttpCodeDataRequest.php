@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainWebsocketHttpCodeDataRequest extends Model
 {
     /**
-     * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+     * @description The accelerated domain name. You can specify multiple accelerated domain names and separate them with commas (,).
      *
      * @example example.com
      *
@@ -20,7 +20,7 @@ class DescribeDcdnDomainWebsocketHttpCodeDataRequest extends Model
     /**
      * @description The end of the time range to query.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2018-03-01T06:00:00Z
      *
      * @var string
@@ -28,9 +28,9 @@ class DescribeDcdnDomainWebsocketHttpCodeDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The time interval between the data entries to return. Unit: seconds.
+     * @description The time granularity for a query. Unit: seconds.
      *
-     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Description**.
+     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
      * @example 300
      *
      * @var string
@@ -60,7 +60,7 @@ class DescribeDcdnDomainWebsocketHttpCodeDataRequest extends Model
     /**
      * @description The beginning of the time range to query.
      *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      * @example 2018-03-01T05:00:00Z
      *
      * @var string

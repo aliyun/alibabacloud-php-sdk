@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafRulesResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page, which is the same as the PageNumber parameter in request parameters.
+     * @description The page number of the returned page. The value of this parameter is the same as that of the PageNumber parameter in the request.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeDcdnWafRulesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of protection rules returned per page, which is the same as the PageSize parameter in request parameters.
+     * @description The number of protection rules returned per page. The value of this parameter is the same as that of the PageSize parameter in the request.
      *
      * @example 20
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserSecDropByMinuteRequest extends Model
 {
     /**
-     * @description The domain name.
+     * @description The number of the page to return. Pages start from page 1.
      *
      * @example example.com
      *
@@ -18,9 +18,8 @@ class DescribeDcdnUserSecDropByMinuteRequest extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0. Example: 2006-01-02T15:05:04Z.
+     * @description The ID of the request.
      *
-     * >  The end time must be later than the start time.
      * @example 2006-01-02T15:05:04Z
      *
      * @var string
@@ -28,7 +27,7 @@ class DescribeDcdnUserSecDropByMinuteRequest extends Model
     public $endTime;
 
     /**
-     * @description The language. Valid values: en and zh. Default value: en
+     * @description The number of the returned page.
      *
      * @example zh
      *
@@ -37,7 +36,7 @@ class DescribeDcdnUserSecDropByMinuteRequest extends Model
     public $lang;
 
     /**
-     * @description The object that triggered the rule.
+     * @description The number of entries to return on each page. Maximum value: 100.
      *
      * @example robot_fingerprint_ai
      *
@@ -46,7 +45,7 @@ class DescribeDcdnUserSecDropByMinuteRequest extends Model
     public $object;
 
     /**
-     * @description The number of the page to return. Pages start from page 1.
+     * @description The total number of entries returned.
      *
      * @example 10
      *
@@ -55,7 +54,7 @@ class DescribeDcdnUserSecDropByMinuteRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100.
+     * @description The description of HTTP responses.
      *
      * @example 2
      *
@@ -64,8 +63,9 @@ class DescribeDcdnUserSecDropByMinuteRequest extends Model
     public $pageSize;
 
     /**
-     * @description The rule that was triggered.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0. Example: 2006-01-02T15:05:04Z.
      *
+     * >  The end time must be later than the start time.
      * @example robot_ai
      *
      * @var string
@@ -73,7 +73,7 @@ class DescribeDcdnUserSecDropByMinuteRequest extends Model
     public $ruleName;
 
     /**
-     * @description The name of the security feature.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0. Example: 2006-01-02T15:04:04Z.
      *
      * @example robot
      *
@@ -82,7 +82,7 @@ class DescribeDcdnUserSecDropByMinuteRequest extends Model
     public $secFunc;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0. Example: 2006-01-02T15:04:04Z.
+     * @description The language. Valid values: en and zh. Default value: en
      *
      * @example 2006-01-02T15:04:04Z
      *

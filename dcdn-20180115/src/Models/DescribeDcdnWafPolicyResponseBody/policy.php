@@ -12,7 +12,7 @@ class policy extends Model
      * @description The type of the protection policy. Valid values:
      *
      *   waf_group: basic web protection
-     *   custom_acl: custom
+     *   custom_acl: custom protection
      *   whitelist: whitelist
      *
      * @example waf_group
@@ -72,8 +72,8 @@ class policy extends Model
     /**
      * @description Indicates whether the current policy is the default policy. Valid values:
      *
-     *   default: The current policy is the default policy.
-     *   custom: The current policy is not the default policy.
+     *   default
+     *   custom
      *
      * @example default
      *
@@ -82,7 +82,7 @@ class policy extends Model
     public $policyType;
 
     /**
-     * @description The protection rule configurations corresponding to the protection policy. The configurations only support Bot management. For more information, see [Configure protection rules](~~423350~~).
+     * @description The protection rule configurations that are defined in the protection policy. The configurations only support bot management. For more information, see [Configure protection rules](~~423350~~).
      *
      * @example {     "type":"target_type",     "status":"on",     "config":{"target":"app"},     "action":""   }
      *

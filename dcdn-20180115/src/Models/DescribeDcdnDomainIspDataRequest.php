@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainIspDataRequest extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify only one domain name in each request.
+     * @description The beginning of the time range during which data was queried.
      *
-     * If you do not specify an accelerated domain name, the data of all accelerated domain names that belong to your account is queried.
      * @example example.com
      *
      * @var string
@@ -19,9 +18,8 @@ class DescribeDcdnDomainIspDataRequest extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The accelerated domain name.
      *
-     * >  The end time must be later than the start time.
      * @example 2019-12-06T12:00:00Z
      *
      * @var string
@@ -29,7 +27,7 @@ class DescribeDcdnDomainIspDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The ID of the request.
      *
      * @example 2019-12-05T12:00:00Z
      *

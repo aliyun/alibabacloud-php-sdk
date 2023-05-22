@@ -29,8 +29,6 @@ class dataModule extends Model
     public $staticValue;
 
     /**
-     * @description The timestamp of the data returned.
-     *
      * @example 2015-12-10T21:00:00Z
      *
      * @var string
@@ -38,8 +36,6 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The total amount of network traffic. Unit: bytes.
-     *
      * @example 331
      *
      * @var string
@@ -47,8 +43,6 @@ class dataModule extends Model
     public $trafficValue;
 
     /**
-     * @description The total bandwidth. Unit: bit/s.
-     *
      * @example 0.56
      *
      * @var string

@@ -18,9 +18,9 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The amount of back-to-origin network traffic.
+     * @description The traffic value at each time interval.
      *
-     * >  The network traffic is measured in bytes.
+     * > The network traffic is measured in bytes.
      * @example 0
      *
      * @var string

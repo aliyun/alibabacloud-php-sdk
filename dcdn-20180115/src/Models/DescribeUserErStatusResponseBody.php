@@ -11,8 +11,8 @@ class DescribeUserErStatusResponseBody extends Model
     /**
      * @description Indicates whether ER is activated.
      *
-     *   true: activated
-     *   false: not activated
+     *   true
+     *   false
      *
      * @example true
      *
@@ -23,8 +23,8 @@ class DescribeUserErStatusResponseBody extends Model
     /**
      * @description Indicates whether ER has an overdue payment.
      *
-     *   true: has an overdue payment
-     *   false: does not have an overdue payment
+     *   true
+     *   false
      *
      * @example false
      *
@@ -35,8 +35,8 @@ class DescribeUserErStatusResponseBody extends Model
     /**
      * @description Indicates whether an overdue payment of ER has passed the grace period.
      *
-     *   true: has passed the grace period
-     *   false: has not passed the grace period
+     *   true
+     *   false
      *
      * @example false
      *
@@ -47,8 +47,8 @@ class DescribeUserErStatusResponseBody extends Model
     /**
      * @description Indicates whether ER is available.
      *
-     *   true: available
-     *   false: unavailable
+     *   true
+     *   false
      *
      * @example true
      *

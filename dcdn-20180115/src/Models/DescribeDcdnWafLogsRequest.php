@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafLogsRequest extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify only one domain name.
+     * @description The accelerated domain name. You can specify only one domain name in each request.
      *
      * @example example.com
      *
@@ -18,7 +18,7 @@ class DescribeDcdnWafLogsRequest extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range to query the logs.
+     * @description The end of the time range to query.
      *
      * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2017-12-22T08:00:00Z
@@ -28,7 +28,7 @@ class DescribeDcdnWafLogsRequest extends Model
     public $endTime;
 
     /**
-     * @description The number of the page to return. Valid values: positive integers.
+     * @description The number of the page to return. Valid values: an integer greater than 0.
      *
      * @example 1
      *
@@ -46,7 +46,7 @@ class DescribeDcdnWafLogsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The beginning of the time range to query the logs.
+     * @description The beginning of the time range to query.
      *
      * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2017-12-21T08:00:00Z

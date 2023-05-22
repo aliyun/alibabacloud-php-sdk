@@ -28,7 +28,7 @@ class DescribeDcdnTopDomainsByFlowResponseBody extends Model
     public $domainOnlineCount;
 
     /**
-     * @description The end of the time range during which the data was collected.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2016-03-14T07:34:00Z
      *
@@ -46,7 +46,7 @@ class DescribeDcdnTopDomainsByFlowResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which the data was collected.
+     * @description The beginning of the time range during which data was queried.
      *
      * @example 2016-03-14T06:34:00Z
      *

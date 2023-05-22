@@ -36,7 +36,7 @@ class activityLog extends Model
     public $ruleName;
 
     /**
-     * @description The timestamp of the data.
+     * @description The timestamp of the returned data.
      *
      * @example 2015-12-10T20:00:00Z
      *

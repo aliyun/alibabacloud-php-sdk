@@ -11,7 +11,7 @@ class content extends Model
     /**
      * @description The type of the collected logs. Default value: cdn_log_access_l1. Valid values:
      *
-     *   **cdn_log_access_l1**: access logs of Dynamic Route for CDN (DCDN) points of presence (POPs)
+     *   **cdn_log_access_l1**: access logs of Dynamic Content Delivery Network (DCDN) points of presence (POPs)
      *   **cdn_log_origin**: back-to-origin logs
      *   **cdn_log_er**: EdgeRoutine logs
      *
@@ -49,7 +49,7 @@ class content extends Model
     public $fieldName;
 
     /**
-     * @description The name of the Log Service project
+     * @description The name of the project.
      *
      * @example example
      *
@@ -67,7 +67,7 @@ class content extends Model
     public $SLSLogStore;
 
     /**
-     * @description The name of the Log Service project.
+     * @description The name of the log file.
      *
      * @example example-cn
      *
@@ -96,8 +96,8 @@ class content extends Model
     /**
      * @description The status of real-time logs.
      *
-     *   **success**: The transcoded stream is uploaded.
-     *   **fail**: The transcoded stream fails to be uploaded.
+     *   **success**
+     *   **fail**
      *
      * @example success
      *

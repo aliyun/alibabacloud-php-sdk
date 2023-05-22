@@ -37,7 +37,7 @@ class DescribeDcdnDomainWebsocketHttpCodeDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The HTTP status codes.
+     * @description The HTTP status code.
      *
      * @var httpCodeDataPerInterval
      */
@@ -53,7 +53,7 @@ class DescribeDcdnDomainWebsocketHttpCodeDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which data was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2018-03-01T05:00:00Z
      *

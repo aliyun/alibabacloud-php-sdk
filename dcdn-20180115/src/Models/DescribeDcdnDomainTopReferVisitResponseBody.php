@@ -28,7 +28,7 @@ class DescribeDcdnDomainTopReferVisitResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The start of the time range during which the data is collected.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2018-10-03T16:00:00Z
      *

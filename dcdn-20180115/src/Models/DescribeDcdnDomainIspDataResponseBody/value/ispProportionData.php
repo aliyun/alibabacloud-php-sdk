@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ispProportionData extends Model
 {
     /**
-     * @description The average response size. Unit: bytes.
+     * @description The proportion of network traffic. For example, a value of 90 indicates that 90% of network traffic was coming from the specified ISP.
      *
      * @example 800019.0
      *
@@ -18,7 +18,7 @@ class ispProportionData extends Model
     public $avgObjectSize;
 
     /**
-     * @description The average response speed. Unit: byte/ms.
+     * @description The name of the ISP.
      *
      * @example 154.3345765545624
      *
@@ -27,7 +27,7 @@ class ispProportionData extends Model
     public $avgResponseRate;
 
     /**
-     * @description The average response time. Unit: milliseconds.
+     * @description The bandwidth.
      *
      * @example 5183.666666666667
      *
@@ -36,7 +36,7 @@ class ispProportionData extends Model
     public $avgResponseTime;
 
     /**
-     * @description The bandwidth.
+     * @description The information about the ISP.
      *
      * @example 380.9614285714286
      *
@@ -45,7 +45,7 @@ class ispProportionData extends Model
     public $bps;
 
     /**
-     * @description The proportion of network traffic. For example, a value of 90 indicates that 90% of network traffic was coming from the specified ISP.
+     * @description The total amount of network traffic.
      *
      * @example 0.003544181046236794
      *
@@ -54,14 +54,24 @@ class ispProportionData extends Model
     public $bytesProportion;
 
     /**
-     * @description The information about the ISP.
+     * @description The name of the ISP.
+     *
+     * @example The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @var string
      */
     public $isp;
 
     /**
-     * @description The name of the ISP.
+     * @description >
+     *   You can call this operation up to 100 times per second.
+     *   If **StartTime** is set but **EndTime** is not set, the data within the hour that starts from **StartTime** is queried.
+     *   If **EndTime** is set but **StartTime** is not set, the data within the last hour that precedes **EndTime** is queried.
+     *   You can query data of a domain name or all domain names that belong to your account.
+     *   You can view data that is collected over the last seven days. The interval at which data is queried is based on the time range specified by **StartTime** and **EndTime**.
+     *   **If the time range is shorter than or equal to one hour**, data is queried every minute.
+     *   **If the time range is longer than 1 hour but shorter than or equal to three days**, data is queried every five minutes.
+     *   **If the time range is longer than three days but shorter than or equal to seven days**, data is queried every hour.
      *
      * @example unicom
      *
@@ -70,7 +80,7 @@ class ispProportionData extends Model
     public $ispEname;
 
     /**
-     * @description The proportion of requests.
+     * @description The information about the ISP.
      *
      * @example 0.01155980271270037
      *
@@ -79,7 +89,7 @@ class ispProportionData extends Model
     public $proportion;
 
     /**
-     * @description The number of queries per second.
+     * @description The average response time. Unit: milliseconds.
      *
      * @example 5.9523809523809524E-5
      *
@@ -88,7 +98,7 @@ class ispProportionData extends Model
     public $qps;
 
     /**
-     * @description The total amount of network traffic.
+     * @description The average response size. Unit: bytes.
      *
      * @example 2400057
      *
@@ -97,7 +107,7 @@ class ispProportionData extends Model
     public $totalBytes;
 
     /**
-     * @description The total number of requests.
+     * @description The proportion of requests.
      *
      * @example 3
      *

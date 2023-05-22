@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class trafficDataModule extends Model
 {
     /**
-     * @description The name of the district.
+     * @description The name of the region.
      *
      * @example CN
      *
@@ -27,7 +27,7 @@ class trafficDataModule extends Model
     public $bps;
 
     /**
-     * @description The accelerated domain name.
+     * @description The domain name.
      *
      * @example example.com
      *
@@ -36,7 +36,7 @@ class trafficDataModule extends Model
     public $domain;
 
     /**
-     * @description The timestamp of the data entry.
+     * @description The timestamp of the returned data.
      *
      * @example 2017-12-10T20:00:00Z
      *

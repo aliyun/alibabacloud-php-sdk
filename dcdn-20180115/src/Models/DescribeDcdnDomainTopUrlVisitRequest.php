@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainTopUrlVisitRequest extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify only one domain name in each call.
+     * @description The accelerated domain name. You can specify only one domain name in each request.
      *
      * @example example.com
      *
@@ -18,12 +18,12 @@ class DescribeDcdnDomainTopUrlVisitRequest extends Model
     public $domainName;
 
     /**
-     * @description The method that is used to sort the web pages. Valid values:
+     * @description The sorting method. Valid values:
      *
-     *   **traf**: by network traffic.
-     *   **pv**: by the number of visits.
+     *   **traf**: by network traffic
+     *   **pv**: by the number of visits
      *
-     * Default value: **pv**.
+     * Default value: **pv**
      * @example pv
      *
      * @var string
@@ -33,7 +33,7 @@ class DescribeDcdnDomainTopUrlVisitRequest extends Model
     /**
      * @description The start of the time range to query.
      *
-     * >  If you do not set this parameter, the data within the last 24 hours is queried.
+     * > If you do not specify this parameter, the data in the last 24 hours is queried.
      * @example 2018-10-03T16:00:00Z
      *
      * @var string

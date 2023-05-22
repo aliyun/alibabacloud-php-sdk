@@ -18,7 +18,7 @@ class usageData extends Model
     public $timeStamp;
 
     /**
-     * @description The consumed network traffic.
+     * @description The number of PVs.
      *
      * @example 9292
      *

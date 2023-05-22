@@ -9,12 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSlrAndSlsProjectRequest extends Model
 {
     /**
-     * @description The type of the collected logs. Default value: cdn_log_access_l1. Valid values:
-     *
-     *   **cdn_log_access_l1**: access logs of L1 Dynamic Route for CDN (DCDN) points of presence (POPs)
-     *   **cdn_log_origin**: back-to-origin logs
-     *   **cdn_log_er**: EdgeRoutine logs
-     *
+     * @description *   ****
+     *   ****
      * @example cdn_log_access_l1
      *
      * @var string
@@ -22,9 +18,7 @@ class CreateSlrAndSlsProjectRequest extends Model
     public $businessType;
 
     /**
-     * @description The region where Log Service resides. Valid values:
-     *
-     *   **cn-hangzhou**
+     * @description *   **cn-hangzhou**
      *   **cn-shanghai**
      *   **cn-qingdao**
      *   **cn-beijing**

@@ -20,7 +20,7 @@ class BatchSetDcdnWafDomainConfigsRequest extends Model
     /**
      * @description The protection status of the domain name. Valid values: on, off, and empty string.
      *
-     *   When you add a domain name, the value of this parameter is **on**, and the value of ClientIpTag takes effect.
+     *   When you add a domain name, the value of this parameter is **on**, and the value of ClientIpTag takes effect, which is empty if the default header is selected and is the value specified by the user if a custom header is selected.
      *   When you delete a domain name, the value of this parameter is **off**, and the value of ClientIpTag does not take effect.
      *   When you only modify the value of ClientIpTag, the value of DefenseStatus is an empty string.
      *

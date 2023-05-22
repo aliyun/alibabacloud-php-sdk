@@ -18,7 +18,7 @@ class DescribeUserDcdnStatusResponseBody extends Model
     public $enabled;
 
     /**
-     * @description Indicates whether the DCDN service has overdue payments.
+     * @description Indicates whether your account has overdue payments.
      *
      * @example false
      *
@@ -27,7 +27,7 @@ class DescribeUserDcdnStatusResponseBody extends Model
     public $inDebt;
 
     /**
-     * @description Indicates whether an overdue bill has been paid within the specified period.
+     * @description Indicates whether the grace period for your overdue payments expired.
      *
      * @example false
      *

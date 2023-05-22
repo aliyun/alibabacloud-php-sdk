@@ -12,8 +12,10 @@ class PublishRoutineCodeRevisionShrinkRequest extends Model
      * @description The environment to which you want to publish the code.
      *
      * >
+     *
      *   production: the name of the environment, including the environment name (SpecName) and the domain name whitelist (AllowedHosts).
-     *   presetCanary: **You can add canary release environments based on your business requirements. This parameter is optional.
+     *
+     *   Preset_Canary_xx: You can add canary release environments based on your business requirements. This parameter is optional.
      *
      * @example ["production","presetCanaryZhejiang"]
      *

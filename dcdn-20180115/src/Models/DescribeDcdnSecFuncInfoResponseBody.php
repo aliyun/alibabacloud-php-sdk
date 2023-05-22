@@ -44,7 +44,7 @@ class DescribeDcdnSecFuncInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The return value for HTTP requests.
+     * @description The return value for HTTP requests. Valid values:
      *
      *   0: OK.
      *   Values other than 0: an error.

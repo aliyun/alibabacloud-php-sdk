@@ -36,7 +36,7 @@ class domainLogDetails extends Model
     public $logInfos;
 
     /**
-     * @description The page information. The page information is indicated by the PageInfoDetail parameter.
+     * @description The page information.
      *
      * @var pageInfos
      */

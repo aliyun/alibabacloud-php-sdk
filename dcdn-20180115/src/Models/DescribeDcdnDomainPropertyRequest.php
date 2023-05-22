@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainPropertyRequest extends Model
 {
     /**
-     * @description The accelerated domain name that you want to query. You can specify only one domain name in each call.
+     * @description The ID of the request.
      *
      * @example example.com
      *

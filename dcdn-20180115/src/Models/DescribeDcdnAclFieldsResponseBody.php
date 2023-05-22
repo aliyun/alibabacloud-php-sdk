@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnAclFieldsResponseBody extends Model
 {
     /**
-     * @description The details about the rules.
+     * @description Details about the rules.
      *
      * @var content[]
      */

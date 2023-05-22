@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteRoutineResponseBody extends Model
 {
     /**
-     * @description Returns ""Status": "OK"".
+     * @description The message returned, such as ""Status": "OK"".
      *
      * @example "Status": "OK"
      *

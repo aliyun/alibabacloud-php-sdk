@@ -39,7 +39,7 @@ class resourcePackageInfo extends Model
     public $displayName;
 
     /**
-     * @description The time when the resource plan expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The expiration time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2022-08-24T16:00:00Z
      *
@@ -69,7 +69,7 @@ class resourcePackageInfo extends Model
     public $instanceId;
 
     /**
-     * @description The time when the resource plan takes effect. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The validation time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2021-08-24T04:09:22Z
      *
@@ -80,8 +80,8 @@ class resourcePackageInfo extends Model
     /**
      * @description The status of the resource plan. Valid values:
      *
-     *   **valid**: The resource plan is valid.
-     *   **closed**: The resource package is expired.
+     *   **valid**: valid
+     *   **closed**: expired
      *
      * @example valid
      *

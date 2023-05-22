@@ -20,7 +20,7 @@ class DescribeDcdnDomainRealTimeReqHitRateDataRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * The end time must be later than the start time.
+     * The end time needs to be later than the start time.
      * @example 2019-12-10T20:03:00Z
      *
      * @var string

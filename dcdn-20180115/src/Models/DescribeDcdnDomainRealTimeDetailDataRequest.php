@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeDetailDataRequest extends Model
 {
     /**
-     * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+     * @description Specifies whether to return a summary value of **LocationNameEn** and **IspNameEn**. Valid values:
      *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * The default value is **false**.
      * @example example.com
      *
      * @var string
@@ -28,12 +32,12 @@ class DescribeDcdnDomainRealTimeDetailDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The type of the information that you want to query. Separate multiple types with commas (,). Valid values:
+     * @description Specifies whether to return a summary value. Valid values:
      *
-     *   **qps**: queries per second
-     *   **bps**: bandwidth
-     *   **http_code**: HTTP status code
+     *   **true**: yes
+     *   **false**: no
      *
+     * The default value is **false**.
      * @example bps
      *
      * @var string
@@ -41,9 +45,8 @@ class DescribeDcdnDomainRealTimeDetailDataRequest extends Model
     public $field;
 
     /**
-     * @description The name of the ISP. You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query the ISP name.
+     * @description The information returned.
      *
-     * If you do not specify a value for this parameter, all ISPs are queried.
      * @example unicom
      *
      * @var string
@@ -51,9 +54,12 @@ class DescribeDcdnDomainRealTimeDetailDataRequest extends Model
     public $ispNameEn;
 
     /**
-     * @description The name of the region. You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query the region name.
+     * @description The type of the information that you want to query. Separate multiple types with commas (,). Valid values:
      *
-     * If you do not specify a value for this parameter, all regions are queried.
+     *   **qps**: queries per second
+     *   **bps**: bandwidth
+     *   **http_code**: HTTP status code
+     *
      * @example beijing
      *
      * @var string
@@ -61,12 +67,8 @@ class DescribeDcdnDomainRealTimeDetailDataRequest extends Model
     public $locationNameEn;
 
     /**
-     * @description Specifies whether to return a summary value. Valid values:
+     * @description The ID of the request.
      *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * The default value is **false**.
      * @example true
      *
      * @var string
@@ -74,12 +76,9 @@ class DescribeDcdnDomainRealTimeDetailDataRequest extends Model
     public $merge;
 
     /**
-     * @description Specifies whether to return a summary value of **LocationNameEn** and **IspNameEn**. Valid values:
+     * @description The name of the region. You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query the region name.
      *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * The default value is **false**.
+     * If you do not specify a value for this parameter, all regions are queried.
      * @example true
      *
      * @var string

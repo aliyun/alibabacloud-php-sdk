@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoutineCodeRevisionResponseBody extends Model
 {
     /**
-     * @description The JavaScript code returned.
+     * @description The information about the JavaScript code version.
      *
      * @var mixed[]
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
-     * @description The type of the protection policy, which is the same as the DefenseScenes field in the QueryArgs parameter.
+     * @description The type of the protection policy. The value of this parameter is the same as that of the DefenseScene field in QueryArgst.
      *
      * @example custom_acl
      *
@@ -18,7 +18,7 @@ class rules extends Model
     public $defenseScene;
 
     /**
-     * @description The modification time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the protection policy was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2021-12-29T17:08:45Z
      *
@@ -63,7 +63,7 @@ class rules extends Model
     public $ruleName;
 
     /**
-     * @description The status of the protection rule, which is the same as the RuleStatus field in the QueryArgs parameter.
+     * @description The status of the protection rule. The value of this parameter is the same as that of the RuleStatus field in QueryArgst.
      *
      * @example on
      *

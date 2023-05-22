@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageInfos extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The end of the time range during which data was queried.
      *
      * @example 1
      *
@@ -18,8 +18,9 @@ class pageInfos extends Model
     public $pageIndex;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries to return on each page.
      *
+     * Valid values: **1** to **1000**. Default value: **300**. Maximum value: **1000**.
      * @example 10
      *
      * @var int
@@ -27,7 +28,7 @@ class pageInfos extends Model
     public $pageSize;
 
     /**
-     * @description The total number of entries returned.
+     * @description The total number of entries returned on the current page.
      *
      * @example 4
      *

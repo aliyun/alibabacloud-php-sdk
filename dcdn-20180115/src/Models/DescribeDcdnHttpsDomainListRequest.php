@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnHttpsDomainListRequest extends Model
 {
     /**
-     * @description The keyword used for search.
+     * @description The status of the certificate. Valid values:
+     *
+     *   **ok**: The certificate is working as expected.
+     *   **mismatch**: The certificate does not match the specified domain name.
+     *   **expired**: The certificate has expired.
+     *   **expire_soon**: The certificate is about to expire.
      *
      * @example cert
      *
@@ -18,7 +23,7 @@ class DescribeDcdnHttpsDomainListRequest extends Model
     public $keyword;
 
     /**
-     * @description The number of pages to return. Valid values: **1 to 100000**.
+     * @description The total number of entries returned.
      *
      * @example 1
      *
@@ -27,7 +32,11 @@ class DescribeDcdnHttpsDomainListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **1 to 500**. Default value: **20**.
+     * @description The type of the certificate. Valid values:
+     *
+     *   **free**: A free certificate.
+     *   **cas**: A certificate that is purchased through Alibaba Cloud SSL Certificates Service.
+     *   **upload**: A user-uploaded certificate.
      *
      * @example 2
      *

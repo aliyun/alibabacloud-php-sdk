@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainUvDataRequest extends Model
 {
     /**
-     * @description The name of the accelerated domain. You can specify only one domain name.
+     * @description The accelerated domain name. You can specify only one domain name in each request.
      *
-     * By default, all the accelerated domains are queried.
+     * If you do not specify a domain name, this operation queries UV data of all accelerated domain names in your account.
      * @example example.com
      *
      * @var string

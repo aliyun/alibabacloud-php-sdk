@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDcdnKvResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The value of the key.
      *
      * @example D61E4801-EAFF-4A63-AAE1-FBF6CE1CFD1C
      *
@@ -18,7 +18,7 @@ class GetDcdnKvResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The value of the key.
+     * @description The name of the key that you want to query.
      *
      * @example value1
      *

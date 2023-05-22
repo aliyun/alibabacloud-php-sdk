@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteRoutineConfEnvsRequest extends Model
 {
     /**
-     * @description The custom canary release environments that you want to delete.
+     * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
      *
      * @example ["presetCanaryZheJiang"]
      *
@@ -18,7 +18,9 @@ class DeleteRoutineConfEnvsRequest extends Model
     public $envs;
 
     /**
-     * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
+     * @description >
+     *   This operation deletes only custom preset canary release environments. You cannot delete production or staging environments.
+     *   You can call this operation up to 100 times per second per account.
      *
      * @example test
      *

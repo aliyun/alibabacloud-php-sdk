@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainHttpCodeDataResponseBody extends Model
 {
     /**
-     * @description The time interval between the data entries returned. Unit: seconds.
-     *
      * @example 300
      *
      * @var string
@@ -19,15 +17,11 @@ class DescribeDcdnDomainHttpCodeDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The proportions of HTTP status codes at each time interval.
-     *
      * @var dataPerInterval
      */
     public $dataPerInterval;
 
     /**
-     * @description The accelerated domain name.
-     *
      * @example example.com
      *
      * @var string
@@ -35,8 +29,6 @@ class DescribeDcdnDomainHttpCodeDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range during which data was queried.
-     *
      * @example 2018-03-01T13:00:00Z
      *
      * @var string
@@ -44,8 +36,6 @@ class DescribeDcdnDomainHttpCodeDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 91FC2D9D-B042-4634-8A5C-7B8E7482C22D
      *
      * @var string
@@ -53,8 +43,6 @@ class DescribeDcdnDomainHttpCodeDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The start of the time range during which data was queried.
-     *
      * @example 2019-03-01T00:00:00Z
      *
      * @var string

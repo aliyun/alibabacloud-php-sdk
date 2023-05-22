@@ -18,7 +18,7 @@ class PublishRoutineCodeRevisionResponseBody extends Model
     public $content;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the request.
      *
      * @example A513734D-D17B-411E-864D-XXXX
      *

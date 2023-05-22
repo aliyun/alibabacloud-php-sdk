@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnFullDomainsBlockIPConfigRequest extends Model
 {
     /**
+     * @example 10.XX.XX.10/24
+     *
      * @var string
      */
     public $IPList;

@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeDetailDataResponseBody extends Model
 {
     /**
-     * @description The information returned.
+     * @description DescribeDcdnDomainRealTimeDetailData
      *
-     * @example { 			"time_stp": "2020-01-06T04:17:00Z", 			"bps": "297.29333333333335", 			"domain_name": "example.com" 		}
-     *
+     * @example [
+     * ]
      * @var string
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description Queries traffic data and the number of visits of each ISP in each region. Data is collected every minute. The maximum time range to query for this operation is 10 minutes.
      *
      * @example A603F324-7A05-4FB3-ADF3-2563233D26CC
      *

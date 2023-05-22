@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @description The timestamp of the data returned.
+     * @description The timestamp of the returned data.
      *
      * @example 2018-03-01T13:00:00Z
      *
@@ -19,7 +19,7 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The information about the HTTP status codes.
+     * @description The proportions of the HTTP status codes.
      *
      * @var websocketHttpCode
      */

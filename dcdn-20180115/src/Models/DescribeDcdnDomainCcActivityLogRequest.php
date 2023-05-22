@@ -29,7 +29,7 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
     public $endTime;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number of the returned page. Default value: **1**.
      *
      * @example 1
      *
@@ -47,7 +47,7 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the rule. Valid values
+     * @description The name of the rule.
      *
      *   default_normal in normal mode
      *   default_attack in emergency mode

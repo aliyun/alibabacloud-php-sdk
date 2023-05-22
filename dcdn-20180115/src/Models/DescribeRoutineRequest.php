@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoutineRequest extends Model
 {
     /**
-     * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
+     * @description The metadata of the routine. The next table describes the fields.
      *
      * @example test
      *

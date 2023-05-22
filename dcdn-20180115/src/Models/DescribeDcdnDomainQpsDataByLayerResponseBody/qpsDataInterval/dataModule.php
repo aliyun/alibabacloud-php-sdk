@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @description The number of requests in the Chinese mainland.
+     * @description The number of requests outside the Chinese mainland.
      *
      * @example 12
      *
@@ -18,7 +18,7 @@ class dataModule extends Model
     public $accDomesticValue;
 
     /**
-     * @description The number of requests outside the Chinese mainland.
+     * @description The beginning of the time range during which data was queried.
      *
      * @example 44
      *
@@ -27,7 +27,7 @@ class dataModule extends Model
     public $accOverseasValue;
 
     /**
-     * @description The total number of requests.
+     * @description The number of queries per second in the Chinese mainland.
      *
      * @example 56
      *
@@ -36,7 +36,7 @@ class dataModule extends Model
     public $accValue;
 
     /**
-     * @description The number of queries per second in the Chinese mainland.
+     * @description The time interval between the data entries returned. Unit: seconds.
      *
      * @example 0.12
      *
@@ -45,7 +45,7 @@ class dataModule extends Model
     public $domesticValue;
 
     /**
-     * @description The number of queries per second outside the Chinese mainland.
+     * @description The total number of queries per second.
      *
      * @example 0.44
      *
@@ -54,8 +54,9 @@ class dataModule extends Model
     public $overseasValue;
 
     /**
-     * @description The timestamp of the data returned.
+     * @description The time interval between the data entries to return. Unit: seconds.
      *
+     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Description**.
      * @example 2015-12-10T21:00:00Z
      *
      * @var string
@@ -63,8 +64,9 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The total number of queries per second.
+     * @description The accelerated domain name. You can specify multiple domain names and separate them with commas (,). You can specify up to 500 domain names in each request. The query results of multiple domain names are aggregated.
      *
+     * If you do not specify a domain name, data of all domain names is queried.
      * @example 0.56
      *
      * @var string

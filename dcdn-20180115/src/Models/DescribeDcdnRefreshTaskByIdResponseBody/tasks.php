@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
-     * @description The time when the task was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the task was created. The time follows the ISO8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
      *
      * @example 2021-05-10T08:54:23Z
      *
@@ -22,7 +22,7 @@ class tasks extends Model
      *
      *   **Internal Error**: An internal error occurred.
      *   **Origin Timeout**: The response from the origin server timed out.
-     *   **Origin Return StatusCode 5XX**: The origin server returned an HTTP 5xx status code.
+     *   **Origin Return StatusCode 5XX**: The origin server returned a 5XX error.
      *
      * @example Internal Error
      *
@@ -43,7 +43,7 @@ class tasks extends Model
      * @description The type of the refresh or prefetch task. Valid values:
      *
      *   **file**: refreshes an individual file.
-     *   **directory**: refreshes files under a specified directory.
+     *   **directory**: refreshes files under the specified directory.
      *   **preload**: prefetches an individual file.
      *
      * @example file
@@ -64,10 +64,10 @@ class tasks extends Model
     /**
      * @description The status of the task. Valid values:
      *
-     *   **Complete**: The task has completed.
+     *   **Complete**: The task is complete.
      *   **Pending**: The task is pending.
-     *   **Refreshing**: The task is in progress.
-     *   **Failed**: The task has failed.
+     *   **Refreshing**: The task is running.
+     *   **Failed**: The task failed.
      *
      * @example Complete
      *

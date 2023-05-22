@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UploadRoutineCodeResponseBody extends Model
 {
     /**
-     * @description The content returned that includes the code version number and information about code upload.
+     * @description The content returned, such as the code version number and information about the code upload.
      *
      * @var mixed[]
      */

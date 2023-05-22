@@ -27,7 +27,7 @@ class dataModule extends Model
     public $reqHitRate;
 
     /**
-     * @description The timestamp of the data returned.
+     * @description The timestamp of the returned data.
      *
      * @example 2018-03-02T13:00:00Z
      *

@@ -9,9 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainTrafficDataRequest extends Model
 {
     /**
-     * @description The accelerated domain name.
-     *
-     * Separate multiple domain names with commas (,). If you do not specify a value for this parameter, all accelerated domain names are queried.
      * @example example.com
      *
      * @var string
@@ -19,9 +16,6 @@ class DescribeDcdnDomainTrafficDataRequest extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range to query.
-     *
-     * > The end time must be later than the start time.
      * @example 2017-12-10T21:00:00Z
      *
      * @var string
@@ -29,9 +23,6 @@ class DescribeDcdnDomainTrafficDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The time granularity for a query. Unit: seconds.
-     *
-     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
      * @example 300
      *
      * @var string
@@ -39,9 +30,6 @@ class DescribeDcdnDomainTrafficDataRequest extends Model
     public $interval;
 
     /**
-     * @description The name of the Internet service provider (ISP).
-     *
-     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query ISPs.
      * @example unicom
      *
      * @var string
@@ -49,9 +37,6 @@ class DescribeDcdnDomainTrafficDataRequest extends Model
     public $ispNameEn;
 
     /**
-     * @description The name of the region.
-     *
-     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query regions.
      * @example beijing
      *
      * @var string
@@ -59,9 +44,6 @@ class DescribeDcdnDomainTrafficDataRequest extends Model
     public $locationNameEn;
 
     /**
-     * @description The beginning of the time range to query.
-     *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2017-12-10T20:00:00Z
      *
      * @var string

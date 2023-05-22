@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnFullDomainsBlockIPHistoryRequest extends Model
 {
     /**
+     * @example 2023-04-24T19:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 10.XX.XX.10/24
+     *
      * @var string
      */
     public $IPList;
 
     /**
+     * @example 2023-04-24T17:00:00Z
+     *
      * @var string
      */
     public $startTime;

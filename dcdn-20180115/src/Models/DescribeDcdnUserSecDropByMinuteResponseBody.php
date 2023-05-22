@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
 {
     /**
-     * @description The description of HTTP responses.
+     * @description The total number of entries returned.
      *
      * @example OK
      *
@@ -19,7 +19,7 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
     public $description;
 
     /**
-     * @description The total number of entries returned.
+     * @description The array returned.
      *
      * @example 2
      *
@@ -28,7 +28,7 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
     public $len;
 
     /**
-     * @description The number of the returned page.
+     * @description The domain name.
      *
      * @example 10
      *
@@ -37,7 +37,7 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The beginning of the time range that was queried. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
      *
      * @example 2
      *
@@ -46,7 +46,7 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries returned on each page.
      *
      * @example 8143fA8A-B2B2-4915-538D-546B538D25FA
      *
@@ -55,14 +55,14 @@ class DescribeDcdnUserSecDropByMinuteResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The array returned.
+     * @description The object that triggered the rule.
      *
      * @var rows[]
      */
     public $rows;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of packets blocked within 5 minutes.
      *
      * @example 5738
      *

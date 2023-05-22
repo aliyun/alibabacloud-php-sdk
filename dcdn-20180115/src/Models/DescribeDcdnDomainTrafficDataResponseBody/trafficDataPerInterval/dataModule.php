@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
-     * @description The network traffic that was consumed to deliver dynamic content over HTTP.
-     *
      * @example 0
      *
      * @var float
@@ -18,8 +16,6 @@ class dataModule extends Model
     public $dynamicHttpTraffic;
 
     /**
-     * @description The network traffic that was consumed to deliver dynamic content over HTTPS.
-     *
      * @example 0
      *
      * @var float
@@ -27,8 +23,6 @@ class dataModule extends Model
     public $dynamicHttpsTraffic;
 
     /**
-     * @description The network traffic that was consumed to deliver static content over HTTP.
-     *
      * @example 123
      *
      * @var float
@@ -36,8 +30,6 @@ class dataModule extends Model
     public $staticHttpTraffic;
 
     /**
-     * @description The network traffic that was consumed to deliver static content over HTTPS.
-     *
      * @example 132
      *
      * @var float
@@ -45,8 +37,6 @@ class dataModule extends Model
     public $staticHttpsTraffic;
 
     /**
-     * @description The timestamp of the returned data.
-     *
      * @example 2017-12-10T20:00:00Z
      *
      * @var string
@@ -54,8 +44,6 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The total amount of network traffic.
-     *
      * @example 0
      *
      * @var float

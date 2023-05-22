@@ -10,16 +10,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafDomainDetailResponseBody extends Model
 {
     /**
-     * @description The information about the accelerated domain name.
+     * @description The IDs of the protection policies. Multiple IDs are separated by commas (,).
      *
      * @var domain
      */
     public $domain;
 
     /**
-     * @description The ID of the request.
+     * @description The type of the protection policy. Valid values:
      *
-     * @example BEA5625F-8FCF-48F4-851B-CA63946DA630
+     *   waf_group: basic web protection
+     *   custom_acl: custom protection
+     *   whitelist: IP address whitelist
+     *
+     * @example The ID of the protection policy. If multiple IDs exist, only one ID is returned.
      *
      * @var string
      */

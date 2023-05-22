@@ -18,9 +18,8 @@ class BatchSetDcdnIpaDomainConfigsRequest extends Model
     public $domainNames;
 
     /**
-     * @description The list of features.
+     * @description The list of features. `[{"functionArgs":[{"argName":"parameter name","argValue":"parameter value"}],"functionName":"feature name"}]`
      *
-     * [{"functionArgs":[{"argName":"Parameter name","argValue":"Parameter value"}],"functionName":"Feature name"}]
      * @example [{"functionArgs":[{"argName":"domain_name","argValue":"api.*com"}],"functionName":"protogw"}]
      *
      * @var string

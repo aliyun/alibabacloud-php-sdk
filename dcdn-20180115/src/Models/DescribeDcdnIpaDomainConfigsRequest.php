@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnIpaDomainConfigsRequest extends Model
 {
     /**
-     * @description The accelerated domain names. Separate multiple domain names with commas (,).
+     * @description The accelerated domain name. Separate multiple domain names with commas (,).
      *
      * @example example.com
      *
@@ -18,7 +18,7 @@ class DescribeDcdnIpaDomainConfigsRequest extends Model
     public $domainName;
 
     /**
-     * @description The name of the feature. Only the protogw value is supported, which indicates IP Application Accelerator (IPA).
+     * @description The name of the feature. Set the value to protogw, which indicates IP Application Accelerator (IPA).
      *
      * @example protogw
      *

@@ -24,7 +24,7 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     public $dataCenter;
 
     /**
-     * @description The domain names. You can specify one or more domain names. Separate multiple domain names with commas (,).
+     * @description The domain names from which logs were collected. You can specify one or more domain names. Separate multiple domain names with commas (,).
      *
      * @example example.com
      *
@@ -33,7 +33,7 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     public $domainName;
 
     /**
-     * @description The name of the real-time log delivery project.
+     * @description The name of the project.
      *
      * @example example
      *
@@ -51,7 +51,7 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     public $SLSLogStore;
 
     /**
-     * @description The name of the Log Service project.
+     * @description The name of the log file.
      *
      * @example example-cn
      *
@@ -60,7 +60,7 @@ class UpdateDcdnSLSRealtimeLogDeliveryRequest extends Model
     public $SLSProject;
 
     /**
-     * @description The region to which logs are delivered.
+     * @description The region to which logs were delivered.
      *
      * @example cn-hangzhou
      *

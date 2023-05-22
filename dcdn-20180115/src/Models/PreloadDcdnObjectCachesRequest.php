@@ -12,7 +12,7 @@ class PreloadDcdnObjectCachesRequest extends Model
      * @description The acceleration region in which you want to prefetch content. If you do not specify a region, the value overseas is used.
      *
      *   **domestic**: Chinese mainland
-     *   **overseas**: global (excluding the Chinese mainland)
+     *   **overseas**: outside the Chinese mainland
      *
      * @example domestic
      *
@@ -21,9 +21,9 @@ class PreloadDcdnObjectCachesRequest extends Model
     public $area;
 
     /**
-     * @description Specifies whether to prefetch content to POPs. Default value: false. Valid values:
+     * @description Specifies whether to prefetch content to POPs. Valid values:
      *
-     *   **true**: prefetches content to POPs that include L2 POPs.
+     *   **true**: prefetches content to nodes that include L2 DCDN nodes.
      *   **false**: prefetches content to L2 POPs or L3 POPs.
      *
      * @example true
@@ -52,7 +52,7 @@ class PreloadDcdnObjectCachesRequest extends Model
     public $securityToken;
 
     /**
-     * @description The custom header for prefetch in JSON format.
+     * @description The custom header for prefetch in the JSON format.
      *
      * @example {
      * }

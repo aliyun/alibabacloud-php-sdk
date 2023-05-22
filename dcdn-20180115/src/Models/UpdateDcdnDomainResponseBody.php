@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateDcdnDomainResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The information about the addresses of origin servers.
      *
      * @example 0AEDAF20-4DDF-4165-8750-47FF9C1929C9
      *

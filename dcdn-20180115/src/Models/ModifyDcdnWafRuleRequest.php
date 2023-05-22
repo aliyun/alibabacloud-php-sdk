@@ -11,7 +11,7 @@ class ModifyDcdnWafRuleRequest extends Model
     /**
      * @description The new configurations of the protection rule.
      *
-     * >  After you modify the configurations of the protection rule, the previous configurations are overwritten.
+     * > After you modify the configurations of the protection rule, the previous configurations are overwritten.
      * @example {\"origin\":\"custom\",\"conditions\":[{\"opValue\":\"eq\",\"key\":\"URL\",\"values\":\"/example\"},{\"opValue\":\"eq\",\"key\":\"Header\",\"values\":\"3333\",\"subKey\":\"trt\"}],\"actionExternal\":{},\"action\":\"monitor\",\"ccStatus\":1,\"ratelimit\":{\"target\":\"remote_addr\",\"interval\":\"5\",\"threshold\":\"2\",\"effect\":\"rule\",\"status\":{\"code\":\"404\",\"count\":\"2\"},\"ttl\":\"1800\"}}\"
      *
      * @var string

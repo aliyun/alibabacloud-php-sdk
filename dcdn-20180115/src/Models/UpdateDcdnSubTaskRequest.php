@@ -18,8 +18,6 @@ class UpdateDcdnSubTaskRequest extends Model
     public $domainName;
 
     /**
-     * @description The end time of the operations report. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-     *
      * @example 2021-06-17T00:00:00Z
      *
      * @var string
@@ -27,7 +25,7 @@ class UpdateDcdnSubTaskRequest extends Model
     public $endTime;
 
     /**
-     * @description The IDs of operations reports that you want to update. Separate IDs with commas (,). You can call the [DescribeDcdnSubList](~~270075~~) operation to query report IDs.
+     * @description The operation that you want to perform. Set the value to **UpdateDcdnSubTask**.
      *
      * @example 2,4,6
      *
@@ -36,8 +34,6 @@ class UpdateDcdnSubTaskRequest extends Model
     public $reportIds;
 
     /**
-     * @description The start time of the operations report. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
-     *
      * @example 2021-04-17T00:00:00Z
      *
      * @var string

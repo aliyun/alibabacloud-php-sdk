@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The key of the returned tag.
+     * @description The value of the returned tag.
      *
      * @example region
      *
@@ -18,8 +18,6 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The value of the returned tag.
-     *
      * @var string[]
      */
     public $value;

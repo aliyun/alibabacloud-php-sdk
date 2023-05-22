@@ -11,7 +11,7 @@ class SetRoutineSubdomainRequest extends Model
     /**
      * @description The parameters of the subdomain.
      *
-     * ```
+     * ]
      * @example ["subdomain-test"]
      *
      * @var mixed[]

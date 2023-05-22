@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class IPBlockInfo extends Model
 {
     /**
+     * @example 1.XXX.XXX.0~1.XXX.XXX.255
+     *
      * @var string
      */
     public $blockIP;
 
     /**
+     * @example 2023-04-24 18:49:37
+     *
      * @var string
      */
     public $deliverTime;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $status;

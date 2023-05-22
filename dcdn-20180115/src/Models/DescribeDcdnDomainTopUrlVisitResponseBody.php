@@ -21,7 +21,7 @@ class DescribeDcdnDomainTopUrlVisitResponseBody extends Model
     public $allUrlList;
 
     /**
-     * @description The accelerated domain name for which the data was returned.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -39,7 +39,7 @@ class DescribeDcdnDomainTopUrlVisitResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which the data was collected.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2018-10-03T16:00:00Z
      *

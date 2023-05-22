@@ -39,12 +39,12 @@ class pageData extends Model
     /**
      * @description The status of the accelerated domain name. Valid values:
      *
-     *   **online**: enabled
-     *   **offline**: disabled
-     *   **configuring**: configuring
-     *   **configure_failed**: configuration failed
-     *   **checking**: reviewing
-     *   **check_failed**: failed the review
+     *   **online**
+     *   **offline**
+     *   **configuring**
+     *   **configure_failed**
+     *   **checking**
+     *   **check_failed**
      *
      * @example configure_failed
      *
@@ -53,7 +53,7 @@ class pageData extends Model
     public $domainStatus;
 
     /**
-     * @description The time when the accelerated domain name was added.
+     * @description The time when the accelerated domain name was added to Dynamic Content Delivery Network (DCDN).
      *
      * @example 2015-10-28T09:32:51Z
      *

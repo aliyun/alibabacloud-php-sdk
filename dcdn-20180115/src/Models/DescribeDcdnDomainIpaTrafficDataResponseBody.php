@@ -28,7 +28,7 @@ class DescribeDcdnDomainIpaTrafficDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2017-12-10T21:00:00Z
      *
@@ -46,7 +46,7 @@ class DescribeDcdnDomainIpaTrafficDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2017-12-10T20:00:00Z
      *
@@ -55,7 +55,7 @@ class DescribeDcdnDomainIpaTrafficDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The monitoring data of network traffic that was collected at each interval.
+     * @description The network traffic that was collected at each interval.
      *
      * @var trafficDataPerInterval
      */

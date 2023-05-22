@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafPolicyDomainsRequest extends Model
 {
     /**
-     * @description The number of the page to return. Valid values: **1** to **100000**. Default value: **1**.
+     * @description The page number of the returned page, which is the same as the PageNumber parameter in request parameters.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeDcdnWafPolicyDomainsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of domain names to return per page. Valid values: an integer from **1** to **500**. Default value: **20**.
+     * @description The total number of domain names returned.
      *
      * @example 20
      *
@@ -27,7 +27,7 @@ class DescribeDcdnWafPolicyDomainsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the protection policy. You can specify only one ID in each request.
+     * @description The ID of the request.
      *
      * @example 100001
      *

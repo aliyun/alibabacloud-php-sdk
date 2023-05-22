@@ -19,7 +19,7 @@ class DescribeDcdnErUsageDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The list of the returned data.
+     * @description The list of the data returned.
      *
      * @var erAccData
      */
@@ -35,7 +35,7 @@ class DescribeDcdnErUsageDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which data was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2018-10-30T16:00:00Z
      *

@@ -18,7 +18,7 @@ class RefreshDcdnObjectCachesRequest extends Model
     public $objectPath;
 
     /**
-     * @description The refresh type. Default value: File. Valid values:
+     * @description The refresh type. Valid values:
      *
      *   **File**: URL
      *   **Directory**: directory

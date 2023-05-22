@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PutDcdnKvRequest extends Model
 {
     /**
-     * @description The name of the key. The name can be up to 512 characters in length, and cannot contain spaces.
+     * @description The length of the key.
      *
      * @example key1
      *
@@ -18,7 +18,7 @@ class PutDcdnKvRequest extends Model
     public $key;
 
     /**
-     * @description The name of the namespace.
+     * @description The content of the key. The maximum size is 2 MB (2 x 1000 x 1000 bytes).
      *
      * @example ns1
      *
@@ -27,7 +27,7 @@ class PutDcdnKvRequest extends Model
     public $namespace;
 
     /**
-     * @description The content of the key. The maximum size is 2 MB (2 x 1000 x 1000 bytes).
+     * @description The content of the key. If the value exceeds 256 characters in length, the first 100 characters and the last 100 characters are retained and other characters are discarded.
      *
      * @example value1
      *

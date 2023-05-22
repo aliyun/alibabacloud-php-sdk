@@ -11,8 +11,8 @@ class DescribeUserLogserviceStatusResponseBody extends Model
     /**
      * @description Indicates whether Log Service is activated.
      *
-     *   true: activated
-     *   false: not activated
+     *   true
+     *   false
      *
      * @example true
      *
@@ -23,8 +23,8 @@ class DescribeUserLogserviceStatusResponseBody extends Model
     /**
      * @description Indicates whether your Log Service has overdue payments.
      *
-     *   true: Your Log Service has overdue payments.
-     *   false: Your Log Service does not have overdue payments.
+     *   true
+     *   false
      *
      * @example false
      *
@@ -33,10 +33,10 @@ class DescribeUserLogserviceStatusResponseBody extends Model
     public $inDebt;
 
     /**
-     * @description Indicates whether the overdue payments of Log Service have passed the grace period.
+     * @description Indicates whether an overdue payment of your Log Service has passed the grace period.
      *
-     *   true: The overdue payments of Log Service have passed the grace period.
-     *   false: The overdue payments of Log Service have not passed the grace period.
+     *   true
+     *   false
      *
      * @example false
      *
@@ -47,8 +47,8 @@ class DescribeUserLogserviceStatusResponseBody extends Model
     /**
      * @description Indicates whether Log Service is available.
      *
-     *   true: available
-     *   false: unavailable
+     *   true
+     *   false
      *
      * @example true
      *

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
-     * @description The English name of the region.
-     *
      * @example liaoning
      *
      * @var string
@@ -18,8 +16,6 @@ class region extends Model
     public $nameEn;
 
     /**
-     * @description The Chinese name of the region.
-     *
      * @var string
      */
     public $nameZh;

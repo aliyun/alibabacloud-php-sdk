@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class domainLogDetail extends Model
 {
     /**
-     * @description The total number of entries returned on the current page.
+     * @description The beginning of the time range during which data was queried.
      *
      * @example 4
      *
@@ -20,14 +20,16 @@ class domainLogDetail extends Model
     public $logCount;
 
     /**
-     * @description The log information. The log information is indicated by the LogInfoDetail parameter.
+     * @description The name of the log file.
      *
      * @var logInfos
      */
     public $logInfos;
 
     /**
-     * @description The page information. The page information is indicated by the PageInfoDetail parameter.
+     * @description >
+     *   If you specify neither the **StartTime** parameter nor the **EndTime** parameter, the data in the last 24 hours is returned. If you specify the **StartTime** and **EndTime** parameters, the data within the specified time range is returned.
+     *   You can call this operation up to 100 times per second per account.
      *
      * @var pageInfos
      */

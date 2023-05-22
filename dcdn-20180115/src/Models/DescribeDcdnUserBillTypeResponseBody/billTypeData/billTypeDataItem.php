@@ -11,17 +11,17 @@ class billTypeDataItem extends Model
     /**
      * @description The metering method. Valid values:
      *
-     *   **hour_flow**: pay by data transfer per hour
-     *   **day_bandwidth**: pay by bandwidth per day
-     *   **month\_95**: pay by 95th percentile
+     *   **hour_flow**: pay by hourly traffic
+     *   **day_bandwidth**: pay by daily bandwidth
+     *   **month\_95**: pay by monthly 95th percentile
      *   **month_avg_day_bandwidth**: pay by average daily peak bandwidth per month
      *   **month\_4th_day_bandwidth**: pay by 4th peak bandwidth per month
      *   **month_avg_day\_95**: pay by average daily 95th percentile per month
-     *   **month\_95\_night_half**: pay by 95th percentile (50 % off during nighttime)
+     *   **month\_95\_night_half**: pay by 95th percentile (50% off during nighttime)
      *   **hour_vas**: pay by value-added service per month
      *   **quic_hour_count**: pay by QUIC request per hour
      *   **hour_count**: pay by request per hour
-     *   **rtlog_count_day**: pay by real-time log entry
+     *   **rtlog_count_day**: pay by the number of real-time logs per day
      *
      * @example month_avg_day_bandwidth_overseas
      *
@@ -44,7 +44,7 @@ class billTypeDataItem extends Model
      *   **flow**: network traffic and bandwidth
      *   **vas**: value-added services (HTTPS and requests for dynamic content)
      *   **websocket**: WebSocket
-     *   **quic**: the number of QUIC requests
+     *   **quic**: QUIC requests
      *   **rtlog2sls**: log entries delivered to Log Service in real time
      *
      * @example flow
