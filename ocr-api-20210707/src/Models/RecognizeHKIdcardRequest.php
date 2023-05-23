@@ -7,17 +7,10 @@ namespace AlibabaCloud\SDK\Ocrapi\V20210707\Models;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
-class RecognizePurchaseRecordRequest extends Model
+class RecognizeHKIdcardRequest extends Model
 {
     /**
-     * @example false
-     *
-     * @var bool
-     */
-    public $outputMultiOrders;
-
-    /**
-     * @example https://img.alicdn.com/tfs/TB1Wo7eXAvoK1RjSZFDXXXY3pXa-2512-3509.jpg
+     * @example https://example.png
      *
      * @var string
      */
@@ -28,9 +21,8 @@ class RecognizePurchaseRecordRequest extends Model
      */
     public $body;
     protected $_name = [
-        'outputMultiOrders' => 'OutputMultiOrders',
-        'url'               => 'Url',
-        'body'              => 'body',
+        'url'  => 'Url',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -40,9 +32,6 @@ class RecognizePurchaseRecordRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->outputMultiOrders) {
-            $res['OutputMultiOrders'] = $this->outputMultiOrders;
-        }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -56,14 +45,11 @@ class RecognizePurchaseRecordRequest extends Model
     /**
      * @param array $map
      *
-     * @return RecognizePurchaseRecordRequest
+     * @return RecognizeHKIdcardRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['OutputMultiOrders'])) {
-            $model->outputMultiOrders = $map['OutputMultiOrders'];
-        }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }

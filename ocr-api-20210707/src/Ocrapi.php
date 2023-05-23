@@ -74,6 +74,8 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHandwritingRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHandwritingResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHealthCodeRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHealthCodeResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHKIdcardRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHKIdcardResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHotelConsumeRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHotelConsumeResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeHouseholdRequest;
@@ -1724,6 +1726,51 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeGeneralWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeHKIdcardRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RecognizeHKIdcardResponse
+     */
+    public function recognizeHKIdcardWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $request->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeHKIdcard',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeHKIdcardResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeHKIdcardRequest $request
+     *
+     * @return RecognizeHKIdcardResponse
+     */
+    public function recognizeHKIdcard($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeHKIdcardWithOptions($request, $runtime);
     }
 
     /**
