@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceInstanceRequ
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetUploadCredentialsRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetUploadCredentialsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsRequest;
@@ -362,6 +364,9 @@ class ComputeNestSupplier extends OpenApiClient
         if (!Utils::isUnset($request->artifactId)) {
             $query['ArtifactId'] = $request->artifactId;
         }
+        if (!Utils::isUnset($request->artifactName)) {
+            $query['ArtifactName'] = $request->artifactName;
+        }
         if (!Utils::isUnset($request->artifactVersion)) {
             $query['ArtifactVersion'] = $request->artifactVersion;
         }
@@ -600,6 +605,49 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getServiceInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUploadCredentialsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetUploadCredentialsResponse
+     */
+    public function getUploadCredentialsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUploadCredentials',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUploadCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUploadCredentialsRequest $request
+     *
+     * @return GetUploadCredentialsResponse
+     */
+    public function getUploadCredentials($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUploadCredentialsWithOptions($request, $runtime);
     }
 
     /**

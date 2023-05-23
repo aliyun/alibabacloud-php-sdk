@@ -16,6 +16,13 @@ class GetArtifactRequest extends Model
     public $artifactId;
 
     /**
+     * @example gpu-test
+     *
+     * @var string
+     */
+    public $artifactName;
+
+    /**
      * @example 1
      *
      * @var string
@@ -23,6 +30,7 @@ class GetArtifactRequest extends Model
     public $artifactVersion;
     protected $_name = [
         'artifactId'      => 'ArtifactId',
+        'artifactName'    => 'ArtifactName',
         'artifactVersion' => 'ArtifactVersion',
     ];
 
@@ -35,6 +43,9 @@ class GetArtifactRequest extends Model
         $res = [];
         if (null !== $this->artifactId) {
             $res['ArtifactId'] = $this->artifactId;
+        }
+        if (null !== $this->artifactName) {
+            $res['ArtifactName'] = $this->artifactName;
         }
         if (null !== $this->artifactVersion) {
             $res['ArtifactVersion'] = $this->artifactVersion;
@@ -53,6 +64,9 @@ class GetArtifactRequest extends Model
         $model = new self();
         if (isset($map['ArtifactId'])) {
             $model->artifactId = $map['ArtifactId'];
+        }
+        if (isset($map['ArtifactName'])) {
+            $model->artifactName = $map['ArtifactName'];
         }
         if (isset($map['ArtifactVersion'])) {
             $model->artifactVersion = $map['ArtifactVersion'];
