@@ -35,6 +35,10 @@ class taskResult extends Model
     public $videoUrl;
 
     /**
+     * @description 字粒度的时间戳文件，特定任务支持
+     *
+     * @example xxx/xxx/xxx.ass
+     *
      * @var string
      */
     public $wordSubtitlesUrl;

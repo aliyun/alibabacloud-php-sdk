@@ -22,8 +22,6 @@ class StartInstanceResponseBody extends Model
     public $data;
 
     /**
-     * @example operation success.
-     *
      * @var string
      */
     public $message;

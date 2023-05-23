@@ -23,8 +23,6 @@ class channel extends Model
     public $channelId;
 
     /**
-     * @example 2022-01-04T16:00Z
-     *
      * @var string
      */
     public $expiredTime;
