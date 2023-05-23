@@ -9,56 +9,100 @@ use AlibabaCloud\Tea\Model;
 class ListMessageMetricsRequest extends Model
 {
     /**
+     * @description 结束日期，格式20220102。
+     *
+     * @example 20210321
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description 关联人群Id。
+     *
+     * @example 10ed87f5-3ca8-4a43-9d83-b30519be7241
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description 分页数，从1开始，默认为1。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 分页大小，默认为10。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description 关联触达计划Id。
+     *
+     * @example 08d19262-bd76-48fd-80e8-6a225ac388c1
+     *
      * @var string
      */
     public $scheduleId;
 
     /**
+     * @description 签名名称。
+     *
+     * @example PAI通知
+     *
      * @var string
      */
     public $signature;
 
     /**
+     * @description 签名Id，同时只能指定签名名称或签名Id其中之一。
+     *
+     * @example b1fe24e2-6a1b-42c6-901e-bfb2e898b5f3
+     *
      * @var string
      */
     public $signatureId;
 
     /**
+     * @description 开始日期，格式20220102。
+     *
+     * @example 20210321
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @description 模板号。
+     *
+     * @example SMS_123456
+     *
      * @var string
      */
     public $templateCode;
 
     /**
+     * @description 模板Id，同时只能指定模板Code或模板Id其中之一。
+     *
+     * @example 5480e3e7-f578-42d2-8ce8-217dec75f2e6
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description 模板类型。
+     * - 2 : 推广短信。
+     * @example 2
+     *
      * @var int
      */
     public $templateType;

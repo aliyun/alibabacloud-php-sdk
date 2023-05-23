@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 短信发送状态回执接收服务地址。
+     *
+     * @example http://example.com
+     *
      * @var string
      */
     public $smsReportUrl;
 
     /**
+     * @description 上行短信消息接收服务地址。
+     *
+     * @example http://example.com
+     *
      * @var string
      */
     public $smsUpUrl;

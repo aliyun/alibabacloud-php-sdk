@@ -9,41 +9,69 @@ use AlibabaCloud\Tea\Model;
 class ListInferenceJobsRequest extends Model
 {
     /**
+     * @description 归属运营活动过滤。
+     *
+     * @example 0a54e195-03e2-40bd-869d-b71cb302783e
+     *
      * @var string
      */
     public $campaignId;
 
     /**
+     * @example 双11活动
+     *
      * @var string
      */
     public $campaignName;
 
     /**
+     * @description 预测任务名称过滤。
+     *
+     * @example VIP客户
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 分页数，从1开始，默认为1。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 分页大小，默认为10。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description 预测任务备注过滤。
+     *
+     * @example 充值大于一万
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description 预测任务状态过滤。
+     * - 4: 失败。
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example test_job
+     *
      * @var string
      */
     public $trainingJobName;

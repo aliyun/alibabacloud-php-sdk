@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SmsReportResponseBody extends Model
 {
     /**
+     * @description 应答编码。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description 描述信息。
+     *
+     * @example 接受成功
+     *
      * @var string
      */
     public $msg;

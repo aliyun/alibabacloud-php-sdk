@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateReportUrlRequest extends Model
 {
     /**
+     * @description 可公开访问的地址。
+     *
+     * @example http://example.com
+     *
      * @var string
      */
     public $url;

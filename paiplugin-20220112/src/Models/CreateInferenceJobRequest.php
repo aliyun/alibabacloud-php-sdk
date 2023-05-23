@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class CreateInferenceJobRequest extends Model
 {
     /**
+     * @description 关联算法。
+     *
+     * @example user_recall
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @description 关联运营活动Id。
+     *
+     * @example 0a54e195-03e2-40bd-869d-b71cb302783e
+     *
      * @var string
      */
     public $campaignId;
 
     /**
+     * @description 预测数据路径。
+     *
+     * @example https://bucket.region.aliyuncs.com/folder/
+     *
      * @var string
      */
     public $dataPath;
 
     /**
+     * @description 预测任务名称。
+     *
+     * @example VIP客户
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 备注。
+     *
+     * @example 充值大于一万
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description 输出数据路径，需要为空目录。
+     *
+     * @example https://bucket.region.aliyuncs.com/folder/
+     *
      * @var string
      */
     public $targetPath;
 
     /**
+     * @description 关联训练任务。
+     *
+     * @example 123
+     *
      * @var string
      */
     public $trainingJobId;
 
     /**
+     * @description 用户配置。
+     *
+     * @example {}
+     *
      * @var string
      */
     public $userConfig;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class messages extends Model
 {
     /**
+     * @description 短信Id，可使用ListMessages查询短信状态。
+     *
+     * @example 0a54e195-03e2-40bd-869d-b71cb302783e
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description 手机号码。
+     *
+     * @example 1234567890
+     *
      * @var string
      */
     public $phoneNumber;

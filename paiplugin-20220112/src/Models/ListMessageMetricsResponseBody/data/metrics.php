@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
+     * @description 发送日期。
+     *
+     * @example 20210321
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @description 发送失败。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $fail;
 
     /**
+     * @description 发送中。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $pending;
 
     /**
+     * @description 发送成功率。
+     *
+     * @example 0.8
+     *
      * @var float
      */
     public $rate;
 
     /**
+     * @description 发送成功。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $success;
 
     /**
+     * @description 总计短信数量。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $total;

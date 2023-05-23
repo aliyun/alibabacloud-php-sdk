@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListAlgorithmsRequest extends Model
 {
     /**
+     * @description 算法Id过滤。
+     *
+     * @example sms_recall
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description 算法名称过滤。
+     *
+     * @example 短信召回
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 分页数，从1开始，默认为1。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 分页大小，默认为10。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

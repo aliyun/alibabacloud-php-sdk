@@ -9,66 +9,118 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @description 发送回执ID，即发送流水号。
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @description 状态报告编码。
+     *
+     * @example DELIVERED
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description 状态报告说明。
+     *
+     * @example 用户接收成功
+     *
      * @var string
      */
     public $errMsg;
 
     /**
+     * @description 短信Id。调用发送接口SendMessage发送短信时，返回值中的Id字段。可使用短信Id在接口ListMessages查询具体的发送状态。
+     *
+     * @example 123
+     *
      * @var string
      */
     public $messageId;
 
     /**
+     * @description 外部拓展字段。
+     *
+     * @example 123
+     *
      * @var string
      */
     public $outId;
 
     /**
+     * @description 手机号码。
+     *
+     * @example 1390000****
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @description 状态报告时间。
+     *
+     * @example 2017-09-01 00:00:00
+     *
      * @var string
      */
     public $reportTime;
 
     /**
+     * @description 短信批处理Id。调用发送接口SendMessage发送短信时，返回值中的RequestId字段。可使用短信批处理Id在接口ListMessages查询具体的发送状态。
+     *
+     * @example 62a72a20-8a9b-4060-a510-0c30a9340cba
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description 发送时间。
+     *
+     * @example 2017-09-01 00:00:00
+     *
      * @var string
      */
     public $sendTime;
 
     /**
+     * @description 签名。
+     *
+     * @example 签名
+     *
      * @var string
      */
     public $signName;
 
     /**
+     * @description 短信长度。短信长度不超过70个字，按照一条短信计费；超过70个字，即为长短信，按照67字/条拆分成多条计费。
+     *
+     * @example 1
+     *
      * @var string
      */
     public $smsSize;
 
     /**
+     * @description 是否接收成功。
+     * - false : 接收失败。
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description 模板号。
+     *
+     * @example SMS_123456
+     *
      * @var string
      */
     public $templateCode;

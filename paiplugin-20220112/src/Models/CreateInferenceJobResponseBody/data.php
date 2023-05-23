@@ -9,71 +9,127 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 关联算法。
+     *
+     * @example user_recall
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @description 关联运营活动Id。
+     *
+     * @example 0a54e195-03e2-40bd-869d-b71cb302783e
+     *
      * @var string
      */
     public $campaignId;
 
     /**
+     * @description 创建时间 (UTC+8)。
+     *
+     * @example 2020-01-01 12:00:00
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description 预测数据路径。
+     *
+     * @example https://bucket.region.aliyuncs.com/folder/
+     *
      * @var string
      */
     public $dataPath;
 
     /**
+     * @description 关联人群Id，如果任务失败则人群无效。
+     *
+     * @example bdb0b117-3354-4ceb-ba75-e022dd9370d8
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description 预测任务日志。
+     *
+     * @example Error: Missing Column.
+     *
      * @var string
      */
     public $history;
 
     /**
+     * @description 预测任务Id。
+     *
+     * @example 0a54e195-03e2-40bd-869d-b71cb302783e
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description 预测任务名称。
+     *
+     * @example VIP客户
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 备注。
+     *
+     * @example 充值大于一万
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description 预测任务状态。
+     *
+     * @example 3
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description 输出数据路径，需要为空目录。
+     *
+     * @example https://bucket.region.aliyuncs.com/folder/
+     *
      * @var string
      */
     public $targetPath;
 
     /**
+     * @description 关联训练任务。
+     *
+     * @example 123
+     *
      * @var string
      */
     public $trainingJobId;
 
     /**
+     * @description 更新时间 (UTC+8)。
+     *
+     * @example 2020-01-01 12:00:00
+     *
      * @var string
      */
     public $updatedTime;
 
     /**
+     * @description 用户配置。
+     *
+     * @example {}
+     *
      * @var string
      */
     public $userConfig;

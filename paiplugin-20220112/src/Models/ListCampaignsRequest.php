@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListCampaignsRequest extends Model
 {
     /**
+     * @description 运营活动名称过滤。
+     *
+     * @example VIP客户
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 分页数，从1开始，默认为1。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 分页大小，默认为10。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description 运营活动备注过滤。
+     *
+     * @example 充值大于一万
+     *
      * @var string
      */
     public $remark;

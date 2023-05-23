@@ -9,86 +9,154 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
+     * @description 关联算法，人群来源为算法。
+     *
+     * @example user_recall
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @description 人群数量。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $amount;
 
     /**
+     * @description 手机号列名，人群来源为CSV文件，MaxCompute，并且包含手机号时需指定。
+     *
+     * @example phone
+     *
      * @var string
      */
     public $column;
 
     /**
+     * @description 创建时间 (UTC+8)。
+     *
+     * @example 2020-01-01 12:00:00
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description 过滤条件，人群来源为MaxCompute时可指定。
+     *
+     * @example ds=2022
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @description 人群Id。
+     *
+     * @example 0a54e195-03e2-40bd-869d-b71cb302783e
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description 预测任务Id，人群来源为算法。
+     *
+     * @example 0a54e195-03e2-40bd-869d-b71cb302783e
+     *
      * @var string
      */
     public $inferenceJobId;
 
     /**
+     * @description 人群名称。
+     *
+     * @example VIP客户
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 是否包含手机号，包含手机号的人群可用于触达计划。
+     *
+     * @example true
+     *
      * @var bool
      */
     public $phoneNumber;
 
     /**
+     * @description MaxCompute(ODPS)项目名，人群来源为MaxCompute时需指定。
+     *
+     * @example project
+     *
      * @var string
      */
     public $project;
 
     /**
+     * @description 人群备注。
+     *
+     * @example 充值大于10万
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description 人群来源。
+     * - 4: 算法。
+     * @example 0
+     *
      * @var int
      */
     public $source;
 
     /**
+     * @description 人群状态。
+     * - 2: 未通过。
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description MaxCompute(ODPS)表名，人群来源为MaxCompute时需指定。
+     *
+     * @example recall
+     *
      * @var string
      */
     public $table;
 
     /**
+     * @description 文本，人群来源为文本时需指定。
+     *
+     * @example 1390000****
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @description 更新时间 (UTC+8)。
+     *
+     * @example 2020-01-01 12:00:00
+     *
      * @var string
      */
     public $updatedTime;
 
     /**
+     * @description 文件地址，人群来源为文本文件，CSV文件，MaxCompute时需指定。
+     *
+     * @example https://bucket.region.aliyuncs.com/folder/file
+     *
      * @var string
      */
     public $uri;

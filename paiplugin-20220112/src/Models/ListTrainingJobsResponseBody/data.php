@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 分页数，从1开始，默认为1。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 分页大小，默认为10。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description 总训练任务数量。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description 训练任务列表。
+     *
      * @var trainingJobs[]
      */
     public $trainingJobs;

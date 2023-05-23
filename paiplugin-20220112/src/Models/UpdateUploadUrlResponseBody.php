@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UpdateUploadUrlResponseBody extends Model
 {
     /**
+     * @description 返回数据。
+     *
+     * @example OK
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description 错误码。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @description 错误信息。
+     *
+     * @example OK
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description 请求ID。
+     *
+     * @example f8651828-609d-4de8-ab49-ab781d7fd85a
+     *
      * @var string
      */
     public $requestId;

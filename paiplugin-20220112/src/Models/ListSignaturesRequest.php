@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListSignaturesRequest extends Model
 {
     /**
+     * @description 签名名称过滤。
+     *
+     * @example 用户增长
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 分页数，从1开始，默认为1。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 分页大小，默认为10。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description 签名审核状态过滤。
+     * - 2：审核不通过。
+     * @example 0
+     *
      * @var int
      */
     public $status;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 创建时间 (UTC+8)。
+     *
+     * @example 2020-01-01 12:00:00
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description 运营活动Id。
+     *
+     * @example 0a54e195-03e2-40bd-869d-b71cb302783e
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description 运营活动名称。
+     *
+     * @example VIP客户
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 备注。
+     *
+     * @example 双十一活动
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description 更新时间 (UTC+8)。
+     *
+     * @example 2020-01-01 12:00:00
+     *
      * @var string
      */
     public $updatedTime;

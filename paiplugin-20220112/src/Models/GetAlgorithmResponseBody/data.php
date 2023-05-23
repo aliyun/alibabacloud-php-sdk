@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 算法说明。
+     *
+     * @example 算法说明
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description 算法Id。
+     *
+     * @example sms_recall
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description 预测所需参数名与对应的参数说明。
+     *
+     * @example {}
+     *
      * @var string
      */
     public $inferUserConfigMap;
 
     /**
+     * @description 算法名称。
+     *
+     * @example 短信召回
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 训练所需参数名与对应的参数说明。
+     *
+     * @example {}
+     *
      * @var string
      */
     public $trainUserConfigMap;

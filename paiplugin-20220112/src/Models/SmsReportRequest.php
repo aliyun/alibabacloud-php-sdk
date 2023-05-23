@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SmsReportRequest extends Model
 {
     /**
+     * @description 请求参数的主体信息。
+     *
      * @var body[]
      */
     public $body;

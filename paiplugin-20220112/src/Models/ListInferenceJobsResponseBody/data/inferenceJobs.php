@@ -9,76 +9,136 @@ use AlibabaCloud\Tea\Model;
 class inferenceJobs extends Model
 {
     /**
+     * @description 关联算法。
+     *
+     * @example user_recall
+     *
      * @var string
      */
     public $algorithm;
 
     /**
+     * @description 关联运营活动ID。
+     *
+     * @example 0a54e195-03e2-40bd-869d-b71cb302783e
+     *
      * @var string
      */
     public $campaignId;
 
     /**
+     * @description 创建时间 (UTC+8)。
+     *
+     * @example 2020-01-01 12:00:00
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description 预测数据路径，当预测人群数据分布在多个csv文件时可指定目录，指定路径前需确保已在控制台完成一键授权。
+     *
+     * @example https://bucket.region.aliyuncs.com/folder/
+     *
      * @var string
      */
     public $dataPath;
 
     /**
+     * @description 预测人群，人群来源必须为多列csv，当同时指定DataPath与GroupId时，以GroupId为准。
+     *
+     * @example 0a54e195-03e2-40bd-869d-b71cb302783e
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description 预测任务日志。
+     *
+     * @example Error: Missing Column.
+     *
      * @var string
      */
     public $history;
 
     /**
+     * @description 预测任务ID。
+     *
+     * @example 0a54e195-03e2-40bd-869d-b71cb302783e
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description 预测任务名称。
+     *
+     * @example VIP客户
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 备注。
+     *
+     * @example 充值大于一万
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description 预测任务状态。
+     * - 4: 失败。
+     * @example 3
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description 关联目标人群ID，如果任务失败则人群无效。
+     *
+     * @example 0a54e195-03e2-40bd-869d-b71cb302783e
+     *
      * @var string
      */
     public $targetGroupId;
 
     /**
+     * @description 输出数据路径，需要为空目录，指定路径前需确保已在控制台完成一键授权。
+     *
+     * @example https://bucket.region.aliyuncs.com/folder/
+     *
      * @var string
      */
     public $targetPath;
 
     /**
+     * @description 关联训练任务。
+     *
+     * @example 123
+     *
      * @var string
      */
     public $trainingJobId;
 
     /**
+     * @description 更新时间 (UTC+8)。
+     *
+     * @example 2020-01-01 12:00:00
+     *
      * @var string
      */
     public $updatedTime;
 
     /**
+     * @description 用户配置。
+     *
+     * @example {}
+     *
      * @var string
      */
     public $userConfig;

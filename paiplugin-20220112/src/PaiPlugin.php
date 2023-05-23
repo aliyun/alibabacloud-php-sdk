@@ -110,25 +110,12 @@ class PaiPlugin extends OpenApiClient
 
     /**
      * 注册运营活动。
+     *   *
+     * @param CreateCampaignRequest $request CreateCampaignRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @param CreateCampaignRequest $request
-     *
-     * @return CreateCampaignResponse
-     */
-    public function createCampaign($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->createCampaignWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param CreateCampaignRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return CreateCampaignResponse
+     * @return CreateCampaignResponse CreateCampaignResponse
      */
     public function createCampaignWithOptions($request, $headers, $runtime)
     {
@@ -160,26 +147,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 注册人群。
+     * 注册运营活动。
+     *   *
+     * @param CreateCampaignRequest $request CreateCampaignRequest
      *
-     * @param CreateGroupRequest $request
-     *
-     * @return CreateGroupResponse
+     * @return CreateCampaignResponse CreateCampaignResponse
      */
-    public function createGroup($request)
+    public function createCampaign($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createGroupWithOptions($request, $headers, $runtime);
+        return $this->createCampaignWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param CreateGroupRequest $request
-     * @param string[]           $headers
-     * @param RuntimeOptions     $runtime
+     * 注册人群。
+     *   *
+     * @param CreateGroupRequest $request CreateGroupRequest
+     * @param string[]           $headers map
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGroupResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
     public function createGroupWithOptions($request, $headers, $runtime)
     {
@@ -241,26 +230,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 注册预测任务。
+     * 注册人群。
+     *   *
+     * @param CreateGroupRequest $request CreateGroupRequest
      *
-     * @param CreateInferenceJobRequest $request
-     *
-     * @return CreateInferenceJobResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
-    public function createInferenceJob($request)
+    public function createGroup($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createInferenceJobWithOptions($request, $headers, $runtime);
+        return $this->createGroupWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param CreateInferenceJobRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * 注册预测任务。
+     *   *
+     * @param CreateInferenceJobRequest $request CreateInferenceJobRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInferenceJobResponse
+     * @return CreateInferenceJobResponse CreateInferenceJobResponse
      */
     public function createInferenceJobWithOptions($request, $headers, $runtime)
     {
@@ -310,18 +301,18 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 注册触达计划。
+     * 注册预测任务。
+     *   *
+     * @param CreateInferenceJobRequest $request CreateInferenceJobRequest
      *
-     * @param CreateScheduleRequest $request
-     *
-     * @return CreateScheduleResponse
+     * @return CreateInferenceJobResponse CreateInferenceJobResponse
      */
-    public function createSchedule($request)
+    public function createInferenceJob($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createScheduleWithOptions($request, $headers, $runtime);
+        return $this->createInferenceJobWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -335,6 +326,12 @@ class PaiPlugin extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->AISendEndDate)) {
+            $body['AISendEndDate'] = $request->AISendEndDate;
+        }
+        if (!Utils::isUnset($request->AISendStartDate)) {
+            $body['AISendStartDate'] = $request->AISendStartDate;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $body['EndTime'] = $request->endTime;
         }
@@ -346,6 +343,9 @@ class PaiPlugin extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->paymentType)) {
+            $body['PaymentType'] = $request->paymentType;
         }
         if (!Utils::isUnset($request->repeatCycle)) {
             $body['RepeatCycle'] = $request->repeatCycle;
@@ -388,18 +388,16 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 注册签名。
+     * @param CreateScheduleRequest $request
      *
-     * @param CreateSignatureRequest $request
-     *
-     * @return CreateSignatureResponse
+     * @return CreateScheduleResponse
      */
-    public function createSignature($request)
+    public function createSchedule($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createSignatureWithOptions($request, $headers, $runtime);
+        return $this->createScheduleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -439,18 +437,16 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 注册模板。
+     * @param CreateSignatureRequest $request
      *
-     * @param CreateTemplateRequest $request
-     *
-     * @return CreateTemplateResponse
+     * @return CreateSignatureResponse
      */
-    public function createTemplate($request)
+    public function createSignature($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createTemplateWithOptions($request, $headers, $runtime);
+        return $this->createSignatureWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -502,18 +498,16 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 注册训练任务。
+     * @param CreateTemplateRequest $request
      *
-     * @param CreateTrainingJobRequest $request
-     *
-     * @return CreateTrainingJobResponse
+     * @return CreateTemplateResponse
      */
-    public function createTrainingJob($request)
+    public function createTemplate($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createTrainingJobWithOptions($request, $headers, $runtime);
+        return $this->createTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -565,26 +559,26 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 删除运营活动.
+     * @param CreateTrainingJobRequest $request
      *
-     * @param string $Id
-     *
-     * @return DeleteCampaignResponse
+     * @return CreateTrainingJobResponse
      */
-    public function deleteCampaign($Id)
+    public function createTrainingJob($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteCampaignWithOptions($Id, $headers, $runtime);
+        return $this->createTrainingJobWithOptions($request, $headers, $runtime);
     }
 
     /**
+     * 删除运营活动.
+     *   *
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteCampaignResponse
+     * @return DeleteCampaignResponse DeleteCampaignResponse
      */
     public function deleteCampaignWithOptions($Id, $headers, $runtime)
     {
@@ -607,26 +601,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 删除人群.
-     *
+     * 删除运营活动.
+     *   *
      * @param string $Id
      *
-     * @return DeleteGroupResponse
+     * @return DeleteCampaignResponse DeleteCampaignResponse
      */
-    public function deleteGroup($Id)
+    public function deleteCampaign($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteGroupWithOptions($Id, $headers, $runtime);
+        return $this->deleteCampaignWithOptions($Id, $headers, $runtime);
     }
 
     /**
+     * 删除人群.
+     *   *
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGroupResponse
+     * @return DeleteGroupResponse DeleteGroupResponse
      */
     public function deleteGroupWithOptions($Id, $headers, $runtime)
     {
@@ -649,26 +645,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 删除预测任务。
-     *
+     * 删除人群.
+     *   *
      * @param string $Id
      *
-     * @return DeleteInferenceJobResponse
+     * @return DeleteGroupResponse DeleteGroupResponse
      */
-    public function deleteInferenceJob($Id)
+    public function deleteGroup($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteInferenceJobWithOptions($Id, $headers, $runtime);
+        return $this->deleteGroupWithOptions($Id, $headers, $runtime);
     }
 
     /**
+     * 删除预测任务。
+     *   *
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInferenceJobResponse
+     * @return DeleteInferenceJobResponse DeleteInferenceJobResponse
      */
     public function deleteInferenceJobWithOptions($Id, $headers, $runtime)
     {
@@ -691,26 +689,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 删除触达计划。
-     *
+     * 删除预测任务。
+     *   *
      * @param string $Id
      *
-     * @return DeleteScheduleResponse
+     * @return DeleteInferenceJobResponse DeleteInferenceJobResponse
      */
-    public function deleteSchedule($Id)
+    public function deleteInferenceJob($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteScheduleWithOptions($Id, $headers, $runtime);
+        return $this->deleteInferenceJobWithOptions($Id, $headers, $runtime);
     }
 
     /**
+     * 删除触达计划。
+     *   *
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteScheduleResponse
+     * @return DeleteScheduleResponse DeleteScheduleResponse
      */
     public function deleteScheduleWithOptions($Id, $headers, $runtime)
     {
@@ -733,18 +733,18 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 删除签名。
-     *
+     * 删除触达计划。
+     *   *
      * @param string $Id
      *
-     * @return DeleteSignatureResponse
+     * @return DeleteScheduleResponse DeleteScheduleResponse
      */
-    public function deleteSignature($Id)
+    public function deleteSchedule($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteSignatureWithOptions($Id, $headers, $runtime);
+        return $this->deleteScheduleWithOptions($Id, $headers, $runtime);
     }
 
     /**
@@ -775,26 +775,26 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 删除模板
-     *
      * @param string $Id
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteSignatureResponse
      */
-    public function deleteTemplate($Id)
+    public function deleteSignature($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteTemplateWithOptions($Id, $headers, $runtime);
+        return $this->deleteSignatureWithOptions($Id, $headers, $runtime);
     }
 
     /**
+     * 删除模板
+     *   *
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTemplateResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
     public function deleteTemplateWithOptions($Id, $headers, $runtime)
     {
@@ -817,26 +817,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 删除训练任务。
-     *
+     * 删除模板
+     *   *
      * @param string $Id
      *
-     * @return DeleteTrainingJobResponse
+     * @return DeleteTemplateResponse DeleteTemplateResponse
      */
-    public function deleteTrainingJob($Id)
+    public function deleteTemplate($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteTrainingJobWithOptions($Id, $headers, $runtime);
+        return $this->deleteTemplateWithOptions($Id, $headers, $runtime);
     }
 
     /**
+     * 删除训练任务。
+     *   *
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTrainingJobResponse
+     * @return DeleteTrainingJobResponse DeleteTrainingJobResponse
      */
     public function deleteTrainingJobWithOptions($Id, $headers, $runtime)
     {
@@ -859,26 +861,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取算法详情。
-     *
+     * 删除训练任务。
+     *   *
      * @param string $Id
      *
-     * @return GetAlgorithmResponse
+     * @return DeleteTrainingJobResponse DeleteTrainingJobResponse
      */
-    public function getAlgorithm($Id)
+    public function deleteTrainingJob($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getAlgorithmWithOptions($Id, $headers, $runtime);
+        return $this->deleteTrainingJobWithOptions($Id, $headers, $runtime);
     }
 
     /**
+     * 获取算法详情。
+     *   *
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAlgorithmResponse
+     * @return GetAlgorithmResponse GetAlgorithmResponse
      */
     public function getAlgorithmWithOptions($Id, $headers, $runtime)
     {
@@ -901,26 +905,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取运营活动详情。
-     *
+     * 获取算法详情。
+     *   *
      * @param string $Id
      *
-     * @return GetCampaignResponse
+     * @return GetAlgorithmResponse GetAlgorithmResponse
      */
-    public function getCampaign($Id)
+    public function getAlgorithm($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getCampaignWithOptions($Id, $headers, $runtime);
+        return $this->getAlgorithmWithOptions($Id, $headers, $runtime);
     }
 
     /**
+     * 获取运营活动详情。
+     *   *
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetCampaignResponse
+     * @return GetCampaignResponse GetCampaignResponse
      */
     public function getCampaignWithOptions($Id, $headers, $runtime)
     {
@@ -943,26 +949,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取人群详情。
-     *
+     * 获取运营活动详情。
+     *   *
      * @param string $Id
      *
-     * @return GetGroupResponse
+     * @return GetCampaignResponse GetCampaignResponse
      */
-    public function getGroup($Id)
+    public function getCampaign($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getGroupWithOptions($Id, $headers, $runtime);
+        return $this->getCampaignWithOptions($Id, $headers, $runtime);
     }
 
     /**
+     * 获取人群详情。
+     *   *
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGroupResponse
+     * @return GetGroupResponse GetGroupResponse
      */
     public function getGroupWithOptions($Id, $headers, $runtime)
     {
@@ -985,26 +993,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取预测任务详情。
-     *
+     * 获取人群详情。
+     *   *
      * @param string $Id
      *
-     * @return GetInferenceJobResponse
+     * @return GetGroupResponse GetGroupResponse
      */
-    public function getInferenceJob($Id)
+    public function getGroup($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getInferenceJobWithOptions($Id, $headers, $runtime);
+        return $this->getGroupWithOptions($Id, $headers, $runtime);
     }
 
     /**
+     * 获取预测任务详情。
+     *   *
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetInferenceJobResponse
+     * @return GetInferenceJobResponse GetInferenceJobResponse
      */
     public function getInferenceJobWithOptions($Id, $headers, $runtime)
     {
@@ -1027,23 +1037,27 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取短信配置。
+     * 获取预测任务详情。
+     *   *
+     * @param string $Id
      *
-     * @return GetMessageConfigResponse
+     * @return GetInferenceJobResponse GetInferenceJobResponse
      */
-    public function getMessageConfig()
+    public function getInferenceJob($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getMessageConfigWithOptions($headers, $runtime);
+        return $this->getInferenceJobWithOptions($Id, $headers, $runtime);
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * 获取短信配置。
+     *   *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMessageConfigResponse
+     * @return GetMessageConfigResponse GetMessageConfigResponse
      */
     public function getMessageConfigWithOptions($headers, $runtime)
     {
@@ -1066,18 +1080,16 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取触达计划详情。
-     *
-     * @param string $Id
-     *
-     * @return GetScheduleResponse
+     * 获取短信配置。
+     *   *
+     * @return GetMessageConfigResponse GetMessageConfigResponse
      */
-    public function getSchedule($Id)
+    public function getMessageConfig()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getScheduleWithOptions($Id, $headers, $runtime);
+        return $this->getMessageConfigWithOptions($headers, $runtime);
     }
 
     /**
@@ -1108,26 +1120,26 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取签名详情。
-     *
      * @param string $Id
      *
-     * @return GetSignatureResponse
+     * @return GetScheduleResponse
      */
-    public function getSignature($Id)
+    public function getSchedule($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getSignatureWithOptions($Id, $headers, $runtime);
+        return $this->getScheduleWithOptions($Id, $headers, $runtime);
     }
 
     /**
+     * 获取签名详情。
+     *   *
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSignatureResponse
+     * @return GetSignatureResponse GetSignatureResponse
      */
     public function getSignatureWithOptions($Id, $headers, $runtime)
     {
@@ -1150,26 +1162,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取模板详情。
-     *
+     * 获取签名详情。
+     *   *
      * @param string $Id
      *
-     * @return GetTemplateResponse
+     * @return GetSignatureResponse GetSignatureResponse
      */
-    public function getTemplate($Id)
+    public function getSignature($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getTemplateWithOptions($Id, $headers, $runtime);
+        return $this->getSignatureWithOptions($Id, $headers, $runtime);
     }
 
     /**
+     * 获取模板详情。
+     *   *
      * @param string         $Id
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTemplateResponse
+     * @return GetTemplateResponse GetTemplateResponse
      */
     public function getTemplateWithOptions($Id, $headers, $runtime)
     {
@@ -1192,18 +1206,18 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取训练任务详情。
-     *
+     * 获取模板详情。
+     *   *
      * @param string $Id
      *
-     * @return GetTrainingJobResponse
+     * @return GetTemplateResponse GetTemplateResponse
      */
-    public function getTrainingJob($Id)
+    public function getTemplate($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getTrainingJobWithOptions($Id, $headers, $runtime);
+        return $this->getTemplateWithOptions($Id, $headers, $runtime);
     }
 
     /**
@@ -1234,23 +1248,25 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取账号状态。
+     * @param string $Id
      *
-     * @return GetUserResponse
+     * @return GetTrainingJobResponse
      */
-    public function getUser()
+    public function getTrainingJob($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getUserWithOptions($headers, $runtime);
+        return $this->getTrainingJobWithOptions($Id, $headers, $runtime);
     }
 
     /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * 获取账号状态。
+     *   *
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUserWithOptions($headers, $runtime)
     {
@@ -1273,26 +1289,26 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取算法列表。
-     *
-     * @param ListAlgorithmsRequest $request
-     *
-     * @return ListAlgorithmsResponse
+     * 获取账号状态。
+     *   *
+     * @return GetUserResponse GetUserResponse
      */
-    public function listAlgorithms($request)
+    public function getUser()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAlgorithmsWithOptions($request, $headers, $runtime);
+        return $this->getUserWithOptions($headers, $runtime);
     }
 
     /**
-     * @param ListAlgorithmsRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * 获取算法列表。
+     *   *
+     * @param ListAlgorithmsRequest $request ListAlgorithmsRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAlgorithmsResponse
+     * @return ListAlgorithmsResponse ListAlgorithmsResponse
      */
     public function listAlgorithmsWithOptions($request, $headers, $runtime)
     {
@@ -1330,26 +1346,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取运营活动列表。
+     * 获取算法列表。
+     *   *
+     * @param ListAlgorithmsRequest $request ListAlgorithmsRequest
      *
-     * @param ListCampaignsRequest $request
-     *
-     * @return ListCampaignsResponse
+     * @return ListAlgorithmsResponse ListAlgorithmsResponse
      */
-    public function listCampaigns($request)
+    public function listAlgorithms($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listCampaignsWithOptions($request, $headers, $runtime);
+        return $this->listAlgorithmsWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param ListCampaignsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * 获取运营活动列表。
+     *   *
+     * @param ListCampaignsRequest $request ListCampaignsRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListCampaignsResponse
+     * @return ListCampaignsResponse ListCampaignsResponse
      */
     public function listCampaignsWithOptions($request, $headers, $runtime)
     {
@@ -1387,26 +1405,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取人群列表。
+     * 获取运营活动列表。
+     *   *
+     * @param ListCampaignsRequest $request ListCampaignsRequest
      *
-     * @param ListGroupsRequest $request
-     *
-     * @return ListGroupsResponse
+     * @return ListCampaignsResponse ListCampaignsResponse
      */
-    public function listGroups($request)
+    public function listCampaigns($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listGroupsWithOptions($request, $headers, $runtime);
+        return $this->listCampaignsWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param ListGroupsRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
+     * 获取人群列表。
+     *   *
+     * @param ListGroupsRequest $request ListGroupsRequest
+     * @param string[]          $headers map
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroupsWithOptions($request, $headers, $runtime)
     {
@@ -1453,16 +1473,18 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * @param ListInferenceJobsRequest $request
+     * 获取人群列表。
+     *   *
+     * @param ListGroupsRequest $request ListGroupsRequest
      *
-     * @return ListInferenceJobsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
-    public function listInferenceJobs($request)
+    public function listGroups($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listInferenceJobsWithOptions($request, $headers, $runtime);
+        return $this->listGroupsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1520,28 +1542,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取短信发送统计列表。
-     * 获取短信发送统计数据，可按指定条件获取分类别详细数据，返回数据按日期顺序排列，发送统计为空的日期默认不返回。
-     * 发送数据在48小时内会随实际短信发送状态不断更新，最终数据以48小时后数据为准。
+     * @param ListInferenceJobsRequest $request
      *
-     * @param ListMessageMetricsRequest $request
-     *
-     * @return ListMessageMetricsResponse
+     * @return ListInferenceJobsResponse
      */
-    public function listMessageMetrics($request)
+    public function listInferenceJobs($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listMessageMetricsWithOptions($request, $headers, $runtime);
+        return $this->listInferenceJobsWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param ListMessageMetricsRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * 获取短信发送统计列表。
+     *   * 获取短信发送统计数据，可按指定条件获取分类别详细数据，返回数据按日期顺序排列，发送统计为空的日期默认不返回。
+     *   * 发送数据在48小时内会随实际短信发送状态不断更新，最终数据以48小时后数据为准。
+     *   *
+     * @param ListMessageMetricsRequest $request ListMessageMetricsRequest
+     * @param string[]                  $headers map
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMessageMetricsResponse
+     * @return ListMessageMetricsResponse ListMessageMetricsResponse
      */
     public function listMessageMetricsWithOptions($request, $headers, $runtime)
     {
@@ -1600,26 +1622,30 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 查询短信发送详情列表。
+     * 获取短信发送统计列表。
+     *   * 获取短信发送统计数据，可按指定条件获取分类别详细数据，返回数据按日期顺序排列，发送统计为空的日期默认不返回。
+     *   * 发送数据在48小时内会随实际短信发送状态不断更新，最终数据以48小时后数据为准。
+     *   *
+     * @param ListMessageMetricsRequest $request ListMessageMetricsRequest
      *
-     * @param ListMessagesRequest $request
-     *
-     * @return ListMessagesResponse
+     * @return ListMessageMetricsResponse ListMessageMetricsResponse
      */
-    public function listMessages($request)
+    public function listMessageMetrics($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listMessagesWithOptions($request, $headers, $runtime);
+        return $this->listMessageMetricsWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param ListMessagesRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * 查询短信发送详情列表。
+     *   *
+     * @param ListMessagesRequest $request ListMessagesRequest
+     * @param string[]            $headers map
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMessagesResponse
+     * @return ListMessagesResponse ListMessagesResponse
      */
     public function listMessagesWithOptions($request, $headers, $runtime)
     {
@@ -1690,18 +1716,18 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取触达计划列表。
+     * 查询短信发送详情列表。
+     *   *
+     * @param ListMessagesRequest $request ListMessagesRequest
      *
-     * @param ListSchedulesRequest $request
-     *
-     * @return ListSchedulesResponse
+     * @return ListMessagesResponse ListMessagesResponse
      */
-    public function listSchedules($request)
+    public function listMessages($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listSchedulesWithOptions($request, $headers, $runtime);
+        return $this->listMessagesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1747,26 +1773,26 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取签名列表。
+     * @param ListSchedulesRequest $request
      *
-     * @param ListSignaturesRequest $request
-     *
-     * @return ListSignaturesResponse
+     * @return ListSchedulesResponse
      */
-    public function listSignatures($request)
+    public function listSchedules($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listSignaturesWithOptions($request, $headers, $runtime);
+        return $this->listSchedulesWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param ListSignaturesRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * 获取签名列表。
+     *   *
+     * @param ListSignaturesRequest $request ListSignaturesRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSignaturesResponse
+     * @return ListSignaturesResponse ListSignaturesResponse
      */
     public function listSignaturesWithOptions($request, $headers, $runtime)
     {
@@ -1804,26 +1830,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 获取模板列表。
+     * 获取签名列表。
+     *   *
+     * @param ListSignaturesRequest $request ListSignaturesRequest
      *
-     * @param ListTemplatesRequest $request
-     *
-     * @return ListTemplatesResponse
+     * @return ListSignaturesResponse ListSignaturesResponse
      */
-    public function listTemplates($request)
+    public function listSignatures($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listTemplatesWithOptions($request, $headers, $runtime);
+        return $this->listSignaturesWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param ListTemplatesRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
+     * 获取模板列表。
+     *   *
+     * @param ListTemplatesRequest $request ListTemplatesRequest
+     * @param string[]             $headers map
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTemplatesResponse
+     * @return ListTemplatesResponse ListTemplatesResponse
      */
     public function listTemplatesWithOptions($request, $headers, $runtime)
     {
@@ -1867,16 +1895,18 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * @param ListTrainingJobsRequest $request
+     * 获取模板列表。
+     *   *
+     * @param ListTemplatesRequest $request ListTemplatesRequest
      *
-     * @return ListTrainingJobsResponse
+     * @return ListTemplatesResponse ListTemplatesResponse
      */
-    public function listTrainingJobs($request)
+    public function listTemplates($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listTrainingJobsWithOptions($request, $headers, $runtime);
+        return $this->listTemplatesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1934,16 +1964,16 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * @param SendMessageRequest $request
+     * @param ListTrainingJobsRequest $request
      *
-     * @return SendMessageResponse
+     * @return ListTrainingJobsResponse
      */
-    public function sendMessage($request)
+    public function listTrainingJobs($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->sendMessageWithOptions($request, $headers, $runtime);
+        return $this->listTrainingJobsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1962,6 +1992,9 @@ class PaiPlugin extends OpenApiClient
         }
         if (!Utils::isUnset($request->outIds)) {
             $body['OutIds'] = $request->outIds;
+        }
+        if (!Utils::isUnset($request->paymentType)) {
+            $body['PaymentType'] = $request->paymentType;
         }
         if (!Utils::isUnset($request->phoneNumbers)) {
             $body['PhoneNumbers'] = $request->phoneNumbers;
@@ -2007,26 +2040,26 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 短信回执。
+     * @param SendMessageRequest $request
      *
-     * @param SmsReportRequest $request
-     *
-     * @return SmsReportResponse
+     * @return SendMessageResponse
      */
-    public function smsReport($request)
+    public function sendMessage($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->smsReportWithOptions($request, $headers, $runtime);
+        return $this->sendMessageWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param SmsReportRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * 短信回执。
+     *   *
+     * @param SmsReportRequest $request SmsReportRequest
+     * @param string[]         $headers map
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SmsReportResponse
+     * @return SmsReportResponse SmsReportResponse
      */
     public function smsReportWithOptions($request, $headers, $runtime)
     {
@@ -2051,26 +2084,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 短信上行。
+     * 短信回执。
+     *   *
+     * @param SmsReportRequest $request SmsReportRequest
      *
-     * @param SmsUpRequest $request
-     *
-     * @return SmsUpResponse
+     * @return SmsReportResponse SmsReportResponse
      */
-    public function smsUp($request)
+    public function smsReport($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->smsUpWithOptions($request, $headers, $runtime);
+        return $this->smsReportWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param SmsUpRequest   $request
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * 短信上行。
+     *   *
+     * @param SmsUpRequest   $request SmsUpRequest
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return SmsUpResponse
+     * @return SmsUpResponse SmsUpResponse
      */
     public function smsUpWithOptions($request, $headers, $runtime)
     {
@@ -2095,28 +2130,29 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 更新运营活动.
+     * 短信上行。
+     *   *
+     * @param SmsUpRequest $request SmsUpRequest
      *
-     * @param string                $Id
-     * @param UpdateCampaignRequest $request
-     *
-     * @return UpdateCampaignResponse
+     * @return SmsUpResponse SmsUpResponse
      */
-    public function updateCampaign($Id, $request)
+    public function smsUp($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateCampaignWithOptions($Id, $request, $headers, $runtime);
+        return $this->smsUpWithOptions($request, $headers, $runtime);
     }
 
     /**
+     * 更新运营活动.
+     *   *
      * @param string                $Id
-     * @param UpdateCampaignRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * @param UpdateCampaignRequest $request UpdateCampaignRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateCampaignResponse
+     * @return UpdateCampaignResponse UpdateCampaignResponse
      */
     public function updateCampaignWithOptions($Id, $request, $headers, $runtime)
     {
@@ -2148,26 +2184,29 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 更新回执Url。
+     * 更新运营活动.
+     *   *
+     * @param string                $Id
+     * @param UpdateCampaignRequest $request UpdateCampaignRequest
      *
-     * @param UpdateReportUrlRequest $request
-     *
-     * @return UpdateReportUrlResponse
+     * @return UpdateCampaignResponse UpdateCampaignResponse
      */
-    public function updateReportUrl($request)
+    public function updateCampaign($Id, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateReportUrlWithOptions($request, $headers, $runtime);
+        return $this->updateCampaignWithOptions($Id, $request, $headers, $runtime);
     }
 
     /**
-     * @param UpdateReportUrlRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * 更新回执Url。
+     *   *
+     * @param UpdateReportUrlRequest $request UpdateReportUrlRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateReportUrlResponse
+     * @return UpdateReportUrlResponse UpdateReportUrlResponse
      */
     public function updateReportUrlWithOptions($request, $headers, $runtime)
     {
@@ -2196,26 +2235,28 @@ class PaiPlugin extends OpenApiClient
     }
 
     /**
-     * 更新上行Url。
+     * 更新回执Url。
+     *   *
+     * @param UpdateReportUrlRequest $request UpdateReportUrlRequest
      *
-     * @param UpdateUploadUrlRequest $request
-     *
-     * @return UpdateUploadUrlResponse
+     * @return UpdateReportUrlResponse UpdateReportUrlResponse
      */
-    public function updateUploadUrl($request)
+    public function updateReportUrl($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateUploadUrlWithOptions($request, $headers, $runtime);
+        return $this->updateReportUrlWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param UpdateUploadUrlRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * 更新上行Url。
+     *   *
+     * @param UpdateUploadUrlRequest $request UpdateUploadUrlRequest
+     * @param string[]               $headers map
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUploadUrlResponse
+     * @return UpdateUploadUrlResponse UpdateUploadUrlResponse
      */
     public function updateUploadUrlWithOptions($request, $headers, $runtime)
     {
@@ -2241,5 +2282,20 @@ class PaiPlugin extends OpenApiClient
         ]);
 
         return UpdateUploadUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * 更新上行Url。
+     *   *
+     * @param UpdateUploadUrlRequest $request UpdateUploadUrlRequest
+     *
+     * @return UpdateUploadUrlResponse UpdateUploadUrlResponse
+     */
+    public function updateUploadUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateUploadUrlWithOptions($request, $headers, $runtime);
     }
 }

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class algorithms extends Model
 {
     /**
+     * @description 算法Id。
+     *
+     * @example sms_recall
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description 算法名称。
+     *
+     * @example 短信召回
+     *
      * @var string
      */
     public $name;

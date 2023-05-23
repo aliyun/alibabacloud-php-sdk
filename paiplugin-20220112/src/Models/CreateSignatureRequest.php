@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateSignatureRequest extends Model
 {
     /**
+     * @description 申请说明。
+     *
+     * @example 申请说明
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description 签名名称。
+     *
+     * @example 用户增长
+     *
      * @var string
      */
     public $name;

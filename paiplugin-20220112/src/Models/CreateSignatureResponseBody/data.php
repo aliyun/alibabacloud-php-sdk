@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 创建时间 (UTC+8)。
+     *
+     * @example 2020-01-01 12:00:00
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description 签名ID。
+     *
+     * @example 0a54e195-03e2-40bd-869d-b71cb302783e
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description 签名名称。
+     *
+     * @example 用户增长
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 签名审核状态。
+     * - 2：审核不通过。
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description 更新时间 (UTC+8)。
+     *
+     * @example 2020-01-01 12:00:00
+     *
      * @var string
      */
     public $updatedTime;

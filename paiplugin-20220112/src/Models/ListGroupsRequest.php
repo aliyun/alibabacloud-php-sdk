@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListGroupsRequest extends Model
 {
     /**
+     * @description 人群名称过滤。
+     *
+     * @example VIP客户
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 分页数，从1开始，默认为1。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 分页大小，默认为10。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description 是否包含手机号过滤。
+     *
+     * @example true
+     *
      * @var bool
      */
     public $phoneNumber;
 
     /**
+     * @description 人群备注过滤。
+     *
+     * @example 充值大于一万
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description 来源过滤。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $source;
 
     /**
+     * @description 审核状态过滤。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;

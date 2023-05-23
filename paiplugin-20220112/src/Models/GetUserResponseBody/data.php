@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description 账号状态。
+     * - 2 : 已释放产品。
+     * @example 0
+     *
      * @var int
      */
     public $accountStatus;

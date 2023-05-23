@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class CreateSignatureResponseBody extends Model
 {
     /**
+     * @description 返回数据。
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description 错误码。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @description 错误信息。
+     *
+     * @example OK
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description 请求ID。
+     *
+     * @example 0
+     *
      * @var string
      */
     public $requestId;
