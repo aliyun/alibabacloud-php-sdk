@@ -106,6 +106,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\LinkAccountRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\LinkAccountResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListAddressGroupsRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListAddressGroupsResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\ListAssignmentRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\ListAssignmentResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListDeltaRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListDeltaResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListDomainsRequest;
@@ -2951,6 +2953,66 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->listAddressGroupsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $domainId
+     * @param ListAssignmentRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAssignmentResponse
+     */
+    public function listAssignmentWithOptions($domainId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap              = [];
+        $hostMap['domain_id'] = $domainId;
+        $body                 = [];
+        if (!Utils::isUnset($request->limit)) {
+            $body['limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->manageResourceId)) {
+            $body['manage_resource_id'] = $request->manageResourceId;
+        }
+        if (!Utils::isUnset($request->manageResourceType)) {
+            $body['manage_resource_type'] = $request->manageResourceType;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $body['marker'] = $request->marker;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAssignment',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/role/list_assignment',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAssignmentResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $domainId
+     * @param ListAssignmentRequest $request
+     *
+     * @return ListAssignmentResponse
+     */
+    public function listAssignment($domainId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAssignmentWithOptions($domainId, $request, $headers, $runtime);
     }
 
     /**
