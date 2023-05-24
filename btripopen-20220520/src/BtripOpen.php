@@ -178,6 +178,10 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupUserSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupUserSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupUserSaveResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\GroupUserSaveShrinkRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelAskingPriceHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelAskingPriceRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelAskingPriceResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelAskingPriceShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelBillSettlementQueryResponse;
@@ -4128,6 +4132,97 @@ class BtripOpen extends OpenApiClient
         $headers = new GroupUserSaveHeaders([]);
 
         return $this->groupUserSaveWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param HotelAskingPriceRequest $tmpReq
+     * @param HotelAskingPriceHeaders $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return HotelAskingPriceResponse
+     */
+    public function hotelAskingPriceWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new HotelAskingPriceShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->shids)) {
+            $request->shidsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->shids, 'shids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->adultNum)) {
+            $query['adult_num'] = $request->adultNum;
+        }
+        if (!Utils::isUnset($request->btripUserId)) {
+            $query['btrip_user_id'] = $request->btripUserId;
+        }
+        if (!Utils::isUnset($request->checkInDate)) {
+            $query['check_in_date'] = $request->checkInDate;
+        }
+        if (!Utils::isUnset($request->checkOutDate)) {
+            $query['check_out_date'] = $request->checkOutDate;
+        }
+        if (!Utils::isUnset($request->cityCode)) {
+            $query['city_code'] = $request->cityCode;
+        }
+        if (!Utils::isUnset($request->cityName)) {
+            $query['city_name'] = $request->cityName;
+        }
+        if (!Utils::isUnset($request->dir)) {
+            $query['dir'] = $request->dir;
+        }
+        if (!Utils::isUnset($request->hotelStar)) {
+            $query['hotel_star'] = $request->hotelStar;
+        }
+        if (!Utils::isUnset($request->isProtocol)) {
+            $query['is_protocol'] = $request->isProtocol;
+        }
+        if (!Utils::isUnset($request->paymentType)) {
+            $query['payment_type'] = $request->paymentType;
+        }
+        if (!Utils::isUnset($request->shidsShrink)) {
+            $query['shids'] = $request->shidsShrink;
+        }
+        if (!Utils::isUnset($request->sortCode)) {
+            $query['sort_code'] = $request->sortCode;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'HotelAskingPrice',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-hotel/v1/hotels/action/asking-price',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return HotelAskingPriceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param HotelAskingPriceRequest $request
+     *
+     * @return HotelAskingPriceResponse
+     */
+    public function hotelAskingPrice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new HotelAskingPriceHeaders([]);
+
+        return $this->hotelAskingPriceWithOptions($request, $headers, $runtime);
     }
 
     /**
