@@ -9,12 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
-     * @description The language in which you want to return the descriptions of the access control policies. Valid values:
-     *
-     *   zh-CN (default value): Chinese
-     *   en: English
-     *   ja: Japanese
-     *
      * @example zh
      *
      * @var string

@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class resultDescription extends Model
 {
     /**
-     * @description The ID of the parent node.
+     * @description The ContentType header type used when you call the backend service over HTTP.
+     *
+     *   **DEFAULT**: the default header type in API Gateway
+     *   **CUSTOM**: a custom header type
+     *   **CLIENT**: the ContentType header type of the client
      *
      * @example test
      *
@@ -18,7 +22,7 @@ class resultDescription extends Model
     public $description;
 
     /**
-     * @description The description.
+     * @description Client IP Address
      *
      * @example true
      *
@@ -27,7 +31,7 @@ class resultDescription extends Model
     public $hasChild;
 
     /**
-     * @description System parameters sent by API Gateway to the backend service
+     * @description The result returned when the Mock mode is enabled.
      *
      * @example id
      *
@@ -41,7 +45,7 @@ class resultDescription extends Model
     public $key;
 
     /**
-     * @description The ID of the result.
+     * @description The creation time of the API.
      *
      * @example true
      *
@@ -55,7 +59,7 @@ class resultDescription extends Model
     public $name;
 
     /**
-     * @description Indicates whether the request parameter is required.
+     * @description The OSS bucket.
      *
      * @example pid
      *

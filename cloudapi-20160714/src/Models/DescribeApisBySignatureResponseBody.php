@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisBySignatureResponseBody extends Model
 {
     /**
-     * @description The binding time of the API.
+     * @description Indicates whether the API is public. Valid values:
+     *
+     *   **PUBLIC**
+     *   **PRIVATE**
      *
      * @var apiInfos
      */
     public $apiInfos;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries returned per page.
      *
      * @example 1
      *
@@ -26,7 +29,7 @@ class DescribeApisBySignatureResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The total number of returned entries.
+     * @description The returned API information. It is an array consisting of ApiInfo data.
      *
      * @example 10
      *
@@ -35,7 +38,7 @@ class DescribeApisBySignatureResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The total number of returned entries.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *
@@ -44,7 +47,7 @@ class DescribeApisBySignatureResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned API information. It is an array consisting of ApiInfo data.
+     * @description The binding time of the API.
      *
      * @example 20
      *

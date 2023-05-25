@@ -9,7 +9,8 @@ use AlibabaCloud\Tea\Model;
 class signatureInfo extends Model
 {
     /**
-     * @description The region where the key is located.
+     * @description *   This API is intended for API providers.
+     *   This operation is used to query the backend signature keys in a Region. Region is a system parameter.
      *
      * @example 2016-07-23T08:28:48Z
      *
@@ -18,7 +19,7 @@ class signatureInfo extends Model
     public $createdTime;
 
     /**
-     * @description The ID of the backend signature key.
+     * @description The Secret value of the backend signature key.
      *
      * @example 2016-07-24T08:28:48Z
      *
@@ -27,8 +28,7 @@ class signatureInfo extends Model
     public $modifiedTime;
 
     /**
-     * @description *   This API is intended for API providers.
-     *   This operation is used to query the backend signature keys in a Region. Region is a system parameter.
+     * @description Queries backend signature keys.
      *
      * @example cn-qingdao
      *
@@ -37,7 +37,7 @@ class signatureInfo extends Model
     public $regionId;
 
     /**
-     * @description The Secret value of the backend signature key.
+     * @description The name of the backend signature key.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
@@ -46,7 +46,7 @@ class signatureInfo extends Model
     public $signatureId;
 
     /**
-     * @description The creation time of the key.
+     * @description The region where the key is located.
      *
      * @example qwertyuiop
      *
@@ -55,7 +55,7 @@ class signatureInfo extends Model
     public $signatureKey;
 
     /**
-     * @description The Key value of the backend signature key.
+     * @description The creation time of the key.
      *
      * @example backendsignature
      *
@@ -64,7 +64,7 @@ class signatureInfo extends Model
     public $signatureName;
 
     /**
-     * @description The name of the backend signature key.
+     * @description The Key value of the backend signature key.
      *
      * @example asdfghjkl
      *

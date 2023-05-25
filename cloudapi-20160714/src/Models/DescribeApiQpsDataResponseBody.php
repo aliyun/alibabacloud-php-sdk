@@ -11,22 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiQpsDataResponseBody extends Model
 {
     /**
-     * @description The value corresponding to the monitoring metric.
-     *
      * @var callFails
      */
     public $callFails;
 
     /**
-     * @description The value corresponding to the monitoring metric.
-     *
      * @var callSuccesses
      */
     public $callSuccesses;
 
     /**
-     * @description The returned information about successful API calls. It is an array consisting of MonitorItem data.
-     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ001
      *
      * @var string

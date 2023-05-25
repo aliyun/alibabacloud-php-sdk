@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyPluginRequest extends Model
 {
     /**
-     * @description The description of the plug-in. The description can contain a maximum of 200 characters in length.
-     *
      * @example modify plugin first
      *
      * @var string
@@ -19,8 +17,6 @@ class ModifyPluginRequest extends Model
     public $description;
 
     /**
-     * @description The statement that is used to modify the plug-in definition.
-     *
      * @example Plugin definition
      *
      * @var string
@@ -28,8 +24,6 @@ class ModifyPluginRequest extends Model
     public $pluginData;
 
     /**
-     * @description The ID of the plug-in whose information you want to modify.
-     *
      * @example a96926e82f994915a8da40a119374537
      *
      * @var string
@@ -37,8 +31,6 @@ class ModifyPluginRequest extends Model
     public $pluginId;
 
     /**
-     * @description The name of the plug-in. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\_). However, it cannot start with an underscore.
-     *
      * @example modifyCors
      *
      * @var string
@@ -51,8 +43,6 @@ class ModifyPluginRequest extends Model
     public $securityToken;
 
     /**
-     * @description The tag of objects that match the rule. You can specify multiple tags.
-     *
      * @example Key， Value
      *
      * @var tag[]

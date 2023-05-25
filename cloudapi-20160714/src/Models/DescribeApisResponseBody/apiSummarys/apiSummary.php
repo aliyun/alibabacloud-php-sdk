@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class apiSummary extends Model
 {
     /**
-     * @description The ID of the API.
+     * @description The API ID.
      *
      * @example 5af418828f0344a3b588c0cc1331a3bc
      *
@@ -20,12 +20,16 @@ class apiSummary extends Model
     public $apiId;
 
     /**
+     * @description The HTTP method of the API request.
+     *
+     * @example GET
+     *
      * @var string
      */
     public $apiMethod;
 
     /**
-     * @description The name of the API operation.
+     * @description The API name.
      *
      * @example CreateObject
      *
@@ -34,12 +38,16 @@ class apiSummary extends Model
     public $apiName;
 
     /**
+     * @description The request path of the API.
+     *
+     * @example /sqb/
+     *
      * @var string
      */
     public $apiPath;
 
     /**
-     * @description The creation time (UTC) of the query task.
+     * @description The time when the API was created. The time is displayed in UTC.
      *
      * @example 2016-05-20T18:18:25Z
      *
@@ -48,12 +56,14 @@ class apiSummary extends Model
     public $createdTime;
 
     /**
+     * @description The API publishing statuses.
+     *
      * @var deployedInfos
      */
     public $deployedInfos;
 
     /**
-     * @description The description of the API.
+     * @description The API description.
      *
      * @example Creates an object
      *
@@ -62,7 +72,7 @@ class apiSummary extends Model
     public $description;
 
     /**
-     * @description The ID of the API group.
+     * @description The API group ID.
      *
      * @example 1084f9034c744137901057206b39d2b6
      *
@@ -71,7 +81,7 @@ class apiSummary extends Model
     public $groupId;
 
     /**
-     * @description The name of the group to which the API belongs.
+     * @description The name of the API group to which the API belongs.
      *
      * @example myGroup2
      *
@@ -80,7 +90,7 @@ class apiSummary extends Model
     public $groupName;
 
     /**
-     * @description The modification time (UTC) of the API.
+     * @description The time when the API was modified. The time is displayed in UTC.
      *
      * @example 2016-07-23T08:28:48Z
      *
@@ -89,7 +99,7 @@ class apiSummary extends Model
     public $modifiedTime;
 
     /**
-     * @description The ID of the region in which the API resides.
+     * @description The ID of the region to which the API belongs.
      *
      * @example cn-qingdao
      *
@@ -98,6 +108,8 @@ class apiSummary extends Model
     public $regionId;
 
     /**
+     * @description The tags that are added to the APIs.
+     *
      * @var tagList
      */
     public $tagList;
@@ -105,8 +117,8 @@ class apiSummary extends Model
     /**
      * @description Indicates whether the API is public. Valid values:
      *
-     *   **PUBLIC**
-     *   **PRIVATE**
+     *   **PUBLIC**: The API is public.
+     *   **PRIVATE**: The API is private.
      *
      * @example PUBLIC
      *

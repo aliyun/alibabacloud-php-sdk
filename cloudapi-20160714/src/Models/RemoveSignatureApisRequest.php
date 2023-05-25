@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RemoveSignatureApisRequest extends Model
 {
     /**
-     * @description The name of the runtime environment. Valid values:
-     *
-     *   **RELEASE**
-     *   **TEST**
+     * @description The ID of the request.
      *
      * @example 123
      *
@@ -21,10 +18,10 @@ class RemoveSignatureApisRequest extends Model
     public $apiIds;
 
     /**
-     * @description The IDs of the APIs from which you want to unbind the signature key.
+     * @description The name of the runtime environment. Valid values:
      *
-     *   If this parameter is not specified, the signature key is unbound from all the APIs in the specified environment of the API group.
-     *   The IDs of the APIs that you want to manage. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
+     *   **RELEASE**
+     *   **TEST**
      *
      * @example 0009db9c828549768a200320714b8930
      *
@@ -38,7 +35,10 @@ class RemoveSignatureApisRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the API group to which the API that you want to manage belongs.
+     * @description The IDs of the APIs from which you want to unbind the signature key.
+     *
+     *   If this parameter is not specified, the signature key is unbound from all the APIs in the specified environment of the API group.
+     *   The IDs of the APIs that you want to manage. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
@@ -47,7 +47,8 @@ class RemoveSignatureApisRequest extends Model
     public $signatureId;
 
     /**
-     * @description The ID of the request.
+     * @description *   This API is intended for API providers.
+     *   The operation takes effect immediately. The request sent from API Gateway to the backend service does not contain the signature string. The corresponding verification step can be removed from the backend.
      *
      * @example TEST
      *

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccessControlListRequest extends Model
 {
     /**
-     * @description The ID of the access control policy.
-     *
      * @example acl-uf6fpfdg3b5muska7uqem
      *
      * @var string

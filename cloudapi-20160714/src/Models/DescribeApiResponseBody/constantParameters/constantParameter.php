@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class constantParameter extends Model
 {
     /**
-     * @description The parameters of API requests sent by the consumer to API Gateway.
+     * @description The data type of the back-end service parameter.
      *
      * @example constance
      *
@@ -18,7 +18,7 @@ class constantParameter extends Model
     public $constantValue;
 
     /**
-     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
+     * @description The API request path.
      *
      * @example constance
      *
@@ -27,7 +27,7 @@ class constantParameter extends Model
     public $description;
 
     /**
-     * @description The name of the backend service parameter.
+     * @description The value of the ContentType header when the ServiceProtocol parameter is set to HTTP and the ContentTypeCatagory parameter is set to DEFAULT or CUSTOM.
      *
      * @example HEAD
      *
@@ -36,7 +36,7 @@ class constantParameter extends Model
     public $location;
 
     /**
-     * @description The value of the parameter.
+     * @description The name of the parameter that corresponds to the token.
      *
      * @example constance
      *

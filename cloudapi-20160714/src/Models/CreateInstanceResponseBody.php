@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
      * @example apigateway-hz-b3c5dadd5***
      *
      * @var string
@@ -18,8 +16,6 @@ class CreateInstanceResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the request.
-     *
      * @example CEB6EC62-B6C7-5082-A45A-45A204724AC2
      *
      * @var string

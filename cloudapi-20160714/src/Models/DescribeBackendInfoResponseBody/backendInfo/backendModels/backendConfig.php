@@ -14,18 +14,19 @@ use AlibabaCloud\Tea\Model;
 class backendConfig extends Model
 {
     /**
-     * @description The information about the backend service that is EventBridge.
-     *
      * @var eventBridgeConfig
      */
     public $eventBridgeConfig;
 
     /**
-     * @description The information about the backend service whose type is FC_EVENT or FC_HTTP.
-     *
      * @var functionComputeConfig
      */
     public $functionComputeConfig;
+
+    /**
+     * @var string
+     */
+    public $httpTargetHostName;
 
     /**
      * @var mockConfig
@@ -33,15 +34,11 @@ class backendConfig extends Model
     public $mockConfig;
 
     /**
-     * @description The information about the backend service whose type is OSS.
-     *
      * @var ossConfig
      */
     public $ossConfig;
 
     /**
-     * @description The URL of the backend service.
-     *
      * @example 10.0.0.1
      *
      * @var string
@@ -49,8 +46,6 @@ class backendConfig extends Model
     public $serviceAddress;
 
     /**
-     * @description The type of the backend service.
-     *
      * @example VPC
      *
      * @var string
@@ -58,14 +53,13 @@ class backendConfig extends Model
     public $type;
 
     /**
-     * @description The information about the virtual private cloud (VPC). This parameter is available only for backend services whose type is VPC.
-     *
      * @var vpcConfig
      */
     public $vpcConfig;
     protected $_name = [
         'eventBridgeConfig'     => 'EventBridgeConfig',
         'functionComputeConfig' => 'FunctionComputeConfig',
+        'httpTargetHostName'    => 'HttpTargetHostName',
         'mockConfig'            => 'MockConfig',
         'ossConfig'             => 'OssConfig',
         'serviceAddress'        => 'ServiceAddress',
@@ -85,6 +79,9 @@ class backendConfig extends Model
         }
         if (null !== $this->functionComputeConfig) {
             $res['FunctionComputeConfig'] = null !== $this->functionComputeConfig ? $this->functionComputeConfig->toMap() : null;
+        }
+        if (null !== $this->httpTargetHostName) {
+            $res['HttpTargetHostName'] = $this->httpTargetHostName;
         }
         if (null !== $this->mockConfig) {
             $res['MockConfig'] = null !== $this->mockConfig ? $this->mockConfig->toMap() : null;
@@ -118,6 +115,9 @@ class backendConfig extends Model
         }
         if (isset($map['FunctionComputeConfig'])) {
             $model->functionComputeConfig = functionComputeConfig::fromMap($map['FunctionComputeConfig']);
+        }
+        if (isset($map['HttpTargetHostName'])) {
+            $model->httpTargetHostName = $map['HttpTargetHostName'];
         }
         if (isset($map['MockConfig'])) {
             $model->mockConfig = mockConfig::fromMap($map['MockConfig']);

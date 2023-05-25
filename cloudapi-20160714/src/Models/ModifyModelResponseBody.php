@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyModelResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description Updates the model of an API group.
      *
      * @example 4173F95B-360C-460C-9F6C-4A960B904411
      *

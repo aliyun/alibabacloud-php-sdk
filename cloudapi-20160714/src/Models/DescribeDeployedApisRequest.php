@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDeployedApisRequest extends Model
 {
     /**
-     * @description The name of the API. The name is used for fuzzy match.
-     *
      * @example c076144d7878437b8f82fb85890ce6a0
      *
      * @var string
@@ -24,8 +22,6 @@ class DescribeDeployedApisRequest extends Model
     public $apiMethod;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
-     *
      * @example weather
      *
      * @var string
@@ -38,8 +34,6 @@ class DescribeDeployedApisRequest extends Model
     public $apiPath;
 
     /**
-     * @description The list of tags.
-     *
      * @example true
      *
      * @var bool
@@ -47,11 +41,6 @@ class DescribeDeployedApisRequest extends Model
     public $enableTagAuth;
 
     /**
-     * @description The name of the runtime environment. Valid values:
-     *
-     *   **RELEASE**
-     *   **TEST**
-     *
      * @example 63be9002440b4778a61122f14c2b2bbb
      *
      * @var string
@@ -59,8 +48,6 @@ class DescribeDeployedApisRequest extends Model
     public $groupId;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
-     *
      * @example 1
      *
      * @var int
@@ -68,8 +55,6 @@ class DescribeDeployedApisRequest extends Model
     public $pageNumber;
 
     /**
-     * @description Specifies whether to enable tag verification.
-     *
      * @example 10
      *
      * @var int
@@ -82,8 +67,6 @@ class DescribeDeployedApisRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the API.
-     *
      * @example RELEASE
      *
      * @var string
@@ -91,8 +74,6 @@ class DescribeDeployedApisRequest extends Model
     public $stageName;
 
     /**
-     * @description The tag key.
-     *
      * @var tag[]
      */
     public $tag;

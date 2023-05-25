@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRequest extends Model
 {
     /**
-     * @description The private key of the SSL certificate.
+     * @description The custom domain name.
      *
      * @example api.demo.com
      *
@@ -18,7 +18,7 @@ class DescribeDomainRequest extends Model
     public $domainName;
 
     /**
-     * @description The custom domain name.
+     * @description The private key of the SSL certificate.
      *
      * @example 927d50c0f2e54b359919923d908bb015
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestParameter extends Model
 {
     /**
-     * @description The hash values that can be entered when **ParameterType** is set to Int, Long, Float, Double, or String. Separate different values with commas (,), such as 1,2,3,4,9 or A,B,C,E,F.
+     * @description Indicates whether a subnode exists.
      *
      * @example age
      *
@@ -18,7 +18,16 @@ class requestParameter extends Model
     public $apiParameterName;
 
     /**
-     * @description The minimum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
+     * @description The security authentication method of the API. Valid values:
+     *
+     *   **APP**: Only authorized applications can call the API.
+     *
+     *   **ANONYMOUS**: The API can be anonymously called. In this mode, you must take note of the following rules:
+     *
+     *   All users who have obtained the API service information can call this API. API Gateway does not authenticate callers and cannot set user-specific throttling policies. If you make this API public, set API-specific throttling policies.
+     *   We recommend that you do not make the API whose security authentication method is ANONYMOUS available in Alibaba Cloud Marketplace because API Gateway cannot meter calls on the caller or limit the number of calls on the API. If you want to make the API group to which the API belongs available in Alibaba Cloud Marketplace, we recommend that you move the API to another group, set its type to PRIVATE, or set its security authentication method to APP.
+     *
+     *   **APPOPENID**: The OpenID Connect account authentication method is used. Only applications authorized by OpenID Connect can call the API. If this method is selected, the OpenIdConnectConfig parameter is required.
      *
      * @example String
      *
@@ -27,7 +36,7 @@ class requestParameter extends Model
     public $arrayItemsType;
 
     /**
-     * @description The name of the parameter.
+     * @description The configuration items of API requests sent by API Gateway to the backend service.
      *
      * @example 20
      *
@@ -36,7 +45,10 @@ class requestParameter extends Model
     public $defaultValue;
 
     /**
-     * @description Indicates whether the parameter is required. Valid values: **REQUIRED** and **OPTIONAL**.
+     * @description The OpenID Connect mode. Valid values:
+     *
+     *   **IDTOKEN**: indicates the APIs that are called by clients to obtain tokens. If you specify this value, the PublicKeyId parameter and the PublicKey parameter are required.
+     *   **BUSINESS**: indicates business APIs. Tokens are used to call the business APIs. If you specify this value, the IdTokenParamName parameter is required.
      *
      * @example 20
      *
@@ -45,16 +57,16 @@ class requestParameter extends Model
     public $demoValue;
 
     /**
-     * @description Age
+     * @description The returned description of the API.
      *
-     * @example The type of a request parameter. Valid values: String, Int, Long, Float, Double, and Boolean.
+     * @example The simulated headers.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
+     * @description The event bus.
      *
      * @example 0
      *
@@ -63,7 +75,7 @@ class requestParameter extends Model
     public $docOrder;
 
     /**
-     * @description The maximum parameter length when **ParameterType** is set to String.
+     * @description The sample response from the backend service.
      *
      * @example PUBLIC
      *
@@ -72,7 +84,7 @@ class requestParameter extends Model
     public $docShow;
 
     /**
-     * @description Examples
+     * @description The name of the parameter.
      *
      * @example boy,girl
      *
@@ -81,7 +93,7 @@ class requestParameter extends Model
     public $enumValue;
 
     /**
-     * @description The maximum parameter value when **ParameterType** is set to Int, Long, Float, or Double.
+     * @description The regular expression used for parameter validation when **ParameterType** is set to String.
      *
      * @example JSON
      *
@@ -90,7 +102,7 @@ class requestParameter extends Model
     public $jsonScheme;
 
     /**
-     * @description The parameters of API requests sent by API Gateway to the backend service.
+     * @description The ID of the VPC.
      *
      * @example HEAD
      *
@@ -99,7 +111,7 @@ class requestParameter extends Model
     public $location;
 
     /**
-     * @description The default value.
+     * @description Backend service type
      *
      * @example 123456
      *
@@ -108,7 +120,7 @@ class requestParameter extends Model
     public $maxLength;
 
     /**
-     * @description The type of the array element.
+     * @description Specifies whether to enable backend services.
      *
      * @example 123456
      *
@@ -117,7 +129,7 @@ class requestParameter extends Model
     public $maxValue;
 
     /**
-     * @description The order in the document.
+     * @description The name of the backend service parameter.
      *
      * @example 123456
      *
@@ -126,7 +138,7 @@ class requestParameter extends Model
     public $minLength;
 
     /**
-     * @description Indicates whether the document is public. Valid values: **PUBLIC** and **PRIVATE**.
+     * @description The name of the system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, and CaProxy.
      *
      * @example 123456
      *
@@ -135,7 +147,7 @@ class requestParameter extends Model
     public $minValue;
 
     /**
-     * @description The regular expression used for parameter validation when **ParameterType** is set to String.
+     * @description The region where the Function Compute instance is located.
      *
      * @example String
      *
@@ -144,7 +156,7 @@ class requestParameter extends Model
     public $parameterType;
 
     /**
-     * @description The minimum parameter length when **ParameterType** is set to String.
+     * @description Configuration items of EventBridge
      *
      * @example xxx
      *
@@ -153,7 +165,7 @@ class requestParameter extends Model
     public $regularExpression;
 
     /**
-     * @description Description
+     * @description The UserId parameter is missing from the request.
      *
      * @example OPTIONAL
      *

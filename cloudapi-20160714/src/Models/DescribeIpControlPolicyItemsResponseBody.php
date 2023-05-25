@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpControlPolicyItemsResponseBody extends Model
 {
     /**
-     * @description The information about policies. The information is an array of IpControlPolicyItem data.
-     *
      * @var ipControlPolicyItems
      */
     public $ipControlPolicyItems;
 
     /**
-     * @description The page number of the returned page.
-     *
      * @example 1
      *
      * @var int
@@ -26,8 +22,6 @@ class DescribeIpControlPolicyItemsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
-     *
      * @example 10
      *
      * @var int
@@ -35,8 +29,6 @@ class DescribeIpControlPolicyItemsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
-     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *
      * @var string
@@ -44,8 +36,6 @@ class DescribeIpControlPolicyItemsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of returned entries.
-     *
      * @example 2
      *
      * @var int

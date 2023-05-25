@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyApiGroupRequest extends Model
 {
     /**
-     * @description The API group description that you want to specify, which cannot exceed 180 characters. If this parameter is not specified, the group description is not modified.
-     *
      * @example /eeee
      *
      * @var string
@@ -19,8 +17,6 @@ class ModifyApiGroupRequest extends Model
     public $basePath;
 
     /**
-     * @description The data of custom configuration items.
-     *
      * @example depart:dep1
      *
      * @var string
@@ -28,8 +24,6 @@ class ModifyApiGroupRequest extends Model
     public $compatibleFlags;
 
     /**
-     * @description The list of associated tags. Separate multiple tags with commas (,).
-     *
      * @example {\"parameterLocation\":\"HEADER\",\"parameterName\":\"traceId\"}
      *
      * @var string
@@ -37,8 +31,6 @@ class ModifyApiGroupRequest extends Model
     public $customTraceConfig;
 
     /**
-     * @description Specifies whether to pass headers.
-     *
      * @example removeResponseServerHeader
      *
      * @var string
@@ -46,8 +38,6 @@ class ModifyApiGroupRequest extends Model
     public $customerConfigs;
 
     /**
-     * @description The RPC mode.
-     *
      * @example mkt.api.gaore.com
      *
      * @var string
@@ -55,8 +45,6 @@ class ModifyApiGroupRequest extends Model
     public $defaultDomain;
 
     /**
-     * @description The user log configuration.
-     *
      * @example New weather informations.
      *
      * @var string
@@ -64,8 +52,6 @@ class ModifyApiGroupRequest extends Model
     public $description;
 
     /**
-     * @description The API group name must be globally unique. The name must be 4 to 50 characters in length. It must start with a letter and can contain letters, digits, and underscores (\_). If this parameter is not specified, the group name is not modified.
-     *
      * @example 523e8dc7bbe04613b5b1d726c2a7889d
      *
      * @var string
@@ -73,8 +59,6 @@ class ModifyApiGroupRequest extends Model
     public $groupId;
 
     /**
-     * @description The root path of the API.
-     *
      * @example NewWeather
      *
      * @var string
@@ -82,8 +66,6 @@ class ModifyApiGroupRequest extends Model
     public $groupName;
 
     /**
-     * @description The default domain name.
-     *
      * @example eagleeye-rpcid,x-b3-traceid,host
      *
      * @var string
@@ -91,8 +73,6 @@ class ModifyApiGroupRequest extends Model
     public $passthroughHeaders;
 
     /**
-     * @description The object tags that match the lifecycle rule. You can specify multiple tags.
-     *
      * @var string
      */
     public $rpcPattern;
@@ -103,8 +83,6 @@ class ModifyApiGroupRequest extends Model
     public $securityToken;
 
     /**
-     * @description The tags that are attached to the resources.
-     *
      * @example Key， Value
      *
      * @var tag[]
@@ -112,8 +90,6 @@ class ModifyApiGroupRequest extends Model
     public $tag;
 
     /**
-     * @description The custom trace configuration.
-     *
      * @example {\"requestBody\":false,\"responseBody\":false,\"queryString\":\"\",\"requestHeaders\":\"\",\"responseHeaders\":\"\",\"jwtClaims\":\"\"}
      *
      * @var string

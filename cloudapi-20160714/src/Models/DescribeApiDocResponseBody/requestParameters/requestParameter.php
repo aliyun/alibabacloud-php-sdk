@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class requestParameter extends Model
 {
     /**
-     * @description The name of the API parameter.
-     *
      * @example Length
      *
      * @var string
@@ -18,8 +16,6 @@ class requestParameter extends Model
     public $apiParameterName;
 
     /**
-     * @description The type of the array element.
-     *
      * @example String
      *
      * @var string
@@ -27,8 +23,6 @@ class requestParameter extends Model
     public $arrayItemsType;
 
     /**
-     * @description The default value.
-     *
      * @example 20
      *
      * @var string
@@ -36,8 +30,6 @@ class requestParameter extends Model
     public $defaultValue;
 
     /**
-     * @description The example value.
-     *
      * @example 20
      *
      * @var string
@@ -45,17 +37,11 @@ class requestParameter extends Model
     public $demoValue;
 
     /**
-     * @description Description
-     *
-     * @example The parameter description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The order in the document.
-     *
      * @example 0
      *
      * @var int
@@ -63,8 +49,6 @@ class requestParameter extends Model
     public $docOrder;
 
     /**
-     * @description Indicates whether the document is public. Valid values: PUBLIC and PRIVATE.
-     *
      * @example PUBLIC
      *
      * @var string
@@ -72,8 +56,6 @@ class requestParameter extends Model
     public $docShow;
 
     /**
-     * @description The hash values that can be entered when ParameterType is set to Int, Long, Float, Double, or String. Different values are separated with commas (,), such as 1,2,3,4,9 or A,B,C,E,F.
-     *
      * @example boy,girl
      *
      * @var string
@@ -90,8 +72,6 @@ class requestParameter extends Model
     public $jsonScheme;
 
     /**
-     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
-     *
      * @example HEAD
      *
      * @var string
@@ -99,8 +79,6 @@ class requestParameter extends Model
     public $location;
 
     /**
-     * @description The maximum length.
-     *
      * @example 123456
      *
      * @var int
@@ -108,8 +86,6 @@ class requestParameter extends Model
     public $maxLength;
 
     /**
-     * @description The maximum value.
-     *
      * @example 200
      *
      * @var int
@@ -117,8 +93,6 @@ class requestParameter extends Model
     public $maxValue;
 
     /**
-     * @description The minimum length.
-     *
      * @example 2
      *
      * @var int
@@ -126,8 +100,6 @@ class requestParameter extends Model
     public $minLength;
 
     /**
-     * @description The minimum value.
-     *
      * @example 123456
      *
      * @var int
@@ -135,8 +107,6 @@ class requestParameter extends Model
     public $minValue;
 
     /**
-     * @description The type of the parameter.
-     *
      * @example String
      *
      * @var string
@@ -144,8 +114,6 @@ class requestParameter extends Model
     public $parameterType;
 
     /**
-     * @description The regular expression used for parameter validation when ParameterType is set to String.
-     *
      * @example xxx
      *
      * @var string
@@ -153,8 +121,6 @@ class requestParameter extends Model
     public $regularExpression;
 
     /**
-     * @description Indicates whether the parameter is required.
-     *
      * @example OPTIONAL
      *
      * @var string

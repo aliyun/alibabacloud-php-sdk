@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class datasetItemInfoList extends Model
 {
     /**
-     * @description The time when the data entry was created.
-     *
      * @example 2022-09-21T12:58:43Z
      *
      * @var string
@@ -18,8 +16,6 @@ class datasetItemInfoList extends Model
     public $createdTime;
 
     /**
-     * @description The ID of the dataset.
-     *
      * @example 4add6a61804e47858266883e********
      *
      * @var string
@@ -27,8 +23,6 @@ class datasetItemInfoList extends Model
     public $datasetId;
 
     /**
-     * @description The ID of the data entry.
-     *
      * @example 5045****
      *
      * @var string
@@ -36,17 +30,11 @@ class datasetItemInfoList extends Model
     public $datasetItemId;
 
     /**
-     * @description The description of the data entry.
-     *
-     * @example Description
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The time in UTC when the data entry expires. The time is in the **yyyy-MM-ddTHH:mm:ssZ** format. If this parameter is empty, the data entry does not expire.
-     *
      * @example 2022-09-22T12:00:00Z
      *
      * @var string
@@ -54,8 +42,6 @@ class datasetItemInfoList extends Model
     public $expiredTime;
 
     /**
-     * @description The last modification time (UTC) of the data entry.
-     *
      * @example 2022-09-21T12:58:43Z
      *
      * @var string
@@ -63,8 +49,6 @@ class datasetItemInfoList extends Model
     public $modifiedTime;
 
     /**
-     * @description The value of the data entry.
-     *
      * @example 106.43.XXX.XXX
      *
      * @var string

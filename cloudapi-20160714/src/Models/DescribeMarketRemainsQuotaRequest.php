@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeMarketRemainsQuotaRequest extends Model
 {
     /**
-     * @description The remaining quota.
-     *
      * @example *.demo.com
      *
      * @var string

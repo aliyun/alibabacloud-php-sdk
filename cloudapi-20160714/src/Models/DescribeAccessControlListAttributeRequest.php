@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessControlListAttributeRequest extends Model
 {
     /**
-     * @description The ID of the access control policy.
-     *
      * @example acl-3nsohdozz0ru8fi5onwz1
      *
      * @var string

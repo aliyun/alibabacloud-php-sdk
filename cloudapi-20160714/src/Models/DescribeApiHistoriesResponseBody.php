@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiHistoriesResponseBody extends Model
 {
     /**
-     * @description The returned API information. It is an array consisting of ApiHisItem data.
+     * @description The ID of the API.
      *
      * @var apiHisItems
      */
     public $apiHisItems;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of entries returned per page.
      *
      * @example 3
      *
@@ -26,7 +26,7 @@ class DescribeApiHistoriesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The returned API information. It is an array consisting of ApiHisItem data.
      *
      * @example 15
      *
@@ -35,7 +35,7 @@ class DescribeApiHistoriesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The total number of returned entries.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ003
      *
@@ -44,7 +44,7 @@ class DescribeApiHistoriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of returned entries.
+     * @description Indicates whether an API version is effective. Valid values: ONLINE and OFFLINE.
      *
      * @example 32
      *

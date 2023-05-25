@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppsRequest extends Model
 {
     /**
-     * @description The Alibaba Cloud account of the app owner. For more information, see [Account Management](https://account.console.aliyun.com/?spm=a2c4g.11186623.2.15.3a8c196eVWxvQB#/secure).
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
      *
      * @example 20112314518278
      *
@@ -18,7 +18,7 @@ class DescribeAppsRequest extends Model
     public $appId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
      *
      * @example 1546564
      *
@@ -27,7 +27,7 @@ class DescribeAppsRequest extends Model
     public $appOwner;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class DescribeAppsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The page number of the returned page.
+     * @description The ID of the request.
      *
      * @example 10
      *

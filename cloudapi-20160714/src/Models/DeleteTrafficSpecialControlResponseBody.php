@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteTrafficSpecialControlResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description Deletes a custom special throttling policy.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *

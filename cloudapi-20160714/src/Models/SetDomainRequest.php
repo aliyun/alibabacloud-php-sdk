@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SetDomainRequest extends Model
 {
     /**
-     * @description The network type of the domain name to be bound. Default value: INTERNET. Valid values:
-     *
-     *   INTERNET
-     *   INTRANET. If you set this parameter to this value, the domain name cannot be used on the Internet.
-     *
      * @example RELEASE
      *
      * @var string
@@ -21,8 +16,6 @@ class SetDomainRequest extends Model
     public $bindStageName;
 
     /**
-     * @description Specifies whether this binding relationship takes precedence over the binding relationships between the domain name and other API groups. If you set this parameter to true, this binding relationship takes precedence, and the domain name is automatically unbound from other API groups. This operation brings risks. Proceed with caution.
-     *
      * @example INTERNET
      *
      * @var string
@@ -30,15 +23,6 @@ class SetDomainRequest extends Model
     public $customDomainType;
 
     /**
-     * @description The environment which you can access by using the domain name. If you do not specify this parameter, the domain name can be used to access all environments.
-     *
-     * If you specify an environment, the domain name can be used to access only the specified environment. Valid values:
-     *
-     *   TEST
-     *   PRE
-     *   RELEASE
-     *
-     * If you want to use the domain name to access all environments, set this parameter to an empty string ("").
      * @example api.demo.com
      *
      * @var string
@@ -46,8 +30,6 @@ class SetDomainRequest extends Model
     public $domainName;
 
     /**
-     * @description The custom domain name.
-     *
      * @example 927d50c0f2e54b359919923d908bb015
      *
      * @var string
@@ -55,8 +37,6 @@ class SetDomainRequest extends Model
     public $groupId;
 
     /**
-     * @description Specifies whether to redirect HTTP requests to HTTPS requests.
-     *
      * @example false
      *
      * @var bool
@@ -64,8 +44,6 @@ class SetDomainRequest extends Model
     public $isForce;
 
     /**
-     * @description The ID of the request.
-     *
      * @example false
      *
      * @var bool

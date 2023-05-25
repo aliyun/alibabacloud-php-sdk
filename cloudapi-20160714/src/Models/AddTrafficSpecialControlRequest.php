@@ -14,7 +14,7 @@ class AddTrafficSpecialControlRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the app or Alibaba Cloud account. Specify this parameter based on the value of the **SpecialType** parameter. You can view your account ID on the [Account Management](https://account.console.aliyun.com/?spm=a2c4g.11186623.2.15.3f053654YpMPwo#/secure) page.
+     * @description The ID of the request.
      *
      * @example 3382463
      *
@@ -23,10 +23,7 @@ class AddTrafficSpecialControlRequest extends Model
     public $specialKey;
 
     /**
-     * @description The type of the special throttling policy. Valid values:
-     *
-     *   **APP**
-     *   **USER**
+     * @description The special throttling value.
      *
      * @example APP
      *
@@ -35,7 +32,7 @@ class AddTrafficSpecialControlRequest extends Model
     public $specialType;
 
     /**
-     * @description The ID of the specified throttling policy.
+     * @description The ID of the app or Alibaba Cloud account. Specify this parameter based on the value of the **SpecialType** parameter. You can view your account ID on the [Account Management](https://account.console.aliyun.com/?spm=a2c4g.11186623.2.15.3f053654YpMPwo#/secure) page.
      *
      * @example tf123456
      *
@@ -44,7 +41,9 @@ class AddTrafficSpecialControlRequest extends Model
     public $trafficControlId;
 
     /**
-     * @description The special throttling value.
+     * @description *   This API is intended for API providers.
+     *   If the input SpecialKey already exists, the previous configuration is overwritten. Use caution when calling this operation.
+     *   Special throttling policies must be added to an existing throttling policy, and can take effect on all the APIs to which the throttling policy is bound.
      *
      * @example 10000
      *

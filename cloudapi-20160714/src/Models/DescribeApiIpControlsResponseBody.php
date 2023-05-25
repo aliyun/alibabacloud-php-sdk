@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiIpControlsResponseBody extends Model
 {
     /**
-     * @description The information about the ACLs. The information is an array of ApiIpControlItem data.
+     * @description The ID of the API.
      *
      * @var apiIpControls
      */
     public $apiIpControls;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of entries returned per page.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeApiIpControlsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The information about the ACLs. The information is an array of ApiIpControlItem data.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeApiIpControlsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The total number of returned entries.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *
@@ -44,7 +44,7 @@ class DescribeApiIpControlsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of returned entries.
+     * @description The time of binding.
      *
      * @example 1
      *

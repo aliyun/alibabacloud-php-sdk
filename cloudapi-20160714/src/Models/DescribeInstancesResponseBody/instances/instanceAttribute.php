@@ -11,8 +11,6 @@ use AlibabaCloud\Tea\Model;
 class instanceAttribute extends Model
 {
     /**
-     * @description The ID of the access control policy.
-     *
      * @example acl-uf6f9zfxfxtp5j9ng3yv4
      *
      * @var string
@@ -20,8 +18,6 @@ class instanceAttribute extends Model
     public $aclId;
 
     /**
-     * @description The name of the access control policy.
-     *
      * @example test
      *
      * @var string
@@ -29,11 +25,6 @@ class instanceAttribute extends Model
     public $aclName;
 
     /**
-     * @description Indicates whether access control is enabled. Valid values:
-     *
-     *   **on**: yes
-     *   **off**: no
-     *
      * @example on
      *
      * @var string
@@ -41,11 +32,6 @@ class instanceAttribute extends Model
     public $aclStatus;
 
     /**
-     * @description The type of the access control policy. Valid values:
-     *
-     *   black: blacklist
-     *   white: whitelist
-     *
      * @example white
      *
      * @var string
@@ -53,8 +39,6 @@ class instanceAttribute extends Model
     public $aclType;
 
     /**
-     * @description The outbound IP address.
-     *
      * @example 10.0.0.1
      *
      * @var string
@@ -62,13 +46,15 @@ class instanceAttribute extends Model
     public $classicEgressAddress;
 
     /**
+     * @description VPC融合类型专享实例联通的用户VPC ID
+     *
+     * @example vpc-m5eo7khlb4h4f8y9egsdg
+     *
      * @var string
      */
     public $connectVpcId;
 
     /**
-     * @description The time when the instance was created.
-     *
      * @example 2021-10-22 15:36:53.0
      *
      * @var string
@@ -76,13 +62,15 @@ class instanceAttribute extends Model
     public $createdTime;
 
     /**
+     * @description 专享实例类型
+     * - normal：传统类型专享实例
+     * @example vpc_connect
+     *
      * @var string
      */
     public $dedicatedInstanceType;
 
     /**
-     * @description Indicates whether outbound IPv6 is supported.
-     *
      * @example true
      *
      * @var bool
@@ -90,8 +78,6 @@ class instanceAttribute extends Model
     public $egressIpv6Enable;
 
     /**
-     * @description The time when the instance expires.
-     *
      * @example 1659801600000
      *
      * @var string
@@ -99,8 +85,6 @@ class instanceAttribute extends Model
     public $expiredTime;
 
     /**
-     * @description The HTTPS security policy.
-     *
      * @example HTTPS2_TLS1_2
      *
      * @var string
@@ -108,31 +92,34 @@ class instanceAttribute extends Model
     public $httpsPolicies;
 
     /**
+     * @example acl-124resFfs235
+     *
      * @var string
      */
     public $IPV6AclId;
 
     /**
+     * @example testIPV6
+     *
      * @var string
      */
     public $IPV6AclName;
 
     /**
+     * @example on
+     *
      * @var string
      */
     public $IPV6AclStatus;
 
     /**
+     * @example black
+     *
      * @var string
      */
     public $IPV6AclType;
 
     /**
-     * @description The billing method of the instance. Valid values:
-     *
-     *   PrePaid: subscription
-     *   PayAsYouGo: pay-as-you-go
-     *
      * @example PrePaid
      *
      * @var string
@@ -140,13 +127,20 @@ class instanceAttribute extends Model
     public $instanceChargeType;
 
     /**
+     * @description 专享实例所在网段
+     * - 192.168.0.0/16
+     * @example 192.168.0.0/16
+     *
      * @var string
      */
     public $instanceCidrBlock;
 
     /**
-     * @description The ID of the instance.
-     *
+     * @var string
+     */
+    public $instanceClusterId;
+
+    /**
      * @example api-shared-vpc-020
      *
      * @var string
@@ -154,8 +148,6 @@ class instanceAttribute extends Model
     public $instanceId;
 
     /**
-     * @description The name of the instance.
-     *
      * @example test
      *
      * @var string
@@ -163,8 +155,6 @@ class instanceAttribute extends Model
     public $instanceName;
 
     /**
-     * @description The records per second (RPS) limit on the instance.
-     *
      * @example 500
      *
      * @var int
@@ -172,8 +162,6 @@ class instanceAttribute extends Model
     public $instanceRpsLimit;
 
     /**
-     * @description The specifications of the instance.
-     *
      * @example api.s1.small
      *
      * @var string
@@ -181,18 +169,11 @@ class instanceAttribute extends Model
     public $instanceSpec;
 
     /**
-     * @description The specifications of the instance.
-     *
      * @var instanceSpecAttributes
      */
     public $instanceSpecAttributes;
 
     /**
-     * @description The instance type.
-     *
-     *   VPC_SHARED: shared instance (VPC)
-     *   VPC_DEDICATED: dedicated instance (VPC)
-     *
      * @example VPC_SHARED
      *
      * @var string
@@ -200,8 +181,6 @@ class instanceAttribute extends Model
     public $instanceType;
 
     /**
-     * @description The outbound public IP address.
-     *
      * @example 47.241.89.244
      *
      * @var string
@@ -214,13 +193,13 @@ class instanceAttribute extends Model
     public $intranetSegments;
 
     /**
+     * @description VPC融合类型专享实例连通的用户VPC内的网络信息
+     *
      * @var networkInterfaceAttributes
      */
     public $networkInterfaceAttributes;
 
     /**
-     * @description The region where the instance is located.
-     *
      * @example cn-beijing
      *
      * @var string
@@ -228,8 +207,6 @@ class instanceAttribute extends Model
     public $regionId;
 
     /**
-     * @description The instance status.
-     *
      * @example RUNNING
      *
      * @var string
@@ -237,8 +214,6 @@ class instanceAttribute extends Model
     public $status;
 
     /**
-     * @description Indicates whether IPv6 is supported.
-     *
      * @example true
      *
      * @var bool
@@ -246,8 +221,6 @@ class instanceAttribute extends Model
     public $supportIpv6;
 
     /**
-     * @description The ID of the user\"s VPC.
-     *
      * @example vpc-t***hx****yu9****t0g4
      *
      * @var string
@@ -255,8 +228,6 @@ class instanceAttribute extends Model
     public $userVpcId;
 
     /**
-     * @description The ID of the user interaction machine.
-     *
      * @example vsw-t4***eh****d7q****i2f
      *
      * @var string
@@ -269,8 +240,6 @@ class instanceAttribute extends Model
     public $vipTypeList;
 
     /**
-     * @description The outbound CIDR block of the VPC.
-     *
      * @example 100.104.254.0/26
      *
      * @var string
@@ -278,8 +247,6 @@ class instanceAttribute extends Model
     public $vpcEgressAddress;
 
     /**
-     * @description Indicates whether VPC is enabled.
-     *
      * @example true
      *
      * @var bool
@@ -287,17 +254,11 @@ class instanceAttribute extends Model
     public $vpcIntranetEnable;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the VPC belongs.
-     *
-     * @example 1408453217640291
-     *
      * @var int
      */
     public $vpcOwnerId;
 
     /**
-     * @description Indicates whether VPC SLB is enabled.
-     *
      * @example true
      *
      * @var bool
@@ -305,8 +266,6 @@ class instanceAttribute extends Model
     public $vpcSlbIntranetEnable;
 
     /**
-     * @description The zone ID.
-     *
      * @example cn-hangzhou-MAZ5(g,h)
      *
      * @var string
@@ -314,10 +273,6 @@ class instanceAttribute extends Model
     public $zoneId;
 
     /**
-     * @description The zone.
-     *
-     * @example Multi-zone 2
-     *
      * @var string
      */
     public $zoneLocalName;
@@ -339,6 +294,7 @@ class instanceAttribute extends Model
         'IPV6AclType'                => 'IPV6AclType',
         'instanceChargeType'         => 'InstanceChargeType',
         'instanceCidrBlock'          => 'InstanceCidrBlock',
+        'instanceClusterId'          => 'InstanceClusterId',
         'instanceId'                 => 'InstanceId',
         'instanceName'               => 'InstanceName',
         'instanceRpsLimit'           => 'InstanceRpsLimit',
@@ -419,6 +375,9 @@ class instanceAttribute extends Model
         }
         if (null !== $this->instanceCidrBlock) {
             $res['InstanceCidrBlock'] = $this->instanceCidrBlock;
+        }
+        if (null !== $this->instanceClusterId) {
+            $res['InstanceClusterId'] = $this->instanceClusterId;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -545,6 +504,9 @@ class instanceAttribute extends Model
         }
         if (isset($map['InstanceCidrBlock'])) {
             $model->instanceCidrBlock = $map['InstanceCidrBlock'];
+        }
+        if (isset($map['InstanceClusterId'])) {
+            $model->instanceClusterId = $map['InstanceClusterId'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

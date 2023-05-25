@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class deployedApiItem extends Model
 {
     /**
-     * @description The description of the API.
-     *
      * @example c076144d7878437b8f82fb85890ce6a0
      *
      * @var string
@@ -23,10 +21,6 @@ class deployedApiItem extends Model
     public $apiMethod;
 
     /**
-     * @description DescribeObjects
-     *
-     * @example The region in which the API is located.
-     *
      * @var string
      */
     public $apiName;
@@ -37,11 +31,6 @@ class deployedApiItem extends Model
     public $apiPath;
 
     /**
-     * @description The name of the runtime environment. Valid values:
-     *
-     *   **RELEASE**
-     *   **TEST**
-     *
      * @example 2016-07-23T08:28:48Z
      *
      * @var string
@@ -49,17 +38,11 @@ class deployedApiItem extends Model
     public $deployedTime;
 
     /**
-     * @description Queries objects by page
-     *
-     * @example The name of the API group.
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The publishing time (UTC) of the API.
-     *
      * @example 63be9002440b4778a61122f14c2b2bbb
      *
      * @var string
@@ -67,8 +50,6 @@ class deployedApiItem extends Model
     public $groupId;
 
     /**
-     * @description The ID of the API group.
-     *
      * @example myGroup3
      *
      * @var string
@@ -76,8 +57,6 @@ class deployedApiItem extends Model
     public $groupName;
 
     /**
-     * @description auditing
-     *
      * @example cn-qingdao
      *
      * @var string
@@ -85,8 +64,6 @@ class deployedApiItem extends Model
     public $regionId;
 
     /**
-     * @description The name of the API.
-     *
      * @example RELEASE
      *
      * @var string
@@ -94,8 +71,6 @@ class deployedApiItem extends Model
     public $stageName;
 
     /**
-     * @description The ID of the API.
-     *
      * @example PUBLIC
      *
      * @var string

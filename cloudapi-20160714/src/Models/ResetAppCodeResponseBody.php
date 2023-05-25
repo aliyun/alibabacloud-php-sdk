@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ResetAppCodeResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D1B18FFE-4A81-59D8-AA02-1817098977CD
      *

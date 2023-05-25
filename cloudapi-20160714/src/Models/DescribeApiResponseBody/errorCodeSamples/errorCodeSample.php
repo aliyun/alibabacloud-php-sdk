@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class errorCodeSample extends Model
 {
     /**
-     * @description Model
+     * @description The protocol used by the backend service. Valid values: HTTP and HTTPS.
      *
      * @example 400
      *
@@ -18,16 +18,16 @@ class errorCodeSample extends Model
     public $code;
 
     /**
-     * @description The UserId parameter is missing from the request.
+     * @description The description of the request body.
      *
-     * @example The returned description of the API.
+     * @example The ID of the API.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description Description
+     * @description Configuration items related to VPC channels
      *
      * @example Missing the parameter UserId
      *
@@ -36,7 +36,7 @@ class errorCodeSample extends Model
     public $message;
 
     /**
-     * @description Error message
+     * @description The status code returned for service mocking.
      *
      * @example [\"*\"]
      *

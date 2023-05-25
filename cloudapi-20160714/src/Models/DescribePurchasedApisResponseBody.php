@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribePurchasedApisResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example 1
      *
      * @var int
@@ -19,8 +17,6 @@ class DescribePurchasedApisResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The total number of returned entries.
-     *
      * @example 10
      *
      * @var int
@@ -28,15 +24,11 @@ class DescribePurchasedApisResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The monitoring information about API call delays. The returned information is an array consisting of purchased APIs.
-     *
      * @var purchasedApis
      */
     public $purchasedApis;
 
     /**
-     * @description The number of entries returned on each page.
-     *
      * @example CE5722A6-AE78-4741-A9B0-6C817D360510
      *
      * @var string
@@ -44,8 +36,6 @@ class DescribePurchasedApisResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The monitoring information about API call delays. The returned information is an array consisting of purchased APIs.
-     *
      * @example 20
      *
      * @var int

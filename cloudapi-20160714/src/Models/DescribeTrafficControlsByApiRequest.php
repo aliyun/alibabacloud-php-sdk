@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrafficControlsByApiRequest extends Model
 {
     /**
-     * @description The ID of the API.
+     * @description The ID of the request.
      *
      * @example 3b81fd160f5645e097cc8855d75a1cf6
      *
@@ -18,7 +18,10 @@ class DescribeTrafficControlsByApiRequest extends Model
     public $apiId;
 
     /**
-     * @description The ID of the group to which the API to be queried belongs.
+     * @description The runtime environment of the API. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
      *
      * @example 0009db9c828549768a200320714b8930
      *
@@ -32,10 +35,7 @@ class DescribeTrafficControlsByApiRequest extends Model
     public $securityToken;
 
     /**
-     * @description The runtime environment of the API. Valid values:
-     *
-     *   **RELEASE**
-     *   **TEST**
+     * @description The returned throttling policy information. It is an array consisting of TrafficControlItem data.
      *
      * @example RELEASE
      *

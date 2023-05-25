@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CreatePluginRequest extends Model
 {
     /**
-     * @description The description of the plug-in. The description can contain a maximum of 200 characters in length.
-     *
      * @example createPlugin
      *
      * @var string
@@ -19,17 +17,11 @@ class CreatePluginRequest extends Model
     public $description;
 
     /**
-     * @description The plug-in definition statement, which can be in JSON or YAML format.
-     *
-     * @example Plugin definition
-     *
      * @var string
      */
     public $pluginData;
 
     /**
-     * @description The name of the plug-in. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\_). However, it cannot start with an underscore.
-     *
      * @example NewCors
      *
      * @var string
@@ -37,15 +29,6 @@ class CreatePluginRequest extends Model
     public $pluginName;
 
     /**
-     * @description The type of the plug-in. Valid values:
-     *
-     *   **ipControl: IP address-based access control**
-     *   **trafficControl: throttling**
-     *   **backendSignature: backend signature**
-     *   **jwtAuth** :JWT (OpenId Connect) authentication
-     *   **cors** :cross-origin resource sharing (CORS)
-     *   **caching**
-     *
      * @example cors
      *
      * @var string
@@ -58,8 +41,6 @@ class CreatePluginRequest extends Model
     public $securityToken;
 
     /**
-     * @description The tag of objects that match the rule. You can specify multiple tags.
-     *
      * @example Key， Value
      *
      * @var tag[]

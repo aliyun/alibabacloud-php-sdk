@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class apiSignatureItem extends Model
 {
     /**
-     * @description The ID of the backend signature key.
+     * @description The name of the backend signature key.
      *
      * @example 46fbb52840d146f186e38e8e70fc8c90
      *
@@ -18,8 +18,7 @@ class apiSignatureItem extends Model
     public $apiId;
 
     /**
-     * @description *   This API is intended for API providers.
-     *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
+     * @description Queries the backend signature keys that are bound to the APIs of a specified API group in a specified environment.
      *
      * @example testapi
      *
@@ -28,7 +27,7 @@ class apiSignatureItem extends Model
     public $apiName;
 
     /**
-     * @description The ID of the API.
+     * @description The ID of the backend signature key.
      *
      * @example 2016-07-23T08:28:48Z
      *
@@ -37,7 +36,7 @@ class apiSignatureItem extends Model
     public $boundTime;
 
     /**
-     * @description The name of the backend signature key.
+     * @description The name of the API.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
@@ -46,7 +45,8 @@ class apiSignatureItem extends Model
     public $signatureId;
 
     /**
-     * @description The name of the API.
+     * @description *   This API is intended for API providers.
+     *   The ApiIds parameter is optional. If this parameter is not specified, all results in the specified environment of an API group are returned.
      *
      * @example backendsignature
      *

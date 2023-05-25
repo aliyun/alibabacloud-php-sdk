@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyModelRequest extends Model
 {
     /**
-     * @description The description of the new model definition.
+     * @description The new definition of the model.
      *
      * @example Model Description
      *
@@ -18,7 +18,7 @@ class ModifyModelRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the API group to which the model belongs.
+     * @description The new name of the model.
      *
      * @example 30e792398d6c4569b04c0e53a3494381
      *
@@ -27,7 +27,7 @@ class ModifyModelRequest extends Model
     public $groupId;
 
     /**
-     * @description The name of the model.
+     * @description The description of the new model definition.
      *
      * @example Test
      *
@@ -36,7 +36,7 @@ class ModifyModelRequest extends Model
     public $modelName;
 
     /**
-     * @description The new name of the model.
+     * @description The ID of the request.
      *
      * @example NewTest
      *
@@ -45,7 +45,7 @@ class ModifyModelRequest extends Model
     public $newModelName;
 
     /**
-     * @description The new definition of the model.
+     * @description The ID of the API group to which the model belongs.
      *
      * @example {\"type\":\"object\",\"properties\":{\"id\":{\"format\":\"int64\",\"maximum\":100,\"exclusiveMaximum\":true,\"type\":\"integer\"},\"name\":{\"maxLength\":10,\"type\":\"string\"}}}
      *

@@ -11,12 +11,6 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceRequest extends Model
 {
     /**
-     * @description Specifies whether payment is automatically made during renewal. Valid values:
-     *
-     *   **True**: Automatic payment is enabled. Make sure that your Alibaba Cloud account has adequate balance.
-     *   **False**: Automatic payment is disabled. You have to manually pay in the console. Log on to the console. In the upper-right corner, choose **Expenses > User Center**. In the left-side navigation pane, click **Orders**. On the page that appears, find your order and complete the payment.
-     *
-     * Default value: **False**.
      * @example false
      *
      * @var bool
@@ -24,10 +18,6 @@ class CreateInstanceRequest extends Model
     public $autoPay;
 
     /**
-     * @description The billing method of the instance.
-     *
-     * @example PostPaid
-     *
      * @var string
      */
     public $chargeType;
@@ -40,8 +30,6 @@ class CreateInstanceRequest extends Model
     public $duration;
 
     /**
-     * @description The HTTPS policy.
-     *
      * @example HTTPS2_TLS1_2
      *
      * @var string
@@ -54,8 +42,6 @@ class CreateInstanceRequest extends Model
     public $instanceCidr;
 
     /**
-     * @description The name of the instance.
-     *
      * @example ApigatewayInstance
      *
      * @var string
@@ -63,8 +49,6 @@ class CreateInstanceRequest extends Model
     public $instanceName;
 
     /**
-     * @description The specifications of the instance.
-     *
      * @example api.s1.small
      *
      * @var string
@@ -89,8 +73,6 @@ class CreateInstanceRequest extends Model
     public $tag;
 
     /**
-     * @description The password.
-     *
      * @example c20d86c4-1eb3-4d0b-afe9-c586df1e2136
      *
      * @var string
@@ -103,8 +85,6 @@ class CreateInstanceRequest extends Model
     public $userVpcId;
 
     /**
-     * @description The zone.
-     *
      * @example cn-beijing-MAZ3(c,e)
      *
      * @var string

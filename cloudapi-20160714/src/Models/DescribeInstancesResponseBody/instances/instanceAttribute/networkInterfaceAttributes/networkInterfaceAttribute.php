@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class networkInterfaceAttribute extends Model
 {
     /**
+     * @description vSwitch的网段。
+     *
+     * @example 192.168.17.0/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @description 弹性网卡ID
+     *
+     * @example eni-bp1e5ag59flni1y2f44w
+     *
      * @var string
      */
     public $networkInterfaceId;
 
     /**
+     * @description 安全组的ID，同一个安全组内的服务可以互相访问。
+     *
+     * @example sg-2zeehz13zcyj1kfk3o85
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description 虚拟交换机ID
+     *
+     * @example vsw-2zeqals6rbj51bhjn8b89
+     *
      * @var string
      */
     public $vswitchId;
 
     /**
+     * @description 可用区ID
+     *
+     * @example cn-shenzhen-d
+     *
      * @var string
      */
     public $zoneId;

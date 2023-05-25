@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessControlListsRequest extends Model
 {
     /**
-     * @description The name of the access control policy.
-     *
      * @example testAcl
      *
      * @var string
@@ -23,8 +21,6 @@ class DescribeAccessControlListsRequest extends Model
     public $addressIPVersion;
 
     /**
-     * @description The page number of the current page.
-     *
      * @example 1
      *
      * @var int
@@ -32,8 +28,6 @@ class DescribeAccessControlListsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
-     *
      * @example 10
      *
      * @var int

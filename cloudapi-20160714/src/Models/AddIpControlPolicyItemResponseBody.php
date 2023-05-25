@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddIpControlPolicyItemResponseBody extends Model
 {
     /**
-     * @description The ID of the policy. The ID is unique.
+     * @description When you call this operation, note that:
+     *
+     *   This operation is intended for API providers.
+     *   An added policy immediately takes effect on all APIs that are bound to the access control list (ACL).
+     *   A maximum of 100 policies can be added to an ACL.
      *
      * @example P151617000829241
      *
@@ -18,7 +22,7 @@ class AddIpControlPolicyItemResponseBody extends Model
     public $policyItemId;
 
     /**
-     * @description The ID of the request.
+     * @description Adds a policy to an existing ACL.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeployApiRequest extends Model
 {
     /**
-     * @description The ID of the API.
+     * @description The publishing remarks.
      *
      * @example d6f679aeb3be4b91b3688e887ca1fe16
      *
@@ -18,7 +18,9 @@ class DeployApiRequest extends Model
     public $apiId;
 
     /**
-     * @description The publishing remarks.
+     * @description *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
+     *   An API is published to a cluster in less than 5 seconds.
+     *   The QPS limit on this operation is 50 per user.
      *
      * @example for_test1
      *
@@ -27,7 +29,11 @@ class DeployApiRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the API group.
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **PRE: the pre-release environment**
+     *   **TEST: the test environment**
      *
      * @example 63be9002440b4778a61122f14c2b2bbb
      *
@@ -41,11 +47,7 @@ class DeployApiRequest extends Model
     public $securityToken;
 
     /**
-     * @description The name of the runtime environment. Valid values:
-     *
-     *   **RELEASE**
-     *   **PRE: the pre-release environment**
-     *   **TEST: the test environment**
+     * @description The ID of the request.
      *
      * @example RELEASE
      *

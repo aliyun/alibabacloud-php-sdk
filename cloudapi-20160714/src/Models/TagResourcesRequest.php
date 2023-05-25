@@ -17,11 +17,7 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource. Tags are bound to API groups, plug-ins, and applications. You can use tags to manage cloud resources by group. Valid values:
-     *
-     *   **apiGroup**
-     *   **plugin**
-     *   **app**
+     * @description The operation that you want to perform. Set the value to **TagResources**.
      *
      * @example apiGroup
      *

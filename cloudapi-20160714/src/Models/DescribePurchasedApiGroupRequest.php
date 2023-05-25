@@ -9,11 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribePurchasedApiGroupRequest extends Model
 {
     /**
-     * @description The status of the API group.
-     *
-     *   **NORMAL**: The API group is normal.
-     *   **DELETE**: The API group is deleted.
-     *
      * @example 102b631ae1094e33a77c45312226184e
      *
      * @var string

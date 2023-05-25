@@ -9,12 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribePluginSchemasRequest extends Model
 {
     /**
-     * @description The language that is used to return the descriptions of the access control policies. Default value: zh-CN. Valid values:
-     *
-     *   zh-CN (default value): Chinese
-     *   en: English
-     *   ja: Japanese
-     *
      * @example en
      *
      * @var string

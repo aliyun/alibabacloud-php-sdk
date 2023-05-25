@@ -18,6 +18,11 @@ class ResetAppSecretRequest extends Model
     public $appKey;
 
     /**
+     * @var string
+     */
+    public $newAppKey;
+
+    /**
      * @description The new key of the application. To improve compatibility, we recommend that you use other parameters.
      *
      * @example test***
@@ -32,6 +37,7 @@ class ResetAppSecretRequest extends Model
     public $securityToken;
     protected $_name = [
         'appKey'        => 'AppKey',
+        'newAppKey'     => 'NewAppKey',
         'newAppSecret'  => 'NewAppSecret',
         'securityToken' => 'SecurityToken',
     ];
@@ -45,6 +51,9 @@ class ResetAppSecretRequest extends Model
         $res = [];
         if (null !== $this->appKey) {
             $res['AppKey'] = $this->appKey;
+        }
+        if (null !== $this->newAppKey) {
+            $res['NewAppKey'] = $this->newAppKey;
         }
         if (null !== $this->newAppSecret) {
             $res['NewAppSecret'] = $this->newAppSecret;
@@ -66,6 +75,9 @@ class ResetAppSecretRequest extends Model
         $model = new self();
         if (isset($map['AppKey'])) {
             $model->appKey = $map['AppKey'];
+        }
+        if (isset($map['NewAppKey'])) {
+            $model->newAppKey = $map['NewAppKey'];
         }
         if (isset($map['NewAppSecret'])) {
             $model->newAppSecret = $map['NewAppSecret'];

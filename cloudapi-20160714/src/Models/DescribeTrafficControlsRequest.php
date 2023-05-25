@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTrafficControlsRequest extends Model
 {
     /**
-     * @description The specified API ID. This parameter must be specified together with GroupId and StageName.
+     * @description The name of the throttling policy.
      *
      * @example 3b81fd160f5645e097cc8855d75a1cf6
      *
@@ -18,7 +18,10 @@ class DescribeTrafficControlsRequest extends Model
     public $apiId;
 
     /**
-     * @description The specified group ID. This parameter must be specified together with ApiId and StageName.
+     * @description The environment name. This parameter must be specified together with GroupId and ApiId. Valid values:********
+     *
+     *   **RELEASE**
+     *   **TEST**
      *
      * @example 0009db9c828549768a200320714b8930
      *
@@ -27,7 +30,7 @@ class DescribeTrafficControlsRequest extends Model
     public $groupId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -36,7 +39,7 @@ class DescribeTrafficControlsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     * @description The ID of the request.
      *
      * @example 10
      *
@@ -50,10 +53,7 @@ class DescribeTrafficControlsRequest extends Model
     public $securityToken;
 
     /**
-     * @description The environment name. This parameter must be specified together with GroupId and ApiId. Valid values:********
-     *
-     *   **RELEASE**
-     *   **TEST**
+     * @description ThrottlingTest
      *
      * @example RELEASE
      *
@@ -62,7 +62,7 @@ class DescribeTrafficControlsRequest extends Model
     public $stageName;
 
     /**
-     * @description The ID of the throttling policy.
+     * @description The specified API ID. This parameter must be specified together with GroupId and StageName.
      *
      * @example tf123456
      *
@@ -71,9 +71,9 @@ class DescribeTrafficControlsRequest extends Model
     public $trafficControlId;
 
     /**
-     * @description The name of the throttling policy.
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
      *
-     * @example ThrottlingTest
+     * @example The number of entries to return on each page. Maximum value: 100. Default value: 10.
      *
      * @var string
      */

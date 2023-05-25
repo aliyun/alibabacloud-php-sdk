@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RemoveAccessControlListEntryResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example D1B18FFE-4A81-59D8-AA02-1817098977CD
      *
      * @var string

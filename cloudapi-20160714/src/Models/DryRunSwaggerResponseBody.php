@@ -13,15 +13,11 @@ use AlibabaCloud\Tea\Model;
 class DryRunSwaggerResponseBody extends Model
 {
     /**
-     * @description The APIs that failed to be created based on the Swagger-compliant data imported this time.
-     *
      * @var failed
      */
     public $failed;
 
     /**
-     * @description The global condition.
-     *
      * @example {}
      *
      * @var string
@@ -29,22 +25,16 @@ class DryRunSwaggerResponseBody extends Model
     public $globalCondition;
 
     /**
-     * @description The models that failed to be imported through the Swagger-compliant data this time.
-     *
      * @var modelFailed
      */
     public $modelFailed;
 
     /**
-     * @description The models that failed to be imported through the Swagger-compliant data this time.
-     *
      * @var modelSuccess
      */
     public $modelSuccess;
 
     /**
-     * @description The ID of the request.
-     *
      * @example EF924FE4-2EDD-4CD3-89EC-34E4708574E7
      *
      * @var string
@@ -52,8 +42,6 @@ class DryRunSwaggerResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The APIs that are created based on the Swagger-compliant data imported this time.
-     *
      * @var success
      */
     public $success;

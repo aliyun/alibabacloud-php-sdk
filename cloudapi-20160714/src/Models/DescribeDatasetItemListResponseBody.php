@@ -15,8 +15,6 @@ class DescribeDatasetItemListResponseBody extends Model
     public $datasetItemInfoList;
 
     /**
-     * @description The page number of the returned page.
-     *
      * @example 1
      *
      * @var int
@@ -24,8 +22,6 @@ class DescribeDatasetItemListResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
-     *
      * @example 10
      *
      * @var int
@@ -33,8 +29,6 @@ class DescribeDatasetItemListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
-     *
      * @example C6E9C6E4-608B-5C0F-9783-E288********
      *
      * @var string
@@ -42,8 +36,6 @@ class DescribeDatasetItemListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
-     *
      * @example 20
      *
      * @var int

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateBackendModelRequest extends Model
 {
     /**
-     * @description The ID of the backend service.
-     *
      * @example 34e94fcd3e2e47a49824a89b8f92cb5e
      *
      * @var string
@@ -18,8 +16,6 @@ class CreateBackendModelRequest extends Model
     public $backendId;
 
     /**
-     * @description The information about the backend model.
-     *
      * @example {\"ServiceAddress\":\"http://apigateway-echo-redux.alicloudapi.com:8080\"}
      *
      * @var string
@@ -27,8 +23,6 @@ class CreateBackendModelRequest extends Model
     public $backendModelData;
 
     /**
-     * @description The type of the backend service.
-     *
      * @example HTTP
      *
      * @var string
@@ -36,8 +30,6 @@ class CreateBackendModelRequest extends Model
     public $backendType;
 
     /**
-     * @description The description of the backend model.
-     *
      * @example model description
      *
      * @var string
@@ -50,11 +42,6 @@ class CreateBackendModelRequest extends Model
     public $securityToken;
 
     /**
-     * @description The name of the runtime environment. Valid values:
-     *
-     *   **RELEASE**
-     *   **TEST**
-     *
      * @example TEST
      *
      * @var string

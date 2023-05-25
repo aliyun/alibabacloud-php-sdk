@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisByTrafficControlRequest extends Model
 {
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The ID of the request.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeApisByTrafficControlRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     * @description The page number of the returned page.
      *
      * @example 10
      *
@@ -32,7 +32,7 @@ class DescribeApisByTrafficControlRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the throttling policy that you want to query.
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *

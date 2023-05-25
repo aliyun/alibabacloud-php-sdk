@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppsResponseBody extends Model
 {
     /**
-     * @description The name of the app.
+     * @description The description of the app.
      *
      * @var apps
      */
     public $apps;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries returned per page.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeAppsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The total number of returned entries.
+     * @description The returned app information. It is an array consisting of AppItem data.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeAppsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The total number of returned entries.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ015
      *
@@ -44,7 +44,7 @@ class DescribeAppsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned app information. It is an array consisting of AppItem data.
+     * @description The name of the app.
      *
      * @example 1
      *

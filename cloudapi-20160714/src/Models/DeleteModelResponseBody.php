@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteModelResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description Deletes a model from Model Management for an API group.
      *
      * @example 4173F95B-360C-460C-9F6C-4A960B904411
      *

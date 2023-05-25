@@ -9,11 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetSignatureApisRequest extends Model
 {
     /**
-     * @description The name of the runtime environment. Valid values:
-     *
-     *   **RELEASE**
-     *   **PRE**
-     *   **TEST**
+     * @description The ID of the request.
      *
      * @example 3b81fd160f5645e097cc8855d75a1cf6,46fbb52840d146f186e38e8e70fc8c12
      *
@@ -22,7 +18,11 @@ class SetSignatureApisRequest extends Model
     public $apiIds;
 
     /**
-     * @description The API ID for the specified operation. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **PRE**
+     *   **TEST**
      *
      * @example 0009db9c828549768a200320714b8930
      *
@@ -36,7 +36,7 @@ class SetSignatureApisRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the API group to which the API that you want to manage belongs.
+     * @description The API ID for the specified operation. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
@@ -45,7 +45,8 @@ class SetSignatureApisRequest extends Model
     public $signatureId;
 
     /**
-     * @description The ID of the request.
+     * @description *   This API is intended for API providers.
+     *   This operation allows you to bind a signature key to an API. You can bind signature keys for up to 100 APIs at a time.
      *
      * @example TEST
      *

@@ -36,6 +36,16 @@ class domainItem extends Model
     public $certificateName;
 
     /**
+     * @var int
+     */
+    public $certificateValidEnd;
+
+    /**
+     * @var int
+     */
+    public $certificateValidStart;
+
+    /**
      * @description The type of the custom domain name.
      *
      * @example intranet
@@ -133,6 +143,8 @@ class domainItem extends Model
         'bindStageName'          => 'BindStageName',
         'certificateId'          => 'CertificateId',
         'certificateName'        => 'CertificateName',
+        'certificateValidEnd'    => 'CertificateValidEnd',
+        'certificateValidStart'  => 'CertificateValidStart',
         'customDomainType'       => 'CustomDomainType',
         'domainBindingStatus'    => 'DomainBindingStatus',
         'domainCNAMEStatus'      => 'DomainCNAMEStatus',
@@ -160,6 +172,12 @@ class domainItem extends Model
         }
         if (null !== $this->certificateName) {
             $res['CertificateName'] = $this->certificateName;
+        }
+        if (null !== $this->certificateValidEnd) {
+            $res['CertificateValidEnd'] = $this->certificateValidEnd;
+        }
+        if (null !== $this->certificateValidStart) {
+            $res['CertificateValidStart'] = $this->certificateValidStart;
         }
         if (null !== $this->customDomainType) {
             $res['CustomDomainType'] = $this->customDomainType;
@@ -211,6 +229,12 @@ class domainItem extends Model
         }
         if (isset($map['CertificateName'])) {
             $model->certificateName = $map['CertificateName'];
+        }
+        if (isset($map['CertificateValidEnd'])) {
+            $model->certificateValidEnd = $map['CertificateValidEnd'];
+        }
+        if (isset($map['CertificateValidStart'])) {
+            $model->certificateValidStart = $map['CertificateValidStart'];
         }
         if (isset($map['CustomDomainType'])) {
             $model->customDomainType = $map['CustomDomainType'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateTrafficControlResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description Creates a custom throttling policy.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *
@@ -18,7 +18,9 @@ class CreateTrafficControlResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the throttling policy.
+     * @description *   This API is intended for API providers.
+     *   Throttling policies must be bound to APIs to take effect. After a policy is bound to an API, it goes into effect on that API immediately.
+     *   The QPS limit on this operation is 50 per user.
      *
      * @example tf123456
      *

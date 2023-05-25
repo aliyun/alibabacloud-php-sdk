@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyAppRequest extends Model
 {
     /**
-     * @description The ID of the app.
-     *
      * @example 20112314518278
      *
      * @var int
@@ -19,9 +17,6 @@ class ModifyAppRequest extends Model
     public $appId;
 
     /**
-     * @description The value must be 4 to 26 characters in length and can contain letters, digits, and underscores (\_). It must start with a letter.
-     *
-     * This parameter is required only when you want to modify the value.
      * @example jiedian_pord
      *
      * @var string
@@ -29,9 +24,6 @@ class ModifyAppRequest extends Model
     public $appName;
 
     /**
-     * @description The description of the app. The description can contain a maximum of 180 characters in length.
-     *
-     * This parameter is required only when you want to modify the value.
      * @example modidyTest
      *
      * @var string
@@ -44,8 +36,6 @@ class ModifyAppRequest extends Model
     public $securityToken;
 
     /**
-     * @description The tag of objects that match the rule. You can specify multiple tags.
-     *
      * @example Key， Value
      *
      * @var tag[]

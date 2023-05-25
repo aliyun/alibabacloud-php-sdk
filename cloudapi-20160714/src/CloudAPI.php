@@ -363,6 +363,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ValidateVpcConnectivityRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\ValidateVpcConnectivityResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -429,12 +431,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Unpublishes a specified API from a specified runtime environment.
-     *   *
-     * @param AbolishApiRequest $request AbolishApiRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param AbolishApiRequest $request
+     * @param RuntimeOptions    $runtime
      *
-     * @return AbolishApiResponse AbolishApiResponse
+     * @return AbolishApiResponse
      */
     public function abolishApiWithOptions($request, $runtime)
     {
@@ -471,11 +471,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Unpublishes a specified API from a specified runtime environment.
-     *   *
-     * @param AbolishApiRequest $request AbolishApiRequest
+     * @param AbolishApiRequest $request
      *
-     * @return AbolishApiResponse AbolishApiResponse
+     * @return AbolishApiResponse
      */
     public function abolishApi($request)
     {
@@ -534,10 +532,12 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * When you call this operation, note that:
-     *   * *   This operation is intended for API providers.
-     *   * *   An added policy immediately takes effect on all APIs that are bound to the access control list (ACL).
-     *   * *   A maximum of 100 policies can be added to an ACL.
+     * The restriction policy on app IDs for a specific policy. You can restrict app IDs only for whitelists. The IpControlType values of whitelists are ALLOW.
+     *   * *   You can add only one app ID restriction policy at a time.
+     *   * *   If this parameter is empty, no restriction is imposed on the app IDs.
+     *   * *   If this parameter is not empty, there is restriction not only on IP addresses, but also on apps.
+     *   * *   Please note that if this parameter is not empty and the security authentication method of the API is No Authentication, all API calls are restricted.
+     *   * *   If this parameter is not empty for a blacklist, API Gateway automatically skips this parameter and sets only restriction on IP addresses. The IpControlType value of a blacklist is REFUSE.
      *   *
      * @param AddIpControlPolicyItemRequest $request AddIpControlPolicyItemRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -579,10 +579,12 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * When you call this operation, note that:
-     *   * *   This operation is intended for API providers.
-     *   * *   An added policy immediately takes effect on all APIs that are bound to the access control list (ACL).
-     *   * *   A maximum of 100 policies can be added to an ACL.
+     * The restriction policy on app IDs for a specific policy. You can restrict app IDs only for whitelists. The IpControlType values of whitelists are ALLOW.
+     *   * *   You can add only one app ID restriction policy at a time.
+     *   * *   If this parameter is empty, no restriction is imposed on the app IDs.
+     *   * *   If this parameter is not empty, there is restriction not only on IP addresses, but also on apps.
+     *   * *   Please note that if this parameter is not empty and the security authentication method of the API is No Authentication, all API calls are restricted.
+     *   * *   If this parameter is not empty for a blacklist, API Gateway automatically skips this parameter and sets only restriction on IP addresses. The IpControlType value of a blacklist is REFUSE.
      *   *
      * @param AddIpControlPolicyItemRequest $request AddIpControlPolicyItemRequest
      *
@@ -596,9 +598,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   If the input SpecialKey already exists, the previous configuration is overwritten. Use caution when calling this operation.
-     *   * *   Special throttling policies must be added to an existing throttling policy, and can take effect on all the APIs to which the throttling policy is bound.
+     * The type of the special throttling policy. Valid values:
+     *   * *   **APP**
+     *   * *   **USER**.
      *   *
      * @param AddTrafficSpecialControlRequest $request AddTrafficSpecialControlRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -643,9 +645,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   If the input SpecialKey already exists, the previous configuration is overwritten. Use caution when calling this operation.
-     *   * *   Special throttling policies must be added to an existing throttling policy, and can take effect on all the APIs to which the throttling policy is bound.
+     * The type of the special throttling policy. Valid values:
+     *   * *   **APP**
+     *   * *   **USER**.
      *   *
      * @param AddTrafficSpecialControlRequest $request AddTrafficSpecialControlRequest
      *
@@ -659,15 +661,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   You can only bind plug-ins to published APIs.
-     *   * *   The plug-in takes effect immediately after it is bound to an API.
-     *   * *   If you bind a different plug-in to an API, this plug-in takes effect immediately.
-     *   *
-     * @param AttachPluginRequest $request AttachPluginRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param AttachPluginRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return AttachPluginResponse AttachPluginResponse
+     * @return AttachPluginResponse
      */
     public function attachPluginWithOptions($request, $runtime)
     {
@@ -710,14 +707,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   You can only bind plug-ins to published APIs.
-     *   * *   The plug-in takes effect immediately after it is bound to an API.
-     *   * *   If you bind a different plug-in to an API, this plug-in takes effect immediately.
-     *   *
-     * @param AttachPluginRequest $request AttachPluginRequest
+     * @param AttachPluginRequest $request
      *
-     * @return AttachPluginResponse AttachPluginResponse
+     * @return AttachPluginResponse
      */
     public function attachPlugin($request)
     {
@@ -1005,18 +997,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create an API group. You must create an API group before you create an API. An API group is a basic attribute of an API.
-     *   * *   This operation is intended for API providers.
-     *   * *   Each user can create a maximum of 100 API groups in a region.
-     *   * *   A second-level domain name is automatically allocated to the API group for testing purposes.
-     *   * *   An API group has a region attribute. After you create an API and select a group for the API, the region is also selected. We recommend that you select the same region to which your backend services belong to reduce network latency.
-     *   * *   After you create an API group, you can bind a custom domain name to the group.
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param CreateApiGroupRequest $request CreateApiGroupRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param CreateApiGroupRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return CreateApiGroupResponse CreateApiGroupResponse
+     * @return CreateApiGroupResponse
      */
     public function createApiGroupWithOptions($request, $runtime)
     {
@@ -1059,17 +1043,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create an API group. You must create an API group before you create an API. An API group is a basic attribute of an API.
-     *   * *   This operation is intended for API providers.
-     *   * *   Each user can create a maximum of 100 API groups in a region.
-     *   * *   A second-level domain name is automatically allocated to the API group for testing purposes.
-     *   * *   An API group has a region attribute. After you create an API and select a group for the API, the region is also selected. We recommend that you select the same region to which your backend services belong to reduce network latency.
-     *   * *   After you create an API group, you can bind a custom domain name to the group.
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param CreateApiGroupRequest $request CreateApiGroupRequest
+     * @param CreateApiGroupRequest $request
      *
-     * @return CreateApiGroupResponse CreateApiGroupResponse
+     * @return CreateApiGroupResponse
      */
     public function createApiGroup($request)
     {
@@ -1079,12 +1055,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   *
-     * @param CreateApiStageVariableRequest $request CreateApiStageVariableRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param CreateApiStageVariableRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return CreateApiStageVariableResponse CreateApiStageVariableResponse
+     * @return CreateApiStageVariableResponse
      */
     public function createApiStageVariableWithOptions($request, $runtime)
     {
@@ -1130,11 +1104,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   *
-     * @param CreateApiStageVariableRequest $request CreateApiStageVariableRequest
+     * @param CreateApiStageVariableRequest $request
      *
-     * @return CreateApiStageVariableResponse CreateApiStageVariableResponse
+     * @return CreateApiStageVariableResponse
      */
     public function createApiStageVariable($request)
     {
@@ -1144,17 +1116,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   * *   Each application has a key-secret pair which is used for identity verification when calling an API.
-     *   * *   An application must be authorized to call an API.
-     *   * *   Each application has only one key-secret pair which can be reset if it is leaked.
-     *   * *   A maximum of 1,000 applications can be created for each Apsara Stack tenant account.
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param CreateAppRequest $request CreateAppRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param CreateAppRequest $request
+     * @param RuntimeOptions   $runtime
      *
-     * @return CreateAppResponse CreateAppResponse
+     * @return CreateAppResponse
      */
     public function createAppWithOptions($request, $runtime)
     {
@@ -1200,16 +1165,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   * *   Each application has a key-secret pair which is used for identity verification when calling an API.
-     *   * *   An application must be authorized to call an API.
-     *   * *   Each application has only one key-secret pair which can be reset if it is leaked.
-     *   * *   A maximum of 1,000 applications can be created for each Apsara Stack tenant account.
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param CreateAppRequest $request CreateAppRequest
+     * @param CreateAppRequest $request
      *
-     * @return CreateAppResponse CreateAppResponse
+     * @return CreateAppResponse
      */
     public function createApp($request)
     {
@@ -1564,15 +1522,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   An ACL must be bound to an API to take effect. After an ACL is bound to an API, the ACL takes effect on the API immediately.
-     *   * *   You can add policies to an ACL when you create the ACL.
-     *   * *   If an ACL does not have any policy, the ACL is ineffective.
-     *   *
-     * @param CreateIpControlRequest $request CreateIpControlRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param CreateIpControlRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return CreateIpControlResponse CreateIpControlResponse
+     * @return CreateIpControlResponse
      */
     public function createIpControlWithOptions($request, $runtime)
     {
@@ -1612,14 +1565,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   An ACL must be bound to an API to take effect. After an ACL is bound to an API, the ACL takes effect on the API immediately.
-     *   * *   You can add policies to an ACL when you create the ACL.
-     *   * *   If an ACL does not have any policy, the ACL is ineffective.
-     *   *
-     * @param CreateIpControlRequest $request CreateIpControlRequest
+     * @param CreateIpControlRequest $request
      *
-     * @return CreateIpControlResponse CreateIpControlResponse
+     * @return CreateIpControlResponse
      */
     public function createIpControl($request)
     {
@@ -1791,15 +1739,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   The number of plug-ins of the same type that each user can create is limited. Different limits apply to different plug-in types.
-     *   * *   The plug-in definitions for advanced features are restricted.
-     *   * *   Plug-ins must be bound to APIs to take effect. After a plug-in is bound, it takes effect on that API immediately.
-     *   *
-     * @param CreatePluginRequest $request CreatePluginRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param CreatePluginRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return CreatePluginResponse CreatePluginResponse
+     * @return CreatePluginResponse
      */
     public function createPluginWithOptions($request, $runtime)
     {
@@ -1842,14 +1785,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   The number of plug-ins of the same type that each user can create is limited. Different limits apply to different plug-in types.
-     *   * *   The plug-in definitions for advanced features are restricted.
-     *   * *   Plug-ins must be bound to APIs to take effect. After a plug-in is bound, it takes effect on that API immediately.
-     *   *
-     * @param CreatePluginRequest $request CreatePluginRequest
+     * @param CreatePluginRequest $request
      *
-     * @return CreatePluginResponse CreatePluginResponse
+     * @return CreatePluginResponse
      */
     public function createPlugin($request)
     {
@@ -1859,10 +1797,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   The API operation only creates a key policy. You must call the binding operation to bind the key to an API.
-     *   * *   After the key is bound to the API, requests sent from API Gateway to the backend service contain signature strings. You can specify whether your backend service verifies these signature strings.
-     *   * *   The QPS limit on this operation is 50 per user.
+     * The Key value of the key. The value must be 6 to 20 characters in length and can contain letters, digits, and underscores (\\_). It must start with a letter.
      *   *
      * @param CreateSignatureRequest $request CreateSignatureRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1904,10 +1839,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   The API operation only creates a key policy. You must call the binding operation to bind the key to an API.
-     *   * *   After the key is bound to the API, requests sent from API Gateway to the backend service contain signature strings. You can specify whether your backend service verifies these signature strings.
-     *   * *   The QPS limit on this operation is 50 per user.
+     * The Key value of the key. The value must be 6 to 20 characters in length and can contain letters, digits, and underscores (\\_). It must start with a letter.
      *   *
      * @param CreateSignatureRequest $request CreateSignatureRequest
      *
@@ -1921,9 +1853,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   Throttling policies must be bound to APIs to take effect. After a policy is bound to an API, it goes into effect on that API immediately.
-     *   * *   The QPS limit on this operation is 50 per user.
+     * ThrottlingTest.
      *   *
      * @param CreateTrafficControlRequest $request CreateTrafficControlRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -1974,9 +1904,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   Throttling policies must be bound to APIs to take effect. After a policy is bound to an API, it goes into effect on that API immediately.
-     *   * *   The QPS limit on this operation is 50 per user.
+     * ThrottlingTest.
      *   *
      * @param CreateTrafficControlRequest $request CreateTrafficControlRequest
      *
@@ -2036,7 +1964,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
+     * The ID of the request.
      *   *
      * @param DeleteAllTrafficSpecialControlRequest $request DeleteAllTrafficSpecialControlRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -2072,7 +2000,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
+     * The ID of the request.
      *   *
      * @param DeleteAllTrafficSpecialControlRequest $request DeleteAllTrafficSpecialControlRequest
      *
@@ -2086,14 +2014,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers and cannot be undone after it is complete.
-     *   * *   An API that is running in the runtime environment must be unpublished before you can delete the API.****
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param DeleteApiRequest $request DeleteApiRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param DeleteApiRequest $request
+     * @param RuntimeOptions   $runtime
      *
-     * @return DeleteApiResponse DeleteApiResponse
+     * @return DeleteApiResponse
      */
     public function deleteApiWithOptions($request, $runtime)
     {
@@ -2127,13 +2051,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers and cannot be undone after it is complete.
-     *   * *   An API that is running in the runtime environment must be unpublished before you can delete the API.****
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param DeleteApiRequest $request DeleteApiRequest
+     * @param DeleteApiRequest $request
      *
-     * @return DeleteApiResponse DeleteApiResponse
+     * @return DeleteApiResponse
      */
     public function deleteApi($request)
     {
@@ -2143,16 +2063,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   An API group that contains APIs cannot be deleted. To delete the API group, you must first delete its APIs.
-     *   * *   After an API group is deleted, the second-level domain name bound to the API group is automatically invalidated.
-     *   * *   If the specified API group does not exist, a success response is returned.
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param DeleteApiGroupRequest $request DeleteApiGroupRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param DeleteApiGroupRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return DeleteApiGroupResponse DeleteApiGroupResponse
+     * @return DeleteApiGroupResponse
      */
     public function deleteApiGroupWithOptions($request, $runtime)
     {
@@ -2186,15 +2100,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   An API group that contains APIs cannot be deleted. To delete the API group, you must first delete its APIs.
-     *   * *   After an API group is deleted, the second-level domain name bound to the API group is automatically invalidated.
-     *   * *   If the specified API group does not exist, a success response is returned.
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param DeleteApiGroupRequest $request DeleteApiGroupRequest
+     * @param DeleteApiGroupRequest $request
      *
-     * @return DeleteApiGroupResponse DeleteApiGroupResponse
+     * @return DeleteApiGroupResponse
      */
     public function deleteApiGroup($request)
     {
@@ -2256,14 +2164,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   * *   After an application is deleted, the application and its API authorization cannot be restored.
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param DeleteAppRequest $request DeleteAppRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param DeleteAppRequest $request
+     * @param RuntimeOptions   $runtime
      *
-     * @return DeleteAppResponse DeleteAppResponse
+     * @return DeleteAppResponse
      */
     public function deleteAppWithOptions($request, $runtime)
     {
@@ -2297,13 +2201,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   * *   After an application is deleted, the application and its API authorization cannot be restored.
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param DeleteAppRequest $request DeleteAppRequest
+     * @param DeleteAppRequest $request
      *
-     * @return DeleteAppResponse DeleteAppResponse
+     * @return DeleteAppResponse
      */
     public function deleteApp($request)
     {
@@ -2506,9 +2406,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   If the specified domain name does not exist, a successful response will still appear.
-     *   * *   Unbinding a domain name from an API group will affect access to the APIs in the group. Exercise caution when using this operation.
+     * The custom domain name.
      *   *
      * @param DeleteDomainRequest $request DeleteDomainRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -2547,9 +2445,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   If the specified domain name does not exist, a successful response will still appear.
-     *   * *   Unbinding a domain name from an API group will affect access to the APIs in the group. Exercise caution when using this operation.
+     * The custom domain name.
      *   *
      * @param DeleteDomainRequest $request DeleteDomainRequest
      *
@@ -2661,9 +2557,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   If the ACL is bound to an API, you must unbind the ACL from the API before you can delete the ACL. Otherwise, an error is returned.
-     *   * *   If you call this operation on an ACL that does not exist, a success message is returned.
+     * The ID of the request.
      *   *
      * @param DeleteIpControlRequest $request DeleteIpControlRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -2699,9 +2593,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   If the ACL is bound to an API, you must unbind the ACL from the API before you can delete the ACL. Otherwise, an error is returned.
-     *   * *   If you call this operation on an ACL that does not exist, a success message is returned.
+     * The ID of the request.
      *   *
      * @param DeleteIpControlRequest $request DeleteIpControlRequest
      *
@@ -2856,13 +2748,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   You must first unbind the plug-in from the API. Otherwise, an error is reported when you delete the plug-in.
-     *   *
-     * @param DeletePluginRequest $request DeletePluginRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param DeletePluginRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return DeletePluginResponse DeletePluginResponse
+     * @return DeletePluginResponse
      */
     public function deletePluginWithOptions($request, $runtime)
     {
@@ -2896,12 +2785,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   You must first unbind the plug-in from the API. Otherwise, an error is reported when you delete the plug-in.
-     *   *
-     * @param DeletePluginRequest $request DeletePluginRequest
+     * @param DeletePluginRequest $request
      *
-     * @return DeletePluginResponse DeletePluginResponse
+     * @return DeletePluginResponse
      */
     public function deletePlugin($request)
     {
@@ -2911,10 +2797,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   This API operation deletes an existing backend signature key.
-     *   * *   You cannot delete a key that is bound to an API. To delete the key, you must unbind it first.
-     *   * *   The QPS limit on this operation is 50 per user.
+     * The ID of the request.
      *   *
      * @param DeleteSignatureRequest $request DeleteSignatureRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -2950,10 +2833,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   This API operation deletes an existing backend signature key.
-     *   * *   You cannot delete a key that is bound to an API. To delete the key, you must unbind it first.
-     *   * *   The QPS limit on this operation is 50 per user.
+     * The ID of the request.
      *   *
      * @param DeleteSignatureRequest $request DeleteSignatureRequest
      *
@@ -2967,14 +2847,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   If the throttling policy you want to delete is bound to APIs, you need to unbind the policy first. Otherwise, an error is reported when you delete the policy.
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param DeleteTrafficControlRequest $request DeleteTrafficControlRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param DeleteTrafficControlRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return DeleteTrafficControlResponse DeleteTrafficControlResponse
+     * @return DeleteTrafficControlResponse
      */
     public function deleteTrafficControlWithOptions($request, $runtime)
     {
@@ -3005,13 +2881,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   If the throttling policy you want to delete is bound to APIs, you need to unbind the policy first. Otherwise, an error is reported when you delete the policy.
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param DeleteTrafficControlRequest $request DeleteTrafficControlRequest
+     * @param DeleteTrafficControlRequest $request
      *
-     * @return DeleteTrafficControlResponse DeleteTrafficControlResponse
+     * @return DeleteTrafficControlResponse
      */
     public function deleteTrafficControl($request)
     {
@@ -3021,8 +2893,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   You can obtain the input parameters required in this operation by calling other APIs.
+     * The type of the special throttling policy. Valid values:
+     *   * *   **APP**
+     *   * *   **USER**.
      *   *
      * @param DeleteTrafficSpecialControlRequest $request DeleteTrafficSpecialControlRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -3064,8 +2937,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   You can obtain the input parameters required in this operation by calling other APIs.
+     * The type of the special throttling policy. Valid values:
+     *   * *   **APP**
+     *   * *   **USER**.
      *   *
      * @param DeleteTrafficSpecialControlRequest $request DeleteTrafficSpecialControlRequest
      *
@@ -3079,9 +2953,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
-     *   * *   An API is published to a cluster in less than 5 seconds.
-     *   * *   The QPS limit on this operation is 50 per user.
+     * The ID of the API.
      *   *
      * @param DeployApiRequest $request DeployApiRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -3126,9 +2998,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers. Only the API that you have defined and published to a runtime environment can be called.
-     *   * *   An API is published to a cluster in less than 5 seconds.
-     *   * *   The QPS limit on this operation is 50 per user.
+     * The ID of the API.
      *   *
      * @param DeployApiRequest $request DeployApiRequest
      *
@@ -3289,7 +3159,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
+     * The ID of the public key.
      *   *
      * @param DescribeApiRequest $request DescribeApiRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -3328,7 +3198,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
+     * The ID of the public key.
      *   *
      * @param DescribeApiRequest $request DescribeApiRequest
      *
@@ -3342,15 +3212,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   For API callers, they can only query documentation of a public API or an authorized private API that has been published to a runtime environment.****************
-     *   * *   When you call this operation as an API caller, the service information, parameter definitions, and other details of the API you specify are returned.
-     *   * *   When you call this operation as an API provider, the definition of the specified API in the specified runtime environment is returned. The returned definition takes effect in the runtime environment, and may be different from the definition of the API you modify.
-     *   * *   The API callers must be authenticated before they can query the documentation of a specified API. This requires the API provider to ensure that the API to be queried by the API caller is a public one or that the application that provides the API to be queried is authorized.
-     *   *
-     * @param DescribeApiDocRequest $request DescribeApiDocRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param DescribeApiDocRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return DescribeApiDocResponse DescribeApiDocResponse
+     * @return DescribeApiDocResponse
      */
     public function describeApiDocWithOptions($request, $runtime)
     {
@@ -3387,14 +3252,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   For API callers, they can only query documentation of a public API or an authorized private API that has been published to a runtime environment.****************
-     *   * *   When you call this operation as an API caller, the service information, parameter definitions, and other details of the API you specify are returned.
-     *   * *   When you call this operation as an API provider, the definition of the specified API in the specified runtime environment is returned. The returned definition takes effect in the runtime environment, and may be different from the definition of the API you modify.
-     *   * *   The API callers must be authenticated before they can query the documentation of a specified API. This requires the API provider to ensure that the API to be queried by the API caller is a public one or that the application that provides the API to be queried is authorized.
-     *   *
-     * @param DescribeApiDocRequest $request DescribeApiDocRequest
+     * @param DescribeApiDocRequest $request
      *
-     * @return DescribeApiDocResponse DescribeApiDocResponse
+     * @return DescribeApiDocResponse
      */
     public function describeApiDoc($request)
     {
@@ -3503,12 +3363,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   *
-     * @param DescribeApiGroupsRequest $request DescribeApiGroupsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param DescribeApiGroupsRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return DescribeApiGroupsResponse DescribeApiGroupsResponse
+     * @return DescribeApiGroupsResponse
      */
     public function describeApiGroupsWithOptions($request, $runtime)
     {
@@ -3560,11 +3418,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   *
-     * @param DescribeApiGroupsRequest $request DescribeApiGroupsRequest
+     * @param DescribeApiGroupsRequest $request
      *
-     * @return DescribeApiGroupsResponse DescribeApiGroupsResponse
+     * @return DescribeApiGroupsResponse
      */
     public function describeApiGroups($request)
     {
@@ -3574,8 +3430,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers. Only APIs which have been published have a historical version record.
-     *   * *   This operation allows you to obtain the API historical versions which can be used to call other APIs.
+     * The name of the runtime environment. Valid values:
+     *   * *   **RELEASE**
+     *   * *   **TEST: the test environment**.
      *   *
      * @param DescribeApiHistoriesRequest $request DescribeApiHistoriesRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -3626,8 +3483,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers. Only APIs which have been published have a historical version record.
-     *   * *   This operation allows you to obtain the API historical versions which can be used to call other APIs.
+     * The name of the runtime environment. Valid values:
+     *   * *   **RELEASE**
+     *   * *   **TEST: the test environment**.
      *   *
      * @param DescribeApiHistoriesRequest $request DescribeApiHistoriesRequest
      *
@@ -3704,9 +3562,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   * *   If an optional parameter is not specified, all results are returned on separate pages.
-     *   * ·.
+     * The ID of the API group.
      *   *
      * @param DescribeApiIpControlsRequest $request DescribeApiIpControlsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -3754,9 +3610,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   * *   If an optional parameter is not specified, all results are returned on separate pages.
-     *   * ·.
+     * The ID of the API group.
      *   *
      * @param DescribeApiIpControlsRequest $request DescribeApiIpControlsRequest
      *
@@ -3770,14 +3624,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the latency metrics in milliseconds for a specified API.
-     *   * *   This API is intended for API providers.
-     *   * *   Only statistics for API calls made in the release environment are collected by default.
-     *   *
-     * @param DescribeApiLatencyDataRequest $request DescribeApiLatencyDataRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param DescribeApiLatencyDataRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return DescribeApiLatencyDataResponse DescribeApiLatencyDataResponse
+     * @return DescribeApiLatencyDataResponse
      */
     public function describeApiLatencyDataWithOptions($request, $runtime)
     {
@@ -3820,13 +3670,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the latency metrics in milliseconds for a specified API.
-     *   * *   This API is intended for API providers.
-     *   * *   Only statistics for API calls made in the release environment are collected by default.
-     *   *
-     * @param DescribeApiLatencyDataRequest $request DescribeApiLatencyDataRequest
+     * @param DescribeApiLatencyDataRequest $request
      *
-     * @return DescribeApiLatencyDataResponse DescribeApiLatencyDataResponse
+     * @return DescribeApiLatencyDataResponse
      */
     public function describeApiLatencyData($request)
     {
@@ -3885,13 +3731,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   Only statistics for API calls made in the release environment are collected by default.
-     *   *
-     * @param DescribeApiQpsDataRequest $request DescribeApiQpsDataRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param DescribeApiQpsDataRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return DescribeApiQpsDataResponse DescribeApiQpsDataResponse
+     * @return DescribeApiQpsDataResponse
      */
     public function describeApiQpsDataWithOptions($request, $runtime)
     {
@@ -3934,12 +3777,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   Only statistics for API calls made in the release environment are collected by default.
-     *   *
-     * @param DescribeApiQpsDataRequest $request DescribeApiQpsDataRequest
+     * @param DescribeApiQpsDataRequest $request
      *
-     * @return DescribeApiQpsDataResponse DescribeApiQpsDataResponse
+     * @return DescribeApiQpsDataResponse
      */
     public function describeApiQpsData($request)
     {
@@ -3949,7 +3789,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the backend signature keys that are bound to the APIs of a specified API group in a specified environment.
+     * The runtime environment. Valid values:
+     *   * *   **RELEASE**
+     *   * *   **TEST**.
      *   *
      * @param DescribeApiSignaturesRequest $request DescribeApiSignaturesRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -3997,7 +3839,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the backend signature keys that are bound to the APIs of a specified API group in a specified environment.
+     * The runtime environment. Valid values:
+     *   * *   **RELEASE**
+     *   * *   **TEST**.
      *   *
      * @param DescribeApiSignaturesRequest $request DescribeApiSignaturesRequest
      *
@@ -4011,7 +3855,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the throttling policies bound to all members of an API group in a specified environment.
+     * The runtime environment of the API. Valid values:
+     *   * *   **RELEASE**
+     *   * *   **TEST**: the test environment.
      *   *
      * @param DescribeApiTrafficControlsRequest $request DescribeApiTrafficControlsRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -4059,7 +3905,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the throttling policies bound to all members of an API group in a specified environment.
+     * The runtime environment of the API. Valid values:
+     *   * *   **RELEASE**
+     *   * *   **TEST**: the test environment.
      *   *
      * @param DescribeApiTrafficControlsRequest $request DescribeApiTrafficControlsRequest
      *
@@ -4073,13 +3921,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   Only statistics for API calls made in the release environment are collected by default.
-     *   *
-     * @param DescribeApiTrafficDataRequest $request DescribeApiTrafficDataRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param DescribeApiTrafficDataRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return DescribeApiTrafficDataResponse DescribeApiTrafficDataResponse
+     * @return DescribeApiTrafficDataResponse
      */
     public function describeApiTrafficDataWithOptions($request, $runtime)
     {
@@ -4122,12 +3967,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   Only statistics for API calls made in the release environment are collected by default.
-     *   *
-     * @param DescribeApiTrafficDataRequest $request DescribeApiTrafficDataRequest
+     * @param DescribeApiTrafficDataRequest $request
      *
-     * @return DescribeApiTrafficDataResponse DescribeApiTrafficDataResponse
+     * @return DescribeApiTrafficDataResponse
      */
     public function describeApiTrafficData($request)
     {
@@ -4137,9 +3979,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   The list of all APIs that belong to the definition and their brief information are returned.
-     *   * *   This API returns the most recently edited API definitions. These may be different from the definitions of those APIs currently published to the runtime environment.
+     * *   This operation is intended for API callers.
+     *   * *   This operation returns a list of all APIs that are being defined. The basic information about these APIs is also returned in the list.
+     *   * *   This operation returns all APIs that are being edited, regardless of their environments. The returned definitions may be different from the definitions in the environments.
      *   *
      * @param DescribeApisRequest $request DescribeApisRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -4211,9 +4053,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   The list of all APIs that belong to the definition and their brief information are returned.
-     *   * *   This API returns the most recently edited API definitions. These may be different from the definitions of those APIs currently published to the runtime environment.
+     * *   This operation is intended for API callers.
+     *   * *   This operation returns a list of all APIs that are being defined. The basic information about these APIs is also returned in the list.
+     *   * *   This operation returns all APIs that are being edited, regardless of their environments. The returned definitions may be different from the definitions in the environments.
      *   *
      * @param DescribeApisRequest $request DescribeApisRequest
      *
@@ -4349,8 +4191,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   You can specify PageNumber to obtain the result on the specified page.
+     * The number of entries to return on each page. Maximum value: 100. Default value: 10.
      *   *
      * @param DescribeApisByIpControlRequest $request DescribeApisByIpControlRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -4392,8 +4233,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   You can specify PageNumber to obtain the result on the specified page.
+     * The number of entries to return on each page. Maximum value: 100. Default value: 10.
      *   *
      * @param DescribeApisByIpControlRequest $request DescribeApisByIpControlRequest
      *
@@ -4407,7 +4247,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs to which a specified backend signature key is bound.
+     * The ID of the signature key.
      *   *
      * @param DescribeApisBySignatureRequest $request DescribeApisBySignatureRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -4449,7 +4289,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the APIs to which a specified backend signature key is bound.
+     * The ID of the signature key.
      *   *
      * @param DescribeApisBySignatureRequest $request DescribeApisBySignatureRequest
      *
@@ -4463,8 +4303,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   You can specify PageNumber to obtain the result on the specified page.
+     * The number of entries to return on each page. Maximum value: 100. Default value: 10.
      *   *
      * @param DescribeApisByTrafficControlRequest $request DescribeApisByTrafficControlRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -4506,8 +4345,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   You can specify PageNumber to obtain the result on the specified page.
+     * The number of entries to return on each page. Maximum value: 100. Default value: 10.
      *   *
      * @param DescribeApisByTrafficControlRequest $request DescribeApisByTrafficControlRequest
      *
@@ -4567,13 +4405,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   * *   AppId is optional.
-     *   *
-     * @param DescribeAppAttributesRequest $request DescribeAppAttributesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param DescribeAppAttributesRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return DescribeAppAttributesResponse DescribeAppAttributesResponse
+     * @return DescribeAppAttributesResponse
      */
     public function describeAppAttributesWithOptions($request, $runtime)
     {
@@ -4628,12 +4463,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   * *   AppId is optional.
-     *   *
-     * @param DescribeAppAttributesRequest $request DescribeAppAttributesRequest
+     * @param DescribeAppAttributesRequest $request
      *
-     * @return DescribeAppAttributesResponse DescribeAppAttributesResponse
+     * @return DescribeAppAttributesResponse
      */
     public function describeAppAttributes($request)
     {
@@ -4643,12 +4475,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   *
-     * @param DescribeAppSecurityRequest $request DescribeAppSecurityRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param DescribeAppSecurityRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return DescribeAppSecurityResponse DescribeAppSecurityResponse
+     * @return DescribeAppSecurityResponse
      */
     public function describeAppSecurityWithOptions($request, $runtime)
     {
@@ -4682,11 +4512,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   *
-     * @param DescribeAppSecurityRequest $request DescribeAppSecurityRequest
+     * @param DescribeAppSecurityRequest $request
      *
-     * @return DescribeAppSecurityResponse DescribeAppSecurityResponse
+     * @return DescribeAppSecurityResponse
      */
     public function describeAppSecurity($request)
     {
@@ -4696,7 +4524,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the apps. App information is returned only to the app owner.
+     * The ID of the app.
      *   *
      * @param DescribeAppsRequest $request DescribeAppsRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -4741,7 +4569,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the apps. App information is returned only to the app owner.
+     * The ID of the app.
      *   *
      * @param DescribeAppsRequest $request DescribeAppsRequest
      *
@@ -4755,8 +4583,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   * *   The specified application can call all APIs included in the responses.
+     * The number of the page to return. Pages start from page 1. Default value: 1.
      *   *
      * @param DescribeAuthorizedApisRequest $request DescribeAuthorizedApisRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -4798,8 +4625,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   * *   The specified application can call all APIs included in the responses.
+     * The number of the page to return. Pages start from page 1. Default value: 1.
      *   *
      * @param DescribeAuthorizedApisRequest $request DescribeAuthorizedApisRequest
      *
@@ -4813,13 +4639,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   All applications included in the responses have access to the specified API.
-     *   *
-     * @param DescribeAuthorizedAppsRequest $request DescribeAuthorizedAppsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param DescribeAuthorizedAppsRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return DescribeAuthorizedAppsResponse DescribeAuthorizedAppsResponse
+     * @return DescribeAuthorizedAppsResponse
      */
     public function describeAuthorizedAppsWithOptions($request, $runtime)
     {
@@ -4871,12 +4694,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   All applications included in the responses have access to the specified API.
-     *   *
-     * @param DescribeAuthorizedAppsRequest $request DescribeAuthorizedAppsRequest
+     * @param DescribeAuthorizedAppsRequest $request
      *
-     * @return DescribeAuthorizedAppsResponse DescribeAuthorizedAppsResponse
+     * @return DescribeAuthorizedAppsResponse
      */
     public function describeAuthorizedApps($request)
     {
@@ -5290,12 +5110,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   *
-     * @param DescribeDeployedApisRequest $request DescribeDeployedApisRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param DescribeDeployedApisRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return DescribeDeployedApisResponse DescribeDeployedApisResponse
+     * @return DescribeDeployedApisResponse
      */
     public function describeDeployedApisWithOptions($request, $runtime)
     {
@@ -5353,11 +5171,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   *
-     * @param DescribeDeployedApisRequest $request DescribeDeployedApisRequest
+     * @param DescribeDeployedApisRequest $request
      *
-     * @return DescribeDeployedApisResponse DescribeDeployedApisResponse
+     * @return DescribeDeployedApisResponse
      */
     public function describeDeployedApis($request)
     {
@@ -5367,7 +5183,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries details about a bound custom domain name, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
+     * The ID of the API group to which the domain name is bound. This ID is generated by the system and globally unique.
      *   *
      * @param DescribeDomainRequest $request DescribeDomainRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -5406,7 +5222,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries details about a bound custom domain name, including the automatically assigned second-level domain name, custom domain name, and SSL certificate.
+     * The ID of the API group to which the domain name is bound. This ID is generated by the system and globally unique.
      *   *
      * @param DescribeDomainRequest $request DescribeDomainRequest
      *
@@ -6077,13 +5893,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   You can filter the query results by policy ID.
-     *   *
-     * @param DescribeIpControlPolicyItemsRequest $request DescribeIpControlPolicyItemsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param DescribeIpControlPolicyItemsRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return DescribeIpControlPolicyItemsResponse DescribeIpControlPolicyItemsResponse
+     * @return DescribeIpControlPolicyItemsResponse
      */
     public function describeIpControlPolicyItemsWithOptions($request, $runtime)
     {
@@ -6123,12 +5936,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   You can filter the query results by policy ID.
-     *   *
-     * @param DescribeIpControlPolicyItemsRequest $request DescribeIpControlPolicyItemsRequest
+     * @param DescribeIpControlPolicyItemsRequest $request
      *
-     * @return DescribeIpControlPolicyItemsResponse DescribeIpControlPolicyItemsResponse
+     * @return DescribeIpControlPolicyItemsResponse
      */
     public function describeIpControlPolicyItems($request)
     {
@@ -6298,7 +6108,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   Fuzzy queries are supported.
+     * The name of the model.
      *   *
      * @param DescribeModelsRequest $request DescribeModelsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -6343,7 +6153,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   Fuzzy queries are supported.
+     * The name of the model.
      *   *
      * @param DescribeModelsRequest $request DescribeModelsRequest
      *
@@ -6522,15 +6332,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation supports pagination.
-     *   * *   This operation allows you to query plug-ins by business type.
-     *   * *   This operation allows you to query plug-ins by ID.
-     *   * *   This operation allows you to query plug-ins by name.
-     *   *
-     * @param DescribePluginsRequest $request DescribePluginsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param DescribePluginsRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return DescribePluginsResponse DescribePluginsResponse
+     * @return DescribePluginsResponse
      */
     public function describePluginsWithOptions($request, $runtime)
     {
@@ -6576,14 +6381,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation supports pagination.
-     *   * *   This operation allows you to query plug-ins by business type.
-     *   * *   This operation allows you to query plug-ins by ID.
-     *   * *   This operation allows you to query plug-ins by name.
-     *   *
-     * @param DescribePluginsRequest $request DescribePluginsRequest
+     * @param DescribePluginsRequest $request
      *
-     * @return DescribePluginsResponse DescribePluginsResponse
+     * @return DescribePluginsResponse
      */
     public function describePlugins($request)
     {
@@ -6816,13 +6616,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This operation queries regions in which API Gateway is available.
-     *   * *   This operation is intended for API providers and callers.
-     *   *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param DescribeRegionsRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @return DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -6853,12 +6650,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * This operation queries regions in which API Gateway is available.
-     *   * *   This operation is intended for API providers and callers.
-     *   *
-     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param DescribeRegionsRequest $request
      *
-     * @return DescribeRegionsResponse DescribeRegionsResponse
+     * @return DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
@@ -6868,7 +6662,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries backend signature keys.
+     * The IDs of the keys to query.
      *   *
      * @param DescribeSignaturesRequest $request DescribeSignaturesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -6913,7 +6707,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries backend signature keys.
+     * The IDs of the keys to query.
      *   *
      * @param DescribeSignaturesRequest $request DescribeSignaturesRequest
      *
@@ -6927,7 +6721,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the backend signature keys that are bound to a specified API.
+     * The ID of the group to which the API belongs.
      *   *
      * @param DescribeSignaturesByApiRequest $request DescribeSignaturesByApiRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -6969,7 +6763,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Queries the backend signature keys that are bound to a specified API.
+     * The ID of the group to which the API belongs.
      *   *
      * @param DescribeSignaturesByApiRequest $request DescribeSignaturesByApiRequest
      *
@@ -6983,8 +6777,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API callers.
-     *   * *   The response of this API contains the system parameters that are optional in API definitions.
+     * The returned information about system parameters. It is an array that consists of SystemParam data.
      *   *
      * @param DescribeSystemParametersRequest $request DescribeSystemParametersRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -7017,8 +6810,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API callers.
-     *   * *   The response of this API contains the system parameters that are optional in API definitions.
+     * The returned information about system parameters. It is an array that consists of SystemParam data.
      *   *
      * @param DescribeSystemParametersRequest $request DescribeSystemParametersRequest
      *
@@ -7032,9 +6824,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   This API can be used to query all existing throttling policies (including special throttling policies) and their details.
-     *   * *   You can specify query conditions. For example, you can query the throttling policies bound to a specified API or in a specified environment.
+     * The specified group ID. This parameter must be specified together with ApiId and StageName.
      *   *
      * @param DescribeTrafficControlsRequest $request DescribeTrafficControlsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -7088,9 +6878,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   This API can be used to query all existing throttling policies (including special throttling policies) and their details.
-     *   * *   You can specify query conditions. For example, you can query the throttling policies bound to a specified API or in a specified environment.
+     * The specified group ID. This parameter must be specified together with ApiId and StageName.
      *   *
      * @param DescribeTrafficControlsRequest $request DescribeTrafficControlsRequest
      *
@@ -7104,7 +6892,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
+     * The ID of the API.
      *   *
      * @param DescribeTrafficControlsByApiRequest $request DescribeTrafficControlsByApiRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -7146,7 +6934,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
+     * The ID of the API.
      *   *
      * @param DescribeTrafficControlsByApiRequest $request DescribeTrafficControlsByApiRequest
      *
@@ -7661,8 +7449,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   Alibaba Cloud supports extensions based on Swagger 2.0.
-     *   * *   Alibaba Cloud supports Swagger configuration files in JSON and YAML formats.
+     * 0009db9c828549768a200320714b8930.
      *   *
      * @param ImportSwaggerRequest $tmpReq  ImportSwaggerRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -7720,8 +7507,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   Alibaba Cloud supports extensions based on Swagger 2.0.
-     *   * *   Alibaba Cloud supports Swagger configuration files in JSON and YAML formats.
+     * 0009db9c828549768a200320714b8930.
      *   *
      * @param ImportSwaggerRequest $request ImportSwaggerRequest
      *
@@ -7735,20 +7521,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   The Tag.N.Key and Tag.N.Value parameters constitute a key-value pair.
-     *   * *   ResourceId.N must meet all the key-value pairs that are entered. If you enter multiple key-value pairs, resources that contain the specified key-value pairs are returned.
-     *   * *   This operation is used to query resource tags based on conditions. If no relationship matches the conditions, an empty list is returned.
-     *   * *   You can query both user tags and visible system tags.
-     *   * *   In addition to the required parameters, you can also specify ResourceId.N to query the visible resource tags of a specified resource in a region.
-     *   * *   You can also specify Tag.N.Key to query the visible keys of a specified key in a region.
-     *   * *   At least one of ResourceId.N, Tag.N.Key, and Tag.N.Value exists.
-     *   * *   You can query tags of the same type or different types in a single operation.
-     *   * *   You can query all your user tags and visible system tags.
-     *   *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @return ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -7785,19 +7561,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   The Tag.N.Key and Tag.N.Value parameters constitute a key-value pair.
-     *   * *   ResourceId.N must meet all the key-value pairs that are entered. If you enter multiple key-value pairs, resources that contain the specified key-value pairs are returned.
-     *   * *   This operation is used to query resource tags based on conditions. If no relationship matches the conditions, an empty list is returned.
-     *   * *   You can query both user tags and visible system tags.
-     *   * *   In addition to the required parameters, you can also specify ResourceId.N to query the visible resource tags of a specified resource in a region.
-     *   * *   You can also specify Tag.N.Key to query the visible keys of a specified key in a region.
-     *   * *   At least one of ResourceId.N, Tag.N.Key, and Tag.N.Value exists.
-     *   * *   You can query tags of the same type or different types in a single operation.
-     *   * *   You can query all your user tags and visible system tags.
-     *   *
-     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param ListTagResourcesRequest $request
      *
-     * @return ListTagResourcesResponse ListTagResourcesResponse
+     * @return ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -7807,7 +7573,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the definition of an API.
+     * 58928.
      *   *
      * @param ModifyApiRequest $request ModifyApiRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -7921,7 +7687,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Modifies the definition of an API.
+     * 58928.
      *   *
      * @param ModifyApiRequest $request ModifyApiRequest
      *
@@ -8083,13 +7849,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param ModifyApiGroupRequest $request ModifyApiGroupRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param ModifyApiGroupRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return ModifyApiGroupResponse ModifyApiGroupResponse
+     * @return ModifyApiGroupResponse
      */
     public function modifyApiGroupWithOptions($request, $runtime)
     {
@@ -8153,12 +7916,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param ModifyApiGroupRequest $request ModifyApiGroupRequest
+     * @param ModifyApiGroupRequest $request
      *
-     * @return ModifyApiGroupResponse ModifyApiGroupResponse
+     * @return ModifyApiGroupResponse
      */
     public function modifyApiGroup($request)
     {
@@ -8217,14 +7977,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   * *   AppName or Description can be modified. If these parameters are not specified, no modifications are made and the operation will directly return a successful response.********
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param ModifyAppRequest $request ModifyAppRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param ModifyAppRequest $request
+     * @param RuntimeOptions   $runtime
      *
-     * @return ModifyAppResponse ModifyAppResponse
+     * @return ModifyAppResponse
      */
     public function modifyAppWithOptions($request, $runtime)
     {
@@ -8264,13 +8020,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   * *   AppName or Description can be modified. If these parameters are not specified, no modifications are made and the operation will directly return a successful response.********
-     *   * *   The QPS limit on this operation is 50 per user.
-     *   *
-     * @param ModifyAppRequest $request ModifyAppRequest
+     * @param ModifyAppRequest $request
      *
-     * @return ModifyAppResponse ModifyAppResponse
+     * @return ModifyAppResponse
      */
     public function modifyApp($request)
     {
@@ -8558,8 +8310,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   This operation allows you to modify only the name and description of an ACL. You cannot modify the type of the ACL.
+     * The name of the ACL. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (\\_). The name cannot start with an underscore (\\_).
      *   *
      * @param ModifyIpControlRequest $request ModifyIpControlRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -8601,8 +8352,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   This operation allows you to modify only the name and description of an ACL. You cannot modify the type of the ACL.
+     * The name of the ACL. The name must be 4 to 50 characters in length, and can contain letters, digits, and underscores (\\_). The name cannot start with an underscore (\\_).
      *   *
      * @param ModifyIpControlRequest $request ModifyIpControlRequest
      *
@@ -8616,9 +8366,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   The modification immediately takes effect on all the APIs that are bound to the policy.
-     *   * *   This operation causes a full modification of the content of a policy.
+     * The ID of the policy.
      *   *
      * @param ModifyIpControlPolicyItemRequest $request ModifyIpControlPolicyItemRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -8663,9 +8411,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   The modification immediately takes effect on all the APIs that are bound to the policy.
-     *   * *   This operation causes a full modification of the content of a policy.
+     * The ID of the policy.
      *   *
      * @param ModifyIpControlPolicyItemRequest $request ModifyIpControlPolicyItemRequest
      *
@@ -8786,13 +8532,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   The name of the plug-in must be unique.
-     *   *
-     * @param ModifyPluginRequest $request ModifyPluginRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param ModifyPluginRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return ModifyPluginResponse ModifyPluginResponse
+     * @return ModifyPluginResponse
      */
     public function modifyPluginWithOptions($request, $runtime)
     {
@@ -8835,12 +8578,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   The name of the plug-in must be unique.
-     *   *
-     * @param ModifyPluginRequest $request ModifyPluginRequest
+     * @param ModifyPluginRequest $request
      *
-     * @return ModifyPluginResponse ModifyPluginResponse
+     * @return ModifyPluginResponse
      */
     public function modifyPlugin($request)
     {
@@ -8850,10 +8590,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   This API operation modifies the name, Key value, and Secret value of an existing signature key.
-     *   * *   Note that the modification takes effect immediately. If the key has been bound to an API, you must adjust the backend signature verification based on the new key accordingly.
-     *   * *   The QPS limit on this operation is 50 per user.
+     * The new name of the key. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\\_). It must start with a letter.
      *   *
      * @param ModifySignatureRequest $request ModifySignatureRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -8898,10 +8635,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   This API operation modifies the name, Key value, and Secret value of an existing signature key.
-     *   * *   Note that the modification takes effect immediately. If the key has been bound to an API, you must adjust the backend signature verification based on the new key accordingly.
-     *   * *   The QPS limit on this operation is 50 per user.
+     * The new name of the key. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\\_). It must start with a letter.
      *   *
      * @param ModifySignatureRequest $request ModifySignatureRequest
      *
@@ -8915,9 +8649,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   The modifications take effect on the bound APIs instantly.
-     *   * *   The QPS limit on this operation is 50 per user.
+     * The throttling policy name. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\\_). It cannot start with an underscore.
      *   *
      * @param ModifyTrafficControlRequest $request ModifyTrafficControlRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -8971,9 +8703,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   The modifications take effect on the bound APIs instantly.
-     *   * *   The QPS limit on this operation is 50 per user.
+     * The throttling policy name. The name must be 4 to 50 characters in length and can contain letters, digits, and underscores (\\_). It cannot start with an underscore.
      *   *
      * @param ModifyTrafficControlRequest $request ModifyTrafficControlRequest
      *
@@ -9133,7 +8863,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Reactivates a custom domain name whose validity status is Abnormal.
+     * The ID of the API group to which the domain name is bound. This ID is generated by the system and globally unique.
      *   *
      * @param ReactivateDomainRequest $request ReactivateDomainRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -9172,7 +8902,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Reactivates a custom domain name whose validity status is Abnormal.
+     * The ID of the API group to which the domain name is bound. This ID is generated by the system and globally unique.
      *   *
      * @param ReactivateDomainRequest $request ReactivateDomainRequest
      *
@@ -9235,8 +8965,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers and callers.
-     *   * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
+     * The ID of the app. The ID is generated by the system and globally unique.
      *   *
      * @param RemoveApisAuthoritiesRequest $request RemoveApisAuthoritiesRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -9284,8 +9013,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers and callers.
-     *   * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
+     * The ID of the app. The ID is generated by the system and globally unique.
      *   *
      * @param RemoveApisAuthoritiesRequest $request RemoveApisAuthoritiesRequest
      *
@@ -9299,8 +9027,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers and callers.
-     *   * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
+     * The ID of the API. This ID is generated by the system and globally unique.
      *   *
      * @param RemoveAppsAuthoritiesRequest $request RemoveAppsAuthoritiesRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -9345,8 +9072,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers and callers.
-     *   * *   Before you revoke access permissions, check by whom the permissions were granted. API providers can only revoke permissions granted by a Provider, and API callers can only revoke permissions granted by a Consumer.
+     * The ID of the API. This ID is generated by the system and globally unique.
      *   *
      * @param RemoveAppsAuthoritiesRequest $request RemoveAppsAuthoritiesRequest
      *
@@ -9360,8 +9086,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   The unbinding takes effect immediately. After the API is unbound from the ACL, the corresponding environment does not have any IP address access control in place for the API.
+     * The ID of the API group containing the API to be managed.
      *   *
      * @param RemoveIpControlApisRequest $request RemoveIpControlApisRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -9406,8 +9131,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   The unbinding takes effect immediately. After the API is unbound from the ACL, the corresponding environment does not have any IP address access control in place for the API.
+     * The ID of the API group containing the API to be managed.
      *   *
      * @param RemoveIpControlApisRequest $request RemoveIpControlApisRequest
      *
@@ -9421,7 +9145,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
+     * The ID of a policy. Separate multiple IDs with semicolons (;). A maximum of 100 IDs can be entered.
      *   *
      * @param RemoveIpControlPolicyItemRequest $request RemoveIpControlPolicyItemRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -9460,7 +9184,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
+     * The ID of a policy. Separate multiple IDs with semicolons (;). A maximum of 100 IDs can be entered.
      *   *
      * @param RemoveIpControlPolicyItemRequest $request RemoveIpControlPolicyItemRequest
      *
@@ -9474,7 +9198,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Unbinds a backend signature key from APIs.
+     * The ID of the signature key.
      *   *
      * @param RemoveSignatureApisRequest $request RemoveSignatureApisRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -9519,7 +9243,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Unbinds a backend signature key from APIs.
+     * The ID of the signature key.
      *   *
      * @param RemoveSignatureApisRequest $request RemoveSignatureApisRequest
      *
@@ -9533,8 +9257,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   This API allows you to unbind a specified throttling policy from up to 100 APIs at a time.
+     * The ID of the API group containing the APIs from which you want to unbind a specified throttling policy.
      *   *
      * @param RemoveTrafficControlApisRequest $request RemoveTrafficControlApisRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -9579,8 +9302,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   This API allows you to unbind a specified throttling policy from up to 100 APIs at a time.
+     * The ID of the API group containing the APIs from which you want to unbind a specified throttling policy.
      *   *
      * @param RemoveTrafficControlApisRequest $request RemoveTrafficControlApisRequest
      *
@@ -9594,14 +9316,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   Revokes the permissions of API Gateway to access your VPC instance.
-     *   * >  Deleting an authorization affects the associated API. Before you delete the authorization, make sure that it is not used by the API.
-     *   *
-     * @param RemoveVpcAccessRequest $request RemoveVpcAccessRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param RemoveVpcAccessRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return RemoveVpcAccessResponse RemoveVpcAccessResponse
+     * @return RemoveVpcAccessResponse
      */
     public function removeVpcAccessWithOptions($request, $runtime)
     {
@@ -9641,13 +9359,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   Revokes the permissions of API Gateway to access your VPC instance.
-     *   * >  Deleting an authorization affects the associated API. Before you delete the authorization, make sure that it is not used by the API.
-     *   *
-     * @param RemoveVpcAccessRequest $request RemoveVpcAccessRequest
+     * @param RemoveVpcAccessRequest $request
      *
-     * @return RemoveVpcAccessResponse RemoveVpcAccessResponse
+     * @return RemoveVpcAccessResponse
      */
     public function removeVpcAccess($request)
     {
@@ -9780,6 +9494,9 @@ class CloudAPI extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appKey)) {
             $query['AppKey'] = $request->appKey;
+        }
+        if (!Utils::isUnset($request->newAppKey)) {
+            $query['NewAppKey'] = $request->newAppKey;
         }
         if (!Utils::isUnset($request->newAppSecret)) {
             $query['NewAppSecret'] = $request->newAppSecret;
@@ -10018,9 +9735,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers and callers.
-     *   * *   API providers can authorize any apps to call their APIs.
-     *   * *   API callers can authorize their own apps to call the APIs that they have purchased.
+     * The ID of the app. This ID is generated by the system and globally unique.
      *   *
      * @param SetApisAuthoritiesRequest $request SetApisAuthoritiesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -10071,9 +9786,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers and callers.
-     *   * *   API providers can authorize any apps to call their APIs.
-     *   * *   API callers can authorize their own apps to call the APIs that they have purchased.
+     * The ID of the app. This ID is generated by the system and globally unique.
      *   *
      * @param SetApisAuthoritiesRequest $request SetApisAuthoritiesRequest
      *
@@ -10087,9 +9800,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers and callers.
-     *   * *   API providers can authorize any apps to call their APIs.
-     *   * *   API callers can authorize their own apps to call the APIs that they have purchased.
+     * The ID of the API. This ID is generated by the system and globally unique.
      *   *
      * @param SetAppsAuthoritiesRequest $request SetAppsAuthoritiesRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -10140,9 +9851,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers and callers.
-     *   * *   API providers can authorize any apps to call their APIs.
-     *   * *   API callers can authorize their own apps to call the APIs that they have purchased.
+     * The ID of the API. This ID is generated by the system and globally unique.
      *   *
      * @param SetAppsAuthoritiesRequest $request SetAppsAuthoritiesRequest
      *
@@ -10214,9 +9923,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   The SSL certificate must match the custom domain name.
-     *   * *   After the SSL certificate is bound, HTTPS-based API services become available.
+     * 382271.
      *   *
      * @param SetDomainCertificateRequest $request SetDomainCertificateRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -10270,9 +9977,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   The SSL certificate must match the custom domain name.
-     *   * *   After the SSL certificate is bound, HTTPS-based API services become available.
+     * 382271.
      *   *
      * @param SetDomainCertificateRequest $request SetDomainCertificateRequest
      *
@@ -10390,8 +10095,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   * *   A maximum of 100 APIs can be bound at a time.
+     * The ID of the API group.
      *   *
      * @param SetIpControlApisRequest $request SetIpControlApisRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -10436,8 +10140,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API callers.
-     *   * *   A maximum of 100 APIs can be bound at a time.
+     * The ID of the API group.
      *   *
      * @param SetIpControlApisRequest $request SetIpControlApisRequest
      *
@@ -10451,7 +10154,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Binds a signature key to APIs.
+     * The ID of the signature key.
      *   *
      * @param SetSignatureApisRequest $request SetSignatureApisRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -10496,7 +10199,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * Binds a signature key to APIs.
+     * The ID of the signature key.
      *   *
      * @param SetSignatureApisRequest $request SetSignatureApisRequest
      *
@@ -10510,8 +10213,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   This API allows you to bind a specific throttling policy to up to 100 APIs at a time.
+     * The ID of the API group containing the APIs to which you want to bind a specified throttling policy.
      *   *
      * @param SetTrafficControlApisRequest $request SetTrafficControlApisRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -10556,8 +10258,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   This API allows you to bind a specific throttling policy to up to 100 APIs at a time.
+     * The ID of the API group containing the APIs to which you want to bind a specified throttling policy.
      *   *
      * @param SetTrafficControlApisRequest $request SetTrafficControlApisRequest
      *
@@ -10571,13 +10272,10 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   This operation is used to authorize API Gateway to access your VPC instance.
-     *   *
-     * @param SetVpcAccessRequest $request SetVpcAccessRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param SetVpcAccessRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return SetVpcAccessResponse SetVpcAccessResponse
+     * @return SetVpcAccessResponse
      */
     public function setVpcAccessWithOptions($request, $runtime)
     {
@@ -10623,12 +10321,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This operation is intended for API providers.
-     *   * *   This operation is used to authorize API Gateway to access your VPC instance.
-     *   *
-     * @param SetVpcAccessRequest $request SetVpcAccessRequest
+     * @param SetVpcAccessRequest $request
      *
-     * @return SetVpcAccessResponse SetVpcAccessResponse
+     * @return SetVpcAccessResponse
      */
     public function setVpcAccess($request)
     {
@@ -10690,11 +10385,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   The historical version can be obtained through the DescribeHistoryApis API.****
-     *   * *   Only APIs that have been published more than once have historical versions to switch to.
-     *   * *   This operation can only be performed on running APIs. Use caution when performing this operation because the operation cannot be undone after it has been completed and takes effect within 5 seconds.
-     *   * *   The switch operation is in essence a publish operation, and the reason for this operation must be provided.
+     * The ID of the API.
      *   *
      * @param SwitchApiRequest $request SwitchApiRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -10742,11 +10433,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   This API is intended for API providers.
-     *   * *   The historical version can be obtained through the DescribeHistoryApis API.****
-     *   * *   Only APIs that have been published more than once have historical versions to switch to.
-     *   * *   This operation can only be performed on running APIs. Use caution when performing this operation because the operation cannot be undone after it has been completed and takes effect within 5 seconds.
-     *   * *   The switch operation is in essence a publish operation, and the reason for this operation must be provided.
+     * The ID of the API.
      *   *
      * @param SwitchApiRequest $request SwitchApiRequest
      *
@@ -10760,11 +10447,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
-     *   * *   Tag.N is a resource tag consisting of a key-value pair: Tag.N.Key and Tag.N.Value.
-     *   * *   If you call this operation to tag multiple resources simultaneously, either all or none of the resources will be tagged.
-     *   * *   If you specify Tag.1.Value in addition to required parameters, you must also specify Tag.1.Key. Otherwise, an InvalidParameter.TagKey error is reported. A tag that has a value must have the corresponding key, but the key can be an empty string.
-     *   * *   If a tag with the same key has been bound to a resource, the new tag will overwrite the existing one.
+     * The key of tag N.
+     *   * Valid values of N: `1 to 20.`.
      *   *
      * @param TagResourcesRequest $request TagResourcesRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -10806,11 +10490,8 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   All tags (key-value pairs) are applied to all resources of a specified ResourceId, with each resource specified as ResourceId.N.
-     *   * *   Tag.N is a resource tag consisting of a key-value pair: Tag.N.Key and Tag.N.Value.
-     *   * *   If you call this operation to tag multiple resources simultaneously, either all or none of the resources will be tagged.
-     *   * *   If you specify Tag.1.Value in addition to required parameters, you must also specify Tag.1.Key. Otherwise, an InvalidParameter.TagKey error is reported. A tag that has a value must have the corresponding key, but the key can be an empty string.
-     *   * *   If a tag with the same key has been bound to a resource, the new tag will overwrite the existing one.
+     * The key of tag N.
+     *   * Valid values of N: `1 to 20.`.
      *   *
      * @param TagResourcesRequest $request TagResourcesRequest
      *
@@ -10824,11 +10505,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   If you call this operation to untag multiple resources simultaneously, either all or none of the resources will be untagged.
-     *   * *   If you specify resource IDs without specifying tag keys and set the All parameter to true, all tags bound to the specified resources will be deleted. If a resource does not have any tags, the request is not processed but a success is returned.
-     *   * *   If you specify resource IDs without specifying tag keys and set the All parameter to false, the request is not processed but a success is returned.
-     *   * *   When tag keys are specified, the All parameter is invalid.
-     *   * *   When multiple resources and key-value pairs are specified, the specified tags bound to the resources are deleted.
+     * Specifies whether to delete all tags. This parameter is valid only when the **TagKey.N**parameter is not specified. Default value: false. Valid values:
+     *   * *   **true**
+     *   * *   **false**.
      *   *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -10873,11 +10552,9 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * *   If you call this operation to untag multiple resources simultaneously, either all or none of the resources will be untagged.
-     *   * *   If you specify resource IDs without specifying tag keys and set the All parameter to true, all tags bound to the specified resources will be deleted. If a resource does not have any tags, the request is not processed but a success is returned.
-     *   * *   If you specify resource IDs without specifying tag keys and set the All parameter to false, the request is not processed but a success is returned.
-     *   * *   When tag keys are specified, the All parameter is invalid.
-     *   * *   When multiple resources and key-value pairs are specified, the specified tags bound to the resources are deleted.
+     * Specifies whether to delete all tags. This parameter is valid only when the **TagKey.N**parameter is not specified. Default value: false. Valid values:
+     *   * *   **true**
+     *   * *   **false**.
      *   *
      * @param UntagResourcesRequest $request UntagResourcesRequest
      *
@@ -10888,5 +10565,54 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ValidateVpcConnectivityRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ValidateVpcConnectivityResponse
+     */
+    public function validateVpcConnectivityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->vpcAccessId)) {
+            $query['VpcAccessId'] = $request->vpcAccessId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ValidateVpcConnectivity',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ValidateVpcConnectivityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ValidateVpcConnectivityRequest $request
+     *
+     * @return ValidateVpcConnectivityResponse
+     */
+    public function validateVpcConnectivity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->validateVpcConnectivityWithOptions($request, $runtime);
     }
 }

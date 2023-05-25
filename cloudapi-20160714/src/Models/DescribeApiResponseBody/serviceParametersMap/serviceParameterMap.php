@@ -11,16 +11,16 @@ class serviceParameterMap extends Model
     /**
      * @description The name of the backend service parameter.
      *
-     * @example sex
+     * @example The VPC protocol.
      *
      * @var string
      */
     public $requestParameterName;
 
     /**
-     * @description The API publishing status.
+     * @description The body model.
      *
-     * @example sex
+     * @example The alias of the function.
      *
      * @var string
      */

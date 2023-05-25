@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiSignaturesResponseBody extends Model
 {
     /**
-     * @description The time when the backend signature key was bound.
+     * @description The ID of the API.
      *
      * @var apiSignatures
      */
     public $apiSignatures;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries returned per page.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeApiSignaturesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The total number of returned entries.
+     * @description The returned signature key information. It is an array consisting of ApiSignatureItem data.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeApiSignaturesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The total number of returned entries.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *
@@ -44,7 +44,7 @@ class DescribeApiSignaturesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned signature key information. It is an array consisting of ApiSignatureItem data.
+     * @description The time when the backend signature key was bound.
      *
      * @example 20
      *

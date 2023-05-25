@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiMarketAttributesRequest extends Model
 {
     /**
-     * @description The ID of the API.
-     *
      * @example 1f9b5e9ba80943099cac52e040b7e160
      *
      * @var string
@@ -18,8 +16,6 @@ class DescribeApiMarketAttributesRequest extends Model
     public $apiId;
 
     /**
-     * @description The ID of the API.
-     *
      * @example b693252f3f19445e9a01dac177c4454c
      *
      * @var string

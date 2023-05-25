@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ReactivateDomainResponseBody extends Model
 {
     /**
-     * @description *   This operation is intended for API providers.
-     *   You must solve the problem that is mentioned in the domain name exception prompt before you can reactivate the domain name.
-     *   A typical reason why a custom domain name becomes abnormal is that the domain name does not have an ICP filing or the domain name is included in a blacklist by the administration. When a custom domain name is abnormal, users cannot use it to access APIs.
-     *   You can call this operation to reactivate the domain name to resume normal access.
+     * @description Reactivates a custom domain name whose validity status is Abnormal.
      *
      * @example 6EF60BEC-0242-43AF-BB20-270359FB54A7
      *

@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CreateApiGroupRequest extends Model
 {
     /**
-     * @description The root path of the API.
-     *
      * @example /qqq
      *
      * @var string
@@ -19,8 +17,6 @@ class CreateApiGroupRequest extends Model
     public $basePath;
 
     /**
-     * @description The description of the API group. The description can be up to 180 characters in length.
-     *
      * @example The weather informations.
      *
      * @var string
@@ -28,8 +24,6 @@ class CreateApiGroupRequest extends Model
     public $description;
 
     /**
-     * @description The name of the API group. The name must be globally unique. The name must be 4 to 50 characters in length. It must start with a letter and can contain letters, digits, and underscores (\_).
-     *
      * @example Weather
      *
      * @var string
@@ -37,8 +31,6 @@ class CreateApiGroupRequest extends Model
     public $groupName;
 
     /**
-     * @description The ID of the instance.
-     *
      * @example apigateway-cn-v6419k43xxxxx
      *
      * @var string
@@ -51,8 +43,6 @@ class CreateApiGroupRequest extends Model
     public $securityToken;
 
     /**
-     * @description The tag of objects that match the lifecycle rule. You can specify multiple tags.
-     *
      * @example Key， Value
      *
      * @var tag[]

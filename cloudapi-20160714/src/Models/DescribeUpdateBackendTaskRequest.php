@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpdateBackendTaskRequest extends Model
 {
     /**
-     * @description The ID of the task.
-     *
      * @example 4e13c3e0c44c4a4ebb5231264eeb9bc1
      *
      * @var string

@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiLatencyDataResponseBody extends Model
 {
     /**
-     * @description The value corresponding to the monitoring metric.
-     *
      * @var callLatencys
      */
     public $callLatencys;
 
     /**
-     * @description The returned information about API call latency. It is an array consisting of MonitorItem data.
-     *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ001
      *
      * @var string

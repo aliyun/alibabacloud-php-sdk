@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class pluginAttribute extends Model
 {
     /**
-     * @description The creation time (UTC) of the plug-in.
-     *
      * @example 2019-01-11T09:29:58Z
      *
      * @var string
@@ -19,17 +17,11 @@ class pluginAttribute extends Model
     public $createdTime;
 
     /**
-     * @description The plug-in description.
-     *
-     * @example Throttling
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The last modification time (UTC) of the plug-in.
-     *
      * @example 2019-01-11T09:29:58Z
      *
      * @var string
@@ -37,8 +29,6 @@ class pluginAttribute extends Model
     public $modifiedTime;
 
     /**
-     * @description The definition statement of the plug-in.
-     *
      * @example {"unit":"MINUTE","apiDefault":20}
      *
      * @var string
@@ -46,8 +36,6 @@ class pluginAttribute extends Model
     public $pluginData;
 
     /**
-     * @description The ID of the plug-in.
-     *
      * @example 9a3f1a5279434f2ba74ccd91c295af9f
      *
      * @var string
@@ -55,8 +43,6 @@ class pluginAttribute extends Model
     public $pluginId;
 
     /**
-     * @description The name of the plug-in.
-     *
      * @example firstPlugin
      *
      * @var string
@@ -64,8 +50,6 @@ class pluginAttribute extends Model
     public $pluginName;
 
     /**
-     * @description The type of the plug-in.
-     *
      * @example trafficControl
      *
      * @var string
@@ -73,8 +57,6 @@ class pluginAttribute extends Model
     public $pluginType;
 
     /**
-     * @description The region where the plug-in is located.
-     *
      * @example cn-qingdao
      *
      * @var string
@@ -82,8 +64,6 @@ class pluginAttribute extends Model
     public $regionId;
 
     /**
-     * @description The tags.
-     *
      * @var tags
      */
     public $tags;

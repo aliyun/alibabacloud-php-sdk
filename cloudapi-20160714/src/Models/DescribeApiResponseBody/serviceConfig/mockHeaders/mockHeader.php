@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class mockHeader extends Model
 {
     /**
-     * @description Configuration items related to VPC channels
+     * @description The ContentType header type used when you call the backend service over HTTP.
+     *
+     *   **DEFAULT**: the default header type in API Gateway
+     *   **CUSTOM**: a custom header type
+     *   **CLIENT**: the ContentType header type of the client
      *
      * @example Content-Length
      *
@@ -18,7 +22,7 @@ class mockHeader extends Model
     public $headerName;
 
     /**
-     * @description The name of the HTTP header.
+     * @description The order in the document.
      *
      * @example 86400
      *

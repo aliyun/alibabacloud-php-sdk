@@ -15,29 +15,21 @@ use AlibabaCloud\Tea\Model;
 class ImportOASResponseBody extends Model
 {
     /**
-     * @description The error messages that appear due to the invalid data in the imported file.
-     *
      * @var errorMessages
      */
     public $errorMessages;
 
     /**
-     * @description The APIs that failed to pass the precheck.
-     *
      * @var failedApis
      */
     public $failedApis;
 
     /**
-     * @description The information about the models that failed to pass the precheck.
-     *
      * @var failedModels
      */
     public $failedModels;
 
     /**
-     * @description The ID of the asynchronous API import task that was generated during the import operation. This ID is used to query the execution status of the API import task.
-     *
      * @example c16a1880f5164d779f6a54f64d997cd9
      *
      * @var string
@@ -45,8 +37,6 @@ class ImportOASResponseBody extends Model
     public $operationId;
 
     /**
-     * @description The ID of the request.
-     *
      * @example E7FE7172-AA75-5880-B6F7-C00893E9BC06
      *
      * @var string
@@ -54,22 +44,16 @@ class ImportOASResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the APIs that have passed the precheck.
-     *
      * @var successApis
      */
     public $successApis;
 
     /**
-     * @description The information about the models that have passed the precheck.
-     *
      * @var successModels
      */
     public $successModels;
 
     /**
-     * @description The warning messages that appear due to the invalid data in the imported file.
-     *
      * @var warningMessages
      */
     public $warningMessages;

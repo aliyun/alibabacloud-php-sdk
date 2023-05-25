@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class monitorItem extends Model
 {
     /**
-     * @description The returned information about failed API calls. It is an array consisting of MonitorItem data.
-     *
      * @example 2016-07-28T08:24:00Z
      *
      * @var string
@@ -18,8 +16,6 @@ class monitorItem extends Model
     public $itemTime;
 
     /**
-     * @description The time of the monitoring metric. The time format follows the ISO 8601 standard and UTC time is used. Format: YYYY-MM-DDThh:mm:ssZ
-     *
      * @example 650
      *
      * @var string

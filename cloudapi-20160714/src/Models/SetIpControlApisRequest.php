@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetIpControlApisRequest extends Model
 {
     /**
-     * @description The API IDs. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
+     * @description The ID of the request.
      *
      * @example 3b81fd160f5645e097cc8855d75a1cf6,46fbb52840d146f186e38e8e70fc8c12
      *
@@ -18,7 +18,11 @@ class SetIpControlApisRequest extends Model
     public $apiIds;
 
     /**
-     * @description The ID of the API group.
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **PRE**
+     *   **TEST**
      *
      * @example 0009db9c828549768a200320714b8930
      *
@@ -27,7 +31,7 @@ class SetIpControlApisRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the ACL.
+     * @description The API IDs. Separate multiple API IDs with commas (,). A maximum of 100 API IDs can be entered.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
@@ -41,11 +45,8 @@ class SetIpControlApisRequest extends Model
     public $securityToken;
 
     /**
-     * @description The name of the runtime environment. Valid values:
-     *
-     *   **RELEASE**
-     *   **PRE**
-     *   **TEST**
+     * @description *   This operation is intended for API callers.
+     *   A maximum of 100 APIs can be bound at a time.
      *
      * @example TEST
      *

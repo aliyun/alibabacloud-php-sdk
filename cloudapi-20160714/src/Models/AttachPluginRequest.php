@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AttachPluginRequest extends Model
 {
     /**
-     * @description The number of the API to be bound.
-     *
      * @example 8afff6c8c4c6447abb035812e4d66b65
      *
      * @var string
@@ -18,8 +16,6 @@ class AttachPluginRequest extends Model
     public $apiId;
 
     /**
-     * @description The number of the API to be operated. Separate multiple numbers with commas (,). A maximum of 100 numbers can be entered.
-     *
      * @example xxx
      *
      * @var string
@@ -27,8 +23,6 @@ class AttachPluginRequest extends Model
     public $apiIds;
 
     /**
-     * @description The ID of the API group that contains the API to which the plug-in is to be bound.
-     *
      * @example 285bb759342649a1b70c2093a772e087
      *
      * @var string
@@ -36,8 +30,6 @@ class AttachPluginRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the plug-in to be bound.
-     *
      * @example 9a3f1a5279434f2ba74ccd91c295af9f
      *
      * @var string
@@ -50,12 +42,6 @@ class AttachPluginRequest extends Model
     public $securityToken;
 
     /**
-     * @description The name of the runtime environment. Valid values:
-     *
-     *   **RELEASE**
-     *   **PRE: the pre-release environment**
-     *   **TEST**
-     *
      * @example TEST
      *
      * @var string

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class apiInfo extends Model
 {
     /**
-     * @description The description of the API.
-     *
      * @example 20bcdc9453524b78a8beb1f6de21edb7
      *
      * @var string
@@ -18,8 +16,6 @@ class apiInfo extends Model
     public $apiId;
 
     /**
-     * @description auditing
-     *
      * @example testApi
      *
      * @var string
@@ -27,8 +23,6 @@ class apiInfo extends Model
     public $apiName;
 
     /**
-     * @description The name of the API group.
-     *
      * @example test
      *
      * @var string
@@ -36,8 +30,6 @@ class apiInfo extends Model
     public $description;
 
     /**
-     * @description The request path of the API.
-     *
      * @example 15bcdc9453524b7gs8beb1f6de21edb7
      *
      * @var string
@@ -45,8 +37,6 @@ class apiInfo extends Model
     public $groupId;
 
     /**
-     * @description The ID of the API group.
-     *
      * @example testApiGroup
      *
      * @var string
@@ -54,8 +44,6 @@ class apiInfo extends Model
     public $groupName;
 
     /**
-     * @description The name of the API.
-     *
      * @example GET
      *
      * @var string
@@ -63,8 +51,6 @@ class apiInfo extends Model
     public $method;
 
     /**
-     * @description The request method of the API.
-     *
      * @example /test
      *
      * @var string

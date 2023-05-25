@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SetDomainWebSocketStatusRequest extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example OPEN
      *
      * @var string
@@ -18,8 +16,6 @@ class SetDomainWebSocketStatusRequest extends Model
     public $actionValue;
 
     /**
-     * @description The action.
-     *
      * @example ac.fluvet.cn
      *
      * @var string
@@ -27,8 +23,6 @@ class SetDomainWebSocketStatusRequest extends Model
     public $domainName;
 
     /**
-     * @description The custom domain name.
-     *
      * @example cf976e63b70c4993807e7bb9345d4695
      *
      * @var string

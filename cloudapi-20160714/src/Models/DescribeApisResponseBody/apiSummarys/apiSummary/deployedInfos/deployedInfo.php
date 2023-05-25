@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class deployedInfo extends Model
 {
     /**
+     * @description The deployment status. Valid values: DEPLOYED and NONDEPLOYED.
+     *
+     * @example DEPLOYED
+     *
      * @var string
      */
     public $deployedStatus;
 
     /**
+     * @description The deployed version.
+     *
+     * @example 20220103170737313
+     *
      * @var string
      */
     public $effectiveVersion;
 
     /**
+     * @description Stage Name:
+     *
+     *   **RELEASE**: production environment
+     *   **PRE**: staging environment
+     *   **TEST**: test environment
+     *
+     * @example RELEASE
+     *
      * @var string
      */
     public $stageName;

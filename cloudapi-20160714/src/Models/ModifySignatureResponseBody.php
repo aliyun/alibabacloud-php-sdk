@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifySignatureResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The name of the key.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BZ004
      *
@@ -18,7 +18,10 @@ class ModifySignatureResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the key.
+     * @description *   This API is intended for API providers.
+     *   This API operation modifies the name, Key value, and Secret value of an existing signature key.
+     *   Note that the modification takes effect immediately. If the key has been bound to an API, you must adjust the backend signature verification based on the new key accordingly.
+     *   The QPS limit on this operation is 50 per user.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
@@ -27,7 +30,7 @@ class ModifySignatureResponseBody extends Model
     public $signatureId;
 
     /**
-     * @description The name of the key.
+     * @description Modifies a backend signature key.
      *
      * @example backendsignature
      *

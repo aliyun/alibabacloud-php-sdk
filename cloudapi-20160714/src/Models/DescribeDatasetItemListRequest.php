@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatasetItemListRequest extends Model
 {
     /**
-     * @description The ID of the dataset.
-     *
      * @example 602e1f6b3543200eaab0a89e********
      *
      * @var string
@@ -18,8 +16,6 @@ class DescribeDatasetItemListRequest extends Model
     public $datasetId;
 
     /**
-     * @description The ID of the data entry. You can enter multiple IDs. Separate them with commas (,).
-     *
      * @example 5045****
      *
      * @var string
@@ -27,8 +23,6 @@ class DescribeDatasetItemListRequest extends Model
     public $datasetItemIds;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
-     *
      * @example 1
      *
      * @var int
@@ -36,8 +30,6 @@ class DescribeDatasetItemListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10.
-     *
      * @example 10
      *
      * @var int

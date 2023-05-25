@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackendListRequest extends Model
 {
     /**
-     * @description The name of the backend service. You can use \* to perform fuzzy queries.
-     *
      * @example test
      *
      * @var string
@@ -18,8 +16,6 @@ class DescribeBackendListRequest extends Model
     public $backendName;
 
     /**
-     * @description The type of the backend service.
-     *
      * @example HTTP
      *
      * @var string
@@ -27,8 +23,6 @@ class DescribeBackendListRequest extends Model
     public $backendType;
 
     /**
-     * @description The number of the current page.
-     *
      * @example 1
      *
      * @var int
@@ -36,8 +30,6 @@ class DescribeBackendListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
-     *
      * @example 10
      *
      * @var int

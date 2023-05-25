@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiGroupsResponseBody extends Model
 {
     /**
-     * @description The basepath.
-     *
      * @var apiGroupAttributes
      */
     public $apiGroupAttributes;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 1
      *
      * @var int
@@ -26,8 +22,6 @@ class DescribeApiGroupsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The total number of returned entries.
-     *
      * @example 10
      *
      * @var int
@@ -35,8 +29,6 @@ class DescribeApiGroupsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries returned per page.
-     *
      * @example D6E46F10-F26C-4AA0-BB69-FE2743D9AE62
      *
      * @var string
@@ -44,8 +36,6 @@ class DescribeApiGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The returned group set.
-     *
      * @example 2
      *
      * @var int

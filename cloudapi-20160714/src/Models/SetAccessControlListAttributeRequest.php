@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SetAccessControlListAttributeRequest extends Model
 {
     /**
-     * @description The ID of the ACL.
-     *
      * @example acl-bp1ohqkonqybecf4llbrc
      *
      * @var string
@@ -18,8 +16,6 @@ class SetAccessControlListAttributeRequest extends Model
     public $aclId;
 
     /**
-     * @description The name of the ACL.
-     *
      * @example testAcl
      *
      * @var string

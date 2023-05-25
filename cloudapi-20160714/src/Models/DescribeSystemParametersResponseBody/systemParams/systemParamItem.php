@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class systemParamItem extends Model
 {
     /**
-     * @description Examples
+     * @description Client IP Address
      *
      * @example 192.168.1.1
      *
@@ -18,16 +18,17 @@ class systemParamItem extends Model
     public $demoValue;
 
     /**
-     * @description The description of a parameter.
+     * @description The name of the parameter.
      *
-     * @example Client IP Address
+     * @example The type of the parameter.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The name of the parameter.
+     * @description *   This API is intended for API callers.
+     *   The response of this API contains the system parameters that are optional in API definitions.
      *
      * @example CaClientIp
      *
@@ -36,7 +37,7 @@ class systemParamItem extends Model
     public $paramName;
 
     /**
-     * @description The type of the parameter.
+     * @description Queries the common parameters supported by the system.
      *
      * @example string
      *

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RemoveVpcAccessAndAbolishApisRequest extends Model
 {
     /**
-     * @description The ID of the ECS or SLB instance in the VPC.
-     *
      * @example i-uf6iaale3gfef9t9cb41
      *
      * @var string
@@ -18,8 +16,6 @@ class RemoveVpcAccessAndAbolishApisRequest extends Model
     public $instanceId;
 
     /**
-     * @description Specifies whether batch work is required.
-     *
      * @example true
      *
      * @var bool
@@ -27,8 +23,6 @@ class RemoveVpcAccessAndAbolishApisRequest extends Model
     public $needBatchWork;
 
     /**
-     * @description The service port.
-     *
      * @example 8080
      *
      * @var int
@@ -41,8 +35,6 @@ class RemoveVpcAccessAndAbolishApisRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the VPC to be operated.
-     *
      * @example vpc-bp1iw82phcgkvupgfv0o8
      *
      * @var string

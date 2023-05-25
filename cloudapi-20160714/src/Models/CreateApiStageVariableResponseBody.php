@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateApiStageVariableResponseBody extends Model
 {
     /**
-     * @description auditing
-     *
      * @example 03442A3D-3B7D-434C-8A95-A5FEB999B529
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class apiHisItem extends Model
 {
     /**
-     * @description The ID of the API.
+     * @description Creates an object
      *
      * @example 5af418828f0344a3b588c0cc1331a3bc
      *
@@ -18,16 +18,17 @@ class apiHisItem extends Model
     public $apiId;
 
     /**
-     * @description The name of the API.
+     * @description The region where the API is located.
      *
-     * @example CreateObject
+     * @example *   This operation is intended for API providers. Only APIs which have been published have a historical version record.
+     *   This operation allows you to obtain the API historical versions which can be used to call other APIs.
      *
      * @var string
      */
     public $apiName;
 
     /**
-     * @description The publishing time (UTC) of the API.
+     * @description The historical version of the API.
      *
      * @example 2016-07-20T08:28:48Z
      *
@@ -36,16 +37,19 @@ class apiHisItem extends Model
     public $deployedTime;
 
     /**
-     * @description The description of the API.
+     * @description The name of the group to which an API belongs.
      *
-     * @example Creates an object
+     * @example The ID of the API group.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the API group.
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST.
      *
      * @example 1084f9034c744137901057206b39d2b6
      *
@@ -54,7 +58,7 @@ class apiHisItem extends Model
     public $groupId;
 
     /**
-     * @description The name of the group to which an API belongs.
+     * @description The publishing time (UTC) of the API.
      *
      * @example myGroup2
      *
@@ -63,7 +67,7 @@ class apiHisItem extends Model
     public $groupName;
 
     /**
-     * @description The historical version of the API.
+     * @description CreateObject
      *
      * @example 20160705104552393
      *
@@ -72,7 +76,7 @@ class apiHisItem extends Model
     public $historyVersion;
 
     /**
-     * @description The region where the API is located.
+     * @description Queries the historical versions of a specified API.
      *
      * @example cn-qingdao
      *
@@ -81,10 +85,7 @@ class apiHisItem extends Model
     public $regionId;
 
     /**
-     * @description The name of the runtime environment. Valid values:
-     *
-     *   **RELEASE**
-     *   **TEST.
+     * @description The name of the API.
      *
      * @example RELEASE
      *
@@ -93,7 +94,7 @@ class apiHisItem extends Model
     public $stageName;
 
     /**
-     * @description Indicates whether an API version is effective. Valid values: ONLINE and OFFLINE.
+     * @description The description of the API.
      *
      * @example ONLINE
      *

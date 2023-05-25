@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribePluginTemplatesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example EF924FE4-2EDD-4CD3-89EC-34E4708574E7
      *
      * @var string
@@ -19,8 +17,6 @@ class DescribePluginTemplatesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The templates.
-     *
      * @var templates
      */
     public $templates;

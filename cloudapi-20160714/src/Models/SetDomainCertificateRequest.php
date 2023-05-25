@@ -9,26 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SetDomainCertificateRequest extends Model
 {
     /**
-     * @description Content of the CA certificate
-     *
-     * @example The certificate verification depth.
-     *
      * @var string
      */
     public $caCertificateBody;
 
     /**
-     * @description For more information, see the following request examples
-     *
-     * @example The private key of the SSL certificate.
-     *
      * @var string
      */
     public $certificateBody;
 
     /**
-     * @description The content of the certificate.
-     *
      * @example test_cert
      *
      * @var string
@@ -36,17 +26,11 @@ class SetDomainCertificateRequest extends Model
     public $certificateName;
 
     /**
-     * @description For more information, see the following request examples
-     *
-     * @example The content of the CA certificate.
-     *
      * @var string
      */
     public $certificatePrivateKey;
 
     /**
-     * @description The name of the SSL certificate.
-     *
      * @example api.demo.com
      *
      * @var string
@@ -54,8 +38,6 @@ class SetDomainCertificateRequest extends Model
     public $domainName;
 
     /**
-     * @description The custom domain name.
-     *
      * @example 927d50c0f2e54b359919923d908bb015
      *
      * @var string
@@ -68,8 +50,6 @@ class SetDomainCertificateRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 2
      *
      * @var string

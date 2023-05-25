@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class vpcConfig extends Model
 {
     /**
-     * @description The port number that corresponds to the instance.
+     * @description This parameter takes effect only when the RequestMode parameter is set to MAPPING.********
      *
+     * The server data transmission method used for POST and PUT requests. Valid values: FORM and STREAM. FORM indicates that data in key-value pairs is transmitted as forms. STREAM indicates that data is transmitted as byte streams.
      * @example i-bp1h497hkijewv2***
      *
      * @var string
@@ -18,7 +19,7 @@ class vpcConfig extends Model
     public $instanceId;
 
     /**
-     * @description Backend configuration items when the backend service is Function Compute
+     * @description Model
      *
      * @example glmall-app-test
      *
@@ -27,7 +28,7 @@ class vpcConfig extends Model
     public $name;
 
     /**
-     * @description The name of the VPC access authorization.
+     * @description Configuration items of the third-party OpenID Connect authentication method
      *
      * @example 8080
      *
@@ -36,7 +37,7 @@ class vpcConfig extends Model
     public $port;
 
     /**
-     * @description The VPC protocol.
+     * @description The value of the HTTP header.
      *
      * @example vpc-2zeafsc3fygk1***
      *
@@ -45,7 +46,7 @@ class vpcConfig extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the ECS or SLB instance in the VPC.
+     * @description System parameters sent by API Gateway to the backend service
      *
      * @example HTTP
      *

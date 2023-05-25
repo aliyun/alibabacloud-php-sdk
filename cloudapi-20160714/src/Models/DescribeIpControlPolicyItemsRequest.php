@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpControlPolicyItemsRequest extends Model
 {
     /**
-     * @description The ID of the ACL. The ID is unique.
-     *
      * @example 7ea91319a34d48a09b5c9c871d9768b1
      *
      * @var string
@@ -18,8 +16,6 @@ class DescribeIpControlPolicyItemsRequest extends Model
     public $ipControlId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
-     *
      * @example 1
      *
      * @var int
@@ -27,8 +23,6 @@ class DescribeIpControlPolicyItemsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
-     *
      * @example 10
      *
      * @var int
@@ -36,8 +30,6 @@ class DescribeIpControlPolicyItemsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the policy.
-     *
      * @example P151617000829241
      *
      * @var string

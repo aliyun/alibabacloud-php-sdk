@@ -18,8 +18,6 @@ class api extends Model
     public $apiId;
 
     /**
-     * @description The ID of the API group.
-     *
      * @example 78d54ac4424d4b1792e33ca35637e8e4
      *
      * @var string
@@ -27,8 +25,6 @@ class api extends Model
     public $groupId;
 
     /**
-     * @description The ID of the runtime environment.
-     *
      * @example d1e1ee28f9fb4b729db0ee8ca76ff0a5
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class apiInfo extends Model
 {
     /**
-     * @description The ID of the API.
+     * @description Description
      *
      * @example 3b81fd160f5645e097cc8855d75a1cf6
      *
@@ -18,7 +18,8 @@ class apiInfo extends Model
     public $apiId;
 
     /**
-     * @description The name of the API
+     * @description *   This API is intended for API providers.
+     *   You can specify PageNumber to obtain the result on the specified page.
      *
      * @example testapi
      *
@@ -27,7 +28,7 @@ class apiInfo extends Model
     public $apiName;
 
     /**
-     * @description The binding time of the API.
+     * @description The ID of the API.
      *
      * @example 2016-07-23T08:28:48Z
      *
@@ -36,16 +37,16 @@ class apiInfo extends Model
     public $boundTime;
 
     /**
-     * @description The description of the API.
+     * @description The name of the group to which an API belongs.
      *
-     * @example Description
+     * @example The ID of the API group.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the API group.
+     * @description The name of the API
      *
      * @example 0009db9c828549768a200320714b8930
      *
@@ -54,7 +55,10 @@ class apiInfo extends Model
     public $groupId;
 
     /**
-     * @description The name of the group to which an API belongs.
+     * @description The name of the runtime environment. Valid values:
+     *
+     *   **RELEASE**
+     *   **TEST**
      *
      * @example mygroup
      *
@@ -63,7 +67,7 @@ class apiInfo extends Model
     public $groupName;
 
     /**
-     * @description The region where the API is located.
+     * @description Queries the APIs to which a specified throttling policy is bound.
      *
      * @example cn-qingdao
      *
@@ -72,10 +76,7 @@ class apiInfo extends Model
     public $regionId;
 
     /**
-     * @description The name of the runtime environment. Valid values:
-     *
-     *   **RELEASE**
-     *   **TEST**
+     * @description The region where the API is located.
      *
      * @example TEST
      *
@@ -84,10 +85,7 @@ class apiInfo extends Model
     public $stageName;
 
     /**
-     * @description Indicates whether the API is public. Valid values:
-     *
-     *   **PUBLIC**
-     *   **PRIVATE**
+     * @description The description of the API.
      *
      * @example PUBLIC
      *

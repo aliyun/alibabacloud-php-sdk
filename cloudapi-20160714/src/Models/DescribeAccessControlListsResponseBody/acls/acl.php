@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class acl extends Model
 {
     /**
-     * @description The ID of the access control policy.
-     *
      * @example acl-3nsohdozz0ru8fi5onwz1
      *
      * @var string
@@ -18,8 +16,6 @@ class acl extends Model
     public $aclId;
 
     /**
-     * @description The name of the access control policy.
-     *
      * @example testAcl
      *
      * @var string

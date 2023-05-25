@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisRequest extends Model
 {
     /**
-     * @description The ID of the API.
+     * @description The API ID.
      *
      * @example f68c19ee3bd1478fb58aa05ce8ae9b5a
      *
@@ -19,12 +19,16 @@ class DescribeApisRequest extends Model
     public $apiId;
 
     /**
+     * @description The HTTP method of the API request.
+     *
+     * @example GET
+     *
      * @var string
      */
     public $apiMethod;
 
     /**
-     * @description The name of the API operation. The name is used for fuzzy match.
+     * @description The API name. The name is used for fuzzy match.
      *
      * @example weather
      *
@@ -33,12 +37,16 @@ class DescribeApisRequest extends Model
     public $apiName;
 
     /**
+     * @description The request path of the API.
+     *
+     * @example /illegal/query
+     *
      * @var string
      */
     public $apiPath;
 
     /**
-     * @description The ID of the category.
+     * @description The category ID.
      *
      * @example 1553414085247362
      *
@@ -56,7 +64,7 @@ class DescribeApisRequest extends Model
     public $enableTagAuth;
 
     /**
-     * @description The ID of the API group.
+     * @description The API group ID.
      *
      * @example c4a4d2de657548a2bd485d5d4df42b4a
      *
@@ -74,7 +82,7 @@ class DescribeApisRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     * @description The number of entries to return on each page. Default value: 10.
      *
      * @example 10
      *
@@ -93,7 +101,7 @@ class DescribeApisRequest extends Model
     public $stageName;
 
     /**
-     * @description The tag of objects that match the rule. You can specify multiple tags.
+     * @description The tags of objects that match the rule.
      *
      * @example Key， Value
      *
@@ -102,15 +110,19 @@ class DescribeApisRequest extends Model
     public $tag;
 
     /**
+     * @description Specifies whether to filter unpublished APIs.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $unDeployed;
 
     /**
-     * @description Specifies whether to make the API public. Valid values:
+     * @description Specifies whether the API is public. Valid values:
      *
-     *   **PUBLIC: Make the API public. If you set this parameter to PUBLIC, this API is displayed on the APIs page for all users after the API is published to the production environment.**
-     *   **PRIVATE: Make the API private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
+     *   **PUBLIC**: The API is public. If you publish the definition of a public API to the production environment, the definition is displayed on the APIs page for all users.
+     *   **PRIVATE**: The API is private. If you publish an API group that contains a private API in Alibaba Cloud Marketplace, the API is not displayed in Alibaba Cloud Marketplace.
      *
      * @example PUBLIC
      *

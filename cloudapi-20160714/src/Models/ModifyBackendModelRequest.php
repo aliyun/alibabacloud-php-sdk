@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackendModelRequest extends Model
 {
     /**
-     * @description The ID of the backend service.
-     *
      * @example 20bcdc9453524b78a8beb1f6de21edb7
      *
      * @var string
@@ -18,8 +16,6 @@ class ModifyBackendModelRequest extends Model
     public $backendId;
 
     /**
-     * @description The information about the backend model.
-     *
      * @example {\"ServiceAddress\":\"http://121.40.XX.XX\"}
      *
      * @var string
@@ -27,8 +23,6 @@ class ModifyBackendModelRequest extends Model
     public $backendModelData;
 
     /**
-     * @description The ID of the backend model.
-     *
      * @example 3bb6375bc71c4e4c95ce05b4e7a55a9d
      *
      * @var string
@@ -36,8 +30,6 @@ class ModifyBackendModelRequest extends Model
     public $backendModelId;
 
     /**
-     * @description The type of the backend service.
-     *
      * @example OSS
      *
      * @var string
@@ -45,8 +37,6 @@ class ModifyBackendModelRequest extends Model
     public $backendType;
 
     /**
-     * @description The definition of the backend model.
-     *
      * @example modify plugin first
      *
      * @var string
@@ -59,12 +49,6 @@ class ModifyBackendModelRequest extends Model
     public $securityToken;
 
     /**
-     * @description The name of the runtime environment. Valid values:
-     *
-     *   **RELEASE**
-     *   **PRE**
-     *   **TEST**
-     *
      * @example TEST
      *
      * @var string

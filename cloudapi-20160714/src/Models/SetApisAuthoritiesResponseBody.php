@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetApisAuthoritiesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description Authorizes a specified app to call multiple APIs.
      *
      * @example D6E46F10-F26C-4AA0-BB69-FE2743D9AE62
      *

@@ -14,7 +14,10 @@ class DeleteSignatureRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the key to be deleted.
+     * @description *   This API is intended for API providers.
+     *   This API operation deletes an existing backend signature key.
+     *   You cannot delete a key that is bound to an API. To delete the key, you must unbind it first.
+     *   The QPS limit on this operation is 50 per user.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *

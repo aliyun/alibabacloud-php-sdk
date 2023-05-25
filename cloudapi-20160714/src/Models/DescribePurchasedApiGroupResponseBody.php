@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribePurchasedApiGroupResponseBody extends Model
 {
     /**
-     * @description The region where the API group is located.
-     *
      * @example api group description
      *
      * @var string
@@ -19,15 +17,11 @@ class DescribePurchasedApiGroupResponseBody extends Model
     public $description;
 
     /**
-     * @description The list of domain names.
-     *
      * @var domains
      */
     public $domains;
 
     /**
-     * @description The name of the API group.
-     *
      * @example 48977d7b96074966a7c9c2a8872d7e06
      *
      * @var string
@@ -35,8 +29,6 @@ class DescribePurchasedApiGroupResponseBody extends Model
     public $groupId;
 
     /**
-     * @description The description of the API group.
-     *
      * @example Weather
      *
      * @var string
@@ -44,8 +36,6 @@ class DescribePurchasedApiGroupResponseBody extends Model
     public $groupName;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 2021-12-19T00:00:00
      *
      * @var string
@@ -53,8 +43,6 @@ class DescribePurchasedApiGroupResponseBody extends Model
     public $purchasedTime;
 
     /**
-     * @description The list of domain names.
-     *
      * @example cn-qingdao
      *
      * @var string
@@ -62,8 +50,6 @@ class DescribePurchasedApiGroupResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the API group.
-     *
      * @example 61A16D46-EC04-5288-8A18-811B0F536CC2
      *
      * @var string
@@ -71,8 +57,6 @@ class DescribePurchasedApiGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The time when the API group was purchased.
-     *
      * @example NORMAL
      *
      * @var string

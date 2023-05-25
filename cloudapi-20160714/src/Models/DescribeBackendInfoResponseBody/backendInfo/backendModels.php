@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class backendModels extends Model
 {
     /**
-     * @description The backend configurations.
-     *
      * @var backendConfig
      */
     public $backendConfig;
 
     /**
-     * @description The ID of the backend service in the environment.
-     *
      * @example 5c4995d08e8b4954b0f326e8e4f2b97d
      *
      * @var string
@@ -26,8 +22,6 @@ class backendModels extends Model
     public $backendModelId;
 
     /**
-     * @description The description of the backend service.
-     *
      * @example testDvs 1
      *
      * @var string
@@ -35,8 +29,6 @@ class backendModels extends Model
     public $description;
 
     /**
-     * @description The time when the backend service was created.
-     *
      * @example 2021-12-20T03:22:03.000+0000
      *
      * @var string
@@ -44,8 +36,6 @@ class backendModels extends Model
     public $gmtCreate;
 
     /**
-     * @description The time when the backend service was modified.
-     *
      * @example 2021-12-20T03:22:03.000+0000
      *
      * @var string
@@ -53,8 +43,6 @@ class backendModels extends Model
     public $gmtModified;
 
     /**
-     * @description The ID of the environment.
-     *
      * @example 6fc978bb63574146b766863dd7bdf661
      *
      * @var string
@@ -62,8 +50,6 @@ class backendModels extends Model
     public $stageModeId;
 
     /**
-     * @description The name of the environment.
-     *
      * @example RELEASE
      *
      * @var string

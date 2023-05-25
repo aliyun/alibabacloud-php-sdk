@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class pluginSchema extends Model
 {
     /**
-     * @description The plug-in description.
-     *
      * @example plugin scheme description
      *
      * @var string
@@ -18,8 +16,6 @@ class pluginSchema extends Model
     public $description;
 
     /**
-     * @description The ID of the document.
-     *
      * @example 4107**
      *
      * @var string
@@ -27,8 +23,6 @@ class pluginSchema extends Model
     public $documentId;
 
     /**
-     * @description The name of the plug-in.
-     *
      * @example VPC_C
      *
      * @var string
@@ -36,8 +30,6 @@ class pluginSchema extends Model
     public $name;
 
     /**
-     * @description Indicates whether classification is supported.
-     *
      * @example true
      *
      * @var bool
@@ -45,8 +37,6 @@ class pluginSchema extends Model
     public $supportClassic;
 
     /**
-     * @description The plug-in title.
-     *
      * @example plugin schema title
      *
      * @var string

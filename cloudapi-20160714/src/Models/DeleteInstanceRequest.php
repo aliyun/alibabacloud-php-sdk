@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceRequest extends Model
 {
     /**
-     * @description The tag of objects that match the lifecycle rule. You can specify multiple tags.
-     *
      * @example apigateway-sh-ae502ee79ef8
      *
      * @var string
@@ -19,8 +17,6 @@ class DeleteInstanceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The key of the tag.
-     *
      * @example Key， Value
      *
      * @var tag[]

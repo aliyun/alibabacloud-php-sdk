@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteDomainResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description Unbinds a custom domain name from a specified API group.
      *
      * @example 6EF60BEC-0242-43AF-BB20-270359FB54A7
      *

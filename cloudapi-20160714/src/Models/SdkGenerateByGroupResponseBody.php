@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SdkGenerateByGroupResponseBody extends Model
 {
     /**
-     * @description The download link of the SDK.
-     *
      * @example http://oss-bucket/object
      *
      * @var string
@@ -18,8 +16,6 @@ class SdkGenerateByGroupResponseBody extends Model
     public $downloadLink;
 
     /**
-     * @description The ID of the request.
-     *
      * @example D0075BDA-8AED-5073-A70A-FE44E86AB20F
      *
      * @var string

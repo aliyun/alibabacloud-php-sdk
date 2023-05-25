@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpControlRequest extends Model
 {
     /**
-     * @description The ID of the ACL. The ID is unique.
+     * @description *   This operation is intended for API providers.
+     *   If the ACL is bound to an API, you must unbind the ACL from the API before you can delete the ACL. Otherwise, an error is returned.
+     *   If you call this operation on an ACL that does not exist, a success message is returned.
      *
      * @example 7ea91319a34d48a09b5c9c871d9768b1
      *

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class BatchAbolishApisResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example f7834d74be4e41aa8e607b0fafae9b33
      *
      * @var string
@@ -18,8 +16,6 @@ class BatchAbolishApisResponseBody extends Model
     public $operationId;
 
     /**
-     * @description auditing
-     *
      * @example E7FE7172-AA75-5880-B6F7-C00893E9BC06
      *
      * @var string

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateBackendRequest extends Model
 {
     /**
-     * @description The name of the backend service.
-     *
      * @example testBackendService
      *
      * @var string
@@ -18,8 +16,6 @@ class CreateBackendRequest extends Model
     public $backendName;
 
     /**
-     * @description The type of the backend service. Valid values: `HTTP, VPC, FC_EVENT, FC_HTTP, OSS, and MOCK`.
-     *
      * @example HTTP
      *
      * @var string
@@ -27,8 +23,6 @@ class CreateBackendRequest extends Model
     public $backendType;
 
     /**
-     * @description Specifies whether to create a role associated with EventBridge.
-     *
      * @example true
      *
      * @var bool
@@ -36,10 +30,6 @@ class CreateBackendRequest extends Model
     public $createEventBridgeServiceLinkedRole;
 
     /**
-     * @description The description of the backend service.
-     *
-     * @example HTTP backend
-     *
      * @var string
      */
     public $description;

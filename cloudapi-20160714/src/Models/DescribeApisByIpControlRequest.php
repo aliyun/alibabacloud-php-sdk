@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeApisByIpControlRequest extends Model
 {
     /**
-     * @description The ID of the ACL.
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
      *
      * @example dd05f1c54d6749eda95f9fa6d491449a
      *
@@ -18,7 +18,7 @@ class DescribeApisByIpControlRequest extends Model
     public $ipControlId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The ID of the request.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class DescribeApisByIpControlRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100. Default value: 10.
+     * @description The page number of the returned page.
      *
      * @example 10
      *
