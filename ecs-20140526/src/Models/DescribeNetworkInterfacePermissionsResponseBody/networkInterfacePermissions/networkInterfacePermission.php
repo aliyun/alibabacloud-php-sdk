@@ -18,7 +18,7 @@ class networkInterfacePermission extends Model
     public $accountId;
 
     /**
-     * @description The ID of the ENI.
+     * @description The ID of ENI N.
      *
      * @example eni-bp14v2sdd3v8htln****
      *
@@ -45,7 +45,7 @@ class networkInterfacePermission extends Model
     public $permission;
 
     /**
-     * @description The state of the ENI permission. Valid values:
+     * @description The status of the ENI permission. Valid values:
      *
      *   Pending: The permission is being granted.
      *   Granted: The permission is granted.

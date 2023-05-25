@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRenewalPriceResponseBody extends Model
 {
     /**
-     * @description Details about the prices and discount rules.
+     * @description Details about the prices and promotion rules.
      *
      * @var priceInfo
      */

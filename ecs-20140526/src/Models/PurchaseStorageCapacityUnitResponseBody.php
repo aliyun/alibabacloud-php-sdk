@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class PurchaseStorageCapacityUnitResponseBody extends Model
 {
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 204135153880****
      *
@@ -19,7 +19,7 @@ class PurchaseStorageCapacityUnitResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *

@@ -16,7 +16,7 @@ class CreateCapacityReservationRequest extends Model
     public $privatePoolOptions;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate a client token. Make sure that a unique client token is used for each request. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotency of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
@@ -46,8 +46,8 @@ class CreateCapacityReservationRequest extends Model
     /**
      * @description The release mode of the capacity reservation. Valid values:
      *
-     *   Limited: The capacity reservation is automatically released at the specified time. If you specify this parameter, you must also specify the `EndTime` parameter.
-     *   Unlimited: The capacity reservation must be manually released. You can release it anytime.
+     *   Limited: The capacity reservation is automatically released at a specified time. If you specify this parameter, you must specify the `EndTime` parameter.
+     *   Unlimited: The capacity reservation is manually released. The capacity reservation can be released anytime.
      *
      * @example Unlimited
      *
@@ -56,7 +56,7 @@ class CreateCapacityReservationRequest extends Model
     public $endTimeType;
 
     /**
-     * @description The total number of instances for which to reserve the capacity of an instance type.
+     * @description The total number of instances for which the capacity of an instance type is reserved.
      *
      * @example 2
      *
@@ -65,7 +65,7 @@ class CreateCapacityReservationRequest extends Model
     public $instanceAmount;
 
     /**
-     * @description The instance type. A capacity reservation can be created to reserve the capacity of only a single instance type. You can call the [DescribeInstanceTypes](~~25620~~) operation to query the instance types provided by ECS.
+     * @description The instance type. You can create a capacity reservation to reserve the capacity of only one instance type. You can call the [DescribeInstanceTypes](~~25620~~) operation to query the instance types provided by ECS.
      *
      * @example ecs.g6.xlarge
      *
@@ -84,12 +84,12 @@ class CreateCapacityReservationRequest extends Model
     public $ownerId;
 
     /**
-     * @description The operating system of the image used by the instance. This parameter corresponds to the `Platform` parameter of regional reserved instances. If the operating system of a capacity reservation matches that of a regional reserved instance, the regional reserved instance can be applied to offset bills of the unused capacity of the capacity reservation. Valid values:
+     * @description The operating system of the image used by the instance. This parameter corresponds to the `Platform` parameter of regional reserved instances. If the operating system of a capacity reservation matches the operating system of a regional reserved instance, you can apply the regional reserved instance to offset fees of the unused capacity of the capacity reservation. Valid values:
      *
-     *   Windows: Windows Server operating system.
-     *   Linux: Linux and UNIX-like operating system.
+     *   Windows: Windows Server operating system
+     *   Linux: Linux and UNIX-like operating system
      *
-     * > This parameter is unavailable for public use.
+     * > This parameter is unavailable.
      * @example Linux
      *
      * @var string
@@ -97,7 +97,7 @@ class CreateCapacityReservationRequest extends Model
     public $platform;
 
     /**
-     * @description The ID of the region in which to create the capacity reservation. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The ID of the region in which to create the capacity reservation. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -106,7 +106,7 @@ class CreateCapacityReservationRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which to assign the capacity reservation.
+     * @description The ID of the resource group to which you want to assign the capacity reservation.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -125,9 +125,9 @@ class CreateCapacityReservationRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The time when the capacity reservation takes effect. The CreateCapacityReservation operation can be called to create only immediate capacity reservations.
+     * @description The mode in which the capacity reservation takes effect. You can call the CreateCapacityReservation operation to create only immediate capacity reservations.
      *
-     * >  If you do not specify this parameter, the capacity reservation takes effect immediately.
+     * > If you do not specify this parameter, the capacity reservation immediately takes effect.
      * @example 2021-10-30T05:32:00Z
      *
      * @var string
@@ -142,7 +142,7 @@ class CreateCapacityReservationRequest extends Model
     public $tag;
 
     /**
-     * @description The ID of the zone in which to create the capacity reservation. A capacity reservation can reserve resources within only a single zone.
+     * @description The ID of the zone in which you want to create the capacity reservation. A capacity reservation can reserve resources within only one zone.
      *
      * @example cn-hangzhou-h
      *

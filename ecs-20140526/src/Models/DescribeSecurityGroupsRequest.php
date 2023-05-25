@@ -10,12 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupsRequest extends Model
 {
     /**
-     * @description Specifies whether to perform a dry run. Valid values:
+     * @description The ID of the security group.
      *
-     *   true: performs a dry run. The system checks the AccessKey pair, the permissions of the RAM user, and the required parameters. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-     *   false: performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
-     *
-     * Default value: false.
      * @example false
      *
      * @var bool
@@ -23,8 +19,9 @@ class DescribeSecurityGroupsRequest extends Model
     public $dryRun;
 
     /**
-     * @description > This parameter is no longer used.
+     * @description The number of the page to return.
      *
+     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
      * @example null
      *
      * @var bool
@@ -32,8 +29,9 @@ class DescribeSecurityGroupsRequest extends Model
     public $fuzzyQuery;
 
     /**
-     * @description > This parameter is no longer used.
+     * @description The ID of the resource group to which the security groups belong. When you use this parameter to filter resources, the number of resources in the specified resource group cannot exceed 1,000. You can call the [ListResourceGroups](~~158855~~) operation to query the most recent resource group list.
      *
+     * > Resources in the default resource group are displayed in the response regardless of how you specify this parameter.
      * @example null
      *
      * @var bool
@@ -41,9 +39,11 @@ class DescribeSecurityGroupsRequest extends Model
     public $isQueryEcsCount;
 
     /**
-     * @description The maximum number of entries to return on each page. If you specify the MaxResults parameter, the `MaxResults` and `NextToken` parameters are used for a paged query.
+     * @description The network type of the security group. Valid values:
      *
-     * Default value: 10.
+     *   vpc: virtual private cloud (VPC)
+     *   classic: classic network
+     *
      * @example 10
      *
      * @var int
@@ -51,10 +51,7 @@ class DescribeSecurityGroupsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The network type of the security group. Valid values:
-     *
-     *   vpc: virtual private cloud (VPC)
-     *   classic: classic network
+     * @description The name of the security group.
      *
      * @example vpc
      *
@@ -63,8 +60,9 @@ class DescribeSecurityGroupsRequest extends Model
     public $networkType;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. Set this parameter to the NextToken value that is returned when you called the DescribeInstanceTypes operation last time. You do not need to specify this parameter for the first request.
+     * @description The maximum number of entries to return on each page. If you specify the MaxResults parameter, the `MaxResults` and `NextToken` parameters are used for a paged query.
      *
+     * Default value: 10.
      * @example e71d8a535bd9cc11
      *
      * @var string
@@ -82,7 +80,7 @@ class DescribeSecurityGroupsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The number of entries to return on each page.
      *
      * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
      * @example 1
@@ -92,9 +90,8 @@ class DescribeSecurityGroupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The ID of the request.
      *
-     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
      * @example 10
      *
      * @var int
@@ -102,7 +99,7 @@ class DescribeSecurityGroupsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the security groups. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The IDs of security groups. The value is a JSON array that consists of up to 100 security group IDs. Separate the IDs with commas (,).
      *
      * @example cn-hangzhou
      *
@@ -111,9 +108,8 @@ class DescribeSecurityGroupsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the security groups belong. When you use this parameter to filter resources, the number of resources in the specified resource group cannot exceed 1,000. You can call the [ListResourceGroups](~~158855~~) operation to query the most recent resource group list.
+     * @description The tags of the security group.
      *
-     * > Resources in the default resource group are displayed in the response regardless of how you specify this parameter.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -131,7 +127,7 @@ class DescribeSecurityGroupsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the security group.
+     * @description > This parameter is no longer used.
      *
      * @example sg-bp67acfmxazb4p****
      *
@@ -140,7 +136,7 @@ class DescribeSecurityGroupsRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The IDs of security groups. The value is a JSON array that consists of up to 100 security group IDs. Separate the IDs with commas (,).
+     * @description The ID of the virtual private cloud (VPC) to which the security groups belong.
      *
      * @example ["sg-bp67acfmxazb4p****", "sg-bp67acfmxazb4p****", "sg-bp67acfmxazb4p****",....]
      *
@@ -149,7 +145,7 @@ class DescribeSecurityGroupsRequest extends Model
     public $securityGroupIds;
 
     /**
-     * @description The name of the security group.
+     * @description > This parameter is no longer used.
      *
      * @example SGTestName
      *
@@ -158,12 +154,8 @@ class DescribeSecurityGroupsRequest extends Model
     public $securityGroupName;
 
     /**
-     * @description The type of the security group. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Set this parameter to the NextToken value that is returned when you called the DescribeInstanceTypes operation last time. You do not need to specify this parameter for the first request.
      *
-     *   normal: basic security group
-     *   enterprise: advanced security group
-     *
-     * > If you do not specify this parameter, basic and advanced security groups are queried.
      * @example normal
      *
      * @var string
@@ -178,8 +170,12 @@ class DescribeSecurityGroupsRequest extends Model
     public $tag;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the security groups belong.
+     * @description The type of the security group. Valid values:
      *
+     *   normal: basic security group
+     *   enterprise: advanced security group
+     *
+     * > If you do not specify this parameter, basic and advanced security groups are queried.
      * @example vpc-bp67acfmxazb4p****
      *
      * @var string

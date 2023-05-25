@@ -24,7 +24,7 @@ class networkInterfaceSet extends Model
     public $associatedPublicIp;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to the public.
+     * @description > This parameter is in invitational preview and is unavailable.
      *
      * @var attachment
      */
@@ -49,7 +49,7 @@ class networkInterfaceSet extends Model
     public $description;
 
     /**
-     * @description The ID of the ECS instance to which the ENI is bound.
+     * @description The ID of the instance to which the ENI is attached.
      *
      * > If the ENI is managed and controlled by other Alibaba Cloud services, no instance ID is returned.
      * @example i-bp1e2l6djkndyuli****
@@ -59,11 +59,15 @@ class networkInterfaceSet extends Model
     public $instanceId;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable for general users.
+     *
      * @var ipv4PrefixSets
      */
     public $ipv4PrefixSets;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable for general users.
+     *
      * @var ipv6PrefixSets
      */
     public $ipv6PrefixSets;
@@ -85,7 +89,7 @@ class networkInterfaceSet extends Model
     public $macAddress;
 
     /**
-     * @description The ID of the ENI.
+     * @description The ENI ID.
      *
      * @example eni-bp125p95hhdhn3ot****
      *
@@ -106,9 +110,9 @@ class networkInterfaceSet extends Model
      * @description The communication mode of the ENI. Valid values:
      *
      *   Standard: the TCP communication mode is used.
-     *   HighPerformance: enables Elastic RDMA Interface (ERI) and uses the remote direct memory access (RDMA) communication mode.
+     *   HighPerformance: enables the Elastic RDMA Interface (ERI) and uses the remote direct memory access (RDMA) communication mode.
      *
-     * > The NetworkInterfaceTrafficMode parameter can be set to HighPerformance only when the instance to which the ENI is bound belongs to the c7re RDMA-enhanced instance family and is located within Beijing Zone K.
+     * > You can set this parameter to HighPerformance only when the ENI is attached to a c7re RDMA-enhanced instance that resides in Beijing Zone K.
      * @example Standard
      *
      * @var string
@@ -134,7 +138,7 @@ class networkInterfaceSet extends Model
     public $privateIpAddress;
 
     /**
-     * @description Details about the private IP addresses.
+     * @description Details about the private IP addresses of the ENI.
      *
      * @var privateIpSets
      */
@@ -143,9 +147,9 @@ class networkInterfaceSet extends Model
     /**
      * @description The number of queues supported by the ENI.
      *
-     *   If the ENI is a secondary ENI in the InUse state and the number of queues supported by this ENI has never been modified, the default number of queues per secondary ENI that the instance type supports is returned.
+     *   If the ENI is a secondary ENI in the InUse state and the number of queues supported by the ENI has never been modified, the default number of queues per secondary ENI that the instance type supports is returned.
      *   If the number of queues supported by the secondary ENI has been modified, the new number of queues is returned.
-     *   If the ENI is a secondary ENI in the Available state and the number of queues supported by this ENI has never been modified, an empty value is returned.
+     *   If the ENI is a secondary ENI in the Available state and the number of queues supported by the ENI has never been modified, an empty value is returned.
      *   If the ENI is a primary ENI, the default number of queues per primary ENI that the instance type supports is returned.
      *
      * @example 8
@@ -164,7 +168,7 @@ class networkInterfaceSet extends Model
     public $queuePairNumber;
 
     /**
-     * @description The ID of your Alibaba Cloud resource group.
+     * @description The ID of the resource group to which the ENI belongs.
      *
      * @example rg-2ze88m67qx5z****
      *
@@ -223,7 +227,7 @@ class networkInterfaceSet extends Model
     public $type;
 
     /**
-     * @description The ID of the vSwitch to which the ENI is connected.
+     * @description The ID of the vSwitch with which the ENI is associated.
      *
      * @example vsw-bp16usj2p27htro3****
      *
@@ -241,7 +245,7 @@ class networkInterfaceSet extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone in which the instance resides.
+     * @description The zone ID of the ENI.
      *
      * @example cn-hangzhou-e
      *

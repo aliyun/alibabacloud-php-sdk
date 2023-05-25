@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class capacityReservationItem extends Model
 {
     /**
-     * @description Details about the allocated resources.
+     * @description Details of the allocated resources.
      *
      * @var allocatedResources
      */
@@ -39,7 +39,7 @@ class capacityReservationItem extends Model
      * @description The release mode of the capacity reservation. Valid values:
      *
      *   Limited: The capacity reservation is automatically released at the specified time.
-     *   Unlimited: The capacity reservation is manually released. You can release it at anytime.
+     *   Unlimited: The capacity reservation is manually released. You can release the capacity reservation anytime.
      *
      * @example Unlimited
      *
@@ -48,10 +48,10 @@ class capacityReservationItem extends Model
     public $endTimeType;
 
     /**
-     * @description The billing method of instances to be created by using the capacity reservation. Valid values:
+     * @description The billing method of instances in the capacity reservation. Valid values:
      *
-     *   PostPaid: pay-as-you-go
-     *   PrePaid: subscription
+     *   PostPaid: pay-as-you-go.
+     *   PrePaid: subscription.
      *
      * @example PostPaid
      *
@@ -60,10 +60,10 @@ class capacityReservationItem extends Model
     public $instanceChargeType;
 
     /**
-     * @description The operating system type of instances to be created by using the capacity reservation. Valid values:
+     * @description The operating system type of the instances. Valid values:
      *
-     *   windows
-     *   linux
+     *   windows: Windows operating systems.
+     *   linux: Linux operating systems.
      *
      * @example linux
      *
@@ -81,10 +81,10 @@ class capacityReservationItem extends Model
     public $privatePoolOptionsId;
 
     /**
-     * @description The type of the private pool associated with the capacity reservation. Valid values:
+     * @description The type of the private pool generated after the capacity reservation takes effect. Valid values:
      *
-     *   Open: open private pool
-     *   Target: targeted private pool
+     *   Open: open private pool.
+     *   Target: targeted private pool.
      *
      * @example Open
      *
@@ -149,7 +149,9 @@ class capacityReservationItem extends Model
     /**
      * @description The mode in which the capacity reservation takes effect. Valid values:
      *
-     * - Later: The capacity reservation takes effect at the specified time.
+     *   Now: The capacity reservation takes effect as soon as it is created.
+     *   Later: The capacity reservation takes effect at the specified time.
+     *
      * @example Now
      *
      * @var string
@@ -179,7 +181,7 @@ class capacityReservationItem extends Model
     public $tags;
 
     /**
-     * @description >  This parameter is currently in invitational preview and unavailable for general users.
+     * @description > This parameter is in invitational preview and is not publicly available.
      *
      * @example null
      *

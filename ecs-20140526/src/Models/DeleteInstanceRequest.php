@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceRequest extends Model
 {
     /**
-     * @description Specifies whether to forcefully release the instance in the **Running** (`Running`) state. Valid values:
+     * @description Specifies whether to forcefully release the instance in the `Running` state. Valid values:****
      *
-     *   true: forcefully releases the instance in the **Running** (`Running`) state. When the Force parameter is set to true, this operation is equivalent to the power-off operation. Temporary data in the memory and storage of the instance is erased and cannot be restored.
-     *   false: normally releases the instance. This value is valid only for instances in the **Stopped** (`Stopped`) state.
+     *   true: forcefully releases the instance in the `Running` state.**** This operation is equivalent to performing a hard shut-down. Cache data that is not written to persistent storage will be lost.
+     *   false: normally releases the instance. This value is valid only for instances in the `Stopped` state.****
      *
      * Default value: false.
      * @example false
@@ -22,7 +22,7 @@ class DeleteInstanceRequest extends Model
     public $force;
 
     /**
-     * @description The ID of the instance that you want to release.
+     * @description The ID of the instance.
      *
      * @example i-bp1g6zv0ce8oghu7****
      *
@@ -51,7 +51,7 @@ class DeleteInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to release the expired subscription instance.
+     * @description Specifies whether to release an expired subscription instance.
      *
      * Default value: false.
      * @example false

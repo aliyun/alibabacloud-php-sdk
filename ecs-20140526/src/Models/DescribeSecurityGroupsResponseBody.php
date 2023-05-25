@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupsResponseBody extends Model
 {
     /**
-     * @description The pagination token that can be used in the next request to retrieve a new page of results. If the return value of this parameter is empty when you specify the MaxResults and NextToken parameters for a paged query, no more results are to be returned.
+     * @description The information about the security groups.
      *
      * @example e71d8a535bd9cc11
      *
@@ -19,7 +19,7 @@ class DescribeSecurityGroupsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of entries returned per page.
      *
      * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
      * @example 1
@@ -29,9 +29,6 @@ class DescribeSecurityGroupsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
-     *
-     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
      * @example 10
      *
      * @var int
@@ -39,7 +36,7 @@ class DescribeSecurityGroupsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the security groups.
+     * @description The pagination token that can be used in the next request to retrieve a new page of results. If the return value of this parameter is empty when you specify the MaxResults and NextToken parameters for a paged query, no more results are to be returned.
      *
      * @example cn-hangzhou
      *
@@ -48,7 +45,7 @@ class DescribeSecurityGroupsResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The region ID of the security groups.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -57,15 +54,16 @@ class DescribeSecurityGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the security groups.
+     * @description The ID of the security group.
      *
      * @var securityGroups
      */
     public $securityGroups;
 
     /**
-     * @description The total number of security groups. If you specify the `MaxResults` and `NextToken` parameters in the request, this parameter is empty.
+     * @description The page number of the returned page.
      *
+     * > This parameter will be removed in the future. We recommend that you use the NextToken and MaxResults parameters for a paged query.
      * @example 20
      *
      * @var int

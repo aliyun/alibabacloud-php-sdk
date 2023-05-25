@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class RevokeSecurityGroupRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -19,7 +19,7 @@ class RevokeSecurityGroupRequest extends Model
     public $clientToken;
 
     /**
-     * @description This parameter is no longer used. Use `Permissions.N.Description` to specify the description of security group rule N.
+     * @description This parameter is deprecated. Use `Permissions.N.Description` to specify the description of security group rule N.
      *
      * @example This is description.
      *
@@ -28,7 +28,7 @@ class RevokeSecurityGroupRequest extends Model
     public $description;
 
     /**
-     * @description This parameter is no longer used. Use `Permissions.N.DestCidrIp` to specify the destination IPv4 CIDR block.
+     * @description This parameter is deprecated. Use `Permissions.N.DestCidrIp` to specify the destination IPv4 CIDR block.
      *
      * @example 10.0.0.0/8
      *
@@ -37,7 +37,7 @@ class RevokeSecurityGroupRequest extends Model
     public $destCidrIp;
 
     /**
-     * @description This parameter is no longer used. Use `Permissions.N.IpProtocol` to specify the transport layer protocol.
+     * @description This parameter is deprecated. Use `Permissions.N.IpProtocol` to specify the transport layer protocol.
      *
      * @example ALL
      *
@@ -46,7 +46,7 @@ class RevokeSecurityGroupRequest extends Model
     public $ipProtocol;
 
     /**
-     * @description This parameter is no longer used. Use `Permissions.N.Ipv6DestCidrIp` to specify the destination IPv6 CIDR block.
+     * @description This parameter is deprecated. Use `Permissions.N.Ipv6DestCidrIp` to specify the destination IPv6 CIDR block.
      *
      * @example 2001:db8:1233:1a00::***
      *
@@ -55,7 +55,7 @@ class RevokeSecurityGroupRequest extends Model
     public $ipv6DestCidrIp;
 
     /**
-     * @description This parameter is no longer used. Use `Permissions.N.Ipv6SourceCidrIp` to specify the source IPv6 CIDR block.
+     * @description This parameter is deprecated. Use `Permissions.N.Ipv6SourceCidrIp` to specify the source IPv6 CIDR block.
      *
      * @example 2001:db8:1234:1a00::***
      *
@@ -64,7 +64,7 @@ class RevokeSecurityGroupRequest extends Model
     public $ipv6SourceCidrIp;
 
     /**
-     * @description This parameter is no longer used. Use `Permissions.N.NicType` to specify the network interface type.
+     * @description This parameter is deprecated. Use `Permissions.N.NicType` to specify the NIC type.
      *
      * @example intranet
      *
@@ -90,7 +90,7 @@ class RevokeSecurityGroupRequest extends Model
     public $permissions;
 
     /**
-     * @description This parameter is no longer used. Use `Permissions.N.Policy` to specify whether to accept inbound access.
+     * @description This parameter is deprecated. Use `Permissions.N.Policy` to specify whether to allow inbound access.
      *
      * @example accept
      *
@@ -99,7 +99,7 @@ class RevokeSecurityGroupRequest extends Model
     public $policy;
 
     /**
-     * @description This parameter is no longer used. Use `Permissions.N.PortRange` to specify the range of destination ports.
+     * @description This parameter is deprecated. Use `Permissions.N.PortRange` to specify the range of destination ports.
      *
      * @example 1/200
      *
@@ -108,7 +108,7 @@ class RevokeSecurityGroupRequest extends Model
     public $portRange;
 
     /**
-     * @description This parameter is no longer used. Use `Permissions.N.Priority` to specify the rule priority.
+     * @description This parameter is deprecated. Use `Permissions.N.Priority` to specify the priority of the rule.
      *
      * @example 1
      *
@@ -145,14 +145,14 @@ class RevokeSecurityGroupRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The ID of security group rule N. Valid values of N: 1 to 100.
+     * @description The IDs of the security group rules. Valid values of N: 1 to 100.
      *
      * @var string[]
      */
     public $securityGroupRuleId;
 
     /**
-     * @description This parameter is no longer used. Use `Permissions.N.SourceCidrIp` to specify the source IPv4 CIDR block.
+     * @description This parameter is deprecated. Use `Permissions.N.SourceCidrIp` to specify the source IPv4 CIDR block.
      *
      * @example 10.0.0.0/8
      *
@@ -161,7 +161,7 @@ class RevokeSecurityGroupRequest extends Model
     public $sourceCidrIp;
 
     /**
-     * @description This parameter is no longer used. Use `Permissions.N.SourceGroupId` to specify the ID of the source security group.
+     * @description This parameter is deprecated. Use `Permissions.N.SourceGroupId` to specify the ID of the source security group.
      *
      * @example sg-bp67acfmxa123b****
      *
@@ -170,7 +170,7 @@ class RevokeSecurityGroupRequest extends Model
     public $sourceGroupId;
 
     /**
-     * @description This parameter is no longer used. Use `Permissions.N.SourceGroupOwnerAccount` to specify the Alibaba Cloud account that manages the source security group.
+     * @description This parameter is deprecated. Use `Permissions.N.SourceGroupOwnerAccount` to specify the Alibaba Cloud account that manages the source security group.
      *
      * @example Test@aliyun.com
      *
@@ -179,7 +179,7 @@ class RevokeSecurityGroupRequest extends Model
     public $sourceGroupOwnerAccount;
 
     /**
-     * @description This parameter is no longer used. Use `Permissions.N.SourceGroupOwnerId` to specify the ID of the Alibaba Cloud account that manages the source security group.
+     * @description This parameter is deprecated. Use `Permissions.N.SourceGroupOwnerId` to specify the ID of the Alibaba Cloud account that manages the source security group.
      *
      * @example 12345678910
      *
@@ -188,7 +188,7 @@ class RevokeSecurityGroupRequest extends Model
     public $sourceGroupOwnerId;
 
     /**
-     * @description This parameter is no longer used. Use `Permissions.N.SourcePortRange` to specify the range of source ports.
+     * @description This parameter is deprecated. Use `Permissions.N.SourcePortRange` to specify the range of source ports.
      *
      * @example 80/80
      *
@@ -197,7 +197,7 @@ class RevokeSecurityGroupRequest extends Model
     public $sourcePortRange;
 
     /**
-     * @description This parameter is no longer used. Use `Permissions.N.SourcePrefixListId`to specify the ID of the source prefix list.
+     * @description This parameter is deprecated. Use `Permissions.N.SourcePrefixListId` to specify the ID of the source prefix list.
      *
      * @example pl-x1j1k5ykzqlixdcy****
      *

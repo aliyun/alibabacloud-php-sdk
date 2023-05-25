@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRenewalPriceRequest extends Model
 {
     /**
-     * @description The synchronized expiration date. If you set this parameter, the price for renewing a specified instance to the specified synchronized expiration date is queried. Valid values: 1 to 28.
+     * @description The synchronized expiration date. If you specify this parameter, the price for renewing a specified instance to the specified synchronized expiration date is queried. Valid values: 1 to 28.
      *
      * > The renewal period-related parameter pair (`Period` and `PeriodUnit`) and the `ExpectedRenewDay` parameter are mutually exclusive.
      * @example 5
@@ -31,8 +31,8 @@ class DescribeRenewalPriceRequest extends Model
     /**
      * @description The renewal period. Valid values:
      *
-     *   Valid values when `PriceUnit` is set to `Month`: 1, 2, 3, 4, 5, 6, 7, 8, and 9.
-     *   Valid values when `PriceUnit` is set to `Year`: 1, 2, 3.
+     *   Valid values when the `PriceUnit` parameter is set to `Month`: 1, 2, 3, 4, 5, 6, 7, 8, and 9.
+     *   Valid values when the `PriceUnit` parameter is set to `Year`: 1, 2, 3.
      *
      * > The renewal period-related parameter pair (`Period` and `PeriodUnit`) and the `ExpectedRenewDay` parameter are mutually exclusive.
      * @example 1
@@ -55,7 +55,7 @@ class DescribeRenewalPriceRequest extends Model
     public $priceUnit;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *
@@ -64,7 +64,7 @@ class DescribeRenewalPriceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource. When the `ResourceType` parameter is set to`  instance `, `ResourceId` is interpreted as `InstanceId`.
+     * @description The ID of the resource. If the `ResourceType` parameter is set to`  instance `, the value of the `ResourceId` parameter is the ID of the specified instance.``
      *
      * @example i-bp1f2o4ldh8l29zv****
      *

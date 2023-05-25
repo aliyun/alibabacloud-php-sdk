@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagsResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeTagsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 50
      *
@@ -37,7 +37,7 @@ class DescribeTagsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The tags that match all the filter conditions.
+     * @description The tags that match all filter conditions.
      *
      * @var tags
      */

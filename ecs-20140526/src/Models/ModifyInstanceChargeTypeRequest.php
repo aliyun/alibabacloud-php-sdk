@@ -11,10 +11,10 @@ class ModifyInstanceChargeTypeRequest extends Model
     /**
      * @description Specifies whether to automatically complete the payment. Valid values:
      *
-     *   true: The payment is automatically completed. Make sure that the balance in your account is sufficient. Otherwise, your order becomes invalid and is canceled.
+     *   true: The payment is automatically completed. Make sure that you have a sufficient balance in your account. Otherwise, your order becomes invalid and is canceled.
      *   false: An order is generated but no payment is made.
      *
-     * > If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ECS console to pay for the order.
+     * > If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can log on to the ECS console to pay for the order.
      * @example false
      *
      * @var bool
@@ -22,7 +22,7 @@ class ModifyInstanceChargeTypeRequest extends Model
     public $autoPay;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -31,9 +31,9 @@ class ModifyInstanceChargeTypeRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to perform a dry run. Valid values:
+     * @description Specifies whether to perform only a dry run. Valid values: Valid values:
      *
-     *   true: performs a dry run. The system checks the AccessKey pair, the permissions of the RAM user, and the required parameters. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   true: performs only a dry run. The system checks the request for potential issues, including the AccessKey pair, the permissions of the RAM user, and the required parameters. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
      *   false: performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * Default value: false.
@@ -67,7 +67,7 @@ class ModifyInstanceChargeTypeRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The ID of the instance. The value can be a JSON array that consists of up to 20 instance IDs. Separate the instance IDs with commas (,).
+     * @description The instance ID. The value can be a JSON array that consists of up to 20 instance IDs. Separate the instance IDs with commas (,).
      *
      * @example ["i-bp67acfmxazb4p****","i-bp67acfmxazb4d****"]
      *
@@ -96,9 +96,9 @@ class ModifyInstanceChargeTypeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The renewal duration of the subscription instance. If the instance is hosted on a dedicated host, the renewal duration of the instance cannot exceed the subscription duration of the dedicated host. Valid values:
+     * @description The renewal duration of the subscription instance. If the instance is hosted on a dedicated host, the renewal duration of the instance cannot exceed the subscription duration of the dedicated host.
      *
-     * Valid values when the `PeriodUnit` parameter is set to Month: `1, 2, 3, 4, 5, 6, 7, 8, 9, and 12`.
+     * Valid values when `PeriodUnit` is set to Month: `1, 2, 3, 4, 5, 6, 7, 8, 9, and 12`.
      * @example 1
      *
      * @var int
@@ -106,7 +106,7 @@ class ModifyInstanceChargeTypeRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the renewal duration specified by the `Period` parameter. Valid values:
+     * @description The unit of the renewal duration specified by `Period`. Valid value:
      *
      * Default value: Month.
      * @example Month
@@ -116,7 +116,7 @@ class ModifyInstanceChargeTypeRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

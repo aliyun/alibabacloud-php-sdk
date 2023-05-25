@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
-     * @description The description of the promotion rule.
+     * @description $.parameters[5].schema.example
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the promotion rule.
+     * @description $.parameters[5].schema.enumValueTitles
      *
      * @example 1234567890
      *

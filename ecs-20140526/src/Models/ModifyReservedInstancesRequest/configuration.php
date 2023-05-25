@@ -30,7 +30,7 @@ class configuration extends Model
     /**
      * @description The name of reserved instance N. Valid values of N: 1 to 100.
      *
-     * The name must be 2 to 128 characters in length. It must start with a letter but cannot start with [http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).](http://https://。、（:）、（\_）（-）。)
+     * The name must be 2 to 128 characters in length. It must start with a letter but cannot start with [http:// or https://. It can contain letters, digits, colons (.), underscores (\_), and hyphens (-).](http://https://。、（:）、（\_）（-）。)
      * @example testReservedInstanceName
      *
      * @var string
@@ -40,8 +40,8 @@ class configuration extends Model
     /**
      * @description The scope of reserved instance N. Valid values:
      *
-     *   Region: regional.
-     *   Zone: zonal.
+     *   Region
+     *   Zone
      *
      * Default value: Region.
      * @example Zone
@@ -53,7 +53,7 @@ class configuration extends Model
     /**
      * @description The zone ID of reserved instance N. Valid values of N: 1 to 100.
      *
-     * You can call the [DescribeZones](~~25609~~) operation to query the most recent list of zones.
+     * You can call the [DescribeZones](~~25609~~) operation to query the most recent zone list.
      * @example cn-hangzhou-i
      *
      * @var string

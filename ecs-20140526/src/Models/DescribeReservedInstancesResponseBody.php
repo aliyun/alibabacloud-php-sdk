@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeReservedInstancesResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The returned page number.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class DescribeReservedInstancesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example E572643C-6A29-49D6-9D4E-6CFA4E063A3E
      *

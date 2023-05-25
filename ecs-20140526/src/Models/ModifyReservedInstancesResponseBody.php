@@ -19,7 +19,7 @@ class ModifyReservedInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The IDs of the reserved instances.
+     * @description Details about the reserved instance.
      *
      * @var reservedInstanceIdSets
      */

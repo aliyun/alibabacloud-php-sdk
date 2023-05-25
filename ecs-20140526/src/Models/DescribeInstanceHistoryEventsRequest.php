@@ -39,7 +39,7 @@ class DescribeInstanceHistoryEventsRequest extends Model
     public $eventCycleStatus;
 
     /**
-     * @description The ID of system event N. Valid values of N: 1 to 100. Specify multiple event IDs in the repeated list form.
+     * @description An array that consists of the IDs of system events. Valid values of N: 1 to 100. Specify multiple event IDs in the repeated list form.
      *
      * @example e-uf64yvznlao4jl2c****
      *
@@ -53,15 +53,15 @@ class DescribeInstanceHistoryEventsRequest extends Model
      *   SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
      *   SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
      *   SystemFailure.Reboot: The instance is restarted due to a system failure.
-     *   SystemFailure.Redeploy: The instance is redeployed due to a system failure.
+     *   SystemFailure.Redeploy: The instance is redeployed due to a system error.
      *   SystemFailure.Delete: The instance is released due to an instance creation failure.
-     *   InstanceFailure.Reboot: The instance is restarted due to an instance failure.
+     *   InstanceFailure.Reboot: The instance is restarted due to an instance error.
      *   InstanceExpiration.Stop: The instance is stopped due to subscription expiration.
      *   InstanceExpiration.Delete: The instance is released due to subscription expiration.
      *   AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
      *   AccountUnbalanced.Delete: The pay-as-you-go instance is released due to an overdue payment.
      *
-     * > For more information, see [Overview](~~66574~~). The values of this parameter are applicable only to instance system events, but not to disk system events.
+     * > For more information, see [Overview](~~66574~~). The values of this parameter are applicable only to instance-level system events, but not to disk-level system events.
      * @example SystemMaintenance.Reboot
      *
      * @var string
@@ -78,7 +78,7 @@ class DescribeInstanceHistoryEventsRequest extends Model
     public $impactLevel;
 
     /**
-     * @description The lifecycle state of system event N. Valid values of N: 1 to 7. Specify multiple states in the repeated list form. Valid values:
+     * @description An array that consists of the lifecycle states of system events. Valid values of N: 1 to 7. Specify multiple states in the repeated list form. Valid values:
      *
      *   Scheduled
      *   Avoided
@@ -99,10 +99,10 @@ class DescribeInstanceHistoryEventsRequest extends Model
      *
      *   SystemMaintenance.Reboot: The instance is restarted due to system maintenance.
      *   SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
-     *   SystemFailure.Reboot: The instance is restarted due to a system failure.
-     *   SystemFailure.Redeploy: The instance is redeployed due to a system failure.
+     *   SystemFailure.Reboot: The instance is restarted due to a system error.
+     *   SystemFailure.Redeploy: The instance is redeployed due to a system error.
      *   SystemFailure.Delete: The instance is released due to an instance creation failure.
-     *   InstanceFailure.Reboot: The instance is restarted due to an instance failure.
+     *   InstanceFailure.Reboot: The instance is restarted due to an instance error.
      *   InstanceExpiration.Stop: The instance is stopped due to subscription expiration.
      *   InstanceExpiration.Delete: The instance is released due to subscription expiration.
      *   AccountUnbalanced.Stop: The pay-as-you-go instance is stopped due to an overdue payment.
@@ -211,7 +211,7 @@ class DescribeInstanceHistoryEventsRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags that are supported by system events.
+     * @description An array that consists of the tags that are supported by system events.
      *
      * @var tag[]
      */

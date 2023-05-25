@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
-     * @description The key of filter. Only the image ID can be used to filter instance types. Valid values:
+     * @description The key of filter N. Only the image ID can be used to filter instance types. Valid values:
      *
-     * imagId: image ID
-     * filter: image ID
+     *   imagId: image ID
+     *   filter: image ID
      *
      * @example imageId
      *
@@ -21,7 +21,7 @@ class filter extends Model
     public $key;
 
     /**
-     * @description The value of filter.
+     * @description The value of filter N.
      *
      * @example m-o6w3gy99qf89rkga****
      *

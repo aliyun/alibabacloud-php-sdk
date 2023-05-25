@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceMonitorDataRequest extends Model
 {
     /**
-     * @description The end of the time range to query. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. If the value of seconds (`ss`) is not `00`, the time is rounded up to the next minute.
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. If the value of seconds (`ss`) is not `00`, the time is rounded up to the next minute.
      *
      * @example 2014-10-30T08:00:00Z
      *
@@ -37,7 +37,7 @@ class DescribeInstanceMonitorDataRequest extends Model
     public $ownerId;
 
     /**
-     * @description The interval at which to retrieve monitored data. Unit: seconds. Valid values:
+     * @description The interval at which to retrieve monitoring data. Unit: seconds. Valid values:
      *
      *   60
      *   600

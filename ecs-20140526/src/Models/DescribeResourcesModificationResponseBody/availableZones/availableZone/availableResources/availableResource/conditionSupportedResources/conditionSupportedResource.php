@@ -15,31 +15,43 @@ class conditionSupportedResource extends Model
     public $conditions;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $max;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $min;
 
     /**
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example WithStock
+     *
      * @var string
      */
     public $statusCategory;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $unit;
 
     /**
+     * @example ecs.g5.large
+     *
      * @var string
      */
     public $value;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeLaunchTemplatesRequest extends Model
 {
     /**
-     * @description The IDs of one or more launch templates. You can specify up to 100 launch template IDs.
+     * @description The IDs of launch templates. You can specify up to 100 launch template IDs. You must specify LaunchTemplateId or LaunchTemplateName to determine a launch template.
      *
      * @example lt-m5e3ofjr1zn1aw7q****
      *
@@ -19,7 +19,7 @@ class DescribeLaunchTemplatesRequest extends Model
     public $launchTemplateId;
 
     /**
-     * @description The names of one or more launch templates. You can specify up to 100 launch template names.
+     * @description The names of launch templates. You can specify up to 100 launch template names.
      *
      * @example wd-152630748****
      *
@@ -58,7 +58,7 @@ class DescribeLaunchTemplatesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the launch template. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -77,9 +77,9 @@ class DescribeLaunchTemplatesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the resource group to which the launch template belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     * @description The ID of the resource group to which the launch template belongs. If you specify this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be returned.
      *
-     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * > Resources in the default resource group are displayed in the response regardless of whether you specify this parameter.
      * @example rg-acfmxazb4p****
      *
      * @var string
@@ -87,7 +87,7 @@ class DescribeLaunchTemplatesRequest extends Model
     public $templateResourceGroupId;
 
     /**
-     * @description The tags.
+     * @description The tags of the launch template.
      *
      * @var templateTag[]
      */

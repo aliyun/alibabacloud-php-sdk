@@ -310,6 +310,8 @@ class RunInstancesRequest extends Model
     public $imageId;
 
     /**
+     * @description 镜像相关属性信息。
+     *
      * @var imageOptions
      */
     public $imageOptions;
@@ -509,6 +511,8 @@ class RunInstancesRequest extends Model
     public $networkInterfaceQueueNumber;
 
     /**
+     * @description 网络相关属性参数。
+     *
      * @var networkOptions
      */
     public $networkOptions;

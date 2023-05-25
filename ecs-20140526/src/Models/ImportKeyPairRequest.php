@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ImportKeyPairRequest extends Model
 {
     /**
-     * @description The name of the key pair. The name must be unique. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the key pair. The name must be unique. It must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example testKeyPairName
      *
@@ -33,7 +33,7 @@ class ImportKeyPairRequest extends Model
     public $publicKeyBody;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -42,7 +42,7 @@ class ImportKeyPairRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the key pair belongs.
+     * @description The ID of the enterprise resource group to which the SSH key pair belongs.
      *
      * @example rg-bp67acfmxazb4p****
      *

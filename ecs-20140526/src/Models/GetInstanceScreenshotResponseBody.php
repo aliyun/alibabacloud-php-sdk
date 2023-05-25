@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceScreenshotResponseBody extends Model
 {
     /**
-     * @description The ID of the instance
+     * @description The instance ID.
      *
      * @example i-bp1gbz20g229bvu5****
      *
@@ -18,7 +18,7 @@ class GetInstanceScreenshotResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -27,7 +27,7 @@ class GetInstanceScreenshotResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The JPG-formatted instance screenshot, which is encoded in Base64.
+     * @description The Base64-encoded instance screenshot in the JPG format.
      *
      * @example iVBORw0KGgoA...AAABJRU5ErkJggg==
      *

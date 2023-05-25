@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvocationsRequest extends Model
 {
     /**
-     * @description The ID of the command. You can call the [DescribeCommands](~~64843~~) operation to query all available command IDs.
+     * @description The command ID. You can call the [DescribeCommands](~~64843~~) operation to query all available command IDs.
      *
      * @example c-hz0jdfwcsr****
      *
@@ -19,7 +19,7 @@ class DescribeInvocationsRequest extends Model
     public $commandId;
 
     /**
-     * @description The name of the command.
+     * @description The command name.
      *
      * @example CommandTestName
      *
@@ -28,7 +28,7 @@ class DescribeInvocationsRequest extends Model
     public $commandName;
 
     /**
-     * @description The type of the command. If this parameter and `InstanceId` are both specified, this parameter does not take effect.
+     * @description The command type. If this parameter and `InstanceId` are both specified, this parameter does not take effect.
      *
      * @example RunShellScript
      *
@@ -55,7 +55,7 @@ class DescribeInvocationsRequest extends Model
      *   true: The command outputs are returned. When this parameter is set to true, you must specify `InvokeId`, `InstanceId`, or both.
      *   false: The command outputs are not returned.
      *
-     * Default value: false.
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -63,7 +63,7 @@ class DescribeInvocationsRequest extends Model
     public $includeOutput;
 
     /**
-     * @description The ID of the instance. When you specify this parameter, the system queries all the execution records of all the commands that run on the instance.
+     * @description The ID of instance N. When you specify this parameter, the system queries all the execution records of all the commands that run on the instance.
      *
      * @example i-bp1i7gg30r52z2em****
      *
@@ -72,7 +72,7 @@ class DescribeInvocationsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the command task.
+     * @description The command task ID.
      *
      * @example t-hz0jdfwd9f****
      *
@@ -122,7 +122,7 @@ class DescribeInvocationsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number of the page to return.
      *
      * Default value: 1.
      * @example 1
@@ -132,7 +132,7 @@ class DescribeInvocationsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries to return per page.
      *
      * Default value: 10.
      * @example 10
@@ -142,7 +142,7 @@ class DescribeInvocationsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *
@@ -153,7 +153,7 @@ class DescribeInvocationsRequest extends Model
     /**
      * @description The execution mode of the command. Valid values:
      *
-     *   Once: The command is immediately run.
+     *   Once: immediately runs the command.
      *   Period: The command is run on a schedule.
      *   NextRebootOnly: The command is automatically run the next time the instance starts.
      *   EveryReboot: The command is automatically run every time the instance starts.
@@ -185,16 +185,16 @@ class DescribeInvocationsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags of the command.
+     * @description The tags that are added to the command.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description Specifies whether to query the commands that are to be automatically run. Valid values:
+     * @description Specifies whether to query commands that are to be automatically run. Valid values:
      *
-     *   true: queries the commands that meet the following requirements: The commands are run by calling the `RunCommand` or `InvokeCommand` operation with `RepeatMode` set to `Period`, `NextRebootOnly`, or `EveryReboot`. The executions of the commands are not canceled and not complete or are not stopped and not complete.
+     *   true: queries commands that meet the following requirements: The commands are run by calling the `RunCommand` or `InvokeCommand` operation with `RepeatMode` set to `Period`, `NextRebootOnly`, or `EveryReboot`. The executions of the commands are not canceled and not complete or are not stopped and not complete.
      *
      *   false: queries commands that meet the following requirements:
      *

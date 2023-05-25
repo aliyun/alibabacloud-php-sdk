@@ -23,7 +23,7 @@ class DescribeReservedInstancesRequest extends Model
     public $allocationType;
 
     /**
-     * @description The instance type of the reserved instance. For more information about the valid values, see [Instance families](~~25378~~).
+     * @description The instance type. For more information, see [Instance families](~~25378~~).
      *
      * @example ecs.g5.large
      *
@@ -32,7 +32,7 @@ class DescribeReservedInstancesRequest extends Model
     public $instanceType;
 
     /**
-     * @description The instance family of the reserved instance. For more information about the valid values, see [Instance families](~~25378~~).
+     * @description The instance family. For more information, see [Instance families](~~25378~~).
      *
      * @example ecs.g5
      *
@@ -41,9 +41,9 @@ class DescribeReservedInstancesRequest extends Model
     public $instanceTypeFamily;
 
     /**
-     * @description The reason why the reserved instance is locked. Valid values:
+     * @description The locked mode of the instance. Valid values:
      *
-     *   financial: You have an overdue payment in your account or the reserved instance has expired.
+     *   financial: Your account has one or more overdue payments or the reserved instance has expired.
      *   security: The reserved instance is locked for security reasons.
      *
      * @example security
@@ -53,7 +53,7 @@ class DescribeReservedInstancesRequest extends Model
     public $lockReason;
 
     /**
-     * @description The payment option of the reserved instance. Valid values:
+     * @description The payment option for the reserved instance. Valid values:
      *
      *   No Upfront
      *   Partial Upfront
@@ -76,7 +76,7 @@ class DescribeReservedInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1.
+     * @description The page number to return. Pages start from page 1.
      *
      * Default value: 1.
      * @example 1
@@ -96,7 +96,7 @@ class DescribeReservedInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the reserved instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -105,6 +105,8 @@ class DescribeReservedInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @description The IDs of the reserved instances. Valid values of N: 1 to 100.
+     *
      * @example ri-bpzhex2ulpzf53****
      *
      * @var string[]
@@ -112,7 +114,7 @@ class DescribeReservedInstancesRequest extends Model
     public $reservedInstanceId;
 
     /**
-     * @description The name of the reserved instance.
+     * @description The reserved instance name.
      *
      * @example testReservedInstanceName
      *
@@ -131,7 +133,7 @@ class DescribeReservedInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The scope of the reserved instance. Valid values:
+     * @description The scope of reserved instance N. Valid values:
      *
      *   Region: regional
      *   Zone: zonal
@@ -144,6 +146,13 @@ class DescribeReservedInstancesRequest extends Model
     public $scope;
 
     /**
+     * @description The status of reserved instance N. Valid values of N: 1 to 100. Valid values:
+     *
+     *   Creating
+     *   Active
+     *   Expired
+     *   Updating
+     *
      * @example Active
      *
      * @var string[]
@@ -151,12 +160,14 @@ class DescribeReservedInstancesRequest extends Model
     public $status;
 
     /**
+     * @description The tags list.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The zone ID of the reserved instance. This parameter is required when Scope is set to Zone. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The zone ID of the reserved instance is required when Scope is set to Zone. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-z
      *

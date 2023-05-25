@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RenewInstanceRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. **The token can only contain ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
@@ -18,9 +18,9 @@ class RenewInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @description The synchronized expiration date. Set the value to a synchronized expiration date that you specified. Otherwise, the call fails. If you specify this parameter, your instance is renewed to the synchronized expiration date. Valid values: 1 to 28.
+     * @description The synchronized expiration date. Set the value to a synchronized expiration date that you specified. Otherwise, the call fails. If you configure this parameter, your instance will be renewed to the specified synchronized expiration date. Valid values: 1 to 28.
      *
-     * >  The renewal period-related parameter pair (`Period` and `PeriodUnit`) and the `ExpectedRenewDay` parameter are mutually exclusive.
+     * > The renewal period-related parameter pair (`Period` and `PeriodUnit`) and `ExpectedRenewDay` are mutually exclusive.
      * @example 5
      *
      * @var int
@@ -28,7 +28,7 @@ class RenewInstanceRequest extends Model
     public $expectedRenewDay;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance that you want to renew.
      *
      * @example i-bp67acfmxazb4p****
      *
@@ -47,9 +47,9 @@ class RenewInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The renewal period of the subscription instance. If you specify the `DedicatedHostId` parameter, the value of the Period parameter must not exceed the subscription period of the specified dedicated host.
+     * @description The renewal period of the subscription instance. If `DedicatedHostId` is specified, the value of Period cannot exceed the subscription period of the specified dedicated host.
      *
-     * >  The renewal period-related parameter pair (`Period` and `PeriodUnit`) and the `ExpectedRenewDay` parameter are mutually exclusive.
+     * > The renewal period-related parameter pair (`Period` and `PeriodUnit`) and `ExpectedRenewDay` are mutually exclusive.
      * @example 1
      *
      * @var int
@@ -57,7 +57,7 @@ class RenewInstanceRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the renewal period. Valid value:
+     * @description The unit of the renewal period. Valid values:
      *
      * Default value: Month.
      * @example Month

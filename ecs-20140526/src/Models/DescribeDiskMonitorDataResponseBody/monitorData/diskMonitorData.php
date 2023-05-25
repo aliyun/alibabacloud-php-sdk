@@ -36,7 +36,7 @@ class diskMonitorData extends Model
     public $BPSWrite;
 
     /**
-     * @description The ID of the disk.
+     * @description The disk ID.
      *
      * @example d-bp1bq5g3dxxo1x4o****
      *
@@ -90,7 +90,7 @@ class diskMonitorData extends Model
     public $latencyWrite;
 
     /**
-     * @description The timestamp of the monitoring data. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The timestamp to query the monitoring data. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2014-07-23T12:07:00Z
      *

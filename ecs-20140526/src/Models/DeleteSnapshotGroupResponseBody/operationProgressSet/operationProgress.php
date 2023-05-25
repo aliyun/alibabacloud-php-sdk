@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class operationProgress extends Model
 {
     /**
-     * @description The error code. This parameter is empty when the operation was successful.
+     * @description The error code. This parameter is empty when the operation is successful.
      *
-     * For information about error codes and error messages, visit the [API error center](https://error-center.alibabacloud.com/status/product/Ecs).
+     * For information about error codes and error messages, visit the [API error center](https://error-center.aliyun.com/status/product/Ecs).
      * @example 400
      *
      * @var string
@@ -20,9 +20,9 @@ class operationProgress extends Model
     public $errorCode;
 
     /**
-     * @description The error message. This parameter is empty when the operation was successful.
+     * @description The error message. This parameter is empty when the operation is successful.
      *
-     * For information about error codes and error messages, visit the [API error center](https://error-center.alibabacloud.com/status/product/Ecs).
+     * For information about error codes and error messages, visit the [API error center](https://error-center.aliyun.com/status/product/Ecs).
      * @example testErrorMsg
      *
      * @var string

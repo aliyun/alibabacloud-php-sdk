@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The value of tag N of the resource.
+     *
+     * >  We recommend that you use the Tag.N.Value parameter to ensure future compatibility.
+     * @example TestKey
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of tag N of the resource. Valid values of N: 1 to 20. It can be an empty string. The tag value can be up to 128 characters in length and cannot contain http:// or https://. It cannot start with acs: or aliyun.
+     *
+     * @example TestValue
+     *
      * @var string
      */
     public $value;

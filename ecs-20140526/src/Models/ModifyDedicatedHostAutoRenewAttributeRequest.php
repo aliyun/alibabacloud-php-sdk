@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostAutoRenewAttributeRequest extends Model
 {
     /**
-     * @description Specifies whether to automatically renew the subscription dedicated host. Valid values:
+     * @description Specifies whether to automatically renew the subscription. Valid values:
      *
-     *   true: automatically renews the subscription dedicated host.
-     *   false: does not automatically renew the subscription dedicated host.
+     *   true
+     *   false
      *
-     * Default value: false.
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -22,13 +22,13 @@ class ModifyDedicatedHostAutoRenewAttributeRequest extends Model
     public $autoRenew;
 
     /**
-     * @description Specifies whether to automatically renew the subscription dedicated host along with the subscription ECS instances hosted on it.
+     * @description Specifies whether to automatically renew the subscription dedicated hosts along with the subscription ECS instances hosted on the dedicated hosts.
      *
      * Valid values:
      *
-     *   AutoRenewWithEcs: automatically renews the subscription dedicated host along with the subscription ECS instances hosted on it.
-     *   StopRenewWithEcs: does not automatically renew the subscription dedicated host along with the subscription ECS instances hosted on it.
-     *   NoOperation: does not change the current settings for the dedicated host.
+     *   AutoRenewWithEcs: automatically renews the subscription dedicated hosts along with the subscription ECS instances hosted on the dedicated hosts.
+     *   StopRenewWithEcs: does not automatically renew the subscription dedicated hosts along with the subscription ECS instances hosted on the dedicated hosts.
+     *   NoOperation: does not change the current settings for the dedicated hosts.
      *
      * Default value: NoOperation.
      * @example StopRenewWithEcs
@@ -38,7 +38,7 @@ class ModifyDedicatedHostAutoRenewAttributeRequest extends Model
     public $autoRenewWithEcs;
 
     /**
-     * @description The IDs of the dedicated hosts. You can specify up to 100 subscription dedicated host IDs. Separate multiple IDs with commas (,).
+     * @description The IDs of dedicated hosts. You can specify up to 100 subscription dedicated host IDs. Separate the IDs with commas (,).
      *
      * @example dh-bp165p6xk2tlw61e****
      *
@@ -47,10 +47,10 @@ class ModifyDedicatedHostAutoRenewAttributeRequest extends Model
     public $dedicatedHostIds;
 
     /**
-     * @description The renewal duration of the dedicated host. Valid values:
+     * @description The renewal duration.
      *
-     *   When the PeriodUnit parameter is set to Week, the valid values of the Duration parameter are 1, 2, and 3.
-     *   When the PeriodUnit parameter is set to Month, the valid values of the Duration parameter are 1, 2, 3, 6, and 12.
+     *   Valid values when PeriodUnit is set to Month: 1 and 12
+     *   Valid values when PeriodUnit is set to Year: 1 and 12
      *
      * @example 1
      *
@@ -69,12 +69,12 @@ class ModifyDedicatedHostAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The unit of the renewal duration. Valid values:
+     * @description The unit of the renewal period. Valid values:
      *
-     *   Week
      *   Month
+     *   Year
      *
-     * Default value: Month.
+     * Default value: Month
      * @example Month
      *
      * @var string
@@ -93,9 +93,9 @@ class ModifyDedicatedHostAutoRenewAttributeRequest extends Model
     /**
      * @description Specifies whether to automatically renew the subscription dedicated host. The `RenewalStatus` parameter takes precedence over the `AutoRenew` parameter. Valid values:
      *
-     *   AutoRenewal: automatically renews the subscription dedicated host.
-     *   Normal: does not automatically renew the subscription dedicated host, but notifications for renewal are sent.
-     *   NotRenewal: does not automatically renew the subscription dedicated host, and no expiration notification is sent. Notifications for renewal are automatically sent three days before the expiration time of the subscription dedicated host. You can change the value of this parameter from NotRenewal to Normal for the dedicated host and manually renew it by calling the [RenewDedicatedHosts](~~134250~~) operation. Alternatively, you can renew it by setting this parameter to AutoRenewal.
+     *   AutoRenewal: The dedicated hosts are automatically renewed.
+     *   Normal: The dedicated hosts are not automatically renewed, and renewal notifications are sent.
+     *   NotRenewal: The dedicated hosts are not automatically renewed, and no expiration notification is sent. A notification of no renewal is automatically sent three days before the end of the current subscription cycle. You can change the value of this parameter from NotRenewal to Normal and manually renew the dedicated hosts by calling the [RenewDedicatedHosts](~~134250~~) operation. Alternatively, you can renew the dedicated hosts by setting this parameter to AutoRenewal.
      *
      * @example Normal
      *

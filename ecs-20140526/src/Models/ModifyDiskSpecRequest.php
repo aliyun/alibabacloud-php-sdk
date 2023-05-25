@@ -10,13 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskSpecRequest extends Model
 {
     /**
-     * @description The new category of the disk. Valid values:
+     * @description The new category of the disk. Default value: PL1. Valid values:
      *
-     *   cloud_essd: ESSD
-     *   cloud_ssd: standard SSD
-     *   cloud_efficiency: ultra disk
+     *   cloud_essd: ESSD.
+     *   cloud_auto: ESSD AutoPL disk.
+     *   cloud_ssd: The system creates an SSD.
+     *   cloud_efficiency: The system creates an ultra disk.
      *
-     * >  The preceding values are listed in descending order of disk performance. The disk cannot be downgraded if it is a subscription disk.
+     * > The preceding values are listed in descending order of disk performance. The performance level of a subscription cloud disk cannot be downgraded.
      * @example cloud_essd
      *
      * @var string
@@ -24,7 +25,7 @@ class ModifyDiskSpecRequest extends Model
     public $diskCategory;
 
     /**
-     * @description The ID of the disk.
+     * @description The disk ID.
      *
      * @example d-bp131n0q38u3a4zi****
      *
@@ -33,12 +34,12 @@ class ModifyDiskSpecRequest extends Model
     public $diskId;
 
     /**
-     * @description Specifies whether to check the validity of the request without actually making the request. Valid values:
+     * @description Specifies whether to perform only a dry run without performing the actual request. Default value: PL1. Valid values:
      *
-     *   true: The validity of the request is checked but the request is not made. Check items include the required parameters, request format, service limits, and available ECS resources. If the check fails, the corresponding error message is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+     *   true: performs only a dry run. The system checks the required parameters, request syntax, service limits, and available ECS resources. If the request fails the dry run, the corresponding error message is returned. If the check succeeds, the `DryRunOperation` error code is returned.
      *   false: The validity of the request is checked. If the check succeeds, a 2xx HTTP status code is returned and the request is made.
      *
-     * Default value: false.
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -56,19 +57,21 @@ class ModifyDiskSpecRequest extends Model
     public $ownerId;
 
     /**
+     * @description 磁盘性能控制参数集合
+     *
      * @var performanceControlOptions
      */
     public $performanceControlOptions;
 
     /**
-     * @description The new performance level of the ESSD. Valid values:
+     * @description The new performance level of the ESSD. Default value: PL1. Valid values:
      *
-     *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-     *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
-     *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-     *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+     *   PL0: An ESSD can deliver up to 10,000 random read/write IOPS.
+     *   PL1: An ESSD can deliver up to 50,000 random read/write IOPS.
+     *   PL2: An ESSD can deliver up to 100,000 random read/write IOPS.
+     *   PL3: An ESSD delivers up to 1,000,000 random read/write IOPS.
      *
-     * Default value: PL1.
+     * Default value: PL1
      * @example PL2
      *
      * @var string
@@ -76,11 +79,9 @@ class ModifyDiskSpecRequest extends Model
     public $performanceLevel;
 
     /**
-     * @description 是否修改ESSD AutoPL云盘预配置读写IOPS。取值范围：0~min{50000, 1000*容量-基准性能}。
+     * @description The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
      *
-     * 基准性能=min{1,800+50*容量, 50,000}
-     *
-     * > 当DiskCategory取值为cloud_auto时才支持设置该参数。更多信息，请参见[ESSD AutoPL云盘](~~368372~~)和[修改ESSD AutoPL云盘预配置信息](~~413275~~)。
+     * > This parameter is available only if you set DiskCategory to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~) and [Modify the performance configurations of an ESSD AutoPL disk](~~413275~~).
      * @example 50000
      *
      * @var int

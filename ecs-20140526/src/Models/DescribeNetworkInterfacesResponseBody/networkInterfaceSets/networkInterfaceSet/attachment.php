@@ -18,7 +18,7 @@ class attachment extends Model
     public $deviceIndex;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to the public.
+     * @description > This parameter is in invitational preview and is unavailable for general users.
      *
      * @example null
      *
@@ -27,6 +27,11 @@ class attachment extends Model
     public $instanceId;
 
     /**
+     * @description The index of the network interface controller (NIC).
+     *
+     *   If the ENI is in the Available state or no NIC index is specified when the ENI is attached, this parameter has no value.
+     *   If the ENI is in the InUse state and an NIC index is specified when the ENI is attached, the specified NIC index is returned as the value of this parameter.
+     *
      * @example 0
      *
      * @var int
@@ -34,7 +39,7 @@ class attachment extends Model
     public $networkCardIndex;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to the public.
+     * @description > This parameter is in invitational preview and is unavailable for general users.
      *
      * @example null
      *

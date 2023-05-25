@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDisksResponseBody extends Model
 {
     /**
-     * @description Details about the disks.
+     * @description The details of the cloud disks or local disks.
      *
      * @var disks
      */
     public $disks;
 
     /**
-     * @description The query token returned in this call.
+     * @description The returned pagination token which can be used in the next request to retrieve a new page of results.
      *
      * @example AAAAAdDWBF2****
      *
@@ -26,7 +26,7 @@ class DescribeDisksResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The page number of the returned page.
+     * @description The returned page number.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class DescribeDisksResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 1
      *
@@ -44,7 +44,7 @@ class DescribeDisksResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *

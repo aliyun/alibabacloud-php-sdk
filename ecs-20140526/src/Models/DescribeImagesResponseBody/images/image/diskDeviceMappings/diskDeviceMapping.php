@@ -19,7 +19,7 @@ class diskDeviceMapping extends Model
     public $device;
 
     /**
-     * @description The format of the image.
+     * @description The image format.
      *
      * @example qcow2
      *
@@ -55,7 +55,7 @@ class diskDeviceMapping extends Model
     public $progress;
 
     /**
-     * @description The amount of remaining time required for an image copy task. Unit: seconds.
+     * @description The remaining amount of time required for an image copy task. Unit: seconds.
      *
      * @example 233
      *
@@ -64,7 +64,7 @@ class diskDeviceMapping extends Model
     public $remainTime;
 
     /**
-     * @description The size of the cloud disk.
+     * @description The disk size.
      *
      * @example 60
      *
@@ -73,7 +73,7 @@ class diskDeviceMapping extends Model
     public $size;
 
     /**
-     * @description The ID of the snapshot.
+     * @description The snapshot ID.
      *
      * @example s-bp17ot2q7x72ggtw****
      *
@@ -82,7 +82,7 @@ class diskDeviceMapping extends Model
     public $snapshotId;
 
     /**
-     * @description The type of the image.
+     * @description The image type.
      *
      * @example system
      *

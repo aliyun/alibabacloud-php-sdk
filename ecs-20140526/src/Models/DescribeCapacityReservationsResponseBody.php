@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCapacityReservationsResponseBody extends Model
 {
     /**
-     * @description Details about the capacity reservations.
+     * @description Details of the capacity reservations.
      *
      * @var capacityReservationSet
      */
@@ -26,7 +26,7 @@ class DescribeCapacityReservationsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token used to start the next query.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.If NextToken is empty, no next page exists.
      *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
@@ -35,7 +35,7 @@ class DescribeCapacityReservationsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *

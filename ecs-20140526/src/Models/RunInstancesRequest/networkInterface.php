@@ -67,6 +67,11 @@ class networkInterface extends Model
     public $ipv6AddressCount;
 
     /**
+     * @description 网卡指定的物理网卡索引。
+     *
+     * - NetworkInterface.N.InstanceType取值为Secondary或者空值，对于支持物理网卡的实例规格，此参数可以依据实例规格设置。更多信息，请参见[实例规格族](~~25378~~)。
+     * @example 0
+     *
      * @var int
      */
     public $networkCardIndex;

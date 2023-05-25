@@ -14,7 +14,7 @@ class AssignIpv6AddressesRequest extends Model
     public $clientToken;
 
     /**
-     * @description IPv6 address N to assign to the ENI. Valid values of N: 1 to 10.
+     * @description The IPv6 addresses that you want to assign to the ENI. You can specify up to 10 IPv6 addresses.
      *
      * Example: Ipv6Address.1=2001:db8:1234:1a00::\*\*\*\*
      *
@@ -26,9 +26,9 @@ class AssignIpv6AddressesRequest extends Model
     public $ipv6Address;
 
     /**
-     * @description The number of IPv6 addresses to randomly generate for the ENI. Valid values: 1 to 10.
+     * @description The number of IPv6 addresses that you want to generate at random for the ENI. Valid values: 1 to 10.
      *
-     * >  You must specify `Ipv6Addresses.N` or `Ipv6AddressCount` but cannot specify both.
+     * > You must specify `Ipv6Addresses.N` or `Ipv6AddressCount` but cannot specify both.
      * @example 1
      *
      * @var int
@@ -36,14 +36,14 @@ class AssignIpv6AddressesRequest extends Model
     public $ipv6AddressCount;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description > This parameter is in invitational preview and is unavailable for general users.
      *
      * @var string[]
      */
     public $ipv6Prefix;
 
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description > This parameter is in invitational preview and is unavailable for general users.
      *
      * @example hide
      *
@@ -52,7 +52,7 @@ class AssignIpv6AddressesRequest extends Model
     public $ipv6PrefixCount;
 
     /**
-     * @description The ID of the ENI.
+     * @description The ENI ID.
      *
      * @example eni-bp1iqejowblx6h8j****
      *

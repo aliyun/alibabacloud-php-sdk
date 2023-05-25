@@ -9,8 +9,14 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description The algorithm to be used to encrypt data disks. Valid values:
      *
+     *   aes-256
+     *   sm4-128
+     *
+     * Default value: aes-256.
+     *
+     * If both the LaunchTemplateId and LaunchConfiguration.\* parameters are specified, the LaunchTemplateId parameter takes precedence.
      * @example aes-256
      *
      * @var string
@@ -18,12 +24,14 @@ class systemDisk extends Model
     public $encryptAlgorithm;
 
     /**
-     * @description Specifies whether to encrypt the disk. Valid values:
+     * @description Specifies whether to encrypt system disk N. Valid values:
      *
-     *   true: encrypts the disk.
-     *   false: does not encrypt the disk.
+     *   true
+     *   false
      *
      * Default value: false.
+     *
+     * If both the LaunchTemplateId and LaunchConfiguration.\* parameters are specified, the LaunchTemplateId parameter takes precedence.
      * @example false
      *
      * @var string
@@ -31,8 +39,9 @@ class systemDisk extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key used by the cloud disk.
+     * @description The ID of the KMS key that you want to use for the system disk.
      *
+     * If both the LaunchTemplateId and LaunchConfiguration.\* parameters are specified, the LaunchTemplateId parameter takes precedence.
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
      * @var string

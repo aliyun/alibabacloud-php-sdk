@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteLaunchTemplateResponseBody extends Model
 {
     /**
+     * @description 启动模板ID。更多信息，请参见[DescribeLaunchTemplates](~~73759~~)。
+     *
+     * 使用启动模板创建实例时，您必须指定`LaunchTemplateId`或`LaunchTemplateName`以确定启动模板。
+     * @example lt-bp1apo0bbbkuy0rj****
+     *
      * @var string
      */
     public $launchTemplateId;

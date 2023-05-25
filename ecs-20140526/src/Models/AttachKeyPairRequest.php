@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AttachKeyPairRequest extends Model
 {
     /**
-     * @description The IDs of instances to which you want to attach the SSH key pair. The value can be a JSON array that consists of up to 50 instance IDs. Separate multiple instance IDs with commas (,).
+     * @description The IDs of instances to which you want to bind the SSH key pair. The value can be a JSON array that consists of up to 50 instance IDs. Separate multiple instance IDs with commas (,).
      *
      * @example ["i-bp1gtjxuuvwj17zr****", "i-bp17b7zrsbjwvmfy****", … "i-bp1h6jmbefj1ytos****"]
      *
@@ -32,7 +32,7 @@ class AttachKeyPairRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the SSH key pair. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the SSH key pair. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *

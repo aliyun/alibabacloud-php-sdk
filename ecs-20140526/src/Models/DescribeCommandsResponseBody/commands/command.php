@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class command extends Model
 {
     /**
-     * @description The category of the common command.
+     * @description Indicates whether the common command is of the latest version. If multiple common commands from the same provider (`Provider`) belong to the same category and have the same name, these commands are different versions of the same command. This parameter is not returned for the Cloud Assistant commands that you created.
      *
      * @example “”
      *
@@ -21,7 +21,7 @@ class command extends Model
     public $category;
 
     /**
-     * @description The Base64-encoded command content.
+     * @description The category of the common command.
      *
      * @example Y2QgL3Jvb3Q=
      *
@@ -30,7 +30,7 @@ class command extends Model
     public $commandContent;
 
     /**
-     * @description The ID of the command.
+     * @description The working directory of the command on the Elastic Compute Service (ECS) instance.
      *
      * @example c-hz01272yr52****
      *
@@ -39,7 +39,7 @@ class command extends Model
     public $commandId;
 
     /**
-     * @description The time when the command was created.
+     * @description The type of the command.
      *
      * @example 2020-11-17T06:52Z
      *
@@ -48,7 +48,7 @@ class command extends Model
     public $creationTime;
 
     /**
-     * @description The description of the command.
+     * @description The version of the common command. If multiple common commands from the same provider (`Provider`) belong to the same category and have the same name, these commands are different versions of the same command. This parameter is not returned for the Cloud Assistant commands that you created.
      *
      * @example testDescription
      *
@@ -57,7 +57,7 @@ class command extends Model
     public $description;
 
     /**
-     * @description Indicates whether the custom parameter feature was enabled for the command.
+     * @description The custom parameter names that are parsed from the command content specified when the command was created. If the custom parameter feature is not enabled, an empty list is returned.
      *
      * @example true
      *
@@ -66,7 +66,7 @@ class command extends Model
     public $enableParameter;
 
     /**
-     * @description The number of tasks created by using the command.
+     * @description The ID of the command.
      *
      * @example 2
      *
@@ -75,7 +75,7 @@ class command extends Model
     public $invokeTimes;
 
     /**
-     * @description Indicates whether the common command is of the latest version. If multiple common commands from the same provider (`Provider`) belong to the same category and have the same name, these commands are of different versions of the same command. This parameter is not returned for the Cloud Assistant commands that you created.
+     * @description The name of the command.
      *
      * @example true
      *
@@ -84,7 +84,7 @@ class command extends Model
     public $latest;
 
     /**
-     * @description The name of the command.
+     * @description Indicates whether the custom parameter feature was enabled for the command.
      *
      * @example testName
      *
@@ -100,14 +100,14 @@ class command extends Model
     public $parameterDefinitions;
 
     /**
-     * @description The custom parameter names that are parsed from the command content specified when the command was being created. If the custom parameter feature is not enabled, an empty list is returned.
+     * @description The custom parameter names that are parsed from the command content specified when the command was created. If the custom parameter feature is disabled, an empty list is returned.
      *
      * @var parameterNames
      */
     public $parameterNames;
 
     /**
-     * @description The provider of the common command.
+     * @description The Base64-encoded command content.
      *
      * @example AlibabaCloud.ECS.GuestOS
      *
@@ -123,7 +123,7 @@ class command extends Model
     public $tags;
 
     /**
-     * @description The timeout period.
+     * @description The number of tasks created by using the command.
      *
      * @example 3600
      *
@@ -132,7 +132,7 @@ class command extends Model
     public $timeout;
 
     /**
-     * @description The type of the command.
+     * @description The timeout period.
      *
      * @example RunShellScript
      *
@@ -141,7 +141,7 @@ class command extends Model
     public $type;
 
     /**
-     * @description The version of the common command. If multiple common commands from the same provider (`Provider`) belong to the same category and have the same name, these commands are of different versions of the same command. This parameter is not returned for the Cloud Assistant commands that you created.
+     * @description The provider of the common command.
      *
      * @example 1
      *
@@ -150,7 +150,7 @@ class command extends Model
     public $version;
 
     /**
-     * @description The working directory of the command on the Elastic Compute Service (ECS) instance.
+     * @description The description of the command.
      *
      * @example /home/
      *

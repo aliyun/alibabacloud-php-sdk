@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
-     * @description The key of the filter that is used to query resources. Valid values:
+     * @description The key of the filter condition used to query resources. Valid values:
      *
-     *   If you set this parameter to `CreationStartTime`, you can query the resources that were created after the point in time specified by the `Filter.N.Value` parameter.
-     *   If you set this parameter to `CreationEndTime`, you can query the resources that were created before the point in time specified by the `Filter.N.Value` parameter.
+     *   If you set this parameter to `CreationStartTime`, you can query the resources that were created after the point in time specified by the `Filter.N.Value` value.
+     *   If you set this parameter to `CreationEndTime`, you can query the resources that were created before the point in time as specified by the `Filter.N.Value` value.
      *
      * @example CreationStartTime
      *
@@ -21,7 +21,7 @@ class filter extends Model
     public $key;
 
     /**
-     * @description The value of the filter that is used to query resources. When you specify this parameter, you must also specify the `Filter.N.Key` parameter. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+     * @description The value of filter N used to query resources. When you specify this parameter, you must also specify `Filter.N.Key`. Make sure the time is in the `yyyy-MM-ddTHH:mmZ` format and in UTC.
      *
      * @example 2017-12-05T22:40Z
      *

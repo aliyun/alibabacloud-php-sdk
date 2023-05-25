@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ExportImageResponseBody extends Model
 {
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -18,7 +18,7 @@ class ExportImageResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C8B26B44-0189-443E-9816-D951F596****
      *
@@ -27,7 +27,7 @@ class ExportImageResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the image export task.
+     * @description The ID of the task that is used to export the custom image.
      *
      * @example tsk-bp67acfmxazb4p****
      *

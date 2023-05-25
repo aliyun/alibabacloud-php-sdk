@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class securityGroup extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and unavailable for general users.
+     * @description The ID of the resource group to which the security group belongs.
      *
      * @example 0
      *
@@ -19,7 +19,7 @@ class securityGroup extends Model
     public $availableInstanceAmount;
 
     /**
-     * @description The time when the security group was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
+     * @description > This parameter is in invitational preview and unavailable for general users.
      *
      * @example 2021-08-31T03:12:29Z
      *
@@ -28,7 +28,10 @@ class securityGroup extends Model
     public $creationTime;
 
     /**
-     * @description The description of the security group.
+     * @description The type of the security group. Valid values:
+     *
+     *   normal: basic security group
+     *   enterprise: advanced security group
      *
      * @example TestDescription
      *
@@ -46,7 +49,7 @@ class securityGroup extends Model
     public $ecsCount;
 
     /**
-     * @description The ID of the resource group to which the security group belongs.
+     * @description Indicates whether the user of the security group is an Alibaba Cloud service or a distributor.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -55,7 +58,7 @@ class securityGroup extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the security group.
+     * @description The name of the security group.
      *
      * @example sg-bp67acfmxazb4p****
      *
@@ -64,7 +67,7 @@ class securityGroup extends Model
     public $securityGroupId;
 
     /**
-     * @description The name of the security group.
+     * @description The description of the security group.
      *
      * @example SGTestName
      *
@@ -73,10 +76,7 @@ class securityGroup extends Model
     public $securityGroupName;
 
     /**
-     * @description The type of the security group. Valid values:
-     *
-     *   normal: basic security group
-     *   enterprise: advanced security group
+     * @description The ID of the VPC to which the security group belongs.
      *
      * @example normal
      *
@@ -85,7 +85,7 @@ class securityGroup extends Model
     public $securityGroupType;
 
     /**
-     * @description The ID of the distributor to which the security group belongs.
+     * @description The tags of the security groups.
      *
      * @example 12345678910
      *
@@ -94,7 +94,7 @@ class securityGroup extends Model
     public $serviceID;
 
     /**
-     * @description Indicates whether the user of the security group is an Alibaba Cloud service or a distributor.
+     * @description The ID of the distributor to which the security group belongs.
      *
      * @example false
      *
@@ -103,14 +103,14 @@ class securityGroup extends Model
     public $serviceManaged;
 
     /**
-     * @description The tags of the security groups.
+     * @description The tag values of the security group.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The ID of the VPC to which the security group belongs.
+     * @description The time when the security group was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
      *
      * @example vpc-bp67acfmxazb4p****
      *

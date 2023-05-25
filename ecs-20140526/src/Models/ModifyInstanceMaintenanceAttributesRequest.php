@@ -14,7 +14,7 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
      *
      *   Stop: stops the instance.
      *   AutoRecover: automatically recovers the instance.
-     *   AutoRedeploy: redeploys the instance, which may damage the data of the local disks (if any).
+     *   AutoRedeploy: redeploys the instance, which may damage the data disks attached to the instance.
      *
      * @example AutoRecover
      *
@@ -41,8 +41,8 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
     /**
      * @description Specifies whether to send an event notification before maintenance. Valid values:
      *
-     *   True: sends an event notification.
-     *   False: does not send an event notification.
+     *   true
+     *   false
      *
      * Default value: false.
      * @example false
@@ -62,7 +62,7 @@ class ModifyInstanceMaintenanceAttributesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

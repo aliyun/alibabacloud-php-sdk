@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAttachmentAttributesRequest extends Model
 {
     /**
-     * @description The IDs of instances. The value can be a JSON array that consists of up to 100 instance IDs. Separate the IDs with commas (,).
+     * @description The IDs of the instances. The value can be a JSON array that consists of up to 100 instance IDs. Separate the IDs with commas (,).
      *
      * @example ["i-bp67acfmxazb4****", "i-bp67acfmxazb5****", "i-bp67acfmxazb6****"]
      *
@@ -28,9 +28,9 @@ class DescribeInstanceAttachmentAttributesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -38,7 +38,7 @@ class DescribeInstanceAttachmentAttributesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 10

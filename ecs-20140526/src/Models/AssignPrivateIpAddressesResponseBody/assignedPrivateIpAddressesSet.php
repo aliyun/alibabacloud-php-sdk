@@ -18,7 +18,7 @@ class assignedPrivateIpAddressesSet extends Model
     public $ipv4PrefixSet;
 
     /**
-     * @description The ID of the ENI.
+     * @description The ENI ID.
      *
      * @example eni-bp125p95hhdhn3ot****
      *

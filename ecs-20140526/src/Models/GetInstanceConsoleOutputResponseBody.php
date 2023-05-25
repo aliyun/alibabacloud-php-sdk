@@ -18,7 +18,7 @@ class GetInstanceConsoleOutputResponseBody extends Model
     public $consoleOutput;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-bp1c1xhsrac2coiw****
      *
@@ -27,7 +27,7 @@ class GetInstanceConsoleOutputResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The time when the instance was last started, restarted, or shut down. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the last log entry was generated in the Linux kernel. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC+8.
      *
      * @example 2018-03-22 10:04:57
      *
@@ -36,7 +36,7 @@ class GetInstanceConsoleOutputResponseBody extends Model
     public $lastUpdateTime;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *

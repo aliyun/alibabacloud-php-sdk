@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ConvertNatPublicIpToEipRequest extends Model
 {
     /**
-     * @description The ID of the instance whose public IP address you want to convert to an EIP.
+     * @description The ID of the instance whose public IP address you want to convert into an EIP.
      *
      * @example i-bp171jr36ge2ulvk****
      *

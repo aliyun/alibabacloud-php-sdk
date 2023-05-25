@@ -26,12 +26,12 @@ class image extends Model
     public $architecture;
 
     /**
-     * @description The new boot mode of the image. Valid values:
+     * @description The boot mode of the image. Valid values:
      *
      *   BIOS
      *   UEFI
      *
-     * > You need to be aware of the boot modes supported by the specified image. When you use this parameter to change the boot mode of the image, specify a boot mode supported by the image to ensure that instances that use this image can start as expected.
+     * > When you use this parameter to change the boot mode of the image, specify a boot mode supported by the image. We recommend that you familiarize yourself with the boot modes supported by the specified image to ensure that instances that use this image can be started as expected.
      * @example BIOS
      *
      * @var string
@@ -39,7 +39,7 @@ class image extends Model
     public $bootMode;
 
     /**
-     * @description The time when the image was created.
+     * @description The image creation time.
      *
      * @example 2019-11-15T06:07:05Z
      *
@@ -48,7 +48,7 @@ class image extends Model
     public $creationTime;
 
     /**
-     * @description The description of the image.
+     * @description The image description.
      *
      * @example Archive log for Oracle
      *
@@ -64,21 +64,21 @@ class image extends Model
     public $detectionOptions;
 
     /**
-     * @description The mappings between disks and snapshots that belong to the image.
+     * @description The mappings between the disks and snapshots in the image.
      *
      * @var diskDeviceMappings
      */
     public $diskDeviceMappings;
 
     /**
-     * @description The attributes of the image.
+     * @description The image attributes.
      *
      * @var features
      */
     public $features;
 
     /**
-     * @description The name of the image family.
+     * @description The image family name.
      *
      * @example hangzhou-daily-update
      *
@@ -87,7 +87,7 @@ class image extends Model
     public $imageFamily;
 
     /**
-     * @description The ID of the image.
+     * @description The image ID.
      *
      * @example m-bp1g7004ksh0oeuc****
      *
@@ -96,7 +96,7 @@ class image extends Model
     public $imageId;
 
     /**
-     * @description The name of the image.
+     * @description The image name.
      *
      * @example testImageName
      *
@@ -105,11 +105,11 @@ class image extends Model
     public $imageName;
 
     /**
-     * @description The source of the image. Valid values:
+     * @description The image source. Valid values:
      *
-     *   system: public images provided by Alibaba Cloud.
-     *   self: your custom images.
-     *   others: shared images from other Alibaba Cloud accounts or community images published by other Alibaba Cloud accounts.
+     *   system: public images provided by Alibaba Cloud
+     *   self: your custom images
+     *   others: shared images from other Alibaba Cloud accounts, or community images published by other Alibaba Cloud accounts
      *   marketplace: Alibaba Cloud Marketplace images.
      *
      * @example self
@@ -119,7 +119,7 @@ class image extends Model
     public $imageOwnerAlias;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the image belongs. This parameter is valid only when you query shared images or community images.
+     * @description The ID of the Alibaba Cloud account to which the image belongs. This parameter takes effect only when you query shared images or community images.
      *
      * @example 1234567890
      *
@@ -128,7 +128,7 @@ class image extends Model
     public $imageOwnerId;
 
     /**
-     * @description The version of the image.
+     * @description The image version.
      *
      * @example 2
      *
@@ -167,7 +167,7 @@ class image extends Model
     public $isSelfShared;
 
     /**
-     * @description Indicates whether you have subscribed to the image that corresponds to the specified product code.
+     * @description Indicates whether the Terms of Service of the image service that corresponds to the product code are accepted.
      *
      * @example false
      *
@@ -208,6 +208,8 @@ class image extends Model
     /**
      * @description The display name of the operating system in Chinese.
      *
+     * @example Windows Server 2016 Datacenter Edition 64-bit (Simplified Chinese)
+     *
      * @var string
      */
     public $OSName;
@@ -222,7 +224,7 @@ class image extends Model
     public $OSNameEn;
 
     /**
-     * @description The OS type of the image. Valid values:
+     * @description The type of the operating system. Valid values:
      *
      *   windows
      *   linux
@@ -270,7 +272,7 @@ class image extends Model
     public $resourceGroupId;
 
     /**
-     * @description The size of the image. Unit: GiB.
+     * @description The image size. Unit: GiB.
      *
      * @example 60
      *
@@ -279,7 +281,7 @@ class image extends Model
     public $size;
 
     /**
-     * @description The state of the image. Valid values:
+     * @description The image status. Valid values:
      *
      *   UnAvailable: The image is unavailable.
      *   Available: The image is available.
@@ -293,7 +295,7 @@ class image extends Model
     public $status;
 
     /**
-     * @description The name of the supplier that certified the community image.
+     * @description The name of the provider that published the community image.
      *
      * @example TestName
      *
@@ -302,17 +304,17 @@ class image extends Model
     public $supplierName;
 
     /**
-     * @description The tags of the image.
+     * @description The image tags.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description Indicates whether the image has been used to create ECS instances. Valid values:
+     * @description Indicates whether the image was used to create ECS instances. Valid values:
      *
-     *   instance: The image has been used to create one or more ECS instances.
-     *   none: The image has not been used to create ECS instances.
+     *   instance: The image was used to create one or more ECS instances.
+     *   none: The image was not used to create ECS instances.
      *
      * @example none
      *

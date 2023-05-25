@@ -29,7 +29,7 @@ class invokeInstance extends Model
     /**
      * @description The code that indicates why the command failed to be sent or run. Valid values:
      *
-     *   If this parameter is empty, the execution is normal.
+     *   If this parameter is empty, the command is run normally.
      *   InstanceNotExists: The instance does not exist or was released.
      *   InstanceReleased: The instance was released while the command was being run.
      *   InstanceNotRunning: The instance was not in the Running state while the command started to be run.
@@ -102,7 +102,7 @@ class invokeInstance extends Model
     public $finishTime;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID
      *
      * @example i-bp1i7gg30r52z2em****
      *
@@ -163,7 +163,7 @@ class invokeInstance extends Model
     public $invocationStatus;
 
     /**
-     * @description The output of the command.
+     * @description The command output.
      *
      * @example OutPutTestmsg
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class allocatedResource extends Model
 {
     /**
-     * @description The instance type.
+     * @description The type of the instance.
      *
      * @example ecs.c6.large
      *
@@ -18,7 +18,7 @@ class allocatedResource extends Model
     public $instanceType;
 
     /**
-     * @description The total number of instances for which capacity of an instance type is reserved.
+     * @description The total number of instances of an instance type for which capacity is reserved.
      *
      * @example 2
      *
@@ -36,7 +36,7 @@ class allocatedResource extends Model
     public $usedAmount;
 
     /**
-     * @description The zone ID.
+     * @description The ID of the zone in which the instance is located.
      *
      * @example cn-hangzhou-h
      *

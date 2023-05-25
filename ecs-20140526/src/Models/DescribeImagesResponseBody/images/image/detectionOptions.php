@@ -17,7 +17,7 @@ class detectionOptions extends Model
     public $items;
 
     /**
-     * @description The state of the image check task. Valid values:
+     * @description The status of the image check task. Valid values:
      *
      *   Processing: The image check task is in progress.
      *   Finished: The image check task is completed.

@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CreateImageComponentRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
-     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -19,9 +17,6 @@ class CreateImageComponentRequest extends Model
     public $clientToken;
 
     /**
-     * @description The type of the image component. Only image building components are supported. Set the value to Build.
-     *
-     * Default value: Build.
      * @example Build
      *
      * @var string
@@ -29,8 +24,6 @@ class CreateImageComponentRequest extends Model
     public $componentType;
 
     /**
-     * @description The content of the image component. The content can consist of up to 127 commands.
-     *
      * @example RUN yum update -y
      *
      * @var string
@@ -38,8 +31,6 @@ class CreateImageComponentRequest extends Model
     public $content;
 
     /**
-     * @description The description of the image component. The description must be 2 to 256 characters in length and cannot start with http:// or https://.
-     *
      * @example This is description.
      *
      * @var string
@@ -47,9 +38,6 @@ class CreateImageComponentRequest extends Model
     public $description;
 
     /**
-     * @description The name of the image component. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
-     *
-     * >  If you do not specify the `Name` parameter, the return value of `ImageComponentId` is used by default.
      * @example testComponent
      *
      * @var string
@@ -67,8 +55,6 @@ class CreateImageComponentRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region in which to create the image component. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
-     *
      * @example cn-hangzhou
      *
      * @var string
@@ -76,8 +62,6 @@ class CreateImageComponentRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which to assign the image component.
-     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -95,9 +79,6 @@ class CreateImageComponentRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The operating system type supported by the image component. Only Linux is supported. Set the value to Linux.
-     *
-     * Default value: Linux.
      * @example Linux
      *
      * @var string
@@ -105,8 +86,6 @@ class CreateImageComponentRequest extends Model
     public $systemType;
 
     /**
-     * @description The tags.
-     *
      * @var tag[]
      */
     public $tag;

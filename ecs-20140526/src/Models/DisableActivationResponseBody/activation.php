@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class activation extends Model
 {
     /**
-     * @description The ID of the activation code.
+     * @description The activation code ID.
      *
      * @example 4ECEEE12-56F1-4FBC-9AB1-890F1234****
      *
@@ -63,7 +63,7 @@ class activation extends Model
     public $instanceCount;
 
     /**
-     * @description The default instance name prefix.
+     * @description The default prefix of the instance name.
      *
      * @example test-InstanceName
      *
@@ -72,7 +72,7 @@ class activation extends Model
     public $instanceName;
 
     /**
-     * @description The IP addresses of hosts that are allowed to use the activation code.
+     * @description The IP addresses of the hosts that can use the activation code.
      *
      * @example 0.0.0.0/0
      *
@@ -81,7 +81,7 @@ class activation extends Model
     public $ipAddressRange;
 
     /**
-     * @description The number of instances that were registered.
+     * @description The number of registered instances.
      *
      * @example 1
      *

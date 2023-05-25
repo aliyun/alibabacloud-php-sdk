@@ -19,7 +19,7 @@ class DetachKeyPairResponseBody extends Model
     public $failCount;
 
     /**
-     * @description The names of the key pairs.
+     * @description The name of the key pair.
      *
      * @example testKeyPairName
      *
@@ -44,7 +44,7 @@ class DetachKeyPairResponseBody extends Model
     public $results;
 
     /**
-     * @description The total number of instances from which you attempted to unbind the SSH key pair.
+     * @description The total number of instances from which you want to unbind the SSH key pair.
      *
      * @example 2
      *

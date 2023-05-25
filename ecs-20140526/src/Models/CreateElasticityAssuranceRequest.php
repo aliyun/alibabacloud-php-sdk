@@ -16,7 +16,7 @@ class CreateElasticityAssuranceRequest extends Model
     public $privatePoolOptions;
 
     /**
-     * @description The total number of times that the elasticity assurance can be applied. Set the value to Unlimited. This value indicates that the elasticity assurance can be applied an unlimited number of times within its effective duration.
+     * @description The total number of times that the elasticity assurance can be applied. Set the value to Unlimited. This value specifies that the elasticity assurance can be applied for an unlimited number of times within its effective period.
      *
      * Default value: Unlimited.
      * @example Unlimited
@@ -26,7 +26,7 @@ class CreateElasticityAssuranceRequest extends Model
     public $assuranceTimes;
 
     /**
-     * @description The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique across requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
@@ -35,9 +35,9 @@ class CreateElasticityAssuranceRequest extends Model
     public $clientToken;
 
     /**
-     * @description The description of the elasticity assurance. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
+     * @description The description of the elasticity assurance. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      *
-     * This parameter is empty by default.
+     * By default, this parameter is empty.
      * @example This is description.
      *
      * @var string
@@ -45,7 +45,7 @@ class CreateElasticityAssuranceRequest extends Model
     public $description;
 
     /**
-     * @description The total number of instances for which to reserve the capacity of an instance type.
+     * @description The total number of instances of an instance type for which you want to reserve capacity.
      *
      * Valid values: 1 to 1000.
      * @example 2
@@ -55,7 +55,7 @@ class CreateElasticityAssuranceRequest extends Model
     public $instanceAmount;
 
     /**
-     * @description > This parameter is no longer used.
+     * @description > This parameter is no longer available.
      *
      * @example null
      *
@@ -64,7 +64,7 @@ class CreateElasticityAssuranceRequest extends Model
     public $instanceCpuCoreCount;
 
     /**
-     * @description The instance type of the instance. An elasticity assurance can be created to reserve the capacity of a single instance type.
+     * @description The instance types. Currently, an elasticity assurance can be created to reserve the capacity of a single instance type.
      *
      * @example ecs.c6.xlarge
      *
@@ -83,12 +83,12 @@ class CreateElasticityAssuranceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The effective duration of the elasticity assurance. The unit of the effective duration is determined by the `PeriodUnit` value. Valid values:
+     * @description The effective period of the elasticity assurance. The unit of the effective period is determined by the `PeriodUnit` value. Valid values:
      *
      *   When the `PeriodUnit` parameter is set to `Month`, the valid values are 1, 2, 3, 4, 5, 6, 7, 8, and 9.
      *   When the `PeriodUnit` parameter is set to `Year`, the valid values are 1, 2, 3, 4, and 5.
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @var int
@@ -96,7 +96,7 @@ class CreateElasticityAssuranceRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the effective duration of the elasticity assurance. Valid values:
+     * @description The unit of the effective period of the elasticity assurance. Valid values:
      *
      *   Month
      *   Year
@@ -118,7 +118,7 @@ class CreateElasticityAssuranceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which to assign the elasticity assurance.
+     * @description The ID of the resource group to which the elasticity assurance is assigned.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -146,14 +146,14 @@ class CreateElasticityAssuranceRequest extends Model
     public $startTime;
 
     /**
-     * @description The tags to add to the elasticity assurance.
+     * @description The tags that are added to the elasticity assurance.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The zone ID of the elasticity assurance. An elasticity assurance can be used to reserve resources within a single zone.
+     * @description The zone ID of the elasticity assurance. Currently, an elasticity assurance can be used to reserve resources within a single zone.
      *
      * @example cn-hangzhou-h
      *

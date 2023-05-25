@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
-     * @description The ID of the ECS instance created on the dedicated host.
+     * @description The ID of the ECS instance that is created on the dedicated host.
      *
      * @example i-bp14ot0ykf8w13a1****
      *
@@ -18,12 +18,14 @@ class instance extends Model
     public $instanceId;
 
     /**
+     * @example 128************0
+     *
      * @var int
      */
     public $instanceOwnerId;
 
     /**
-     * @description The instance type of the ECS instance created on the dedicated host.
+     * @description The instance type of the ECS instance that is created on the dedicated host.
      *
      * @example ecs.g5.large
      *
@@ -32,6 +34,8 @@ class instance extends Model
     public $instanceType;
 
     /**
+     * @example 0,1
+     *
      * @var string
      */
     public $socketId;

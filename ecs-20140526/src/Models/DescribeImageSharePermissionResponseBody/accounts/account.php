@@ -16,8 +16,14 @@ class account extends Model
      * @var string
      */
     public $aliyunId;
+
+    /**
+     * @var string
+     */
+    public $sharedTime;
     protected $_name = [
-        'aliyunId' => 'AliyunId',
+        'aliyunId'   => 'AliyunId',
+        'sharedTime' => 'SharedTime',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class account extends Model
         $res = [];
         if (null !== $this->aliyunId) {
             $res['AliyunId'] = $this->aliyunId;
+        }
+        if (null !== $this->sharedTime) {
+            $res['SharedTime'] = $this->sharedTime;
         }
 
         return $res;
@@ -44,6 +53,9 @@ class account extends Model
         $model = new self();
         if (isset($map['AliyunId'])) {
             $model->aliyunId = $map['AliyunId'];
+        }
+        if (isset($map['SharedTime'])) {
+            $model->sharedTime = $map['SharedTime'];
         }
 
         return $model;

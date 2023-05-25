@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagsRequest extends Model
 {
     /**
-     * @description > This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * @description > This parameter will be deprecated in the future. We recommend that you use other parameters to ensure future compatibility.
      *
      * @example null
      *
@@ -24,7 +24,7 @@ class DescribeTagsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -34,7 +34,7 @@ class DescribeTagsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: 50.
      * @example 50
@@ -44,7 +44,7 @@ class DescribeTagsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -53,7 +53,7 @@ class DescribeTagsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource. For example, when ResourceType is set to instance, this parameter is interpreted as the ID of the instance (InstanceId).
+     * @description The ID of the resource to which the tags are added. If the resource is an instance, the value of this parameter is the ID of the instance.
      *
      * @example s-946ntx4wr****
      *
@@ -72,22 +72,22 @@ class DescribeTagsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource to which the tag is added. Valid values:
+     * @description The type of the resource to which the tags are added. Valid values:
      *
-     *   instance: Elastic Compute Service (ECS) instance
-     *   disk: disk
-     *   snapshot: snapshot
-     *   image: image
-     *   securitygroup: security group
-     *   volume: storage volume
-     *   eni: elastic network interface (ENI)
-     *   ddh: dedicated host
-     *   keypair: SSH key pair
-     *   launchtemplate: launch template
-     *   reservedinstance: reserved instance
-     *   snapshotpolicy: automatic snapshot policy
+     *   instance: Elastic Compute Service (ECS) instance.
+     *   disk: disk.
+     *   snapshot: snapshot.
+     *   image: image.
+     *   securitygroup: security group.
+     *   volume: storage volume.
+     *   eni: elastic network interface (ENI).
+     *   ddh: dedicated host.
+     *   keypair: SSH key pair.
+     *   launchtemplate: launch template.
+     *   reservedinstance: reserved instance.
+     *   snapshotpolicy: automatic snapshot policy.
      *
-     * All values must be lowercase.
+     * All values must be in lowercase letters.
      * @example snapshot
      *
      * @var string
@@ -95,7 +95,7 @@ class DescribeTagsRequest extends Model
     public $resourceType;
 
     /**
-     * @description The list of tags.
+     * @description The tags of the resource.
      *
      * @var tag[]
      */

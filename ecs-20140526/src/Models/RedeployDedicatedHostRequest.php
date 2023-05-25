@@ -28,7 +28,7 @@ class RedeployDedicatedHostRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the dedicated host. You can call the [escribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the dedicated host. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

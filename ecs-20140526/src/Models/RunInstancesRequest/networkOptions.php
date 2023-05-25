@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class networkOptions extends Model
 {
     /**
+     * @description 实例是否开启Jumbo frame特性。参数取值范围：
+     *
+     * >只有八代以上部分实例规格支持开启Jumbo frame特性，更多信息，请参见[ECS实例MTU](~~200512~~)。
+     * @example false
+     *
      * @var bool
      */
     public $enableJumboFrame;

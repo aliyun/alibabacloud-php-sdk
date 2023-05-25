@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceMonitorDataResponseBody extends Model
 {
     /**
-     * @description The monitoring data about the instance.
+     * @description The monitoring data of the instance.
      *
      * @var monitorData
      */
     public $monitorData;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *

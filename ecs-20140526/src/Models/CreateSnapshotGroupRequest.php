@@ -19,19 +19,19 @@ class CreateSnapshotGroupRequest extends Model
     public $description;
 
     /**
-     * @description The ID of disk N for which you want to create snapshots. You can specify multiple disk IDs across instances within the same zone. Valid values of N: 1 to 16. A single snapshot-consistent group can contain snapshots of up to 16 disks and cannot exceed 32 TiB in size.
+     * @description The ID of cloud disk N for which you want to create snapshots. You can specify multiple cloud disk IDs across instances within the same zone. Valid values of N: 1 to 16. A single snapshot-consistent group can contain snapshots of up to 16 cloud disks whose total disk size does not exceed 32 TiB.
      *
      * Take note of the following items:
      *
-     *   You cannot specify both DiskId.N and `ExcludeDiskId.N`.
-     *   If `InstanceId` is set, you can use DiskId.N to specify only disks attached to the instance specified by InstanceId, and you cannot use DiskId.N to specify disks attached to multiple instances.
+     *   You cannot specify both DiskId.N and `ExcludeDiskId.N` in the same request.
+     *   If `InstanceId` is set, you can use DiskId.N to specify only cloud disks attached to the instance specified by InstanceId, and you cannot use DiskId.N to specify cloud disks attached to multiple instances.
      *
      * @var string[]
      */
     public $diskId;
 
     /**
-     * @description The ID of disk N for which you do not need to create snapshots. After this parameter is specified, the created snapshot-consistent group does not contain snapshots of the disk. Valid values of N: 1 to 16.
+     * @description The ID of cloud disk N for which you do not want to create snapshots. If this parameter is specified, the created snapshot-consistent group does not contain snapshots of the cloud disk. Valid values of N: 1 to 16.
      *
      * > You cannot specify ExcludeDiskId.N and `DiskId.N` in the same request.
      * @example d-j6cf7l0ewidb78lq****
@@ -41,7 +41,7 @@ class CreateSnapshotGroupRequest extends Model
     public $excludeDiskId;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-j6ca469urv8ei629****
      *
@@ -50,7 +50,7 @@ class CreateSnapshotGroupRequest extends Model
     public $instanceId;
 
     /**
-     * @description Specify whether to enable the instant access feature. Valid values:
+     * @description Specifies whether to enable the instant access feature. Valid values:
      *
      *   true
      *   false
@@ -63,9 +63,9 @@ class CreateSnapshotGroupRequest extends Model
     public $instantAccess;
 
     /**
-     * @description Specify the number of days for which the instant access feature is available. Unit: days. Valid values: 1 to 65535.
+     * @description The number of days for which the instant access feature is available. Unit: days. Valid values: 1 to 65535.
      *
-     * This parameter is empty by default, which indicates that the instant access feature expires when snapshots are released.
+     * This parameter is empty by default, which indicates that the expiration time of the instant access feature is determined by the time when snapshots are released.
      * @example 1
      *
      * @var int
@@ -73,7 +73,7 @@ class CreateSnapshotGroupRequest extends Model
     public $instantAccessRetentionDays;
 
     /**
-     * @description The name of the snapshot-consistent group. The name must be 2 to 128 characters in length, and contain letters, digits, periods (.), underscores (\_), hyphens (-), and colons (:). It must start with a letter and cannot start with `http://` or `https://`.
+     * @description The name of the snapshot-consistent group. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), hyphens (-), and colons (:). It must start with a letter and cannot start with `http://` or `https://`.
      *
      * @example testName
      *
@@ -120,7 +120,7 @@ class CreateSnapshotGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description > This parameter is unavailable.
+     * @description > This parameter is unavailable for public use.
      *
      * @example null
      *
@@ -129,7 +129,7 @@ class CreateSnapshotGroupRequest extends Model
     public $storageLocationArn;
 
     /**
-     * @description The tags of the command.
+     * @description The list of tags.
      *
      * @var tag[]
      */

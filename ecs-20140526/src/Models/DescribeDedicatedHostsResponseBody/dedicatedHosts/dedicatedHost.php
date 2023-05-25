@@ -24,12 +24,12 @@ class dedicatedHost extends Model
     public $schedulerOptions;
 
     /**
-     * @description The policy used to migrate the instances deployed on the dedicated host when the dedicated host fails. Valid values:
+     * @description The policy that is used to migrate the instances deployed on the dedicated host when the dedicated host fails. Valid values:
      *
      *   Migrate: The instances are migrated to another physical server. Instances that are not in the Stopped state when the dedicated host fails are restarted after migration.
-     *   Stop: The instances are stopped. If the dedicated host cannot be repaired, the instances are migrated to another physical server and restarted.
+     *   Stop: The instances are stopped. If the dedicated host cannot be repaired, the instances are migrated to another physical machine and then restarted.
      *
-     * If the dedicated host has cloud disks attached, the default value is Migrate. If the dedicated host has local disks attached, the default value is Stop.
+     * If cloud disks are attached to the dedicated host, the default value of this parameter is Migrate. If local disks are attched to the dedicated host, the default value of this parameter is Stop.
      * @example Migrate
      *
      * @var string
@@ -37,12 +37,12 @@ class dedicatedHost extends Model
     public $actionOnMaintenance;
 
     /**
-     * @description Indicates whether the dedicated host was added to the resource pool for automatic deployment. Valid values:
+     * @description Indicates whether the dedicated host is added to the resource pool for automatic deployment. Valid values:
      *
-     *   on: The dedicated host was added to the resource pool for automatic deployment.
-     *   off: The dedicated host was not added to the resource pool for automatic deployment.
+     *   on: The dedicated host is added to the resource pool for automatic deployment.
+     *   off: The dedicated host is not added to the resource pool for automatic deployment.
      *
-     * For more information about automatic deployment, see the "[Automatic deployment](~~118938~~)" section in the Functions and features topic.
+     * For more information about automatic deployment, see the "Automatic deployment" section in [Functions and features](~~118938~~).
      * @example on
      *
      * @var string
@@ -129,6 +129,8 @@ class dedicatedHost extends Model
     public $dedicatedHostName;
 
     /**
+     * @example 100************7
+     *
      * @var int
      */
     public $dedicatedHostOwnerId;
@@ -177,7 +179,7 @@ class dedicatedHost extends Model
     public $hostDetailInfo;
 
     /**
-     * @description Details about the ECS instances that were created on the dedicated host.
+     * @description The ECS instances that are created on the dedicated host.
      *
      * @var instances
      */
@@ -200,7 +202,7 @@ class dedicatedHost extends Model
     public $networkAttributes;
 
     /**
-     * @description The reasons why the resources of the dedicated host were locked.
+     * @description The reasons why the resources of the dedicated host are locked.
      *
      * @var operationLocks
      */
@@ -255,11 +257,11 @@ class dedicatedHost extends Model
     public $sockets;
 
     /**
-     * @description The service state of the dedicated host. Valid values:
+     * @description The service status of the dedicated host. Valid values:
      *
-     *   Available: The dedicated host is running normally.
-     *   UnderAssessment: The dedicated host is at risk, which may cause issues to ECS instances on the dedicated host.
-     *   PermanentFailure: The dedicated host has permanent failures and is unusable.
+     *   Available: The dedicated host is running as expected.
+     *   UnderAssessment: The dedicated host is available. However, the dedicated host has potential risks that may cause the ECS instances on the dedicated host to fail.
+     *   PermanentFailure: The dedicated host has permanent failures and cannot be used.
      *
      * @example Available
      *
@@ -268,21 +270,21 @@ class dedicatedHost extends Model
     public $status;
 
     /**
-     * @description The custom ECS instance families supported by the dedicated host.
+     * @description The custom ECS instance families that are supported by the dedicated host.
      *
      * @var supportedCustomInstanceTypeFamilies
      */
     public $supportedCustomInstanceTypeFamilies;
 
     /**
-     * @description The ECS instance families supported by the dedicated host.
+     * @description The ECS instance families that are supported by the dedicated host.
      *
      * @var supportedInstanceTypeFamilies
      */
     public $supportedInstanceTypeFamilies;
 
     /**
-     * @description The ECS instance types supported by the dedicated host.
+     * @description The ECS instance types that are supported by the dedicated host.
      *
      * @var supportedInstanceTypesList
      */

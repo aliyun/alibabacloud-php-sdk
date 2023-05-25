@@ -12,7 +12,7 @@ class price extends Model
     /**
      * @description The currency unit.
      *
-     * Alibaba Cloud International site (alibabacloud.com): USD
+     * Alibaba Cloud International site (alibabacloud.com): USD.
      * @example CNY
      *
      * @var string
@@ -22,7 +22,7 @@ class price extends Model
     /**
      * @description Details about the price.
      *
-     * > This parameter is in invitational preview and unavailable.
+     * > This parameter is in invitational preview and is unavailable for public use.
      * @var detailInfos
      */
     public $detailInfos;
@@ -55,7 +55,7 @@ class price extends Model
     public $reservedInstanceHourPrice;
 
     /**
-     * @description The transaction price, which is equal to the original price minus the discount.
+     * @description The transaction price of the order. The transaction price is equal to the original price minus the discount.
      *
      * @example 3712.8
      *

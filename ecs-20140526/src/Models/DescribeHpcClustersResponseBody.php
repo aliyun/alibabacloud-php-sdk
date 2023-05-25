@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeHpcClustersResponseBody extends Model
 {
     /**
-     * @description Details about the HPC clusters. The value is an array that consists of the information of each HPC cluster.
+     * @description The ID of the HPC cluster.
      *
      * @var hpcClusters
      */
     public $hpcClusters;
 
     /**
-     * @description The page number of the returned page.
+     * @description The total number of HPC clusters queried.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeHpcClustersResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The ID of the request.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeHpcClustersResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The page number of the returned page.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -44,7 +44,7 @@ class DescribeHpcClustersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of the HPC clusters.
+     * @description Details about the HPC clusters. The value is an array that consists of the information of each HPC cluster.
      *
      * @example 2
      *

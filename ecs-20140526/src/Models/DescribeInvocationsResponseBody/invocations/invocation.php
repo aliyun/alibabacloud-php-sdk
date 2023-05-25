@@ -20,7 +20,7 @@ class invocation extends Model
     public $commandContent;
 
     /**
-     * @description The description of the command.
+     * @description The command description.
      *
      * @example testDescription
      *
@@ -29,7 +29,7 @@ class invocation extends Model
     public $commandDescription;
 
     /**
-     * @description The ID of the command.
+     * @description The command ID.
      *
      * @example c-hz0jdfwcsr****
      *
@@ -38,7 +38,7 @@ class invocation extends Model
     public $commandId;
 
     /**
-     * @description The name of the command.
+     * @description The command name.
      *
      * @example CommandTestName
      *
@@ -47,7 +47,7 @@ class invocation extends Model
     public $commandName;
 
     /**
-     * @description The type of the command.
+     * @description The command type.
      *
      * @example RunShellScript
      *
@@ -56,7 +56,7 @@ class invocation extends Model
     public $commandType;
 
     /**
-     * @description The ID of the container.
+     * @description The container ID.
      *
      * @example ab141ddfbacfe02d9dbc25966ed971536124527097398d419a6746873fea****
      *
@@ -65,7 +65,7 @@ class invocation extends Model
     public $containerId;
 
     /**
-     * @description The name of the container.
+     * @description The container name.
      *
      * @example test-container
      *
@@ -130,7 +130,7 @@ class invocation extends Model
     public $invocationStatus;
 
     /**
-     * @description The ID of the command task.
+     * @description The command task ID.
      *
      * @example t-hz0jdfwd9f****
      *
@@ -165,12 +165,12 @@ class invocation extends Model
     public $parameters;
 
     /**
-     * @description The execution mode of the command. Valid values:
+     * @description Indicates the execution mode of the command. Valid values:
      *
-     *   Once: The command is immediately run.
+     *   Once: immediately runs the command.
      *   Period: The command is run on a schedule.
      *   NextRebootOnly: The command is automatically run the next time the instance starts.
-     *   EveryReboot: The command is automatically run every time the instance starts.
+     *   EveryReboot: automatically runs the command every time the instance starts.
      *
      * @example Once
      *

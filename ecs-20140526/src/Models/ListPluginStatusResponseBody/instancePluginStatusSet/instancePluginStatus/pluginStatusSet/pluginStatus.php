@@ -38,13 +38,13 @@ class pluginStatus extends Model
     /**
      * @description The state of the Cloud Assistant plug-in. Valid values:
      *
-     * NotInstalled: The plug-in is not installed.
-     * Installed: The one-time plug-in is installed.
-     * Running: The long-running plug-in is running.
-     * Stopped: The long-running plug-in is not running.
-     * Crashed: The plug-in is abnormal.
-     * Removed: The plug-in is uninstalled.
-     * Unknown: The state of the plug-in is unknown.
+     *   NotInstalled
+     *   Installed
+     *   Running
+     *   Stopped
+     *   Crashed
+     *   Removed
+     *   Unknown
      *
      * @example Running
      *
@@ -53,7 +53,7 @@ class pluginStatus extends Model
     public $pluginStatus;
 
     /**
-     * @description The version of the plug-in
+     * @description The version of the plug-in.
      *
      * @example 1.1
      *

@@ -28,7 +28,7 @@ class resourcePriceModel extends Model
     public $originalPrice;
 
     /**
-     * @description The name of the resource.
+     * @description The resource name.
      *
      * @example instance
      *

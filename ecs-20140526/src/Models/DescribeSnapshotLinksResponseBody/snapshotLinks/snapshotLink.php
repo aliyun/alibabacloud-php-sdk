@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class snapshotLink extends Model
 {
     /**
-     * @description The category of the snapshot.
+     * @description The type of the snapshot.
      *
-     * > This parameter will be removed in the future. We recommend that you use the `InstantAccess` parameter to ensure future compatibility.
+     * > This parameter will be removed in the future. We recommend that you configure `InstantAccess` to ensure compatibility.
      * @example standard
      *
      * @var string
@@ -19,7 +19,7 @@ class snapshotLink extends Model
     public $category;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-bp1h6jmbefj2cyqs****
      *
@@ -37,10 +37,10 @@ class snapshotLink extends Model
     public $instanceName;
 
     /**
-     * @description Indicates whether the instant access feature was enabled. Valid values:
+     * @description Indicates whether the instant access feature is enabled. Valid values:
      *
-     *   true: The instant access feature was enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
-     *   false: The instant access feature was disabled. The snapshot is a normal snapshot for which the instant access feature was disabled.
+     *   true: The instant access feature is enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
+     *   false: The instant access feature is disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
      *
      * @example false
      *
@@ -58,7 +58,7 @@ class snapshotLink extends Model
     public $regionId;
 
     /**
-     * @description The ID of the snapshot chain.
+     * @description The snapshot chain IDs.
      *
      * @example sl-2ze0y1jwzpb1geqx****
      *
@@ -67,7 +67,7 @@ class snapshotLink extends Model
     public $snapshotLinkId;
 
     /**
-     * @description The ID of the source disk. This parameter is retained even if the source disk is deleted.
+     * @description The source disk ID. This parameter is retained even if the source disk is deleted.
      *
      * @example d-bp1d6tsvznfghy7y****
      *

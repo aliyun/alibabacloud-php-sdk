@@ -18,7 +18,7 @@ class DetachKeyPairRequest extends Model
     public $instanceIds;
 
     /**
-     * @description The names of SSH key pairs.
+     * @description The name of the SSH key pair.
      *
      * @example testKeyPairName
      *

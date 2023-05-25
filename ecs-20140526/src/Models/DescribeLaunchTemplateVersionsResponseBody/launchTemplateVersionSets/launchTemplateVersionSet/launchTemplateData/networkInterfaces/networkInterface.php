@@ -19,7 +19,7 @@ class networkInterface extends Model
     public $description;
 
     /**
-     * @description The instance type of the instance.
+     * @description The instance type.
      *
      * @example ecs.s2.xlarge
      *
@@ -58,7 +58,7 @@ class networkInterface extends Model
     public $primaryIpAddress;
 
     /**
-     * @description The ID of the security group to which to assign the secondary ENI. The security group and the ENI must belong to the same VPC.
+     * @description The IDs of the security groups to which the secondary ENI is assigned. The security group and the ENI must belong to the same VPC.
      *
      * > The SecurityGroupId and SecurityGroupIds parameters are mutually exclusive in the response.
      * @example sg-bp67acfmxazb4p****
@@ -68,7 +68,7 @@ class networkInterface extends Model
     public $securityGroupId;
 
     /**
-     * @description The IDs of the security groups to which to assign the secondary ENI.
+     * @description The IDs of the security groups to which the secondary ENI is assigned.
      *
      * > The SecurityGroupId and SecurityGroupIds parameters are mutually exclusive in the response.
      * @var securityGroupIds
@@ -76,7 +76,7 @@ class networkInterface extends Model
     public $securityGroupIds;
 
     /**
-     * @description The ID of the vSwitch to which to connect the secondary ENI.
+     * @description The ID of the vSwitch to which the ENI is connected.
      *
      * @example vsw-bp67acfmxazb4p****
      *

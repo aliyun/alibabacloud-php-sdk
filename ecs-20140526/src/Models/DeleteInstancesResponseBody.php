@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstancesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 7B7813C6-57BF-41XX-B12B-F172F65A6046
      *

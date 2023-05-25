@@ -17,7 +17,7 @@ class DescribeAutoProvisioningGroupsResponseBody extends Model
     public $autoProvisioningGroups;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of the page returned.
      *
      * @example 1
      *

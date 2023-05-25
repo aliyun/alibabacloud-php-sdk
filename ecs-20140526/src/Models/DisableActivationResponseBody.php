@@ -17,7 +17,7 @@ class DisableActivationResponseBody extends Model
     public $activation;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4ECEEE12-56F1-4FBC-9AB1-890F74942176
      *

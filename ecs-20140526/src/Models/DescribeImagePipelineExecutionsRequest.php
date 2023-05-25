@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePipelineExecutionsRequest extends Model
 {
     /**
-     * @description The ID of the image build task.
+     * @description The ID of the image creation task.
      *
      * @example exec-5fb8facb8ed7427c****
      *
@@ -28,7 +28,7 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public $imagePipelineId;
 
     /**
-     * @description The maximum number of entries to return on each page. Valid values: 1 to 500.
+     * @description The number of entries per page. Valid values: 1 to 500.
      *
      * Default value: 50.
      * @example 50
@@ -38,7 +38,7 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The query token. Set the value to the `NextToken` value that was returned when you last called the DescribeImagePipelineExecutions operation. Leave this parameter empty when you call this operation for the first time.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
      *
      * @example AAAAAdDWBF2****
      *
@@ -57,7 +57,7 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the image build task. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -76,9 +76,17 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The status of the image build task. You can specify multiple values at the same time. Separate the values with commas (,). Example format: `BUILDING,DISTRIBUTING`. Valid values:
+     * @description The status of the image creation task. You can specify multiple values at the same time. Separate the values with commas (,). Example: `BUILDING,DISTRIBUTING`. Valid values:
      *
-     * >  You cannot query the image build tasks in all status by leaving this parameter empty.
+     *   BUILDING
+     *   DISTRIBUTING
+     *   RELEASING
+     *   SUCCESS
+     *   FAILED
+     *   CANCELLING
+     *   CANCELLED
+     *
+     * > If you want to query the image creation tasks in all states, specify all values.
      * @example BUILDING
      *
      * @var string
@@ -86,7 +94,7 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public $status;
 
     /**
-     * @description > This parameter is deprecated.
+     * @description > This parameter is unavailable.
      *
      * @var tag[]
      */

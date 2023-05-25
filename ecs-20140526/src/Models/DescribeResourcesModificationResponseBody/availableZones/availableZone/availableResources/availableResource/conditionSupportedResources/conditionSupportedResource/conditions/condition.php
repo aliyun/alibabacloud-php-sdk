@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class condition extends Model
 {
     /**
+     * @example DiskCategory
+     *
      * @var string
      */
     public $key;

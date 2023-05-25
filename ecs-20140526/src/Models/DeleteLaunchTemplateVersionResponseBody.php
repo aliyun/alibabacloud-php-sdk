@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteLaunchTemplateVersionResponseBody extends Model
 {
     /**
+     * @description 实例启动模板版本。
+     *
      * @var launchTemplateVersions
      */
     public $launchTemplateVersions;

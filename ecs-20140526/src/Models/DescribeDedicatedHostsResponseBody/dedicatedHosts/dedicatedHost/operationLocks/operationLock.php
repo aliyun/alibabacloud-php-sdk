@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class operationLock extends Model
 {
     /**
-     * @description The reason why the dedicated host was locked. Valid values:
+     * @description The reason why the dedicated host is locked. Valid values:
      *
-     * - security: The dedicated host was locked due to security reasons.
+     *   financial: The dedicated host is locked due to overdue payments.
+     *   security: The dedicated host is locked due to security reasons.
+     *
      * @example financial
      *
      * @var string

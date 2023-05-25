@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeClassicLinkInstancesRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can specify up to 100 instance IDs in a single request. Separate the instance IDs with commas (,).
+     * @description The instance ID. You can specify up to 100 instance IDs in a single request. Separate the instance IDs with commas (,).
      *
      * @example i-bp1a5zr3u7nq9cxh****
      *
@@ -23,7 +23,7 @@ class DescribeClassicLinkInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1.
+     * @description The page number. Pages start from page 1.
      *
      * Default value: 1.
      * @example 1
@@ -33,7 +33,7 @@ class DescribeClassicLinkInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 100.
+     * @description The number of entries per page. Valid values: 1 to 100.
      *
      * Default value: 10.
      * @example 10

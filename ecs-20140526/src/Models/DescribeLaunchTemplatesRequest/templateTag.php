@@ -11,7 +11,7 @@ class templateTag extends Model
     /**
      * @description The key of tag N of the launch template. Valid values of N: 1 to 20.
      *
-     * If a single tag is specified to query resources, up to 1,000 resources that have this tag added can be displayed in the response. If multiple tags are specified to query resources, up to 1,000 resources that have all these tags added can be displayed in the response. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](~~110425~~) operation.
+     * Up to 1,000 resources that match the specified tags can be returned in the response. To query more than 1,000 resources that match the specified tags, call the [ListTagResources](~~110425~~) operation.
      * @example TestKey
      *
      * @var string

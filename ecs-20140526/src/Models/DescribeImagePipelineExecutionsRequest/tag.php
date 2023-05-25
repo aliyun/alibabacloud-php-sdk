@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description > This parameter is deprecated.
+     * @description > This parameter is unavailable.
      *
      * @example null
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description > This parameter is deprecated.
+     * @description > This parameter is unavailable.
      *
      * @example null
      *

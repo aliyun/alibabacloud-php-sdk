@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteDiskRequest extends Model
 {
     /**
-     * @description The ID of the disk to be released.
+     * @description The ID of the disk that you want to release.
      *
      * @example d-bp14k9cxvr5uzy5****
      *
@@ -18,35 +18,21 @@ class DeleteDiskRequest extends Model
     public $diskId;
 
     /**
-     * @example ECSforCloud@Alibaba.com
-     *
      * @var string
      */
     public $ownerAccount;
 
     /**
-     * @description RAM 用户的虚拟账号ID。
-     *
-     * @example 155780923770
-     *
      * @var int
      */
     public $ownerId;
 
     /**
-     * @description 资源主账号的账号名称。
-     *
-     * @example ECSforCloud
-     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
-     * @description 资源主账号的ID，亦即UID。
-     *
-     * @example 155780923770
-     *
      * @var int
      */
     public $resourceOwnerId;

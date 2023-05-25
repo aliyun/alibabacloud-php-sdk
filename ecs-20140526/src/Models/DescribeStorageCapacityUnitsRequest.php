@@ -12,7 +12,7 @@ class DescribeStorageCapacityUnitsRequest extends Model
     /**
      * @description The allocation type. Valid values:
      *
-     *   Normal: queries SCUs within the current Alibaba Cloud account.
+     *   Normal: queries SCUs that belong to the current Alibaba Cloud account.
      *   Shared: queries SCUs shared between the Alibaba Cloud account and RAM users.
      *
      * Default value: Normal.
@@ -90,7 +90,12 @@ class DescribeStorageCapacityUnitsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The statuses of SCUs.
+     * @description The state of SCUs. You can specify 1 to 4 types of state. Valid values:
+     *
+     *   Creating: The SCUs are being created.
+     *   Active: The SCUs are in effect.
+     *   Expired: The SCUs have expired.
+     *   Pending: The SCUs have not taken effect.
      *
      * @example Active
      *
@@ -99,7 +104,7 @@ class DescribeStorageCapacityUnitsRequest extends Model
     public $status;
 
     /**
-     * @description The IDs of the SCUs. You can enter at most 100 SCU IDs.
+     * @description One or multiple SCU IDs. You can specify 1 to 100 SCU IDs.
      *
      * @example scu-bp67acfmxazb4p****
      *
@@ -108,7 +113,7 @@ class DescribeStorageCapacityUnitsRequest extends Model
     public $storageCapacityUnitId;
 
     /**
-     * @description The tags.
+     * @description The tags of the SCUs.
      *
      * @var tag[]
      */

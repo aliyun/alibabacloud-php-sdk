@@ -27,11 +27,12 @@ class eipAddress extends Model
     public $bandwidth;
 
     /**
-     * @description The billing method for network usage. Valid values:
+     * @description The metering method for network usage. Valid values:
      *
-     * - PayByTraffic: pay-by-traffic
+     *   PayByBandwidth
+     *   PayByTraffic
      *
-     * >  When the **pay-by-traffic** billing method for network usage is used, the maximum inbound and outbound bandwidth values are used as upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidth values may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+     * > When the **pay-by-traffic** method is used, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidth values may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** metering method for network usage.
      * @example PayByTraffic
      *
      * @var string
@@ -39,7 +40,7 @@ class eipAddress extends Model
     public $internetChargeType;
 
     /**
-     * @description The EIP of the instance.
+     * @description The ID of the elastic IP address (EIP).
      *
      * @example 30.21.**.**
      *

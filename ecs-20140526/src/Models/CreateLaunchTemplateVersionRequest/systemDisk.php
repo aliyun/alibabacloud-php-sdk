@@ -18,10 +18,10 @@ class systemDisk extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description Specifies whether to enable the performance burst feature for the system disk. Valid values:
+     * @description Specifies whether to enable the performance burst feature. Valid values:
      *
-     *   true
-     *   false
+     *   true: encrypts the disk.
+     *   false: does not enable the performance burst feature.
      *
      * @example true
      *
@@ -34,8 +34,8 @@ class systemDisk extends Model
      *
      *   cloud: basic disk
      *   cloud_efficiency: ultra disk
-     *   cloud_ssd: standard SSD
-     *   cloud_essd: enhanced SSD (ESSD) You can use the `SystemDisk.PerformanceLevel` parameter to set the performance level of the ESSD to use as the system disk. cloud_auto: ESSD AutoPL disk.
+     *   cloud_ssd: standard SSD.
+     *   cloud_essd: enhanced SSD (ESSD). You can use the `SystemDisk.PerformanceLevel` parameter to set the performance level of the ESSD to use as the system disk.
      *
      * For non-I/O optimized instances of a retired instance type, the default value is cloud. For other types of instances, the default value is cloud_efficiency.
      * @example cloud_ssd
@@ -47,8 +47,8 @@ class systemDisk extends Model
     /**
      * @description Specifies whether to release the system disk when the instance is released. Valid values:
      *
-     *   true: releases the system disk when the instance is released.
-     *   false: does not release the system disk when the instance is released.
+     *   true: releases data disk N when the instance is released.
+     *   false: does not release data disk N when the instance is released.
      *
      * Default value: true.
      * @example true
@@ -67,7 +67,7 @@ class systemDisk extends Model
     public $description;
 
     /**
-     * @description The name of the system disk. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the system disk. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example cloud_ssdSystem
      *
@@ -76,9 +76,12 @@ class systemDisk extends Model
     public $diskName;
 
     /**
-     * @description 系统盘是否加密。取值范围：
+     * @description Specifies whether to encrypt the system disk. Valid values:
      *
-     * >中国香港D可用区、新加坡A可用区暂不支持在创建实例时加密系统盘。
+     *   true
+     *   false
+     *
+     * > You cannot encrypt system disks when you create instances in Hong Kong Zone D or Singapore Zone A.
      * @example false
      *
      * @var string
@@ -95,7 +98,7 @@ class systemDisk extends Model
     public $iops;
 
     /**
-     * @description The performance level of the ESSD to use as the system disk. Default value: PL0. Valid values:
+     * @description The performance level of the ESSD to be used as the system disk. Default value: PL0. Valid values:
      *
      *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
      *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
@@ -110,9 +113,9 @@ class systemDisk extends Model
     public $performanceLevel;
 
     /**
-     * @description The provisioned read/write IOPS of the ESSD AutoPL disk to use as the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
+     * @description The provisioned read/write IOPS of the ESSD AutoPL disk to use as data disk N. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
      *
-     * > This parameter is available only if you set the SystemDisk.Category parameter to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~) and [Modify the performance configurations of an ESSD AutoPL disk](~~413275~~).
+     * > This parameter is available only if you set the Category parameter to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~) and [Modify the performance configurations of an ESSD AutoPL disk](~~413275~~).
      * @example 50000
      *
      * @var int

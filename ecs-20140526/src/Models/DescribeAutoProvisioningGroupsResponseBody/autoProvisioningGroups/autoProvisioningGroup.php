@@ -33,8 +33,8 @@ class autoProvisioningGroup extends Model
     /**
      * @description The delivery type of the auto provisioning group. Valid values:
      *
-     *   request: one-time delivery.After the auto provisioning group is started, it attempts to deliver an instance cluster once. If the cluster fails to be delivered, the group does not retry the operation.
-     *   maintain: continuous delivery.After the auto provisioning group is started, it continuously attempts to deliver an instance cluster. The auto provisioning group compares the real-time capacity and the target cluster capacity. If the cluster does not meet the target capacity, the group creates instances until the cluster meets the target capacity.
+     *   request: the one-time delivery. When the auto provisioning group is started, the system delivers clusters only once. If the clusters fail to be delivered, the system does not retry the delivery.
+     *   maintain: continuous delivery. When the auto provisioning group is started, the system delivers clusters until the target capacity is reached. The system also monitors the capacity in real time. If the target capacity of the auto provisioning group is not reached, the system continues creating ECS instances until the target capacity is reached.
      *
      * @example maintain
      *
@@ -43,7 +43,7 @@ class autoProvisioningGroup extends Model
     public $autoProvisioningGroupType;
 
     /**
-     * @description The time when the auto provisioning group was created.
+     * @description The creation time.
      *
      * @example 2019-04-01T15:10:20Z
      *
@@ -52,10 +52,10 @@ class autoProvisioningGroup extends Model
     public $creationTime;
 
     /**
-     * @description Indicates whether to release the scaled-in instances when the real-time capacity exceeds the target capacity and the group is triggered to scale in. Valid values:
+     * @description Specifies whether to release the removed instances when the capacity of the auto provisioning group exceeds the target capacity and a scale-in event is triggered. Valid values:
      *
-     *   termination: releases the scaled-in instances.
-     *   no-termination: removes the scaled-in instances from the auto provisioning group but not releases the instances.
+     *   termination: releases the removed instances.
+     *   no-termination: removes the instances from the auto provisioning group but does not release them.
      *
      * @example termination
      *
@@ -91,7 +91,7 @@ class autoProvisioningGroup extends Model
     /**
      * @description The maximum price for preemptible instances in the auto provisioning group.
      *
-     * >  If both the MaxSpotPrice and LaunchTemplateConfig.N.MaxPrice parameters are specified, the maximum price is the lower value of the two parameters. The LaunchTemplateConfig.N.MaxPrice parameter is set when the auto provisioning group is created, and cannot be modified.
+     * The LaunchTemplateConfig.N.MaxPrice parameter is set when the auto provisioning group is created, and cannot be modified.
      * @example 2
      *
      * @var float
@@ -124,7 +124,11 @@ class autoProvisioningGroup extends Model
     /**
      * @description The overall status of instance scheduling of the auto provisioning group. Valid values:
      *
-     * - error: An exception has occurred during scheduling and the instance cluster was not delivered.
+     *   fulfilled: Scheduling is complete and the instance cluster is delivered.
+     *   pending-fulfillment: The instances are being created.
+     *   pending-termination: The instances are being removed.
+     *   error: An exception occurred during scheduling and the instance cluster is not delivered.
+     *
      * @example fulfilled
      *
      * @var string
@@ -134,7 +138,12 @@ class autoProvisioningGroup extends Model
     /**
      * @description The status of the auto provisioning group. Valid values:
      *
-     * - modifying: The auto provisioning group is being modified.
+     *   submitted: The auto provisioning group is created but has not started to execute scheduling tasks.
+     *   active: The auto provisioning group is executing scheduling tasks.
+     *   deleted: The auto provisioning group is deleted.
+     *   deleted-running: The auto provisioning group is being deleted.
+     *   modifying: The auto provisioning group is being modified.
+     *
      * @example submitted
      *
      * @var string
@@ -149,9 +158,11 @@ class autoProvisioningGroup extends Model
     public $targetCapacitySpecification;
 
     /**
-     * @description Indicates whether to release the instances in the auto provisioning group when the auto provisioning group is deleted. Valid values:
+     * @description Indicates whether the instances in the auto provisioning group are released when the auto provisioning group is deleted. Valid values:
      *
-     * - false: retains the instances.
+     *   true: releases instances in the auto provisioning group.
+     *   false: retains instances in the auto provisioning group.
+     *
      * @example false
      *
      * @var bool
@@ -159,9 +170,11 @@ class autoProvisioningGroup extends Model
     public $terminateInstances;
 
     /**
-     * @description Indicates whether to release instances in the auto provisioning group when the auto provisioning group expires. Valid values:
+     * @description Indicates whether the instances in the auto provisioning group are released when the auto provisioning group expires. Valid values:
      *
-     * - false: removes the instances in the group from the auto provisioning group but not releases the instances.
+     *   true: releases instances in the auto provisioning group.
+     *   false: removes instances from the auto provisioning group but does not release them.
+     *
      * @example true
      *
      * @var bool
@@ -169,7 +182,7 @@ class autoProvisioningGroup extends Model
     public $terminateInstancesWithExpiration;
 
     /**
-     * @description The time when the auto provisioning group was started. The period of time between this point in time and the point in time specified by the ValidUntil parameter is the effective time period of the auto provisioning group.
+     * @description The time at which the auto provisioning group is started. The provisioning group is effective to the point in time specified by the `ValidUntil` parameter.
      *
      * @example 2019-04-01T15:10:20Z
      *
@@ -178,7 +191,7 @@ class autoProvisioningGroup extends Model
     public $validFrom;
 
     /**
-     * @description The time when the auto provisioning group expires. The period of time between this point in time and the point in time specified by the ValidFrom parameter is the effective time period of the auto provisioning group.
+     * @description The time at which the auto provisioning group expires. The provisioning group is started from the point in time specified by the `ValidFrom` parameter.
      *
      * @example 2019-06-01T15:10:20Z
      *

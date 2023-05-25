@@ -27,6 +27,8 @@ class task extends Model
     public $finishedTime;
 
     /**
+     * @example m-bp1i8huqm5u7****
+     *
      * @var string
      */
     public $resourceId;

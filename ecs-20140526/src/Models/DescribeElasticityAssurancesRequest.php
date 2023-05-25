@@ -16,7 +16,7 @@ class DescribeElasticityAssurancesRequest extends Model
     public $privatePoolOptions;
 
     /**
-     * @description The billing method of the instances to be created by using the elasticity assurance. Set the value to PostPaid. Only pay-as-you-go instances can be created by using elasticity assurances.
+     * @description The billing method of the instance. Set the value to PostPaid. Only pay-as-you-go instances can be created by using elasticity assurances.
      *
      * Default value: PostPaid.
      * @example PostPaid
@@ -26,7 +26,7 @@ class DescribeElasticityAssurancesRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance type to which the elasticity assurance applies.
+     * @description The instance types.
      *
      * @example ecs.c6.large
      *
@@ -35,7 +35,7 @@ class DescribeElasticityAssurancesRequest extends Model
     public $instanceType;
 
     /**
-     * @description The maximum number of entries to return on each page.
+     * @description The number of entries to return on each page.
      *
      * Default value: 10.
      * @example 10
@@ -45,7 +45,7 @@ class DescribeElasticityAssurancesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token used to start the next query. Set the value to the NextToken value obtained from the response to the previous request.
+     * @description The token used to start the query. Set the value to the NextToken value obtained from the response to the previous request.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -64,7 +64,7 @@ class DescribeElasticityAssurancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description >  This parameter is deprecated.
+     * @description > This parameter is no longer used.
      *
      * @example null
      *
@@ -73,7 +73,7 @@ class DescribeElasticityAssurancesRequest extends Model
     public $platform;
 
     /**
-     * @description The region ID of the elasticity assurance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region to which the elasticity assurance belongs. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -82,9 +82,9 @@ class DescribeElasticityAssurancesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the elasticity assurance belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     * @description The ID of the resource group to which the snapshot belongs. When you use this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be returned.
      *
-     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * > Resources in the default resource group are displayed in the response regardless of how this parameter is set.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -102,7 +102,13 @@ class DescribeElasticityAssurancesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The state of the elasticity assurance. Valid values:
+     * @description The state of the elasticity assurance to query. Valid values:
+     *
+     *   All: Queries the elasticity assurances in all states.
+     *   Preparing: The elasticity assurance is being prepared.
+     *   Prepared: Queries the elasticity assurances that have not taken effect.
+     *   Active: Queries the elasticity assurances that are in effect.
+     *   Released: Queries the elasticity assurances that are released.
      *
      * Default value: Active.
      * @example Active
@@ -112,7 +118,7 @@ class DescribeElasticityAssurancesRequest extends Model
     public $status;
 
     /**
-     * @description The tags that you want to query resources. You can specify a maximum of 20 tags.
+     * @description The tags to use for the query.
      *
      * @var tag[]
      */

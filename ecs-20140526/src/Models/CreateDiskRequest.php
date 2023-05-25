@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskRequest extends Model
 {
     /**
-     * @description This parameter is unavailable.
+     * @description This parameter is not available for public use.
      *
      * @example hide
      *
@@ -20,14 +20,14 @@ class CreateDiskRequest extends Model
     public $advancedFeatures;
 
     /**
-     * @description 该参数暂未开放使用。
+     * @description This parameter is not available for public use.
      *
      * @var arn[]
      */
     public $arn;
 
     /**
-     * @description This parameter is unavailable.
+     * @description This parameter is not available for public use.
      *
      * @example false
      *
@@ -36,7 +36,7 @@ class CreateDiskRequest extends Model
     public $burstingEnabled;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -55,11 +55,11 @@ class CreateDiskRequest extends Model
     public $description;
 
     /**
-     * @description The category of the data disk. Valid values:
+     * @description The disk category. Valid values:
      *
      *   cloud: basic disk
      *   cloud_efficiency: ultra disk
-     *   cloud_ssd: standard SSD
+     *   cloud_ssd: SSD
      *   cloud_essd: ESSD
      *
      * Default value: cloud.
@@ -70,7 +70,7 @@ class CreateDiskRequest extends Model
     public $diskCategory;
 
     /**
-     * @description The name of the disk. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The disk name. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * This parameter is empty by default.
      * @example testDiskName
@@ -80,7 +80,7 @@ class CreateDiskRequest extends Model
     public $diskName;
 
     /**
-     * @description This parameter is unavailable.
+     * @description This parameter is not available for public use.
      *
      * @example hide
      *
@@ -94,7 +94,7 @@ class CreateDiskRequest extends Model
      *   true: encrypts the disk.
      *   false: does not encrypt the disk.
      *
-     * Default value: false.
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -102,12 +102,12 @@ class CreateDiskRequest extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the instance to which the created subscription disk is automatically attached.
+     * @description The ID of the subscription instance to which you want to automatically attach the created subscription disk.
      *
      *   After you specify the instance ID, the specified ResourceGroupId, Tag.N.Key, Tag.N.Value, ClientToken, and KMSKeyId parameters are ignored.
-     *   You cannot specify ZoneId and InstanceId at the same time.
+     *   You cannot specify the ZoneId and InstanceId parameters at the same time.
      *
-     * This parameter is empty by default. This indicates that a pay-as-you-go disk is created. The RegionId and ZoneId parameters specify where the disk resides.
+     * By default, this parameter is empty. This specifies that a pay-as-you-go disk is created. The RegionId and ZoneId parameters specify where the disk resides.
      * @example i-bp18pnlg1ds9rky4****
      *
      * @var string
@@ -115,7 +115,7 @@ class CreateDiskRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key used by the disk.
+     * @description The ID of the Key Management Service (KMS) key that you want to use for the disk.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40826X
      *
@@ -126,10 +126,13 @@ class CreateDiskRequest extends Model
     /**
      * @description Specifies whether to enable the multi-attach feature for the disk. Valid values:
      *
-     *   Disabled: disables the multi-attach feature.
-     *   Enabled: enables the multi-attach feature. Set the value to `Enabled` only for ESSDs.
+     *   Disabled
+     *   Enabled Set the value to `Enabled` only for ESSDs.
      *
-     * >  Disks for which the multi-attach feature is enabled support only the pay-as-you-go billing method. When the `MultiAttach` parameter is set to Enabled, you cannot specify the `InstanceId` parameter. You can call the [AttachDisk](~~25515~~) operation to attach disks to instances after the disks are created. Disks for which the multi-attach feature is enabled can be attached only as data disks.
+     **
+     *
+     **Disks for which the multi-attach feature is enabled only support the pay-as-you-go billing method.** If you set the `MultiAttach` parameter to Enabled, you cannot specify the `InstanceId` parameter. After you create disks, you can call the [AttachDisk](~~25515~~) operation to attach the disks to instances. You can attach disks for which the multi-attach feature is enabled only as data disks.
+     *
      * @example Disabled
      *
      * @var string
@@ -147,12 +150,12 @@ class CreateDiskRequest extends Model
     public $ownerId;
 
     /**
-     * @description The performance level of the ESSD. Valid values:
+     * @description The performance level of the ESSD. Default value: PL1. Valid values:
      *
-     *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+     *   PL0: An ESSD can deliver up to 10,000 random read/write IOPS.
      *   PL1: An ESSD can deliver up to 50,000 random read/write IOPS.
-     *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
-     *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+     *   PL2: An ESSD can deliver up to 100,000 random read/write IOPS.
+     *   PL3: An ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
      * For more information about ESSD performance levels, see [ESSDs](~~122389~~).
      * @example PL1
@@ -162,7 +165,7 @@ class CreateDiskRequest extends Model
     public $performanceLevel;
 
     /**
-     * @description This parameter is unavailable.
+     * @description This parameter is not available for public use.
      *
      * @example 40000
      *
@@ -180,7 +183,7 @@ class CreateDiskRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which to assign the disk.
+     * @description The ID of the resource group to which you want to assign the disk.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -199,7 +202,7 @@ class CreateDiskRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The size of the disk. Unit: GiB. This parameter is required. Valid values:
+     * @description The disk size. Unit: GiB. You must specify this parameter. Valid values:
      *
      *   Valid values when DiskCategory is set to cloud: 5 to 2,000
      *
@@ -207,17 +210,17 @@ class CreateDiskRequest extends Model
      *
      *   Valid values when DiskCategory is set to cloud_ssd: 20 to 32,768
      *
-     *   Valid values when DiskCategory is set to cloud_essd: depends on the `PerformanceLevel` value.
+     *   Valid values when DiskCategory is set to cloud_essd: based on the value of the `PerformanceLevel` parameter
      *
      *   Valid values when PerformanceLevel is set to PL0: 40 to 32,768
      *   Valid values when PerformanceLevel is set to PL1: 20 to 32,768
      *   Valid values when PerformanceLevel is set to PL2: 461 to 32,768
      *   Valid values when PerformanceLevel is set to PL3: 1,261 to 32,768
      *
-     * If the `SnapshotId` parameter is specified, the following limits apply to the `SnapshotId` and `Size` parameters:
+     * If you specify the `SnapshotId` parameter, the following limits apply to the `SnapshotId` and `Size` parameters:
      *
-     *   If the size of the snapshot specified by the `SnapshotId` parameter is greater than the specified `Size` value, the size of the created disk is equal to the specified snapshot size.
-     *   If the size of the snapshot specified by the `SnapshotId` parameter is smaller than the specified `Size` value, the size of the created disk is equal to the specified `Size` value.
+     *   If the size of the snapshot that is specified by the `SnapshotId` parameter is greater than the value of the `Size` parameter, the disk is created based on the size of the specified snapshot.
+     *   If the size of the snapshot that is specified by the `SnapshotId` parameter is less than the value of the `Size` parameter, the disk is created based on the value of the `Size` parameter.
      *
      * @example 2000
      *
@@ -226,12 +229,12 @@ class CreateDiskRequest extends Model
     public $size;
 
     /**
-     * @description The ID of the snapshot used to create the disk. Snapshots that were created on or before July 15, 2013 cannot be used to create disks.
+     * @description The ID of the snapshot that you want to use to create the disk. You cannot use snapshots that are created on or before July 15, 2013 to create disks.
      *
      * The following limits apply to the `SnapshotId` and `Size` parameters:
      *
-     *   If the size of the snapshot specified by the `SnapshotId` parameter is greater than the specified `Size` value, the size of the created disk is equal to the specified snapshot size.
-     *   If the size of the snapshot specified by the `SnapshotId` parameter is smaller than the specified `Size` value, the size of the created disk is equal to the specified `Size` value.
+     *   If the size of the snapshot that is specified by the `SnapshotId` parameter is greater than the value of the `Size` parameter, the disk is created based on the size of the specified snapshot.
+     *   If the size of the snapshot that is specified by the `SnapshotId` parameter is less than the value of the `Size` parameter, the disk is created based on the value of the `Size` parameter.
      *
      * @example s-bp67acfmxazb4p****
      *
@@ -240,9 +243,9 @@ class CreateDiskRequest extends Model
     public $snapshotId;
 
     /**
-     * @description The ID of the dedicated block storage cluster. To create a disk in a specific dedicated block storage cluster, specify this parameter. For more information about dedicated block storage clusters, see [What is Dedicated Block Storage Cluster?](~~208883~~)
+     * @description The ID of the dedicated block storage cluster. If you want to create a disk in a specific dedicated block storage cluster, specify this parameter. For more information about dedicated block storage clusters, see [What is Dedicated Block Storage Cluster?](~~208883~~)
      *
-     * >  You can specify only one of the storage set-related parameters (`StorageSetId` and `StorageSetPartitionNumber`) and dedicated block storage cluster-related parameter (`StorageClusterId`). If you specify more than one of the preceding parameters, the call fails.
+     * > Storage set-related parameters include `StorageSetId` as well as `StorageSetPartitionNumber`, and the dedicated block storage cluster-related parameter is `StorageClusterId`. You cannot specify a storage set-related parameter and a dedicated block storage cluster-related parameter at the same time.
      * @example dbsc-j5e1sf2vaf5he8m2****
      *
      * @var string
@@ -250,9 +253,9 @@ class CreateDiskRequest extends Model
     public $storageClusterId;
 
     /**
-     * @description The ID of the storage set.
+     * @description The storage set ID.
      *
-     * >  You can specify only one of the storage set-related parameters (`StorageSetId` and `StorageSetPartitionNumber`) and dedicated block storage cluster-related parameter (`StorageClusterId`). If you specify more than one of the preceding parameters, the call fails.
+     * > Storage set-related parameters include `StorageSetId` as well as `StorageSetPartitionNumber`, and the dedicated block storage cluster-related parameter is `StorageClusterId`. You cannot specify a storage set-related parameter and a dedicated block storage cluster-related parameter at the same time.
      * @example ss-bp67acfmxazb4p****
      *
      * @var string
@@ -260,7 +263,7 @@ class CreateDiskRequest extends Model
     public $storageSetId;
 
     /**
-     * @description The number of partitions in the storage set. The value must be greater than or equal to 2, but cannot exceed the quota obtained by calling the [DescribeAccountAttributes](~~73772~~) operation.
+     * @description The number of partitions in the storage set. The value must be greater than or equal to 2 but cannot exceed the quota that you obtained by calling the [DescribeAccountAttributes](~~73772~~) operation.
      *
      * Default value: 2.
      * @example 3
@@ -270,17 +273,17 @@ class CreateDiskRequest extends Model
     public $storageSetPartitionNumber;
 
     /**
-     * @description 云盘的标签信息列表。
+     * @description The tags that you want to add to the disk.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The ID of the zone in which to create the pay-as-you-go disk.
+     * @description The disk zone ID.
      *
-     *   If the InstanceId parameter is not specified, the ZoneId parameter is required.
-     *   You cannot specify ZoneId and InstanceId at the same time.
+     *   If you do not specify the InstanceId parameter, you must specify the ZoneId parameter.
+     *   You cannot specify the ZoneId and InstanceId parameters at the same time.
      *
      * @example cn-hangzhou-g
      *

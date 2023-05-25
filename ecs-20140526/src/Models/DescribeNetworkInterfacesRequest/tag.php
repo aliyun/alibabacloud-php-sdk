@@ -20,7 +20,7 @@ class tag extends Model
     /**
      * @description The value of tag N of the ENI. Valid values of N: 1 to 20.
      *
-     * Up to 1,000 resources that match the tags specified can be returned in the response. If the total number of resources that match the tags exceed 1,000, we recommend that you call the [ListTagResources](~~110425~~) operation.
+     * If a single tag is specified to query ENIs, up to 1,000 ENIs that have this tag can be returned. If multiple tags are specified to query ENIs, up to 1,000 ENIs that have all these tags can be returned. To query more than 1,000 resources that have specified tags, call the [ListTagResources](~~110425~~) operation.
      * @example TestValue
      *
      * @var string

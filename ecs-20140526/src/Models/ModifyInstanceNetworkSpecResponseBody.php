@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceNetworkSpecResponseBody extends Model
 {
     /**
-     * @description The ID of the order.
+     * @description The request ID.
      *
      * @example 123457890
      *
@@ -18,8 +18,6 @@ class ModifyInstanceNetworkSpecResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
      * @var string

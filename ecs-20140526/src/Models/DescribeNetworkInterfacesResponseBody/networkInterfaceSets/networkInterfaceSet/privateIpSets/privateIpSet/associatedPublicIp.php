@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class associatedPublicIp extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is unavailable to the public.
+     * @description > This parameter is in invitational preview and is unavailable for general users.
      *
      * @example null
      *

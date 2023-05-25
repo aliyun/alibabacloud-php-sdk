@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class StopInstancesResponseBody extends Model
 {
     /**
-     * @description Details about instance-specific responses, which contain the states of each instance before and after the operation is called and the results of the operation.
+     * @description Details about the responses returned for the instances, which contain the state of each instance before and after the operation is called, and the results of the operation.
      *
      * @var instanceResponses
      */
     public $instanceResponses;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1C488B66-B819-4D14-8711-C4EAAA13AC01
      *

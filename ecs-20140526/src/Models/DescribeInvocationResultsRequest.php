@@ -10,13 +10,32 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvocationResultsRequest extends Model
 {
     /**
-     * @description The ID of the command.
+     * @description The page number of the page to return.
      *
+     * Default value: 1.
      * @example c-hz0jdfwcsr****
      *
      * @var string
      */
     public $commandId;
+
+    /**
+     * @description The information about the tag.
+     *
+     * @example PlainText
+     *
+     * @var string
+     */
+    public $contentEncoding;
+
+    /**
+     * @description The tags to use for query.
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $includeHistory;
 
     /**
      * @description The encoding method of the `Output` response parameter. Valid values:
@@ -25,28 +44,6 @@ class DescribeInvocationResultsRequest extends Model
      *   Base64: returns the Base64-encoded command content and command output.
      *
      * Default value: Base64.
-     * @example PlainText
-     *
-     * @var string
-     */
-    public $contentEncoding;
-
-    /**
-     * @description Specifies whether to return the results of historical scheduled executions. Valid values:
-     *
-     *   true: returns the results of historical scheduled executions. When this parameter is set to true, the `InvokeId` parameter must be set to the ID of a scheduled task.
-     *   false: does not return the results of historical scheduled executions.
-     *
-     * Default value: false.
-     * @example false
-     *
-     * @var bool
-     */
-    public $includeHistory;
-
-    /**
-     * @description The ID of the instance.
-     *
      * @example i-bp1i7gg30r52z2em****
      *
      * @var string
@@ -54,8 +51,12 @@ class DescribeInvocationResultsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the command task. You can call the [DescribeInvocations](~~64840~~) operation to query the command task IDs.
+     * @description Specifies whether to return the results of historical scheduled executions. Valid values:
      *
+     *   true: returns the results of historical scheduled executions. When this parameter is set to true, the `InvokeId` parameter must be set to the ID of a scheduled execution.
+     *   false: does not return the results of historical scheduled executions.
+     *
+     * Default value: false.
      * @example t-hz0jdfwd9f****
      *
      * @var string
@@ -63,14 +64,9 @@ class DescribeInvocationResultsRequest extends Model
     public $invokeId;
 
     /**
-     * @description The execution state of the command. Valid values:
+     * @description The number of entries to return on each page.
      *
-     *   Running
-     *   Finished
-     *   Failed
-     *   Stopped
-     *
-     * > To ensure compatibility, we recommend that you use the `InvocationStatus` parameter instead of the InvokeRecordStatus parameter.
+     * Default value: 10.
      * @example Running
      *
      * @var string
@@ -88,9 +84,9 @@ class DescribeInvocationResultsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number of the page to return.
+     * @description The key of tag N of the command execution. Valid values of N: 1 to 20. The tag key cannot be an empty string.
      *
-     * Default value: 1.
+     * The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
      * @example 1
      *
      * @var int
@@ -98,9 +94,9 @@ class DescribeInvocationResultsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The value of tag N of the command execution. Valid values of N: 1 to 20. The tag value can be an empty string.
      *
-     * Default value: 10.
+     * It can be up to 128 characters in length and cannot contain `http://` or `https://`.
      * @example 1
      *
      * @var int
@@ -108,7 +104,7 @@ class DescribeInvocationResultsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the command.
      *
      * @example cn-hangzhou
      *
@@ -117,8 +113,14 @@ class DescribeInvocationResultsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. After you set this parameter, command execution results in the specified resource group are queried.
+     * @description The execution state of the command. Valid values:
      *
+     *   Running
+     *   Finished
+     *   Failed
+     *   Stopped
+     *
+     * > To ensure compatibility, we recommend that you use the `InvocationStatus` parameter instead of the InvokeRecordStatus parameter.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -136,7 +138,7 @@ class DescribeInvocationResultsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The list of tags.
+     * @description The ID of the request.
      *
      * @var tag[]
      */

@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskAttributeRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the performance burst feature for disk N. Valid values:
+     * @description Specifies whether to enable the performance burst feature for data disk N. Valid values:
      *
-     *   true: enables the performance burst feature.
-     *   false: disables the performance burst feature.
+     *   true: encrypts the disk.
+     *   false: does not encrypt the disk.
      *
      * @example false
      *
@@ -21,7 +21,7 @@ class ModifyDiskAttributeRequest extends Model
     public $burstingEnabled;
 
     /**
-     * @description Specifies whether to delete the automatic snapshots of the disk when the disk is released. By default, this parameter is left empty, which specifies that the current value remains unchanged.
+     * @description Specifies whether to delete the automatic snapshots of the disk when the disk is released. This parameter is empty by default, which indicates that the current value remains unchanged.
      *
      * @example false
      *
@@ -30,12 +30,12 @@ class ModifyDiskAttributeRequest extends Model
     public $deleteAutoSnapshot;
 
     /**
-     * @description Specifies whether to release the disk together with the associated instance. By default, this parameter is left empty, which specifies that the current value remains unchanged.
+     * @description Specifies whether to release the disk along with its associated instance. This parameter is empty by default, which indicates that the current value remains unchanged.
      *
-     * If you set the `DeleteWithInstance` parameter to `false` in one of the following cases, an error is returned:
+     * An error is returned if you set `DeleteWithInstance` to `false` in one of the following cases:
      *
      *   The disk is a local disk.
-     *   The disk is a basic disk and not removable. If the Portable attribute of a disk is set to false, the disk is not removable.
+     *   The disk is a basic disk and is not removable. If the Portable attribute of a disk is set to false, the disk is not removable.
      *
      * @example false
      *
@@ -44,7 +44,7 @@ class ModifyDiskAttributeRequest extends Model
     public $deleteWithInstance;
 
     /**
-     * @description The description of the disk. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     * @description The description of the disk. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
      *
      * @example TestDescription
      *
@@ -55,7 +55,7 @@ class ModifyDiskAttributeRequest extends Model
     /**
      * @description The ID of the disk.
      *
-     * >  You can specify the `DiskId` parameter or the `DiskIds.N` parameter, but you cannot specify both parameters at the same time.
+     * > You can specify the `DiskId` parameter or the `DiskIds.N` parameter, but you cannot specify both parameters at the same time.
      * @example d-bp1famypsnar20bv****
      *
      * @var string
@@ -63,9 +63,9 @@ class ModifyDiskAttributeRequest extends Model
     public $diskId;
 
     /**
-     * @description The IDs of the disks whose attributes you want to modify. Valid values of N: 0 to 100.
+     * @description The ID of disk N. Valid values of N: 0 to 100.
      *
-     * >  You can specify the `DiskId` parameter or the `DiskIds.N` parameter, but you cannot specify both parameters at the same time.
+     * > You can specify the `DiskId` parameter or the `DiskIds.N` parameter, but you cannot specify both parameters at the same time.
      * @example d-bp1famypsnar20bv****
      *
      * @var string[]
@@ -73,7 +73,7 @@ class ModifyDiskAttributeRequest extends Model
     public $diskIds;
 
     /**
-     * @description The name of the disk. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the disk. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example MyDiskName
      *
@@ -82,12 +82,12 @@ class ModifyDiskAttributeRequest extends Model
     public $diskName;
 
     /**
-     * @description Specifies whether to enable the automatic snapshot policy feature for the disk.
+     * @description Specifies whether to enable the automatic snapshot policy feature for the cloud disk.
      *
-     *   true: enables the automatic snapshot policy feature for the disk.
-     *   false: disables the automatic snapshot policy feature for the disk.
+     *   true: enables the automatic snapshot policy feature for the cloud disk.
+     *   false: disables the automatic snapshot policy feature for the cloud disk.
      *
-     * > : By default, the automatic snapshot policy feature is enabled for new disks. You need to only apply an automatic snapshot policy to a disk for the policy to take effect.
+     * > By default, the automatic snapshot policy feature is enabled for new disks. You need to only apply an automatic snapshot policy to a disk for the policy to take effect.
      * @example true
      *
      * @var bool
@@ -105,7 +105,7 @@ class ModifyDiskAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *

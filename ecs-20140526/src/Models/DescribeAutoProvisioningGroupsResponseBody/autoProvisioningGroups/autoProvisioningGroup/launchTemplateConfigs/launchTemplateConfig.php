@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateConfig extends Model
 {
     /**
-     * @description The instance type specified in the extended configurations.
+     * @description The instance type that is specified in the extended configurations.
      *
      * @example ecs.g5.large
      *

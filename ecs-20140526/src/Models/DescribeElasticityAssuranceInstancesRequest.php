@@ -25,7 +25,7 @@ class DescribeElasticityAssuranceInstancesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token used to start the next query. Set the value to the NextToken value obtained from the response to the previous request.
+     * @description The token used to start the query. Set the value to the NextToken value obtained from the response to the preceding request.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *

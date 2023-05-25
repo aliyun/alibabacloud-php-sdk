@@ -37,7 +37,7 @@ class DescribePriceRequest extends Model
     public $amount;
 
     /**
-     * @description The total number of times that the elasticity assurance can be applied. Set the value to Unlimited. This value indicates that the elasticity assurance can be applied an unlimited number of times within its effective duration.
+     * @description The total number of times that the elasticity assurance can be applied. Set the value to Unlimited. This value indicates that the elasticity assurance can be applied an unlimited number of times within its effective period.
      *
      * Default value: Unlimited.
      * @example Unlimited
@@ -56,7 +56,7 @@ class DescribePriceRequest extends Model
     public $capacity;
 
     /**
-     * @description The dedicated host type. You can call the [DescribeDedicatedHostTypes](~~134240~~) operation to query the most recent list of dedicated host types.
+     * @description The type of the dedicated host. You can call the [DescribeDedicatedHostTypes](~~134240~~) operation to query the most recent list of dedicated host types.
      *
      * @example ddh.c5
      *
@@ -65,7 +65,7 @@ class DescribePriceRequest extends Model
     public $dedicatedHostType;
 
     /**
-     * @description The ID of the image. Images contain the runtime environment to load when instances start. You can call the [DescribeImages](~~25534~~) operation to query the available images. If you do not specify this parameter, the system queries the prices of Linux images.
+     * @description The image ID. An image contains the runtime environment to load when an instance is started. You can call the [DescribeImages](~~25534~~) operation to query the available images. If you do not specify this parameter, the system queries the prices of Linux images.
      *
      * @example centos_7_05_64_20G_alibase_20181212.vhd
      *
@@ -74,7 +74,7 @@ class DescribePriceRequest extends Model
     public $imageId;
 
     /**
-     * @description The total number of instances for which to reserve the capacity of an instance type.
+     * @description The total number of reserved instances for an instance type.
      *
      * Valid values: 1 to 1000.
      * @example 100
@@ -84,7 +84,7 @@ class DescribePriceRequest extends Model
     public $instanceAmount;
 
     /**
-     * @description The total number of vCPUs supported by the elasticity assurance. When you call this API operation, the system calculates the number of instances that an elasticity assurance must support based on your specified InstanceType value and rounds the calculated value up.
+     * @description The total number of vCPUs supported by the elasticity assurance. When you call this API operation, the system calculates the number of instances that an elasticity assurance must support based on the specified value of InstanceType. The calculated value is rounded up to the nearest integer.
      *
      * > When you call this API operation to query the price of an elasticity assurance, you can only specify either InstanceCoreCpuCount or InstanceAmount.
      * @example 1024
@@ -107,7 +107,7 @@ class DescribePriceRequest extends Model
     public $instanceNetworkType;
 
     /**
-     * @description The instance type of the instance. When the `ResourceType` parameter is set to `instance`, you must specify the InstanceType parameter. For more information, see [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the most recent instance type list.
+     * @description The instance type. When `ResourceType` is set to `instance`, you must specify this parameter. For more information, see [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the most recent list of instance types.
      *
      * @example ecs.g6.large
      *
@@ -116,7 +116,7 @@ class DescribePriceRequest extends Model
     public $instanceType;
 
     /**
-     * @description The instance type. You can select only a single instance type when you configure an elasticity assurance in unlimited mode.
+     * @description The instance types. You can select only a single instance type when you configure an elasticity assurance in unlimited mode.
      *
      * @example ecs.g6.xlarge
      *
@@ -130,7 +130,7 @@ class DescribePriceRequest extends Model
      *   PayByBandwidth: pay-by-bandwidth
      *   PayByTraffic: pay-by-traffic
      *
-     * Default value: PayByTraffic.
+     * Default value: PayByTraffic
      * @example PayByTraffic
      *
      * @var string
@@ -153,7 +153,7 @@ class DescribePriceRequest extends Model
      *   none: The instance is not I/O optimized.
      *   optimized: The instance is I/O optimized.
      *
-     * If the instance type specified by the InstanceType parameter does not belong to [Generation I instance families](~~55263~~), the default value of IoOptimized is optimized.
+     * When the instance type specified by the InstanceType parameter does not belong to [Generation I instance families](~~55263~~), the default value of this parameter is optimized.
      * @example optimized
      *
      * @var string
@@ -198,12 +198,11 @@ class DescribePriceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The billing duration of the ECS instance. Valid values:
+     * @description The billing cycle of the ECS instance. Valid values:
      *
      *   Valid values when PriceUnit is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, and 9.
      *   Valid values when PriceUnit is set to Year: 1, 2, 3, 4, and 5.
-     *   Valid value when PriceUnit is set to Hour: 1.
-     *   Valid values when PriceUnit is set to Week: 1, 2, 3, and 4.
+     *   Set the value to 1 when PriceUnit is set to Hour.
      *
      * Default value: 1.
      * @example 1
@@ -213,10 +212,10 @@ class DescribePriceRequest extends Model
     public $period;
 
     /**
-     * @description The operating system of the image used by the instance. Valid values:
+     * @description The operating system of the image that is used by the instance. Valid values:
      *
-     *   Windows: Windows Server operating systems
-     *   Linux: Linux and UNIX-like operating systems
+     *   Windows: Windows Server operating system
+     *   Linux: Linux and UNIX-like operating system
      *
      * @example Linux
      *
@@ -225,12 +224,11 @@ class DescribePriceRequest extends Model
     public $platform;
 
     /**
-     * @description The pricing unit of the ECS resource. Default value: Hour. Valid values:
+     * @description The pricing unit of the ECS resource. Valid values:
      *
      *   Month
      *   Year
-     *   Hour
-     *   Week
+     *   Hour (default)
      *
      * @example Year
      *
@@ -239,7 +237,7 @@ class DescribePriceRequest extends Model
     public $priceUnit;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
      *
      * @example cn-hangzhou
      *
@@ -258,14 +256,14 @@ class DescribePriceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource. Valid values:
+     * @description The resource type. Valid values:
      *
-     *   instance: queries the most recent prices of ECS instances. When this parameter is set to `instance`, you must specify the `InstanceType` parameter.
-     *   disk: queries the most recent prices of cloud disks. When this parameter is set to `disk`, you must specify both the `DataDisk.1.Category` and `DataDisk.1.Size` parameters.
-     *   bandwidth: queries the most recent prices for network usage.
+     *   instance: queries the most recent prices of ECS instances. When this parameter is set to `instance`, you must specify `InstanceType`.
+     *   disk: queries the most recent prices of cloud disks. When this parameter is set to `disk`, you must specify `DataDisk.1.Category` and `DataDisk.1.Size`.
+     *   bandwidth: queries the most recent prices of network usage.
      *   ddh: queries the most recent prices of dedicated hosts.
-     *   ElasticityAssurance: queries the most recent prices of elasticity assurances. When this parameter is set to `ElasticityAssurance`, you must specify the `InstanceType` parameter.
-     *   CapacityReservation: queries the most recent prices of capacity reservations. When this parameter is set to `CapacityReservation`, you must specify the `InstanceType` parameter.
+     *   ElasticityAssurance: queries the most recent prices of elasticity assurances. When this parameter is set to `ElasticityAssurance`, you must specify `InstanceType`.
+     *   CapacityReservation: queries the most recent prices of capacity reservations. When this parameter is set to `CapacityReservation`, you must specify `InstanceType`.
      *
      * Default value: instance.
      * @example instance
@@ -288,10 +286,10 @@ class DescribePriceRequest extends Model
     public $scope;
 
     /**
-     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6
+     * @description The retention period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6
      *
-     *   The following protection periods are unavailable: 2, 3, 4, 5, and 6 hours. If you want to set this parameter to one of these values, [submit a ticket](https://smartservice.console.aliyun.com/service/create-ticket) and enter the following information: - The specifications and number of the resources. Example: ecs.g6.8xlarge 1000. - The region where the resources reside. Example: China (Beijing). - The period of time during which the resources are used every day. Example: 1:00 to 4: 00 every day.
-     *   If this parameter is set to 0, no protection period is configured for the preemptible instance.
+     *   The following protection periods are unavailable: 2, 3, 4, 5, and 6 hours. If you want to set this parameter to one of these values, [submit a ticket](https://workorder-intl.console.aliyun.com/#/ticket/createIndex) and enter the following information: - The specifications and number of the resources. Example: ecs.g6.8xlarge 1000. - The region where the resources reside. Example: China (Beijing). - The period of time during which the resources are used every day. Example: 1:00 to 4: 00 every day.
+     *   A value of 0 indicates that no protection period is specified for the preemptible instance.
      *
      * Default value: 1.
      * @example 1
@@ -303,11 +301,11 @@ class DescribePriceRequest extends Model
     /**
      * @description The preemption policy for the pay-as-you-go instance. Valid values:
      *
-     *   NoSpot: The instance is a regular pay-as-you-go instance.
+     *   NoSpot: The instance is created as a pay-as-you-go instance.
      *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price is automatically used as the bidding price. The market price can be up to the pay-as-you-go price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price is automatically used as the bid price. The market price can be up to the pay-as-you-go price.
      *
-     * > This parameter is valid only when the `PriceUnit` parameter is set to Hour and the `Period` parameter is set to 1. The default value of the `PriceUnit` parameter is `Hour` and the default value of the `Period` parameter is `1`. Therefore, you do not need to set the `PriceUnit` and `Period` parameters when you set the SpotStrategy parameter.
+     * > This parameter is valid only when `PriceUnit` is set to Hour and `Period` is set to 1. The default value of `PriceUnit` is `Hour` and the default value of `Period` is `1`. Therefore, you do not need to set `PriceUnit` and `Period` when you set SpotStrategy.
      * @example NoSpot
      *
      * @var string
@@ -315,9 +313,9 @@ class DescribePriceRequest extends Model
     public $spotStrategy;
 
     /**
-     * @description The ID of the zone.
+     * @description The zone ID.
      *
-     * > Prices of preemptible instances vary based on zones. When you query the price of a preemptible instance, specify the ZoneId parameter.
+     * > Prices of preemptible instances vary based on zones. When you query the price of a preemptible instance, specify ZoneId.
      * @example cn-hagzhou-i
      *
      * @var string

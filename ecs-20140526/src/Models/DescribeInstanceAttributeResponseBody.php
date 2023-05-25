@@ -18,7 +18,7 @@ class DescribeInstanceAttributeResponseBody extends Model
     /**
      * @description The ID of the cluster to which the instance belongs.
      *
-     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * > This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
      * @example cls-bp67acfmxazb4p****
      *
      * @var string
@@ -35,7 +35,7 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $cpu;
 
     /**
-     * @description The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://icms.alibaba-inc.com/content/ecs/api?l=1&m=277&n=10049).
+     * @description The time when the instance was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](~~25696~~).
      *
      * @example 2017-12-10T04:04Z
      *
@@ -46,7 +46,9 @@ class DescribeInstanceAttributeResponseBody extends Model
     /**
      * @description The performance mode of the burstable instance. Valid values:
      *
-     * - Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in [Overview](https://www.alibabacloud.com/help/en/elastic-compute-service/latest/burstable-instance-types-overview#section-svb-w9d-dju).
+     *   Standard: standard mode. For more information, see the "Standard mode" section in [Overview](~~59977#section-svb-w9d-dju~~).
+     *   Unlimited: unlimited mode. For more information, see the "Unlimited mode" section in [Overview](~~59977#section-svb-w9d-dju~~).
+     *
      * @example Standard
      *
      * @var string
@@ -77,12 +79,17 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $eipAddress;
 
     /**
+     * @description ECS实例是否开启了Jumbo frame特性。 可能值：
+     *
+     * 更多信息，请参见[ECS实例MTU](~~200512~~)。
+     * @example false
+     *
      * @var bool
      */
     public $enableJumboFrame;
 
     /**
-     * @description The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](https://icms.alibaba-inc.com/content/ecs/api?l=1&m=277&n=10049).
+     * @description The time when the instance expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. For more information, see [ISO 8601](~~25696~~).
      *
      * @example 2017-12-10T04:04Z
      *
@@ -118,7 +125,9 @@ class DescribeInstanceAttributeResponseBody extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     * - PostPaid: pay-as-you-go
+     *   PrePaid: subscription.
+     *   PostPaid: pay-as-you-go
+     *
      * @example PrePaid
      *
      * @var string
@@ -126,7 +135,7 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $instanceChargeType;
 
     /**
-     * @description The ID of instance.
+     * @description The instance ID
      *
      * @example i-uf6f5trc95ug8t33****
      *
@@ -135,7 +144,7 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
      * @example testInstanceName
      *
@@ -146,7 +155,9 @@ class DescribeInstanceAttributeResponseBody extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     * - vpc
+     *   classic: classic network
+     *   vpc: VPC
+     *
      * @example vpc
      *
      * @var string
@@ -154,7 +165,7 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $instanceNetworkType;
 
     /**
-     * @description The instance type of the instance.
+     * @description The instance type.
      *
      * @example ecs.g5.large
      *
@@ -163,11 +174,12 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $instanceType;
 
     /**
-     * @description The billing method for network usage. Valid values:
+     * @description The metering method for network usage. Valid values:
      *
-     * - PayByTraffic: pay-by-traffic
+     *   PayByBandwidth
+     *   PayByTraffic
      *
-     * >  When the **pay-by-traffic** billing method for network usage is used, the maximum inbound and outbound bandwidth values are used as upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidth values may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
+     * > When the **pay-by-traffic** method is used, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidth values may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** metering method for network usage.
      * @example PayByTraffic
      *
      * @var string
@@ -213,7 +225,12 @@ class DescribeInstanceAttributeResponseBody extends Model
     /**
      * @description The reason why the instance was locked. Valid values:
      *
-     * - refunded: The instance was locked because a refund was made for the instance.
+     *   financial: The dedicated host was locked due to overdue payments.
+     *   security: The instance was locked due to security reasons.
+     *   recycling: The preemptible instance was locked and pending release.
+     *   dedicatedhostfinancial: The instance was locked due to overdue payments for the dedicated host.
+     *   refunded: The instance was locked because a refund was made for the instance.
+     *
      * @var operationLocks
      */
     public $operationLocks;
@@ -226,7 +243,7 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $publicIpAddress;
 
     /**
-     * @description The region ID of the instance.
+     * @description The ID of the region in which the instance resides.
      *
      * @example cn-hangzhou
      *
@@ -235,7 +252,7 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
@@ -260,9 +277,14 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $serialNumber;
 
     /**
-     * @description The state of the instance. Valid values:
+     * @description The status of the instance. Valid values:
      *
-     * - Stopped: The instance is stopped.
+     *   Pending: The instance is being created.
+     *   Running: The instance is running.
+     *   Starting: The instance is being started.
+     *   Stopping: The instance is being stopped.
+     *   Stopped: The instance is stopped.
+     *
      * @example Running
      *
      * @var string
@@ -270,9 +292,12 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $status;
 
     /**
-     * @description Indicates whether the instance continues to be billed after it is stopped. Valid values:
+     * @description Indicates whether the system implements billing after the instance is stopped. Valid values:
      *
-     * - Not-applicable: Economical mode is not applicable to the instance.
+     *   KeepCharging: The instance is stopped in standard mode. The billing of the instance continues after the instance is stopped, and resources are retained for the instance.
+     *   StopCharging: The instance is stopped in economical mode. The billing of some resources of the instance stops after the instance is stopped. When the instance is stopped, its resources such as vCPUs, memory, and public IP address are released. The instance may be unable to start again if some required resources are out of stock in the current region.
+     *   Not-applicable: The instance does not support economical mode.
+     *
      * @example KeepCharging
      *
      * @var string
@@ -282,7 +307,7 @@ class DescribeInstanceAttributeResponseBody extends Model
     /**
      * @description The virtual LAN (VLAN) ID of the instance.
      *
-     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * > This parameter will be removed in the future. To ensure future compatibility, we recommend that you use other parameters.
      * @example 10
      *
      * @var string
@@ -290,14 +315,14 @@ class DescribeInstanceAttributeResponseBody extends Model
     public $vlanId;
 
     /**
-     * @description The virtual private cloud (VPC) attributes of the instance.
+     * @description The VPC attributes of the instance.
      *
      * @var vpcAttributes
      */
     public $vpcAttributes;
 
     /**
-     * @description The zone ID of the instance.
+     * @description The ID of the zone in which the instance resides.
      *
      * @example cn-hangzhou-g
      *

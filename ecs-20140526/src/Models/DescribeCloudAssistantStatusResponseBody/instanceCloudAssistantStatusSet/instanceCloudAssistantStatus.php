@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceCloudAssistantStatus extends Model
 {
     /**
-     * @description The number of tasks that Cloud Assistant was running on the instance.
+     * @description The number of tasks that were run by Cloud Assistant on the instance.
      *
      * @example 0
      *
@@ -30,7 +30,7 @@ class instanceCloudAssistantStatus extends Model
     public $cloudAssistantStatus;
 
     /**
-     * @description The version number of the Cloud Assistant client. This parameter is empty if the Cloud Assistant client is not installed or is not running.
+     * @description The version number of the Cloud Assistant client. If the Cloud Assistant client is not installed or is not running, this parameter is left empty.
      *
      * @example 2.2.0.106
      *
@@ -39,7 +39,7 @@ class instanceCloudAssistantStatus extends Model
     public $cloudAssistantVersion;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID
      *
      * @example i-bp1iudwa5b1tqa****
      *
@@ -48,7 +48,7 @@ class instanceCloudAssistantStatus extends Model
     public $instanceId;
 
     /**
-     * @description The number of tasks that Cloud Assistant completed on the instance.
+     * @description The number of tasks that were completed by Cloud Assistant on the instance.
      *
      * @example 2
      *
@@ -57,7 +57,7 @@ class instanceCloudAssistantStatus extends Model
     public $invocationCount;
 
     /**
-     * @description The most recent heartbeat time of Cloud Assistant. The value is updated once every minute.
+     * @description The most recent heartbeat time value of Cloud Assistant. The value is updated once every minute.
      *
      * @example 2021-03-15T09:00:00Z
      *
@@ -87,7 +87,7 @@ class instanceCloudAssistantStatus extends Model
     public $OSType;
 
     /**
-     * @description Indicates whether Cloud Assistant supports Session Manager on the instance. If Cloud Assistant does not support Session Manager on the instance, an early Cloud Assistant version may be installed on the instance or Session Manager may not be supported in the specified region.
+     * @description Indicates whether Cloud Assistant supports Session Manager on the instance. If Cloud Assistant does not support Session Manager, the Cloud Assistant running on the instance may be of an early version or Session Manager may not be supported in the specified region.
      *
      * @example true
      *

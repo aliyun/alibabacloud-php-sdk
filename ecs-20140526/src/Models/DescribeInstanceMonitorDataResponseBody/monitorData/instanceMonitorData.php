@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceMonitorData extends Model
 {
     /**
-     * @description The read bandwidth of the disks (system disk and data disks). Unit: Byte/s.
+     * @description The read bandwidth of the cloud disks (system disk and data disks). Unit: Byte/s.
      *
      * @example 1000
      *
@@ -18,7 +18,7 @@ class instanceMonitorData extends Model
     public $BPSRead;
 
     /**
-     * @description The write bandwidth of the disks (system disk and data disks). Unit: Byte/s.
+     * @description The write bandwidth of the cloud disks (system disk and data disks). Unit: Byte/s.
      *
      * @example 13585
      *
@@ -63,7 +63,7 @@ class instanceMonitorData extends Model
     public $CPUCreditUsage;
 
     /**
-     * @description The unpaid excess credits.
+     * @description The unpaid overdrawn CPU credits.
      *
      * @example 0.5
      *
@@ -72,7 +72,7 @@ class instanceMonitorData extends Model
     public $CPUNotpaidSurplusCreditUsage;
 
     /**
-     * @description The number of read I/O operations per second on the disks (system disk and data disks).
+     * @description The number of read I/O operations per second on the cloud disks (system disk and data disks).
      *
      * @example 1000
      *
@@ -81,7 +81,7 @@ class instanceMonitorData extends Model
     public $IOPSRead;
 
     /**
-     * @description The number of write I/O operations per second on the disks (system disk and data disks).
+     * @description The number of write I/O operations per second on the cloud disks (system disk and data disks).
      *
      * @example 200
      *
@@ -108,7 +108,7 @@ class instanceMonitorData extends Model
     public $internetBandwidth;
 
     /**
-     * @description The public data traffic received by the instance during the period specified by the `Period` parameter, which starts from the time specified by the `TimeStamp` parameter. Unit: Kbit/s.
+     * @description The public data traffic received by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit/s.
      *
      * @example 122
      *
@@ -117,7 +117,7 @@ class instanceMonitorData extends Model
     public $internetRX;
 
     /**
-     * @description The public data traffic sent by the instance during the period specified by the `Period` parameter, which starts from the time specified by the `TimeStamp` parameter. Unit: Kbit/s.
+     * @description The public data traffic sent by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit/s.
      *
      * @example 343
      *
@@ -135,7 +135,7 @@ class instanceMonitorData extends Model
     public $intranetBandwidth;
 
     /**
-     * @description The internal data traffic received by the instance during the period specified by the `Period` parameter, which starts from the time specified by the `TimeStamp` parameter. Unit: Kbit/s.
+     * @description The internal data traffic received by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit/s.
      *
      * @example 122
      *
@@ -144,7 +144,7 @@ class instanceMonitorData extends Model
     public $intranetRX;
 
     /**
-     * @description The internal data traffic sent by the instance during the period specified by the `Period` parameter, which starts from the time specified by the `TimeStamp` parameter. Unit: Kbit/s.
+     * @description The internal data traffic sent by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit/s.
      *
      * @example 343
      *

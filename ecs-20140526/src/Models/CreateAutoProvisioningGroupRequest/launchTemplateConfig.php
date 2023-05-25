@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateConfig extends Model
 {
     /**
+     * @description The architectures of the instance types.
+     *
      * @var string[]
      */
     public $architectures;
 
     /**
+     * @description Specifies whether to include burstable instance types. Valid values:
+     *
+     *   Exclude: does not include burstable instance types.
+     *   Include: includes burstable instance types.
+     *   Required: includes only burstable instance types.
+     *
+     * Default value: Include.
+     * @example Include
+     *
      * @var string
      */
     public $burstablePerformance;
 
     /**
+     * @description The number of vCPU cores of the instance type.
+     *
      * @var int[]
      */
     public $cores;
 
     /**
+     * @description The instance types that you want to exclude.
+     *
      * @var string[]
      */
     public $excludedInstanceTypes;
 
     /**
+     * @description The instance family level in the intelligent configuration mode. This parameter is used to filter the available instance types that meet the specified criteria. Valid values:
+     *
+     *   EntryLevel: shared instance type. Instances of this level are the most cost-effective but may not provide stable computing performance. Instances of this level are suitable for business scenarios in which the CPU utilization is low. For more information, see [Shared instance families](~~108489~~).
+     *   EnterpriseLevel: enterprise level. Instances of this level provide stable performance and dedicated resources, and are suitable for scenarios in which high stability is required. For more information, see [Overview of instance families](~~25378~~).
+     *   CreditEntryLevel: This value is available only for burstable instances. CPU credits are used to ensure computing performance. Instances of this level are suitable for scenarios in which the CPU utilization is low but may fluctuate in specific cases. For more information, see [What are burstable instances?](~~59977~~).
+     *
+     * Valid values of N: 1 to 10.
+     * @example EnterpriseLevel
+     *
      * @var string
      */
     public $instanceFamilyLevel;
@@ -45,7 +69,10 @@ class launchTemplateConfig extends Model
     /**
      * @description The maximum price of preemptible instances in extended configuration N.
      *
-     * >  If you set one or more other `LaunchTemplateConfig.N.*` parameters, you must also set the `LaunchTemplateConfig.N.MaxPrice` parameter.
+     **
+     *
+     **If you specify the **`LaunchTemplateConfig` parameter, you must also specify the `LaunchTemplateConfig.N.MaxPrice` parameter.
+     *
      * @example 3
      *
      * @var float
@@ -53,17 +80,23 @@ class launchTemplateConfig extends Model
     public $maxPrice;
 
     /**
+     * @description > This parameter is in invitational preview and is unavailable to general users.
+     *
+     * @example false
+     *
      * @var int
      */
     public $maxQuantity;
 
     /**
+     * @description The memory sizes of the instance type.
+     *
      * @var float[]
      */
     public $memories;
 
     /**
-     * @description The priority of extended configuration N. A value of 0 indicates the highest priority. Valid values: 0 to ∞.
+     * @description The priority of the extended configuration. A value of 0 indicates the highest priority. Valid values: 0 to ∞.
      *
      * @example 1
      *
@@ -74,7 +107,7 @@ class launchTemplateConfig extends Model
     /**
      * @description The ID of the vSwitch in extended configuration N. The zone of the ECS instances created from the extended configuration is determined by the vSwitch.
      *
-     * >  If you set one or more other `LaunchTemplateConfig.N.*` parameters, you must also set the `LaunchTemplateConfig.N.VSwitchId` parameter.
+     * > If you specify the `LaunchTemplateConfig` parameter, you must also specify the `LaunchTemplateConfig.N.VSwitchId` parameter.
      * @example vsw-sn5bsitu4lfzgc5o7****
      *
      * @var string
@@ -82,7 +115,7 @@ class launchTemplateConfig extends Model
     public $vSwitchId;
 
     /**
-     * @description The weight of the instance type specified in extended configuration N. A greater weight indicates that a single instance has more computing power and that fewer instances are required. The value must be greater than 0.
+     * @description The weight of the instance type specified in the extended configuration. A greater weight indicates that a single instance has more computing power and fewer instances are required. The value must be greater than 0.
      *
      * The weight is calculated based on the computing power of the instance type and the minimum computing power of a single instance in the cluster to be created by the auto provisioning group. For example, assume that the minimum computing power of a single instance is 8 vCPUs and 60 GiB of memory.
      *

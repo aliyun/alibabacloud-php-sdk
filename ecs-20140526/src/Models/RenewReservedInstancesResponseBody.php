@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class RenewReservedInstancesResponseBody extends Model
 {
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 2023912123****
      *
@@ -19,7 +19,7 @@ class RenewReservedInstancesResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8C314443-AF0D-4766-9562-C83B7F1****
      *
@@ -28,7 +28,7 @@ class RenewReservedInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The IDs the reserved instances.
+     * @description The IDs of the reserved instances.
      *
      * @var reservedInstanceIdSets
      */

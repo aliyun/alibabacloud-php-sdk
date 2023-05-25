@@ -36,29 +36,21 @@ class DescribeRegionsRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @example ECSforCloud@Alibaba.com
-     *
      * @var string
      */
     public $ownerAccount;
 
     /**
-     * @example 155780923770
-     *
      * @var int
      */
     public $ownerId;
 
     /**
-     * @example ECSforCloud
-     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
-     * @example 155780923770
-     *
      * @var int
      */
     public $resourceOwnerId;

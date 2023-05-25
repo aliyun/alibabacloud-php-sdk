@@ -16,10 +16,10 @@ class DescribeCapacityReservationsRequest extends Model
     public $privatePoolOptions;
 
     /**
-     * @description The billing method of instances to be created by using the capacity reservation. Valid values:
+     * @description The billing method of the instance. Valid values:
      *
-     *   PostPaid: pay-as-you-go
-     *   PrePaid: subscription
+     *   PostPaid: pay-as-you-go.
+     *   PrePaid: subscription.
      *
      * Default value: PostPaid.
      * @example PostPaid
@@ -38,7 +38,7 @@ class DescribeCapacityReservationsRequest extends Model
     public $instanceType;
 
     /**
-     * @description The maximum number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 10
@@ -48,7 +48,7 @@ class DescribeCapacityReservationsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token used to start the next query. Set the value to the NextToken value obtained from the response to the previous request.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of the NextToken parameter.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -67,11 +67,11 @@ class DescribeCapacityReservationsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The operating system type of instances to be created by using the capacity reservation. Valid values:
+     * @description The operating system of the instance. Valid values:
      *
-     *   windows: Windows operating systems
-     *   linux: Linux operating systems
-     *   all: all operating system types
+     *   windows: Windows operating systems.
+     *   linux: Linux operating systems.
+     *   all: all operating system types.
      *
      * Default value: all.
      * @example linux
@@ -90,9 +90,9 @@ class DescribeCapacityReservationsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the capacity reservation belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     * @description The ID of the resource group to which the capacity reservation belongs. If you specify this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
      *
-     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * > Resources in the default resource group are displayed in the response regardless of whether you specify this parameter.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string

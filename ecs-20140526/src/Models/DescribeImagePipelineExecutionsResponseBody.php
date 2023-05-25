@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePipelineExecutionsResponseBody extends Model
 {
     /**
-     * @description Details of the image build task.
+     * @description The details of the image creation task.
      *
      * @var imagePipelineExecution
      */
     public $imagePipelineExecution;
 
     /**
-     * @description The maximum number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 50
      *
@@ -26,7 +26,7 @@ class DescribeImagePipelineExecutionsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The query token returned in this call. For information about how to use this return value, see the Description section in this topic.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists. For information about how to use the returned value, see the "Usage notes" section in this topic.
      *
      * @example AAAAAdDWBF2****
      *

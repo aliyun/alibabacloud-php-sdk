@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotLinksRequest extends Model
 {
     /**
-     * @description The IDs of disks. The value is a JSON array that consists of up to 100 disk IDs. Separate the disk IDs with commas (,).
+     * @description The disk IDs. You can specify a JSON array that contains a maximum of 100 disk IDs. Separate the disk IDs with commas (,).
      *
      * @example ["d-bp1d6tsvznfghy7y****", "d-bp1ippxbaql9zet7****", … "d-bp1ib7bcz07lcxa9****"]
      *
@@ -18,7 +18,7 @@ class DescribeSnapshotLinksRequest extends Model
     public $diskIds;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-bp1h6jmbefj2cyqs****
      *
@@ -37,9 +37,9 @@ class DescribeSnapshotLinksRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1.
+     * @description The page number. Pages start from page 1.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -47,7 +47,7 @@ class DescribeSnapshotLinksRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 100.
+     * @description The number of entries per page. Valid values: 1 to 100.
      *
      * Default value: 10.
      * @example 50
@@ -76,7 +76,7 @@ class DescribeSnapshotLinksRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The IDs of snapshot chains. The value is a JSON array that consists of up to 100 snapshot chain IDs. Separate the snapshot chain IDs with commas (,).
+     * @description The snapshot chain IDs. You can specify a JSON array that contains a maximum of 100 snapshot chain IDs. Separate the snapshot chain IDs with commas (,).
      *
      * @example ["sl-bp1grgphbcc9brb5****", "sl-bp1c4izumvq0i5bs****", … "sl-bp1akk7isz866dds****"]
      *

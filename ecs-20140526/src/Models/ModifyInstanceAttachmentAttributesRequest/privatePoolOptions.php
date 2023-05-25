@@ -24,7 +24,7 @@ class privatePoolOptions extends Model
      * @description The match mode of the private pool. Valid values:
      *
      *   Open: open private pool. The system matches the instance with open private pools.
-     *   Target: specified private pool. You must use `PrivatePoolOptions.Id` to specify the ID of a private pool.
+     *   Target: specified private pool. You must set the `PrivatePoolOptions.Id` parameter to specify the ID of a private pool.
      *   None: no private pool. The instance starts normally without using private pools.
      *
      * @example Open

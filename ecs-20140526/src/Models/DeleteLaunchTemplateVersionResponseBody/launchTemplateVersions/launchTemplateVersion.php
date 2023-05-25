@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateVersion extends Model
 {
     /**
+     * @description 实例启动模板ID。
+     *
+     * @example lt-m5eiaupmvm2op9d****
+     *
      * @var string
      */
     public $launchTemplateId;
 
     /**
+     * @description 实例启动模板版本号。
+     *
+     * @example 2
+     *
      * @var int
      */
     public $launchTemplateVersionNumber;

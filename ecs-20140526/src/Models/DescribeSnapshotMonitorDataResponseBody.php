@@ -17,7 +17,7 @@ class DescribeSnapshotMonitorDataResponseBody extends Model
     public $monitorData;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 9F8163A8-F5DE-47A2-A572-4E062D223E09
      *

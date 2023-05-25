@@ -35,7 +35,7 @@ class launchResult extends Model
     public $instanceIds;
 
     /**
-     * @description The instance type of the instance.
+     * @description The instance type.
      *
      * @example ecs.g5.large
      *
@@ -48,7 +48,7 @@ class launchResult extends Model
      *
      *   NoSpot: The instance is created as a regular pay-as-you-go instance.
      *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
+     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
      *
      * @example NoSpot
      *

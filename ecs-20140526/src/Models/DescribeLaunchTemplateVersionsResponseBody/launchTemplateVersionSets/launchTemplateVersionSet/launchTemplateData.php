@@ -19,7 +19,7 @@ class launchTemplateData extends Model
     public $systemDisk;
 
     /**
-     * @description The automatic release time of the instance.
+     * @description The automatic release time.
      *
      * @example 2018-05-14T14:18:00Z
      *
@@ -53,7 +53,7 @@ class launchTemplateData extends Model
     public $description;
 
     /**
-     * @description Specifies whether to enable the operating system configuration of the instance.
+     * @description Indicates whether the operating system configuration is enabled for the instance.
      *
      * @example false
      *
@@ -82,10 +82,10 @@ class launchTemplateData extends Model
     /**
      * @description The source of the image. Valid values:
      *
-     *   system: public images provided by Alibaba Cloud
-     *   self: custom images that you create
-     *   others: shared images from other Alibaba Cloud accounts
-     *   marketplace: Alibaba Cloud Marketplace images
+     *   system: a public image of Alibaba Cloud.
+     *   self: a custom image that you created.
+     *   others: a shared image from another Alibaba Cloud account.
+     *   marketplace: an Alibaba Cloud Marketplace image.
      *
      * @example system
      *
@@ -96,8 +96,8 @@ class launchTemplateData extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     *   PrePaid: subscription
-     *   PostPaid: pay-as-you-go
+     *   PrePaid: subscription.
+     *   PostPaid: pay-as-you-go.
      *
      * @example Postpaid
      *
@@ -106,7 +106,7 @@ class launchTemplateData extends Model
     public $instanceChargeType;
 
     /**
-     * @description The name of the instance.
+     * @description The instance name.
      *
      * @example testInstanceName
      *
@@ -160,7 +160,7 @@ class launchTemplateData extends Model
     public $ioOptimized;
 
     /**
-     * @description The number of IPv6 addresses to assign to the instance.
+     * @description The number of IPv6 addresses assigned to the instance.
      *
      * @example 1
      *
@@ -169,7 +169,7 @@ class launchTemplateData extends Model
     public $ipv6AddressCount;
 
     /**
-     * @description The name of the key pair. This parameter is empty by default.
+     * @description The name of the key pair.
      *
      * @example testKeyPairName
      *
@@ -187,8 +187,8 @@ class launchTemplateData extends Model
     /**
      * @description The network type. Valid values:
      *
-     *   classic: classic network
-     *   vpc: VPC
+     *   classic
+     *   vpc
      *
      * @example vpc
      *
@@ -197,7 +197,7 @@ class launchTemplateData extends Model
     public $networkType;
 
     /**
-     * @description Indicates whether to use the password preset in the image.
+     * @description Indicates whether the preset password of the image is used.
      *
      * @example true
      *
@@ -206,7 +206,7 @@ class launchTemplateData extends Model
     public $passwordInherit;
 
     /**
-     * @description The subscription duration of the resource.
+     * @description The subscription period of the resource.
      *
      * @example 1
      *
@@ -215,7 +215,7 @@ class launchTemplateData extends Model
     public $period;
 
     /**
-     * @description The private IP address to assign to the instance.
+     * @description The private IP address assigned to the instance.
      *
      * @example 10.1.**.**
      *
@@ -224,7 +224,7 @@ class launchTemplateData extends Model
     public $privateIpAddress;
 
     /**
-     * @description The name of the instance Resource Access Management (RAM) role.
+     * @description The name of the RAM role that is assigned to the instance.
      *
      * @example testRamRoleName
      *
@@ -242,7 +242,7 @@ class launchTemplateData extends Model
     public $resourceGroupId;
 
     /**
-     * @description Indicates whether security hardening is enabled.
+     * @description Indicates whether security hardening was enabled.
      *
      * @example active
      *
@@ -251,7 +251,7 @@ class launchTemplateData extends Model
     public $securityEnhancementStrategy;
 
     /**
-     * @description The ID of the security group to which to assign the instance.
+     * @description The ID of the security group to which the instance belongs.
      *
      * > `The SecurityGroupId` and `SecurityGroupIds` parameters are mutually exclusive in the response.
      * @example sg-bp67acfmxazb4p****
@@ -261,7 +261,7 @@ class launchTemplateData extends Model
     public $securityGroupId;
 
     /**
-     * @description The IDs of the security groups to which to assign the instance.
+     * @description The IDs of the security groups to which the instance belongs.
      *
      * > `The SecurityGroupId` and `SecurityGroupIds` parameters are mutually exclusive in the response.
      * @var securityGroupIds
@@ -269,12 +269,12 @@ class launchTemplateData extends Model
     public $securityGroupIds;
 
     /**
-     * @description The retention period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
+     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
      *
      * Take note of the following items:
      *
-     *   The following protection periods are in invitational preview: 2, 3, 4, 5, and 6 hours. If you want to set this parameter to one of these values, submit a ticket.
-     *   If this parameter is set to 0, no protection period is configured for the preemptible instance.
+     *   The following protection periods are in invitational preview: 2, 3, 4, 5, and 6 hours. If you want to specify one of these values, submit a ticket.
+     *   A value of 0 indicates that no protection period is specified for the preemptible instance.
      *
      * @example 1
      *
@@ -294,9 +294,9 @@ class launchTemplateData extends Model
     /**
      * @description The bidding policy for the pay-as-you-go instance. Valid values:
      *
-     *   NoSpot: The instance is created as a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
+     *   NoSpot: The instance is a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bid price.
      *
      * @example NoSpot
      *
@@ -305,7 +305,7 @@ class launchTemplateData extends Model
     public $spotStrategy;
 
     /**
-     * @description The tags to add to the instance.
+     * @description The tags of the instance.
      *
      * @var tags
      */
@@ -321,7 +321,7 @@ class launchTemplateData extends Model
     public $userData;
 
     /**
-     * @description The ID of the vSwitch to which to connect the instance.
+     * @description The ID of the vSwitch to which the instance is connected.
      *
      * @example vsw-bp67acfmxazb4p****
      *
@@ -339,7 +339,7 @@ class launchTemplateData extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-g
      *

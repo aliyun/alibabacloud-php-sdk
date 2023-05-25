@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class link extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-test
      *

@@ -18,7 +18,7 @@ class instance extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the private pool. When the value of `PrivatePoolOptionsMatchCriteria` is `Open`, the value of PrivatePoolOptionsId is the ID of a private pool that is automatically matched to the instance.
+     * @description The ID of the private pool. If the value of `PrivatePoolOptionsMatchCriteria` is `Open`, the value of PrivatePoolOptionsId is the ID of the private pool that is automatically matched to the instance.
      *
      * @example eap-bp67acfmxazb4****
      *

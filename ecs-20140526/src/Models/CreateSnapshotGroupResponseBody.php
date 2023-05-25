@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateSnapshotGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 01ABBD93-1ABB-4D92-B496-1A3D20EC0697
      *

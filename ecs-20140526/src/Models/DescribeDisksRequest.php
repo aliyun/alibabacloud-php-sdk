@@ -16,7 +16,7 @@ class DescribeDisksRequest extends Model
     public $filter;
 
     /**
-     * @description The values of attributes.
+     * @description The attribute value. Set the value to IOPS, which indicates the maximum IOPS of the disk.
      *
      * @example IOPS
      *
@@ -34,17 +34,17 @@ class DescribeDisksRequest extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description The category of the disk. Valid values:
+     * @description The category of the cloud disk or local disk. Valid values:
      *
-     * all: all disk categories
-     * cloud: basic disk
-     * cloud_efficiency: ultra disk
-     * cloud_ssd: standard SSD
-     * cloud_essd: enhanced SSD (ESSD)
-     * local\_ssd_pro: I/O-intensive local disk
-     * local\_hdd_pro: throughput-intensive local disk
-     * ephemeral: retired local disk
-     * ephemeral_ssd: retired local SSD
+     *   all: all disk categories
+     *   cloud: basic disk
+     *   cloud_efficiency: ultra disk
+     *   cloud_ssd: standard SSD
+     *   cloud_essd: ESSD
+     *   local_ssd_pro: I/O-intensive local disk
+     *   local_hdd_pro: throughput-intensive local disk
+     *   ephemeral: retired local disk
+     *   ephemeral_ssd: retired local SSD
      *
      * Default value: all.
      * @example all
@@ -54,12 +54,12 @@ class DescribeDisksRequest extends Model
     public $category;
 
     /**
-     * @description Specifies whether to delete the automatic snapshots of the cloud disk when the disk is released.
+     * @description Specifies whether to delete the automatic snapshots of the cloud disk after the disk is released.
      *
-     *   true: The automatic snapshots of the cloud disk are deleted when the disk is released.
-     *   false: The automatic snapshots of the cloud disk are not deleted when the disk is released.
+     *   true
+     *   false
      *
-     * Default value: false.
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -70,9 +70,9 @@ class DescribeDisksRequest extends Model
      * @description Specifies whether to release the cloud disk when its associated instance is released. Valid values:
      *
      *   true: The cloud disk is released when its associated instance is released.
-     *   false: The cloud disk is not released but is retained as a pay-as-you-go data disk when its associated instance is released.
+     *   false: The cloud disk is not released but is retained as a pay-as-you-go data disk after its associated instance is released.
      *
-     * Default value: false.
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -80,7 +80,7 @@ class DescribeDisksRequest extends Model
     public $deleteWithInstance;
 
     /**
-     * @description The billing method of the disk. Valid values:
+     * @description The disk billing method. Valid values:
      *
      *   PrePaid: subscription
      *   PostPaid: pay-as-you-go
@@ -92,7 +92,7 @@ class DescribeDisksRequest extends Model
     public $diskChargeType;
 
     /**
-     * @description The IDs of disks. The value is a JSON array that consists of up to 100 disk IDs. Separate the disk IDs with commas (,).
+     * @description The of disk IDs. The value is a JSON array that consists of up to 100 disk IDs. Separate the disk IDs with commas (,).
      *
      * @example ["d-bp67acfmxazb4p****", "d-bp67acfmxazb4g****", … "d-bp67acfmxazb4d****"]
      *
@@ -101,7 +101,7 @@ class DescribeDisksRequest extends Model
     public $diskIds;
 
     /**
-     * @description The name of the disk.
+     * @description The cloud disk or local disk name.
      *
      * @example testDiskName
      *
@@ -110,7 +110,7 @@ class DescribeDisksRequest extends Model
     public $diskName;
 
     /**
-     * @description The type of the disk. Valid values:
+     * @description The disk type. Valid values:
      *
      *   all: system disk and data disk
      *   system: system disk
@@ -124,12 +124,12 @@ class DescribeDisksRequest extends Model
     public $diskType;
 
     /**
-     * @description Specifies whether to check the validity of the request without actually making the request. Valid values:
+     * @description Specifies whether to perform only a dry run without performing the actual request. Valid values:
      *
-     *   true: The validity of the request is checked but the request is not made. Check items include whether your AccessKey pair is valid, whether Resource Access Management (RAM) users are granted required permissions, and whether the required parameters are specified. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
-     *   false: The validity of the request is checked. If the check succeeds, a 2XX HTTP status code is returned, and the request is made.
+     *   true: performs only a dry run. The systems checks whether your AccessKey pair is valid, whether RAM users are granted permissions, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
-     * Default value: false.
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -137,12 +137,12 @@ class DescribeDisksRequest extends Model
     public $dryRun;
 
     /**
-     * @description Specifies whether the automatic snapshot policy feature is enabled for the cloud disk.
+     * @description Specifies whether to enable the automatic snapshot policy feature for the cloud disk.
      *
-     *   true: The automatic snapshot policy feature is enabled for the cloud disk.
-     *   false: The automatic snapshot policy feature is not enabled for the cloud disk.
+     *   true
+     *   false
      *
-     * >  By default, the automatic snapshot policy feature is enabled for created cloud disks. You only need to apply an automatic snapshot policy to a cloud disk before you can use the automatic snapshot policy.
+     * > By default, the automatic snapshot policy feature is enabled for cloud disks that are already created. Additionally, only the automatic snapshot policy needs to be applied to a cloud disk before you can use the automatic snapshot policy.
      * @example true
      *
      * @var bool
@@ -155,7 +155,7 @@ class DescribeDisksRequest extends Model
      *   true: An automatic snapshot policy is applied to the cloud disk.
      *   false: No automatic snapshot policy is applied to the cloud disk.
      *
-     * Default value: false.
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -177,7 +177,7 @@ class DescribeDisksRequest extends Model
      *   true: queries only encrypted cloud disks.
      *   false: does not query encrypted cloud disks.
      *
-     * Default value: false.
+     * Default value: false
      * @example false
      *
      * @var bool
@@ -185,7 +185,7 @@ class DescribeDisksRequest extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the instance to which the disk is attached.
+     * @description The ID of the instance to which the cloud disk or local disk is attached.
      *
      * @example i-bp67acfmxazb4q****
      *
@@ -194,7 +194,7 @@ class DescribeDisksRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the Key Management Service (KMS) key used by the cloud disk.
+     * @description The ID of the Key Management Service (KMS) key that is used by the cloud disk.
      *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
@@ -208,7 +208,7 @@ class DescribeDisksRequest extends Model
      *   financial: The disk is locked due to overdue payments.
      *   security: The disk is locked due to security reasons.
      *   recycling: The preemptible instance is locked and pending release.
-     *   dedicatedhostfinancial: The instance is locked due to overdue payments for the dedicated host.
+     *   dedicatedhostfinancial: The ECS instance is locked due to overdue payments of the dedicated host.
      *
      * @example recycling
      *
@@ -219,7 +219,7 @@ class DescribeDisksRequest extends Model
     /**
      * @description The maximum number of entries to return on each page. Valid values: 1 to 500.
      *
-     * Default value:
+     * Default values:
      *
      *   If this parameter is not specified or is set to a value smaller than 10, the default value is 10.
      *   If this parameter is set to a value greater than 500, the default value is 500.
@@ -237,7 +237,7 @@ class DescribeDisksRequest extends Model
      *   Enabled: The multi-attach feature is enabled for the disk.
      *   LegacyShared: Shared Block Storage devices are queried.
      *
-     * The multi-attach feature is in invitational preview. To use this feature, [submit a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/list).
+     * The multi-attach feature is available to select users. To use this feature, [submit a ticket](https://workorder-intl.console.aliyun.com/console.htm#/ticket/list).
      * @example Disabled
      *
      * @var string
@@ -245,7 +245,7 @@ class DescribeDisksRequest extends Model
     public $multiAttach;
 
     /**
-     * @description The query token. Set the value to the `NextToken` value returned in the last call to the Describedisks operation.
+     * @description The query token. Set the value to the `NextToken` value that was returned in the last call to this operation.
      *
      * For more information about how to check the responses returned by this operation, see the preceding "Description" section.
      * @example AAAAAdDWBF2****
@@ -265,7 +265,7 @@ class DescribeDisksRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number to return.
      *
      * Default value: 1.
      * @example 1
@@ -275,7 +275,7 @@ class DescribeDisksRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries to return per page.
      *
      * Default value: 10.
      * @example 10
@@ -288,7 +288,7 @@ class DescribeDisksRequest extends Model
      * @description Specifies whether the disk is removable. Valid values:
      *
      *   true: The disk is removable. A removable disk can independently exist and can be attached to or detached from an instance within the same zone.
-     *   false: The disk is not removable. A disk that is not removable cannot independently exist or be attached to or detached from an instance within the same zone.
+     *   false: The disk is not removable. A disk that is not removable cannot independently exist nor can it be attached to or detached from an instance within the same zone.
      *
      * The `Portable` attribute of the following disks is `false`, and these disks share the same lifecycle with their associated instances:
      *
@@ -312,9 +312,9 @@ class DescribeDisksRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the disk belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     * @description The ID of the resource group to which the disk belongs. If you specify this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be returned.
      *
-     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * > Resources in the default resource group are displayed in the response regardless of whether you specify this parameter.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -332,7 +332,7 @@ class DescribeDisksRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the snapshot that was used to create the cloud disk.
+     * @description The ID of the snapshot from which you create the cloud disk.
      *
      * @example s-bp67acfmxazb4p****
      *
@@ -343,13 +343,13 @@ class DescribeDisksRequest extends Model
     /**
      * @description The state of the cloud disk. For more information, see [Disk states](~~25689~~). Valid values:
      *
-     * In_use
-     * Available
-     * Attaching
-     * Detaching
-     * Creating
-     * ReIniting
-     * All
+     *   In_use
+     *   Available
+     *   Attaching
+     *   Detaching
+     *   Creating
+     *   ReIniting
+     *   All
      *
      * Default value: All.
      * @example All
@@ -359,14 +359,14 @@ class DescribeDisksRequest extends Model
     public $status;
 
     /**
-     * @description The tags.
+     * @description The tags of the disk.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The zone ID of the disk.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-g
      *

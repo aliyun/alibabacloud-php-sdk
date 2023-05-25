@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class feeOfInstance extends Model
 {
     /**
-     * @description The unit of currency used on the bill.
+     * @description The unit of currency for the bill.
      *
      * Alibaba Cloud International site (alibabacloud.com): USD.
      * @example CNY
@@ -19,7 +19,7 @@ class feeOfInstance extends Model
     public $currency;
 
     /**
-     * @description The cost value.
+     * @description The charged amount.
      *
      * @example 0
      *
@@ -28,7 +28,7 @@ class feeOfInstance extends Model
     public $fee;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-bp67acfmxazb4p****
      *

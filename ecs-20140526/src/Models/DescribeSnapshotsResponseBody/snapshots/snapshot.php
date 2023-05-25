@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class snapshot extends Model
 {
     /**
-     * @description The category of the snapshot.
+     * @description The snapshot type.
      *
      * >  This parameter will be removed in the future. We recommend that you use the `InstantAccess` parameter to ensure future compatibility.
      * @example standard
@@ -47,10 +47,10 @@ class snapshot extends Model
     public $encrypted;
 
     /**
-     * @description Indicates whether the instant access feature was enabled. Valid values:
+     * @description Indicates whether the instant access feature is enabled. Valid values:
      *
-     *   true: The instant access feature was enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
-     *   false: The instant access feature was disabled. The snapshot is a normal snapshot for which the instant access feature was disabled.
+     *   true: The instant access feature is enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
+     *   false: The instant access feature is disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
      *
      * @example false
      *
@@ -61,7 +61,7 @@ class snapshot extends Model
     /**
      * @description The validity period of the instant access feature. The instant access feature is automatically disabled when the specified period expires.
      *
-     * By default, the value of this parameter is the same as that of `RetentionDays`.
+     * By default, the value of this parameter is the same as the value of the `RetentionDays` parameter.
      * @example 30
      *
      * @var int
@@ -96,7 +96,7 @@ class snapshot extends Model
     public $productCode;
 
     /**
-     * @description The progress of the snapshot creation task. Unit: percent (%).
+     * @description The progress of the snapshot creation task in percentage.
      *
      * @example 100%
      *
@@ -132,7 +132,7 @@ class snapshot extends Model
     public $retentionDays;
 
     /**
-     * @description The ID of the snapshot.
+     * @description The snapshot ID.
      *
      * @example s-bp67acfmxazb4p****
      *
@@ -161,9 +161,9 @@ class snapshot extends Model
     /**
      * @description The type of snapshot. Valid values:
      *
-     *   auto or timer: automatic snapshot
-     *   user: manual snapshot
-     *   all: all snapshot types
+     *   auto or timer: automatic snapshot.
+     *   user: manual snapshot.
+     *   all: all snapshot types.
      *
      * @example all
      *
@@ -230,7 +230,7 @@ class snapshot extends Model
     public $sourceStorageType;
 
     /**
-     * @description The state of the snapshot. Valid values:
+     * @description The snapshot status. Valid values:
      *
      *   progressing
      *   accomplished

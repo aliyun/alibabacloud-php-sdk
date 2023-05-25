@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class instancePluginStatus extends Model
 {
     /**
-     * @description The ID of the ECS instance.
+     * @description The instance ID.
      *
      * @example i-xxxxx
      *
@@ -19,7 +19,7 @@ class instancePluginStatus extends Model
     public $instanceId;
 
     /**
-     * @description Details about the Cloud Assistant plug-in.
+     * @description The states of the Cloud Assistant plug-ins.
      *
      * @var pluginStatusSet
      */

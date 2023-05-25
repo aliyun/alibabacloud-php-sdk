@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListPluginStatusRequest extends Model
 {
     /**
-     * @description The IDs of ECS instances. You can specify up to 50 instance IDs in each request.
+     * @description The instance IDs. You can specify up to 50 instance IDs in a request. Valid values of N: 1 to 50.
      *
      * @var string[]
      */
@@ -18,11 +18,13 @@ class ListPluginStatusRequest extends Model
     /**
      * @description The name of the Cloud Assistant plug-in. The name supports all character sets and must be 1 to 255 characters in length.
      *
-     * If this parameter is not specified, the states of all Cloud Assistant plug-ins that are installed on the specified ECS instances are queried.
+     *   If this parameter is not specified, the states of all Cloud Assistant plug-ins that are installed on the specified ECS instances are queried.
      *
-     * > If this parameter is not specified, only a single instance ID can be specified.
+     **
      *
-     * If this parameter is specified, the state of the specified Cloud Assistant plug-in is queried.
+     **Note**If this parameter is not specified, only a single instance ID can be specified.
+     *
+     *   If this parameter is specified, the state of the specified Cloud Assistant plug-in is queried.
      *
      * @example testPluginName
      *
@@ -41,7 +43,7 @@ class ListPluginStatusRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number of the returned page.
      *
      *   Pages start from page 1.
      *   Default value: 1.
@@ -55,7 +57,7 @@ class ListPluginStatusRequest extends Model
     /**
      * @description The number of entries to return on each page.
      *
-     *   Maximum value: 50.
+     *   Valid values: 1 to 50.
      *   Default value: 10.
      *
      * @example 10
@@ -65,7 +67,7 @@ class ListPluginStatusRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the ECS instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

@@ -19,7 +19,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $dedicatedHostClusterId;
 
     /**
-     * @description The IDs of dedicated hosts. You can specify up to 100 dedicated host IDs in a single request. Separate the IDs with commas (,).
+     * @description The IDs of dedicated hosts. You can specify up to 100 dedicated host IDs in a single request. Separate multiple IDs with commas (,).
      *
      * @example ["dh-bp165p6xk2tlw61e****", "dh-bp1f9vxmno7emy96****"]
      *
@@ -37,7 +37,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $dedicatedHostName;
 
     /**
-     * @description The type of the dedicated host. You can call the [DescribeDedicatedHostTypes](~~134240~~) operation to obtain the most recent list of dedicated host types.
+     * @description The type of the dedicated host. You can call the [DescribeDedicatedHostTypes](~~134240~~) operation to query the most recent list of dedicated host types.
      *
      * @example ddh.g5
      *
@@ -78,7 +78,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries to return per page.
      *
      * Default value: 10.
      * @example 10
@@ -88,7 +88,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the dedicated host. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region where the dedicated host resides. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -97,9 +97,9 @@ class DescribeDedicatedHostsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the dedicated host belongs. When this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     * @description The ID of the resource group to which the dedicated host belongs. If you specify this parameter, the details of up to 1,000 resources that belong to the specified resource group are returned.
      *
-     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * >  Resources in the default resource group are displayed in the response regardless of the value that you specified for this parameter.
      * @example rg-aek3b6jzp66****
      *
      * @var string
@@ -117,17 +117,19 @@ class DescribeDedicatedHostsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $socketDetails;
 
     /**
-     * @description The service state of the dedicated host. Valid values:
+     * @description The service status of the dedicated host. Valid values:
      *
-     *   Available: The dedicated host is running normally.
-     *   UnderAssessment: The dedicated host is at risk, which may cause issues to ECS instances on the dedicated host.
-     *   PermanentFailure: The dedicated host has permanent failures and is unusable.
-     *   TempUnavailable: The dedicated host is temporarily unusable.
+     *   Available: The dedicated host is running as expected.
+     *   UnderAssessment: The dedicated host is available. However, the dedicated host has potential risks that may cause the ECS instances on the dedicated host to fail.
+     *   PermanentFailure: The dedicated host has permanent failures and cannot be used.
+     *   TempUnavailable: The dedicated host is temporarily unavailable.
      *   Redeploying: The dedicated host is being restored.
      *
      * Default value: Available.
@@ -138,14 +140,14 @@ class DescribeDedicatedHostsRequest extends Model
     public $status;
 
     /**
-     * @description 标签列表。
+     * @description The tags of the dedicated hosts.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The zone ID of the dedicated host. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The ID of the zone where the dedicated host resides. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-g
      *

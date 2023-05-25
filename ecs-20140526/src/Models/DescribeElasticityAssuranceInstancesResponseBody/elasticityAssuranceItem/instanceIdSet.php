@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceIdSet extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID
      *
      * @example i-bp67acfmxazb4****
      *

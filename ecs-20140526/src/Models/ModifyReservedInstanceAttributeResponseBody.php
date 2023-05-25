@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyReservedInstanceAttributeResponseBody extends Model
 {
     /**
-     * @description The error code.
+     * @description Modifies the attributes of a reserved instance, such as its name and description.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class ModifyReservedInstanceAttributeResponseBody extends Model
     public $code;
 
     /**
-     * @description The HTTP status code.
+     * @description The ID of the request.
      *
      * @example 200
      *
@@ -27,8 +27,6 @@ class ModifyReservedInstanceAttributeResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message for this instance operation. The return value Success indicates that this operation is successful. For more information, see the "Error codes" section of this topic.
-     *
      * @example Success
      *
      * @var string
@@ -36,8 +34,6 @@ class ModifyReservedInstanceAttributeResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string

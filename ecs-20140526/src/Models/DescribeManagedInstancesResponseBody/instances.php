@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description The ID of the activation code.
+     * @description The version number of the Cloud Assistant client.
      *
      * @example 3704F543-F768-43FA-9864-897F75B3****
      *
@@ -19,7 +19,7 @@ class instances extends Model
     public $activationId;
 
     /**
-     * @description The version number of the Cloud Assistant client.
+     * @description The name of the managed instance.
      *
      * @example 2.2.0.102
      *
@@ -28,10 +28,7 @@ class instances extends Model
     public $agentVersion;
 
     /**
-     * @description Indicates whether the managed instance is connected. Valid values:
-     *
-     *   true: The managed instance is connected and you can manage the instance by using Cloud Assistant.
-     *   false: The managed instance is not connected because the managed instance is down or because the Cloud Assistant client is not installed correctly.
+     * @description The hostname of the managed instance.
      *
      * @example true
      *
@@ -40,7 +37,7 @@ class instances extends Model
     public $connected;
 
     /**
-     * @description The hostname of the managed instance.
+     * @description The ID of the activation code.
      *
      * @example demo
      *
@@ -49,7 +46,7 @@ class instances extends Model
     public $hostname;
 
     /**
-     * @description The ID of the managed instance.
+     * @description The internal IP address of the managed instance.
      *
      * @example mi-hz018jrc1o0****
      *
@@ -58,7 +55,7 @@ class instances extends Model
     public $instanceId;
 
     /**
-     * @description The name of the managed instance.
+     * @description The version information of the operating system.
      *
      * @example webAPP-linux-01
      *
@@ -67,7 +64,7 @@ class instances extends Model
     public $instanceName;
 
     /**
-     * @description The public IP address of the managed instance.
+     * @description The ID of the managed instance.
      *
      * @example 40.65.**.**
      *
@@ -76,7 +73,7 @@ class instances extends Model
     public $internetIp;
 
     /**
-     * @description The internal IP address of the managed instance.
+     * @description The time when the managed instance was registered.
      *
      * @example 10.0.**.**
      *
@@ -85,7 +82,7 @@ class instances extends Model
     public $intranetIp;
 
     /**
-     * @description The number of times that Cloud Assistant tasks were executed on the managed instance.
+     * @description The tags.
      *
      * @example 1
      *
@@ -94,7 +91,7 @@ class instances extends Model
     public $invocationCount;
 
     /**
-     * @description The last Cloud Assistant task execution time.
+     * @description The public IP address of the managed instance.
      *
      * @example 2021-01-20T09:00:40Z
      *
@@ -103,7 +100,7 @@ class instances extends Model
     public $lastInvokedTime;
 
     /**
-     * @description The machine code of the managed instance.
+     * @description The tag of the managed instance.
      *
      * @example e03231b37ab14e53b5795ad625fc****
      *
@@ -112,7 +109,7 @@ class instances extends Model
     public $machineId;
 
     /**
-     * @description The operating system type of the managed instance.
+     * @description The number of times that Cloud Assistant tasks were executed on the managed instance.
      *
      * @example Linux
      *
@@ -121,7 +118,7 @@ class instances extends Model
     public $osType;
 
     /**
-     * @description The version information of the operating system.
+     * @description The machine code of the managed instance.
      *
      * @example Linux_#38~18.04.1-Ubuntu SMP Wed Jan 6 18:26:30 UTC 2021_x86_64
      *
@@ -130,7 +127,7 @@ class instances extends Model
     public $osVersion;
 
     /**
-     * @description The time when the managed instance was registered.
+     * @description The operating system type of the managed instance.
      *
      * @example 2021-01-20T08:57:56Z
      *
@@ -139,8 +136,9 @@ class instances extends Model
     public $registrationTime;
 
     /**
-     * @description The tags of the managed instance.
+     * @description The tag key of the managed instance. Valid values of N: 1 to 20. The tag key cannot be an empty string.
      *
+     * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
      * @var tags[]
      */
     public $tags;

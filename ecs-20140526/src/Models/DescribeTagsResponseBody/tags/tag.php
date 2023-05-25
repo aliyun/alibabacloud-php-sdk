@@ -17,7 +17,7 @@ class tag extends Model
     public $resourceTypeCount;
 
     /**
-     * @description The key of the tag.
+     * @description The tag key.
      *
      * @example TestKey
      *
@@ -26,7 +26,7 @@ class tag extends Model
     public $tagKey;
 
     /**
-     * @description The value of the tag.
+     * @description The tag value.
      *
      * @example TestValue
      *

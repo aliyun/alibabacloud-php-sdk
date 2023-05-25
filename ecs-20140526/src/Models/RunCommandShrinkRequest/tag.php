@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of tag N of the command. You can specify up to 20 tag keys for the command. The tag key cannot be an empty string.
+     * @description The key of tag N of the command. You can specify 1 to 20 tag keys for the command. The tag key cannot be an empty string.
      *
      * The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
      * @example TestKey
@@ -19,9 +19,8 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of tag N of the command. You can specify up to 20 tag values for the command. The tag value can be an empty string.
+     * @description The tags to add to the command.
      *
-     * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`.
      * @example TestValue
      *
      * @var string

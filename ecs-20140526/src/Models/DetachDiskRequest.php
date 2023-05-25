@@ -9,15 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DetachDiskRequest extends Model
 {
     /**
-     * @description Specifies whether to automatically release the system disk when the instance from which the system disk is to be detached is released. Valid values:
+     * @description Specifies whether to release the system disk when the instance from which you want to detach the system disk is released. Valid values:
      *
-     *   true: The system disk is released when the instance is released.
-     *   false: The system disk is not released when the instance is released. The system disk is retained as a pay-as-you-go data disk.
+     *   true: releases the system disk when the instance is released.
+     *   false: does not release the system disk when the instance is released. The system disk is retained as a pay-as-you-go data disk.
      *
-     * Take note of the following items:
+     * If you specify this parameter, take note of the following items:
      *
-     *   This parameter cannot be set for disks for which the multi-attach feature is enabled.
-     *   If a data disk is to be detached, the default value is `false`.
+     *   You cannot specify this parameter for disks for which the multi-attach feature is enabled.
+     *   If you detach a data disk, the default value of this parameter is `false`.
      *
      * @example false
      *
@@ -26,7 +26,7 @@ class DetachDiskRequest extends Model
     public $deleteWithInstance;
 
     /**
-     * @description The ID of the disk to be detached.
+     * @description The ID of the disk that you want to detach.
      *
      * @example d-bp67acfmxazb4p****
      *
@@ -35,7 +35,7 @@ class DetachDiskRequest extends Model
     public $diskId;
 
     /**
-     * @description The ID of the ECS instance from which to detach the disk.
+     * @description The ID of the ECS instance from which you want to detach the disk.
      *
      * @example i-bp67acfmxazb4p****
      *

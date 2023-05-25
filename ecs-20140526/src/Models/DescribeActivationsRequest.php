@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeActivationsRequest extends Model
 {
     /**
-     * @description The ID of the activation code.
+     * @description The page number of the page to return.
      *
+     * Default value: 1.
      * @example 4ECEEE12-56F1-4FBC-9AB1-890F1234****
      *
      * @var string
@@ -19,8 +20,9 @@ class DescribeActivationsRequest extends Model
     public $activationId;
 
     /**
-     * @description The default instance name prefix.
+     * @description The number of entries to return on each page.
      *
+     * Default value: 10.
      * @example test-InstanceName
      *
      * @var string
@@ -38,9 +40,8 @@ class DescribeActivationsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number of the page to return.
+     * @description An array that consists of the tags of the activation code.
      *
-     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -48,9 +49,8 @@ class DescribeActivationsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The information about the tag of the activation code.
      *
-     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -58,9 +58,8 @@ class DescribeActivationsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the activation code. The following regions are supported: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), and China (Hong Kong).
+     * @description The default instance name prefix.
      *
-     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -78,6 +77,9 @@ class DescribeActivationsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The key of tag N of the activation code. Valid values of N: 1 to 20. The tag key cannot be an empty string.
+     *
+     * The tag key is up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
      * @var tag[]
      */
     public $tag;

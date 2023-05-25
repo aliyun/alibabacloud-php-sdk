@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AllocatePublicIpAddressResponseBody extends Model
 {
     /**
-     * @description The public IP address of the instance.
+     * @description The public IP address.
      *
      * @example 112.124.**.**
      *
@@ -18,7 +18,7 @@ class AllocatePublicIpAddressResponseBody extends Model
     public $ipAddress;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *

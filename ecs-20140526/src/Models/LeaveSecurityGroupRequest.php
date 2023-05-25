@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class LeaveSecurityGroupRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
-     * > If this parameter is specified, the `NetworkInterfaceId` parameter cannot be specified.
+     * > If you configure this parameter, you cannot configure `NetworkInterfaceId`.
      * @example i-bp67acfmxazb4p****
      *
      * @var string
@@ -19,9 +19,9 @@ class LeaveSecurityGroupRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the ENI.
+     * @description The ENI ID.
      *
-     * > If this parameter is specified, the `InstanceId` parameter cannot be specified.
+     * > If you configure this parameter, you cannot configure `InstanceId`.
      * @example eni-bp13kd656hxambfe****
      *
      * @var string
@@ -39,7 +39,7 @@ class LeaveSecurityGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the security group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      *   If you want to remove an instance from a security group, you do not need to specify a region ID.
      *   If you want to remove an ENI from a security group, you must specify the ID of the region in which the ENI resides.
@@ -61,7 +61,7 @@ class LeaveSecurityGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the security group.
+     * @description The security group ID.
      *
      * @example sg-bp67acfmxazb4p****
      *

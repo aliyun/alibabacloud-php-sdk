@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkInterfacePermissionsRequest extends Model
 {
     /**
-     * @description The ID of the ENI. You must specify `NetworkInterfaceId` or `NetworkInterfacePermissionId.N` to determine the query range.
+     * @description The ID of ENI N. You must specify `NetworkInterfaceId` or `NetworkInterfacePermissionId.N` to determine the query range.
      *
      * @example eni-bp17pdijfczax****
      *
@@ -37,7 +37,7 @@ class DescribeNetworkInterfacePermissionsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -47,7 +47,7 @@ class DescribeNetworkInterfacePermissionsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 10

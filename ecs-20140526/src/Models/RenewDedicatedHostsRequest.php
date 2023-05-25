@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RenewDedicatedHostsRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate a client token. Make sure that a unique client token is used for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence?](~~25693~~)
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -18,7 +18,7 @@ class RenewDedicatedHostsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The IDs of dedicated hosts. You can specify the IDs of up to 100 subscription dedicated hosts. Specify dedicated host IDs as a JSON array and separate the IDs with commas (,). Example: `["dh-xxxxxxxxx", "dh-yyyyyyyyy", ... "dh-zzzzzzzzz"]`.
+     * @description The IDs of dedicated hosts. You can specify the IDs of up to 100 subscription dedicated hosts. Specify the dedicated host IDs in a JSON array. Example: `["dh-xxxxxxxxx", "dh-yyyyyyyyy", … "dh-zzzzzzzzz"]`. Separate the IDs with commas (,).
      *
      * @example dh-bp199lyny9b3****
      *
@@ -37,9 +37,8 @@ class RenewDedicatedHostsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The renewal duration of the dedicated host. Valid values:
+     * @description The renewal duration. Valid values:
      *
-     *   Valid values when the PeriodUnit parameter is set to Week: 1, 2, 3, and 4.
      *   Valid values when the PeriodUnit parameter is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
      *   Valid values when the PeriodUnit parameter is set to Year: 1, 2, 3, 4, and 5.
      *
@@ -50,9 +49,8 @@ class RenewDedicatedHostsRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the renewal duration of the dedicated host. Valid values:
+     * @description The unit of the renewal period. Valid values:
      *
-     *   Week
      *   Month
      *   Year
      *

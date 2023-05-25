@@ -16,14 +16,14 @@ class DescribeInstanceModificationPriceRequest extends Model
     public $systemDisk;
 
     /**
-     * @description The list of data disk. The list size can up to 16.
+     * @description $.parameters[2].schema.description
      *
      * @var dataDisk[]
      */
     public $dataDisk;
 
     /**
-     * @description The ID of the instance for which you want to query pricing information for a configuration upgrade.
+     * @description $.parameters[6].schema.description
      *
      * @example i-bp1f2o4ldh8l****
      *
@@ -32,9 +32,8 @@ class DescribeInstanceModificationPriceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The new instance type. We recommend that you call the [DescribeResourcesModification](~~66187~~) operation to query the instance types available for configuration upgrades in a specified zone.
+     * @description $.parameters[6].schema.example
      *
-     * >  When you call the DescribeInstanceModificationPrice operation, you must specify at least one of the following parameters: `InstanceType` and `DataDisk.N.*`.
      * @example ecs.g6e.large
      *
      * @var string
@@ -52,7 +51,7 @@ class DescribeInstanceModificationPriceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description $.parameters[6].schema.items.enumValueTitles
      *
      * @example cn-hangzhou
      *

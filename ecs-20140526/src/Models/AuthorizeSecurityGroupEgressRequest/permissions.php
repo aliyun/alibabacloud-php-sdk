@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class permissions extends Model
 {
     /**
-     * @description The description of security group rule N. The description must be 1 to 512 characters in length.
+     * @description This parameter is deprecated. Use `Permissions.N.Policy` to specify whether to accept inbound access.
      *
-     * Valid values of N: 1 to 100.
      * @example This is description.
      *
      * @var string
@@ -19,14 +18,84 @@ class permissions extends Model
     public $description;
 
     /**
-     * @description The destination IPv4 CIDR block to which you want to control access. CIDR blocks and IPv4 addresses are supported.
+     * @description The destination IPv6 CIDR block to which you want to control access. CIDR blocks and IPv6 addresses are supported.
      *
-     * Valid values of N: 1 to 100.
+     * > This parameter takes effect only when the destination is ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and the `DestCidrIp` parameter.
      * @example 10.0.0.0/8
      *
      * @var string
      */
     public $destCidrIp;
+
+    /**
+     * @description The ID of the destination prefix list to which you want to control access. You can call the [DescribePrefixLists](~~205046~~) operation to query the IDs of available prefix lists.
+     *
+     * Take note of the following items:
+     *
+     *   If a security group is in the classic network, you cannot reference prefix lists in the security group rules. For information about the limits on security groups and prefix lists, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
+     *   If you specify `DestCidrIp`, `Ipv6DestCidrIp`, or `DestGroupId`, Permissions.N.DestPrefixListId is ignored.
+     *
+     * Valid values of N: 1 to 100.
+     * @example sg-bp67acfmxazb4p****
+     *
+     * @var string
+     */
+    public $destGroupId;
+
+    /**
+     * @description The ID of the Alibaba Cloud account that manages the destination security group when you set a security group rule across accounts.
+     *
+     *   If both `DestGroupOwnerId` and `DestGroupOwnerAccount` are not specified, the rule is created to control access to another security group within your Alibaba Cloud account.
+     *   If you specify the `DestCidrIp` parameter, the `DestGroupOwnerId` parameter is ignored.
+     *
+     * Valid values of N: 1 to 100.
+     * @example Test@aliyun.com
+     *
+     * @var string
+     */
+    public $destGroupOwnerAccount;
+
+    /**
+     * @description The type of the network interface controller (NIC) that belongs to the security group rule when the security group is in the classic network. Valid values:
+     *
+     *   internet: public NIC
+     *
+     *   intranet: internal NIC
+     *
+     *   If the security group is in a VPC, this parameter is set to intranet by default and cannot be changed.
+     *   If you specify only DestGroupId when you configure access between security groups, this parameter must be set to intranet.
+     *
+     * Valid values of N: 1 to 100.
+     * @example 12345678910
+     *
+     * @var int
+     */
+    public $destGroupOwnerId;
+
+    /**
+     * @description The range of destination ports that correspond to the transport layer protocol for the security group rule. Valid values:
+     *
+     *   If the Permissions.N.IpProtocol parameter is set to TCP or UDP, the port number range is 1 to 65535. Specify a port range in the format of \<Start port number>/\<End port number>. Example: 1/200.
+     *   Valid values if you set the IpProtocol property to icmp: -1/-1.
+     *   Valid values if you set the IpProtocol property to gre: -1/-1.
+     *   Valid values if you set the IpProtocol property to all: -1/-1.
+     *
+     * Valid values of N: 1 to 100.
+     * @example pl-x1j1k5ykzqlixdcy****
+     *
+     * @var string
+     */
+    public $destPrefixListId;
+
+    /**
+     * @description The destination IPv4 CIDR block to which you want to control access. CIDR blocks and IPv4 addresses are supported.
+     *
+     * Valid values of N: 1 to 100.
+     * @example ALL
+     *
+     * @var string
+     */
+    public $ipProtocol;
 
     /**
      * @description The ID of the security group to be referenced as the destination in the security group rule.
@@ -40,52 +109,56 @@ class permissions extends Model
      *   Security groups cannot be referenced as destinations or sources in the rules of advanced security groups.
      *   Up to 20 security groups can be referenced as destinations or sources in the rules of each basic security group.
      *
-     * @example sg-bp67acfmxazb4p****
+     * @example 2001:db8:1233:1a00::***
      *
      * @var string
      */
-    public $destGroupId;
+    public $ipv6DestCidrIp;
 
     /**
-     * @description The Alibaba Cloud account that manages the destination security group when you set a security group rule across accounts.
+     * @description The range of source ports that correspond to the transport layer protocol for the security group rule. Valid values:
      *
-     *   If both `DestGroupOwnerAccount` and `DestGroupOwnerId` are not specified, the rule is created to control access to another security group within your Alibaba Cloud account.
-     *   If `DestCidrIp` is specified, `DestGroupOwnerAccount` is ignored.
+     *   If the Permissions.N.IpProtocol parameter is set to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
+     *   Valid values if you set the IpProtocol property to icmp: -1/-1.
+     *   Valid values if you set the IpProtocol property to gre: -1/-1.
+     *   Valid values if you set the IpProtocol property to all: -1/-1.
      *
      * Valid values of N: 1 to 100.
-     * @example Test@aliyun.com
+     * @example 2001:db8:1234:1a00::***
      *
      * @var string
      */
-    public $destGroupOwnerAccount;
+    public $ipv6SourceCidrIp;
 
     /**
-     * @description The ID of the Alibaba Cloud account that manages the destination security group when you set a security group rule across accounts.
-     *
-     *   If both `DestGroupOwnerId` and `DestGroupOwnerAccount` are not specified, the rule is created to control access to another security group within your Alibaba Cloud account.
-     *   If you specify the `DestCidrIp` parameter, the `DestGroupOwnerId` parameter is ignored.
+     * @description The description of the security group rule. The description must be 1 to 512 characters in length.
      *
      * Valid values of N: 1 to 100.
-     * @example 12345678910
-     *
-     * @var int
-     */
-    public $destGroupOwnerId;
-
-    /**
-     * @description The ID of the destination prefix list to which you want to control access. You can call the [DescribePrefixLists](~~205046~~) operation to query the IDs of available prefix lists.
-     *
-     * Usage notes
-     *
-     *   If a security group is in the classic network, you cannot reference prefix lists in the security group rules. For information about the limits on security groups and prefix lists, see the "Security group limits" section in [Limits](~~25412#SecurityGroupQuota1~~).
-     *   If you specify `DestCidrIp`, `Ipv6DestCidrIp`, or `DestGroupId`, Permissions.N.DestPrefixListId is ignored.
-     *
-     * Valid values of N: 1 to 100.
-     * @example pl-x1j1k5ykzqlixdcy****
+     * @example intranet
      *
      * @var string
      */
-    public $destPrefixListId;
+    public $nicType;
+
+    /**
+     * @description The priority of security group rule N. A smaller value indicates a higher priority. Valid values: 1 to 100.
+     *
+     * Valid values of N: 1 to 100.
+     * @example accept
+     *
+     * @var string
+     */
+    public $policy;
+
+    /**
+     * @description The source IPv4 CIDR block for security group rule N. CIDR blocks and IPv4 addresses are supported.
+     *
+     * Valid values of N: 1 to 100.
+     * @example 80/80
+     *
+     * @var string
+     */
+    public $portRange;
 
     /**
      * @description The transport layer protocol of the security group rule. These values are case-insensitive. Valid values:
@@ -98,81 +171,6 @@ class permissions extends Model
      *   ALL: All protocols are supported.
      *
      * Valid values of N: 1 to 100.
-     * @example ALL
-     *
-     * @var string
-     */
-    public $ipProtocol;
-
-    /**
-     * @description The destination IPv6 CIDR block to which you want to control access. CIDR blocks and IPv6 addresses are supported.
-     *
-     * > This parameter takes effect only when the destination is ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and the `DestCidrIp` parameter.
-     * @example 2001:db8:1233:1a00::***
-     *
-     * @var string
-     */
-    public $ipv6DestCidrIp;
-
-    /**
-     * @description The source IPv6 CIDR block for security group rule N. CIDR blocks and IPv6 addresses are supported.
-     *
-     * > This parameter takes effect only when the source is ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and the `SourceCidrIp` parameter.
-     * @example 2001:db8:1234:1a00::***
-     *
-     * @var string
-     */
-    public $ipv6SourceCidrIp;
-
-    /**
-     * @description The network interface type of the security group rule when the security group is in the classic network. Valid values:
-     *
-     *   internet: public NIC
-     *
-     *   intranet: internal NIC
-     *
-     *   If the security group is in a VPC, this parameter is set to intranet by default and cannot be changed.
-     *   If you specify only DestGroupId when you configure access between security groups, this parameter must be set to intranet.
-     *
-     * Valid values of N: 1 to 100.
-     * @example intranet
-     *
-     * @var string
-     */
-    public $nicType;
-
-    /**
-     * @description The authorization policy. Valid values:
-     *
-     *   accept: allows access.
-     *   drop: denies access and returns no responses. In this case, the request times out or the connection cannot be established.
-     *
-     * Valid values of N: 1 to 100.
-     * @example accept
-     *
-     * @var string
-     */
-    public $policy;
-
-    /**
-     * @description The range of destination ports that correspond to the transport layer protocol for the security group rule. Valid values:
-     *
-     *   If the Permissions.N.IpProtocol parameter is set to TCP or UDP, the port number range is 1 to 65535. Specify a port range in the format of \<Start port number>/\<End port number>. Example: 1/200.
-     *   If the Permissions.N.IpProtocol parameter is set to ICMP, the port number range is -1/-1, which indicates all ports.
-     *   If the Permissions.N.IpProtocol parameter is set to GRE, the port number range is -1/-1, which indicates all ports.
-     *   If the Permissions.N.IpProtocol parameter is set to ALL, the port number range is -1/-1, which indicates all ports.
-     *
-     * Valid values of N: 1 to 100.
-     * @example 80/80
-     *
-     * @var string
-     */
-    public $portRange;
-
-    /**
-     * @description The priority of security group rule N. A smaller value indicates a higher priority. Valid values: 1 to 100.
-     *
-     * Valid values of N: 1 to 100.
      * @example 1
      *
      * @var string
@@ -180,9 +178,9 @@ class permissions extends Model
     public $priority;
 
     /**
-     * @description The source IPv4 CIDR block for security group rule N. CIDR blocks and IPv4 addresses are supported.
+     * @description The source IPv6 CIDR block. You must set this parameter to an IPv6 address or CIDR block.
      *
-     * Valid values of N: 1 to 100.
+     * > This parameter takes effect only when the source is ECS instances that reside in VPCs and support IPv6 CIDR blocks. You cannot specify both this parameter and the `SourceCidrIp` parameter.
      * @example 10.0.0.0/8
      *
      * @var string
@@ -190,12 +188,10 @@ class permissions extends Model
     public $sourceCidrIp;
 
     /**
-     * @description The range of source ports that correspond to the transport layer protocol for the security group rule. Valid values:
+     * @description The Alibaba Cloud account that manages the destination security group when you set a security group rule across accounts.
      *
-     *   If the Permissions.N.IpProtocol parameter is set to TCP or UDP, the port number range is 1 to 65535. Separate the start port number and the end port number with a forward slash (/). Example: 1/200.
-     *   If the Permissions.N.IpProtocol parameter is set to ICMP, the port number range is -1/-1, which indicates all ports.
-     *   If the Permissions.N.IpProtocol parameter is set to GRE, the port number range is -1/-1, which indicates all ports.
-     *   If the Protocol parameter is set to ALL, the port number range is -1/-1, which indicates all ports.
+     *   If both `DestGroupOwnerAccount` and `DestGroupOwnerId` are not specified, the rule is created to control access to another security group within your Alibaba Cloud account.
+     *   If `DestCidrIp` is specified, `DestGroupOwnerAccount` is ignored.
      *
      * Valid values of N: 1 to 100.
      * @example 80/80

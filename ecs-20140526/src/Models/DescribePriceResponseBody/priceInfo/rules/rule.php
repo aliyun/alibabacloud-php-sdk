@@ -18,7 +18,7 @@ class rule extends Model
     public $description;
 
     /**
-     * @description The ID of the promotion rule.
+     * @description The ID of the pricing rule.
      *
      * @example 587
      *

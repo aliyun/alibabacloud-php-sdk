@@ -18,7 +18,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $launchConfiguration;
 
     /**
-     * @description The name of the auto provisioning group. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the auto provisioning group. The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter but cannot start with `http://` or `https://`.
      *
      * @example apg-test
      *
@@ -29,9 +29,9 @@ class CreateAutoProvisioningGroupRequest extends Model
     /**
      * @description The delivery type of the auto provisioning group. Valid values:
      *
-     *   request: one-time asynchronous delivery. When the auto provisioning group is started, it attempts to asynchronously deliver an instance cluster that meets the target capacity only once. The group does not retry the operation regardless of whether all the instances are delivered.
-     *   instant: one-time synchronous delivery. When the auto provisioning group is started, it attempts to synchronously deliver an instance cluster that meets the target capacity only once. The list of delivered instances and the causes of delivery failures are returned in the response.
-     *   maintain: continuous delivery. When the auto provisioning group is started, it attempts to deliver an instance cluster that meets the target capacity, and monitors the real-time capacity. If the target capacity of the auto provisioning group is not reached, the auto provisioning group continues to create instances until the target capacity is reached.
+     *   request: one-time asynchronous delivery. The auto provisioning group attempts to asynchronously deliver an instance cluster that meets the target capacity only once when it is started. The group does not retry the operation regardless of whether all the instances are delivered.
+     *   instant: one-time synchronous delivery. The auto provisioning group attempts to synchronously deliver an instance cluster that meets the target capacity only once when it is started. The list of delivered instances and the causes of delivery failures are returned in the response.
+     *   maintain: continuous delivery. The auto provisioning group attempts to deliver an instance cluster that meets the target capacity, and monitors the real-time capacity when it is started. If the target capacity of the auto provisioning group is not reached, the auto provisioning group continues to create instances until the target capacity is reached.
      *
      * Default value: maintain.
      * @example maintain
@@ -41,7 +41,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $autoProvisioningGroupType;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
@@ -50,17 +50,17 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $clientToken;
 
     /**
-     * @description The configs of data disks.
+     * @description The information of data disks on the instance.
      *
      * @var dataDiskConfig[]
      */
     public $dataDiskConfig;
 
     /**
-     * @description The type of supplemental instances. When the sum of the `PayAsYouGoTargetCapacity` and `SpotTargetCapacity` values is smaller than the value of `TotalTargetCapacity`, the auto provisioning group creates instances of the specified type to meet the target capacity. Valid values:
+     * @description The type of supplemental instances. If the sum of the values of the `PayAsYouGoTargetCapacity` and `SpotTargetCapacity` parameters is smaller than the value of the `TotalTargetCapacity` parameter, the auto provisioning group creates instances of the specified type to meet the capacity requirements. Valid values:
      *
      *   PayAsYouGo: pay-as-you-go instances
-     *   Spot: preemptible instances
+     *   Spot: preemptible instances.
      *
      * Default value: Spot.
      * @example Spot
@@ -92,7 +92,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $excessCapacityTerminationPolicy;
 
     /**
-     * @description >  This parameter is in invitational preview and unavailable for general users.
+     * @description > This parameter is in invitational preview and is unavailable for general users.
      *
      * @example false
      *
@@ -101,14 +101,14 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $hibernationOptionsConfigured;
 
     /**
-     * @description The configurations of launch template.
+     * @description The extended configurations of the launch template.
      *
      * @var launchTemplateConfig[]
      */
     public $launchTemplateConfig;
 
     /**
-     * @description The ID of the launch template associated with the auto provisioning group. You can call the [DescribeLaunchTemplates](~~73759~~) operation to query available launch templates. When both the LaunchTemplateId and `LaunchConfiguration.*` parameters are specified, the LaunchTemplateId parameter takes precedence.
+     * @description The ID of the launch template associated with the auto provisioning group. You can call the [DescribeLaunchTemplates](~~73759~~) operation to query available launch templates. If both the LaunchTemplateId and `LaunchConfiguration.*` parameters are specified, the LaunchTemplateId parameter takes precedence.
      *
      * @example lt-bp1fgzds4bdogu03****
      *
@@ -129,7 +129,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     /**
      * @description The maximum price of preemptible instances in the auto provisioning group.
      *
-     * >  When both the `MaxSpotPrice` and `LaunchTemplateConfig.N.MaxPrice` parameters are specified, the smaller one of the two parameter values is used.
+     * > If the `MaxSpotPrice` and `LaunchTemplateConfig.N.MaxPrice` parameters are both specified, the lower price is used.
      * @example 2
      *
      * @var float
@@ -139,7 +139,12 @@ class CreateAutoProvisioningGroupRequest extends Model
     /**
      * @description The minimum target capacity of the auto provisioning group. The value must be a positive integer.
      *
-     * - If the number of instances that can be created in the current region is greater than the value of this parameter, instances can be created based on specified parameters.
+     * When you specify this parameter, take note of the following items:
+     *
+     *   This parameter takes effect only when `AutoProvisioningGroupType` is set to instant.
+     *   If the number of instances that can be created in the current region is smaller than the value of this parameter, the operation cannot be called and no instances are created.
+     *   If the number of instances that can be created in the current region is greater than the value of this parameter, instances can be created based on the specified parameters.
+     *
      * @example 20
      *
      * @var string
@@ -253,14 +258,14 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $spotTargetCapacity;
 
     /**
-     * @description The configs of system disks.
+     * @description The information of system disks on the instance.
      *
      * @var systemDiskConfig[]
      */
     public $systemDiskConfig;
 
     /**
-     * @description Specifies whether to release instances in the auto provisioning group when the auto provisioning group is deleted. Valid values:
+     * @description Specifies whether to release instances in the auto provisioning group after the auto provisioning group is deleted. Valid values:
      *
      *   true: releases instances in the auto provisioning group.
      *   false: retains instances in the auto provisioning group.
@@ -273,7 +278,7 @@ class CreateAutoProvisioningGroupRequest extends Model
     public $terminateInstances;
 
     /**
-     * @description Specifies whether to release instances in the auto provisioning group when the auto provisioning group expires. Valid values:
+     * @description Specifies whether to release instances in the auto provisioning group after the auto provisioning group expires. Valid values:
      *
      *   true: releases instances in the auto provisioning group.
      *   false: only removes instances from the auto provisioning group but does not release them.

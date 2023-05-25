@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class privatePoolOptions extends Model
 {
     /**
-     * @description The type of the private pool with which you want to associate the elasticity assurance. Valid values:
+     * @description The type of the private pool with which the elasticity assurance is associated. Valid values:
      *
      *   Open: open private pool
-     *   Target: specified private pool
+     *   Target: targeted private pool
      *
      * Default value: Open.
      * @example Open

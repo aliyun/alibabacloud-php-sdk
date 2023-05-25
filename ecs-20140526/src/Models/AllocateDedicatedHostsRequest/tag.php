@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of tag to be added to the dedicated host.
+     * @description The key of tag N to add to the dedicated host. Valid values of N: 1 to 20.
      *
-     * The tag key cannot be an empty string. It can be up to 128 characters in length and cannot start with acs: or aliyun. It cannot contain `http://` or `https://`.
+     * The tag value cannot be an empty string. It can be up to 128 characters in length and cannot start with acs: or aliyun. It cannot contain `http://` or `https://`.
      * @example Environment
      *
      * @var string
@@ -19,9 +19,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of tag to the dedicated host.
+     * @description The value of tag N to add to the dedicated host. Valid values of N: 1 to 20.
      *
-     * The tag value can be an empty string. It can be up to 128 characters in length. It cannot start with acs: or contain `http://` or `https://`.
+     * The tag value can be an empty string. It can be up to 128 characters in length and cannot start with acs: or contain `http://` or `https://`.
      * @example Production
      *
      * @var string

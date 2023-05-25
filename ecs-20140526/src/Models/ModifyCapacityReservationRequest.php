@@ -15,7 +15,7 @@ class ModifyCapacityReservationRequest extends Model
     public $privatePoolOptions;
 
     /**
-     * @description The description of the capacity reservation. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     * @description The description of the capacity reservation. The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
      *
      * @example This is description.
      *
@@ -35,8 +35,8 @@ class ModifyCapacityReservationRequest extends Model
     /**
      * @description The release mode of the capacity reservation. Valid values:
      *
-     *   Limited: The capacity reservation is released at the specified time. You must also specify the `EndTime` parameter.
-     *   Unlimited: You must manually release the capacity reservation. You can release capacity reservations at any time.
+     *   Limited: The capacity reservation is automatically released at the specified point in time. If you configure this parameter, you must also configure `EndTime`.
+     *   Unlimited: The capacity reservation must be manually released. You can release it anytime.
      *
      * @example Unlimited
      *
@@ -45,9 +45,9 @@ class ModifyCapacityReservationRequest extends Model
     public $endTimeType;
 
     /**
-     * @description The total number of instances reserved by the capacity reservation. Valid values: the number of created instances to 1000.
+     * @description The total number of instances for which capacity is reserved. Valid values: the number of used instances to 1000.
      *
-     * >  When you increase the number of instances reserved, the increase may fail due to insufficient resources.
+     * > When you increase the number of instances, the increase may fail due to insufficient resources.
      * @example 100
      *
      * @var int
@@ -65,12 +65,12 @@ class ModifyCapacityReservationRequest extends Model
     public $ownerId;
 
     /**
-     * @description The operating system type of the instance reserved. Valid values:
+     * @description The operating system of the image used by the instance. Valid values:
      *
-     *   Windows: Windows Server operating systems
-     *   Linux: Linux and Unix-like operating systems
+     *   Windows
+     *   Linux
      *
-     * >  This parameter is unavailable.
+     * > This parameter is unavailable.
      * @example Linux
      *
      * @var string
@@ -97,9 +97,9 @@ class ModifyCapacityReservationRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The effective mode of the capacity reservation. The capacity reservation can be set only to take effect immediately. You do not need to pass in a value for the parameter.
+     * @description The mode in which the capacity reservation takes effect. Only immediate capacity reservations are supported. You do not need to specify a value for this parameter.
      *
-     * >  The capacity reservation takes effect immediately when this parameter is left empty.
+     * > If you do not specify a value for this parameter, the capacity reservation immediately takes effect.
      * @example Now
      *
      * @var string

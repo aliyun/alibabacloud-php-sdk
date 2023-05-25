@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ipv6PrefixSet extends Model
 {
     /**
+     * @description > This parameter is in invitational preview and is unavailable for general users.
+     *
      * @example hide
      *
      * @var string

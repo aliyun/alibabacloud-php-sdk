@@ -10,13 +10,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSupportInstanceTypesRequest extends Model
 {
     /**
-     * @description The scenario in which the instance type is used. Default value: CreateEcs. Valid values:
-     *
-     *   CreateEcs: instance creation
-     *   Upgrade: instance type upgrade
-     *   Downgrade: instance type downgrade
-     *   RenewDowngrade: renewal and configuration downgrade
-     *
      * @example CreateEcs
      *
      * @var string
@@ -24,7 +17,7 @@ class DescribeImageSupportInstanceTypesRequest extends Model
     public $actionType;
 
     /**
-     * @description The list of filters to querying resources.
+     * @description The filters used to filter instance types.
      *
      * @var filter[]
      */

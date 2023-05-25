@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class reservedInstance extends Model
 {
     /**
-     * @description Indicates the sharing status of the reserved instance when the AllocationType parameter is set to Shared. Valid values:
+     * @description Indicates the allocation status of the reserved instance when the AllocationType parameter is set to Shared. Valid values:
      *
      *   allocated: The reserved instance is allocated to another account.
      *   beAllocated: The reserved instance is allocated by another account.
@@ -23,7 +23,7 @@ class reservedInstance extends Model
     public $allocationStatus;
 
     /**
-     * @description The time when the reserved instance was created.
+     * @description The creation time.
      *
      * @example 2018-12-10T12:07Z
      *
@@ -32,7 +32,7 @@ class reservedInstance extends Model
     public $creationTime;
 
     /**
-     * @description The description of the reserved instance.
+     * @description The description.
      *
      * @example testDescription
      *
@@ -41,7 +41,7 @@ class reservedInstance extends Model
     public $description;
 
     /**
-     * @description The time when the reserved instance expires.
+     * @description The expiration time.
      *
      * @example 2019-12-10T12:07Z
      *
@@ -68,7 +68,7 @@ class reservedInstance extends Model
     public $instanceType;
 
     /**
-     * @description The payment option of the reserved instance.
+     * @description The payment options for the reserved instance.
      *
      * @example All Upfront
      *
@@ -84,9 +84,11 @@ class reservedInstance extends Model
     public $operationLocks;
 
     /**
-     * @description The operating system of the reserved instance. Valid values:
+     * @description The operating system of the image used by the instance. Valid values:
      *
-     * - Linux: Linux and Unix-like operating systems
+     *   Windows: Windows Server operating system
+     *   Linux: Linux and UNIX-like operating system
+     *
      * @example Linux
      *
      * @var string
@@ -94,7 +96,7 @@ class reservedInstance extends Model
     public $platform;
 
     /**
-     * @description The region ID of the reserved instance.
+     * @description The ID of the region where the instance resides.
      *
      * @example cn-hangzhou
      *
@@ -103,7 +105,7 @@ class reservedInstance extends Model
     public $regionId;
 
     /**
-     * @description The ID of the reserved instance.
+     * @description The reserved instance ID.
      *
      * @example ri-bpzhex2ulpzf53****
      *
@@ -112,7 +114,7 @@ class reservedInstance extends Model
     public $reservedInstanceId;
 
     /**
-     * @description The name of the reserved instance.
+     * @description The name.
      *
      * @example riZbpzhex2ulpzf53****
      *
@@ -121,7 +123,7 @@ class reservedInstance extends Model
     public $reservedInstanceName;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example EcsDocTest
      *
@@ -130,7 +132,7 @@ class reservedInstance extends Model
     public $resourceGroupId;
 
     /**
-     * @description The scope of the reserved instance.
+     * @description Indicates range.
      *
      * @example region
      *
@@ -139,7 +141,7 @@ class reservedInstance extends Model
     public $scope;
 
     /**
-     * @description The time when the reserved instance took effect.
+     * @description The validation time.
      *
      * @example 2018-12-10T12:00Z
      *
@@ -148,7 +150,7 @@ class reservedInstance extends Model
     public $startTime;
 
     /**
-     * @description The status of the reserved instance.
+     * @description The status.
      *
      * @example Active
      *
@@ -157,14 +159,14 @@ class reservedInstance extends Model
     public $status;
 
     /**
-     * @description Details about the tags of the reserved instance.
+     * @description Details about the reserved instance tags.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The zone ID of the reserved instance.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-z
      *

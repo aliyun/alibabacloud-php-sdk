@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class schedulerOptions extends Model
 {
     /**
+     * @description 专有宿主机ID。您可以通过[DescribeDedicatedHosts ](~~134242~~)查询专有宿主机ID列表。
+     *
+     * @example dh-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $dedicatedHostId;

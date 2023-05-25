@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class imagePipelineExecutionSet extends Model
 {
     /**
-     * @description The time when the image build task was created.
+     * @description The time when the image creation task was created.
      *
      * @example 2020-11-24T06:00:00Z
      *
@@ -19,7 +19,7 @@ class imagePipelineExecutionSet extends Model
     public $creationTime;
 
     /**
-     * @description The ID of the image build task.
+     * @description The ID of the image creation task.
      *
      * @example exec-5fb8facb8ed7427c****
      *
@@ -28,7 +28,7 @@ class imagePipelineExecutionSet extends Model
     public $executionId;
 
     /**
-     * @description The ID of the image to be created by using the image build task.
+     * @description The ID of the image.
      *
      * @example m-bp67acfmxazb4p****
      *
@@ -46,7 +46,7 @@ class imagePipelineExecutionSet extends Model
     public $imagePipelineId;
 
     /**
-     * @description The execution result of the image build task.
+     * @description The data that is returned.
      *
      * @example Create transition vpc "vpc-2ze70rc7093j9idu6****" success!
      *
@@ -55,7 +55,7 @@ class imagePipelineExecutionSet extends Model
     public $message;
 
     /**
-     * @description The last time when the image build task was updated.
+     * @description The last modification time of the image creation task.
      *
      * @example 2020-11-25T06:00:00Z
      *
@@ -73,15 +73,15 @@ class imagePipelineExecutionSet extends Model
     public $resourceGroupId;
 
     /**
-     * @description The status of the image build task. Valid values:
+     * @description The status of the image creation task. Valid values:
      *
-     *   BUILDING: The image was being built.
-     *   DISTRIBUTING: The image was being distributed.
-     *   RELEASING: The image was being recycled.
-     *   SUCCESS: The image was built.
-     *   FAILED: The image failed to be built.
-     *   CANCELLING: The image build task was being canceled.
-     *   CANCELLED: The image build task was cancelled.
+     *   BUILDING
+     *   DISTRIBUTING
+     *   RELEASING
+     *   SUCCESS
+     *   FAILED
+     *   CANCELLING
+     *   CANCELED
      *
      * @example BUILDING
      *
@@ -90,7 +90,7 @@ class imagePipelineExecutionSet extends Model
     public $status;
 
     /**
-     * @description The list of tag key-value pairs.
+     * @description > This parameter is unavailable.
      *
      * @var tags
      */

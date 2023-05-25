@@ -11,7 +11,9 @@ class targetCapacitySpecification extends Model
     /**
      * @description The billing method of supplemental instances. The target capacity of the auto provisioning group must be at least the sum of the pay-as-you-go instance capacity specified by the PayAsYouGoTargetCapacity parameter and the preemptible instance capacity specified by the SpotTargetCapacity parameter. Valid values:
      *
-     * - Spot: preemptible instance
+     *   PayAsYouGo: pay-as-you-go instances
+     *   Spot: preemptible instances
+     *
      * @example Spot
      *
      * @var string
@@ -37,9 +39,12 @@ class targetCapacitySpecification extends Model
     public $spotTargetCapacity;
 
     /**
-     * @description The target capacity of the auto provisioning group. The capacity consists of the following three parts:
+     * @description The target capacity of the auto provisioning group. The capacity consists of the following parts:
      *
-     * - The supplemental capacity besides instance capacities specified by the PayAsYouGoTargetCapacity and SpotTargetCapacity parameters
+     *   PayAsYouGoTargetCapacity
+     *   SpotTargetCapacity
+     *   The supplemental capacity besides instance capacities specified by the PayAsYouGoTargetCapacity and SpotTargetCapacity parameters
+     *
      * @example 60
      *
      * @var float

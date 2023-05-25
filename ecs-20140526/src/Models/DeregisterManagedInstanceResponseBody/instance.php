@@ -81,7 +81,7 @@ class instance extends Model
     public $invocationCount;
 
     /**
-     * @description The last Cloud Assistant task execution time.
+     * @description The time when the Cloud Assistant task was last executed.
      *
      * @example 2021-01-20T09:00:40Z
      *

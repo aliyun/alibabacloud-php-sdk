@@ -78,7 +78,7 @@ class instanceSystemEventType extends Model
     public $instanceId;
 
     /**
-     * @description The scheduled start time of the system event. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The start time of the scheduled execution of the system event. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2017-12-06T00:00:00Z
      *
@@ -96,7 +96,7 @@ class instanceSystemEventType extends Model
     public $reason;
 
     /**
-     * @description The type of the resource. Valid values:
+     * @description The type of a resource. Valid values:
      *
      *   instance: ECS instance
      *   ddh: dedicated host

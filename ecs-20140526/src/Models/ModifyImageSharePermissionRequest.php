@@ -32,7 +32,7 @@ class ModifyImageSharePermissionRequest extends Model
      *   true: publishes the custom image as a community image.
      *   false: unpublishes a community image. The unpublish operation takes effect only on community images.
      *
-     * Default value: false
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -40,7 +40,7 @@ class ModifyImageSharePermissionRequest extends Model
     public $isPublic;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable to general users.
+     * @description > This parameter is in invitational preview and is not publicly available.
      *
      * @example hide
      *

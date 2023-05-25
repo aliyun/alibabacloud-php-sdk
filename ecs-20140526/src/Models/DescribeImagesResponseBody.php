@@ -17,7 +17,7 @@ class DescribeImagesResponseBody extends Model
     public $images;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number returned.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeImagesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 1
      *
@@ -44,7 +44,7 @@ class DescribeImagesResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 66189103-EDB2-43E2-BB60-BFF2B62F4EB8
      *

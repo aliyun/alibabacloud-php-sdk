@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class metricResult extends Model
 {
     /**
-     * @description Details about the diagnosed issues.
+     * @description An array that consists of the details about the diagnosed issues.
      *
      * @var issues
      */

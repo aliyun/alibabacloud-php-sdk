@@ -18,7 +18,7 @@ class ModifyLaunchTemplateDefaultVersionRequest extends Model
     public $defaultVersionNumber;
 
     /**
-     * @description The ID of the launch template. You must set LaunchTemplateId or LaunchTemplateName to specify a launch template.
+     * @description The ID of the launch template. You must configure LaunchTemplateId or LaunchTemplateName to specify a launch template.
      *
      * @example lt-s-bp177juajht6****
      *
@@ -27,7 +27,7 @@ class ModifyLaunchTemplateDefaultVersionRequest extends Model
     public $launchTemplateId;
 
     /**
-     * @description The name of the launch template. You must set LaunchTemplateId or LaunchTemplateName to specify a launch template.
+     * @description The name of the launch template. You must configure LaunchTemplateId or LaunchTemplateName to specify a launch template.
      *
      * @example testLaunchTemplateName
      *

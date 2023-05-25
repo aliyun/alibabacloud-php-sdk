@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceConsoleOutputRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-bp1c1xhsrac2coiw****
      *
@@ -28,7 +28,7 @@ class GetInstanceConsoleOutputRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -37,10 +37,10 @@ class GetInstanceConsoleOutputRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to remove symbols from the returned command output. Valid values:
+     * @description Specifies whether to remove formatting symbols from the returned command output. Valid values:
      *
-     *   true: removes the symbols
-     *   false: does not remove the symbols
+     *   true
+     *   false
      *
      * Default value: false.
      * @example false

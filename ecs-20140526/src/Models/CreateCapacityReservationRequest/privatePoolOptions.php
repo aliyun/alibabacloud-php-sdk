@@ -11,8 +11,8 @@ class privatePoolOptions extends Model
     /**
      * @description The type of the private pool to generate after the capacity reservation takes effect. Valid values:
      *
-     *   Open: open private pool.
-     *   Target: targeted private pool.
+     *   Open: open private pool
+     *   Target: targeted private pool
      *
      * Default value: Open.
      * @example Open
@@ -22,7 +22,7 @@ class privatePoolOptions extends Model
     public $matchCriteria;
 
     /**
-     * @description The name of the capacity reservation. The description must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The capacity reservation name. The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example crpTestName
      *

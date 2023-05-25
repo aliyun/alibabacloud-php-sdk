@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class socketCapacity extends Model
 {
     /**
+     * @example 65
+     *
      * @var float
      */
     public $availableMemory;
 
     /**
+     * @example 64
+     *
      * @var int
      */
     public $availableVcpu;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $socketId;
 
     /**
+     * @example 128
+     *
      * @var float
      */
     public $totalMemory;
 
     /**
+     * @example 128
+     *
      * @var int
      */
     public $totalVcpu;

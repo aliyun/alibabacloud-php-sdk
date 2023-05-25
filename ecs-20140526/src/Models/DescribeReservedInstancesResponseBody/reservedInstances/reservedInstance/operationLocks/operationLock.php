@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class operationLock extends Model
 {
     /**
-     * @description The reason why the reserved instance was locked.
+     * @description The reason why the instance is locked.
      *
      * @example security
      *

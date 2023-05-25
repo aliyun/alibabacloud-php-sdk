@@ -17,7 +17,7 @@ class AttachInstanceRamRoleResponseBody extends Model
     public $attachInstanceRamRoleResults;
 
     /**
-     * @description The number of the instances to which the instance RAM role failed to be attached.
+     * @description The number of instances to which the instance RAM role failed to be attached.
      *
      * @example 0
      *
@@ -35,7 +35,7 @@ class AttachInstanceRamRoleResponseBody extends Model
     public $ramRoleName;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D9553E4C-6C3A-4D66-AE79-9835AF705639
      *

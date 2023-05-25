@@ -18,7 +18,7 @@ class result extends Model
     public $code;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-m5eg7be9ndloji64****
      *
@@ -36,7 +36,7 @@ class result extends Model
     public $message;
 
     /**
-     * @description Indicates whether the operation was successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

@@ -36,12 +36,20 @@ class DescribeDeploymentSetSupportedInstanceTypeFamilyRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @example Availability
+     *
+     * @var string
+     */
+    public $strategy;
     protected $_name = [
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'strategy'             => 'Strategy',
     ];
 
     public function validate()
@@ -65,6 +73,9 @@ class DescribeDeploymentSetSupportedInstanceTypeFamilyRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->strategy) {
+            $res['Strategy'] = $this->strategy;
         }
 
         return $res;
@@ -92,6 +103,9 @@ class DescribeDeploymentSetSupportedInstanceTypeFamilyRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Strategy'])) {
+            $model->strategy = $map['Strategy'];
         }
 
         return $model;

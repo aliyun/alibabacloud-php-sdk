@@ -18,7 +18,7 @@ class networkInterface extends Model
     public $description;
 
     /**
-     * @description The type of the instance.
+     * @description The instance type.
      *
      * @example ecs.g5.large
      *
@@ -39,7 +39,7 @@ class networkInterface extends Model
      * @description The communication mode of the primary ENI. Valid values:
      *
      *   Standard: uses the TCP communication mode.
-     *   HighPerformance: uses the remote direct memory access (RDMA) communication mode with the Elastic RDMA Interface (ERI) enabled.
+     *   HighPerformance: enables Elastic RDMA Interface (ERI) and uses the remote direct memory access (RDMA) communication mode.
      *
      * @example Standard
      *
@@ -67,7 +67,7 @@ class networkInterface extends Model
     public $securityGroupId;
 
     /**
-     * @description The ID of security group N to which to assign the secondary ENI. The security group and the secondary ENI must belong to the same VPC. The valid values of N in `SecurityGroupIds.N` depend on the maximum number of security groups to which a secondary ENI can belong. For more information, see the "Security group limits" section in [Limits](~~25412~~). The value of N in `NetworkInterface.N` cannot be greater than 1.
+     * @description The ID of security group N to which to assign the secondary ENI. The security group and the secondary ENI must belong to the same VPC. The valid values of N in `SecurityGroupIds.N` depend on the maximum number of security groups to which the secondary ENI can belong. For more information, see the "Security group limits" section in [Limits](~~25412~~). The value of N in `NetworkInterface.N` cannot be greater than 1.
      *
      * > The `NetworkInterface.N.SecurityGroupId` parameter and the `NetworkInterface.N.SecurityGroupIds.N` parameter are mutually exclusive.
      * @example sg-bp67acfmxazb4p****
@@ -77,7 +77,7 @@ class networkInterface extends Model
     public $securityGroupIds;
 
     /**
-     * @description The ID of the vSwitch to which to connect the secondary ENI. The instance and the ENI must reside within the same zone of the same VPC, but they can be connected to different vSwitches. The value of N in `NetworkInterface.N` cannot be greater than 1.
+     * @description The ID of the vSwitch to which to connect the secondary ENI. The instance and the ENI must be located within the same zone of the same VPC, but they can be connected to different vSwitches. The value of N in `NetworkInterface.N` cannot be greater than 1.
      *
      * @example vsw-bp1s5fnvk4gn2tws0****
      *

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class imageOptions extends Model
 {
     /**
+     * @description 使用该镜像的实例是否支持使用ecs-user用户登录。可能值：
+     *
+     * - false：否
+     * @example false
+     *
      * @var bool
      */
     public $loginAsNonRoot;

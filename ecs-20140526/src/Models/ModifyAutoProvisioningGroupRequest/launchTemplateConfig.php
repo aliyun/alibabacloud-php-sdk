@@ -36,7 +36,7 @@ class launchTemplateConfig extends Model
     public $priority;
 
     /**
-     * @description The ID of the vSwitch in extended configuration N. The zone of the ECS instances created from the extended configuration is determined by the vSwitch.
+     * @description The ID of the vSwitch in extended configuration N. The zone of the instances created from the extended configuration is determined by the vSwitch.
      *
      * @example vsw-sn5bsitu4lfzgc5o7****
      *
@@ -45,9 +45,9 @@ class launchTemplateConfig extends Model
     public $vSwitchId;
 
     /**
-     * @description The weight of the instance type specified in extended configuration N. A greater weight indicates that a single instance has more computing power and that fewer instances are required. The value must be greater than 0.
+     * @description The weight of the instance type specified in the extended configuration. A greater weight indicates that a single instance has more computing power and fewer instances are required. The value must be greater than 0.
      *
-     * The weight is calculated based on the computing power of the instance type and the minimum computing power of a single instance in the cluster to be created by the auto provisioning group. For example, assume that the minimum computing power of a single instance is 8 vCPUs and 60 GiB of memory.
+     * The weight is calculated based on the computing power of the instance type and the minimum computing power of a single instance in the cluster that can created by the auto-provisioning group. For example, assume that the minimum computing power of a single instance is 8 vCPUs and 60 GiB of memory.
      *
      *   For an instance type with 8 vCPUs and 60 GiB of memory, you can set the weight to 1.
      *   For an instance type with 16 vCPUs and 120 GiB of memory, you can set the weight to 2.

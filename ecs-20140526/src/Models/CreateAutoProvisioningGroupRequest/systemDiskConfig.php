@@ -9,9 +9,13 @@ use AlibabaCloud\Tea\Model;
 class systemDiskConfig extends Model
 {
     /**
-     * @description The category of system disk N. You can use this parameter to specify multiple disk categories, and the disk categories are prioritized in the order in which they are specified. If a specified disk category is unavailable, the system uses the next available disk category. Valid values:
+     * @description The category of the system disk. You can specify multiple disk categories, and the disk categories are prioritized in the order in which they are specified. If a specified disk category is unavailable, the system uses the next available disk category. Valid values:
      *
-     * - cloud: basic disk
+     *   cloud_efficiency: ultra disk.
+     *   cloud_ssd: standard SSD.
+     *   cloud_essd: ESSD
+     *   cloud: basic disk.
+     *
      * @example cloud_ssd
      *
      * @var string

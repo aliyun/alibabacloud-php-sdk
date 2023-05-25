@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudAssistantStatusRequest extends Model
 {
     /**
-     * @description The IDs of instances.
+     * @description The IDs of instances to be queried.
      *
      * @example i-bp1iudwa5b1tqa****
      *
@@ -40,7 +40,7 @@ class DescribeCloudAssistantStatusRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number to return.
      *
      * Default value: 1.
      * @example 1
@@ -50,7 +50,7 @@ class DescribeCloudAssistantStatusRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. This parameter does not take effect if you specified the **InstanceId** parameter. Maximum value: 50.
+     * @description The number of entries to return on each page. If you specify the **InstanceId** parameter, this parameter does not take effect. Maximum value: 50.
      *
      * Default value: 10.
      * @example 10

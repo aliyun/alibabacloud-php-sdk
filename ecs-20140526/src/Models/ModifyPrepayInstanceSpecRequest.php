@@ -22,7 +22,7 @@ class ModifyPrepayInstanceSpecRequest extends Model
      *
      **
      *
-     **Note** Make sure that your Alibaba Cloud account has sufficient balance. Otherwise, your order becomes invalid and is canceled. If your account balance is insufficient, you can set the `AutoPay` parameter to `false` to generate an unpaid order. Then, you can log on to the ECS console to pay for the order.
+     **Make sure that your payment account has sufficient balance. Otherwise, your order becomes invalid and is canceled.** If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ECS console to pay for the order.````
      *
      *   false: An order is generated but no payment is made.
      *
@@ -34,7 +34,7 @@ class ModifyPrepayInstanceSpecRequest extends Model
     public $autoPay;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but make sure that the value is unique among different requests. This value allows only ASCII characters and is up to 64 characters in length. For more information, see [How do I ensure the idempotence of a request?](~~25693~~)
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -43,6 +43,8 @@ class ModifyPrepayInstanceSpecRequest extends Model
     public $clientToken;
 
     /**
+     * @description >该参数暂未开放使用。
+     *
      * @var disk[]
      */
     public $disk;
@@ -57,7 +59,7 @@ class ModifyPrepayInstanceSpecRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the instance
+     * @description The instance ID.
      *
      * @example i-bp67acfmxazb4ph****
      *
@@ -90,14 +92,18 @@ class ModifyPrepayInstanceSpecRequest extends Model
     public $migrateAcrossZone;
 
     /**
+     * @description >该参数暂未开放使用。
+     *
+     * @example null
+     *
      * @var string
      */
     public $modifyMode;
 
     /**
-     * @description The operation type. Valid values:
+     * @description The type of the change to the instance. Valid values:
      *
-     * >  This parameter is optional. The system can automatically determine whether the operation is an upgrade or a downgrade. If you want to specify this parameter, you can refer to the following valid values of the parameter.
+     * >  This parameter is optional. The system can automatically determine whether the instance change is an upgrade or a downgrade. If you want to specify this parameter, refer to the following valid values of the parameter.
      *
      *   upgrade: upgrades the instance type. Make sure that the balance in your account is sufficient.
      *   downgrade: downgrades the instance type. When the new instance type specified by the `InstanceType` parameter has lower specifications than the current instance type, set `OperatorType` to downgrade.
@@ -131,12 +137,12 @@ class ModifyPrepayInstanceSpecRequest extends Model
     /**
      * @description Specifies whether to restart the instance immediately after the instance type is changed. Valid values:
      *
-     *   true
-     *   false
+     *   true: restart the instance immediately after the instance type is changed.
+     *   false: does not restart the instance immediately after the instance type is changed.
      *
      * Default value: false.
      *
-     * >  If the instance is in the **Stopping** state, the instance status remains unchanged and no operations are performed regardless of whether you set the `RebootWhenFinished` parameter to true.
+     * >  If the instance is in the **Stopping** state, the instance status remains unchanged and no operations are performed after the instance type is change regardless of whether you set the `RebootWhenFinished` parameter to true.
      * @example false
      *
      * @var bool
@@ -144,7 +150,7 @@ class ModifyPrepayInstanceSpecRequest extends Model
     public $rebootWhenFinished;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

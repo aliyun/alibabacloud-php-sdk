@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class capacity extends Model
 {
     /**
-     * @description The amount of available space on the local disks. Unit: GiB.
+     * @description The available space of the local disks. Unit: GiB.
      *
      * @example 65
      *

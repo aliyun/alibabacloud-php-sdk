@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ResetDisksResponseBody extends Model
 {
     /**
-     * @description The information about the rollback operations on one or more disks.
+     * @description Details about the rollback operation.
      *
      * @var operationProgressSet
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataDisk extends Model
 {
     /**
-     * @description The ID of the automatic snapshot policy to be applied to data disk N.
+     * @description The ID of the automatic snapshot policy to apply to data disk N.
      *
      * @example sp-bp67acfmxazb4p****
      *
@@ -18,10 +18,10 @@ class dataDisk extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description Specifies whether to enable the performance burst feature for data disk N. Valid values:
+     * @description Specifies whether to enable the performance burst feature. Valid values:
      *
-     *   true
-     *   false
+     *   true: encrypts the disk.
+     *   false: does not enable the performance burst feature.
      *
      * @example true
      *
@@ -35,7 +35,7 @@ class dataDisk extends Model
      *   cloud: basic disk
      *   cloud_efficiency: ultra disk
      *   cloud_ssd: standard SSD.
-     *   cloud_essd: ESSD cloud_auto: ESSD AutoPL disk
+     *   cloud_essd: ESSD
      *
      * For I/O optimized instances, the default value is cloud_efficiency. For non-I/O optimized instances, the default value is cloud.
      * @example cloud_ssd
@@ -76,7 +76,7 @@ class dataDisk extends Model
     public $device;
 
     /**
-     * @description The name of data disk N. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of data disk N. The name must be 2 to 128 characters in length, It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example testDataDiskName
      *
@@ -111,7 +111,7 @@ class dataDisk extends Model
     /**
      * @description The provisioned read/write IOPS of the ESSD AutoPL disk to use as data disk N. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
      *
-     * > This parameter is available only if you set the DataDisk.N.Category parameter to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~) and [Modify the performance configurations of an ESSD AutoPL disk](~~413275~~).
+     * > This parameter is available only if you set the Category parameter to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~) and [Modify the performance configurations of an ESSD AutoPL disk](~~413275~~).
      * @example 50000
      *
      * @var int
@@ -121,9 +121,9 @@ class dataDisk extends Model
     /**
      * @description The size of data disk N. Valid values of N: 1 to 16. Unit: GiB. Valid values:
      *
-     *   Valid values when DataDisk.N.Category is set to cloud: 5 to 2000.
+     *   Valid values if you set the Category parameter to cloud: 5 to 2000.
      *
-     *   Valid values when DataDisk.N.Category is set to cloud_efficiency: 20 to 32768.
+     *   Valid values if you set the Category parameter to cloud_efficiency: 20 to 32768.
      *
      *   Valid values when DataDisk.N.Category is set to cloud_ssd: 20 to 32768.
      *
@@ -142,7 +142,7 @@ class dataDisk extends Model
     public $size;
 
     /**
-     * @description The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16. When the `DataDisk.N.SnapshotId` parameter is specified, the `DataDisk.N.Size` parameter is ignored. The data disk is created based on the size of the specified snapshot.
+     * @description The ID of the snapshot to use to create data disk N. Valid values of N: 1 to 16. If the `DataDisk.N.SnapshotId` parameter is specified, the `DataDisk.N.Size` parameter is ignored. The data disk is created with the size of the specified snapshot.
      *
      * Use snapshots that were created on or after July 15, 2013. Otherwise, an error is returned and your request is rejected.
      * @example s-bp17441ohwka0yuh****

@@ -22,7 +22,7 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
      * @description The access control policy of the security group. Valid values:
      *
      *   Accept: All instances in the security group can communicate with each other.
-     *   drop: All instances in the security group are isolated from each other.
+     *   Drop: All instances in the security group are isolated from each other.
      *
      * @example Accept
      *
@@ -38,7 +38,7 @@ class DescribeSecurityGroupAttributeResponseBody extends Model
     public $permissions;
 
     /**
-     * @description The region ID of the security group.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *

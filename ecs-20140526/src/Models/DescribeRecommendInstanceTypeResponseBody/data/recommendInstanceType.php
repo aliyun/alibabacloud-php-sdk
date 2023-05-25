@@ -90,7 +90,7 @@ class recommendInstanceType extends Model
     public $zoneId;
 
     /**
-     * @description Details about zones where the instance types resides.
+     * @description The details of the zones where the instance types resides.
      *
      * @var zones
      */

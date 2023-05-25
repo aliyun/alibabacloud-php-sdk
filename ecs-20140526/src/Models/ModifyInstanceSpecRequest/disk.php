@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class disk extends Model
 {
     /**
+     * @description >该参数暂未开放使用。
+     *
+     * @example null
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description >该参数暂未开放使用。
+     *
+     * @example null
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description >该参数暂未开放使用。
+     *
+     * @example null
+     *
      * @var string
      */
     public $performanceLevel;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class RebootInstancesResponseBody extends Model
 {
     /**
+     * @description Details about the responses returned for the instances, which contain the state of each instance before and after the operation is called, and the results of the operation .
+     *
      * @var instanceResponses
      */
     public $instanceResponses;
 
     /**
+     * @description The request ID.
+     *
+     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     *
      * @var string
      */
     public $requestId;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class PurchaseReservedInstancesOfferingRequest extends Model
 {
     /**
-     * @description Specifies whether to enable auto-renewal for the reserved instance. Valid values:
+     * @description Specifies whether to enable auto-renewal for the reserved instance. Default value: false. Valid values:
      *
-     * true: enables auto-renewal for the reserved instance. false: disables auto-renewal for the reserved instance. This is the default value.
+     * true: enables auto-renewal for the reserved instance. false: does not enable auto-renewal for the reserved instance.
      * @example true
      *
      * @var bool
@@ -20,9 +20,9 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $autoRenew;
 
     /**
-     * @description The auto-renewal term of the reserved instance. Unit: months. This parameter takes effect only if you set the AutoRenew parameter to true.
+     * @description The auto-renewal duration of the reserved instance. Unit: months. This parameter takes effect only when AutoRenew is set to true.
      *
-     * Default value if you set the PeriodUnit parameter to Year: 12.
+     * Default value when PeriodUnit is set to Year: 12.
      * @example 1
      *
      * @var int
@@ -30,7 +30,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $autoRenewPeriod;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -39,9 +39,9 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $clientToken;
 
     /**
-     * @description The description of the reserved instance. The description must be 2 to 256 characters in length and cannot start with [http:// or https://](http://https://。).
+     * @description The description of the reserved instance. The description can be 2 to 256 characters in length and cannot start with [http:// or https://](http://https://。).
      *
-     * By default, this parameter is left empty.
+     * This parameter is left empty by default.
      * @example testDescription
      *
      * @var string
@@ -49,9 +49,9 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $description;
 
     /**
-     * @description The number of pay-as-you-go instances of the same instance type to which the reserved instance can be matched at the same time. Valid values: 1 to 50.
+     * @description The number of pay-as-you-go instances of the same instance type that the reserved instance can match at the same time. Valid values: 1 to 50.
      *
-     * For example, if you set the InstanceAmount parameter to 3 and the InstanceType parameter to ecs.g5.large, the reserved instance can be matched to three ecs.g5.large pay-as-you-go instances at the same time.
+     * For example, if you set the InstanceAmount parameter to 3 and the InstanceType parameter to ecs.g5.large, the reserved instance can be matched three ecs.g5.large pay-as-you-go instances at the same time.
      * @example 3
      *
      * @var int
@@ -59,7 +59,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $instanceAmount;
 
     /**
-     * @description The type of the reserved instance. For more information, see [Instance families](~~25378~~).
+     * @description The type of the reserved instance. For more information, see [Instance family](~~25378~~).
      *
      * @example ecs.g5.large
      *
@@ -92,7 +92,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $ownerId;
 
     /**
-     * @description The term of the reserved instance.
+     * @description The validity period of the reserved instance.
      *
      * Default value: 1.
      * @example 1
@@ -102,7 +102,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the term of the reserved instance.
+     * @description The unit of the validity period of the reserved instance.
      *
      * Default value: Year.
      * @example Year
@@ -112,7 +112,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The operating system of the image that is used by the instance. Valid values:
+     * @description The operating system of the image used by the instance. Valid values:
      *
      *   Windows: Windows Server operating system
      *   Linux: Linux and UNIX-like operating system
@@ -125,7 +125,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $platform;
 
     /**
-     * @description The region ID of the reserved instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -134,7 +134,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the reserved instance. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the reserved instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example testReservedInstanceName
      *
@@ -143,7 +143,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $reservedInstanceName;
 
     /**
-     * @description The ID of the resource group to which the reserved instance belongs.
+     * @description The ID of the resource group.
      *
      * @example rg-bp199lyny9b3****
      *
@@ -162,7 +162,7 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The scope of the reserved instance. Valid values:
+     * @description The scope of reserved instance N. Valid values:
      *
      *   Region: regional
      *   Zone: zonal
@@ -175,14 +175,14 @@ class PurchaseReservedInstancesOfferingRequest extends Model
     public $scope;
 
     /**
-     * @description The tags of the reserved instance.
+     * @description The list of tags.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The zone ID of the instance. If you set the `Scope` parameter to `Zone`, you must specify this parameter. You can call the [DescribeZones](~~25610~~) operation to query the most recent list of zones.
+     * @description The zone ID of the instance. This parameter is required when `Scope` is set to `Zone`. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-g
      *

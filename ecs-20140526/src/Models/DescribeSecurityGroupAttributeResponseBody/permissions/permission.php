@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class permission extends Model
 {
     /**
-     * @description The time when the security group rule was created. The time is displayed in UTC.
+     * @description The time at which the security group rule was created. The time is displayed in UTC.
      *
      * @example 2018-12-12T07:28:38Z
      *
@@ -27,7 +27,7 @@ class permission extends Model
     public $description;
 
     /**
-     * @description The destination CIDR blocks for outbound access control.
+     * @description The destination CIDR block for outbound access control.
      *
      * @example 0.0.0.0/0
      *
@@ -117,7 +117,7 @@ class permission extends Model
     public $ipv6SourceCidrIp;
 
     /**
-     * @description The type of the network.
+     * @description The network type.
      *
      * @example intranet
      *
@@ -198,7 +198,7 @@ class permission extends Model
     public $sourceGroupOwnerAccount;
 
     /**
-     * @description The source port number range.
+     * @description The source port range.
      *
      * @example 80/80
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class relatedItem extends Model
 {
     /**
-     * @description The name of the resource.
+     * @description The resource name.
      *
      * @example SnapshotId
      *
@@ -18,7 +18,7 @@ class relatedItem extends Model
     public $name;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * @example s-j6cdofbycydvg7ey****
      *

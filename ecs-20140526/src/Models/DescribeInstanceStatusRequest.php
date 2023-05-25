@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceStatusRequest extends Model
 {
     /**
-     * @description The cluster ID of the instance.
+     * @description The cluster ID of the instances.
      *
      * @example cls-bp67acfmxazb4p****
      *
@@ -18,7 +18,7 @@ class DescribeInstanceStatusRequest extends Model
     public $clusterId;
 
     /**
-     * @description The IDs of the instances.
+     * @description The IDs of the instances. When you use this parameter to specify multiple instance IDs, separate the IDs with commas(,). Example: `InstanceId.1=i-bp1j4i2jdf3owlhe****, InstanceId.2=i-bp1j4i2jdf3o1234****`.
      *
      * @example i-bp1j4i2jdf3owlhe****
      *
@@ -37,7 +37,7 @@ class DescribeInstanceStatusRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -47,7 +47,7 @@ class DescribeInstanceStatusRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 50.
+     * @description The number of entries per page. Valid values: 1 to 50.
      *
      * Default value: 10.
      * @example 10
@@ -57,7 +57,7 @@ class DescribeInstanceStatusRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instances. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -76,7 +76,7 @@ class DescribeInstanceStatusRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The zone ID of the instances. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-d
      *

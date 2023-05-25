@@ -18,7 +18,7 @@ class privateIpSet extends Model
     public $primary;
 
     /**
-     * @description The private IP address of the ENI.
+     * @description The private IP address of the instance to which the ENI is attached.
      *
      * @example 172.17.**.**
      *

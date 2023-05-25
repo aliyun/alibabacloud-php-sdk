@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class zone extends Model
 {
     /**
-     * @description Details about network types of instance types.
+     * @description The details of network types of instance types.
      *
      * @var networkTypes
      */
     public $networkTypes;
 
     /**
-     * @description The ID of the zone in which the instance type is available.
+     * @description The ID of the zone where the instance type is available.
      *
      * @example cn-hangzhou-h
      *

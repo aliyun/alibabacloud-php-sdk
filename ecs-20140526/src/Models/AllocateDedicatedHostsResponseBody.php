@@ -19,7 +19,7 @@ class AllocateDedicatedHostsResponseBody extends Model
     /**
      * @description The ID of the request.
      *
-     * @example E2A664A6-2933-4C64-88AE-5033D003EADF
+     * @example E2A664A6-2933-4C64-88AE-5033D003****
      *
      * @var string
      */

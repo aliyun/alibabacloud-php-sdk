@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
-     * @description The category of the system disk. Valid values:
+     * @description The type of the system disk. Valid values:
      *
      *   cloud: basic disk
      *   cloud_efficiency: ultra disk
@@ -19,10 +19,10 @@ class systemDisk extends Model
      *
      * Description of the default values:
      *
-     *   When the InstanceType parameter is set to a retired instance type and the `IoOptimized` parameter is set to `none`, the default value of this parameter is `cloud`.
+     *   When the InstanceType parameter is set to a retired instance type and `IoOptimized` is set to `none`, the default value of this parameter is `cloud`.
      *   In other cases, the default value of this parameter is `cloud_efficiency`.
      *
-     * > When you query the prices of system disks, you must also specify the `ImageId` parameter.
+     * > If you want to query the prices of system disks, you must also specify `ImageId`.
      * @example cloud_ssd
      *
      * @var string
@@ -30,9 +30,9 @@ class systemDisk extends Model
     public $category;
 
     /**
-     * @description The performance level of the system disk when the disk is an ESSD. This parameter is valid only when the `SystemDiskCategory` parameter is set to cloud_essd. Default value: PL1. Valid values:
+     * @description The performance level of the system disk when the disk is an ESSD. This parameter is valid only when `SystemDiskCategory` is set to cloud_essd. Valid values:
      *
-     * PL0 PL1 PL2 PL3
+     * PL0, PL1 (default), PL2, PL3.
      * @example PL1
      *
      * @var string

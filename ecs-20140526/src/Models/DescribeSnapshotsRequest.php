@@ -16,10 +16,10 @@ class DescribeSnapshotsRequest extends Model
     public $filter;
 
     /**
-     * @description The type of the snapshot. Valid values:
+     * @description The snapshot type. Valid values:
      *
-     *   Standard: normal snapshot
-     *   Flash: local snapshot
+     *   Standard: the normal snapshot.
+     *   Flash: the local snapshot.
      *
      * The local snapshot feature is replaced by the instant access feature. When you specify this parameter, take note of the following items:
      *
@@ -34,7 +34,7 @@ class DescribeSnapshotsRequest extends Model
     public $category;
 
     /**
-     * @description The ID of the disk.
+     * @description The disk ID.
      *
      * @example d-bp67acfmxazb4p****
      *
@@ -43,10 +43,10 @@ class DescribeSnapshotsRequest extends Model
     public $diskId;
 
     /**
-     * @description Specifies whether to perform a dry run. Default value: false. Valid values:
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     *   true: performs a dry run. The system checks your AccessKey pair, the permissions of the RAM user, and the required parameters. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-     *   false: performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *   true: performs only a dry run. The system checks whether your AccessKey pair is valid, whether RAM users are granted permissions, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+     *   false (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -64,7 +64,7 @@ class DescribeSnapshotsRequest extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-bp67acfmxazb4p****
      *
@@ -82,7 +82,7 @@ class DescribeSnapshotsRequest extends Model
     public $KMSKeyId;
 
     /**
-     * @description The maximum number of entries to return on each page. Maximum value: 100.
+     * @description The number of entries per page. Valid values: 1 to 100.
      *
      * Default value: 10.
      * @example 10
@@ -92,7 +92,7 @@ class DescribeSnapshotsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token used to start the query. Set the value to the NextToken value obtained from the response to the previous request.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -111,9 +111,9 @@ class DescribeSnapshotsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1.
+     * @description The page number. Pages start from page 1.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -121,7 +121,7 @@ class DescribeSnapshotsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100.
+     * @description The number of entries per page. Valid values: 1 to 100.
      *
      * Default value: 10.
      * @example 10
@@ -140,9 +140,9 @@ class DescribeSnapshotsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the snapshot belongs. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     * @description The ID of the resource group to which the snapshot belongs. When you use this property to filter resources, the number of resources that are contained in the specified resource group cannot exceed 1,000.
      *
-     * > Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * > Resources in the default resource group are displayed in the response regardless of whether you specify this parameter.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -169,16 +169,16 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotIds;
 
     /**
-     * @description The ID of the snapshot chain. The value is a JSON array that consists of up to 100 snapshot chain IDs. Separate the snapshot chain IDs with commas (,).
+     * @description The ID of the snapshot chain.
      *
-     * @example ["sl-bp1grgphbcc9brb5****", "sl-bp1c4izumvq0i5bs****", … "sl-bp1akk7isz866dds****"]
+     * @example sl-bp1grgphbcc9brb5****
      *
      * @var string
      */
     public $snapshotLinkId;
 
     /**
-     * @description The name of the snapshot.
+     * @description The snapshot name.
      *
      * @example testSnapshotName
      *
@@ -187,11 +187,11 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotName;
 
     /**
-     * @description The type of the snapshot. Valid values:
+     * @description The snapshot type. Valid values:
      *
-     *   auto: automatic snapshot
-     *   user: manual snapshot
-     *   all: This parameter indicates all snapshot types.
+     *   auto: automatic snapshot.
+     *   user: manual snapshot.
+     *   all (default): This parameter indicates all snapshot types.
      *
      * @example all
      *
@@ -200,10 +200,10 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotType;
 
     /**
-     * @description The type of the source disk for which the snapshot was created. Valid values:
+     * @description The type of the source disk for which you want to create the snapshot. Valid values:
      *
-     *   System: system disk
-     *   data: data disk
+     *   System: the system disk.
+     *   data: the data disk.
      *
      * > The value of this parameter is case-insensitive.
      * @example Data
@@ -213,12 +213,12 @@ class DescribeSnapshotsRequest extends Model
     public $sourceDiskType;
 
     /**
-     * @description The state of the snapshot. Default value: all. Valid values:
+     * @description The snapshot status. Valid values:
      *
      *   progressing: The snapshot is being created.
      *   accomplished: The snapshot is created.
      *   failed: The snapshot fails to be created.
-     *   all: This parameter indicates all snapshot states.
+     *   all (default): This parameter indicates all snapshot states.
      *
      * @example all
      *
@@ -227,7 +227,7 @@ class DescribeSnapshotsRequest extends Model
     public $status;
 
     /**
-     * @description The tags of the snapshot.
+     * @description The tags.
      *
      * @var tag[]
      */
@@ -237,7 +237,7 @@ class DescribeSnapshotsRequest extends Model
      * @description Specifies whether the snapshot has been used to create custom images or disks. Valid values:
      *
      *   image: The snapshot has been used to create custom images.
-     *   disk: The snapshot is used to create disks.
+     *   disk: The snapshot has been used to create disks.
      *   image_disk: The snapshot has been used to create both custom images and data disks.
      *   none: The snapshot has not been used to create custom images or disks.
      *

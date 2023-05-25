@@ -19,7 +19,7 @@ class CopyImageRequest extends Model
     public $destinationDescription;
 
     /**
-     * @description The name of the image copy. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `acs:` or `aliyun`. The name cannot contain `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the image copy. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `acs:` or `aliyun`. The name cannot contain `http://` or `https://`. The name can contain letters, digits, periods (.), colons (:), underscores (\_), and hyphens (-).
      *
      * @example YourImageName
      *
@@ -28,7 +28,7 @@ class CopyImageRequest extends Model
     public $destinationImageName;
 
     /**
-     * @description The ID of the destination region to which to copy the source image.
+     * @description The ID of the destination region to which the source custom image is copied.
      *
      * @example cn-shanghai
      *
@@ -56,7 +56,7 @@ class CopyImageRequest extends Model
     public $encrypted;
 
     /**
-     * @description The ID of the source image.
+     * @description The ID of the source custom image.
      *
      * @example m-bp1h46wfpjsjastc****
      *
@@ -65,7 +65,7 @@ class CopyImageRequest extends Model
     public $imageId;
 
     /**
-     * @description The ID of the key to use to encrypt the image copy.
+     * @description The ID of the key used to encrypt the image copy.
      *
      * @example e522b26d-abf6-4e0d-b5da-04b7******3c
      *
@@ -84,7 +84,7 @@ class CopyImageRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the source image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the source custom image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -93,9 +93,9 @@ class CopyImageRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which to assign the image copy. If you do not specify this parameter, the image copy is assigned to the default resource group.
+     * @description The ID of the resource group to which the image copy belongs. If you do not specify this parameter, the image copy belongs to the default resource group.
      *
-     * > If you call the CopyImage operation as a Resource Access Management (RAM) user who is not authorized to manage the default resource group and do not specify the `ResourceGroupId` parameter, the `Forbbiden: User not authorized to operate on the specified resource` error message is returned. You must specify the ID of a resource group that the RAM user is authorized to manage or authorize the RAM user to manage the default resource group before you call the CreateImage operation again.
+     * > If you call the CopyImage operation as a Resource Access Management (RAM) user who is not authorized to manage the default resource group and do not specify the `ResourceGroupId` parameter, the `Forbidden: User not authorized to operate on the specified resource` error message is returned. You must specify the ID of a resource group that the RAM user is authorized to manage or authorize the RAM user to manage the default resource group before you call the CreateImage operation again.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -113,7 +113,7 @@ class CopyImageRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags to add to the image copy.
+     * @description The list of tags.
      *
      * @var tag[]
      */

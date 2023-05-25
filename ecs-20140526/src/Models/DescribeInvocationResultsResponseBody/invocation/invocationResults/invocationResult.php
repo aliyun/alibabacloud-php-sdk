@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class invocationResult extends Model
 {
     /**
-     * @description The ID of the command.
+     * @description The time when the command stopped being run on the instance. If you called the `StopInvocation` operation to manually stop the execution, the value is the time when you called the operation.
      *
      * @example c-hz0jdfwcsr****
      *
@@ -19,7 +19,7 @@ class invocationResult extends Model
     public $commandId;
 
     /**
-     * @description The ID of the container.
+     * @description The value of the tag.
      *
      * @example ab141ddfbacfe02d9dbc25966ed971536124527097398d419a6746873fea****
      *
@@ -28,8 +28,6 @@ class invocationResult extends Model
     public $containerId;
 
     /**
-     * @description The name of the container.
-     *
      * @example test-container
      *
      * @var string
@@ -37,7 +35,25 @@ class invocationResult extends Model
     public $containerName;
 
     /**
-     * @description The size of the text that is truncated and discarded when the `Output` value exceeds 24 KB in size.
+     * @description The error message returned when the command is not successfully sent or run. Valid values:
+     *
+     *   If this parameter is empty, the command is run normally.
+     *   the specified instance does not exists: The specified instance does not exist is released.
+     *   the instance has released when create task: The instance was released while the command was being run on the instance.
+     *   the instance is not running when create task: The instance is not in the Running state while the command is being run.
+     *   the command is not applicable: The command is not applicable to the specified instance.
+     *   the specified account does not exists: The specified account does not exist.
+     *   the specified directory does not exists: The specified directory does not exist.
+     *   the cron job expression is invalid: The cron expression that specifies the execution time is invalid.
+     *   the aliyun service is not running on the instance: The Cloud Assistance client is not running.
+     *   the aliyun service in the instance does not response: The Cloud Assistant client is not responding.
+     *   the aliyun service in the instance is upgrading now: The Cloud Assistant client is being upgraded.
+     *   the aliyun service in the instance need upgrade: The Cloud Assistant client needs to be upgraded.
+     *   the command delivery has been timeout: The request to send the command timed out.
+     *   the command execution has been timeout: The command execution timed out.
+     *   the command execution got an exception: An exception occurred while the command is being run.
+     *   the command execution has been interrupted: The command execution was interrupted.
+     *   the command execution exit code is not zero: The command execution is complete, but the exit code is not 0.
      *
      * @example 0
      *
@@ -46,25 +62,7 @@ class invocationResult extends Model
     public $dropped;
 
     /**
-     * @description The error code returned when the command cannot be sent or run. Valid values:
-     *
-     *   If this parameter is empty, the command is run normally.
-     *   InstanceNotExists: The instance does not exist or has been released.
-     *   InstanceReleased: The instance was released while the command was being run.
-     *   InstanceNotRunning: The instance was not running while the command was being run.
-     *   CommandNotApplicable: The command is not applicable to the specified instance.
-     *   AccountNotExists: The specified account does not exist.
-     *   DirectoryNotExists: The specified directory does not exist.
-     *   BadCronExpression: The cron expression used to specify a schedule is invalid.
-     *   ClientNotRunning: The Cloud Assistant client is not running.
-     *   ClientNotResponse: The Cloud Assistant client does not respond.
-     *   ClientIsUpgrading: The Cloud Assistant client is being upgraded.
-     *   ClientNeedUpgrade: The Cloud Assistant client needs to be upgraded.
-     *   DeliveryTimeout: The request to send the command timed out.
-     *   ExecutionTimeout: The execution timed out.
-     *   ExecutionException: An exception occurred while the command was being run.
-     *   ExecutionInterrupted: The execution was interrupted.
-     *   ExitCodeNonzero: The execution is complete, but the exit code is not 0.
+     * @description The name of the user who ran the command on the instance.
      *
      * @example InstanceNotExists
      *
@@ -73,25 +71,7 @@ class invocationResult extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned when the command cannot be sent or run. Valid values:
-     *
-     *   If this parameter is empty, the command is run normally.
-     *   the specified instance does not exists
-     *   the instance has released when create task
-     *   the instance is not running when create task
-     *   the command is not applicable
-     *   the specified account does not exists
-     *   the specified directory does not exists
-     *   the cron job expression is invalid
-     *   the aliyun service is not running on the instance
-     *   the aliyun service in the instance does not response
-     *   the aliyun service in the instance is upgrading now
-     *   the aliyun service in the instance need upgrade
-     *   the command delivery has been timeout
-     *   the command execution has been timeout
-     *   the command execution got an exception
-     *   the command execution has been interrupted
-     *   the command execution exit code is not zero
+     * @description The execution state of the command.
      *
      * @example the specified instance does not exists
      *
@@ -100,10 +80,7 @@ class invocationResult extends Model
     public $errorInfo;
 
     /**
-     * @description The exit code of the command execution.
-     *
-     *   For Linux instances, the value is the exit code of the shell command.
-     *   For Windows instances, the value is the exit code of the batch or PowerShell command.
+     * @description The end time of the execution. If an execution times out, the end time of the execution is subject to the value of the TimedOut parameter specified in the [CreateCommand](~~64844~~) operation.
      *
      * @example 0
      *
@@ -112,7 +89,7 @@ class invocationResult extends Model
     public $exitCode;
 
     /**
-     * @description The end time of the execution. If an execution times out, the end time of the execution is subject to the value of the TimedOut parameter specified in the [CreateCommand](~~64844~~) operation.
+     * @description The ID of the container.
      *
      * @example 2019-12-20T06:15:56Z
      *
@@ -121,7 +98,10 @@ class invocationResult extends Model
     public $finishedTime;
 
     /**
-     * @description The ID of the instance
+     * @description The exit code of the command execution.
+     *
+     *   For Linux instances, the value is the exit code of the shell command.
+     *   For Windows instances, the value is the exit code of the batch or PowerShell command.
      *
      * @example i-bp1i7gg30r52z2em****
      *
@@ -130,40 +110,7 @@ class invocationResult extends Model
     public $instanceId;
 
     /**
-     * @description The execution state on a single instance. Valid values:
-     *
-     *   Pending: The command is being verified or sent.
-     *
-     *   Invalid: The specified command type or parameter is invalid.
-     *
-     *   Aborted: The command failed to be sent. To send a command to an instance, make sure that the instance is in the Running state and the command is sent to the instance within 1 minute.
-     *
-     *   Running: The command is being run on the instance.
-     *
-     *   Success:
-     *
-     *   Command that is set to run only once: The execution is complete, and the exit code is 0.
-     *   Command that is set to run on a schedule: The last execution succeeds, the exit code is 0, and the specified cycle ends.
-     *
-     *   Failed:
-     *
-     *   Command that is set to run only once: The execution is complete, but the exit code is not 0.
-     *   Command that is set to run on a schedule: The last execution is complete, the exit code is not 0, and the specified cycle is about to end.
-     *
-     *   Error: The execution cannot proceed due to an exception.
-     *
-     *   Timeout: The execution times out.
-     *
-     *   Cancelled: The execution is canceled, and the command is not run.
-     *
-     *   Stopping: The running command is being stopped.
-     *
-     *   Terminated: The command is terminated while it is being run.
-     *
-     *   Scheduled:
-     *
-     *   Command that is set to run only once: The command is not applicable.
-     *   Command that is set to run on a schedule: The command is waiting to be run.
+     * @description The command output.
      *
      * @example Success
      *
@@ -172,7 +119,7 @@ class invocationResult extends Model
     public $invocationStatus;
 
     /**
-     * @description The ID of the command task.
+     * @description The name of the container.
      *
      * @example t-hz0jdfwd9f****
      *
@@ -181,7 +128,7 @@ class invocationResult extends Model
     public $invokeId;
 
     /**
-     * @description The execution state of the command.
+     * @description The tags of the command execution.
      *
      * @example Running
      *
@@ -190,7 +137,7 @@ class invocationResult extends Model
     public $invokeRecordStatus;
 
     /**
-     * @description The command output.
+     * @description The time when the command started to be run on the instance.
      *
      * @example MTU6MzA6MDEK
      *
@@ -199,10 +146,7 @@ class invocationResult extends Model
     public $output;
 
     /**
-     * @description The number of times that the command is run on the instance.
-     *
-     *   If the command is set to run only once on the instance, the value is 0 or 1.
-     *   If the command is set to run on a schedule on the instance, the value is the number of times that the command is run.
+     * @description The size of the text that is truncated and discarded when the `Output` value exceeds 24 KB in size.
      *
      * @example 0
      *
@@ -211,7 +155,7 @@ class invocationResult extends Model
     public $repeats;
 
     /**
-     * @description The time when the command started to be run on the instance.
+     * @description The ID of the command execution.
      *
      * @example 2019-12-20T06:15:55Z
      *
@@ -220,7 +164,25 @@ class invocationResult extends Model
     public $startTime;
 
     /**
-     * @description The time when the command stopped being run on the instance. If you call the `StopInvocation` operation to manually stop the execution, the value is the time when you called the operation.
+     * @description The error code returned when the command cannot be sent or run. Valid values:
+     *
+     *   If this parameter is empty, the command is run normally.
+     *   InstanceNotExists: The specified instance does not exist is released.
+     *   InstanceReleased: The instance was released while the command was being run on the instance.
+     *   InstanceNotRunning: The instance is not in the Running state while the command is being run.
+     *   CommandNotApplicable: The command is not applicable to the specified instance.
+     *   AccountNotExists: The specified account does not exist.
+     *   DirectoryNotExists: The specified directory does not exist.
+     *   BadCronExpression: The cron expression used to specify the execution time is invalid.
+     *   ClientNotRunning: The Cloud Assistant client is not running.
+     *   ClientNotResponse: The Cloud Assistant client is not responding.
+     *   ClientIsUpgrading: The Cloud Assistant client is being upgraded.
+     *   ClientNeedUpgrade: The Cloud Assistant client needs to be upgraded.
+     *   DeliveryTimeout: The request to send the command timed out.
+     *   ExecutionTimeout: The command execution timed out.
+     *   ExecutionException: An exception occurred while the command was being run.
+     *   ExecutionInterrupted: The execution was interrupted.
+     *   ExitCodeNonzero: The command execution is complete, but the exit code is not 0.
      *
      * @example 2020-01-19T09:15:47Z
      *
@@ -229,16 +191,14 @@ class invocationResult extends Model
     public $stopTime;
 
     /**
-     * @description The tags of the command task.
-     *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The username that was used to run the command on the instance.
+     * @description The information about the tag.
      *
-     * @example root
+     * @example The key of the tag.
      *
      * @var string
      */

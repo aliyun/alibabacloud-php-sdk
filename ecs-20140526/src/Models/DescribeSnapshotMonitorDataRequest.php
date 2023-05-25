@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotMonitorDataRequest extends Model
 {
     /**
-     * @description The type of the snapshot. Valid values:
+     * @description The snapshot type. Valid values:
      *
      *   Standard: normal snapshot
      *   Flash: local snapshot
@@ -47,7 +47,7 @@ class DescribeSnapshotMonitorDataRequest extends Model
      *   600
      *   3600
      *
-     * Default value: 60
+     * Default value: 60.
      * @example 60
      *
      * @var int
@@ -55,7 +55,7 @@ class DescribeSnapshotMonitorDataRequest extends Model
     public $period;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

@@ -19,10 +19,10 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
     public $autoRenew;
 
     /**
-     * @description The auto-renewal period for the instance.
+     * @description The auto-renewal period of the instance.
      *
      *   Valid values of `Duration` when `PeriodUnit` is set to `Year`: 1, 2, 3, 4, and 5.
-     *   Valid values of `Duration` when `PeriodUnit` is set to `Month` : 1, 2, 3, 6, 12, 24, 36, 48, and 60.
+     *   Valid values of `Duration` when `PeriodUnit` is set to `Month`: 1, 2, 3, 6, 12, 24, 36, 48, and 60.
      *
      * @example 1
      *
@@ -31,7 +31,7 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
     public $duration;
 
     /**
-     * @description The ID of the instance You can specify IDs of up to 100 subscription instances. Separate the instance IDs with commas (,).
+     * @description The ID of the instance. You can specify up to 100 subscription instance IDs. Separate the instance IDs with commas (,).
      *
      * @example i-bp67acfmxazb4ph****,i-bp67acfmxazb4pi****
      *
@@ -50,9 +50,9 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The unit of the renewal period (`Duration`). Default value: Month. Valid values:
+     * @description The unit of the renewal period (`Duration`). Valid values:
      *
-     *   Month
+     *   Month (default)
      *   Year
      *
      * @example Month
@@ -62,7 +62,7 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -71,13 +71,13 @@ class ModifyInstanceAutoRenewAttributeRequest extends Model
     public $regionId;
 
     /**
-     * @description The auto-renewal state of the instance. Valid values:
+     * @description The auto-renewal status of the instance. Valid values:
      *
      *   AutoRenewal: Auto-renewal is enabled for the instance.
      *   Normal: Auto-renewal is disabled for the instance.
-     *   NotRenewal: The instance is not renewed. The system no longer sends an expiration notification. Notifications for renewal are sent three days before the expiration time of the instance. You can change the value of this parameter from NotRenewal to `Normal` for an instance, and then manually renew the instance. Alternatively, you can set the RenewalStatus parameter to AutoRenewal.
+     *   NotRenewal: The instance is not renewed. The system no longer sends an expiration notification but sends only a renewal notification three days before the instance expires. You can change the value of this parameter from NotRenewal to `Normal` for an instance, and then manually renew the instance. Alternatively, you can set the RenewalStatus parameter to AutoRenewal.
      *
-     * > `RenewalStatus` takes precedence over `AutoRenew`. If you do not specify `RenewalStatus`, the `AutoRenew` parameter is used by default.
+     * > `RenewalStatus` takes precedence over `AutoRenew`. If you do not specify `RenewalStatus`, `AutoRenew` is used by default.
      * @example AutoRenewal
      *
      * @var string

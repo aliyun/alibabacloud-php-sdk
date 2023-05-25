@@ -26,7 +26,7 @@ class DescribeInvocationsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries returned on each page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeInvocationsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *

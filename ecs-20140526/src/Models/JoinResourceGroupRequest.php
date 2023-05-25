@@ -28,7 +28,7 @@ class JoinResourceGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which you want to assign the resource.
+     * @description The ID of the resource group to which you want to add the instance.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -37,7 +37,7 @@ class JoinResourceGroupRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the resource. The value of this parameter varies based on the resource type. For example, when ResourceType is set to instance, the ResourceId refers to InstanceId.
+     * @description The ID of the resource. For example, if you set ResourceType to instance, set this parameter to the ID of the instance.
      *
      * @example sg-bp67acfmxazb4p****
      *
@@ -59,7 +59,7 @@ class JoinResourceGroupRequest extends Model
      * @description The type of the ECS resource. Valid values:
      *
      *   instance: instance
-     *   disk: Elastic Block Storage device
+     *   disk: Elastic Block Storage (EBS) device
      *   snapshot: snapshot
      *   image: image
      *   securitygroup: security group

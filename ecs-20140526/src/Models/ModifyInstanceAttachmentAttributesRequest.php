@@ -34,7 +34,7 @@ class ModifyInstanceAttachmentAttributesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the private pool. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the private pool. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

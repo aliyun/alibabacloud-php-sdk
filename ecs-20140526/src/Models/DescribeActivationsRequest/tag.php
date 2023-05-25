@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example TestKey
      *
      * @var string
@@ -16,6 +18,8 @@ class tag extends Model
     public $key;
 
     /**
+     * @description The ID of the request.
+     *
      * @example TestValue
      *
      * @var string

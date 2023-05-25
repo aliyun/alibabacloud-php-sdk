@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommandsResponseBody extends Model
 {
     /**
-     * @description Details about the commands.
+     * @description The time when the command was created.
      *
      * @var commands
      */
     public $commands;
 
     /**
-     * @description The number of the returned page.
+     * @description The total number of the commands.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeCommandsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The request ID.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeCommandsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The number of the returned page.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
@@ -44,7 +44,7 @@ class DescribeCommandsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of the commands.
+     * @description Details about the commands.
      *
      * @example 5
      *

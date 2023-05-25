@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AttachClassicLinkVpcRequest extends Model
 {
     /**
-     * @description The ID of the classic network-type instance. You can call the [DescribeInstances](~~25506~~) operation to query available instances.
+     * @description The ID of the instance that is deployed in the classic network. You can call the [DescribeInstances](~~25506~~) operation to query available instances.
      *
      * @example i-bp1gtjxuuvwj17zr****
      *

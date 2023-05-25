@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoProvisioningGroupsRequest extends Model
 {
     /**
-     * @description The IDs of auto provisioning groups. You can specify up to 20 auto provisioning group IDs.
+     * @description The ID of the auto provisioning group. You can specify up to 20 IDs.
      *
      * @example apg-sn54avj8htgvtyh8****
      *
@@ -27,7 +27,7 @@ class DescribeAutoProvisioningGroupsRequest extends Model
     public $autoProvisioningGroupName;
 
     /**
-     * @description The statuses of auto provisioning groups.
+     * @description The status of the auto provisioning group.
      *
      * @example active
      *

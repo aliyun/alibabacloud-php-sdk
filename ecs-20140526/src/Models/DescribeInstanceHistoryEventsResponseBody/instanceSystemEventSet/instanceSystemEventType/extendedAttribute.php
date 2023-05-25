@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class extendedAttribute extends Model
 {
     /**
+     * @example true
+     *
      * @var string
      */
     public $canAccept;
 
     /**
+     * @example PR111
+     *
      * @var string
      */
     public $code;
@@ -60,7 +64,7 @@ class extendedAttribute extends Model
     public $hostType;
 
     /**
-     * @description Details about the inactive cloud disks or local disks that have been released and must be cleared.
+     * @description Details about the inactive disks that have been released and must be cleared.
      *
      * @var inactiveDisks
      */
@@ -83,16 +87,22 @@ class extendedAttribute extends Model
     public $onlineRepairPolicy;
 
     /**
+     * @example 1228.test.com
+     *
      * @var string
      */
     public $punishDomain;
 
     /**
+     * @example ecs_message_alert
+     *
      * @var string
      */
     public $punishType;
 
     /**
+     * @example http://1228.test.com/1
+     *
      * @var string
      */
     public $punishUrl;

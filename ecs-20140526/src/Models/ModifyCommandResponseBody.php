@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyCommandResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The maximum timeout period for the command to be run on the instance. Unit: seconds. When a command cannot run within the specified time range, the command times out. Then, the command process is forcibly terminated by canceling the process ID (PID) of the command.
      *
      * @example 0DE9B41E-EF0D-40A0-BB43-37749C5BDA9C
      *

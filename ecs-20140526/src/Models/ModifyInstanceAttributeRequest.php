@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAttributeRequest extends Model
 {
     /**
-     * @description The performance mode of the burstable instance. Valid values:
+     * @description The performance mode of burstable instances. Valid values:
      *
-     *   Standard: standard mode
-     *   Unlimited: unlimited mode
+     *   Standard: standard mode.
+     *   Unlimited: unlimited mode.
      *
      * For more information about the performance modes of burstable instances, see [Burstable instances](~~59977~~).
      * @example Standard
@@ -25,7 +25,7 @@ class ModifyInstanceAttributeRequest extends Model
     /**
      * @description The release protection attribute of the instance. This parameter specifies whether you can use the ECS console or call the [DeleteInstance](~~25507~~) operation to release the instance.
      *
-     * > This parameter is applicable to only pay-as-you-go instances. It can protect instances against manual releases, but not against automatic releases.
+     * > This parameter is applicable to only pay-as-you-go instances and can protect instances against manual releases, but not against automatic releases.
      * @example false
      *
      * @var bool
@@ -43,6 +43,11 @@ class ModifyInstanceAttributeRequest extends Model
     public $description;
 
     /**
+     * @description 实例MTU是否开启Jumbo frame通信模式，取值范围：
+     *
+     * 目前仅部分规格支持开启Jumbo frame，更多详情，请参见[ECS实例MTU](~~200512~~)。
+     * @example false
+     *
      * @var bool
      */
     public $enableJumboFrame;
@@ -50,8 +55,8 @@ class ModifyInstanceAttributeRequest extends Model
     /**
      * @description The hostname of the instance. Take note of the following items:
      *
-     *   When you modify the hostname of an instance, the instance must not be in the Creating (Pending) or Starting (Starting) state. Otherwise, the new hostname and the configurations in `/etc/hosts` cannot take effect. You can call the [DescribeInstances](~~25506~~) operation to query the state of the instance.
-     *   After the hostname is modified, you must call the [RebootInstance](~~25502~~) operation to restart the instance for the new hostname to take effect.
+     *   When you modify the an instance hostname, the instance cannot be in the Pending or Starting state. Otherwise, the new hostname and the configurations in `/etc/hosts` cannot take effect. You can call the [DescribeInstances](~~25506~~) operation to query the state of the instance.
+     *   After the hostname is modified, you must call the [RebootInstance](~~25502~~) operation for the new hostname to take effect.
      *
      * The following limits apply to the hostnames of instances that run different operating systems:
      *
@@ -65,7 +70,7 @@ class ModifyInstanceAttributeRequest extends Model
     public $hostName;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-bp67acfmxazb4ph****
      *
@@ -74,7 +79,7 @@ class ModifyInstanceAttributeRequest extends Model
     public $instanceId;
 
     /**
-     * @description The name of the instance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The instance name. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (.), underscores (\_), and hyphens (-).
      *
      * @example testInstanceName
      *
@@ -102,11 +107,11 @@ class ModifyInstanceAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The password of the instance. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include:
+     * @description The instance password. The password must be 8 to 30 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported:
      *
      * ()`~!@#$%^&*-_+=|{}[]:;\"<>,.?/
      *
-     * > If the `Password` parameter is specified, we recommend that you send requests over HTTPS to prevent password leaks.
+     * > If you specify `Password`, we recommend that you send requests over HTTPS to prevent password leaks.
      * @example Test123456
      *
      * @var string
@@ -114,7 +119,7 @@ class ModifyInstanceAttributeRequest extends Model
     public $password;
 
     /**
-     * @description > This parameter is in invitational preview and unavailable for general users.
+     * @description > This parameter is available to select users and unavailable for general users.
      *
      * @example hide
      *
@@ -123,7 +128,7 @@ class ModifyInstanceAttributeRequest extends Model
     public $recyclable;
 
     /**
-     * @description > This parameter is in invitational preview and unavailable for general users.
+     * @description > This parameter is available to select users and unavailable for general users.
      *
      * @var remoteConnectionOptions
      */
@@ -145,9 +150,9 @@ class ModifyInstanceAttributeRequest extends Model
      *   All security group IDs must be unique.
      *   The instance is moved from the current security groups to the replacement security groups. If you want the instance to remain in the current security groups, you must add the IDs of the current security groups to the list.
      *   You can move the instance to security groups of a different type. However, the list cannot contain the IDs of both basic and advanced security groups.
-     *   The specified security group and instance must belong to the same virtual private cloud (VPC).
+     *   The specified security group and instance must belong to the same VPC.
      *   The valid values of N are based on the maximum number of security groups to which the instance can belong. For more information, see [Limits](~~25412#SecurityGroupQuota1~~).
-     *   New security groups become valid for corresponding instances after a short latency.
+     *   New security groups may take a moment to become valid.
      *
      * @example sg-bp15ed6xe1yxeycg7o****
      *
@@ -158,7 +163,7 @@ class ModifyInstanceAttributeRequest extends Model
     /**
      * @description The user data of the instance. User data must be encoded in Base64.
      *
-     * The size of the user data cannot exceed 16 KB before it is encoded in Base64. We recommend that you do not pass in confidential information such as passwords and private keys in the plaintext format. If you must pass in confidential information, we recommend that you encrypt and Base64-encode the information before you pass it in. Then you can decode and decrypt the information in the same way within the instance.
+     * The size of the user data must be no greater than 16 KB before it is encoded in Base64. We recommend that you do not pass in confidential information such as passwords and private keys in the plaintext format. If you must pass in confidential information, we recommend that you encrypt and Base64-encode the information before it is passed in. This allows you to decode and decrypt the information in the same way within the instance.
      * @example ZWNobyBoZWxsbyBlY3Mh
      *
      * @var string

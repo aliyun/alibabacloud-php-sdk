@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class AssignIpv6AddressesResponseBody extends Model
 {
     /**
-     * @description > 该参数正在邀测中，暂未开放使用。
+     * @description > This parameter is in invitational preview and is unavailable for general users.
      *
      * @var ipv6PrefixSets
      */
@@ -25,7 +25,7 @@ class AssignIpv6AddressesResponseBody extends Model
     public $ipv6Sets;
 
     /**
-     * @description The ID of the ENI.
+     * @description The ENI ID.
      *
      * @example eni-bp1iqejowblx6h8j****
      *
@@ -34,7 +34,7 @@ class AssignIpv6AddressesResponseBody extends Model
     public $networkInterfaceId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *

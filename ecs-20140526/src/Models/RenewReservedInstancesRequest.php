@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RenewReservedInstancesRequest extends Model
 {
     /**
-     * @description Specifies whether to enable auto-renewal for the reserved instance. Default value: false. Valid values:
+     * @description Specifies whether to enable auto-renewal for the reserved instance. Valid values:
      *
-     *   true: enables auto-renewal for the reserved instance.
-     *   false: does not enable auto-renewal for the reserved instance.
+     *   true
+     *   false
      *
      * Default value: false.
      * @example true
@@ -22,7 +22,7 @@ class RenewReservedInstancesRequest extends Model
     public $autoRenew;
 
     /**
-     * @description The auto-renewal term of the reserved instance. Unit: months. This parameter takes effect only when AutoRenew is set to true.
+     * @description The auto-renewal duration. Unit: months. This parameter takes effect only when AutoRenew is set to true.
      *
      * Valid values: 12 and 36. Default value: 12.
      * @example 1
@@ -32,7 +32,7 @@ class RenewReservedInstancesRequest extends Model
     public $autoRenewPeriod;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -51,7 +51,7 @@ class RenewReservedInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The term of the reserved instance.
+     * @description The validity period of the reserved instance.
      *
      * Default value: 1.
      * @example 1
@@ -61,9 +61,9 @@ class RenewReservedInstancesRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the term of the reserved instance.
+     * @description The unit of the validity period of the reserved instance.
      *
-     * Default value: Year.
+     * Set the value to Year.
      * @example Year
      *
      * @var string
@@ -80,7 +80,7 @@ class RenewReservedInstancesRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of reserved instances.
+     * @description The IDs of the reserved instances.
      *
      * @var string[]
      */
