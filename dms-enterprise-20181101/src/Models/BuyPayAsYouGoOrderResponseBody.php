@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BuyPayAsYouGoOrderResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,7 +18,7 @@ class BuyPayAsYouGoOrderResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description Purchases a pay-as-you-go Data Management (DMS) resource.
+     * @description The error message returned if the request failed.
      *
      * @example UnknownError
      *
@@ -25,6 +27,8 @@ class BuyPayAsYouGoOrderResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description If the purchase is successful, the ID of the purchased instance is returned.
+     *
      * @example dms_pre_public_cn-nif23l****
      *
      * @var string
@@ -41,7 +45,10 @@ class BuyPayAsYouGoOrderResponseBody extends Model
     public $requestId;
 
     /**
-     * @description If the purchase is successful, the ID of the purchased instance is returned.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example true
      *

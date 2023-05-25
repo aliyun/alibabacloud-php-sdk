@@ -11,6 +11,9 @@ use AlibabaCloud\Tea\Model;
 class database extends Model
 {
     /**
+     * @description The name of the catalog to which the database belongs.
+     *
+     * > : If the database is a PostgreSQL database, the name of the database is displayed.
      * @example def
      *
      * @var string
@@ -18,6 +21,8 @@ class database extends Model
     public $catalogName;
 
     /**
+     * @description The ID of the physical database.
+     *
      * @example 43125312
      *
      * @var string
@@ -25,6 +30,8 @@ class database extends Model
     public $databaseId;
 
     /**
+     * @description The type of the database engine.
+     *
      * @example mysql
      *
      * @var string
@@ -32,6 +39,8 @@ class database extends Model
     public $dbType;
 
     /**
+     * @description The user ID of the DBA in the destination database.
+     *
      * @example 43253
      *
      * @var string
@@ -39,6 +48,8 @@ class database extends Model
     public $dbaId;
 
     /**
+     * @description The nickname of the database administrator (DBA) in the destination database.
+     *
      * @example dmstest
      *
      * @var string
@@ -46,6 +57,8 @@ class database extends Model
     public $dbaName;
 
     /**
+     * @description The encoding format of the database.
+     *
      * @example utf8mb4
      *
      * @var string
@@ -53,6 +66,8 @@ class database extends Model
     public $encoding;
 
     /**
+     * @description The type of the environment to which the database belongs. For more information, see [Change the environment type of an instance](~~163309~~).
+     *
      * @example product
      *
      * @var string
@@ -60,6 +75,8 @@ class database extends Model
     public $envType;
 
     /**
+     * @description The endpoint that is used to connect to the database.
+     *
      * @example rm-xxxab3r272.mysql.rds.aliyuncs.com
      *
      * @var string
@@ -67,11 +84,15 @@ class database extends Model
     public $host;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $instanceAlias;
 
     /**
+     * @description The instance ID of the destination database.
+     *
      * @example 43215325
      *
      * @var string
@@ -79,16 +100,22 @@ class database extends Model
     public $instanceId;
 
     /**
+     * @description The user IDs of the database owners.
+     *
      * @var ownerIdList
      */
     public $ownerIdList;
 
     /**
+     * @description The nicknames of the database owners.
+     *
      * @var ownerNameList
      */
     public $ownerNameList;
 
     /**
+     * @description The port that is used to connect to the database.
+     *
      * @example 3306
      *
      * @var int
@@ -96,6 +123,9 @@ class database extends Model
     public $port;
 
     /**
+     * @description The name of the database.
+     *
+     * > : If the database is a PostgreSQL database, the name of the mode is displayed.
      * @example dmstest
      *
      * @var string
@@ -103,6 +133,8 @@ class database extends Model
     public $schemaName;
 
     /**
+     * @description The name that is used for searching the database.
+     *
      * @example dmstest@rm-xxxab3r272.mysql.rds.aliyuncs.com:3306
      *
      * @var string
@@ -110,6 +142,9 @@ class database extends Model
     public $searchName;
 
     /**
+     * @description The system ID (SID) of the database.
+     *
+     * > : The value of the parameter is returned only for Oracle databases.
      * @example def
      *
      * @var string
@@ -117,6 +152,13 @@ class database extends Model
     public $sid;
 
     /**
+     * @description The state of the database. Valid values:
+     *
+     *   **NORMAL**: The database is normal.
+     *   **DISABLE**: The database is disabled.
+     *   **OFFLINE**: The database is unpublished.
+     *   **NOT_EXIST**: The database does not exist.
+     *
      * @example NORMAL
      *
      * @var string

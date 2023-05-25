@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListStandardGroupsRequest extends Model
 {
     /**
-     * @description The error code returned if the request fails.
+     * @description The ID of the tenant.
      *
      * @example 3***
      *

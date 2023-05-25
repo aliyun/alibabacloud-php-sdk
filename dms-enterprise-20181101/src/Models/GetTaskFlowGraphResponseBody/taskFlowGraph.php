@@ -11,6 +11,10 @@ use AlibabaCloud\Tea\Model;
 class taskFlowGraph extends Model
 {
     /**
+     * @description Indicates whether the task flow is editable. Valid values:
+     *
+     * - **true**: editable
+     * - **false**: non-editable
      * @example true
      *
      * @var bool
@@ -18,7 +22,7 @@ class taskFlowGraph extends Model
     public $canEdit;
 
     /**
-     * @description The ID of the node.
+     * @description The name of the task flow.
      *
      * @example test
      *
@@ -27,19 +31,25 @@ class taskFlowGraph extends Model
     public $dagName;
 
     /**
+     * @description The list of task flow edges.
+     *
      * @var edges
      */
     public $edges;
 
     /**
-     * @description The ID of the tenant.
+     * @description The node list of the task flow.
      *
-     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @var nodes
      */
     public $nodes;
 
     /**
+     * @description The status of the task flow. Valid values:
+     *
+     * - **0**: invalid
+     * - **1**: not scheduled
+     * - **2**: to be scheduled
      * @example 2
      *
      * @var int

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateSLARulesResponseBody extends Model
 {
     /**
-     * @description 340282
+     * @description The error code returned if the request failed.
      *
      * @example UnknownError
      *
@@ -18,6 +18,8 @@ class UpdateSLARulesResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -25,7 +27,7 @@ class UpdateSLARulesResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description UpdateSLARules
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
      *
      * @example 88E053F7-347B-52DD-A186-1F340EEC0C27
      *
@@ -34,6 +36,11 @@ class UpdateSLARulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class lakehouseSpace extends Model
 {
     /**
-     * @description The description of the workspace.
+     * @description The ID of the user who creates the workspace.
      *
      * @example 51***
      *
@@ -18,7 +18,7 @@ class lakehouseSpace extends Model
     public $creatorId;
 
     /**
-     * @description The name of the workspace.
+     * @description The description of the workspace.
      *
      * @example test
      *
@@ -27,6 +27,8 @@ class lakehouseSpace extends Model
     public $description;
 
     /**
+     * @description The ID of the development database.
+     *
      * @example 2435****
      *
      * @var int
@@ -34,7 +36,10 @@ class lakehouseSpace extends Model
     public $devDbId;
 
     /**
-     * @description The ID of the user who creates the workspace.
+     * @description The type of the database. Valid values:
+     *
+     *   **14**: AnalyticDB for MySQL
+     *   **18**: AnalyticDB for PostgreSQL
      *
      * @example 14
      *
@@ -43,7 +48,7 @@ class lakehouseSpace extends Model
     public $dwDbType;
 
     /**
-     * @description The name of the workspace.
+     * @description The ID of the workspace.
      *
      * @example 1
      *
@@ -52,6 +57,11 @@ class lakehouseSpace extends Model
     public $id;
 
     /**
+     * @description Indicates whether the workspace is deleted. Valid values:
+     *
+     *   **true**: The workspace is deleted.
+     *   **false**: The workspace is not deleted.
+     *
      * @example false
      *
      * @var bool
@@ -59,7 +69,10 @@ class lakehouseSpace extends Model
     public $isDeleted;
 
     /**
-     * @description The workspace for data warehouse development.
+     * @description The mode in which the workspace runs. Valid values:
+     *
+     *   **0**: basic mode
+     *   **1**: standard mode
      *
      * @example 1
      *
@@ -68,6 +81,8 @@ class lakehouseSpace extends Model
     public $mode;
 
     /**
+     * @description The ID of the production database.
+     *
      * @example 2442****
      *
      * @var int
@@ -75,7 +90,10 @@ class lakehouseSpace extends Model
     public $prodDbId;
 
     /**
-     * @description The ID of the request.
+     * @description The configuration of the workspace. Valid values:
+     *
+     *   **skipManualRunCheck**: No security rule check is required in the trial run phase.
+     *   **skipPublishApprove**: No approval is required for publishing and O\&M.
      *
      * @example {\"skipManualRunCheck\":true,\"skipPublishApprove\":true}
      *
@@ -84,7 +102,7 @@ class lakehouseSpace extends Model
     public $spaceConfig;
 
     /**
-     * @description The ID of the tenant to which the workspace belongs.
+     * @description The name of the workspace.
      *
      * @example test_space
      *
@@ -93,10 +111,7 @@ class lakehouseSpace extends Model
     public $spaceName;
 
     /**
-     * @description The mode in which the workspace runs. Valid values:
-     *
-     *   **0**: basic mode
-     *   **1**: standard mode
+     * @description The ID of the tenant to which the workspace belongs.
      *
      * @example 3***
      *

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListUserTenantsResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example TenantNotExist
      *
      * @var string
@@ -17,6 +19,8 @@ class ListUserTenantsResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example The specified tenant does not exist.
      *
      * @var string
@@ -33,6 +37,11 @@ class ListUserTenantsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
      * @example true
      *
      * @var bool
@@ -40,7 +49,7 @@ class ListUserTenantsResponseBody extends Model
     public $success;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ListUserTenants**.
+     * @description The details of the tenants that were returned.
      *
      * @var tenantList[]
      */

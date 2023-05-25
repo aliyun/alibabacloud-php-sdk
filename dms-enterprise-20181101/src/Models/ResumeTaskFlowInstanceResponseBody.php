@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResumeTaskFlowInstanceResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,6 +18,8 @@ class ResumeTaskFlowInstanceResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,6 +27,8 @@ class ResumeTaskFlowInstanceResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7FF2E325-763F-5E27-9157-C3CFA02F4CBF
      *
      * @var string
@@ -30,6 +36,11 @@ class ResumeTaskFlowInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

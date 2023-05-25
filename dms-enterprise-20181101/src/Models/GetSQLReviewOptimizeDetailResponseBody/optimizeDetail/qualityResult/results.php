@@ -10,11 +10,22 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
+     * @description The comment that is specified when you create the SQL review rule. For more information, see [SQL review optimization](~~194114~~).
+     *
      * @var string
      */
     public $comments;
 
     /**
+     * @description The optimization suggestion for the SQL statement. Valid values:
+     *
+     *   **MUST_IMPROVE**: The SQL statement must be improved.
+     *   **POTENTIAL_ISSUE**: The SQL statement contains potential issues.
+     *   **SUGGEST_IMPROVE**: We recommend that you improve the SQL statement.
+     *   **USEDMSTOOLKIT**: We recommend that you change schemas without locking tables.
+     *   **USEDMSDML_UNLOCK**: We recommend that you change data without locking tables.
+     *   **TABLEINDEXSUGGEST**: We recommend that you use SQL statements that use indexes.
+     *
      * @example MUST_IMPROVE
      *
      * @var string
@@ -22,11 +33,15 @@ class results extends Model
     public $feedback;
 
     /**
+     * @description The review results.
+     *
      * @var string[]
      */
     public $messages;
 
     /**
+     * @description The name of the rule. For more information, see [SQL review optimization](~~194114~~).
+     *
      * @example SELECT_SUGGEST_ASSIGN_WHERE
      *
      * @var string
@@ -34,6 +49,11 @@ class results extends Model
     public $ruleName;
 
     /**
+     * @description The type of the SQL review rule. Valid values:
+     *
+     *   **REVIEW**: a rule that is used to review SQL statements based on standards.
+     *   **OPTIMIZE**: a rule that is used to provide optimization suggestions.
+     *
      * @example REVIEW
      *
      * @var string
@@ -41,6 +61,8 @@ class results extends Model
     public $ruleType;
 
     /**
+     * @description The SQL script for data changes.
+     *
      * @var scripts[]
      */
     public $scripts;

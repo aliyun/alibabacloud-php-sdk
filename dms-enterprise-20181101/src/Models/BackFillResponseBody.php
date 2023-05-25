@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class BackFillResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $dagInstanceId;
+
+    /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,6 +23,8 @@ class BackFillResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,6 +32,8 @@ class BackFillResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the node.
+     *
      * @example 43****
      *
      * @var int
@@ -30,7 +41,7 @@ class BackFillResponseBody extends Model
     public $nodeId;
 
     /**
-     * @description Backfills data for task orchestration.
+     * @description The ID of the request.
      *
      * @example 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
      *
@@ -39,17 +50,23 @@ class BackFillResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'errorCode'    => 'ErrorCode',
-        'errorMessage' => 'ErrorMessage',
-        'nodeId'       => 'NodeId',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
+        'dagInstanceId' => 'DagInstanceId',
+        'errorCode'     => 'ErrorCode',
+        'errorMessage'  => 'ErrorMessage',
+        'nodeId'        => 'NodeId',
+        'requestId'     => 'RequestId',
+        'success'       => 'Success',
     ];
 
     public function validate()
@@ -59,6 +76,9 @@ class BackFillResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dagInstanceId) {
+            $res['DagInstanceId'] = $this->dagInstanceId;
+        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
@@ -86,6 +106,9 @@ class BackFillResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DagInstanceId'])) {
+            $model->dagInstanceId = $map['DagInstanceId'];
+        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }

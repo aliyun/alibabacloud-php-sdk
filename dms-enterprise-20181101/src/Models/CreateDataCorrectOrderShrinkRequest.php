@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDataCorrectOrderShrinkRequest extends Model
 {
     /**
-     * @description The ID of the ticket.
+     * @description The key of the attachment that provides more instructions for the ticket. You can call the [GetUserUploadFileJob](~~206069~~) operation to obtain the attachment key from the value of the AttachmentKey parameter.
      *
      * @example order_attachment.txt
      *
@@ -18,10 +18,7 @@ class CreateDataCorrectOrderShrinkRequest extends Model
     public $attachmentKey;
 
     /**
-     * @description Specifies whether the database is a logical database. Valid values:
-     *
-     *   **true**: The database is a logical database.
-     *   **false**: The database is a physical database.
+     * @description The purpose or objective of the data change. This parameter is used to help reduce unnecessary communication.
      *
      * @example test
      *
@@ -30,21 +27,21 @@ class CreateDataCorrectOrderShrinkRequest extends Model
     public $comment;
 
     /**
-     * @description The databases in which you want to change data.
+     * @description The parameters of the ticket.
      *
      * @var string
      */
     public $paramShrink;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The stakeholders of the data change. All stakeholders can view the ticket details and assist in the approval process. Irrelevant users other than DMS administrators and database administrators (DBAs) are not allowed to view the ticket details.
      *
      * @var string
      */
     public $relatedUserListShrink;
 
     /**
-     * @description The estimated number of data rows to be affected by the data change.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @example 3***
      *

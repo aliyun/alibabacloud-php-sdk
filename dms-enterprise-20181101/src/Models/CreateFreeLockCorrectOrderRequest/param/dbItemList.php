@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class dbItemList extends Model
 {
     /**
-     * @description The purpose or objective of the data change. This parameter is used to help reduce unnecessary communication.
+     * @description The ID of the database. The database can be a physical database or a logical database.
+     *
+     *   To obtain the ID of a physical database, call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation.
+     *   To obtain the ID of a logical database, call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation.
      *
      * @example 1860****
      *
@@ -18,7 +21,10 @@ class dbItemList extends Model
     public $dbId;
 
     /**
-     * @description The SQL statements used to roll back the data change.
+     * @description Specifies whether the database is a logical database. Valid values:
+     *
+     *   **true**: The database is a logical database.
+     *   **false**: The database is a physical database.
      *
      * @example false
      *

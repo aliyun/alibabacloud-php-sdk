@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetLhSpaceByNameResponseBody extends Model
 {
     /**
-     * @description The configuration of the workspace. Valid values:
-     *
-     *   **skipManualRunCheck**: No security rule check is required in the trial run phase.
-     *   **skipPublishApprove**: No approval is required for publishing and O\&M.
+     * @description The error code returned if the request fails.
      *
      * @example UnknownError
      *
@@ -22,7 +19,7 @@ class GetLhSpaceByNameResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The operation that you want to perform. Set the value to **GetLhSpaceByName**.
+     * @description The error message returned if the request fails.
      *
      * @example UnknownError
      *
@@ -31,14 +28,14 @@ class GetLhSpaceByNameResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The ID of the production database.
+     * @description The workspace for data warehouse development.
      *
      * @var lakehouseSpace
      */
     public $lakehouseSpace;
 
     /**
-     * @description The error code returned if the request fails.
+     * @description The ID of the request.
      *
      * @example FE8CA4A8-AB2D-55B7-BD30-01A4609F40D8
      *
@@ -47,7 +44,10 @@ class GetLhSpaceByNameResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
      *
      * @example true
      *

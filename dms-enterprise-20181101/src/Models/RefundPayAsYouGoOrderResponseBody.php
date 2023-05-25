@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefundPayAsYouGoOrderResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,6 +18,8 @@ class RefundPayAsYouGoOrderResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -32,7 +36,10 @@ class RefundPayAsYouGoOrderResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Unsubscribes from a pay-as-you-go Data Management (DMS) resource.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example true
      *

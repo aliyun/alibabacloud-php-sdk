@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ExecuteScriptResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class ExecuteScriptResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message about the gateway.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,7 +28,7 @@ class ExecuteScriptResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The error message about the gateway.
+     * @description The ID of the request.
      *
      * @example FE8EE2F1-4880-46BC-A704-5CF63EAF9A04
      *
@@ -33,14 +37,15 @@ class ExecuteScriptResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the database.
+     * @description The results of the SQL statements that are executed, in the format of an array. Each entry in the array indicates the result of an SQL statement.
      *
-     * >  This parameter is equivalent to the DatabaseId parameter in the SearchDatabase, ListDatabases, and GetDatabase operations. You can call one of these operations to obtain the required database ID. For more information, see [SearchDatabase](~~141876~~), [ListDatabases](~~141873~~), and [GetDatabase](~~141869~~).
      * @var results[]
      */
     public $results;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
      * @example true
      *
      * @var bool

@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
+     * @description Specifies whether to skip an error that occurs in executing an SQL statement. Valid values:
+     *
+     *   **true**: continues to execute subsequent SQL statements if an error occurs in executing an SQL statement.
+     *   **false**: stops executing subsequent SQL statements if an error occurs in executing an SQL statement.
+     *
      * @example false
      *
      * @var bool
@@ -19,19 +24,21 @@ class param extends Model
     public $ignoreError;
 
     /**
-     * @description The name of the destination table.
+     * @description The information about the base database.
      *
      * @var source
      */
     public $source;
 
     /**
+     * @description The information about the table of which you want to synchronize the schema.
+     *
      * @var tableInfoList[]
      */
     public $tableInfoList;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The information about the database to which you want to synchronize the schema of a table.
      *
      * @var target
      */

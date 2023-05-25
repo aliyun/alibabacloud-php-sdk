@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteLogicTableRouteConfigRequest extends Model
 {
     /**
+     * @description The unique key of the routing algorithm. You can call the [ListLogicTableRouteConfig](https://www.alibabacloud.com/help/en/data-management-service/latest/listlogictablerouteconfig) operation to query the unique key.
+     *
      * @example id-hash-mod15
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteLogicTableRouteConfigRequest extends Model
     public $routeKey;
 
     /**
+     * @description The ID of the logical table. You can call the [ListLogicTables](https://www.alibabacloud.com/help/en/data-management-service/latest/listlogictables) operation to query the ID of the logical table.
+     *
      * @example 1****
      *
      * @var int
@@ -23,6 +27,8 @@ class DeleteLogicTableRouteConfigRequest extends Model
     public $tableId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://www.alibabacloud.com/help/en/data-management-service/latest/getuseractivetenant) operation to query the tenant ID.
+     *
      * @example 3***
      *
      * @var int

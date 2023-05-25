@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
-     * @description The information about the column.
+     * @description The name of the table.
      *
      * @var columnInfo
      */
@@ -27,14 +27,14 @@ class resources extends Model
     public $databaseInfo;
 
     /**
-     * @description The information about the instance.
+     * @description The name of the column.
      *
      * @var instanceInfo
      */
     public $instanceInfo;
 
     /**
-     * @description The information about the table.
+     * @description The type of the environment to which the instance belongs. For more information, see [Change the environment type of an instance](~~163309~~).
      *
      * @var tableInfo
      */

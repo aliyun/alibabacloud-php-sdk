@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class ListLhTaskFlowAndScenarioResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request fails.
+     *
      * @example UnknownError
      *
      * @var string
@@ -18,6 +20,8 @@ class ListLhTaskFlowAndScenarioResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
      * @example UnknownError
      *
      * @var string
@@ -25,13 +29,15 @@ class ListLhTaskFlowAndScenarioResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The extended field. No meaning is specified for this field.
+     * @description The task flows in the default business scenario.
      *
      * @var rawDAGList
      */
     public $rawDAGList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 48602B78-0DDF-414C-8688-70CAB6070115
      *
      * @var string
@@ -39,11 +45,17 @@ class ListLhTaskFlowAndScenarioResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The task flows in other business scenarios.
+     *
      * @var scenarioDAGList
      */
     public $scenarioDAGList;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     * - **true**: The request is successful.
+     * - **false**: The request fails.
      * @example true
      *
      * @var bool

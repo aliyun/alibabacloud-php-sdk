@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListProxyAccessesResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
      * @example MissingProxyId
      *
      * @var string
@@ -17,6 +19,8 @@ class ListProxyAccessesResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example ProxyId is mandatory for this action.
      *
      * @var string
@@ -24,11 +28,15 @@ class ListProxyAccessesResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The information about the users that are authorized to access the database instance by using the secure access proxy feature.
+     *
      * @var proxyAccessList[]
      */
     public $proxyAccessList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E53D178A-85E9-5E1F-88B6-3CB1FCF2****
      *
      * @var string
@@ -36,6 +44,10 @@ class ListProxyAccessesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
      * @example true
      *
      * @var bool

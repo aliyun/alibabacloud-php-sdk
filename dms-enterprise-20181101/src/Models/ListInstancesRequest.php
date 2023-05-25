@@ -9,13 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesRequest extends Model
 {
     /**
-     * @description The alias of the database instance.
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
      *
      * @example MySQL
      *
      * @var string
      */
     public $dbType;
+
+    /**
+     * @description The type of the environment to which the database instance belongs. Valid values:
+     *
+     *   **product**: production environment
+     *   **dev**: development environment
+     *   **pre**: staging environment
+     *   **test**: test environment
+     *   **sit**: system integration testing (SIT) environment
+     *   **uat**: user acceptance testing (UAT) environment
+     *   **pet**: stress testing environment
+     *   **stag**: STAG environment
+     *
+     * @example product
+     *
+     * @var string
+     */
+    public $envType;
 
     /**
      * @description The source of the database instance. Valid values:
@@ -25,15 +43,6 @@ class ListInstancesRequest extends Model
      *   **ECS_OWN**: a self-managed database that is deployed on an Elastic Compute Service (ECS) instance
      *   **VPC_IDC**: a self-managed database instance that is deployed in a data center connected over a virtual private cloud (VPC)
      *
-     * @example product
-     *
-     * @var string
-     */
-    public $envType;
-
-    /**
-     * @description The timeout period for querying data in the database instance.
-     *
      * @example RDS
      *
      * @var string
@@ -41,10 +50,10 @@ class ListInstancesRequest extends Model
     public $instanceSource;
 
     /**
-     * @description The network type of the database instance. Valid values:
+     * @description The status of the database instance. Valid values:
      *
-     *   **CLASSIC**: classic network
-     *   **VPC**: VPC
+     *   **NORMAL**: normal
+     *   **DISABLE**: disabled
      *
      * @example NORMAL
      *
@@ -53,7 +62,10 @@ class ListInstancesRequest extends Model
     public $instanceState;
 
     /**
-     * @description The status of the database instance.
+     * @description The network type of the database instance. Valid values:
+     *
+     *   **CLASSIC**: classic network
+     *   **VPC**: VPC
      *
      * @example VPC
      *
@@ -62,7 +74,7 @@ class ListInstancesRequest extends Model
     public $netType;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -71,7 +83,7 @@ class ListInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description Indicates whether the lock-free schema change feature is enabled for the database instance.
+     * @description The number of entries to return on each page. The number cannot exceed 100.
      *
      * @example 50
      *
@@ -80,7 +92,7 @@ class ListInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ListInstances**.
+     * @description The keyword that is used to search for database instances.
      *
      * @example test
      *
@@ -89,7 +101,7 @@ class ListInstancesRequest extends Model
     public $searchKey;
 
     /**
-     * @description The ID of the owner for the database instance.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
      *
      * @example 3***
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DAGInstance extends Model
 {
     /**
-     * @description The information about the execution records returned.
+     * @description The business time of the task flow. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
      *
      * @example 2021-11-10 14:37:26
      *
@@ -18,7 +18,7 @@ class DAGInstance extends Model
     public $businessTime;
 
     /**
-     * @description The description of the task.
+     * @description The ID of the task flow.
      *
      * @example 7***
      *
@@ -27,6 +27,8 @@ class DAGInstance extends Model
     public $dagId;
 
     /**
+     * @description The name of the task flow.
+     *
      * @example Spark_SQL_test
      *
      * @var string
@@ -41,7 +43,7 @@ class DAGInstance extends Model
     public $dagVersion;
 
     /**
-     * @description The end of the time range to query the execution records of the task flow. Specify the time in the yyyy-MM-DD format.
+     * @description The time when the execution of the task flow was complete. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
      *
      * @example 2021-11-11 14:38:57
      *
@@ -50,7 +52,7 @@ class DAGInstance extends Model
     public $endTime;
 
     /**
-     * @description Queries the execution records of a task flow.
+     * @description The ID of the previously published version of the task flow.
      *
      * @example 2****
      *
@@ -59,7 +61,7 @@ class DAGInstance extends Model
     public $historyDagId;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The ID of the execution record.
      *
      * @example 9234
      *
@@ -68,10 +70,7 @@ class DAGInstance extends Model
     public $id;
 
     /**
-     * @description The mode in which the task flow is triggered. Valid values:
-     *
-     *   **0**: The task flow is automatically triggered based on periodic scheduling.
-     *   **1**: The task flow is manually triggered.
+     * @description The description of the task.
      *
      * @example test
      *
@@ -80,6 +79,8 @@ class DAGInstance extends Model
     public $message;
 
     /**
+     * @description The name of the task flow owner.
+     *
      * @example test_name
      *
      * @var string
@@ -87,7 +88,14 @@ class DAGInstance extends Model
     public $ownerName;
 
     /**
-     * @description The ID of the request.
+     * @description The status of the task flow. Valid values:
+     *
+     *   **0**: The task flow is waiting to be scheduled.
+     *   **1**: The task flow is being executed.
+     *   **2**: The task flow is paused.
+     *   **3**: The task flow failed.
+     *   **4**: The task flow is executed.
+     *   **5**: The task flow is complete.
      *
      * @example 4
      *
@@ -96,13 +104,21 @@ class DAGInstance extends Model
     public $status;
 
     /**
-     * @description The time when the execution of the task flow was complete. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
+     * @description The mode in which the task flow is triggered. Valid values:
+     *
+     *   **0**: The task flow is automatically triggered based on periodic scheduling.
+     *   **1**: The task flow is manually triggered.
      *
      * @example 1
      *
      * @var int
      */
     public $triggerType;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
         'businessTime' => 'BusinessTime',
         'dagId'        => 'DagId',
@@ -115,6 +131,7 @@ class DAGInstance extends Model
         'ownerName'    => 'OwnerName',
         'status'       => 'Status',
         'triggerType'  => 'TriggerType',
+        'startTime'    => 'startTime',
     ];
 
     public function validate()
@@ -156,6 +173,9 @@ class DAGInstance extends Model
         }
         if (null !== $this->triggerType) {
             $res['TriggerType'] = $this->triggerType;
+        }
+        if (null !== $this->startTime) {
+            $res['startTime'] = $this->startTime;
         }
 
         return $res;
@@ -201,6 +221,9 @@ class DAGInstance extends Model
         }
         if (isset($map['TriggerType'])) {
             $model->triggerType = $map['TriggerType'];
+        }
+        if (isset($map['startTime'])) {
+            $model->startTime = $map['startTime'];
         }
 
         return $model;

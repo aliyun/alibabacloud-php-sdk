@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddLogicTableRouteConfigResponseBody extends Model
 {
     /**
-     * @description WB01220210
+     * @description The error code returned.
      *
      * @example UnknownError
      *
@@ -18,6 +18,8 @@ class AddLogicTableRouteConfigResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example can not find table, tableId : 11133
      *
      * @var string
@@ -25,7 +27,7 @@ class AddLogicTableRouteConfigResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description AddLogicTableRouteConfig
+     * @description The ID of the request.
      *
      * @example B43AD641-49C2-5299-9E06-1B37EC1B****
      *
@@ -34,6 +36,10 @@ class AddLogicTableRouteConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
      * @example true
      *
      * @var bool

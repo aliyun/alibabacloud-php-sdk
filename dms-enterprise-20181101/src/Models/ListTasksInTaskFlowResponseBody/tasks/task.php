@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @description The position of the node on the Directed Acyclic Graph (DAG).
+     *
      * @example {\"x\":435,\"y\":192,\"layoutType\":\"Horizontal\"}
      *
      * @var string
@@ -16,20 +18,22 @@ class task extends Model
     public $graphParam;
 
     /**
-     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     * @description The advanced configuration for the node.
      *
      * @var string
      */
     public $nodeConfig;
 
     /**
-     * @description The time variables configured for the node.
+     * @description The configuration for the node.
      *
      * @var string
      */
     public $nodeContent;
 
     /**
+     * @description The ID of the node.
+     *
      * @example 92***
      *
      * @var string
@@ -37,9 +41,8 @@ class task extends Model
     public $nodeId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The name of the node.
      *
-     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [View information about the current tenant](~~181330~~).
      * @example Cross-Database Spark SQL-1
      *
      * @var string
@@ -47,12 +50,14 @@ class task extends Model
     public $nodeName;
 
     /**
+     * @description The output variables for the task.
+     *
      * @var string
      */
     public $nodeOutput;
 
     /**
-     * @description The ID of the node.
+     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](~~424705~~).
      *
      * @example SPARK_SQL
      *
@@ -61,7 +66,7 @@ class task extends Model
     public $nodeType;
 
     /**
-     * @description The configuration for the node.
+     * @description The time variables configured for the node.
      *
      * @var string
      */

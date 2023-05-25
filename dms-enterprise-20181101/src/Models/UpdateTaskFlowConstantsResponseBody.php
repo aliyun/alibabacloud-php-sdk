@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskFlowConstantsResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateTaskFlowConstantsResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,7 +27,7 @@ class UpdateTaskFlowConstantsResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The operation that you want to perform. Set the value to **UpdateTaskFlowConstants**.
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
      *
      * @example C4CCC000-C193-5A32-B701-573F497BF729
      *
@@ -32,6 +36,11 @@ class UpdateTaskFlowConstantsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

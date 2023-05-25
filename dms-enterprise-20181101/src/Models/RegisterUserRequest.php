@@ -18,15 +18,6 @@ class RegisterUserRequest extends Model
     public $mobile;
 
     /**
-     * @description The operation that you want to perform. Set the value to **RegisterUser**.
-     *
-     * @example USER,DBA
-     *
-     * @var string
-     */
-    public $roleNames;
-
-    /**
      * @description The role that you want to assign to the user. Valid values:
      *
      *   **USER**: a regular user role
@@ -35,6 +26,16 @@ class RegisterUserRequest extends Model
      *   **SECURITY_ADMIN**: a security administrator role
      *
      * >  If you do not specify this parameter, the regular user role is assigned to the user by default. You can assign one or more roles to the user. Separate multiple roles with commas (,).
+     * @example USER,DBA
+     *
+     * @var string
+     */
+    public $roleNames;
+
+    /**
+     * @description The ID of the tenant.
+     *
+     * >  To query ID of the tenant, move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
      * @example -1
      *
      * @var int
@@ -42,7 +43,7 @@ class RegisterUserRequest extends Model
     public $tid;
 
     /**
-     * @description The error code returned.
+     * @description The UID of the Alibaba Cloud account of the user that you want to register.
      *
      * @example 12345678
      *
@@ -51,7 +52,7 @@ class RegisterUserRequest extends Model
     public $uid;
 
     /**
-     * @description The ID of the request.
+     * @description The nickname of the user.
      *
      * @example dmstest
      *

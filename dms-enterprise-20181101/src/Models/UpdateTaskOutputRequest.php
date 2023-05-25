@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskOutputRequest extends Model
 {
     /**
-     * @description ## Single-instance SQL assignment
+     * @description The ID of the node. You can call the [GetTaskInstanceRelation](~~424711~~) operation to query the node ID.
      *
-     * ```
      * @example 14059
      *
      * @var string
@@ -19,15 +18,16 @@ class UpdateTaskOutputRequest extends Model
     public $nodeId;
 
     /**
-     * @description Updates the output variables for a specified task node.
+     * @description The output variables for the task.
      *
      * @var string
      */
     public $nodeOutput;
 
     /**
-     * @description The operation that you want to perform. Set the value to **UpdateTaskOutput**.
+     * @description The ID of the tenant.
      *
+     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 3***
      *
      * @var int

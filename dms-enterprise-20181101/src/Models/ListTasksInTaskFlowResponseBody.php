@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTasksInTaskFlowResponseBody extends Model
 {
     /**
-     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](~~424705~~).
+     * @description The error code returned if the request failed.
      *
      * @example UnknownError
      *
@@ -26,7 +26,7 @@ class ListTasksInTaskFlowResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ListTasksInTaskFlow**.
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
      *
      * @example 8B36B063-6B7D-5595-9FCF-3844B7B7ACD4
      *
@@ -35,7 +35,10 @@ class ListTasksInTaskFlowResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The tasks in the task flow.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example true
      *
@@ -44,7 +47,7 @@ class ListTasksInTaskFlowResponseBody extends Model
     public $success;
 
     /**
-     * @description The advanced configuration for the node.
+     * @description The tasks in the task flow.
      *
      * @var tasks
      */

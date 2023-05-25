@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
-     * @description The nickname of the DBA for the database instance.
+     * @description The name of the database link for the database instance.
      *
      * @example test
      *
@@ -21,7 +21,7 @@ class instance extends Model
     public $dataLinkName;
 
     /**
-     * @description The type of the database instance.
+     * @description The password that is used to log on to the database.
      *
      * @example ******
      *
@@ -30,7 +30,7 @@ class instance extends Model
     public $databasePassword;
 
     /**
-     * @description The timeout period for exporting data from the database instance.
+     * @description The account that is used to log on to the database instance.
      *
      * @example dbuser
      *
@@ -39,7 +39,7 @@ class instance extends Model
     public $databaseUser;
 
     /**
-     * @description The timeout period for querying data in the database instance.
+     * @description The ID of the database administrator (DBA) for the database instance.
      *
      * @example 29****
      *
@@ -48,7 +48,7 @@ class instance extends Model
     public $dbaId;
 
     /**
-     * @description The SID of the database instance.
+     * @description The nickname of the DBA for the database instance.
      *
      * @example dbaname
      *
@@ -57,7 +57,7 @@ class instance extends Model
     public $dbaNickName;
 
     /**
-     * @description The ID of the request.
+     * @description Indicates whether the lock-free schema change feature is enabled for the database instance.
      *
      * @example 0
      *
@@ -66,7 +66,7 @@ class instance extends Model
     public $ddlOnline;
 
     /**
-     * @description The ID of the security rule set for the database instance.
+     * @description The ID of the Elastic Compute Service (ECS) instance on which the database instance is deployed.
      *
      * @example i-bp124ldpklqz59y3****
      *
@@ -75,60 +75,13 @@ class instance extends Model
     public $ecsInstanceId;
 
     /**
-     * @description Queries the details of a database instance.
+     * @description The ID of the region in which the database instance resides.
      *
      * @example cn-beijing
      *
      * @var string
      */
     public $ecsRegion;
-
-    /**
-     * @description The endpoint of the database instance. You can call the [ListInstances](~~141936~~) operation to obtain the endpoint.
-     *
-     * @example test
-     *
-     * @var string
-     */
-    public $envType;
-
-    /**
-     * @description The type of the control mode. Valid values:
-     *
-     *   **COMMON**: Security Collaboration
-     *   **NONE_CONTROL**: Flexible Management
-     *   **STABLE**: Stable Change
-     *
-     * @example 86400
-     *
-     * @var int
-     */
-    public $exportTimeout;
-
-    /**
-     * @description The ID of the database instance.
-     *
-     * @example 192.168.XXX.XXX
-     *
-     * @var string
-     */
-    public $host;
-
-    /**
-     * @description The system ID (SID) of the database instance. You can call the [ListInstances](~~141936~~) operation to obtain the SID.
-     *
-     * @var string
-     */
-    public $instanceAlias;
-
-    /**
-     * @description The control mode of the database instance.
-     *
-     * @example 188****
-     *
-     * @var string
-     */
-    public $instanceId;
 
     /**
      * @description The type of the environment to which the database instance belongs. Valid values:
@@ -142,6 +95,49 @@ class instance extends Model
      *   **pet**: stress testing environment
      *   **stag**: STAG environment
      *
+     * @example test
+     *
+     * @var string
+     */
+    public $envType;
+
+    /**
+     * @description The timeout period for exporting data from the database instance.
+     *
+     * @example 86400
+     *
+     * @var int
+     */
+    public $exportTimeout;
+
+    /**
+     * @description The host address that is used to connect to the database instance.
+     *
+     * @example 192.168.XXX.XXX
+     *
+     * @var string
+     */
+    public $host;
+
+    /**
+     * @description The alias of the database instance.
+     *
+     * @var string
+     */
+    public $instanceAlias;
+
+    /**
+     * @description The ID of the database instance.
+     *
+     * @example 188****
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @description The source of the database instance.
+     *
      * @example ECS_OWN
      *
      * @var string
@@ -149,7 +145,7 @@ class instance extends Model
     public $instanceSource;
 
     /**
-     * @description The host address that is used to connect to the database instance.
+     * @description The type of the database instance.
      *
      * @example postgresql
      *
@@ -158,21 +154,21 @@ class instance extends Model
     public $instanceType;
 
     /**
-     * @description Indicates whether the lock-free schema change feature is enabled for the database instance.
+     * @description The IDs of the owners for the database instance.
      *
      * @var ownerIdList
      */
     public $ownerIdList;
 
     /**
-     * @description The alias of the database instance.
+     * @description The nicknames of the owners for the database instance.
      *
      * @var ownerNameList
      */
     public $ownerNameList;
 
     /**
-     * @description The ID of the database administrator (DBA) for the database instance.
+     * @description The port number that is used to connect to the database instance.
      *
      * @example 5432
      *
@@ -181,10 +177,7 @@ class instance extends Model
     public $port;
 
     /**
-     * @description The status of the database instance. Valid values:
-     *
-     *   **NORMAL**: normal
-     *   **DISABLE**: disabled
+     * @description The timeout period for querying data in the database instance.
      *
      * @example 7200
      *
@@ -193,7 +186,7 @@ class instance extends Model
     public $queryTimeout;
 
     /**
-     * @description The source of the database instance.
+     * @description The ID of the security rule set for the database instance.
      *
      * @example 3****
      *
@@ -209,7 +202,7 @@ class instance extends Model
     public $sellSitd;
 
     /**
-     * @description The port number that is used to connect to the database instance. You can call the [ListInstances](~~141936~~) operation to obtain the port number.
+     * @description The SID of the database instance.
      *
      * @example test
      *
@@ -218,12 +211,17 @@ class instance extends Model
     public $sid;
 
     /**
+     * @description The control mode of the database instance.
+     *
      * @var standardGroup
      */
     public $standardGroup;
 
     /**
-     * @description The nicknames of the owners for the database instance.
+     * @description The status of the database instance. Valid values:
+     *
+     *   **NORMAL**: normal
+     *   **DISABLE**: disabled
      *
      * @example NORMAL
      *
@@ -232,7 +230,10 @@ class instance extends Model
     public $state;
 
     /**
-     * @description The password that is used to log on to the database.
+     * @description Indicates whether the cross-database query feature is enabled for the database instance. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: enabled
      *
      * @example 0
      *
@@ -241,7 +242,7 @@ class instance extends Model
     public $useDsql;
 
     /**
-     * @description The ID of the Elastic Compute Service (ECS) instance on which the database instance is deployed.
+     * @description The ID of the virtual private cloud (VPC) to which the database instance belongs.
      *
      * @example vpc-o6wrloqsdqc9io3mg****
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSQLReviewOptimizeDetailRequest extends Model
 {
     /**
+     * @description The key that is used to query the details of optimization suggestions. You can call the [ListSQLReviewOriginSQL](~~257870~~) operation to query the key.
+     *
      * @example a57e54ec5433475ea3082d882fdb****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetSQLReviewOptimizeDetailRequest extends Model
     public $SQLReviewQueryKey;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the ID of the tenant.
+     *
      * @example 1
      *
      * @var int

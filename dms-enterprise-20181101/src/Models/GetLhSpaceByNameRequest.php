@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetLhSpaceByNameRequest extends Model
 {
     /**
-     * @description Indicates whether the workspace is deleted. Valid values:
-     *
-     *   **true**: The workspace is deleted.
-     *   **false**: The workspace is not deleted.
+     * @description The name of the workspace.
      *
      * @example test_space
      *
@@ -21,10 +18,7 @@ class GetLhSpaceByNameRequest extends Model
     public $spaceName;
 
     /**
-     * @description The type of the database. Valid values:
-     *
-     *   **14**: AnalyticDB for MySQL
-     *   **18**: AnalyticDB for PostgreSQL
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @example 3000
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetTaskFlowGraphResponseBody extends Model
 {
     /**
-     * @description The ID of the task flow.
+     * @description The error code returned if the request failed.
      *
      * @example UnknownError
      *
@@ -19,7 +19,7 @@ class GetTaskFlowGraphResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The error message returned if the request failed.
      *
      * @example UnknownError
      *
@@ -28,7 +28,7 @@ class GetTaskFlowGraphResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The advanced configuration of the node.
+     * @description The ID of the request.
      *
      * @example D9D91166-A626-5F4E-9CA6-7AB10C59DBD8
      *
@@ -37,7 +37,10 @@ class GetTaskFlowGraphResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **GetTaskFlowGraph**.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example true
      *
@@ -46,7 +49,7 @@ class GetTaskFlowGraphResponseBody extends Model
     public $success;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description The list of DAG variables of the task flow.
      *
      * @var taskFlowGraph
      */

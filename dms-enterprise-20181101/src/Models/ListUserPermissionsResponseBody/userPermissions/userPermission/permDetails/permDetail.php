@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class permDetail extends Model
 {
     /**
+     * @description The time when the permissions were granted.
+     *
      * @example 2019-12-12 00:00:00
      *
      * @var string
@@ -16,7 +18,7 @@ class permDetail extends Model
     public $createDate;
 
     /**
-     * @description Queries the permissions of a specific user on a database or a table.
+     * @description The time when the permissions expire.
      *
      * @example 2020-12-12 00:00:00
      *
@@ -25,11 +27,20 @@ class permDetail extends Model
     public $expireDate;
 
     /**
+     * @description This parameter is reserved.
+     *
      * @example xxx
      *
      * @var string
      */
     public $extraData;
+
+    /**
+     * @description The user who grants the permissions.
+     *
+     * @var string
+     */
+    public $originFrom;
 
     /**
      * @description The type of the permissions. Valid values:
@@ -38,13 +49,6 @@ class permDetail extends Model
      *   EXPORT: the export permissions
      *   CORRECT: the change permissions
      *
-     * @var string
-     */
-    public $originFrom;
-
-    /**
-     * @description The ID of the request.
-     *
      * @example QUERY
      *
      * @var string
@@ -52,6 +56,8 @@ class permDetail extends Model
     public $permType;
 
     /**
+     * @description The ID of the authorization record.
+     *
      * @example 758****
      *
      * @var string

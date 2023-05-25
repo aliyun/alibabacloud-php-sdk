@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class standardGroupList extends Model
 {
     /**
+     * @description The type of the database engine. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     *
      * @example mysql
      *
      * @var string
@@ -16,7 +18,7 @@ class standardGroupList extends Model
     public $dbType;
 
     /**
-     * @description The ID of the request.
+     * @description The description of the security rule set.
      *
      * @var string
      */
@@ -30,6 +32,12 @@ class standardGroupList extends Model
     public $groupId;
 
     /**
+     * @description The control mode. Valid values:
+     *
+     *   **NONE_CONTROL**: Flexible Management
+     *   **STABLE**: Stable Change
+     *   **COMMON**: Security Collaboration
+     *
      * @example COMMON
      *
      * @var string
@@ -44,6 +52,8 @@ class standardGroupList extends Model
     public $groupName;
 
     /**
+     * @description The ID of the user who queries the security sets.
+     *
      * @example 51****
      *
      * @var int

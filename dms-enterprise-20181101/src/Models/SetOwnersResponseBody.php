@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetOwnersResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,6 +18,8 @@ class SetOwnersResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,6 +27,8 @@ class SetOwnersResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A99CD576-1E18-4E86-931E-C3CCE56DC030
      *
      * @var string
@@ -30,6 +36,11 @@ class SetOwnersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request fails.
+     *
      * @example true
      *
      * @var bool

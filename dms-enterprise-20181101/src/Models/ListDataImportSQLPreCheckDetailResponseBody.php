@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListDataImportSQLPreCheckDetailResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class ListDataImportSQLPreCheckDetailResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,11 +28,15 @@ class ListDataImportSQLPreCheckDetailResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The precheck information of SQL statements.
+     *
      * @var preCheckSQLDetailList[]
      */
     public $preCheckSQLDetailList;
 
     /**
+     * @description The request ID. You can use the ID to locate logs and troubleshoot issues.
+     *
      * @example 31853A2B-DC9D-5B39-8492-D2AC8BCF550E
      *
      * @var string
@@ -36,6 +44,11 @@ class ListDataImportSQLPreCheckDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -43,6 +56,8 @@ class ListDataImportSQLPreCheckDetailResponseBody extends Model
     public $success;
 
     /**
+     * @description The number of SQL statements.
+     *
      * @example 1
      *
      * @var int

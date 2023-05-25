@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class order extends Model
 {
     /**
-     * @description The status description of the ticket.
+     * @description The remarks of the ticket.
      *
      * @example test
      *
@@ -18,7 +18,7 @@ class order extends Model
     public $comment;
 
     /**
-     * @description The type of the ticket.
+     * @description The user who submitted the ticket.
      *
      * @example test
      *
@@ -27,7 +27,7 @@ class order extends Model
     public $committer;
 
     /**
-     * @description The ID of the ticket.
+     * @description The ID of the user who submitted the ticket.
      *
      * @example 51****
      *
@@ -45,7 +45,7 @@ class order extends Model
     public $createTime;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The time when the ticket was last modified.
      *
      * @example 2022-04-08 11:27:45
      *
@@ -54,6 +54,8 @@ class order extends Model
     public $lastModifyTime;
 
     /**
+     * @description The ID of the ticket.
+     *
      * @example 51****
      *
      * @var int
@@ -61,6 +63,8 @@ class order extends Model
     public $orderId;
 
     /**
+     * @description The type of the ticket.
+     *
      * @example DC_COMMON
      *
      * @var string
@@ -68,10 +72,16 @@ class order extends Model
     public $pluginType;
 
     /**
-     * @description The time condition based on which you want to query tickets. Valid values:
+     * @description The status code of the ticket. Valid values:
      *
-     *   **CREATE_TIME**: the time when a ticket was created.
-     *   **MODIFY_TIME**: the time when a ticket was last modified.
+     *   **fail**: The ticket fails to be executed.
+     *   **toaudit**: The ticket is waiting for approval.
+     *   **cancel**: The ticket is cancelled.
+     *   **processing**: The ticket is being executed.
+     *   **approved**: The ticket is approved.
+     *   **reject**: The ticket is rejected.
+     *   **success**: The ticket is executed.
+     *   **closed**: The ticket is closed.
      *
      * @example success
      *
@@ -80,7 +90,7 @@ class order extends Model
     public $statusCode;
 
     /**
-     * @description Queries tickets in Data Management (DMS).
+     * @description The status description of the ticket.
      *
      * @var string
      */

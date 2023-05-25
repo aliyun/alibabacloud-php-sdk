@@ -27,7 +27,7 @@ class databaseInfo extends Model
     public $dbType;
 
     /**
-     * @description The type of the environment to which the instance belongs. For more information, see [Change the environment type of an instance](~~163309~~).
+     * @description The nickname of the owner of the database.
      *
      * @example product
      *
@@ -48,14 +48,14 @@ class databaseInfo extends Model
     public $logic;
 
     /**
-     * @description The IDs of the owners of the database.
+     * @description test@xxxx:3306[test]
      *
      * @var int[]
      */
     public $ownerIds;
 
     /**
-     * @description The nicknames of the owners of the database.
+     * @description The ID of the owner of the database.
      *
      * @var string[]
      */
@@ -63,7 +63,7 @@ class databaseInfo extends Model
 
     /**
      * @description The name that is used to search for the database.
-     *
+     * > We recommend that you do not use this parameter for business development. The format of the parameter value may be modified in later versions.
      * @example test@xxxx:3306[test]
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSensitiveColumnsRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **ListSensitiveColumns**.
+     * @description The name of the field. You can call the [ListColumns](~~141870~~) operation to query the name of the field.
      *
      * @example test_column
      *
@@ -18,8 +18,9 @@ class ListSensitiveColumnsRequest extends Model
     public $columnName;
 
     /**
-     * @description 1860
+     * @description The ID of the database. You can call the [SearchDatabase](~~141876~~) operation to query the ID of the database.
      *
+     * >  You can also call the [ListDatabases](~~141873~~) operation to query the ID of the physical database and the [ListLogicDatabases](~~141874~~) operation to query the ID of a logical database.
      * @example 1860
      *
      * @var int
@@ -39,7 +40,7 @@ class ListSensitiveColumnsRequest extends Model
     public $logic;
 
     /**
-     * @description The error message.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -48,7 +49,7 @@ class ListSensitiveColumnsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of the page to return.
+     * @description The number of entries to return on each page.
      *
      * @example 100
      *
@@ -57,8 +58,9 @@ class ListSensitiveColumnsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The name of the database. You can call the [SearchDatabase](~~141876~~) operation to query the name of the database.
      *
+     * >  You can also call the [ListDatabases](~~141873~~) operation to query the name of a physical database and the [ListLogicDatabases](~~141874~~) operation to query the name of a logical database.
      * @example test_schema
      *
      * @var string
@@ -78,7 +80,7 @@ class ListSensitiveColumnsRequest extends Model
     public $securityLevel;
 
     /**
-     * @description The error code.
+     * @description The name of the table. You can call the [ListTables](~~141878~~) operation to query the ID of the table.
      *
      * @example test_table
      *
@@ -87,8 +89,9 @@ class ListSensitiveColumnsRequest extends Model
     public $tableName;
 
     /**
-     * @description The name of the table. You can call the [ListTables](~~141878~~) operation to query the ID of the table.
+     * @description The ID of the tenant.
      *
+     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
      * @example 3
      *
      * @var int

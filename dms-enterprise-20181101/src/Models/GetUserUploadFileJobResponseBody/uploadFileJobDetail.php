@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class uploadFileJobDetail extends Model
 {
     /**
+     * @description The key of the file that is returned after the file is uploaded. You can use this key when you upload the file as an attachment in a ticket.
+     *
      * @example upload_3c7edea3-e4c3-4403-857d-737043036f69_test.sql
      *
      * @var string
@@ -17,7 +19,7 @@ class uploadFileJobDetail extends Model
     public $attachmentKey;
 
     /**
-     * @description The key of the file upload task. You can call the [CreateUploadFileJob](~~206059~~) or [CreateUploadOSSFileJob](~~206060~~) operation to query the key.
+     * @description The name of the file.
      *
      * @example test.sql
      *
@@ -26,61 +28,13 @@ class uploadFileJobDetail extends Model
     public $fileName;
 
     /**
-     * @description -1
+     * @description The size of the file. Unit: byte.
      *
      * @example 2968269
      *
      * @var int
      */
     public $fileSize;
-
-    /**
-     * @description The information about the status of the file upload task.
-     *
-     * @example datacorrect
-     *
-     * @var string
-     */
-    public $fileSource;
-
-    /**
-     * @description The error message returned.
-     *
-     * @example 65254a4c1614235217749100e
-     *
-     * @var string
-     */
-    public $jobKey;
-
-    /**
-     * @example SUCCESS
-     *
-     * @var string
-     */
-    public $jobStatus;
-
-    /**
-     * @example success
-     *
-     * @var string
-     */
-    public $jobStatusDesc;
-
-    /**
-     * @description The size of the uploaded file. Unit: byte.
-     *
-     * @var uploadOSSParam
-     */
-    public $uploadOSSParam;
-
-    /**
-     * @description The name of the file.
-     *
-     * @example URL
-     *
-     * @var string
-     */
-    public $uploadType;
 
     /**
      * @description The purpose of the uploaded file. Valid values:
@@ -90,6 +44,70 @@ class uploadFileJobDetail extends Model
      *   **big-file**: The file is uploaded to import multiple data records at a time.
      *   **sqlreview**: The file is uploaded for SQL review.
      *
+     * @example datacorrect
+     *
+     * @var string
+     */
+    public $fileSource;
+
+    /**
+     * @description The key of the file upload task.
+     *
+     * @example 65254a4c1614235217749100e
+     *
+     * @var string
+     */
+    public $jobKey;
+
+    /**
+     * @description The status of the file upload task. Valid values:
+     *
+     *   **INIT**: The file upload task was initialized.
+     *   **PENDING**: The file upload task waited to be run.
+     *   **BE_SCHEDULED**: The file upload task waited to be scheduled.
+     *   **FAIL**: The file upload task failed.
+     *   **SUCCESS**: The file upload task was successful.
+     *   **RUNNING**: The file upload task was being run.
+     *
+     * @example SUCCESS
+     *
+     * @var string
+     */
+    public $jobStatus;
+
+    /**
+     * @description The information about the status of the file upload task.
+     *
+     * @example success
+     *
+     * @var string
+     */
+    public $jobStatusDesc;
+
+    /**
+     * @description The information about the Object Storage Service (OSS) bucket from which the file is uploaded.
+     *
+     * > This parameter is returned if the value of **UploadType** is **OSS**.
+     * @var uploadOSSParam
+     */
+    public $uploadOSSParam;
+
+    /**
+     * @description The method used to upload the file. Valid values:
+     *
+     *   **URL**
+     *   **OSS**
+     *
+     * @example URL
+     *
+     * @var string
+     */
+    public $uploadType;
+
+    /**
+     * @description The URL of the file.
+     *
+     * > This parameter is returned if the value of **UploadType** is **URL**.
      * @example http://xxxx/test.sql
      *
      * @var string
@@ -97,7 +115,7 @@ class uploadFileJobDetail extends Model
     public $uploadURL;
 
     /**
-     * @description The key of the file upload task.
+     * @description The size of the uploaded file. Unit: byte.
      *
      * @example 2968269
      *

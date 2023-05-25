@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddLogicTableRouteConfigResp
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddTaskFlowEdgesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddTaskFlowEdgesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AddTaskFlowEdgesShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnalyzeSQLLineageRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\AnalyzeSQLLineageResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ApproveOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ApproveOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BackFillRequest;
@@ -136,6 +138,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemRequ
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataArchiveOrderDetailRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataArchiveOrderDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseExportOrderDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseExportOrderDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseRequest;
@@ -326,6 +330,7 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowsByPageRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowsByPageResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowsByPageShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowTimeVariablesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTaskFlowTimeVariablesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListTasksInTaskFlowRequest;
@@ -545,7 +550,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **AddLhMembers**.
+     * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
+     *   * Usage notes:
+     *   * *   Before you call this operation to add a user as a task flow developer, make sure that you have added the user as a workspace member.
+     *   * *   You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](~~424761~~) operation.
+     *   * *   For more information about workspace roles and permissions, see [Manage permissions on a workspace](~~410893~~).
      *   *
      * @param AddLhMembersRequest $tmpReq  AddLhMembersRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -592,7 +601,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **AddLhMembers**.
+     * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
+     *   * Usage notes:
+     *   * *   Before you call this operation to add a user as a task flow developer, make sure that you have added the user as a workspace member.
+     *   * *   You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](~~424761~~) operation.
+     *   * *   For more information about workspace roles and permissions, see [Manage permissions on a workspace](~~410893~~).
      *   *
      * @param AddLhMembersRequest $request AddLhMembersRequest
      *
@@ -716,6 +729,55 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
+     * @param AnalyzeSQLLineageRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AnalyzeSQLLineageResponse
+     */
+    public function analyzeSQLLineageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->sqlContent)) {
+            $query['SqlContent'] = $request->sqlContent;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AnalyzeSQLLineage',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AnalyzeSQLLineageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AnalyzeSQLLineageRequest $request
+     *
+     * @return AnalyzeSQLLineageResponse
+     */
+    public function analyzeSQLLineage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->analyzeSQLLineageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ApproveOrderRequest $request
      * @param RuntimeOptions      $runtime
      *
@@ -768,7 +830,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     * During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
      *   *
      * @param BackFillRequest $tmpReq  BackFillRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
@@ -780,6 +842,9 @@ class Dmsenterprise extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new BackFillShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->filterNodeIds)) {
+            $request->filterNodeIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filterNodeIds, 'FilterNodeIds', 'json');
+        }
         if (!Utils::isUnset($tmpReq->startNodeIds)) {
             $request->startNodeIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->startNodeIds, 'StartNodeIds', 'json');
         }
@@ -798,6 +863,9 @@ class Dmsenterprise extends OpenApiClient
         }
         if (!Utils::isUnset($request->dagId)) {
             $query['DagId'] = $request->dagId;
+        }
+        if (!Utils::isUnset($request->filterNodeIdsShrink)) {
+            $query['FilterNodeIds'] = $request->filterNodeIdsShrink;
         }
         if (!Utils::isUnset($request->historyDagId)) {
             $query['HistoryDagId'] = $request->historyDagId;
@@ -833,7 +901,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     * During a data backfill, task flows are run in sequence based on their dates. You can specify whether task flows are run in chronological or reverse chronological order. After the data backfill is complete, you can specify a date or date range, and a node range to run task flows.
      *   *
      * @param BackFillRequest $request BackFillRequest
      *
@@ -960,7 +1028,9 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * Usage notes:
+     *   * *   If you call this operation to transfer the ownership of a published task flow, the ownership transfer does not take effect.
+     *   * *   You can call the [ReDeployLhDagVersion](~~424712~~) operation to redeploy a published version of a task flow.
      *   *
      * @param ChangeLhDagOwnerRequest $request ChangeLhDagOwnerRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -999,7 +1069,9 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * Usage notes:
+     *   * *   If you call this operation to transfer the ownership of a published task flow, the ownership transfer does not take effect.
+     *   * *   You can call the [ReDeployLhDagVersion](~~424712~~) operation to redeploy a published version of a task flow.
      *   *
      * @param ChangeLhDagOwnerRequest $request ChangeLhDagOwnerRequest
      *
@@ -1115,7 +1187,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The error code returned if the request fails.
+     * For more information about the Normal Data Modify feature, see [Change regular data](~~58419~~).
      *   *
      * @param CreateDataCorrectOrderRequest $tmpReq  CreateDataCorrectOrderRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1168,7 +1240,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The error code returned if the request fails.
+     * For more information about the Normal Data Modify feature, see [Change regular data](~~58419~~).
      *   *
      * @param CreateDataCorrectOrderRequest $request CreateDataCorrectOrderRequest
      *
@@ -1182,7 +1254,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The error code.
+     * For more information about the historical data cleaning, see [Clear historical data](~~162507~~).
+     *   * This operation can be used only for MySQL databases.
      *   *
      * @param CreateDataCronClearOrderRequest $tmpReq  CreateDataCronClearOrderRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1235,7 +1308,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The error code.
+     * For more information about the historical data cleaning, see [Clear historical data](~~162507~~).
+     *   * This operation can be used only for MySQL databases.
      *   *
      * @param CreateDataCronClearOrderRequest $request CreateDataCronClearOrderRequest
      *
@@ -1315,8 +1389,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The key of the attachment that contains the SQL statements used to roll back the data import. You can call the [GetUserUploadFileJob](~~206069~~) operation to obtain the attachment key from the value of the AttachmentKey parameter.
-     *   * >  This parameter is required if you set the **RollbackSqlType** parameter to **ATTACHMENT**.
+     * For more information about the Large Data Import feature, see [Import data](~~161439~~).
      *   *
      * @param CreateDataImportOrderRequest $tmpReq  CreateDataImportOrderRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -1369,8 +1442,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The key of the attachment that contains the SQL statements used to roll back the data import. You can call the [GetUserUploadFileJob](~~206069~~) operation to obtain the attachment key from the value of the AttachmentKey parameter.
-     *   * >  This parameter is required if you set the **RollbackSqlType** parameter to **ATTACHMENT**.
+     * For more information about the Large Data Import feature, see [Import data](~~161439~~).
      *   *
      * @param CreateDataImportOrderRequest $request CreateDataImportOrderRequest
      *
@@ -1510,7 +1582,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The SQL statements that you want to execute to change data.
+     * For more information about the lock-free change feature, see [Overview](~~207847~~).
+     *   * This operation can be used only for instances that are managed in Stable Change or Security Collaboration mode. For more information, see [Change data without the need to lock tables](~~96145~~) and [Change schemas without locking tables](~~98373~~).
      *   *
      * @param CreateFreeLockCorrectOrderRequest $tmpReq  CreateFreeLockCorrectOrderRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -1563,7 +1636,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The SQL statements that you want to execute to change data.
+     * For more information about the lock-free change feature, see [Overview](~~207847~~).
+     *   * This operation can be used only for instances that are managed in Stable Change or Security Collaboration mode. For more information, see [Change data without the need to lock tables](~~96145~~) and [Change schemas without locking tables](~~98373~~).
      *   *
      * @param CreateFreeLockCorrectOrderRequest $request CreateFreeLockCorrectOrderRequest
      *
@@ -1701,7 +1775,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The error code.
+     * To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
+     *   * *   [CreateDataCorrectOrder](~~208388~~): creates a regular data change ticket.
+     *   * *   [CreateDataCronClearOrder](~~208385~~): creates a ticket to clear historical data.
+     *   * *   [CreateDataImportOrder](~~208387~~): creates a data import ticket.
+     *   * *   [CreateFreeLockCorrectOrder](~~208386~~): creates a lock-free change ticket.
      *   *
      * @param CreateOrderRequest $tmpReq  CreateOrderRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -1756,7 +1834,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The error code.
+     * To facilitate ticket creation, you can call the following dedicated operations to create some types of tickets:
+     *   * *   [CreateDataCorrectOrder](~~208388~~): creates a regular data change ticket.
+     *   * *   [CreateDataCronClearOrder](~~208385~~): creates a ticket to clear historical data.
+     *   * *   [CreateDataImportOrder](~~208387~~): creates a data import ticket.
+     *   * *   [CreateFreeLockCorrectOrder](~~208386~~): creates a lock-free change ticket.
      *   *
      * @param CreateOrderRequest $request CreateOrderRequest
      *
@@ -1770,10 +1852,14 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param CreateProxyRequest $request
-     * @param RuntimeOptions     $runtime
+     * - The database instance runs the MySQL or MariaDB database engine. For example, the database instance can be an ApsaraDB RDS for MySQL instance, a PolarDB for MySQL cluster, a Distributed Relational Database Service (DRDS) cluster, or an AnalyticDB for MySQL cluster. The database instance can also be a self-managed MySQL or MariaDB database, or a MySQL or MariaDB database in a third-party cloud.
+     *   * - The database instance resides in the China (Hangzhou) or China (Beijing) region.
+     *   * - You are a Data Management (DMS) administrator, a database administrator (DBA), or the owner of the database instance.
+     *   *
+     * @param CreateProxyRequest $request CreateProxyRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProxyResponse
+     * @return CreateProxyResponse CreateProxyResponse
      */
     public function createProxyWithOptions($request, $runtime)
     {
@@ -1810,9 +1896,13 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param CreateProxyRequest $request
+     * - The database instance runs the MySQL or MariaDB database engine. For example, the database instance can be an ApsaraDB RDS for MySQL instance, a PolarDB for MySQL cluster, a Distributed Relational Database Service (DRDS) cluster, or an AnalyticDB for MySQL cluster. The database instance can also be a self-managed MySQL or MariaDB database, or a MySQL or MariaDB database in a third-party cloud.
+     *   * - The database instance resides in the China (Hangzhou) or China (Beijing) region.
+     *   * - You are a Data Management (DMS) administrator, a database administrator (DBA), or the owner of the database instance.
+     *   *
+     * @param CreateProxyRequest $request CreateProxyRequest
      *
-     * @return CreateProxyResponse
+     * @return CreateProxyResponse CreateProxyResponse
      */
     public function createProxy($request)
     {
@@ -1822,10 +1912,13 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param CreateProxyAccessRequest $request
-     * @param RuntimeOptions           $runtime
+     * - The data security protection feature is enabled for the instance.
+     *   * - Your user role is the administrator role, DBA role, or the owner of data security protection for the current instance.
+     *   *
+     * @param CreateProxyAccessRequest $request CreateProxyAccessRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateProxyAccessResponse
+     * @return CreateProxyAccessResponse CreateProxyAccessResponse
      */
     public function createProxyAccessWithOptions($request, $runtime)
     {
@@ -1865,9 +1958,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param CreateProxyAccessRequest $request
+     * - The data security protection feature is enabled for the instance.
+     *   * - Your user role is the administrator role, DBA role, or the owner of data security protection for the current instance.
+     *   *
+     * @param CreateProxyAccessRequest $request CreateProxyAccessRequest
      *
-     * @return CreateProxyAccessResponse
+     * @return CreateProxyAccessResponse CreateProxyAccessResponse
      */
     public function createProxyAccess($request)
     {
@@ -2388,7 +2484,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     * Note: You can call this operation only to remove a database instance from the instance list of DMS. The instance is not deleted or shut down.
      *   *
      * @param DeleteInstanceRequest $request DeleteInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -2430,7 +2526,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     * Note: You can call this operation only to remove a database instance from the instance list of DMS. The instance is not deleted or shut down.
      *   *
      * @param DeleteInstanceRequest $request DeleteInstanceRequest
      *
@@ -2490,7 +2586,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the user to be removed. You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to obtain the user ID.
+     * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
+     *   * You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](~~424761~~) operation.
      *   *
      * @param DeleteLhMembersRequest $tmpReq  DeleteLhMembersRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -2537,7 +2634,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the user to be removed. You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to obtain the user ID.
+     * You must call this operation as a DMS administrator, a database administrator (DBA), or a workspace administrator.
+     *   * You cannot call this operation to transfer the ownership of a task flow. To transfer the ownership of a task flow, call the [ChangLhDagOwner](~~424761~~) operation.
      *   *
      * @param DeleteLhMembersRequest $request DeleteLhMembersRequest
      *
@@ -2646,10 +2744,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param DeleteProxyRequest $request
-     * @param RuntimeOptions     $runtime
+     * After you disable this feature, your DB instance loses the JDBC protocol. All authorization information is recycled.
+     *   *
+     * @param DeleteProxyRequest $request DeleteProxyRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteProxyResponse
+     * @return DeleteProxyResponse DeleteProxyResponse
      */
     public function deleteProxyWithOptions($request, $runtime)
     {
@@ -2680,9 +2780,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param DeleteProxyRequest $request
+     * After you disable this feature, your DB instance loses the JDBC protocol. All authorization information is recycled.
+     *   *
+     * @param DeleteProxyRequest $request DeleteProxyRequest
      *
-     * @return DeleteProxyResponse
+     * @return DeleteProxyResponse DeleteProxyResponse
      */
     public function deleteProxy($request)
     {
@@ -2738,7 +2840,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The error code returned if the request failed.
+     * When you call this operation, make sure that no task flow is specified in the business scenario.
      *   *
      * @param DeleteScenarioRequest $request DeleteScenarioRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -2774,7 +2876,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The error code returned if the request failed.
+     * When you call this operation, make sure that no task flow is specified in the business scenario.
      *   *
      * @param DeleteScenarioRequest $request DeleteScenarioRequest
      *
@@ -2880,7 +2982,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     * This operation is used for multi-condition query. You can call it to delete the edges of a specified task flow that meet all specified conditions.
      *   *
      * @param DeleteTaskFlowEdgesByConditionRequest $request DeleteTaskFlowEdgesByConditionRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -2925,7 +3027,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     * This operation is used for multi-condition query. You can call it to delete the edges of a specified task flow that meet all specified conditions.
      *   *
      * @param DeleteTaskFlowEdgesByConditionRequest $request DeleteTaskFlowEdgesByConditionRequest
      *
@@ -2939,7 +3041,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * DeleteUser.
+     * This operation corresponds to the feature of deleting a user on the Users page in the Data Management (DMS) console. An administrator of DMS Enterprise can call this operation to delete an Alibaba Cloud account that is no longer used in DMS Enterprise. After an Alibaba Cloud account is deleted, the permissions that are granted to the Alibaba Cloud account are revoked. The data owner configurations and database administrator (DBA) configurations are disabled.
+     *   * > This operation only removes the relationship between an Alibaba Cloud account and DMS Enterprise. The Alibaba Cloud account is not deleted. After you delete an Alibaba Cloud account, you cannot use this account to log on to DMS Enterprise until the account is recreated.
      *   *
      * @param DeleteUserRequest $request DeleteUserRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -2975,7 +3078,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * DeleteUser.
+     * This operation corresponds to the feature of deleting a user on the Users page in the Data Management (DMS) console. An administrator of DMS Enterprise can call this operation to delete an Alibaba Cloud account that is no longer used in DMS Enterprise. After an Alibaba Cloud account is deleted, the permissions that are granted to the Alibaba Cloud account are revoked. The data owner configurations and database administrator (DBA) configurations are disabled.
+     *   * > This operation only removes the relationship between an Alibaba Cloud account and DMS Enterprise. The Alibaba Cloud account is not deleted. After you delete an Alibaba Cloud account, you cannot use this account to log on to DMS Enterprise until the account is recreated.
      *   *
      * @param DeleteUserRequest $request DeleteUserRequest
      *
@@ -2989,7 +3093,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The UID of the Alibaba Cloud account.
+     * The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
+     *   * >  This operation only stops the Alibaba Cloud account or RAM user from logging on to DMS Enterprise of the enterprise, rather than actually disabling the Alibaba Cloud account or RAM user. After the user is disabled, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is enabled again. The disabled user, however, still exists in DMS Enterprise.
      *   *
      * @param DisableUserRequest $request DisableUserRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -3025,7 +3130,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The UID of the Alibaba Cloud account.
+     * The effect of disabling a user by calling this operation is the same as that of disabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to disable a user that is temporarily not used in DMS Enterprise. After the user is disabled, the data source permission, data owner configuration, and database administrator (DBA) configuration of the corresponding Alibaba Cloud account or Resource Access Management (RAM) user are revoked and become invalid.
+     *   * >  This operation only stops the Alibaba Cloud account or RAM user from logging on to DMS Enterprise of the enterprise, rather than actually disabling the Alibaba Cloud account or RAM user. After the user is disabled, the Alibaba Cloud account or RAM user cannot log on to DMS Enterprise, unless the user is enabled again. The disabled user, however, still exists in DMS Enterprise.
      *   *
      * @param DisableUserRequest $request DisableUserRequest
      *
@@ -3177,10 +3283,13 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param EnableUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
+     *   * >  This operation only enables the Alibaba Cloud account or RAM user to log on to DMS Enterprise of the enterprise and perform relevant operations, rather than granting other permissions to the Alibaba Cloud account or RAM user.
+     *   *
+     * @param EnableUserRequest $request EnableUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableUserResponse
+     * @return EnableUserResponse EnableUserResponse
      */
     public function enableUserWithOptions($request, $runtime)
     {
@@ -3211,9 +3320,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param EnableUserRequest $request
+     * The effect of enabling a user by calling this operation is the same as that of enabling a user by choosing System Management > User Management in the DMS Enterprise console. The administrator of DMS Enterprise can call this operation to enable a user that has been disabled in DMS Enterprise. After the user is enabled, the corresponding Alibaba Cloud account or Resource Access Management (RAM) user can continue to log on to DMS Enterprise and perform relevant operations.
+     *   * >  This operation only enables the Alibaba Cloud account or RAM user to log on to DMS Enterprise of the enterprise and perform relevant operations, rather than granting other permissions to the Alibaba Cloud account or RAM user.
+     *   *
+     * @param EnableUserRequest $request EnableUserRequest
      *
-     * @return EnableUserResponse
+     * @return EnableUserResponse EnableUserResponse
      */
     public function enableUser($request)
     {
@@ -3331,7 +3443,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The SQL statements to be executed. Data query language (DQL) statements, data definition language (DDL) statements, and data manipulation language (DML) statements are supported. The control mode of the instance that you want to query determines whether you can execute DDL and DML statements.
+     * You can call this operation only for instances that are managed in Security Collaboration mode.
      *   *
      * @param ExecuteScriptRequest $request ExecuteScriptRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -3373,7 +3485,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The SQL statements to be executed. Data query language (DQL) statements, data definition language (DDL) statements, and data manipulation language (DML) statements are supported. The control mode of the instance that you want to query determines whether you can execute DDL and DML statements.
+     * You can call this operation only for instances that are managed in Security Collaboration mode.
      *   *
      * @param ExecuteScriptRequest $request ExecuteScriptRequest
      *
@@ -3674,6 +3786,52 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDBTopologyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDataArchiveOrderDetailRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetDataArchiveOrderDetailResponse
+     */
+    public function getDataArchiveOrderDetailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderId)) {
+            $query['OrderId'] = $request->orderId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataArchiveOrderDetail',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataArchiveOrderDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDataArchiveOrderDetailRequest $request
+     *
+     * @return GetDataArchiveOrderDetailResponse
+     */
+    public function getDataArchiveOrderDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataArchiveOrderDetailWithOptions($request, $runtime);
     }
 
     /**
@@ -4157,10 +4315,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetDataImportSQLRequest $request
-     * @param RuntimeOptions          $runtime
+     * You can call this operation only if the data is imported in security mode in your data import ticket.
+     *   *
+     * @param GetDataImportSQLRequest $request GetDataImportSQLRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDataImportSQLResponse
+     * @return GetDataImportSQLResponse GetDataImportSQLResponse
      */
     public function getDataImportSQLWithOptions($request, $runtime)
     {
@@ -4194,9 +4354,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetDataImportSQLRequest $request
+     * You can call this operation only if the data is imported in security mode in your data import ticket.
+     *   *
+     * @param GetDataImportSQLRequest $request GetDataImportSQLRequest
      *
-     * @return GetDataImportSQLResponse
+     * @return GetDataImportSQLResponse GetDataImportSQLResponse
      */
     public function getDataImportSQL($request)
     {
@@ -4499,7 +4661,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The minimum scheduling cycle. Unit: minutes.
+     * The scheduling cycle of a task flow must be greater than the minimum scheduling cycle configured in the SLA rule for the task flow.
      *   *
      * @param GetIntervalLimitOfSLARequest $request GetIntervalLimitOfSLARequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -4535,7 +4697,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The minimum scheduling cycle. Unit: minutes.
+     * The scheduling cycle of a task flow must be greater than the minimum scheduling cycle configured in the SLA rule for the task flow.
      *   *
      * @param GetIntervalLimitOfSLARequest $request GetIntervalLimitOfSLARequest
      *
@@ -4549,7 +4711,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the workspace.
+     * You are a DMS administrator or a database administrator (DBA).
      *   *
      * @param GetLhSpaceByNameRequest $request GetLhSpaceByNameRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -4585,7 +4747,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the workspace.
+     * You are a DMS administrator or a database administrator (DBA).
      *   *
      * @param GetLhSpaceByNameRequest $request GetLhSpaceByNameRequest
      *
@@ -4791,7 +4953,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The error message returned if the request failed.
+     * Prerequisites: You are an administrator of Data Management (DMS) or a security administrator. You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to obtain your user role from the RoleIdList parameter that is returned.
      *   *
      * @param GetOpLogRequest $request GetOpLogRequest
      * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
@@ -4845,7 +5007,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The error message returned if the request failed.
+     * Prerequisites: You are an administrator of Data Management (DMS) or a security administrator. You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to obtain your user role from the RoleIdList parameter that is returned.
      *   *
      * @param GetOpLogRequest $request GetOpLogRequest
      *
@@ -5281,10 +5443,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetSQLReviewOptimizeDetailRequest $request
-     * @param RuntimeOptions                    $runtime
+     * For more information about the SQL review feature, see [SQL review](https://icms.alibaba-inc.com/content/dms/doc?l=1\\&m=61777\\&n=2433364).
+     *   *
+     * @param GetSQLReviewOptimizeDetailRequest $request GetSQLReviewOptimizeDetailRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSQLReviewOptimizeDetailResponse
+     * @return GetSQLReviewOptimizeDetailResponse GetSQLReviewOptimizeDetailResponse
      */
     public function getSQLReviewOptimizeDetailWithOptions($request, $runtime)
     {
@@ -5315,9 +5479,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param GetSQLReviewOptimizeDetailRequest $request
+     * For more information about the SQL review feature, see [SQL review](https://icms.alibaba-inc.com/content/dms/doc?l=1\\&m=61777\\&n=2433364).
+     *   *
+     * @param GetSQLReviewOptimizeDetailRequest $request GetSQLReviewOptimizeDetailRequest
      *
-     * @return GetSQLReviewOptimizeDetailResponse
+     * @return GetSQLReviewOptimizeDetailResponse GetSQLReviewOptimizeDetailResponse
      */
     public function getSQLReviewOptimizeDetail($request)
     {
@@ -6416,7 +6582,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The number of entries to return on each page.
+     * For more information about the Normal Data Modify feature, see [Change regular data](~~58419~~).
      *   *
      * @param ListDataCorrectPreCheckDBRequest $request ListDataCorrectPreCheckDBRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -6458,7 +6624,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The number of entries to return on each page.
+     * For more information about the Normal Data Modify feature, see [Change regular data](~~58419~~).
      *   *
      * @param ListDataCorrectPreCheckDBRequest $request ListDataCorrectPreCheckDBRequest
      *
@@ -6472,7 +6638,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The precheck information about SQL statements.
+     * For more information about the Normal Data Modify feature, see [Change regular data](~~58419~~).
      *   *
      * @param ListDataCorrectPreCheckSQLRequest $request ListDataCorrectPreCheckSQLRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -6517,7 +6683,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The precheck information about SQL statements.
+     * For more information about the Normal Data Modify feature, see [Change regular data](~~58419~~).
      *   *
      * @param ListDataCorrectPreCheckSQLRequest $request ListDataCorrectPreCheckSQLRequest
      *
@@ -6531,10 +6697,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ListDataImportSQLPreCheckDetailRequest $request
-     * @param RuntimeOptions                         $runtime
+     * You can call this operation only if the data is imported in security mode in your data import ticket.
+     *   *
+     * @param ListDataImportSQLPreCheckDetailRequest $request ListDataImportSQLPreCheckDetailRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataImportSQLPreCheckDetailResponse
+     * @return ListDataImportSQLPreCheckDetailResponse ListDataImportSQLPreCheckDetailResponse
      */
     public function listDataImportSQLPreCheckDetailWithOptions($request, $runtime)
     {
@@ -6577,9 +6745,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ListDataImportSQLPreCheckDetailRequest $request
+     * You can call this operation only if the data is imported in security mode in your data import ticket.
+     *   *
+     * @param ListDataImportSQLPreCheckDetailRequest $request ListDataImportSQLPreCheckDetailRequest
      *
-     * @return ListDataImportSQLPreCheckDetailResponse
+     * @return ListDataImportSQLPreCheckDetailResponse ListDataImportSQLPreCheckDetailResponse
      */
     public function listDataImportSQLPreCheckDetail($request)
     {
@@ -6589,10 +6759,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ListDataImportSQLTypeRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can call this operation only if the data is imported in security mode in your data import ticket.
+     *   *
+     * @param ListDataImportSQLTypeRequest $request ListDataImportSQLTypeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDataImportSQLTypeResponse
+     * @return ListDataImportSQLTypeResponse ListDataImportSQLTypeResponse
      */
     public function listDataImportSQLTypeWithOptions($request, $runtime)
     {
@@ -6623,9 +6795,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ListDataImportSQLTypeRequest $request
+     * You can call this operation only if the data is imported in security mode in your data import ticket.
+     *   *
+     * @param ListDataImportSQLTypeRequest $request ListDataImportSQLTypeRequest
      *
-     * @return ListDataImportSQLTypeResponse
+     * @return ListDataImportSQLTypeResponse ListDataImportSQLTypeResponse
      */
     public function listDataImportSQLType($request)
     {
@@ -7130,7 +7304,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **ListLhTaskFlowAndScenario**.
+     * *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](~~424759~~) operation can be called to add a workspace member.
+     *   * *   If you are a DMS administrator or a workspace administrator, you can query the business scenarios and task flows related to a user in a workspace based on the user ID.
      *   *
      * @param ListLhTaskFlowAndScenarioRequest $request ListLhTaskFlowAndScenarioRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -7169,7 +7344,8 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **ListLhTaskFlowAndScenario**.
+     * *   Before you call this operation, make sure that you have the access permissions on the workspace. If you do not have the access permissions on the workspace, you can contact a DMS administrator, database administrator (DBA), or workspace administrator to add you as a member of the workspace. The [AddLhMembers](~~424759~~) operation can be called to add a workspace member.
+     *   * *   If you are a DMS administrator or a workspace administrator, you can query the business scenarios and task flows related to a user in a workspace based on the user ID.
      *   *
      * @param ListLhTaskFlowAndScenarioRequest $request ListLhTaskFlowAndScenarioRequest
      *
@@ -7675,7 +7851,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The total number of the SQL statements.
+     * For more information about the SQL review feature, see [SQL review](~~60374~~).
      *   *
      * @param ListSQLReviewOriginSQLRequest $tmpReq  ListSQLReviewOriginSQLRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -7719,7 +7895,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The total number of the SQL statements.
+     * For more information about the SQL review feature, see [SQL review](~~60374~~).
      *   *
      * @param ListSQLReviewOriginSQLRequest $request ListSQLReviewOriginSQLRequest
      *
@@ -8211,7 +8387,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     * This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
      *   *
      * @param ListTaskFlowEdgesByConditionRequest $request ListTaskFlowEdgesByConditionRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -8256,7 +8432,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
+     * This operation is used for multi-condition query. You can call this operation to query the edges of a specified task flow that meet all specified conditions.
      *   *
      * @param ListTaskFlowEdgesByConditionRequest $request ListTaskFlowEdgesByConditionRequest
      *
@@ -8294,11 +8470,17 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($request->startTimeEnd)) {
             $query['StartTimeEnd'] = $request->startTimeEnd;
         }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         if (!Utils::isUnset($request->tid)) {
             $query['Tid'] = $request->tid;
         }
         if (!Utils::isUnset($request->triggerType)) {
             $query['TriggerType'] = $request->triggerType;
+        }
+        if (!Utils::isUnset($request->useBizDate)) {
+            $query['UseBizDate'] = $request->useBizDate;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -8377,20 +8559,31 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ListTaskFlowsByPageRequest $request
+     * @param ListTaskFlowsByPageRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
      * @return ListTaskFlowsByPageResponse
      */
-    public function listTaskFlowsByPageWithOptions($request, $runtime)
+    public function listTaskFlowsByPageWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListTaskFlowsByPageShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->dagIdList)) {
+            $request->dagIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dagIdList, 'DagIdList', 'json');
+        }
         $query = [];
+        if (!Utils::isUnset($request->dagIdListShrink)) {
+            $query['DagIdList'] = $request->dagIdListShrink;
+        }
         if (!Utils::isUnset($request->pageIndex)) {
             $query['PageIndex'] = $request->pageIndex;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->scenarioId)) {
+            $query['ScenarioId'] = $request->scenarioId;
         }
         if (!Utils::isUnset($request->searchKey)) {
             $query['SearchKey'] = $request->searchKey;
@@ -9292,7 +9485,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * WB01220505.
+     * Prerequisites: You are a DMS administrator or a database administrator (DBA). You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to query your user role from the RoleIdList parameter that is returned.
      *   *
      * @param RegisterInstanceRequest $request RegisterInstanceRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -9397,7 +9590,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * WB01220505.
+     * Prerequisites: You are a DMS administrator or a database administrator (DBA). You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to query your user role from the RoleIdList parameter that is returned.
      *   *
      * @param RegisterInstanceRequest $request RegisterInstanceRequest
      *
@@ -9411,8 +9604,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the tenant.
-     *   * >  To query ID of the tenant, move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
+     * If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
      *   *
      * @param RegisterUserRequest $request RegisterUserRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -9457,8 +9649,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the tenant.
-     *   * >  To query ID of the tenant, move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
+     * If you are an **administrator** in Data Management (DMS), you can call this operation to register a user for your enterprise. To view users that are assigned the administrator role, perform the following steps: Log on to the DMS console. In the top navigation bar, click O&M. In the left-side navigation pane, click User.
      *   *
      * @param RegisterUserRequest $request RegisterUserRequest
      *
@@ -9524,10 +9715,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ResumeTaskFlowInstanceRequest $request
-     * @param RuntimeOptions                $runtime
+     * You can call this operation only for task flows that are suspended.
+     *   *
+     * @param ResumeTaskFlowInstanceRequest $request ResumeTaskFlowInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResumeTaskFlowInstanceResponse
+     * @return ResumeTaskFlowInstanceResponse ResumeTaskFlowInstanceResponse
      */
     public function resumeTaskFlowInstanceWithOptions($request, $runtime)
     {
@@ -9564,9 +9757,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param ResumeTaskFlowInstanceRequest $request
+     * You can call this operation only for task flows that are suspended.
+     *   *
+     * @param ResumeTaskFlowInstanceRequest $request ResumeTaskFlowInstanceRequest
      *
-     * @return ResumeTaskFlowInstanceResponse
+     * @return ResumeTaskFlowInstanceResponse ResumeTaskFlowInstanceResponse
      */
     public function resumeTaskFlowInstance($request)
     {
@@ -10401,10 +10596,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * Before you call the UpdateInstance operation, call the [GetInstance](~~141567~~) or [ListInstances](~~141936~~) operation to obtain the complete information about the instance.
+     *   *
+     * @param UpdateInstanceRequest $request UpdateInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstanceWithOptions($request, $runtime)
     {
@@ -10504,9 +10701,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceRequest $request
+     * Before you call the UpdateInstance operation, call the [GetInstance](~~141567~~) or [ListInstances](~~141936~~) operation to obtain the complete information about the instance.
+     *   *
+     * @param UpdateInstanceRequest $request UpdateInstanceRequest
      *
-     * @return UpdateInstanceResponse
+     * @return UpdateInstanceResponse UpdateInstanceResponse
      */
     public function updateInstance($request)
     {
@@ -10516,7 +10715,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the task node.
+     * SLA rules take effect after task flows are deployed and published.
      *   *
      * @param UpdateSLARulesRequest $tmpReq  UpdateSLARulesRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -10560,7 +10759,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the task node.
+     * SLA rules take effect after task flows are deployed and published.
      *   *
      * @param UpdateSLARulesRequest $request UpdateSLARulesRequest
      *
@@ -10626,10 +10825,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskConfigRequest $request
-     * @param RuntimeOptions          $runtime
+     * You can call this operation to configure a failed task or rerun a task.
+     *   *
+     * @param UpdateTaskConfigRequest $request UpdateTaskConfigRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTaskConfigResponse
+     * @return UpdateTaskConfigResponse UpdateTaskConfigResponse
      */
     public function updateTaskConfigWithOptions($request, $runtime)
     {
@@ -10663,9 +10864,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskConfigRequest $request
+     * You can call this operation to configure a failed task or rerun a task.
+     *   *
+     * @param UpdateTaskConfigRequest $request UpdateTaskConfigRequest
      *
-     * @return UpdateTaskConfigResponse
+     * @return UpdateTaskConfigResponse UpdateTaskConfigResponse
      */
     public function updateTaskConfig($request)
     {
@@ -10675,10 +10878,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskContentRequest $request
-     * @param RuntimeOptions           $runtime
+     * You can call this operation to modify node configurations.
+     *   *
+     * @param UpdateTaskContentRequest $request UpdateTaskContentRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTaskContentResponse
+     * @return UpdateTaskContentResponse UpdateTaskContentResponse
      */
     public function updateTaskContentWithOptions($request, $runtime)
     {
@@ -10712,9 +10917,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskContentRequest $request
+     * You can call this operation to modify node configurations.
+     *   *
+     * @param UpdateTaskContentRequest $request UpdateTaskContentRequest
      *
-     * @return UpdateTaskContentResponse
+     * @return UpdateTaskContentResponse UpdateTaskContentResponse
      */
     public function updateTaskContent($request)
     {
@@ -11005,8 +11212,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the tenant.
-     *   * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     * Note: The new owner of the task flow must belong to the same tenant as the previous owner.
      *   *
      * @param UpdateTaskFlowOwnerRequest $request UpdateTaskFlowOwnerRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -11045,8 +11251,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the tenant.
-     *   * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
+     * Note: The new owner of the task flow must belong to the same tenant as the previous owner.
      *   *
      * @param UpdateTaskFlowOwnerRequest $request UpdateTaskFlowOwnerRequest
      *
@@ -11060,7 +11265,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the end node on the edge.
+     * You can call this operation to perform a full update. For incremental updates, see AddTaskFlowEdges, UpdateTaskFlowEdges, and DeleteTaskFlowEdgesByMultiCondition.
      *   *
      * @param UpdateTaskFlowRelationsRequest $tmpReq  UpdateTaskFlowRelationsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -11104,7 +11309,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The ID of the end node on the edge.
+     * You can call this operation to perform a full update. For incremental updates, see AddTaskFlowEdges, UpdateTaskFlowEdges, and DeleteTaskFlowEdgesByMultiCondition.
      *   *
      * @param UpdateTaskFlowRelationsRequest $request UpdateTaskFlowRelationsRequest
      *
@@ -11118,10 +11323,13 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskFlowScheduleRequest $request
-     * @param RuntimeOptions                $runtime
+     * You can call this operation to update the scheduling properties for a task flow in the editing state. You can configure a **timed scheduling** task flow or an **event scheduling** task flow. When you configure a **timed scheduling** task flow, you can choose from one-time scheduling or periodic scheduling. When you configure an **event scheduling** task flow, you can subscribe to task flows or task flow nodes.****\\
+     *   * After you update the scheduling properties, you need to publish and deploy the task flow again. The new task flow instance will run based on the updated scheduling properties.
+     *   *
+     * @param UpdateTaskFlowScheduleRequest $request UpdateTaskFlowScheduleRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateTaskFlowScheduleResponse
+     * @return UpdateTaskFlowScheduleResponse UpdateTaskFlowScheduleResponse
      */
     public function updateTaskFlowScheduleWithOptions($request, $runtime)
     {
@@ -11176,9 +11384,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param UpdateTaskFlowScheduleRequest $request
+     * You can call this operation to update the scheduling properties for a task flow in the editing state. You can configure a **timed scheduling** task flow or an **event scheduling** task flow. When you configure a **timed scheduling** task flow, you can choose from one-time scheduling or periodic scheduling. When you configure an **event scheduling** task flow, you can subscribe to task flows or task flow nodes.****\\
+     *   * After you update the scheduling properties, you need to publish and deploy the task flow again. The new task flow instance will run based on the updated scheduling properties.
+     *   *
+     * @param UpdateTaskFlowScheduleRequest $request UpdateTaskFlowScheduleRequest
      *
-     * @return UpdateTaskFlowScheduleResponse
+     * @return UpdateTaskFlowScheduleResponse UpdateTaskFlowScheduleResponse
      */
     public function updateTaskFlowSchedule($request)
     {
@@ -11286,7 +11497,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The output variables for the task.
+     * Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
      *   *
      * @param UpdateTaskOutputRequest $request UpdateTaskOutputRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -11325,7 +11536,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * The output variables for the task.
+     * Only nodes of single-instance SQL assignment, script code, and ECS remote command have output variables.
      *   *
      * @param UpdateTaskOutputRequest $request UpdateTaskOutputRequest
      *

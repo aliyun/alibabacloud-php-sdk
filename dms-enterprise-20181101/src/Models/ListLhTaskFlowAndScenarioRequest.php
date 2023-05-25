@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListLhTaskFlowAndScenarioRequest extends Model
 {
     /**
-     * @description The name of the user who creates the workspace.
+     * @description The ID of the workspace. You can call the [GetLhSpaceByName](~~424379~~) operation to obtain the workspace ID.
      *
      * @example 24
      *
@@ -18,7 +18,7 @@ class ListLhTaskFlowAndScenarioRequest extends Model
     public $spaceId;
 
     /**
-     * @description The ID of the workspace. You can call the [GetLhSpaceByName](~~424379~~) operation to obtain the workspace ID.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @example 3***
      *
@@ -27,7 +27,7 @@ class ListLhTaskFlowAndScenarioRequest extends Model
     public $tid;
 
     /**
-     * @description The user ID of the task flow owner.
+     * @description The ID of the user. You can call the [ListUsers](~~141938~~) or [GetUser](~~147098~~) operation to obtain the user ID.
      *
      * @example 51****
      *

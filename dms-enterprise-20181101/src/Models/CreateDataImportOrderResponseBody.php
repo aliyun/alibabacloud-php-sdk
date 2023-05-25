@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDataImportOrderResponseBody extends Model
 {
     /**
+     * @description The ID of the ticket.
+     *
      * @var int[]
      */
     public $createOrderResult;
 
     /**
+     * @description The error code returned if the request fails.
+     *
      * @example UnknownError
      *
      * @var string
@@ -21,6 +25,8 @@ class CreateDataImportOrderResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
      * @example UnknownError
      *
      * @var string
@@ -28,7 +34,7 @@ class CreateDataImportOrderResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The reason for the data import.
+     * @description The ID of the request.
      *
      * @example 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
      *
@@ -37,7 +43,10 @@ class CreateDataImportOrderResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request.
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
      *
      * @example true
      *

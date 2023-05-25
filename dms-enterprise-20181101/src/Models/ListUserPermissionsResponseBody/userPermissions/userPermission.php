@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class userPermission extends Model
 {
     /**
+     * @description The alias of the instance.
+     *
      * @example instance_alias
      *
      * @var string
@@ -17,6 +19,8 @@ class userPermission extends Model
     public $alias;
 
     /**
+     * @description The name of the field.
+     *
      * @example column_name
      *
      * @var string
@@ -24,7 +28,7 @@ class userPermission extends Model
     public $columnName;
 
     /**
-     * @description The user who grants the permissions.
+     * @description The ID of the database.
      *
      * @example 1860****
      *
@@ -33,6 +37,8 @@ class userPermission extends Model
     public $dbId;
 
     /**
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](https://www.alibabacloud.com/help/en/data-management-service/latest/dbtype-parameter).
+     *
      * @example polardb
      *
      * @var string
@@ -40,6 +46,9 @@ class userPermission extends Model
     public $dbType;
 
     /**
+     * @description The permissions on a specific type of objects that are granted to the user. Valid values:
+     *
+     * - LOGIC_TABLE: permissions on logical tables
      * @example DATABASE
      *
      * @var string
@@ -47,6 +56,9 @@ class userPermission extends Model
     public $dsType;
 
     /**
+     * @description The type of the environment to which the database belongs. Valid values:
+     *
+     * - stag: STAG environment
      * @example dev
      *
      * @var string
@@ -54,6 +66,8 @@ class userPermission extends Model
     public $envType;
 
     /**
+     * @description The endpoint that is used to connect the database.
+     *
      * @example rm-bp144d5ky4l4r****
      *
      * @var string
@@ -61,7 +75,7 @@ class userPermission extends Model
     public $host;
 
     /**
-     * @description The details of permissions.
+     * @description The ID of the instance.
      *
      * @example 174****
      *
@@ -70,7 +84,10 @@ class userPermission extends Model
     public $instanceId;
 
     /**
-     * @description The number of the page to return.
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     *   true: The database is a logical database.
+     *   false: The database is a physical database.
      *
      * @example false
      *
@@ -79,13 +96,15 @@ class userPermission extends Model
     public $logic;
 
     /**
-     * @description The name of the database.
+     * @description The details of permissions.
      *
      * @var permDetails
      */
     public $permDetails;
 
     /**
+     * @description The port that is used to connect to the instance.
+     *
      * @example 3306
      *
      * @var int
@@ -93,7 +112,7 @@ class userPermission extends Model
     public $port;
 
     /**
-     * @description The error message.
+     * @description The name of the database.
      *
      * @example test_db
      *
@@ -102,6 +121,8 @@ class userPermission extends Model
     public $schemaName;
 
     /**
+     * @description The name that is used to search for the database.
+     *
      * @example test_db@xxx:3306
      *
      * @var string
@@ -109,6 +130,8 @@ class userPermission extends Model
     public $searchName;
 
     /**
+     * @description The ID of the table.
+     *
      * @example 13434
      *
      * @var string
@@ -116,7 +139,7 @@ class userPermission extends Model
     public $tableId;
 
     /**
-     * @description The ID of the instance.
+     * @description The name of the table.
      *
      * @example test_table
      *
@@ -125,7 +148,7 @@ class userPermission extends Model
     public $tableName;
 
     /**
-     * @description The name of the database.
+     * @description The ID of the user.
      *
      * @example 51****
      *
@@ -134,7 +157,7 @@ class userPermission extends Model
     public $userId;
 
     /**
-     * @description The ID of the user.
+     * @description The nickname of the user.
      *
      * @example nick_name
      *

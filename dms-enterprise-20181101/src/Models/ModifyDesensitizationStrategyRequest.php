@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDesensitizationStrategyRequest extends Model
 {
     /**
-     * @description The ID of the masking rule.
+     * @description The name of the field. You can call the [ListSensitiveColumns](~~188103~~) operation to query the field name.
      *
+     * >  You can also call the [ListColumns](~~141870~~) operation to query the field name.
      * @example test_column
      *
      * @var string
@@ -18,7 +19,7 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $columnName;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The ID of the database. You can call the [ListDatabases](~~141873~~) operation to query the ID.
      *
      * @example 123
      *
@@ -27,7 +28,10 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $dbId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ModifyDesensitizationStrategy**.
+     * @description Specifies whether the database is a logical database. Valid values:
+     *
+     *   **true:** The database is a physical database.
+     *   **false:** The database is a logical database.
      *
      * @example false
      *
@@ -36,9 +40,11 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $isLogic;
 
     /**
-     * @description The name of the table. You can call the [ListSensitiveColumns](~~188103~~) operation to query the table name.
+     * @description Specifies whether to reset the masking rule. Valid values:
      *
-     * >  You can also call the [ListTables](~~141878~~) operation to query the table name.
+     *   **true**: resets the masking rule.
+     *   **false**: does not reset the masking rule. This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -46,7 +52,7 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $isReset;
 
     /**
-     * @description The ID of the database. You can call the [ListDatabases](~~141873~~) operation to query the ID.
+     * @description The ID of the masking rule.
      *
      * @example 53
      *
@@ -55,9 +61,10 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $ruleId;
 
     /**
-     * @description The name of the field. You can call the [ListSensitiveColumns](~~188103~~) operation to query the field name.
+     * @description The name of the database. You can call the [ListSensitiveColumns](~~188103~~) operation to query the database name.
      *
-     * >  You can also call the [ListColumns](~~141870~~) operation to query the field name.
+     * > * If the database is a physical database, you can call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation to query the database name.
+     * > * If the database is a logical database, you can call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation to query the database name.
      * @example test_schema
      *
      * @var string
@@ -65,8 +72,9 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $schemaName;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description The name of the table. You can call the [ListSensitiveColumns](~~188103~~) operation to query the table name.
      *
+     * >  You can also call the [ListTables](~~141878~~) operation to query the table name.
      * @example test_table
      *
      * @var string
@@ -74,8 +82,9 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $tableName;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the tenant.
      *
+     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 3***
      *
      * @var int

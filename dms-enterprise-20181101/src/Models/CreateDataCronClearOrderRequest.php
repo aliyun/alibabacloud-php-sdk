@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDataCronClearOrderRequest extends Model
 {
     /**
-     * @description The ID of the ticket.
+     * @description The key of the attachment for the ticket. The attachment provides more instructions for this operation.
      *
+     * You can call the [GetUserUploadFileJob](~~206069~~) operation to query the key of the attachment.
      * @example order_attachement.txt
      *
      * @var string
@@ -19,10 +20,7 @@ class CreateDataCronClearOrderRequest extends Model
     public $attachmentKey;
 
     /**
-     * @description Indicates whether the database is a logical database. Valid values:
-     *
-     *   **true**: The database is a logical database.
-     *   **false**: The database is not a logical database.
+     * @description The purpose or objective of the data change. This reduces unnecessary communication.
      *
      * @example test
      *
@@ -31,23 +29,23 @@ class CreateDataCronClearOrderRequest extends Model
     public $comment;
 
     /**
-     * @description The databases for which you want to clear historical data.
+     * @description The parameters of the ticket.
      *
      * @var param
      */
     public $param;
 
     /**
-     * @description The ID of the tenant.
+     * @description The stakeholders of this operation. All stakeholders can view the ticket details and assist in the approval process. Irrelevant users other than Data Management (DMS) administrators and database administrators (DBAs) are not allowed to view the ticket details.
      *
-     * >  The ID of the tenant is displayed when you move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the [View information about the current tenant](~~181330~~) section of the Manage DMS tenants topic.
      * @var int[]
      */
     public $relatedUserList;
 
     /**
-     * @description The reason for the data change.
+     * @description The ID of the tenant.
      *
+     * >  The ID of the tenant is displayed when you move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the [View information about the current tenant](~~181330~~) section of the Manage DMS tenants topic.
      * @example 123454324
      *
      * @var int

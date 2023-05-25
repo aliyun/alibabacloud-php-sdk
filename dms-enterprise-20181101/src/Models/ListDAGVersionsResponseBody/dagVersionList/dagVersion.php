@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dagVersion extends Model
 {
     /**
-     * @description The name of the task flow owner.
+     * @description The name of the task flow.
      *
      * @example Spark SQL
      *
@@ -18,7 +18,7 @@ class dagVersion extends Model
     public $dagName;
 
     /**
-     * @description The name of the task flow.
+     * @description The ID of the task flow owner.
      *
      * @example 51****
      *
@@ -27,7 +27,7 @@ class dagVersion extends Model
     public $dagOwnerId;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the task flow owner.
      *
      * @example name
      *
@@ -36,6 +36,8 @@ class dagVersion extends Model
     public $dagOwnerNickName;
 
     /**
+     * @description The ID of the previously published version.
+     *
      * @example 2****
      *
      * @var int
@@ -43,6 +45,8 @@ class dagVersion extends Model
     public $lastVersionId;
 
     /**
+     * @description The description of the version.
+     *
      * @example test_OSS
      *
      * @var string
@@ -50,6 +54,8 @@ class dagVersion extends Model
     public $versionComments;
 
     /**
+     * @description The ID of the version.
+     *
      * @example 2****
      *
      * @var int

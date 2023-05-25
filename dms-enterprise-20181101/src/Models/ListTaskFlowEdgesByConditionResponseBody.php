@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowEdgesByConditionResponseBody extends Model
 {
     /**
+     * @description The list of task flow edges.
+     *
      * @var edges
      */
     public $edges;
 
     /**
-     * @description The ID of the end node on the edge.
+     * @description The error code returned if the request failed.
      *
      * @example UnknownError
      *
@@ -24,7 +26,7 @@ class ListTaskFlowEdgesByConditionResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The ID of the start node on the edge.
+     * @description The error message returned if the request failed.
      *
      * @example UnknownError
      *
@@ -33,7 +35,7 @@ class ListTaskFlowEdgesByConditionResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The list of task flow edges.
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
      *
      * @example D86249CD-422F-5ACF-85BA-9187C986AE0B
      *
@@ -42,7 +44,10 @@ class ListTaskFlowEdgesByConditionResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example true
      *

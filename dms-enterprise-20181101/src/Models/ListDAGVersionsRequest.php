@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDAGVersionsRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to obtain the ID of the task flow.
      *
      * @example 7***
      *
@@ -18,7 +18,7 @@ class ListDAGVersionsRequest extends Model
     public $dagId;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class ListDAGVersionsRequest extends Model
     public $pageIndex;
 
     /**
-     * @description The error code returned if the request fails.
+     * @description The number of entries to return on each page.
      *
      * @example 20
      *
@@ -36,7 +36,7 @@ class ListDAGVersionsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the previously published version.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @example 3***
      *

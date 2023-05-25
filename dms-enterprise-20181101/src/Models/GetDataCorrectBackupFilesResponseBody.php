@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetDataCorrectBackupFilesResponseBody extends Model
 {
     /**
+     * @description The download URL of the backup file for the ticket.
+     *
      * @var dataCorrectBackupFiles
      */
     public $dataCorrectBackupFiles;
 
     /**
-     * @description The operation that you want to perform. Set the value to **GetDataCorrectBackupFiles**.
+     * @description The error code.
      *
      * @example UnknownError
      *
@@ -24,6 +26,8 @@ class GetDataCorrectBackupFilesResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example UnknownError
      *
      * @var string
@@ -40,6 +44,8 @@ class GetDataCorrectBackupFilesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

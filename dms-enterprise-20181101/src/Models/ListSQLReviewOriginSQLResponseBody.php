@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSQLReviewOriginSQLResponseBody extends Model
 {
     /**
-     * @description The MD5 hash value of the SQL statement.
+     * @description The error code returned.
      *
      * @example UnknownError
      *
@@ -19,7 +19,7 @@ class ListSQLReviewOriginSQLResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The description of the review status.
+     * @description The error message returned.
      *
      * @example UnknownError
      *
@@ -28,14 +28,14 @@ class ListSQLReviewOriginSQLResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The parameters that are used to filter SQL statements involved in the ticket.
+     * @description The information about the parsed SQL statements.
      *
      * @var originSQLList[]
      */
     public $originSQLList;
 
     /**
-     * @description The name of the file.
+     * @description The ID of the request.
      *
      * @example 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
      *
@@ -44,7 +44,7 @@ class ListSQLReviewOriginSQLResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the SQL statement.
+     * @description Indicates whether the request is successful.
      *
      * @example true
      *
@@ -53,7 +53,7 @@ class ListSQLReviewOriginSQLResponseBody extends Model
     public $success;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The total number of the SQL statements.
      *
      * @example 10
      *

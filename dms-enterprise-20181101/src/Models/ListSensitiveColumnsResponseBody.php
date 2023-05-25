@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSensitiveColumnsResponseBody extends Model
 {
     /**
-     * @description The sensitivity level of the field. Valid values:
-     *
-     *   SENSITIVE
-     *   CONFIDENTIAL
+     * @description The error code.
      *
      * @example UnknownError
      *
@@ -22,7 +19,7 @@ class ListSensitiveColumnsResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The sensitive fields.
+     * @description The error message.
      *
      * @example UnknownError
      *
@@ -31,7 +28,7 @@ class ListSensitiveColumnsResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The number of sensitive fields.
+     * @description The ID of the request.
      *
      * @example 09D82FD7-F87F-59EF-AA82-AEF71B09E306
      *
@@ -40,17 +37,16 @@ class ListSensitiveColumnsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The type of the de-identification algorithm. Valid values:
-     *
-     *   DEFAULT: All characters are masked. This is the default value.
-     *   FIX_POS: The characters at specific positions are masked.
-     *   FIX_CHAR: Specific characters are masked.
+     * @description The sensitive fields.
      *
      * @var sensitiveColumnList
      */
     public $sensitiveColumnList;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     * - false: The request fails.
      * @example true
      *
      * @var bool
@@ -58,9 +54,8 @@ class ListSensitiveColumnsResponseBody extends Model
     public $success;
 
     /**
-     * @description The ID of the tenant.
+     * @description The total number of returned entries.
      *
-     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
      * @example 1
      *
      * @var int

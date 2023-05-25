@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetOpLogRequest extends Model
 {
     /**
+     * @example dmstest@rm-bp1qb97d4b****.mysql.rds.aliyuncs.com:3306【poc_dev】
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-DD HH:mm:ss format.
+     *
      * @example 2022-03-29 10:00:00
      *
      * @var string
@@ -21,6 +25,33 @@ class GetOpLogRequest extends Model
     public $endTime;
 
     /**
+     * @description The functional module for which you want to query operation logs. If you do not specify this parameter, operation logs for all functional modules are returned. Valid values:
+     *
+     *   **PERMISSION**: permissions
+     *   **OWNER**: data owner
+     *   **SQL_CONSOLE**: data query
+     *   **SQL_CONSOLE_EXPORT**: query result export
+     *   **DATA_CHANGE**: data change
+     *   **DATA_EXPORT**: data export
+     *   **SQL_REVIEW**: SQL review
+     *   **DT_SYNC**: database and table synchronization
+     *   **DT_DETAIL**: database and table details
+     *   **DB_TASK**: task management
+     *   **INSTANCE_MANAGE**: instance management
+     *   **USER_MANAGE**: user management
+     *   **SECURITY_RULE**: security rules
+     *   **CONFIG_MANAGE**: configuration management
+     *   **RESOURCE_AUTH**: resource authorization
+     *   **ACCESS_WHITE_IP**: access IP address whitelist
+     *   **NDDL**: schema design
+     *   **DSQL_CONSOLE**: cross-database data query
+     *   **DSQL_CONSOLE_EXPORT**: cross-database query result export
+     *   **DATA_TRACT**: data tracking
+     *   **DATA_QUALITY**: data quality
+     *   **DATALINK_MANAGE** :DBLink management
+     *   **DATASEC_MANAGE**: sensitive data management
+     *   **SELL**: sales
+     *
      * @example SECURITY_RULE
      *
      * @var string
@@ -28,6 +59,8 @@ class GetOpLogRequest extends Model
     public $module;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +68,12 @@ class GetOpLogRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   30
+     *   50
+     *   100
+     *
      * @example 30
      *
      * @var int
@@ -42,6 +81,8 @@ class GetOpLogRequest extends Model
     public $pageSize;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-DD HH:mm:ss format.
+     *
      * @example 2022-03-23 10:00:00
      *
      * @var string
@@ -49,6 +90,8 @@ class GetOpLogRequest extends Model
     public $startTime;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     *
      * @example 3***
      *
      * @var int
@@ -56,6 +99,8 @@ class GetOpLogRequest extends Model
     public $tid;
 
     /**
+     * @example test_name
+     *
      * @var string
      */
     public $userNick;

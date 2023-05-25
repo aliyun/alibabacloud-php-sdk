@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserRequest extends Model
 {
     /**
+     * @description The tenant ID.
+     *
+     * > To view the tenant ID, log on to the DMS console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](~~181330~~).
      * @example -1
      *
      * @var int
@@ -16,6 +19,8 @@ class DeleteUserRequest extends Model
     public $tid;
 
     /**
+     * @description The unique ID (UID) of Alibaba Cloud account to delete.
+     *
      * @example 12345
      *
      * @var string

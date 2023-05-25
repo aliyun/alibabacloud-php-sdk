@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTaskFlowResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request fails.
+     *
      * @example 403
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteTaskFlowResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,7 +27,7 @@ class DeleteTaskFlowResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DeleteTaskFlow**.
+     * @description The ID of the request.
      *
      * @example 9AFE13F6-A4FD-581B-BFDE-B63B1CDC2336
      *
@@ -32,6 +36,11 @@ class DeleteTaskFlowResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
      * @example true
      *
      * @var bool

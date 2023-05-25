@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDBTaskSQLJobDetailRequest extends Model
 {
     /**
-     * @description The number of times that the SQL statement was executed.
+     * @description The ID of the SQL task. You can call the [ListDBTaskSQLJob](~~207049~~) operation to query the SQL task ID.
      *
      * @example 1276****
      *
@@ -18,16 +18,7 @@ class ListDBTaskSQLJobDetailRequest extends Model
     public $jobId;
 
     /**
-     * @description The status of the SQL task. Valid values:
-     *
-     *   **INIT**: The SQL task was initialized.
-     *   **PENDING**: The SQL task waited to be run.
-     *   **BE_SCHEDULED**: The SQL task waited to be scheduled.
-     *   **FAIL**: The SQL task failed.
-     *   **SUCCESS**: The SQL task was successful.
-     *   **PAUSE**: The SQL task was paused.
-     *   **DELETE**: The SQL task was deleted.
-     *   **RUNNING**: The SQL task was being run.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -36,7 +27,7 @@ class ListDBTaskSQLJobDetailRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The error code that is returned.
+     * @description The number of entries to return on each page.
      *
      * @example 20
      *
@@ -45,7 +36,7 @@ class ListDBTaskSQLJobDetailRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the physical database.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
      *
      * @example 3***
      *

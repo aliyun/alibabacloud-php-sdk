@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SQLDetail extends Model
 {
     /**
+     * @description The SQL script.
+     *
      * @example insert into t1 values (1);
      *
      * @var string

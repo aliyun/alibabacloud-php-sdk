@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddDesensitizationRuleResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The error code returned if the request failed.
      *
      * @example UnknownError
      *
@@ -18,6 +18,8 @@ class AddDesensitizationRuleResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -25,7 +27,7 @@ class AddDesensitizationRuleResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The type of the masking algorithm.
+     * @description The ID of the request.
      *
      * @example 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
      *
@@ -34,6 +36,8 @@ class AddDesensitizationRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID generated for the masking rule.
+     *
      * @example 35***
      *
      * @var int
@@ -41,6 +45,11 @@ class AddDesensitizationRuleResponseBody extends Model
     public $ruleId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

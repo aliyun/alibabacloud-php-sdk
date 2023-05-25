@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataImportSQLRequest extends Model
 {
     /**
+     * @description The ticket ID. You can call the [ListOrders](~~144643~~) operation to query the ticket ID.
+     *
      * @example 14****
      *
      * @var int
@@ -16,6 +18,8 @@ class GetDataImportSQLRequest extends Model
     public $orderId;
 
     /**
+     * @description The SQL ID. You can call the ListDataImportSQLPreCheckDetail operation to query the SQL ID.
+     *
      * @example 15****
      *
      * @var int
@@ -23,6 +27,8 @@ class GetDataImportSQLRequest extends Model
     public $sqlId;
 
     /**
+     * @description The tenant ID. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     *
      * @example 3***
      *
      * @var int

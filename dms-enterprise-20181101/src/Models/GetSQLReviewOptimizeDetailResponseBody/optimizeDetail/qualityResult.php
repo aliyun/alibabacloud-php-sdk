@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class qualityResult extends Model
 {
     /**
+     * @description The error message returned.
+     *
      * @example syntax error
      *
      * @var string
@@ -17,6 +19,11 @@ class qualityResult extends Model
     public $errorMessage;
 
     /**
+     * @description Indicates whether an error occurs. Valid values:
+     *
+     *   **true**: An error occurs.
+     *   **false**: No error occurs.
+     *
      * @example false
      *
      * @var bool
@@ -24,6 +31,8 @@ class qualityResult extends Model
     public $occurError;
 
     /**
+     * @description The review results based on rules.
+     *
      * @var results[]
      */
     public $results;

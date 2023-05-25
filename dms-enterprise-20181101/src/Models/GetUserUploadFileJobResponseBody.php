@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetUserUploadFileJobResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The error code.
      *
      * @example UnknownError
      *
@@ -19,7 +19,7 @@ class GetUserUploadFileJobResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The key of the file that is returned after the file is uploaded. You can use this key when you upload the file as an attachment in a ticket.
+     * @description The error message.
      *
      * @example UnknownError
      *
@@ -28,7 +28,7 @@ class GetUserUploadFileJobResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The endpoint of the OSS bucket.
+     * @description The request ID.
      *
      * @example BDEFE9F2-B3B4-42D0-83AE-ECF9FC067DCD
      *
@@ -37,7 +37,7 @@ class GetUserUploadFileJobResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The size of the file. Unit: byte.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *
@@ -46,7 +46,7 @@ class GetUserUploadFileJobResponseBody extends Model
     public $success;
 
     /**
-     * @description The name of the OSS bucket.
+     * @description The details of the file upload task.
      *
      * @var uploadFileJobDetail
      */

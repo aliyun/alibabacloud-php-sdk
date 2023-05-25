@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scenario extends Model
 {
     /**
+     * @description The ID of the user who creates the business scenario.
+     *
      * @example 51****
      *
      * @var string
@@ -16,6 +18,8 @@ class scenario extends Model
     public $creatorId;
 
     /**
+     * @description The description of the business scenario.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class scenario extends Model
     public $description;
 
     /**
+     * @description The name of the business scenario.
+     *
      * @example Scenario_2
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetRuleNumLimitOfSLAResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,6 +18,8 @@ class GetRuleNumLimitOfSLAResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,6 +27,8 @@ class GetRuleNumLimitOfSLAResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     *
      * @example D05B3EE1-B6D3-5B17-8CA6-A8054828E5B2
      *
      * @var string
@@ -30,6 +36,8 @@ class GetRuleNumLimitOfSLAResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The maximum number of SLA rules.
+     *
      * @example 12
      *
      * @var int
@@ -37,6 +45,11 @@ class GetRuleNumLimitOfSLAResponseBody extends Model
     public $ruleNumLimit;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

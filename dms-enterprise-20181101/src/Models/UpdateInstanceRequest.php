@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceRequest extends Model
 {
     /**
+     * @description The name of the database link for cross-database queries.
+     *
+     * >
+     *
+     *   This parameter is required if UseDsql is set to 1.
+     *
+     *   The name can contain only lowercase letters and underscores (\_).
+     *
+     *   The name must be unique within a tenant.
+     *
      * @example datalink_test
      *
      * @var string
@@ -16,6 +26,8 @@ class UpdateInstanceRequest extends Model
     public $dataLinkName;
 
     /**
+     * @description The password that is used to log on to the database.
+     *
      * @example ******
      *
      * @var string
@@ -23,6 +35,8 @@ class UpdateInstanceRequest extends Model
     public $databasePassword;
 
     /**
+     * @description The account that is used to log on to the database.
+     *
      * @example dbuser
      *
      * @var string
@@ -30,6 +44,8 @@ class UpdateInstanceRequest extends Model
     public $databaseUser;
 
     /**
+     * @description The ID of the user who assumes the database administrator (DBA) role of the database instance. You can call the [ListUsers](~~141938~~) or [GetInstance](~~141567~~) operation to query the user ID.
+     *
      * @example 27****
      *
      * @var string
@@ -37,6 +53,12 @@ class UpdateInstanceRequest extends Model
     public $dbaId;
 
     /**
+     * @description Specifies whether to enable the lock-free schema change feature for the database instance. Valid values:
+     *
+     *   **0:** disables the lock-free schema change feature.
+     *   **1**: uses the online DDL of MySQL first.
+     *   **2**: uses the lock-free schema change feature of DMS first.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +66,9 @@ class UpdateInstanceRequest extends Model
     public $ddlOnline;
 
     /**
+     * @description The ID of the ECS instance on which the database instance is deployed.
+     *
+     * > This parameter is required if the InstanceSource parameter is set to ECS_OWN.
      * @example i-2zei9gs1t7h8l7ac****
      *
      * @var string
@@ -51,6 +76,9 @@ class UpdateInstanceRequest extends Model
     public $ecsInstanceId;
 
     /**
+     * @description The ID of the region in which the database instance resides.
+     *
+     * > This parameter is required if InstanceSource is set to RDS, ECS_OWN, and VPC_IDC.
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +86,10 @@ class UpdateInstanceRequest extends Model
     public $ecsRegion;
 
     /**
+     * @description *   **Y:** enables the sensitive data protection feature
+     *   **N:** disables the sensitive data protection feature
+     *   **NULL or other:** does not update the status of the sensitive data protection feature
+     *
      * @example Y
      *
      * @var string
@@ -65,6 +97,17 @@ class UpdateInstanceRequest extends Model
     public $enableSellSitd;
 
     /**
+     * @description The type of the environment in which the database instance is deployed. Valid values:
+     *
+     *   **product:** production environment
+     *   **dev:** development environment
+     *   **pre:** pre-release environment
+     *   **test:** test environment
+     *   **sit:** system integration testing (SIT) environment
+     *   **uat:** user acceptance testing (UAT) environment
+     *   **pet:** stress testing environment
+     *   **stag:** staging environment
+     *
      * @example product
      *
      * @var string
@@ -72,6 +115,8 @@ class UpdateInstanceRequest extends Model
     public $envType;
 
     /**
+     * @description The timeout period for exporting data from the database instance.
+     *
      * @example 600
      *
      * @var int
@@ -79,6 +124,8 @@ class UpdateInstanceRequest extends Model
     public $exportTimeout;
 
     /**
+     * @description The host address that is used to connect to the database instance.
+     *
      * @example 192.XXX.0.56
      *
      * @var string
@@ -86,6 +133,8 @@ class UpdateInstanceRequest extends Model
     public $host;
 
     /**
+     * @description The alias of the database instance. Specify an alias that can help you identify the database instance in DMS.
+     *
      * @example instance_test
      *
      * @var string
@@ -93,6 +142,8 @@ class UpdateInstanceRequest extends Model
     public $instanceAlias;
 
     /**
+     * @description The ID of the database instance. You can call the [GetInstance](~~141567~~) operation to query the instance ID.
+     *
      * @example 126****
      *
      * @var string
@@ -100,6 +151,13 @@ class UpdateInstanceRequest extends Model
     public $instanceId;
 
     /**
+     * @description The source of the database instance. Valid values:
+     *
+     *   **PUBLIC_OWN:** a self-managed database instance that is deployed on the Internet
+     *   **RDS:** an ApsaraDB RDS instance
+     *   **ECS_OWN:** a self-managed database that is deployed on an Elastic Compute Service (ECS) instance
+     *   **VPC_IDC:** a self-managed database instance that is deployed in a data center connected over a virtual private cloud (VPC)
+     *
      * @example ECS_OWN
      *
      * @var string
@@ -107,6 +165,8 @@ class UpdateInstanceRequest extends Model
     public $instanceSource;
 
     /**
+     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     *
      * @example mysql
      *
      * @var string
@@ -114,6 +174,8 @@ class UpdateInstanceRequest extends Model
     public $instanceType;
 
     /**
+     * @description The port that is used to connect to the database instance.
+     *
      * @example 3306
      *
      * @var int
@@ -121,6 +183,8 @@ class UpdateInstanceRequest extends Model
     public $port;
 
     /**
+     * @description The timeout period for querying data in the database instance.
+     *
      * @example 60
      *
      * @var int
@@ -128,6 +192,8 @@ class UpdateInstanceRequest extends Model
     public $queryTimeout;
 
     /**
+     * @description The name of the security rule set (GroupName) for the instance. You can call the [ListStandardGroups](~~417891~~) or [GetInstance](~~141567~~) operation to query the name of the security rule set.
+     *
      * @example 3****
      *
      * @var string
@@ -135,6 +201,9 @@ class UpdateInstanceRequest extends Model
     public $safeRuleId;
 
     /**
+     * @description The system ID (SID) of the database instance.
+     *
+     * > This parameter is required if the InstanceType parameter is set to ORACLE.
      * @example XXX
      *
      * @var string
@@ -142,6 +211,11 @@ class UpdateInstanceRequest extends Model
     public $sid;
 
     /**
+     * @description Specifies whether to skip the connectivity test. Valid values:
+     *
+     *   **true:** skips the connectivity test
+     *   **false:** does not skip the connectivity test
+     *
      * @example false
      *
      * @var bool
@@ -149,6 +223,8 @@ class UpdateInstanceRequest extends Model
     public $skipTest;
 
     /**
+     * @description The ID of the classification template. You can call the [ListClassificationTemplates](~~460613~~) operation to query the template ID.
+     *
      * @example 3***
      *
      * @var int
@@ -156,6 +232,8 @@ class UpdateInstanceRequest extends Model
     public $templateId;
 
     /**
+     * @description The type of the classification template. You can call the [ListClassificationTemplates](~~460613~~) operation to query the template type.
+     *
      * @example INNER
      *
      * @var string
@@ -163,6 +241,8 @@ class UpdateInstanceRequest extends Model
     public $templateType;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     *
      * @example 3***
      *
      * @var int
@@ -170,6 +250,12 @@ class UpdateInstanceRequest extends Model
     public $tid;
 
     /**
+     * @description Specifies whether to enable the cross-database query feature for the database instance. Valid values:
+     *
+     *   **0**: disables the cross-database query feature.
+     *   **1**: enables the cross-database query feature.
+     *
+     * > Supported database types: MySQL, SQL Server, PostgreSQL, PolarDB for PostgreSQL (compatible with Oracle), and ApsaraDB for Redis.
      * @example 0
      *
      * @var int
@@ -177,6 +263,9 @@ class UpdateInstanceRequest extends Model
     public $useDsql;
 
     /**
+     * @description The ID of the VPC to which the database instance belongs.
+     *
+     * > This parameter is required if the InstanceSource parameter is set to VPC_IDC.
      * @example vpc-xxx
      *
      * @var string

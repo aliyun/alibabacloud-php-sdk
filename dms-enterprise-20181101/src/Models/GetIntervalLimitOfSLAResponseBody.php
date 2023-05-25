@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetIntervalLimitOfSLAResponseBody extends Model
 {
     /**
-     * @description GetIntervalLimitOfSLA
+     * @description The error code returned if the request failed.
      *
      * @example UnknownError
      *
@@ -18,6 +18,8 @@ class GetIntervalLimitOfSLAResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -25,6 +27,8 @@ class GetIntervalLimitOfSLAResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The minimum scheduling cycle. Unit: minutes.
+     *
      * @example 59
      *
      * @var int
@@ -32,7 +36,7 @@ class GetIntervalLimitOfSLAResponseBody extends Model
     public $intervalLimit;
 
     /**
-     * @description Queries the minimum scheduling cycle of a task flow when a service level agreement (SLA) timeout rule is configured for the task flow.
+     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
      *
      * @example 5B96E35F-A58E-5399-9041-09CF9A1E46EA
      *
@@ -41,6 +45,11 @@ class GetIntervalLimitOfSLAResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

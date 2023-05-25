@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceRequest extends Model
 {
     /**
-     * @description The name of the security rule set corresponding to the control mode.
+     * @description The endpoint of the database instance. You can call the [ListInstances](~~141936~~) operation to obtain the endpoint.
      *
      * @example 172.17.XXX.XXX
      *
@@ -18,7 +18,7 @@ class GetInstanceRequest extends Model
     public $host;
 
     /**
-     * @description The name of the database link for the database instance.
+     * @description The port number that is used to connect to the database instance. You can call the [ListInstances](~~141936~~) operation to obtain the port number.
      *
      * @example 5432
      *
@@ -27,7 +27,7 @@ class GetInstanceRequest extends Model
     public $port;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
+     * @description The system ID (SID) of the database instance. You can call the [ListInstances](~~141936~~) operation to obtain the SID.
      *
      * @example test
      *
@@ -36,7 +36,7 @@ class GetInstanceRequest extends Model
     public $sid;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the database instance belongs.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
      *
      * @example 2***
      *

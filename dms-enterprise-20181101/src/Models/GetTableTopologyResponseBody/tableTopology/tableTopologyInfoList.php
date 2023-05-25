@@ -28,9 +28,9 @@ class tableTopologyInfoList extends Model
 
     /**
      * @description The name that is used to search for the database.
-     *
-     * @example yuyang_test@localhost:3306【yuyang_test_dev】
-     *
+     * > We recommend that you do not use this parameter for business development. The format of the parameter value may be modified in later versions.
+     * @example yuyang_test@localhost:3306
+     * [yuyang_test_dev]
      * @var string
      */
     public $dbSearchName;

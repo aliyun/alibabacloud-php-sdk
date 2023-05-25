@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BackFillRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The running sequence of task flows for data backfill. Valid values:
+     *
+     *   **0**: reverse chronological order.
+     *   **1**: chronological order. This is the default value.
      *
      * @example 0
      *
@@ -18,7 +21,7 @@ class BackFillRequest extends Model
     public $asc;
 
     /**
-     * @description The start date of the date range for the data to be backfilled. This parameter is required if you specify a date range for data backfill.
+     * @description The date for the data to be backfilled. This parameter is required if you specify a date for data backfill.
      *
      * @example 2022-01-14
      *
@@ -27,10 +30,7 @@ class BackFillRequest extends Model
     public $backFillDate;
 
     /**
-     * @description The running sequence of task flows for data backfill. Valid values:
-     *
-     *   **0**: reverse chronological order.
-     *   **1**: chronological order. This is the default value.
+     * @description The start date of the date range for the data to be backfilled. This parameter is required if you specify a date range for data backfill.
      *
      * @example 2022-01-14
      *
@@ -39,9 +39,8 @@ class BackFillRequest extends Model
     public $backFillDateBegin;
 
     /**
-     * @description The ID of the tenant.
+     * @description The end date of the date range for the data to be backfilled. This parameter is required if you specify a date range for data backfill.
      *
-     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 2022-09-29
      *
      * @var string
@@ -49,7 +48,7 @@ class BackFillRequest extends Model
     public $backFillDateEnd;
 
     /**
-     * @description The operation that you want to perform. Set the value to **BackFill**.
+     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
      *
      * @example 15***
      *
@@ -58,9 +57,13 @@ class BackFillRequest extends Model
     public $dagId;
 
     /**
-     * @description The BackFillDate parameter is required if you specify a date for data backfill.
+     * @var int[]
+     */
+    public $filterNodeIds;
+
+    /**
+     * @description The ID of the historical task flow.
      *
-     * The BackFillDateBegin and BackFillDateEnd parameters are required if you specify a date range for data backfill.
      * @example 16***
      *
      * @var int
@@ -68,7 +71,7 @@ class BackFillRequest extends Model
     public $historyDagId;
 
     /**
-     * @description Specifies whether to run descendant nodes. Default value: true.
+     * @description The interval at which data backfill is performed. Unit: hours. Minimum value: 1. Default value: 24.
      *
      * @example 24
      *
@@ -77,7 +80,7 @@ class BackFillRequest extends Model
     public $interval;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description Specifies whether to run descendant nodes. Default value: true.
      *
      * @example true
      *
@@ -86,15 +89,16 @@ class BackFillRequest extends Model
     public $isTriggerSubTree;
 
     /**
-     * @description The date for the data to be backfilled. This parameter is required if you specify a date for data backfill.
+     * @description The number of nodes for which you want to backfill data.
      *
      * @var int[]
      */
     public $startNodeIds;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The ID of the tenant.
      *
+     * >  To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 3***
      *
      * @var int
@@ -106,6 +110,7 @@ class BackFillRequest extends Model
         'backFillDateBegin' => 'BackFillDateBegin',
         'backFillDateEnd'   => 'BackFillDateEnd',
         'dagId'             => 'DagId',
+        'filterNodeIds'     => 'FilterNodeIds',
         'historyDagId'      => 'HistoryDagId',
         'interval'          => 'Interval',
         'isTriggerSubTree'  => 'IsTriggerSubTree',
@@ -134,6 +139,9 @@ class BackFillRequest extends Model
         }
         if (null !== $this->dagId) {
             $res['DagId'] = $this->dagId;
+        }
+        if (null !== $this->filterNodeIds) {
+            $res['FilterNodeIds'] = $this->filterNodeIds;
         }
         if (null !== $this->historyDagId) {
             $res['HistoryDagId'] = $this->historyDagId;
@@ -176,6 +184,11 @@ class BackFillRequest extends Model
         }
         if (isset($map['DagId'])) {
             $model->dagId = $map['DagId'];
+        }
+        if (isset($map['FilterNodeIds'])) {
+            if (!empty($map['FilterNodeIds'])) {
+                $model->filterNodeIds = $map['FilterNodeIds'];
+            }
         }
         if (isset($map['HistoryDagId'])) {
             $model->historyDagId = $map['HistoryDagId'];

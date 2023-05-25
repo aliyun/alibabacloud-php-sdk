@@ -10,11 +10,9 @@ use AlibabaCloud\Tea\Model;
 class param extends Model
 {
     /**
-     * @description The format of the SQL statements used to change data. Valid values:
+     * @description The key of the attachment that contains the SQL statements used to change data. You can call the [GetUserUploadFileJob](~~206069~~) operation to obtain the attachment key from the value of the AttachmentKey parameter.
      *
-     *   **TEXT**: text
-     *   **ATTACHMENT**: attachment
-     *
+     * >  This parameter is required if you set the **SqlType** parameter to **ATTACHMENT**.
      * @example test.sql
      *
      * @var string
@@ -22,7 +20,7 @@ class param extends Model
     public $attachmentName;
 
     /**
-     * @description The purpose or objective of the data change. This parameter is used to help reduce unnecessary communication.
+     * @description The reason for the data change.
      *
      * @example test
      *
@@ -31,17 +29,14 @@ class param extends Model
     public $classify;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The databases in which you want to change data.
      *
      * @var dbItemList[]
      */
     public $dbItemList;
 
     /**
-     * @description The ID of the database. The database can be a physical database or a logical database.
-     *
-     *   To obtain the ID of a physical database, call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation.
-     *   To obtain the ID of a logical database, call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation.
+     * @description The estimated number of data rows to be affected by the data change.
      *
      * @example 1
      *
@@ -50,7 +45,11 @@ class param extends Model
     public $estimateAffectRows;
 
     /**
-     * @description The key of the attachment that provides more instructions for the ticket. You can call the [GetUserUploadFileJob](~~206069~~) operation to obtain the attachment key from the value of the AttachmentKey parameter.
+     * @description The execution mode of the ticket after the ticket is approved. Valid values:
+     *
+     *   **COMMITOR**: The data change is performed by the user who submits the ticket.
+     *   **AUTO**: The data change is automatically performed after the ticket is approved.
+     *   **LAST_AUDITOR**: The data change is performed by the last approver of the ticket.
      *
      * @example COMMITOR
      *
@@ -59,12 +58,9 @@ class param extends Model
     public $execMode;
 
     /**
-     * @description The execution mode of the ticket after the ticket is approved. Valid values:
+     * @description The SQL statements that you want to execute to change data.
      *
-     *   **COMMITOR**: The data change is performed by the user who submits the ticket.
-     *   **AUTO**: The data change is automatically performed after the ticket is approved.
-     *   **LAST_AUDITOR**: The data change is performed by the last approver of the ticket.
-     *
+     * >  This parameter is required if you set the **SqlType** parameter to **TEXT**.
      * @example update base_user set id = 1 where id  = 1;
      *
      * @var string
@@ -72,8 +68,9 @@ class param extends Model
     public $execSQL;
 
     /**
-     * @description The parameters of the ticket.
+     * @description The key of the attachment that contains the SQL statements used to roll back the data change. You can call the [GetUserUploadFileJob](~~206069~~) operation to the attachment key from the value of the AttachmentKey parameter.
      *
+     * >  This parameter is required if you set the **RollbackSqlType** parameter to **ATTACHMENT**.
      * @example test_rollback.sql
      *
      * @var string
@@ -81,8 +78,9 @@ class param extends Model
     public $rollbackAttachmentName;
 
     /**
-     * @description The stakeholders of the data change. All stakeholders can view the ticket details and assist in the approval process. Irrelevant users other than DMS administrators and database administrators (DBAs) are not allowed to view the ticket details.
+     * @description The SQL statements used to roll back the data change.
      *
+     * > This parameter is required if you set the **RollbackSqlType** parameter to **TEXT**.
      * @example update base_user set id = 1 where id  = 1;
      *
      * @var string
@@ -102,9 +100,11 @@ class param extends Model
     public $rollbackSqlType;
 
     /**
-     * @description The SQL statements that you want to execute to change data.
+     * @description The format of the SQL statements used to change data. Valid values:
      *
-     * >  This parameter is required if you set the **SqlType** parameter to **TEXT**.
+     *   **TEXT**: text
+     *   **ATTACHMENT**: attachment
+     *
      * @example TEXT
      *
      * @var string

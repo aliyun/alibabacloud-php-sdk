@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesResponseBody extends Model
 {
     /**
-     * @description The system ID (SID) of the database instance.
+     * @description The error code that is returned.
      *
      * @example UnknownError
      *
@@ -19,7 +19,7 @@ class ListInstancesResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The name of the security rule set corresponding to the control mode.
+     * @description The error message that is returned.
      *
      * @example UnknownError
      *
@@ -28,14 +28,14 @@ class ListInstancesResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The number of the page to return.
+     * @description The information about the database instances that are returned.
      *
      * @var instanceList
      */
     public $instanceList;
 
     /**
-     * @description The control mode of the database instance.
+     * @description The ID of the request.
      *
      * @example B4B07137-F6AE-4756-8474-7F92BB6C4E04
      *
@@ -44,6 +44,10 @@ class ListInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
      * @example true
      *
      * @var bool
@@ -51,7 +55,7 @@ class ListInstancesResponseBody extends Model
     public $success;
 
     /**
-     * @description The information about the database instances that are returned.
+     * @description The total number of database instances that are returned.
      *
      * @example 1
      *

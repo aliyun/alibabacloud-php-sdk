@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GrantUserPermissionResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,6 +18,8 @@ class GrantUserPermissionResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,6 +27,8 @@ class GrantUserPermissionResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A99CD576-1E18-4E86-931E-C3CCE56DC030
      *
      * @var string
@@ -30,6 +36,11 @@ class GrantUserPermissionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

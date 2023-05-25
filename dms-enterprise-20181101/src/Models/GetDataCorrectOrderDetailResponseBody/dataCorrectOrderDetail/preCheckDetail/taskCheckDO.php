@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class taskCheckDO extends Model
 {
     /**
+     * @description The status of the precheck. Valid values:
+     *
+     *   **WAITING**: The ticket is pending precheck.
+     *   **RUNNING**: The ticket is being prechecked.
+     *   **SUCCESS**: The ticket passes the precheck.
+     *   **FAIL**: The ticket fails the precheck.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -16,6 +23,13 @@ class taskCheckDO extends Model
     public $checkStatus;
 
     /**
+     * @description The check step of the precheck. Valid values:
+     *
+     *   **SQL_PARSE**: The system checks the syntax of the SQL statement.
+     *   **SQL_TYPE_CHECK**: The system checks the type of the SQL statement.
+     *   **PERMISSION_CHECK**: The system checks the permissions required for the data change.
+     *   **ROW_CHECK**: The system checks the number of affected rows.
+     *
      * @example PERMISSION_CHECK
      *
      * @var string
@@ -23,7 +37,7 @@ class taskCheckDO extends Model
     public $checkStep;
 
     /**
-     * @description Queries the information about a data change ticket in Data Management (DMS).
+     * @description The message that indicates a check step.
      *
      * @example tip messsage
      *

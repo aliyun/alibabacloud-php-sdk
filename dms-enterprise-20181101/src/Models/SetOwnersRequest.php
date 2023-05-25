@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetOwnersRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **SetOwners**.
+     * @description The ID of the user whom you want to specify as an owner. Separate multiple IDs with commas (,). You can call the [GetUser](~~147098~~) or [ListUsers](~~141938~~) operation to query the ID of the user.
      *
+     * >  The value of the OwnerIds parameter is that of the UserId parameter.
      * @example 51****
      *
      * @var string
@@ -18,7 +19,13 @@ class SetOwnersRequest extends Model
     public $ownerIds;
 
     /**
-     * @description The ID of the request.
+     * @description The type of the owner. Valid values:
+     *
+     *   INSTANCE: an owner of an instance.
+     *   DATABASE: an owner of a physical database.
+     *   LOGIC_DATABASE: an owner of a logical database.
+     *   TABLE: an owner of a physical table.
+     *   LOGIC_TABLE: an owner of a logical table.
      *
      * @example INSTANCE
      *
@@ -27,7 +34,13 @@ class SetOwnersRequest extends Model
     public $ownerType;
 
     /**
-     * @description The error code.
+     * @description The ID of the resource. The ID of the resource varies with the owner type. The owner types and resource IDs have the following mappings:
+     *
+     *   INSTANCE: the ID of an instance. You can call the [ListInstances](~~141936~~) operation to query the ID of the instance.
+     *   DATABASE: the ID of a physical database. You can call the [ListDatabases](~~141873~~) operation to query the ID of the physical database.
+     *   LOGIC_DATABASE: the ID of a logical database. You can call the [ListLogicDatabases](~~141874~~) operation to query the ID of the logical database.
+     *   TABLE: the ID of a physical table. You can call the [ListTables](~~141878~~) operation to query the ID of the physical table.
+     *   LOGIC_DATABASE: the ID of a logical table. You can call the [ListLogicTables](~~141875~~) operation to query the ID of the logical table.
      *
      * @example 174****
      *
@@ -36,9 +49,9 @@ class SetOwnersRequest extends Model
     public $resourceId;
 
     /**
-     * @description The ID of the user whom you want to specify as an owner. Separate multiple IDs with commas (,). You can call the [GetUser](~~147098~~) or [ListUsers](~~141938~~) operation to query the ID of the user.
+     * @description The ID of the tenant.
      *
-     * >  The value of the OwnerIds parameter is that of the UserId parameter.
+     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
      * @example 3***
      *
      * @var int

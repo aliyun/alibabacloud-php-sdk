@@ -19,7 +19,7 @@ class ListClassificationTemplatesResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The ID of the classification template.
+     * @description The error message returned if the request failed.
      *
      * @example UnknownError
      *
@@ -28,7 +28,7 @@ class ListClassificationTemplatesResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The list of templates.
+     * @description The ID of the request.
      *
      * @example 90260530-565C-42B9-A6E8-893481FE6AB6
      *
@@ -37,7 +37,10 @@ class ListClassificationTemplatesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The name of the classification template.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example true
      *
@@ -46,7 +49,7 @@ class ListClassificationTemplatesResponseBody extends Model
     public $success;
 
     /**
-     * @description The remarks.
+     * @description The list of templates.
      *
      * @var templateList[]
      */

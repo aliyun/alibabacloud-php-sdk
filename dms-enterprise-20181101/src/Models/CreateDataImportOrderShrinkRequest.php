@@ -18,7 +18,7 @@ class CreateDataImportOrderShrinkRequest extends Model
     public $attachmentKey;
 
     /**
-     * @description The operation that you want to perform. Set the value to CreateDataImportOrder.
+     * @description The purpose or objective of the data import. This parameter is used to help reduce unnecessary communication.
      *
      * @example test
      *
@@ -27,25 +27,21 @@ class CreateDataImportOrderShrinkRequest extends Model
     public $comment;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The parameters of the ticket.
      *
      * @var string
      */
     public $paramShrink;
 
     /**
-     * @description Specifies whether the database is a logical database. Valid values:
+     * @description The stakeholders of the data import. All stakeholders can view the ticket details and assist in the approval process. Irrelevant users other than DMS administrators and database administrators (DBAs) are not allowed to view the ticket details.
      *
-     *   **true**: The database is a logical database.
-     *   **false**: The database is a physical database.
-     *
-     * >  If you set this parameter to **true**, the database that you specify must be a logical database.
      * @var string
      */
     public $relatedUserListShrink;
 
     /**
-     * @description The ID of the ticket.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @example 3***
      *

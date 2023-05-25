@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListSensitiveColumnsDetailRequest extends Model
 {
     /**
-     * @description The details of the sensitive field.
+     * @description The name of the field. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the name of the field.
      *
+     * >  You can also call the [ListColumns](~~141870~~) operation to obtain the name of the field.
      * @example ColumnName_test
      *
      * @var string
@@ -18,7 +19,10 @@ class ListSensitiveColumnsDetailRequest extends Model
     public $columnName;
 
     /**
-     * @description The ID of the database.
+     * @description The ID of the database. The database can be a physical database or a logical database.
+     *
+     *   To obtain the ID of a physical database, call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation.
+     *   To obtain the ID of a logical database, call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation.
      *
      * @example 1860****
      *
@@ -27,7 +31,10 @@ class ListSensitiveColumnsDetailRequest extends Model
     public $dbId;
 
     /**
-     * @description The name of the field.
+     * @description Specifies whether the database is a logical database. Valid values:
+     *
+     *   **true**: The database is a logical database.
+     *   **false**: The database is a physical database.
      *
      * @example false
      *
@@ -36,8 +43,10 @@ class ListSensitiveColumnsDetailRequest extends Model
     public $logic;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The name of the database. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the name of the database.
      *
+     * > * You can also call the [ListDatabases](~~141873~~) or [SearchDatabase](~~141876~~) operation to obtain the name of a physical database.
+     * > * You can also call the [ListLogicDatabases](~~141874~~) or [SearchDatabase](~~141876~~) operation to obtain the name of a logical database.
      * @example SchemaName_test
      *
      * @var string
@@ -45,8 +54,9 @@ class ListSensitiveColumnsDetailRequest extends Model
     public $schemaName;
 
     /**
-     * @description The name of the table.
+     * @description The name of the table. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the name of the table.
      *
+     * >  You can also call the [ListTables](~~141878~~) operation to obtain the name of the table.
      * @example test
      *
      * @var string
@@ -54,10 +64,7 @@ class ListSensitiveColumnsDetailRequest extends Model
     public $tableName;
 
     /**
-     * @description Specifies whether the database is a logical database. Valid values:
-     *
-     *   **true**: The database is a logical database.
-     *   **false**: The database is a physical database.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @example 3***
      *

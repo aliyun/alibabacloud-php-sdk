@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class logicDatabase extends Model
 {
     /**
+     * @description The alias of the logical database.
+     *
      * @example logic_db_alias
      *
      * @var string
@@ -19,6 +21,8 @@ class logicDatabase extends Model
     public $alias;
 
     /**
+     * @description The ID of the logical database.
+     *
      * @example 1***
      *
      * @var string
@@ -26,16 +30,32 @@ class logicDatabase extends Model
     public $databaseId;
 
     /**
+     * @description Logical database sub-ID list.
+     *
      * @var databaseIds
      */
     public $databaseIds;
 
     /**
+     * @description The type of the logical database. For more information about the valid values of this parameter, see [DbType parameter](https://www.alibabacloud.com/help/en/data-management-service/latest/dbtype-parameter).
+     *
+     * @example polardb
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @description The type of the environment to which the logical database belongs. Valid values:
+     *
+     * - **product**: production environment
+     * - **dev**: development environment
+     * - **pre**: staging environment
+     * - **test**: test environment
+     * - **sit**: system integration testing (SIT) environment
+     * - **uat**: user acceptance testing (UAT) environment
+     * - **pet**: stress testing environment
+     * - **stag**: STAG environment
      * @example test
      *
      * @var string
@@ -43,6 +63,8 @@ class logicDatabase extends Model
     public $envType;
 
     /**
+     * @description Indicates whether the database is a logical database. The return value is true.
+     *
      * @example true
      *
      * @var bool
@@ -50,16 +72,22 @@ class logicDatabase extends Model
     public $logic;
 
     /**
+     * @description The IDs of the owners of the logical database.
+     *
      * @var ownerIdList
      */
     public $ownerIdList;
 
     /**
+     * @description The names of the owners of the logical database.
+     *
      * @var ownerNameList
      */
     public $ownerNameList;
 
     /**
+     * @description The name of the logical database.
+     *
      * @example logic_db
      *
      * @var string
@@ -67,7 +95,10 @@ class logicDatabase extends Model
     public $schemaName;
 
     /**
-     * @example logic_db【logic_db_alias】
+     * @description The name that is used to search for the logical database.
+     *
+     * > We recommend that you do not use this parameter for business development. The format of the parameter value may be modified in later versions.
+     * @example logic_db[logic_db_alias]
      *
      * @var string
      */

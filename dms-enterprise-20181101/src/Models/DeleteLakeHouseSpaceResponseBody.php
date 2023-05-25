@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteLakeHouseSpaceResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request fails.
+     *
      * @example NoPermission
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteLakeHouseSpaceResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
      * @example You are not authorized to perform this operation.
      *
      * @var string
@@ -23,7 +27,7 @@ class DeleteLakeHouseSpaceResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DeleteLakeHouseSpace**.
+     * @description The ID of the request.
      *
      * @example E76DD2E7-EBAC-5724-B163-19AAC233F8F2
      *
@@ -32,6 +36,11 @@ class DeleteLakeHouseSpaceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request fails.
+     *
      * @example true
      *
      * @var bool

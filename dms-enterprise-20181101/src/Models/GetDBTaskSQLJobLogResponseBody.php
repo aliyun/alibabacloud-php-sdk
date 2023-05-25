@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDBTaskSQLJobLogResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
      * @example MissingJobId
      *
      * @var string
@@ -16,6 +18,8 @@ class GetDBTaskSQLJobLogResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example JobId is mandatory for this action.
      *
      * @var string
@@ -23,6 +27,8 @@ class GetDBTaskSQLJobLogResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The log that records the scheduling details.
+     *
      * @example log_****
      *
      * @var string
@@ -39,7 +45,10 @@ class GetDBTaskSQLJobLogResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **GetDBTaskSQLJobLog**.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example true
      *

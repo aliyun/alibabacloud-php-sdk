@@ -12,16 +12,7 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
-     * @description The type of the environment to which the database instance belongs. Valid values:
-     *
-     *   **product**: production environment
-     *   **dev**: development environment
-     *   **pre**: staging environment
-     *   **test**: test environment
-     *   **sit**: system integration testing (SIT) environment
-     *   **uat**: user acceptance testing (UAT) environment
-     *   **pet**: stress testing environment
-     *   **stag**: STAG environment
+     * @description The name of the database link for the database instance.
      *
      * @example dblink_test
      *
@@ -30,6 +21,8 @@ class instance extends Model
     public $dataLinkName;
 
     /**
+     * @description The password that is used to log on to the database.
+     *
      * @example ******
      *
      * @var string
@@ -46,7 +39,7 @@ class instance extends Model
     public $databaseUser;
 
     /**
-     * @description The ID of the ECS instance on which the database instance is deployed.
+     * @description The ID of the database administrator (DBA) for the database instance.
      *
      * @example 31****
      *
@@ -55,7 +48,7 @@ class instance extends Model
     public $dbaId;
 
     /**
-     * @description The ID of the database instance.
+     * @description The nickname of the DBA for the database instance.
      *
      * @example dbaName
      *
@@ -64,6 +57,8 @@ class instance extends Model
     public $dbaNickName;
 
     /**
+     * @description Indicates whether the lock-free schema change feature is enabled for the database instance.
+     *
      * @example 1
      *
      * @var int
@@ -71,7 +66,7 @@ class instance extends Model
     public $ddlOnline;
 
     /**
-     * @description The type of the database. For more information about the valid values of this parameter, see [DbType parameter](~~198106~~).
+     * @description The ID of the ECS instance on which the database instance is deployed.
      *
      * @example 150****
      *
@@ -80,6 +75,8 @@ class instance extends Model
     public $ecsInstanceId;
 
     /**
+     * @description The ID of the region in which the database instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -87,10 +84,16 @@ class instance extends Model
     public $ecsRegion;
 
     /**
-     * @description The status of the database instance. Valid values:
+     * @description The type of the environment to which the database instance belongs. Valid values:
      *
-     *   **NORMAL**: normal
-     *   **DISABLE**: disabled
+     *   **product**: production environment
+     *   **dev**: development environment
+     *   **pre**: staging environment
+     *   **test**: test environment
+     *   **sit**: SIT environment
+     *   **uat**: UAT environment
+     *   **pet**: stress testing environment
+     *   **stag**: STAG environment
      *
      * @example product
      *
@@ -99,7 +102,7 @@ class instance extends Model
     public $envType;
 
     /**
-     * @description The ID of the request.
+     * @description The timeout period for exporting data from the database instance.
      *
      * @example 86400
      *
@@ -108,7 +111,7 @@ class instance extends Model
     public $exportTimeout;
 
     /**
-     * @description The ID of the database administrator (DBA) for the database instance.
+     * @description The host address that is used to connect to the database instance.
      *
      * @example ****.mysql.rds.aliyuncs.com
      *
@@ -117,6 +120,8 @@ class instance extends Model
     public $host;
 
     /**
+     * @description The alias of the database instance.
+     *
      * @example test
      *
      * @var string
@@ -124,7 +129,7 @@ class instance extends Model
     public $instanceAlias;
 
     /**
-     * @description The timeout period for exporting data from the database instance.
+     * @description The ID of the database instance.
      *
      * @example 150***
      *
@@ -133,10 +138,7 @@ class instance extends Model
     public $instanceId;
 
     /**
-     * @description Indicates whether the cross-database query feature is enabled for the database instance. Valid values:
-     *
-     *   **0**: disabled
-     *   **1**: enabled
+     * @description The source of the database instance.
      *
      * @example RDS
      *
@@ -145,7 +147,7 @@ class instance extends Model
     public $instanceSource;
 
     /**
-     * @description Queries the information about database instances.
+     * @description The type of the database instance.
      *
      * @example mysql
      *
@@ -154,25 +156,21 @@ class instance extends Model
     public $instanceType;
 
     /**
-     * @description The host address that is used to connect to the database instance.
+     * @description The ID of the owner for the database instance.
      *
      * @var ownerIdList
      */
     public $ownerIdList;
 
     /**
-     * @description The error message that is returned.
+     * @description The nickname of the owner for the database instance.
      *
      * @var ownerNameList
      */
     public $ownerNameList;
 
     /**
-     * @description The type of the control mode. Valid values:
-     *
-     *   **COMMON**: Security Collaboration
-     *   **NONE_CONTROL**: Flexible Management
-     *   **STABLE**: Stable Change
+     * @description The port number that is used to connect to the database instance.
      *
      * @example 3306
      *
@@ -181,7 +179,7 @@ class instance extends Model
     public $port;
 
     /**
-     * @description The number of entries to return on each page. The number cannot exceed 100.
+     * @description The timeout period for querying data in the database instance.
      *
      * @example 60
      *
@@ -190,7 +188,7 @@ class instance extends Model
     public $queryTimeout;
 
     /**
-     * @description The password that is used to log on to the database.
+     * @description The ID of the security rule set for the database instance.
      *
      * @example 1
      *
@@ -206,7 +204,7 @@ class instance extends Model
     public $sellSitd;
 
     /**
-     * @description The name of the database link for the database instance.
+     * @description The system ID (SID) of the database instance.
      *
      * @example test
      *
@@ -215,12 +213,14 @@ class instance extends Model
     public $sid;
 
     /**
+     * @description The control mode of the database instance.
+     *
      * @var standardGroup
      */
     public $standardGroup;
 
     /**
-     * @description The source of the database instance.
+     * @description The status of the database instance.
      *
      * @example NORMAL
      *
@@ -229,7 +229,10 @@ class instance extends Model
     public $state;
 
     /**
-     * @description The keyword that is used to search for database instances.
+     * @description Indicates whether the cross-database query feature is enabled for the database instance. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: enabled
      *
      * @example 1
      *
@@ -238,7 +241,7 @@ class instance extends Model
     public $useDsql;
 
     /**
-     * @description The ID of the region in which the database instance resides.
+     * @description The ID of the VPC to which the database instance belongs.
      *
      * @example vpc-o6wrloqsdqc9io3mg****
      *

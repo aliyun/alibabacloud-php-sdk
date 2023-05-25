@@ -19,7 +19,7 @@ class CreateFreeLockCorrectOrderRequest extends Model
     public $attachmentKey;
 
     /**
-     * @description The stakeholders of the data change. All stakeholders can view the ticket details and assist in the approval process. Irrelevant users other than DMS administrators and database administrators (DBAs) are not allowed to view the ticket details.
+     * @description The purpose or objective of the data change. This parameter is used to help reduce unnecessary communication.
      *
      * @example test
      *
@@ -28,21 +28,21 @@ class CreateFreeLockCorrectOrderRequest extends Model
     public $comment;
 
     /**
-     * @description The key of the attachment that contains the SQL statements used to roll back the data change.
+     * @description The parameters of the ticket.
      *
      * @var param
      */
     public $param;
 
     /**
-     * @description The parameters of the ticket.
+     * @description The stakeholders of the data change. All stakeholders can view the ticket details and assist in the approval process. Irrelevant users other than DMS administrators and database administrators (DBAs) are not allowed to view the ticket details.
      *
      * @var int[]
      */
     public $relatedUserList;
 
     /**
-     * @description The ID of the ticket.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @example 3***
      *

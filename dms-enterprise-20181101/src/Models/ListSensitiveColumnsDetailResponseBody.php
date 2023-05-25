@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSensitiveColumnsDetailResponseBody extends Model
 {
     /**
-     * @description WB01053274
+     * @description The error code returned.
      *
      * @example UnknownError
      *
@@ -19,6 +19,8 @@ class ListSensitiveColumnsDetailResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example UnknownError
      *
      * @var string
@@ -26,9 +28,8 @@ class ListSensitiveColumnsDetailResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The name of the field. You can call the [ListSensitiveColumns](~~188103~~) operation to obtain the name of the field.
+     * @description The ID of the request.
      *
-     * >  You can also call the [ListColumns](~~141870~~) operation to obtain the name of the field.
      * @example 7629888F-C9FB-4D16-A7D3-B443FE06FBD4
      *
      * @var string
@@ -36,13 +37,17 @@ class ListSensitiveColumnsDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The data type of the field.
+     * @description The details of the sensitive field.
      *
      * @var sensitiveColumnsDetailList
      */
     public $sensitiveColumnsDetailList;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
      * @example true
      *
      * @var bool

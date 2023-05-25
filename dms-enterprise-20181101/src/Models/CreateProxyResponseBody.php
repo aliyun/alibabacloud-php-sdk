@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateProxyResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
      * @example InvalidParameterValid
      *
      * @var string
@@ -16,11 +18,15 @@ class CreateProxyResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the secure access proxy.
+     *
      * @example 4**
      *
      * @var int
@@ -28,6 +34,8 @@ class CreateProxyResponseBody extends Model
     public $proxyId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4FFD154E-F57F-5374-B568-D6276F15****
      *
      * @var string
@@ -35,6 +43,10 @@ class CreateProxyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
      * @example true
      *
      * @var bool

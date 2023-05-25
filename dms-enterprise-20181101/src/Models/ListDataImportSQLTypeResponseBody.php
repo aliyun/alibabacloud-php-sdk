@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListDataImportSQLTypeResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,6 +18,8 @@ class ListDataImportSQLTypeResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,6 +27,8 @@ class ListDataImportSQLTypeResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The request ID. You can use the ID to locate logs and troubleshoot issues.
+     *
      * @example E5EE2B9E-2F95-57FA-B284-CB441CEE49D6
      *
      * @var string
@@ -30,11 +36,18 @@ class ListDataImportSQLTypeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The types of SQL statements.
+     *
      * @var string[]
      */
     public $sqlTypeResult;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

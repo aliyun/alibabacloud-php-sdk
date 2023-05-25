@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class node extends Model
 {
     /**
-     * @description The name of the node.
+     * @description The ID of the task flow.
      *
      * @example 15***
      *
@@ -18,6 +18,8 @@ class node extends Model
     public $dagId;
 
     /**
+     * @description The position of the node in the DAG.
+     *
      * @example {\"x\":541,\"y\":322,\"layoutType\":\"Horizontal\"}
      *
      * @var string
@@ -25,12 +27,14 @@ class node extends Model
     public $graphParam;
 
     /**
+     * @description The advanced configuration of the node.
+     *
      * @var string
      */
     public $nodeConfig;
 
     /**
-     * @description The ID of the request.
+     * @description The configuration of the node.
      *
      * @example {ODI3OTNRVC****UHVFT29"}
      *
@@ -39,7 +43,7 @@ class node extends Model
     public $nodeContent;
 
     /**
-     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](~~424705~~).
+     * @description The ID of the node.
      *
      * @example 44***
      *
@@ -48,7 +52,7 @@ class node extends Model
     public $nodeId;
 
     /**
-     * @description The position of the node in the DAG.
+     * @description The name of the node.
      *
      * @example test
      *
@@ -57,7 +61,7 @@ class node extends Model
     public $nodeName;
 
     /**
-     * @description The list of DAG variables of the task flow.
+     * @description The type of the node. For more information about the valid values for this parameter, see [NodeType parameter](~~424705~~).
      *
      * @example 36
      *
@@ -66,7 +70,7 @@ class node extends Model
     public $nodeType;
 
     /**
-     * @description Queries the Directed Acyclic Graph (DAG) of a task flow.
+     * @description The time variables for the node.
      *
      * @example {\"variables\":[{\"name\":\"Today\",\"pattern\":\"yyyy-MM-dd|+1d\"}]}
      *

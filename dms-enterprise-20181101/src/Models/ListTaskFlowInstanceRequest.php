@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowInstanceRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **ListTaskFlowInstance**.
+     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to obtain the ID of the task flow.
      *
      * @example 7***
      *
@@ -18,7 +18,7 @@ class ListTaskFlowInstanceRequest extends Model
     public $dagId;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class ListTaskFlowInstanceRequest extends Model
     public $pageIndex;
 
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to obtain the ID of the task flow.
+     * @description The number of entries to return on each page.
      *
      * @example 20
      *
@@ -36,7 +36,7 @@ class ListTaskFlowInstanceRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of the page to return.
+     * @description The beginning of the time range to query the execution records of the task flow. Specify the time in the yyyy-MM-DD format.
      *
      * @example 2022-01-07
      *
@@ -45,7 +45,7 @@ class ListTaskFlowInstanceRequest extends Model
     public $startTimeBegin;
 
     /**
-     * @description The ID of the task flow.
+     * @description The end of the time range to query the execution records of the task flow. Specify the time in the yyyy-MM-DD format.
      *
      * @example 2022-04-08
      *
@@ -54,7 +54,12 @@ class ListTaskFlowInstanceRequest extends Model
     public $startTimeEnd;
 
     /**
-     * @description The ID of the execution record.
+     * @var int
+     */
+    public $status;
+
+    /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @example 3***
      *
@@ -63,21 +68,31 @@ class ListTaskFlowInstanceRequest extends Model
     public $tid;
 
     /**
-     * @description The business time of the task flow. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
+     * @description The mode in which the task flow is triggered. Valid values:
+     *
+     *   **0**: The task flow is automatically triggered based on periodic scheduling.
+     *   **1**: The task flow is manually triggered.
      *
      * @example 1
      *
      * @var int
      */
     public $triggerType;
+
+    /**
+     * @var bool
+     */
+    public $useBizDate;
     protected $_name = [
         'dagId'          => 'DagId',
         'pageIndex'      => 'PageIndex',
         'pageSize'       => 'PageSize',
         'startTimeBegin' => 'StartTimeBegin',
         'startTimeEnd'   => 'StartTimeEnd',
+        'status'         => 'Status',
         'tid'            => 'Tid',
         'triggerType'    => 'TriggerType',
+        'useBizDate'     => 'UseBizDate',
     ];
 
     public function validate()
@@ -102,11 +117,17 @@ class ListTaskFlowInstanceRequest extends Model
         if (null !== $this->startTimeEnd) {
             $res['StartTimeEnd'] = $this->startTimeEnd;
         }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
         }
         if (null !== $this->triggerType) {
             $res['TriggerType'] = $this->triggerType;
+        }
+        if (null !== $this->useBizDate) {
+            $res['UseBizDate'] = $this->useBizDate;
         }
 
         return $res;
@@ -135,11 +156,17 @@ class ListTaskFlowInstanceRequest extends Model
         if (isset($map['StartTimeEnd'])) {
             $model->startTimeEnd = $map['StartTimeEnd'];
         }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];
         }
         if (isset($map['TriggerType'])) {
             $model->triggerType = $map['TriggerType'];
+        }
+        if (isset($map['UseBizDate'])) {
+            $model->useBizDate = $map['UseBizDate'];
         }
 
         return $model;

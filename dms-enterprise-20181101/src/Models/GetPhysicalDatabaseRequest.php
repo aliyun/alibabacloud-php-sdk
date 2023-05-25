@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPhysicalDatabaseRequest extends Model
 {
     /**
+     * @description The ID of the physical database. You can call the [SearchDatabase](~~141876~~) operation to obtain the ID.
+     *
      * @example 43153
      *
      * @var int
@@ -16,6 +18,8 @@ class GetPhysicalDatabaseRequest extends Model
     public $dbId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the ID of the tenant.
+     *
      * @example 1
      *
      * @var int

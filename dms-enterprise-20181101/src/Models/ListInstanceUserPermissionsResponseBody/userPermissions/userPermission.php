@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class userPermission extends Model
 {
     /**
-     * @description The details of permissions.
+     * @description The ID of the instance.
      *
      * @example 174****
      *
@@ -19,16 +19,15 @@ class userPermission extends Model
     public $instanceId;
 
     /**
-     * @description The number of the page to return.
+     * @description The details of permissions.
      *
      * @var permDetails
      */
     public $permDetails;
 
     /**
-     * @description The ID of the tenant.
+     * @description The ID of the user.
      *
-     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the "View information about the current tenant" section of the [Manage DMS tenants](~~181330~~) topic.
      * @example 51****
      *
      * @var string
@@ -36,7 +35,7 @@ class userPermission extends Model
     public $userId;
 
     /**
-     * @description The ID of the user.
+     * @description The nickname of the user.
      *
      * @example test_nick_name
      *

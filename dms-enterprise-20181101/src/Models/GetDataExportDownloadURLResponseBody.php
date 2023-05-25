@@ -10,13 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDataExportDownloadURLResponseBody extends Model
 {
     /**
-     * @description The ID of the ticket. You can call the [ListOrders](~~144643~~) operation to obtain the ticket ID.
+     * @description The details about the download URL of the file that records the export results for the ticket.
      *
      * @var downloadURLResult
      */
     public $downloadURLResult;
 
     /**
+     * @description The error code.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,6 +26,8 @@ class GetDataExportDownloadURLResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example UnknownError
      *
      * @var string
@@ -31,7 +35,7 @@ class GetDataExportDownloadURLResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The operation that you want to perform. Set the value to **GetDataExportDownloadURL**.
+     * @description The ID of the request.
      *
      * @example 4BF24EA5-9013-4C85-AE68-6C23AF5E0097
      *
@@ -40,6 +44,11 @@ class GetDataExportDownloadURLResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

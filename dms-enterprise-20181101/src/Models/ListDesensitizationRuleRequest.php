@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDesensitizationRuleRequest extends Model
 {
     /**
-     * @description The description of the rule.
+     * @description The type of the masking algorithm.
      *
      * @example MD5
      *
@@ -18,7 +18,7 @@ class ListDesensitizationRuleRequest extends Model
     public $funcType;
 
     /**
-     * @description The name of the masking rule.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class ListDesensitizationRuleRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the masking rule.
+     * @description The number of entries to return on each page. The maximum value is 100.
      *
      * @example 20
      *
@@ -45,14 +45,14 @@ class ListDesensitizationRuleRequest extends Model
     public $ruleId;
 
     /**
-     * @description The example.
+     * @description The name of the masking rule.
      *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description The number of the page to return.
+     * @description The algorithm used for masking.
      *
      * @example HASH
      *
@@ -61,8 +61,9 @@ class ListDesensitizationRuleRequest extends Model
     public $ruleType;
 
     /**
-     * @description The name of the masking rule.
+     * @description The ID of the tenant.
      *
+     * >  To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [View information about the current tenant](~~181330~~).
      * @example 3***
      *
      * @var int

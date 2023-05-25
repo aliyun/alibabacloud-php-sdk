@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OfflineTaskFlowRequest extends Model
 {
     /**
-     * @description The error code returned if the request fails.
+     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to obtain the task flow ID.
      *
      * @example 7***
      *
@@ -18,7 +18,7 @@ class OfflineTaskFlowRequest extends Model
     public $dagId;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @example 3***
      *

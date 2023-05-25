@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListDAGVersionsResponseBody extends Model
 {
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The information about the published versions.
      *
      * @var dagVersionList
      */
     public $dagVersionList;
 
     /**
-     * @description The information about the published versions.
+     * @description The error code returned if the request fails.
      *
      * @example 403
      *
@@ -35,7 +35,7 @@ class ListDAGVersionsResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ListDAGVersions**.
+     * @description The ID of the request.
      *
      * @example C7775630-7901-51B9-8782-9B585EC0799A
      *
@@ -44,7 +44,10 @@ class ListDAGVersionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the version.
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
      *
      * @example true
      *
@@ -53,7 +56,7 @@ class ListDAGVersionsResponseBody extends Model
     public $success;
 
     /**
-     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to obtain the ID of the task flow.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class dag extends Model
 {
     /**
+     * @description Indicates whether the task flow can be modified. Valid values:
+     *
+     * - **true**: The task flow can be modified.
+     * - **false**: The task flow cannot be modified.
      * @example true
      *
      * @var bool
@@ -16,6 +20,8 @@ class dag extends Model
     public $canEdit;
 
     /**
+     * @description The ID of the user who creates the task flow.
+     *
      * @example 51****
      *
      * @var string
@@ -23,6 +29,8 @@ class dag extends Model
     public $creatorId;
 
     /**
+     * @description The name of the user who creates the workspace.
+     *
      * @example Creator_Name
      *
      * @var string
@@ -30,6 +38,8 @@ class dag extends Model
     public $creatorNickName;
 
     /**
+     * @description The name of the task flow.
+     *
      * @example Dag_Name
      *
      * @var string
@@ -37,6 +47,8 @@ class dag extends Model
     public $dagName;
 
     /**
+     * @description The user ID of the task flow owner.
+     *
      * @example 51****
      *
      * @var string
@@ -44,6 +56,8 @@ class dag extends Model
     public $dagOwnerId;
 
     /**
+     * @description The name of the task flow owner.
+     *
      * @example Owner_Name
      *
      * @var string
@@ -51,6 +65,8 @@ class dag extends Model
     public $dagOwnerNickName;
 
     /**
+     * @description The extended field. No meaning is specified for this field.
+     *
      * @example -
      *
      * @var int
@@ -58,6 +74,8 @@ class dag extends Model
     public $dataFlowId;
 
     /**
+     * @description The extended field. No meaning is specified for this field.
+     *
      * @example -
      *
      * @var string
@@ -65,6 +83,8 @@ class dag extends Model
     public $demoId;
 
     /**
+     * @description The ID of the latest deployment record.
+     *
      * @example 12**
      *
      * @var int
@@ -72,6 +92,8 @@ class dag extends Model
     public $deployId;
 
     /**
+     * @description The ID of the task flow.
+     *
      * @example 9***
      *
      * @var int
@@ -79,6 +101,10 @@ class dag extends Model
     public $id;
 
     /**
+     * @description Indicates whether the task flow is deleted. Valid values:
+     *
+     * - **true**: deleted
+     * - **false**: not deleted
      * @example false
      *
      * @var bool
@@ -86,6 +112,9 @@ class dag extends Model
     public $isDeleted;
 
     /**
+     * @description The status of the latest execution. Valid values:
+     *
+     * - 2: waiting to be scheduled
      * @example 1
      *
      * @var int
@@ -93,6 +122,8 @@ class dag extends Model
     public $latestInstanceStatus;
 
     /**
+     * @description The time when the latest execution record was generated.
+     *
      * @example 2022-04-14
      *
      * @var int
@@ -100,6 +131,8 @@ class dag extends Model
     public $latestInstanceTime;
 
     /**
+     * @description The ID of the business scenario.
+     *
      * @example 2**
      *
      * @var int
@@ -107,6 +140,8 @@ class dag extends Model
     public $scenarioId;
 
     /**
+     * @description The ID of the workspace.
+     *
      * @example 1
      *
      * @var int
@@ -114,6 +149,11 @@ class dag extends Model
     public $spaceId;
 
     /**
+     * @description The status of the task flow. Valid values:
+     *
+     * - **0**: invalid
+     * - **1**: scheduling disabled
+     * - **2**: waiting to be scheduled
      * @example 1
      *
      * @var int

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sensitiveColumnsDetail extends Model
 {
     /**
-     * @description $.parameters[6].schema.description
+     * @description The description of the field.
      *
      * @example test
      *
@@ -18,7 +18,7 @@ class sensitiveColumnsDetail extends Model
     public $columnDescription;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the field.
      *
      * @example ColumnName_test
      *
@@ -27,7 +27,7 @@ class sensitiveColumnsDetail extends Model
     public $columnName;
 
     /**
-     * @description $.parameters[7].schema.description
+     * @description The data type of the field.
      *
      * @example varchar(32)
      *
@@ -36,10 +36,7 @@ class sensitiveColumnsDetail extends Model
     public $columnType;
 
     /**
-     * @description Indicates whether the database is a logical database. Valid values:
-     *
-     *   **true**: The database is a logical database.
-     *   **false**: The database is not a logical database.
+     * @description The ID of the database.
      *
      * @example 1860****
      *
@@ -48,7 +45,7 @@ class sensitiveColumnsDetail extends Model
     public $dbId;
 
     /**
-     * @description $.parameters[6].schema.enumValueTitles
+     * @description The type of the database.
      *
      * @example mysql
      *
@@ -57,7 +54,7 @@ class sensitiveColumnsDetail extends Model
     public $dbType;
 
     /**
-     * @description ListSensitiveColumnsDetail
+     * @description The type of the environment to which the database belongs.
      *
      * @example product
      *
@@ -66,7 +63,10 @@ class sensitiveColumnsDetail extends Model
     public $envType;
 
     /**
-     * @description $.parameters[7].schema.example
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     *   **true**: The database is a logical database.
+     *   **false**: The database is not a logical database.
      *
      * @example false
      *
@@ -75,7 +75,7 @@ class sensitiveColumnsDetail extends Model
     public $logic;
 
     /**
-     * @description $.parameters[7].schema.enumValueTitles
+     * @description The name of the database.
      *
      * @example SchemaName_test
      *
@@ -84,7 +84,7 @@ class sensitiveColumnsDetail extends Model
     public $schemaName;
 
     /**
-     * @description Queries the details of a sensitive field.
+     * @description The name that is used to search for the database.
      *
      * @example test@xxx:3306
      *
@@ -93,7 +93,7 @@ class sensitiveColumnsDetail extends Model
     public $searchName;
 
     /**
-     * @description $.parameters[6].schema.example
+     * @description The name of the table.
      *
      * @example test
      *

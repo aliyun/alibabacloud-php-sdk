@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteLogicTableRouteConfigResponseBody extends Model
 {
     /**
+     * @description The error code returned.
+     *
      * @example MissingRouteKey
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteLogicTableRouteConfigResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example RouteKey is mandatory for this action.
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteLogicTableRouteConfigResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A916A004-A88C-5B39-ABDB-DE808E80****
      *
      * @var string
@@ -30,6 +36,10 @@ class DeleteLogicTableRouteConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * - **true**: The request was successful.
+     * - **false**: The request failed.
      * @example true
      *
      * @var bool

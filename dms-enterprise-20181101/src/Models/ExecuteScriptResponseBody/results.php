@@ -16,9 +16,8 @@ class results extends Model
     public $columnNames;
 
     /**
-     * @description The ID of the tenant.
+     * @description The error message that is returned if the SQL statement fails to be executed. For example, an error message is returned because the SQL statement is invalid.
      *
-     * >  To obtain the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see [Tenant information](~~181330~~).
      * @example UnknownError
      *
      * @var string
@@ -26,7 +25,7 @@ class results extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The total number of entries that are returned.
      *
      * @example 1
      *
@@ -35,14 +34,14 @@ class results extends Model
     public $rowCount;
 
     /**
-     * @description The total number of entries that are returned.
+     * @description The rows that are queried after the SQL statement is executed.
      *
      * @var mixed[][]
      */
     public $rows;
 
     /**
-     * @description The rows that are queried after the SQL statement is executed.
+     * @description Indicates whether the SQL statement is executed.
      *
      * @example true
      *

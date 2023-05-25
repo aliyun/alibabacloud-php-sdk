@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDataCorrectOrderResponseBody extends Model
 {
     /**
+     * @description The IDs of the tickets.
+     *
      * @var int[]
      */
     public $createOrderResult;
 
     /**
+     * @description The error code returned if the request fails.
+     *
      * @example UnknownError
      *
      * @var string
@@ -21,7 +25,7 @@ class CreateDataCorrectOrderResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description Creates a ticket for changing data in Data Management (DMS).
+     * @description The error message returned if the request fails.
      *
      * @example UnknownError
      *
@@ -30,7 +34,7 @@ class CreateDataCorrectOrderResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The reason for the data change.
+     * @description The ID of the request.
      *
      * @example 0C1CB646-1DE4-4AD0-B4A4-7D47DD52E931
      *
@@ -39,7 +43,10 @@ class CreateDataCorrectOrderResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request.
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
      *
      * @example true
      *

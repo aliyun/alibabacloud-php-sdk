@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTaskNameResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateTaskNameResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,7 +27,7 @@ class UpdateTaskNameResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The operation that you want to perform. Set the value to **UpdateTaskName**.
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
      *
      * @example C4604178-3BE1-5973-ACF0-7D561AEEF3A8
      *
@@ -32,6 +36,11 @@ class UpdateTaskNameResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowRequest extends Model
 {
     /**
-     * @description The information about the task flows returned.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @example 3***
      *

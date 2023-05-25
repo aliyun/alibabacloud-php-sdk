@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateOrderRequest extends Model
 {
     /**
-     * @description test_AttachmentKey
+     * @description The key of an attachment that is returned after the attachment is uploaded. You can call the [GetUserUploadFileJob](~~206069~~) operation to query the key of the attachment.
      *
      * @example test_AttachmentKey
      *
@@ -18,7 +18,7 @@ class CreateOrderRequest extends Model
     public $attachmentKey;
 
     /**
-     * @description The key of an attachment that is returned after the attachment is uploaded. You can call the [GetUserUploadFileJob](~~206069~~) operation to query the key of the attachment.
+     * @description The description of the ticket to be created.
      *
      * @example test
      *
@@ -27,7 +27,7 @@ class CreateOrderRequest extends Model
     public $comment;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
+     * @description The ticket creation parameter. The value is a JSON string. The value of this parameter differs based on the type of the ticket. For more information, see the **PluginParam parameter** section in this topic.
      *
      * @example {PluginParam_test}
      *
@@ -36,7 +36,7 @@ class CreateOrderRequest extends Model
     public $pluginParam;
 
     /**
-     * @description The ID of the ticket.
+     * @description The type of the ticket. For more information, see [PluginType parameter](~~429109~~).
      *
      * @example DATA_EXPORT
      *
@@ -54,7 +54,7 @@ class CreateOrderRequest extends Model
     public $relatedUserList;
 
     /**
-     * @description The error message.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to obtain the tenant ID.
      *
      * @example 3***
      *

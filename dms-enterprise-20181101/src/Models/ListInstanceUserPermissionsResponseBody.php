@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceUserPermissionsResponseBody extends Model
 {
     /**
-     * @description The ID of the authorization record.
+     * @description The error code.
      *
      * @example UnknownError
      *
@@ -19,7 +19,7 @@ class ListInstanceUserPermissionsResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The error message.
      *
      * @example UnknownError
      *
@@ -28,7 +28,7 @@ class ListInstanceUserPermissionsResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ListInstanceUserPermissions**.
+     * @description The ID of the request.
      *
      * @example 7D162AAE-6501-5691-BF14-D7018F662895
      *
@@ -37,6 +37,9 @@ class ListInstanceUserPermissionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     * - false: The request fails.
      * @example true
      *
      * @var bool
@@ -44,7 +47,7 @@ class ListInstanceUserPermissionsResponseBody extends Model
     public $success;
 
     /**
-     * @description The nickname of the user.
+     * @description The total number of returned entries.
      *
      * @example 1
      *
@@ -53,7 +56,7 @@ class ListInstanceUserPermissionsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The error message.
+     * @description The permissions of the user on the instance.
      *
      * @var userPermissions
      */

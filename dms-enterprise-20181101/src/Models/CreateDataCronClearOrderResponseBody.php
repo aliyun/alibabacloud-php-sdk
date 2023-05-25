@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDataCronClearOrderResponseBody extends Model
 {
     /**
+     * @description The ID of the ticket.
+     *
      * @var int[]
      */
     public $createOrderResult;
 
     /**
+     * @description The error code.
+     *
      * @example UnknownError
      *
      * @var string
@@ -21,6 +25,8 @@ class CreateDataCronClearOrderResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example UnknownError
      *
      * @var string
@@ -37,10 +43,7 @@ class CreateDataCronClearOrderResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Specifies whether to specify an end time for the task. Valid values:
-     *
-     *   **true**: specifies an end time for the task. The task is automatically suspended after this end time.
-     *   **false**: does not specify an end time for the task. The task is stopped after the historical data is cleared.
+     * @description Indicates whether the request is successful.
      *
      * @example true
      *

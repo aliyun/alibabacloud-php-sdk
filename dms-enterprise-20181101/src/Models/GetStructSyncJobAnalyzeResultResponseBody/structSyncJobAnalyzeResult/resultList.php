@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class resultList extends Model
 {
     /**
+     * @description The SQL script.
+     *
+     * @example /\* origin table\[helloz_bak] exist, target table\[helloz_bak] not exist \*\/\n/\* generate \[helloz_bak] create table sql \*\/\ncreate table \`helloz_bak\`(\n\t\`id\` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT \"Primary key\",\n\t\`gmt_create\` datetime NOT NULL COMMENT \"Creation time\",\n\t\`gmt_modified\` datetime NOT NULL COMMENT \"Modification time\",\n\t\`num\` int(11) NOT NULL COMMENT \"Number\",\n\t\`addr\` varchar(50) CHARACTER SET utf8 COLLATE utf8\_general_ci NOT NULL COMMENT \"Address\",\n\tPRIMARY KEY (\`id\`)\n)\nDEFAULT CHARACTER SET=utf8 COLLATE=utf8\_general_ci\nCOMMENT=\"test\"\n\n;
+     *
      * @var string
      */
     public $script;
 
     /**
+     * @description The name of the source table.
+     *
      * @example helloz_bak
      *
      * @var string
@@ -21,6 +27,8 @@ class resultList extends Model
     public $sourceTableName;
 
     /**
+     * @description The name of the destination table.
+     *
      * @example helloz_bak
      *
      * @var string

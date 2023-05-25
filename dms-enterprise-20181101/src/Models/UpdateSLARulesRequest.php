@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateSLARulesRequest extends Model
 {
     /**
-     * @description The ID of the tenant.
+     * @description The ID of the task flow. You can call the [ListTaskFlow](~~424565~~) or [ListLhTaskFlowAndScenario](~~426672~~) operation to query the task flow ID.
      *
-     * > :To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 11****
      *
      * @var int
@@ -20,15 +19,16 @@ class UpdateSLARulesRequest extends Model
     public $dagId;
 
     /**
-     * @description The timeout period. Unit: minutes.
+     * @description The list of SLA rules.
      *
      * @var slaRuleList[]
      */
     public $slaRuleList;
 
     /**
-     * @description The list of SLA rules.
+     * @description The ID of the tenant.
      *
+     * > :To view the ID of the tenant, go to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [View information about the current tenant](~~181330~~).
      * @example 3***
      *
      * @var int
