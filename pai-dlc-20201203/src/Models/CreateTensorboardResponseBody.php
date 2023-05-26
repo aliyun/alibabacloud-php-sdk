@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateTensorboardResponseBody extends Model
 {
     /**
-     * @description DataSourceId
-     *
      * @example ds-20210126170216-xxxxxxxx
      *
      * @var string
@@ -32,8 +30,6 @@ class CreateTensorboardResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Tensorboard id
-     *
      * @example tbxxxxxxxx
      *
      * @var string

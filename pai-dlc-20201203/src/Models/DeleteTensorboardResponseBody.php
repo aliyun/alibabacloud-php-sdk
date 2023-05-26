@@ -16,8 +16,6 @@ class DeleteTensorboardResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Tensorboad Id
-     *
      * @example tensorboard-20210114104214-vf9lowjt3pso
      *
      * @var string

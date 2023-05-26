@@ -23,8 +23,6 @@ class ListTensorboardsRequest extends Model
     public $endTime;
 
     /**
-     * @description JobId
-     *
      * @example dlc-xxx
      *
      * @var string
@@ -88,8 +86,6 @@ class ListTensorboardsRequest extends Model
     public $status;
 
     /**
-     * @description TensorboardId
-     *
      * @example tensorboard-xxx
      *
      * @var string

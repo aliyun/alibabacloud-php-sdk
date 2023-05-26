@@ -30,6 +30,8 @@ class GetPodLogsRequest extends Model
     public $maxLines;
 
     /**
+     * @example fe846462-af2c-4521-bd6f-96787a57****
+     *
      * @var string
      */
     public $podUid;

@@ -91,6 +91,8 @@ class CreateJobRequest extends Model
     public $settings;
 
     /**
+     * @example AllWorkers
+     *
      * @var string
      */
     public $successPolicy;

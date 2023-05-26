@@ -50,8 +50,6 @@ class pods extends Model
     public $podId;
 
     /**
-     * @description Pod UId
-     *
      * @example fe846462-af2c-4521-bd6f-96787a57591d
      *
      * @var string
@@ -59,6 +57,8 @@ class pods extends Model
     public $podUid;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $resourceType;
@@ -71,6 +71,8 @@ class pods extends Model
     public $status;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $subStatus;

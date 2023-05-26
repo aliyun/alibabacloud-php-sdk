@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetTensorboardRequest extends Model
 {
     /**
-     * @description JodId
-     *
      * @example dlc-xxxxxxxx
      *
      * @var string

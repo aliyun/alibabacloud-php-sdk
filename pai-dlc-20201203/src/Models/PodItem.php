@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponseBody\pods;
+namespace AlibabaCloud\SDK\Paidlc\V20201203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class historyPods extends Model
+class PodItem extends Model
 {
     /**
      * @example 2021-01-12T14:36:01Z
@@ -16,28 +16,33 @@ class historyPods extends Model
     public $gmtCreateTime;
 
     /**
-     * @example 2021-01-12T14:36:01Z
+     * @example 2021-01-12T15:36:05Z
      *
      * @var string
      */
     public $gmtFinishTime;
 
     /**
-     * @example 2021-01-12T14:36:01Z
+     * @example 2021-01-12T14:36:05Z
      *
      * @var string
      */
     public $gmtStartTime;
 
     /**
-     * @example 10.0.1.3
+     * @var \AlibabaCloud\SDK\Paidlc\V20201203\Models\PodItem[]
+     */
+    public $historyPods;
+
+    /**
+     * @example 10.0.1.2
      *
      * @var string
      */
     public $ip;
 
     /**
-     * @example Worker
+     * @example dlc-20210126170216-mtl37ge7gkvdz-worker-0
      *
      * @var string
      */
@@ -51,25 +56,11 @@ class historyPods extends Model
     public $podUid;
 
     /**
-     * @example Normal
-     *
-     * @var string
-     */
-    public $resourceType;
-
-    /**
-     * @example Failed
+     * @example Stopped
      *
      * @var string
      */
     public $status;
-
-    /**
-     * @example Normal
-     *
-     * @var string
-     */
-    public $subStatus;
 
     /**
      * @example Worker
@@ -81,12 +72,11 @@ class historyPods extends Model
         'gmtCreateTime' => 'GmtCreateTime',
         'gmtFinishTime' => 'GmtFinishTime',
         'gmtStartTime'  => 'GmtStartTime',
+        'historyPods'   => 'HistoryPods',
         'ip'            => 'Ip',
         'podId'         => 'PodId',
         'podUid'        => 'PodUid',
-        'resourceType'  => 'ResourceType',
         'status'        => 'Status',
-        'subStatus'     => 'SubStatus',
         'type'          => 'Type',
     ];
 
@@ -106,6 +96,15 @@ class historyPods extends Model
         if (null !== $this->gmtStartTime) {
             $res['GmtStartTime'] = $this->gmtStartTime;
         }
+        if (null !== $this->historyPods) {
+            $res['HistoryPods'] = [];
+            if (null !== $this->historyPods && \is_array($this->historyPods)) {
+                $n = 0;
+                foreach ($this->historyPods as $item) {
+                    $res['HistoryPods'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
@@ -115,14 +114,8 @@ class historyPods extends Model
         if (null !== $this->podUid) {
             $res['PodUid'] = $this->podUid;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->subStatus) {
-            $res['SubStatus'] = $this->subStatus;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -134,7 +127,7 @@ class historyPods extends Model
     /**
      * @param array $map
      *
-     * @return historyPods
+     * @return PodItem
      */
     public static function fromMap($map = [])
     {
@@ -148,6 +141,15 @@ class historyPods extends Model
         if (isset($map['GmtStartTime'])) {
             $model->gmtStartTime = $map['GmtStartTime'];
         }
+        if (isset($map['HistoryPods'])) {
+            if (!empty($map['HistoryPods'])) {
+                $model->historyPods = [];
+                $n                  = 0;
+                foreach ($map['HistoryPods'] as $item) {
+                    $model->historyPods[$n++] = null !== $item ? self::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
@@ -157,14 +159,8 @@ class historyPods extends Model
         if (isset($map['PodUid'])) {
             $model->podUid = $map['PodUid'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['SubStatus'])) {
-            $model->subStatus = $map['SubStatus'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

@@ -17,6 +17,7 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobEventsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobEventsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobMetricsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobMetricsResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetJobResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodEventsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodEventsResponse;
@@ -409,15 +410,22 @@ class Paidlc extends OpenApiClient
 
     /**
      * @param string         $JobId
+     * @param GetJobRequest  $request
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
      * @return GetJobResponse
      */
-    public function getJobWithOptions($JobId, $headers, $runtime)
+    public function getJobWithOptions($JobId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->needDetail)) {
+            $query['NeedDetail'] = $request->needDetail;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'GetJob',
@@ -435,16 +443,17 @@ class Paidlc extends OpenApiClient
     }
 
     /**
-     * @param string $JobId
+     * @param string        $JobId
+     * @param GetJobRequest $request
      *
      * @return GetJobResponse
      */
-    public function getJob($JobId)
+    public function getJob($JobId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getJobWithOptions($JobId, $headers, $runtime);
+        return $this->getJobWithOptions($JobId, $request, $headers, $runtime);
     }
 
     /**

@@ -16,8 +16,6 @@ class UpdateTensorboardResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Tensorboad Id
-     *
      * @example tensorboard-20210114104214-xxxxxxxx
      *
      * @var string

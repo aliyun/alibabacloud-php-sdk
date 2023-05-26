@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListJobsShrinkRequest extends Model
 {
     /**
-     * @example 166924
+     * @example 16****
      *
      * @var string
      */
     public $businessUserId;
 
     /**
-     * @example SilkFlow
+     * @example local
      *
      * @var string
      */
@@ -37,11 +37,15 @@ class ListJobsShrinkRequest extends Model
     public $endTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $fromAllWorkspaces;
 
     /**
+     * @example dlc********
+     *
      * @var string
      */
     public $jobId;
@@ -75,14 +79,14 @@ class ListJobsShrinkRequest extends Model
     public $pageSize;
 
     /**
-     * @example pid-123456
+     * @example flow-*******
      *
      * @var string
      */
     public $pipelineId;
 
     /**
-     * @example dlc-quota
+     * @example r*****
      *
      * @var string
      */
@@ -122,7 +126,7 @@ class ListJobsShrinkRequest extends Model
     public $tagsShrink;
 
     /**
-     * @example 380
+     * @example 1****
      *
      * @var string
      */
