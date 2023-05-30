@@ -38,7 +38,7 @@ class DescribeInvadeEventListRequest extends Model
     /**
      * @description The number of the page to return.
      *
-     * Pages start from page 1. Default value: 1.
+     * Default value: 1.
      * @example 1
      *
      * @var string
@@ -46,7 +46,7 @@ class DescribeInvadeEventListRequest extends Model
     public $currentPage;
 
     /**
-     * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     * @description The end of the time range to query. The value is a UNIX timestamp. Unit: seconds. If you do not specify this parameter, the query ends at the current time.
      *
      * @example 1656837360
      *
@@ -82,10 +82,10 @@ class DescribeInvadeEventListRequest extends Model
     public $eventUuid;
 
     /**
-     * @description Specifies whether to ignore the breach awareness event. Valid values:
+     * @description Specifies whether the breach awareness event is ignored. Valid values:
      *
-     *   **true**: ignores the breach awareness event.
-     *   **false**: does not ignore the breach awareness event.
+     *   **true**: The breach awareness event is ignored.
+     *   **false**: The breach awareness event is not ignored.
      *
      * @example true
      *
@@ -125,14 +125,14 @@ class DescribeInvadeEventListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The list of process statuses.
+     * @description The handling status of breach awareness events.
      *
      * @var int[]
      */
     public $processStatusList;
 
     /**
-     * @description The list of risk levels.
+     * @description The risk levels.
      *
      * @var int[]
      */
@@ -143,12 +143,14 @@ class DescribeInvadeEventListRequest extends Model
      *
      * @example 192.0.XX.XX
      *
+     * @deprecated
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+     * @description The beginning of the time range to query. The value is a UNIX timestamp. Unit: seconds. If you do not specify this parameter, the query starts from 30 days before the current time.
      *
      * @example 1656750960
      *

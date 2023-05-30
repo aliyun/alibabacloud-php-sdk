@@ -60,6 +60,8 @@ class CreateVpcFirewallCenConfigureRequest extends Model
     public $networkInstanceId;
 
     /**
+     * @example vsw-qzeaol304m***
+     *
      * @var string
      */
     public $vSwitchId;

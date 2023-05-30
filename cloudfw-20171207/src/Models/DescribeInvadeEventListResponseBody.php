@@ -18,7 +18,7 @@ class DescribeInvadeEventListResponseBody extends Model
     public $eventList;
 
     /**
-     * @description The ratio of high-risk events.
+     * @description The percentage of high-risk events.
      *
      * @example 40
      *
@@ -27,7 +27,7 @@ class DescribeInvadeEventListResponseBody extends Model
     public $highLevelPercent;
 
     /**
-     * @description The ratio of low-risk events.
+     * @description The percentage of low-risk events.
      *
      * @example 20
      *
@@ -36,7 +36,7 @@ class DescribeInvadeEventListResponseBody extends Model
     public $lowLevelPercent;
 
     /**
-     * @description The ratio of medium-risk events.
+     * @description The percentage of medium-risk events.
      *
      * @example 40
      *

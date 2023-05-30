@@ -11,9 +11,9 @@ class AddControlPolicyRequest extends Model
     /**
      * @description The action that Cloud Firewall performs on the traffic. Valid values:
      *
-     * **accept**: allows the traffic.
-     * **drop**: denies the traffic.
-     * **log**: monitors the traffic.
+     *   **accept**: allows the traffic.
+     *   **drop**: denies the traffic.
+     *   **log**: monitors the traffic.
      *
      * @example accept
      *
@@ -22,26 +22,26 @@ class AddControlPolicyRequest extends Model
     public $aclAction;
 
     /**
-     * @description The type of the application that the access control policy supports. Valid values:
+     * @description The application type supported by the access control policy. Valid values:
      *
-     * **FTP**
-     * **HTTP**
-     * **HTTPS**
-     * **Memcache**
-     * **MongoDB**
-     * **MQTT**
-     * **MySQL**
-     * **RDP**
-     * **Redis**
-     * **SMTP**
-     * **SMTPS**
-     * **SSH**
-     * **SSL_No_Cert**
-     * **SSL**
-     * **VNC**
-     * **ANY**: all types of applications
+     *   **FTP**
+     *   **HTTP**
+     *   **HTTPS**
+     *   **Memcache**
+     *   **MongoDB**
+     *   **MQTT**
+     *   **MySQL**
+     *   **RDP**
+     *   **Redis**
+     *   **SMTP**
+     *   **SMTPS**
+     *   **SSH**
+     *   **SSL_No_Cert**
+     *   **SSL**
+     *   **VNC**
+     *   **ANY**
      *
-     * > The value of this parameter depends on the value of Proto. If Proto is set to TCP, you can set ApplicationName to any valid value. If Proto is set to UDP, ICMP, or ANY, you can set ApplicationName only to ANY.
+     * > The value of this parameter is based on the value of Proto. If Proto is set to TCP, you can set ApplicationName to any valid value. If Proto is set to UDP, ICMP, or ANY, you can set ApplicationName only to ANY. You must specify at least one of the ApplicationNameList and ApplicationName parameters.
      * @example ANY
      *
      * @var string
@@ -49,7 +49,7 @@ class AddControlPolicyRequest extends Model
     public $applicationName;
 
     /**
-     * @description The types of the application that the access control policy supports.
+     * @description The application types supported by the access control policy.
      *
      * @var string[]
      */
@@ -58,7 +58,7 @@ class AddControlPolicyRequest extends Model
     /**
      * @description The description of the access control policy.
      *
-     * @example allow access
+     * @example Allows traffic
      *
      * @var string
      */
@@ -67,15 +67,15 @@ class AddControlPolicyRequest extends Model
     /**
      * @description The destination port in the access control policy. Valid values:
      *
-     * If Proto is set to ICMP, the value of DestPort is empty.
+     *   If Proto is set to ICMP, DestPort is automatically left empty.
      *
      * > If Proto is set to ICMP, access control does not take effect on the destination port.
      *
-     * If Proto is set to TCP, UDP, or ANY and DestPortType is set to group, the value of DestPort is empty.
+     *   If Proto is set to TCP, UDP, or ANY and DestPortType is set to group, DestPort is empty.
      *
-     * > If DestPortType is set to group, you do not need to specify the destination port number. All ports that the access control policy controls are included in the destination port address book.
+     * > If DestPortType is set to group, you do not need to specify the destination port number. All ports on which the access control policy takes effect are included in the destination port address book.
      *
-     * If Proto is set to TCP, UDP, or ANY and DestPortType is set to port, the value of DestPort is the destination port number.
+     *   If Proto is set to TCP, UDP, or ANY and DestPortType is set to port, the value of DestPort is the destination port number.
      *
      * @example 80
      *
@@ -86,7 +86,7 @@ class AddControlPolicyRequest extends Model
     /**
      * @description The name of the destination port address book in the access control policy.
      *
-     * >  If DestPortType is set to group, you must specify the name of the destination port address book.
+     * > If DestPortType is set to group, you must specify the name of the destination port address book.
      * @example my_port_group
      *
      * @var string
@@ -112,19 +112,19 @@ class AddControlPolicyRequest extends Model
      *
      * Valid values:
      *
-     * If DestinationType is set to net, the value of this parameter is a CIDR block.
+     *   If DestinationType is set to net, the value of this parameter is a CIDR block.
      *
      * Example: 1.2.XX.XX/24
      *
-     * If DestinationType is set to group, the value of this parameter is an address book.
+     *   If DestinationType is set to group, the value of this parameter is an address book name.
      *
      * Example: db_group
      *
-     * If DestinationType is set to domain, the value of this parameter is a domain name.
+     *   If DestinationType is set to domain, the value of this parameter is a domain name.
      *
      * Example: \*.aliyuncs.com
      *
-     * If DestinationType is set to location, the value of this parameter is a location.
+     *   If DestinationType is set to location, the value of this parameter is a location.
      *
      * Example: \["BJ11", "ZB"]
      * @example 192.0.XX.XX/24
@@ -136,10 +136,10 @@ class AddControlPolicyRequest extends Model
     /**
      * @description The type of the destination address in the access control policy. Valid values:
      *
-     * **net**: destination CIDR block
-     * **group**: destination address book
-     * **domain**: destination domain name
-     * **location**: destination location
+     *   **net**: CIDR block
+     *   **group**: address book
+     *   **domain**: domain name
+     *   **location**: location
      *
      * @example net
      *
@@ -150,8 +150,8 @@ class AddControlPolicyRequest extends Model
     /**
      * @description The direction of the traffic to which the access control policy applies. Valid values:
      *
-     * **in**: inbound traffic
-     * **out**: outbound traffic
+     *   **in**: inbound traffic
+     *   **out**: outbound traffic
      *
      * @example in
      *
@@ -160,12 +160,12 @@ class AddControlPolicyRequest extends Model
     public $direction;
 
     /**
-     * @description The IP version of the address in the access control policy.
+     * @description The IP version supported by the access control policy.
      *
      * Valid values:
      *
-     * **4**: IPv4
-     * **6**: IPv6
+     *   **4**: IPv4
+     *   **6**: IPv6
      *
      * @example 6
      *
@@ -176,8 +176,8 @@ class AddControlPolicyRequest extends Model
     /**
      * @description The language of the content within the request and response. Valid values:
      *
-     * **zh**: Chinese (default)
-     * **en**: English
+     *   **zh**: Chinese (default)
+     *   **en**: English
      *
      * @example zh
      *
@@ -186,7 +186,7 @@ class AddControlPolicyRequest extends Model
     public $lang;
 
     /**
-     * @description The priority of the access control policy. The priority value starts from 1. A small priority value indicates a high priority.
+     * @description The priority of the access control policy. The priority value starts from 1. A smaller priority value indicates a higher priority.
      *
      * @example 1
      *
@@ -195,12 +195,12 @@ class AddControlPolicyRequest extends Model
     public $newOrder;
 
     /**
-     * @description The type of the protocol in the access control policy. Valid values:
+     * @description The protocol type supported by the access control policy. Valid values:
      *
-     * **ANY**: any protocol type
-     * **TCP**
-     * **UDP**
-     * **ICMP**
+     *   **ANY**
+     *   **TCP**
+     *   **UDP**
+     *   **ICMP**
      *
      * @example ANY
      *
@@ -209,10 +209,10 @@ class AddControlPolicyRequest extends Model
     public $proto;
 
     /**
-     * @description Specifies whether the access control policy is enabled. By default, an access control policy is enabled after it is created. Valid values:
+     * @description Specifies whether to enable the access control policy. By default, an access control policy is enabled after the policy is created. Valid values:
      *
-     *   **true**: The access control policy is enabled.
-     *   **false**: The access control policy is disabled.
+     *   **true**: enables the access control policy.
+     *   **false**: disables the access control policy.
      *
      * @example true
      *
@@ -223,15 +223,15 @@ class AddControlPolicyRequest extends Model
     /**
      * @description The source address in the access control policy. Valid values:
      *
-     * If SourceType is set to net, the value of this parameter is a CIDR block.
+     *   If SourceType is set to net, the value of this parameter is a CIDR block.
      *
      * Example: 1.1.XX.XX/24
      *
-     * If SourceType is set to group, the value of this parameter is an address book.
+     *   If SourceType is set to group, the value of this parameter is an address book name.
      *
      * Example: db_group
      *
-     * If SourceType is set to location, the value of this parameter is a location.
+     *   If SourceType is set to location, the value of this parameter is a location.
      *
      * Example: \["BJ11", "ZB"]
      * @example 192.0.XX.XX/24
@@ -245,16 +245,18 @@ class AddControlPolicyRequest extends Model
      *
      * @example 192.0.XX.XX
      *
+     * @deprecated
+     *
      * @var string
      */
     public $sourceIp;
 
     /**
-     * @description The type of the source address book in the access control policy. Valid values:
+     * @description The type of the source address in the access control policy. Valid values:
      *
-     * **net**: source CIDR block
-     * **group**: source address book
-     * **location**: source location
+     *   **net**: CIDR block
+     *   **group**: address book
+     *   **location**: location
      *
      * @example net
      *

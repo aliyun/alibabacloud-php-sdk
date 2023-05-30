@@ -42,7 +42,7 @@ class DescribeAssetListRequest extends Model
     public $lang;
 
     /**
-     * @description The UID of the member that is added in Cloud Firewall.
+     * @description The UID of the member that is added to Cloud Firewall.
      *
      * @example 258039427902****
      *
@@ -51,6 +51,8 @@ class DescribeAssetListRequest extends Model
     public $memberUid;
 
     /**
+     * @example discovered in 1 hour
+     *
      * @var string
      */
     public $newResourceTag;
@@ -65,9 +67,9 @@ class DescribeAssetListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region in which Cloud Firewall is supported.
+     * @description The region ID of your Cloud Firewall.
      *
-     * >  For more information about the regions in which Cloud Firewall is supported, see [Supported regions](~~195657~~).
+     * > For more information about the regions, see [Supported regions](~~195657~~).
      * @example cn-hangzhou
      *
      * @var string
@@ -83,7 +85,7 @@ class DescribeAssetListRequest extends Model
      *   **EcsPublicIP**: the public IP address of an ECS instance
      *   **EIP**: the EIP
      *   **EniEIP**: the EIP of an elastic network interface (ENI)
-     *   **NatEIP**: the EIP of a Network Address Translation (NAT) gateway
+     *   **NatEIP**: the EIP of a NAT gateway
      *   **SlbEIP**: the EIP of a Server Load Balancer (SLB) instance
      *   **SlbPublicIP**: the public IP address of an SLB instance
      *   **NatPublicIP**: the public IP address of a NAT gateway
@@ -96,7 +98,7 @@ class DescribeAssetListRequest extends Model
     public $resourceType;
 
     /**
-     * @description The instance ID or the IP address of the asset.
+     * @description The instance ID or IP address of the asset.
      *
      * @example 192.0.XX.XX
      *
@@ -108,9 +110,7 @@ class DescribeAssetListRequest extends Model
      * @description The status of the security group policy. Valid values:
      *
      *   **pass**: delivered
-     *
      *   **block**: undelivered
-     *
      *   **unsupport**: unsupported
      *
      * > If you do not specify this parameter, the assets on which security group policies in all states take effect are queried.
@@ -128,7 +128,7 @@ class DescribeAssetListRequest extends Model
      *   **closed**: The firewall is disabled.
      *   **closing**: The firewall is being disabled.
      *
-     * >  If you do not specify this parameter, the assets that are configured for firewalls in all states are queried.
+     * > If you do not specify this parameter, the assets that are configured for firewalls in all states are queried.
      * @example open
      *
      * @var string
@@ -148,7 +148,7 @@ class DescribeAssetListRequest extends Model
      * @description The edition of Cloud Firewall. Valid values:
      *
      *   **buy**: a paid edition (default)
-     *   **free**: a free edition
+     *   **free**: Free Edition
      *
      * @example buy
      *

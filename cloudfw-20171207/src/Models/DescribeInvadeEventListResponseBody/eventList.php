@@ -29,17 +29,17 @@ class eventList extends Model
     /**
      * @description The type of the affected asset. Valid values:
      *
-     * **BastionHostIP**: the egress IP address of a bastion host
-     * **BastionHostIngressIP**: the ingress IP address of a bastion host
-     * **EcsEIP**: the elastic IP address (EIP) of an Elastic Compute Service (ECS) instance
-     * **EcsPublicIP**: the public IP address of an ECS instance
-     * **EIP**: the EIP
-     * **EniEIP**: the EIP of an elastic network interface (ENI)
-     * **NatEIP**: the EIP of a NAT gateway
-     * **SlbEIP**: the EIP of a Server Load Balancer (SLB) instance
-     * **SlbPublicIP**: the public IP address of an SLB instance
-     * **NatPublicIP**: the public IP address of a NAT gateway
-     * **HAVIP**: the high-availability virtual IP address (HAVIP)
+     *   **BastionHostIP**: the egress IP address of a bastion host
+     *   **BastionHostIngressIP**: the ingress IP address of a bastion host
+     *   **EcsEIP**: the elastic IP address (EIP) of an Elastic Compute Service (ECS) instance
+     *   **EcsPublicIP**: the public IP address of an ECS instance
+     *   **EIP**: the EIP
+     *   **EniEIP**: the EIP of an elastic network interface (ENI)
+     *   **NatEIP**: the EIP of a NAT gateway
+     *   **SlbEIP**: the EIP of a Server Load Balancer (SLB) instance
+     *   **SlbPublicIP**: the public IP address of an SLB instance
+     *   **NatPublicIP**: the public IP address of a NAT gateway
+     *   **HAVIP**: the high-availability virtual IP address (HAVIP)
      *
      * @example EcsPublicIp
      *
@@ -158,17 +158,17 @@ class eventList extends Model
     /**
      * @description The type of the affected asset. Valid values:
      *
-     * **BastionHostIP**: the egress IP address of a bastion host
-     * **BastionHostIngressIP**: the ingress IP address of a bastion host
-     * **EcsEIP**: the EIP of an ECS instance
-     * **EcsPublicIP**: the public IP address of an ECS instance
-     * **EIP**: the EIP
-     * **EniEIP**: the EIP of an ENI
-     * **NatEIP**: the EIP of a NAT gateway
-     * **SlbEIP**: the EIP of an SLB instance
-     * **SlbPublicIP**: the public IP address of an SLB instance
-     * **NatPublicIP**: the public IP address of a NAT gateway
-     * **HAVIP**: the HAVIP
+     *   **BastionHostIP**: the egress IP address of a bastion host
+     *   **BastionHostIngressIP**: the ingress IP address of a bastion host
+     *   **EcsEIP**: the EIP of an ECS instance
+     *   **EcsPublicIP**: the public IP address of an ECS instance
+     *   **EIP**: the EIP
+     *   **EniEIP**: the EIP of an ENI
+     *   **NatEIP**: the EIP of a NAT gateway
+     *   **SlbEIP**: the EIP of an SLB instance
+     *   **SlbPublicIP**: the public IP address of an SLB instance
+     *   **NatPublicIP**: the public IP address of a NAT gateway
+     *   **HAVIP**: the HAVIP
      *
      * @example EcsPublicIp
      *

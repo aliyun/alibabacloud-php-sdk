@@ -13,9 +13,10 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *
      * Valid values:
      *
-     * - **accept**: allows the traffic.
-     * - **drop**: denies the traffic.
-     * - **log**: monitors the traffic.
+     *   **accept**: allows the traffic.
+     *   **drop**: blocks the traffic.
+     *   **log**: monitors the traffic.
+     *
      * @example accept
      *
      * @var string
@@ -23,9 +24,9 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
     public $aclAction;
 
     /**
-     * @description The ID of the access control policy.
+     * @description The unique ID of the access control policy.
      *
-     * If you want to modify the configurations of an access control policy, you must provide the ID of the policy. You can call the [DescribeVpcFirewallControlPolicy](https://www.alibabacloud.com/help/en/cloud-firewall/latest/describevpcfirewallcontrolpolicy#doc-api-Cloudfw-DescribeVpcFirewallControlPolicy) operation to query the ID.
+     * If you want to modify the configurations of an access control policy, you must provide the unique ID of the policy. You can call the [DescribeVpcFirewallControlPolicy](~~159758~~) operation to query the ID.
      * @example 00281255-d220-4db1-8f4f-c4df221a****
      *
      * @var string
@@ -33,9 +34,27 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
     public $aclUuid;
 
     /**
-     * @description The type of the application that the access control policy supports.
+     * @description The application type in the access control policy.
      *
-     * - ANY: all types of applications
+     * Valid values:
+     *
+     *   ANY
+     *   FTP
+     *   HTTP
+     *   HTTPS
+     *   MySQL
+     *   SMTP
+     *   SMTPS
+     *   RDP
+     *   VNC
+     *   SSH
+     *   Redis
+     *   MQTT
+     *   MongoDB
+     *   Memcache
+     *   SSL
+     *   ANY: all application types
+     *
      * @example HTTP
      *
      * @var string
@@ -72,8 +91,9 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
     /**
      * @description The type of the destination port in the access control policy.
      *
-     * - **port**: port
-     * - **group**: port address book
+     *   **port**: port
+     *   **group**: port address book
+     *
      * @example port
      *
      * @var string
@@ -83,15 +103,17 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
     /**
      * @description The destination address in the access control policy.
      *
-     * - If **DestinationType** is set to `net`, the value of Destination is a CIDR block.
+     *   If **DestinationType** is set to `net`, the value of this parameter must be a CIDR block.
      *
      * Example: 10.2.3.0/24
-     * - If **DestinationType** is set to `group`, the value of Destination is an address book.
+     *
+     *   If **DestinationType** is set to `group`, the value of this parameter must be an address book name.
      *
      * Example: db_group
-     * - If **DestinationType** is set to `domain`, the value of Destination is a domain name.
      *
-     * Example: *.aliyuncs.com
+     *   If **DestinationType** is set to `domain`, the value of this parameter must be a domain name.
+     *
+     * Example: \*.aliyuncs.com
      * @example 10.2.X.X/XX
      *
      * @var string
@@ -103,9 +125,10 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *
      * Valid values:
      *
-     * - **net**: destination CIDR block
-     * - **group**: destination address book
-     * - **domain**: destination domain name
+     *   **net**: CIDR block
+     *   **group**: address book
+     *   **domain**: domain name
+     *
      * @example net
      *
      * @var string
@@ -113,12 +136,13 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
     public $destinationType;
 
     /**
-     * @description The natural language of the request and response.
+     * @description The language of the content within the response.
      *
      * Valid values:
      *
-     * - **zh**: Chinese
-     * - **en**: English
+     *   **zh**: Chinese (default)
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -126,9 +150,15 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
     public $lang;
 
     /**
-     * @description The type of the protocol in the access control policy.
+     * @description The protocol type in the access control policy.
      *
-     * - ICMP
+     * Valid values:
+     *
+     *   ANY: all protocol types
+     *   TCP
+     *   UDP
+     *   ICMP
+     *
      * @example TCP
      *
      * @var string
@@ -136,10 +166,11 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
     public $proto;
 
     /**
-     * @description Indicates whether the access control policy is enabled. By default, an access control policy is enabled after it is created. Valid values:
+     * @description Specifies whether to enable the access control policy. By default, an access control policy is enabled after the policy is created. Valid values:
      *
-     * - **true**: The access control policy is enabled.
-     * - **false**: The access control policy is disabled.
+     *   **true**: enables the access control policy.
+     *   **false**: disables the access control policy.
+     *
      * @example true
      *
      * @var string
@@ -151,10 +182,11 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *
      * Valid values:
      *
-     * - If **SourceType** is set to `net`, the value of Source is a CIDR block.
+     *   If **SourceType** is set to `net`, the value of this parameter must be a CIDR block.
      *
      * Example: 10.2.4.0/24
-     * - If **SourceType** is set to `group`, the value of Source is an address book.
+     *
+     *   If **SourceType** is set to `group`, the value of this parameter must be an address book name.
      *
      * Example: db_group
      * @example 10.2.X.X/XX
@@ -168,8 +200,9 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
      *
      * Valid values:
      *
-     * - **net**: source CIDR block
-     * - **group**: source address book
+     *   **net**: CIDR block
+     *   **group**: address book
+     *
      * @example net
      *
      * @var string
@@ -177,14 +210,15 @@ class ModifyVpcFirewallControlPolicyRequest extends Model
     public $sourceType;
 
     /**
-     * @description The ID of the policy group to which the access control policy belongs. You can call the DescribeVpcFirewallAclGroupList operation to query the ID.
+     * @description The instance ID of the VPC firewall. You can call the [DescribeVpcFirewallAclGroupList](~~159760~~) operation to query the ID.
      *
-     * - If the VPC firewall is used to protect a CEN instance, the value of this parameter is the ID of the CEN instance.
+     *   If the VPC firewall is used to protect a CEN instance, the value of this parameter must be the ID of the CEN instance.
      *
-     * Example: cen-ervw0g12b5jbw****
-     * - If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter is the instance ID of the VPC firewall.
+     * Example: cen-ervw0g12b5jbw\*\*\*\*
      *
-     * Example: vfw-a42bbb7b887148c9****
+     *   If the VPC firewall is used to protect an Express Connect circuit, the value of this parameter must be the instance ID of the VPC firewall.
+     *
+     * Example: vfw-a42bbb7b887148c9\*\*\*\*
      * @example vfw-a42bbb7b887148c9****
      *
      * @var string

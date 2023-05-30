@@ -69,6 +69,8 @@ class PutEnableFwSwitchRequest extends Model
      *
      * @example 192.0.X.X
      *
+     * @deprecated
+     *
      * @var string
      */
     public $sourceIp;

@@ -15,7 +15,7 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
      *   **drop**: blocks the traffic.
      *   **log**: monitors the traffic.
      *
-     * >  If you do not specify this parameter, access control policies are queried based on all actions.
+     * > If you do not specify this parameter, access control policies are queried based on all actions.
      * @example accept
      *
      * @var string
@@ -52,7 +52,7 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     /**
      * @description The destination address in the access control policy. Fuzzy match is supported.
      *
-     * >  The value of this parameter can be a CIDR block, a domain name, or an address book name.
+     * > The value of this parameter can be a CIDR block or an address book name.
      * @example 192.0.XX.XX/24
      *
      * @var string
@@ -100,7 +100,7 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
      *   **ICMP**
      *   **ANY**: all protocol types
      *
-     * >  If you do not specify this parameter, access control policies are queried based on all protocol types.
+     * > If you do not specify this parameter, access control policies of all protocol types are queried.
      * @example TCP
      *
      * @var string
@@ -108,7 +108,7 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     public $proto;
 
     /**
-     * @description Indicates whether the access control policy is enabled. By default, an access control policy is enabled after the policy is created. Valid values:
+     * @description Specifies whether the access control policy is enabled. By default, an access control policy is enabled after the policy is created. Valid values:
      *
      *   **true**: The access control policy is enabled.
      *   **false**: The access control policy is disabled.
@@ -122,7 +122,7 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
     /**
      * @description The source address in the access control policy. Fuzzy match is supported.
      *
-     * >  The value of this parameter can be a CIDR block or an address book name.
+     * > The value of this parameter can be a CIDR block or an address book name.
      * @example 192.0.XX.XX/24
      *
      * @var string
@@ -135,7 +135,7 @@ class DescribeVpcFirewallControlPolicyRequest extends Model
      *   If the VPC firewall protects the traffic between two VPCs that are connected by using a CEN instance, the value of this parameter must be the ID of the CEN instance.
      *   If the VPC firewall protects the traffic between two VPCs that are connected by using an Express Connect circuit, the value of this parameter must be the instance ID of the VPC firewall.
      *
-     * >  You can call the [DescribeVpcFirewallAclGroupList](~~159760~~) operation to query the IDs.
+     * > You can call the [DescribeVpcFirewallAclGroupList](~~159760~~) operation to query the ID.
      * @example vfw-a42bbb7b887148c9****
      *
      * @var string

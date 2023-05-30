@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcFirewallControlPolicyResponseBody extends Model
 {
     /**
-     * @description The details of the access control policies.
+     * @description The information about the access control policies.
      *
      * @var policys[]
      */
@@ -26,7 +26,7 @@ class DescribeVpcFirewallControlPolicyResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of the access control policies that are returned.
+     * @description The total number of access control policies returned.
      *
      * @example 20
      *

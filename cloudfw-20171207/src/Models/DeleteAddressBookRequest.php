@@ -35,6 +35,8 @@ class DeleteAddressBookRequest extends Model
      *
      * @example 192.0.XX.XX
      *
+     * @deprecated
+     *
      * @var string
      */
     public $sourceIp;

@@ -91,7 +91,7 @@ class policys extends Model
     public $destPortGroup;
 
     /**
-     * @description The ports in the destination port address book of the access control policy.
+     * @description An array that consists of the ports in the destination port address book of the access control policy.
      *
      * @var string[]
      */
@@ -114,7 +114,7 @@ class policys extends Model
      *
      *   If **DestinationType** is set to `net`, the value of this parameter is a CIDR block.
      *   If **DestinationType** is set to `domain`, the value of this parameter is a domain name.
-     *   If **DestinationType** is set to `group`, the value of this parameter is the name of an address book name.
+     *   If **DestinationType** is set to `group`, the value of this parameter is an address book name.
      *
      * @example 192.0.XX.XX/24
      *
@@ -123,7 +123,7 @@ class policys extends Model
     public $destination;
 
     /**
-     * @description The CIDR blocks in the destination address book of the access control policy.
+     * @description An array that consists of the CIDR blocks in the destination address book of the access control policy.
      *
      * @var string[]
      */
@@ -221,7 +221,7 @@ class policys extends Model
     public $source;
 
     /**
-     * @description The CIDR blocks in the source address book of the access control policy.
+     * @description An array that consists of the CIDR blocks in the source address book of the access control policy.
      *
      * @var string[]
      */

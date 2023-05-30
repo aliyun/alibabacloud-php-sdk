@@ -11,7 +11,7 @@ class assets extends Model
     /**
      * @description The UID of the Alibaba Cloud account.
      *
-     * >  The value of this parameter indicates the management account to which the member is added.
+     * > The value of this parameter indicates the management account to which the member is added.
      * @example 158039427902****
      *
      * @var int
@@ -19,7 +19,7 @@ class assets extends Model
     public $aliUid;
 
     /**
-     * @description The instance ID of the asset that is bound to Cloud Firewall.
+     * @description The instance ID of the asset.
      *
      * @example i-8vbdrjrxzt78****
      *
@@ -28,7 +28,7 @@ class assets extends Model
     public $bindInstanceId;
 
     /**
-     * @description The instance name of the asset that is bound to Cloud Firewall.
+     * @description The instance name of the asset.
      *
      * @example instance01
      *
@@ -37,6 +37,8 @@ class assets extends Model
     public $bindInstanceName;
 
     /**
+     * @example 2023-02-28 10:29:58
+     *
      * @var string
      */
     public $createTimeStamp;
@@ -74,7 +76,7 @@ class assets extends Model
     public $ipVersion;
 
     /**
-     * @description The UID of the member that is added in Cloud Firewall.
+     * @description The UID of the member that is added to Cloud Firewall.
      *
      * @example 258039427902****
      *
@@ -92,6 +94,8 @@ class assets extends Model
     public $name;
 
     /**
+     * @example discovered in 1 hour
+     *
      * @var string
      */
     public $newResourceTag;
@@ -99,8 +103,8 @@ class assets extends Model
     /**
      * @description The remarks of the asset. Valid values:
      *
-     *   **REGION\_NOT\_SUPPORT**: The region is not supported.
-     *   **NETWORK\_NOT\_SUPPORT**: The network is not supported.
+     *   **REGION_NOT_SUPPORT**: The region is not supported.
+     *   **NETWORK_NOT_SUPPORT**: The network is not supported.
      *
      * @example REGION_NOT_SUPPORT
      *
@@ -180,7 +184,7 @@ class assets extends Model
      *   **middle**: medium
      *   **hight**: high
      *
-     * >  The value of this parameter is returned only when the UserType parameter is set to free.
+     * > The value of this parameter is returned only when the UserType parameter is set to free.
      * @example low
      *
      * @var string
@@ -201,7 +205,7 @@ class assets extends Model
     public $sgStatus;
 
     /**
-     * @description The time when the status of the security group was last checked. The value is a UNIX timestamp. Unit: seconds.
+     * @description The time when the status of the security group policy was last checked. The value is a UNIX timestamp. Unit: seconds.
      *
      * @example 1615082937
      *
