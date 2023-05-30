@@ -74,10 +74,6 @@ class CreateApiRequest extends Model
     public $backendId;
 
     /**
-     * @description The parameters of the API.
-     *
-     * @example \[{\\"ConstantValue\\":\\"merchant-api.dev.internal\\",\\"Description\\":\\"Backend ingress domain\\",\\"Location\\":\\"HEAD\\",\\"ServiceParameterName\\":\\"host\\"}]
-     *
      * @var string
      */
     public $constantParameters;
@@ -102,20 +98,11 @@ class CreateApiRequest extends Model
     public $disableInternet;
 
     /**
-     * @description The sample error codes returned by the backend service.
-     *
-     * For more information, see [ErrorCodeSample](~~44392~~).
-     * @example \[{"Code":"400","Message":"Missing the userId","Description":"Parameter error"}]
-     *
      * @var string
      */
     public $errorCodeSamples;
 
     /**
-     * @description The sample error response from the backend service.
-     *
-     * @example {"errorCode":"fail","errorMessage":"param invalid"}
-     *
      * @var string
      */
     public $failResultSample;
@@ -159,11 +146,6 @@ class CreateApiRequest extends Model
     public $requestConfig;
 
     /**
-     * @description The parameters of API requests sent by the consumer to API Gateway.
-     *
-     * For more information, see [RequestParameter](~~43986~~).
-     * @example \[{"ParameterType":"Number","Required":"OPTIONAL","isHide":false,"ApiParameterName":"age","DefaultValue":"20","DemoValue":"20","Description":"age","MinValue":18,"MaxValue":100,"Location":"Head"},{"ParameterType":"String","Required":"OPTIONAL","isHide":false,"ApiParameterName":"sex","DefaultValue":"boy","DemoValue":"boy","Description":"gender","EnumValue":"boy,girl","Location":"Query"},{"ParameterType":"Number","Required":"REQUIRED","isHide":false,"ApiParameterName":"userId","MaxLength":10,"MinValue":10000000,"MaxValue":100000000,"Location":"Path"},{"ApiParameterName":"CaClientIp","ParameterLocation":{"name":"Head","orderNumber":0},"Location":"Head","ParameterType":"String","Required":"REQUIRED","Description":"Client IP"},{"ApiParameterName":"constance","ParameterLocation":{"name":"Head","orderNumber":0},"Location":"Head","ParameterType":"String","Required":"REQUIRED","DefaultValue":"constance","Description":"constance"}]
-     *
      * @var string
      */
     public $requestParameters;
@@ -178,19 +160,11 @@ class CreateApiRequest extends Model
     public $resultBodyModel;
 
     /**
-     * @description The return description of the API.
-     *
-     * @example []
-     *
      * @var string
      */
     public $resultDescriptions;
 
     /**
-     * @description The sample response from the backend service.
-     *
-     * @example 200
-     *
      * @var string
      */
     public $resultSample;
@@ -220,30 +194,16 @@ class CreateApiRequest extends Model
     public $serviceConfig;
 
     /**
-     * @description The parameters of API requests sent by API Gateway to the backend service.
-     *
-     * For more information, see [ServiceParameter](~~43988~~).
-     * @example [{"ServiceParameterName":"age","Location":"Head","Type":"Number","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"sex","Location":"Query","Type":"String","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"userId","Location":"Path","Type":"Number","ParameterCatalog":"REQUEST"},{"ServiceParameterName":"clientIp","Location":"Head","Type":"String","ParameterCatalog":"SYSTEM"},{"ServiceParameterName":"constance","Location":"Head","Type":"String","ParameterCatalog":"CONSTANT"}]
-     *
      * @var string
      */
     public $serviceParameters;
 
     /**
-     * @description The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
-     *
-     * For more information, see [ServiceParameterMap](~~43989~~).
-     * @example [{"ServiceParameterName":"age","RequestParameterName":"age"},{"ServiceParameterName":"sex","RequestParameterName":"sex"},{"ServiceParameterName":"userId","RequestParameterName":"userId"},{"ServiceParameterName":"clientIp","RequestParameterName":"CaClientIp"},{"ServiceParameterName":"constance","RequestParameterName":"constance"}]
-     *
      * @var string
      */
     public $serviceParametersMap;
 
     /**
-     * @description The common parameters of APIs in JSON format.
-     *
-     * @example [{\"demoValue\":\"12345678\",\"description\":\"ConsumerAppKey\",\"location\":\"HEAD\",\"parameterName\":\"CaAppKey\",\"serviceParameterName\":\"X-Ca-Key\"}]
-     *
      * @var string
      */
     public $systemParameters;

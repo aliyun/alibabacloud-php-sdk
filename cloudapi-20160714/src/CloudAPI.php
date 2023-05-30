@@ -898,20 +898,11 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->backendId)) {
             $query['BackendId'] = $request->backendId;
         }
-        if (!Utils::isUnset($request->constantParameters)) {
-            $query['ConstantParameters'] = $request->constantParameters;
-        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->disableInternet)) {
             $query['DisableInternet'] = $request->disableInternet;
-        }
-        if (!Utils::isUnset($request->errorCodeSamples)) {
-            $query['ErrorCodeSamples'] = $request->errorCodeSamples;
-        }
-        if (!Utils::isUnset($request->failResultSample)) {
-            $query['FailResultSample'] = $request->failResultSample;
         }
         if (!Utils::isUnset($request->forceNonceCheck)) {
             $query['ForceNonceCheck'] = $request->forceNonceCheck;
@@ -925,17 +916,8 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->requestConfig)) {
             $query['RequestConfig'] = $request->requestConfig;
         }
-        if (!Utils::isUnset($request->requestParameters)) {
-            $query['RequestParameters'] = $request->requestParameters;
-        }
         if (!Utils::isUnset($request->resultBodyModel)) {
             $query['ResultBodyModel'] = $request->resultBodyModel;
-        }
-        if (!Utils::isUnset($request->resultDescriptions)) {
-            $query['ResultDescriptions'] = $request->resultDescriptions;
-        }
-        if (!Utils::isUnset($request->resultSample)) {
-            $query['ResultSample'] = $request->resultSample;
         }
         if (!Utils::isUnset($request->resultType)) {
             $query['ResultType'] = $request->resultType;
@@ -946,23 +928,43 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->serviceConfig)) {
             $query['ServiceConfig'] = $request->serviceConfig;
         }
-        if (!Utils::isUnset($request->serviceParameters)) {
-            $query['ServiceParameters'] = $request->serviceParameters;
-        }
-        if (!Utils::isUnset($request->serviceParametersMap)) {
-            $query['ServiceParametersMap'] = $request->serviceParametersMap;
-        }
-        if (!Utils::isUnset($request->systemParameters)) {
-            $query['SystemParameters'] = $request->systemParameters;
-        }
         if (!Utils::isUnset($request->visibility)) {
             $query['Visibility'] = $request->visibility;
         }
         if (!Utils::isUnset($request->webSocketApiType)) {
             $query['WebSocketApiType'] = $request->webSocketApiType;
         }
+        $body = [];
+        if (!Utils::isUnset($request->constantParameters)) {
+            $body['ConstantParameters'] = $request->constantParameters;
+        }
+        if (!Utils::isUnset($request->errorCodeSamples)) {
+            $body['ErrorCodeSamples'] = $request->errorCodeSamples;
+        }
+        if (!Utils::isUnset($request->failResultSample)) {
+            $body['FailResultSample'] = $request->failResultSample;
+        }
+        if (!Utils::isUnset($request->requestParameters)) {
+            $body['RequestParameters'] = $request->requestParameters;
+        }
+        if (!Utils::isUnset($request->resultDescriptions)) {
+            $body['ResultDescriptions'] = $request->resultDescriptions;
+        }
+        if (!Utils::isUnset($request->resultSample)) {
+            $body['ResultSample'] = $request->resultSample;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $body['ServiceParameters'] = $request->serviceParameters;
+        }
+        if (!Utils::isUnset($request->serviceParametersMap)) {
+            $body['ServiceParametersMap'] = $request->serviceParametersMap;
+        }
+        if (!Utils::isUnset($request->systemParameters)) {
+            $body['SystemParameters'] = $request->systemParameters;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateApi',
