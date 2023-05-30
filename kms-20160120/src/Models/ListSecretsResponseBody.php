@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSecretsResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class ListSecretsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of returned secrets.
      *
      * @example 2
      *
@@ -28,7 +28,7 @@ class ListSecretsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The list of secrets.
      *
      * @example 6a6287a0-ff34-4780-a790-fdfca900557f
      *
@@ -37,14 +37,14 @@ class ListSecretsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of secrets.
+     * @description The time when the secret was updated.
      *
      * @var secretList
      */
     public $secretList;
 
     /**
-     * @description The number of returned secrets.
+     * @description The secret name.
      *
      * @example 55
      *

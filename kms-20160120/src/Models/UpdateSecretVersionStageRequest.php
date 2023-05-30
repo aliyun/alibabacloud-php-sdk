@@ -9,12 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateSecretVersionStageRequest extends Model
 {
     /**
-     * @description The version to which you want to apply the specified stage label.
+     * @description The version from which you want to remove the specified stage label.
      *
-     * >
-     *   You must specify at least one of the RemoveFromVersion and MoveToVersion parameters.
-     *   If the VersionStage parameter is set to ACSCurrent or ACSPrevious, this parameter is required.
-     *
+     * >  You must specify at least one of the RemoveFromVersion and MoveToVersion parameters.
      * @example 002
      *
      * @var string
@@ -22,9 +19,12 @@ class UpdateSecretVersionStageRequest extends Model
     public $moveToVersion;
 
     /**
-     * @description The version from which you want to remove the specified stage label.
+     * @description The specified stage label. Valid values:
      *
-     * >  You must specify at least one of the RemoveFromVersion and MoveToVersion parameters.
+     *   ACSCurrent
+     *   ACSPrevious
+     *   Custom stage label
+     *
      * @example 001
      *
      * @var string
@@ -32,7 +32,7 @@ class UpdateSecretVersionStageRequest extends Model
     public $removeFromVersion;
 
     /**
-     * @description The name of the secret.
+     * @description The operation that you want to perform. Set the value to **UpdateSecretVersionStage**.
      *
      * @example secret001
      *
@@ -41,11 +41,7 @@ class UpdateSecretVersionStageRequest extends Model
     public $secretName;
 
     /**
-     * @description The specified stage label. Valid values:
-     *
-     *   ACSCurrent
-     *   ACSPrevious
-     *   Custom stage label
+     * @description The name of the secret.
      *
      * @example ACSCurrent
      *

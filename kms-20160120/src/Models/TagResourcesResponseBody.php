@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\Kms\V20160120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UntagResourceResponseBody extends Model
+class TagResourcesResponseBody extends Model
 {
     /**
-     * @example 4162a6af-bc99-40b3-a552-89dcc8aaf7c8
-     *
      * @var string
      */
     public $requestId;
@@ -35,7 +33,7 @@ class UntagResourceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UntagResourceResponseBody
+     * @return TagResourcesResponseBody
      */
     public static function fromMap($map = [])
     {

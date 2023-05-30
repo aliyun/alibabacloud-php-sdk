@@ -9,9 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UntagResourceRequest extends Model
 {
     /**
-     * @description The ID of the certificate.
-     *
-     * >  You can configure only one of the KeyId, SecretName, and CertificateId parameters.
      * @example 770dbe42-e146-43d1-a55a-1355db86****
      *
      * @var string
@@ -19,9 +16,8 @@ class UntagResourceRequest extends Model
     public $certificateId;
 
     /**
-     * @description The ID of the customer master key (CMK). The ID must be globally unique.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
-     * >  You can configure only one of the KeyId, SecretName, and CertificateId parameters.
      * @example 08c33a6f-4e0a-4a1b-a3fa-7ddf****
      *
      * @var string
@@ -29,9 +25,6 @@ class UntagResourceRequest extends Model
     public $keyId;
 
     /**
-     * @description The name of the secret.
-     *
-     * >  You can configure only one of the KeyId, SecretName, and CertificateId parameters.
      * @example MyDbC****
      *
      * @var string
@@ -39,9 +32,6 @@ class UntagResourceRequest extends Model
     public $secretName;
 
     /**
-     * @description One or more tag keys. Separate multiple tag keys with commas (,).
-     *
-     * Each tag key must be 1 to 128 bytes in length.
      * @example ["tagkey1","tagkey2"]
      *
      * @var string

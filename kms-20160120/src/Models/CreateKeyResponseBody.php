@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class CreateKeyResponseBody extends Model
 {
     /**
-     * @description The metadata of the CMK.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @var keyMetadata
      */
     public $keyMetadata;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The ID of the dedicated KMS instance.
      *
      * @example 36c7e41a-3f2c-45f7-9bdd-d1dc1e7e7e06
      *

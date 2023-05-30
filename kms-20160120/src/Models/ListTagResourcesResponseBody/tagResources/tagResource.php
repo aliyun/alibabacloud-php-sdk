@@ -2,28 +2,36 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Kms\V20160120\Models\ListSecretsResponseBody\secretList\secret\tags;
+namespace AlibabaCloud\SDK\Kms\V20160120\Models\ListTagResourcesResponseBody\tagResources;
 
 use AlibabaCloud\Tea\Model;
 
-class tag extends Model
+class tagResource extends Model
 {
     /**
-     * @example key1
-     *
+     * @var string
+     */
+    public $resourceId;
+
+    /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
      * @var string
      */
     public $tagKey;
 
     /**
-     * @example val1
-     *
      * @var string
      */
     public $tagValue;
     protected $_name = [
-        'tagKey'   => 'TagKey',
-        'tagValue' => 'TagValue',
+        'resourceId'   => 'ResourceId',
+        'resourceType' => 'ResourceType',
+        'tagKey'       => 'TagKey',
+        'tagValue'     => 'TagValue',
     ];
 
     public function validate()
@@ -33,6 +41,12 @@ class tag extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
+        }
         if (null !== $this->tagKey) {
             $res['TagKey'] = $this->tagKey;
         }
@@ -46,11 +60,17 @@ class tag extends Model
     /**
      * @param array $map
      *
-     * @return tag
+     * @return tagResource
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ResourceId'])) {
+            $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
+        }
         if (isset($map['TagKey'])) {
             $model->tagKey = $map['TagKey'];
         }

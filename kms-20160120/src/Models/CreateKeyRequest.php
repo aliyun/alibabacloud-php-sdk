@@ -9,38 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateKeyRequest extends Model
 {
     /**
-     * @description The ID of the dedicated KMS instance.
-     *
-     * @example kst-bjj62d8f5e0sgtx8h****
-     *
-     * @var string
-     */
-    public $DKMSInstanceId;
-
-    /**
-     * @description The description of the CMK.
-     *
-     * The description can be 0 to 8,192 characters in length.
-     * @example key description example
-     *
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @description Specifies whether to enable automatic key rotation. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * >  If the Origin parameter is set to EXTERNAL or the KeySpec parameter is set to an asymmetric CMK type, automatic key rotation is not supported.
-     * @example false
-     *
-     * @var bool
-     */
-    public $enableAutomaticRotation;
-
-    /**
      * @description The type of the CMK. Valid values:
      *
      *   Aliyun_AES\_256
@@ -53,15 +21,58 @@ class CreateKeyRequest extends Model
      *   EC_P256K
      *   EC_SM2
      *
-     * >
-     *   The default type of the CMK is Aliyun_AES\_256.
-     *   Only Dedicated KMS supports Aliyun_AES\_128 and Aliyun_AES\_192.
+     * > * The default type of the CMK is Aliyun\_AES\_256.
+     * > * Only Dedicated KMS supports Aliyun\_AES\_128 and Aliyun\_AES\_192.
+     * @example kst-bjj62d8f5e0sgtx8h****
      *
+     * @var string
+     */
+    public $DKMSInstanceId;
+
+    /**
+     * @description The operation that you want to perform. Set the value to **CreateKey**.
+     *
+     * @example key description example
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @description The protection level of the CMK. Valid values:
+     *
+     *   SOFTWARE
+     *   HSM
+     *
+     * Default value: SOFTWARE.
+     *
+     * > * The value of this parameter is case-sensitive.
+     * > * Assume that you set this parameter to HSM. If you set the Origin parameter to Aliyun_KMS, the CMK is created in a managed HSM. If you set the Origin parameter to EXTERNAL, you can import an external key into the managed HSM.
+     * @example false
+     *
+     * @var bool
+     */
+    public $enableAutomaticRotation;
+
+    /**
+     * @description The period of automatic key rotation. Specify the value in the integer\[unit] format. Unit: d (day), h (hour), m (minute), or s (second). For example, you can use either 7d or 604800s to specify a seven-day period. The period can range from 7 days to 730 days.
+     *
+     * >  If you set the EnableAutomaticRotation parameter to true, you must also specify this parameter. If you set the EnableAutomaticRotation parameter to false, you can leave this parameter unspecified.
      * @example Aliyun_AES_256
      *
      * @var string
      */
     public $keySpec;
+
+    /**
+     * @description The description of the CMK.
+     *
+     * The description can be 0 to 8,192 characters in length.
+     * @example ENCRYPT/DECRYPT
+     *
+     * @var string
+     */
+    public $keyUsage;
 
     /**
      * @description The usage of the CMK. Valid values:
@@ -70,23 +81,6 @@ class CreateKeyRequest extends Model
      *   SIGN/VERIFY: generates or verifies a digital signature.
      *
      * If the CMK supports signature verification, the default value is SIGN/VERIFY. If the CMK does not support signature verification, the default value is ENCRYPT/DECRYPT.
-     * @example ENCRYPT/DECRYPT
-     *
-     * @var string
-     */
-    public $keyUsage;
-
-    /**
-     * @description The source of key material. Valid values:
-     *
-     *   Aliyun_KMS (default value)
-     *   EXTERNAL
-     *
-     * >
-     *   The value of this parameter is case-sensitive.
-     *   If you set the KeySpec parameter to an asymmetric CMK type, you are not allowed to set the Origin parameter to EXTERNAL.
-     *   If you set the Origin parameter to EXTERNAL, you must import key material. For more information, see [Import key material](~~68523~~).
-     *
      * @example Aliyun_KMS
      *
      * @var string
@@ -94,15 +88,14 @@ class CreateKeyRequest extends Model
     public $origin;
 
     /**
-     * @description The protection level of the CMK. Valid values:
+     * @description The source of key material. Valid values:
      *
-     *   SOFTWARE
-     *   HSM
+     *   Aliyun_KMS (default value)
+     *   EXTERNAL
      *
-     * >
-     *   The value of this parameter is case-sensitive.
-     *   Assume that you set this parameter to HSM. If you set the Origin parameter to Aliyun_KMS, the CMK is created in a managed HSM. If you set the Origin parameter to EXTERNAL, you can import an external key into the managed HSM.
-     *
+     * > * The value of this parameter is case-sensitive.
+     * > * If you set the KeySpec parameter to an asymmetric CMK type, you are not allowed to set the Origin parameter to EXTERNAL.
+     * > * If you set the Origin parameter to EXTERNAL, you must import key material. For more information, see [Import key material](~~68523~~).
      * @example SOFTWARE
      *
      * @var string
@@ -110,14 +103,22 @@ class CreateKeyRequest extends Model
     public $protectionLevel;
 
     /**
-     * @description The period of automatic key rotation. Specify the value in the integer\[unit] format. Unit: d (day), h (hour), m (minute), or s (second). For example, you can use either 7d or 604800s to specify a seven-day period. The period can range from 7 days to 730 days.
+     * @description Specifies whether to enable automatic key rotation. Valid values:
      *
-     * >  If you set the EnableAutomaticRotation parameter to true, you must also specify this parameter. If you set the EnableAutomaticRotation parameter to false, you can leave this parameter unspecified.
+     *   true
+     *   false
+     *
+     * >  If the Origin parameter is set to EXTERNAL or the KeySpec parameter is set to an asymmetric CMK type, automatic key rotation is not supported.
      * @example 365d
      *
      * @var string
      */
     public $rotationInterval;
+
+    /**
+     * @var string
+     */
+    public $tags;
     protected $_name = [
         'DKMSInstanceId'          => 'DKMSInstanceId',
         'description'             => 'Description',
@@ -127,6 +128,7 @@ class CreateKeyRequest extends Model
         'origin'                  => 'Origin',
         'protectionLevel'         => 'ProtectionLevel',
         'rotationInterval'        => 'RotationInterval',
+        'tags'                    => 'Tags',
     ];
 
     public function validate()
@@ -159,6 +161,9 @@ class CreateKeyRequest extends Model
         }
         if (null !== $this->rotationInterval) {
             $res['RotationInterval'] = $this->rotationInterval;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -195,6 +200,9 @@ class CreateKeyRequest extends Model
         }
         if (isset($map['RotationInterval'])) {
             $model->rotationInterval = $map['RotationInterval'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

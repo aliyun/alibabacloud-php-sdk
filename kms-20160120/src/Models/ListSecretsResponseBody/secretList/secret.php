@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class secret extends Model
 {
     /**
-     * @description The time when the secret was created.
+     * @description The tag value.
      *
      * @example 2022-07-17T07:59:05Z
      *
@@ -19,8 +19,9 @@ class secret extends Model
     public $createTime;
 
     /**
-     * @description The time when the secret is scheduled to be deleted.
+     * @description The resource tags of the secret.
      *
+     * This parameter is not returned if you set the FetchTags parameter to false or do not specify the FetchTags parameter.
      * @example 2022-08-17T07:59:05Z
      *
      * @var string
@@ -28,7 +29,10 @@ class secret extends Model
     public $plannedDeleteTime;
 
     /**
-     * @description The secret name.
+     * @description The type of the secret. Valid values:
+     *
+     *   Generic: indicates a generic secret.
+     *   Rds: indicates a managed ApsaraDB RDS secret.
      *
      * @example secret001
      *
@@ -37,10 +41,7 @@ class secret extends Model
     public $secretName;
 
     /**
-     * @description The type of the secret. Valid values:
-     *
-     *   Generic: indicates a generic secret.
-     *   Rds: indicates a managed ApsaraDB RDS secret.
+     * @description The time when the secret was created.
      *
      * @example Generic
      *
@@ -49,15 +50,14 @@ class secret extends Model
     public $secretType;
 
     /**
-     * @description The resource tags of the secret.
+     * @description The tag key.
      *
-     * This parameter is not returned if you set the FetchTags parameter to false or do not specify the FetchTags parameter.
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The time when the secret was updated.
+     * @description The time when the secret is scheduled to be deleted.
      *
      * @example 2022-07-17T07:59:05Z
      *

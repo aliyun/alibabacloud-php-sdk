@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateSecretShrinkRequest extends Model
 {
     /**
-     * @description The ID of the dedicated KMS instance.
+     * @description The version number of the secret.
      *
      * @example kst-bjj62d8f5e0sgtx8h****
      *
@@ -18,8 +18,12 @@ class CreateSecretShrinkRequest extends Model
     public $DKMSInstanceId;
 
     /**
-     * @description The description of the secret.
+     * @description Specifies whether to enable automatic rotation. Valid values:
      *
+     *   true: specifies to enable automatic rotation.
+     *   false: specifies to disable automatic rotation. This is the default value.
+     *
+     * >  This parameter is valid if you set the SecretType parameter to Rds, RAMCredentials, or ECS.
      * @example mydbinfo
      *
      * @var string
@@ -27,12 +31,13 @@ class CreateSecretShrinkRequest extends Model
     public $description;
 
     /**
-     * @description Specifies whether to enable automatic rotation. Valid values:
+     * @description Indicates whether automatic rotation is enabled. Valid values:
      *
-     *   true: specifies to enable automatic rotation.
-     *   false: specifies to disable automatic rotation. This is the default value.
+     *   Enabled: indicates that automatic rotation is enabled.
+     *   Disabled: indicates that automatic rotation is disabled.
+     *   Invalid: indicates that the status of automatic rotation is abnormal. In this case, Secrets Manager cannot automatically rotate the secret.
      *
-     * >  This parameter is valid if you set the SecretType parameter to Rds, RAMCredentials, or ECS.
+     * >  This parameter is returned if you set the SecretType parameter to Rds, RAMCredentials, or ECS.
      * @example true
      *
      * @var bool
@@ -40,14 +45,45 @@ class CreateSecretShrinkRequest extends Model
     public $enableAutomaticRotation;
 
     /**
-     * @description The ID of the CMK that is used to encrypt the secret value.
+     * @description The description of the secret.
      *
-     * >  The CMK must be a symmetric CMK.
      * @example 00aa68af-2c02-4f68-95fe-3435d330****
      *
      * @var string
      */
     public $encryptionKeyId;
+
+    /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example {"SecretSubType":"SingleUser", "DBInstanceId":"rm-bp1b3dd3a506e****" ,"CustomData":{}}
+     *
+     * @var string
+     */
+    public $extendedConfigShrink;
+
+    /**
+     * @description The name of the secret.
+     *
+     * @example 30d
+     *
+     * @var string
+     */
+    public $rotationInterval;
+
+    /**
+     * @description The tags of the secret.
+     *
+     * @example The type of the secret. Valid values:
+     *
+     *   Generic: specifies a generic secret.
+     *   Rds: specifies a managed ApsaraDB RDS secret.
+     *   RAMCredentials: specifies a managed RAM secret.
+     *   ECS: specifies a managed ECS secret.
+     *
+     * @var string
+     */
+    public $secretData;
 
     /**
      * @description The extended configuration of the secret. This parameter specifies the properties of the secret of the specific type. The description can be up to 1,024 characters in length.
@@ -85,21 +121,11 @@ class CreateSecretShrinkRequest extends Model
      *   CustomData: optional. The custom data. The value is a collection of key-value pairs in the JSON format. Up to 10 key-value pairs can be specified. Separate multiple key-value pairs with commas (,). The default value is a pair of empty braces (`{}`).
      *
      * >  This parameter is required if you set the SecretType parameter to Rds, RAMCredentials, or ECS.
-     * @example {"SecretSubType":"SingleUser", "DBInstanceId":"rm-bp1b3dd3a506e****" ,"CustomData":{}}
+     * @example text
      *
      * @var string
      */
-    public $extendedConfigShrink;
-
-    /**
-     * @description The interval for automatic rotation. Valid values: 6 hours to 8,760 hours (365 days).
-     *
-     * >  This parameter is required if you set the EnableAutomaticRotation parameter to true. This parameter is ignored if you set the EnableAutomaticRotation parameter to false or if the EnableAutomaticRotation parameter is not configured.
-     * @example 30d
-     *
-     * @var string
-     */
-    public $rotationInterval;
+    public $secretDataType;
 
     /**
      * @description The value of the secret that you want to create. Secrets Manager encrypts the secret value and stores the encrypted value in the initial version.
@@ -115,34 +141,6 @@ class CreateSecretShrinkRequest extends Model
      *   `{"UserName":"","Password": ""}`: In the format, `UserName` specifies the username that is used to log on to the ECS instance, and `Password` specifies the password that is used to log on to the ECS instance.
      *   `{"UserName":"","PublicKey": "", "PrivateKey": ""}`: In the format, `PublicKey` indicates the SSH public key that is used to log on to the ECS instance, and `PrivateKey` specifies the SSH private key that is used to log on to the ECS instance.
      *
-     * @example {"user":"root","passwd":"****"}
-     *
-     * @var string
-     */
-    public $secretData;
-
-    /**
-     * @description The type of the secret value. Valid values:
-     *
-     *   text
-     *   binary
-     *
-     * >  If you set the SecretType parameter to Rds, RAMCredentials, or ECS, the SecretDataType parameter must be set to text.
-     * @example text
-     *
-     * @var string
-     */
-    public $secretDataType;
-
-    /**
-     * @description The name of the secret.
-     *
-     * The value must be 1 to 64 characters in length and can contain letters, digits, underscores (\_), forward slashes (/), plus signs (+), equal signs (=), periods (.), hyphens (-), and at signs (@). The following list describes the name requirements for different types of secrets:
-     *
-     *   If the SecretType parameter is set to Generic or Rds, the name cannot start with `acs/`.
-     *   If the SecretType parameter is set to RAMCredentials, set the SecretName parameter to `$Auto`. In this case, KMS automatically generates a secret name that starts with `acs/ram/user/`. The name includes the display name of RAM user.
-     *   If the SecretType parameter is set to ECS, the name must start with `acs/ecs/`.
-     *
      * @example mydbconninfo
      *
      * @var string
@@ -150,12 +148,7 @@ class CreateSecretShrinkRequest extends Model
     public $secretName;
 
     /**
-     * @description The type of the secret. Valid values:
-     *
-     *   Generic: specifies a generic secret.
-     *   Rds: specifies a managed ApsaraDB RDS secret.
-     *   RAMCredentials: specifies a managed RAM secret.
-     *   ECS: specifies a managed ECS secret.
+     * @description The ID of the dedicated KMS instance.
      *
      * @example Rds
      *
@@ -164,8 +157,9 @@ class CreateSecretShrinkRequest extends Model
     public $secretType;
 
     /**
-     * @description The tags of the secret.
+     * @description The interval for automatic rotation. Valid values: 6 hours to 8,760 hours (365 days).
      *
+     * >  This parameter is required if you set the EnableAutomaticRotation parameter to true. This parameter is ignored if you set the EnableAutomaticRotation parameter to false or if the EnableAutomaticRotation parameter is not configured.
      * @example [{\"TagKey\":\"key1\",\"TagValue\":\"val1\"},{\"TagKey\":\"key2\",\"TagValue\":\"val2\"}]
      *
      * @var string
@@ -173,8 +167,12 @@ class CreateSecretShrinkRequest extends Model
     public $tags;
 
     /**
-     * @description The initial version number. Version numbers are unique in each secret.
+     * @description The type of the secret value. Valid values:
      *
+     *   text
+     *   binary
+     *
+     * >  If you set the SecretType parameter to Rds, RAMCredentials, or ECS, the SecretDataType parameter must be set to text.
      * @example v1
      *
      * @var string
