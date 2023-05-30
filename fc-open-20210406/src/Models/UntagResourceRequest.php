@@ -10,8 +10,10 @@ class UntagResourceRequest extends Model
 {
     /**
      * @description Specifies whether to remove all tags. This parameter takes effect only when no tag key is specified. Valid values:
-     * - **true**: removes all tags.
-     * - **false**: does not remove all tags.
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -19,7 +21,7 @@ class UntagResourceRequest extends Model
     public $all;
 
     /**
-     * @description The ARN of the resource.
+     * @description The Alibaba Cloud Resource Name (ARN) of the resource.
      *
      * > You can use the value of this parameter to query the information about the resource, such as the account, service, and region information of the resource. You can manage tags only for services for top level resources.
      * @example acs:fc:cn-shanghai:188077086902****:services/demo

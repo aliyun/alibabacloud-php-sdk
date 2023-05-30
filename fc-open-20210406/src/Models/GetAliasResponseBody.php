@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetAliasResponseBody extends Model
 {
     /**
-     * @description The canary release version to which the alias points and the weight of the canary release version.
+     * @description The additional version to which the alias points and the weight of the additional version.
      *
-     * - The value consists of a version number and the corresponding weight. For example, 2:0.05 indicates that when a function is invoked, Version 2 is the canary release version, 5% of the traffic is distributed to the canary release version, and 95% of the traffic is distributed to the major version.
+     *   The additional version takes effect only when the function is invoked.
+     *   The value consists of a version number and a specific weight. For example, 2:0.05 indicates that when a function is invoked, Version 2 is the canary release version, 5% of the traffic is distributed to the canary release version, and 95% of the traffic is distributed to the major version.
+     *
      * @var float[]
      */
     public $additionalVersionWeight;
@@ -55,8 +57,9 @@ class GetAliasResponseBody extends Model
     /**
      * @description The canary release mode. Valid values:
      *
-     * - **Random**: random canary release. This is the default value.
-     * - **Content**: rule-based canary release.
+     *   **Random**: random canary release. This is the default value.
+     *   **Content**: rule-based canary release.
+     *
      * @example Random
      *
      * @var string
@@ -64,7 +67,7 @@ class GetAliasResponseBody extends Model
     public $resolvePolicy;
 
     /**
-     * @description Canary release rule. The traffic that meets the conditions of the canary release rule is diverted to the canary release instances.
+     * @description The canary release rule. Traffic that meets the canary release rule is routed to the canary release instance.
      *
      * @var RoutePolicy
      */

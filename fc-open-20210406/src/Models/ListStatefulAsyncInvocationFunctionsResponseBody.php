@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListStatefulAsyncInvocationFunctionsResponseBody extends Model
 {
     /**
-     * @description The details of returned data.
+     * @description The trace ID of the request for Function Compute API.
      *
      * @var AsyncConfigMeta[]
      */
     public $data;
 
     /**
-     * @description The token used to obtain more results. If this parameter is left empty, all the results are returned.
+     * @description 2022-01-28 18:04:38
      *
      * @example ""
      *

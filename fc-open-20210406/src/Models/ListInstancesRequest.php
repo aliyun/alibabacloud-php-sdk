@@ -9,16 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesRequest extends Model
 {
     /**
-     * @description The IDs of the instance.
+     * @description The name of the service.
      *
      * @var string[]
      */
     public $instanceIds;
 
     /**
-     * @description The maximum number of resources to return. Valid values: \[0,1000].
+     * @description The ID of your Alibaba Cloud account.
      *
-     * The number of returned resources is less than or equal to the specified number.
      * @example 20
      *
      * @var int
@@ -26,7 +25,7 @@ class ListInstancesRequest extends Model
     public $limit;
 
     /**
-     * @description The version or alias.
+     * @description The ID of the instance.
      *
      * @example dev
      *

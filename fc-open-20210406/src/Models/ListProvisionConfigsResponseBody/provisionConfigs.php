@@ -11,47 +11,11 @@ use AlibabaCloud\Tea\Model;
 class provisionConfigs extends Model
 {
     /**
-     * @description Specifies whether to always allocate CPU to a function instance.
-     *
      * @example true
      *
      * @var bool
      */
     public $alwaysAllocateCPU;
-
-    /**
-     * @description The actual number of provisioned instances.
-     *
-     * @example 5
-     *
-     * @var int
-     */
-    public $current;
-
-    /**
-     * @description The error message returned if a provisioned instance fails to be created.
-     *
-     * @example image not found
-     *
-     * @var string
-     */
-    public $currentError;
-
-    /**
-     * @description The description of the resource.
-     *
-     * @example 12345#servierName#qualifier#functionName
-     *
-     * @var string
-     */
-    public $resource;
-
-    /**
-     * @description The configurations of scheduled auto scaling.
-     *
-     * @var ScheduledActions[]
-     */
-    public $scheduledActions;
 
     /**
      * @description The expected number of provisioned instances.
@@ -60,10 +24,45 @@ class provisionConfigs extends Model
      *
      * @var int
      */
+    public $current;
+
+    /**
+     * @description 139490
+     *
+     * @example image not found
+     *
+     * @var string
+     */
+    public $currentError;
+
+    /**
+     * @description Details about the scheduled scaling policy. You can use the scheduled scaling policy to flexibly configure provisioned instances. You can specify the number of provisioned instances to the desired value at the scheduled time. This way, the number of provisioned instances can meet the concurrency requirements of your business.
+     *
+     * @example 12345#servierName#qualifier#functionName
+     *
+     * @var string
+     */
+    public $resource;
+
+    /**
+     * @description The ID of your Alibaba Cloud account.
+     *
+     * @var ScheduledActions[]
+     */
+    public $scheduledActions;
+
+    /**
+     * @description The configuration of metric-based auto scaling. Provisioned instances are scaled in or out every minute based on the concurrency utilization of provisioned instances.
+     *
+     * After you specify the maximum and minimum numbers of provisioned instances, the system scales in or out provisioned instances within the range from the minimum number to the maximum number. If the number of provisioned instances is beyond the range, the scaling stops.
+     * @example 5
+     *
+     * @var int
+     */
     public $target;
 
     /**
-     * @description The configurations of metric-based auto scaling.
+     * @description Example 1
      *
      * @var TargetTrackingPolicies[]
      */

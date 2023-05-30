@@ -20,7 +20,7 @@ class UntagResourceHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
+     * @description The time when the function is invoked. The value is in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
      *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *

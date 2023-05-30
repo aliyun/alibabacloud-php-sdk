@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PublishServiceVersionResponseBody extends Model
 {
     /**
-     * @description The time when the service version was created.
+     * @description The returned data.
      *
      * @example 2016-08-15T16:06:05.000+0000
      *
@@ -18,7 +18,7 @@ class PublishServiceVersionResponseBody extends Model
     public $createdTime;
 
     /**
-     * @description The description of the service version.
+     * @description The creation time.
      *
      * @example test_description
      *
@@ -27,7 +27,7 @@ class PublishServiceVersionResponseBody extends Model
     public $description;
 
     /**
-     * @description The time when the service version was last modified.
+     * @description The description of the service version.
      *
      * @example 2016-08-15T16:06:05.000+0000
      *
@@ -36,7 +36,7 @@ class PublishServiceVersionResponseBody extends Model
     public $lastModifiedTime;
 
     /**
-     * @description The version of the service.
+     * @description The last update time.
      *
      * @example 1
      *

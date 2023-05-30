@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListServiceVersionsRequest extends Model
 {
     /**
-     * @description The order in which the returned versions are sorted. Valid values:
-     * - **FORWARD**: in ascending order.
-     * - **BACKWARD**: in descending order. This is the default value.
+     * @description The name of the service.
+     *
      * @example BACKWARD
      *
      * @var string
@@ -19,7 +18,7 @@ class ListServiceVersionsRequest extends Model
     public $direction;
 
     /**
-     * @description The maximum number of resources to return. Default value: 20. Maximum value: 100. The number of returned resources is less than or equal to the specified number.
+     * @description The token used to obtain more results. If the number of resources exceeds the limit, the nextToken parameter is returned. You can include the parameter in subsequent calls to obtain more results. You do not need to provide this parameter in the first call.
      *
      * @example 20
      *
@@ -28,7 +27,7 @@ class ListServiceVersionsRequest extends Model
     public $limit;
 
     /**
-     * @description The token used to obtain more results. If the number of resources exceeds the limit, the nextToken parameter is returned. You can include the parameter in subsequent calls to obtain more results. You do not need to provide this parameter in the first call.
+     * @description The description of the service version.
      *
      * @example 8bj81uI8n****
      *
@@ -37,7 +36,7 @@ class ListServiceVersionsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The starting position of the result list. The returned resources are sorted based on the version number, and the resources that include and follow the resource specified by the startKey parameter are returned.
+     * @description The time when the service version was created.
      *
      * @example nextservice
      *

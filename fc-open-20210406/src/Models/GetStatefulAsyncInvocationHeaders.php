@@ -11,7 +11,7 @@ class GetStatefulAsyncInvocationHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description The ID of your Alibaba Cloud account.
+     * @description The list of events that trigger the asynchronous task.
      *
      * @example 188077086902****
      *
@@ -20,7 +20,7 @@ class GetStatefulAsyncInvocationHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description The CRC-64 value of the function code package. This value is used to check data integrity. The value is automatically calculated by the tool.
+     * @description The structure of the asynchronous task.
      *
      * @example 1506052139770049xxxx
      *
@@ -29,7 +29,7 @@ class GetStatefulAsyncInvocationHeaders extends Model
     public $xFcCodeChecksum;
 
     /**
-     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
+     * @description Alibaba Cloud provides SDKs for multiple programming languages to help you integrate Alibaba Cloud services by using APIs. We recommend that you use an SDK to call API operations. This frees you from manual signature verification.
      *
      * @example Sat, 14 Jul 2017 07:02:38 GMT
      *
@@ -38,10 +38,8 @@ class GetStatefulAsyncInvocationHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description The invocation method.
+     * @description StatefulAsyncInvocation: asynchronous task. Asynchronous tasks allow you to manage the states on the basis of common asynchronous invocations, which is more suitable for task scenarios.
      *
-     * - **Sync**: synchronous invocation
-     * - **Async**: asynchronous invocation
      * @example Async
      *
      * @var string
@@ -49,10 +47,8 @@ class GetStatefulAsyncInvocationHeaders extends Model
     public $xFcInvocationType;
 
     /**
-     * @description The method used to return logs. Valid values:
+     * @description The latest version of Function Compute API.
      *
-     * - **Tail**: returns the last 4 KB of logs that are generated for the current request.
-     * - **None**: does not return logs for the current request. This is the default value.
      * @example Tail
      *
      * @var string
@@ -60,7 +56,7 @@ class GetStatefulAsyncInvocationHeaders extends Model
     public $xFcLogType;
 
     /**
-     * @description The trace ID of the invocation request of Function Compute.
+     * @description You can search for API operations, call and debug API operations online, and dynamically generate executable sample code for SDKs.
      *
      * @example asdf****
      *

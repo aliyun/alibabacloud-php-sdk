@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PutFunctionAsyncInvokeConfigResponseBody extends Model
 {
     /**
-     * @description The creation time.
+     * @description Sat, 14 Jul 2017 07:02:38 GMT
      *
      * @example 2020-09-10T02:45:02Z
      *
@@ -18,7 +18,7 @@ class PutFunctionAsyncInvokeConfigResponseBody extends Model
     public $createdTime;
 
     /**
-     * @description The configuration structure of the destination for asynchronous invocation.
+     * @description The trace ID of the invocation request of Function Compute.
      *
      * @example {"onSuccess": null,"onFailure": {"destination": "acs:mns:cn-shanghai:123:/queues/xxx/messages"}}
      *
@@ -36,7 +36,7 @@ class PutFunctionAsyncInvokeConfigResponseBody extends Model
     public $function;
 
     /**
-     * @description The time when the configuration was last modified.
+     * @description The configuration structure of the destination for asynchronous invocation.
      *
      * @example 2020-09-10T02:45:02Z
      *
@@ -45,8 +45,10 @@ class PutFunctionAsyncInvokeConfigResponseBody extends Model
     public $lastModifiedTime;
 
     /**
-     * @description The maximum validity period of messages.
+     * @description Specifies whether to enable the asynchronous task feature.
      *
+     * - **true**: enables the asynchronous task feature.
+     * - **false**: does not enable the asynchronous task feature.
      * @example 300
      *
      * @var int
@@ -54,7 +56,7 @@ class PutFunctionAsyncInvokeConfigResponseBody extends Model
     public $maxAsyncEventAgeInSeconds;
 
     /**
-     * @description The maximum number of retries allowed after an asynchronous invocation fails.
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example 3
      *
@@ -63,8 +65,10 @@ class PutFunctionAsyncInvokeConfigResponseBody extends Model
     public $maxAsyncRetryAttempts;
 
     /**
-     * @description The qualifier.
+     * @description Specifies whether to enable the asynchronous task feature.
      *
+     * - **true**: enables the asynchronous task feature.
+     * - **false**: does not enable the asynchronous task feature.
      * @example test
      *
      * @var string
@@ -72,7 +76,7 @@ class PutFunctionAsyncInvokeConfigResponseBody extends Model
     public $qualifier;
 
     /**
-     * @description The name of the service.
+     * @description Creates or modifies an asynchronous invocation configuration for a function.
      *
      * @example demo-service
      *
@@ -81,10 +85,8 @@ class PutFunctionAsyncInvokeConfigResponseBody extends Model
     public $service;
 
     /**
-     * @description Specifies whether to enable the asynchronous task feature.
+     * @description Jianyi
      *
-     * - **true**: enables the asynchronous task feature.
-     * - **false**: does not enable the asynchronous task feature.
      * @example true
      *
      * @var bool

@@ -11,7 +11,7 @@ class ListInstancesHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description The ID of your Alibaba Cloud account.
+     * @description Queries the available instances of a function.
      *
      * @example 188077086902****
      *

@@ -20,7 +20,7 @@ class GetAccountSettingsHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
+     * @description Example 1
      *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
@@ -29,7 +29,7 @@ class GetAccountSettingsHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description The custom request ID.
+     * @description Queries available zones within the current account.
      *
      * @example rid281s******
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateTriggerRequest extends Model
 {
     /**
-     * @description The description of the trigger.
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example trigger for test
      *
@@ -18,22 +18,13 @@ class UpdateTriggerRequest extends Model
     public $description;
 
     /**
-     * @description The role that is used by the event source such as OSS to invoke the function. For more information, see [Overview](~~53102~~).
+     * @description The version or alias of the service.
      *
      * @example acs:ram::123456xxxx:role/fc-test
      *
      * @var string
      */
     public $invocationRole;
-
-    /**
-     * @description The version or alias of the service.
-     *
-     * @example LATEST
-     *
-     * @var string
-     */
-    public $qualifier;
 
     /**
      * @description The configurations of the trigger. The configurations vary based on the trigger type. For more information about the format, see the following topics:
@@ -45,6 +36,15 @@ class UpdateTriggerRequest extends Model
      *   Tablestore trigger: Specify the **SourceArn** parameter and leave this parameter empty.
      *   Alibaba Cloud CDN event trigger: [CDNEventsTriggerConfig](~~struct:CDNEventsTriggerConfig~~).
      *   MNS topic trigger: [MnsTopicTriggerConfig](~~struct:MnsTopicTriggerConfig~~).
+     *
+     * @example LATEST
+     *
+     * @var string
+     */
+    public $qualifier;
+
+    /**
+     * @description The description of the trigger.
      *
      * @example {"events": ["oss:ObjectCreated:*"], "filter": {"key": {"prefix": "/prefix", "suffix": ".zip"}}}
      *

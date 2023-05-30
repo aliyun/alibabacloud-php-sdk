@@ -11,7 +11,7 @@ class GetLayerVersionHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description The ID of your Alibaba Cloud account.
+     * @description This parameter is returned only when the information about a specific layer version is queried.
      *
      * @example 188077086902****
      *
@@ -20,7 +20,7 @@ class GetLayerVersionHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
+     * @description The location of the layer code.
      *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
@@ -29,7 +29,7 @@ class GetLayerVersionHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description The trace ID of the request for Function Compute API.
+     * @description The structure of the layer code.
      *
      * @example asdf****
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetStatefulAsyncInvocationRequest extends Model
 {
     /**
-     * @description The version or alias of the service to which the asynchronous task belongs.
+     * @description The ID of the instance that is used to run the asynchronous task.
      *
      * @example LATEST
      *

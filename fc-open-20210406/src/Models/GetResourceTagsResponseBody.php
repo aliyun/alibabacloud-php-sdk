@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTagsResponseBody extends Model
 {
     /**
-     * @description The ARN of the resource.
+     * @description 147258
      *
-     * > You can use the value of this parameter to query the information about the resource, such as the account, service, and region information of the resource.
      * @example acs:fc:cn-shanghai:188077086902****:services/demo
      *
      * @var string
@@ -19,8 +18,6 @@ class GetResourceTagsResponseBody extends Model
     public $resourceArn;
 
     /**
-     * @description The tag dictionary.
-     *
      * @example {"k1":"v1"}
      *
      * @var string[]

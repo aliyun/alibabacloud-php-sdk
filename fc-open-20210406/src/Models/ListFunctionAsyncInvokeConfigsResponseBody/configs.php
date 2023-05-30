@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
-     * @description The time when the desktop group was created.
-     *
      * @example 2020-09-10T02:45:02Z
      *
      * @var string
@@ -19,8 +17,6 @@ class configs extends Model
     public $createdTime;
 
     /**
-     * @description The configuration structure of the destination for asynchronous invocations. If you have not configured this parameter, this parameter is null.
-     *
      * @example {"onSuccess": null,"onFailure": {"destination": "acs:mns:cn-shanghai:123:/queues/xxx/messages"}}
      *
      * @var DestinationConfig
@@ -28,8 +24,6 @@ class configs extends Model
     public $destinationConfig;
 
     /**
-     * @description The name of the function.
-     *
      * @example helloworld
      *
      * @var string
@@ -37,8 +31,6 @@ class configs extends Model
     public $function;
 
     /**
-     * @description The time when the configuration was last modified.
-     *
      * @example 2020-09-10T02:45:02Z
      *
      * @var string
@@ -46,8 +38,6 @@ class configs extends Model
     public $lastModifiedTime;
 
     /**
-     * @description The maximum validity period of a message. If you have not configured this parameter, this parameter is null.
-     *
      * @example 300
      *
      * @var int
@@ -55,8 +45,6 @@ class configs extends Model
     public $maxAsyncEventAgeInSeconds;
 
     /**
-     * @description The maximum number of retries allowed after an asynchronous invocation fails. If you have not configured this parameter, this parameter is null.
-     *
      * @example 3
      *
      * @var int
@@ -64,8 +52,6 @@ class configs extends Model
     public $maxAsyncRetryAttempts;
 
     /**
-     * @description The version or alias of the service.
-     *
      * @example test
      *
      * @var string
@@ -73,8 +59,6 @@ class configs extends Model
     public $qualifier;
 
     /**
-     * @description The name of the service.
-     *
      * @example demo-service
      *
      * @var string
@@ -82,12 +66,6 @@ class configs extends Model
     public $service;
 
     /**
-     * @description Indicates whether the asynchronous task feature is enabled.
-     *
-     *   **true**: The asynchronous task feature is enabled.
-     *   **false**: The asynchronous task feature is disabled.
-     *
-     * If you have not configured this parameter, this parameter is null.
      * @example true
      *
      * @var bool

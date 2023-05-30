@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateLayerVersionResponseBody extends Model
 {
     /**
-     * @description The access mode of the layer.
+     * @description Creates a layer version.
      *
      * @example 0
      *
@@ -18,8 +18,6 @@ class CreateLayerVersionResponseBody extends Model
     public $acl;
 
     /**
-     * @description The name of the layer.
-     *
      * @example xxxxxxxx#Layer-name#1
      *
      * @var string
@@ -27,14 +25,14 @@ class CreateLayerVersionResponseBody extends Model
     public $arn;
 
     /**
-     * @description The information about the layer code package.
+     * @description The access mode of the layer.
      *
      * @var OutputCodeLocation
      */
     public $code;
 
     /**
-     * @description The checksum of the layer code package.
+     * @description Example 1
      *
      * @example 2825179536350****
      *
@@ -52,14 +50,14 @@ class CreateLayerVersionResponseBody extends Model
     public $codesize;
 
     /**
-     * @description The list of runtime environments that are supported by the layer.
+     * @description Luoni
      *
      * @var string[]
      */
     public $compatibleRuntime;
 
     /**
-     * @description The time when the layer version was created. The time follows the **yyyy-MM-ddTHH:mm:ssZ** format.
+     * @description Creates a layer version.
      *
      * @example 2022-01-01T11:08:00Z
      *
@@ -68,7 +66,7 @@ class CreateLayerVersionResponseBody extends Model
     public $createTime;
 
     /**
-     * @description The description of the layer version.
+     * @description The name of the layer.
      *
      * @example the first layer
      *
@@ -77,7 +75,7 @@ class CreateLayerVersionResponseBody extends Model
     public $description;
 
     /**
-     * @description The name of the layer.
+     * @description The list of runtime environments that are supported by the layer.
      *
      * @example MyLayer
      *
@@ -86,7 +84,7 @@ class CreateLayerVersionResponseBody extends Model
     public $layerName;
 
     /**
-     * @description The version of the layer.
+     * @description The time when the layer version was created. The time follows the **yyyy-MM-ddTHH:mm:ssZ** format.
      *
      * @example 1
      *

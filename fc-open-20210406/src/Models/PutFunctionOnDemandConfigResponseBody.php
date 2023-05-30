@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class PutFunctionOnDemandConfigResponseBody extends Model
 {
     /**
-     * @description The maximum number of instances.
-     *
      * @example 10
      *
      * @var int
@@ -18,8 +16,6 @@ class PutFunctionOnDemandConfigResponseBody extends Model
     public $maximumInstanceCount;
 
     /**
-     * @description The description of the resource.
-     *
      * @example 12345#servierName#qualifier#functionName
      *
      * @var string

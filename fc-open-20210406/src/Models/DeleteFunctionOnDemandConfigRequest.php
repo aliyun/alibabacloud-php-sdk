@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteFunctionOnDemandConfigRequest extends Model
 {
     /**
-     * @description The alias of the service or LATEST.
+     * @description Deletes the on-demand configuration of a function.
      *
      * @example prod
      *

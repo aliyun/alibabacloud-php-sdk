@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateTriggerResponseBody extends Model
 {
     /**
-     * @description The time when the audio or video file was created.
+     * @description The ARN of the RAM role that is used by the event source to invoke the function.
      *
      * @example 2016-08-15T15:00:00.000+0000
      *
@@ -18,7 +18,7 @@ class UpdateTriggerResponseBody extends Model
     public $createdTime;
 
     /**
-     * @description The description of the trigger.
+     * @description The unique ID of the trigger.
      *
      * @example trigger for test
      *
@@ -27,7 +27,7 @@ class UpdateTriggerResponseBody extends Model
     public $description;
 
     /**
-     * @description The domain name used to invoke the function by using HTTP. You can add this domain name as the prefix to the endpoint of Function Compute. This way, you can invoke the function that corresponds to the trigger by using HTTP. For example, `{domainName}.cn-shanghai.fc.aliyuncs.com`.
+     * @description The public domain address. You can access HTTP triggers over the Internet by using HTTP or HTTPS.
      *
      * @example demo-service-demo-function-jkhksh
      *
@@ -36,7 +36,7 @@ class UpdateTriggerResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The ARN of the RAM role that is used by the event source to invoke the function.
+     * @description The last modification time.
      *
      * @example acs:ram::123456xxxx:role/fc-test
      *
@@ -45,7 +45,7 @@ class UpdateTriggerResponseBody extends Model
     public $invocationRole;
 
     /**
-     * @description The last modification time.
+     * @description The version or alias of the service.
      *
      * @example 016-08-15T17:00:00.000+0000
      *
@@ -54,7 +54,7 @@ class UpdateTriggerResponseBody extends Model
     public $lastModifiedTime;
 
     /**
-     * @description The version or alias of the service.
+     * @description The ARN of the event source.
      *
      * @example LATEST
      *
@@ -63,7 +63,7 @@ class UpdateTriggerResponseBody extends Model
     public $qualifier;
 
     /**
-     * @description The ARN of the event source.
+     * @description The configurations of the trigger. The configurations vary based on the trigger type.
      *
      * @example acs:oss:cn-shanghai:12345xxxx:mybucket
      *
@@ -72,7 +72,7 @@ class UpdateTriggerResponseBody extends Model
     public $sourceArn;
 
     /**
-     * @description The configurations of the trigger. The configurations vary based on the trigger type.
+     * @description The name of the trigger.
      *
      * @example {"events": ["oss:ObjectCreated:*"], "filter": {"key": {"prefix": "/prefix", "suffix": ".zip"}}}
      *
@@ -81,7 +81,7 @@ class UpdateTriggerResponseBody extends Model
     public $triggerConfig;
 
     /**
-     * @description The unique ID of the trigger.
+     * @description The domain name used to invoke the function by using HTTP. You can add this domain name as the prefix to the endpoint of Function Compute. This way, you can invoke the function that corresponds to the trigger by using HTTP. For example, `{domainName}.cn-shanghai.fc.aliyuncs.com`.
      *
      * @example 3e270f2f-cef2-421a-bc86-ff4e8088****
      *
@@ -90,7 +90,7 @@ class UpdateTriggerResponseBody extends Model
     public $triggerId;
 
     /**
-     * @description The name of the trigger.
+     * @description The trigger type, such as **oss**, **log**, **tablestore**, **timer**, **http**, **cdn_events**, and **mns_topic**.
      *
      * @example demoTrigger
      *
@@ -99,7 +99,7 @@ class UpdateTriggerResponseBody extends Model
     public $triggerName;
 
     /**
-     * @description The trigger type, such as **oss**, **log**, **tablestore**, **timer**, **http**, **cdn_events**, and **mns_topic**.
+     * @description The description of the trigger.
      *
      * @example oss
      *
@@ -108,7 +108,7 @@ class UpdateTriggerResponseBody extends Model
     public $triggerType;
 
     /**
-     * @description The public domain address. You can access HTTP triggers over the Internet by using HTTP or HTTPS.
+     * @description The private endpoint. In a VPC, you can access HTTP triggers by using HTTP or HTTPS.
      *
      * @example https://svc-func-xxxxxxxx.cn-hangzhou.fcapp.run
      *
@@ -117,8 +117,6 @@ class UpdateTriggerResponseBody extends Model
     public $urlInternet;
 
     /**
-     * @description The private endpoint. In a VPC, you can access HTTP triggers by using HTTP or HTTPS.
-     *
      * @example https://svc-func-xxxxxxxx.cn-hangzhou-vpc.fcapp.run
      *
      * @var string

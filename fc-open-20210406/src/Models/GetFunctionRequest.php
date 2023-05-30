@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionRequest extends Model
 {
     /**
-     * @description The version or alias of the service.
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example demoQualifier
      *

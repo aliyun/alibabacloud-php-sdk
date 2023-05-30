@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class PutFunctionAsyncInvokeConfigRequest extends Model
 {
     /**
-     * @description The configuration structure of the destination for asynchronous invocation.
+     * @description You can search for API operations, call and debug API operations online, and dynamically generate executable sample code for SDKs.
      *
      * @var DestinationConfig
      */
     public $destinationConfig;
 
     /**
-     * @description The maximum validity period of messages. Valid values: 1 to 2592000. Unit: seconds.
+     * @description Alibaba Cloud CLI
      *
      * @example 300
      *
@@ -25,7 +25,7 @@ class PutFunctionAsyncInvokeConfigRequest extends Model
     public $maxAsyncEventAgeInSeconds;
 
     /**
-     * @description The maximum number of retries allowed after an asynchronous invocation fails. Default value: 3. Valid values: 0 to 8.
+     * @description The information about the asynchronous invocation configuration.
      *
      * @example 3
      *
@@ -34,10 +34,8 @@ class PutFunctionAsyncInvokeConfigRequest extends Model
     public $maxAsyncRetryAttempts;
 
     /**
-     * @description Specifies whether to enable the asynchronous task feature.
+     * @description The version or alias of the service.
      *
-     * - **true**: enables the asynchronous task feature.
-     * - **false**: does not enable the asynchronous task feature.
      * @example true
      *
      * @var bool
@@ -45,7 +43,7 @@ class PutFunctionAsyncInvokeConfigRequest extends Model
     public $statefulInvocation;
 
     /**
-     * @description The version or alias of the service.
+     * @description The latest version of Function Compute API.
      *
      * @example test
      *

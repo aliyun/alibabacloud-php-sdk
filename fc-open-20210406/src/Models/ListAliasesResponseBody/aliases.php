@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class aliases extends Model
 {
     /**
-     * @description The weight of the canary release version.
+     * @description The additional version to which the alias points and the weight of the additional version.
+     *
+     *   The additional version takes effect only when the function is invoked.
+     *   The value consists of a version number and a specific weight. For example, 2:0.05 indicates that when a function is invoked, Version 2 is the canary release version, 5% of the traffic is distributed to the canary release version, and 95% of the traffic is distributed to the major version.
      *
      * @var float[]
      */
@@ -26,7 +29,7 @@ class aliases extends Model
     public $aliasName;
 
     /**
-     * @description The creation time.
+     * @description The time when the ConfigMaps were created.
      *
      * @example 2016-08-15T16:06:05.000+0000
      *
@@ -44,7 +47,7 @@ class aliases extends Model
     public $description;
 
     /**
-     * @description The last update time.
+     * @description The time at which the system parameter was last modified.
      *
      * @example 2016-08-15T16:06:05.000+0000
      *
@@ -53,6 +56,11 @@ class aliases extends Model
     public $lastModifiedTime;
 
     /**
+     * @description The canary release mode. Valid values:
+     *
+     *   **Random**: random canary release. This is the default value.
+     *   **Content**: rule-based canary release.
+     *
      * @example Random
      *
      * @var string
@@ -60,6 +68,8 @@ class aliases extends Model
     public $resolvePolicy;
 
     /**
+     * @description The canary release rule. Traffic that meets the canary release rule is routed to the canary release instance.
+     *
      * @var RoutePolicy
      */
     public $routePolicy;

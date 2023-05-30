@@ -11,8 +11,6 @@ class ListReservedCapacitiesHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description The ID of your Alibaba Cloud account.
-     *
      * @example 188077086902****
      *
      * @var string
@@ -20,8 +18,6 @@ class ListReservedCapacitiesHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description The time when the Function Compute API is called. The format is **EEE,d MMM yyyy HH:mm:ss GMT**.
-     *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
      * @var string
@@ -29,8 +25,6 @@ class ListReservedCapacitiesHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description The custom request ID.
-     *
      * @example asdf****
      *
      * @var string

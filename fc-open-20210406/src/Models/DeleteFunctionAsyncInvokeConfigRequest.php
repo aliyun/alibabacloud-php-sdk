@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteFunctionAsyncInvokeConfigRequest extends Model
 {
     /**
-     * @description The qualifier.
+     * @description Deletes the asynchronous invocation configurations of a function in a service.
      *
      * @example test
      *

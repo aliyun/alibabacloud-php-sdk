@@ -11,7 +11,7 @@ class ListOnDemandConfigsHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description The ID of your Alibaba Cloud account.
+     * @description $.parameters[8].schema.description
      *
      * @example 188077086902****
      *
@@ -20,7 +20,7 @@ class ListOnDemandConfigsHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
+     * @description $.parameters[8].schema.example
      *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
@@ -29,7 +29,7 @@ class ListOnDemandConfigsHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description The trace ID of the invocation request of Function Compute.
+     * @description $.parameters[8].schema.enumValueTitles
      *
      * @example rid281s******
      *

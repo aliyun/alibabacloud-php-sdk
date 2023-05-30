@@ -11,7 +11,7 @@ class PutFunctionAsyncInvokeConfigHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description The ID of your Alibaba Cloud account.
+     * @description The name of the service.
      *
      * @example 188077086902****
      *
@@ -20,16 +20,16 @@ class PutFunctionAsyncInvokeConfigHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
+     * @description The creation time.
      *
-     * @example Sat, 14 Jul 2017 07:02:38 GMT
+     * @example The information about the asynchronous invocation configuration.
      *
      * @var string
      */
     public $xFcDate;
 
     /**
-     * @description The trace ID of the invocation request of Function Compute.
+     * @description The maximum number of retries allowed after an asynchronous invocation fails. Default value: 3. Valid values: 0 to 8.
      *
      * @example ksdfjkdmkki***
      *

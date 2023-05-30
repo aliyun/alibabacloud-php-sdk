@@ -53,6 +53,11 @@ class InvokeFunctionHeaders extends Model
     public $xFcLogType;
 
     /**
+     * @var string
+     */
+    public $xFcStatefulAsyncInvocationEnable;
+
+    /**
      * @description The ID of the asynchronous task. You must enable the asynchronous task feature in advance.
      *
      * > When you use an SDK to invoke a function, we recommend that you specify a business-related ID to facilitate subsequent operations. For example, you can use the video name as the invocation ID for a video-processing function. This way, you can use the ID to check whether the video is processed or terminate the processing of the video. The ID must start with a letter or an underscore (\_) and can contain letters, digits, underscores (\_), and hyphens (-). The ID can be up to 128 characters in length. If you do not specify the ID of the asynchronous invocation, Function Compute automatically generates an ID.
@@ -71,12 +76,13 @@ class InvokeFunctionHeaders extends Model
      */
     public $xFcTraceId;
     protected $_name = [
-        'xFcAccountId'                 => 'X-Fc-Account-Id',
-        'xFcDate'                      => 'X-Fc-Date',
-        'xFcInvocationType'            => 'X-Fc-Invocation-Type',
-        'xFcLogType'                   => 'X-Fc-Log-Type',
-        'xFcStatefulAsyncInvocationId' => 'X-Fc-Stateful-Async-Invocation-Id',
-        'xFcTraceId'                   => 'X-Fc-Trace-Id',
+        'xFcAccountId'                     => 'X-Fc-Account-Id',
+        'xFcDate'                          => 'X-Fc-Date',
+        'xFcInvocationType'                => 'X-Fc-Invocation-Type',
+        'xFcLogType'                       => 'X-Fc-Log-Type',
+        'xFcStatefulAsyncInvocationEnable' => 'X-Fc-Stateful-Async-Invocation-Enable',
+        'xFcStatefulAsyncInvocationId'     => 'X-Fc-Stateful-Async-Invocation-Id',
+        'xFcTraceId'                       => 'X-Fc-Trace-Id',
     ];
 
     public function validate()
@@ -100,6 +106,9 @@ class InvokeFunctionHeaders extends Model
         }
         if (null !== $this->xFcLogType) {
             $res['X-Fc-Log-Type'] = $this->xFcLogType;
+        }
+        if (null !== $this->xFcStatefulAsyncInvocationEnable) {
+            $res['X-Fc-Stateful-Async-Invocation-Enable'] = $this->xFcStatefulAsyncInvocationEnable;
         }
         if (null !== $this->xFcStatefulAsyncInvocationId) {
             $res['X-Fc-Stateful-Async-Invocation-Id'] = $this->xFcStatefulAsyncInvocationId;
@@ -133,6 +142,9 @@ class InvokeFunctionHeaders extends Model
         }
         if (isset($map['X-Fc-Log-Type'])) {
             $model->xFcLogType = $map['X-Fc-Log-Type'];
+        }
+        if (isset($map['X-Fc-Stateful-Async-Invocation-Enable'])) {
+            $model->xFcStatefulAsyncInvocationEnable = $map['X-Fc-Stateful-Async-Invocation-Enable'];
         }
         if (isset($map['X-Fc-Stateful-Async-Invocation-Id'])) {
             $model->xFcStatefulAsyncInvocationId = $map['X-Fc-Stateful-Async-Invocation-Id'];

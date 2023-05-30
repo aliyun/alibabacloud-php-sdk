@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListStatefulAsyncInvocationsResponseBody extends Model
 {
     /**
-     * @description The information about asynchronous tasks.
+     * @description The version or alias of the service to which the asynchronous task belongs.
      *
      * @var StatefulAsyncInvocation[]
      */
     public $invocations;
 
     /**
-     * @description The token used to obtain more results. If this parameter is left empty, all the results are returned.
+     * @description The returned data.
      *
      * @example 8bj81uI8n****
      *

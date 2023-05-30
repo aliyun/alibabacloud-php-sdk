@@ -31,14 +31,14 @@ class PublishServiceVersionHeaders extends Model
     /**
      * @description The start time when the function is invoked. Specify the time in the yyyy-mm-ddhh:mm:ss format.
      *
-     * @example 2020-12-1210:00:00
+     * @example Wed, 11 May 2022 09:00:00 GMT
      *
      * @var string
      */
     public $xFcDate;
 
     /**
-     * @description The trace ID of the invocation request of Function Compute.
+     * @description 2020-12-1210:00:00
      *
      * @example rid281s******
      *

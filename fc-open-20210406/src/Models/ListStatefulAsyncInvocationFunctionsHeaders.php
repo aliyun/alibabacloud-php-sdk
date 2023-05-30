@@ -11,7 +11,7 @@ class ListStatefulAsyncInvocationFunctionsHeaders extends Model
     public $commonHeaders;
 
     /**
-     * @description The ID of your Alibaba Cloud account.
+     * @description It is a tool used to manage and configure Alibaba Cloud resources. After simple installation and configuration, you can use Alibaba Cloud CLI to manage multiple Alibaba Cloud services and migrate your data and business to the cloud with ease.
      *
      * @example 12348*****
      *
@@ -20,7 +20,7 @@ class ListStatefulAsyncInvocationFunctionsHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description The time when Function Compute API is called. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
+     * @description The token used to obtain more results. If this parameter is left empty, all the results are returned.
      *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
@@ -29,7 +29,7 @@ class ListStatefulAsyncInvocationFunctionsHeaders extends Model
     public $xFcDate;
 
     /**
-     * @description The trace ID of the request for Function Compute API.
+     * @description The details of returned data.
      *
      * @example duytnd-Xsdfasfd***
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListOnDemandConfigsRequest extends Model
 {
     /**
-     * @description The maximum number of resources to return. Default value: 20. Maximum value: 100. The number of returned resources is less than or equal to the specified number.
+     * @description The time when Function Compute API is called.
      *
      * @example 20
      *
@@ -18,7 +18,7 @@ class ListOnDemandConfigsRequest extends Model
     public $limit;
 
     /**
-     * @description The token used to obtain more results. If the number of resources exceeds the limit, the nextToken parameter is returned. You can include the parameter in subsequent calls to obtain more results. You do not need to provide this parameter in the first call.
+     * @description The ID of your Alibaba Cloud account.
      *
      * @example 8bj81uI8n****
      *
@@ -27,7 +27,7 @@ class ListOnDemandConfigsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The prefix that the names of returned resources must contain. If the name prefix is a, the names of returned resources must start with a.
+     * @description The returned data.
      *
      * @example prefix_text
      *
@@ -36,7 +36,7 @@ class ListOnDemandConfigsRequest extends Model
     public $prefix;
 
     /**
-     * @description The returned resources are sorted in alphabetical order, and the resources that include and follow the resource specified by the startKey parameter are returned.
+     * @description The maximum number of resources to return. Default value: 20. Maximum value: 100. The number of returned resources is less than or equal to the specified number.
      *
      * @example nextservice
      *

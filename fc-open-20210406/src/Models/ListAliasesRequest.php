@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListAliasesRequest extends Model
 {
     /**
-     * @description The maximum number of resources to return.
+     * @description The maximum number of resources to return. Default value: 20. Maximum value: 100. The number of returned resources is less than or equal to the specified number.
      *
      * @example 20
      *
@@ -18,7 +18,7 @@ class ListAliasesRequest extends Model
     public $limit;
 
     /**
-     * @description The token used to obtain more results.
+     * @description The token required to obtain more results. If the number of resources exceeds the limit, the nextToken parameter is returned. You can include the parameter in subsequent calls to obtain more results. You do not need to provide this parameter in the first call.
      *
      * @example caeba0be03****f84eb48b699f0a4883
      *
@@ -27,7 +27,7 @@ class ListAliasesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The prefix.
+     * @description The prefix that the names of returned resources must contain.
      *
      * @example prefix_text
      *
@@ -36,7 +36,7 @@ class ListAliasesRequest extends Model
     public $prefix;
 
     /**
-     * @description The starting position of the result list.
+     * @description The starting position of the result list. The returned resources are sorted in alphabetical order, and the resources that include and follow the resource specified by the startKey parameter are returned.
      *
      * @example nextkey
      *

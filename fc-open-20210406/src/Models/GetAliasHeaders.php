@@ -20,7 +20,7 @@ class GetAliasHeaders extends Model
     public $xFcAccountId;
 
     /**
-     * @description The start time when the function is invoked. Specify the time in the **EEE,d MMM yyyy HH:mm:ss GMT** format.
+     * @description The time on which the function is invoked. The format of the value is: **EEE,d MMM yyyy HH:mm:ss GMT**.
      *
      * @example Wed, 11 May 2022 09:00:00 GMT
      *
