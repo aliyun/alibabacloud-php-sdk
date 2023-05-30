@@ -265,6 +265,7 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\InvoiceSearchResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvRuleSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvRuleSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvRuleSaveResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvRuleSaveShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveResponse;
@@ -5889,18 +5890,26 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
-     * @param IsvRuleSaveRequest $request
+     * @param IsvRuleSaveRequest $tmpReq
      * @param IsvRuleSaveHeaders $headers
      * @param RuntimeOptions     $runtime
      *
      * @return IsvRuleSaveResponse
      */
-    public function isvRuleSaveWithOptions($request, $headers, $runtime)
+    public function isvRuleSaveWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new IsvRuleSaveShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->bookuserList)) {
+            $request->bookuserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bookuserList, 'bookuser_list', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->bookType)) {
             $body['book_type'] = $request->bookType;
+        }
+        if (!Utils::isUnset($request->bookuserListShrink)) {
+            $body['bookuser_list'] = $request->bookuserListShrink;
         }
         if (!Utils::isUnset($request->status)) {
             $body['status'] = $request->status;

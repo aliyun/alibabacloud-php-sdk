@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models;
 
-use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvRuleSaveRequest\bookuserList;
 use AlibabaCloud\Tea\Model;
 
-class IsvRuleSaveRequest extends Model
+class IsvRuleSaveShrinkRequest extends Model
 {
     /**
      * @var string
@@ -15,9 +14,9 @@ class IsvRuleSaveRequest extends Model
     public $bookType;
 
     /**
-     * @var bookuserList[]
+     * @var string
      */
-    public $bookuserList;
+    public $bookuserListShrink;
 
     /**
      * @example 1
@@ -33,10 +32,10 @@ class IsvRuleSaveRequest extends Model
      */
     public $userId;
     protected $_name = [
-        'bookType'     => 'book_type',
-        'bookuserList' => 'bookuser_list',
-        'status'       => 'status',
-        'userId'       => 'user_id',
+        'bookType'           => 'book_type',
+        'bookuserListShrink' => 'bookuser_list',
+        'status'             => 'status',
+        'userId'             => 'user_id',
     ];
 
     public function validate()
@@ -49,14 +48,8 @@ class IsvRuleSaveRequest extends Model
         if (null !== $this->bookType) {
             $res['book_type'] = $this->bookType;
         }
-        if (null !== $this->bookuserList) {
-            $res['bookuser_list'] = [];
-            if (null !== $this->bookuserList && \is_array($this->bookuserList)) {
-                $n = 0;
-                foreach ($this->bookuserList as $item) {
-                    $res['bookuser_list'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->bookuserListShrink) {
+            $res['bookuser_list'] = $this->bookuserListShrink;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -71,7 +64,7 @@ class IsvRuleSaveRequest extends Model
     /**
      * @param array $map
      *
-     * @return IsvRuleSaveRequest
+     * @return IsvRuleSaveShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -80,13 +73,7 @@ class IsvRuleSaveRequest extends Model
             $model->bookType = $map['book_type'];
         }
         if (isset($map['bookuser_list'])) {
-            if (!empty($map['bookuser_list'])) {
-                $model->bookuserList = [];
-                $n                   = 0;
-                foreach ($map['bookuser_list'] as $item) {
-                    $model->bookuserList[$n++] = null !== $item ? bookuserList::fromMap($item) : $item;
-                }
-            }
+            $model->bookuserListShrink = $map['bookuser_list'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
