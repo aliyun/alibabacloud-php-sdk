@@ -25,14 +25,20 @@ class calcBMD extends Model
     public $resultURL;
 
     /**
+     * @var string
+     */
+    public $seriesInstanceUid;
+
+    /**
      * @var float[]
      */
     public $spacing;
     protected $_name = [
-        'detections' => 'Detections',
-        'origin'     => 'Origin',
-        'resultURL'  => 'ResultURL',
-        'spacing'    => 'Spacing',
+        'detections'        => 'Detections',
+        'origin'            => 'Origin',
+        'resultURL'         => 'ResultURL',
+        'seriesInstanceUid' => 'SeriesInstanceUid',
+        'spacing'           => 'Spacing',
     ];
 
     public function validate()
@@ -56,6 +62,9 @@ class calcBMD extends Model
         }
         if (null !== $this->resultURL) {
             $res['ResultURL'] = $this->resultURL;
+        }
+        if (null !== $this->seriesInstanceUid) {
+            $res['SeriesInstanceUid'] = $this->seriesInstanceUid;
         }
         if (null !== $this->spacing) {
             $res['Spacing'] = $this->spacing;
@@ -88,6 +97,9 @@ class calcBMD extends Model
         }
         if (isset($map['ResultURL'])) {
             $model->resultURL = $map['ResultURL'];
+        }
+        if (isset($map['SeriesInstanceUid'])) {
+            $model->seriesInstanceUid = $map['SeriesInstanceUid'];
         }
         if (isset($map['Spacing'])) {
             if (!empty($map['Spacing'])) {

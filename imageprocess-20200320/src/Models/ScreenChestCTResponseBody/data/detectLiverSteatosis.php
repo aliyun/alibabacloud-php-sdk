@@ -20,13 +20,19 @@ class detectLiverSteatosis extends Model
     public $origin;
 
     /**
+     * @var string
+     */
+    public $seriesInstanceUid;
+
+    /**
      * @var float[]
      */
     public $spacing;
     protected $_name = [
-        'detections' => 'Detections',
-        'origin'     => 'Origin',
-        'spacing'    => 'Spacing',
+        'detections'        => 'Detections',
+        'origin'            => 'Origin',
+        'seriesInstanceUid' => 'SeriesInstanceUid',
+        'spacing'           => 'Spacing',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class detectLiverSteatosis extends Model
         }
         if (null !== $this->origin) {
             $res['Origin'] = $this->origin;
+        }
+        if (null !== $this->seriesInstanceUid) {
+            $res['SeriesInstanceUid'] = $this->seriesInstanceUid;
         }
         if (null !== $this->spacing) {
             $res['Spacing'] = $this->spacing;
@@ -76,6 +85,9 @@ class detectLiverSteatosis extends Model
             if (!empty($map['Origin'])) {
                 $model->origin = $map['Origin'];
             }
+        }
+        if (isset($map['SeriesInstanceUid'])) {
+            $model->seriesInstanceUid = $map['SeriesInstanceUid'];
         }
         if (isset($map['Spacing'])) {
             if (!empty($map['Spacing'])) {

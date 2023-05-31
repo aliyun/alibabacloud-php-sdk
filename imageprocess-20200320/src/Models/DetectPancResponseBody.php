@@ -15,6 +15,10 @@ class DetectPancResponseBody extends Model
     public $data;
 
     /**
+     * @description 提交异步任务后的提示信息。
+     *
+     * @example 该调用为异步调用，任务已提交成功，请以requestId的值作为jobId参数调用同类目下GetAsyncJobResult接口查询任务执行状态和结果。
+     *
      * @var string
      */
     public $message;

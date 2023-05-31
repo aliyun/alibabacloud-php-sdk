@@ -13,7 +13,11 @@ use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\dat
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\detectPdac;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\detectRibFracture;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\lungNodule;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\predictCVD;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\screenCRC;
 use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\screenEc;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\screenGC;
+use AlibabaCloud\SDK\Imageprocess\V20200320\Models\ScreenChestCTResponseBody\data\screenLC;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -78,9 +82,29 @@ class data extends Model
     public $nestedUrlList;
 
     /**
+     * @var predictCVD
+     */
+    public $predictCVD;
+
+    /**
+     * @var screenCRC
+     */
+    public $screenCRC;
+
+    /**
      * @var screenEc
      */
     public $screenEc;
+
+    /**
+     * @var screenGC
+     */
+    public $screenGC;
+
+    /**
+     * @var screenLC
+     */
+    public $screenLC;
 
     /**
      * @example https://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo/coronacases_org_001/1.2.112.92121.1.1689.19.2.2020040219072764787101585825****.dcm
@@ -100,7 +124,11 @@ class data extends Model
         'errorMessage'         => 'ErrorMessage',
         'lungNodule'           => 'LungNodule',
         'nestedUrlList'        => 'NestedUrlList',
+        'predictCVD'           => 'PredictCVD',
+        'screenCRC'            => 'ScreenCRC',
         'screenEc'             => 'ScreenEc',
+        'screenGC'             => 'ScreenGC',
+        'screenLC'             => 'ScreenLC',
         'URLList'              => 'URLList',
     ];
 
@@ -144,8 +172,20 @@ class data extends Model
         if (null !== $this->nestedUrlList) {
             $res['NestedUrlList'] = $this->nestedUrlList;
         }
+        if (null !== $this->predictCVD) {
+            $res['PredictCVD'] = null !== $this->predictCVD ? $this->predictCVD->toMap() : null;
+        }
+        if (null !== $this->screenCRC) {
+            $res['ScreenCRC'] = null !== $this->screenCRC ? $this->screenCRC->toMap() : null;
+        }
         if (null !== $this->screenEc) {
             $res['ScreenEc'] = null !== $this->screenEc ? $this->screenEc->toMap() : null;
+        }
+        if (null !== $this->screenGC) {
+            $res['ScreenGC'] = null !== $this->screenGC ? $this->screenGC->toMap() : null;
+        }
+        if (null !== $this->screenLC) {
+            $res['ScreenLC'] = null !== $this->screenLC ? $this->screenLC->toMap() : null;
         }
         if (null !== $this->URLList) {
             $res['URLList'] = $this->URLList;
@@ -195,8 +235,20 @@ class data extends Model
         if (isset($map['NestedUrlList'])) {
             $model->nestedUrlList = $map['NestedUrlList'];
         }
+        if (isset($map['PredictCVD'])) {
+            $model->predictCVD = predictCVD::fromMap($map['PredictCVD']);
+        }
+        if (isset($map['ScreenCRC'])) {
+            $model->screenCRC = screenCRC::fromMap($map['ScreenCRC']);
+        }
         if (isset($map['ScreenEc'])) {
             $model->screenEc = screenEc::fromMap($map['ScreenEc']);
+        }
+        if (isset($map['ScreenGC'])) {
+            $model->screenGC = screenGC::fromMap($map['ScreenGC']);
+        }
+        if (isset($map['ScreenLC'])) {
+            $model->screenLC = screenLC::fromMap($map['ScreenLC']);
         }
         if (isset($map['URLList'])) {
             $model->URLList = $map['URLList'];

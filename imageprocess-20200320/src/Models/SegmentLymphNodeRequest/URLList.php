@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class URLList extends Model
 {
     /**
-     * @example ["Url":"http://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo%2Frt%2Fgtv%2F1-050.dcm","Url":"http://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo%2Frt%2Fgtv%2F1-051.dcm",......]
-     *
      * @var string
      */
     public $URL;

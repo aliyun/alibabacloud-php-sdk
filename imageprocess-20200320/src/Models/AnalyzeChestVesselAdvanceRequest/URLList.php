@@ -10,8 +10,6 @@ use GuzzleHttp\Psr7\Stream;
 class URLList extends Model
 {
     /**
-     * @example https://medclients-sh.oss-cn-shanghai.aliyuncs.com/demo/ct_artery_aa_ph/aa/13_1.3.12.2.1107.5.1.4.67018.30000019012009435582900046382.nii.gz
-     *
      * @var Stream
      */
     public $URLObject;
