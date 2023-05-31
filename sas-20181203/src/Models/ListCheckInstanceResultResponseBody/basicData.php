@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class basicData extends Model
 {
     /**
+     * @description The check result ID of the instance.
+     *
      * @example 300054
      *
      * @var int
@@ -16,6 +18,8 @@ class basicData extends Model
     public $id;
 
     /**
+     * @description The ID of the server.
+     *
      * @example rm-m5es7ch1s62i4****
      *
      * @var string
@@ -23,6 +27,8 @@ class basicData extends Model
     public $instanceId;
 
     /**
+     * @description The name of the server.
+     *
      * @example sg-t4nbk2aodzio52xv****
      *
      * @var string
@@ -30,6 +36,8 @@ class basicData extends Model
     public $instanceName;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example ap-southeast-1
      *
      * @var string
@@ -37,6 +45,14 @@ class basicData extends Model
     public $regionId;
 
     /**
+     * @description The statuses of check items. Multiple statuses are separated by commas (,). Valid values:
+     *
+     *   **PASS**
+     *   **NOT_PASS**
+     *   **CHECKING**
+     *   **NOT_CHECK**
+     *   **WHITELIST**
+     *
      * @example NOT_PASS
      *
      * @var string

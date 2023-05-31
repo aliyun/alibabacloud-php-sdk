@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
-     * @description The name of the parameter.
+     * @description Indicates whether the baseline can be edited. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
      *
      * @example 1
      *
@@ -19,14 +22,14 @@ class rules extends Model
     public $optional;
 
     /**
-     * @description The description of the baseline.
+     * @description An array that consists of the parameters in the rule for the baseline.
      *
      * @var paramList[]
      */
     public $paramList;
 
     /**
-     * @description An array that consists of the information about baseline subtypes.
+     * @description The description of the rule for the baseline.
      *
      * @example Please customize the password expiration time detection standard as
      *
@@ -35,7 +38,7 @@ class rules extends Model
     public $ruleDesc;
 
     /**
-     * @description The maximum value of the parameter.
+     * @description The ID of the rule for the baseline.
      *
      * @example audit.audit_policy.auditpolicychange.cus
      *

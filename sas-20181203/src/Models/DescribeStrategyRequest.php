@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeStrategyRequest extends Model
 {
     /**
+     * @description The type of the baseline check policy that you want to query. Valid values:
+     *
+     *   **common**: standard baseline check policy
+     *   **custom**: custom baseline check policy
+     *
      * @example custom
      *
      * @var string
@@ -16,6 +21,11 @@ class DescribeStrategyRequest extends Model
     public $customType;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +33,8 @@ class DescribeStrategyRequest extends Model
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 1.2.X.X
      *
      * @var string
@@ -30,6 +42,8 @@ class DescribeStrategyRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The ID of the baseline check policy that you want to query. Separate multiple IDs with commas (,).
+     *
      * @example 8164248
      *
      * @var string

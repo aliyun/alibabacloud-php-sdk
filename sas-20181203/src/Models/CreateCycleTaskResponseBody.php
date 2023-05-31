@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCycleTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 86CFF42E-E00A-57A3-8656-22291EFB****
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyEmgVulSubmitRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class ModifyEmgVulSubmitRequest extends Model
     public $lang;
 
     /**
+     * @description The name of the vulnerability.
+     *
      * @example scan:ASCV-2019-032401
      *
      * @var string
@@ -23,6 +30,11 @@ class ModifyEmgVulSubmitRequest extends Model
     public $name;
 
     /**
+     * @description Specifies whether to scan for urgent vulnerabilities. Valid values:
+     *
+     *   **yes**
+     *   **no**
+     *
      * @example yes
      *
      * @var string

@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityStatInfoRequest extends Model
 {
     /**
-     * @description The numbers of low-risk unfixed vulnerabilities at all points in time.
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example zh
      *
@@ -18,7 +21,7 @@ class DescribeSecurityStatInfoRequest extends Model
     public $lang;
 
     /**
-     * @description The number of **high-risk** unfixed vulnerabilities at each point in time.
+     * @description The ID of the account that is added to the resource directory as a member for multi-account control. You can use this parameter to query the security status of the account.
      *
      * @example 12345
      *
@@ -27,7 +30,7 @@ class DescribeSecurityStatInfoRequest extends Model
     public $resourceDirectoryAccountId;
 
     /**
-     * @description The total number of baseline risk items on the current day.
+     * @description The source IP address of the request.
      *
      * @example 1.2.XX.XX
      *

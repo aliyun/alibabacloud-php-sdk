@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListSystemAggregationRulesRequest extends Model
 {
     /**
+     * @description The IDs of the aggregation types.
+     *
      * @var int[]
      */
     public $aggregationIds;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +25,11 @@ class ListSystemAggregationRulesRequest extends Model
     public $currentPage;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -28,6 +37,8 @@ class ListSystemAggregationRulesRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -35,16 +46,28 @@ class ListSystemAggregationRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the rule.
+     *
+     * @example Rule\*\*\*\*
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The types of the rules.
+     *
      * @var int[]
      */
     public $ruleTypes;
 
     /**
+     * @description The type of the operating system. Valid values:
+     *
+     *   **2**: Windows
+     *   **1**: Linux
+     *   **0**: all
+     *
      * @example 0
      *
      * @var int

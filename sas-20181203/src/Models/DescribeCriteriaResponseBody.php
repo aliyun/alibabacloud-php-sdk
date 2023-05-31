@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCriteriaResponseBody extends Model
 {
     /**
+     * @description An array that consists of the filter conditions.
+     *
      * @var criteriaList[]
      */
     public $criteriaList;
 
     /**
-     * @description DescribeCriteria
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 8E6DDACF-99AF-5939-AFFD-FCCD3B01E724
      *

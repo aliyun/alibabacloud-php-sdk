@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspiciousOverallConfigRequest extends Model
 {
     /**
+     * @description The source IP address of the request.
+     *
      * @example 39.161.XX.XX
      *
      * @var string
@@ -16,6 +18,15 @@ class DescribeSuspiciousOverallConfigRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The type of the feature. Valid values:
+     *
+     *   **auto_breaking**: Anti-Virus
+     *   **ransomware_breaking**: Anti-ransomware (Bait Capture)
+     *   **webshell\_cloud_breaking**: Webshell Protection
+     *   **alinet**: Behavior prevention
+     *   **k8s\_log_analysis**: K8s Threat Detection
+     *   **alisecguard**: Defense mode for Client Protection
+     *
      * @example auto_breaking
      *
      * @var string

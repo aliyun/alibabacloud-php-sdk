@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulNumStatisticsRequest extends Model
 {
     /**
+     * @description The source of the request.
+     *
+     *   If you want to query Security Center-related data, set the value to **sas**.
+     *   If you want to query Server Guard-related data, you do not need to specify this parameter.
+     *
      * @example sas
      *
      * @var string

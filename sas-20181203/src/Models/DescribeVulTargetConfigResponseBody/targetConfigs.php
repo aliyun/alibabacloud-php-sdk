@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class targetConfigs extends Model
 {
     /**
+     * @description Indicates whether the vulnerability scan feature is enabled for the server.
+     *
+     *   **off**: disabled
+     *   **on**: enabled
+     *
      * @example on
      *
      * @var string
@@ -16,6 +21,11 @@ class targetConfigs extends Model
     public $config;
 
     /**
+     * @description Indicates whether the vulnerability scan feature is enabled for all servers. Valid values:
+     *
+     *   **off**: disabled
+     *   **on**: enabled
+     *
      * @example on
      *
      * @var string
@@ -23,6 +33,13 @@ class targetConfigs extends Model
     public $overAllConfig;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerability
+     *   **emg**: urgent vulnerability
+     *
      * @example cve
      *
      * @var string

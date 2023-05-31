@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class suspStatistics extends Model
 {
     /**
+     * @description The number of alerts whose Emergency level is Reminder.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class suspStatistics extends Model
     public $remind;
 
     /**
+     * @description The number of alerts whose Emergency level is Urgent.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class suspStatistics extends Model
     public $serious;
 
     /**
+     * @description The number of alerts whose Emergency level is Suspicious.
+     *
      * @example 2
      *
      * @var int

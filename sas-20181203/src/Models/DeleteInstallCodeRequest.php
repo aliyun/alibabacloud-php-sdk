@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstallCodeRequest extends Model
 {
     /**
+     * @description The installation command.
+     *
+     * >  You can call the [DescribeInstallCodes](~~DescribeInstallCodes~~) operation to query installation commands.
      * @example 1q****
      *
      * @var string

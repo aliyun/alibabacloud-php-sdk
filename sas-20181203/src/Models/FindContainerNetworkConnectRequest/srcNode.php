@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class srcNode extends Model
 {
     /**
+     * @description The name of the container application.
+     *
      * @example arms-prometheus-ack-arms-prometheus
      *
      * @var string
@@ -16,6 +18,9 @@ class srcNode extends Model
     public $appName;
 
     /**
+     * @description The ID of the container cluster.
+     *
+     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
      * @example c56xxx1775dea0
      *
      * @var string
@@ -23,6 +28,8 @@ class srcNode extends Model
     public $clusterId;
 
     /**
+     * @description The namespace of the cluster.
+     *
      * @example default
      *
      * @var string
@@ -30,11 +37,17 @@ class srcNode extends Model
     public $namespace;
 
     /**
+     * @description The node IDs.
+     *
      * @var string[]
      */
     public $nodeIds;
 
     /**
+     * @description The type of the node. Valid values:
+     *
+     *   **app**: application, which indicates that the node type is application.
+     *
      * @example app
      *
      * @var string
@@ -42,6 +55,8 @@ class srcNode extends Model
     public $nodeType;
 
     /**
+     * @description The name of the pod.
+     *
      * @example abc-deployment-yacs-31144-39265-1384966-7f8c8cd578-h6mhb
      *
      * @var string

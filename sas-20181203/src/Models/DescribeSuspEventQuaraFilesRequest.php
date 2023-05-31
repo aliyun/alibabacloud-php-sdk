@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventQuaraFilesRequest extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeSuspEventQuaraFilesRequest extends Model
     public $currentPage;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The ID of the request source. Set the value to **sas**.
      *
      * @example sas
      *
@@ -27,7 +27,7 @@ class DescribeSuspEventQuaraFilesRequest extends Model
     public $from;
 
     /**
-     * @description The ID of the request source. Set the value to **sas**.
+     * @description The ID of the asset group.
      *
      * @example 10541428
      *
@@ -38,7 +38,7 @@ class DescribeSuspEventQuaraFilesRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The ID of the server group to which the server belongs. The quarantined file is located on the server.
      *
      * @example 11472451
      *
@@ -47,7 +47,7 @@ class DescribeSuspEventQuaraFilesRequest extends Model
     public $groupingId;
 
     /**
-     * @description The unique ID of the quarantined file.
+     * @description The number of entries to return on each page.
      *
      * @example 20
      *
@@ -56,7 +56,7 @@ class DescribeSuspEventQuaraFilesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the server group to which the server belongs. The quarantined file is located on the server.
+     * @description The unique ID of the quarantined file.
      *
      * @example a31337789f64d39b2219733ec99f9af7
      *
@@ -65,7 +65,7 @@ class DescribeSuspEventQuaraFilesRequest extends Model
     public $quaraTag;
 
     /**
-     * @description The ID of the asset group.
+     * @description The source IP address of the request.
      *
      * @example 59.82.XX.XX
      *
@@ -74,7 +74,14 @@ class DescribeSuspEventQuaraFilesRequest extends Model
     public $sourceIp;
 
     /**
-     * @description The number of the page to return.
+     * @description The status of the quarantined file that you want to query. Valid values:
+     *
+     *   **quaraFailed**: The file fails to be quarantined.
+     *   **quaraDone**: The file is quarantined.
+     *   **quaraing**: The file is being quarantined.
+     *   **rollbackFailed**: The system fails to cancel quarantining the file.
+     *   **rollbackDone**: The system cancelled quarantining the file.
+     *   **rollbacking**: The system is cancelling quarantining the file.
      *
      * @example quaraDone
      *

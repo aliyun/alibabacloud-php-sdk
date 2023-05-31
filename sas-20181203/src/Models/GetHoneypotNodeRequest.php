@@ -14,6 +14,9 @@ class GetHoneypotNodeRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the management node.
+     *
+     * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
      * @example d3dd3864-4e02-4abd-8b6a-8f5f6fec4715
      *
      * @var string

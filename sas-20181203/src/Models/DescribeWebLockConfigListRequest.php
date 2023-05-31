@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockConfigListRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeWebLockConfigListRequest extends Model
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 1.2.3.4
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeWebLockConfigListRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example inet-1234567****
      *
      * @var string

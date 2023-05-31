@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeMachineCanRebootRequest extends Model
 {
     /**
+     * @description The type of the vulnerabilities. Valid values:
+     *
+     *   cve: Linux software vulnerabilities
+     *   sys: Windows system vulnerabilities
+     *
      * @example sys
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeMachineCanRebootRequest extends Model
     public $type;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 5b268326-273e-44fc-a0e3-9482435c****
      *
      * @var string

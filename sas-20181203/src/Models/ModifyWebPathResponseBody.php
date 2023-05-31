@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebPathResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 20623245-7E5E-52CA-9640-7502F119****
      *
      * @var string
@@ -16,6 +18,11 @@ class ModifyWebPathResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

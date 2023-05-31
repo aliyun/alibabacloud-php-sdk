@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertySoftwareDetailRequest extends Model
 {
     /**
-     * @description The name of the software.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $currentPage;
 
     /**
-     * @description 10
+     * @description Specifies whether fuzzy search by software name is supported. If you want to use fuzzy search, set the parameter to 1. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $extend;
 
     /**
-     * @description 3.10.0
+     * @description The timestamp at which the software update ends. Unit: milliseconds.
      *
      * @example 1650012695000
      *
@@ -36,7 +36,7 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $installTimeEnd;
 
     /**
-     * @description The name of the software.
+     * @description The timestamp at which the software update starts. Unit: milliseconds.
      *
      * @example 1649321495000
      *
@@ -45,7 +45,7 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $installTimeStart;
 
     /**
-     * @description The details of the software asset.
+     * @description The name of the software.
      *
      * @example kernel
      *
@@ -63,7 +63,7 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name or IP address of the server.
+     * @description The installation path of the software.
      *
      * @example /etc/test
      *
@@ -72,7 +72,7 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $path;
 
     /**
-     * @description The private IP address of the server.
+     * @description The name or IP address of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -81,7 +81,7 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $remark;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The version of the software.
      *
      * @example 3.10.0
      *
@@ -90,7 +90,7 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $softwareVersion;
 
     /**
-     * @description The public IP address of the server.
+     * @description The UUID of the server.
      *
      * @example 50d213b4-3a35-427a-b8a5-****
      *

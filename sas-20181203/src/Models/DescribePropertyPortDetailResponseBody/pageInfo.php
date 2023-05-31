@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description The UUID of the server.
+     * @description The number of entries returned on the current page.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description An array that consists of the fingerprints of the ports.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The ID of the server process that listens on the port.
+     * @description The number of entries returned per page. Default value: **10**.
      *
      * @example 10
      *
@@ -36,7 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The name of the server process.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

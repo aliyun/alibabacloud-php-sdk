@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCheckDetailRequest extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,11 @@ class GetCheckDetailRequest extends Model
     public $checkId;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example en
      *
      * @var string
@@ -23,6 +30,8 @@ class GetCheckDetailRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the region in which the server resides.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHcExportInfoRequest extends Model
 {
     /**
+     * @description The ID of the export task.
+     *
+     * >  You can call the [ExportWarning](~~ExportWarning~~) operation to query the IDs of export tasks.
      * @example 443285
      *
      * @var int

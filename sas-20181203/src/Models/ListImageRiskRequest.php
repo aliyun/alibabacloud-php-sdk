@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListImageRiskRequest extends Model
 {
     /**
+     * @description The name of the application.
+     *
      * @example e****
      *
      * @var string
@@ -16,6 +18,9 @@ class ListImageRiskRequest extends Model
     public $appName;
 
     /**
+     * @description The ID of the container cluster.
+     *
+     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the ID of the container cluster.
      * @example c80f79959fd724a888e1187779b13****
      *
      * @var string
@@ -23,6 +28,8 @@ class ListImageRiskRequest extends Model
     public $clusterId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +37,8 @@ class ListImageRiskRequest extends Model
     public $currentPage;
 
     /**
+     * @description The name of the image.
+     *
      * @example container-***:****
      *
      * @var string
@@ -37,6 +46,8 @@ class ListImageRiskRequest extends Model
     public $imageName;
 
     /**
+     * @description The name of the namespace to which the repository belongs.
+     *
      * @example kube-sy****
      *
      * @var string
@@ -44,6 +55,8 @@ class ListImageRiskRequest extends Model
     public $namespace;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20.
+     *
      * @example 20
      *
      * @var int

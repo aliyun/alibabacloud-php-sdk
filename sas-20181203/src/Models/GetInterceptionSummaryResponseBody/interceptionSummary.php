@@ -30,6 +30,8 @@ class interceptionSummary extends Model
     public $clusterCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $interceptionCountInDays;

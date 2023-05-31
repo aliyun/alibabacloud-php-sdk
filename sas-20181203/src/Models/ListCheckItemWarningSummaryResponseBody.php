@@ -11,21 +11,21 @@ use AlibabaCloud\Tea\Model;
 class ListCheckItemWarningSummaryResponseBody extends Model
 {
     /**
-     * @description The data returned.
+     * @description An array that consists of the risk statistics of check items.
      *
      * @var list_[]
      */
     public $list;
 
     /**
-     * @description The number of servers that are affected by the check item.
+     * @description The pagination information.
      *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example DC97C9EC-4B7D-5EFF-8A5E-A5CCC9ED****
      *

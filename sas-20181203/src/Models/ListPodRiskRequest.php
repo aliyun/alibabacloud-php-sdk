@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPodRiskRequest extends Model
 {
     /**
+     * @description The name of the application.
+     *
      * @example nginx1
      *
      * @var string
@@ -16,6 +18,9 @@ class ListPodRiskRequest extends Model
     public $appName;
 
     /**
+     * @description The ID of the container cluster.
+     *
+     * > You can call the [DescribeGroupedContainerInstances](~~182997~~) operation to query the IDs of container clusters.
      * @example c314aa5b2f208461dad821cdfed82****
      *
      * @var string
@@ -23,6 +28,8 @@ class ListPodRiskRequest extends Model
     public $clusterId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +37,8 @@ class ListPodRiskRequest extends Model
     public $currentPage;
 
     /**
+     * @description The namespace of the Kubernetes cluster.
+     *
      * @example taas
      *
      * @var string
@@ -37,6 +46,8 @@ class ListPodRiskRequest extends Model
     public $namespace;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -44,6 +55,8 @@ class ListPodRiskRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the pod.
+     *
      * @example abcd-84898334227-p****
      *
      * @var string

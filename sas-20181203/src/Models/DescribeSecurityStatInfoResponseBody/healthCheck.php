@@ -9,18 +9,14 @@ use AlibabaCloud\Tea\Model;
 class healthCheck extends Model
 {
     /**
-     * @description The number of **medium-risk** unfixed vulnerabilities at each point in time.
+     * @description The points in time when data of baseline risk items is collected in the trend chart.
      *
      * @var string[]
      */
     public $dateArray;
 
     /**
-     * @description The risk level of the unhandled alert. Valid values:
-     *
-     *   **remind**
-     *   **suspicious**
-     *   **serious**
+     * @description The number of baseline risk items that have the high-risk level on the current day.
      *
      * @example 10
      *
@@ -29,21 +25,21 @@ class healthCheck extends Model
     public $highCount;
 
     /**
-     * @description The point in time when data of unfixed vulnerabilities is collected in the trend chart.
+     * @description The numbers of baseline risk items that have the high-risk level at all points in time.
      *
      * @var string[]
      */
     public $highList;
 
     /**
-     * @description The time periods during which data of baseline risk items is collected.
+     * @description The risk levels of baseline risk items.
      *
      * @var string[]
      */
     public $levelsOn;
 
     /**
-     * @description The total number of unhandled alerts on the current day.
+     * @description The number of baseline risk items that have the low-risk level on the current day.
      *
      * @example 0
      *
@@ -52,14 +48,14 @@ class healthCheck extends Model
     public $lowCount;
 
     /**
-     * @description The numbers of suspicious alerts at all points in time.
+     * @description The numbers of baseline risk items that have the low-risk level at all points in time.
      *
      * @var string[]
      */
     public $lowList;
 
     /**
-     * @description The numbers of attacks at all points in time.
+     * @description The number of baseline risk items that have the medium-risk level on the current day.
      *
      * @example 21
      *
@@ -68,25 +64,21 @@ class healthCheck extends Model
     public $mediumCount;
 
     /**
-     * @description The number of baseline risk items that have the high-risk level on the current day.
+     * @description The numbers of baseline risk items that have the medium-risk level at all points in time.
      *
      * @var string[]
      */
     public $mediumList;
 
     /**
-     * @description The risk level of the unfixed vulnerability. Valid values:
-     *
-     *   **asap**: high
-     *   **later**: medium
-     *   **Nntf**: low
+     * @description The time periods during which data of baseline risk items is collected.
      *
      * @var string[]
      */
     public $timeArray;
 
     /**
-     * @description The detailed statistics of attacks.
+     * @description The total number of baseline risk items on the current day.
      *
      * @example 32
      *
@@ -95,7 +87,7 @@ class healthCheck extends Model
     public $totalCount;
 
     /**
-     * @description The numbers of baseline risk items that have the low-risk level at all points in time.
+     * @description The total number of baseline risk items at all points in time.
      *
      * @var string[]
      */

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateAntiBruteForceRuleRequest extends Model
 {
     /**
+     * @description Specifies whether to set the defense rule as the default rule. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  If no defense rule is created for a server, the default rule is applied to the server.
      * @example true
      *
      * @var bool
@@ -16,6 +22,8 @@ class CreateAntiBruteForceRuleRequest extends Model
     public $defaultRule;
 
     /**
+     * @description The maximum number of failed logon attempts from an account. Valid values: 2, 3, 4, 5, 10, 50, 80, and 100.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +31,19 @@ class CreateAntiBruteForceRuleRequest extends Model
     public $failCount;
 
     /**
+     * @description The period of time during which logons from an account are not allowed. Unit: minutes. Valid values:
+     *
+     *   **5**: 5 minutes
+     *   **15**: 15 minutes
+     *   **30**: 30 minutes
+     *   **60**: 1 hour
+     *   **120**: 2 hours
+     *   **360**: 6 hours
+     *   **720**: 12 hours
+     *   **1440**: 24 hours
+     *   **10080**: 7 days
+     *   **52560000**: permanent
+     *
      * @example 5
      *
      * @var int
@@ -30,6 +51,8 @@ class CreateAntiBruteForceRuleRequest extends Model
     public $forbiddenTime;
 
     /**
+     * @description The name of the defense rule.
+     *
      * @example TestAntiBruteForceRule
      *
      * @var string
@@ -42,6 +65,8 @@ class CreateAntiBruteForceRuleRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -49,6 +74,15 @@ class CreateAntiBruteForceRuleRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The maximum period of time during which failed logon attempts from an account can occur. Unit: minutes. Valid values:
+     *
+     *   **1**
+     *   **2**
+     *   **5**
+     *   **10**
+     *   **15**
+     *
+     * >  To configure a defense rule, you must specify the Span, FailCount, and ForbiddenTime parameters. If the number of failed logon attempts from an account within the minutes specified by Span exceeds the value specified by FailCount, the account cannot be used for logons within the minutes specified by ForbiddenTime.
      * @example 1
      *
      * @var int
@@ -56,6 +90,8 @@ class CreateAntiBruteForceRuleRequest extends Model
     public $span;
 
     /**
+     * @description The UUIDs of the servers to which you want to apply the defense rule.
+     *
      * @var string[]
      */
     public $uuidList;

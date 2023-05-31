@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ruleTarget extends Model
 {
     /**
+     * @description The name of the application to which the network object belongs.
+     *
      * @example netperf-client
      *
      * @var string
@@ -16,6 +18,8 @@ class ruleTarget extends Model
     public $appName;
 
     /**
+     * @description The ID of the container cluster.
+     *
      * @example ca6e6594def8d4be8b2795fd12c32****
      *
      * @var string
@@ -23,6 +27,8 @@ class ruleTarget extends Model
     public $clusterId;
 
     /**
+     * @description The name of the container cluster.
+     *
      * @example sas-test-cnnf
      *
      * @var string
@@ -30,11 +36,15 @@ class ruleTarget extends Model
     public $clusterName;
 
     /**
+     * @description An array that consists of the images of the network object.
+     *
      * @var string[]
      */
     public $imageList;
 
     /**
+     * @description The namespace.
+     *
      * @example secondary
      *
      * @var string
@@ -42,11 +52,15 @@ class ruleTarget extends Model
     public $namespace;
 
     /**
+     * @description An array that consists of the labels specified for the network object.
+     *
      * @var string[]
      */
     public $tagList;
 
     /**
+     * @description The ID of the network object.
+     *
      * @example 400723
      *
      * @var int
@@ -54,6 +68,8 @@ class ruleTarget extends Model
     public $targetId;
 
     /**
+     * @description The name of the network object.
+     *
      * @example destination-test-obj-Na3cF
      *
      * @var string
@@ -61,6 +77,10 @@ class ruleTarget extends Model
     public $targetName;
 
     /**
+     * @description The type of the network object. Valid values:
+     *
+     *   **IMAGE**: image
+     *
      * @example IMAGE
      *
      * @var string

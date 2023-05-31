@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSuspEventQuaraFilesResponseBody extends Model
 {
     /**
-     * @description The download link of the quarantined file.
+     * @description The number of entries returned on the current page.
      *
      * @example 7
      *
@@ -19,7 +19,7 @@ class DescribeSuspEventQuaraFilesResponseBody extends Model
     public $count;
 
     /**
-     * @description The total number of entries returned.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class DescribeSuspEventQuaraFilesResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The number of entries returned per page.
      *
      * @example 20
      *
@@ -37,21 +37,14 @@ class DescribeSuspEventQuaraFilesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The status of the quarantined file. Valid values:
-     *
-     *   **quaraFailed**: The file fails to be quarantined.
-     *   **quaraDone**: The file is quarantined.
-     *   **quaraing**: The file is being quarantined.
-     *   **rollbackFailed**: The system fails to cancel quarantining the file.
-     *   **rollbackDone**: The system cancelled quarantining the file.
-     *   **rollbacking**: The system is cancelling quarantining the file.
+     * @description An array that consists of the quarantined files.
      *
      * @var quaraFiles[]
      */
     public $quaraFiles;
 
     /**
-     * @description An array that consists of the quarantined files.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 32A73759-4C0F-4801-BE98-901223ACEE9A
      *
@@ -60,7 +53,7 @@ class DescribeSuspEventQuaraFilesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The quarantined file.
+     * @description The total number of entries returned.
      *
      * @example 38
      *

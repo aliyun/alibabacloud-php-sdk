@@ -85,6 +85,11 @@ class groupedVulItems extends Model
     public $raspDefend;
 
     /**
+     * @var string
+     */
+    public $related;
+
+    /**
      * @description The tag that is added to the vulnerability. Valid values:
      *
      *   Restart required
@@ -133,6 +138,7 @@ class groupedVulItems extends Model
         'name'          => 'Name',
         'nntfCount'     => 'NntfCount',
         'raspDefend'    => 'RaspDefend',
+        'related'       => 'Related',
         'tags'          => 'Tags',
         'totalFixCount' => 'TotalFixCount',
         'type'          => 'Type',
@@ -168,6 +174,9 @@ class groupedVulItems extends Model
         }
         if (null !== $this->raspDefend) {
             $res['RaspDefend'] = $this->raspDefend;
+        }
+        if (null !== $this->related) {
+            $res['Related'] = $this->related;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
@@ -213,6 +222,9 @@ class groupedVulItems extends Model
         }
         if (isset($map['RaspDefend'])) {
             $model->raspDefend = $map['RaspDefend'];
+        }
+        if (isset($map['Related'])) {
+            $model->related = $map['Related'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];

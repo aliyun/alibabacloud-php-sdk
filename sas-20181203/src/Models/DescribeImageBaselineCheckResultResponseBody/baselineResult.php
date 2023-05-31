@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class baselineResult extends Model
 {
     /**
+     * @description The key of the type for the image baseline.
+     *
      * @example identification
      *
      * @var string
@@ -16,6 +18,8 @@ class baselineResult extends Model
     public $baselineClassAlias;
 
     /**
+     * @description The number of check items.
+     *
      * @example 5
      *
      * @var int
@@ -23,11 +27,17 @@ class baselineResult extends Model
     public $baselineItemCount;
 
     /**
+     * @description The alias of the image baseline.
+     *
+     * @example Identity authentication
+     *
      * @var string
      */
     public $baselineNameAlias;
 
     /**
+     * @description The key of the image baseline.
+     *
      * @example identification
      *
      * @var string
@@ -35,6 +45,12 @@ class baselineResult extends Model
     public $baselineNameKey;
 
     /**
+     * @description The severity of the image baseline. Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
      * @example high
      *
      * @var string
@@ -42,6 +58,8 @@ class baselineResult extends Model
     public $baselineNameLevel;
 
     /**
+     * @description The timestamp when the first scan was performed. Unit: milliseconds.
+     *
      * @example 1610304058366
      *
      * @var int
@@ -49,6 +67,8 @@ class baselineResult extends Model
     public $firstScanTime;
 
     /**
+     * @description The number of high-risk images that are affected.
+     *
      * @example 1
      *
      * @var int
@@ -56,6 +76,8 @@ class baselineResult extends Model
     public $highRiskItemCount;
 
     /**
+     * @description The timestamp when the last scan was performed. Unit: milliseconds.
+     *
      * @example 1610304058301
      *
      * @var int
@@ -63,6 +85,8 @@ class baselineResult extends Model
     public $lastScanTime;
 
     /**
+     * @description The number of low-risk images that are affected.
+     *
      * @example 10
      *
      * @var int
@@ -70,6 +94,8 @@ class baselineResult extends Model
     public $lowRiskItemCount;
 
     /**
+     * @description The number of medium-risk images that are affected.
+     *
      * @example 1
      *
      * @var int
@@ -77,6 +103,11 @@ class baselineResult extends Model
     public $middleRiskItemCount;
 
     /**
+     * @description The status of the baseline risks. Valid values:
+     *
+     *   **0**: unfixed
+     *   **1**: fixed
+     *
      * @example 1
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomBlockRecordResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example BE120DAB-F4E7-4C53-ADC3-A97578ABF384
      *
      * @var string

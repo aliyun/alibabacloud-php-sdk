@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckUserHasEcsResponseBody extends Model
 {
     /**
+     * @description The status code returned. The status code **200** indicates that the request is successful. Other status codes indicate that the request fails. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,11 @@ class CheckUserHasEcsResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether ECS instances exist. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class CheckUserHasEcsResponseBody extends Model
     public $data;
 
     /**
+     * @description The error message returned.
+     *
      * @example successful
      *
      * @var string
@@ -30,6 +39,8 @@ class CheckUserHasEcsResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example BE120DAB-F4E7-4C53-ADC3-A97578ABF384
      *
      * @var string
@@ -37,6 +48,11 @@ class CheckUserHasEcsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the request. Valid values:
+     *
+     *   **true**: The request is successful.
+     *   **false**: The request fails.
+     *
      * @example true
      *
      * @var bool

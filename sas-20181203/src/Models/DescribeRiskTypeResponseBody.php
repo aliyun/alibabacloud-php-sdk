@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskTypeResponseBody extends Model
 {
     /**
-     * @description The description of the rule for the baseline.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example F22037B5-FCE4-5178-A9E7-71798E1F9270
      *

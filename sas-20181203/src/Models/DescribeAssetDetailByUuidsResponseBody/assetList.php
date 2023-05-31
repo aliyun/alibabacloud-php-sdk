@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class assetList extends Model
 {
     /**
+     * @description The type of the asset.
+     *
+     * The value is fixed as **0**, which indicates ECS instances.
      * @example 0
      *
      * @var string
@@ -16,6 +19,11 @@ class assetList extends Model
     public $assetType;
 
     /**
+     * @description The status of the Security Center agent. Valid values:
+     *
+     *   **online**
+     *   **offline**
+     *
      * @example online
      *
      * @var string
@@ -23,6 +31,14 @@ class assetList extends Model
     public $clientStatus;
 
     /**
+     * @description The type of the asset by source. Valid values:
+     *
+     *   **0**: The asset is provided by Alibaba Cloud.
+     *   **1**: The asset is not provided by Alibaba Cloud.
+     *   **2**: The asset resides in a data center.
+     *   **3**, **4**, **5**, and **7**: other cloud asset.
+     *   **8**: light-weight assets.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +46,8 @@ class assetList extends Model
     public $flag;
 
     /**
+     * @description The ID of the ECS instance.
+     *
      * @example i-rj9gda4wolo0zixi****
      *
      * @var string
@@ -37,6 +55,8 @@ class assetList extends Model
     public $instanceId;
 
     /**
+     * @description The name of the ECS instance.
+     *
      * @example TestInstanceName
      *
      * @var string
@@ -44,6 +64,8 @@ class assetList extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address of the ECS instance.
+     *
      * @example 10.10.XX.XX
      *
      * @var string
@@ -51,6 +73,8 @@ class assetList extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the ECS instance.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -58,6 +82,9 @@ class assetList extends Model
     public $intranetIp;
 
     /**
+     * @description The IP address of the ECS instance.
+     *
+     * >  If the ECS instance has a public IP address, the value of this parameter is the public IP address of the ECS instance. If the ECS instance does not have a public IP address, the value of this parameter is the private IP address of the ECS instance.
      * @example 10.10.XX.XX
      *
      * @var string
@@ -65,6 +92,8 @@ class assetList extends Model
     public $ip;
 
     /**
+     * @description The operating system of the ECS instance.
+     *
      * @example Linux
      *
      * @var string
@@ -72,11 +101,17 @@ class assetList extends Model
     public $os;
 
     /**
+     * @description The name of the operating system run by the ECS instance.
+     *
+     * @example CentOS 7.6 64-bit
+     *
      * @var string
      */
     public $osName;
 
     /**
+     * @description The region in which the ECS instance resides.
+     *
      * @example cn-guangzhou
      *
      * @var string
@@ -84,6 +119,9 @@ class assetList extends Model
     public $region;
 
     /**
+     * @description The region in which the ECS instance resides.
+     *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-shanghai
      *
      * @var string
@@ -91,6 +129,8 @@ class assetList extends Model
     public $regionId;
 
     /**
+     * @description The name of the region in which the ECS instance resides.
+     *
      * @example cn-shenzhen
      *
      * @var string
@@ -98,6 +138,8 @@ class assetList extends Model
     public $regionName;
 
     /**
+     * @description The UUID of the ECS instance.
+     *
      * @example 2a98f149-0256-414c-a29a-a69f8a75****
      *
      * @var string
@@ -105,6 +147,8 @@ class assetList extends Model
     public $uuid;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
      * @example 13231-331331
      *
      * @var string

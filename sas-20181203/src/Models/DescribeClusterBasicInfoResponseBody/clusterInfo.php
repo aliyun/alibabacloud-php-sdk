@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class clusterInfo extends Model
 {
     /**
+     * @description The ID of cluster.
+     *
      * @example c870ec78ecbcb41d2a35c679823ef****
      *
      * @var string
@@ -16,6 +18,8 @@ class clusterInfo extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example testackpro
      *
      * @var string
@@ -23,6 +27,14 @@ class clusterInfo extends Model
     public $clusterName;
 
     /**
+     * @description The type of the cluster. Valid values:
+     *
+     *   **ManagedKubernetes**: managed Kubernetes cluster
+     *   **NotManagedKubernetes**: non-managed Kubernetes cluster
+     *   **PrivateKubernetes**: private cluster
+     *   **kubernetes**: dedicated Kubernetes cluster
+     *   **ask**: dedicated ASK cluster
+     *
      * @example kubernetes
      *
      * @var string
@@ -30,6 +42,8 @@ class clusterInfo extends Model
     public $clusterType;
 
     /**
+     * @description The timestamp when the cluster was created. Unit: milliseconds.
+     *
      * @example 1662038134000
      *
      * @var int
@@ -37,6 +51,8 @@ class clusterInfo extends Model
     public $createTime;
 
     /**
+     * @description The version of the cluster.
+     *
      * @example 1.22.10-aliyun.1
      *
      * @var string
@@ -44,6 +60,8 @@ class clusterInfo extends Model
     public $currentVersion;
 
     /**
+     * @description The number of instances in the cluster.
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +69,8 @@ class clusterInfo extends Model
     public $instanceCount;
 
     /**
+     * @description The ID of the region in which the cluster is deployed.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +78,13 @@ class clusterInfo extends Model
     public $regionId;
 
     /**
+     * @description The status of the cluster. Valid values:
+     *
+     *   **unavailable**
+     *   **Available**
+     *   **Creating**
+     *   **CreateFailed**
+     *
      * @example Available
      *
      * @var string
@@ -65,6 +92,11 @@ class clusterInfo extends Model
     public $state;
 
     /**
+     * @description Indicates whether the cluster is enabled. Valid values:
+     *
+     *   **true**: The cluster is enabled.
+     *   **false**: The cluster is disabled.
+     *
      * @example true
      *
      * @var bool

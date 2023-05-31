@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description The number of entries returned on the current page.
+     *
      * @example 1
      *
      * @var int
@@ -16,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -25,6 +27,8 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
+     * @description The key of the last data entry.
+     *
      * @example CAESGgoSChAKDGNvbXBsZXRlVGltZRABCgQiAggAGAAiQAoJAGYXFWIAAAAACjMDLgAAADFTNzMyZDMwMzAzMDM1Mzc3Njc4MzA2ODY5NmI2YTY1Nzg2NTcxNjE2NDc4NjE=
      *
      * @var string
@@ -32,7 +36,7 @@ class pageInfo extends Model
     public $lastRowKey;
 
     /**
-     * @description Queries information about sensitive files.
+     * @description The number of entries returned per page. Default value: 20.
      *
      * @example 20
      *
@@ -41,7 +45,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description DescribeImageSensitiveFileList
+     * @description The total number of entries returned.
      *
      * @example 149
      *

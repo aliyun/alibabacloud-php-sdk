@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ChangeCheckCustomConfigResponseBody extends Model
 {
     /**
+     * @description An array that consists of the invalid custom configuration items of the check item.
+     *
      * @var illegalCustomConfigs[]
      */
     public $illegalCustomConfigs;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example DA8133CC-CCA0-5CF2-BF64-FE7D52C44***
      *
      * @var string

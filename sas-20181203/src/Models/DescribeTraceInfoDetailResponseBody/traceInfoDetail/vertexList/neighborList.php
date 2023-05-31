@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class neighborList extends Model
 {
     /**
+     * @description The number of neighbor nodes.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class neighborList extends Model
     public $count;
 
     /**
+     * @description Indicates whether one more page is returned.
+     *
      * @example False
      *
      * @var bool
@@ -23,6 +27,8 @@ class neighborList extends Model
     public $hasMore;
 
     /**
+     * @description The type of the neighbor node. The value is fixed as **alert**.
+     *
      * @example alert
      *
      * @var string

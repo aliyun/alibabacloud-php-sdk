@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInterceptionTargetPageRequest extends Model
 {
     /**
+     * @description The name of the application to which the network object belongs.
+     *
      * @example frontend
      *
      * @var string
@@ -16,6 +18,8 @@ class ListInterceptionTargetPageRequest extends Model
     public $appName;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -23,11 +27,15 @@ class ListInterceptionTargetPageRequest extends Model
     public $currentPage;
 
     /**
+     * @description The images of the network object.
+     *
      * @var string[]
      */
     public $imageList;
 
     /**
+     * @description The namespace to which the network object belongs.
+     *
      * @example default
      *
      * @var string
@@ -35,6 +43,9 @@ class ListInterceptionTargetPageRequest extends Model
     public $namespace;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int
@@ -42,11 +53,15 @@ class ListInterceptionTargetPageRequest extends Model
     public $pageSize;
 
     /**
+     * @description The labels specified for the network object.
+     *
      * @var string[]
      */
     public $tagList;
 
     /**
+     * @description The name of the network object.
+     *
      * @example source-test-obj-0****
      *
      * @var string
@@ -54,6 +69,10 @@ class ListInterceptionTargetPageRequest extends Model
     public $targetName;
 
     /**
+     * @description The type of the network object. Valid values:
+     *
+     *   IMAGE
+     *
      * @example IMAGE
      *
      * @var string

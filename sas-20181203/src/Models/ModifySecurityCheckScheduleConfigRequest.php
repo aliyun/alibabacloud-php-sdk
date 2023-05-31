@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityCheckScheduleConfigRequest extends Model
 {
     /**
+     * @description The days on which the automatic configuration check runs. You can specify multiple days. Separate multiple days with commas (,). Valid values:
+     *
+     *   **1**: Monday
+     *   **2**: Tuesday
+     *   **3**: Wednesday
+     *   **4**: Thursday
+     *   **5**: Friday
+     *   **6**: Saturday
+     *   **7**: Sunday
+     *
      * @example 4,5,6
      *
      * @var string
@@ -16,6 +26,13 @@ class ModifySecurityCheckScheduleConfigRequest extends Model
     public $daysOfWeek;
 
     /**
+     * @description The time period during which the automatic configuration check ends. Valid values:
+     *
+     *   **0**: 00:00 to 06:00
+     *   **6**: 06:00 to 12:00
+     *   **12**: 12:00 to 18:00
+     *   **18**: 18:00 to 24:00
+     *
      * @example 12
      *
      * @var int
@@ -23,6 +40,11 @@ class ModifySecurityCheckScheduleConfigRequest extends Model
     public $endTime;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -35,6 +57,8 @@ class ModifySecurityCheckScheduleConfigRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -42,6 +66,13 @@ class ModifySecurityCheckScheduleConfigRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The time period during which the automatic configuration check starts. Valid values:
+     *
+     *   **0**: 00:00 to 06:00
+     *   **6**: 06:00 to 12:00
+     *   **12**: 12:00 to 18:00
+     *   **18**: 18:00 to 24:00
+     *
      * @example 6
      *
      * @var int

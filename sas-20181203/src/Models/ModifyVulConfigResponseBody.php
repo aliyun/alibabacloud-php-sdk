@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyVulConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 24DDBE06-58FF-5E5E-9241-D2010D7913C1
      *
      * @var string

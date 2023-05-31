@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyCronItemRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,11 @@ class DescribePropertyCronItemRequest extends Model
     public $currentPage;
 
     /**
+     * @description Specifies whether to forcefully refresh the data that you want to query. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +30,8 @@ class DescribePropertyCronItemRequest extends Model
     public $forceFlush;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -30,6 +39,8 @@ class DescribePropertyCronItemRequest extends Model
     public $pageSize;
 
     /**
+     * @description The path to the scheduled task.
+     *
      * @example /data
      *
      * @var string

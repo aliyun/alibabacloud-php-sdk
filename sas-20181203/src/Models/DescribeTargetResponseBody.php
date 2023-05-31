@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTargetResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 79CFF74D-E967-5407-8A78-EE03B925FDAA
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeTargetResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the server.
+     *
      * @var targets[]
      */
     public $targets;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 10
      *
      * @var int

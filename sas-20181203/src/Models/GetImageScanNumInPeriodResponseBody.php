@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetImageScanNumInPeriodResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var imageScanData
      */
     public $imageScanData;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 7E0618A9-D5EF-4220-9471-C42B5E92****
      *
      * @var string

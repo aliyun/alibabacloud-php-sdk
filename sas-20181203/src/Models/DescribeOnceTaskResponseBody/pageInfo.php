@@ -9,12 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description The status of the task. Valid values:
-     *
-     *   **1**: started
-     *   **2**: complete
-     *   **3**: failed
-     *   **4**: timed out
+     * @description The number of entries returned on the current page.
      *
      * @example 2
      *
@@ -23,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description The information about the task.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -32,11 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The type of the task. Valid values:
-     *
-     *   **CLIENT\_PROBLEM_CHECK**: a task of the Security Center agent
-     *   **CLIENT\_DEV_OPS**: an O\&M task of Cloud Assistant
-     *   **ASSET\_SECURITY_CHECK**: a task of asset information collection
+     * @description The number of entries returned per page. Default value: **20**.
      *
      * @example 20
      *
@@ -45,7 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The progress of the task. Unit: percent (%).
+     * @description The total number of entries returned.
      *
      * @example 100
      *

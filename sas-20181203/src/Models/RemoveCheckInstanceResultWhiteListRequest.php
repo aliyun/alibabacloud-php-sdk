@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveCheckInstanceResultWhiteListRequest extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
      * @example 11
      *
      * @var int
@@ -16,6 +18,8 @@ class RemoveCheckInstanceResultWhiteListRequest extends Model
     public $checkId;
 
     /**
+     * @description The IDs of instances. Separate multiple IDs with commas (,).
+     *
      * @var string[]
      */
     public $instanceIds;

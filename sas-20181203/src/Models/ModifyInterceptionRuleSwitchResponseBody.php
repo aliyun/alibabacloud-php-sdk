@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInterceptionRuleSwitchResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example DE725A60-95F2-50E8-8F5D-81055215E7DA
      *
      * @var string

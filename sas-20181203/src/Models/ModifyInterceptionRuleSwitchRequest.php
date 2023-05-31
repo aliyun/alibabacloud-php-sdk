@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyInterceptionRuleSwitchRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
      * @example ce5c29aba99694ade9ba85dc620b4****
      *
      * @var string
@@ -16,6 +19,9 @@ class ModifyInterceptionRuleSwitchRequest extends Model
     public $clusterId;
 
     /**
+     * @description The IDs of the rules whose status you want to change. Separate multiple IDs with commas (,).
+     *
+     * > You can call the [ListInterceptionRulePage](~~182997~~) operation to query the IDs of rules.
      * @example 403287
      *
      * @var string
@@ -23,6 +29,11 @@ class ModifyInterceptionRuleSwitchRequest extends Model
     public $ruleIds;
 
     /**
+     * @description Specifies whether the rule is enabled. Valid values:
+     *
+     *   **1**: enabled
+     *   **0**: disabled
+     *
      * @example 1
      *
      * @var int

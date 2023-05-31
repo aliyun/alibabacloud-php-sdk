@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeUniBackupDatabaseResponseBody extends Model
 {
     /**
+     * @description An array that consists of the information about the databases.
+     *
      * @var databaseList[]
      */
     public $databaseList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8****
      *
      * @var string

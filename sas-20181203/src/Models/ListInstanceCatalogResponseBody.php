@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceCatalogResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 0D42A83F-CE33-5F54-A5AE-05DA39F59E1B
      *
      * @var string
@@ -17,6 +19,8 @@ class ListInstanceCatalogResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array that consists of the asset types by service provider.
+     *
      * @var vendors[]
      */
     public $vendors;

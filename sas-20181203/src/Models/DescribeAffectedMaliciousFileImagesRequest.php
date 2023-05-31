@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAffectedMaliciousFileImagesRequest extends Model
 {
     /**
-     * @description The language of the content within the request and the response. Valid values:
+     * @description The ID of the container cluster.
      *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
      * @example c60b77fe62093480db6164a3c2fa5****
      *
      * @var string
@@ -30,7 +28,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     public $clusterName;
 
     /**
-     * @description The total number of images that have malicious image samples.
+     * @description The ID of the container.
      *
      * @example cc20a1024011c44b6a8710d6f8b****
      *
@@ -48,7 +46,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     public $currentPage;
 
     /**
-     * @description An array consisting of the images that have malicious image samples.
+     * @description The name of the container image.
      *
      * @example registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-****
      *
@@ -57,7 +55,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     public $image;
 
     /**
-     * @description The severity of the malicious image sample. Separate multiple severities with commas (,). Valid values: serious suspicious remind
+     * @description The image digest.
      *
      * @example 6a5e103187b31a94592a47a5858617f7a179ead61df7606****
      *
@@ -66,7 +64,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     public $imageDigest;
 
     /**
-     * @description The text that is highlighted.
+     * @description The image layer.
      *
      * @example 27213ad375b53628dd152a5ca****
      *
@@ -75,7 +73,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     public $imageLayer;
 
     /**
-     * @description The timestamp of the last scan.
+     * @description The tag that is added to the image.
      *
      * @example 0.2
      *
@@ -84,14 +82,102 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     public $imageTag;
 
     /**
-     * @description The ID of the container cluster.
+     * @description The language of the content within the request and the response. Valid values:
      *
-     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
      */
     public $lang;
+
+    /**
+     * @description The severity of the malicious image sample. Separate multiple severities with commas (,). Valid values: serious suspicious remind
+     *
+     * @example serious,suspicious
+     *
+     * @var string
+     */
+    public $levels;
+
+    /**
+     * @description The MD5 hash value of the malicious image sample.
+     *
+     * >  You can call the [DescribeGroupedMaliciousFiles](~~DescribeGroupedMaliciousFiles~~) operation to query the MD5 hash values of malicious image samples.
+     * @example d836968041f7683b5459****
+     *
+     * @var string
+     */
+    public $maliciousMd5;
+
+    /**
+     * @description The namespace.
+     *
+     * @example test-002
+     *
+     * @var string
+     */
+    public $namespace;
+
+    /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
+     * @example 20
+     *
+     * @var string
+     */
+    public $pageSize;
+
+    /**
+     * @description The pod.
+     *
+     * @example 22222-7xsqq
+     *
+     * @var string
+     */
+    public $pod;
+
+    /**
+     * @description The ID of the image repository.
+     *
+     * >  You can call the [ListRepository](~~ListRepository~~) operation to query the IDs of image repositories from the value of the **RepoId** response parameter.
+     * @example crr-vridcl4****
+     *
+     * @var string
+     */
+    public $repoId;
+
+    /**
+     * @description The ID of the container image.
+     *
+     * >  You can call the [ListRepository](~~ListRepository~~) operation to query the IDs of container images from the value of the **InstanceId** response parameter.
+     * @example cri-datvailb****
+     *
+     * @var string
+     */
+    public $repoInstanceId;
+
+    /**
+     * @description The name of the image repository.
+     *
+     * >  Fuzzy match is supported.
+     * @example centos
+     *
+     * @var string
+     */
+    public $repoName;
+
+    /**
+     * @description The namespace to which the image repository belongs.
+     *
+     * >  Fuzzy match is supported.
+     * @example hanghai-namespace
+     *
+     * @var string
+     */
+    public $repoNamespace;
 
     /**
      * @description The region ID of the image repository. Valid values:
@@ -110,90 +196,6 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
      *   **eu-west-1**: UK (London)
      *   **ap-south-1**: India (Mumbai)
      *
-     * @example serious,suspicious
-     *
-     * @var string
-     */
-    public $levels;
-
-    /**
-     * @description The timestamp of the first scan.
-     *
-     * @example d836968041f7683b5459****
-     *
-     * @var string
-     */
-    public $maliciousMd5;
-
-    /**
-     * @description The namespace to which the image repository belongs.
-     *
-     * @example test-002
-     *
-     * @var string
-     */
-    public $namespace;
-
-    /**
-     * @description The name of the image.
-     *
-     * @example 20
-     *
-     * @var string
-     */
-    public $pageSize;
-
-    /**
-     * @description The image layer.
-     *
-     * @example 22222-7xsqq
-     *
-     * @var string
-     */
-    public $pod;
-
-    /**
-     * @description The type of the asset that you want to scan. Valid values:
-     *
-     *   **container**
-     *   **image**
-     *
-     * @example crr-vridcl4****
-     *
-     * @var string
-     */
-    public $repoId;
-
-    /**
-     * @description The ID of the container.
-     *
-     * @example cri-datvailb****
-     *
-     * @var string
-     */
-    public $repoInstanceId;
-
-    /**
-     * @description The number of images that have malicious image samples returned on the current page.
-     *
-     * @example centos
-     *
-     * @var string
-     */
-    public $repoName;
-
-    /**
-     * @description The image digest.
-     *
-     * @example hanghai-namespace
-     *
-     * @var string
-     */
-    public $repoNamespace;
-
-    /**
-     * @description The number of entries to return on each page. Default value: **20**.
-     *
      * @example cn-hangzhou
      *
      * @var string
@@ -201,12 +203,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     public $repoRegionId;
 
     /**
-     * @description The handling status of the malicious image sample. Valid values:
-     *
-     *   **0**: unhandled
-     *   **1**: handled
-     *   **2**: verifying
-     *   **3**: added to the whitelist
+     * @description The types of the assets that you want to scan.
      *
      * @var string[]
      */

@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetCloudAssetCriteriaResponseBody extends Model
 {
     /**
-     * @description The values of the search condition. This parameter is returned only if the value of **Type** is **select**.
+     * @description An array consisting of the information about the filter conditions that are used to search for cloud assets.
      *
-     * >  If the value of **Type** is **input**, the value of this parameter is an empty string.
      * @var criteriaList[]
      */
     public $criteriaList;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class instanceTypes extends Model
 {
     /**
+     * @description An array that consists of asset subtypes.
+     *
      * @var instanceSubTypes[]
      */
     public $instanceSubTypes;
 
     /**
+     * @description The name of the asset type.
+     *
      * @example ECS
      *
      * @var string

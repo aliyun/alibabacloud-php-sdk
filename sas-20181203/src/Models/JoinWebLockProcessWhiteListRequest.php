@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class JoinWebLockProcessWhiteListRequest extends Model
 {
     /**
+     * @description The paths of the processes.
+     *
      * @var string[]
      */
     public $processPaths;
 
     /**
+     * @description The UUIDs of the servers on which the processes run. Separate multiple UUIDs with commas (,).
+     *
      * @example 0c1714dc-f7a3-4265-8364-7aa3fce8****,1cc45e7d-7698-4b2c-89d8-e8cba407****
      *
      * @var string

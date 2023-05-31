@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The public IP address of the server.
+     *
      * @example 8.210.XX.XX
      *
      * @var string
@@ -16,6 +18,8 @@ class list_ extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
      * @example 172.25.XX.XX
      *
      * @var string
@@ -23,6 +27,8 @@ class list_ extends Model
     public $intranetIp;
 
     /**
+     * @description The name of the server.
+     *
      * @example test****
      *
      * @var string
@@ -30,6 +36,8 @@ class list_ extends Model
     public $machineName;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
      *
      * @var string

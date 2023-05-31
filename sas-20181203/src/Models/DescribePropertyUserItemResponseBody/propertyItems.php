@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class propertyItems extends Model
 {
     /**
-     * @description Queries information about an account.
+     * @description The number of servers that belong to the account.
      *
      * @example 384
      *
@@ -18,7 +18,7 @@ class propertyItems extends Model
     public $count;
 
     /**
-     * @description The number of servers that belong to the account.
+     * @description The name of the account.
      *
      * @example adm
      *

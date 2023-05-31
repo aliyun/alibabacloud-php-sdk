@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebPathResponseBody extends Model
 {
     /**
+     * @description An array that consists of the paths to the web directories.
+     *
      * @var configList[]
      */
     public $configList;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
      * @example 2
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeWebPathResponseBody extends Model
     public $count;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeWebPathResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 20
      *
      * @var int
@@ -36,6 +44,8 @@ class DescribeWebPathResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example B37C9052-A73E-4707-A024-92477028****
      *
      * @var string
@@ -43,6 +53,8 @@ class DescribeWebPathResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

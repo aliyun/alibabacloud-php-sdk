@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommonTargetResultListRequest extends Model
 {
     /**
+     * @description The source IP address of the request.
+     *
      * @example 113.57.XX.XX
      *
      * @var string
@@ -16,6 +18,13 @@ class DescribeCommonTargetResultListRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The type of the configuration item. Valid values:
+     *
+     *   **webshell_timescan**: webshell detection and removal
+     *   **aliscriptengine**: in-depth detection engine
+     *   **alidetect**: installation scope of local file detection
+     *   **alidetect-scan-enable**: detection scope of local file detection
+     *
      * @example webshell_timescan
      *
      * @var string

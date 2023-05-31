@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ModifyStartVulScanRequest extends Model
 {
     /**
+     * @description The types of vulnerabilities that can be detected. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerabilities
+     *   **app**: application vulnerabilities
+     *   **emg**: urgent vulnerabilities
+     *   **image**: container image vulnerabilities
+     *
+     * > If you leave this parameter empty, all types of vulnerabilities can be detected.
      * @example "cve,sys,cms,app,emg"
      *
      * @var string
@@ -16,6 +26,8 @@ class ModifyStartVulScanRequest extends Model
     public $types;
 
     /**
+     * @description The UUIDs of servers.
+     *
      * @example {"i-sdada-xxxxx","i-ifaedada-sfsasdxxx"}
      *
      * @var string

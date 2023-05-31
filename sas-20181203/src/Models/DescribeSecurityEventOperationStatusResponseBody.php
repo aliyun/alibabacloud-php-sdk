@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityEventOperationStatusResponseBody extends Model
 {
     /**
-     * @description The source IP address of the request.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 1683940A-E4AE-4473-8C40-F4075434B76B
      *
@@ -19,7 +19,7 @@ class DescribeSecurityEventOperationStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 192.168.XX.XX
+     * @description The information about the task that handles the alert events.
      *
      * @var securityEventOperationStatusResponse
      */

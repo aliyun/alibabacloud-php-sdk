@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sasPmAgentList extends Model
 {
     /**
+     * @description The ID of Cloud Assistant.
+     *
      * @example mi-hz034jn***yxhc0
      *
      * @var string
@@ -16,6 +18,8 @@ class sasPmAgentList extends Model
     public $aliyunAssistId;
 
     /**
+     * @description The ID of the CloudMonitor agent.
+     *
      * @example 5d5ef6be-54ff-11ed-82cf-8f01475e****
      *
      * @var string
@@ -23,6 +27,14 @@ class sasPmAgentList extends Model
     public $aliyunMonitorId;
 
     /**
+     * @description The installation result of Cloud Assistant. Valid values:
+     *
+     *   **0**: SUCCESS
+     *   **1**: MISSING_PARAM
+     *   **2**: UNKNOWN_SYSTEM
+     *   **3**: DOWNLOAD_FAILED
+     *   **4**: INSTALL_FAILED
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +42,13 @@ class sasPmAgentList extends Model
     public $assistInstallResult;
 
     /**
+     * @description The status of Cloud Assistant. Valid values:
+     *
+     *   **0**: installing
+     *   **1**: installed
+     *   **2**: installation failed
+     *   **3**: installation timed out
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +56,11 @@ class sasPmAgentList extends Model
     public $assistInstallStatus;
 
     /**
+     * @description The installation result of the CloudMonitor agent. Valid values:
+     *
+     *   **0**: failed
+     *   **1**: successful
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +68,11 @@ class sasPmAgentList extends Model
     public $monitorInstallResult;
 
     /**
+     * @description The status of the CloudMonitor agent. Valid values:
+     *
+     *   **0**: installation failed
+     *   **1**: installed
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +80,8 @@ class sasPmAgentList extends Model
     public $monitorInstallStatus;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 87f1724d-075e-48d3-95fd-78c2dd36****
      *
      * @var string

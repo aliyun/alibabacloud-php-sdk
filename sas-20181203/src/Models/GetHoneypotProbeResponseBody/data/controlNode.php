@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class controlNode extends Model
 {
     /**
+     * @description The instance ID of the management node.
+     *
      * @example i-bp19ijepxytwtzrk****
      *
      * @var string
@@ -16,6 +18,8 @@ class controlNode extends Model
     public $ecsInstanceId;
 
     /**
+     * @description The ID of the management node.
+     *
      * @example 37a15ff1-3475-4897-aa6c-f7fd9122****
      *
      * @var string
@@ -23,6 +27,8 @@ class controlNode extends Model
     public $nodeId;
 
     /**
+     * @description The name of the management node.
+     *
      * @example online-honeypot
      *
      * @var string

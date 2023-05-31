@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListUuidsByWebPathRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListUuidsByWebPathRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,11 @@ class ListUuidsByWebPathRequest extends Model
     public $pageSize;
 
     /**
+     * @description The path type of the web directory. Valid values:
+     *
+     *   **def**: automatically identified
+     *   **customize**: manually added
+     *
      * @example def
      *
      * @var string
@@ -30,6 +39,8 @@ class ListUuidsByWebPathRequest extends Model
     public $type;
 
     /**
+     * @description The path to the web directory.
+     *
      * @example /root/www****
      *
      * @var string

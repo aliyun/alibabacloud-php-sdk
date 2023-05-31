@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description The number of assets on which high-risk vulnerabilities are detected.
+     *
      * @example 11
      *
      * @var int
@@ -23,6 +25,8 @@ class instances extends Model
     public $authVersionCheckCount;
 
     /**
+     * @description The name of the server group.
+     *
      * @example testA
      *
      * @var string
@@ -30,6 +34,11 @@ class instances extends Model
     public $fieldAliasName;
 
     /**
+     * @description The type of the server group. Valid values:
+     *
+     *   **0**: the default group
+     *   **1**: other group
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +46,9 @@ class instances extends Model
     public $groupFlag;
 
     /**
+     * @description The total number of assets that belong to the specified type.
+     *
+     * >  If the **MachineTypes** request parameter is not specified, the value of the InstanceCount parameter is the total number of your assets.
      * @example 205
      *
      * @var string
@@ -44,6 +56,8 @@ class instances extends Model
     public $instanceCount;
 
     /**
+     * @description The number of assets that are at risk.
+     *
      * @example 172
      *
      * @var string
@@ -51,6 +65,8 @@ class instances extends Model
     public $riskInstanceCount;
 
     /**
+     * @description The number of assets that are not protected by Security Center.
+     *
      * @example 32
      *
      * @var string

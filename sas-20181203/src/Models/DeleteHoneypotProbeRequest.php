@@ -20,6 +20,9 @@ class DeleteHoneypotProbeRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the probe.
+     *
+     * > You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
      * @example 95f0f79c-f7e9-4b09-a6e3-95a4cb6d****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class policies extends Model
 {
     /**
+     * @description The policy key.
+     *
      * @example system_auto_****
      *
      * @var string
@@ -16,6 +18,10 @@ class policies extends Model
     public $policyKey;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example System self-starting task\*\*\*\*
+     *
      * @var string
      */
     public $policyName;

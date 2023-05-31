@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class userDefineRuleList extends Model
 {
     /**
+     * @description The action of the rule. Valid values:
+     *
+     *   **0**: allow
+     *   **1**: block
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +21,8 @@ class userDefineRuleList extends Model
     public $actionType;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 200****
      *
      * @var int
@@ -23,11 +30,21 @@ class userDefineRuleList extends Model
     public $id;
 
     /**
+     * @description The name of the rule.
+     *
+     * @example Rule\*\*\*\*
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the operating system. Valid values:
+     *
+     *   **windows**: Windows
+     *   **linux**: Linux
+     *   **all**: all types
+     *
      * @example linux
      *
      * @var string
@@ -35,6 +52,8 @@ class userDefineRuleList extends Model
     public $platform;
 
     /**
+     * @description The switch ID of the rule.
+     *
      * @example USER-DEFINE-RULE-SWITCH-TYPE_200****
      *
      * @var string
@@ -42,6 +61,16 @@ class userDefineRuleList extends Model
     public $switchId;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     *   **1**: Process hash
+     *   **2**: Command line
+     *   **3**: Process Network
+     *   **4**: File Read and Write
+     *   **5**: Operation on Registry
+     *   **6**: Dynamic-link Library Loading
+     *   **7**: File Renaming
+     *
      * @example 1
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpTagsRequest extends Model
 {
     /**
+     * @description The IP address in the alert event.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeIpTagsRequest extends Model
     public $ip;
 
     /**
+     * @description The ID of the alert event.
+     *
      * @example 11
      *
      * @var string

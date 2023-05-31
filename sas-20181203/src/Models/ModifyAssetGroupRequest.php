@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyAssetGroupRequest extends Model
 {
     /**
+     * @description The ID of the new server group to which the servers belong.
+     *
+     * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
      * @example 9586199
      *
      * @var int
@@ -16,6 +19,8 @@ class ModifyAssetGroupRequest extends Model
     public $groupId;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 10.12.XX.XX
      *
      * @var string
@@ -23,6 +28,9 @@ class ModifyAssetGroupRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The UUIDs of the servers for which you want to change the server group. Separate multiple UUIDs with commas (,).
+     *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @example 076a446d-df7d-424c-bdc5-bb5dc7f1****
      *
      * @var string

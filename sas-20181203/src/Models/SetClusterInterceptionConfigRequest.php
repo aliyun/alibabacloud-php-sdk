@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetClusterInterceptionConfigRequest extends Model
 {
     /**
+     * @description The ID of the cluster. Separate multiple cluster IDs with commas (,).
+     *
+     * > You can call the [ListClusterInterceptionConfig](~~ListClusterInterceptionConfig~~) operation to query the IDs of clusters.
      * @example c60b77fe62093480db6164a3c2fa****
      *
      * @var string
@@ -16,6 +19,11 @@ class SetClusterInterceptionConfigRequest extends Model
     public $clusterIds;
 
     /**
+     * @description Specifies whether to turn on the switch. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +31,12 @@ class SetClusterInterceptionConfigRequest extends Model
     public $switchOn;
 
     /**
+     * @description The type of the switch that you want to configure. Valid values:
+     *
+     *   **0**: the interception switch
+     *   **1**: the interception type switch
+     *   **2**: the interception history switch
+     *
      * @example 0
      *
      * @var int

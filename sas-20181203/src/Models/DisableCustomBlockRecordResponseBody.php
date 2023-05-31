@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisableCustomBlockRecordResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example F749D54C-3CA0-5F68-835C-AD35A2BD29EA
      *
      * @var string

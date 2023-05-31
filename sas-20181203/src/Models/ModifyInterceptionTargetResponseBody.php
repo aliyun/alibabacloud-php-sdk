@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInterceptionTargetResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 16CB4467-56AE-546C-BF19-AD4584C0DD03
      *
      * @var string
@@ -16,6 +18,11 @@ class ModifyInterceptionTargetResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

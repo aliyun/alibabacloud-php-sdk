@@ -11,26 +11,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceListResponseBody extends Model
 {
     /**
-     * @description The port that is exposed on the Internet.
+     * @description An array that consists of the details about the exposed asset.
      *
      * @var exposedInstances[]
      */
     public $exposedInstances;
 
     /**
-     * @description The public IP address of the server.
+     * @description The pagination information.
      *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The resource from which the asset is exposed. Valid values:
-     *
-     *   **INTERNET_IP**: the public IP address of an ECS instance
-     *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance
-     *   **EIP**: an elastic IP address (EIP)
-     *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 598A4A61-ABA7-456B-8725-7378258276D9
      *

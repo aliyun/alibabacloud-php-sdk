@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class groupedFields extends Model
 {
     /**
-     * @description An array that consists of the statistics of cloud services.
-     *
      * @var cloudAssetSummaryMetas[]
      */
     public $cloudAssetSummaryMetas;
 
     /**
-     * @description The total number of instances.
-     *
      * @example 919
      *
      * @var int
@@ -26,8 +22,6 @@ class groupedFields extends Model
     public $instanceCountTotal;
 
     /**
-     * @description The total number of instances that are at risk.
-     *
      * @example 544
      *
      * @var int

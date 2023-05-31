@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description The hash value of the snapshot that stores backup data when the data is backed up.
+     * @description The number of restoration tasks returned on the current page.
      *
      * @example 2
      *
@@ -18,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description The error message returned.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
+     * @description The number of entries returned per page. Default value: **10**.
      *
      * @example 10
      *
@@ -36,7 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The total number of restoration tasks returned.
      *
      * @example 69
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulTargetStatisticsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The page number.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeVulTargetStatisticsResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class DescribeVulTargetStatisticsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The ID of the request.
      *
      * @example 23AD0BD2-8771-5647-819E-6BA51E212F80
      *
@@ -37,14 +37,14 @@ class DescribeVulTargetStatisticsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The configurations of the vulnerability scan feature.
+     * @description An array that consists of the configurations of the vulnerability scan feature.
      *
      * @var targetStats[]
      */
     public $targetStats;
 
     /**
-     * @description An array that consists of the configurations of the vulnerability scan feature.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class PageImageRegistryResponseBody extends Model
 {
     /**
+     * @description An array that consists of image repositories.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example FDA9E37C-6114-5945-8FF1-E3D4D397****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of alerts whose risk level is **Reminder**.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $remindAlarmCount;
 
     /**
+     * @description The number of alerts whose risk level is **Urgent**.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $seriousAlarmCount;
 
     /**
+     * @description The number of alerts whose risk level is **Suspicious**.
+     *
      * @example 3
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $suspiciousAlarmCount;
 
     /**
+     * @description The total number of alerts that are generated in the current container cluster.
+     *
      * @example 6
      *
      * @var int
@@ -37,6 +45,8 @@ class data extends Model
     public $totalAlarmCount;
 
     /**
+     * @description The total number of nodes in the current container cluster.
+     *
      * @example 12
      *
      * @var int
@@ -44,6 +54,8 @@ class data extends Model
     public $totalNode;
 
     /**
+     * @description The number of nodes on which alerts are generated in the current container cluster.
+     *
      * @example 4
      *
      * @var int

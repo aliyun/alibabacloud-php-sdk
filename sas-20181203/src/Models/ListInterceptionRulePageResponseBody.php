@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListInterceptionRulePageResponseBody extends Model
 {
     /**
+     * @description An array that consists of information about the defense rules.
+     *
      * @var interceptionRuleList[]
      */
     public $interceptionRuleList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example ACF97412-FD09-4D1F-994F-34DF12BR****
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceCatalogRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,11 @@ class ListInstanceCatalogRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the region in which the asset resides. Valid values:
+     *
+     *   **cn-hangzhou**: International
+     *   **ap-southeast-1**: Singapore
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,16 +33,22 @@ class ListInstanceCatalogRequest extends Model
     public $regionId;
 
     /**
+     * @description The IDs of requirement items.
+     *
      * @var int[]
      */
     public $requirementIds;
 
     /**
+     * @description The IDs of standards.
+     *
      * @var int[]
      */
     public $standardIds;
 
     /**
+     * @description The types of check standards.
+     *
      * @var string[]
      */
     public $types;

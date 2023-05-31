@@ -18,7 +18,7 @@ class statisticsDetails extends Model
     public $exposedCount;
 
     /**
-     * @description Queries the gateway assets, ports, system components, or public IP addresses that are exposed on the Internet.
+     * @description The system component that is exposed on the Internet.
      *
      * @example tomcat
      *
@@ -27,10 +27,7 @@ class statisticsDetails extends Model
     public $exposureComponent;
 
     /**
-     * @description The type of the gateway asset. This parameter is required when the **StatisticsType** parameter is set to **exposureType**. Valid values:
-     *
-     *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance
-     *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
+     * @description The public IP address that is exposed on the Internet.
      *
      * @example 123.57.XX.XX
      *
@@ -39,7 +36,7 @@ class statisticsDetails extends Model
     public $exposureIp;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The port that is exposed on the Internet.
      *
      * @example 22
      *
@@ -48,7 +45,12 @@ class statisticsDetails extends Model
     public $exposurePort;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The resource from which the asset is exposed. Valid values:
+     *
+     *   **INTERNET_IP**: the IP address of the Elastic Compute Service (ECS) instance
+     *   **SLB**: the public IP address of the SLB instance
+     *   **EIP**: the elastic IP address (EIP)
+     *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
      *
      * @example SLB
      *
@@ -57,7 +59,12 @@ class statisticsDetails extends Model
     public $exposureType;
 
     /**
-     * @description DescribeExposedStatisticsDetail
+     * @description The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the value of the ExposureType parameter.
+     *
+     *   If the value of the **ExposureType** parameter is **INTERNET_IP**, the value of this parameter is an empty string.
+     *   If the value of the **ExposureType** parameter is **SLB**, the value of this parameter is the ID of the Internet-facing SLB instance.
+     *   If the value of the **ExposureType** parameter is **EIP**, the value of this parameter is the ID of the EIP.
+     *   If the value of the **ExposureType** parameter is **DNAT**, the value of this parameter is the ID of the NAT gateway.
      *
      * @example lb-2ze4rso39h4nczcqs****
      *
@@ -75,7 +82,7 @@ class statisticsDetails extends Model
     public $exposureTypeInstanceName;
 
     /**
-     * @description 20
+     * @description The region ID of the asset.
      *
      * @example cn-hangzhou
      *

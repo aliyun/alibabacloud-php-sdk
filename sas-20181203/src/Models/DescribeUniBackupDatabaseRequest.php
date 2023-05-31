@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUniBackupDatabaseRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,12 @@ class DescribeUniBackupDatabaseRequest extends Model
     public $currentPage;
 
     /**
+     * @description The type of the database. Valid values:
+     *
+     *   **MYSQL**
+     *   **MSSQL**
+     *   **Oracle**
+     *
      * @example MYSQL
      *
      * @var string
@@ -23,6 +31,8 @@ class DescribeUniBackupDatabaseRequest extends Model
     public $databaseType;
 
     /**
+     * @description The name of the Elastic Compute Service (ECS) instance.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +40,9 @@ class DescribeUniBackupDatabaseRequest extends Model
     public $instanceName;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int
@@ -37,6 +50,11 @@ class DescribeUniBackupDatabaseRequest extends Model
     public $pageSize;
 
     /**
+     * @description The condition that is used to query the database. Valid values:
+     *
+     *   **create**: newly created
+     *   **restore**: restored
+     *
      * @example create
      *
      * @var string
@@ -44,6 +62,8 @@ class DescribeUniBackupDatabaseRequest extends Model
     public $queryType;
 
     /**
+     * @description The region ID of the server that hosts the database.
+     *
      * @example cn-hongkong
      *
      * @var string

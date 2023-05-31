@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageBaselineDetailRequest extends Model
 {
     /**
+     * @description The information about the baseline.
+     *
+     * @example Valid values include but are not limited to ak_leak, duplicate_uid, duplicate_pwd_hash, and non_pwd_user.
+     *
      * @var string
      */
     public $baselineItemKey;
 
     /**
+     * @description The UUID of the image.
+     *
      * @example 06293273b67d19516cfcc712194f****
      *
      * @var string
@@ -21,6 +27,11 @@ class DescribeImageBaselineDetailRequest extends Model
     public $imageUuid;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

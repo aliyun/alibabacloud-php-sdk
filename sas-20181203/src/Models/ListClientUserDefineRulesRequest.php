@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListClientUserDefineRulesRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,11 +18,17 @@ class ListClientUserDefineRulesRequest extends Model
     public $currentPage;
 
     /**
+     * @description The name of the rule.
+     *
+     * @example Rule\*\*\*\*
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -28,6 +36,8 @@ class ListClientUserDefineRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The types of rules.
+     *
      * @var int[]
      */
     public $type;

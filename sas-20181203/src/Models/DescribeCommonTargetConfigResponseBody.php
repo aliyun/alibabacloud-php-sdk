@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommonTargetConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 09969D2C-4FAD-429E-BFBF-9A60DEF8BF6F
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeCommonTargetConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array that consists of the details of the configuration items.
+     *
      * @var targetList[]
      */
     public $targetList;

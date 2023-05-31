@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetInterceptionTargetDetailResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example D65AADFC-1D20-5A6A-8F6A-9FA53C0DC1F8
      *
      * @var string
@@ -17,6 +19,8 @@ class GetInterceptionTargetDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the network object.
+     *
      * @var ruleTarget
      */
     public $ruleTarget;

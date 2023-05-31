@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RefreshContainerAssetsRequest extends Model
 {
     /**
+     * @description The type of the container asset whose statistics you want to refresh. Valid values:
+     *
+     *   **IMAGE**
+     *   **CONTAINER**
+     *
      * @example IMAGE
      *
      * @var string

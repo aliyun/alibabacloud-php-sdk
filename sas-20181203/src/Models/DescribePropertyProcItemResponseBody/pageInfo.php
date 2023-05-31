@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description An array that consists of the processes returned.
+     * @description The number of entries returned on the current page.
      *
      * @example 5
      *
@@ -18,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of entries returned per page.
      *
      * @example 5
      *
@@ -36,7 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The total number of entries returned.
      *
      * @example 372
      *

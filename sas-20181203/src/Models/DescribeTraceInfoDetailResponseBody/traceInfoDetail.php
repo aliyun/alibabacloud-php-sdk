@@ -13,21 +13,29 @@ use AlibabaCloud\Tea\Model;
 class traceInfoDetail extends Model
 {
     /**
+     * @description An array that consists of the edges of the tracing diagram.
+     *
      * @var edgeList[]
      */
     public $edgeList;
 
     /**
+     * @description An array that consists of the metadata configurations of the vertex type.
+     *
      * @var entityTypeList[]
      */
     public $entityTypeList;
 
     /**
+     * @description An array that consists of the metadata configurations of the edge type.
+     *
      * @var relationTypeList[]
      */
     public $relationTypeList;
 
     /**
+     * @description An array that consists of all vertexes of the tracing diagram.
+     *
      * @var vertexList[]
      */
     public $vertexList;

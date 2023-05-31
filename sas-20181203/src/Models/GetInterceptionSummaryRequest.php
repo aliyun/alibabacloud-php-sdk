@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetInterceptionSummaryRequest extends Model
 {
     /**
+     * @example c2999***bb61b
+     *
      * @var string
      */
     public $clusterId;

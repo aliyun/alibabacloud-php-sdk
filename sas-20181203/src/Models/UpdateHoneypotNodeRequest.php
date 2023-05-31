@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateHoneypotNodeRequest extends Model
 {
     /**
+     * @description The number of available probes.
+     *
      * @example 20
      *
      * @var int
@@ -16,8 +18,9 @@ class UpdateHoneypotNodeRequest extends Model
     public $availableProbeNum;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The ID of the management node.
      *
+     * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
      * @example 67ab3f4c-3db5-4fc3-b51f-00f8bfabfa08
      *
      * @var string
@@ -25,7 +28,7 @@ class UpdateHoneypotNodeRequest extends Model
     public $nodeId;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The name of the management node.
      *
      * @example HoneypotNodeTest
      *
@@ -34,6 +37,8 @@ class UpdateHoneypotNodeRequest extends Model
     public $nodeName;
 
     /**
+     * @description The CIDR blocks that are allowed to access the management node.
+     *
      * @var string[]
      */
     public $securityGroupProbeIpList;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class installCodes extends Model
 {
     /**
-     * @description DescribeInstallCodes
+     * @description The installation verification code for you to manually install the Security Center agent.
      *
      * @example 15v02r
      *
@@ -18,6 +18,8 @@ class installCodes extends Model
     public $captchaCode;
 
     /**
+     * @description The timestamp when the installation command expires. Unit: milliseconds.
+     *
      * @example 1637810007000
      *
      * @var int
@@ -25,6 +27,8 @@ class installCodes extends Model
     public $expiredDate;
 
     /**
+     * @description The ID of the server group to which the server belongs.
+     *
      * @example 9165712
      *
      * @var int
@@ -32,6 +36,8 @@ class installCodes extends Model
     public $groupId;
 
     /**
+     * @description The name of the server group to which the server belongs.
+     *
      * @example default
      *
      * @var string
@@ -39,7 +45,10 @@ class installCodes extends Model
     public $groupName;
 
     /**
-     * @description Queries the commands that are used to manually install the Security Center Agent.
+     * @description Indicates whether an image is used to install the Security Center agent. Valid values:
+     *
+     *   **true**: An image is used to install the Security Center agent.
+     *   **false**: An image is not used to install the Security Center agent.
      *
      * @example false
      *
@@ -48,6 +57,10 @@ class installCodes extends Model
     public $onlyImage;
 
     /**
+     * @description The operating system of the server. Valid values:
+     *   **linux**: Linux.
+     *   **windows**: Windows.
+     *
      * @example linux
      *
      * @var string
@@ -55,19 +68,29 @@ class installCodes extends Model
     public $os;
 
     /**
+     * @example proxy_test
+     *
+     * @var string
+     */
+    public $proxyCluster;
+
+    /**
+     * @description The name of the server provider.
+     *
      * @example ALIYUN
      *
      * @var string
      */
     public $vendorName;
     protected $_name = [
-        'captchaCode' => 'CaptchaCode',
-        'expiredDate' => 'ExpiredDate',
-        'groupId'     => 'GroupId',
-        'groupName'   => 'GroupName',
-        'onlyImage'   => 'OnlyImage',
-        'os'          => 'Os',
-        'vendorName'  => 'VendorName',
+        'captchaCode'  => 'CaptchaCode',
+        'expiredDate'  => 'ExpiredDate',
+        'groupId'      => 'GroupId',
+        'groupName'    => 'GroupName',
+        'onlyImage'    => 'OnlyImage',
+        'os'           => 'Os',
+        'proxyCluster' => 'ProxyCluster',
+        'vendorName'   => 'VendorName',
     ];
 
     public function validate()
@@ -94,6 +117,9 @@ class installCodes extends Model
         }
         if (null !== $this->os) {
             $res['Os'] = $this->os;
+        }
+        if (null !== $this->proxyCluster) {
+            $res['ProxyCluster'] = $this->proxyCluster;
         }
         if (null !== $this->vendorName) {
             $res['VendorName'] = $this->vendorName;
@@ -127,6 +153,9 @@ class installCodes extends Model
         }
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
+        }
+        if (isset($map['ProxyCluster'])) {
+            $model->proxyCluster = $map['ProxyCluster'];
         }
         if (isset($map['VendorName'])) {
             $model->vendorName = $map['VendorName'];

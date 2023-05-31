@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterInfoListRequest extends Model
 {
     /**
+     * @description The operation value. The value specifies the ID of the cluster.
+     *
      * @example c23551de6149343e8a54e69fbefe6****
      *
      * @var string
@@ -16,6 +18,10 @@ class DescribeClusterInfoListRequest extends Model
     public $target;
 
     /**
+     * @description The dimension based on which you want to configure the feature. Valid values:
+     *
+     *   **Cluster**: the ID of the cluster
+     *
      * @example Cluster
      *
      * @var string
@@ -23,6 +29,11 @@ class DescribeClusterInfoListRequest extends Model
     public $targetType;
 
     /**
+     * @description The type of the feature. Valid values:
+     *
+     *   **containerNetwork**: container network
+     *   **interceptionSwitch**: cluster microsegmentation
+     *
      * @example containerNetwork
      *
      * @var string

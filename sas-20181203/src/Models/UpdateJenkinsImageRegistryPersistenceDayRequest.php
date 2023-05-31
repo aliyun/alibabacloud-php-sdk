@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateJenkinsImageRegistryPersistenceDayRequest extends Model
 {
     /**
+     * @description The retention period. Unit: days.
+     *
      * @example 30
      *
      * @var int
@@ -16,6 +18,9 @@ class UpdateJenkinsImageRegistryPersistenceDayRequest extends Model
     public $persistenceDay;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * > You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to query the IDs of image repositories.
      * @example 25363
      *
      * @var int
@@ -23,6 +28,8 @@ class UpdateJenkinsImageRegistryPersistenceDayRequest extends Model
     public $registryId;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 106.11.XXX.XXX
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether sensitive file scan is enabled or disabled. Valid values:
+     *
+     *   **on**: enabled
+     *   **off**: disabled
+     *
      * @example on
      *
      * @var string

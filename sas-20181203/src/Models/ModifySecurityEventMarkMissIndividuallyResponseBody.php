@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityEventMarkMissIndividuallyResponseBody extends Model
 {
     /**
+     * @description The status code of the alert event.
+     *
+     *   **200**: indicates that the alert event is successfully handled.
+     *   Other codes: indicates that the alert event fails to be handled.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +21,8 @@ class ModifySecurityEventMarkMissIndividuallyResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -23,6 +30,8 @@ class ModifySecurityEventMarkMissIndividuallyResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The message returned.
+     *
      * @example successful
      *
      * @var string
@@ -30,6 +39,8 @@ class ModifySecurityEventMarkMissIndividuallyResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A37B852F-E346-5FF2-82BD-D1F1DXXXXXX
      *
      * @var string
@@ -37,6 +48,11 @@ class ModifySecurityEventMarkMissIndividuallyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +60,8 @@ class ModifySecurityEventMarkMissIndividuallyResponseBody extends Model
     public $success;
 
     /**
+     * @description The time that was consumed to process the request. Unit: milliseconds.
+     *
      * @example 1
      *
      * @var int

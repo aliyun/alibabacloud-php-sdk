@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockFileChangeStatisticsRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeWebLockFileChangeStatisticsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
      * @example 20
      *
      * @var int

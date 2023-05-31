@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetClientUserDefineRuleRequest extends Model
 {
     /**
+     * @description The ID of the custom defense rule.
+     *
      * @example 200****
      *
      * @var int

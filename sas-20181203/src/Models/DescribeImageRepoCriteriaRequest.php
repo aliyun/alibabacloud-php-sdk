@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageRepoCriteriaRequest extends Model
 {
     /**
+     * @description The value of the filter condition.
+     *
+     * > You can perform fuzzy search based on the image ID, image tag, image instance ID, image repository name, image repository namespace, image repository ID, image repository region, image digest, and image repository type.
      * @example 2.0.2
      *
      * @var string

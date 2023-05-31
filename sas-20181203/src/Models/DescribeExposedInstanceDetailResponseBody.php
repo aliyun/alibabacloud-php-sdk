@@ -10,15 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedInstanceDetailResponseBody extends Model
 {
     /**
-     * @description The UUID of the server that is exposed on the Internet.
+     * @description The exposure details about the server.
      *
-     * >  You can call the [DescribeExposedInstanceList](~~DescribeExposedInstanceList~~) operation to query the UUIDs of servers.
      * @var exposedChains[]
      */
     public $exposedChains;
 
     /**
-     * @description The exposure details about the server.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example C590482B-54A7-4273-8115-9DBE2DE46B26
      *

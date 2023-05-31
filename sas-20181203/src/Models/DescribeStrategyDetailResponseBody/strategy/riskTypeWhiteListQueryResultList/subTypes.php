@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class subTypes extends Model
 {
     /**
-     * @description The type of the baseline check policy. Valid values:
-     *
-     *   **common**: standard baseline check policy
-     *   **custom**: custom baseline check policy
+     * @description The alias of the sub-check item.
      *
      * @example Redis unauthorized access high exploit vulnerability risk
      *
@@ -22,14 +19,17 @@ class subTypes extends Model
     public $alias;
 
     /**
-     * @description The data returned.
+     * @description An array that consists of the details of custom check items.
      *
      * @var checkDetails[]
      */
     public $checkDetails;
 
     /**
-     * @description If the value of paramType is 2, this parameter provides the options that can be selected for the rule parameter.
+     * @description Indicates whether the sub-risk item is selected. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example false
      *
@@ -38,7 +38,7 @@ class subTypes extends Model
     public $on;
 
     /**
-     * @description The description of the rule.
+     * @description The type of the sub-check item.
      *
      * @example hc_exploit_redis
      *

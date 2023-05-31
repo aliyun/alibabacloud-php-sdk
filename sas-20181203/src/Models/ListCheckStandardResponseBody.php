@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListCheckStandardResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example FA91FBDA-***
      *
      * @var string
@@ -17,6 +19,8 @@ class ListCheckStandardResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array that consists of the check items.
+     *
      * @var standards[]
      */
     public $standards;

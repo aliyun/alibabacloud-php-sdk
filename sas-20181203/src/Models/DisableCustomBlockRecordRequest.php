@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DisableCustomBlockRecordRequest extends Model
 {
     /**
+     * @description The IP address that is specified in the policy.
+     *
+     * > You can call the [DescribeCustomBlockRecords](~~DescribeCustomBlockRecords~~) operation to query the IP address.
      * @example 62.233.XX.XX
      *
      * @var string
@@ -16,6 +19,11 @@ class DisableCustomBlockRecordRequest extends Model
     public $blockIp;
 
     /**
+     * @description The traffic direction that is specified in the policy. Valid values:
+     *
+     *   **in**: inbound
+     *   **out**: outbound
+     *
      * @example in
      *
      * @var string

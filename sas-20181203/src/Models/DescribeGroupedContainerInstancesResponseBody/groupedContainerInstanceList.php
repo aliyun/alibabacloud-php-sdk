@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class groupedContainerInstanceList extends Model
 {
     /**
+     * @description The number of alerts that are generated on the current pod, application, namespace, or cluster.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class groupedContainerInstanceList extends Model
     public $alarmCount;
 
     /**
+     * @description The name of the application.
+     *
      * @example oss-liveness-probe
      *
      * @var string
@@ -23,6 +27,8 @@ class groupedContainerInstanceList extends Model
     public $appName;
 
     /**
+     * @description The ID of cluster.
+     *
      * @example cf3824769c85441b4bf3****
      *
      * @var string
@@ -30,6 +36,8 @@ class groupedContainerInstanceList extends Model
     public $clusterId;
 
     /**
+     * @description The name of the instance.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +45,12 @@ class groupedContainerInstanceList extends Model
     public $clusterName;
 
     /**
+     * @description The type of the cluster. Valid values:
+     *
+     *   **Kubernetes**: dedicated Kubernetes cluster
+     *   **ManagedKubernetes**: standard managed cluster (edge cluster)
+     *   **Ask**: standard serverless cluster
+     *
      * @example ManagedKubernetes
      *
      * @var string
@@ -44,6 +58,8 @@ class groupedContainerInstanceList extends Model
     public $clusterType;
 
     /**
+     * @description The timestamp when the cluster was created. Unit: milliseconds.
+     *
      * @example 1600076893000
      *
      * @var int
@@ -51,6 +67,14 @@ class groupedContainerInstanceList extends Model
     public $createTime;
 
     /**
+     * @description The status of the cluster. Valid values:
+     *
+     *   **running**: The cluster is running.
+     *   **stopped**: The cluster is stopped.
+     *   **deleted**: The cluster is deleted.
+     *   **delete_failed**: The cluster fails to be deleted.
+     *   **failed**: The cluster fails to be created.
+     *
      * @example running
      *
      * @var string
@@ -58,6 +82,8 @@ class groupedContainerInstanceList extends Model
     public $custerState;
 
     /**
+     * @description The number of baseline risks that are detected on the current pod, application, namespace, or cluster.
+     *
      * @example 20
      *
      * @var int
@@ -65,6 +91,8 @@ class groupedContainerInstanceList extends Model
     public $hcCount;
 
     /**
+     * @description The IP address of the host in the container cluster.
+     *
      * @example 172.114.XX.XX
      *
      * @var string
@@ -72,6 +100,8 @@ class groupedContainerInstanceList extends Model
     public $hostIp;
 
     /**
+     * @description The image of the container.
+     *
      * @example registry-vpc.ap-southeast-5.aliyuncs.com/log-service-release/sls-connector:1.1.77
      *
      * @var string
@@ -79,6 +109,8 @@ class groupedContainerInstanceList extends Model
     public $image;
 
     /**
+     * @description The digest value of the image.
+     *
      * @example 58e58c013f70bbfde140c8a55c1078074b3483479428d4069aa946827fd566cf
      *
      * @var string
@@ -86,6 +118,8 @@ class groupedContainerInstanceList extends Model
     public $imageDigest;
 
     /**
+     * @description The name of the image repository.
+     *
      * @example test-003
      *
      * @var string
@@ -93,6 +127,8 @@ class groupedContainerInstanceList extends Model
     public $imageRepoName;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
      * @example name001
      *
      * @var string
@@ -100,6 +136,8 @@ class groupedContainerInstanceList extends Model
     public $imageRepoNamespace;
 
     /**
+     * @description The tag that is added to the image repository.
+     *
      * @example dev-20220512-2
      *
      * @var string
@@ -107,6 +145,8 @@ class groupedContainerInstanceList extends Model
     public $imageRepoTag;
 
     /**
+     * @description The UUID of the image.
+     *
      * @example e4bdec1d9ba7e0967111a7ea467c****
      *
      * @var string
@@ -114,6 +154,8 @@ class groupedContainerInstanceList extends Model
     public $imageUuid;
 
     /**
+     * @description The number of queried pods, applications, clusters, or namespaces.
+     *
      * @example 9
      *
      * @var int
@@ -121,6 +163,8 @@ class groupedContainerInstanceList extends Model
     public $instanceCount;
 
     /**
+     * @description The ID of the server.
+     *
      * @example i-8vb9ul5xec4tua4q****
      *
      * @var string
@@ -128,6 +172,8 @@ class groupedContainerInstanceList extends Model
     public $instanceId;
 
     /**
+     * @description The namespace of the cluster.
+     *
      * @example kube-system
      *
      * @var string
@@ -135,6 +181,8 @@ class groupedContainerInstanceList extends Model
     public $namespace;
 
     /**
+     * @description The name of the pod.
+     *
      * @example csi-plugin-2n****
      *
      * @var string
@@ -142,6 +190,8 @@ class groupedContainerInstanceList extends Model
     public $pod;
 
     /**
+     * @description The IP address of the pod.
+     *
      * @example 172.114.XX.XX
      *
      * @var string
@@ -149,6 +199,8 @@ class groupedContainerInstanceList extends Model
     public $podIp;
 
     /**
+     * @description The ID of the region in which the server resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -156,6 +208,8 @@ class groupedContainerInstanceList extends Model
     public $regionId;
 
     /**
+     * @description The number of at-risk instances.
+     *
      * @example 1
      *
      * @var int
@@ -163,6 +217,12 @@ class groupedContainerInstanceList extends Model
     public $riskInstanceCount;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
      * @example low
      *
      * @var string
@@ -170,6 +230,11 @@ class groupedContainerInstanceList extends Model
     public $riskLevel;
 
     /**
+     * @description Indicates whether risks were detected. Valid values:
+     *
+     *   **NO**: No risks were detected.
+     *   **YES**: Risks were detected.
+     *
      * @example NO
      *
      * @var string
@@ -177,6 +242,8 @@ class groupedContainerInstanceList extends Model
     public $riskStatus;
 
     /**
+     * @description The number of vulnerabilities that are detected on the current pod, application, namespace, or cluster.
+     *
      * @example 1
      *
      * @var int

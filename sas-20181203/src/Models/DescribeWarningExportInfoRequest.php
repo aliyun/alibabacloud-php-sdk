@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeWarningExportInfoRequest extends Model
 {
     /**
-     * @description The name of the exported Excel file.
+     * @description The ID of the export task.
      *
+     * >  You can can call the [ExportWarning](~~ExportWarning~~) operation to query the IDs of export tasks.
      * @example 14356
      *
      * @var int

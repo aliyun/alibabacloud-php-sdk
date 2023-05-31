@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckFixDetailsRequest extends Model
 {
     /**
-     * @description Indicates whether the rule is optional. Valid values:
+     * @description The ID of the risk item.
      *
-     *   **1**: yes
-     *   **0**: no
-     *
+     * >  You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the IDs of risk items.
      * @example 58
      *
      * @var string
@@ -21,7 +19,10 @@ class DescribeCheckFixDetailsRequest extends Model
     public $checkIds;
 
     /**
-     * @description The description of the rule.
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example zh
      *
@@ -30,8 +31,9 @@ class DescribeCheckFixDetailsRequest extends Model
     public $lang;
 
     /**
-     * @description The default value of the rule.
+     * @description The ID of the baseline.
      *
+     * >  You can call the [DescribeCheckWarningSummary](~~116179~~) operation to query the IDs of baselines.
      * @example 51
      *
      * @var int

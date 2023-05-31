@@ -9,18 +9,14 @@ use AlibabaCloud\Tea\Model;
 class fullPlan extends Model
 {
     /**
-     * @description The interval of backup tasks.
+     * @description An array that consists of the days of a week on which the backup is performed.
      *
      * @var string[]
      */
     public $days;
 
     /**
-     * @description The unit of the interval. Valid values:
-     *
-     *   **hourly**: hour
-     *   **daily**: day
-     *   **weekly**: week
+     * @description The interval of backup tasks.
      *
      * @example 2
      *
@@ -29,7 +25,11 @@ class fullPlan extends Model
     public $interval;
 
     /**
-     * @description The time when the full backup started. The time is in the HH:mm:ss format.
+     * @description The unit of the interval. Valid values:
+     *
+     *   **hourly**: hour
+     *   **daily**: day
+     *   **weekly**: week
      *
      * @example daily
      *
@@ -38,7 +38,7 @@ class fullPlan extends Model
     public $planType;
 
     /**
-     * @description The details of the policy for full backup.
+     * @description The time when the full backup started. The time is in the HH:mm:ss format.
      *
      * @example 00:10:00
      *

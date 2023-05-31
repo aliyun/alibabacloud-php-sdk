@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeExcludeSystemPathRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeExcludeSystemPathRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int

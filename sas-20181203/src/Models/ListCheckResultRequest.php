@@ -18,7 +18,7 @@ class ListCheckResultRequest extends Model
     public $checkKey;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 2
      *
@@ -34,7 +34,7 @@ class ListCheckResultRequest extends Model
     public $instanceIds;
 
     /**
-     * @description The asset type of the cloud service. Valid values:
+     * @description The asset type of the cloud services. Valid values:
      *
      *   **ECS**: Elastic Compute Service (ECS)
      *   **SLB**: Server Load Balancer (SLB)
@@ -76,7 +76,7 @@ class ListCheckResultRequest extends Model
     public $lang;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * @example 50
      *
@@ -85,6 +85,11 @@ class ListCheckResultRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the instance. Valid values:
+     *
+     *   **cn-hangzhou**: International
+     *   **ap-southeast-1**: Singapore
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -127,7 +132,7 @@ class ListCheckResultRequest extends Model
     public $standardIds;
 
     /**
-     * @description The status of check items. Separate multiple status with commas (,). Valid values:
+     * @description The statuses of check items. Separate multiple statuses with commas (,). Valid values:
      *
      *   **PASS**
      *   **NOT_PASS**
@@ -140,12 +145,14 @@ class ListCheckResultRequest extends Model
     public $statuses;
 
     /**
+     * @description The types of check standards.
+     *
      * @var string[]
      */
     public $types;
 
     /**
-     * @description The cloud service provider. Valid values:
+     * @description The cloud service providers. Valid value:
      *
      *   **ALIYUN**: Alibaba Cloud
      *

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class GetAssetsPropertyItemResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description An array that consists of the aggregation information about asset fingerprints.
+     *
      * @var propertyItems[]
      */
     public $propertyItems;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 340D7FC4-D575-1661-8ACD-CFA7BE57****
      *
      * @var string

@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class StartPreCheckDatabaseRequest extends Model
 {
     /**
+     * @description The type of the database. Valid values:
+     *
+     *   **MYSQL**
+     *   **MSSQL**
+     *   **Oracle**
+     *
      * @example MYSQL
      *
      * @var string
@@ -16,6 +22,9 @@ class StartPreCheckDatabaseRequest extends Model
     public $databaseType;
 
     /**
+     * @description The UUID of the agent that is used to back up the data of the database.
+     *
+     * > You can call the [DescribeUniBackupDatabase](~~DescribeUniBackupDatabase~~) operation to query the UUID.
      * @example ec1c0ba21d2911ed800000163e0e****
      *
      * @var string
@@ -23,6 +32,8 @@ class StartPreCheckDatabaseRequest extends Model
     public $instanceUuid;
 
     /**
+     * @description The region ID of the server that hosts the database.
+     *
      * @example cn-hongkong
      *
      * @var string

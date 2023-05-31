@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerStatisticsRequest extends Model
 {
     /**
-     * @description DescribeContainerStatistics
+     * @description The ID of the container cluster.
      *
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
      * @example Cccfd68c474454665ace07efce924****
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListRuleTargetAllResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 30CBF632-109F-596F-97F2-451C8B2A****
      *
      * @var string
@@ -17,6 +19,8 @@ class ListRuleTargetAllResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array that consists of the network objects.
+     *
      * @var ruleTargetList[]
      */
     public $ruleTargetList;

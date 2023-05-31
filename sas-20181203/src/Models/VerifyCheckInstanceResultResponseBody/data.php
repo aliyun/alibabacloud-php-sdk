@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description An array consisting of instances that failed the check.
+     *
      * @var string[]
      */
     public $failInstances;
 
     /**
+     * @description The operation code of the task that checks the configurations of cloud services. Valid values:
+     *
+     *   **Throttling**
+     *   **ActionTrialUnauthorized**
+     *
      * @example ActionTrialUnauthorized
      *
      * @var string

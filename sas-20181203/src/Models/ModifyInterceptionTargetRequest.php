@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyInterceptionTargetRequest extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
      * @example yasintt-daemonst
      *
      * @var string
@@ -16,11 +19,17 @@ class ModifyInterceptionTargetRequest extends Model
     public $appName;
 
     /**
+     * @description An array that consists of images.
+     *
+     * > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
      * @var string[]
      */
     public $imageList;
 
     /**
+     * @description The namespace.
+     *
+     * > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
      * @example demo4
      *
      * @var string
@@ -28,11 +37,17 @@ class ModifyInterceptionTargetRequest extends Model
     public $namespace;
 
     /**
+     * @description An array that consists of tags.
+     *
+     * > You can call the [DescribeContainerTags](~~DescribeContainerTags~~) operation to obtain the value of this parameter.
      * @var string[]
      */
     public $tagList;
 
     /**
+     * @description The ID of the network object.
+     *
+     * > You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to obtain the value of this parameter.
      * @example 400913
      *
      * @var int
@@ -40,6 +55,8 @@ class ModifyInterceptionTargetRequest extends Model
     public $targetId;
 
     /**
+     * @description The name.
+     *
      * @example test001
      *
      * @var string
@@ -47,6 +64,10 @@ class ModifyInterceptionTargetRequest extends Model
     public $targetName;
 
     /**
+     * @description The object type. Valid values:
+     *
+     *   **IMAGE**
+     *
      * @example IMAGE
      *
      * @var string

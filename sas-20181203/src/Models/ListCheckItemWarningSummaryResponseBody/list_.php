@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The type of the check item.
+     * @description The suggestion on the check item.
      *
      * @example In the Administrative Tools window, double-click Local Security Policy. In the Local Security Policy window that appears, choose Security Settings\\Local Policies\\Audit Policy, configure all audit policies as: `Success, Failure`.
      *
@@ -18,7 +18,7 @@ class list_ extends Model
     public $advice;
 
     /**
-     * @description The type of the baseline.
+     * @description The alias of the baseline type.
      *
      * @example week_pa****
      *
@@ -27,7 +27,7 @@ class list_ extends Model
     public $alias;
 
     /**
-     * @description The alias of the baseline type.
+     * @description The ID of the check item.
      *
      * @example 696
      *
@@ -36,7 +36,7 @@ class list_ extends Model
     public $checkId;
 
     /**
-     * @description The ID of the check item.
+     * @description The description of the check item.
      *
      * @example Config the Event Audit policys
      *
@@ -45,7 +45,10 @@ class list_ extends Model
     public $checkItem;
 
     /**
-     * @description The description of the check item.
+     * @description The risk level of the check item.Valid values:
+     *   **high**
+     *  **medium**
+     *   **low**
      *
      * @example high
      *
@@ -54,10 +57,7 @@ class list_ extends Model
     public $checkLevel;
 
     /**
-     * @description The risk level of the check item.Valid values:
-     *   **high**
-     *  **medium**
-     *   **low**
+     * @description The type of the check item.
      *
      * @example Security audit
      *
@@ -73,7 +73,7 @@ class list_ extends Model
     public $containerCheckItem;
 
     /**
-     * @description The suggestion on the check item.
+     * @description The description of the check item.
      *
      * @example Config the Event Audit policys
      *
@@ -82,7 +82,7 @@ class list_ extends Model
     public $description;
 
     /**
-     * @description The risk statistics of the check item.
+     * @description The type of the baseline.
      *
      * @example weak_password
      *
@@ -91,7 +91,10 @@ class list_ extends Model
     public $riskType;
 
     /**
-     * @description The description of the check item.
+     * @description The risk status of the check item.Valid values:
+     *  **1**: failed
+     *
+     *  **3**: passed
      *
      * @example 1
      *
@@ -100,10 +103,7 @@ class list_ extends Model
     public $status;
 
     /**
-     * @description The risk status of the check item.Valid values:
-     *  **1**: failed
-     *
-     *  **3**: passed
+     * @description The number of servers that are affected by the check item.
      *
      * @example 20
      *

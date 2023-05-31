@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class markField extends Model
 {
     /**
-     * @description 61352054
+     * @description The alias of the field that is used in the whitelist rule.
      *
      * @example file path
      *
@@ -18,10 +18,7 @@ class markField extends Model
     public $filedAliasName;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
+     * @description The field that is used in the whitelist rule.
      *
      * @example gmtModified
      *
@@ -30,7 +27,13 @@ class markField extends Model
     public $filedName;
 
     /**
-     * @description An array consisting of the operations that you can perform to handle the alert event.
+     * @description The operation that is used in the whitelist rule. Valid values:
+     *
+     *   **contains**: contains
+     *   **notContains**: does not contain
+     *   **regex**: regular expression
+     *   **strEqual**: equals
+     *   **strNotEqual**: does not equal
      *
      * @example contains
      *
@@ -39,7 +42,7 @@ class markField extends Model
     public $markMisType;
 
     /**
-     * @description An array consisting of the configuration information that is used when the value of the OperationCode parameter is **advance_mark_mis_info**.
+     * @description The value of the field that is used in the whitelist rule.
      *
      * @example 2022-04-25 10:11:04
      *
@@ -55,7 +58,7 @@ class markField extends Model
     public $supportedMisType;
 
     /**
-     * @description The alias of the field that can be used in the whitelist rule.
+     * @description The UUID of the server on which the alert event is detected.
      *
      * @example 3d6b4a75-c28f-447b-9142-38f6252c****
      *

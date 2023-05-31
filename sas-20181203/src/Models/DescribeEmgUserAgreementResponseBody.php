@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeEmgUserAgreementResponseBody extends Model
 {
     /**
+     * @description Indicates whether Security Center is authorized to scan for urgent vulnerabilities. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class DescribeEmgUserAgreementResponseBody extends Model
     public $auth;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 768BB9F5-8AF3-557F-A489-9BDD64CB3E4C
      *
      * @var string

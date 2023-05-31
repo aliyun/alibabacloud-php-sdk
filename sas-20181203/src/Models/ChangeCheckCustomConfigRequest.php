@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ChangeCheckCustomConfigRequest extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
+     * > You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of check items.
      * @example 76
      *
      * @var int
@@ -17,11 +20,18 @@ class ChangeCheckCustomConfigRequest extends Model
     public $checkId;
 
     /**
+     * @description The custom configuration items of the check item.
+     *
      * @var customConfigs[]
      */
     public $customConfigs;
 
     /**
+     * @description The region where the Security Center instance is deployed. Valid values:
+     *
+     *   **cn-hangzhou**: International
+     *   **ap-southeast-1**: Singapore
+     *
      * @example cn-hangzhou
      *
      * @var string

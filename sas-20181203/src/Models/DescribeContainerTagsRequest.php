@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerTagsRequest extends Model
 {
     /**
+     * @description The name of the application.
+     *
      * @example node-exporter
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeContainerTagsRequest extends Model
     public $appName;
 
     /**
+     * @description The ID of the cluster to which the container belongs.
+     *
+     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
      * @example c22143730ab6e40b09ec7c1c51d4d****
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribeContainerTagsRequest extends Model
     public $clusterId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +37,13 @@ class DescribeContainerTagsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The name of the attribute that is used for the query. Valid values:
+     *
+     *   **namespace**: the namespace
+     *   **appName**: the application name
+     *   **image**: the image
+     *   **tag**: the tag
+     *
      * @example namespace
      *
      * @var string
@@ -37,6 +51,8 @@ class DescribeContainerTagsRequest extends Model
     public $fieldName;
 
     /**
+     * @description The value of the attribute that is used for the query.
+     *
      * @example demo4
      *
      * @var string
@@ -44,6 +60,8 @@ class DescribeContainerTagsRequest extends Model
     public $fieldValue;
 
     /**
+     * @description The namespace.
+     *
      * @example test-name-01
      *
      * @var string
@@ -51,6 +69,8 @@ class DescribeContainerTagsRequest extends Model
     public $namespace;
 
     /**
+     * @description The number of entries to return on each page. Default value: 200.
+     *
      * @example 200
      *
      * @var int

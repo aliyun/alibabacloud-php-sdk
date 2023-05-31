@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class logMetaList extends Model
 {
     /**
+     * @description The category of logs. Valid values:
+     *
+     *   **host**: host logs
+     *   **network**: network logs
+     *   **security**: security logs
+     *
      * @example host
      *
      * @var string
@@ -16,6 +22,9 @@ class logMetaList extends Model
     public $category;
 
     /**
+     * @description The time period after which logs in hot storage are moved to cold storage. Unit: days.
+     *
+     * >  If the value is **-1**, logs that are stored in hot storage are not moved to cold storage.
      * @example -1
      *
      * @var int
@@ -23,7 +32,7 @@ class logMetaList extends Model
     public $hotTtl;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The name of the log type.
      *
      * @example Login
      *
@@ -32,7 +41,7 @@ class logMetaList extends Model
     public $logDesc;
 
     /**
-     * @description Queries the configurations of the log analysis feature provided by Security Center.
+     * @description The name of the dedicated Logstore in which logs are stored.
      *
      * @example aegis-log-login
      *
@@ -41,6 +50,8 @@ class logMetaList extends Model
     public $logStore;
 
     /**
+     * @description The name of the project.
+     *
      * @example aegis-log
      *
      * @var string
@@ -48,7 +59,10 @@ class logMetaList extends Model
     public $project;
 
     /**
-     * @description The configurations of the log analysis feature.
+     * @description The status of the log analysis feature. Valid values:
+     *
+     *   **disabled**
+     *   **enabled**
      *
      * @example enabled
      *
@@ -57,6 +71,8 @@ class logMetaList extends Model
     public $status;
 
     /**
+     * @description The topic of logs that are delivered.
+     *
      * @example aegis-log-login
      *
      * @var string
@@ -64,6 +80,8 @@ class logMetaList extends Model
     public $topic;
 
     /**
+     * @description The number of days during which logs can be retained.
+     *
      * @example 180
      *
      * @var int
@@ -71,6 +89,8 @@ class logMetaList extends Model
     public $ttl;
 
     /**
+     * @description The name of the dedicated Logstore in which user logs are stored.
+     *
      * @example aegis-log-network
      *
      * @var string
@@ -78,7 +98,7 @@ class logMetaList extends Model
     public $userLogStore;
 
     /**
-     * @description DescribeLogMeta
+     * @description The name of the dedicated project in which logs are stored.
      *
      * @example sasnew-log-XXXX-cn-hangzhou
      *
@@ -87,6 +107,8 @@ class logMetaList extends Model
     public $userProject;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

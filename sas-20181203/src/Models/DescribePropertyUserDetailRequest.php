@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyUserDetailRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribePropertyUserDetailRequest extends Model
     public $currentPage;
 
     /**
-     * @description The details of asset fingerprints for the account.
+     * @description Specifies whether the fuzzy search by account name is supported. If you want to use fuzzy search, set the parameter to **1**. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
      *
      * @example 1
      *
@@ -27,7 +27,10 @@ class DescribePropertyUserDetailRequest extends Model
     public $extend;
 
     /**
-     * @description The details of the user groups to which the account belongs.
+     * @description Specifies whether the account has root permissions. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
      *
      * @example 0
      *
@@ -36,19 +39,16 @@ class DescribePropertyUserDetailRequest extends Model
     public $isRoot;
 
     /**
-     * @description The details of the user groups to which the account belongs.
+     * @description The timestamp of the last logoff from the account. Unit: milliseconds.
      *
-     * @example Indicates whether the account has root permissions. Valid values:
-     *
-     *   **0**: no
-     *   **1**: yes
+     * @example 164922523600
      *
      * @var int
      */
     public $lastLoginTimeEnd;
 
     /**
-     * @description The date on which the account expires.
+     * @description The timestamp of the last logon to the account. Unit: milliseconds.
      *
      * @example 164922523600
      *
@@ -57,7 +57,7 @@ class DescribePropertyUserDetailRequest extends Model
     public $lastLoginTimeStart;
 
     /**
-     * @description The name or IP address of the server.
+     * @description The number of entries to return on each page. Default value: **10**.
      *
      * @example 10
      *
@@ -66,10 +66,7 @@ class DescribePropertyUserDetailRequest extends Model
     public $pageSize;
 
     /**
-     * @description Indicates whether the password expires. Valid values:
-     *
-     *   **0**: yes
-     *   **1**: no
+     * @description The name or IP address of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -78,7 +75,7 @@ class DescribePropertyUserDetailRequest extends Model
     public $remark;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The name of the account to which the server belongs.
      *
      * @example bin
      *
@@ -87,7 +84,7 @@ class DescribePropertyUserDetailRequest extends Model
     public $user;
 
     /**
-     * @description The public IP address of the server.
+     * @description The UUID of the server.
      *
      * @example 50d213b4-3a35-427a-b8a5-04b0c7e1****
      *

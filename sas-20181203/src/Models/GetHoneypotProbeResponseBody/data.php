@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether address resolution protocol (ARP) is enabled for the check type.
+     *
      * @example true
      *
      * @var bool
@@ -19,21 +21,29 @@ class data extends Model
     public $arp;
 
     /**
+     * @description An array consisting of the IP addresses that can be monitored.
+     *
      * @var string[]
      */
     public $canListenIpList;
 
     /**
+     * @description An array consisting of the CIDR blocks that are allowed to access the VPC probe.
+     *
      * @var string[]
      */
     public $cidrList;
 
     /**
+     * @description The information about the management node.
+     *
      * @var controlNode
      */
     public $controlNode;
 
     /**
+     * @description The CPU utilization.
+     *
      * @example 0.51
      *
      * @var float
@@ -41,6 +51,8 @@ class data extends Model
     public $cpuLoad;
 
     /**
+     * @description The time when the probe was deployed.
+     *
      * @example 1669363825000
      *
      * @var int
@@ -48,6 +60,8 @@ class data extends Model
     public $deployTime;
 
     /**
+     * @description The name of the probe.
+     *
      * @example test-probe
      *
      * @var string
@@ -55,16 +69,22 @@ class data extends Model
     public $displayName;
 
     /**
+     * @description The ports that the honeypot monitors.
+     *
      * @var honeyPotProbeScanPort
      */
     public $honeyPotProbeScanPort;
 
     /**
+     * @description An array consisting of the honeypots to which the probe forwards traffic.
+     *
      * @var honeypotProbeBindList[]
      */
     public $honeypotProbeBindList;
 
     /**
+     * @description The IP address of the server on which the probe is deployed.
+     *
      * @example 33.53.XX.XX
      *
      * @var string
@@ -72,11 +92,15 @@ class data extends Model
     public $hostIp;
 
     /**
+     * @description An array consisting of the IP addresses that can be monitored.
+     *
      * @var string[]
      */
     public $listenIpList;
 
     /**
+     * @description The memory usage.
+     *
      * @example 1.94
      *
      * @var float
@@ -84,6 +108,11 @@ class data extends Model
     public $memoryLoad;
 
     /**
+     * @description The operating system of the server on which the probe is deployed. Valid values:
+     *
+     *   windows
+     *   linux
+     *
      * @example windows
      *
      * @var string
@@ -91,6 +120,8 @@ class data extends Model
     public $osType;
 
     /**
+     * @description Indicates whether ping is enabled for the check type.
+     *
      * @example false
      *
      * @var bool
@@ -98,6 +129,8 @@ class data extends Model
     public $ping;
 
     /**
+     * @description The ID of the probe.
+     *
      * @example 40f6501d-45ec-4bf0-b813-0072ceb4****
      *
      * @var string
@@ -105,6 +138,11 @@ class data extends Model
     public $probeId;
 
     /**
+     * @description The type of the probe. Valid values:
+     *
+     *   **host_probe**: host probe
+     *   **vpc_black_hole_probe**: virtual private cloud (VPC) probe
+     *
      * @example host_probe
      *
      * @var string
@@ -112,6 +150,8 @@ class data extends Model
     public $probeType;
 
     /**
+     * @description The version of the probe.
+     *
      * @example 18060096
      *
      * @var string
@@ -119,6 +159,8 @@ class data extends Model
     public $probeVersion;
 
     /**
+     * @description The IP address of the proxy server.
+     *
      * @example 47.108.XX.XX
      *
      * @var string
@@ -126,6 +168,19 @@ class data extends Model
     public $proxyIp;
 
     /**
+     * @description The status of the probe. Valid values:
+     *
+     *   **installed**: installed
+     *   **install_failed**: installation failed
+     *   **online**: online
+     *   **offline**: offline
+     *   **unnormal**: abnormal
+     *   **unprobe**: unauthorized
+     *   **uninstalling**: being uninstalled
+     *   **uninstalled**: uninstalled
+     *   **uninstall_failed**: uninstallation failed
+     *   **not_exist**: not installed
+     *
      * @example online
      *
      * @var int
@@ -133,6 +188,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The UUID of the asset on which the host probe is deployed.
+     *
      * @example 6690a46c-0edb-4663-a641-3629d1a9****
      *
      * @var string
@@ -140,6 +197,8 @@ class data extends Model
     public $uuid;
 
     /**
+     * @description The ID of the VPC in which the VPC probe is deployed.
+     *
      * @example vpc-2vchkxmf2j9yjt3x2****
      *
      * @var string

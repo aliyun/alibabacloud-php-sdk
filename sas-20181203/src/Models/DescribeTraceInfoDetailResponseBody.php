@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTraceInfoDetailResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 24A20733-10A0-4AF6-BE6B-XXXXXXXXX
      *
      * @var string
@@ -17,6 +19,11 @@ class DescribeTraceInfoDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -24,6 +31,8 @@ class DescribeTraceInfoDetailResponseBody extends Model
     public $success;
 
     /**
+     * @description The details of the tracing diagram.
+     *
      * @var traceInfoDetail
      */
     public $traceInfoDetail;

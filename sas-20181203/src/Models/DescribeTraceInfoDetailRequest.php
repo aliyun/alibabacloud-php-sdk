@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTraceInfoDetailRequest extends Model
 {
     /**
+     * @description The ID of the request source. Set the value to **sas**.
+     *
      * @example sas
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeTraceInfoDetailRequest extends Model
     public $from;
 
     /**
+     * @description The timestamp of the detection. Unit: milliseconds.
+     *
      * @example 1670555392000
      *
      * @var int
@@ -23,6 +27,11 @@ class DescribeTraceInfoDetailRequest extends Model
     public $incidentTime;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +39,8 @@ class DescribeTraceInfoDetailRequest extends Model
     public $lang;
 
     /**
+     * @description The source IP address of the request. The value of this parameter is specified by the system.
+     *
      * @example 127.0.0.1
      *
      * @var string
@@ -37,6 +48,8 @@ class DescribeTraceInfoDetailRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The type of the vertex. Set the value to **SAS_INCIDENT**.
+     *
      * @example SAS_INCIDENT
      *
      * @var string
@@ -44,6 +57,8 @@ class DescribeTraceInfoDetailRequest extends Model
     public $type;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 1627f2d7-aaa2-4ed1-b07a-xxxxxxxxxxxxxx
      *
      * @var string
@@ -51,6 +66,8 @@ class DescribeTraceInfoDetailRequest extends Model
     public $uuid;
 
     /**
+     * @description The ID of the vertex. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the ID.
+     *
      * @example cce1d28dxxxxxxxxxxxxxxxx
      *
      * @var string

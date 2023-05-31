@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class pushTaskRsp extends Model
 {
     /**
-     * @description The UUID of the server.
+     * @description An array consisting of the servers on which security check tasks failed.
      *
      * @var pushTaskResultList[]
      */

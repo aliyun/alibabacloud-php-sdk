@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class checkFixDetails extends Model
 {
     /**
-     * @description The description of the risk item.
+     * @description The detailed description of the risk item.
      *
      * @example Force users not to reuse recently used passwords to reduce the risk of password guessing attacks
      *
@@ -19,7 +19,7 @@ class checkFixDetails extends Model
     public $checkDesc;
 
     /**
-     * @description The minimum value of the rule parameter.
+     * @description The ID of the risk item.
      *
      * @example 58
      *
@@ -28,7 +28,7 @@ class checkFixDetails extends Model
     public $checkId;
 
     /**
-     * @description The information about the parameter.
+     * @description The description of the risk item.
      *
      * @example Ensure password reuse is limited
      *
@@ -37,7 +37,7 @@ class checkFixDetails extends Model
     public $checkItem;
 
     /**
-     * @description The options that can be selected for the rule parameter if the value of the ParamType parameter is 2.
+     * @description An array consisting of the rules that are supported by the risk item.
      *
      * @var rules[]
      */

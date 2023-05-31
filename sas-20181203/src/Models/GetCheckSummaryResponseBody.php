@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetCheckSummaryResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 843E4805-****-7EE12FA8DBFD
      *
      * @var string
@@ -17,6 +19,8 @@ class GetCheckSummaryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array that consists of the summary information about the configuration checks on cloud services.
+     *
      * @var summarys[]
      */
     public $summarys;

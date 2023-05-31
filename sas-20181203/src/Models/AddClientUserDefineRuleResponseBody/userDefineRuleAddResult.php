@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userDefineRuleAddResult extends Model
 {
     /**
+     * @description The ID of the rule.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,12 @@ class userDefineRuleAddResult extends Model
     public $id;
 
     /**
+     * @description The type of the operating system. Valid values:
+     *
+     *   **windows**: Windows
+     *   **linux**: Linux
+     *   **all**: all types
+     *
      * @example linux
      *
      * @var string
@@ -23,6 +31,8 @@ class userDefineRuleAddResult extends Model
     public $platform;
 
     /**
+     * @description The switch ID of the custom defense rule.
+     *
      * @example USER-DEFINE-RULE-SWITCH-TYPE_200****
      *
      * @var string

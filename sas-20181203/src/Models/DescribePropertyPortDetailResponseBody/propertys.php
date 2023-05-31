@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class propertys extends Model
 {
     /**
-     * @description The pagination information.
+     * @description The IP address that is bound to the listening port.
      *
      * @example 0.0.X.X
      *
@@ -18,7 +18,7 @@ class propertys extends Model
     public $bindIp;
 
     /**
-     * @description Queries the fingerprints of ports on a specified server.
+     * @description The timestamp of the last fingerprint collection. Unit: milliseconds.
      *
      * @example 1649149566000
      *
@@ -27,7 +27,7 @@ class propertys extends Model
     public $createTimestamp;
 
     /**
-     * @description The IP address of the network interface controller (NIC) that is bound to the listening port.
+     * @description The ID of the server.
      *
      * @example i-hp35tftuh52wbp1g****
      *
@@ -36,7 +36,7 @@ class propertys extends Model
     public $instanceId;
 
     /**
-     * @description The UUID of the server.
+     * @description The name of the server.
      *
      * @example hc-host-****
      *
@@ -45,7 +45,7 @@ class propertys extends Model
     public $instanceName;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The public IP address of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -54,7 +54,7 @@ class propertys extends Model
     public $internetIp;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The private IP address of the server.
      *
      * @example 100.104.XX.XX
      *
@@ -63,7 +63,7 @@ class propertys extends Model
     public $intranetIp;
 
     /**
-     * @description The ID of the server.
+     * @description The IP address of the network interface controller (NIC) that is bound to the listening port.
      *
      * @example 192.168.XX.XX
      *
@@ -72,7 +72,7 @@ class propertys extends Model
     public $ip;
 
     /**
-     * @description 10
+     * @description The ID of the server process that listens on the port.
      *
      * @example 522
      *
@@ -81,7 +81,7 @@ class propertys extends Model
     public $pid;
 
     /**
-     * @description The name of the server.
+     * @description The listening port.
      *
      * @example 22
      *
@@ -90,7 +90,7 @@ class propertys extends Model
     public $port;
 
     /**
-     * @description sshd
+     * @description The name of the server process.
      *
      * @example sshd
      *
@@ -99,7 +99,7 @@ class propertys extends Model
     public $procName;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The network protocol that is used by the listening port.
      *
      * @example tcp
      *
@@ -108,7 +108,7 @@ class propertys extends Model
     public $proto;
 
     /**
-     * @description The number of entries returned per page. Default value: **10**.
+     * @description The UUID of the server.
      *
      * @example 162eb349-c2d9-4f8b-805c-75b43d4c****
      *

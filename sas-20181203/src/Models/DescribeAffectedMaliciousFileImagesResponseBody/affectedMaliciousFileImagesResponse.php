@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class affectedMaliciousFileImagesResponse extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
      * @example c08d5fc1a329a4b88950a253d082f1****
      *
      * @var string
@@ -16,6 +18,8 @@ class affectedMaliciousFileImagesResponse extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example docker-law
      *
      * @var string
@@ -23,6 +27,8 @@ class affectedMaliciousFileImagesResponse extends Model
     public $clusterName;
 
     /**
+     * @description The ID of the container.
+     *
      * @example 04d20e98c8e2c93b7b864372084320a15a58c8671e53c972ce3a71d9c163****
      *
      * @var string
@@ -30,7 +36,7 @@ class affectedMaliciousFileImagesResponse extends Model
     public $containerId;
 
     /**
-     * @description The name of the cluster.
+     * @description The image digest.
      *
      * @example 6a5e1031a5858617f7d8a179ead6****
      *
@@ -39,6 +45,8 @@ class affectedMaliciousFileImagesResponse extends Model
     public $digest;
 
     /**
+     * @description The URL to download the malicious image sample.
+     *
      * @example https://aegis-metadata-file.oss-cn-shanghai.aliyuncs.com/
      *
      * @var string
@@ -46,7 +54,7 @@ class affectedMaliciousFileImagesResponse extends Model
     public $downloadUrl;
 
     /**
-     * @description The number of entries returned per page. Default value: **20**.
+     * @description The path to the image file.
      *
      * @example /d836968041f7683b5605a****
      *
@@ -55,7 +63,7 @@ class affectedMaliciousFileImagesResponse extends Model
     public $filePath;
 
     /**
-     * @description The ID of the container.
+     * @description The timestamp of the first scan.
      *
      * @example 1594907349000
      *
@@ -64,6 +72,8 @@ class affectedMaliciousFileImagesResponse extends Model
     public $firstScanTimestamp;
 
     /**
+     * @description The text that is highlighted.
+     *
      * @example {"ruleVersion":"highlight_20210908","ruleId":600106,"events":[[2,54]]}
      *
      * @var string
@@ -71,6 +81,8 @@ class affectedMaliciousFileImagesResponse extends Model
     public $highLight;
 
     /**
+     * @description The name of the image.
+     *
      * @example registry.cn-wulanchabu.aliyuncs.com/sas_test/huxin-test-001:nuxeo6-conta****
      *
      * @var string
@@ -78,9 +90,8 @@ class affectedMaliciousFileImagesResponse extends Model
     public $image;
 
     /**
-     * @description The namespace to which the image repository belongs.
+     * @description The UUID of the image.
      *
-     * >  Fuzzy match is supported.
      * @example e05c0de798217637868ef4****
      *
      * @var string
@@ -109,7 +120,7 @@ class affectedMaliciousFileImagesResponse extends Model
     public $intranetIp;
 
     /**
-     * @description Queries the details of malicious image samples.
+     * @description The timestamp of the last scan.
      *
      * @example 1596522785000
      *
@@ -118,9 +129,8 @@ class affectedMaliciousFileImagesResponse extends Model
     public $latestScanTimestamp;
 
     /**
-     * @description The ID of the image repository.
+     * @description The timestamp of the last verification.
      *
-     * >  You can call the [ListRepository](~~145293~~) operation to query the IDs of image repositories from the value of the **RepoId** response parameter.
      * @example 1596522711000
      *
      * @var int
@@ -128,7 +138,7 @@ class affectedMaliciousFileImagesResponse extends Model
     public $latestVerifyTimestamp;
 
     /**
-     * @description The pod.
+     * @description The image layer.
      *
      * @example 27213ad3447f0209dd152a5cadea****
      *
@@ -137,6 +147,12 @@ class affectedMaliciousFileImagesResponse extends Model
     public $layer;
 
     /**
+     * @description The severity of the malicious image sample. Valid values:
+     *
+     *   **serious**
+     *   **suspicious**
+     *   **remind**
+     *
      * @example serious
      *
      * @var string
@@ -144,7 +160,7 @@ class affectedMaliciousFileImagesResponse extends Model
     public $level;
 
     /**
-     * @description The pod.
+     * @description The MD5 hash value of the malicious image sample.
      *
      * @example d836968041f768300d9605a****
      *
@@ -153,7 +169,7 @@ class affectedMaliciousFileImagesResponse extends Model
     public $maliciousMd5;
 
     /**
-     * @description The namespace.
+     * @description The namespace to which the image repository belongs.
      *
      * @example hanghai-namespace
      *
@@ -162,6 +178,8 @@ class affectedMaliciousFileImagesResponse extends Model
     public $namespace;
 
     /**
+     * @description The pod.
+     *
      * @example 22222-7xsqq
      *
      * @var string
@@ -169,7 +187,7 @@ class affectedMaliciousFileImagesResponse extends Model
     public $pod;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The ID of the image repository.
      *
      * @example crr-vridcl4****
      *
@@ -178,7 +196,7 @@ class affectedMaliciousFileImagesResponse extends Model
     public $repoId;
 
     /**
-     * @description The timestamp of the last verification.
+     * @description The ID of the container image.
      *
      * @example cri-datvail3m****
      *
@@ -187,7 +205,7 @@ class affectedMaliciousFileImagesResponse extends Model
     public $repoInstanceId;
 
     /**
-     * @description DescribeAffectedMaliciousFileImages
+     * @description The name of the image repository.
      *
      * @example centos
      *
@@ -196,7 +214,7 @@ class affectedMaliciousFileImagesResponse extends Model
     public $repoName;
 
     /**
-     * @description The pagination information.
+     * @description The region ID of the image repository.
      *
      * @example cn-shanghai
      *
@@ -205,9 +223,13 @@ class affectedMaliciousFileImagesResponse extends Model
     public $repoRegionId;
 
     /**
-     * @description The name of the image repository.
+     * @description The handling status of the malicious image sample. Valid values:
      *
-     * >  Fuzzy match is supported.
+     *   **0**: unhandled
+     *   **1**: handled
+     *   **2**: verifying
+     *   **3**: added to the whitelist
+     *
      * @example 1
      *
      * @var int
@@ -215,7 +237,7 @@ class affectedMaliciousFileImagesResponse extends Model
     public $status;
 
     /**
-     * @description The UUID of the image.
+     * @description The tag that is added to the image.
      *
      * @example 0.2
      *

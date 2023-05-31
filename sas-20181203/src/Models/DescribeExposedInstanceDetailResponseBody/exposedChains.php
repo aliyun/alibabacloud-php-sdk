@@ -11,9 +11,52 @@ use AlibabaCloud\Tea\Model;
 class exposedChains extends Model
 {
     /**
+     * @description The information about all vulnerabilities on the server.
+     *
      * @var allVulList[]
      */
     public $allVulList;
+
+    /**
+     * @description The server component that is exposed on the Internet.
+     *
+     * @example openssl,openssh
+     *
+     * @var string
+     */
+    public $exposureComponent;
+
+    /**
+     * @description The public IP address.
+     *
+     * @example 47.99.XX.XX
+     *
+     * @var string
+     */
+    public $exposureIp;
+
+    /**
+     * @description The port that is exposed on the Internet.
+     *
+     * @example 22
+     *
+     * @var string
+     */
+    public $exposurePort;
+
+    /**
+     * @description The resource from which the server is exposed. Valid values:
+     *
+     *   **INTERNET_IP**: the public IP address of an Elastic Compute Service (ECS) instance
+     *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance
+     *   **EIP**: an elastic IP address (EIP)
+     *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
+     *
+     * @example INTERNET_IP
+     *
+     * @var string
+     */
+    public $exposureType;
 
     /**
      * @description The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the value of the ExposureType parameter.
@@ -23,47 +66,6 @@ class exposedChains extends Model
      *   If the value of the ExposureType parameter is **EIP**, the value of this parameter is the ID of the EIP.
      *   If the value of the ExposureType parameter is **DNAT**, the value of this parameter is the ID of the NAT gateway.
      *
-     * @example openssl,openssh
-     *
-     * @var string
-     */
-    public $exposureComponent;
-
-    /**
-     * @description The name of the server.
-     *
-     * @example 47.99.XX.XX
-     *
-     * @var string
-     */
-    public $exposureIp;
-
-    /**
-     * @description The information about the vulnerabilities that are exposed on the Internet and can be exploited by attackers.
-     *
-     * @example 22
-     *
-     * @var string
-     */
-    public $exposurePort;
-
-    /**
-     * @description The priority to fix the vulnerability. Valid values:
-     *
-     *   **asap**: high
-     *   **later**: medium
-     *   **nntf**: low
-     *
-     * >  We recommend that you fix the vulnerabilities that have the **high** priority at the earliest opportunity.
-     * @example INTERNET_IP
-     *
-     * @var string
-     */
-    public $exposureType;
-
-    /**
-     * @description The public IP address of the server.
-     *
      * @example eip-bp1bkgowzam49rld3****
      *
      * @var string
@@ -71,7 +73,7 @@ class exposedChains extends Model
     public $exposureTypeId;
 
     /**
-     * @description The port that is exposed on the Internet.
+     * @description The server group to which the server belongs.
      *
      * @example sg-bp1iw5enua6gf5i2xr7z
      *
@@ -80,7 +82,7 @@ class exposedChains extends Model
     public $groupNo;
 
     /**
-     * @description The public IP address.
+     * @description The ID of the server.
      *
      * @example i-bp116qem8npvchqc****
      *
@@ -89,14 +91,7 @@ class exposedChains extends Model
     public $instanceId;
 
     /**
-     * @description The type of the vulnerability. Valid values:
-     *
-     *   **cve**: Linux software vulnerabilities
-     *   **sys**: Windows system vulnerabilities
-     *   **cms**: Web-CMS vulnerabilities
-     *   **app**: application vulnerabilities
-     *   **emg**: urgent vulnerabilities
-     *   **sca**: middleware vulnerabilities
+     * @description The name of the server.
      *
      * @example worker-k8s-for-cs-c929ee2a145214f89a8b248005be5****
      *
@@ -105,7 +100,7 @@ class exposedChains extends Model
     public $instanceName;
 
     /**
-     * @description The alias of the vulnerability.
+     * @description The public IP address of the server.
      *
      * @example 47.99.XX.XX
      *
@@ -114,7 +109,7 @@ class exposedChains extends Model
     public $internetIp;
 
     /**
-     * @description The name of the vulnerability.
+     * @description The private IP address of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -123,15 +118,16 @@ class exposedChains extends Model
     public $intranetIp;
 
     /**
-     * @description The information about all vulnerabilities on the server.
+     * @description The information about the vulnerabilities that are exposed on the Internet and can be exploited by attackers.
      *
      * @var realVulList[]
      */
     public $realVulList;
 
     /**
-     * @description The alias of the vulnerability.
+     * @description The region in which the server resides.
      *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string

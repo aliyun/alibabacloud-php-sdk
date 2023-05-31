@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description 58928
+     * @description The number of entries returned on the current page.
      *
      * @example 20
      *
@@ -18,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The page number of the returned page.
      *
      * @example 5
      *
@@ -27,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description Queries the statistical information about assets based on a specified filter condition.
+     * @description The number of entries returned per page. Default value: **20**.
      *
      * @example 20
      *
@@ -36,7 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description DescribeGroupedInstances
+     * @description The total number of entries returned.
      *
      * @example 100
      *

@@ -11,23 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeAffectedMaliciousFileImagesResponseBody extends Model
 {
     /**
-     * @description The region ID of the image repository.
+     * @description An array consisting of the images that have malicious image samples.
      *
      * @var affectedMaliciousFileImagesResponse[]
      */
     public $affectedMaliciousFileImagesResponse;
 
     /**
-     * @description The ID of the container image.
+     * @description The pagination information.
      *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The ID of the container image.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
-     * >  You can call the [ListRepository](~~145293~~) operation to query the IDs of container images from the value of the **InstanceId** response parameter.
      * @example ACF97412-FD09-4D1F-994F-34DF12BREF20
      *
      * @var string

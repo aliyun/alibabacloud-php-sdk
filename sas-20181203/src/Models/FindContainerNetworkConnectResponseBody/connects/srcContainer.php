@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class srcContainer extends Model
 {
     /**
+     * @description The ID of the source container.
+     *
      * @example 48a6xxx5709d5a5866
      *
      * @var string

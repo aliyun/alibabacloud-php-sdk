@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAssetImportantResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example ServerError
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyAssetImportantResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example ServerError
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyAssetImportantResponseBody extends Model
     public $errMessage;
 
     /**
+     * @description The HTTP status code returned. The value 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -30,6 +36,8 @@ class ModifyAssetImportantResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 23C85959-1540-514B-93CF-2992C53A1B4F
      *
      * @var string
@@ -37,6 +45,11 @@ class ModifyAssetImportantResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

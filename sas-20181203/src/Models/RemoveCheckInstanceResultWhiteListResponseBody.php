@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveCheckInstanceResultWhiteListResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example F156EA41-8EEF-54B2-908B-EAE071XXXXXX
      *
      * @var string

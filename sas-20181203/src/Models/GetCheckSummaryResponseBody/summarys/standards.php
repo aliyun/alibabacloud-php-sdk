@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class standards extends Model
 {
     /**
+     * @description The number of risk items.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class standards extends Model
     public $failCount;
 
     /**
+     * @description The ID of the check item.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class standards extends Model
     public $id;
 
     /**
+     * @description The number of passed check items.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class standards extends Model
     public $passCount;
 
     /**
+     * @description The number of **high-risk** items.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class standards extends Model
     public $riskLevelHighCount;
 
     /**
+     * @description The number of **low-risk** items.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class standards extends Model
     public $riskLevelLowCount;
 
     /**
+     * @description The number of **medium-risk** items.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +63,10 @@ class standards extends Model
     public $riskLevelMediumCount;
 
     /**
+     * @description The name of the check item.
+     *
+     * @example Identity and permission management
+     *
      * @var string
      */
     public $showName;

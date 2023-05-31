@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description Indicates whether risks are detected on the cloud asset. Valid values:
+     * @description Indicates whether alerts are generated for the cloud asset. Valid values:
      *
      *   **YES**
      *   **NO**
@@ -19,24 +19,6 @@ class instances extends Model
      * @var string
      */
     public $alarmStatus;
-
-    /**
-     * @description The instance ID of the cloud asset.
-     *
-     * @example 0
-     *
-     * @var string
-     */
-    public $assetSubType;
-
-    /**
-     * @description The security information about the cloud asset.
-     *
-     * @example SECURITY_GROUP
-     *
-     * @var string
-     */
-    public $assetSubTypeName;
 
     /**
      * @description The subtype of the cloud asset. The subtype of the cloud service. Valid values:
@@ -99,88 +81,18 @@ class instances extends Model
      *
      * @example 0
      *
-     * @var int
+     * @var string
      */
-    public $assetType;
+    public $assetSubType;
 
     /**
      * @description The subtype name of the cloud asset.
      *
-     * @example ECS
+     * @example SECURITY_GROUP
      *
      * @var string
      */
-    public $assetTypeName;
-
-    /**
-     * @description The public IP address of the instance.
-     *
-     * @example 1607365213000
-     *
-     * @var int
-     */
-    public $createdTime;
-
-    /**
-     * @description The instance name of the cloud asset.
-     *
-     * @example d-uf60vevzkztnflx7cny5
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @description The time when the instance was created.
-     *
-     * @example yztest-l***
-     *
-     * @var string
-     */
-    public $instanceName;
-
-    /**
-     * @description Indicates whether alerts are generated for the cloud asset. Valid values:
-     *
-     *   **YES**
-     *   **NO**
-     *
-     * @example 1.2.XX.XX
-     *
-     * @var string
-     */
-    public $internetIp;
-
-    /**
-     * @description The type of the cloud asset by source. Valid values:
-     *
-     *   **0**: an asset provided by Alibaba Cloud
-     *   **1**: a third-party cloud asset
-     *   **2**: an asset in a data center
-     *   **3**, **4**, **5**, and **7**: other cloud asset
-     *   **8**: a lightweight asset
-     *
-     * @example cn-hanghzou
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @description The type name of the cloud asset.
-     *
-     * @example NO
-     *
-     * @var string
-     */
-    public $riskStatus;
-
-    /**
-     * @example {"seriousNum":0,"appNum":0,"baselineMedium":0,"remindNum":0,"imageVulNntf":0,"cveNum":0,"vul":0,"uuid":"yuejia-test","emgNum":0,"weakPWNum":0,"imageMaliciousFileRemind":0,"imageBaselineMedium":0,"laterVulCount":0,"cmsNum":0,"imageMaliciousFileSerious":0,"agentlessMalicious":0,"suspNum":0,"imageBaselineHigh":0,"asapVulCount":0,"imageVulLater":0,"agentlessAll":0,"sysNum":0,"containerLater":0,"containerSuspicious":0,"imageBaselineNum":0,"newSuspicious":0,"nntfVulCount":0,"scaNum":0,"containerNntf":0,"health":0,"trojan":0,"suspicious":0,"imageMaliciousFileSuspicious":0,"containerRemind":0,"baselineLow":0,"imageVulAsap":0,"imageBaselineLow":0,"containerAsap":0,"agentlessBaseline":0,"agentlessVulSca":0,"agentlessVulCve":0,"containerSerious":0,"baselineHigh":0,"account":0,"baselineNum":5}
-     *
-     * @var string
-     */
-    public $securityInfo;
+    public $assetSubTypeName;
 
     /**
      * @description The type of the asset. Valid values:
@@ -209,6 +121,96 @@ class instances extends Model
      *   **25**: IDaaS EIAM
      *   **26**: PolarDB-X
      *   **27**: Elasticsearch
+     *
+     * @example 0
+     *
+     * @var int
+     */
+    public $assetType;
+
+    /**
+     * @description The type name of the cloud asset.
+     *
+     * @example ECS
+     *
+     * @var string
+     */
+    public $assetTypeName;
+
+    /**
+     * @description The time when the instance was created.
+     *
+     * @example 1607365213000
+     *
+     * @var int
+     */
+    public $createdTime;
+
+    /**
+     * @description The instance ID of the cloud asset.
+     *
+     * @example d-uf60vevzkztnflx7cny5
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @description The instance name of the cloud asset.
+     *
+     * @example yztest-l***
+     *
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @description The public IP address of the instance.
+     *
+     * @example 1.2.XX.XX
+     *
+     * @var string
+     */
+    public $internetIp;
+
+    /**
+     * @description The region ID of the cloud asset.
+     *
+     * @example cn-hanghzou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description Indicates whether risks are detected on the cloud asset. Valid values:
+     *
+     *   **YES**
+     *   **NO**
+     *
+     * @example NO
+     *
+     * @var string
+     */
+    public $riskStatus;
+
+    /**
+     * @description The security information about the cloud asset.
+     *
+     * @example {"seriousNum":0,"appNum":0,"baselineMedium":0,"remindNum":0,"imageVulNntf":0,"cveNum":0,"vul":0,"uuid":"yuejia-test","emgNum":0,"weakPWNum":0,"imageMaliciousFileRemind":0,"imageBaselineMedium":0,"laterVulCount":0,"cmsNum":0,"imageMaliciousFileSerious":0,"agentlessMalicious":0,"suspNum":0,"imageBaselineHigh":0,"asapVulCount":0,"imageVulLater":0,"agentlessAll":0,"sysNum":0,"containerLater":0,"containerSuspicious":0,"imageBaselineNum":0,"newSuspicious":0,"nntfVulCount":0,"scaNum":0,"containerNntf":0,"health":0,"trojan":0,"suspicious":0,"imageMaliciousFileSuspicious":0,"containerRemind":0,"baselineLow":0,"imageVulAsap":0,"imageBaselineLow":0,"containerAsap":0,"agentlessBaseline":0,"agentlessVulSca":0,"agentlessVulCve":0,"containerSerious":0,"baselineHigh":0,"account":0,"baselineNum":5}
+     *
+     * @var string
+     */
+    public $securityInfo;
+
+    /**
+     * @description The type of the cloud asset by source. Valid values:
+     *
+     *   **0**: an asset provided by Alibaba Cloud
+     *   **1**: a third-party cloud asset
+     *   **2**: an asset in a data center
+     *   **3**, **4**, **5**, and **7**: other cloud asset
+     *   **8**: a lightweight asset
      *
      * @example 0
      *

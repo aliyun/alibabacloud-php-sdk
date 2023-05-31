@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeWarningMachinesResponseBody extends Model
 {
     /**
-     * @description The verification status of the risk item after the risk item is fixed. Valid values:
-     *
-     *   **1**: complete
-     *   **2**: verifying
+     * @description The number of entries returned on the current page.
      *
      * @example 10
      *
@@ -22,7 +19,7 @@ class DescribeWarningMachinesResponseBody extends Model
     public $count;
 
     /**
-     * @description The name of the server on which the baseline check is performed.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -31,7 +28,7 @@ class DescribeWarningMachinesResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
+     * @description The number of entries returned per page. Default value: **10**.
      *
      * @example 10
      *
@@ -40,7 +37,7 @@ class DescribeWarningMachinesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description An array that consists of the servers.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 6E4CBE87-E887-5AF1-86D2-78EB4AA3E771
      *
@@ -49,7 +46,7 @@ class DescribeWarningMachinesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The value of the field that is used to search for the container.
+     * @description The total number of entries returned.
      *
      * @example 1
      *
@@ -58,9 +55,8 @@ class DescribeWarningMachinesResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The ID of the container cluster.
+     * @description An array that consists of the servers.
      *
-     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
      * @var warningMachines[]
      */
     public $warningMachines;

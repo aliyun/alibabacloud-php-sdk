@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class rebootStatuses extends Model
 {
     /**
+     * @description The error code that is returned when the server failed to be restarted. Valid values:
+     *
+     *   **10001**: The restart command failed to be sent.
+     *   **10002**: The restart operation failed.
+     *   **10003**: A timeout error occurs.
+     *
      * @example 10001
      *
      * @var string
@@ -16,6 +22,8 @@ class rebootStatuses extends Model
     public $code;
 
     /**
+     * @description The message that is returned when the server failed to be restarted.
+     *
      * @example push failed
      *
      * @var string
@@ -23,6 +31,12 @@ class rebootStatuses extends Model
     public $msg;
 
     /**
+     * @description The status of the server. Valid values:
+     *
+     *   **0**: The server is being restarted.
+     *   **1**: The server is restarted.
+     *   **2**: The server failed to be restarted.
+     *
      * @example 2
      *
      * @var int
@@ -30,6 +44,8 @@ class rebootStatuses extends Model
     public $rebootStatus;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 9b59c2d6-0967-46e3-ad7b-152227c****
      *
      * @var string

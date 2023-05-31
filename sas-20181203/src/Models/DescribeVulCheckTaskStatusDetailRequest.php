@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulCheckTaskStatusDetailRequest extends Model
 {
     /**
+     * @description The IDs of tasks.
+     *
      * @var string[]
      */
     public $taskIds;
 
     /**
+     * @description The types of the vulnerabilities that are detected by the tasks.
+     *
      * @var string[]
      */
     public $types;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 5d55af3c-35f3-4d4d-8ccc-8c5443b0****
      *
      * @var string

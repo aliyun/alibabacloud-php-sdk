@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningSummaryRequest extends Model
 {
     /**
-     * @description The value of the container field.
+     * @description The ID of the container cluster.
      *
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
      * @example c80dae73bd1be442699766b14ffd0****
      *
      * @var string
@@ -18,9 +19,13 @@ class DescribeCheckWarningSummaryRequest extends Model
     public $clusterId;
 
     /**
-     * @description The level-1 type of check items.
+     * @description The name of the container field. Valid values:
      *
-     * >  You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the level-1 types of check items.
+     *   **clusterId**: the ID of the cluster
+     *   **image**: the name of the image
+     *   **imageId**: the ID of the image
+     *   **namespace**: the namespace
+     *
      * @example namespace
      *
      * @var string
@@ -28,7 +33,7 @@ class DescribeCheckWarningSummaryRequest extends Model
     public $containerFieldName;
 
     /**
-     * @description The ID of the baseline check policy.
+     * @description The value of the container field.
      *
      * @example c819391d2d520485fa3e81e2dc2ea****
      *
@@ -37,10 +42,7 @@ class DescribeCheckWarningSummaryRequest extends Model
     public $containerFieldValue;
 
     /**
-     * @description The language of the content within the request and the response. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -56,7 +58,10 @@ class DescribeCheckWarningSummaryRequest extends Model
     public $groupId;
 
     /**
-     * @description The statistics of check items.
+     * @description The language of the content within the request and the response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example zh
      *
@@ -65,9 +70,8 @@ class DescribeCheckWarningSummaryRequest extends Model
     public $lang;
 
     /**
-     * @description The UUID of the asset.
+     * @description The number of entries to return on each page.
      *
-     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of assets.
      * @example 10
      *
      * @var int
@@ -75,7 +79,7 @@ class DescribeCheckWarningSummaryRequest extends Model
     public $pageSize;
 
     /**
-     * @description The level-2 type of the risk item.
+     * @description The name of the risk item.
      *
      * @example Redis
      *
@@ -84,9 +88,10 @@ class DescribeCheckWarningSummaryRequest extends Model
     public $riskName;
 
     /**
-     * @description The type of the query condition. Valid values:
+     * @description The status of the baseline check. Valid values:
      *
-     *   **uuid**: the ID of an asset
+     *   **1**: failed
+     *   **3**: passed
      *
      * @example 1
      *
@@ -104,7 +109,13 @@ class DescribeCheckWarningSummaryRequest extends Model
     public $sourceIp;
 
     /**
-     * @description The number of high-risk items.
+     * @description The status of the check item. Valid values:
+     *
+     *   **1**: failed
+     *   **2**: verifying
+     *   **3**: passed
+     *   **5**: expired
+     *   **6**: ignored
      *
      * @example 1
      *
@@ -113,7 +124,7 @@ class DescribeCheckWarningSummaryRequest extends Model
     public $status;
 
     /**
-     * @description The number of assets on which risk items are detected.
+     * @description The ID of the baseline check policy.
      *
      * @example 1
      *
@@ -122,7 +133,9 @@ class DescribeCheckWarningSummaryRequest extends Model
     public $strategyId;
 
     /**
-     * @description The number of check items.
+     * @description The type of the query condition. Valid values:
+     *
+     *   **uuid**: the ID of an asset
      *
      * @example uuid
      *
@@ -131,8 +144,9 @@ class DescribeCheckWarningSummaryRequest extends Model
     public $targetType;
 
     /**
-     * @description The page number of the current page.
+     * @description The level-1 type of check items.
      *
+     * >  You can call the [DescribeRiskType](~~DescribeRiskType~~) operation to query the level-1 types of check items.
      * @example database
      *
      * @var string
@@ -140,13 +154,9 @@ class DescribeCheckWarningSummaryRequest extends Model
     public $typeName;
 
     /**
-     * @description The name of the container field. Valid values:
+     * @description The UUID of the asset.
      *
-     *   **clusterId**: the ID of the cluster
-     *   **image**: the name of the image
-     *   **imageId**: the ID of the image
-     *   **namespace**: the namespace
-     *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of assets.
      * @example f03259d8-1e81-4fae-bcbb-275fb5****
      *
      * @var string

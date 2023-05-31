@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class FindContainerNetworkConnectShrinkRequest extends Model
 {
     /**
-     * @description The number of entries returned per page. Default value: **20**.
+     * @description The type of the information that you want to query. Valid values:
+     *
+     *   **EDGE**: connection information
      *
      * @example EDGE
      *
@@ -18,6 +20,8 @@ class FindContainerNetworkConnectShrinkRequest extends Model
     public $criteriaType;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -25,11 +29,15 @@ class FindContainerNetworkConnectShrinkRequest extends Model
     public $currentPage;
 
     /**
+     * @description The information about the destination node.
+     *
      * @var string
      */
     public $dstNodeShrink;
 
     /**
+     * @description The end time of the network connection.
+     *
      * @example 1649260799999
      *
      * @var int
@@ -37,6 +45,9 @@ class FindContainerNetworkConnectShrinkRequest extends Model
     public $endTime;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int
@@ -44,12 +55,14 @@ class FindContainerNetworkConnectShrinkRequest extends Model
     public $pageSize;
 
     /**
+     * @description The information about the source node.
+     *
      * @var string
      */
     public $srcNodeShrink;
 
     /**
-     * @description The page number of the returned page.
+     * @description The start time of the network connection.
      *
      * @example 1666886400000
      *

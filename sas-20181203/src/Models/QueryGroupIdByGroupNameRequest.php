@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryGroupIdByGroupNameRequest extends Model
 {
     /**
+     * @description The name of the asset group.
+     *
      * @example TestGroupName
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryGroupIdByGroupNameRequest extends Model
     public $groupName;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 10.12.XX.XX
      *
      * @var string

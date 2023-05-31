@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class edgeList extends Model
 {
     /**
+     * @description The number of times.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class edgeList extends Model
     public $count;
 
     /**
+     * @description The ending vertex ID of the edge of the tracing diagram.
+     *
      * @example a1d1fa39e5345dcef3f9712172cxxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class edgeList extends Model
     public $endId;
 
     /**
+     * @description The starting vertex ID of the edge of the tracing diagram.
+     *
      * @example 02b4bf933c8e3bb8b9465eee502xxxxx
      *
      * @var string
@@ -30,6 +36,8 @@ class edgeList extends Model
     public $startId;
 
     /**
+     * @description The point in time.
+     *
      * @example 2022-12-21 10:24:42
      *
      * @var string
@@ -37,6 +45,8 @@ class edgeList extends Model
     public $time;
 
     /**
+     * @description The type of the edge of the tracing diagram.
+     *
      * @example trigger_file_alert
      *
      * @var string

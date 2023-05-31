@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateHoneypotRequest extends Model
 {
     /**
+     * @description The ID of the honeypot.
+     *
+     * > You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
      * @example 945607c2ae2a1a737c04599d6608065688bfc6048d9b9d306ce8dc8191c278b4
      *
      * @var string
@@ -16,6 +19,8 @@ class UpdateHoneypotRequest extends Model
     public $honeypotId;
 
     /**
+     * @description The custom name of the honeypot.
+     *
      * @example ExtMail
      *
      * @var string
@@ -28,6 +33,9 @@ class UpdateHoneypotRequest extends Model
     public $lang;
 
     /**
+     * @description The custom configuration of the honeypot.
+     *
+     * > You can call the [ListAvailableHoneypot](~~ListAvailableHoneypot~~) operation to query the configurations of honeypots from the **Template** response parameter.
      * @example {\"burp\":\"open\",\"webshell\":\"open\",\"trojan_git\":\"close\",\"portrait_option\":\"true\"}
      *
      * @var string

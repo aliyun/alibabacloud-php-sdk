@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateJenkinsImageRegistryPersistenceDayResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class UpdateJenkinsImageRegistryPersistenceDayResponseBody extends Model
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -23,6 +30,8 @@ class UpdateJenkinsImageRegistryPersistenceDayResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 69F88BA1-004C-51E2-BF5C-A3220E5A****
      *
      * @var string
@@ -30,6 +39,8 @@ class UpdateJenkinsImageRegistryPersistenceDayResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time consumed. Unit: seconds.
+     *
      * @example 1
      *
      * @var int

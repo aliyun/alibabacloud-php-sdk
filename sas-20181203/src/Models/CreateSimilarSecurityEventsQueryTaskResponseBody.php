@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateSimilarSecurityEventsQueryTaskResponseBody extends Model
 {
     /**
+     * @description The information about the task that queries alert events of the same alert type.
+     *
      * @var createSimilarSecurityEventsQueryTaskResponse
      */
     public $createSimilarSecurityEventsQueryTaskResponse;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 5861EE3E-F0B3-48B8-A5DC-A5080BFBE052
      *
      * @var string

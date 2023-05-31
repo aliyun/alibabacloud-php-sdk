@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskCheckSummaryResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 291B49F9-1685-4005-9D34-606B6F78740F
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeRiskCheckSummaryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The summary information about the check results of cloud service configurations.
+     *
      * @var riskCheckSummary
      */
     public $riskCheckSummary;

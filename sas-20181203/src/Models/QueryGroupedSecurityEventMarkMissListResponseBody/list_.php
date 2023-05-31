@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The handling method. Valid values:
-     *
-     *   **1**: Automatically Added to Whitelist
-     *   **2**: Defense Without Notification
+     * @description The ID of the user.
      *
      * @example 31412647
      *
@@ -21,7 +18,10 @@ class list_ extends Model
     public $aliUid;
 
     /**
-     * @description The alias of the field.
+     * @description The handling method. Valid values:
+     *
+     *   **auto\_add_white**: Automatically Added to Whitelist
+     *   **defense\_not_notification**: Defense Without Notification
      *
      * @example auto_add_white
      *
@@ -30,7 +30,7 @@ class list_ extends Model
     public $disposalWay;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The name of the alert event. The value indicates a subtype.
      *
      * @example Login with unusual location
      *
@@ -39,10 +39,7 @@ class list_ extends Model
     public $eventName;
 
     /**
-     * @description The handling method. Valid values:
-     *
-     *   **auto_add_white**: Automatically Added to Whitelist
-     *   **defense_not_notification**: Defense Without Notification
+     * @description The name of the alert event. The value indicates a type.
      *
      * @example login_common_location
      *
@@ -51,12 +48,7 @@ class list_ extends Model
     public $eventNameOriginal;
 
     /**
-     * @description The condition that is used to query alert events by asset. You can specify a value of the following types:
-     *
-     *   The IP address of the asset.
-     *   The public IP address of the asset.
-     *   The private IP address of the asset.
-     *   The name of the asset.
+     * @description The subtype of the alert event.
      *
      * @example Unusual Logon
      *
@@ -65,19 +57,16 @@ class list_ extends Model
     public $eventType;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     * @description The type of the alert event.
      *
-     *   **zh**: Chinese
-     *   **en**: English
-     *
-     * @example The source IP address of the request.
+     * @example Unusual logon
      *
      * @var string
      */
     public $eventTypeOriginal;
 
     /**
-     * @description Unusual logon
+     * @description The field that is used in the whitelist rule.
      *
      * @example type
      *
@@ -86,7 +75,7 @@ class list_ extends Model
     public $field;
 
     /**
-     * @description The name of the alert event. The value indicates a subtype.
+     * @description The value of the field.
      *
      * @example root
      *
@@ -95,7 +84,7 @@ class list_ extends Model
     public $fieldValue;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The alias of the field.
      *
      * @example Logon Time
      *
@@ -104,7 +93,13 @@ class list_ extends Model
     public $filedAliasName;
 
     /**
-     * @description The number of entries returned per page. Default value: **20**.
+     * @description The operator. Valid values:
+     *
+     *   **contains**: contains
+     *   **notContains**: does not contain
+     *   **strEqual**: equals
+     *   **strNotEqual**: does not equal
+     *   **regex**: regular expression
      *
      * @example contains
      *
@@ -113,7 +108,7 @@ class list_ extends Model
     public $operate;
 
     /**
-     * @description The pagination information.
+     * @description The UUIDs of assets. Multiple UUIDs are separated by commas (,).
      *
      * @example 6985b88c-eb19-4d27-98ad-e4a42312****,5721d503-9b04-4243-89ca-1fb8ca5e****,db2678c3-10e3-4a20-92f1-265f6****
      *

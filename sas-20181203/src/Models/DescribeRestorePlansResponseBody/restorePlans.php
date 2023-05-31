@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class restorePlans extends Model
 {
     /**
+     * @description The timestamp when the restoration task was created. Unit: milliseconds.
+     *
      * @example 1655174753****
      *
      * @var int
@@ -16,6 +18,8 @@ class restorePlans extends Model
     public $createdTime;
 
     /**
+     * @description The name of the database.
+     *
      * @example Bankup****
      *
      * @var string
@@ -23,6 +27,8 @@ class restorePlans extends Model
     public $databaseName;
 
     /**
+     * @description The name of the server on which the database resides.
+     *
      * @example sql-test-001
      *
      * @var string
@@ -30,6 +36,8 @@ class restorePlans extends Model
     public $instanceName;
 
     /**
+     * @description The ID of the anti-ransomware policy.
+     *
      * @example 123
      *
      * @var int
@@ -37,6 +45,8 @@ class restorePlans extends Model
     public $policyId;
 
     /**
+     * @description The name of the anti-ransomware policy.
+     *
      * @example KtDataBase
      *
      * @var string
@@ -44,6 +54,8 @@ class restorePlans extends Model
     public $policyName;
 
     /**
+     * @description The point in time to which data is restored.
+     *
      * @example 165875100****
      *
      * @var int
@@ -51,6 +63,15 @@ class restorePlans extends Model
     public $restorePoint;
 
     /**
+     * @description The status of the restoration task. Valid values:
+     *
+     *   **init**: initializing
+     *   **created**: creating
+     *   **running**: running
+     *   **completed**: complete
+     *   **error**: failed
+     *   **restoring**: restoring
+     *
      * @example running
      *
      * @var string
@@ -58,6 +79,8 @@ class restorePlans extends Model
     public $status;
 
     /**
+     * @description The name of the destination database.
+     *
      * @example OABak
      *
      * @var string
@@ -65,6 +88,8 @@ class restorePlans extends Model
     public $targetDatabaseName;
 
     /**
+     * @description The ID of the destination server.
+     *
      * @example i-2zehqflgbl9ep2he****
      *
      * @var string
@@ -72,6 +97,8 @@ class restorePlans extends Model
     public $targetInstanceId;
 
     /**
+     * @description The name of the destination server.
+     *
      * @example hbr-detection-hh
      *
      * @var string
@@ -79,6 +106,8 @@ class restorePlans extends Model
     public $targetInstanceName;
 
     /**
+     * @description The timestamp when the restoration task was last updated. Unit: milliseconds.
+     *
      * @example 166849080****
      *
      * @var int

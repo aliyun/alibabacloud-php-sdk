@@ -11,21 +11,21 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyProcDetailResponseBody extends Model
 {
     /**
-     * @description The name of the process.
+     * @description The pagination information.
      *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description 1
+     * @description An array that consists of the fingerprints of the processes.
      *
      * @var propertys[]
      */
     public $propertys;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example AA47D46F-10DE-138C-BBB4-8A0003F75CD7
      *

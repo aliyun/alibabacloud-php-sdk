@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetImageScanNumInPeriodRequest extends Model
 {
     /**
+     * @description The number of days.
+     *
      * @example 7
      *
      * @var string

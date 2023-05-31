@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PageImageRegistryRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class PageImageRegistryRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class PageImageRegistryRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the image repository. Fuzzy match is supported.
+     *
      * @example asa
      *
      * @var string
@@ -30,16 +36,22 @@ class PageImageRegistryRequest extends Model
     public $registryNameLike;
 
     /**
+     * @description The types of image repositories.
+     *
      * @var string[]
      */
     public $registryTypeInList;
 
     /**
+     * @description The types of excluded image repositories.
+     *
      * @var string[]
      */
     public $registryTypeNotInList;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 140.207.XXX.XXX
      *
      * @var string

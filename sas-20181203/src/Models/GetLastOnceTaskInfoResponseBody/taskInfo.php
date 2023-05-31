@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class taskInfo extends Model
 {
     /**
+     * @description The progress of the task in percentage.
+     *
      * @example 69
      *
      * @var int
@@ -16,6 +18,12 @@ class taskInfo extends Model
     public $progress;
 
     /**
+     * @description The result of the scan task. Valid values:
+     *
+     *   **SUCCESS**: The task is successful.
+     *   **TASK\_NOT\_SUPPORT_REGION**: The images are deployed in a region that is not supported by container image scan.
+     *   **TASK\_NOT_EXISTS**: The task does not exist.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -23,6 +31,13 @@ class taskInfo extends Model
     public $result;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **INIT**: The task is not started.
+     *   **START**: The task is started.
+     *   **SUCCESS**: The task is complete.
+     *   **TIMEOUT**: The task timed out.
+     *
      * @example SUCCESS
      *
      * @var string

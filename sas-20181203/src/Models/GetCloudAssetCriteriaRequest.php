@@ -10,23 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetCloudAssetCriteriaRequest extends Model
 {
     /**
-     * @description The name of the filter condition. Valid values:
-     *
-     *   **instanceId**: the ID of the instance
-     *   **instanceName**: the name of an instance
-     *   **internetIp**: the public IP address
-     *   **riskStatus**: the risk status
-     *   **vendorRegionId**: the region ID by service provider
+     * @description The types of cloud assets.
      *
      * @var cloudAssetTypes[]
      */
     public $cloudAssetTypes;
 
     /**
-     * @description The type of the filter condition. Valid values:
-     *
-     *   **input**: The filter condition needs to be specified.
-     *   **select**: The filter condition is an option that can be selected from the drop-down list.
+     * @description The keyword for fuzzy search when you query the asset.
      *
      * @example testwww
      *

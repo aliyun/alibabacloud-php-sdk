@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of high-risk items.
+     *
      * @example 3
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $highWarningCount;
 
     /**
+     * @description The number of low-risk items.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $lowWarningCount;
 
     /**
+     * @description The number of medium-risk items.
+     *
      * @example 2
      *
      * @var int

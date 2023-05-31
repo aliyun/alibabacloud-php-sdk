@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerStatisticsResponseBody extends Model
 {
     /**
+     * @description The alert statistics of container assets.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 21DA46CA-2DCE-4FF6-907D-D5DBBB7518C8
      *
      * @var string

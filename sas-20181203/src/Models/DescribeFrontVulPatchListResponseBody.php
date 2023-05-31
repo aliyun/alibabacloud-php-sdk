@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeFrontVulPatchListResponseBody extends Model
 {
     /**
+     * @description An array consisting of the information about the pre-patches that are required to fix the specified Windows system vulnerability.
+     *
      * @var frontPatchList[]
      */
     public $frontPatchList;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example F929E952-EBFC-56C3-BD35-BF8B59024C68
      *
      * @var string

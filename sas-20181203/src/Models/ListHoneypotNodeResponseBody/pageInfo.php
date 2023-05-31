@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description The IP address of the management node.
+     * @description The number of entries returned on the current page.
      *
      * @example 2
      *
@@ -18,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description An array that consists of the information about the management nodes.
+     * @description The number of entries returned per page.
      *
      * @example 20
      *
@@ -36,7 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The total number of entries returned.
      *
      * @example 149
      *

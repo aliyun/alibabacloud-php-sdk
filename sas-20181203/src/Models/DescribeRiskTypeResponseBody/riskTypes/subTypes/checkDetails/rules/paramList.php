@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class paramList extends Model
 {
     /**
+     * @description If the value of paramType is 1, this parameter is empty. If the value of paramType is 2, this parameter provides the options that can be selected for paramType.
+     *
      * @example 0,1,2,3
      *
      * @var string
@@ -16,6 +18,8 @@ class paramList extends Model
     public $enumValue;
 
     /**
+     * @description The maximum value of the parameter.
+     *
      * @example 999
      *
      * @var int
@@ -23,6 +27,8 @@ class paramList extends Model
     public $maxValue;
 
     /**
+     * @description The minimum value of the parameter.
+     *
      * @example 1
      *
      * @var int
@@ -30,7 +36,7 @@ class paramList extends Model
     public $minValue;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The default value of the parameter.
      *
      * @example 7
      *
@@ -39,6 +45,8 @@ class paramList extends Model
     public $paramDefaultValue;
 
     /**
+     * @description The description of the parameter.
+     *
      * @example The setting value is 0 means no definition, 1 means success, 2 means failure, 3 means success and failure
      *
      * @var string
@@ -46,7 +54,7 @@ class paramList extends Model
     public $paramDesc;
 
     /**
-     * @description Queries baseline types.
+     * @description The name of the parameter.
      *
      * @example range_val
      *
@@ -55,6 +63,11 @@ class paramList extends Model
     public $paramName;
 
     /**
+     * @description The configuration type of the parameter. Valid values:
+     *
+     *   **1**: input
+     *   **2**: selection
+     *
      * @example 1
      *
      * @var int

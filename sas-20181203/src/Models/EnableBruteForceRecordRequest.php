@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableBruteForceRecordRequest extends Model
 {
     /**
+     * @description The IP address that is specified in the policy.
+     *
      * @example 61.155.XX.XX
      *
      * @var string
@@ -16,6 +18,11 @@ class EnableBruteForceRecordRequest extends Model
     public $blockIp;
 
     /**
+     * @description The traffic direction that is specified in the policy. Valid values:
+     *
+     *   **in**: inbound
+     *   **out**: outbound
+     *
      * @example in
      *
      * @var string
@@ -23,6 +30,9 @@ class EnableBruteForceRecordRequest extends Model
     public $bound;
 
     /**
+     * @description The ID of the policy that you want to enable.
+     *
+     * > You can call the [DescribeBruteForceRecords](~~DescribeBruteForceRecords~~) operation to query the IDs of policies.
      * @example 116602XX
      *
      * @var int
@@ -30,6 +40,8 @@ class EnableBruteForceRecordRequest extends Model
     public $id;
 
     /**
+     * @description The port number.
+     *
      * @example 22/22
      *
      * @var string
@@ -42,6 +54,8 @@ class EnableBruteForceRecordRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 71046acb-8bff-4c3b-9163-24deb007****
      *
      * @var string

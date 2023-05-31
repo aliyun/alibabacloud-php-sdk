@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotNodeRequest extends Model
 {
     /**
-     * @description The allowed CIDR block.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class ListHoneypotNodeRequest extends Model
     public $currentPage;
 
     /**
-     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     * @description The ID of the management node.
      *
      * @example 7d110ca6-05ee-4149-8042-13ad1a41fd****
      *
@@ -36,7 +36,7 @@ class ListHoneypotNodeRequest extends Model
     public $nodeName;
 
     /**
-     * @description The time when the management node was created.
+     * @description The number of entries to return on each page.
      *
      * @example 20
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHoneyPotSuspStatisticsRequest extends Model
 {
     /**
+     * @description The source of the request. Set the value to **honeypot**.
+     *
      * @example honeypot
      *
      * @var string
@@ -23,6 +25,8 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
     public $lang;
 
     /**
+     * @description The time range of the data to query. Unit: days.
+     *
      * @example 30
      *
      * @var int
@@ -30,6 +34,11 @@ class DescribeHoneyPotSuspStatisticsRequest extends Model
     public $statisticsDays;
 
     /**
+     * @description The type of the asset to query. Valid values:
+     *
+     *   **vpcInstanceId**: VPC
+     *   **uuid**: server
+     *
      * @example vpcInstanceId
      *
      * @var string

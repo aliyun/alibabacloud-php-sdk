@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelOnceTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example D03DD0FD-6041-5107-AC00-383E28F1****
      *
      * @var string

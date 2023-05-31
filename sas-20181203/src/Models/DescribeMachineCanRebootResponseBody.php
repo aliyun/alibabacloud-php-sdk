@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeMachineCanRebootResponseBody extends Model
 {
     /**
+     * @description Indicates whether the server can be restarted. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class DescribeMachineCanRebootResponseBody extends Model
     public $canReboot;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 79CFF74D-E967-5407-8A78-EE03B925FDAA
      *
      * @var string

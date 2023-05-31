@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyVulWhitelistTargetResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 896AC4F0-C881-502B-BFC7-4751C5E3DEAA
      *
      * @var string

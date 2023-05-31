@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeletePrivateRegistryResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class DeletePrivateRegistryResponseBody extends Model
     public $data;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 818E3B38-F018-50FF-9A85-5A521747****
      *
      * @var string

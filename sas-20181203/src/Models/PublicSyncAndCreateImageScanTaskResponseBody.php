@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class PublicSyncAndCreateImageScanTaskResponseBody extends Model
 {
     /**
-     * @description The total number of images to scan.
+     * @description The data returned if the call is successful.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The data returned if the call is successful.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example F9353221-40F4-5F98-B73C-2803DC804033
      *

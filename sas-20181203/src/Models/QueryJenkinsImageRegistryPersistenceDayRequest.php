@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryJenkinsImageRegistryPersistenceDayRequest extends Model
 {
     /**
+     * @description The source IP address of the request.
+     *
      * @example 113.83.XXX.XXX
      *
      * @var string

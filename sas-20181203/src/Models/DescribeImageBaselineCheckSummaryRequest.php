@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageBaselineCheckSummaryRequest extends Model
 {
     /**
-     * @description The number of images on which **low** baseline risks are detected.
+     * @description The ID of the container cluster.
      *
+     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
      * @example c60b77fe62093480db6164a3c2fa5****
      *
      * @var string
@@ -18,10 +19,7 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
     public $clusterId;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
+     * @description The search condition for the image baseline.
      *
      * @example Unauthorized access
      *
@@ -30,11 +28,10 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
     public $criteria;
 
     /**
-     * @description The severity of the image baseline that you want to query. Separate multiple severities with commas (,). Valid values:
+     * @description The type of the search condition. Valid values:
      *
-     *   **high**
-     *   **medium**
-     *   **low**
+     *   **BaselineNameAlias**: baseline name
+     *   **BaselineClassAlias**: baseline category
      *
      * @example BaselineNameAlias
      *
@@ -43,7 +40,7 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
     public $criteriaType;
 
     /**
-     * @description The number of images on which **medium** baseline risks are detected.
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
      *
      * @example 1
      *
@@ -52,7 +49,10 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
     public $currentPage;
 
     /**
-     * @description An array that consists of the check results of image baselines.
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example zh
      *
@@ -61,7 +61,7 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
     public $lang;
 
     /**
-     * @description The timestamp when the last scan was performed. Unit: milliseconds.
+     * @description The number of entries to return on each page. Default value: **20**.
      *
      * @example 20
      *
@@ -70,7 +70,11 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     * @description The severity of the image baseline that you want to query. Separate multiple severities with commas (,). Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
      *
      * @example high
      *
@@ -79,7 +83,7 @@ class DescribeImageBaselineCheckSummaryRequest extends Model
     public $riskLevel;
 
     /**
-     * @description The keyword of the baseline category.
+     * @description The types of the assets that you want to scan.
      *
      * @var string[]
      */

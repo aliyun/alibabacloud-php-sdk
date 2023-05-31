@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dstTarget extends Model
 {
     /**
+     * @description The name of the application.
+     *
      * @example console
      *
      * @var string
@@ -16,11 +18,15 @@ class dstTarget extends Model
     public $appName;
 
     /**
+     * @description An array that consists of the affected images.
+     *
      * @var string[]
      */
     public $imageList;
 
     /**
+     * @description The namespace.
+     *
      * @example test
      *
      * @var string
@@ -28,11 +34,19 @@ class dstTarget extends Model
     public $namespace;
 
     /**
+     * @description An array that consists of information about the ports used by the destination server.
+     *
      * @var string[]
      */
     public $ports;
 
     /**
+     * @description The type of the defense rule. Valid values:
+     *
+     *   **suggest**: intelligently recommended rule
+     *   **customize**: custom rule
+     *   **system**: system rule
+     *
      * @example customize
      *
      * @var string
@@ -40,11 +54,15 @@ class dstTarget extends Model
     public $ruleType;
 
     /**
+     * @description An array that consists of tags added to the destination network object.
+     *
      * @var string[]
      */
     public $tagList;
 
     /**
+     * @description The ID of the network object.
+     *
      * @example 302001
      *
      * @var int
@@ -52,6 +70,8 @@ class dstTarget extends Model
     public $targetId;
 
     /**
+     * @description The name of the network object.
+     *
      * @example demo4****
      *
      * @var string
@@ -59,6 +79,8 @@ class dstTarget extends Model
     public $targetName;
 
     /**
+     * @description The type of the network object.
+     *
      * @example IMAGE
      *
      * @var string

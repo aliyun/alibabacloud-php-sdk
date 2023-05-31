@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class VerifyCheckInstanceResultResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example B869E3A0-1147-539D-9920-47580700****
      *
      * @var string

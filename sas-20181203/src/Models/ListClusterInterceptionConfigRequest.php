@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListClusterInterceptionConfigRequest extends Model
 {
     /**
+     * @description The status of the container firewall feature. Valid values:
+     *
+     *   **-1**: unknown
+     *   **0**: abnormal
+     *   **1**: normal
+     *   **2**: normal to be confirmed
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +23,9 @@ class ListClusterInterceptionConfigRequest extends Model
     public $clusterCNNFStatus;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * > You can call the [DescribeContainerInstances](~~DescribeContainerInstances~~) operation to query the IDs of clusters.
      * @example c22143730ab6e40b09ec7c1c51d4d****
      *
      * @var string
@@ -23,6 +33,8 @@ class ListClusterInterceptionConfigRequest extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example sas
      *
      * @var string
@@ -30,6 +42,8 @@ class ListClusterInterceptionConfigRequest extends Model
     public $clusterName;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +51,8 @@ class ListClusterInterceptionConfigRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20.
+     *
      * @example 20
      *
      * @var int

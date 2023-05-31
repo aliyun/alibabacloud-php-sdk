@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDingTalkRequest extends Model
 {
     /**
-     * @description The UID of the user.
+     * @description The number of the page to return.Default value: 1.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeDingTalkRequest extends Model
     public $currentPage;
 
     /**
-     * @description The pagination information.
+     * @description The number of entries to return on each page.Default value: 20.
      *
      * @example 20
      *
@@ -27,12 +27,9 @@ class DescribeDingTalkRequest extends Model
     public $pageSize;
 
     /**
-     * @description The group IDs.
+     * @description The name of the notification.
      *
-     * @example The language of the content within notifications. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
+     * @example Vulnerability notification
      *
      * @var string
      */

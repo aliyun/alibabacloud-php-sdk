@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningDetailRequest extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The ID of the alert that is triggered by the check item.
      *
+     * >  To query the details about a specified check item, you must provide the ID of the alert that is triggered by the check item. You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to query the IDs of alerts.
      * @example 98675301
      *
      * @var int
@@ -18,7 +19,10 @@ class DescribeCheckWarningDetailRequest extends Model
     public $checkWarningId;
 
     /**
-     * @description The ID of the check item.
+     * @description The language of the content within the request and the response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example zh
      *
@@ -27,7 +31,7 @@ class DescribeCheckWarningDetailRequest extends Model
     public $lang;
 
     /**
-     * @description The additional information about the risk item.
+     * @description The source IP address of the request.
      *
      * @example 103.25.XX.XX
      *

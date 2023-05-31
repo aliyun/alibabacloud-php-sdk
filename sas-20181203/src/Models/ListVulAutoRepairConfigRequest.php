@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListVulAutoRepairConfigRequest extends Model
 {
     /**
+     * @description The alias of the vulnerability.
+     *
      * @example RHSA-2022:0274-Important: polkit pkexec Local Privilege Escalation Vulnerability(CVE-2021-4034)
      *
      * @var string
@@ -16,6 +18,8 @@ class ListVulAutoRepairConfigRequest extends Model
     public $aliasName;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListVulAutoRepairConfigRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,11 @@ class ListVulAutoRepairConfigRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *
      * @example cve
      *
      * @var string

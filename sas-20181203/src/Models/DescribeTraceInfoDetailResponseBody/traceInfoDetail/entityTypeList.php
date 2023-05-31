@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class entityTypeList extends Model
 {
     /**
+     * @description This parameter is deprecated.
+     *
      * @example Deprecated
      *
      * @var int
@@ -16,6 +18,8 @@ class entityTypeList extends Model
     public $dbId;
 
     /**
+     * @description The rendering color of the vertex.
+     *
      * @example #fff
      *
      * @var string
@@ -23,6 +27,8 @@ class entityTypeList extends Model
     public $displayColor;
 
     /**
+     * @description The icon style of the vertex.
+     *
      * @example https://img.alicdn.com/tfs/TB176P5OgDqK1RjSZSyXXaxEVXa-49-48.png
      *
      * @var string
@@ -30,6 +36,8 @@ class entityTypeList extends Model
     public $displayIcon;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example [{"name":"${logtime}","value":"$!{time}"}]
      *
      * @var string
@@ -37,6 +45,8 @@ class entityTypeList extends Model
     public $displayTemplate;
 
     /**
+     * @description The timestamp when the vertex was created.
+     *
      * @example 2022-10-09T11:47Z
      *
      * @var int
@@ -44,6 +54,8 @@ class entityTypeList extends Model
     public $gmtCreate;
 
     /**
+     * @description The time when the vertex was last modified.
+     *
      * @example 2022-10-09T11:47Z
      *
      * @var int
@@ -51,6 +63,8 @@ class entityTypeList extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the vertex type.
+     *
      * @example Alert
      *
      * @var string
@@ -58,6 +72,8 @@ class entityTypeList extends Model
     public $id;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example Deprecated
      *
      * @var int
@@ -65,6 +81,8 @@ class entityTypeList extends Model
     public $limit;
 
     /**
+     * @description The name of the vertex type.
+     *
      * @example Alert
      *
      * @var string
@@ -72,6 +90,8 @@ class entityTypeList extends Model
     public $name;
 
     /**
+     * @description The namespace.
+     *
      * @example *
      *
      * @var string
@@ -79,6 +99,8 @@ class entityTypeList extends Model
     public $namespace;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example Deprecated
      *
      * @var int

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebPathRequest extends Model
 {
     /**
+     * @description The configuration of the web directory. The value of this parameter is in the JSON format and contains the following fields:
+     *
+     *   **webPathType**: the type of the web directory
+     *   **webPath**: the web directory
+     *
      * @example {
      * "webPathType": "customize",
      * "webPath": "/root/www****"
@@ -18,6 +23,12 @@ class ModifyWebPathRequest extends Model
     public $config;
 
     /**
+     * @description The protected asset to which the web directory belongs. The value of this parameter is in the JSON format and contains the following fields:
+     *
+     *   **target**: the protected asset.
+     *   **targetType**: the type of the asset. Set the value to uuid.
+     *   **flag**: the type of the operation.
+     *
      * @example [{"target":"0186127a-d33e-4d0c-94fb-8f25f87bc69f","targetType":"uuid","flag":"add"}]
      *
      * @var string
@@ -25,6 +36,8 @@ class ModifyWebPathRequest extends Model
     public $target;
 
     /**
+     * @description The type of the configuration item. Set the value to **web_path**.
+     *
      * @example web_path
      *
      * @var string

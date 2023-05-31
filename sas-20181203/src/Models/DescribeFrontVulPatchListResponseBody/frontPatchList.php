@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class frontPatchList extends Model
 {
     /**
+     * @description An array consisting of the pre-patches that are required to fix the specified Windows system vulnerability on the server.
+     *
      * @var patchList[]
      */
     public $patchList;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 1587bedb-fdb4-48c4-9330-4545****
      *
      * @var string

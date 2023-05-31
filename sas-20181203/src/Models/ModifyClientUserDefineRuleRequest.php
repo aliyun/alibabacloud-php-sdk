@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyClientUserDefineRuleRequest extends Model
 {
     /**
+     * @description The action of the rule. Valid values:
+     *
+     *   **0**: allow
+     *   **1**: block
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +21,8 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $actionType;
 
     /**
+     * @description The command line.
+     *
      * @example /usr/sbin/s****
      *
      * @var string
@@ -23,6 +30,8 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $cmdline;
 
     /**
+     * @description The file path.
+     *
      * @example /etc/pam.d/su****
      *
      * @var string
@@ -30,6 +39,8 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $filePath;
 
     /**
+     * @description The IP address.
+     *
      * @example 1.1.XX.XX
      *
      * @var string
@@ -37,6 +48,9 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $IP;
 
     /**
+     * @description The ID of the rule.
+     *
+     * >  You can call the [ListClientUserDefineRules](~~ListClientUserDefineRules~~) operation to query the IDs of rules.
      * @example 210****
      *
      * @var int
@@ -44,6 +58,8 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $id;
 
     /**
+     * @description The hash values of processes.
+     *
      * @example aa5ee3ed4363c9d195a591a70281****,3e522d6f3bf5cf88bb77e9ff3d13****
      *
      * @var string
@@ -51,11 +67,17 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $md5List;
 
     /**
+     * @description The name of the rule.
+     *
+     * @example Rule\*\*\*\*
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The new file path after the file is renamed.
+     *
      * @example /etc/pam****
      *
      * @var string
@@ -63,6 +85,8 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $newFilePath;
 
     /**
+     * @description The parent command line.
+     *
      * @example /usr/sbin/s****
      *
      * @var string
@@ -70,6 +94,8 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $parentCmdline;
 
     /**
+     * @description The path to the parent process.
+     *
      * @example C:/Windows/System32/cmd****
      *
      * @var string
@@ -77,6 +103,12 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $parentProcPath;
 
     /**
+     * @description The type of the operating system. Valid values:
+     *
+     *   **windows**: Windows
+     *   **linux**: Linux
+     *   **all**: all types
+     *
      * @example linux
      *
      * @var string
@@ -84,6 +116,8 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $platform;
 
     /**
+     * @description The port number. This parameter is deprecated.
+     *
      * @example 22
      *
      * @var int
@@ -91,6 +125,8 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $port;
 
     /**
+     * @description The port number. Valid values: 1 to 65535.
+     *
      * @example 80
      *
      * @var string
@@ -98,6 +134,8 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $portStr;
 
     /**
+     * @description The path to the process.
+     *
      * @example /root/1111/****
      *
      * @var string
@@ -105,6 +143,8 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $procPath;
 
     /**
+     * @description The registry value.
+     *
      * @example SECOH-QAD****
      *
      * @var string
@@ -112,6 +152,8 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $registryContent;
 
     /**
+     * @description The registry key.
+     *
      * @example HKEY_DYN_****
      *
      * @var string
@@ -119,6 +161,16 @@ class ModifyClientUserDefineRuleRequest extends Model
     public $registryKey;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     *   **1**: Process hash
+     *   **2**: Command line
+     *   **3**: Process Network
+     *   **4**: File Read and Write
+     *   **5**: Operation on Registry
+     *   **6**: Dynamic-link Library Loading
+     *   **7**: File Renaming
+     *
      * @example 2
      *
      * @var int

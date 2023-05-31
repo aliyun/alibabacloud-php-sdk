@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddInstallCodeRequest extends Model
 {
     /**
-     * @description 6134
+     * @description The validity period of the installation command. The value is a 13-digit timestamp.
      *
+     * >  The installation command is valid only within the validity period. An expired installation command cannot be used to install the Security Center agent.
      * @example 1680257463853
      *
      * @var int
@@ -18,11 +19,9 @@ class AddInstallCodeRequest extends Model
     public $expiredDate;
 
     /**
-     * @description Specifies whether to create an image. Default value: **false**. Valid values:
+     * @description The ID of the asset group to which the you want to add the asset.
      *
-     *   **false**: does not create an image.
-     *   **true**: creates an image.
-     *
+     * >  You can call the [DescribeAllGroups](~~describeallgroups~~) operation to query the IDs of asset groups.
      * @example 8076980
      *
      * @var int
@@ -30,11 +29,10 @@ class AddInstallCodeRequest extends Model
     public $groupId;
 
     /**
-     * @description The operating system of the instance. Default value: **linux**. Valid values:
+     * @description Specifies whether to create an image. Default value: **false**. Valid values:
      *
-     *   **linux**
-     *   **windows**
-     *   **windows-2003**
+     *   **false**: does not create an image.
+     *   **true**: creates an image.
      *
      * @example false
      *
@@ -43,7 +41,11 @@ class AddInstallCodeRequest extends Model
     public $onlyImage;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The operating system of the instance. Default value: **linux**. Valid values:
+     *
+     *   **linux**
+     *   **windows**
+     *   **windows-2003**
      *
      * @example linux
      *
@@ -52,20 +54,28 @@ class AddInstallCodeRequest extends Model
     public $os;
 
     /**
-     * @description The ID of the asset group to which the you want to add the asset.
+     * @example proxy_test
      *
-     * >  You can call the [DescribeAllGroups](~~describeallgroups~~) operation to query the IDs of asset groups.
+     * @var string
+     */
+    public $proxyCluster;
+
+    /**
+     * @description The name of the service provider for the asset. Default value: **ALIYUN**.
+     *
+     * >  You can call the [DescribeVendorList](~~DescribeVendorList~~) operation to query the names of service providers.
      * @example ALIYUN
      *
      * @var string
      */
     public $vendorName;
     protected $_name = [
-        'expiredDate' => 'ExpiredDate',
-        'groupId'     => 'GroupId',
-        'onlyImage'   => 'OnlyImage',
-        'os'          => 'Os',
-        'vendorName'  => 'VendorName',
+        'expiredDate'  => 'ExpiredDate',
+        'groupId'      => 'GroupId',
+        'onlyImage'    => 'OnlyImage',
+        'os'           => 'Os',
+        'proxyCluster' => 'ProxyCluster',
+        'vendorName'   => 'VendorName',
     ];
 
     public function validate()
@@ -86,6 +96,9 @@ class AddInstallCodeRequest extends Model
         }
         if (null !== $this->os) {
             $res['Os'] = $this->os;
+        }
+        if (null !== $this->proxyCluster) {
+            $res['ProxyCluster'] = $this->proxyCluster;
         }
         if (null !== $this->vendorName) {
             $res['VendorName'] = $this->vendorName;
@@ -113,6 +126,9 @@ class AddInstallCodeRequest extends Model
         }
         if (isset($map['Os'])) {
             $model->os = $map['Os'];
+        }
+        if (isset($map['ProxyCluster'])) {
+            $model->proxyCluster = $map['ProxyCluster'];
         }
         if (isset($map['VendorName'])) {
             $model->vendorName = $map['VendorName'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupFilesRequest extends Model
 {
     /**
-     * @description The UUID of the server to which an anti-ransomware policy is applied.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeBackupFilesRequest extends Model
     public $currentPage;
 
     /**
-     * @description An array that consists of the backup files returned.
+     * @description The number of entries to return on each page. Default value: **10**.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class DescribeBackupFilesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The pagination information.
+     * @description The path to the backup file.
      *
      * @example “”
      *
@@ -36,7 +36,7 @@ class DescribeBackupFilesRequest extends Model
     public $path;
 
     /**
-     * @description The size of the backup file. Unit: bytes.
+     * @description The hash value of the backup file.
      *
      * @example a7f26223ef3974c6fac324cd37713ab65ab618859d20b4039192a5da44d77b63
      *
@@ -45,7 +45,7 @@ class DescribeBackupFilesRequest extends Model
     public $snapshotHash;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
+     * @description The UUID of the server to which an anti-ransomware policy is applied.
      *
      * @example 6d5b361f-958d-48a8-a9d2-d6e82c1a****
      *

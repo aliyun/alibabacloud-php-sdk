@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class baselineDetail extends Model
 {
     /**
+     * @description The suggestion for the management of the risk item.
+     *
+     * @example Delete the leaked AccessKey pairs.
+     *
      * @var string
      */
     public $advice;
 
     /**
+     * @description The alias of the baseline type.
+     *
      * @example ak_leak
      *
      * @var string
@@ -21,11 +27,17 @@ class baselineDetail extends Model
     public $baselineClassAlias;
 
     /**
+     * @description The alias of the baseline check item.
+     *
+     * @example AccessKey pair leak
+     *
      * @var string
      */
     public $baselineItemAlias;
 
     /**
+     * @description The key of the baseline check item.
+     *
      * @example ak_leak
      *
      * @var string
@@ -33,16 +45,30 @@ class baselineDetail extends Model
     public $baselineItemKey;
 
     /**
+     * @description The alias of the baseline.
+     *
+     * @example AccessKey pair leak
+     *
      * @var string
      */
     public $baselineNameAlias;
 
     /**
+     * @description The description of the risk item.
+     *
+     * @example If an AccessKey pair is leaked, the AccessKey pair may be fraudulently used.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The risk level of the baseline check item. Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
      * @example high
      *
      * @var string
@@ -50,6 +76,8 @@ class baselineDetail extends Model
     public $level;
 
     /**
+     * @description The issue that is detected by using the baseline.
+     *
      * @example /usr/aksk.txt:LTAI4GBEG5zaqX**********
      *
      * @var string
@@ -57,6 +85,8 @@ class baselineDetail extends Model
     public $prompt;
 
     /**
+     * @description The ID of the asynchronous request.
+     *
      * @example async__c6f3b0b54613383b40bdce593ffe****
      *
      * @var string

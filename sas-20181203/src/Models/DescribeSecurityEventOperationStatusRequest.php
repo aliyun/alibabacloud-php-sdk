@@ -14,8 +14,9 @@ class DescribeSecurityEventOperationStatusRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The code that indicates the handling result of the alert event.
+     * @description The IDs of the alert events.
      *
+     * >  You must specify at least one of the TaskId and SecurityEventIds parameters.
      * @example ["909361"]
      *
      * @var string[]
@@ -23,7 +24,7 @@ class DescribeSecurityEventOperationStatusRequest extends Model
     public $securityEventIds;
 
     /**
-     * @description An array consisting of the status of the alert events handled by the task.
+     * @description The source IP address of the request.
      *
      * @example 192.168.XX.XX
      *
@@ -32,8 +33,9 @@ class DescribeSecurityEventOperationStatusRequest extends Model
     public $sourceIp;
 
     /**
-     * @description The information about the task that handles the alert events.
+     * @description The ID of the task that handles the alert events.
      *
+     * >  You must specify at least one of the TaskId and SecurityEventIds parameters.
      * @example 12121
      *
      * @var int

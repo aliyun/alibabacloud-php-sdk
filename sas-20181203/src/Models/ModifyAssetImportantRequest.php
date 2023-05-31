@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyAssetImportantRequest extends Model
 {
     /**
+     * @description The importance of the asset. Valid values:
+     *
+     *   **0**: test
+     *   **1**: normal
+     *   **2**: important
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +22,9 @@ class ModifyAssetImportantRequest extends Model
     public $importantCode;
 
     /**
+     * @description The UUIDs of servers. Separate multiple UUIDs with commas (,).
+     *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @example 076a446d-df7d-424c-bdc5-bb5dc7f1****
      *
      * @var string

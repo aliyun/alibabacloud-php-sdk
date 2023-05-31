@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHcExportInfoResponseBody extends Model
 {
     /**
+     * @description The number of exported entries.
+     *
      * @example 148
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeHcExportInfoResponseBody extends Model
     public $currentCount;
 
     /**
+     * @description The name of the exported file.
+     *
      * @example health_check_export_2022****
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeHcExportInfoResponseBody extends Model
     public $fileName;
 
     /**
+     * @description The time when the export task was created.
+     *
      * @example 2022-11-03T15:15Z
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeHcExportInfoResponseBody extends Model
     public $gmtCreate;
 
     /**
+     * @description The ID of the export task.
+     *
      * @example 1082278
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribeHcExportInfoResponseBody extends Model
     public $id;
 
     /**
+     * @description The download URL for the exported file.
+     *
      * @example https://hc-export.oss-cn-shanghai.aliyuncs.com/export_hc/health_check_export_20221222_1671699255808.zip?Expires=1672304056&OSSAccessKeyId=****&Signature=****
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeHcExportInfoResponseBody extends Model
     public $link;
 
     /**
+     * @description The progress percentage of the export task.
+     *
      * @example 89
      *
      * @var int
@@ -51,6 +63,8 @@ class DescribeHcExportInfoResponseBody extends Model
     public $progress;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 3C2C94CF-ED08-50C0-BC72-C5029251****
      *
      * @var string
@@ -58,6 +72,11 @@ class DescribeHcExportInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the export task. Valid values:
+     *
+     *   **exporting**: The task is in progress.
+     *   **success**: The task is complete.
+     *
      * @example exporting
      *
      * @var string
@@ -65,6 +84,8 @@ class DescribeHcExportInfoResponseBody extends Model
     public $resultStatus;
 
     /**
+     * @description The total number of exported entries.
+     *
      * @example 624
      *
      * @var int

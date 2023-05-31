@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class targets extends Model
 {
     /**
+     * @description The flag that is added to the server. This parameter can be empty.
+     *
      * @example del
      *
      * @var string
@@ -16,6 +18,8 @@ class targets extends Model
     public $flag;
 
     /**
+     * @description The UUID of the server or the ID of the server group.
+     *
      * @example 5c5f0169-3527-40a2-b5ff-0bc1db8f****
      *
      * @var string
@@ -23,6 +27,11 @@ class targets extends Model
     public $target;
 
     /**
+     * @description The type of the object. Valid values:
+     *
+     *   **uuid**: a server
+     *   **groupId**: a server group
+     *
      * @example uuid
      *
      * @var string

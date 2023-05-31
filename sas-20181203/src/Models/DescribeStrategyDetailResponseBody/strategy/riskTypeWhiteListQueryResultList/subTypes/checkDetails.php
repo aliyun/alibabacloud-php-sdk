@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class checkDetails extends Model
 {
     /**
-     * @description The name of the baseline check policy.
+     * @description The description of the check item.
      *
      * @example Set password expiration time, force regular modification of password, reduce password leakage and guess risk.Use non-password login (e.g. key pair) please ignore this item.
      *
@@ -19,10 +19,7 @@ class checkDetails extends Model
     public $checkDesc;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
+     * @description The ID of the check item.
      *
      * @example 206
      *
@@ -31,7 +28,7 @@ class checkDetails extends Model
     public $checkId;
 
     /**
-     * @description The maximum value of the rule parameter.
+     * @description The check item.
      *
      * @example Ensure password expiration period is set.
      *
@@ -40,7 +37,7 @@ class checkDetails extends Model
     public $checkItem;
 
     /**
-     * @description The ID of the baseline check policy.
+     * @description An array that consists of the details of rules.
      *
      * @var rules[]
      */

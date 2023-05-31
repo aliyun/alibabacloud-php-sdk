@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OperateImageBaselineWhitelistResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 75AD186B-B46A-56CC-BE35-987ADDF6****
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class OperationSuspEventsRequest extends Model
 {
     /**
+     * @description The ID of the request source.
+     *
+     * Set the value to **sas**, which indicates that the request is sent from Security Center.
      * @example sas
      *
      * @var string
@@ -16,7 +19,13 @@ class OperationSuspEventsRequest extends Model
     public $from;
 
     /**
-     * @description WB01014029
+     * @description The operation that you want to perform on alerts. Valid values:
+     *
+     *   **deal**: quarantines the source file of the malicious process.
+     *   **ignore**: ignores the alerts.
+     *   **mark\_mis_info**: marks the alerts as false positives by adding the alerts to the whitelist.
+     *   **rm\_mark\_mis_info**: cancels marking the alerts as false positives by removing the alerts from the whitelist.
+     *   **offline_handled**: marks the alerts as handled.
      *
      * @example deal
      *
@@ -25,7 +34,7 @@ class OperationSuspEventsRequest extends Model
     public $operation;
 
     /**
-     * @description Handles multiple exceptions at a time.
+     * @description The source IP address of the request.
      *
      * @example 1.2.XX.XX
      *
@@ -34,6 +43,12 @@ class OperationSuspEventsRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The suboperation that you want to perform when you quarantine the source file of the malicious process. Valid values:
+     *
+     *   **killAndQuaraFileByPidAndMd5andPath**: terminates the process based on its process ID (PID) and quarantines the source file of the process.
+     *   **quaraFileByMd5andPath**: quarantines the source file of the process.
+     *   **killAndQuaraFileByMd5andPath**: terminates the process and quarantines the source file of the process.
+     *
      * @example killAndQuaraFileByPidAndMd5andPath
      *
      * @var string
@@ -41,8 +56,9 @@ class OperationSuspEventsRequest extends Model
     public $subOperation;
 
     /**
-     * @description OperationSuspEvents
+     * @description The IDs of alert events.
      *
+     * >  You can call the [DescribeAlarmEventList](~~DescribeAlarmEventList~~) operation to obtain the IDs of alert events from the SecurityEventIds response parameter.
      * @example 290852
      *
      * @var string
@@ -50,6 +66,11 @@ class OperationSuspEventsRequest extends Model
     public $suspiciousEventIds;
 
     /**
+     * @description The type of the exceptions. Valid values:
+     *
+     *   **alarm**: alerts
+     *   **null**: exceptions
+     *
      * @example alarm
      *
      * @var string

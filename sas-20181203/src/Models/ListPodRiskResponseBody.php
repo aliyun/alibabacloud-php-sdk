@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListPodRiskResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description An array that consists of the risks.
+     *
      * @var podRiskList[]
      */
     public $podRiskList;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 94254AD7-5026-5847-833B-403C2326BD6E
      *
      * @var string

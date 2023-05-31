@@ -20,6 +20,8 @@ class GetHoneypotProbeRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the probe.
+     *
      * @example d6c1ebc9-a90d-4c9e-9490-328814d1ca00
      *
      * @var string

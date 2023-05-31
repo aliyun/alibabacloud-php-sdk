@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeStrategyDetailResponseBody extends Model
 {
     /**
-     * @description An array that consists of the whitelist of risk items.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example C5B28F65-9245-5DC1-B3CF-5F2756A756A8
      *
@@ -19,7 +19,7 @@ class DescribeStrategyDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The source IP address of the request.
+     * @description The information about the baseline check policy.
      *
      * @var strategy
      */

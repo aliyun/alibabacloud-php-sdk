@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description The version of the software.
+     * @description The number of entries returned on the current page.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description 1
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The timestamp at which the software update ends. Unit: milliseconds.
+     * @description The number of entries returned per page. Default value: **10**.
      *
      * @example 10
      *
@@ -36,7 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The installation path of the software.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

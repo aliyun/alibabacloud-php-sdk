@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListSystemRuleAggregationTypesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the aggregation types.
+     *
      * @var aggregationTypeList[]
      */
     public $aggregationTypeList;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 1427F3BE-8A7E-57F9-BD4E-590B00D2****
      *
      * @var string

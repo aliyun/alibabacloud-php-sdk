@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether you can create more image scan tasks. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * > By default, a maximum of 10 image scan tasks can be running at the same time. If 10 image scan tasks are running, you cannot create an image scan task by calling this operation. You must wait for at least one of the 10 existing image scan tasks to complete before you can create an image scan task.
      * @example true
      *
      * @var bool
@@ -16,6 +22,8 @@ class data extends Model
     public $canCreate;
 
     /**
+     * @description The timestamp when the image information was collected. Unit: milliseconds.
+     *
      * @example 1644286364150
      *
      * @var int
@@ -23,6 +31,8 @@ class data extends Model
     public $collectTime;
 
     /**
+     * @description The timestamp when the image scan task started to run. Unit: milliseconds.
+     *
      * @example 1644286364150
      *
      * @var int
@@ -30,6 +40,8 @@ class data extends Model
     public $execTime;
 
     /**
+     * @description The number of images that have been scanned.
+     *
      * @example 5
      *
      * @var int
@@ -37,6 +49,8 @@ class data extends Model
     public $finishCount;
 
     /**
+     * @description The progress of the image scan task in percentage.
+     *
      * @example 100
      *
      * @var int
@@ -44,6 +58,12 @@ class data extends Model
     public $progress;
 
     /**
+     * @description The result of the image scan task. Valid values:
+     *
+     *   **SUCCESS**: The task is successful.
+     *   **TASK_NOT_SUPPORT_REGION**: The images are deployed in a region that is not supported by container image scan.
+     *
+     * > For more information about the regions supported by container image scan, see the "Regions supported by container image scan" section in this topic.
      * @example SUCCESS
      *
      * @var string
@@ -51,6 +71,13 @@ class data extends Model
     public $result;
 
     /**
+     * @description The status of the image scan task. Valid values:
+     *
+     *   **INIT**: The task is being initialized.
+     *   **PRE_ANALYZER**: The task is being pre-processed.
+     *   **SUCCESS**: The task is successful.
+     *   **FAIL**: The task fails.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -58,6 +85,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The ID of the image scan task.
+     *
      * @example a410bb3e68c217a3368bc0238c66886d
      *
      * @var string
@@ -65,6 +94,8 @@ class data extends Model
     public $taskId;
 
     /**
+     * @description The total number of images to scan.
+     *
      * @example 5
      *
      * @var int

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class standards extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
      * @example 1
      *
      * @var int
@@ -17,16 +19,24 @@ class standards extends Model
     public $id;
 
     /**
+     * @description An array that consists of search conditions.
+     *
      * @var requirements[]
      */
     public $requirements;
 
     /**
+     * @description The display name of the check item.
+     *
+     * @example Identity and permission management
+     *
      * @var string
      */
     public $showName;
 
     /**
+     * @description The type of the check item.
+     *
      * @example IDENTITY_PERMISSION
      *
      * @var string

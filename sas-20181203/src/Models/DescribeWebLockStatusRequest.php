@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockStatusRequest extends Model
 {
     /**
+     * @description The ID of the request source. Set the value to sas.
+     *
      * @example sas
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeWebLockStatusRequest extends Model
     public $from;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeWebLockStatusRequest extends Model
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 221.214.XXX.XX
      *
      * @var string

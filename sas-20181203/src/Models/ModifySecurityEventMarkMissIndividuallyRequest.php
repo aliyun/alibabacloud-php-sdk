@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityEventMarkMissIndividuallyRequest extends Model
 {
     /**
+     * @description The alert handling rule that you want to delete.
+     *
      * @example [{\"field\":\"loginSourceIp\",\"operate\":\"contains\",\"eventType\":\"SIL_AI_ALERT\",\"eventName\":\"login_common_ip\",\"fieldValue\":\"10.12.XX.XX\",\"uuids\":\"\"}]
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifySecurityEventMarkMissIndividuallyRequest extends Model
     public $deleteMarkMissParam;
 
     /**
+     * @description The ID of the request source. Set the value to **sas**.
+     *
      * @example sas
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifySecurityEventMarkMissIndividuallyRequest extends Model
     public $from;
 
     /**
+     * @description The alert handling that you want to add.
+     *
      * @example [{\"field\":\"location\",\"operate\":\"contains\",\"eventType\":\"SIL_AI_ALERT\",\"eventName\":\"login_common_ip\",\"fieldValue\":\"xx\",\"uuids\":\"4296ee47-bf19-4fa4-a4a6-6bxxxxxxxxx\"}]
      *
      * @var string
@@ -30,6 +36,11 @@ class ModifySecurityEventMarkMissIndividuallyRequest extends Model
     public $insertMarkMissParam;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -37,6 +48,8 @@ class ModifySecurityEventMarkMissIndividuallyRequest extends Model
     public $lang;
 
     /**
+     * @description The source IP address of the request. You do not need to specify this parameter. It is automatically obtained by the system.
+     *
      * @example 127.0.XX.XX
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebPathRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeWebPathRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,10 @@ class DescribeWebPathRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the alert configuration. Valid values:
+     *
+     *   **web_path**
+     *
      * @example web_path
      *
      * @var string

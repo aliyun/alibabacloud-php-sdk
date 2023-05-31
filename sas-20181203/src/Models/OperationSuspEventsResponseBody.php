@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class OperationSuspEventsResponseBody extends Model
 {
     /**
+     * @description Indicates whether you have access permissions. Valid values:
+     *
+     *   **pass**: yes
+     *   **no_permission**: no
+     *
      * @example pass
      *
      * @var string
@@ -16,6 +21,8 @@ class OperationSuspEventsResponseBody extends Model
     public $accessCode;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
      *
      * @var string
@@ -23,6 +30,11 @@ class OperationSuspEventsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether exceptions are handled. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool

@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class endPointList extends Model
 {
     /**
+     * @description An array that consists the details of the domain name in the endpoint.
+     *
      * @var string[]
      */
     public $domains;
 
     /**
+     * @description The type of the domain name in the endpoint. Valid values:
+     *
+     *   **internet**: Internet
+     *   **intranet**: internal network
+     *
      * @example internet
      *
      * @var string

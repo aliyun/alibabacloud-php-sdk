@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class warningSummarys extends Model
 {
     /**
-     * @description The statistics of check items.
+     * @description The number of check items.
      *
      * @example 10
      *
@@ -18,6 +18,11 @@ class warningSummarys extends Model
     public $checkCount;
 
     /**
+     * @description Indicates whether the risk item can be exploited. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example false
      *
      * @var bool
@@ -32,6 +37,11 @@ class warningSummarys extends Model
     public $containerRisk;
 
     /**
+     * @description Indicates whether the risk item is a database risk item. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example false
      *
      * @var bool
@@ -39,6 +49,8 @@ class warningSummarys extends Model
     public $databaseRisk;
 
     /**
+     * @description The number of high-risk items.
+     *
      * @example 1
      *
      * @var int
@@ -46,7 +58,7 @@ class warningSummarys extends Model
     public $highWarningCount;
 
     /**
-     * @description The number of low-risk items.
+     * @description The time when the last baseline check was performed.
      *
      * @example 2019-01-01 12:23:00
      *
@@ -55,6 +67,12 @@ class warningSummarys extends Model
     public $lastFoundTime;
 
     /**
+     * @description The risk level of the risk item. Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
      * @example high
      *
      * @var string
@@ -62,7 +80,7 @@ class warningSummarys extends Model
     public $level;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of low-risk items.
      *
      * @example 3
      *
@@ -71,7 +89,7 @@ class warningSummarys extends Model
     public $lowWarningCount;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The number of medium-risk items.
      *
      * @example 2
      *
@@ -80,7 +98,7 @@ class warningSummarys extends Model
     public $mediumWarningCount;
 
     /**
-     * @description The number of check items returned on the current page.
+     * @description The ID of the risk item.
      *
      * @example 118
      *
@@ -89,6 +107,8 @@ class warningSummarys extends Model
     public $riskId;
 
     /**
+     * @description The name of the risk item.
+     *
      * @example Redis
      *
      * @var string
@@ -96,7 +116,7 @@ class warningSummarys extends Model
     public $riskName;
 
     /**
-     * @description Queries the statistical information about baseline check results. The information includes the number of servers on which a baseline check is performed, the number of baseline check items, and the pass rate of check items in the last baseline check.
+     * @description The level-2 type of the risk item.
      *
      * @example Redis
      *
@@ -105,6 +125,8 @@ class warningSummarys extends Model
     public $subTypeAlias;
 
     /**
+     * @description The level-1 type of the check item. Examples: database, system, weak password, and middleware.
+     *
      * @example databases
      *
      * @var string
@@ -112,7 +134,7 @@ class warningSummarys extends Model
     public $typeAlias;
 
     /**
-     * @description DescribeCheckWarningSummary
+     * @description The number of assets on which risk items are detected.
      *
      * @example 11
      *

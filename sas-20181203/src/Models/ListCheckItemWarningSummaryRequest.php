@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListCheckItemWarningSummaryRequest extends Model
 {
     /**
-     * @description The risk level. Default value: null, which indicates that check items at all risk levels are queried.Valid values:
-     *   **high**
-     *   **medium**
-     *   **low**
+     * @description The name of the check item. Fuzzy match is supported.
      *
      * @example password
      *
@@ -21,9 +18,10 @@ class ListCheckItemWarningSummaryRequest extends Model
     public $checkItemFuzzy;
 
     /**
-     * @description The risk status. Default value: null, which indicates that check items in all states are queried.Valid values:
-     *   **1**: failed
-     *   **3**: passed
+     * @description The risk level. Default value: null, which indicates that check items at all risk levels are queried.Valid values:
+     *   **high**
+     *   **medium**
+     *   **low**
      *
      * @example medium
      *
@@ -32,7 +30,7 @@ class ListCheckItemWarningSummaryRequest extends Model
     public $checkLevel;
 
     /**
-     * @description The type of the baseline.
+     * @description The type of the check item.
      *
      * @example hc.check.type.attack_defense
      *
@@ -41,7 +39,9 @@ class ListCheckItemWarningSummaryRequest extends Model
     public $checkType;
 
     /**
-     * @description The type of the check item.
+     * @description The risk status. Default value: null, which indicates that check items in all states are queried.Valid values:
+     *   **1**: failed
+     *   **3**: passed
      *
      * @example 3
      *
@@ -50,7 +50,7 @@ class ListCheckItemWarningSummaryRequest extends Model
     public $checkWarningStatus;
 
     /**
-     * @description The name of the check item. Fuzzy match is supported.
+     * @description The name of the field that is used to query containers.
      *
      * @example clusterId
      *
@@ -59,7 +59,7 @@ class ListCheckItemWarningSummaryRequest extends Model
     public $containerFieldName;
 
     /**
-     * @description The name of the field that is used to query containers.
+     * @description The value of the field that is used to query containers.
      *
      * @example c471f0f61b9c04f8380556e922cf1****
      *
@@ -68,10 +68,7 @@ class ListCheckItemWarningSummaryRequest extends Model
     public $containerFieldValue;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -80,9 +77,9 @@ class ListCheckItemWarningSummaryRequest extends Model
     public $currentPage;
 
     /**
-     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     * @description The ID of the asset group.
      *
-     * > We recommend that you do not leave this parameter empty.
+     * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of asset groups.
      * @example 1161****
      *
      * @var int
@@ -90,7 +87,10 @@ class ListCheckItemWarningSummaryRequest extends Model
     public $groupId;
 
     /**
-     * @description The value of the field that is used to query containers.
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example zh
      *
@@ -99,8 +99,9 @@ class ListCheckItemWarningSummaryRequest extends Model
     public $lang;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
+     * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int
@@ -108,7 +109,7 @@ class ListCheckItemWarningSummaryRequest extends Model
     public $pageSize;
 
     /**
-     * @description Queries the risk statistics of check items by page.
+     * @description The type of the baseline.
      *
      * @example weak_password
      *

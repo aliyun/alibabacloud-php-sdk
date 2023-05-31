@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ruleTargetList extends Model
 {
     /**
+     * @description The ID of the network object.
+     *
      * @example 301944
      *
      * @var int
@@ -16,6 +18,8 @@ class ruleTargetList extends Model
     public $targetId;
 
     /**
+     * @description The name of the network object.
+     *
      * @example source-test-obj-xFKcx
      *
      * @var string
@@ -23,6 +27,10 @@ class ruleTargetList extends Model
     public $targetName;
 
     /**
+     * @description The type of the network object. Valid values:
+     *
+     *   IMAGE
+     *
      * @example IMAGE
      *
      * @var string

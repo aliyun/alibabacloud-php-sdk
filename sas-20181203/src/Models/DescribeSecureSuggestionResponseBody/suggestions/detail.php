@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
+     * @description The description of the suggestion.
+     *
      * @example Malicious tampering of Web pages will affect your normal access to web page content, and may also lead to serious economic losses, brand losses, and even political risks. The webpage tamper-proof service can monitor the website directory in real time and restore the tampered files or directories through backup, so as to ensure that the website information of important systems is not tampered with maliciously and prevent the occurrence of horse hanging, black chain, illegal implantation of terrorist threats, pornography and other content.
      *
      * @var string
@@ -16,6 +18,8 @@ class detail extends Model
     public $description;
 
     /**
+     * @description The subtype of the unhandled security risk.
+     *
      * @example REINFORCE_WEB_LOCK
      *
      * @var string
@@ -23,6 +27,8 @@ class detail extends Model
     public $subType;
 
     /**
+     * @description The name of the unhandled risk.
+     *
      * @example Website tamper-proofing capability not configured
      *
      * @var string

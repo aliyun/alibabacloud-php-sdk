@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetClusterRuleSummaryResponseBody extends Model
 {
     /**
+     * @description The overall information about the cluster defense rules.
+     *
      * @var clusterRuleSummary
      */
     public $clusterRuleSummary;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 291B49F9-xxx
      *
      * @var string

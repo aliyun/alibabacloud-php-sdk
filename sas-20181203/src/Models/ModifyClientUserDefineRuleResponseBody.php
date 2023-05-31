@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyClientUserDefineRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 5cbb3c39-88ec-429a-be26-5d0f62cc****
      *
      * @var string

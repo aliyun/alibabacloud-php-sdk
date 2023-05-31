@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockTotalFileChangeCountResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example E70074C8-DFB4-44C5-96C7-909DD231D68A
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeWebLockTotalFileChangeCountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of times that the files protected by web tamper proofing are changed.
+     *
      * @example 200
      *
      * @var int

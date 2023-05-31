@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoDelConfigResponseBody extends Model
 {
     /**
+     * @description The number of days during which a detected vulnerability is retained before the vulnerability is automatically deleted.
+     *
      * @example 30
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeAutoDelConfigResponseBody extends Model
     public $days;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example C56F66FD-C4EE-4813-ABDC-4FF94B6C384E
      *
      * @var string

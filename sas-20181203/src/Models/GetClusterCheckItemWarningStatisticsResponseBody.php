@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetClusterCheckItemWarningStatisticsResponseBody extends Model
 {
     /**
+     * @description The statistics on risk items by risk level.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example C2B285A3-3493-5C5F-A224-4CCE4BFC****
      *
      * @var string

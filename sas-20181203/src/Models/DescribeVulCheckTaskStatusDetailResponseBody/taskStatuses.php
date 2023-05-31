@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class taskStatuses extends Model
 {
     /**
+     * @description The ID of the main task.
+     *
      * @example 16190385
      *
      * @var string
@@ -17,6 +19,8 @@ class taskStatuses extends Model
     public $taskId;
 
     /**
+     * @description An array that consists of status information about the vulnerability scan subtask.
+     *
      * @var taskStatusList[]
      */
     public $taskStatusList;

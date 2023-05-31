@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class honeypotNodeList extends Model
 {
     /**
-     * @description The maximum number of probes that can be used.
+     * @description Indicates whether a honeypot is allowed to access the Internet. Valid values:
+     *
+     *   **true**: The honeypot is allowed to access the Internet.
+     *   **false**: The honeypot is not allowed to access the Internet.
      *
      * @example true
      *
@@ -18,7 +21,7 @@ class honeypotNodeList extends Model
     public $allowHoneypotAccessInternet;
 
     /**
-     * @description The ID of the management node.
+     * @description The time when the management node was created.
      *
      * @example 2022-08-04 15:52:56
      *
@@ -27,7 +30,10 @@ class honeypotNodeList extends Model
     public $createTime;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The type of the management node. Default value: **false**. Valid values:
+     *
+     *   **false**: non-default type
+     *   **true**: default type
      *
      * @example false
      *
@@ -36,7 +42,7 @@ class honeypotNodeList extends Model
     public $defaultNode;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The ID of the instance.
      *
      * @example i-bp1fs3qsc1msa3512k****
      *
@@ -45,7 +51,7 @@ class honeypotNodeList extends Model
     public $ecsInstanceId;
 
     /**
-     * @description The ID of the management node.
+     * @description The maximum number of honeypots that can be deployed to the management node.
      *
      * @example 10
      *
@@ -54,7 +60,7 @@ class honeypotNodeList extends Model
     public $honeypotTotalCount;
 
     /**
-     * @description The maximum number of honeypots that can be deployed on the management node.
+     * @description The number of honeypots that are deployed to the management node.
      *
      * @example 2
      *
@@ -63,7 +69,7 @@ class honeypotNodeList extends Model
     public $honeypotUsedCount;
 
     /**
-     * @description The name of the management node.
+     * @description The ID of the management node.
      *
      * @example 7d110ca6-05ee-4149-8042-13ad1a41fd****
      *
@@ -72,7 +78,7 @@ class honeypotNodeList extends Model
     public $nodeId;
 
     /**
-     * @description The pagination information.
+     * @description The IP address of the management node.
      *
      * @example 119.180.XX.XX
      *
@@ -81,7 +87,7 @@ class honeypotNodeList extends Model
     public $nodeIp;
 
     /**
-     * @description The ID of the Elastic Compute Service (ECS) instance.
+     * @description The name of the management node.
      *
      * @example cyct_cnymu
      *
@@ -90,10 +96,7 @@ class honeypotNodeList extends Model
     public $nodeName;
 
     /**
-     * @description The type of the management node. Default value: **false**. Valid values:
-     *
-     *   **false**: non-default type
-     *   **true**: default type
+     * @description The maximum number of probes that can be deployed for the management node.
      *
      * @example 5
      *
@@ -102,10 +105,7 @@ class honeypotNodeList extends Model
     public $probeTotalCount;
 
     /**
-     * @description Indicates whether the honeypot is allowed to access the Internet.
-     *
-     *   **true**: The honeypot is allowed to access the Internet.
-     *   **false**: The honeypot is not allowed to access the Internet.
+     * @description The number of probes that are deployed for the management node.
      *
      * @example 2
      *
@@ -114,17 +114,17 @@ class honeypotNodeList extends Model
     public $probeUsedCount;
 
     /**
-     * @description The status of the management node. Valid values:
-     *
-     *   **1**: normal
-     *   **2**: abnormal
+     * @description An array consisting of the CIDR blocks that are allowed to access the management node.
      *
      * @var string[]
      */
     public $securityGroupProbeIpList;
 
     /**
-     * @description The number of honeypots that are deployed on the management node.
+     * @description The status of the management node. Valid values:
+     *
+     *   **1**: normal
+     *   **2**: abnormal
      *
      * @example 1
      *
@@ -133,9 +133,10 @@ class honeypotNodeList extends Model
     public $totalStatus;
 
     /**
-     * @description Whether the node is upgradable. Valid values:
-     *   **false**: non-default type
-     *   **true**: default type
+     * @description Indicates whether the management node can be upgraded. Valid values:
+     *
+     *   **false**: no
+     *   **true**: yes
      *
      * @example true
      *

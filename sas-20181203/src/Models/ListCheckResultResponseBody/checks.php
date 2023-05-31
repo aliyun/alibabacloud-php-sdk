@@ -19,7 +19,7 @@ class checks extends Model
     public $checkId;
 
     /**
-     * @description An array that consists of the check policies.
+     * @description The check policies.
      *
      * @var checkPolicies[]
      */
@@ -37,29 +37,29 @@ class checks extends Model
     /**
      * @description The asset subtype of the cloud service. Valid values:
      *
-     *   If the **InstanceType** parameter is set to **ECS**, this parameter supports the following valid values:
+     *   If **InstanceType** is set to **ECS**, this parameter supports the following valid values:
      *
      *   **INSTANCE**
      *   **DISK**
      *   **SECURITY_GROUP**
      *
-     *   If the **InstanceType** parameter is set to **ACR**, this parameter supports the following valid values:
+     *   If **InstanceType** is set to **ACR**, this parameter supports the following valid values:
      *
      *   **REPOSITORY_ENTERPRISE**
      *   **REPOSITORY_PERSON**
      *
-     *   If the **InstanceType** parameter is set to **RAM**, this parameter supports the following valid values:
+     *   If **InstanceType** is set to **RAM**, this parameter supports the following valid values:
      *
      *   **ALIAS**
      *   **USER**
      *   **POLICY**
      *   **GROUP**
      *
-     *   If the **InstanceType** parameter is set to **WAF**, this parameter supports the following valid values:
+     *   If **InstanceType** is set to **WAF**, this parameter supports the following valid values:
      *
      *   **DOMAIN**
      *
-     *   If the **InstanceType** parameter is set to other values, this parameter supports the following valid values:
+     *   If **InstanceType** is set to other values, this parameter supports the following valid values:
      *
      *   **INSTANCE**
      *

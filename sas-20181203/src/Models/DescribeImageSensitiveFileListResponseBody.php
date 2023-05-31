@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSensitiveFileListResponseBody extends Model
 {
     /**
+     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -18,6 +20,8 @@ class DescribeImageSensitiveFileListResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -25,6 +29,8 @@ class DescribeImageSensitiveFileListResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example successful
      *
      * @var string
@@ -32,17 +38,15 @@ class DescribeImageSensitiveFileListResponseBody extends Model
     public $message;
 
     /**
-     * @description The risk level. Valid values:
-     *
-     *   **high**
-     *   **medium**
-     *   **low**
+     * @description The pagination information.
      *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 8D19A089-E6BC-5244-800C-7E590D50487F
      *
      * @var string
@@ -50,13 +54,18 @@ class DescribeImageSensitiveFileListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of entries to return on each page. Default value: 20.
+     * @description An array that consists of the information about the sensitive files.
      *
      * @var sensitiveFileList[]
      */
     public $sensitiveFileList;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class propertyItems extends Model
 {
     /**
+     * @description The number of servers on which the software is installed.
+     *
      * @example 23
      *
      * @var int
@@ -16,6 +18,8 @@ class propertyItems extends Model
     public $count;
 
     /**
+     * @description The name of the software.
+     *
      * @example aaa_base
      *
      * @var string

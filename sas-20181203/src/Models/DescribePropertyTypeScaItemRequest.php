@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyTypeScaItemRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,11 @@ class DescribePropertyTypeScaItemRequest extends Model
     public $currentPage;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example en
      *
      * @var string
@@ -23,6 +30,9 @@ class DescribePropertyTypeScaItemRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class baselineResultSummary extends Model
 {
     /**
+     * @description The category of the baseline.
+     *
      * @example Unauthorized access
      *
      * @var string
@@ -16,6 +18,8 @@ class baselineResultSummary extends Model
     public $baselineClassAlias;
 
     /**
+     * @description The keyword of the baseline category.
+     *
      * @example hc_image_exploit
      *
      * @var string
@@ -23,6 +27,8 @@ class baselineResultSummary extends Model
     public $baselineClassKey;
 
     /**
+     * @description The name of the baseline.
+     *
      * @example Unauthorized access
      *
      * @var string
@@ -30,6 +36,8 @@ class baselineResultSummary extends Model
     public $baselineNameAlias;
 
     /**
+     * @description The keyword of the baseline name.
+     *
      * @example hc_image_exploit
      *
      * @var string
@@ -37,7 +45,11 @@ class baselineResultSummary extends Model
     public $baselineNameKey;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The severity of the image baseline. Valid values:
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
      *
      * @example high
      *
@@ -46,6 +58,8 @@ class baselineResultSummary extends Model
     public $baselineNameLevel;
 
     /**
+     * @description The timestamp when the first scan was performed. Unit: milliseconds.
+     *
      * @example 1626628760000
      *
      * @var int
@@ -53,7 +67,7 @@ class baselineResultSummary extends Model
     public $firstScanTime;
 
     /**
-     * @description DescribeImageBaselineCheckSummary
+     * @description The number of images on which **high** baseline risks are detected.
      *
      * @example 15
      *
@@ -62,7 +76,7 @@ class baselineResultSummary extends Model
     public $highRiskImage;
 
     /**
-     * @description Queries the check results of image baselines that are included in an image scan task.
+     * @description The timestamp when the last scan was performed. Unit: milliseconds.
      *
      * @example 1626628760000
      *
@@ -71,6 +85,8 @@ class baselineResultSummary extends Model
     public $lastScanTime;
 
     /**
+     * @description The number of images on which **low** baseline risks are detected.
+     *
      * @example 0
      *
      * @var int
@@ -78,7 +94,7 @@ class baselineResultSummary extends Model
     public $lowRiskImage;
 
     /**
-     * @description The number of entries returned per page. Default value: **20**.
+     * @description The number of images on which **medium** baseline risks are detected.
      *
      * @example 0
      *
@@ -87,7 +103,12 @@ class baselineResultSummary extends Model
     public $middleRiskImage;
 
     /**
-     * @description The number of entries to return on each page. Default value: **20**.
+     * @description The status of the baseline risks. Valid values:
+     *
+     *   **0**: unfixed
+     *   **1**: fixed
+     *   **2**: pending verification
+     *   **3**: fixing failed
      *
      * @example 0
      *

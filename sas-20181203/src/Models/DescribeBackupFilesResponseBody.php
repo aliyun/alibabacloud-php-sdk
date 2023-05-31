@@ -11,19 +11,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupFilesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the backup files returned.
+     *
      * @var backupFiles[]
      */
     public $backupFiles;
 
     /**
-     * @description The number of entries returned per page. Default value: **10**.
+     * @description The pagination information.
      *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 00A60A6D-33E0-5D5A-9B7C-E5D4DCA88148
      *

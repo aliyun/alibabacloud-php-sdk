@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class propertys extends Model
 {
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The command that is used to run the scheduled task.
      *
      * @example /usr/lib64/sa/sa1 1 1
      *
@@ -18,7 +18,7 @@ class propertys extends Model
     public $cmd;
 
     /**
-     * @description DescribePropertyCronDetail
+     * @description The timestamp of the last fingerprint collection. Unit: milliseconds.
      *
      * @example 1649149566000
      *
@@ -27,7 +27,7 @@ class propertys extends Model
     public $createTimestamp;
 
     /**
-     * @description The IP addresses of the server.
+     * @description The ID of the server.
      *
      * @example i-hp35tftuh52wbp1g****
      *
@@ -36,7 +36,7 @@ class propertys extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The name of the server.
      *
      * @example hc-host-****
      *
@@ -45,7 +45,7 @@ class propertys extends Model
     public $instanceName;
 
     /**
-     * @description The pagination information.
+     * @description The public IP address of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -54,7 +54,7 @@ class propertys extends Model
     public $internetIp;
 
     /**
-     * @description The name of the server.
+     * @description The private IP address of the server.
      *
      * @example 100.104.XX.XX
      *
@@ -63,7 +63,7 @@ class propertys extends Model
     public $intranetIp;
 
     /**
-     * @description The ID of the server.
+     * @description The IP addresses of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -72,7 +72,7 @@ class propertys extends Model
     public $ip;
 
     /**
-     * @description Queries the details of scheduled tasks on the Host page.
+     * @description The MD5 hash value of the path to the scheduled task.
      *
      * @example 4cc8f97c2bf9cbabb2c2be2erqw****
      *
@@ -81,7 +81,7 @@ class propertys extends Model
     public $md5;
 
     /**
-     * @description The number of entries returned per page. Default value: **10**.
+     * @description The interval at which the scheduled task is performed.
      *
      * @example *\/10 * * * *
      *
@@ -90,7 +90,7 @@ class propertys extends Model
     public $period;
 
     /**
-     * @description The MD5 hash value of the path to the scheduled task.
+     * @description The path to the scheduled task.
      *
      * @example /etc/cron.d/root
      *
@@ -99,7 +99,7 @@ class propertys extends Model
     public $source;
 
     /**
-     * @description root
+     * @description The username of the account that runs the scheduled task.
      *
      * @example root
      *

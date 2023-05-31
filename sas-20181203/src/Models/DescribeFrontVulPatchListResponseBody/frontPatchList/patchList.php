@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class patchList extends Model
 {
     /**
+     * @description The name of the vulnerability.
+     *
      * @example RHBA-2019:2599: krb5 bug fix update
      *
      * @var string
@@ -16,6 +18,8 @@ class patchList extends Model
     public $aliasName;
 
     /**
+     * @description The version number of the pre-patch that is required to fix the Windows system vulnerability.
+     *
      * @example 4523204
      *
      * @var string

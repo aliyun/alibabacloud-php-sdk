@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterVulStatisticsRequest extends Model
 {
     /**
+     * @description The ID of the container cluster.
+     *
      * @example c471f0f61b9c04f8380556e922cf1****
      *
      * @var string
@@ -16,6 +18,12 @@ class DescribeClusterVulStatisticsRequest extends Model
     public $clusterId;
 
     /**
+     * @description The type of the vulnerabilities. Valid values:
+     *
+     *   **cve**: Linux software vulnerabilities
+     *   **app**: application vulnerabilities
+     *   **sca**: vulnerabilities that are detected based on software component analysis
+     *
      * @example cve,app,sca
      *
      * @var string

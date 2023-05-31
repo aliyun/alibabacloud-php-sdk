@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class configList extends Model
 {
     /**
+     * @description The prevention mode. Valid values:
+     *
+     *   **block**: Interception Mode
+     *   **audit**: Alert Mode
+     *
      * @example audit
      *
      * @var string
@@ -16,6 +21,8 @@ class configList extends Model
     public $defenceMode;
 
     /**
+     * @description The directory that has web tamper proofing enabled.
+     *
      * @example /www/tmp/
      *
      * @var string
@@ -23,6 +30,9 @@ class configList extends Model
     public $dir;
 
     /**
+     * @description The directory that has web tamper proofing disabled.
+     *
+     * > If the value of **Mode** is **blacklist**, this parameter is returned.
      * @example /home/admin/tomcat
      *
      * @var string
@@ -30,6 +40,9 @@ class configList extends Model
     public $exclusiveDir;
 
     /**
+     * @description The file that has web tamper proofing disabled.
+     *
+     * > If the value of **Mode** is **blacklist**, this parameter is returned.
      * @example /home/admin/tomcat/localhost.log
      *
      * @var string
@@ -37,6 +50,9 @@ class configList extends Model
     public $exclusiveFile;
 
     /**
+     * @description The type of the file that has web tamper proofing disabled.
+     *
+     * > If the value of **Mode** is **blacklist**, this parameter is returned.
      * @example *.jpg
      *
      * @var string
@@ -44,6 +60,8 @@ class configList extends Model
     public $exclusiveFileType;
 
     /**
+     * @description The ID of the directory that has web tamper proofing enabled.
+     *
      * @example 11
      *
      * @var string
@@ -51,6 +69,9 @@ class configList extends Model
     public $id;
 
     /**
+     * @description The file that has web tamper proofing enabled.
+     *
+     * > If the value of **Mode** is **whitelist**, this parameter is returned.
      * @example /home/admin/tomcat/aaa.log
      *
      * @var string
@@ -58,6 +79,9 @@ class configList extends Model
     public $inclusiveFile;
 
     /**
+     * @description The type of the file that has web tamper proofing enabled.
+     *
+     * > If the value of **Mode** is **whitelist**, this parameter is returned.
      * @example jpg
      *
      * @var string
@@ -65,6 +89,8 @@ class configList extends Model
     public $inclusiveFileType;
 
     /**
+     * @description The local path to the backup files of the protected directory.
+     *
      * @example /usr/local/backup
      *
      * @var string
@@ -72,6 +98,11 @@ class configList extends Model
     public $localBackupDir;
 
     /**
+     * @description The protection mode of web tamper proofing. Valid values:
+     *
+     *   **whitelist**: In this mode, web tamper proofing is enabled for the specified directories and file types.
+     *   **blacklist**: In this mode, web tamper proofing is enabled for the unspecified subdirectories, file types, and files in the protected directory.
+     *
      * @example blacklist
      *
      * @var string
@@ -79,6 +110,8 @@ class configList extends Model
     public $mode;
 
     /**
+     * @description The UUID of the server that has web tamper proofing enabled.
+     *
      * @example 80d2f7d6-31a9-4d7f-8ff4-7ecc42f8****
      *
      * @var string

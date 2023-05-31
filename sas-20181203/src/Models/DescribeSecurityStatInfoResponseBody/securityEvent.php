@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class securityEvent extends Model
 {
     /**
-     * @description The numbers of high-risk unfixed vulnerabilities at all points in time.
+     * @description The points in time when data of unhandled alerts is collected in the trend chart.
      *
      * @var string[]
      */
     public $dateArray;
 
     /**
-     * @description The point in time when the number of attacks is collected in the trend chart.
+     * @description The risk levels of unhandled alerts.
      *
      * @var string[]
      */
     public $levelsOn;
 
     /**
-     * @description The points in time when data of unhandled alerts is collected in the trend chart.
+     * @description The number of **remind** alerts on the current day.
      *
      * @example 0
      *
@@ -32,17 +32,14 @@ class securityEvent extends Model
     public $remindCount;
 
     /**
-     * @description The numbers of unhandled alerts at all points in time.
+     * @description The numbers of remind alerts at all points in time.
      *
      * @var string[]
      */
     public $remindList;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
+     * @description The number of **serious** alerts on the current day.
      *
      * @example 404
      *
@@ -51,14 +48,14 @@ class securityEvent extends Model
     public $seriousCount;
 
     /**
-     * @description The number of **low-risk** unfixed vulnerabilities on the current day.
+     * @description The numbers of serious alerts at all points in time.
      *
      * @var string[]
      */
     public $seriousList;
 
     /**
-     * @description The number of baseline risk items that have the high-risk level at each point in time.
+     * @description The number of **suspicious** alerts on the current day.
      *
      * @example 148
      *
@@ -67,21 +64,21 @@ class securityEvent extends Model
     public $suspiciousCount;
 
     /**
-     * @description The number of **remind** alerts on the current day.
+     * @description The numbers of suspicious alerts at all points in time.
      *
      * @var string[]
      */
     public $suspiciousList;
 
     /**
-     * @description The numbers of medium-risk unfixed vulnerabilities at all points in time.
+     * @description The time periods during which data of the same alert is collected.
      *
      * @var string[]
      */
     public $timeArray;
 
     /**
-     * @description The number of baseline risk items that have the low-risk level on the current day.
+     * @description The total number of unhandled alerts on the current day.
      *
      * @example 552
      *
@@ -90,7 +87,7 @@ class securityEvent extends Model
     public $totalCount;
 
     /**
-     * @description The total number of unfixed vulnerabilities on the current day.
+     * @description The numbers of unhandled alerts at all points in time.
      *
      * @var string[]
      */

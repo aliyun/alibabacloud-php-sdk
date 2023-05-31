@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vulWhitelistList extends Model
 {
     /**
+     * @description The ID of the whitelist.
+     *
      * @example 30376
      *
      * @var int

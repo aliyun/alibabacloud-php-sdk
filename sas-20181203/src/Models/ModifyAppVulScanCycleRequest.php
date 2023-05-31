@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyAppVulScanCycleRequest extends Model
 {
     /**
+     * @description The scan cycle for application vulnerabilities.
+     *
+     *   1week
+     *   2weeks
+     *   3days
+     *
      * @example 1week
      *
      * @var string

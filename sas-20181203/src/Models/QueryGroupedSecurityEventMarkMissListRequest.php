@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class QueryGroupedSecurityEventMarkMissListRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page. Default value: **20**.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -18,7 +18,10 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
     public $currentPage;
 
     /**
-     * @description The name of the alert event. The value indicates a subtype.
+     * @description The handling method. Valid values:
+     *
+     *   **1**: Automatically Added to Whitelist
+     *   **2**: Defense Without Notification
      *
      * @example 1
      *
@@ -27,13 +30,7 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
     public $disposalWay;
 
     /**
-     * @description The operator. Valid values:
-     *
-     *   **contains**: contains
-     *   **notContains**: does not contain
-     *   **strEqual**: equals
-     *   **strNotEqual**: does not equal
-     *   **regex**: regular expression
+     * @description The name of the alert event. The value indicates a subtype.
      *
      * @example Login with unusual location
      *
@@ -51,7 +48,10 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
     public $from;
 
     /**
-     * @description The status code returned. The status code **200** indicates that the request is successful. Other status codes indicate that the request fails. You can identify the cause of the failure based on the status code.
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example zh
      *
@@ -60,7 +60,7 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
     public $lang;
 
     /**
-     * @description The error message returned.
+     * @description The number of entries to return on each page. Default value: **20**.
      *
      * @example 20
      *
@@ -69,7 +69,12 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the user.
+     * @description The condition that is used to query alert events by asset. You can specify a value of the following types:
+     *
+     *   The IP address of the asset.
+     *   The public IP address of the asset.
+     *   The private IP address of the asset.
+     *   The name of the asset.
      *
      * @example 222.185.XX.XX
      *
@@ -78,7 +83,7 @@ class QueryGroupedSecurityEventMarkMissListRequest extends Model
     public $remark;
 
     /**
-     * @description The field that is used in the whitelist rule.
+     * @description The source IP address of the request.
      *
      * @example 113.66.XX.XX
      *

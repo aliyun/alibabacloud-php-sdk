@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class imageRiskList extends Model
 {
     /**
+     * @description The digest value of the image.
+     *
      * @example 3f8efc2184cf1d24936b49c27286a284714b77be34c80c9ee38ca6bf322445****
      *
      * @var string
@@ -17,11 +19,15 @@ class imageRiskList extends Model
     public $digest;
 
     /**
+     * @description An array that consists of the details of the endpoint.
+     *
      * @var endPointList[]
      */
     public $endPointList;
 
     /**
+     * @description The endpoint of Container Registry.
+     *
      * @example https://172.20.XXX.XXX/test
      *
      * @var string
@@ -29,6 +35,8 @@ class imageRiskList extends Model
     public $endpoints;
 
     /**
+     * @description The image of the container.
+     *
      * @example .aliyuncs.com/sas_test/baseline:exploit
      *
      * @var string
@@ -36,6 +44,11 @@ class imageRiskList extends Model
     public $image;
 
     /**
+     * @description The registration status of the image repository. Valid values:
+     *
+     *   **IN_SAS**: The image repository is registered with Security Center.
+     *   **NOT_IN_SAS**: The image repository is not registered with Security Center.
+     *
      * @example IN_SAS
      *
      * @var string
@@ -43,6 +56,8 @@ class imageRiskList extends Model
     public $imageAccessType;
 
     /**
+     * @description The ID of the image.
+     *
      * @example f922bfeb6960436fe3f0e7b62fc6b9a0b47980986669c367c22433269404****
      *
      * @var string
@@ -50,6 +65,8 @@ class imageRiskList extends Model
     public $imageId;
 
     /**
+     * @description The public endpoint of the image repository.
+     *
      * @example ****registry-registry.cn-shenzhen-finance-1.cr.aliyuncs.com/xxxx/docker-****
      *
      * @var string
@@ -57,6 +74,8 @@ class imageRiskList extends Model
     public $internetURLs;
 
     /**
+     * @description The region of the image repository.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -64,6 +83,13 @@ class imageRiskList extends Model
     public $regionId;
 
     /**
+     * @description The type of the image repository. Valid values:
+     *
+     *   **acr**
+     *   **harbor**
+     *   **quay**
+     *   **CI/CD**: Jenkins
+     *
      * @example harbor
      *
      * @var string
@@ -71,6 +97,8 @@ class imageRiskList extends Model
     public $registryType;
 
     /**
+     * @description The ID of the image repository.
+     *
      * @example crr-bk2l746eyxca1****
      *
      * @var string
@@ -78,6 +106,8 @@ class imageRiskList extends Model
     public $repoId;
 
     /**
+     * @description The name of the image repository.
+     *
      * @example scan_test
      *
      * @var string
@@ -85,6 +115,8 @@ class imageRiskList extends Model
     public $repoName;
 
     /**
+     * @description The name of the namespace to which the repository belongs.
+     *
      * @example vultar***
      *
      * @var string
@@ -92,6 +124,11 @@ class imageRiskList extends Model
     public $repoNamespace;
 
     /**
+     * @description The type of the repository. Valid values:
+     *
+     *   `PUBLIC`
+     *   `PRIVATE`
+     *
      * @example PRIVATE
      *
      * @var string
@@ -99,6 +136,8 @@ class imageRiskList extends Model
     public $repoType;
 
     /**
+     * @description The statistics on a security event.
+     *
      * @example {
      * }
      * @var string
@@ -106,6 +145,8 @@ class imageRiskList extends Model
     public $statistics;
 
     /**
+     * @description The tag that is added to the image.
+     *
      * @example 0.1.0
      *
      * @var string
@@ -113,6 +154,11 @@ class imageRiskList extends Model
     public $tag;
 
     /**
+     * @description Indicates whether the image version is immutable. If the image version is immutable, only the image of the latest version in the image repository can be overwritten. Valid values:
+     *
+     *   **0**: The image version is mutable.
+     *   **1**: The image version is immutable.
+     *
      * @example 0
      *
      * @var int
@@ -120,6 +166,8 @@ class imageRiskList extends Model
     public $tagImmutable;
 
     /**
+     * @description The UUID of the image.
+     *
      * @example 624778f3-5bf2-423c-ac0c-47a62c05****
      *
      * @var string
@@ -127,6 +175,8 @@ class imageRiskList extends Model
     public $uuid;
 
     /**
+     * @description The endpoint of the image repository in the VPC.
+     *
      * @example ****-registry-registry-vpc.cn-shenzhen-finance-1.cr.aliyuncs.com/xxxx/docker-****
      *
      * @var string

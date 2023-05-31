@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteStrategyRequest extends Model
 {
     /**
+     * @description The ID of the baseline check policy that you want to delete.
+     *
      * @example 1404656
      *
      * @var string
@@ -16,6 +18,11 @@ class DeleteStrategyRequest extends Model
     public $id;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,7 +30,7 @@ class DeleteStrategyRequest extends Model
     public $lang;
 
     /**
-     * @description Deletes a baseline check policy.
+     * @description The source IP address of the request.
      *
      * @example 192.0.XX.XX
      *

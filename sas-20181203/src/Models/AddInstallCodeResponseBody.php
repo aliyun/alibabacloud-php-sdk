@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddInstallCodeResponseBody extends Model
 {
     /**
-     * @description The validity period of the installation command. The value is a 13-digit timestamp.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
-     * >  The installation command is valid only within the validity period. An expired installation command cannot be used to install the Security Center agent.
      * @example 0B48AB3C-84FC-424D-A01D-B9270EF46038
      *
      * @var string

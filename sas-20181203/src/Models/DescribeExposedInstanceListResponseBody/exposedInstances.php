@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class exposedInstances extends Model
 {
     /**
-     * @description An array that consists of the details about the exposed asset.
+     * @description The number of high-severity vulnerabilities that are exposed on the Internet and can be exploited by attackers.
      *
      * @example 0
      *
@@ -18,6 +18,8 @@ class exposedInstances extends Model
     public $asapVulCount;
 
     /**
+     * @description The total number of servers that are exposed on the Internet.
+     *
      * @example 0
      *
      * @var int
@@ -25,6 +27,8 @@ class exposedInstances extends Model
     public $exploitHealthCount;
 
     /**
+     * @description The server component that is exposed on the Internet.
+     *
      * @example openssl,openssh
      *
      * @var string
@@ -32,7 +36,7 @@ class exposedInstances extends Model
     public $exposureComponent;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The public IP address that is exposed on the Internet.
      *
      * @example 116.12.XX.XX
      *
@@ -41,7 +45,7 @@ class exposedInstances extends Model
     public $exposureIp;
 
     /**
-     * @description Queries the information about the servers that are exposed on the Internet.
+     * @description The port that is exposed on the Internet.
      *
      * @example 22
      *
@@ -50,10 +54,12 @@ class exposedInstances extends Model
     public $exposurePort;
 
     /**
-     * @description Specifies whether the server has vulnerabilities. Valid values:
+     * @description The resource from which the asset is exposed. Valid values:
      *
-     *   **true**: The server has vulnerabilities.
-     *   **false**: The server does not have vulnerabilities.
+     *   **INTERNET_IP**: the public IP address of an ECS instance
+     *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance
+     *   **EIP**: an elastic IP address (EIP)
+     *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
      *
      * @example INTERNET_IP
      *
@@ -62,7 +68,12 @@ class exposedInstances extends Model
     public $exposureType;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the ExposureType parameter.
+     *
+     *   If the value of the ExposureType parameter is **INTERNET_IP**, this parameter is empty.
+     *   If the value of the ExposureType parameter is **SLB**, the value of this parameter is the ID of the SLB instance.
+     *   If the value of the ExposureType parameter is **EIP**, the value of this parameter is the ID of the EIP.
+     *   If the value of the ExposureType parameter is **DNAT**, the value of this parameter is the ID of the NAT gateway.
      *
      * @example i-ew11313a****
      *
@@ -71,6 +82,8 @@ class exposedInstances extends Model
     public $exposureTypeId;
 
     /**
+     * @description The ID of the server group.
+     *
      * @example 9469268
      *
      * @var int
@@ -78,6 +91,8 @@ class exposedInstances extends Model
     public $groupId;
 
     /**
+     * @description The name of the server group.
+     *
      * @example testGroup
      *
      * @var string
@@ -94,6 +109,8 @@ class exposedInstances extends Model
     public $instanceId;
 
     /**
+     * @description The name of the server.
+     *
      * @example abc_centos7.2_005
      *
      * @var string
@@ -101,7 +118,7 @@ class exposedInstances extends Model
     public $instanceName;
 
     /**
-     * @description The pagination information.
+     * @description The public IP address of the server.
      *
      * @example 116.12.XX.XX
      *
@@ -110,7 +127,7 @@ class exposedInstances extends Model
     public $internetIp;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The private IP address of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -119,6 +136,8 @@ class exposedInstances extends Model
     public $intranetIp;
 
     /**
+     * @description The number of medium-severity vulnerabilities that are exposed on the Internet and can be exploited by attackers.
+     *
      * @example 0
      *
      * @var int
@@ -126,7 +145,7 @@ class exposedInstances extends Model
     public $laterVulCount;
 
     /**
-     * @description The private IP address of the server.
+     * @description The number of low-severity vulnerabilities that are exposed on the Internet and can be exploited by attackers.
      *
      * @example 0
      *
@@ -135,8 +154,9 @@ class exposedInstances extends Model
     public $nntfVulCount;
 
     /**
-     * @description The ID of the server.
+     * @description The ID of the region where the server resides.
      *
+     * >  For more information about the mapping between region IDs and region names, see [Regions and zones](~~40654~~).
      * @example cn-hangzhou
      *
      * @var string
@@ -144,12 +164,7 @@ class exposedInstances extends Model
     public $regionId;
 
     /**
-     * @description The ID of the instance to which the resource belongs. The valid values of this parameter vary based on the ExposureType parameter.
-     *
-     *   If the value of the ExposureType parameter is **INTERNET_IP**, this parameter is empty.
-     *   If the value of the ExposureType parameter is **SLB**, the value of this parameter is the ID of the SLB instance.
-     *   If the value of the ExposureType parameter is **EIP**, the value of this parameter is the ID of the EIP.
-     *   If the value of the ExposureType parameter is **DNAT**, the value of this parameter is the ID of the NAT gateway.
+     * @description The total number of vulnerabilities that are exposed on the Internet and can be exploited by attackers.
      *
      * @example 0
      *
@@ -158,7 +173,7 @@ class exposedInstances extends Model
     public $totalVulCount;
 
     /**
-     * @description DescribeExposedInstanceList
+     * @description The UUID of the server.
      *
      * @example dd803d9e-a337-4add-9c5b-7d503e08****
      *

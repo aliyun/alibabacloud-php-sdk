@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListSystemAggregationRulesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details about the aggregation types.
+     *
      * @var aggregationList[]
      */
     public $aggregationList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 6800B790-B10A-5C2F-BEB3-F1D5CE61****
      *
      * @var string

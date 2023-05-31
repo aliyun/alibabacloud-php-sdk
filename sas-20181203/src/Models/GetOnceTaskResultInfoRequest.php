@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetOnceTaskResultInfoRequest extends Model
 {
     /**
-     * @description The number of tasks that were completed.
+     * @description The ID of the scan task.
      *
      * @example 9dfa3a7eb9547781632785b49003****
      *
@@ -18,7 +18,11 @@ class GetOnceTaskResultInfoRequest extends Model
     public $taskId;
 
     /**
-     * @description The ID of the scan task.
+     * @description The name of the task. Valid values:
+     *
+     *   **CLIENT\_PROBLEM_CHECK**: a task of the Security Center agent
+     *   **CLIENT\_DEV_OPS**: an O\&M task of Cloud Assistant
+     *   **ASSET\_SECURITY_CHECK**: a task of asset information collection
      *
      * @example ASSETS_COLLECTION
      *
@@ -27,7 +31,11 @@ class GetOnceTaskResultInfoRequest extends Model
     public $taskName;
 
     /**
-     * @description The total number of entries returned.
+     * @description The type of the task. Valid values:
+     *
+     *   **CLIENT\_PROBLEM_CHECK**: a task of the Security Center agent
+     *   **CLIENT\_DEV_OPS**: an O\&M task of Cloud Assistant
+     *   **ASSET\_SECURITY_CHECK**: a task of asset information collection
      *
      * @example ASSETS_COLLECTION
      *

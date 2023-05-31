@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ruleTargetList extends Model
 {
     /**
+     * @description The name of the application to which the network object belongs.
+     *
      * @example frontend
      *
      * @var string
@@ -16,6 +18,8 @@ class ruleTargetList extends Model
     public $appName;
 
     /**
+     * @description The ID of the container cluster.
+     *
      * @example c3e2eae03eb064d2ebf940cd5e1b17****
      *
      * @var string
@@ -23,6 +27,8 @@ class ruleTargetList extends Model
     public $clusterId;
 
     /**
+     * @description The name of the container cluster.
+     *
      * @example sas-test-cnnf
      *
      * @var string
@@ -30,11 +36,15 @@ class ruleTargetList extends Model
     public $clusterName;
 
     /**
+     * @description An array that consists of the images of the network object.
+     *
      * @var string[]
      */
     public $imageList;
 
     /**
+     * @description The namespace to which the network object belongs.
+     *
      * @example default
      *
      * @var string
@@ -42,6 +52,10 @@ class ruleTargetList extends Model
     public $namespace;
 
     /**
+     * @description The rule type. Valid values:
+     *
+     *   customize: custom rule
+     *
      * @example customize
      *
      * @var string
@@ -49,11 +63,16 @@ class ruleTargetList extends Model
     public $ruleType;
 
     /**
+     * @description An array that consists of the labels specified for the network object.
+     *
      * @var string[]
      */
     public $tagList;
 
     /**
+     * @description The ID of the network object.
+     *
+     * > You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the IDs of network objects.
      * @example 400914
      *
      * @var int
@@ -61,6 +80,8 @@ class ruleTargetList extends Model
     public $targetId;
 
     /**
+     * @description The name of the network object.
+     *
      * @example destination-test-obj-Na3cF
      *
      * @var string
@@ -68,6 +89,10 @@ class ruleTargetList extends Model
     public $targetName;
 
     /**
+     * @description The type of the network object. Valid values:
+     *
+     *   IMAGE
+     *
      * @example IMAGE
      *
      * @var string

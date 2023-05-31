@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instanceSubTypes extends Model
 {
     /**
+     * @description The name of the asset subtype.
+     *
      * @example SECURITY_GROUP
      *
      * @var string

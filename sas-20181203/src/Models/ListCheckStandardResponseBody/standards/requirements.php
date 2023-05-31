@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class requirements extends Model
 {
     /**
+     * @description The ID of the search condition.
+     *
      * @example 11
      *
      * @var int
@@ -16,6 +18,8 @@ class requirements extends Model
     public $id;
 
     /**
+     * @description The number of check items queried by using the search condition.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,10 @@ class requirements extends Model
     public $riskCheckCount;
 
     /**
+     * @description The display name of the search condition.
+     *
+     * @example RAM identity authentication
+     *
      * @var string
      */
     public $showName;

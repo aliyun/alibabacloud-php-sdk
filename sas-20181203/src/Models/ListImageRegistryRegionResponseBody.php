@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListImageRegistryRegionResponseBody extends Model
 {
     /**
-     * @description An array that consists of regions.
-     *
      * @var regions[]
      */
     public $regions;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
      * @example 291B49F9-1685-4005-9D34-606B6F78****
      *
      * @var string

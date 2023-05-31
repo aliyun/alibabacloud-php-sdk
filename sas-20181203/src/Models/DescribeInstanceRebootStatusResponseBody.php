@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRebootStatusResponseBody extends Model
 {
     /**
+     * @description An array that consists of the status information about the servers that you restart.
+     *
      * @var rebootStatuses[]
      */
     public $rebootStatuses;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 5BD95679-D63A-4151-97D0-188432F4A57
      *
      * @var string
@@ -22,7 +26,7 @@ class DescribeInstanceRebootStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description DescribeInstanceRebootStatus
+     * @description The total number of entries returned.
      *
      * @example 100
      *

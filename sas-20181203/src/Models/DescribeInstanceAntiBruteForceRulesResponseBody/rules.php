@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The ID of the defense rule.
+     *
      * @example 215779601
      *
      * @var int
@@ -16,6 +18,8 @@ class rules extends Model
     public $id;
 
     /**
+     * @description The name of the defense rule.
+     *
      * @example TestRule
      *
      * @var string
@@ -23,6 +27,8 @@ class rules extends Model
     public $name;
 
     /**
+     * @description The UUID of the server to which the defense rule is applied.
+     *
      * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
      *
      * @var string

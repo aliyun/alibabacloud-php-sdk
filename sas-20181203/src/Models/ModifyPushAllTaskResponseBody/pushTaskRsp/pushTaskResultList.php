@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pushTaskResultList extends Model
 {
     /**
-     * @description The region in which the server resides.
+     * @description The ID of the server group to which the server belongs.
      *
      * @example 226
      *
@@ -18,6 +18,8 @@ class pushTaskResultList extends Model
     public $groupId;
 
     /**
+     * @description The ID of the server.
+     *
      * @example i-wz9f7wlklxqnvdk****
      *
      * @var string
@@ -25,7 +27,7 @@ class pushTaskResultList extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the server.
+     * @description The name of the server.
      *
      * @example TestInstance
      *
@@ -34,12 +36,16 @@ class pushTaskResultList extends Model
     public $instanceName;
 
     /**
+     * @description The IP address of the server.
+     *
+     * @example 127.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
-     * @description ModifyPushAllTask
+     * @description The message that describes the security check failure.
      *
      * @example successful
      *
@@ -48,8 +54,12 @@ class pushTaskResultList extends Model
     public $message;
 
     /**
-     * @description Performs security check tasks on servers with a few clicks.
+     * @description Indicates whether the Security Center agent is online. Valid values:
      *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  If the Security Center agent of the server is offline, Security Center does not protect the server.
      * @example false
      *
      * @var bool
@@ -57,6 +67,8 @@ class pushTaskResultList extends Model
     public $online;
 
     /**
+     * @description The operating system version of the server.
+     *
      * @example linux
      *
      * @var string
@@ -64,7 +76,7 @@ class pushTaskResultList extends Model
     public $osVersion;
 
     /**
-     * @description 1.2.XX.XX
+     * @description The region in which the server resides.
      *
      * @example cn-beijing
      *
@@ -73,7 +85,10 @@ class pushTaskResultList extends Model
     public $region;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description Indicates whether the security check task is successful. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example false
      *
@@ -82,12 +97,8 @@ class pushTaskResultList extends Model
     public $success;
 
     /**
-     * @description Indicates whether the Security Center agent is online. Valid values:
+     * @description The UUID of the server.
      *
-     *   **true**: yes
-     *   **false**: no
-     *
-     * >  If the Security Center agent of the server is offline, Security Center does not protect the server.
      * @example 5493fe42-61f5-4627-9aa2-8c449bbe****
      *
      * @var string

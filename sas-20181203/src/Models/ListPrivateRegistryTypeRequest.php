@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListPrivateRegistryTypeRequest extends Model
 {
     /**
+     * @description 请求和接收消息的语言类型。取值：
+     * - **zh**：中文
+     * - **en**：英文
+     * @example zh
+     *
      * @var string
      */
     public $lang;

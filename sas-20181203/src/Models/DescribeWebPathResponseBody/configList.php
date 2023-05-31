@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class configList extends Model
 {
     /**
+     * @description An array consisting of the servers on which the web directories are scanned.
+     *
      * @var targetList[]
      */
     public $targetList;
 
     /**
+     * @description The path to the web directory.
+     *
      * @example /root/www****
      *
      * @var string
@@ -22,6 +26,11 @@ class configList extends Model
     public $webPath;
 
     /**
+     * @description The path type of the web directory. Valid values:
+     *
+     *   **def**: automatically identified
+     *   **customize**: manually added
+     *
      * @example def
      *
      * @var string

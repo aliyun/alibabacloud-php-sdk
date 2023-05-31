@@ -10,50 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListCloudAssetInstancesRequest extends Model
 {
     /**
-     * @description The cloud service asset.
+     * @description The cloud service assets.
      *
      * @var cloudAssetTypes[]
      */
     public $cloudAssetTypes;
-
-    /**
-     * @description The logical relation for multiple search conditions. Valid values:
-     *
-     *   **OR**: The search conditions use a logical **OR**.
-     *   **AND**: The search conditions use a logical **AND**.
-     *
-     * @example [{\"name\":\"internetIp\",\"value\":\"192.168\",\"logicalExp\":\"OR\"}]
-     *
-     * @var string
-     */
-    public $criteria;
-
-    /**
-     * @description The cloud service assets.
-     *
-     * @example 2
-     *
-     * @var int
-     */
-    public $currentPage;
-
-    /**
-     * @description The number of entries to return on each page. Maximum value: 100. Default value: 20.
-     *
-     * @example OR
-     *
-     * @var string
-     */
-    public $logicalExp;
-
-    /**
-     * @description The number of the page to return.
-     *
-     * @example 20
-     *
-     * @var int
-     */
-    public $pageSize;
 
     /**
      * @description The search conditions for assets. The value of this parameter is in the JSON format and contains the following fields:
@@ -68,6 +29,45 @@ class ListCloudAssetInstancesRequest extends Model
      *   **AND**: The search conditions use a logical **AND**.
      *
      * > You can call the [GetCloudAssetCriteria](~~GetCloudAssetCriteria~~) operation to query supported search conditions.
+     * @example [{\"name\":\"internetIp\",\"value\":\"192.168\",\"logicalExp\":\"OR\"}]
+     *
+     * @var string
+     */
+    public $criteria;
+
+    /**
+     * @description The number of the page to return.
+     *
+     * @example 2
+     *
+     * @var int
+     */
+    public $currentPage;
+
+    /**
+     * @description The logical relation for multiple search conditions. Valid values:
+     *
+     *   **OR**: The search conditions use a logical **OR**.
+     *   **AND**: The search conditions use a logical **AND**.
+     *
+     * @example OR
+     *
+     * @var string
+     */
+    public $logicalExp;
+
+    /**
+     * @description The number of entries to return on each page. Maximum value: 100. Default value: 20.
+     *
+     * @example 20
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string

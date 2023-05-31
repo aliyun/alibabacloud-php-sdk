@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyInterceptionRuleShrinkRequest extends Model
 {
     /**
+     * @description The ID of the container cluster.
+     *
+     * > You can call the [DescribeGroupedContainerInstances](~~182997~~) operation to query the IDs of container clusters.
      * @example c17ef568f81884cdab402decd5fcd****
      *
      * @var string
@@ -16,6 +19,8 @@ class ModifyInterceptionRuleShrinkRequest extends Model
     public $clusterId;
 
     /**
+     * @description The list of destination network objects.
+     *
      * @example {"targetId":600069,"ports":["80/8088"]}
      *
      * @var string
@@ -23,6 +28,12 @@ class ModifyInterceptionRuleShrinkRequest extends Model
     public $dstTargetShrink;
 
     /**
+     * @description The interception mode. Valid values:
+     *
+     *   **1**: block
+     *   **2**: alert
+     *   **3**: allow
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +41,8 @@ class ModifyInterceptionRuleShrinkRequest extends Model
     public $interceptType;
 
     /**
+     * @description The priority of the rule. Valid values: 1 to 1000. A smaller value indicates a higher priority.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +50,8 @@ class ModifyInterceptionRuleShrinkRequest extends Model
     public $orderIndex;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 500018
      *
      * @var int
@@ -44,6 +59,8 @@ class ModifyInterceptionRuleShrinkRequest extends Model
     public $ruleId;
 
     /**
+     * @description The name of the rule.
+     *
      * @example tetsRule
      *
      * @var string
@@ -51,6 +68,11 @@ class ModifyInterceptionRuleShrinkRequest extends Model
     public $ruleName;
 
     /**
+     * @description Specifies whether the rule is enabled. Valid values:
+     *
+     *   **1**: enabled
+     *   **0**: disabled
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +80,8 @@ class ModifyInterceptionRuleShrinkRequest extends Model
     public $ruleSwitch;
 
     /**
+     * @description The list of source network objects.
+     *
      * @example {"targetId":400989}
      *
      * @var string

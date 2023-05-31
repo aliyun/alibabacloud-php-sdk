@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OperationCancelIgnoreSuspEventRequest extends Model
 {
     /**
-     * @description OperationCancelIgnoreSuspEvent
+     * @description The IDs of alert events.
      *
      * @var int[]
      */

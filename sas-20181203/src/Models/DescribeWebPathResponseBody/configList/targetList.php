@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class targetList extends Model
 {
     /**
+     * @description The object.
+     *
      * @example 82048187-bb9b-4e19-8320-7b4ddb97****
      *
      * @var string
@@ -16,6 +18,10 @@ class targetList extends Model
     public $target;
 
     /**
+     * @description The object type. Valid values:
+     *
+     *   **uuid**
+     *
      * @example uuid
      *
      * @var string

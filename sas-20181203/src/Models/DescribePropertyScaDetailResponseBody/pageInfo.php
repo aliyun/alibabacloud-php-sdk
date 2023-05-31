@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description The name of the server on which the middleware, database, or web service is run.
+     * @description The number of entries returned on the current page.
      *
      * @example 2
      *
@@ -18,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description name
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The public IP address of the server on which the middleware, database, or web service is run.
+     * @description The number of entries returned per page. Default value: **10**.
      *
      * @example 20
      *
@@ -36,9 +36,8 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The version of the runtime environment.
+     * @description The total number of entries returned.
      *
-     * >  The value of this parameter can be the Java Development Kit (JDK) version of the runtime environment for a Java process.
      * @example 2
      *
      * @var int

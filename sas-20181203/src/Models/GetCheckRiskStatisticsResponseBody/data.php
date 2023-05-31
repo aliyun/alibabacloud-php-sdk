@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of high-risk items.
+     *
      * @example 43
      *
      * @var int
@@ -17,6 +19,8 @@ class data extends Model
     public $highWarningCount;
 
     /**
+     * @description The number of low-risk items.
+     *
      * @example 3
      *
      * @var int
@@ -24,6 +28,8 @@ class data extends Model
     public $lowWarningCount;
 
     /**
+     * @description The number of medium-risk items.
+     *
      * @example 29
      *
      * @var int
@@ -31,6 +37,8 @@ class data extends Model
     public $mediumWarningCount;
 
     /**
+     * @description The number of passed check items.
+     *
      * @example 143
      *
      * @var int
@@ -38,6 +46,8 @@ class data extends Model
     public $passCount;
 
     /**
+     * @description The name of the risk scenario.
+     *
      * @example SECURITY
      *
      * @var string
@@ -45,11 +55,15 @@ class data extends Model
     public $sceneName;
 
     /**
+     * @description An array consisting of the statistics on check items that are used in the risk scenario by baseline type.
+     *
      * @var subStatistics[]
      */
     public $subStatistics;
 
     /**
+     * @description The total number of check items.
+     *
      * @example 219
      *
      * @var int

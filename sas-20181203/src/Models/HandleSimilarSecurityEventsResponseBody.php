@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class HandleSimilarSecurityEventsResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example A3653911-33A6-5268-8B91-7690471F7AA1
      *
      * @var string

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListClusterCnnfStatusDetailResponseBody extends Model
 {
     /**
-     * @description The ID of the server.
+     * @description An array that consists of the protection status of the container firewall.
      *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 64329F40-5C94-51D3-A400-37AA7BAC****
      *

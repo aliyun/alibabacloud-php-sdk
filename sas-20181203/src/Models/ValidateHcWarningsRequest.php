@@ -14,7 +14,7 @@ class ValidateHcWarningsRequest extends Model
     public $checkIds;
 
     /**
-     * @description The UUIDs of servers on which you want to verify risk items.
+     * @description The IDs of risk items that you want to verify. Separate multiple IDs with commas (,).
      *
      * @example 43
      *
@@ -23,7 +23,7 @@ class ValidateHcWarningsRequest extends Model
     public $riskIds;
 
     /**
-     * @description The ID of the request.
+     * @description The UUIDs of servers on which you want to verify risk items.
      *
      * @example 78645c8e-2e89-441b-8eb,a9622a6b-adb5-4dd3-929e,0136460a-1cb5-44e8-****
      *

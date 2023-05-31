@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyLogMetaStatusRequest extends Model
 {
     /**
+     * @description The ID of the request source. Set the value to **sas**.
+     *
      * @example sas
      *
      * @var string
@@ -16,6 +18,9 @@ class ModifyLogMetaStatusRequest extends Model
     public $from;
 
     /**
+     * @description The name of the dedicated Logstore in which logs are stored.
+     *
+     * >  You can call the [DescribeLogMeta](~~DescribeLogMeta~~) operation to query the names of Logstores.
      * @example aegis-log-login
      *
      * @var string
@@ -23,6 +28,9 @@ class ModifyLogMetaStatusRequest extends Model
     public $logStore;
 
     /**
+     * @description The name of the project.
+     *
+     * >  You can call the [DescribeLogMeta](~~DescribeLogMeta~~) operation to query the names of projects.
      * @example aegis-log
      *
      * @var string
@@ -30,6 +38,11 @@ class ModifyLogMetaStatusRequest extends Model
     public $project;
 
     /**
+     * @description The status of the log analysis feature. Valid values:
+     *
+     *   **enabled**
+     *   **disabled**
+     *
      * @example disabled
      *
      * @var string

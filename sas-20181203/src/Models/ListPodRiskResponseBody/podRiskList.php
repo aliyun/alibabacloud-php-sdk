@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class podRiskList extends Model
 {
     /**
+     * @description The number of alerts that are generated for the pod.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,8 @@ class podRiskList extends Model
     public $alarmCount;
 
     /**
+     * @description The ID of the container cluster.
+     *
      * @example c1d903a628af043659a043af59d89****
      *
      * @var string
@@ -23,6 +27,8 @@ class podRiskList extends Model
     public $clusterId;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example test66
      *
      * @var string
@@ -30,6 +36,8 @@ class podRiskList extends Model
     public $clusterName;
 
     /**
+     * @description The timestamp when the pod was created. Unit: milliseconds.
+     *
      * @example 1644283112720
      *
      * @var int
@@ -37,6 +45,8 @@ class podRiskList extends Model
     public $createTime;
 
     /**
+     * @description The number of baseline risk items that are detected in the pod.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class podRiskList extends Model
     public $hcCount;
 
     /**
+     * @description The ID of the node.
+     *
      * @example i-7yvdq597****
      *
      * @var string
@@ -51,6 +63,8 @@ class podRiskList extends Model
     public $instanceId;
 
     /**
+     * @description The namespace of the Kubernetes cluster.
+     *
      * @example kube-system
      *
      * @var string
@@ -58,6 +72,8 @@ class podRiskList extends Model
     public $namespace;
 
     /**
+     * @description The name of the node.
+     *
      * @example test
      *
      * @var string
@@ -65,6 +81,8 @@ class podRiskList extends Model
     public $nodeName;
 
     /**
+     * @description The name of the pod.
+     *
      * @example expoit-xxx-b****
      *
      * @var string
@@ -72,6 +90,8 @@ class podRiskList extends Model
     public $pod;
 
     /**
+     * @description The IP address of the pod.
+     *
      * @example 172.0.XXX.XXX
      *
      * @var string
@@ -79,6 +99,8 @@ class podRiskList extends Model
     public $podIp;
 
     /**
+     * @description The number of vulnerabilities that are detected in the pod.
+     *
      * @example 1
      *
      * @var int

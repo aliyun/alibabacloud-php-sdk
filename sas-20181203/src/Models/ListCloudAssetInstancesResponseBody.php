@@ -11,21 +11,21 @@ use AlibabaCloud\Tea\Model;
 class ListCloudAssetInstancesResponseBody extends Model
 {
     /**
-     * @description The details of the cloud asset.
+     * @description An array that consists of the details of the cloud assets.
      *
      * @var instances[]
      */
     public $instances;
 
     /**
-     * @description The page number of the returned page.
+     * @description The pagination information.
      *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The pagination information.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 028CF634-5268-5660-9575-48C9ED6BF880
      *
@@ -34,7 +34,10 @@ class ListCloudAssetInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example true
      *

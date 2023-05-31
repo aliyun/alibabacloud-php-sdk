@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class strategy extends Model
 {
     /**
+     * @description The type of the baseline check policy. Valid values:
+     *
+     *   **common**: standard baseline check policy
+     *   **custom**: custom baseline check policy
+     *
      * @example common
      *
      * @var string
@@ -17,29 +22,13 @@ class strategy extends Model
     public $customType;
 
     /**
-     * @description The alias of the sub-check item.
+     * @description The check interval of the policy.
      *
      * @example 3
      *
      * @var int
      */
     public $cycleDays;
-
-    /**
-     * @description The details of the rule.
-     *
-     * @example 0
-     *
-     * @var int
-     */
-    public $cycleStartTime;
-
-    /**
-     * @example 03:00:00
-     *
-     * @var string
-     */
-    public $endTime;
 
     /**
      * @description The time period during which the check starts. Valid values:
@@ -49,6 +38,24 @@ class strategy extends Model
      *   **12**: 12:00 to 18:00
      *   **18**: 18:00 to 24:00
      *
+     * @example 0
+     *
+     * @var int
+     */
+    public $cycleStartTime;
+
+    /**
+     * @description The time when the baseline check based on the baseline check policy ends.
+     *
+     * @example 03:00:00
+     *
+     * @var string
+     */
+    public $endTime;
+
+    /**
+     * @description The ID of the baseline check policy.
+     *
      * @example 123
      *
      * @var int
@@ -56,7 +63,7 @@ class strategy extends Model
     public $id;
 
     /**
-     * @description The ID of the rule.
+     * @description The name of the baseline check policy.
      *
      * @example TestStrategy
      *
@@ -65,6 +72,8 @@ class strategy extends Model
     public $name;
 
     /**
+     * @description The subtype of the baselines.
+     *
      * @example hc_nginx_linux,tomcat7,hc_mysql_ali,hc_docker
      *
      * @var string
@@ -72,13 +81,15 @@ class strategy extends Model
     public $riskSubTypeName;
 
     /**
-     * @description The check item.
+     * @description An array that consists of the whitelist of risk items.
      *
      * @var riskTypeWhiteListQueryResultList[]
      */
     public $riskTypeWhiteListQueryResultList;
 
     /**
+     * @description The time when the baseline check based on the baseline check policy starts.
+     *
      * @example 02:00:00
      *
      * @var string
@@ -86,6 +97,11 @@ class strategy extends Model
     public $startTime;
 
     /**
+     * @description The condition by which the baseline check policy is applied to the asset. Valid values:
+     *
+     *   **groupId**: the ID of the asset group
+     *   **uuid**: the UUID of the asset
+     *
      * @example groupId
      *
      * @var string
@@ -93,7 +109,10 @@ class strategy extends Model
     public $targetType;
 
     /**
-     * @description The name of the rule parameter.
+     * @description The type of the baseline check policy. Valid values:
+     *
+     *   **1**: standard baseline check policy
+     *   **2**: custom baseline check policy
      *
      * @example 1
      *

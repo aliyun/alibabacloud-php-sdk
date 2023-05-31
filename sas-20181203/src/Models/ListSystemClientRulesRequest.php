@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListSystemClientRulesRequest extends Model
 {
     /**
+     * @description The IDs of the aggregation types for rules.
+     *
      * @var int[]
      */
     public $aggregationIds;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +25,11 @@ class ListSystemClientRulesRequest extends Model
     public $currentPage;
 
     /**
+     * @description Specifies whether to query only container images. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +37,11 @@ class ListSystemClientRulesRequest extends Model
     public $isContainer;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -35,6 +49,8 @@ class ListSystemClientRulesRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -42,16 +58,28 @@ class ListSystemClientRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the system defense rule.
+     *
+     * @example Rule\*\*\*\*
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The types of the system defense rules.
+     *
      * @var int[]
      */
     public $ruleTypes;
 
     /**
+     * @description The type of the OS. Valid values:
+     *
+     *   **2**: Windows
+     *   **1**: Linux
+     *   **0**: all types
+     *
      * @example 0
      *
      * @var int

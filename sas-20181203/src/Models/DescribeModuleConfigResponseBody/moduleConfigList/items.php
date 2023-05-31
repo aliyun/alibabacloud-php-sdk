@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The ID of the server group to which the server belongs.
-     *
      * @example 173
      *
      * @var int
@@ -18,8 +16,6 @@ class items extends Model
     public $groupId;
 
     /**
-     * @description The ID of the server.
-     *
      * @example i-uf6435dn4t59b9av****
      *
      * @var string
@@ -27,8 +23,6 @@ class items extends Model
     public $instanceId;
 
     /**
-     * @description The name of the server.
-     *
      * @example inStanceName****
      *
      * @var string
@@ -36,8 +30,6 @@ class items extends Model
     public $instanceName;
 
     /**
-     * @description The IP address of the server.
-     *
      * @example 31.13.XX.XX
      *
      * @var string
@@ -45,8 +37,6 @@ class items extends Model
     public $ip;
 
     /**
-     * @description The region in which the server resides.
-     *
      * @example cn-hangzhou
      *
      * @var string
@@ -54,8 +44,6 @@ class items extends Model
     public $region;
 
     /**
-     * @description The UUID of the server.
-     *
      * @example a47e3713-ed22-4015-93a3-d88ebe6****
      *
      * @var string

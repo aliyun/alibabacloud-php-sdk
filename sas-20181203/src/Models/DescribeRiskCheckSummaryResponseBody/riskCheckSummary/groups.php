@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
+     * @description An array that consists of the statistics about check results.
+     *
      * @var countByStatus[]
      */
     public $countByStatus;
 
     /**
+     * @description The ID of the check item type.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class groups extends Model
     public $id;
 
     /**
+     * @description The remaining time before the check is complete.
+     *
      * @example 0
      *
      * @var int
@@ -29,6 +35,8 @@ class groups extends Model
     public $remainingTime;
 
     /**
+     * @description The sequence number of the check item type in the **All Types** drop-down list in the Security Center console.
+     *
      * @example 1
      *
      * @var int
@@ -36,6 +44,13 @@ class groups extends Model
     public $sort;
 
     /**
+     * @description The status of the check. Valid values:
+     *
+     *   **finish**: The check is finished.
+     *   **running**: The check is in progress.
+     *   **waiting**: The check is pending.
+     *   **notStart**: The check is not started.
+     *
      * @example finish
      *
      * @var string
@@ -43,6 +58,10 @@ class groups extends Model
     public $status;
 
     /**
+     * @description The name of the check item type.
+     *
+     * @example Identity authentication and permissions
+     *
      * @var string
      */
     public $title;

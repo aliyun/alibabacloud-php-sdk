@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description The version of the anti-ransomware policy. Valid values:
-     *
-     *   1.0.0
-     *   2.0.0
+     * @description The number of entries returned on the current page.
      *
      * @example 3
      *
@@ -21,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description An array that consists of the anti-ransomware policies returned.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -30,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The number of the servers on which the anti-ransomware agent is in an abnormal state.
+     * @description The number of entries returned per page. Default value: 10.
      *
      * @example 10
      *
@@ -39,11 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The status of the anti-ransomware policy. Valid values:
-     *
-     *   **enabled**: The anti-ransomware policy is manually enabled.
-     *   **disabled**: The anti-ransomware policy is manually disabled. After an anti-ransomware policy is disabled, the data backup task that is running based on the policy stops.
-     *   **closed**: The anti-ransomware policy automatically stops because the anti-ransomware capacity is insufficient.
+     * @description The total number of anti-ransomware policies returned.
      *
      * @example 30
      *

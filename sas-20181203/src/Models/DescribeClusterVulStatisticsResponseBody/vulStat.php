@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vulStat extends Model
 {
     /**
+     * @description The number of high-risk vulnerabilities.
+     *
      * @example 13
      *
      * @var string
@@ -16,6 +18,8 @@ class vulStat extends Model
     public $asapCount;
 
     /**
+     * @description The number of medium-risk vulnerabilities.
+     *
      * @example 21
      *
      * @var string
@@ -23,6 +27,8 @@ class vulStat extends Model
     public $laterCount;
 
     /**
+     * @description The number of low-risk vulnerabilities.
+     *
      * @example 0
      *
      * @var string

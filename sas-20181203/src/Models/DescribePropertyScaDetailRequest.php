@@ -9,15 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyScaDetailRequest extends Model
 {
     /**
-     * @description The IP address that the process monitors.
-     *
-     * @example sca
-     *
-     * @var string
-     */
-    public $biz;
-
-    /**
      * @description The type of the asset fingerprint that you want to query. Default value: **sca**. Valid values:
      *
      *   **sca**: middleware
@@ -25,6 +16,23 @@ class DescribePropertyScaDetailRequest extends Model
      *   **sca_web**: web service
      *
      * >  If you do not specify this parameter, the default value **sca** is used, which indicates that middleware fingerprints are queried.
+     * @example sca
+     *
+     * @var string
+     */
+    public $biz;
+
+    /**
+     * @description The type of the middleware, database, or web service that you want to query. Valid values:
+     *
+     *   **system_service**: system service
+     *   **software_library**: software library
+     *   **docker_component**: container component
+     *   **database**: database
+     *   **web_container**: web container
+     *   **jar**: JAR package
+     *   **web_framework**: web framework
+     *
      * @example system_service
      *
      * @var string
@@ -32,7 +40,7 @@ class DescribePropertyScaDetailRequest extends Model
     public $bizType;
 
     /**
-     * @description 1
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -53,8 +61,9 @@ class DescribePropertyScaDetailRequest extends Model
     public $lang;
 
     /**
-     * @description 10
+     * @description The name of the middleware, database, or web service.
      *
+     * >  This parameter is deprecated. You can ignore it.
      * @example 1
      *
      * @var int
@@ -62,21 +71,87 @@ class DescribePropertyScaDetailRequest extends Model
     public $name;
 
     /**
-     * @description The type of the middleware, database, or web service. Valid values:
+     * @description The number of entries to return on each page. Default value: **10**.
      *
-     *   **system_service**: system service
-     *   **software_library**: software library
-     *   **docker_component**: container component
-     *   **database**: database
-     *   **web_container**: web container
-     *   **jar**: JAR package
-     *   **web_framework**: web framework
-     *
+     * >  We recommend that you do not leave this parameter empty.
      * @example 10
      *
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @description The PID.
+     *
+     * @example 756
+     *
+     * @var string
+     */
+    public $pid;
+
+    /**
+     * @description The port that the process monitors.
+     *
+     * @example 68
+     *
+     * @var string
+     */
+    public $port;
+
+    /**
+     * @description The timestamp when the process ends. Unit: milliseconds.
+     *
+     * @example 1641110965
+     *
+     * @var int
+     */
+    public $processStartedEnd;
+
+    /**
+     * @description The timestamp when the process starts. Unit: milliseconds.
+     *
+     * @example 1641024565
+     *
+     * @var int
+     */
+    public $processStartedStart;
+
+    /**
+     * @description The search condition, such as a server name or a server IP address.
+     *
+     * >  Fuzzy match is supported.
+     * @example 192.168
+     *
+     * @var string
+     */
+    public $remark;
+
+    /**
+     * @description The name of the asset fingerprint that you want to query.
+     *
+     * @example openssl
+     *
+     * @var string
+     */
+    public $scaName;
+
+    /**
+     * @description The name of the process.
+     *
+     * @example open
+     *
+     * @var string
+     */
+    public $scaNamePattern;
+
+    /**
+     * @description The version of the middleware, database, or web service.
+     *
+     * @example 1.0.2k
+     *
+     * @var string
+     */
+    public $scaVersion;
 
     /**
      * @description The search keyword. You must specify this parameter based on the value of the **SearchItem** parameter.
@@ -94,11 +169,26 @@ class DescribePropertyScaDetailRequest extends Model
      *   **web_framework**: web framework
      *
      * >  You must specify both the **SearchItem** and **SearchInfo** parameters before you can query the asset fingerprints based on the specified name or type.
-     * @example 756
+     * @example openssl
      *
      * @var string
      */
-    public $pid;
+    public $searchInfo;
+
+    /**
+     * @description The keyword of the subquery. You must specify this parameter based on the value of the **SearchItemSub** parameter.
+     *
+     *   If the **SearchItemSub** parameter is set to **port**, you must enter a port number.
+     *   If the **SearchItemSub** parameter is set to **pid**, you must enter a process ID (PID).
+     *   If the **SearchItemSub** parameter is set to **version**, you must enter the version of a database, middleware, or web service.
+     *   If the **SearchItemSub** parameter is set to **user**, you must enter a username.
+     *
+     * >  The subquery is used to search for data of a specified database, middleware, or web service.
+     * @example 1.0.2k
+     *
+     * @var string
+     */
+    public $searchInfoSub;
 
     /**
      * @description The type of the search condition. Valid values:
@@ -107,88 +197,6 @@ class DescribePropertyScaDetailRequest extends Model
      *   **type**: the type of a database, middleware, or web service
      *
      * >  You must specify both the **SearchItem** and **SearchInfo** parameters before you can query the asset fingerprints based on the specified name or type.
-     * @example 68
-     *
-     * @var string
-     */
-    public $port;
-
-    /**
-     * @description system_service
-     *
-     * @example 1641110965
-     *
-     * @var int
-     */
-    public $processStartedEnd;
-
-    /**
-     * @description The number of entries returned on the current page.
-     *
-     * @example 1641024565
-     *
-     * @var int
-     */
-    public $processStartedStart;
-
-    /**
-     * @description The port of the middleware, database, or web service.
-     *
-     * @example 192.168
-     *
-     * @var string
-     */
-    public $remark;
-
-    /**
-     * @description The name of the middleware, database, or web service.
-     *
-     * @example openssl
-     *
-     * @var string
-     */
-    public $scaName;
-
-    /**
-     * @description The number of the page to return. Default value: **1**.
-     *
-     * @example open
-     *
-     * @var string
-     */
-    public $scaNamePattern;
-
-    /**
-     * @description The number of entries to return on each page. Default value: **10**.
-     *
-     * >  We recommend that you do not leave this parameter empty.
-     * @example 1.0.2k
-     *
-     * @var string
-     */
-    public $scaVersion;
-
-    /**
-     * @description The public IP address of the server on which the middleware, database, or web service is run.
-     *
-     * @example openssl
-     *
-     * @var string
-     */
-    public $searchInfo;
-
-    /**
-     * @description 1641110965
-     *
-     * @example 1.0.2k
-     *
-     * @var string
-     */
-    public $searchInfoSub;
-
-    /**
-     * @description The name of the process.
-     *
      * @example name
      *
      * @var string
@@ -196,7 +204,12 @@ class DescribePropertyScaDetailRequest extends Model
     public $searchItem;
 
     /**
-     * @description root
+     * @description The type of the subquery. Valid values:
+     *
+     *   **port**
+     *   **pid**
+     *   **version**
+     *   **user**
      *
      * @example version
      *
@@ -205,7 +218,7 @@ class DescribePropertyScaDetailRequest extends Model
     public $searchItemSub;
 
     /**
-     * @description The version of the middleware, database, or web service.
+     * @description The user who runs the process.
      *
      * @example root
      *
@@ -214,7 +227,7 @@ class DescribePropertyScaDetailRequest extends Model
     public $user;
 
     /**
-     * @description The details about the asset fingerprints returned.
+     * @description The UUID of the server on which the middleware, database, or web service is run.
      *
      * @example uuid-02ebabe7-1c19-ab****
      *

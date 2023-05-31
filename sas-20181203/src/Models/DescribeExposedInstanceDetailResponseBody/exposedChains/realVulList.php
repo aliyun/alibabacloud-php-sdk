@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class realVulList extends Model
 {
     /**
-     * @description Queries the details about a specified server that is exposed on the Internet.
+     * @description The alias of the vulnerability.
      *
      * @example RHSA-2022:0274-Important: polkit pkexec Local Privilege Escalation Vulnerability(CVE-2021-4034)
      *
@@ -18,7 +18,7 @@ class realVulList extends Model
     public $aliasName;
 
     /**
-     * @description DescribeExposedInstanceDetail
+     * @description The name of the vulnerability.
      *
      * @example SCA:ACSV-2020-052801
      *
@@ -27,8 +27,13 @@ class realVulList extends Model
     public $name;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The priority to fix the vulnerability. Valid values:
      *
+     *   **asap**: high
+     *   **later**: medium
+     *   **nntf**: low
+     *
+     * >  We recommend that you fix the vulnerabilities that have the **high** priority at the earliest opportunity.
      * @example asap
      *
      * @var string
@@ -36,12 +41,14 @@ class realVulList extends Model
     public $necessity;
 
     /**
-     * @description The resource from which the server is exposed. Valid values:
+     * @description The type of the vulnerability. Valid values:
      *
-     *   **INTERNET_IP**: the public IP address of an Elastic Compute Service (ECS) instance
-     *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance
-     *   **EIP**: an elastic IP address (EIP)
-     *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
+     *   **cve**: Linux software vulnerabilities
+     *   **sys**: Windows system vulnerabilities
+     *   **cms**: Web-CMS vulnerabilities
+     *   **app**: application vulnerabilities
+     *   **emg**: urgent vulnerabilities
+     *   **sca**: middleware vulnerabilities
      *
      * @example sca
      *
@@ -50,7 +57,7 @@ class realVulList extends Model
     public $type;
 
     /**
-     * @description The ID of the server.
+     * @description The UUID of the server.
      *
      * @example 4f9ce097-4a7d-48fe-baef-6960e5b6****
      *

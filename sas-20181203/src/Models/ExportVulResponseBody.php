@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExportVulResponseBody extends Model
 {
     /**
+     * @description The name of the exported file.
+     *
      * @example app_20211101
      *
      * @var string
@@ -16,6 +18,8 @@ class ExportVulResponseBody extends Model
     public $fileName;
 
     /**
+     * @description The ID of the exported file.
+     *
      * @example 81634
      *
      * @var int
@@ -23,6 +27,8 @@ class ExportVulResponseBody extends Model
     public $id;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example E1FAB2B8-DF4D-55DF-BC3D-5C3CA6FD5B13
      *
      * @var string

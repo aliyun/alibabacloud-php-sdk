@@ -11,11 +11,16 @@ use AlibabaCloud\Tea\Model;
 class connects extends Model
 {
     /**
+     * @description The information about the destination container.
+     *
+     * > This parameter is not supported.
      * @var dstContainer
      */
     public $dstContainer;
 
     /**
+     * @description The destination IP address.
+     *
      * @example 172.20.62.176
      *
      * @var string
@@ -23,6 +28,8 @@ class connects extends Model
     public $dstIp;
 
     /**
+     * @description The destination port.
+     *
      * @example 443
      *
      * @var string
@@ -30,11 +37,17 @@ class connects extends Model
     public $dstPort;
 
     /**
+     * @description The timestamp when the connection was first established.
+     *
+     * @example 2022-11-11 20:54:32
+     *
      * @var int
      */
     public $firstTime;
 
     /**
+     * @description The ID of the network connection.
+     *
      * @example 1458
      *
      * @var int
@@ -42,16 +55,25 @@ class connects extends Model
     public $id;
 
     /**
+     * @description The timestamp when the connection was last established.
+     *
+     * @example 2022-11-24 10:26:00
+     *
      * @var int
      */
     public $lastTime;
 
     /**
+     * @description The information about the source container.
+     *
+     * > This parameter is not supported.
      * @var srcContainer
      */
     public $srcContainer;
 
     /**
+     * @description The source IP address.
+     *
      * @example 35.233.62.116
      *
      * @var string
@@ -59,6 +81,8 @@ class connects extends Model
     public $srcIp;
 
     /**
+     * @description The source port.
+     *
      * @example 10240
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateHoneypotProbeRequest extends Model
 {
     /**
+     * @description Specifies whether address resolution protocol (ARP) is enabled for the check type.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class UpdateHoneypotProbeRequest extends Model
     public $arp;
 
     /**
+     * @description The name of the probe.
+     *
      * @example svwsx-vpc-4430
      *
      * @var string
@@ -30,6 +34,8 @@ class UpdateHoneypotProbeRequest extends Model
     public $lang;
 
     /**
+     * @description Specifies whether ping is enabled for the check type.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +43,9 @@ class UpdateHoneypotProbeRequest extends Model
     public $ping;
 
     /**
+     * @description The ID of the probe.
+     *
+     * > You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
      * @example bbe7e382-956f-473e-beed-bc73a258****
      *
      * @var string
@@ -44,6 +53,8 @@ class UpdateHoneypotProbeRequest extends Model
     public $probeId;
 
     /**
+     * @description The IP addresses that are monitored.
+     *
      * @var string[]
      */
     public $serviceIpList;

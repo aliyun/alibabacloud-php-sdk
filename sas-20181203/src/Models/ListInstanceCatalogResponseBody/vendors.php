@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class vendors extends Model
 {
     /**
+     * @description An array that consists of asset types.
+     *
      * @var instanceTypes[]
      */
     public $instanceTypes;
 
     /**
+     * @description The name of the service provider.
+     *
      * @example ALIYUN
      *
      * @var string

@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description The ID of the server group.
+     * @description The number of entries returned on the current page.
      *
-     * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
      * @example 2
      *
      * @var int
@@ -19,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -28,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The number of low-severity vulnerabilities that are exposed on the Internet and can be exploited by attackers.
+     * @description The number of entries returned per page.
      *
      * @example 20
      *
@@ -37,7 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The number of medium-severity vulnerabilities that are exposed on the Internet and can be exploited by attackers.
+     * @description The total number of entries about the servers that are exposed on the Internet.
      *
      * @example 2
      *

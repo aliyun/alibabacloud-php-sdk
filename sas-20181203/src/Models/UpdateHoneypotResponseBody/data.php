@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the honeypot.
+     *
      * @example 9bf8cd373112263d4bc102fc5dba9d9f812ee05d4d35c487d330d52e937f****
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $honeypotId;
 
     /**
+     * @description The display name of the honeypot image.
+     *
      * @example Webmin
      *
      * @var string
@@ -23,6 +27,8 @@ class data extends Model
     public $honeypotImageDisplayName;
 
     /**
+     * @description The name of the honeypot image.
+     *
      * @example webpage
      *
      * @var string
@@ -30,6 +36,8 @@ class data extends Model
     public $honeypotImageName;
 
     /**
+     * @description The custom name of the honeypot.
+     *
      * @example hyl-phpmyadmin
      *
      * @var string
@@ -37,6 +45,8 @@ class data extends Model
     public $honeypotName;
 
     /**
+     * @description The ID of the management node.
+     *
      * @example a882e590-b87b-45a6-87b9-d0a3e5a0****
      *
      * @var string
@@ -44,6 +54,8 @@ class data extends Model
     public $nodeId;
 
     /**
+     * @description The ID of the custom configuration for the honeypot.
+     *
      * @example 868a7579-00b5-4a74-999d-8bd3f411e8a3
      *
      * @var string
@@ -51,6 +63,8 @@ class data extends Model
     public $presetId;
 
     /**
+     * @description An array that consists of the status information about the honeypot.
+     *
      * @var string[]
      */
     public $state;

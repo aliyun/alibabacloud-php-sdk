@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class targetConfig extends Model
 {
     /**
+     * @description The identifier that indicates whether the configuration item is applied to the server. Valid values:
+     *
+     *   **add**: applied
+     *   **del**: not applied
+     *
      * @example del
      *
      * @var string
@@ -16,6 +21,8 @@ class targetConfig extends Model
     public $flag;
 
     /**
+     * @description The default identifier.
+     *
      * @example add
      *
      * @var string
@@ -23,11 +30,19 @@ class targetConfig extends Model
     public $targetDefault;
 
     /**
+     * @description An array that consists of the IDs of the server groups or the UUIDs of the servers.
+     *
+     * >  If **uuid** is returned for the **TargetType** parameter, **UUIDs** of the servers are returned. If **groupId** is returned for the **TargetType** parameter, IDs of the server groups are returned.
      * @var string[]
      */
     public $targetList;
 
     /**
+     * @description The type of the server to which the configuration item is applied. Valid values:
+     *
+     *   **uuid**: a server
+     *   **groupId**: a server group
+     *
      * @example uuid
      *
      * @var string
@@ -35,6 +50,8 @@ class targetConfig extends Model
     public $targetType;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 22
      *
      * @var string
@@ -42,6 +59,13 @@ class targetConfig extends Model
     public $totalCount;
 
     /**
+     * @description The type of the configuration item. Valid values:
+     *
+     *   **webshell_timescan**: webshell detection and removal
+     *   **aliscriptengine**: in-depth detection engine
+     *   **alidetect**: installation scope of local file detection
+     *   **alidetect-scan-enable**: detection scope of local file detection
+     *
      * @example webshell_timescan
      *
      * @var string

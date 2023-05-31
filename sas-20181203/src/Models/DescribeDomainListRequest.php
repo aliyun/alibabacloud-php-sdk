@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainListRequest extends Model
 {
     /**
-     * @description Queries the information about the domain assets within your Alibaba Cloud account.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -18,7 +18,10 @@ class DescribeDomainListRequest extends Model
     public $currentPage;
 
     /**
-     * @description The number of entries returned per page. Default value: **10**.
+     * @description The type of the domain name that you want to query. Valid values:
+     *
+     *   **root**: root domain name
+     *   **sub**: subdomain name
      *
      * @example root
      *
@@ -27,7 +30,7 @@ class DescribeDomainListRequest extends Model
     public $domainType;
 
     /**
-     * @description The name of the domain or website.
+     * @description The keyword that is used to query domain names. Fuzzy match is supported.
      *
      * @example sas
      *
@@ -36,7 +39,7 @@ class DescribeDomainListRequest extends Model
     public $fuzzyDomain;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The number of entries to return on each page. Default value: **10**.
      *
      * @example 10
      *
@@ -45,7 +48,7 @@ class DescribeDomainListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
+     * @description The source IP address of the request.
      *
      * @example 192.122.XX.XX
      *

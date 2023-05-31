@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The information about the management node.
+     *
      * @var controlNode
      */
     public $controlNode;
 
     /**
+     * @description The time when the probe was deployed.
+     *
      * @example 1669363825000
      *
      * @var int
@@ -22,6 +26,8 @@ class list_ extends Model
     public $deployTime;
 
     /**
+     * @description The name of the probe.
+     *
      * @example prod-pinpoint-hd1b
      *
      * @var string
@@ -29,6 +35,8 @@ class list_ extends Model
     public $displayName;
 
     /**
+     * @description The IP address of the server on which the probe is installed.
+     *
      * @example 33.53.XX.XX
      *
      * @var string
@@ -36,6 +44,11 @@ class list_ extends Model
     public $hostIp;
 
     /**
+     * @description The operating system of the server on which the probe is deployed. Valid values:
+     *
+     *   windows
+     *   linux
+     *
      * @example windows
      *
      * @var string
@@ -43,6 +56,8 @@ class list_ extends Model
     public $osType;
 
     /**
+     * @description The ID of the probe.
+     *
      * @example 4d167bb3-dd09-4a6a-a179-d5d6a5b0****
      *
      * @var string
@@ -50,6 +65,11 @@ class list_ extends Model
     public $probeId;
 
     /**
+     * @description The type of the probe. Valid values:
+     *
+     *   **host_probe**: host probe
+     *   **vpc_black_hole_probe**: VPC probe
+     *
      * @example host_probe
      *
      * @var string
@@ -57,6 +77,8 @@ class list_ extends Model
     public $probeType;
 
     /**
+     * @description The version of the probe.
+     *
      * @example 18060096
      *
      * @var string
@@ -64,6 +86,19 @@ class list_ extends Model
     public $probeVersion;
 
     /**
+     * @description The status of the probe. Valid values:
+     *
+     *   **installed**: installed
+     *   **install_failed**: installation failed
+     *   **online**: online
+     *   **offline**: offline
+     *   **unnormal**: abnormal
+     *   **unprobe**: unauthorized
+     *   **uninstalling**: being uninstalled
+     *   **uninstalled**: uninstalled
+     *   **uninstall_failed**: uninstallation failed
+     *   **not_exist**: not installed
+     *
      * @example online
      *
      * @var string
@@ -71,6 +106,8 @@ class list_ extends Model
     public $status;
 
     /**
+     * @description The UUID of the server to which the host probe is deployed.
+     *
      * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
      *
      * @var string
@@ -78,6 +115,8 @@ class list_ extends Model
     public $uuid;
 
     /**
+     * @description The ID of the VPC in which the VPC probe is deployed.
+     *
      * @example vpc-5gu8iu68w9b472jbb****
      *
      * @var string

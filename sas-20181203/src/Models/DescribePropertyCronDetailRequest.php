@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyCronDetailRequest extends Model
 {
     /**
-     * @description 1
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribePropertyCronDetailRequest extends Model
     public $currentPage;
 
     /**
-     * @description The details of the scheduled tasks.
+     * @description Specifies whether fuzzy search by path to the scheduled task is supported. If you want to use fuzzy search, set the parameter to **1**. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class DescribePropertyCronDetailRequest extends Model
     public $extend;
 
     /**
-     * @description 192.168.XX.XX
+     * @description The number of entries to return on each page. Default value: **10**.
      *
      * @example 10
      *
@@ -36,7 +36,7 @@ class DescribePropertyCronDetailRequest extends Model
     public $pageSize;
 
     /**
-     * @description The public IP address of the server.
+     * @description The name or IP address of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -45,7 +45,7 @@ class DescribePropertyCronDetailRequest extends Model
     public $remark;
 
     /**
-     * @description Specifies whether fuzzy search by path to the scheduled task is supported. If you want to use fuzzy search, set the parameter to **1**. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
+     * @description The path to the scheduled task.
      *
      * @example /etc/cron.d/root
      *
@@ -54,7 +54,7 @@ class DescribePropertyCronDetailRequest extends Model
     public $source;
 
     /**
-     * @description The path to the scheduled task.
+     * @description The username of the account that runs the scheduled task.
      *
      * @example root
      *
@@ -63,7 +63,7 @@ class DescribePropertyCronDetailRequest extends Model
     public $user;
 
     /**
-     * @description 50d213b4-3a35-427a-b8a5-04b0c7e1****
+     * @description The UUID of the server.
      *
      * @example 50d213b4-3a35-427a-b8a5-04b0c7e1****
      *

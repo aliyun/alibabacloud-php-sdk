@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogstoreStorageResponseBody extends Model
 {
     /**
-     * @description WB01014029
+     * @description The name of the dedicated Logstore that is used to store full logs of Security Center. The value is fixed as **sas-log**.
      *
      * @example sas-log
      *
@@ -18,6 +18,8 @@ class DescribeLogstoreStorageResponseBody extends Model
     public $logstore;
 
     /**
+     * @description The purchased log storage capacity, in GB.
+     *
      * @example 12240
      *
      * @var int
@@ -25,7 +27,7 @@ class DescribeLogstoreStorageResponseBody extends Model
     public $preserve;
 
     /**
-     * @description 谈佳伟
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 25EC270F-5783-4416-AD7C-1EDF063A039C
      *
@@ -34,8 +36,9 @@ class DescribeLogstoreStorageResponseBody extends Model
     public $requestId;
 
     /**
-     * @description DescribeLogstoreStorage
+     * @description The number of days during which logs can be retained. The value is fixed as **180**, which indicates that logs can be retained for 180 days.
      *
+     * >  You are not allowed to change the value of this parameter.
      * @example 180
      *
      * @var int
@@ -43,7 +46,7 @@ class DescribeLogstoreStorageResponseBody extends Model
     public $ttl;
 
     /**
-     * @description Queries the purchased log storage capacity.
+     * @description The used log storage capacity, in GB.
      *
      * @example 335
      *
@@ -52,6 +55,8 @@ class DescribeLogstoreStorageResponseBody extends Model
     public $used;
 
     /**
+     * @description The name of the dedicated Project that is used to store full logs of Security Center.
+     *
      * @example sas-log-XXXX-cn-hangzhou
      *
      * @var string

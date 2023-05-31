@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceStatisticsRequest extends Model
 {
     /**
+     * @description The source of the request. Set the value to **sas**, which indicates that the request is sent from Security Center.
+     *
      * @example sas
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeInstanceStatisticsRequest extends Model
     public $from;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeInstanceStatisticsRequest extends Model
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 1.2.XX.XX
      *
      * @var string
@@ -30,6 +39,8 @@ class DescribeInstanceStatisticsRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The UUIDs of the assets to query. Separate multiple UUIDs with commas (,). You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of assets.
+     *
      * @example 6690a46c-0edb-4663-a641-3629d1a9****
      *
      * @var string

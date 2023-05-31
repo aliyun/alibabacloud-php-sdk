@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageLatestScanTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 0B48AB3C-84FC-424D-A01D-B9270EF4****
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeImageLatestScanTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array that consists of the information about the task.
+     *
      * @var task[]
      */
     public $task;

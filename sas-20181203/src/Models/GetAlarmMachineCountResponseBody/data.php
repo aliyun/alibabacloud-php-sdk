@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of servers on which alerts are generated.
+     *
      * @example 1
      *
      * @var int

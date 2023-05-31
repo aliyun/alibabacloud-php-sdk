@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class databaseList extends Model
 {
     /**
+     * @description The status of the anti-ransomware agent. Valid values:
+     *
+     *   **UNKNOWN**: unknown
+     *   **INSTALLED**: installed
+     *   **INSTALL_FAILED**: installation failed
+     *   **UNINSTALL_FAILED**: uninstallation failed
+     *
      * @example INSTALLED
      *
      * @var string
@@ -16,6 +23,11 @@ class databaseList extends Model
     public $agentStatus;
 
     /**
+     * @description The service from which the database is created. Valid values:
+     *
+     *   **HBR**: HBR
+     *   **AEGIS**: Security Center
+     *
      * @example AEGIS
      *
      * @var string
@@ -23,6 +35,8 @@ class databaseList extends Model
     public $createdByProduct;
 
     /**
+     * @description The name of the database.
+     *
      * @example apns_tt180
      *
      * @var string
@@ -30,6 +44,12 @@ class databaseList extends Model
     public $databaseName;
 
     /**
+     * @description The type of the database. Valid values:
+     *
+     *   **MYSQL**
+     *   **MSSQL**
+     *   **Oracle**
+     *
      * @example MYSQL
      *
      * @var string
@@ -37,6 +57,8 @@ class databaseList extends Model
     public $databaseType;
 
     /**
+     * @description The version of the database engine.
+     *
      * @example 12.0.4100.1
      *
      * @var string
@@ -44,6 +66,8 @@ class databaseList extends Model
     public $databaseVersion;
 
     /**
+     * @description The ID of the server.
+     *
      * @example i-bp15aho9hhftvmhw****
      *
      * @var string
@@ -51,6 +75,8 @@ class databaseList extends Model
     public $instanceId;
 
     /**
+     * @description The name of the instance to which the database belongs.
+     *
      * @example sql-test-001
      *
      * @var string
@@ -58,6 +84,8 @@ class databaseList extends Model
     public $instanceName;
 
     /**
+     * @description The UUID of the Hybrid Backup Recovery (HBR) agent that is used to back up the data of the database.
+     *
      * @example 85878b284df911ec800000163e19****
      *
      * @var string
@@ -65,6 +93,8 @@ class databaseList extends Model
     public $instanceUuid;
 
     /**
+     * @description The ID of the anti-ransomware policy.
+     *
      * @example 123
      *
      * @var int
@@ -72,6 +102,11 @@ class databaseList extends Model
     public $policyId;
 
     /**
+     * @description The status of the ECS instance. Valid values:
+     *
+     *   **Stopped**
+     *   **Running**
+     *
      * @example Running
      *
      * @var string

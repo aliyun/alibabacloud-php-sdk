@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAllImageBaselineResponseBody extends Model
 {
     /**
+     * @description The baselines that are used in image baseline checks.
+     *
      * @var imageBaselines
      */
     public $imageBaselines;
 
     /**
+     * @description The ID of the request, which is used to query logs and troubleshoot issues.
+     *
      * @example 1A975D03-5F49-5354-B2CB-3918D5DA****
      *
      * @var string

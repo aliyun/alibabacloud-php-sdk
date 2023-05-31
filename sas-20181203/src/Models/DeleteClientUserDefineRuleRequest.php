@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteClientUserDefineRuleRequest extends Model
 {
     /**
+     * @description The IDs of the custom defense rules.
+     *
      * @var int[]
      */
     public $idList;

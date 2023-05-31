@@ -11,6 +11,15 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The edition of Security Center that is authorized to protect the asset. Valid values:
+     *
+     *   **1**: Basic edition (Unauthorized)
+     *   **6**: Anti-virus edition
+     *   **5**: Advanced edition
+     *   **3**: Enterprise edition
+     *   **7**: Ultimate edition
+     *   **10**: Value-added Plan edition
+     *
      * @example 3
      *
      * @var int
@@ -18,6 +27,11 @@ class list_ extends Model
     public $authVersion;
 
     /**
+     * @description Indicates whether Security Center is authorized to scan the asset. Valid values:
+     *
+     *   **true**: Security Center is authorized to scan the asset.
+     *   **false**: Security Center is not authorized to scan the asset.
+     *
      * @example true
      *
      * @var bool
@@ -25,21 +39,29 @@ class list_ extends Model
     public $bind;
 
     /**
+     * @example 48a6d9a92435a13ad573372c3f3c63b7e04d106458141df9f9215570********
+     *
      * @var string
      */
     public $containerId;
 
     /**
+     * @example step-build-ui-build
+     *
      * @var string
      */
     public $containerName;
 
     /**
+     * @description An array consisting of the details about the baselines for which the risk item can be fixed.
+     *
      * @var fixList[]
      */
     public $fixList;
 
     /**
+     * @description The ID of the server.
+     *
      * @example i-bp1a69mvjujbakxu****
      *
      * @var string
@@ -47,6 +69,8 @@ class list_ extends Model
     public $instanceId;
 
     /**
+     * @description The name of the server.
+     *
      * @example sql-test-0****
      *
      * @var string
@@ -54,6 +78,8 @@ class list_ extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address of the affected asset.
+     *
      * @example 8.210.XX.XX
      *
      * @var string
@@ -61,6 +87,8 @@ class list_ extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the affected asset.
+     *
      * @example 172.25.XX.XX
      *
      * @var string
@@ -68,6 +96,11 @@ class list_ extends Model
     public $intranetIp;
 
     /**
+     * @description Indicates whether a port on the server is accessible over the Internet. Valid values:
+     *
+     *   **true**: A port on the server is accessible over the Internet.
+     *   **false**: No ports on the server are accessible over the Internet.
+     *
      * @example true
      *
      * @var bool
@@ -75,6 +108,8 @@ class list_ extends Model
     public $portOpen;
 
     /**
+     * @description The prompt for the risk item.
+     *
      * @example There is a weak password (username/password): root/he*****34
      *
      * @var string
@@ -82,6 +117,8 @@ class list_ extends Model
     public $prompt;
 
     /**
+     * @description The region ID of the asset.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -89,6 +126,20 @@ class list_ extends Model
     public $regionId;
 
     /**
+     * @description The status of the check item.
+     *
+     * > Valid values:
+     *
+     *   1: failed
+     *
+     *   2: verifying
+     *
+     *   3: passed
+     *
+     *   6: ignored
+     *
+     *   7: fixing
+     *
      * @example 1
      *
      * @var int
@@ -96,6 +147,8 @@ class list_ extends Model
     public $status;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
      *
      * @var string
@@ -103,6 +156,8 @@ class list_ extends Model
     public $uuid;
 
     /**
+     * @description An array consisting of the details about the baselines based on which the risk item is detected.
+     *
      * @var warningRiskList[]
      */
     public $warningRiskList;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetPropertyScheduleConfigResponseBody extends Model
 {
     /**
+     * @description The configurations for the collection frequency of asset fingerprints.
+     *
      * @var propertyScheduleConfig
      */
     public $propertyScheduleConfig;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example B37C9052-A73E-4707-A024-92477028****
      *
      * @var string

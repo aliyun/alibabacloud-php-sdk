@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageRepoListResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about image repositories.
+     * @description The number of image repositories that are added to Security Center.
      *
      * @example 20
      *
@@ -20,7 +20,7 @@ class DescribeImageRepoListResponseBody extends Model
     public $addTargetCount;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The total number of image repositories.
      *
      * @example 25
      *
@@ -29,9 +29,7 @@ class DescribeImageRepoListResponseBody extends Model
     public $allTargetCount;
 
     /**
-     * @description The condition by which the feature is applied. Valid values:
-     *
-     *   **image_repo**: the ID of the image repository
+     * @description The number of excluded image repositories.
      *
      * @example 5
      *
@@ -40,21 +38,21 @@ class DescribeImageRepoListResponseBody extends Model
     public $delTargetCount;
 
     /**
-     * @description DescribeImageRepoList
+     * @description An array that consists of the information about image repositories.
      *
      * @var imageRepoList[]
      */
     public $imageRepoList;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The pagination information.
      *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The number of image repositories that are added to Security Center.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB3936FA7
      *

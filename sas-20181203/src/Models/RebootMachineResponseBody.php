@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RebootMachineResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 151F6EB6-D5F3-417A-AF7B-4D84975DB586
      *
      * @var string

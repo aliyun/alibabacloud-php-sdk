@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageRepoCriteriaResponseBody extends Model
 {
     /**
+     * @description An array consisting of the filter conditions that are supported by the image repository.
+     *
      * @var criteriaList[]
      */
     public $criteriaList;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example F35F45B0-5D6B-4238-BE02-A62D0760E840
      *
      * @var string

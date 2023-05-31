@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class QueryGroupedSecurityEventMarkMissListResponseBody extends Model
 {
     /**
+     * @description The status code returned. The status code **200** indicates that the request is successful. Other status codes indicate that the request fails. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -18,13 +20,15 @@ class QueryGroupedSecurityEventMarkMissListResponseBody extends Model
     public $code;
 
     /**
-     * @description The subtype of the alert event.
+     * @description An array that consists of the whitelist rules.
      *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The error message returned.
+     *
      * @example There was an error with your request.
      *
      * @var string
@@ -32,13 +36,15 @@ class QueryGroupedSecurityEventMarkMissListResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The pagination information.
      *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 965F9282-D403-4FA2-B1B9-10F62DC719BF
      *
      * @var string
@@ -46,6 +52,11 @@ class QueryGroupedSecurityEventMarkMissListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool

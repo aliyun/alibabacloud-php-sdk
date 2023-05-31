@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class InstallPmAgentRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class InstallPmAgentRequest extends Model
     public $lang;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 58.35.xx.xx
      *
      * @var string
@@ -23,6 +30,11 @@ class InstallPmAgentRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The type of the client.
+     *
+     *   **aliyun_assist**: Cloud Assistant client
+     *   **aliyun_monitor**: CloudMonitor client
+     *
      * @example aliyun_assist
      *
      * @var string
@@ -30,6 +42,8 @@ class InstallPmAgentRequest extends Model
     public $type;
 
     /**
+     * @description The UUID of the server. If you specify multiple UUIDs, separate the UUIDs with commas (,).
+     *
      * @example inet-a6444920-d303-4ccf-ab87-a1d3cd49****
      *
      * @var string

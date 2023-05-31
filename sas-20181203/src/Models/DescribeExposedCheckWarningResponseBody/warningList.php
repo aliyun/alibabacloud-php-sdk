@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class warningList extends Model
 {
     /**
+     * @description The ID of the baseline.
+     *
+     * >  You can call the [DescribeCheckWarningSummary](~~116179~~) operation to query the IDs of baselines.
      * @example 107
      *
      * @var int
@@ -16,6 +19,8 @@ class warningList extends Model
     public $riskId;
 
     /**
+     * @description The name of the baseline.
+     *
      * @example Weak password-Redis DB login weak password baseline
      *
      * @var string
@@ -23,6 +28,8 @@ class warningList extends Model
     public $riskName;
 
     /**
+     * @description The display name of the baseline sub type.
+     *
      * @example Redis DB login weak password baseline
      *
      * @var string
@@ -30,6 +37,8 @@ class warningList extends Model
     public $subTypeAlias;
 
     /**
+     * @description The display name of the baseline type.
+     *
      * @example Weak password
      *
      * @var string
@@ -37,6 +46,8 @@ class warningList extends Model
     public $typeAlias;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 1d35b031-ee4e-4e53-8b53-465ab712****
      *
      * @var string

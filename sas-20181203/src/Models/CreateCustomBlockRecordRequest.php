@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomBlockRecordRequest extends Model
 {
     /**
+     * @description The IP address that you want to specify in the policy.
+     *
      * @example 192.168.xx.xx
      *
      * @var string
@@ -16,6 +18,11 @@ class CreateCustomBlockRecordRequest extends Model
     public $blockIp;
 
     /**
+     * @description The traffic direction that you want to specify in the policy. Valid values:
+     *
+     *   **in**: inbound
+     *   **out**: outbound
+     *
      * @example in
      *
      * @var string
@@ -23,6 +30,8 @@ class CreateCustomBlockRecordRequest extends Model
     public $bound;
 
     /**
+     * @description The expiration time of the policy.
+     *
      * @example 1859094550000
      *
      * @var int
@@ -35,6 +44,8 @@ class CreateCustomBlockRecordRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The UUIDs of the servers. Separate multiple UUIDs with commas (,).
+     *
      * @example 71c846d6-5c84-4714-acfc-58265bc3****,5013b5e8-1613-43a8-b4de-651db318****,df53f0ad-b3ba-4fe0-9ec7-f42a2ae2****
      *
      * @var string

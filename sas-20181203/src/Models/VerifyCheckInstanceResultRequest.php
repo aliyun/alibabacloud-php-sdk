@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class VerifyCheckInstanceResultRequest extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
+     * > You can call the [ListCheckResult](~~ListCheckResult~~) operation to query the IDs of check items.
      * @example 16
      *
      * @var int
@@ -16,6 +19,8 @@ class VerifyCheckInstanceResultRequest extends Model
     public $checkId;
 
     /**
+     * @description The instance IDs of the assets on which risks are detected based on the check item.
+     *
      * @var string[]
      */
     public $instanceIds;

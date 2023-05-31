@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The name of the management node.
+     *
      * @example node1
      *
      * @var string
@@ -16,6 +18,8 @@ class list_ extends Model
     public $controlNodeName;
 
     /**
+     * @description The display name of the honeypot image.
+     *
      * @example Metabase
      *
      * @var string
@@ -23,6 +27,8 @@ class list_ extends Model
     public $honeypotImageDisplayName;
 
     /**
+     * @description The name of the honeypot image.
+     *
      * @example metabase
      *
      * @var string
@@ -30,6 +36,8 @@ class list_ extends Model
     public $honeypotImageName;
 
     /**
+     * @description The ID of the honeypot template.
+     *
      * @example 3cc04a47-7229-418c-8101-f10a2887****
      *
      * @var string
@@ -37,6 +45,8 @@ class list_ extends Model
     public $honeypotPresetId;
 
     /**
+     * @description The ID of the management node.
+     *
      * @example c94eff5b-ea48-4805-8b7f-e04d3509****
      *
      * @var string
@@ -44,6 +54,8 @@ class list_ extends Model
     public $nodeId;
 
     /**
+     * @description The custom name of the honeypot template.
+     *
      * @example WebMin-online
      *
      * @var string
@@ -51,6 +63,12 @@ class list_ extends Model
     public $presetName;
 
     /**
+     * @description The type of the honeypot template. Valid values:
+     *
+     *   **TEMP**: automatically generated template
+     *   **CUSTOM**: custom template
+     *   **DEFAULT**: default template
+     *
      * @example CUSTOM
      *
      * @var string

@@ -10,16 +10,30 @@ use AlibabaCloud\Tea\Model;
 class ruleList extends Model
 {
     /**
+     * @description The name of the aggregation type for the system defense rule.
+     *
+     * @example Initial entry
+     *
      * @var string
      */
     public $aggregationName;
 
     /**
+     * @description The description of the system defense rule.
+     *
+     * @example Supports alerting or blocking of images that have high-risk vulnerabilities\*\*\*\*
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The type of the OS. Valid values:
+     *
+     *   **windows**: Windows
+     *   **linux**: Linux
+     *   **all**: all types
+     *
      * @example linux
      *
      * @var string
@@ -27,11 +41,15 @@ class ruleList extends Model
     public $platform;
 
     /**
+     * @description An array that consists of policies.
+     *
      * @var policies[]
      */
     public $policies;
 
     /**
+     * @description The ID of the system defense rule.
+     *
      * @example 30****
      *
      * @var int
@@ -39,11 +57,22 @@ class ruleList extends Model
     public $ruleId;
 
     /**
+     * @description The name of the system defense rule.
+     *
+     * @example Rule\*\*\*\*
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The type of the system defense rule. Valid values:
+     *
+     *   **1**: alihips
+     *   **2**: alinet
+     *   **3**: alidetect
+     *   **4**: alisecguard
+     *
      * @example alihips
      *
      * @var int
@@ -51,6 +80,11 @@ class ruleList extends Model
     public $ruleType;
 
     /**
+     * @description The status of the system defense rule. Valid values:
+     *
+     *   **online**: enabled
+     *   **offline**: disabled
+     *
      * @example online
      *
      * @var int
@@ -58,6 +92,8 @@ class ruleList extends Model
     public $status;
 
     /**
+     * @description The switch ID of the system defense rule.
+     *
      * @example USER-ENABLE-SWITCH-TYPE_****
      *
      * @var string

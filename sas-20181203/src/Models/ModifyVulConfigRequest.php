@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyVulConfigRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the vulnerability scan feature. Valid values:
+     *
+     *   **on**: enables the feature
+     *   **off**: disables the feature
+     *
+     * > Valid values when you set the Type parameter to scanMode:
+     *
+     *   **real**: displays only easily exploitable vulnerabilities.
+     *
+     *   **all**: displays all vulnerabilities.
+     *
      * @example on
      *
      * @var string
@@ -16,6 +27,16 @@ class ModifyVulConfigRequest extends Model
     public $config;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerability
+     *   **emg**: urgent vulnerability
+     *   **app**: application vulnerability
+     *   **yum**: YUM and APT source configuration
+     *   **scanMode**: easily exploitable vulnerability
+     *
      * @example cve
      *
      * @var string

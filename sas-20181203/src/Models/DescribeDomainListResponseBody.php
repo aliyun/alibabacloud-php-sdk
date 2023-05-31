@@ -11,17 +11,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainListResponseBody extends Model
 {
     /**
+     * @description An array that consists of the information about domain names.
+     *
      * @var domainListResponseList[]
      */
     public $domainListResponseList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description DescribeDomainList
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 0B48AB3C-84FC-424D-A01D-B9270EF46038
      *

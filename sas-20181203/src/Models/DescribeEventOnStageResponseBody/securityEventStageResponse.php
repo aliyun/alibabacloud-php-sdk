@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class securityEventStageResponse extends Model
 {
     /**
+     * @description The platform that is supported by the feature of container threat detection. Valid values:
+     *
+     *   **container**
+     *   **linux**
+     *   **windows**
+     *
      * @var mixed[]
      */
     public $securityEventOnStag;

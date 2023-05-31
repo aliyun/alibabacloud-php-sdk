@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class backupPolicy extends Model
 {
     /**
+     * @description The ID of the anti-ransomware policy.
+     *
      * @example 1301575
      *
      * @var string
@@ -16,6 +18,12 @@ class backupPolicy extends Model
     public $id;
 
     /**
+     * @description The status of the anti-ransomware policy. Valid values:
+     *
+     *   **enabled**
+     *   **disabled**
+     *
+     * >  After you create an anti-ransomware policy, the policy is enabled by default.
      * @example enabled
      *
      * @var string

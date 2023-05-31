@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetAlarmMachineCountResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 6D3A2E7D-1238-5DD4-B3C3-BF06FCAD****
      *
      * @var string

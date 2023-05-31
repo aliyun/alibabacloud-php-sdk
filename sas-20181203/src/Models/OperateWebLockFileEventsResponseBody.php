@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OperateWebLockFileEventsResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 2884C186-E8C0-5611-8207-3FF15EE7D9B4
      *
      * @var string

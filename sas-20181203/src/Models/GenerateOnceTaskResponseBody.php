@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class GenerateOnceTaskResponseBody extends Model
 {
     /**
-     * @description The number of scan tasks that are complete.
+     * @description Indicates whether you can create more scan tasks. Valid values:
      *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * > By default, a maximum of 10 scan tasks can be running at the same time. If 10 image scan tasks are running, you cannot create a scan task by calling this operation. You must wait for at least one of the 10 existing scan tasks to complete before you can create a scan task.
      * @example true
      *
      * @var bool
@@ -18,6 +22,8 @@ class GenerateOnceTaskResponseBody extends Model
     public $canCreate;
 
     /**
+     * @description The collection time.
+     *
      * @example 1670307567000
      *
      * @var int
@@ -25,6 +31,8 @@ class GenerateOnceTaskResponseBody extends Model
     public $collectTime;
 
     /**
+     * @description The number of scan tasks that are complete.
+     *
      * @example 61
      *
      * @var int
@@ -32,6 +40,8 @@ class GenerateOnceTaskResponseBody extends Model
     public $finishCount;
 
     /**
+     * @description The ID of the last scan task.
+     *
      * @example 38730bb078f4a1461d4ed283994c****
      *
      * @var string
@@ -39,7 +49,7 @@ class GenerateOnceTaskResponseBody extends Model
     public $lastTask;
 
     /**
-     * @description The ID of the scan task.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 8BB6B8FA-39E8-5654-A309-8EED13B1****
      *
@@ -48,6 +58,8 @@ class GenerateOnceTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the scan task.
+     *
      * @example 38730bb078f4a1461d4ed283994c****
      *
      * @var string
@@ -55,6 +67,8 @@ class GenerateOnceTaskResponseBody extends Model
     public $taskId;
 
     /**
+     * @description The total number of scan tasks.
+     *
      * @example 100
      *
      * @var int

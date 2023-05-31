@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class riskCheckSummary extends Model
 {
     /**
+     * @description The number of affected assets.
+     *
      * @example 0
      *
      * @var int
@@ -18,6 +20,8 @@ class riskCheckSummary extends Model
     public $affectedAssetCount;
 
     /**
+     * @description The number of the check items that failed the check.
+     *
      * @example 0
      *
      * @var int
@@ -25,6 +29,8 @@ class riskCheckSummary extends Model
     public $disabledRiskCount;
 
     /**
+     * @description The number of the check items that passed the check.
+     *
      * @example 3
      *
      * @var int
@@ -32,11 +38,15 @@ class riskCheckSummary extends Model
     public $enabledRiskCount;
 
     /**
+     * @description An array that consists of the statistics for each type of check item.
+     *
      * @var groups[]
      */
     public $groups;
 
     /**
+     * @description The number of check items.
+     *
      * @example 4
      *
      * @var int
@@ -44,6 +54,8 @@ class riskCheckSummary extends Model
     public $itemCount;
 
     /**
+     * @description The number of risk items detected in the last check.
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +63,8 @@ class riskCheckSummary extends Model
     public $previousCount;
 
     /**
+     * @description The timestamp of the last check. Unit: milliseconds.
+     *
      * @example 1545012926000
      *
      * @var int
@@ -58,6 +72,8 @@ class riskCheckSummary extends Model
     public $previousTime;
 
     /**
+     * @description The number of detected risk items.
+     *
      * @example 1
      *
      * @var int
@@ -65,11 +81,15 @@ class riskCheckSummary extends Model
     public $riskCount;
 
     /**
+     * @description An array that consists of the number of check items at each risk level.
+     *
      * @var riskLevelCount[]
      */
     public $riskLevelCount;
 
     /**
+     * @description The proportion of risk items to all check items.
+     *
      * @example 0.25
      *
      * @var float

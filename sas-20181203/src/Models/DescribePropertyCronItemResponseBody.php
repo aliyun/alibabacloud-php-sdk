@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyCronItemResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description An array that consists of scheduled tasks.
+     *
      * @var propertyItems[]
      */
     public $propertyItems;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 291B49F9-1685-4005-9D34-606B6F78****
      *
      * @var string

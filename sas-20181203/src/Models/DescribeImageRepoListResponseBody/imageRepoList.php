@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class imageRepoList extends Model
 {
     /**
+     * @description Indicates whether the feature takes effect on the image repository. Valid values:
+     *
+     *   **add**: yes
+     *   **del**: no
+     *
      * @example add
      *
      * @var string
@@ -16,6 +21,8 @@ class imageRepoList extends Model
     public $flag;
 
     /**
+     * @description The name of the image repository.
+     *
      * @example zeus
      *
      * @var string
@@ -23,6 +30,8 @@ class imageRepoList extends Model
     public $repoName;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
      * @example sas-script
      *
      * @var string

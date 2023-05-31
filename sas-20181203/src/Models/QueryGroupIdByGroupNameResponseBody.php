@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryGroupIdByGroupNameResponseBody extends Model
 {
     /**
+     * @description The ID of the asset group.
+     *
      * @example 9935302
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryGroupIdByGroupNameResponseBody extends Model
     public $groupId;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 24A20733-10A0-4AF6-BE6B-E3322413BB68
      *
      * @var string

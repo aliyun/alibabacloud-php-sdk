@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeAllEntityResponseBody extends Model
 {
     /**
-     * @description Queries the information about all assets. The information includes asset group IDs and asset names.
+     * @description An array that consists of servers.
      *
      * @var entityList[]
      */
     public $entityList;
 
     /**
-     * @description The IP address of the server.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
      *

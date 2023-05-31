@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetCheckProcessRequest extends Model
 {
     /**
+     * @description The ID of the task.
+     *
+     * > You can call the [SubmitCheck](~~SubmitCheck~~) operation to query the ID.
      * @example 5347c7b6-c85c-4070-846a-3029e08e****
      *
      * @var string

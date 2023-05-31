@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The number of attempts.
+     *
      * @example 33
      *
      * @var int
@@ -16,6 +18,8 @@ class list_ extends Model
     public $count;
 
     /**
+     * @description The file path.
+     *
      * @example /tmp
      *
      * @var string

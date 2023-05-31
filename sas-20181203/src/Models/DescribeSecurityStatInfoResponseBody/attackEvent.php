@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class attackEvent extends Model
 {
     /**
-     * @description The total number of baseline risk items at all points in time.
+     * @description The points in time when the number of attacks is collected in the trend chart.
      *
      * @var string[]
      */
     public $dateArray;
 
     /**
-     * @description The time periods during which data of the same alert is collected.
+     * @description The total number of attacks on the current day.
      *
      * @example 1096
      *
@@ -25,7 +25,7 @@ class attackEvent extends Model
     public $totalCount;
 
     /**
-     * @description The number of **medium-risk** unfixed vulnerabilities on the current day.
+     * @description The numbers of attacks at all points in time.
      *
      * @var string[]
      */

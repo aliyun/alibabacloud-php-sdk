@@ -10,19 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListPluginForUuidResponseBody extends Model
 {
     /**
-     * @description The type of the plug-in. Valid values:
-     *
-     *   **auto_breaking**: antivirus
-     *   **ransomware_breaking**: anti-ransomware (bait capture)
-     *   **webshell_cloud_breaking**: webshell prevention
-     *   **alisecguard**: client protection
-     *   **alinet**: malicious behavior defense
+     * @description An array that consists of the information about the plug-ins.
      *
      * @var aegisUuidTargetPluginConfigList[]
      */
     public $aegisUuidTargetPluginConfigList;
 
     /**
+     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var int
@@ -30,6 +26,8 @@ class ListPluginForUuidResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message returned.
+     *
      * @example successful
      *
      * @var string
@@ -37,7 +35,7 @@ class ListPluginForUuidResponseBody extends Model
     public $message;
 
     /**
-     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
      *

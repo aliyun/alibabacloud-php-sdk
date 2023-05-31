@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class paramList extends Model
 {
     /**
+     * @description The options that can be selected for the rule parameter if the value of the ParamType parameter is 2.
+     *
      * @example 0,1,2,3
      *
      * @var string
@@ -16,6 +18,8 @@ class paramList extends Model
     public $enumValue;
 
     /**
+     * @description The maximum value of the rule parameter.
+     *
      * @example 24
      *
      * @var int
@@ -23,6 +27,8 @@ class paramList extends Model
     public $maxValue;
 
     /**
+     * @description The minimum value of the rule parameter.
+     *
      * @example 5
      *
      * @var int
@@ -30,7 +36,7 @@ class paramList extends Model
     public $minValue;
 
     /**
-     * @description The number of risk items that can be fixed.
+     * @description The default value of the rule parameter.
      *
      * @example 5
      *
@@ -39,7 +45,7 @@ class paramList extends Model
     public $paramDefaultValue;
 
     /**
-     * @description The ID of the risk item.
+     * @description The description of the rule parameter.
      *
      * @example The setting value is 0 means no definition, 1 means success, 2 means failure, 3 means success and failure
      *
@@ -48,7 +54,7 @@ class paramList extends Model
     public $paramDesc;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The name of the rule parameter.
      *
      * @example range_val
      *
@@ -57,7 +63,10 @@ class paramList extends Model
     public $paramName;
 
     /**
-     * @description Queries the parameters that you can configure to fix specified risk items.
+     * @description The type of the rule parameter. Valid values:
+     *
+     *   **1**: input
+     *   **2**: selection
      *
      * @example 1
      *
@@ -66,6 +75,8 @@ class paramList extends Model
     public $paramType;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example pwd_reuse.system_auth
      *
      * @var string
@@ -73,6 +84,8 @@ class paramList extends Model
     public $ruleId;
 
     /**
+     * @description The specified value of the rule parameter.
+     *
      * @example 18
      *
      * @var string

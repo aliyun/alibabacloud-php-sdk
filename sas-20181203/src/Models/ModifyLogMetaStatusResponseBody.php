@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyLogMetaStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 861445A7-B6D6-5825-B015-CD46ED90613A
      *
      * @var string

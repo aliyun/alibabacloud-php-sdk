@@ -19,13 +19,7 @@ class DescribeDomainDetailRequest extends Model
     public $domainName;
 
     /**
-     * @description The type of the domain asset. Valid values:
-     *
-     *   **0**: an Elastic Compute Service (ECS) instance
-     *   **1**: a Server Load Balancer (SLB) instance
-     *   **2**: a Network Address Translation (NAT) gateway
-     *   **3**: an ApsaraDB RDS instance
-     *   **4**: an ApsaraDB for MongoDB instance
+     * @description The source IP address of the request.
      *
      * @example 1.2.XX.XX
      *

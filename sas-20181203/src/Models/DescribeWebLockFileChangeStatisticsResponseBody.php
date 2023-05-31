@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockFileChangeStatisticsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeWebLockFileChangeStatisticsResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description An array consisting of the files that are changed.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeWebLockFileChangeStatisticsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 709A8C3D-A543-5B79-AB75-361B206F71D9
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeWebLockFileChangeStatisticsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of files that are attempted to change.
+     *
      * @example 200
      *
      * @var int

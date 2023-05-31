@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCriteriaRequest extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The type of the asset. Valid values:
+     *
+     *   **ecs**: Elastic Compute Service (ECS) instance
      *
      * @example ecs
      *
@@ -18,7 +20,10 @@ class DescribeCriteriaRequest extends Model
     public $machineTypes;
 
     /**
-     * @description Queries the filter conditions that are used to search for assets in fuzzy match mode.
+     * @description Specifies whether the keyword that you specify for fuzzy search can be automatically matched. default **false**, Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example true
      *
@@ -27,7 +32,7 @@ class DescribeCriteriaRequest extends Model
     public $supportAutoTag;
 
     /**
-     * @description The attribute values of the assets that match the keyword.
+     * @description The keyword that you specify for fuzzy search when you query the asset.
      *
      * @example 47.96
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class bindList extends Model
 {
     /**
-     * @description The starting progress percentage of web tamper proofing. Valid values: 0 to 100.
+     * @description The number of alerts.
      *
      * @example 2
      *
@@ -18,7 +18,7 @@ class bindList extends Model
     public $auditCount;
 
     /**
-     * @description Queries the information about the servers that have web tamper proofing enabled.
+     * @description The number of blocked tampering events.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class bindList extends Model
     public $blockCount;
 
     /**
-     * @description The information about the servers that have web tamper proofing enabled.
+     * @description The number of protected directories.
      *
      * @example 5
      *
@@ -36,7 +36,7 @@ class bindList extends Model
     public $dirCount;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The name of the server.
      *
      * @example testName
      *
@@ -45,7 +45,7 @@ class bindList extends Model
     public $instanceName;
 
     /**
-     * @description The number of alerts.
+     * @description The public IP address of the server.
      *
      * @example 54.169.XX.XX
      *
@@ -54,7 +54,7 @@ class bindList extends Model
     public $internetIp;
 
     /**
-     * @description The number of blocked tampering events.
+     * @description The private IP address of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -63,7 +63,7 @@ class bindList extends Model
     public $intranetIp;
 
     /**
-     * @description 20
+     * @description The operating system that the server runs.
      *
      * @example Linux
      *
@@ -72,10 +72,7 @@ class bindList extends Model
     public $os;
 
     /**
-     * @description The protection status of the server. Valid values:
-     *
-     *   **on**: protected
-     *   **off**: unprotected
+     * @description The starting progress percentage of web tamper proofing. Valid values: 0 to 100.
      *
      * @example 99
      *
@@ -84,7 +81,10 @@ class bindList extends Model
     public $percent;
 
     /**
-     * @description The number of entries returned per page. Default value: 20.
+     * @description The error code for web tamper proofing. Valid values:
+     *
+     *   **2001**: The Security Center agent is offline.
+     *   **9999**: The connection timed out.
      *
      * @example 2001
      *
@@ -93,10 +93,10 @@ class bindList extends Model
     public $serviceCode;
 
     /**
-     * @description The protection status of the server that you want to query. Valid values:
+     * @description The error message for web tamper proofing. Valid values:
      *
-     *   **on**: protected
-     *   **off**: unprotected
+     *   **client offline**: The Security Center agent is offline.
+     *   **timeout**: The connection timed out.
      *
      * @example client offline
      *
@@ -105,7 +105,13 @@ class bindList extends Model
     public $serviceDetail;
 
     /**
-     * @description 192.168.XX.XX
+     * @description The status of web tamper proofing on the server. Valid values:
+     *
+     *   **stop**: Web tamper proofing is disabled.
+     *   **initializing**: Web tamper proofing is being enabled.
+     *   **exception**: Web tamper proofing is not running as expected.
+     *   **running**: Web tamper proofing is running.
+     *   **closing**: Web tamper proofing is being disabled.
      *
      * @example stop
      *
@@ -114,7 +120,10 @@ class bindList extends Model
     public $serviceStatus;
 
     /**
-     * @description The string that allows you to search for servers in fuzzy match mode. You can enter a server name or IP address.
+     * @description The protection status of the server. Valid values:
+     *
+     *   **on**: protected
+     *   **off**: unprotected
      *
      * @example on
      *
@@ -123,7 +132,7 @@ class bindList extends Model
     public $status;
 
     /**
-     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     * @description The UUID of the server.
      *
      * @example inet-12345****
      *

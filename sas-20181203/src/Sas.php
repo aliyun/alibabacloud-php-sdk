@@ -1303,6 +1303,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->os)) {
             $query['Os'] = $request->os;
         }
+        if (!Utils::isUnset($request->proxyCluster)) {
+            $query['ProxyCluster'] = $request->proxyCluster;
+        }
         if (!Utils::isUnset($request->vendorName)) {
             $query['VendorName'] = $request->vendorName;
         }
@@ -2392,7 +2395,8 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The identifier of the file. Only MD5 hash values are supported.
+     * You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
+     *   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
      *   *
      * @param CreateFileDetectRequest $request CreateFileDetectRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -2437,7 +2441,8 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The identifier of the file. Only MD5 hash values are supported.
+     * You can call this operation to push a file to the cloud for detection. Before you call this operation, make sure that the file is uploaded. You can call the CreateFileDetectUploadUrl operation to upload the file.
+     *   * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
      *   *
      * @param CreateFileDetectRequest $request CreateFileDetectRequest
      *
@@ -2972,7 +2977,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The ID of the request, which is used to locate and troubleshoot issues.
+     * A server can belong only to one server group. If you call the CreateOrUpdateAssetGroup operation and the server specified in request parameters belongs to Server Group A, the server is removed from Server Group A and then added to the newly created or specified server group after the call is complete.
      *   *
      * @param CreateOrUpdateAssetGroupRequest $request CreateOrUpdateAssetGroupRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -3011,7 +3016,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The ID of the request, which is used to locate and troubleshoot issues.
+     * A server can belong only to one server group. If you call the CreateOrUpdateAssetGroup operation and the server specified in request parameters belongs to Server Group A, the server is removed from Server Group A and then added to the newly created or specified server group after the call is complete.
      *   *
      * @param CreateOrUpdateAssetGroupRequest $request CreateOrUpdateAssetGroupRequest
      *
@@ -3150,10 +3155,12 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceLinkedRoleRequest $request
-     * @param RuntimeOptions                 $runtime
+     * For more information about service-linked roles, see [Service-linked roles](~~160674~~).
+     *   *
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRoleWithOptions($request, $runtime)
     {
@@ -3181,9 +3188,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param CreateServiceLinkedRoleRequest $request
+     * For more information about service-linked roles, see [Service-linked roles](~~160674~~).
+     *   *
+     * @param CreateServiceLinkedRoleRequest $request CreateServiceLinkedRoleRequest
      *
-     * @return CreateServiceLinkedRoleResponse
+     * @return CreateServiceLinkedRoleResponse CreateServiceLinkedRoleResponse
      */
     public function createServiceLinkedRole($request)
     {
@@ -3758,7 +3767,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 200.
+     * The **Default** server group that is provided by Security Center cannot be deleted. After you delete a group, the assets in this group are moved to the **Default** group.
      *   *
      * @param DeleteGroupRequest $request DeleteGroupRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -3794,7 +3803,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * 200.
+     * The **Default** server group that is provided by Security Center cannot be deleted. After you delete a group, the assets in this group are moved to the **Default** group.
      *   *
      * @param DeleteGroupRequest $request DeleteGroupRequest
      *
@@ -4354,7 +4363,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The ID of the request, which is used to locate and troubleshoot issues.
+     * Security Center provides asset importance tags and custom tags. You can call this operation to remove only the custom tag that is added to an asset.
      *   *
      * @param DeleteTagWithUuidRequest $request DeleteTagWithUuidRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -4390,7 +4399,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The ID of the request, which is used to locate and troubleshoot issues.
+     * Security Center provides asset importance tags and custom tags. You can call this operation to remove only the custom tag that is added to an asset.
      *   *
      * @param DeleteTagWithUuidRequest $request DeleteTagWithUuidRequest
      *
@@ -5484,7 +5493,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The data returned.
+     * You can call the DescribeBackupClients operation to query the servers on which the anti-ransomware agent is installed in a specified region.
      *   *
      * @param DescribeBackupClientsRequest $request DescribeBackupClientsRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -5517,7 +5526,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The data returned.
+     * You can call the DescribeBackupClients operation to query the servers on which the anti-ransomware agent is installed in a specified region.
      *   *
      * @param DescribeBackupClientsRequest $request DescribeBackupClientsRequest
      *
@@ -5733,7 +5742,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The number of the restoration tasks that are in the **being restored** state.
+     * If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -5758,7 +5767,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The number of the restoration tasks that are in the **being restored** state.
+     * If you have created restoration tasks, you can call this operation to query the number of restoration tasks that are in the **restored** or **being restored** state.
      *   *
      * @return DescribeBackupRestoreCountResponse DescribeBackupRestoreCountResponse
      */
@@ -6927,7 +6936,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The number of nodes on which alerts are generated in the current container cluster.
+     * Only users who created a Container Registry Enterprise Edition instance can call this operation.
      *   *
      * @param DescribeContainerStatisticsRequest $request DescribeContainerStatisticsRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -6960,7 +6969,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The number of nodes on which alerts are generated in the current container cluster.
+     * Only users who created a Container Registry Enterprise Edition instance can call this operation.
      *   *
      * @param DescribeContainerStatisticsRequest $request DescribeContainerStatisticsRequest
      *
@@ -9860,7 +9869,8 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the risk statistics of container images.
+     * Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
+     *   * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -9885,7 +9895,8 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * Queries the risk statistics of container images.
+     * Security Center can scan for security risks and collect statistics only for **Container Registry Enterprise Edition instances**.
+     *   * >  Security Center cannot scan for security risks or collect statistics for **default** Container Registry instances.
      *   *
      * @return DescribeImageStatisticsResponse DescribeImageStatisticsResponse
      */
@@ -10107,7 +10118,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The ID of the server group to which the server belongs.
+     * You can call the DescribeInstallCodes operation to query the commands that are used to manually install the Security Center agent. The returned results contain the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
+     *   * # Limits
+     *   * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -10132,7 +10145,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The ID of the server group to which the server belongs.
+     * You can call the DescribeInstallCodes operation to query the commands that are used to manually install the Security Center agent. The returned results contain the installation verification code and the server information. If you want to manually install the Security Center agent on your server, you can call this operation to query installation commands.
+     *   * # Limits
+     *   * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @return DescribeInstallCodesResponse DescribeInstallCodesResponse
      */
@@ -11954,7 +11969,8 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The name of the CSV file. The CSV file contains the files that fail to be restored.
+     * If the data on your servers is encrypted by ransomware, you can create a restoration task to restore the data on your servers by using backup data in Security Center.
+     *   * >  After you enable an anti-ransomware policy, the data on your servers is backed up based on the policy. For more information about anti-ransomware policies, see [Manage protection policies](~~164781~~).
      *   *
      * @param DescribeRestoreJobsRequest $request DescribeRestoreJobsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -11996,7 +12012,8 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The name of the CSV file. The CSV file contains the files that fail to be restored.
+     * If the data on your servers is encrypted by ransomware, you can create a restoration task to restore the data on your servers by using backup data in Security Center.
+     *   * >  After you enable an anti-ransomware policy, the data on your servers is backed up based on the policy. For more information about anti-ransomware policies, see [Manage protection policies](~~164781~~).
      *   *
      * @param DescribeRestoreJobsRequest $request DescribeRestoreJobsRequest
      *
@@ -12217,7 +12234,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
-     *   * The number of detected risk items.
+     *   * This operation is phased out. You can use the GetCheckSummary operation.
      *   *
      * Deprecated
      *
@@ -12262,7 +12279,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
-     *   * The number of detected risk items.
+     *   * This operation is phased out. You can use the GetCheckSummary operation.
      *   *
      * Deprecated
      *
@@ -12338,8 +12355,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
-     *   * The instance IDs of the cloud services that you want to query. Separate multiple IDs with commas (,).
-     *   * > If you do not specify this parameter, an empty list is returned.
+     *   * This operation is phased out. You can use the ListCheckResult operation. When you call the ListCheckResult operation, set the Statuses parameter to NOT_PASS.
      *   *
      * Deprecated
      *
@@ -12390,8 +12406,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
-     *   * The instance IDs of the cloud services that you want to query. Separate multiple IDs with commas (,).
-     *   * > If you do not specify this parameter, an empty list is returned.
+     *   * This operation is phased out. You can use the ListCheckResult operation. When you call the ListCheckResult operation, set the Statuses parameter to NOT_PASS.
      *   *
      * Deprecated
      *
@@ -16268,7 +16283,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The ID of the exported file.
+     * You can call the operation to export the following check result lists:
+     *   * *   The list of servers on the Host page.
+     *   * *   The lists of image system vulnerabilities, image application vulnerabilities, image baseline check results, and malicious image samples on the Image Security page.
+     *   * *   The list of attack analysis data on the Attack Awareness page.
+     *   * *   The list of check results for AccessKey pair leaks on the AK leak detection page.
      *   *
      * @param ExportRecordRequest $request ExportRecordRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -16307,7 +16326,11 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The ID of the exported file.
+     * You can call the operation to export the following check result lists:
+     *   * *   The list of servers on the Host page.
+     *   * *   The lists of image system vulnerabilities, image application vulnerabilities, image baseline check results, and malicious image samples on the Image Security page.
+     *   * *   The list of attack analysis data on the Attack Awareness page.
+     *   * *   The list of check results for AccessKey pair leaks on the AK leak detection page.
      *   *
      * @param ExportRecordRequest $request ExportRecordRequest
      *
@@ -16415,7 +16438,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The ID of the exported file.
+     * You can call the ExportVul operation to export the following types of vulnerabilities: Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and urgent vulnerabilities.
+     *   * You can use this operation together with the DescribeVulExportInfo operation. After you call the ExportVul operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation to query the progress of the task by specifying the ID of the task.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param ExportVulRequest $request ExportVulRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -16475,7 +16501,10 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The ID of the exported file.
+     * You can call the ExportVul operation to export the following types of vulnerabilities: Linux software vulnerabilities, Windows system vulnerabilities, Web-CMS vulnerabilities, application vulnerabilities, and urgent vulnerabilities.
+     *   * You can use this operation together with the DescribeVulExportInfo operation. After you call the ExportVul operation to create a vulnerability export task, you can call the DescribeVulExportInfo operation to query the progress of the task by specifying the ID of the task.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param ExportVulRequest $request ExportVulRequest
      *
@@ -17593,7 +17622,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The extended information about the file detection result.
+     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
      *   *
      * @param GetFileDetectResultRequest $request GetFileDetectResultRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -17632,7 +17661,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The extended information about the file detection result.
+     * The HashKey parameter is included in all API operations that are related to the file detection feature. The parameter specifies the unique identifier of a file. Only MD5 hash values are supported. Before you call this operation, calculate the MD5 hash value of the file.
      *   *
      * @param GetFileDetectResultRequest $request GetFileDetectResultRequest
      *
@@ -20916,8 +20945,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The ID of the new server group to which the servers belong.
-     *   * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+     * You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
+     *   * ### Limits
+     *   * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param ModifyAssetGroupRequest $request ModifyAssetGroupRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -20956,8 +20986,9 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The ID of the new server group to which the servers belong.
-     *   * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+     * You can call the ModifyAssetGroup operation to change the server group to which one or more servers belong. After you create a server group by calling the [CreateOrUpdateAssetGroup](~~CreateOrUpdateAssetGroup~~) operation, you can call the ModifyAssetGroup operation to change the server group to which your servers belong.
+     *   * ### Limits
+     *   * You can call this API operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param ModifyAssetGroupRequest $request ModifyAssetGroupRequest
      *
@@ -22207,7 +22238,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The ID of the request, which is used to locate and troubleshoot issues.
+     * **Prerequisites** A service-linked role is created, and Security Center is authorized to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create service-linked roles and authorize Security Center to access cloud resources. **Scenarios** Before you use the log analysis feature of Security Center, you must call the ModifyOpenLogShipper operation to activate Log Service.
      *   *
      * @param ModifyOpenLogShipperRequest $request ModifyOpenLogShipperRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -22240,7 +22271,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The ID of the request, which is used to locate and troubleshoot issues.
+     * **Prerequisites** A service-linked role is created, and Security Center is authorized to access cloud resources. You can call the [CreateServiceLinkedRole](~~CreateServiceLinkedRole~~) operation to create service-linked roles and authorize Security Center to access cloud resources. **Scenarios** Before you use the log analysis feature of Security Center, you must call the ModifyOpenLogShipper operation to activate Log Service.
      *   *
      * @param ModifyOpenLogShipperRequest $request ModifyOpenLogShipperRequest
      *
@@ -22589,7 +22620,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
-     *   * The ID of the request, which is used to locate and troubleshoot issues.
+     *   * This operation is phased out. You can use the ChangeCheckConfig operation.
      *   *
      * Deprecated
      *
@@ -22640,7 +22671,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
-     *   * The ID of the request, which is used to locate and troubleshoot issues.
+     *   * This operation is phased out. You can use the ChangeCheckConfig operation.
      *   *
      * Deprecated
      *
@@ -24500,10 +24531,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The result of the image scan task. Valid values:
-     *   * *   **SUCCESS**: The task is successful.
-     *   * *   **TASK_NOT_SUPPORT_REGION**: The images are deployed in a region that is not supported by container image scan.
-     *   * > For more information about the regions supported by container image scan, see the "Regions supported by container image scan" section in this topic.
+     * Before you call the PublicCreateImageScanTask operation, we recommend that you call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of images to scan and the quota for container image scan to be consumed by the image scan task. Make sure that the remaining quota for container image scan is sufficient. This prevents the task from being stopped due to an insufficient quota.
      *   *
      * @param PublicCreateImageScanTaskRequest $request PublicCreateImageScanTaskRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -24560,10 +24588,7 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * The result of the image scan task. Valid values:
-     *   * *   **SUCCESS**: The task is successful.
-     *   * *   **TASK_NOT_SUPPORT_REGION**: The images are deployed in a region that is not supported by container image scan.
-     *   * > For more information about the regions supported by container image scan, see the "Regions supported by container image scan" section in this topic.
+     * Before you call the PublicCreateImageScanTask operation, we recommend that you call the [PublicPreCheckImageScanTask](~~PublicPreCheckImageScanTask~~) operation to query the number of images to scan and the quota for container image scan to be consumed by the image scan task. Make sure that the remaining quota for container image scan is sufficient. This prevents the task from being stopped due to an insufficient quota.
      *   *
      * @param PublicCreateImageScanTaskRequest $request PublicCreateImageScanTaskRequest
      *
@@ -24733,10 +24758,14 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryGroupIdByGroupNameRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can call the QueryGroupIdByGroupName operation to query the ID of an asset group to which your assets belong by using the name of the asset group. When you call operations such as [GetSuspiciousStatistics](~~GetSuspiciousStatistics~~) and [DeleteGroup](~~DeleteGroup~~), you must specify the ID of the asset group. To query the ID of an asset group, call the QueryGroupIdByGroupName operation.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param QueryGroupIdByGroupNameRequest $request QueryGroupIdByGroupNameRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryGroupIdByGroupNameResponse
+     * @return QueryGroupIdByGroupNameResponse QueryGroupIdByGroupNameResponse
      */
     public function queryGroupIdByGroupNameWithOptions($request, $runtime)
     {
@@ -24767,9 +24796,13 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param QueryGroupIdByGroupNameRequest $request
+     * You can call the QueryGroupIdByGroupName operation to query the ID of an asset group to which your assets belong by using the name of the asset group. When you call operations such as [GetSuspiciousStatistics](~~GetSuspiciousStatistics~~) and [DeleteGroup](~~DeleteGroup~~), you must specify the ID of the asset group. To query the ID of an asset group, call the QueryGroupIdByGroupName operation.
+     *   * ### Limits
+     *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param QueryGroupIdByGroupNameRequest $request QueryGroupIdByGroupNameRequest
      *
-     * @return QueryGroupIdByGroupNameResponse
+     * @return QueryGroupIdByGroupNameResponse QueryGroupIdByGroupNameResponse
      */
     public function queryGroupIdByGroupName($request)
     {

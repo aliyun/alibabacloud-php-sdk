@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeStrategyDetailRequest extends Model
 {
     /**
-     * @description The alias of the check item.
+     * @description The ID of the baseline check policy.
      *
      * @example 123456
      *
@@ -18,7 +18,10 @@ class DescribeStrategyDetailRequest extends Model
     public $id;
 
     /**
-     * @description The default value of the rule.
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example zh
      *
@@ -27,7 +30,7 @@ class DescribeStrategyDetailRequest extends Model
     public $lang;
 
     /**
-     * @description The minimum value of the rule parameter.
+     * @description The source IP address of the request.
      *
      * @example 192.168.XX.XX
      *

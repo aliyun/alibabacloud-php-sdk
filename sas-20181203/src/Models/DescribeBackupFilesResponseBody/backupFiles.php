@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class backupFiles extends Model
 {
     /**
+     * @description The name of the anti-ransomware policy.
+     *
      * @example Group 1
      *
      * @var string
@@ -16,6 +18,8 @@ class backupFiles extends Model
     public $name;
 
     /**
+     * @description The size of the backup file. Unit: bytes.
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +27,8 @@ class backupFiles extends Model
     public $size;
 
     /**
+     * @description The path to the subdirectory of the backup file.
+     *
      * @example Python27\
      *
      * @var string
@@ -30,6 +36,11 @@ class backupFiles extends Model
     public $subtree;
 
     /**
+     * @description The type of the protected file. Valid values:
+     *
+     *   **file**: files
+     *   **dir**: folders
+     *
      * @example dir
      *
      * @var string

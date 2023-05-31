@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class checkDetails extends Model
 {
     /**
-     * @description The alias of the baseline subtype.
+     * @description The description of the baseline.
      *
      * @example Set password expiration time, force regular modification of password, reduce password leakage and guess risk.Use non-password login (e.g. key pair) please ignore this item.
      *
@@ -28,7 +28,7 @@ class checkDetails extends Model
     public $checkId;
 
     /**
-     * @description The name of the baseline subtype.
+     * @description The baseline.
      *
      * @example Ensure password expiration period is set.
      *
@@ -37,7 +37,7 @@ class checkDetails extends Model
     public $checkItem;
 
     /**
-     * @description The minimum value of the parameter.
+     * @description An array that consists of the rule details about the baseline.
      *
      * @var rules[]
      */

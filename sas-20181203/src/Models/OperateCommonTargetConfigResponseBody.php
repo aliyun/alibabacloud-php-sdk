@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OperateCommonTargetConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 95D45C44-4F53-5ED2-8E12-7D134564B****
      *
      * @var string

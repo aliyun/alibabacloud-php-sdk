@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFileDetectResponseBody extends Model
 {
     /**
+     * @description The identifier of the file.
+     *
      * @example 0a212417e65c26ff133cfff28f6c****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateFileDetectResponseBody extends Model
     public $hashKey;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
      *
      * @var string

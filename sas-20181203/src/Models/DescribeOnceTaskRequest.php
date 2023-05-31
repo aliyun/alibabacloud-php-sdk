@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeOnceTaskRequest extends Model
 {
     /**
-     * @description The pagination information.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeOnceTaskRequest extends Model
     public $currentPage;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The timestamp when the root task ends. Unit: milliseconds.
      *
      * @example 1651766520000
      *
@@ -27,7 +27,7 @@ class DescribeOnceTaskRequest extends Model
     public $endTimeQuery;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of entries to return on each page. Default value: **20**.
      *
      * @example 20
      *
@@ -36,8 +36,9 @@ class DescribeOnceTaskRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the task.
+     * @description The ID of the root task.
      *
+     * > You must specify at least one of the **TaskType** and **RootTaskId** parameters.
      * @example bb5d657479bba5e1d308b6c9e85c9174
      *
      * @var string
@@ -45,7 +46,7 @@ class DescribeOnceTaskRequest extends Model
     public $rootTaskId;
 
     /**
-     * @description The data returned.
+     * @description The timestamp when the root task starts. Unit: milliseconds.
      *
      * @example 1651737301000
      *
@@ -54,7 +55,7 @@ class DescribeOnceTaskRequest extends Model
     public $startTimeQuery;
 
     /**
-     * @description The number of entries returned per page. Default value: **20**.
+     * @description The ID of the task.
      *
      * @example d7b2acf8d362742123e4a84e1bf8****
      *
@@ -63,8 +64,13 @@ class DescribeOnceTaskRequest extends Model
     public $taskId;
 
     /**
-     * @description The number of entries to return on each page. Default value: **20**.
+     * @description The type of the task. Valid values:
      *
+     *   **CLIENT\_PROBLEM_CHECK**: a task of the Security Center agent
+     *   **CLIENT\_DEV_OPS**: an O\&M task of Cloud Assistant
+     *   **ASSET\_SECURITY_CHECK**: a task of asset information collection
+     *
+     * > You must specify at least one of the **TaskType** and **RootTaskId** parameters.
      * @example CLIENT_PROBLEM_CHECK
      *
      * @var string

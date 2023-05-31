@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotPresetRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListHoneypotPresetRequest extends Model
     public $currentPage;
 
     /**
+     * @description The name of the honeypot image.
+     *
      * @example ruoyi
      *
      * @var string
@@ -23,6 +27,11 @@ class ListHoneypotPresetRequest extends Model
     public $honeypotImageName;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example en
      *
      * @var string
@@ -30,6 +39,8 @@ class ListHoneypotPresetRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the management node.
+     *
      * @example d892b4fe-af0d-4486-ab2a-8a518045****
      *
      * @var string
@@ -37,6 +48,8 @@ class ListHoneypotPresetRequest extends Model
     public $nodeId;
 
     /**
+     * @description The name of the management node.
+     *
      * @example Node1
      *
      * @var string
@@ -44,6 +57,9 @@ class ListHoneypotPresetRequest extends Model
     public $nodeName;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int
@@ -51,6 +67,8 @@ class ListHoneypotPresetRequest extends Model
     public $pageSize;
 
     /**
+     * @description The custom name of the honeypot template.
+     *
      * @example mx-rouyi
      *
      * @var string

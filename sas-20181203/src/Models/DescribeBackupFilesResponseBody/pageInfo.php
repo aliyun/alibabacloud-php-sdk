@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @description The number of backup files returned on the current page.
+     *
      * @example 10
      *
      * @var int
@@ -16,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -25,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description Queries backup files.
+     * @description The number of entries returned per page. Default value: **10**.
      *
      * @example 10
      *
@@ -34,7 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description WB01014029
+     * @description The total number of backup files returned.
      *
      * @example 69
      *

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulDetailsResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details about the vulnerability.
+     *
      * @var cves[]
      */
     public $cves;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example EDA40EA3-6265-5900-AD99-C83E4F109CA8
      *
      * @var string

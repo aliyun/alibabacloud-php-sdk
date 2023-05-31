@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogMetaResponseBody extends Model
 {
     /**
-     * @description The name of the dedicated project in which logs are stored.
+     * @description An array that consists of the configurations of the log analysis feature.
      *
      * @var logMetaList[]
      */
     public $logMetaList;
 
     /**
-     * @description The name of the dedicated Logstore in which logs are stored.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example D0D6E6E4-CB8C-4897-B852-46AEFDA04B21
      *
@@ -26,7 +26,7 @@ class DescribeLogMetaResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The source IP address of the request.
+     * @description The total number of entries returned.
      *
      * @example 100
      *

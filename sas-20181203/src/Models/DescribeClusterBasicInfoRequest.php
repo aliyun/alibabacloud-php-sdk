@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterBasicInfoRequest extends Model
 {
     /**
+     * @description The ID of the cluster that you want to query.
+     *
+     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
      * @example c870ec78ecbcb41d2a35c679823ef****
      *
      * @var string
@@ -16,6 +19,10 @@ class DescribeClusterBasicInfoRequest extends Model
     public $clusterId;
 
     /**
+     * @description The dimension from which you want to configure the feature. Valid values:
+     *
+     *   **Cluster**: the ID of the cluster
+     *
      * @example Cluster
      *
      * @var string
@@ -23,6 +30,11 @@ class DescribeClusterBasicInfoRequest extends Model
     public $targetType;
 
     /**
+     * @description The type of the feature. Valid values:
+     *
+     *   **containerNetwork**: container network topology
+     *   **interceptionSwitch**: cluster microsegmentation
+     *
      * @example containerNetwork
      *
      * @var string

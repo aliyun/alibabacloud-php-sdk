@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockBindListResponseBody extends Model
 {
     /**
-     * @description 116.30.XX.XX
+     * @description The information about the servers that have web tamper proofing enabled.
      *
      * @var bindList[]
      */
     public $bindList;
 
     /**
-     * @description The private IP address of the server.
+     * @description The page number of the returned page. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeWebLockBindListResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description The number of protected directories.
+     * @description The number of entries returned per page. Default value: 20.
      *
      * @example 20
      *
@@ -35,7 +35,7 @@ class DescribeWebLockBindListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The operating system that the server runs.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example D9354C1A-D709-4873-9AAE-41513327B247
      *
@@ -44,7 +44,7 @@ class DescribeWebLockBindListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the servers that have web tamper proofing enabled.
+     * @description The total number of servers that have web tamper proofing enabled.
      *
      * @example 11409
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterCnnfStatusUserConfirmResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 4FFBEDBD-FA63-5213-9103-306519EE4857
      *
      * @var string

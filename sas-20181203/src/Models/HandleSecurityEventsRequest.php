@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class HandleSecurityEventsRequest extends Model
 {
     /**
+     * @description Specifies whether to add multiple alert events to the whitelist at a time. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var string
@@ -16,8 +21,26 @@ class HandleSecurityEventsRequest extends Model
     public $markBatch;
 
     /**
-     * @description HandleSecurityEvents
+     * @description The whitelist rule. The value of this parameter is in the JSON format and contains the following fields:
      *
+     *   **field**: The field based on which alert events are added to the whitelist.
+     *
+     *   **operate**: The method that is used to added alert events to the whitelist. Valid values:
+     *
+     *   **notContains**: does not contain
+     *   **contains**: contains
+     *   **regex**: matches by regular expression
+     *   **strEqual**: equals
+     *   **strNotEqual**: does not equal
+     *
+     *   **fieldValue**: The value of the field based on which alert events are added to the whitelist.
+     *
+     *   **uuid**: The application scope of the whitelist rule. Valid values:
+     *
+     *   **part**: the current asset
+     *   **ALL**: all assets
+     *
+     * >  You can call the [DescribeSecurityEventOperations](~~DescribeSecurityEventOperations~~) operation to obtain the fields that you can specify for **field**.
      * @example [{"uuid":"part","field":"gmtModified","operate":"contains","fieldValue":"asd"},{"uuid":"part","field":"loginUser","operate":"contains","fieldValue":"vff"}]
      *
      * @var string
@@ -25,10 +48,18 @@ class HandleSecurityEventsRequest extends Model
     public $markMissParam;
 
     /**
-     * @description Specifies whether to add multiple alert events to the whitelist at a time. Valid values:
+     * @description The operation that you want to perform to handle the alert events. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **block_ip**: blocks the source IP address.
+     *   **advance\_mark\_mis_info**: adds the alert events to the whitelist.
+     *   **ignore**: ignores the alert events.
+     *   **manual_handled**: marks the alert events as manually handled.
+     *   **kill_process**: terminates the malicious process.
+     *   **cleanup**: performs in-depth virus detection and removal.
+     *   **kill\_and_quara**: kills the malicious processes and quarantines the source file.
+     *   **disable\_malicious_defense**: stops the container on which the alerting files or processes exist.
+     *   **client\_problem_check**: performs troubleshooting.
+     *   **quara**: quarantines the source file of the malicious process.
      *
      * @example block_ip
      *
@@ -37,8 +68,9 @@ class HandleSecurityEventsRequest extends Model
     public $operationCode;
 
     /**
-     * @description Handles alert events.
+     * @description The configuration of the operation that you want to perform to handle the alert events.
      *
+     * >  If you set OperationCode to `kill_and_quara` or `block_ip`, you must specify OperationParams. If you set OperationCode to other values, you can leave OperationParams empty.
      * @example {}
      *
      * @var string
@@ -46,6 +78,8 @@ class HandleSecurityEventsRequest extends Model
     public $operationParams;
 
     /**
+     * @description The IDs of the alert events.
+     *
      * @example ["909361"]
      *
      * @var string[]
@@ -53,7 +87,7 @@ class HandleSecurityEventsRequest extends Model
     public $securityEventIds;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The source IP address of the request.
      *
      * @example 1.2.XX.XX
      *

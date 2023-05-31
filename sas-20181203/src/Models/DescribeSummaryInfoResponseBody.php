@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSummaryInfoResponseBody extends Model
 {
     /**
-     * @description WB01014029
+     * @description The number of unprotected assets.
      *
      * @example 12
      *
@@ -18,6 +18,8 @@ class DescribeSummaryInfoResponseBody extends Model
     public $aegisClientOfflineCount;
 
     /**
+     * @description The number of protected assets.
+     *
      * @example 127
      *
      * @var int
@@ -25,7 +27,7 @@ class DescribeSummaryInfoResponseBody extends Model
     public $aegisClientOnlineCount;
 
     /**
-     * @description Queries the security information about your assets. The information includes the security score and the numbers of protected and unprotected assets.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example D40198E1-6EA8-482E-B3C7-D9573D75C0CA
      *
@@ -34,6 +36,13 @@ class DescribeSummaryInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The security score of the assets. Valid values:
+     *
+     *   95 to 100: The assets are secure.
+     *   85 to 94: The assets are exposed to a few security risks. We recommend that you reinforce your security system in a timely manner.
+     *   70 to 84: The assets are exposed to multiple security risks. We recommend that you reinforce your security system in a timely manner.
+     *   69 or lower: The current security system is unable to protect the assets against intrusions. We recommend that you reinforce your security system at the earliest opportunity.
+     *
      * @example 44
      *
      * @var int
@@ -41,7 +50,10 @@ class DescribeSummaryInfoResponseBody extends Model
     public $securityScore;
 
     /**
-     * @description DescribeSummaryInfo
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example true
      *

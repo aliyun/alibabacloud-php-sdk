@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyClientConfSetupResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 60E24426-B910-5D7F-8B8B-3BCDC3FC****
      *
      * @var string

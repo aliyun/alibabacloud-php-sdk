@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class customConfigs extends Model
 {
     /**
+     * @description The name of the custom configuration item. The name of a custom configuration item is unique in a check item.
+     *
      * @example SessionTimeMax
      *
      * @var string
@@ -16,6 +18,8 @@ class customConfigs extends Model
     public $name;
 
     /**
+     * @description The operation that you want to perform on the custom configuration item. This parameter is required only if you want to delete the custom configuration item. To delete the custom configuration item, set the value to DELETE.
+     *
      * @example DELETE
      *
      * @var string
@@ -23,6 +27,8 @@ class customConfigs extends Model
     public $operation;
 
     /**
+     * @description The value of the custom configuration item. The value is a string.
+     *
      * @example 13
      *
      * @var string

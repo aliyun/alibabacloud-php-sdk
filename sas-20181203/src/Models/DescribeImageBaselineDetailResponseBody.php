@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageBaselineDetailResponseBody extends Model
 {
     /**
+     * @description The details about the image baseline.
+     *
      * @var baselineDetail
      */
     public $baselineDetail;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0B48AB3C-84FC-424D-A01D-B9270EF4****
      *
      * @var string

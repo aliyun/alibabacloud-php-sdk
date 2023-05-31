@@ -11,21 +11,21 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyPortDetailResponseBody extends Model
 {
     /**
-     * @description 192.168.XX.XX
+     * @description The pagination information.
      *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description Specifies whether fuzzy search by port number is supported. If you want to use fuzzy search, set the parameter to **1**. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
+     * @description An array that consists of the fingerprints of the ports.
      *
      * @var propertys[]
      */
     public $propertys;
 
     /**
-     * @description 0.0.XX.XX
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 0FA7F1F4-488D-52CA-9BFC-3E47793B49D1
      *

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedCheckWarningResponseBody extends Model
 {
     /**
+     * @description The total number of entries returned.
+     *
      * @example 10
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeExposedCheckWarningResponseBody extends Model
     public $count;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 6D9CDB47-6191-4415-BE63-7E8B12CD****
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeExposedCheckWarningResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array that consists of the baseline risk items of the exposed server.
+     *
      * @var warningList[]
      */
     public $warningList;

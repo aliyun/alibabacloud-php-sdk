@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class eventTypes extends Model
 {
     /**
+     * @description The name of the alert type.
+     *
      * @example Unusual Logon
      *
      * @var string
@@ -16,6 +18,8 @@ class eventTypes extends Model
     public $name;
 
     /**
+     * @description The number of assets for which an alert of the type is generated.
+     *
      * @example 22
      *
      * @var int
@@ -23,6 +27,8 @@ class eventTypes extends Model
     public $suspEventCount;
 
     /**
+     * @description The alert type.
+     *
      * @example Unusual Logon
      *
      * @var string

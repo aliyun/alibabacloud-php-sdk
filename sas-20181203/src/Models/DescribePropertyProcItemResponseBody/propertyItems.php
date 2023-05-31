@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class propertyItems extends Model
 {
     /**
-     * @description Queries information about all processes.
+     * @description The number of servers on which the process runs.
      *
      * @example 8888
      *
@@ -18,7 +18,7 @@ class propertyItems extends Model
     public $count;
 
     /**
-     * @description The number of servers on which the process runs.
+     * @description The name of the process.
      *
      * @example .ss
      *

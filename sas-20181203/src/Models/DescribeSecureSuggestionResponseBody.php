@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecureSuggestionResponseBody extends Model
 {
     /**
-     * @description 192.168.XX.XX
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 676F80E3-4B3F-43DA-9CBB-5FF79F202AA2
      *
@@ -19,14 +19,14 @@ class DescribeSecureSuggestionResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Queries suggestions on how to handle the security risks that affect the security score.
+     * @description An array that consists of the unhandled security risks.
      *
      * @var suggestions[]
      */
     public $suggestions;
 
     /**
-     * @description The source IP address of the request.
+     * @description The total number of unhandled security risks.
      *
      * @example 15
      *

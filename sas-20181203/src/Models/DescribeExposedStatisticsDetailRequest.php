@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeExposedStatisticsDetailRequest extends Model
 {
     /**
-     * @description The number of entries returned on the current page.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -18,8 +18,9 @@ class DescribeExposedStatisticsDetailRequest extends Model
     public $currentPage;
 
     /**
-     * @description The ID of the gateway asset. This parameter is required when the **StatisticsType** parameter is set to **exposureType**.
+     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int
@@ -27,9 +28,13 @@ class DescribeExposedStatisticsDetailRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     * @description The type of the exposed asset. Valid values:
      *
-     * >  We recommend that you do not leave this parameter empty.
+     *   **exposureType**: gateway assets
+     *   **exposurePort**: ports
+     *   **exposureComponent**: system components
+     *   **exposureIp**: IP addresses
+     *
      * @example exposureType
      *
      * @var string
@@ -37,7 +42,10 @@ class DescribeExposedStatisticsDetailRequest extends Model
     public $statisticsType;
 
     /**
-     * @description The system component that is exposed on the Internet.
+     * @description The type of the gateway asset. This parameter is required when the **StatisticsType** parameter is set to **exposureType**. Valid values:
+     *
+     *   **SLB**: the public IP address of a Server Load Balancer (SLB) instance
+     *   **DNAT**: the NAT gateway that connects to the Internet by using the DNAT feature
      *
      * @example SLB
      *
@@ -46,7 +54,7 @@ class DescribeExposedStatisticsDetailRequest extends Model
     public $statisticsTypeGatewayType;
 
     /**
-     * @description The pagination information.
+     * @description The ID of the gateway asset. This parameter is required when the **StatisticsType** parameter is set to **exposureType**.
      *
      * @example lb-2ze4rso39h4nczcqs****
      *

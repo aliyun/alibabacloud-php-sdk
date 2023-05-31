@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInterceptionRulePageRequest extends Model
 {
     /**
+     * @description The ID of the container cluster.
+     *
      * @example cc41de13ab5474210bc0ce772a009****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListInterceptionRulePageRequest extends Model
     public $clusterId;
 
     /**
+     * @description The query condition.
+     *
      * @example 80
      *
      * @var string
@@ -23,6 +27,16 @@ class ListInterceptionRulePageRequest extends Model
     public $criteria;
 
     /**
+     * @description The type of the query condition. Valid values:
+     *
+     *   **ID**
+     *   **RULE_NAME**
+     *   **SRC_TARGET**
+     *   **DST_TARGET**
+     *   **DST_PORT**
+     *   **RULE_SWITCH**
+     *   **INTERCEPTOR_TYPE**
+     *
      * @example DST_PORT
      *
      * @var string
@@ -30,6 +44,8 @@ class ListInterceptionRulePageRequest extends Model
     public $criteriaType;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +53,8 @@ class ListInterceptionRulePageRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 50
      *
      * @var int

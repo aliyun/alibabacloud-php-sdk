@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreJobsRequest extends Model
 {
     /**
-     * @description The timestamp when the in-progress restoration task is expected to be complete. Unit: seconds.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeRestoreJobsRequest extends Model
     public $currentPage;
 
     /**
-     * @description The return value of the restoration task.
+     * @description The unique identifier of the server on which the restoration task is run. For example, you can use the IP address or the name of the server.
      *
      * @example 1.1.XX.XX
      *
@@ -27,7 +27,7 @@ class DescribeRestoreJobsRequest extends Model
     public $machineRemark;
 
     /**
-     * @description The timestamp when the restoration task was last updated. Unit: milliseconds.
+     * @description The number of entries to return on each page. Default value: **10**.
      *
      * @example 10
      *
@@ -36,10 +36,18 @@ class DescribeRestoreJobsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The type of the file that is restored. Valid values:
+     * @description The status of the restoration task. Valid values:
      *
-     *   **ECS_FILE**: files on Elastic Compute Service (ECS) instances
-     *   **FILE**: files on servers in data centers
+     *   **RUNNING**: The task is running.
+     *   **COMPLETE**: The task is complete.
+     *   **FAILED**: The task fails.
+     *   **CANCELING**: The task is being canceled.
+     *   **CANCELED**: The task is canceled.
+     *   **PARTIAL_COMPLETE**: The task is partially successful.
+     *   **CREATED**: The task is created but is not run.
+     *   **EXPIRED**: The task is not updated.
+     *   **QUEUED**: The task is waiting to be run.
+     *   **CLIENT_DELETED**: The task fails because the anti-ransomware agent is uninstalled.
      *
      * @example RUNNING
      *

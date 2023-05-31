@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeContainerTagsResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 028CF634-5268-5660-9575-48C9ED6BF880
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeContainerTagsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array that consists of the attributes of container assets.
+     *
      * @var string[]
      */
     public $tagValues;

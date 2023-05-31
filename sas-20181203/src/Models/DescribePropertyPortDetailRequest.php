@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyPortDetailRequest extends Model
 {
     /**
-     * @description The network protocol that is used by the listening port.
+     * @description The IP address that is bound to the listening port.
      *
      * @example 0.0.XX.XX
      *
@@ -18,7 +18,7 @@ class DescribePropertyPortDetailRequest extends Model
     public $bindIp;
 
     /**
-     * @description The name of the server process.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class DescribePropertyPortDetailRequest extends Model
     public $currentPage;
 
     /**
-     * @description The listening port.
+     * @description Specifies whether fuzzy search by port number is supported. If you want to use fuzzy search, set the parameter to **1**. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class DescribePropertyPortDetailRequest extends Model
     public $extend;
 
     /**
-     * @description 50d213b4-3a35-427a-b8a5-04b0c7e1****
+     * @description The number of entries to return on each page. Default value: **10**.
      *
      * @example 10
      *
@@ -45,7 +45,7 @@ class DescribePropertyPortDetailRequest extends Model
     public $pageSize;
 
     /**
-     * @description The public IP address of the server.
+     * @description The listening port of the server.
      *
      * @example 22
      *
@@ -54,7 +54,7 @@ class DescribePropertyPortDetailRequest extends Model
     public $port;
 
     /**
-     * @description The IP address that is bound to the listening port.
+     * @description The name of the server process.
      *
      * @example sshd
      *
@@ -63,7 +63,7 @@ class DescribePropertyPortDetailRequest extends Model
     public $procName;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
+     * @description The name or IP address of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -72,7 +72,7 @@ class DescribePropertyPortDetailRequest extends Model
     public $remark;
 
     /**
-     * @description The listening port of the server.
+     * @description The UUID of the server.
      *
      * @example 50d213b4-3a35-427a-b8a5-04b0c7e1****
      *

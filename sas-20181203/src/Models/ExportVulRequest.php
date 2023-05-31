@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ExportVulRequest extends Model
 {
     /**
+     * @description The name of the vulnerability.
+     *
      * @example RHSA-2019:3197-Important: sudo security update
      *
      * @var string
@@ -16,6 +18,9 @@ class ExportVulRequest extends Model
     public $aliasName;
 
     /**
+     * @description The additional type of the vulnerabilities. You need to specify this parameter when you query application vulnerabilities. If you set the Type parameter to app, you must specify this parameter. Set the value to **sca**.
+     *
+     * > If this parameter is set to **sca**, **application vulnerabilities** and the **vulnerabilities that are detected based on software component analysis** are queried. If you do not specify this parameter, only application vulnerabilities are queried.
      * @example sca
      *
      * @var string
@@ -23,6 +28,11 @@ class ExportVulRequest extends Model
     public $attachTypes;
 
     /**
+     * @description Specifies whether the vulnerability is fixed. Valid values:
+     *
+     *   **y**: The vulnerability is fixed.
+     *   **n**: The vulnerability is not fixed.
+     *
      * @example n
      *
      * @var string
@@ -30,6 +40,9 @@ class ExportVulRequest extends Model
     public $dealed;
 
     /**
+     * @description The server group ID of the server on which the vulnerabilities are detected.
+     *
+     * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
      * @example 8834224
      *
      * @var string
@@ -37,6 +50,11 @@ class ExportVulRequest extends Model
     public $groupId;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -44,6 +62,12 @@ class ExportVulRequest extends Model
     public $lang;
 
     /**
+     * @description The priority to fix the vulnerability. Separate multiple priorities with commas (,). Valid values:
+     *
+     *   **asap**: high
+     *   **later**: medium
+     *   **nntf**: low
+     *
      * @example asap
      *
      * @var string
@@ -51,6 +75,15 @@ class ExportVulRequest extends Model
     public $necessity;
 
     /**
+     * @description The tag that is used to search for the vulnerabilities. Valid values:
+     *
+     *   Restart required
+     *   Remote exploitation
+     *   Exploit exists
+     *   Exploitable
+     *   Privilege escalation
+     *   Code execution
+     *
      * @example Restart required
      *
      * @var string
@@ -58,6 +91,14 @@ class ExportVulRequest extends Model
     public $searchTags;
 
     /**
+     * @description The type of the vulnerability that you want to export. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerability
+     *   **app**: application vulnerability
+     *   **emg**: urgent vulnerability
+     *
      * @example app
      *
      * @var string
@@ -65,6 +106,8 @@ class ExportVulRequest extends Model
     public $type;
 
     /**
+     * @description The UUID of the server on which the vulnerabilities are detected. Separate multiple UUIDs with commas (,).
+     *
      * @example 1587bedb-fdb4-48c4-9330-****
      *
      * @var string
@@ -72,6 +115,9 @@ class ExportVulRequest extends Model
     public $uuids;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) in which the vulnerabilities are detected. Separate multiple IDs with commas (,).
+     *
+     * > You can call the [DescribeVpcList](~~DescribeVpcList~~) operation to query the IDs of VPCs.
      * @example ins-133****,ins-5414****
      *
      * @var string

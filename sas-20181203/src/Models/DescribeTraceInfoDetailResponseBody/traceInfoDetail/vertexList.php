@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class vertexList extends Model
 {
     /**
+     * @description The number of times.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class vertexList extends Model
     public $count;
 
     /**
+     * @description The ID of the vertex.
+     *
      * @example a1d1fa39e5345dcef3f9712172xxxxxx
      *
      * @var string
@@ -24,6 +28,8 @@ class vertexList extends Model
     public $id;
 
     /**
+     * @description The name of the entity represented by the vertex.
+     *
      * @example /usr/local/tomcat
      *
      * @var string
@@ -31,11 +37,15 @@ class vertexList extends Model
     public $name;
 
     /**
+     * @description An array that consists of the neighbor nodes.
+     *
      * @var neighborList[]
      */
     public $neighborList;
 
     /**
+     * @description The point in time.
+     *
      * @example 2022-12-21 10:24:42
      *
      * @var string
@@ -43,6 +53,8 @@ class vertexList extends Model
     public $time;
 
     /**
+     * @description The type of the entity represented by the vertex.
+     *
      * @example file_path
      *
      * @var string

@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulTargetStatisticsRequest extends Model
 {
     /**
-     * @description The data returned.
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerability
+     *   **emg**: urgent vulnerability
      *
      * @example cve
      *

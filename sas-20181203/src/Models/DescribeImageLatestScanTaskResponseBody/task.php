@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @description The time when the task was created. The time is in the yyyy-MM-dd HH:mm:ss format.
+     *
      * @example 2022-12-20 11:59:05
      *
      * @var string
@@ -16,6 +18,8 @@ class task extends Model
     public $create;
 
     /**
+     * @description The number of images that are scanned.
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +27,8 @@ class task extends Model
     public $finish;
 
     /**
+     * @description The end time of the task. The value of this parameter is returned only if Status is SUCCESS. Otherwise, this parameter is returned empty.
+     *
      * @example 1669693430977
      *
      * @var int
@@ -30,6 +36,8 @@ class task extends Model
     public $finishTime;
 
     /**
+     * @description The primary key ID of the database.
+     *
      * @example 9755662
      *
      * @var int
@@ -37,6 +45,8 @@ class task extends Model
     public $id;
 
     /**
+     * @description The time when the task was last modified. The time is in the yyyy-MM-dd HH:mm:ss format.
+     *
      * @example 2022-12-20 12:00:05
      *
      * @var string
@@ -44,6 +54,8 @@ class task extends Model
     public $modified;
 
     /**
+     * @description The name of the task.
+     *
      * @example IMAGE_SCAN
      *
      * @var string
@@ -51,6 +63,11 @@ class task extends Model
     public $name;
 
     /**
+     * @description The creation method. A task can be created in the Security Center console or by calling an operation. Valid values:
+     *
+     *   **console_batch**: The task was created in the Security Center console.
+     *   **openapi**: The task was created by calling an operation.
+     *
      * @example console_batch
      *
      * @var string
@@ -58,6 +75,8 @@ class task extends Model
     public $source;
 
     /**
+     * @description The start time of the task.
+     *
      * @example 1668614400000
      *
      * @var int
@@ -65,6 +84,16 @@ class task extends Model
     public $startTime;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **PROCESSING**: running
+     *   **START**: starting
+     *   **MESSAGE_SEND**: delivering
+     *   **PRE_ANALYZER**: image prechecking
+     *   **SUCCESS**: successful
+     *   **FAIL**: failed
+     *   **TIMOUT**: timed out
+     *
      * @example SUCCESS
      *
      * @var string
@@ -72,6 +101,8 @@ class task extends Model
     public $status;
 
     /**
+     * @description The digest value of the image.
+     *
      * @example 8f0fbdb41d3d1ade4ffdf21558443f4c03342010563bb8c43ccc09594d50****
      *
      * @var string
@@ -79,6 +110,10 @@ class task extends Model
     public $target;
 
     /**
+     * @description The type of the scanned asset. Valid values:
+     *
+     *   **IMAGE**: image
+     *
      * @example IMAGE
      *
      * @var string
@@ -86,6 +121,8 @@ class task extends Model
     public $targetType;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 0a960b9a48b788a8689154b032bf****
      *
      * @var string
@@ -93,6 +130,10 @@ class task extends Model
     public $taskId;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   **IMAGE_SCAN**: image scan task
+     *
      * @example IMAGE_SCAN
      *
      * @var string

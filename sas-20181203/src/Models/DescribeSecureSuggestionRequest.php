@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecureSuggestionRequest extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example zh
      *
@@ -18,7 +21,7 @@ class DescribeSecureSuggestionRequest extends Model
     public $lang;
 
     /**
-     * @description An array that consists of the unhandled security risks.
+     * @description The source IP address of the request.
      *
      * @example 192.168.XX.XX
      *

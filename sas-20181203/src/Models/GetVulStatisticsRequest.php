@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetVulStatisticsRequest extends Model
 {
     /**
+     * @description The ID of the asset group. Separate multiple IDs with commas (,).
+     *
+     * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of asset groups.
      * @example 9997897
      *
      * @var string
@@ -16,6 +19,8 @@ class GetVulStatisticsRequest extends Model
     public $groupIdList;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 10.12.XX.XX
      *
      * @var string
@@ -23,6 +28,15 @@ class GetVulStatisticsRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The type of the vulnerability whose statistics you want to query. Separate multiple types with commas (,). Valid values:
+     *
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerability
+     *   **emg**: urgent vulnerability
+     *   **app**: vulnerability detected by using a web scanner
+     *   **sca**: vulnerability detected based on software component analysis
+     *
      * @example cve
      *
      * @var string

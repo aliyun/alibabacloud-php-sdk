@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description The path to the scheduled task.
+     * @description The number of entries returned on the current page.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description The UUID of the server.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The interval at which the scheduled task is performed.
+     * @description The number of entries returned per page. Default value: **10**.
      *
      * @example 10
      *
@@ -36,7 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

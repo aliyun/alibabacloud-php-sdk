@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description Specifies whether the account has root permissions. Valid values:
-     *
-     *   **0**: no
-     *   **1**: yes
+     * @description The number of entries returned on the current page.
      *
      * @example 1
      *
@@ -21,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description The timestamp of the last logoff from the account. Unit: milliseconds.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -30,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The name of the account to which the server belongs.
+     * @description The number of entries returned per page. Default value: **10**.
      *
      * @example 10
      *
@@ -39,7 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The name of the account.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

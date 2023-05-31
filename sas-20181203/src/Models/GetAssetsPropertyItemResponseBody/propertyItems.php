@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class propertyItems extends Model
 {
     /**
+     * @description The number of servers related to the asset fingerprints.
+     *
      * @example 23
      *
      * @var int
@@ -16,6 +18,9 @@ class propertyItems extends Model
     public $count;
 
     /**
+     * @description The domain name.
+     *
+     * >  This parameter is returned only when **Biz** is set to **web_server**.
      * @example localhost
      *
      * @var string
@@ -23,6 +28,9 @@ class propertyItems extends Model
     public $domain;
 
     /**
+     * @description The name of the module.
+     *
+     * >  This parameter is returned only when **Biz** is set to **lkm**.
      * @example alihids
      *
      * @var string
@@ -30,6 +38,9 @@ class propertyItems extends Model
     public $moduleName;
 
     /**
+     * @description The path to the startup item.
+     *
+     * >  This parameter is returned only when **Biz** is set to **autorun**.
      * @example C:/Program Files/****
      *
      * @var string

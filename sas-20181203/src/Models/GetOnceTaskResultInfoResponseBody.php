@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetOnceTaskResultInfoResponseBody extends Model
 {
     /**
-     * @description The information about the task.
+     * @description The execution time of the task.
      *
      * @example 1671184531000
      *
@@ -19,6 +19,8 @@ class GetOnceTaskResultInfoResponseBody extends Model
     public $collectTime;
 
     /**
+     * @description The number of tasks that were completed.
+     *
      * @example 47
      *
      * @var int
@@ -26,12 +28,7 @@ class GetOnceTaskResultInfoResponseBody extends Model
     public $finishCount;
 
     /**
-     * @description The status of the task. Valid values:
-     *
-     *   **INIT**: The task is not started.
-     *   **START**: The task is started.
-     *   **SUCCESS**: The task is complete.
-     *   **TIMEOUT**: The task times out.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example CE500770-42D3-442E-9DDD-156E0F9F****
      *
@@ -40,6 +37,8 @@ class GetOnceTaskResultInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the scan task.
+     *
      * @example e7b70a4b030db086db52231f1b58****
      *
      * @var int
@@ -47,11 +46,15 @@ class GetOnceTaskResultInfoResponseBody extends Model
     public $taskId;
 
     /**
+     * @description The information about the task.
+     *
      * @var taskInfo
      */
     public $taskInfo;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 44
      *
      * @var int

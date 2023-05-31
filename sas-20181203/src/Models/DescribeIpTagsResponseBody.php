@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpTagsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example E70074C8-DFB4-44C5-96C7-909DXXXXXXX
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeIpTagsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The tags that are added to the IP address.
+     *
      * @example latest
      *
      * @var string

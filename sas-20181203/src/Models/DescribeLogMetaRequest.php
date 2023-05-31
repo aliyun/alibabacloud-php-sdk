@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogMetaRequest extends Model
 {
     /**
-     * @description The topic of logs that are delivered.
+     * @description The ID of the request source. Default value: **aegis**. Valid values:
      *
+     *   **aegis**: Server Guard
+     *   **sas**: Security Center
+     *
+     * >  If you use Server Guard, set the value to **aegis**. If you use Security Center, set the value to **sas**.
      * @example sas
      *
      * @var string
@@ -18,11 +22,10 @@ class DescribeLogMetaRequest extends Model
     public $from;
 
     /**
-     * @description The category of logs. Valid values:
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
      *
-     *   **host**: host logs
-     *   **network**: network logs
-     *   **security**: security logs
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example zh
      *
@@ -31,12 +34,8 @@ class DescribeLogMetaRequest extends Model
     public $lang;
 
     /**
-     * @description The ID of the request source. Default value: **aegis**. Valid values:
+     * @description The source IP address of the request.
      *
-     *   **aegis**: Server Guard
-     *   **sas**: Security Center
-     *
-     * >  If you use Server Guard, set the value to **aegis**. If you use Security Center, set the value to **sas**.
      * @example 123.168.XX.XX
      *
      * @var string

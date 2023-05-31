@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class aegisUuidTargetPluginConfigList extends Model
 {
     /**
-     * @description The information about the plug-in.
+     * @description An array that consists of the configurations of plug-ins.
      *
      * @var aegisSuspiciousConfigList[]
      */
@@ -26,9 +26,12 @@ class aegisUuidTargetPluginConfigList extends Model
     public $pluginInstallCode;
 
     /**
-     * @description The UUID of the server.
+     * @description The name of the plug-in. Valid values:
      *
-     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
+     *   **alihips**: trojan-specific prevention
+     *   **alisecguard**: attack-specific prevention
+     *   **alinet**: defense against attacks on servers
+     *
      * @example alisecguard
      *
      * @var string
@@ -36,7 +39,10 @@ class aegisUuidTargetPluginConfigList extends Model
     public $pluginName;
 
     /**
-     * @description The version of the plug-in.
+     * @description Indicates whether the plug-in is installed. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example true
      *
@@ -45,7 +51,10 @@ class aegisUuidTargetPluginConfigList extends Model
     public $pluginOnlineInstalled;
 
     /**
-     * @description An array that consists of the configurations of plug-ins.
+     * @description Indicates whether the plug-in is online. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example true
      *
@@ -54,10 +63,7 @@ class aegisUuidTargetPluginConfigList extends Model
     public $pluginOnlineStatus;
 
     /**
-     * @description Indicates whether the plug-in is enabled. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
+     * @description The version of the plug-in.
      *
      * @example 00_10
      *

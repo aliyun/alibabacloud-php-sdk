@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class paramList extends Model
 {
     /**
+     * @description If the value of paramType is 2, this parameter provides the options that can be selected for the rule parameter.
+     *
      * @example 0,1,2,3
      *
      * @var string
@@ -16,7 +18,7 @@ class paramList extends Model
     public $enumValue;
 
     /**
-     * @description Queries the details of a baseline check policy.
+     * @description The maximum value of the rule parameter.
      *
      * @example 999
      *
@@ -25,6 +27,8 @@ class paramList extends Model
     public $maxValue;
 
     /**
+     * @description The minimum value of the rule parameter.
+     *
      * @example 1
      *
      * @var int
@@ -32,10 +36,7 @@ class paramList extends Model
     public $minValue;
 
     /**
-     * @description Indicates whether the rule is included in the policy. Valid values:
-     *
-     *   **1**: yes
-     *   **0**: no
+     * @description The default value of the rule parameter.
      *
      * @example 7
      *
@@ -44,6 +45,8 @@ class paramList extends Model
     public $paramDefaultValue;
 
     /**
+     * @description The description of the rule parameter.
+     *
      * @example The setting value is 0 means no definition, 1 means success, 2 means failure, 3 means success and failure
      *
      * @var string
@@ -51,7 +54,7 @@ class paramList extends Model
     public $paramDesc;
 
     /**
-     * @description The time when the baseline check based on the baseline check policy ends.
+     * @description The name of the rule parameter.
      *
      * @example range_val
      *
@@ -60,7 +63,10 @@ class paramList extends Model
     public $paramName;
 
     /**
-     * @description WB01224678
+     * @description The type of the rule parameter. Valid values:
+     *
+     *   **1**: input
+     *   **2**: selection
      *
      * @example 1
      *
@@ -69,7 +75,7 @@ class paramList extends Model
     public $paramType;
 
     /**
-     * @description An array that consists of sub-risk items.
+     * @description The specified value of the rule parameter.
      *
      * @example 7
      *

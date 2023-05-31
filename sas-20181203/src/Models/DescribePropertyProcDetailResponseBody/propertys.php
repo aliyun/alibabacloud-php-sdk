@@ -18,7 +18,7 @@ class propertys extends Model
     public $cmdline;
 
     /**
-     * @description root
+     * @description The timestamp of last data collection. Unit: milliseconds.
      *
      * @example 1565686951000
      *
@@ -27,7 +27,7 @@ class propertys extends Model
     public $createTimestamp;
 
     /**
-     * @description The time when the process starts.
+     * @description The permission that is required to run the process.
      *
      * @example root
      *
@@ -36,7 +36,7 @@ class propertys extends Model
     public $euidName;
 
     /**
-     * @description The user who runs the process.
+     * @description The ID of the server that is associated with the process.
      *
      * @example i-hp35tftuh52wbp1g****
      *
@@ -45,7 +45,7 @@ class propertys extends Model
     public $instanceId;
 
     /**
-     * @description The pagination information.
+     * @description The name of the server that is associated with the process.
      *
      * @example hc-host-****
      *
@@ -54,7 +54,7 @@ class propertys extends Model
     public $instanceName;
 
     /**
-     * @description The ID of the process.
+     * @description The public IP address of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -63,7 +63,7 @@ class propertys extends Model
     public $internetIp;
 
     /**
-     * @description The timestamp when the process starts. Unit: milliseconds.
+     * @description The private IP address of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -72,7 +72,10 @@ class propertys extends Model
     public $intranetIp;
 
     /**
-     * @description The name of the server that is associated with the process.
+     * @description Indicates whether the process is a package installation process. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
      *
      * @example 1
      *
@@ -81,7 +84,7 @@ class propertys extends Model
     public $isPackage;
 
     /**
-     * @description 1649587453000
+     * @description The MD5 hash value of the process file.
      *
      * @example 842644ea3d88bd7f7e14c1c089ef****
      *
@@ -90,7 +93,7 @@ class propertys extends Model
     public $md5;
 
     /**
-     * @description Specifies whether fuzzy search by process name is supported. If you want to use fuzzy search, set the parameter to 1. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
+     * @description The name of the process.
      *
      * @example agetty
      *
@@ -99,7 +102,7 @@ class propertys extends Model
     public $name;
 
     /**
-     * @description The ID of the server that is associated with the process.
+     * @description The path of the process.
      *
      * @example /root/Oracle/Middleware/***\/8888
      *
@@ -108,7 +111,7 @@ class propertys extends Model
     public $path;
 
     /**
-     * @description The timestamp when the process ends. Unit: milliseconds.
+     * @description The ID of the process.
      *
      * @example 12826
      *
@@ -117,7 +120,7 @@ class propertys extends Model
     public $pid;
 
     /**
-     * @description 1
+     * @description The name of the parent process to which the process belongs.
      *
      * @example start***.s
      *
@@ -126,7 +129,7 @@ class propertys extends Model
     public $pname;
 
     /**
-     * @description The name of the parent process to which the process belongs.
+     * @description The time when the process starts.
      *
      * @example 2019-08-07 10:09:05
      *
@@ -135,7 +138,7 @@ class propertys extends Model
     public $startTime;
 
     /**
-     * @description The MD5 hash value of the process file.
+     * @description The timestamp when the process starts. Unit: milliseconds.
      *
      * @example 1648783107000
      *
@@ -144,7 +147,7 @@ class propertys extends Model
     public $startTimeDt;
 
     /**
-     * @description The UUID of the server.
+     * @description The status of the process.
      *
      * @example sleeping
      *
@@ -162,7 +165,7 @@ class propertys extends Model
     public $user;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The UUID of the server that is associated with the process.
      *
      * @example 162eb349-c2d9-4f8b-805c-75b43d4c****
      *

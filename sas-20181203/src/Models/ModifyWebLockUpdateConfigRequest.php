@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyWebLockUpdateConfigRequest extends Model
 {
     /**
+     * @description The prevention mode. Valid values:
+     *
+     *   **block**: Interception Mode
+     *   **audit**: Alert Mode
+     *
      * @example block
      *
      * @var string
@@ -16,6 +21,8 @@ class ModifyWebLockUpdateConfigRequest extends Model
     public $defenceMode;
 
     /**
+     * @description The directory for which you want to enable web tamper proofing.
+     *
      * @example /home/admin/tomcat
      *
      * @var string
@@ -23,6 +30,9 @@ class ModifyWebLockUpdateConfigRequest extends Model
     public $dir;
 
     /**
+     * @description The directory for which you want to disable web tamper proofing.
+     *
+     * > If you set **Mode** to **blacklist**, you must specify this parameter.
      * @example /home/admin/test
      *
      * @var string
@@ -30,6 +40,9 @@ class ModifyWebLockUpdateConfigRequest extends Model
     public $exclusiveDir;
 
     /**
+     * @description The file for which you want to disable web tamper proofing.
+     *
+     * > If you set **Mode** to **blacklist**, you must specify this parameter.
      * @example /home/admin/apache.log
      *
      * @var string
@@ -37,6 +50,24 @@ class ModifyWebLockUpdateConfigRequest extends Model
     public $exclusiveFile;
 
     /**
+     * @description The type of the file for which you want to disable web tamper proofing. Separate multiple types with semicolons (;). Valid values:
+     *
+     *   php
+     *   jsp
+     *   asp
+     *   aspx
+     *   js
+     *   cgi
+     *   html
+     *   htm
+     *   xml
+     *   shtml
+     *   shtm
+     *   jpg
+     *   gif
+     *   png
+     *
+     * > If you set **Mode** to **blacklist**, you must specify this parameter.
      * @example jpg
      *
      * @var string
@@ -44,6 +75,9 @@ class ModifyWebLockUpdateConfigRequest extends Model
     public $exclusiveFileType;
 
     /**
+     * @description The ID of the protected directory for which you want to change the status of web tamper proofing.
+     *
+     * > You can call the [DescribeWebLockConfigList](~~DescribeWebLockConfigList~~) operation to query the IDs of protected directories.
      * @example 312077
      *
      * @var int
@@ -51,6 +85,9 @@ class ModifyWebLockUpdateConfigRequest extends Model
     public $id;
 
     /**
+     * @description The file for which you want to enable web tamper proofing.
+     *
+     * > If you set **Mode** to **whitelist**, you must specify this parameter.
      * @example /home/admin/test.log
      *
      * @var string
@@ -58,6 +95,24 @@ class ModifyWebLockUpdateConfigRequest extends Model
     public $inclusiveFile;
 
     /**
+     * @description The type of the file for which you want to enable web tamper proofing. Separate multiple types with semicolons (;). Valid values:
+     *
+     *   php
+     *   jsp
+     *   asp
+     *   aspx
+     *   js
+     *   cgi
+     *   html
+     *   htm
+     *   xml
+     *   shtml
+     *   shtm
+     *   jpg
+     *   gif
+     *   png
+     *
+     * > If you set **Mode** to **whitelist**, you must specify this parameter.
      * @example jpg
      *
      * @var string
@@ -65,6 +120,11 @@ class ModifyWebLockUpdateConfigRequest extends Model
     public $inclusiveFileType;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -72,6 +132,12 @@ class ModifyWebLockUpdateConfigRequest extends Model
     public $lang;
 
     /**
+     * @description The local path to the backup files of the protected directory.\
+     * The directory format of a Linux server is different from that of a Windows server. You must enter the directory in the required format based on your operating system. Examples:
+     *
+     *   Linux server: /usr/local/aegis/bak
+     *   Windows server: C:\Program Files (x86)\Alibaba\Aegis\bak
+     *
      * @example /usr/local/backup
      *
      * @var string
@@ -79,6 +145,11 @@ class ModifyWebLockUpdateConfigRequest extends Model
     public $localBackupDir;
 
     /**
+     * @description The protection mode of web tamper proofing. Valid values:
+     *
+     *   **whitelist**: In this mode, web tamper proofing is enabled for the specified directories and file types.
+     *   **blacklist**: In this mode, web tamper proofing is enabled for the unspecified subdirectories, file types, and files in the protected directory.
+     *
      * @example blacklist
      *
      * @var string
@@ -86,6 +157,8 @@ class ModifyWebLockUpdateConfigRequest extends Model
     public $mode;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 36.112.XX.XX
      *
      * @var string
@@ -93,6 +166,9 @@ class ModifyWebLockUpdateConfigRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The UUID of the server on which the protected directory is located.
+     *
+     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @example 4fe8e1cd-3c37-4851-b9de-124da32c****
      *
      * @var string

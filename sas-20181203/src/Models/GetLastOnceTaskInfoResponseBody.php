@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetLastOnceTaskInfoResponseBody extends Model
 {
     /**
-     * @description The information about the latest task.
+     * @description The time at which the task was run.
      *
      * @example 1671184531000
      *
@@ -19,6 +19,8 @@ class GetLastOnceTaskInfoResponseBody extends Model
     public $collectTime;
 
     /**
+     * @description The number of tasks that have been completed.
+     *
      * @example 67
      *
      * @var int
@@ -26,12 +28,7 @@ class GetLastOnceTaskInfoResponseBody extends Model
     public $finishCount;
 
     /**
-     * @description The status of the task. Valid values:
-     *
-     *   **INIT**: The task is not started.
-     *   **START**: The task is started.
-     *   **SUCCESS**: The task is complete.
-     *   **TIMEOUT**: The task timed out.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example BE120DAB-F4E7-4C53-ADC3-A97578AB****
      *
@@ -40,11 +37,7 @@ class GetLastOnceTaskInfoResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The result of the scan task. Valid values:
-     *
-     *   **SUCCESS**: The task is successful.
-     *   **TASK\_NOT\_SUPPORT_REGION**: The images are deployed in a region that is not supported by container image scan.
-     *   **TASK\_NOT_EXISTS**: The task does not exist.
+     * @description The ID of the latest scan task.
      *
      * @example 3f65e1f1bb13118891a889d569a3****
      *
@@ -53,12 +46,14 @@ class GetLastOnceTaskInfoResponseBody extends Model
     public $taskId;
 
     /**
+     * @description The information about the latest task.
+     *
      * @var taskInfo
      */
     public $taskInfo;
 
     /**
-     * @description The progress of the task in percentage.
+     * @description The total number of entries returned.
      *
      * @example 44
      *

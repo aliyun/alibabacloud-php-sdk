@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetInterceptionTargetDetailRequest extends Model
 {
     /**
+     * @description The ID of the network object.
+     *
+     * > You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the IDs of network objects.
      * @example 402008
      *
      * @var int

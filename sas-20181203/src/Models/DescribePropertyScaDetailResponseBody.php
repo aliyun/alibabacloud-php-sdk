@@ -11,24 +11,21 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyScaDetailResponseBody extends Model
 {
     /**
-     * @description 192.168
+     * @description The pagination information.
      *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The listening status of the process. Valid values:
-     *
-     *   **NONE**: not listening
-     *   **LISTEN**: listening
+     * @description The details about the asset fingerprints returned.
      *
      * @var propertys[]
      */
     public $propertys;
 
     /**
-     * @description 1641024565
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example F9146867-16C8-4AAB-BB4FB8C2A4
      *

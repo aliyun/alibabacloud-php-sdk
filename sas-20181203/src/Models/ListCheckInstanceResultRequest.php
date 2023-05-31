@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCheckInstanceResultRequest extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
      * @example 23
      *
      * @var int
@@ -16,6 +18,8 @@ class ListCheckInstanceResultRequest extends Model
     public $checkId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListCheckInstanceResultRequest extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-uf64w4q6p9jti5gl****
      *
      * @var string
@@ -30,11 +36,15 @@ class ListCheckInstanceResultRequest extends Model
     public $instanceIdKey;
 
     /**
+     * @description The instance IDs of cloud services.
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The name of the instance.
+     *
      * @example i-uf64w4q6p9jti5gl****
      *
      * @var string
@@ -42,6 +52,11 @@ class ListCheckInstanceResultRequest extends Model
     public $instanceNameKey;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -49,6 +64,8 @@ class ListCheckInstanceResultRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -56,6 +73,8 @@ class ListCheckInstanceResultRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -63,11 +82,15 @@ class ListCheckInstanceResultRequest extends Model
     public $regionIdKey;
 
     /**
+     * @description The sort type of the instances.
+     *
      * @var string[]
      */
     public $sortTypes;
 
     /**
+     * @description The statuses of check items.
+     *
      * @var string[]
      */
     public $statuses;

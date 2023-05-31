@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedContainerInstancesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the container assets returned.
+     *
      * @var groupedContainerInstanceList[]
      */
     public $groupedContainerInstanceList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 4E5BFDCF-B9DD-430D-9DA4-151BCB581C9D
      *
      * @var string

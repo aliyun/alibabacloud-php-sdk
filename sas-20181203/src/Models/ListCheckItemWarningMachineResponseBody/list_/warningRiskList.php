@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class warningRiskList extends Model
 {
     /**
+     * @description The ID of the baseline.
+     *
      * @example 72
      *
      * @var int
@@ -16,6 +18,8 @@ class warningRiskList extends Model
     public $riskId;
 
     /**
+     * @description The name of the baseline.
+     *
      * @example Alibaba Cloud Linux/Aliyun Linux 2 Baseline for China classified protection of cybersecurity-Level II
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class aggregationList extends Model
 {
     /**
+     * @description The ID of the aggregation type.
+     *
      * @example 1
      *
      * @var int
@@ -16,11 +18,17 @@ class aggregationList extends Model
     public $id;
 
     /**
+     * @description The name of the aggregation type.
+     *
+     * @example Remote control\*\*\*\*
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of rules that are of the aggregation type.
+     *
      * @example 0
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OperateImageBaselineWhitelistRequest extends Model
 {
     /**
+     * @description The keys of baseline check items.
+     *
      * @example hc.image.checklist.identify.hc_exploit_es_linux.item
      *
      * @var string
@@ -16,6 +18,8 @@ class OperateImageBaselineWhitelistRequest extends Model
     public $baselineItemKeyList;
 
     /**
+     * @description The UUID of the image.
+     *
      * @example a5250ebca765dc9eb1a84b790b0e****
      *
      * @var string
@@ -23,6 +27,11 @@ class OperateImageBaselineWhitelistRequest extends Model
     public $imageUuid;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -30,6 +39,11 @@ class OperateImageBaselineWhitelistRequest extends Model
     public $lang;
 
     /**
+     * @description The operation that you want to perform on the check items. Valid values:
+     *
+     *   **add**: adds the check items to the whitelist
+     *   **del**: removes the check items from the whitelist
+     *
      * @example add
      *
      * @var string
@@ -37,6 +51,8 @@ class OperateImageBaselineWhitelistRequest extends Model
     public $operation;
 
     /**
+     * @description The types of the assets that you want to scan.
+     *
      * @var string[]
      */
     public $scanRange;

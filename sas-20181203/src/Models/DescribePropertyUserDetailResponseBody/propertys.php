@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class propertys extends Model
 {
     /**
-     * @description Indicates whether the account is an interactive logon account. Valid values:
-     *
-     *   **0**: no
-     *   **1**: yes
+     * @description The date on which the account expires.
      *
      * @example never
      *
@@ -21,7 +18,7 @@ class propertys extends Model
     public $accountsExpirationDate;
 
     /**
-     * @description The last logon time of the account.
+     * @description The timestamp at which the last asset fingerprint collection is performed. Unit: milliseconds.
      *
      * @example 1649149566000
      *
@@ -30,14 +27,14 @@ class propertys extends Model
     public $createTimestamp;
 
     /**
-     * @description Queries the asset fingerprints for an account to which a server belongs.
+     * @description The details of the user groups to which the account belongs.
      *
      * @var string[]
      */
     public $groupNames;
 
     /**
-     * @description The UUID of the server.
+     * @description The ID of the server.
      *
      * @example i-hp35tftuh52wbp1g****
      *
@@ -46,7 +43,7 @@ class propertys extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The name of the server.
      *
      * @example hc-host-****
      *
@@ -55,7 +52,7 @@ class propertys extends Model
     public $instanceName;
 
     /**
-     * @description The ID of the server.
+     * @description The public IP address of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -64,7 +61,7 @@ class propertys extends Model
     public $internetIp;
 
     /**
-     * @description The number of entries returned per page. Default value: **10**.
+     * @description The private IP address of the server.
      *
      * @example 100.104.XX.XX
      *
@@ -73,7 +70,7 @@ class propertys extends Model
     public $intranetIp;
 
     /**
-     * @description The timestamp of the last logon to the account. Unit: milliseconds.
+     * @description The IP addresses of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -82,6 +79,11 @@ class propertys extends Model
     public $ip;
 
     /**
+     * @description Indicates whether the account is an interactive logon account. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
      * @example 0
      *
      * @var int
@@ -89,6 +91,11 @@ class propertys extends Model
     public $isCouldLogin;
 
     /**
+     * @description Indicates whether the password expires. Valid values:
+     *
+     *   **0**: yes
+     *   **1**: no
+     *
      * @example 1
      *
      * @var int
@@ -96,6 +103,11 @@ class propertys extends Model
     public $isPasswdExpired;
 
     /**
+     * @description Indicates whether the password is locked. Valid values:
+     *
+     *   **0**: yes
+     *   **1**: no
+     *
      * @example 1
      *
      * @var int
@@ -103,7 +115,10 @@ class propertys extends Model
     public $isPasswdLocked;
 
     /**
-     * @description The IP addresses of the server.
+     * @description Indicates whether the account has root permissions. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
      *
      * @example 0
      *
@@ -112,6 +127,11 @@ class propertys extends Model
     public $isRoot;
 
     /**
+     * @description Indicates whether the account is a sudo account. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
      * @example 0
      *
      * @var int
@@ -119,6 +139,11 @@ class propertys extends Model
     public $isSudoer;
 
     /**
+     * @description Indicates whether the account expires. Valid values:
+     *
+     *   **0**: yes
+     *   **1**: no
+     *
      * @example 1
      *
      * @var int
@@ -126,7 +151,7 @@ class propertys extends Model
     public $isUserExpired;
 
     /**
-     * @description The pagination information.
+     * @description The source IP address of the last logon to the account.
      *
      * @example 192.168.XX.XX
      *
@@ -135,7 +160,7 @@ class propertys extends Model
     public $lastLoginIp;
 
     /**
-     * @description Specifies whether the fuzzy search by account name is supported. If you want to use fuzzy search, set the parameter to **1**. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
+     * @description The last logon time of the account.
      *
      * @example 2022-04-04 18:07:06
      *
@@ -144,6 +169,8 @@ class propertys extends Model
     public $lastLoginTime;
 
     /**
+     * @description The timestamp of the last logon to the account. Unit: milliseconds.
+     *
      * @example 1649066826000
      *
      * @var int
@@ -151,7 +178,7 @@ class propertys extends Model
     public $lastLoginTimeDt;
 
     /**
-     * @description The source IP address of the last logon to the account.
+     * @description The timestamp of the last logon to the account. Unit: milliseconds.
      *
      * @example 1649066826000
      *
@@ -160,10 +187,7 @@ class propertys extends Model
     public $lastLoginTimestamp;
 
     /**
-     * @description Indicates whether the account expires. Valid values:
-     *
-     *   **0**: yes
-     *   **1**: no
+     * @description The date on which the password of the account expires.
      *
      * @example never
      *
@@ -181,7 +205,7 @@ class propertys extends Model
     public $status;
 
     /**
-     * @description The name of the server.
+     * @description The name of the account.
      *
      * @example bin
      *

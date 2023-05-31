@@ -9,7 +9,20 @@ use AlibabaCloud\Tea\Model;
 class taskManageResponseList extends Model
 {
     /**
-     * @description The ID of the task.
+     * @description The execution details of the task. The value of this parameter is in the JSON format.
+     *
+     *   **causeCode**: the returned code for the cause
+     *   **causeMsg**: the returned information for the cause
+     *   **resCode**: the returned code of troubleshooting
+     *   **resMsg**: the returned information about troubleshooting
+     *   **problemType**: the type of the issue
+     *   **dispatchType**: the task delivery method
+     *   **uuid**: the UUID of the server
+     *   **instanceId**: the instance ID of the server
+     *   **internetIp**: the public IP address of the server
+     *   **intranetIp**: the private IP address of the server
+     *   **instanceName**: the instance name of the server
+     *   **url**: the download link of the troubleshooting log
      *
      * @example [
      * "problemType": "offline",
@@ -20,6 +33,8 @@ class taskManageResponseList extends Model
     public $detailData;
 
     /**
+     * @description The number of tasks that failed.
+     *
      * @example 2
      *
      * @var int
@@ -27,7 +42,7 @@ class taskManageResponseList extends Model
     public $failCount;
 
     /**
-     * @description The timestamp when the task starts. Unit: milliseconds.
+     * @description The progress of the task. Unit: percent (%).
      *
      * @example 10%
      *
@@ -36,6 +51,8 @@ class taskManageResponseList extends Model
     public $progress;
 
     /**
+     * @description The execution result of the task.
+     *
      * @example successful
      *
      * @var string
@@ -43,6 +60,8 @@ class taskManageResponseList extends Model
     public $resultInfo;
 
     /**
+     * @description The number of tasks that succeeded.
+     *
      * @example 7
      *
      * @var int
@@ -50,6 +69,8 @@ class taskManageResponseList extends Model
     public $successCount;
 
     /**
+     * @description The timestamp when the task ends. Unit: milliseconds.
+     *
      * @example 1650267989000
      *
      * @var int
@@ -57,6 +78,8 @@ class taskManageResponseList extends Model
     public $taskEndTime;
 
     /**
+     * @description The ID of the task.
+     *
      * @example e900f528f5a6229bb640ca27cb44c98e
      *
      * @var string
@@ -64,7 +87,7 @@ class taskManageResponseList extends Model
     public $taskId;
 
     /**
-     * @description The number of tasks that failed.
+     * @description The name of the task.
      *
      * @example CLIENT_PROBLEM_CHECK
      *
@@ -73,7 +96,7 @@ class taskManageResponseList extends Model
     public $taskName;
 
     /**
-     * @description The execution result of the task.
+     * @description The timestamp when the task starts. Unit: milliseconds.
      *
      * @example 1649732012000
      *
@@ -82,7 +105,12 @@ class taskManageResponseList extends Model
     public $taskStartTime;
 
     /**
-     * @description The timestamp when the task ends. Unit: milliseconds.
+     * @description The status of the task. Valid values:
+     *
+     *   **1**: started
+     *   **2**: complete
+     *   **3**: failed
+     *   **4**: timed out
      *
      * @example 1
      *
@@ -91,7 +119,14 @@ class taskManageResponseList extends Model
     public $taskStatus;
 
     /**
-     * @description The number of tasks that succeeded.
+     * @description The text description of the status for the task. Valid values:
+     *
+     *   **INIT**: The task is pending start.
+     *   **START**: The task is started.
+     *   **DISPATCH**: The self-check command is issued.
+     *   **SUCCESS**: The self-check is complete.
+     *   **FAIL**: The task fails.
+     *   **TIMEOUT**: The task times out.
      *
      * @example INIT
      *
@@ -100,7 +135,11 @@ class taskManageResponseList extends Model
     public $taskStatusText;
 
     /**
-     * @description The name of the task.
+     * @description The type of the task. Valid values:
+     *
+     *   **CLIENT\_PROBLEM_CHECK**: a task of the Security Center agent
+     *   **CLIENT\_DEV_OPS**: an O\&M task of Cloud Assistant
+     *   **ASSET\_SECURITY_CHECK**: a task of asset information collection
      *
      * @example CLIENT_PROBLEM_CHECK
      *

@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyVulTargetRequest extends Model
 {
     /**
+     * @description The configurations. The value of this parameter is in the JSON format and contains the following fields:
+     *
+     *   **vulType**: the type of the vulnerabilities to scan. Valid values:
+     *
+     *   **cve**: Linux software vulnerabilities
+     *   **sys**: Windows system vulnerabilities
+     *   **cms**: Web-CMS vulnerabilities
+     *   **emg**: urgent vulnerabilities
+     *
      * @example {\"vulType\":\"sys\"}
      *
      * @var string
@@ -16,6 +25,17 @@ class ModifyVulTargetRequest extends Model
     public $config;
 
     /**
+     * @description The operation. The value of this parameter is in the JSON format and contains the following fields:
+     *
+     *   **target**: the UUID of the server.
+     *
+     *   **targetType**: the application scope of the operation. Set the value to uuid.
+     *
+     *   **flag**: the type of the operation. Valid values:
+     *
+     *   **add**: select
+     *   **del**: deselect
+     *
      * @example [{\"target\": \"9cd5c684-7201-4de5-ad2c-cea89a5e****\", \"targetType\": \"uuid\", \"flag\": \"add\"}]
      *
      * @var string

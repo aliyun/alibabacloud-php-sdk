@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeOfflineMachinesResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeOfflineMachinesResponseBody extends Model
     public $currentPage;
 
     /**
+     * @description An array that consists of the information about servers.
+     *
      * @var machineList[]
      */
     public $machineList;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 5
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeOfflineMachinesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeOfflineMachinesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 44
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class backupRestoreCount extends Model
 {
     /**
+     * @description The number of the restoration tasks that are in the **being restored** state.
+     *
      * @example 3
      *
      * @var int
@@ -16,6 +18,8 @@ class backupRestoreCount extends Model
     public $recovering;
 
     /**
+     * @description The total number of the restoration tasks that you create.
+     *
      * @example 30
      *
      * @var int

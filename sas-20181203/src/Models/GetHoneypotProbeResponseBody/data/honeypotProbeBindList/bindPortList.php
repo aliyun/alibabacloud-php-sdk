@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class bindPortList extends Model
 {
     /**
+     * @description Indicates whether the port is bound.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class bindPortList extends Model
     public $bindPort;
 
     /**
+     * @description The end port on which the probe monitors.
+     *
      * @example 80
      *
      * @var int
@@ -23,6 +27,8 @@ class bindPortList extends Model
     public $endPort;
 
     /**
+     * @description The error that indicates a binding failure.
+     *
      * @example portmap failed
      *
      * @var string
@@ -30,6 +36,8 @@ class bindPortList extends Model
     public $err;
 
     /**
+     * @description Indicates whether the port is a fixed port.
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +45,8 @@ class bindPortList extends Model
     public $fixed;
 
     /**
+     * @description The ID of the port binding record.
+     *
      * @example 2512
      *
      * @var int
@@ -44,6 +54,8 @@ class bindPortList extends Model
     public $id;
 
     /**
+     * @description The details about the error.
+     *
      * @example listen 22 tcp4 failed
      *
      * @var string
@@ -51,6 +63,8 @@ class bindPortList extends Model
     public $msg;
 
     /**
+     * @description The protocol type.
+     *
      * @example tcp
      *
      * @var string
@@ -58,6 +72,8 @@ class bindPortList extends Model
     public $proto;
 
     /**
+     * @description The start port on which the probe monitors.
+     *
      * @example 22
      *
      * @var int
@@ -65,6 +81,11 @@ class bindPortList extends Model
     public $startPort;
 
     /**
+     * @description The binding status. Valid values:
+     *
+     *   **1**: abnormal
+     *   **3**: normal
+     *
      * @example 3
      *
      * @var int
@@ -72,6 +93,8 @@ class bindPortList extends Model
     public $status;
 
     /**
+     * @description The destination port.
+     *
      * @example 80
      *
      * @var int

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotsRequest extends Model
 {
     /**
+     * @description The version of the anti-ransomware policy. Valid values:
+     *
+     *   **1.0.0**
+     *   **2.0.0**
+     *
      * @example 2.0.0
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeSnapshotsRequest extends Model
     public $apiVersion;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +30,11 @@ class DescribeSnapshotsRequest extends Model
     public $currentPage;
 
     /**
+     * @description Specifies whether the server is an Elastic Compute Service (ECS) instance. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var string
@@ -30,6 +42,8 @@ class DescribeSnapshotsRequest extends Model
     public $isAliYunEcs;
 
     /**
+     * @description The region in which the server resides.
+     *
      * @example us-east-1
      *
      * @var string
@@ -37,6 +51,8 @@ class DescribeSnapshotsRequest extends Model
     public $machineRegion;
 
     /**
+     * @description The name or IP address of the server.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -44,6 +60,9 @@ class DescribeSnapshotsRequest extends Model
     public $machineRemark;
 
     /**
+     * @description The starting position of the query. If this parameter is left empty, the query starts from the beginning.
+     *
+     * >  If you call the operation for the first time, you do not need to specify the parameter. The response to the first call contains the token that can be used for the second call. Each subsequent response contains the token that can be used for the next call.
      * @example CAESGgoSChAKDGNvbXBsZXRlVGltZRABCgQiAggAGAAiQAoJAB4SwmEAAAAACjMDLgAAADFTNzMyZDMwMzAzMDM0NzY3YTZjNjI3NjZmNmU3MjcxNjk3NDY5MzY3MjY4****
      *
      * @var string
@@ -51,6 +70,8 @@ class DescribeSnapshotsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -58,6 +79,11 @@ class DescribeSnapshotsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The status of backup snapshots from which data can be restored. Valid values:
+     *
+     *   **COMPLETE**: complete
+     *   **PARTIAL_COMPLETE**: partial complete
+     *
      * @example ["COMPLETE"]
      *
      * @var string
@@ -65,6 +91,9 @@ class DescribeSnapshotsRequest extends Model
     public $statusList;
 
     /**
+     * @description The UUID of the server.
+     *
+     * >  You can call the [DescribeBackupPolicy](~~DescribeBackupPolicy~~) operation to query the UUIDs of servers.
      * @example 061d8042-59ff-416e-bc33-294a1cf5****
      *
      * @var string

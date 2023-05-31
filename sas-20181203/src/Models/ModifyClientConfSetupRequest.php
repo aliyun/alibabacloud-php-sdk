@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyClientConfSetupRequest extends Model
 {
     /**
+     * @description The configurations of the Security Center agent.
+     *
+     *   cpu: the maximum CPU utilization that can be occupied by the Security Center agent on the server
+     *   mem: the maximum memory usage that can be occupied by the Security Center agent on the server
+     *
      * @example {
      * }
      * @var string
@@ -16,6 +21,8 @@ class ModifyClientConfSetupRequest extends Model
     public $strategyConfig;
 
     /**
+     * @description The type of the tag.
+     *
      * @example machineResource
      *
      * @var string
@@ -23,6 +30,12 @@ class ModifyClientConfSetupRequest extends Model
     public $strategyTag;
 
     /**
+     * @description The value of the tag. Valid values:
+     *
+     *   major
+     *   advanced
+     *   basic
+     *
      * @example major
      *
      * @var string

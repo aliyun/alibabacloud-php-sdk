@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateUniRestorePlanRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
      * @example qtc
      *
      * @var string
@@ -16,6 +18,9 @@ class CreateUniRestorePlanRequest extends Model
     public $database;
 
     /**
+     * @description The UUID of the Hybrid Backup Recovery (HBR) agent that is used to restore the data of the database on your server.
+     *
+     * >  You can call the [DescribeUniBackupDatabase](~~DescribeUniBackupDatabase~~) operation to query the UUID.
      * @example ac457b30598d11ed800000163e02****
      *
      * @var string
@@ -23,6 +28,9 @@ class CreateUniRestorePlanRequest extends Model
     public $instanceUuid;
 
     /**
+     * @description The ID of the anti-ransomware policy.
+     *
+     * >  You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the ID.
      * @example 123
      *
      * @var int
@@ -30,6 +38,9 @@ class CreateUniRestorePlanRequest extends Model
     public $policyId;
 
     /**
+     * @description The identifier of the point in time for restoration in the backup version that you want to use. The database is an Oracle database.****
+     *
+     * >  You can call the [DescribeUniRecoverableList](~~DescribeUniRecoverableList~~) operation to query the value.
      * @example 925702.0
      *
      * @var string
@@ -37,6 +48,9 @@ class CreateUniRestorePlanRequest extends Model
     public $resetScn;
 
     /**
+     * @description The point in time for restoration in the backup version that you want to use. The database is an Oracle database.****
+     *
+     * >  You can call the [DescribeUniRecoverableList](~~DescribeUniRecoverableList~~) operation to query the value.
      * @example 2022-10-29 01:06:24
      *
      * @var string
@@ -44,6 +58,12 @@ class CreateUniRestorePlanRequest extends Model
     public $resetTime;
 
     /**
+     * @description The information about the database. This parameter is available when the database is a Microsoft SQL Server (MSSQL) database. The value is a JSON string. Valid values:
+     *
+     *   **name**: the name of the database
+     *   **files**: the path to the database files
+     *
+     * >  You can call the [DescribeUniRecoverableList](~~DescribeUniRecoverableList~~) operation to query the information.
      * @example {"files": {"qtc":"F:\\database\\qtc.mdf","qtc_log":"F:\\database\\qtc_0.ldf"},
      * "name":"qtc"}
      * @var string
@@ -51,6 +71,9 @@ class CreateUniRestorePlanRequest extends Model
     public $restoreInfo;
 
     /**
+     * @description The point in time to which you want to restore data.
+     *
+     * >  You can call the [DescribeRestorePlans](~~DescribeRestorePlans~~) operation to query the point in time.
      * @example 1656957664000
      *
      * @var int

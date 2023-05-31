@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The blacklist.
+     *
      * @example 129.211.XXX.XXX
      *
      * @var string
@@ -16,6 +18,8 @@ class list_ extends Model
     public $blackList;
 
     /**
+     * @description The domain name of the image repository.
+     *
      * @example sinochem.com
      *
      * @var string
@@ -23,6 +27,8 @@ class list_ extends Model
     public $domainName;
 
     /**
+     * @description The creation time. The time is in the yyyy-MM-dd HH:mm:ss format.
+     *
      * @example 2022-08-30 10:23:30
      *
      * @var string
@@ -30,6 +36,8 @@ class list_ extends Model
     public $gmtCreate;
 
     /**
+     * @description The update time. The time is in the yyyy-MM-dd HH:mm:ss format.
+     *
      * @example 2022-09-30 10:23:30
      *
      * @var string
@@ -37,6 +45,8 @@ class list_ extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the image repository.
+     *
      * @example 1078312
      *
      * @var int
@@ -44,6 +54,8 @@ class list_ extends Model
     public $id;
 
     /**
+     * @description The number of images that are stored in the image repository.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +63,8 @@ class list_ extends Model
     public $imageCount;
 
     /**
+     * @description The information about the Jenkins environment.
+     *
      * @example projectInfo
      *
      * @var string
@@ -58,6 +72,11 @@ class list_ extends Model
     public $jenkinsEnv;
 
     /**
+     * @description The network type. Valid values:
+     *
+     *   **1**: Internet
+     *   **2**: Virtual Private Cloud (VPC)
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +84,8 @@ class list_ extends Model
     public $netType;
 
     /**
+     * @description The password.
+     *
      * @example Harbor******
      *
      * @var string
@@ -72,6 +93,8 @@ class list_ extends Model
     public $password;
 
     /**
+     * @description The number of days during which assets can be retained.
+     *
      * @example 30
      *
      * @var int
@@ -79,6 +102,11 @@ class list_ extends Model
     public $persistenceDay;
 
     /**
+     * @description The type of the protocol. Valid values:
+     *
+     *   **1**: HTTP
+     *   **2**: HTTPS
+     *
      * @example 1
      *
      * @var int
@@ -86,6 +114,8 @@ class list_ extends Model
     public $protocolType;
 
     /**
+     * @description The region ID of the image repository.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -93,6 +123,8 @@ class list_ extends Model
     public $regionId;
 
     /**
+     * @description The IP address of the image repository.
+     *
      * @example 39.104.XXX.XXX
      *
      * @var string
@@ -100,6 +132,8 @@ class list_ extends Model
     public $registryHostIp;
 
     /**
+     * @description The alias of the image repository.
+     *
      * @example test1
      *
      * @var string
@@ -107,6 +141,13 @@ class list_ extends Model
     public $registryName;
 
     /**
+     * @description The type of the image repository. Valid values:
+     *
+     *   **acr**: Container Registry
+     *   **harbor**: Harbor
+     *   **quay**: Quay
+     *   **CI/CD**: Jenkins
+     *
      * @example harbor
      *
      * @var string
@@ -114,6 +155,8 @@ class list_ extends Model
     public $registryType;
 
     /**
+     * @description The authentication token of the user.
+     *
      * @example c7b90d29-632f-4e58-88b8-00ad77f6****
      *
      * @var string
@@ -121,6 +164,8 @@ class list_ extends Model
     public $token;
 
     /**
+     * @description The number of scan tasks that are performed per hour.
+     *
      * @example 30
      *
      * @var int
@@ -128,6 +173,8 @@ class list_ extends Model
     public $transPerHour;
 
     /**
+     * @description The username.
+     *
      * @example RegistryUser
      *
      * @var string
@@ -135,6 +182,8 @@ class list_ extends Model
     public $userName;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-5gu8iu68w9b472jbb****
      *
      * @var string
@@ -142,6 +191,8 @@ class list_ extends Model
     public $vpcId;
 
     /**
+     * @description The whitelist.
+     *
      * @example 192.168.XXX.XXX
      *
      * @var string

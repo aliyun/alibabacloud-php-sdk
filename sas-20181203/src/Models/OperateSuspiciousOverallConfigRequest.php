@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class OperateSuspiciousOverallConfigRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the feature. Valid values:
+     *
+     *   **on**: yes
+     *   **off**: no
+     *
      * @example off
      *
      * @var string
@@ -16,6 +21,11 @@ class OperateSuspiciousOverallConfigRequest extends Model
     public $config;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +33,12 @@ class OperateSuspiciousOverallConfigRequest extends Model
     public $lang;
 
     /**
+     * @description Specifies whether to configure assets for the feature. Default value: **false**. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  This parameter takes effect only when you set **Config** to **on**.
      * @example true
      *
      * @var bool
@@ -30,7 +46,7 @@ class OperateSuspiciousOverallConfigRequest extends Model
     public $noTargetAsOn;
 
     /**
-     * @description OperateSuspiciousOverallConfig
+     * @description The source IP address of the request.
      *
      * @example 222.178.XX.XX
      *
@@ -39,6 +55,15 @@ class OperateSuspiciousOverallConfigRequest extends Model
     public $sourceIp;
 
     /**
+     * @description The type of the feature. Valid values:
+     *
+     *   **auto_breaking**: Anti-Virus
+     *   **ransomware_breaking**: Anti-ransomware (Bait Capture)
+     *   **webshell\_cloud_breaking**: Webshell Protection
+     *   **alinet**: Behavior prevention
+     *   **k8s\_log_analysis**: K8s Threat Detection
+     *   **alisecguard**: Defense mode for Client Protection
+     *
      * @example k8s_log_analysis
      *
      * @var string

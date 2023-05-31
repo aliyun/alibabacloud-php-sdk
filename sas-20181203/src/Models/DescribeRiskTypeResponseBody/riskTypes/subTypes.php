@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class subTypes extends Model
 {
     /**
-     * @description The configuration type of the parameter. Valid values:
-     *
-     *   **1**: input
-     *   **2**: selection
+     * @description The alias of the baseline subtype.
      *
      * @example Redis unauthorized access high exploit vulnerability risk
      *
@@ -22,17 +19,14 @@ class subTypes extends Model
     public $alias;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
+     * @description An array that consists of the check details about the baseline subtype.
      *
      * @var checkDetails[]
      */
     public $checkDetails;
 
     /**
-     * @description An array that consists of the check details about the baseline subtype.
+     * @description The name of the baseline subtype.
      *
      * @example hc_exploit_redis
      *

@@ -18,17 +18,14 @@ class DescribeDingTalkResponseBody extends Model
     public $actionList;
 
     /**
-     * @description The status of the notification. Valid values:
-     *
-     *   **0**: disabled
-     *   **1**: enabled
+     * @description The pagination information.
      *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description [{\"type\":\"vul\",\"configItemList\":[{\"key\":\"key\", \"valueList\":\"123\"}]}]
+     * @description The ID of the request.
      *
      * @example B256A525-7E42-4BB9-A27C-9017FDDFF1A2
      *

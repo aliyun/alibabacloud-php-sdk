@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListCheckItemWarningMachineResponseBody extends Model
 {
     /**
+     * @description An array consisting of the servers on which the alerts are generated.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 22B5615F-700E-575A-A6D5-DC8D7741****
      *
      * @var string

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyScheduleConfigRequest extends Model
 {
     /**
-     * @example scheduler_autorun_period
-     *
      * @var string
      */
     public $type;

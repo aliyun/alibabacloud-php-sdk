@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListImageRiskResponseBody extends Model
 {
     /**
+     * @description An array that consists of security information about the image.
+     *
      * @var imageRiskList[]
      */
     public $imageRiskList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 050ACC7A-D4FD-55C6-B861-BA9569C1****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupStructResponseBody extends Model
 {
     /**
+     * @description The parent node of the group.
+     *
      * @example 958****
      *
      * @var int
@@ -16,6 +18,11 @@ class DescribeGroupStructResponseBody extends Model
     public $groupFather;
 
     /**
+     * @description The type of the server group. Valid values:
+     *
+     *   **0**: the default group
+     *   **1**: other groups
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +30,8 @@ class DescribeGroupStructResponseBody extends Model
     public $groupFlag;
 
     /**
+     * @description The ID of the server group.
+     *
      * @example 958****
      *
      * @var int
@@ -30,6 +39,8 @@ class DescribeGroupStructResponseBody extends Model
     public $groupId;
 
     /**
+     * @description The sequence number.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +48,8 @@ class DescribeGroupStructResponseBody extends Model
     public $groupIndex;
 
     /**
+     * @description The level of the application group.
+     *
      * @example 2
      *
      * @var int
@@ -44,6 +57,8 @@ class DescribeGroupStructResponseBody extends Model
     public $groupLevel;
 
     /**
+     * @description The name of the server group.
+     *
      * @example TestGroupName
      *
      * @var string
@@ -51,11 +66,15 @@ class DescribeGroupStructResponseBody extends Model
     public $groupName;
 
     /**
+     * @description An array that consists of child groups.
+     *
      * @var string[]
      */
     public $groups;
 
     /**
+     * @description The number of servers in the group.
+     *
      * @example 30
      *
      * @var int
@@ -63,6 +82,8 @@ class DescribeGroupStructResponseBody extends Model
     public $machineNum;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 9FBC6E47-7508-58C9-9E76-528E118C****
      *
      * @var string

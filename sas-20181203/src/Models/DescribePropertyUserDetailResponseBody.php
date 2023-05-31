@@ -11,24 +11,21 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyUserDetailResponseBody extends Model
 {
     /**
-     * @description Indicates whether the password is locked. Valid values:
-     *
-     *   **0**: yes
-     *   **1**: no
+     * @description The pagination information.
      *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description The timestamp of the last logon to the account. Unit: milliseconds.
+     * @description The details of asset fingerprints for the account.
      *
      * @var propertys[]
      */
     public $propertys;
 
     /**
-     * @description The date on which the password of the account expires.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 33A71BE3-2CC2-14CB-B460-33A1DD82953A
      *

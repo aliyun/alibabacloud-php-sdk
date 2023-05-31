@@ -16,6 +16,9 @@ class DescribeAntiBruteForceRulesRequest extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the defense rule.
+     *
+     * > You can call the [DescribeAntiBruteForceRules](~~DescribeAntiBruteForceRules~~) operation to query the IDs of defense rules.
      * @example 1141****
      *
      * @var int
@@ -40,6 +43,8 @@ class DescribeAntiBruteForceRulesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 121.69.XX.XX
      *
      * @var string

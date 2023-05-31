@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeStrategyTargetResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 001BAB34-D70A-54B0-B1D7-91B76DCDD8E8
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeStrategyTargetResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array consisting of the assets to which the baseline check policy is applied.
+     *
      * @var strategyTargets[]
      */
     public $strategyTargets;

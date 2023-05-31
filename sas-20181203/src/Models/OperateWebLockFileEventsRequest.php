@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class OperateWebLockFileEventsRequest extends Model
 {
     /**
+     * @description Specifies whether to handle all alert events that are generated for web tamper proofing. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
      * @example 1
      *
      * @var int
@@ -16,11 +21,21 @@ class OperateWebLockFileEventsRequest extends Model
     public $dealAll;
 
     /**
+     * @description The IDs of alert events.
+     *
      * @var int[]
      */
     public $eventIds;
 
     /**
+     * @description The operation that you want to perform on the alert events. Valid values:
+     *
+     *   **mark_mis_info**: marks the alert events as false positives
+     *   **rm_mark_mis_info**: cancels marking the alerts events as false positives
+     *   **offline_handled**: marks the alert events as handled offline
+     *   **whitelist**: adds the alert events to the whitelist
+     *   **rm_whitelist**: cancels adding the alert events to the whitelist
+     *
      * @example whitelist
      *
      * @var string

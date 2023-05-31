@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRebootStatusRequest extends Model
 {
     /**
-     * @description Queries the status of the servers that you restart.
+     * @description The UUIDs of the servers that you restart. Separate multiple UUIDs with commas (,).
      *
      * @example d77f7802-4f0a-4221-ab02-4d999e****
      *

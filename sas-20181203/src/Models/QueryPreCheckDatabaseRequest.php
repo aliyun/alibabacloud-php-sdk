@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QueryPreCheckDatabaseRequest extends Model
 {
     /**
+     * @description The UUID of the agent that is used to back up the data of the database.
+     *
+     * > You can call the [DescribeUniBackupDatabase](~~DescribeUniBackupDatabase~~) operation to query the UUID.
      * @example ebc895506c6911ed800000163e0e****
      *
      * @var string
@@ -16,6 +19,9 @@ class QueryPreCheckDatabaseRequest extends Model
     public $instanceUuid;
 
     /**
+     * @description The ID of the database precheck task.
+     *
+     * > You can call the [StartPreCheckDatabase](~~StartPreCheckDatabase~~) operation to query the ID of the database precheck task.
      * @example t-000bc9nqwxsbyvod****
      *
      * @var string
@@ -23,6 +29,8 @@ class QueryPreCheckDatabaseRequest extends Model
     public $taskId;
 
     /**
+     * @description The region ID of the server that hosts the database.
+     *
      * @example cn-hangzhou
      *
      * @var string

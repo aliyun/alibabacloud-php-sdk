@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotNodeResponseBody extends Model
 {
     /**
-     * @description Queries the information about management nodes.
+     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
      *
      * @example 200
      *
@@ -20,13 +20,15 @@ class ListHoneypotNodeResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message returned.
+     * @description An array that consists of the information about the management nodes.
      *
      * @var honeypotNodeList[]
      */
     public $honeypotNodeList;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -34,7 +36,7 @@ class ListHoneypotNodeResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description ListHoneypotNode
+     * @description The error message returned.
      *
      * @example successful
      *
@@ -43,14 +45,14 @@ class ListHoneypotNodeResponseBody extends Model
     public $message;
 
     /**
-     * @description An array that consists of the allowed CIDR blocks.
+     * @description The pagination information.
      *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
-     * @description WB01224678
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 337BEA70-B03D-5370-8420-436F3FCD9924
      *
@@ -59,7 +61,10 @@ class ListHoneypotNodeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example true
      *

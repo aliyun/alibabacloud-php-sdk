@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class mergeFieldList extends Model
 {
     /**
-     * @description The pagination information.
+     * @description The extended value that corresponds to the field key.
      *
      * @example dest_ip_ext
      *
@@ -18,7 +18,7 @@ class mergeFieldList extends Model
     public $fieldExtInfo;
 
     /**
-     * @description The value that corresponds to the field key.
+     * @description The key of the field.
      *
      * @example dest_ip_count
      *
@@ -27,7 +27,7 @@ class mergeFieldList extends Model
     public $fieldKey;
 
     /**
-     * @description The key of the field.
+     * @description The type of the field. You can ignore this internal parameter.
      *
      * @example level1_item3
      *
@@ -36,7 +36,7 @@ class mergeFieldList extends Model
     public $fieldType;
 
     /**
-     * @description The extended value that corresponds to the field key.
+     * @description The value that corresponds to the field key.
      *
      * @example 1
      *

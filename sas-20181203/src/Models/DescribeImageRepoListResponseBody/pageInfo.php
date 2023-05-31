@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description Queries the statistics and configurations of the feature that protects images.
+     * @description The number of entries returned on the current page.
      *
      * @example 2
      *
@@ -18,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description The namespace to which the image repository belongs.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The number of entries returned per page.
      *
      * @example 20
      *
@@ -36,7 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The name of the image repository.
+     * @description The total number of image repositories.
      *
      * @example 83
      *

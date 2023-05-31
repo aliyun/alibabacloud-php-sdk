@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstallCaptchaResponseBody extends Model
 {
     /**
-     * @description Queries the verification code for you to manually install the Security Center agent.
+     * @description The installation verification code for you to manually install the Security Center agent.
      *
      * @example M1HH**
      *
@@ -18,8 +18,9 @@ class DescribeInstallCaptchaResponseBody extends Model
     public $captchaCode;
 
     /**
-     * @description The source IP address of the request.
+     * @description The validity period of the installation verification code.
      *
+     * >  The installation verification code is valid only within the validity period. An expired installation verification code cannot be used to install the agent.
      * @example 2020-10-10 16:06:38
      *
      * @var string
@@ -27,7 +28,7 @@ class DescribeInstallCaptchaResponseBody extends Model
     public $deadline;
 
     /**
-     * @description 192.168.XX.XX
+     * @description The ID of the request.
      *
      * @example 4E5BFDCF-B9DD-430D-9DA4-151BCB581C9D
      *

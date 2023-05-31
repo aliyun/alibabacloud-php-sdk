@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockStatusResponseBody extends Model
 {
     /**
+     * @description The total quota that you purchase for web tamper proofing.
+     *
      * @example 32
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeWebLockStatusResponseBody extends Model
     public $authCount;
 
     /**
+     * @description The used quota for web tamper proofing.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeWebLockStatusResponseBody extends Model
     public $bindCount;
 
     /**
+     * @description The number of blocked processes.
+     *
      * @example 48
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeWebLockStatusResponseBody extends Model
     public $blockCount;
 
     /**
+     * @description The number of protected directories.
+     *
      * @example 2
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribeWebLockStatusResponseBody extends Model
     public $dirCount;
 
     /**
+     * @description The timestamp when the quota for web tamper proofing expires.
+     *
      * @example 1688090851000
      *
      * @var int
@@ -44,6 +54,8 @@ class DescribeWebLockStatusResponseBody extends Model
     public $expireTime;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 0B48AB3C-84FC-424D-A01D-B9270EF46038
      *
      * @var string
@@ -51,6 +63,8 @@ class DescribeWebLockStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of processes that are added to the process whitelist.
+     *
      * @example 6
      *
      * @var int

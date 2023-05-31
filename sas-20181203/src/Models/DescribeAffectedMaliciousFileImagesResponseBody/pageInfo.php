@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
-     * @description The URL to download the malicious image sample.
+     * @description The number of images that have malicious image samples returned on the current page.
      *
      * @example 2
      *
@@ -18,7 +18,7 @@ class pageInfo extends Model
     public $count;
 
     /**
-     * @description The image digest.
+     * @description The page number of the returned page. Pages start from page **1**. Default value: **1**.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The tag that is added to the image.
+     * @description The number of entries returned per page. Default value: **20**.
      *
      * @example 20
      *
@@ -36,7 +36,7 @@ class pageInfo extends Model
     public $pageSize;
 
     /**
-     * @description The types of the assets that you want to scan.
+     * @description The total number of images that have malicious image samples.
      *
      * @example 2
      *

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventOnStageResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 24A20733-10A0-4AF6-BE6B-E332241XXXXX
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeEventOnStageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The platforms that are supported by the feature of container threat detection.
+     *
      * @var securityEventStageResponse
      */
     public $securityEventStageResponse;

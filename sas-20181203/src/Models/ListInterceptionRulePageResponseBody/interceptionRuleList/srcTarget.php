@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class srcTarget extends Model
 {
     /**
+     * @description The name of the application.
+     *
      * @example ack-jenkins-lawr****
      *
      * @var string
@@ -16,11 +18,15 @@ class srcTarget extends Model
     public $appName;
 
     /**
+     * @description An array that consists of the images of the network object.
+     *
      * @var string[]
      */
     public $imageList;
 
     /**
+     * @description The namespace.
+     *
      * @example jenkins
      *
      * @var string
@@ -28,6 +34,12 @@ class srcTarget extends Model
     public $namespace;
 
     /**
+     * @description The type of the defense rule. Valid values:
+     *
+     *   **suggest**: intelligently recommended rule
+     *   **customize**: custom rule
+     *   **system**: system rule
+     *
      * @example customize
      *
      * @var string
@@ -35,11 +47,15 @@ class srcTarget extends Model
     public $ruleType;
 
     /**
+     * @description An array that consists of tags added to the source network object.
+     *
      * @var string[]
      */
     public $tagList;
 
     /**
+     * @description The ID of the network object.
+     *
      * @example 40****
      *
      * @var int
@@ -47,6 +63,8 @@ class srcTarget extends Model
     public $targetId;
 
     /**
+     * @description The name of the network object.
+     *
      * @example mhh-te****
      *
      * @var string
@@ -54,6 +72,8 @@ class srcTarget extends Model
     public $targetName;
 
     /**
+     * @description The type of the affected assets.
+     *
      * @example containerId
      *
      * @var string

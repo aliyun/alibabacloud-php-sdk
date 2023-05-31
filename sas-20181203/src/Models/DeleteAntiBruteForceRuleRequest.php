@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAntiBruteForceRuleRequest extends Model
 {
     /**
+     * @description The IDs of the defense rules against brute-force attacks to delete.
+     *
      * @var int[]
      */
     public $ids;

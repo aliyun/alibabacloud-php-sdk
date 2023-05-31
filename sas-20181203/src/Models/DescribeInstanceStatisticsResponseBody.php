@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceStatisticsResponseBody extends Model
 {
     /**
+     * @description An array that consists of the risk information about the asset.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 8F035A9D-D19F-5430-8CA5-1497991B7C61
      *
      * @var string

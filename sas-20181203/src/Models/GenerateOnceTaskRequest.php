@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GenerateOnceTaskRequest extends Model
 {
     /**
-     * @description The collection time.
+     * @description The additional information.
      *
      * @example {"mode":1,"problemType":"offline","uuids":"inet-795dcad1-360f-49d2-b01e-b7da7f1c****"}
      *
@@ -18,7 +18,7 @@ class GenerateOnceTaskRequest extends Model
     public $param;
 
     /**
-     * @description The total number of scan tasks.
+     * @description The source of the scan task.
      *
      * @example Manual
      *
@@ -27,7 +27,11 @@ class GenerateOnceTaskRequest extends Model
     public $source;
 
     /**
-     * @description The ID of the last scan task.
+     * @description The name of the scan task. Valid values:
+     *
+     *   **CLIENT\_PROBLEM_CHECK**: a client diagnosis task
+     *   **CLIENT\_DEV_OPS**: an O\&M task of Cloud Assistant
+     *   **ASSET\_SECURITY_CHECK**: a task of asset information collection
      *
      * @example CLIENT_PROBLEM_CHECK
      *
@@ -36,12 +40,12 @@ class GenerateOnceTaskRequest extends Model
     public $taskName;
 
     /**
-     * @description Indicates whether you can create more scan tasks. Valid values:
+     * @description The type of the scan task. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **CLIENT\_PROBLEM_CHECK**: a client diagnosis task
+     *   **CLIENT\_DEV_OPS**: an O\&M task of Cloud Assistant
+     *   **ASSET\_SECURITY_CHECK**: a task of asset information collection
      *
-     * > By default, a maximum of 10 scan tasks can be running at the same time. If 10 image scan tasks are running, you cannot create a scan task by calling this operation. You must wait for at least one of the 10 existing scan tasks to complete before you can create a scan task.
      * @example CLIENT_PROBLEM_CHECK
      *
      * @var string

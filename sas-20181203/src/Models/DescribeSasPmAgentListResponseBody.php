@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSasPmAgentListResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 8EF3ACC2-9400-5B64-B72D-4A1D35113750
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeSasPmAgentListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array that consists of the information about servers.
+     *
      * @var sasPmAgentList[]
      */
     public $sasPmAgentList;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class summarys extends Model
 {
     /**
+     * @description The number of detected risk items.
+     *
      * @example 5
      *
      * @var int
@@ -17,6 +19,8 @@ class summarys extends Model
     public $failCount;
 
     /**
+     * @description The number of check items that pass the check.
+     *
      * @example 10
      *
      * @var int
@@ -24,11 +28,19 @@ class summarys extends Model
     public $passCount;
 
     /**
+     * @description An array that consist of the standard IDs of check items.
+     *
      * @var standards[]
      */
     public $standards;
 
     /**
+     * @description The type of the check item. Valid values:
+     *
+     *   **COMPLIANCE**: compliance
+     *   **RISK**: security risk
+     *   **IDENTITY_PERMISSION**: identity and permission
+     *
      * @example IDENTITY_PERMISSION
      *
      * @var string

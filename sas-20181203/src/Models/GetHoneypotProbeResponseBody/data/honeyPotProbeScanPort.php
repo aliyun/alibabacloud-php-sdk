@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class honeyPotProbeScanPort extends Model
 {
     /**
+     * @description The ID of the monitoring record.
+     *
      * @example 15389
      *
      * @var int
@@ -16,6 +18,8 @@ class honeyPotProbeScanPort extends Model
     public $id;
 
     /**
+     * @description The ports that are monitored.
+     *
      * @example {
      * }
      * @var string
@@ -23,6 +27,8 @@ class honeyPotProbeScanPort extends Model
     public $ports;
 
     /**
+     * @description The ID of the probe.
+     *
      * @example a46f5162-c70d-4e26-8ddf-7435feca****
      *
      * @var string
@@ -30,11 +36,18 @@ class honeyPotProbeScanPort extends Model
     public $probeId;
 
     /**
+     * @description An array consisting of the IP addresses of the sever on which the probe is deployed.
+     *
      * @var string[]
      */
     public $serviceIpList;
 
     /**
+     * @description The monitoring status. Valid values:
+     *
+     *   **1**: abnormal
+     *   **3**: normal
+     *
      * @example 3
      *
      * @var int

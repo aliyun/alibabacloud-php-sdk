@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebLockBindListRequest extends Model
 {
     /**
-     * @description on
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -18,10 +18,10 @@ class DescribeWebLockBindListRequest extends Model
     public $currentPage;
 
     /**
-     * @description The error code for web tamper proofing. Valid values:
+     * @description The language of the content within the request and the response. Valid values:
      *
-     *   **2001**: The Security Center agent is offline.
-     *   **9999**: The connection timed out.
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example zh
      *
@@ -30,10 +30,7 @@ class DescribeWebLockBindListRequest extends Model
     public $lang;
 
     /**
-     * @description The error message for web tamper proofing. Valid values:
-     *
-     *   **client offline**: The Security Center agent is offline.
-     *   **timeout**: The connection timed out.
+     * @description The number of entries to return on each page. Default value: 20.
      *
      * @example 20
      *
@@ -42,7 +39,7 @@ class DescribeWebLockBindListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The page number of the returned page. Pages start from page 1. Default value: 1.
+     * @description The string that allows you to search for servers in fuzzy match mode. You can enter a server name or IP address.
      *
      * @example 192.168.XX.XX
      *
@@ -51,10 +48,7 @@ class DescribeWebLockBindListRequest extends Model
     public $remark;
 
     /**
-     * @description The language of the content within the request and the response. Valid values:
-     *
-     *   **zh**: Chinese
-     *   **en**: English
+     * @description The source IP address of the request.
      *
      * @example 116.30.XX.XX
      *
@@ -63,7 +57,10 @@ class DescribeWebLockBindListRequest extends Model
     public $sourceIp;
 
     /**
-     * @description The name of the server.
+     * @description The protection status of the server that you want to query. Valid values:
+     *
+     *   **on**: protected
+     *   **off**: unprotected
      *
      * @example on
      *

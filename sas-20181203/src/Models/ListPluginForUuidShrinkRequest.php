@@ -9,15 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListPluginForUuidShrinkRequest extends Model
 {
     /**
-     * @description An array that consists of the information about the plug-ins.
+     * @description The plug-in types.
      *
      * @var string
      */
     public $typesShrink;
 
     /**
-     * @description The configurations of the plug-in.
+     * @description The UUID of the server.
      *
+     * >  You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @example bdb7071f-129d-4ceb-af80-4cf70c4571c6
      *
      * @var string

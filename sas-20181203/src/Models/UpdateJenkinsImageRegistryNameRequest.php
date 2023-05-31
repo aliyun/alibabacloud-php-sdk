@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateJenkinsImageRegistryNameRequest extends Model
 {
     /**
+     * @description The ID of the image repository.
+     *
+     * > You can call the [PageImageRegistry](~~PageImageRegistry~~) operation to query the IDs of image repositories.
      * @example 25090
      *
      * @var int
@@ -16,6 +19,8 @@ class UpdateJenkinsImageRegistryNameRequest extends Model
     public $registryId;
 
     /**
+     * @description The name of the image repository.
+     *
      * @example a0603tk1
      *
      * @var string
@@ -23,6 +28,8 @@ class UpdateJenkinsImageRegistryNameRequest extends Model
     public $registryName;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 121.33.XXX.XXX
      *
      * @var string

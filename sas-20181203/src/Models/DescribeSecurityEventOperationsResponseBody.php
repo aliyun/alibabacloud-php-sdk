@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityEventOperationsResponseBody extends Model
 {
     /**
-     * @description The configuration of the operation that you can perform to handle the alert event.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
-     * >  If the value of the OperationCode parameter is `kill_and_quara` or `block_ip`, the OperationParams parameter is required. If the value of the OperationCode parameter is a different value, the OperationParams parameter can be left empty.
      * @example B7A2000F-497E-5DA0-B14D-615CD410DD7E
      *
      * @var string
@@ -20,13 +19,7 @@ class DescribeSecurityEventOperationsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The operation that is used and can be modified in the whitelist rule. Valid values:
-     *
-     *   **contains**: contains
-     *   **notContains**: does not contain
-     *   **regex**: regular expression
-     *   **strEqual**: equals
-     *   **strNotEqual**: does not equal
+     * @description An array consisting of the operations that you can perform to handle the alert event.
      *
      * @var securityEventOperationsResponse[]
      */

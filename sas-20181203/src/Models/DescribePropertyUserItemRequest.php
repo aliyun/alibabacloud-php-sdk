@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyUserItemRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -18,7 +18,10 @@ class DescribePropertyUserItemRequest extends Model
     public $currentPage;
 
     /**
-     * @description The information about the account.
+     * @description Specifies whether to forcefully refresh the data that you want to query. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example true
      *
@@ -27,7 +30,7 @@ class DescribePropertyUserItemRequest extends Model
     public $forceFlush;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries to return on each page.
      *
      * @example 2
      *
@@ -36,7 +39,7 @@ class DescribePropertyUserItemRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of the page to return.
+     * @description The information about the account.
      *
      * @example adm
      *

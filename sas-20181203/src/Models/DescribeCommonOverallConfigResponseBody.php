@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommonOverallConfigResponseBody extends Model
 {
     /**
+     * @description The information about the feature.
+     *
      * @var overallConfig
      */
     public $overallConfig;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 6D9CDB47-6191-4415-BE63-7E8B12CD4FBE
      *
      * @var string

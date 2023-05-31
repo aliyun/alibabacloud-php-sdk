@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyCountResponseBody extends Model
 {
     /**
+     * @description The number of startup items.
+     *
      * @example 3
      *
      * @var int
@@ -16,7 +18,7 @@ class DescribePropertyCountResponseBody extends Model
     public $autorun;
 
     /**
-     * @description The number of middleware assets.
+     * @description The number of scheduled tasks.
      *
      * @example 123
      *
@@ -25,7 +27,7 @@ class DescribePropertyCountResponseBody extends Model
     public $cron;
 
     /**
-     * @description DescribePropertyCount
+     * @description The number of databases.
      *
      * @example 2
      *
@@ -34,6 +36,8 @@ class DescribePropertyCountResponseBody extends Model
     public $database;
 
     /**
+     * @description The number of kernel modules.
+     *
      * @example 4
      *
      * @var int
@@ -41,7 +45,7 @@ class DescribePropertyCountResponseBody extends Model
     public $lkm;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The number of ports.
      *
      * @example 22
      *
@@ -50,7 +54,7 @@ class DescribePropertyCountResponseBody extends Model
     public $port;
 
     /**
-     * @description The number of accounts.
+     * @description The number of processes.
      *
      * @example 367
      *
@@ -59,7 +63,7 @@ class DescribePropertyCountResponseBody extends Model
     public $process;
 
     /**
-     * @description The number of processes.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
      *
@@ -68,7 +72,7 @@ class DescribePropertyCountResponseBody extends Model
     public $requestId;
 
     /**
-     * @description port,process
+     * @description The number of middleware assets.
      *
      * @example 112
      *
@@ -77,7 +81,7 @@ class DescribePropertyCountResponseBody extends Model
     public $sca;
 
     /**
-     * @description The number of web services.
+     * @description The number of software assets.
      *
      * @example 111
      *
@@ -86,7 +90,7 @@ class DescribePropertyCountResponseBody extends Model
     public $software;
 
     /**
-     * @description The number of websites.
+     * @description The number of accounts.
      *
      * @example 214
      *
@@ -95,7 +99,7 @@ class DescribePropertyCountResponseBody extends Model
     public $user;
 
     /**
-     * @description Queries the statistics of asset fingerprints. The assets include processes, ports, software, accounts, middleware, websites, web services, scheduled tasks, startup items, and databases.
+     * @description The number of websites.
      *
      * @example 65
      *
@@ -104,6 +108,8 @@ class DescribePropertyCountResponseBody extends Model
     public $web;
 
     /**
+     * @description The number of web services.
+     *
      * @example 8
      *
      * @var int

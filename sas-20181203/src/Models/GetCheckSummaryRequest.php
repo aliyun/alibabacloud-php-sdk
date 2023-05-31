@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetCheckSummaryRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class GetCheckSummaryRequest extends Model
     public $lang;
 
     /**
+     * @description The account ID of the resource directory.
+     *
      * @example 000
      *
      * @var string

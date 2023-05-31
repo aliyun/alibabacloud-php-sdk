@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class customConfigs extends Model
 {
     /**
+     * @description The default value of the custom configuration item. The value is a string.
+     *
      * @example 12
      *
      * @var string
@@ -16,6 +18,8 @@ class customConfigs extends Model
     public $defaultValue;
 
     /**
+     * @description The name of the custom configuration item. The name of a custom configuration item is unique in a check item.
+     *
      * @example SessionTimeMax
      *
      * @var string
@@ -23,6 +27,8 @@ class customConfigs extends Model
     public $name;
 
     /**
+     * @description The keyword that identifies the custom configuration item for internationalization.
+     *
      * @example Maximum session time
      *
      * @var string
@@ -30,6 +36,8 @@ class customConfigs extends Model
     public $showName;
 
     /**
+     * @description The type of the custom configuration item. The value is a JSON string.
+     *
      * @example {\"type\":\"NUMBER\",\"range\":[1,24]}
      *
      * @var string
@@ -37,6 +45,8 @@ class customConfigs extends Model
     public $typeDefine;
 
     /**
+     * @description The value of the custom configuration item. The value is a string.
+     *
      * @example 11
      *
      * @var string

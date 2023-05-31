@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class FindContainerNetworkConnectResponseBody extends Model
 {
     /**
+     * @description The information about the network connections.
+     *
      * @var connects[]
      */
     public $connects;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 8686CE6E-9BFA-5436-A9D9-77B984AEE7F8
      *
      * @var string

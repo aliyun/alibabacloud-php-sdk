@@ -16,8 +16,9 @@ class DeleteHoneypotNodeRequest extends Model
     public $lang;
 
     /**
-     * @description Deletes a specified management node.
+     * @description The ID of the management node.
      *
+     * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
      * @example 670baeee-86c4-46b9-8200-a2c38141a453
      *
      * @var string

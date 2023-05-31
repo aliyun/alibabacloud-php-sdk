@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class actionList extends Model
 {
     /**
-     * @description DescribeDingTalk
+     * @description The name of the notification.
+     *
+     * @example Alert notification
      *
      * @var string
      */
     public $actionName;
 
     /**
+     * @description The UID of the user.
+     *
      * @example 12312412341
      *
      * @var int
@@ -23,15 +27,20 @@ class actionList extends Model
     public $aliUid;
 
     /**
-     * @description The modification time.
+     * @description The list of notification settings.
      *
-     * @example The ID of the request.
+     * @example [{\"type\":\"vul\",\"configItemList\":[{\"key\":\"key\", \"valueList\":\"123\"}]}]
      *
      * @var string
      */
     public $configList;
 
     /**
+     * @description The language of the content within notifications. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -39,7 +48,7 @@ class actionList extends Model
     public $dingTalkLang;
 
     /**
-     * @description Obtains DingTalk notifications.
+     * @description The creation time. unit:millisecond.
      *
      * @example 1550828400000
      *
@@ -48,6 +57,8 @@ class actionList extends Model
     public $gmtCreate;
 
     /**
+     * @description The modification time.
+     *
      * @example 1550828400000
      *
      * @var int
@@ -55,6 +66,8 @@ class actionList extends Model
     public $gmtModified;
 
     /**
+     * @description The group IDs.
+     *
      * @example "123,456"
      *
      * @var string
@@ -62,6 +75,8 @@ class actionList extends Model
     public $groupIdList;
 
     /**
+     * @description The ID of the notification.
+     *
      * @example 1
      *
      * @var int
@@ -69,6 +84,8 @@ class actionList extends Model
     public $id;
 
     /**
+     * @description The interval at which the notifications are sent.unit:minute.
+     *
      * @example 1000
      *
      * @var int
@@ -76,17 +93,20 @@ class actionList extends Model
     public $intervalTime;
 
     /**
-     * @description The list of notification settings.
+     * @description The status of the notification. Valid values:
      *
-     * @example The number of entries returned per page.
+     *   **0**: disabled
+     *   **1**: enabled
+     *
+     * @example 1
      *
      * @var int
      */
     public $status;
 
     /**
-     * @description ```
-     * ```
+     * @description The parameters of the notification.
+     *
      * @example https://oapi.dingtalk.com/robot/send
      *
      * @var string

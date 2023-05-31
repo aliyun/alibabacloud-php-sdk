@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotsResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example A4EB8B1C-1DEC-5E18-BCD0-D1BBB393****
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeSnapshotsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array that consists of the backup snapshots.
+     *
      * @var snapshots[]
      */
     public $snapshots;

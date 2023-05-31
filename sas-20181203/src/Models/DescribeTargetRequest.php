@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeTargetRequest extends Model
 {
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   **cms**: Web CMS vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cve**: Linux software vulnerability
+     *   **emg**: urgent vulnerability
+     *
      * @example {"vulType":"cms"}
      *
      * @var string
@@ -16,6 +23,8 @@ class DescribeTargetRequest extends Model
     public $config;
 
     /**
+     * @description The type of the query. Set the value to vul.
+     *
      * @example vul
      *
      * @var string

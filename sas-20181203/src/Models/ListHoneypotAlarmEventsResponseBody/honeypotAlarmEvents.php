@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class honeypotAlarmEvents extends Model
 {
     /**
-     * @description The type of the alert event.
+     * @description The ID of the alert event.
      *
      * @example 940272
      *
@@ -19,7 +19,7 @@ class honeypotAlarmEvents extends Model
     public $alarmEventId;
 
     /**
-     * @description The unique identifier of the alert event.
+     * @description The name of the alert event.
      *
      * @example Attack Honeypot
      *
@@ -28,7 +28,7 @@ class honeypotAlarmEvents extends Model
     public $alarmEventName;
 
     /**
-     * @description The name of the alert event.
+     * @description The type of the alert event.
      *
      * @example Initial Access
      *
@@ -37,7 +37,7 @@ class honeypotAlarmEvents extends Model
     public $alarmEventType;
 
     /**
-     * @description The timestamp when the alert event was first generated. Unit: milliseconds.
+     * @description The unique identifier of the alert event.
      *
      * @example 167e6fc0d931917d2059efcd1d00f6ab
      *
@@ -46,11 +46,7 @@ class honeypotAlarmEvents extends Model
     public $alarmUniqueInfo;
 
     /**
-     * @description The handling status of the alert event. Valid values:
-     *
-     *   **1**: pending
-     *   **2**: ignored
-     *   **4**: confirmed
+     * @description The total number of times that the alert event was generated.
      *
      * @example 11
      *
@@ -59,7 +55,7 @@ class honeypotAlarmEvents extends Model
     public $eventCount;
 
     /**
-     * @description The timestamp when the alert event was last generated. Unit: milliseconds.
+     * @description The timestamp when the alert event was first generated. Unit: milliseconds.
      *
      * @example 1658193602000
      *
@@ -68,11 +64,7 @@ class honeypotAlarmEvents extends Model
     public $firstTime;
 
     /**
-     * @description The risk level of the alert event. Valid values:
-     *
-     *   **2**: low
-     *   **3**: medium
-     *   **4**: high
+     * @description The timestamp when the alert event was last generated. Unit: milliseconds.
      *
      * @example 1660610772000
      *
@@ -81,14 +73,18 @@ class honeypotAlarmEvents extends Model
     public $lastTime;
 
     /**
-     * @description The information about the array object.
+     * @description The risk information.
      *
      * @var mergeFieldList[]
      */
     public $mergeFieldList;
 
     /**
-     * @description The risk information.
+     * @description The handling status of the alert event. Valid values:
+     *
+     *   **1**: pending
+     *   **2**: ignored
+     *   **4**: confirmed
      *
      * @example 1
      *
@@ -97,7 +93,11 @@ class honeypotAlarmEvents extends Model
     public $operateStatus;
 
     /**
-     * @description The total number of times that the alert event was generated.
+     * @description The risk level of the alert event. Valid values:
+     *
+     *   **2**: low
+     *   **3**: medium
+     *   **4**: high
      *
      * @example 2
      *

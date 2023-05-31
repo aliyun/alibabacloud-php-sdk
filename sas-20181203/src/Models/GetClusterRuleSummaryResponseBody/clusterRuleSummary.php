@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class clusterRuleSummary extends Model
 {
     /**
+     * @description The number of disabled cluster defense rules.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class clusterRuleSummary extends Model
     public $closeRuleCount;
 
     /**
+     * @description The number of alerts that are triggered by the cluster defense rules in the last seven days.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,11 @@ class clusterRuleSummary extends Model
     public $interceptionCount7Day;
 
     /**
+     * @description The status of the container firewall feature. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: enabled
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +39,8 @@ class clusterRuleSummary extends Model
     public $interceptionSwitch;
 
     /**
+     * @description The interception mode.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +48,8 @@ class clusterRuleSummary extends Model
     public $interceptionType;
 
     /**
+     * @description The number of enabled cluster defense rules.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +57,8 @@ class clusterRuleSummary extends Model
     public $openRuleCount;
 
     /**
+     * @description The total number of configured cluster defense rules.
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +66,8 @@ class clusterRuleSummary extends Model
     public $ruleCount;
 
     /**
+     * @description The number of recommended cluster defense rules.
+     *
      * @example 1
      *
      * @var int

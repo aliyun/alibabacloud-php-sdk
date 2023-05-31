@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetCheckProcessResponseBody extends Model
 {
     /**
+     * @description The total number of assets on which the task is complete.
+     *
      * @example 80
      *
      * @var int
@@ -16,6 +18,8 @@ class GetCheckProcessResponseBody extends Model
     public $finishCount;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example D18B5DAD-BA97-5552-AE48-83F59D5F****
      *
      * @var string
@@ -23,6 +27,8 @@ class GetCheckProcessResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of assets on which the task is performed.
+     *
      * @example 113
      *
      * @var int

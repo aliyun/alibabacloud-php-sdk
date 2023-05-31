@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class propertyTypeItems extends Model
 {
     /**
+     * @description The name of the middleware type.
+     *
      * @example Docker Component
      *
      * @var string
@@ -16,6 +18,16 @@ class propertyTypeItems extends Model
     public $name;
 
     /**
+     * @description The middleware type. Valid values:
+     *
+     *   **system_service**: system service
+     *   **software_library**: software library
+     *   **docker_component**: container component
+     *   **database**: database
+     *   **web_container**: web container
+     *   **jar**: JAR package
+     *   **web_framework**: web framework
+     *
      * @example docker_component
      *
      * @var string

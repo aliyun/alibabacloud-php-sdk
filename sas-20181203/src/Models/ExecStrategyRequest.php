@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ExecStrategyRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,9 @@ class ExecStrategyRequest extends Model
     public $lang;
 
     /**
+     * @description The ID of the baseline check policy.
+     *
+     * >  You can call the [DescribeStrategy](~~DescribeStrategy~~) operation to query the IDs of baseline check policies.
      * @example 215421
      *
      * @var int

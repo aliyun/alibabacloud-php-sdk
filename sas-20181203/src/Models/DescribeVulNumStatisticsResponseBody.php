@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulNumStatisticsResponseBody extends Model
 {
     /**
+     * @description The number of application vulnerabilities that are detected on the asset by using the web scanner.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeVulNumStatisticsResponseBody extends Model
     public $appCnt;
 
     /**
+     * @description The number of application vulnerabilities that are detected on the asset by using the web scanner.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeVulNumStatisticsResponseBody extends Model
     public $appNum;
 
     /**
+     * @description The number of Web-CMS vulnerabilities that are handled.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribeVulNumStatisticsResponseBody extends Model
     public $cmsDealedTotalNum;
 
     /**
+     * @description The number of Web-CMS vulnerabilities that are detected on the asset.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribeVulNumStatisticsResponseBody extends Model
     public $cmsNum;
 
     /**
+     * @description The number of Linux software vulnerabilities that are detected on the asset.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +54,8 @@ class DescribeVulNumStatisticsResponseBody extends Model
     public $cveNum;
 
     /**
+     * @description The number of urgent vulnerabilities that are detected on the asset.
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +63,8 @@ class DescribeVulNumStatisticsResponseBody extends Model
     public $emgNum;
 
     /**
+     * @description The request ID.
+     *
      * @example E22C89D2-FE13-5800-8746-9D0EF1827A59
      *
      * @var string
@@ -58,6 +72,8 @@ class DescribeVulNumStatisticsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of middleware vulnerabilities that are detected on the asset.
+     *
      * @example 0
      *
      * @var int
@@ -65,6 +81,8 @@ class DescribeVulNumStatisticsResponseBody extends Model
     public $scaNum;
 
     /**
+     * @description The number of Windows system vulnerabilities that are detected on the asset.
+     *
      * @example 0
      *
      * @var int
@@ -72,6 +90,8 @@ class DescribeVulNumStatisticsResponseBody extends Model
     public $sysNum;
 
     /**
+     * @description The number of vulnerabilities that have the high priority.
+     *
      * @example 0
      *
      * @var int
@@ -79,6 +99,8 @@ class DescribeVulNumStatisticsResponseBody extends Model
     public $vulAsapSum;
 
     /**
+     * @description The number of vulnerabilities that are handled.
+     *
      * @example 0
      *
      * @var int
@@ -86,6 +108,8 @@ class DescribeVulNumStatisticsResponseBody extends Model
     public $vulDealedTotalNum;
 
     /**
+     * @description The number of vulnerabilities that have the medium priority.
+     *
      * @example 0
      *
      * @var int
@@ -93,6 +117,8 @@ class DescribeVulNumStatisticsResponseBody extends Model
     public $vulLaterSum;
 
     /**
+     * @description The number of vulnerabilities that have the low priority.
+     *
      * @example 0
      *
      * @var int

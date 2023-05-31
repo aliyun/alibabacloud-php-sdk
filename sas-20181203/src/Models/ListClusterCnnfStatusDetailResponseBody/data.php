@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Indicates whether the container firewall plug-in is installed.
+     * @description The ID of the cluster.
      *
      * @example c8ca91e0907d94efaba7fb0827eb9****
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $clusterId;
 
     /**
-     * @description The machine type of the instance. The value is fixed as **ecs**.
+     * @description Indicates whether the container firewall plug-in is installed.
      *
      * @example true
      *
@@ -27,10 +27,7 @@ class data extends Model
     public $installed;
 
     /**
-     * @description The online status of the plug-in. Valid values:
-     *
-     *   **false**: The plug-in is offline.
-     *   **true**: The plug-in is online.
+     * @description The ID of the server.
      *
      * @example i-bp180bogui4fc0z4****
      *
@@ -39,11 +36,7 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @description The cause why the plug-in is invalid. Valid values:
-     *
-     *   **PLUGIN_OFFLINE**: The plug-in is offline.
-     *   **PLUGIN\_NOT_INSTALLED**: The plug-in is not installed.
-     *   **PLUGIN\_INVALID_VERSION**: The version of the plug-in is invalid.
+     * @description The public IP address of the associated instance.
      *
      * @example 172.16.XX.XX
      *
@@ -52,6 +45,8 @@ class data extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the associated instance.
+     *
      * @example 10.42.XX.XX
      *
      * @var string
@@ -59,6 +54,12 @@ class data extends Model
     public $intranetIp;
 
     /**
+     * @description The cause why the plug-in is invalid. Valid values:
+     *
+     *   **PLUGIN_OFFLINE**: The plug-in is offline.
+     *   **PLUGIN\_NOT_INSTALLED**: The plug-in is not installed.
+     *   **PLUGIN\_INVALID_VERSION**: The version of the plug-in is invalid.
+     *
      * @example PLUGIN_OFFLINE
      *
      * @var string
@@ -66,7 +67,7 @@ class data extends Model
     public $invalidType;
 
     /**
-     * @description The public IP address of the associated instance.
+     * @description The name of the server.
      *
      * @example security
      *
@@ -75,6 +76,8 @@ class data extends Model
     public $machineName;
 
     /**
+     * @description The machine type of the instance. The value is fixed as **ecs**.
+     *
      * @example ecs
      *
      * @var int
@@ -82,7 +85,7 @@ class data extends Model
     public $machineType;
 
     /**
-     * @description The private IP address of the associated instance.
+     * @description The name of the plug-in. The value is fixed as **alinet**.
      *
      * @example alinet
      *
@@ -91,6 +94,8 @@ class data extends Model
     public $pluginName;
 
     /**
+     * @description The version of the plug-in.
+     *
      * @example 3.3
      *
      * @var string
@@ -98,7 +103,10 @@ class data extends Model
     public $pluginVersion;
 
     /**
-     * @description The version of the plug-in.
+     * @description The online status of the plug-in. Valid values:
+     *
+     *   **false**: The plug-in is offline.
+     *   **true**: The plug-in is online.
      *
      * @example false
      *
@@ -107,7 +115,7 @@ class data extends Model
     public $status;
 
     /**
-     * @description The name of the plug-in. The value is fixed as **alinet**.
+     * @description The UUID of the asset.
      *
      * @example 6690a46c-0edb-4663-a641-3629d1a9****
      *

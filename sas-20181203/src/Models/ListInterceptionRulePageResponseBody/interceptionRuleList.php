@@ -11,11 +11,20 @@ use AlibabaCloud\Tea\Model;
 class interceptionRuleList extends Model
 {
     /**
+     * @description The destination network object.
+     *
      * @var dstTarget
      */
     public $dstTarget;
 
     /**
+     * @description The interception mode. Valid values:
+     *
+     *   **0**: monitor
+     *   **1**: block
+     *   **2**: alert
+     *   **3**: allow
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +32,8 @@ class interceptionRuleList extends Model
     public $interceptType;
 
     /**
+     * @description The order in which the entries are sorted.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +41,8 @@ class interceptionRuleList extends Model
     public $orderIndex;
 
     /**
+     * @description The ID of the defense rule.
+     *
      * @example 30****
      *
      * @var int
@@ -37,6 +50,8 @@ class interceptionRuleList extends Model
     public $ruleId;
 
     /**
+     * @description The name of the defense rule.
+     *
      * @example test
      *
      * @var string
@@ -44,6 +59,11 @@ class interceptionRuleList extends Model
     public $ruleName;
 
     /**
+     * @description The status of the defense rule. Valid values:
+     *
+     *   **1**: enabled
+     *   **0**: disabled
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +71,8 @@ class interceptionRuleList extends Model
     public $ruleSwitch;
 
     /**
+     * @description The type of the defense rule.
+     *
      * @example customize
      *
      * @var string
@@ -58,6 +80,8 @@ class interceptionRuleList extends Model
     public $ruleType;
 
     /**
+     * @description The source network object.
+     *
      * @var srcTarget
      */
     public $srcTarget;

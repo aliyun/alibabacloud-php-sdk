@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class machineList extends Model
 {
     /**
+     * @description The ID of the server.
+     *
      * @example sas-bdrvxb4b****
      *
      * @var string
@@ -16,6 +18,8 @@ class machineList extends Model
     public $instanceId;
 
     /**
+     * @description The name of the server.
+     *
      * @example sql-test-001
      *
      * @var string
@@ -23,6 +27,8 @@ class machineList extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
      * @example 120.79.XX.XX
      *
      * @var string
@@ -30,6 +36,8 @@ class machineList extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -37,6 +45,8 @@ class machineList extends Model
     public $intranetIp;
 
     /**
+     * @description The region in which the server resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +54,12 @@ class machineList extends Model
     public $machineRegion;
 
     /**
+     * @description The operating system of the server. Valid values:
+     *
+     *   **linux**
+     *   **windows**
+     *   **windows-2003**
+     *
      * @example linux
      *
      * @var string
@@ -51,6 +67,8 @@ class machineList extends Model
     public $os;
 
     /**
+     * @description The ID of the region in which the server resides.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -58,6 +76,8 @@ class machineList extends Model
     public $regionId;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 6d5b361f-958d-48a8-a9d2-d6e82c1****
      *
      * @var string
@@ -65,6 +85,14 @@ class machineList extends Model
     public $uuid;
 
     /**
+     * @description The source of the server. Valid values:
+     *
+     *   **0**: an asset provided by Alibaba Cloud.
+     *   **1**: a third-party cloud server
+     *   **2**: a server in a data center
+     *   **3**, **4**, **5**, and **7**: other cloud asset
+     *   **8**: a lightweight asset
+     *
      * @example 0
      *
      * @var int
@@ -72,6 +100,19 @@ class machineList extends Model
     public $vendor;
 
     /**
+     * @description The name of the service provider (SP) for the server.
+     *
+     * Valid values:
+     *
+     *   **ALIYUN**: Alibaba Cloud
+     *   **OUT**: a third-party service provider
+     *   **IDC**: a data center
+     *   **TENCENT**: Tencent Cloud
+     *   **HUAWEICLOUD**: Huawei Cloud
+     *   **Microsoft**: Microsoft
+     *   **AWS**: Amazon Web Services (AWS)
+     *   **TRIPARTITE**: a lightweight server
+     *
      * @example ALIYUN
      *
      * @var string

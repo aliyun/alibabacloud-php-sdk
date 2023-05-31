@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListHoneypotProbeRequest extends Model
 {
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListHoneypotProbeRequest extends Model
     public $currentPage;
 
     /**
+     * @description The name of the probe.
+     *
      * @example probe-test
      *
      * @var string
@@ -23,6 +27,11 @@ class ListHoneypotProbeRequest extends Model
     public $displayName;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example en
      *
      * @var string
@@ -30,6 +39,9 @@ class ListHoneypotProbeRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int
@@ -37,6 +49,19 @@ class ListHoneypotProbeRequest extends Model
     public $pageSize;
 
     /**
+     * @description The status of the probe. Valid values:
+     *
+     *   **installed**: installed
+     *   **install_failed**: installation failed
+     *   **online**: online
+     *   **offline**: offline
+     *   **unnormal**: abnormal
+     *   **unprobe**: unauthorized
+     *   **uninstalling**: being uninstalled
+     *   **uninstalled**: uninstalled
+     *   **uninstall_failed**: uninstallation failed
+     *   **not_exist**: not installed
+     *
      * @example online
      *
      * @var string
@@ -44,6 +69,11 @@ class ListHoneypotProbeRequest extends Model
     public $probeStatus;
 
     /**
+     * @description The type of the probe. Valid values:
+     *
+     *   **host_probe**: host probe
+     *   **vpc_black_hole_probe**: VPC probe
+     *
      * @example host_probe
      *
      * @var string

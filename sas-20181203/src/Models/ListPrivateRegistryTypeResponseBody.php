@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListPrivateRegistryTypeResponseBody extends Model
 {
     /**
-     * @description An array that consists of image repository types.
-     *
      * @var registryTypeInfos[]
      */
     public $registryTypeInfos;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
      * @example 24A20733-10A0-4AF6-BE6B-E3322413****
      *
      * @var string

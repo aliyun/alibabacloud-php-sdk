@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningDetailResponseBody extends Model
 {
     /**
-     * @description Queries the details about a specified check item.
+     * @description The suggestion for the management of the risk item.
      *
      * @example You can fix it in the following ways:↵1. To configure authentication for redis service, click the redis.conf Configure complex password in requirepass, and then restart redis.↵2. In redis configuration file redis.conf The configuration is as follows: bind 127.0.0.1, only allow local access, and then restart redis
      *
@@ -18,6 +18,8 @@ class DescribeCheckWarningDetailResponseBody extends Model
     public $advice;
 
     /**
+     * @description The ID of the check item.
+     *
      * @example 946
      *
      * @var int
@@ -25,6 +27,8 @@ class DescribeCheckWarningDetailResponseBody extends Model
     public $checkId;
 
     /**
+     * @description The additional information about the risk item.
+     *
      * @example The redis port is open to the outside world and there is no authentication option configured. In addition to directly obtaining all the information in the database, unauthorized users can also attack the system through unauthorized access vulnerability.
      *
      * @var string
@@ -32,6 +36,8 @@ class DescribeCheckWarningDetailResponseBody extends Model
     public $description;
 
     /**
+     * @description The name of the check item.
+     *
      * @example Redis unauthorized access
      *
      * @var string
@@ -39,6 +45,12 @@ class DescribeCheckWarningDetailResponseBody extends Model
     public $item;
 
     /**
+     * @description The risk level of the check item. Valid values:
+     *
+     *   **high**: The item is a high-risk item and is highlighted in red.
+     *   **medium**: The item is a medium-risk item and is highlighted in orange.
+     *   **low**: The item is a low-risk item and is highlighted in gray.
+     *
      * @example high
      *
      * @var string
@@ -46,6 +58,8 @@ class DescribeCheckWarningDetailResponseBody extends Model
     public $level;
 
     /**
+     * @description The prompt for the risk item.
+     *
      * @example weak passwords (username@host/password):root@****\/12***
      *
      * @var string
@@ -53,6 +67,8 @@ class DescribeCheckWarningDetailResponseBody extends Model
     public $prompt;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example BE120DAB-F4E7-4C53-ADC3-A97578ABF384
      *
      * @var string
@@ -60,7 +76,7 @@ class DescribeCheckWarningDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description DescribeCheckWarningDetail
+     * @description The type of the check item. Valid values:
      *
      * @example Security audit
      *

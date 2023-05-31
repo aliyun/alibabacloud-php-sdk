@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class criteriaList extends Model
 {
     /**
+     * @description The structured attribute values of the assets that match the keyword. The value of this parameter is in the JSON format and contains the following fields:
+     *
+     *   **vendor**: providers
+     *   **regionIds**: IDs of supported regions
+     *
      * @example [{"vendor":0,"regionIds":{"default":["ap-southeast-1","ap-northeast-2","ap-southeast-3","ap-southeast-5","ap-southeast-7","me-central-1"]}},{"vendor":1,"regionIds":{"default":["outside-of-aliyun"]}}]
      *
      * @var string
@@ -16,6 +21,14 @@ class criteriaList extends Model
     public $multiValues;
 
     /**
+     * @description The name of the filter condition. Valid values:
+     *
+     *   **instanceId**: the ID of the instance
+     *   **instanceName**: the name of an instance
+     *   **internetIp**: the public IP address
+     *   **riskStatus**: the risk status
+     *   **vendorRegionId**: the region ID by service provider
+     *
      * @example instanceId
      *
      * @var string
@@ -23,7 +36,10 @@ class criteriaList extends Model
     public $name;
 
     /**
-     * @description GetCloudAssetCriteria
+     * @description The type of the filter condition. Valid values:
+     *
+     *   **input**: The filter condition needs to be specified.
+     *   **select**: The filter condition is an option that can be selected from the drop-down list.
      *
      * @example select
      *
@@ -32,6 +48,9 @@ class criteriaList extends Model
     public $type;
 
     /**
+     * @description The values of the search condition. This parameter is returned only if the value of **Type** is **select**.
+     *
+     * >  If the value of **Type** is **input**, the value of this parameter is an empty string.
      * @example fvt*
      *
      * @var string

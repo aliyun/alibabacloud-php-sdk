@@ -9,11 +9,10 @@ use AlibabaCloud\Tea\Model;
 class aegisSuspiciousConfigList extends Model
 {
     /**
-     * @description The name of the plug-in. Valid values:
+     * @description Indicates whether the plug-in is enabled. Valid values:
      *
-     *   **alihips**: trojan-specific prevention
-     *   **alisecguard**: attack-specific prevention
-     *   **alinet**: defense against attacks on servers
+     *   **true**: yes
+     *   **false**: no
      *
      * @example true
      *
@@ -22,7 +21,12 @@ class aegisSuspiciousConfigList extends Model
     public $config;
 
     /**
-     * @description Queries the information about plug-ins on a server.
+     * @description The message that indicates whether you are authorized to install the plug-in on your server or whether the plug-in is installed on your server. Valid values:
+     *
+     *   **authorized**: authorized
+     *   **unauthorized**: unauthorized
+     *   **unbind**: not installed
+     *   **nonsupport**: not supported
      *
      * @example authorized
      *
@@ -31,7 +35,10 @@ class aegisSuspiciousConfigList extends Model
     public $msg;
 
     /**
-     * @description ListPluginForUuid
+     * @description Indicates whether the plug-in is globally configured. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example true
      *
@@ -40,7 +47,11 @@ class aegisSuspiciousConfigList extends Model
     public $overallConfig;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The name of the plug-in. Valid values:
+     *
+     *   **alihips**: trojan-specific prevention
+     *   **alisecguard**: attack-specific prevention
+     *   **alinet**: defense against attacks on servers
      *
      * @example alisecguard
      *

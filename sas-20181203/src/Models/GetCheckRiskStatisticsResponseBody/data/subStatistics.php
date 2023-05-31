@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class subStatistics extends Model
 {
     /**
+     * @description The name of the baseline type.
+     *
      * @example weak_password
      *
      * @var string
@@ -16,6 +18,8 @@ class subStatistics extends Model
     public $alias;
 
     /**
+     * @description The number of high-risk items.
+     *
      * @example 3
      *
      * @var int
@@ -23,6 +27,8 @@ class subStatistics extends Model
     public $highWarningCount;
 
     /**
+     * @description The number of low-risk items.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class subStatistics extends Model
     public $lowWarningCount;
 
     /**
+     * @description The number of medium-risk items.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +45,8 @@ class subStatistics extends Model
     public $mediumWarningCount;
 
     /**
+     * @description The number of passed check items.
+     *
      * @example 2
      *
      * @var int
@@ -44,6 +54,8 @@ class subStatistics extends Model
     public $passCount;
 
     /**
+     * @description The total number of check items.
+     *
      * @example 5
      *
      * @var int
@@ -51,6 +63,8 @@ class subStatistics extends Model
     public $totalCount;
 
     /**
+     * @description The baseline type.
+     *
      * @example weak_password
      *
      * @var string

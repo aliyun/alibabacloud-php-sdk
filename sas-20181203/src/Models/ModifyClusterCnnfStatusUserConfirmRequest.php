@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterCnnfStatusUserConfirmRequest extends Model
 {
     /**
+     * @description The IDs of the clusters.
+     *
      * @var string[]
      */
     public $clusterIds;
 
     /**
+     * @description Specifies whether to fix the blocking status of the cluster. Valid values:
+     *
+     *   true: yes
+     *   fasle: no
+     *
      * @example true
      *
      * @var bool

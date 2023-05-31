@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCheckWarningSummaryResponseBody extends Model
 {
     /**
-     * @description The level-1 type of the check item. Examples: database, system, weak password, and middleware.
+     * @description The number of check items returned on the current page.
      *
      * @example 10
      *
@@ -19,10 +19,7 @@ class DescribeCheckWarningSummaryResponseBody extends Model
     public $count;
 
     /**
-     * @description Indicates whether the risk item can be exploited. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
+     * @description The page number of the current page.
      *
      * @example 1
      *
@@ -31,9 +28,8 @@ class DescribeCheckWarningSummaryResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description The ID of the container cluster.
+     * @description The number of entries to return on each page.
      *
-     * >  You can call the [DescribeGroupedContainerInstances](~~182997~~) operation to query the IDs of container clusters.
      * @example 10
      *
      * @var int
@@ -41,7 +37,7 @@ class DescribeCheckWarningSummaryResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 00BD7CE2-284A-4534-BD09-FB69836DD750
      *
@@ -50,7 +46,7 @@ class DescribeCheckWarningSummaryResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the risk item.
+     * @description The total number of check items.
      *
      * @example 100
      *
@@ -59,7 +55,7 @@ class DescribeCheckWarningSummaryResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The number of medium-risk items.
+     * @description The statistics of check items.
      *
      * @var warningSummarys[]
      */

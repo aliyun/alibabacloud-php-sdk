@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class relationTypeList extends Model
 {
     /**
+     * @description Indicates whether the edge is a directional edge. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,8 @@ class relationTypeList extends Model
     public $directed;
 
     /**
+     * @description The rendering color of the edge.
+     *
      * @example #fff
      *
      * @var string
@@ -23,6 +30,8 @@ class relationTypeList extends Model
     public $displayColor;
 
     /**
+     * @description The name of the edge type.
+     *
      * @example file
      *
      * @var string
@@ -30,6 +39,8 @@ class relationTypeList extends Model
     public $name;
 
     /**
+     * @description The ID of the edge type.
+     *
      * @example netflow_to_process
      *
      * @var string
@@ -37,6 +48,8 @@ class relationTypeList extends Model
     public $relationTypeId;
 
     /**
+     * @description This parameter is deprecated.
+     *
      * @example Deprecated
      *
      * @var string

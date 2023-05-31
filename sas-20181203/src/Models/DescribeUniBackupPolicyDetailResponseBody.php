@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUniBackupPolicyDetailResponseBody extends Model
 {
     /**
-     * @description The data returned.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example F35F45B0-5D6B-4238-BE02-A62D0760****
      *
@@ -19,7 +19,7 @@ class DescribeUniBackupPolicyDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The details of the anti-ransomware policy.
      *
      * @var uniBackupPolicyDTO
      */

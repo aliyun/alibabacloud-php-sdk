@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogstoreStorageRequest extends Model
 {
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The ID of the request source. Set the value to **sas**.
      *
      * @example sas
      *
@@ -18,7 +18,10 @@ class DescribeLogstoreStorageRequest extends Model
     public $from;
 
     /**
-     * @description The purchased log storage capacity, in GB.
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example zh
      *

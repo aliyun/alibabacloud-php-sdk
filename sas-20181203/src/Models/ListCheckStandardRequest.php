@@ -9,21 +9,32 @@ use AlibabaCloud\Tea\Model;
 class ListCheckStandardRequest extends Model
 {
     /**
+     * @description The instance IDs of the cloud services to which the check items belong.
+     *
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The subtypes of cloud services.
+     *
      * @var string[]
      */
     public $instanceSubTypes;
 
     /**
+     * @description The asset types of cloud services.
+     *
      * @var string[]
      */
     public $instanceTypes;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -31,6 +42,10 @@ class ListCheckStandardRequest extends Model
     public $lang;
 
     /**
+     * @description The cloud service providers. Valid values:
+     *
+     *   **ALIYUN**: Alibaba Cloud
+     *
      * @var string[]
      */
     public $vendors;

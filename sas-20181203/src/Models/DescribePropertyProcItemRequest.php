@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyProcItemRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribePropertyProcItemRequest extends Model
     public $currentPage;
 
     /**
-     * @description The name of the process.
+     * @description Specifies whether to forcefully refresh the data that you want to query.
      *
      * @example true
      *
@@ -27,7 +27,7 @@ class DescribePropertyProcItemRequest extends Model
     public $forceFlush;
 
     /**
-     * @description The number of the page to return.
+     * @description The name of the process.
      *
      * @example test
      *
@@ -36,7 +36,7 @@ class DescribePropertyProcItemRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries to return on each page.
      *
      * @example 10
      *

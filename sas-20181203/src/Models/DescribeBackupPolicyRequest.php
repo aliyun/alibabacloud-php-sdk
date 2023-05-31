@@ -9,12 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPolicyRequest extends Model
 {
     /**
-     * @description The status of the anti-ransomware policy. Valid values:
+     * @description The ID of the anti-ransomware policy.
      *
-     *   **enabled**: The anti-ransomware policy is manually enabled.
-     *   **disabled**: The anti-ransomware policy is manually disabled. After an anti-ransomware policy is disabled, the data backup task that is running based on the policy stops.
-     *   **closed**: The anti-ransomware policy automatically stops because the anti-ransomware capacity is insufficient.
-     *
+     * >  You can call the [DescribeBackupPolicies](~~DescribeBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
      * @example 51880
      *
      * @var int

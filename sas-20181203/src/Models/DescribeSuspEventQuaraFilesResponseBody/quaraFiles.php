@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class quaraFiles extends Model
 {
     /**
-     * @description The unique ID of the event.
+     * @description The name of the event.
      *
      * @example WEBSHELL
      *
@@ -18,7 +18,7 @@ class quaraFiles extends Model
     public $eventName;
 
     /**
-     * @description The MD5 hash value of the quarantined file.
+     * @description The type of the event.
      *
      * @example WebshellQuaraEventType
      *
@@ -27,7 +27,7 @@ class quaraFiles extends Model
     public $eventType;
 
     /**
-     * @description 172.16.XX.XX
+     * @description The ID of the quarantined file.
      *
      * @example 26918
      *
@@ -36,7 +36,7 @@ class quaraFiles extends Model
     public $id;
 
     /**
-     * @description The name of the server on which the quarantined file is located.
+     * @description The instance ID of the asset.
      *
      * @example i-2ze9t1qp36n1436m****
      *
@@ -45,7 +45,7 @@ class quaraFiles extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the quarantined file.
+     * @description The name of the server on which the quarantined file is located.
      *
      * @example iZwz98dkiw3vbrtqrt5v****
      *
@@ -54,7 +54,7 @@ class quaraFiles extends Model
     public $instanceName;
 
     /**
-     * @description The instance ID of the asset.
+     * @description The public IP address of the server on which the quarantined file is located.
      *
      * @example 47.XX.XX.131
      *
@@ -63,12 +63,16 @@ class quaraFiles extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the server on which the quarantined file is located.
+     *
+     * @example 172.16.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
-     * @description The UUID of the server.
+     * @description The public IP address of the server on which the quarantined file is located.
      *
      * @example 47.XX.XX.131
      *
@@ -77,7 +81,7 @@ class quaraFiles extends Model
     public $ip;
 
     /**
-     * @description The public IP address of the server on which the quarantined file is located.
+     * @description The download link of the quarantined file.
      *
      * @example https://xxx.xxx/xxx
      *
@@ -86,7 +90,7 @@ class quaraFiles extends Model
     public $link;
 
     /**
-     * @description The private IP address of the server on which the quarantined file is located.
+     * @description The MD5 hash value of the quarantined file.
      *
      * @example 5ddebe926acc7ed39a664409bfd0ec10
      *
@@ -95,6 +99,8 @@ class quaraFiles extends Model
     public $md5;
 
     /**
+     * @description The time when the quarantined file was last modified.
+     *
      * @example 2020-06-11 20:37:08
      *
      * @var string
@@ -102,7 +108,7 @@ class quaraFiles extends Model
     public $modifyTime;
 
     /**
-     * @description The time when the quarantined file was last modified.
+     * @description The path to the quarantined file on the server.
      *
      * @example /var/www/html/webshell-sample-master/others/defc3e21bab59e2a2ab49f7eda99f65f83d4d349.jpg
      *
@@ -111,7 +117,14 @@ class quaraFiles extends Model
     public $path;
 
     /**
-     * @description The public IP address of the server on which the quarantined file is located.
+     * @description The status of the quarantined file. Valid values:
+     *
+     *   **quaraFailed**: The file fails to be quarantined.
+     *   **quaraDone**: The file is quarantined.
+     *   **quaraing**: The file is being quarantined.
+     *   **rollbackFailed**: The system fails to cancel quarantining the file.
+     *   **rollbackDone**: The system cancelled quarantining the file.
+     *   **rollbacking**: The system is cancelling quarantining the file.
      *
      * @example rollbackDone
      *
@@ -120,7 +133,7 @@ class quaraFiles extends Model
     public $status;
 
     /**
-     * @description The type of the event.
+     * @description The unique ID of the event.
      *
      * @example 228f890e56eae9eec6a42c7ea801b538
      *
@@ -129,7 +142,7 @@ class quaraFiles extends Model
     public $tag;
 
     /**
-     * @description The path to the quarantined file on the server.
+     * @description The UUID of the server.
      *
      * @example 04a0e735-ad32-4835-b635-0458d77b****
      *

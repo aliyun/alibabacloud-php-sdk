@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyUniBackupPolicyShrinkRequest extends Model
 {
     /**
-     * @description The status of the anti-ransomware policy. Valid values:
-     *
-     *   **enabled**
-     *   **disabled**
+     * @description The name of the database account.
      *
      * @example sa
      *
@@ -21,54 +18,13 @@ class ModifyUniBackupPolicyShrinkRequest extends Model
     public $accountName;
 
     /**
-     * @description The data returned.
+     * @description The password of the database account.
      *
      * @example Sa@****
      *
      * @var string
      */
     public $accountPassword;
-
-    /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example {"days":[4],"interval":1,"planType":"weekly","startTime":"22:00:00"}
-     *
-     * @var string
-     */
-    public $fullPlanShrink;
-
-    /**
-     * @example {"interval":1,"planType":"daily","startTime":"23:30:00"}
-     *
-     * @var string
-     */
-    public $incPlanShrink;
-
-    /**
-     * @description The name of the database account.
-     *
-     * @example 123
-     *
-     * @var int
-     */
-    public $policyId;
-
-    /**
-     * @description The password of the database account.
-     *
-     * @example databak
-     *
-     * @var string
-     */
-    public $policyName;
-
-    /**
-     * @example enabled
-     *
-     * @var string
-     */
-    public $policyStatus;
 
     /**
      * @description The policy for full backup. The value of this parameter is a JSON string that contains the following fields:
@@ -78,11 +34,11 @@ class ModifyUniBackupPolicyShrinkRequest extends Model
      *   **type**: the unit of the interval
      *   **days**: the days of a week on which a backup task is performed
      *
-     * @example 7
+     * @example {"days":[4],"interval":1,"planType":"weekly","startTime":"22:00:00"}
      *
-     * @var int
+     * @var string
      */
-    public $retention;
+    public $fullPlanShrink;
 
     /**
      * @description The policy for incremental backup. The value of this parameter is a JSON string that contains the following fields:
@@ -91,6 +47,55 @@ class ModifyUniBackupPolicyShrinkRequest extends Model
      *   **interval**: the interval of backup tasks
      *   **type**: the unit of the interval
      *   **days**: the days of a week on which a backup task is performed
+     *
+     * @example {"interval":1,"planType":"daily","startTime":"23:30:00"}
+     *
+     * @var string
+     */
+    public $incPlanShrink;
+
+    /**
+     * @description The ID of the anti-ransomware policy.
+     *
+     * > You can call the [DescribeUniBackupPolicies](~~DescribeUniBackupPolicies~~) operation to query the IDs of anti-ransomware policies.
+     * @example 123
+     *
+     * @var int
+     */
+    public $policyId;
+
+    /**
+     * @description The name of the anti-ransomware policy.
+     *
+     * @example databak
+     *
+     * @var string
+     */
+    public $policyName;
+
+    /**
+     * @description The status of the anti-ransomware policy. Valid values:
+     *
+     *   **enabled**
+     *   **disabled**
+     *
+     * @example enabled
+     *
+     * @var string
+     */
+    public $policyStatus;
+
+    /**
+     * @description The retention period of the backup snapshot.
+     *
+     * @example 7
+     *
+     * @var int
+     */
+    public $retention;
+
+    /**
+     * @description The maximum network bandwidth that is allowed during data backup. Unit: bytes.
      *
      * @example 1048576
      *

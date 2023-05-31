@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class propertys extends Model
 {
     /**
-     * @description The timestamp at which the software is installed. Unit: milliseconds.
+     * @description The timestamp at which the last asset fingerprint collection is performed. Unit: milliseconds.
      *
      * @example 1649149566000
      *
@@ -18,7 +18,7 @@ class propertys extends Model
     public $createTimestamp;
 
     /**
-     * @description The ID of the server.
+     * @description The time at which the software is installed.
      *
      * @example 2022-04-07 10:54:49
      *
@@ -27,7 +27,7 @@ class propertys extends Model
     public $installTime;
 
     /**
-     * @description The UUID of the server.
+     * @description The timestamp at which the software is installed. Unit: milliseconds.
      *
      * @example 1649066826000
      *
@@ -36,7 +36,7 @@ class propertys extends Model
     public $installTimeDt;
 
     /**
-     * @description 1
+     * @description The ID of the server.
      *
      * @example i-hp35tftuh52wbp1g****
      *
@@ -45,7 +45,7 @@ class propertys extends Model
     public $instanceId;
 
     /**
-     * @description /etc/test
+     * @description The name of the server.
      *
      * @example hc-host-****
      *
@@ -54,7 +54,7 @@ class propertys extends Model
     public $instanceName;
 
     /**
-     * @description The timestamp at which the software update starts. Unit: milliseconds.
+     * @description The public IP address of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -63,7 +63,7 @@ class propertys extends Model
     public $internetIp;
 
     /**
-     * @description The pagination information.
+     * @description The private IP address of the server.
      *
      * @example 100.104.XX.XX
      *
@@ -72,7 +72,7 @@ class propertys extends Model
     public $intranetIp;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The IP addresses of the server.
      *
      * @example 192.168.XX.XX
      *
@@ -81,7 +81,7 @@ class propertys extends Model
     public $ip;
 
     /**
-     * @description The name of the server.
+     * @description The name of the software.
      *
      * @example aaa_base
      *
@@ -90,7 +90,7 @@ class propertys extends Model
     public $name;
 
     /**
-     * @description The IP addresses of the server.
+     * @description The installation path of the software.
      *
      * @example /etc/test
      *
@@ -99,7 +99,7 @@ class propertys extends Model
     public $path;
 
     /**
-     * @description 1650012695000
+     * @description The UUID of the server.
      *
      * @example 162eb349-c2d9-4f8b-805c-75b43d4c****
      *
@@ -108,7 +108,7 @@ class propertys extends Model
     public $uuid;
 
     /**
-     * @description Specifies whether fuzzy search by software name is supported. If you want to use fuzzy search, set the parameter to 1. If you set the parameter to a different value or leave the parameter empty, fuzzy search is not supported.
+     * @description The version of the software.
      *
      * @example 3.10.0
      *

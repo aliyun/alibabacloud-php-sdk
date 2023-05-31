@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListUuidsByWebPathResponseBody extends Model
 {
     /**
+     * @description An array that consists of the protected assets.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example A3C1240F-9DAC-5EE8-ADF5-2F930A95****
      *
      * @var string

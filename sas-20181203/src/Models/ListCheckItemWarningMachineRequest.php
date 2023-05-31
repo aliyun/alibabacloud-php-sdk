@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCheckItemWarningMachineRequest extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
      * @example 8
      *
      * @var int
@@ -16,6 +18,8 @@ class ListCheckItemWarningMachineRequest extends Model
     public $checkId;
 
     /**
+     * @description The name of the field that is used to query containers.
+     *
      * @example clusterId
      *
      * @var string
@@ -23,6 +27,8 @@ class ListCheckItemWarningMachineRequest extends Model
     public $containerFieldName;
 
     /**
+     * @description The value of the field that is used to query containers.
+     *
      * @example ce89cdd0ea732472a8703821b19e****
      *
      * @var string
@@ -30,6 +36,8 @@ class ListCheckItemWarningMachineRequest extends Model
     public $containerFieldValue;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,9 @@ class ListCheckItemWarningMachineRequest extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the asset group.
+     *
+     * > You can call the [DescribeAllGroups](~~130972~~) operation to query the ID of the asset group.
      * @example 1161****
      *
      * @var int
@@ -44,6 +55,11 @@ class ListCheckItemWarningMachineRequest extends Model
     public $groupId;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -51,6 +67,9 @@ class ListCheckItemWarningMachineRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
+     *
+     * > We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int
@@ -58,6 +77,8 @@ class ListCheckItemWarningMachineRequest extends Model
     public $pageSize;
 
     /**
+     * @description The keyword that is used to query servers in fuzzy match mode.
+     *
      * @example 225
      *
      * @var string
@@ -65,6 +86,8 @@ class ListCheckItemWarningMachineRequest extends Model
     public $remark;
 
     /**
+     * @description The type of the check item.
+     *
      * @example cis
      *
      * @var string
@@ -72,6 +95,20 @@ class ListCheckItemWarningMachineRequest extends Model
     public $riskType;
 
     /**
+     * @description The status of the check item.
+     *
+     * > Valid values:
+     *
+     *   1: failed
+     *
+     *   2: verifying
+     *
+     *   3: passed
+     *
+     *   6: ignored
+     *
+     *   7: fixing
+     *
      * @example 3
      *
      * @var int

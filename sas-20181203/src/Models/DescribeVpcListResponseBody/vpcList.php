@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vpcList extends Model
 {
     /**
+     * @description The number of ECS instances.
+     *
      * @example 9
      *
      * @var int
@@ -16,6 +18,8 @@ class vpcList extends Model
     public $ecsCount;
 
     /**
+     * @description The information about the VPC.
+     *
      * @example TestVpcNote
      *
      * @var string
@@ -23,6 +27,8 @@ class vpcList extends Model
     public $instanceDesc;
 
     /**
+     * @description The ID of the ECS instance.
+     *
      * @example ins_1321_asedb_ada
      *
      * @var string
@@ -30,6 +36,8 @@ class vpcList extends Model
     public $instanceId;
 
     /**
+     * @description The name of the VPC.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +45,8 @@ class vpcList extends Model
     public $instanceName;
 
     /**
+     * @description The region in which the ECS instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string

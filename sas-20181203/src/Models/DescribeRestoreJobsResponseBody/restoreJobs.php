@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class restoreJobs extends Model
 {
     /**
-     * @description The URL to download the CSV file. The CSV file contains the files that fail to be restored.
+     * @description The size of backup data. Unit: bytes.
      *
      * @example 20
      *
@@ -18,6 +18,8 @@ class restoreJobs extends Model
     public $actualBytes;
 
     /**
+     * @description The total size of data that is restored. Unit: bytes.
+     *
      * @example 20
      *
      * @var int
@@ -25,7 +27,7 @@ class restoreJobs extends Model
     public $bytesDone;
 
     /**
-     * @description The size of backup data. Unit: bytes.
+     * @description The total size of data that you want to restore. Unit: bytes.
      *
      * @example 20
      *
@@ -34,7 +36,7 @@ class restoreJobs extends Model
     public $bytesTotal;
 
     /**
-     * @description The time when the restoration task is updated.
+     * @description The ID of the anti-ransomware agent that is used to restore data.
      *
      * @example c-000frxwusjauhp9ajpu6
      *
@@ -43,7 +45,7 @@ class restoreJobs extends Model
     public $clientId;
 
     /**
-     * @description The ID of the backup vault in which the backup data is stored.
+     * @description The timestamp when the restoration task is complete. Unit: milliseconds.
      *
      * @example 1583289054000
      *
@@ -52,7 +54,7 @@ class restoreJobs extends Model
     public $completeTime;
 
     /**
-     * @description RUNNING
+     * @description The timestamp when the restoration task is created. Unit: milliseconds.
      *
      * @example 1583289052000
      *
@@ -61,7 +63,7 @@ class restoreJobs extends Model
     public $createdTime;
 
     /**
-     * @description DescribeRestoreJobs
+     * @description The duration of the restoration task. Unit: seconds.
      *
      * @example 100
      *
@@ -70,7 +72,7 @@ class restoreJobs extends Model
     public $duration;
 
     /**
-     * @description WB01014029
+     * @description The number of the restoration tasks on which errors occur.
      *
      * @example 0
      *
@@ -79,7 +81,7 @@ class restoreJobs extends Model
     public $errorCount;
 
     /**
-     * @description The included directory based on which the files to restore are located. The value is the directory that you specify for protection when you create the anti-ransomware policy
+     * @description The name of the CSV file. The CSV file contains the files that fail to be restored.
      *
      * @example s-000f4wxm8f7gur6g2otm.csv
      *
@@ -88,18 +90,7 @@ class restoreJobs extends Model
     public $errorFile;
 
     /**
-     * @description The status of the restoration task. Valid values:
-     *
-     *   **RUNNING**: The task is running.
-     *   **COMPLETE**: The task is complete.
-     *   **FAILED**: The task fails.
-     *   **CANCELING**: The task is being canceled.
-     *   **CANCELED**: The task is canceled.
-     *   **PARTIAL_COMPLETE**: The task is partially successful.
-     *   **CREATED**: The task is created but is not run.
-     *   **EXPIRED**: The task is not updated.
-     *   **QUEUED**: The task is waiting to be run.
-     *   **CLIENT_DELETED**: The task fails because the anti-ransomware agent is uninstalled.
+     * @description The URL to download the CSV file. The CSV file contains the files that fail to be restored.
      *
      * @example ["/home/user"]
      *
@@ -108,7 +99,7 @@ class restoreJobs extends Model
     public $errorFileUrl;
 
     /**
-     * @description 1
+     * @description The error code that is returned for the restoration task.
      *
      * @example NONE
      *
@@ -117,7 +108,7 @@ class restoreJobs extends Model
     public $errorType;
 
     /**
-     * @description Queries the details about restoration tasks.
+     * @description The timestamp when the in-progress restoration task is expected to be complete. Unit: seconds.
      *
      * @example 1583299054
      *
@@ -126,7 +117,7 @@ class restoreJobs extends Model
     public $eta;
 
     /**
-     * @description The public IP address of the server whose data you want to restore.
+     * @description The directory excluded from the anti-ransomware policy. The value is the directory that you specify to skip protection when you create the anti-ransomware policy.
      *
      * @example ["/home/user"]
      *
@@ -135,7 +126,7 @@ class restoreJobs extends Model
     public $excludes;
 
     /**
-     * @description The total number of restoration tasks returned.
+     * @description The return value of the restoration task.
      *
      * @example 0
      *
@@ -144,7 +135,7 @@ class restoreJobs extends Model
     public $exitCode;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The time when the restoration task is created.
      *
      * @example 2021-04-25T19:11Z
      *
@@ -153,7 +144,7 @@ class restoreJobs extends Model
     public $gmtCreate;
 
     /**
-     * @description The ID of the anti-ransomware agent that is used to back up data.
+     * @description The time when the restoration task is updated.
      *
      * @example 2021-04-25T19:11Z
      *
@@ -162,7 +153,7 @@ class restoreJobs extends Model
     public $gmtModified;
 
     /**
-     * @description The total size of data that you want to restore. Unit: bytes.
+     * @description The included directory based on which the files to restore are located. The value is the directory that you specify for protection when you create the anti-ransomware policy
      *
      * @example ["/root/disk-uuid-test","/root/install.sh"]
      *
@@ -171,7 +162,7 @@ class restoreJobs extends Model
     public $includes;
 
     /**
-     * @description The speed of data restoration. Unit: byte/s.
+     * @description The ID of the server whose data you want to restore.
      *
      * @example i-bp12xnvdax6307gw****
      *
@@ -180,7 +171,7 @@ class restoreJobs extends Model
     public $instanceId;
 
     /**
-     * @description The error code that is returned for the restoration task.
+     * @description The name of the server whose data you want to restore.
      *
      * @example win2012-01
      *
@@ -189,7 +180,7 @@ class restoreJobs extends Model
     public $instanceName;
 
     /**
-     * @description 10
+     * @description The public IP address of the server whose data you want to restore.
      *
      * @example 1.1.XX.XX
      *
@@ -198,7 +189,7 @@ class restoreJobs extends Model
     public $internetIp;
 
     /**
-     * @description The timestamp when the restoration task is complete. Unit: milliseconds.
+     * @description The internal IP address of the server whose data you want to restore.
      *
      * @example 2.1.XX.XX
      *
@@ -216,6 +207,8 @@ class restoreJobs extends Model
     public $itemsDone;
 
     /**
+     * @description The total number of files that you want to restore.
+     *
      * @example 0
      *
      * @var int
@@ -223,7 +216,7 @@ class restoreJobs extends Model
     public $itemsTotal;
 
     /**
-     * @description The total number of files that you want to restore.
+     * @description The error message returned.
      *
      * @example successful
      *
@@ -232,7 +225,7 @@ class restoreJobs extends Model
     public $message;
 
     /**
-     * @description The ID of the anti-ransomware agent that is used to restore data.
+     * @description The progress of the restoration task in percentage.
      *
      * @example 100
      *
@@ -241,7 +234,7 @@ class restoreJobs extends Model
     public $percentage;
 
     /**
-     * @description The internal IP address of the server whose data you want to restore.
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 0ED92280-4363-57D3-A4D3-4D3FBC99B29F
      *
@@ -250,7 +243,7 @@ class restoreJobs extends Model
     public $requestId;
 
     /**
-     * @description The version of the backup data.
+     * @description The ID of the restoration task.
      *
      * @example r-000gmcypy5dyf9ey3uv7
      *
@@ -259,7 +252,7 @@ class restoreJobs extends Model
     public $restoreId;
 
     /**
-     * @description The UUID of the server whose data you want to restore.
+     * @description The name of the restoration task.
      *
      * @example Restore
      *
@@ -268,7 +261,10 @@ class restoreJobs extends Model
     public $restoreName;
 
     /**
-     * @description The total size of data that is restored. Unit: bytes.
+     * @description The type of the file that is restored. Valid values:
+     *
+     *   **ECS_FILE**: files on Elastic Compute Service (ECS) instances
+     *   **FILE**: files on servers in data centers
      *
      * @example ECS_FILE
      *
@@ -277,7 +273,7 @@ class restoreJobs extends Model
     public $restoreType;
 
     /**
-     * @description The number of restoration tasks returned on the current page.
+     * @description The hash value of the snapshot that stores backup data when the data is backed up.
      *
      * @example a3992de83f529b844135fe795d949181735a7d20e0ac8539485c61b7983e618f
      *
@@ -286,7 +282,7 @@ class restoreJobs extends Model
     public $snapshotHash;
 
     /**
-     * @description The ID of the server whose data you want to restore.
+     * @description The hash value ID of the snapshot that stores backup data when the data is backed up.
      *
      * @example s-000gmcypy5dy54e39yny
      *
@@ -295,7 +291,7 @@ class restoreJobs extends Model
     public $snapshotId;
 
     /**
-     * @description The time when the restoration task is created.
+     * @description The version of the backup data.
      *
      * @example 2020-03-03 18:00
      *
@@ -304,7 +300,7 @@ class restoreJobs extends Model
     public $snapshotVersion;
 
     /**
-     * @description The hash value ID of the snapshot that stores backup data when the data is backed up.
+     * @description The path to the source file that you want to restore.
      *
      * @example ["/home/admin","\\\\servername\\sharename"]
      *
@@ -313,7 +309,7 @@ class restoreJobs extends Model
     public $source;
 
     /**
-     * @description An array that consists of the restoration tasks.
+     * @description The ID of the anti-ransomware agent that is used to back up data.
      *
      * @example c-000gmcypy5dyf9ey3uv7
      *
@@ -322,7 +318,7 @@ class restoreJobs extends Model
     public $sourceClientId;
 
     /**
-     * @description The pagination information.
+     * @description The speed of data restoration. Unit: byte/s.
      *
      * @example 25766558
      *
@@ -331,7 +327,18 @@ class restoreJobs extends Model
     public $speed;
 
     /**
-     * @description The path to the source file that you want to restore.
+     * @description The status of the restoration task. Valid values:
+     *
+     *   **RUNNING**: The task is running.
+     *   **COMPLETE**: The task is complete.
+     *   **FAILED**: The task fails.
+     *   **CANCELING**: The task is being canceled.
+     *   **CANCELED**: The task is canceled.
+     *   **PARTIAL_COMPLETE**: The task is partially successful.
+     *   **CREATED**: The task is created but is not run.
+     *   **EXPIRED**: The task is not updated.
+     *   **QUEUED**: The task is waiting to be run.
+     *   **CLIENT_DELETED**: The task fails because the anti-ransomware agent is uninstalled.
      *
      * @example COMPLETE
      *
@@ -340,7 +347,7 @@ class restoreJobs extends Model
     public $status;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The folder to which the backup data is restored. After you create the restoration task, the backup data is restored to the specified folder.
      *
      * @example /home
      *
@@ -349,7 +356,7 @@ class restoreJobs extends Model
     public $target;
 
     /**
-     * @description The number of entries returned per page. Default value: **10**.
+     * @description The timestamp when the restoration task was last updated. Unit: milliseconds.
      *
      * @example 1583289054000
      *
@@ -358,7 +365,7 @@ class restoreJobs extends Model
     public $updatedTime;
 
     /**
-     * @description The name of the restoration task.
+     * @description The UUID of the server whose data you want to restore.
      *
      * @example 6E3DABB6-3F6A-40DB-9492-2C8B59C****
      *
@@ -367,7 +374,7 @@ class restoreJobs extends Model
     public $uuid;
 
     /**
-     * @description The ID of the restoration task.
+     * @description The ID of the backup vault in which the backup data is stored.
      *
      * @example v-000b0v0jqzmse2yz06zw
      *

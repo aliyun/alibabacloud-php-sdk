@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListSystemClientRulesResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example C43CA30F-EF67-51BB-8C95-F31B8303****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListSystemClientRulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array that consists of the system defense rules.
+     *
      * @var ruleList[]
      */
     public $ruleList;

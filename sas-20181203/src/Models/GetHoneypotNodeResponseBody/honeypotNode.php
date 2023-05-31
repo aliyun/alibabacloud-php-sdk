@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class honeypotNode extends Model
 {
     /**
+     * @description Indicates whether a honeypot is allowed to access the Internet. Valid values:
+     *
+     *   **true**: The honeypot is allowed to access the Internet.
+     *   **false**: The honeypot is not allowed to access the Internet.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class honeypotNode extends Model
     public $allowHoneypotAccessInternet;
 
     /**
+     * @description The time when the management node was created.
+     *
      * @example 2022-12-02 17:13:43
      *
      * @var string
@@ -23,6 +30,8 @@ class honeypotNode extends Model
     public $createTime;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example i-2vccskxjunf1ag6w****
      *
      * @var string
@@ -30,6 +39,8 @@ class honeypotNode extends Model
     public $ecsInstanceId;
 
     /**
+     * @description The maximum number of honeypots that can be deployed to the management node.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +48,8 @@ class honeypotNode extends Model
     public $honeypotTotalCount;
 
     /**
+     * @description The number of honeypots that are deployed to the management node.
+     *
      * @example 5
      *
      * @var int
@@ -44,6 +57,8 @@ class honeypotNode extends Model
     public $honeypotUsedCount;
 
     /**
+     * @description The ID of the management node.
+     *
      * @example a7409a58-bc60-41af-9d36-080d58ae****
      *
      * @var string
@@ -51,6 +66,8 @@ class honeypotNode extends Model
     public $nodeId;
 
     /**
+     * @description The IP address of the management node.
+     *
      * @example 101.37.XX.XX
      *
      * @var string
@@ -58,6 +75,8 @@ class honeypotNode extends Model
     public $nodeIp;
 
     /**
+     * @description The name of the management node.
+     *
      * @example gmmc
      *
      * @var string
@@ -65,6 +84,8 @@ class honeypotNode extends Model
     public $nodeName;
 
     /**
+     * @description The maximum number of probes that can be deployed for the management node.
+     *
      * @example 20
      *
      * @var int
@@ -72,6 +93,8 @@ class honeypotNode extends Model
     public $probeTotalCount;
 
     /**
+     * @description The number of probes that are deployed for the management node.
+     *
      * @example 15
      *
      * @var int
@@ -79,11 +102,21 @@ class honeypotNode extends Model
     public $probeUsedCount;
 
     /**
+     * @description An array consisting of the CIDR blocks that are allowed to access the management node.
+     *
      * @var string[]
      */
     public $securityGroupProbeIpList;
 
     /**
+     * @description The status of the management node. Valid values:
+     *
+     *   **0**: preparing
+     *   **1**: normal
+     *   **2**: abnormal
+     *   **4**: starting
+     *   **5**: upgrading
+     *
      * @example 2
      *
      * @var int
@@ -91,6 +124,11 @@ class honeypotNode extends Model
     public $totalStatus;
 
     /**
+     * @description Indicates whether the management node can be upgraded. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool

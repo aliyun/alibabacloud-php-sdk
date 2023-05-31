@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class targetStats extends Model
 {
     /**
-     * @description The information about the server.
+     * @description An array that consists of available servers.
      *
      * @var targets[]
      */
     public $targets;
 
     /**
-     * @description The number of servers to which the configurations are applied.
+     * @description The total number of servers.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class targetStats extends Model
     public $totalCount;
 
     /**
-     * @description An array that consists of available servers.
+     * @description The number of servers to which the configurations are applied.
      *
      * @example 1
      *
@@ -35,7 +35,12 @@ class targetStats extends Model
     public $uuidCount;
 
     /**
-     * @description The total number of servers.
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   cve: Linux software vulnerabilities
+     *   sys: Windows system vulnerabilities
+     *   cms: Web-CMS vulnerabilities
+     *   emg: urgent vulnerabilities
      *
      * @example cve
      *

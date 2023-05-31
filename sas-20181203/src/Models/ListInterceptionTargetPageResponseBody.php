@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListInterceptionTargetPageResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 028CF634-5268-5660-9575-48C9ED6B****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListInterceptionTargetPageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array that consists of the network objects.
+     *
      * @var ruleTargetList[]
      */
     public $ruleTargetList;

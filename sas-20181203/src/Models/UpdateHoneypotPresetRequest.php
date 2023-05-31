@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateHoneypotPresetRequest extends Model
 {
     /**
+     * @description The name of the image that is used for the honeypot.
+     *
      * @example metabase
      *
      * @var string
@@ -16,6 +18,9 @@ class UpdateHoneypotPresetRequest extends Model
     public $honeypotImageName;
 
     /**
+     * @description The ID of the honeypot template.
+     *
+     * > You can call the [ListHoneypotPreset](~~ListHoneypotPreset~~) operation to query the IDs of honeypot templates.
      * @example f75eddce-e9d3-4a88-af95-b10b6f65xxxx
      *
      * @var string
@@ -30,6 +35,12 @@ class UpdateHoneypotPresetRequest extends Model
     public $lang;
 
     /**
+     * @description The custom configurations of the honeypot template. The value is a JSON string that contains the following fields:
+     *
+     *   **portrait_option**: Social Source Tracing
+     *   **burp**: Burp-specific Defense
+     *   **trojan_git**: Git-specific Defense
+     *
      * @example {"portrait_option":true,"burp":"open"}
      *
      * @var string
@@ -37,6 +48,8 @@ class UpdateHoneypotPresetRequest extends Model
     public $meta;
 
     /**
+     * @description The custom name of the honeypot template.
+     *
      * @example apc_web_python
      *
      * @var string

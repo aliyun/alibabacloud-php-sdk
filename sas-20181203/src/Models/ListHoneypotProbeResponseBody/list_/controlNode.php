@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class controlNode extends Model
 {
     /**
+     * @description The ID of the Elastic Compute Service (ECS) instance.
+     *
      * @example i-uf6eq0rlvu1mkh0p****
      *
      * @var string
@@ -16,6 +18,8 @@ class controlNode extends Model
     public $ecsInstanceId;
 
     /**
+     * @description The ID of the node.
+     *
      * @example 8ec9da17-c0e7-4642-aad6-defc9722****
      *
      * @var string
@@ -23,6 +27,8 @@ class controlNode extends Model
     public $nodeId;
 
     /**
+     * @description The name of the node.
+     *
      * @example HoneypotNode1
      *
      * @var string

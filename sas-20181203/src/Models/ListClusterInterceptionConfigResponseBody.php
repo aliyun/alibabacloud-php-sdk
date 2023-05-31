@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListClusterInterceptionConfigResponseBody extends Model
 {
     /**
+     * @description An array that consists of the configurations of the cluster.
+     *
      * @var clusterConfigList[]
      */
     public $clusterConfigList;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 49FDE92F-A0B8-56CC-B7A8-23B17646****
      *
      * @var string

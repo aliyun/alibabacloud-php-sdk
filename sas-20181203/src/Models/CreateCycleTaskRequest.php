@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateCycleTaskRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the task. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +21,8 @@ class CreateCycleTaskRequest extends Model
     public $enable;
 
     /**
+     * @description The first time when the task is performed.
+     *
      * @example 1650556800000
      *
      * @var int
@@ -23,6 +30,8 @@ class CreateCycleTaskRequest extends Model
     public $firstDateStr;
 
     /**
+     * @description The interval of the task.
+     *
      * @example 7
      *
      * @var int
@@ -30,6 +39,8 @@ class CreateCycleTaskRequest extends Model
     public $intervalPeriod;
 
     /**
+     * @description The additional information.
+     *
      * @example {
      * "name": "TI HOST",
      * "target": 10597***
@@ -41,6 +52,11 @@ class CreateCycleTaskRequest extends Model
     public $param;
 
     /**
+     * @description The unit of the scan interval. Valid values:
+     *
+     *   **day**: days
+     *   **hour**: hours
+     *
      * @example day
      *
      * @var string
@@ -48,6 +64,8 @@ class CreateCycleTaskRequest extends Model
     public $periodUnit;
 
     /**
+     * @description The additional source for the task.
+     *
      * @example console_batch
      *
      * @var string
@@ -55,6 +73,8 @@ class CreateCycleTaskRequest extends Model
     public $source;
 
     /**
+     * @description The time when the task ends. Unit: hours.
+     *
      * @example 6
      *
      * @var int
@@ -62,6 +82,8 @@ class CreateCycleTaskRequest extends Model
     public $targetEndTime;
 
     /**
+     * @description The time when the task is started. Unit: hours.
+     *
      * @example 0
      *
      * @var int
@@ -69,6 +91,12 @@ class CreateCycleTaskRequest extends Model
     public $targetStartTime;
 
     /**
+     * @description The name of the task. Valid values:
+     *
+     *   **VIRUS_VUL_SCHEDULE_SCAN**: virus scan task
+     *   **IMAGE_SCAN**: image scan task
+     *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
+     *
      * @example EMG_VUL_SCHEDULE_SCAN
      *
      * @var string
@@ -76,6 +104,12 @@ class CreateCycleTaskRequest extends Model
     public $taskName;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   **VIRUS_VUL_SCHEDULE_SCAN**: virus scan task
+     *   **IMAGE_SCAN**: image scan task
+     *   **EMG_VUL_SCHEDULE_SCAN**: urgent vulnerability scan task
+     *
      * @example VIRUS_VUL_SCHEDULE_SCAN
      *
      * @var string

@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class riskTypeWhiteListQueryResultList extends Model
 {
     /**
-     * @description The condition by which the baseline check policy is applied to the asset. Valid values:
-     *
-     *   **groupId**: the ID of the asset group
-     *   **uuid**: the UUID of the asset
+     * @description The alias of the check item.
      *
      * @example Unauthorized Access
      *
@@ -22,7 +19,10 @@ class riskTypeWhiteListQueryResultList extends Model
     public $alias;
 
     /**
-     * @description The ID of the check item.
+     * @description Indicates whether the risk item is selected. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example false
      *
@@ -31,14 +31,14 @@ class riskTypeWhiteListQueryResultList extends Model
     public $on;
 
     /**
-     * @description The information about the rule parameter.
+     * @description An array that consists of sub-risk items.
      *
      * @var subTypes[]
      */
     public $subTypes;
 
     /**
-     * @description An array that consists of the details of custom check items.
+     * @description The check item.
      *
      * @example hc_exploit
      *

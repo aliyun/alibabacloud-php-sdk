@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedInstancesRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page. Default value: **20**.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeGroupedInstancesRequest extends Model
     public $currentPage;
 
     /**
-     * @description The pagination information.
+     * @description The name of the group to which the assets belong. Fuzzy search is supported.
      *
      * @example test-01
      *
@@ -27,7 +27,11 @@ class DescribeGroupedInstancesRequest extends Model
     public $fieldValue;
 
     /**
-     * @description An array that consists of the information about the assets.
+     * @description The filter condition that you want to use to query the assets. Valid values:
+     *
+     *   **groupId**: the group to which the assets belong
+     *   **regionId**: the region in which the assets reside
+     *   **vpcInstanceId**: the virtual private cloud (VPC) in which the assets reside
      *
      * @example groupId
      *
@@ -36,7 +40,10 @@ class DescribeGroupedInstancesRequest extends Model
     public $groupField;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
      *
      * @example zh
      *
@@ -45,10 +52,7 @@ class DescribeGroupedInstancesRequest extends Model
     public $lang;
 
     /**
-     * @description Specifies whether to enable paged query. Default value: **true**. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
+     * @description The type of the assets that you want to query. Set the value to **ecs**, which indicates Elastic Compute Service (ECS) instances.
      *
      * @example ecs
      *
@@ -57,7 +61,10 @@ class DescribeGroupedInstancesRequest extends Model
     public $machineTypes;
 
     /**
-     * @description The number of assets on which high-risk vulnerabilities are detected.
+     * @description Specifies whether to enable paged query. Default value: **true**. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example true
      *
@@ -66,10 +73,7 @@ class DescribeGroupedInstancesRequest extends Model
     public $noPage;
 
     /**
-     * @description The type of the server group. Valid values:
-     *
-     *   **0**: the default group
-     *   **1**: other group
+     * @description The number of entries to return on each page. Default value: **20**.
      *
      * @example 20
      *
@@ -85,10 +89,13 @@ class DescribeGroupedInstancesRequest extends Model
     public $saleVersionCheckCode;
 
     /**
-     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     * @description The source of the server. Valid values:
      *
-     *   **zh**: Chinese
-     *   **en**: English
+     *   **0**: an asset provided by Alibaba Cloud.
+     *   **1**: a third-party cloud server
+     *   **2**: a server in a data center
+     *   **3**, **4**, **5**, and **7**: other cloud asset
+     *   **8**: a lightweight asset
      *
      * @example 0
      *
@@ -97,7 +104,13 @@ class DescribeGroupedInstancesRequest extends Model
     public $vendor;
 
     /**
-     * @description The name of the group to which the assets belong. Fuzzy search is supported.
+     * @description The source of the server. Separate multiple sources with commas (,).Valid values:
+     *
+     *   **0**: an asset provided by Alibaba Cloud.
+     *   **1**: a third-party cloud server
+     *   **2**: a server in a data center
+     *   **3**, **4**, **5**, and **7**: other cloud asset
+     *   **8**: a lightweight asset
      *
      * @example 0,8
      *

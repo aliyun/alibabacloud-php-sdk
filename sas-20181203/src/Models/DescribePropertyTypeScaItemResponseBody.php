@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyTypeScaItemResponseBody extends Model
 {
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description An array that consists of the middleware types.
+     *
      * @var propertyTypeItems[]
      */
     public $propertyTypeItems;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example B7A839E8-70AE-591D-8D9E-C5419A22****
      *
      * @var string

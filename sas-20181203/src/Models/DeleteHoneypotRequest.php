@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteHoneypotRequest extends Model
 {
     /**
+     * @description The ID of the honeypot.
+     *
+     * > You can call the [ListHoneypot](~~ListHoneypot~~) operation to query the IDs of honeypots.
      * @example 558b5fa40948ebe2171a74757c54dc7e58f761870fa7ee6a105e70947ec82aa9
      *
      * @var string

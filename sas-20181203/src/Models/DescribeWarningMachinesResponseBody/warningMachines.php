@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class warningMachines extends Model
 {
     /**
+     * @description The edition of Security Center that is authorized to protect the asset. Valid values:
+     *
+     *   **1**: Basic edition
+     *   **6**: Anti-virus edition
+     *   **5**: Advanced edition
+     *   **3**: Enterprise edition
+     *   **7**: Ultimate edition
+     *   **10**: Value-added Plan edition
+     *
      * @example 7
      *
      * @var int
@@ -16,6 +25,11 @@ class warningMachines extends Model
     public $authVersion;
 
     /**
+     * @description Indicates whether Security Center is authorized to protect the asset. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -33,7 +47,7 @@ class warningMachines extends Model
     public $containerName;
 
     /**
-     * @description The public IP address of the server.
+     * @description The number of **high-risk** items on the server.
      *
      * @example 10
      *
@@ -42,7 +56,7 @@ class warningMachines extends Model
     public $highWarningCount;
 
     /**
-     * @description The number of entries returned per page. Default value: **10**.
+     * @description The ID of the server.
      *
      * @example i-m5ee8b9nr3h30mhb****
      *
@@ -51,6 +65,8 @@ class warningMachines extends Model
     public $instanceId;
 
     /**
+     * @description The name of the server.
+     *
      * @example oracle-win-00****
      *
      * @var string
@@ -58,7 +74,7 @@ class warningMachines extends Model
     public $instanceName;
 
     /**
-     * @description The UUID of the server on which the baseline check is performed. Separate multiple UUIDs with commas (,).
+     * @description The public IP address of the server.
      *
      * @example 1.2.XX.XX
      *
@@ -67,7 +83,7 @@ class warningMachines extends Model
     public $internetIp;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The private IP address of the server.
      *
      * @example 1.2.XX.XX
      *
@@ -76,7 +92,7 @@ class warningMachines extends Model
     public $intranetIp;
 
     /**
-     * @description Queries information about servers on which a baseline check is performed. The information includes the IDs of the servers, the statistics of a risk item, and the status of the risk item.
+     * @description The number of **low-risk** items on the server.
      *
      * @example 3
      *
@@ -85,6 +101,8 @@ class warningMachines extends Model
     public $lowWarningCount;
 
     /**
+     * @description The number of **medium-risk** items on the server.
+     *
      * @example 2
      *
      * @var int
@@ -92,6 +110,8 @@ class warningMachines extends Model
     public $mediumWarningCount;
 
     /**
+     * @description The number of the check items that passed the baseline check on the server.
+     *
      * @example 10
      *
      * @var int
@@ -99,7 +119,10 @@ class warningMachines extends Model
     public $passCount;
 
     /**
-     * @description DescribeWarningMachines
+     * @description Indicates whether a port on the server is accessible over the Internet. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example true
      *
@@ -108,7 +131,7 @@ class warningMachines extends Model
     public $portOpen;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The ID of the region in which the server is deployed.
      *
      * @example cn-qingdao
      *
@@ -117,10 +140,10 @@ class warningMachines extends Model
     public $regionId;
 
     /**
-     * @description Indicates whether Security Center is authorized to protect the asset. Valid values:
+     * @description The verification status of the risk item after the risk item is fixed. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **1**: complete
+     *   **2**: verifying
      *
      * @example 1
      *
@@ -129,6 +152,8 @@ class warningMachines extends Model
     public $status;
 
     /**
+     * @description The UUID of the server on which the baseline check is performed.
+     *
      * @example 9888955c-0076-49da-bd9c-34f5492b****
      *
      * @var string

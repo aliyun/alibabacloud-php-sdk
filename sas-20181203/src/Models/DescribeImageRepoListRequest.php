@@ -9,9 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageRepoListRequest extends Model
 {
     /**
-     * @description The type of the feature. Valid values:
-     *
-     *   **image_repo**: image repository protection
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -20,11 +18,12 @@ class DescribeImageRepoListRequest extends Model
     public $currentPage;
 
     /**
-     * @description Indicates whether the feature takes effect on the image repository. Valid values:
+     * @description The name of the field that is used for the query. Valid values:
      *
-     *   **add**: yes
-     *   **del**: no
+     *   **repoName**: the name of the image repository
+     *   **repoNamespace**: the namespace to which the image repository belongs
      *
+     * >  This parameter takes effect only when the **OperateType** parameter is set to **other**.
      * @example repoName
      *
      * @var string
@@ -32,8 +31,9 @@ class DescribeImageRepoListRequest extends Model
     public $fieldName;
 
     /**
-     * @description The namespace to which the image repository belongs.
+     * @description The value of the field that is used for the query.
      *
+     * >  This parameter takes effect only when the **OperateType** parameter is set to **other**.
      * @example zeus
      *
      * @var string
@@ -41,7 +41,10 @@ class DescribeImageRepoListRequest extends Model
     public $fieldValue;
 
     /**
-     * @description The pagination information.
+     * @description The type of the operation. Valid values:
+     *
+     *   **count**: counts statistics
+     *   **other**: others
      *
      * @example count
      *
@@ -50,11 +53,9 @@ class DescribeImageRepoListRequest extends Model
     public $operateType;
 
     /**
-     * @description The type of the operation. Valid values:
+     * @description The number of entries to return on each page. Default value: 20. If you leave this parameter empty, 20 entries are returned on each page.
      *
-     *   **count**: counts statistics
-     *   **other**: others
-     *
+     * >  We recommend that you do not leave this parameter empty.
      * @example 20
      *
      * @var int
@@ -62,7 +63,7 @@ class DescribeImageRepoListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The name of the image repository.
      *
      * @example script7
      *
@@ -71,7 +72,7 @@ class DescribeImageRepoListRequest extends Model
     public $repoName;
 
     /**
-     * @description The name of the image repository.
+     * @description The namespace to which the image repository belongs.
      *
      * @example libssh2
      *
@@ -80,7 +81,9 @@ class DescribeImageRepoListRequest extends Model
     public $repoNamespace;
 
     /**
-     * @description The total number of image repositories.
+     * @description The condition by which the feature is applied. Valid values:
+     *
+     *   **image_repo**: the ID of the image repository
      *
      * @example image_repo
      *
@@ -89,7 +92,9 @@ class DescribeImageRepoListRequest extends Model
     public $targetType;
 
     /**
-     * @description The information about the image repository.
+     * @description The type of the feature. Valid values:
+     *
+     *   **image_repo**: image repository protection
      *
      * @example image_repo
      *

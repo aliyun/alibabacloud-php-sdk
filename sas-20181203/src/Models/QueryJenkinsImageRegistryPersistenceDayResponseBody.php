@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryJenkinsImageRegistryPersistenceDayResponseBody extends Model
 {
     /**
+     * @description The retention period. Unit: days.
+     *
      * @example 30
      *
      * @var int
@@ -16,6 +18,8 @@ class QueryJenkinsImageRegistryPersistenceDayResponseBody extends Model
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -23,6 +27,8 @@ class QueryJenkinsImageRegistryPersistenceDayResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example EA4AC8B7-0C18-5BC1-9DA4-798B3BE4****
      *
      * @var string
@@ -30,6 +36,8 @@ class QueryJenkinsImageRegistryPersistenceDayResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time consumed. Unit: seconds.
+     *
      * @example 1
      *
      * @var int
