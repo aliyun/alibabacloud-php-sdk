@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Cloudauthintl\V20220809;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CardOcrRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CardOcrResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeAddressLabelsRequest;
@@ -61,6 +63,73 @@ class Cloudauthintl extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CardOcrRequest $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return CardOcrResponse
+     */
+    public function cardOcrWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->docType)) {
+            $query['DocType'] = $request->docType;
+        }
+        if (!Utils::isUnset($request->idFaceQuality)) {
+            $query['IdFaceQuality'] = $request->idFaceQuality;
+        }
+        if (!Utils::isUnset($request->idOcrPictureBase64)) {
+            $query['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
+        }
+        if (!Utils::isUnset($request->idOcrPictureUrl)) {
+            $query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        if (!Utils::isUnset($request->merchantUserId)) {
+            $query['MerchantUserId'] = $request->merchantUserId;
+        }
+        if (!Utils::isUnset($request->ocr)) {
+            $query['Ocr'] = $request->ocr;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->spoof)) {
+            $query['Spoof'] = $request->spoof;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CardOcr',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CardOcrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CardOcrRequest $request
+     *
+     * @return CardOcrResponse
+     */
+    public function cardOcr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cardOcrWithOptions($request, $runtime);
     }
 
     /**
