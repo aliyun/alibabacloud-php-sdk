@@ -15,6 +15,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\AddDeviceInternetPortRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AddDeviceInternetPortResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AddNetworkInterfaceToInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AddNetworkInterfaceToInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AddSnatIpForSnatEntryRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\AddSnatIpForSnatEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AssignPrivateIpAddressesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AssignPrivateIpAddressesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\AssociateEnsEipAddressRequest;
@@ -128,6 +130,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSecurityGroupRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSecurityGroupResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatEntryResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatIpForSnatEntryRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteSnatIpForSnatEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteVSwitchRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DeleteVSwitchResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeAICImagesRequest;
@@ -284,6 +288,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSelfImagesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSelfImagesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServcieScheduleRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeServcieScheduleResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSnatAttributeRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSnatAttributeResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSnatTableEntriesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeSnatTableEntriesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeUserBandWidthDataRequest;
@@ -435,6 +441,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\StartInstancesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StartInstancesShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StartLoadBalancerListenerRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StartLoadBalancerListenerResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\StartSnatIpForSnatEntryRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\StartSnatIpForSnatEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopEpnInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopEpnInstanceResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopInstanceRequest;
@@ -444,6 +452,8 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\StopInstancesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopInstancesShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopLoadBalancerListenerRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopLoadBalancerListenerResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\StopSnatIpForSnatEntryRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\StopSnatIpForSnatEntryResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressRequest;
@@ -681,6 +691,52 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addNetworkInterfaceToInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddSnatIpForSnatEntryRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AddSnatIpForSnatEntryResponse
+     */
+    public function addSnatIpForSnatEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->snatEntryId)) {
+            $query['SnatEntryId'] = $request->snatEntryId;
+        }
+        if (!Utils::isUnset($request->snatIp)) {
+            $query['SnatIp'] = $request->snatIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddSnatIpForSnatEntry',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddSnatIpForSnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddSnatIpForSnatEntryRequest $request
+     *
+     * @return AddSnatIpForSnatEntryResponse
+     */
+    public function addSnatIpForSnatEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addSnatIpForSnatEntryWithOptions($request, $runtime);
     }
 
     /**
@@ -3640,6 +3696,52 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSnatEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteSnatIpForSnatEntryRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteSnatIpForSnatEntryResponse
+     */
+    public function deleteSnatIpForSnatEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->snatEntryId)) {
+            $query['SnatEntryId'] = $request->snatEntryId;
+        }
+        if (!Utils::isUnset($request->snatIp)) {
+            $query['SnatIp'] = $request->snatIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSnatIpForSnatEntry',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteSnatIpForSnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteSnatIpForSnatEntryRequest $request
+     *
+     * @return DeleteSnatIpForSnatEntryResponse
+     */
+    public function deleteSnatIpForSnatEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteSnatIpForSnatEntryWithOptions($request, $runtime);
     }
 
     /**
@@ -7508,6 +7610,46 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DescribeSnatAttributeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeSnatAttributeResponse
+     */
+    public function describeSnatAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSnatAttribute',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSnatAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSnatAttributeRequest $request
+     *
+     * @return DescribeSnatAttributeResponse
+     */
+    public function describeSnatAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSnatAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSnatTableEntriesRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -11222,6 +11364,52 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param StartSnatIpForSnatEntryRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return StartSnatIpForSnatEntryResponse
+     */
+    public function startSnatIpForSnatEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->snatEntryId)) {
+            $query['SnatEntryId'] = $request->snatEntryId;
+        }
+        if (!Utils::isUnset($request->snatIp)) {
+            $query['SnatIp'] = $request->snatIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartSnatIpForSnatEntry',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartSnatIpForSnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartSnatIpForSnatEntryRequest $request
+     *
+     * @return StartSnatIpForSnatEntryResponse
+     */
+    public function startSnatIpForSnatEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startSnatIpForSnatEntryWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StopEpnInstanceRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -11408,6 +11596,52 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopLoadBalancerListenerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopSnatIpForSnatEntryRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return StopSnatIpForSnatEntryResponse
+     */
+    public function stopSnatIpForSnatEntryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->snatEntryId)) {
+            $query['SnatEntryId'] = $request->snatEntryId;
+        }
+        if (!Utils::isUnset($request->snatIp)) {
+            $query['SnatIp'] = $request->snatIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopSnatIpForSnatEntry',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopSnatIpForSnatEntryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopSnatIpForSnatEntryRequest $request
+     *
+     * @return StopSnatIpForSnatEntryResponse
+     */
+    public function stopSnatIpForSnatEntry($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopSnatIpForSnatEntryWithOptions($request, $runtime);
     }
 
     /**
