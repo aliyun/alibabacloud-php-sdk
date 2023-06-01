@@ -65,6 +65,11 @@ class HotelOrderCreateShrinkRequest extends Model
     /**
      * @var string
      */
+    public $extra;
+
+    /**
+     * @var string
+     */
     public $invoiceInfoShrink;
 
     /**
@@ -155,6 +160,7 @@ class HotelOrderCreateShrinkRequest extends Model
         'contractPhone'          => 'contract_phone',
         'corpPayPrice'           => 'corp_pay_price',
         'disOrderId'             => 'dis_order_id',
+        'extra'                  => 'extra',
         'invoiceInfoShrink'      => 'invoice_info',
         'itemId'                 => 'item_id',
         'itineraryNo'            => 'itinerary_no',
@@ -200,6 +206,9 @@ class HotelOrderCreateShrinkRequest extends Model
         }
         if (null !== $this->disOrderId) {
             $res['dis_order_id'] = $this->disOrderId;
+        }
+        if (null !== $this->extra) {
+            $res['extra'] = $this->extra;
         }
         if (null !== $this->invoiceInfoShrink) {
             $res['invoice_info'] = $this->invoiceInfoShrink;
@@ -275,6 +284,9 @@ class HotelOrderCreateShrinkRequest extends Model
         }
         if (isset($map['dis_order_id'])) {
             $model->disOrderId = $map['dis_order_id'];
+        }
+        if (isset($map['extra'])) {
+            $model->extra = $map['extra'];
         }
         if (isset($map['invoice_info'])) {
             $model->invoiceInfoShrink = $map['invoice_info'];

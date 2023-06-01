@@ -66,6 +66,11 @@ class HotelOrderCreateRequest extends Model
     public $disOrderId;
 
     /**
+     * @var string
+     */
+    public $extra;
+
+    /**
      * @var invoiceInfo
      */
     public $invoiceInfo;
@@ -158,6 +163,7 @@ class HotelOrderCreateRequest extends Model
         'contractPhone'    => 'contract_phone',
         'corpPayPrice'     => 'corp_pay_price',
         'disOrderId'       => 'dis_order_id',
+        'extra'            => 'extra',
         'invoiceInfo'      => 'invoice_info',
         'itemId'           => 'item_id',
         'itineraryNo'      => 'itinerary_no',
@@ -203,6 +209,9 @@ class HotelOrderCreateRequest extends Model
         }
         if (null !== $this->disOrderId) {
             $res['dis_order_id'] = $this->disOrderId;
+        }
+        if (null !== $this->extra) {
+            $res['extra'] = $this->extra;
         }
         if (null !== $this->invoiceInfo) {
             $res['invoice_info'] = null !== $this->invoiceInfo ? $this->invoiceInfo->toMap() : null;
@@ -284,6 +293,9 @@ class HotelOrderCreateRequest extends Model
         }
         if (isset($map['dis_order_id'])) {
             $model->disOrderId = $map['dis_order_id'];
+        }
+        if (isset($map['extra'])) {
+            $model->extra = $map['extra'];
         }
         if (isset($map['invoice_info'])) {
             $model->invoiceInfo = invoiceInfo::fromMap($map['invoice_info']);

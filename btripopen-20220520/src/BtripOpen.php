@@ -4641,6 +4641,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->disOrderId)) {
             $body['dis_order_id'] = $request->disOrderId;
         }
+        if (!Utils::isUnset($request->extra)) {
+            $body['extra'] = $request->extra;
+        }
         if (!Utils::isUnset($request->invoiceInfoShrink)) {
             $body['invoice_info'] = $request->invoiceInfoShrink;
         }

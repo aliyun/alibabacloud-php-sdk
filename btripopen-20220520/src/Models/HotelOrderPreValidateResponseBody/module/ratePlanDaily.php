@@ -14,6 +14,11 @@ class ratePlanDaily extends Model
     public $board;
 
     /**
+     * @var string
+     */
+    public $discountPrice;
+
+    /**
      * @example 100
      *
      * @var int
@@ -35,17 +40,30 @@ class ratePlanDaily extends Model
     public $roomCount;
 
     /**
+     * @var string
+     */
+    public $roundingDiscountPrice;
+
+    /**
+     * @var string
+     */
+    public $roundingPrice;
+
+    /**
      * @example 100
      *
      * @var int
      */
     public $serviceFee;
     protected $_name = [
-        'board'         => 'board',
-        'price'         => 'price',
-        'rateStartTime' => 'rate_start_time',
-        'roomCount'     => 'room_count',
-        'serviceFee'    => 'service_fee',
+        'board'                 => 'board',
+        'discountPrice'         => 'discount_price',
+        'price'                 => 'price',
+        'rateStartTime'         => 'rate_start_time',
+        'roomCount'             => 'room_count',
+        'roundingDiscountPrice' => 'rounding_discount_price',
+        'roundingPrice'         => 'rounding_price',
+        'serviceFee'            => 'service_fee',
     ];
 
     public function validate()
@@ -58,6 +76,9 @@ class ratePlanDaily extends Model
         if (null !== $this->board) {
             $res['board'] = $this->board;
         }
+        if (null !== $this->discountPrice) {
+            $res['discount_price'] = $this->discountPrice;
+        }
         if (null !== $this->price) {
             $res['price'] = $this->price;
         }
@@ -66,6 +87,12 @@ class ratePlanDaily extends Model
         }
         if (null !== $this->roomCount) {
             $res['room_count'] = $this->roomCount;
+        }
+        if (null !== $this->roundingDiscountPrice) {
+            $res['rounding_discount_price'] = $this->roundingDiscountPrice;
+        }
+        if (null !== $this->roundingPrice) {
+            $res['rounding_price'] = $this->roundingPrice;
         }
         if (null !== $this->serviceFee) {
             $res['service_fee'] = $this->serviceFee;
@@ -85,6 +112,9 @@ class ratePlanDaily extends Model
         if (isset($map['board'])) {
             $model->board = $map['board'];
         }
+        if (isset($map['discount_price'])) {
+            $model->discountPrice = $map['discount_price'];
+        }
         if (isset($map['price'])) {
             $model->price = $map['price'];
         }
@@ -93,6 +123,12 @@ class ratePlanDaily extends Model
         }
         if (isset($map['room_count'])) {
             $model->roomCount = $map['room_count'];
+        }
+        if (isset($map['rounding_discount_price'])) {
+            $model->roundingDiscountPrice = $map['rounding_discount_price'];
+        }
+        if (isset($map['rounding_price'])) {
+            $model->roundingPrice = $map['rounding_price'];
         }
         if (isset($map['service_fee'])) {
             $model->serviceFee = $map['service_fee'];

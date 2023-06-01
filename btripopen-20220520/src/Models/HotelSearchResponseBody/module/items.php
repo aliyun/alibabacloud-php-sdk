@@ -101,6 +101,11 @@ class items extends Model
     public $minPrice;
 
     /**
+     * @var float
+     */
+    public $originalMinPrice;
+
+    /**
      * @example 3.2
      *
      * @var string
@@ -121,23 +126,24 @@ class items extends Model
      */
     public $tel;
     protected $_name = [
-        'brandName'    => 'brand_name',
-        'btandCode'    => 'btand_code',
-        'cityCode'     => 'city_code',
-        'distance'     => 'distance',
-        'districtCode' => 'district_code',
-        'hotelAddress' => 'hotel_address',
-        'hotelCode'    => 'hotel_code',
-        'hotelEnName'  => 'hotel_en_name',
-        'hotelName'    => 'hotel_name',
-        'hotelStar'    => 'hotel_star',
-        'imageUrl'     => 'image_url',
-        'isProtocol'   => 'is_protocol',
-        'location'     => 'location',
-        'minPrice'     => 'min_price',
-        'score'        => 'score',
-        'status'       => 'status',
-        'tel'          => 'tel',
+        'brandName'        => 'brand_name',
+        'btandCode'        => 'btand_code',
+        'cityCode'         => 'city_code',
+        'distance'         => 'distance',
+        'districtCode'     => 'district_code',
+        'hotelAddress'     => 'hotel_address',
+        'hotelCode'        => 'hotel_code',
+        'hotelEnName'      => 'hotel_en_name',
+        'hotelName'        => 'hotel_name',
+        'hotelStar'        => 'hotel_star',
+        'imageUrl'         => 'image_url',
+        'isProtocol'       => 'is_protocol',
+        'location'         => 'location',
+        'minPrice'         => 'min_price',
+        'originalMinPrice' => 'original_min_price',
+        'score'            => 'score',
+        'status'           => 'status',
+        'tel'              => 'tel',
     ];
 
     public function validate()
@@ -188,6 +194,9 @@ class items extends Model
         }
         if (null !== $this->minPrice) {
             $res['min_price'] = $this->minPrice;
+        }
+        if (null !== $this->originalMinPrice) {
+            $res['original_min_price'] = $this->originalMinPrice;
         }
         if (null !== $this->score) {
             $res['score'] = $this->score;
@@ -251,6 +260,9 @@ class items extends Model
         }
         if (isset($map['min_price'])) {
             $model->minPrice = $map['min_price'];
+        }
+        if (isset($map['original_min_price'])) {
+            $model->originalMinPrice = $map['original_min_price'];
         }
         if (isset($map['score'])) {
             $model->score = $map['score'];

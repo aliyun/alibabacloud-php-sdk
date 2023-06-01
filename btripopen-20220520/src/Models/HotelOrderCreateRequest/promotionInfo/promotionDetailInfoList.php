@@ -23,6 +23,11 @@ class promotionDetailInfoList extends Model
     public $needCheck;
 
     /**
+     * @var string
+     */
+    public $promotionCode;
+
+    /**
      * @example 23778127
      *
      * @var string
@@ -50,6 +55,7 @@ class promotionDetailInfoList extends Model
     protected $_name = [
         'checkStatus'    => 'check_status',
         'needCheck'      => 'need_check',
+        'promotionCode'  => 'promotion_code',
         'promotionId'    => 'promotion_id',
         'promotionName'  => 'promotion_name',
         'promotionPrice' => 'promotion_price',
@@ -68,6 +74,9 @@ class promotionDetailInfoList extends Model
         }
         if (null !== $this->needCheck) {
             $res['need_check'] = $this->needCheck;
+        }
+        if (null !== $this->promotionCode) {
+            $res['promotion_code'] = $this->promotionCode;
         }
         if (null !== $this->promotionId) {
             $res['promotion_id'] = $this->promotionId;
@@ -98,6 +107,9 @@ class promotionDetailInfoList extends Model
         }
         if (isset($map['need_check'])) {
             $model->needCheck = $map['need_check'];
+        }
+        if (isset($map['promotion_code'])) {
+            $model->promotionCode = $map['promotion_code'];
         }
         if (isset($map['promotion_id'])) {
             $model->promotionId = $map['promotion_id'];
