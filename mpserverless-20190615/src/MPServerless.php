@@ -3246,6 +3246,9 @@ class MPServerless extends OpenApiClient
         if (!Utils::isUnset($request->endTime)) {
             $body['EndTime'] = $request->endTime;
         }
+        if (!Utils::isUnset($request->interval)) {
+            $body['Interval'] = $request->interval;
+        }
         if (!Utils::isUnset($request->spaceId)) {
             $body['SpaceId'] = $request->spaceId;
         }
@@ -3735,6 +3738,9 @@ class MPServerless extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->accessControlAllowOrigin)) {
             $body['AccessControlAllowOrigin'] = $request->accessControlAllowOrigin;
+        }
+        if (!Utils::isUnset($request->accessOriginControl)) {
+            $body['AccessOriginControl'] = $request->accessOriginControl;
         }
         if (!Utils::isUnset($request->domainName)) {
             $body['DomainName'] = $request->domainName;

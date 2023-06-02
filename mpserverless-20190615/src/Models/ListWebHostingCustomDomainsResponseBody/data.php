@@ -16,6 +16,11 @@ class data extends Model
     public $accessControlAllowOrigin;
 
     /**
+     * @var bool
+     */
+    public $accessOriginControl;
+
+    /**
      * @example www.test.com.w.kunlungr.com
      *
      * @var string
@@ -77,6 +82,7 @@ class data extends Model
     public $updateTime;
     protected $_name = [
         'accessControlAllowOrigin' => 'AccessControlAllowOrigin',
+        'accessOriginControl'      => 'AccessOriginControl',
         'cname'                    => 'Cname',
         'createTime'               => 'CreateTime',
         'description'              => 'Description',
@@ -97,6 +103,9 @@ class data extends Model
         $res = [];
         if (null !== $this->accessControlAllowOrigin) {
             $res['AccessControlAllowOrigin'] = $this->accessControlAllowOrigin;
+        }
+        if (null !== $this->accessOriginControl) {
+            $res['AccessOriginControl'] = $this->accessOriginControl;
         }
         if (null !== $this->cname) {
             $res['Cname'] = $this->cname;
@@ -139,6 +148,9 @@ class data extends Model
         $model = new self();
         if (isset($map['AccessControlAllowOrigin'])) {
             $model->accessControlAllowOrigin = $map['AccessControlAllowOrigin'];
+        }
+        if (isset($map['AccessOriginControl'])) {
+            $model->accessOriginControl = $map['AccessOriginControl'];
         }
         if (isset($map['Cname'])) {
             $model->cname = $map['Cname'];

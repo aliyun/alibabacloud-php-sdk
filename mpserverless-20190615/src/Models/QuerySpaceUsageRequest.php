@@ -16,6 +16,11 @@ class QuerySpaceUsageRequest extends Model
     public $endTime;
 
     /**
+     * @var int
+     */
+    public $interval;
+
+    /**
      * @example mp-fd37e37e-b436-4a7a-****-58c89ce3586d
      *
      * @var string
@@ -30,6 +35,7 @@ class QuerySpaceUsageRequest extends Model
     public $startTime;
     protected $_name = [
         'endTime'   => 'EndTime',
+        'interval'  => 'Interval',
         'spaceId'   => 'SpaceId',
         'startTime' => 'StartTime',
     ];
@@ -43,6 +49,9 @@ class QuerySpaceUsageRequest extends Model
         $res = [];
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->interval) {
+            $res['Interval'] = $this->interval;
         }
         if (null !== $this->spaceId) {
             $res['SpaceId'] = $this->spaceId;
@@ -64,6 +73,9 @@ class QuerySpaceUsageRequest extends Model
         $model = new self();
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['Interval'])) {
+            $model->interval = $map['Interval'];
         }
         if (isset($map['SpaceId'])) {
             $model->spaceId = $map['SpaceId'];

@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateFunctionResponseBody extends Model
 {
     /**
-     * @example 2019-06-20T03:22:54Z
-     *
      * @var string
      */
     public $createdAt;
@@ -31,8 +29,6 @@ class UpdateFunctionResponseBody extends Model
     public $httpTriggerPath;
 
     /**
-     * @example 2019-06-20T03:22:54Z
-     *
      * @var string
      */
     public $modifiedAt;
@@ -64,6 +60,8 @@ class UpdateFunctionResponseBody extends Model
     public $timingTriggerConfig;
 
     /**
+     * @example 24
+     *
      * @var string
      */
     public $timingTriggerUserPayload;

@@ -16,6 +16,8 @@ class DescribeFileUploadSignedUrlRequest extends Model
     public $contentType;
 
     /**
+     * @example /abc/edf/hello.jpg
+     *
      * @var string
      */
     public $fileId;

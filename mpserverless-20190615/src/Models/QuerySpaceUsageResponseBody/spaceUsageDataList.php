@@ -23,6 +23,10 @@ class spaceUsageDataList extends Model
     public $dbUsage;
 
     /**
+     * @description 标记该数据是否出账。
+     * - false：不出账，例如在空间停服的情况下，用量数据不用于出账。
+     * @example true
+     *
      * @var bool
      */
     public $effectiveBillFlag;

@@ -23,6 +23,11 @@ class DescribeFileUploadSignedUrlResponseBody extends Model
     public $ossCallbackUrl;
 
     /**
+     * @var bool
+     */
+    public $overwrite;
+
+    /**
      * @example E9A50E1B-5ECE-42D4-B261-C07D1BBE68DE
      *
      * @var string
@@ -38,6 +43,7 @@ class DescribeFileUploadSignedUrlResponseBody extends Model
     protected $_name = [
         'id'             => 'Id',
         'ossCallbackUrl' => 'OssCallbackUrl',
+        'overwrite'      => 'Overwrite',
         'requestId'      => 'RequestId',
         'signUrl'        => 'SignUrl',
     ];
@@ -54,6 +60,9 @@ class DescribeFileUploadSignedUrlResponseBody extends Model
         }
         if (null !== $this->ossCallbackUrl) {
             $res['OssCallbackUrl'] = $this->ossCallbackUrl;
+        }
+        if (null !== $this->overwrite) {
+            $res['Overwrite'] = $this->overwrite;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -78,6 +87,9 @@ class DescribeFileUploadSignedUrlResponseBody extends Model
         }
         if (isset($map['OssCallbackUrl'])) {
             $model->ossCallbackUrl = $map['OssCallbackUrl'];
+        }
+        if (isset($map['Overwrite'])) {
+            $model->overwrite = $map['Overwrite'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -21,6 +21,8 @@ class ListFileRequest extends Model
     public $keyword;
 
     /**
+     * @example DIRECTORY
+     *
      * @var string
      */
     public $mode;
@@ -40,6 +42,8 @@ class ListFileRequest extends Model
     public $pageSize;
 
     /**
+     * @example /images
+     *
      * @var string
      */
     public $prefix;

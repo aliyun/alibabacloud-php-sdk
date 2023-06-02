@@ -17,8 +17,6 @@ class QuerySpaceUsageResponseBody extends Model
     public $endTime;
 
     /**
-     * @example A9FB71D5-2C06-5810-A5FA-B88E45FEA677
-     *
      * @var string
      */
     public $requestId;

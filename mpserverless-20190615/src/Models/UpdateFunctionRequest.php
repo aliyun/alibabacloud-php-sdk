@@ -65,6 +65,8 @@ class UpdateFunctionRequest extends Model
     public $timeout;
 
     /**
+     * @example cron:0 0 * * * *
+     *
      * @var string
      */
     public $timingTriggerConfig;
