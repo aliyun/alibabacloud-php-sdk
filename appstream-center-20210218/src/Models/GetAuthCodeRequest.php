@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetAuthCodeRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoCreateUser;
+
+    /**
      * @example alice
      *
      * @var string
@@ -23,10 +28,15 @@ class GetAuthCodeRequest extends Model
     public $externalUserId;
 
     /**
+     * @example {
+     * "Type": "AppInstanceGroup",
+     * "Id": "aig-9ciijz60n4xsv****"
+     * }
      * @var string
      */
     public $policy;
     protected $_name = [
+        'autoCreateUser' => 'AutoCreateUser',
         'endUserId'      => 'EndUserId',
         'externalUserId' => 'ExternalUserId',
         'policy'         => 'Policy',
@@ -39,6 +49,9 @@ class GetAuthCodeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoCreateUser) {
+            $res['AutoCreateUser'] = $this->autoCreateUser;
+        }
         if (null !== $this->endUserId) {
             $res['EndUserId'] = $this->endUserId;
         }
@@ -60,6 +73,9 @@ class GetAuthCodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoCreateUser'])) {
+            $model->autoCreateUser = $map['AutoCreateUser'];
+        }
         if (isset($map['EndUserId'])) {
             $model->endUserId = $map['EndUserId'];
         }

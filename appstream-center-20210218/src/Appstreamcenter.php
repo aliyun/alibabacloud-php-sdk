@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Appstreamcenter\V20210218;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Appstreamcenter\V20210218\Models\ExpireLoginTokenRequest;
+use AlibabaCloud\SDK\Appstreamcenter\V20210218\Models\ExpireLoginTokenResponse;
 use AlibabaCloud\SDK\Appstreamcenter\V20210218\Models\GetAuthCodeRequest;
 use AlibabaCloud\SDK\Appstreamcenter\V20210218\Models\GetAuthCodeResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -48,6 +50,58 @@ class Appstreamcenter extends OpenApiClient
     }
 
     /**
+     * @param ExpireLoginTokenRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ExpireLoginTokenResponse
+     */
+    public function expireLoginTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->endUserId)) {
+            $body['EndUserId'] = $request->endUserId;
+        }
+        if (!Utils::isUnset($request->loginToken)) {
+            $body['LoginToken'] = $request->loginToken;
+        }
+        if (!Utils::isUnset($request->officeSiteId)) {
+            $body['OfficeSiteId'] = $request->officeSiteId;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $body['SessionId'] = $request->sessionId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExpireLoginToken',
+            'version'     => '2021-02-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExpireLoginTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExpireLoginTokenRequest $request
+     *
+     * @return ExpireLoginTokenResponse
+     */
+    public function expireLoginToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->expireLoginTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAuthCodeRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -57,6 +111,9 @@ class Appstreamcenter extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->autoCreateUser)) {
+            $body['AutoCreateUser'] = $request->autoCreateUser;
+        }
         if (!Utils::isUnset($request->endUserId)) {
             $body['EndUserId'] = $request->endUserId;
         }
