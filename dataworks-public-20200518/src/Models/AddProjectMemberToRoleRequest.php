@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddProjectMemberToRoleRequest extends Model
 {
     /**
-     * @description The client token. It is a field with the idempotence property. We recommend that you use a universally unique identifier (UUID). This parameter is used to uniquely identify the API operation call.
+     * @description The ID of the request. You can use the ID to search for logs and troubleshoot issues based on the logs.
      *
      * @example 1AFAE64E-D1BE-432B-A9*****
      *
@@ -18,7 +18,7 @@ class AddProjectMemberToRoleRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the DataWorks workspace. You can call the [ListProjects](~~178393~~) operation to query the ID.
+     * @description The ID of your Alibaba Cloud account. To view the ID, log on to [the DataWorks console](https://workbench.data.aliyun.com/console) and move the pointer over the profile picture in the upper-right corner.
      *
      * @example 27
      *
@@ -27,7 +27,7 @@ class AddProjectMemberToRoleRequest extends Model
     public $projectId;
 
     /**
-     * @description The code of the role that you want to assign to a member of a DataWorks workspace. You can call the [ListProjectRoles](~~178228~~) operation to query the code of all roles in a DataWorks workspace.
+     * @description The client token. It is a field with the idempotence property. We recommend that you use a universally unique identifier (UUID). This parameter is used to uniquely identify the API operation call.
      *
      * @example role_project_guest
      *
@@ -36,7 +36,7 @@ class AddProjectMemberToRoleRequest extends Model
     public $roleCode;
 
     /**
-     * @description The ID of your Alibaba Cloud account. To view the ID, log on to [the DataWorks console](https://workbench.data.aliyun.com/console) and move the pointer over the profile picture in the upper-right corner.
+     * @description The region of the workspace. For example, the ID of the China (Shanghai) region is cn-shanghai, and that of the China (Zhangjiakou) region is cn-zhangjiakou. The system automatically determines the value of this parameter based on the endpoint used to call the operation.
      *
      * @example 1234
      *

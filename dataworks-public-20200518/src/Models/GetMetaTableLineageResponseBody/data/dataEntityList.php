@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
-     * @description The time when the metatable was created.
-     *
      * @example 1638720736000
      *
      * @var int
@@ -23,8 +21,6 @@ class dataEntityList extends Model
     public $databaseName;
 
     /**
-     * @description The GUID of the metatable.
-     *
      * @example odps.tt.name
      *
      * @var string
@@ -32,7 +28,7 @@ class dataEntityList extends Model
     public $tableGuid;
 
     /**
-     * @description The name of the metatable.
+     * @description The time when the metatable was created.
      *
      * @example name
      *

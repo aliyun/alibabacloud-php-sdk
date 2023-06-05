@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The tag key.
+     * @description The HTTP status code returned.
      *
      * @example Env
      *
@@ -18,7 +18,7 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The tag value.
+     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
      *
      * @example Test
      *

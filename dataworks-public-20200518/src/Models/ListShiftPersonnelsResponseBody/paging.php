@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class paging extends Model
 {
     /**
-     * @description The page number of the returned page. Minimum value: 1. Maximum value: 100. Default value: 1.
+     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class paging extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     * @description The total number of entries returned.
      *
      * @example 10
      *
@@ -28,14 +28,14 @@ class paging extends Model
     public $pageSize;
 
     /**
-     * @description The on-duty engineers in the shift schedule.
+     * @description The UID of the on-duty engineer.
      *
      * @var shiftPersons[]
      */
     public $shiftPersons;
 
     /**
-     * @description The total number of entries returned.
+     * @description The on-duty engineers in the shift schedule.
      *
      * @example 100
      *

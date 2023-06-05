@@ -16,16 +16,6 @@ class UpdateBaselineResponseBody extends Model
     /**
      * @var string
      */
-    public $dynamicErrorCode;
-
-    /**
-     * @var string
-     */
-    public $dynamicErrorMessage;
-
-    /**
-     * @var string
-     */
     public $errorCode;
 
     /**
@@ -48,14 +38,12 @@ class UpdateBaselineResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'data'                => 'Data',
-        'dynamicErrorCode'    => 'DynamicErrorCode',
-        'dynamicErrorMessage' => 'DynamicErrorMessage',
-        'errorCode'           => 'ErrorCode',
-        'errorMessage'        => 'ErrorMessage',
-        'httpStatusCode'      => 'HttpStatusCode',
-        'requestId'           => 'RequestId',
-        'success'             => 'Success',
+        'data'           => 'Data',
+        'errorCode'      => 'ErrorCode',
+        'errorMessage'   => 'ErrorMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -67,12 +55,6 @@ class UpdateBaselineResponseBody extends Model
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = $this->data;
-        }
-        if (null !== $this->dynamicErrorCode) {
-            $res['DynamicErrorCode'] = $this->dynamicErrorCode;
-        }
-        if (null !== $this->dynamicErrorMessage) {
-            $res['DynamicErrorMessage'] = $this->dynamicErrorMessage;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -103,12 +85,6 @@ class UpdateBaselineResponseBody extends Model
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
-        }
-        if (isset($map['DynamicErrorCode'])) {
-            $model->dynamicErrorCode = $map['DynamicErrorCode'];
-        }
-        if (isset($map['DynamicErrorMessage'])) {
-            $model->dynamicErrorMessage = $map['DynamicErrorMessage'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];

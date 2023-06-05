@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The collections.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
      *
      * @var Collection[]
      */
     public $collectionList;
 
     /**
-     * @description The token that is used for the next query.
+     * @description The collections.
      *
      * @example 37ae2053d87d380f28ce0dc0853ca51e
      *

@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class GetBaselineKeyPathResponseBody extends Model
 {
     /**
-     * @description The information about the key path.
-     *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The error code returned.
-     *
      * @example 1031203110005
      *
      * @var string
@@ -26,8 +22,6 @@ class GetBaselineKeyPathResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
-     *
      * @example The specified parameters are invalid.
      *
      * @var string
@@ -35,7 +29,7 @@ class GetBaselineKeyPathResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The timestamp when the event was found.
      *
      * @example 200
      *
@@ -44,8 +38,6 @@ class GetBaselineKeyPathResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot issues.
-     *
      * @example 0000-ABCD-EFG****
      *
      * @var string
@@ -53,8 +45,6 @@ class GetBaselineKeyPathResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
-     *
      * @example true
      *
      * @var bool

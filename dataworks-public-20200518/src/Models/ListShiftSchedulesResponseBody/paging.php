@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class paging extends Model
 {
     /**
-     * @description The page number of the returned page. Minimum value:1. Maximum value: 100.
+     * @description The number of entries returned per page.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class paging extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The total number of entries returned.
      *
      * @example 10
      *
@@ -28,14 +28,14 @@ class paging extends Model
     public $pageSize;
 
     /**
-     * @description The shift schedules.
+     * @description The unique identifier of the shift schedule. You can use the identifier to query the on-duty engineers in the shift schedule.
      *
      * @var shiftSchedules[]
      */
     public $shiftSchedules;
 
     /**
-     * @description The total number of entries returned.
+     * @description The shift schedules.
      *
      * @example 100
      *

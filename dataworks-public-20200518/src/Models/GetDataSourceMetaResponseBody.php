@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetDataSourceMetaResponseBody extends Model
 {
     /**
-     * @description The information about the query operation.
+     * @description Indicates whether the metadata of the data source was retrieved. Valid values:
+     *
+     *   success: The metadata of the data source was retrieved.
+     *   fail: The metadata of the data source failed to be retrieved. You can troubleshoot issues based on the Message parameter.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The unique ID of the request. You can query logs and troubleshoot issues based on the unique ID.
+     * @description The information about the query operation.
      *
      * @example 0000-ABCD-EFG
      *
@@ -26,10 +29,7 @@ class GetDataSourceMetaResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true: The request was successful.
-     *   false: The request failed.
+     * @description The unique ID of the request. You can query logs and troubleshoot issues based on the unique ID.
      *
      * @example true
      *

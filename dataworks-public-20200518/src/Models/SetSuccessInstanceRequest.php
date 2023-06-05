@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetSuccessInstanceRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The environment of the workspace. Valid values: PROD and DEV.
      *
      * @example 1234
      *
@@ -18,7 +18,7 @@ class SetSuccessInstanceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The environment of the workspace. Valid values: PROD and DEV.
+     * @description The HTTP status code.
      *
      * @example PROD
      *

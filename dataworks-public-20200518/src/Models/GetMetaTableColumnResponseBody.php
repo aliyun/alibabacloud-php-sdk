@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableColumnResponseBody extends Model
 {
     /**
-     * @description The business data.
+     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code.
+     * @description The page number of the returned page.
      *
      * @example Invalid.Tenant.ConnectionNotExists
      *
@@ -26,7 +26,7 @@ class GetMetaTableColumnResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message.
+     * @description Indicates whether the request is successful.
      *
      * @example The connection does not exist.
      *
@@ -35,7 +35,7 @@ class GetMetaTableColumnResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code.
+     * @description The ID of the request. You can locate logs and troubleshoot issues based on the ID.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class GetMetaTableColumnResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can locate logs and troubleshoot issues based on the ID.
+     * @description The error code.
      *
      * @example 0bc1ec92159376
      *
@@ -53,7 +53,7 @@ class GetMetaTableColumnResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The business data.
      *
      * @example true
      *

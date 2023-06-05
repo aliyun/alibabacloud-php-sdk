@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateTableLevelResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description Indicates whether the request is successful.
      *
      * @example 1031203110005
      *
@@ -18,7 +18,7 @@ class CreateTableLevelResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error code returned.
      *
      * @example The specified parameters are invalid.
      *
@@ -27,7 +27,7 @@ class CreateTableLevelResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The ID of the request.
      *
      * @example 200
      *
@@ -36,8 +36,6 @@ class CreateTableLevelResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the table level.
-     *
      * @example 123
      *
      * @var int
@@ -45,16 +43,16 @@ class CreateTableLevelResponseBody extends Model
     public $levelId;
 
     /**
-     * @description The ID of the request.
+     * @description 1AAE721C-F9EC-5923-BAFC-99802C4E0F21
      *
-     * @example 1AAE721C-F9EC-5923-BAFC-99802C4E0F21
+     * @example The error message returned.
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The ID of the table level.
      *
      * @example true
      *

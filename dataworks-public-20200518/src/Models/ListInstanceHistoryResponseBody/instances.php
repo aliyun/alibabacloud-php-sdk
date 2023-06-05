@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description The time when the instance started to be run. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @description The time when the running of the node was complete. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
      * @example 1590416703313
      *
@@ -18,7 +18,7 @@ class instances extends Model
     public $beginRunningTime;
 
     /**
-     * @description The time when the instance started to wait for resources.
+     * @description The data timestamp of the instance. In most cases, the value is one day before the time when the instance was run.
      *
      * @example 1590416703313
      *
@@ -27,7 +27,7 @@ class instances extends Model
     public $beginWaitResTime;
 
     /**
-     * @description The time when the instance started to wait to be scheduled.
+     * @description The ID of the node that generates the instance.
      *
      * @example 1590416703313
      *
@@ -36,7 +36,7 @@ class instances extends Model
     public $beginWaitTimeTime;
 
     /**
-     * @description The data timestamp of the instance. In most cases, the value is one day before the time when the instance was run.
+     * @description The name of the node.
      *
      * @example 1590336000000
      *
@@ -45,7 +45,7 @@ class instances extends Model
     public $bizdate;
 
     /**
-     * @description The time when the instance was generated.
+     * @description The ID of the workflow.
      *
      * @example 1590416703313
      *
@@ -54,115 +54,13 @@ class instances extends Model
     public $createTime;
 
     /**
-     * @description The time when the node started to be run. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @description The time when the instance started to be run. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
      * @example 1590422400000
      *
      * @var int
      */
     public $cycTime;
-
-    /**
-     * @description The ID of the workflow.
-     *
-     * @example 33845
-     *
-     * @var int
-     */
-    public $dagId;
-
-    /**
-     * @description Indicates whether the instance is associated with a monitoring rule in Data Quality (DQC). Valid values:
-     *
-     *   0: The instance is associated with a monitoring rule in Data Quality.
-     *   1: The instance is not associated with a monitoring rule in Data Quality.
-     *
-     * @example 1
-     *
-     * @var string
-     */
-    public $dagType;
-
-    /**
-     * @description The error message that is returned for the instance. This parameter is deprecated. You can call the GetInstanceLog operation to query the error information related to the node.
-     *
-     * @example error message
-     *
-     * @var string
-     */
-    public $errorMessage;
-
-    /**
-     * @description The time when the running of the node was complete. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
-     *
-     * @example 1590416703313
-     *
-     * @var int
-     */
-    public $finishTime;
-
-    /**
-     * @description The historical record number of the instance.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $instanceHistoryId;
-
-    /**
-     * @description The ID of the instance.
-     *
-     * @example 1234
-     *
-     * @var int
-     */
-    public $instanceId;
-
-    /**
-     * @description The time when the node was last modified.
-     *
-     * @example 1590416703313
-     *
-     * @var int
-     */
-    public $modifyTime;
-
-    /**
-     * @description The ID of the node that generates the instance.
-     *
-     * @example 33115
-     *
-     * @var int
-     */
-    public $nodeId;
-
-    /**
-     * @description The name of the node.
-     *
-     * @example kzh
-     *
-     * @var string
-     */
-    public $nodeName;
-
-    /**
-     * @description The status of the node that generates the instance. Valid values:
-     *
-     *   NOT_RUN: The node is not run.
-     *   WAIT_TIME: The node is waiting for the scheduling time to arrive.
-     *   WAIT_RESOURCE: The node is waiting for resources.
-     *   RUNNING: The node is running.
-     *   CHECKING: Data quality is being checked for the node.
-     *   CHECKING_CONDITION: Branch conditions are being checked for the node.
-     *   FAILURE: The node fails to be run.
-     *   SUCCESS: The node is successfully run.
-     *
-     * @example NOT_RUN
-     *
-     * @var string
-     */
-    public $status;
 
     /**
      * @description The type of the node. Valid values:
@@ -175,6 +73,97 @@ class instances extends Model
      *   SKIP_CYCLE(5): The node is a node that is scheduled by week or month and is waiting for the scheduling time to arrive. The scheduling system regularly runs the node but sets the status of the node to succeeded when the scheduling system starts to run the node.
      *   CONDITION_UNCHOOSE(6): The node is not selected by its ancestor branch node and is run as a dry-run node.
      *   REALTIME_DEPRECATED(7): The node has instances that are generated in real time but deprecated. The scheduling system sets the status of the node to succeeded.
+     *
+     * @example 33845
+     *
+     * @var int
+     */
+    public $dagId;
+
+    /**
+     * @description The time when the node was last modified.
+     *
+     * @example 1
+     *
+     * @var string
+     */
+    public $dagType;
+
+    /**
+     * @description The time when the instance was generated.
+     *
+     * @example error message
+     *
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @description The error message that is returned for the instance. This parameter is deprecated. You can call the GetInstanceLog operation to query the error information related to the node.
+     *
+     * @example 1590416703313
+     *
+     * @var int
+     */
+    public $finishTime;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $instanceHistoryId;
+
+    /**
+     * @description The time when the instance started to wait for resources.
+     *
+     * @example 1234
+     *
+     * @var int
+     */
+    public $instanceId;
+
+    /**
+     * @description The ID of the instance.
+     *
+     * @example 1590416703313
+     *
+     * @var int
+     */
+    public $modifyTime;
+
+    /**
+     * @description The historical record number of the instance.
+     *
+     * @example 33115
+     *
+     * @var int
+     */
+    public $nodeId;
+
+    /**
+     * @description The time when the instance started to wait to be scheduled.
+     *
+     * @example kzh
+     *
+     * @var string
+     */
+    public $nodeName;
+
+    /**
+     * @description The time when the node started to be run. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
+     * @example NOT_RUN
+     *
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @description Indicates whether the instance is associated with a monitoring rule in Data Quality (DQC). Valid values:
+     *
+     *   0: The instance is associated with a monitoring rule in Data Quality.
+     *   1: The instance is not associated with a monitoring rule in Data Quality.
      *
      * @example NORMAL(0)
      *

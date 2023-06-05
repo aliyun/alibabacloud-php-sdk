@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetDataServiceApiTestRequest extends Model
 {
     /**
-     * @description The ID of the test. You can obtain the test ID from the response of the asynchronous operation TestDataServiceApi. You can also call the ListDataServiceApiTest operation to obtain the ID of the latest test.
-     *
      * @example 123434
      *
      * @var int

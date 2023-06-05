@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class alertSettings extends Model
 {
     /**
+     * @example 900
+     *
      * @var int
      */
     public $alertInterval;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $alertMaximum;
@@ -25,21 +29,29 @@ class alertSettings extends Model
     public $alertMethods;
 
     /**
+     * @example 123123
+     *
      * @var string
      */
     public $alertRecipient;
 
     /**
+     * @example OWNER
+     *
      * @var string
      */
     public $alertRecipientType;
 
     /**
+     * @example BASELINE
+     *
      * @var string
      */
     public $alertType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $baselineAlertEnabled;
@@ -50,11 +62,15 @@ class alertSettings extends Model
     public $dingRobots;
 
     /**
+     * @example 00:00:00
+     *
      * @var string
      */
     public $silenceEndTime;
 
     /**
+     * @example 00:00:00
+     *
      * @var string
      */
     public $silenceStartTime;

@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class columns extends Model
 {
     /**
-     * @description The name of the field.
+     * @description The comment of the field.
      *
-     * You can call the CreateTable operation to configure a maximum of 1,000 fields.
      * @example columnName1
      *
      * @var string
@@ -19,15 +18,17 @@ class columns extends Model
     public $columnName;
 
     /**
-     * @description The display name of the field.
+     * @description The name of the field.
      *
+     * You can call the CreateTable operation to configure a maximum of 1,000 fields.
      * @var string
      */
     public $columnNameCn;
 
     /**
-     * @description The data type of the field.
+     * @description The sequence number of the field. You can use this parameter to specify how fields are sorted in a table. By default, fields are sorted in the order in which requests are created.
      *
+     * If the field is a partition field, this parameter is not supported.
      * @example string
      *
      * @var string
@@ -35,14 +36,14 @@ class columns extends Model
     public $columnType;
 
     /**
-     * @description The comment of the field.
+     * @description The data type of the field.
      *
      * @var string
      */
     public $comment;
 
     /**
-     * @description Specifies whether the current field is a partition field.
+     * @description The ID of the topic.
      *
      * @example true
      *
@@ -51,7 +52,7 @@ class columns extends Model
     public $isPartitionCol;
 
     /**
-     * @description The length of the field. For more information, see [MaxCompute V2.0 data type edition](~~159541#concept-2454988~~).
+     * @description Specifies whether the current field is a partition field.
      *
      * @example 10
      *
@@ -60,9 +61,8 @@ class columns extends Model
     public $length;
 
     /**
-     * @description The sequence number of the field. You can use this parameter to specify how fields are sorted in a table. By default, fields are sorted in the order in which requests are created.
+     * @description The length of the field. For more information, see [MaxCompute V2.0 data type edition](~~159541#concept-2454988~~).
      *
-     * If the field is a partition field, this parameter is not supported.
      * @example 1
      *
      * @var int

@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetMigrationSummaryResponseBody extends Model
 {
     /**
-     * @description The details of the migration task.
+     * @description The ID of the migration task.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request. You can locate logs and troubleshoot issues based on the ID.
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request fails. You can locate the error based on the request ID.
      *
      * @example 19999A96-71BA-1845-B455-ED620EF4E37F
      *
@@ -26,10 +29,7 @@ class GetMigrationSummaryResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   true: The request is successful.
-     *   false: The request fails. You can locate the error based on the request ID.
+     * @description The details of the migration task.
      *
      * @example true
      *

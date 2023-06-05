@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class influences extends Model
 {
     /**
-     * @description The ID of the baseline.
-     *
      * @example 1234
      *
      * @var int
@@ -18,17 +16,11 @@ class influences extends Model
     public $baselineId;
 
     /**
-     * @description The name of the baseline.
-     *
-     * @example Baseline Name
-     *
      * @var string
      */
     public $baselineName;
 
     /**
-     * @description The data timestamp of the baseline instance.
-     *
      * @example 1553356800000
      *
      * @var int
@@ -36,8 +28,6 @@ class influences extends Model
     public $bizdate;
 
     /**
-     * @description The margin of the baseline instance. Unit: seconds.
-     *
      * @example 360
      *
      * @var int
@@ -45,8 +35,6 @@ class influences extends Model
     public $buffer;
 
     /**
-     * @description The ID of the scheduling cycle of the baseline instance. For a baseline instance that is scheduled by day, the value of this parameter is 1. For a baseline instance that is scheduled by hour, the value of this parameter ranges from 1 to 24.
-     *
      * @example 1
      *
      * @var int
@@ -54,8 +42,6 @@ class influences extends Model
     public $inGroupId;
 
     /**
-     * @description The ID of the Alibaba Cloud account used by the baseline owner. Multiple IDs are separated by commas (,).
-     *
      * @example 952795****
      *
      * @var string
@@ -63,8 +49,6 @@ class influences extends Model
     public $owner;
 
     /**
-     * @description The priority of the baseline. Valid values: 1, 2, 5, 7, and 8.
-     *
      * @example 1
      *
      * @var int
@@ -72,8 +56,6 @@ class influences extends Model
     public $priority;
 
     /**
-     * @description The ID of the workspace to which the baseline belongs.
-     *
      * @example 1234
      *
      * @var int
@@ -81,8 +63,6 @@ class influences extends Model
     public $projectId;
 
     /**
-     * @description The status of the baseline. Valid values: ERROR, SAFE, DANGEROUS, and OVER. The value ERROR indicates that no nodes are associated with the baseline, or all nodes associated with the baseline are suspended. The value SAFE indicates that nodes finish running before the alerting time. The value DANGEROUS indicates that nodes are still running after the alerting time but before the committed time. The value OVER indicates that nodes are still running after the committed time.
-     *
      * @example SAFE
      *
      * @var string

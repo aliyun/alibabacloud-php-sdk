@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateMetaCollectionRequest extends Model
 {
     /**
-     * @description The type of the collection.
+     * @description The ID of the request.
      *
      * @example ALBUM
      *
@@ -18,9 +18,8 @@ class CreateMetaCollectionRequest extends Model
     public $collectionType;
 
     /**
-     * @description The comment of the collection.
+     * @description The unique identifier of the parent collection.
      *
-     * The comment must be 1 to 64 characters in length.
      * @example this is a comment
      *
      * @var string
@@ -28,9 +27,9 @@ class CreateMetaCollectionRequest extends Model
     public $comment;
 
     /**
-     * @description The name of the collection.
+     * @description The comment of the collection.
      *
-     * The name must be 1 to 32 characters in length.
+     * The comment must be 1 to 64 characters in length.
      * @example collection_name
      *
      * @var string
@@ -38,7 +37,7 @@ class CreateMetaCollectionRequest extends Model
     public $name;
 
     /**
-     * @description The unique identifier of the parent collection.
+     * @description The type of the collection.
      *
      * @example album.333508
      *

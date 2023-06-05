@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description *   If the TaskType parameter is set to DI_REALTIME, the details of the real-time synchronization node are returned.
-     *   If the TaskType parameter is set to DI_SOLUTION, the value null is returned.
+     * @description Indicates whether the details of the real-time synchronization node or data synchronization solution are obtained. Valid values:
      *
+     * fail: The details fail to be obtained.
      * @example {"extend":{"mode":"wizard","resourceGroup":"S_res_group_287114642182658_1560324290517"},"nodeDef":{},"order":{"hops":[{"from":"datahub_8htXSsfiS2vtZCVG","to":"datahub_CRHBAyGfhSaLmv2f"}]},"setting":{"errorLimit":{},"jvmOption":""},"steps":[{"stepType":"datahub","category":"writer","displayName":"DataHub1","parameter":{"batchSize":1000,"datasource":"datahub_cloud_dev_test","topic":"dwd_tfc_opt_speed_rid_amap_rt"},"name":"datahub_CRHBAyGfhSaLmv2f","gui":{"x":262,"y":325}},{"stepType":"datahub","displayName":"DataHub2","parameter":{"datasource":"datahub_uric_test","topic":"dwd_tfc_opt_speed_rid_amap_rt_330000","batchSize":1000},"name":"datahub_8htXSsfiS2vtZCVG","gui":{"x":268,"y":160.5},"category":"writer"}]}
      *
      * @var string
@@ -20,9 +20,9 @@ class data extends Model
     public $code;
 
     /**
-     * @description The cause of the failure to obtain the details of the real-time synchronization node or data synchronization solution.
+     * @description *   If the TaskType parameter is set to DI_REALTIME, the value null is returned.
+     *   If the TaskType parameter is set to DI_SOLUTION, the details of the data synchronization solution task are returned.
      *
-     * If the details of the real-time synchronization node or data synchronization solution are obtained, the value null is returned.
      * @example fileId:[100] is invalid.
      *
      * @var string
@@ -30,17 +30,27 @@ class data extends Model
     public $message;
 
     /**
-     * @description *   If the TaskType parameter is set to DI_REALTIME, the value null is returned.
-     *   If the TaskType parameter is set to DI_SOLUTION, the details of the data synchronization solution task are returned.
+     * @description The status of the data synchronization solution. Valid values:
+     *
+     *   0: successful
+     *   1: not running
+     *   2: running
+     *   3: failed
+     *   4: committed
+     *   5: pending manual confirmation
+     *   6: manually confirmed
+     *   7: others
+     *   8: waiting
+     *   9: deleted
      *
      * @var solutionDetail
      */
     public $solutionDetail;
 
     /**
-     * @description Indicates whether the details of the real-time synchronization node or data synchronization solution are obtained. Valid values:
+     * @description The cause of the failure to obtain the details of the real-time synchronization node or data synchronization solution.
      *
-     * fail: The details fail to be obtained.
+     * If the details of the real-time synchronization node or data synchronization solution are obtained, the value null is returned.
      * @example success
      *
      * @var string

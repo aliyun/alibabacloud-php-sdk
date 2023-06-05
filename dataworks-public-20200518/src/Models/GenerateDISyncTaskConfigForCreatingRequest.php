@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GenerateDISyncTaskConfigForCreatingRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. This parameter is used to prevent repeated operations that are caused by multiple calls.
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request fails.
      *
      * @example ABFUOEUOTRTRJKE
      *
@@ -18,14 +21,26 @@ class GenerateDISyncTaskConfigForCreatingRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
+     * @description The type of the object that you want to create in Data Integration in asynchronous mode. Valid values:
      *
-     * This parameter specifies the DataWorks workspace to which the operation is applied.
+     *   DI_REALTIME: real-time synchronization node
+     *   DI_SOLUTION: synchronization solution
+     *
+     * DataWorks allows you to create real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
      * @example 10000
      *
      * @var int
      */
     public $projectId;
+
+    /**
+     * @description The client token that is used to ensure the idempotence of the request. This parameter is used to prevent repeated operations that are caused by multiple calls.
+     *
+     * @example {    "type": "realtime",     "version": "1.0",        "setting": {       "resourceGroup":       "S_res_group_280749521950784_1623033752022",        "scheduleResgroupId": 30003913,       "name": "openapi_realtime_solution_0813_1739",       "taskType": "oneclick_to_odps"     },     "steps": [         {             "stepType": "mysql",             "parameter": {                 "connection": [                     {                        "datasourceType": "mysql",                         "datasource": "mysql_pub",                         "table": [                             "xyx"                         ]                     }                 ]             },             "name": "Reader",             "category": "reader"         },         {             "stepType": "odps",             "parameter": {                 "datasource": "odps_first"             },             "name": "Writer",             "category": "writer"         }     ] }
+     *
+     * @var string
+     */
+    public $taskParam;
 
     /**
      * @description The script for the real-time synchronization node or synchronization solution in Data Integration.
@@ -42,19 +57,6 @@ class GenerateDISyncTaskConfigForCreatingRequest extends Model
      *   If the script contains the Tables parameter, the system synchronizes the tables that you specify in the Tables parameter.
      *
      * }
-     * @example {    "type": "realtime",     "version": "1.0",        "setting": {       "resourceGroup":       "S_res_group_280749521950784_1623033752022",        "scheduleResgroupId": 30003913,       "name": "openapi_realtime_solution_0813_1739",       "taskType": "oneclick_to_odps"     },     "steps": [         {             "stepType": "mysql",             "parameter": {                 "connection": [                     {                        "datasourceType": "mysql",                         "datasource": "mysql_pub",                         "table": [                             "xyx"                         ]                     }                 ]             },             "name": "Reader",             "category": "reader"         },         {             "stepType": "odps",             "parameter": {                 "datasource": "odps_first"             },             "name": "Writer",             "category": "writer"         }     ] }
-     *
-     * @var string
-     */
-    public $taskParam;
-
-    /**
-     * @description The type of the object that you want to create in Data Integration in asynchronous mode. Valid values:
-     *
-     *   DI_REALTIME: real-time synchronization node
-     *   DI_SOLUTION: synchronization solution
-     *
-     * DataWorks allows you to create real-time synchronization nodes and synchronization solutions in Data Integration only in asynchronous mode.
      * @example DI_REALTIME
      *
      * @var string

@@ -175,6 +175,11 @@ class CreateFileRequest extends Model
     public $fileType;
 
     /**
+     * @var bool
+     */
+    public $ignoreParentSkipRunningProperty;
+
+    /**
      * @description The output name of the parent file on which the current file depends. If you specify multiple output names, separate them with commas (,).
      *
      * This parameter corresponds to the Output Name parameter under Parent Nodes in the Dependencies section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console).
@@ -323,35 +328,36 @@ class CreateFileRequest extends Model
      */
     public $stop;
     protected $_name = [
-        'advancedSettings'        => 'AdvancedSettings',
-        'autoParsing'             => 'AutoParsing',
-        'autoRerunIntervalMillis' => 'AutoRerunIntervalMillis',
-        'autoRerunTimes'          => 'AutoRerunTimes',
-        'connectionName'          => 'ConnectionName',
-        'content'                 => 'Content',
-        'cronExpress'             => 'CronExpress',
-        'cycleType'               => 'CycleType',
-        'dependentNodeIdList'     => 'DependentNodeIdList',
-        'dependentType'           => 'DependentType',
-        'endEffectDate'           => 'EndEffectDate',
-        'fileDescription'         => 'FileDescription',
-        'fileFolderPath'          => 'FileFolderPath',
-        'fileName'                => 'FileName',
-        'fileType'                => 'FileType',
-        'inputList'               => 'InputList',
-        'inputParameters'         => 'InputParameters',
-        'outputParameters'        => 'OutputParameters',
-        'owner'                   => 'Owner',
-        'paraValue'               => 'ParaValue',
-        'projectId'               => 'ProjectId',
-        'projectIdentifier'       => 'ProjectIdentifier',
-        'rerunMode'               => 'RerunMode',
-        'resourceGroupId'         => 'ResourceGroupId',
-        'resourceGroupIdentifier' => 'ResourceGroupIdentifier',
-        'schedulerType'           => 'SchedulerType',
-        'startEffectDate'         => 'StartEffectDate',
-        'startImmediately'        => 'StartImmediately',
-        'stop'                    => 'Stop',
+        'advancedSettings'                => 'AdvancedSettings',
+        'autoParsing'                     => 'AutoParsing',
+        'autoRerunIntervalMillis'         => 'AutoRerunIntervalMillis',
+        'autoRerunTimes'                  => 'AutoRerunTimes',
+        'connectionName'                  => 'ConnectionName',
+        'content'                         => 'Content',
+        'cronExpress'                     => 'CronExpress',
+        'cycleType'                       => 'CycleType',
+        'dependentNodeIdList'             => 'DependentNodeIdList',
+        'dependentType'                   => 'DependentType',
+        'endEffectDate'                   => 'EndEffectDate',
+        'fileDescription'                 => 'FileDescription',
+        'fileFolderPath'                  => 'FileFolderPath',
+        'fileName'                        => 'FileName',
+        'fileType'                        => 'FileType',
+        'ignoreParentSkipRunningProperty' => 'IgnoreParentSkipRunningProperty',
+        'inputList'                       => 'InputList',
+        'inputParameters'                 => 'InputParameters',
+        'outputParameters'                => 'OutputParameters',
+        'owner'                           => 'Owner',
+        'paraValue'                       => 'ParaValue',
+        'projectId'                       => 'ProjectId',
+        'projectIdentifier'               => 'ProjectIdentifier',
+        'rerunMode'                       => 'RerunMode',
+        'resourceGroupId'                 => 'ResourceGroupId',
+        'resourceGroupIdentifier'         => 'ResourceGroupIdentifier',
+        'schedulerType'                   => 'SchedulerType',
+        'startEffectDate'                 => 'StartEffectDate',
+        'startImmediately'                => 'StartImmediately',
+        'stop'                            => 'Stop',
     ];
 
     public function validate()
@@ -405,6 +411,9 @@ class CreateFileRequest extends Model
         }
         if (null !== $this->fileType) {
             $res['FileType'] = $this->fileType;
+        }
+        if (null !== $this->ignoreParentSkipRunningProperty) {
+            $res['IgnoreParentSkipRunningProperty'] = $this->ignoreParentSkipRunningProperty;
         }
         if (null !== $this->inputList) {
             $res['InputList'] = $this->inputList;
@@ -504,6 +513,9 @@ class CreateFileRequest extends Model
         }
         if (isset($map['FileType'])) {
             $model->fileType = $map['FileType'];
+        }
+        if (isset($map['IgnoreParentSkipRunningProperty'])) {
+            $model->ignoreParentSkipRunningProperty = $map['IgnoreParentSkipRunningProperty'];
         }
         if (isset($map['InputList'])) {
             $model->inputList = $map['InputList'];

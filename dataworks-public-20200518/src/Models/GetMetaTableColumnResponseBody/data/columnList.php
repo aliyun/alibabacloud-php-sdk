@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class columnList extends Model
 {
     /**
-     * @description The description of the field.
+     * @description The number of times the field is read.
      *
      * @example data column
      *
@@ -18,7 +18,10 @@ class columnList extends Model
     public $caption;
 
     /**
-     * @description The GUID of the field.
+     * @description Indicates whether the field is a partition field. Valid values:
+     *
+     *   true: The field is a partition field.
+     *   false: The field is not a partition field.
      *
      * @example odps.engine_name.table_name.name
      *
@@ -27,7 +30,7 @@ class columnList extends Model
     public $columnGuid;
 
     /**
-     * @description The name of the field.
+     * @description The remarks of the field.
      *
      * @example name
      *
@@ -36,7 +39,7 @@ class columnList extends Model
     public $columnName;
 
     /**
-     * @description The data type of the field.
+     * @description The ordinal number of the field.
      *
      * @example string
      *
@@ -45,7 +48,10 @@ class columnList extends Model
     public $columnType;
 
     /**
-     * @description The remarks of the field.
+     * @description Indicates whether the field is the primary key. Valid values:
+     *
+     *   true: The field is the primary key.
+     *   false: The field is not the primary key.
      *
      * @example comment
      *
@@ -54,11 +60,6 @@ class columnList extends Model
     public $comment;
 
     /**
-     * @description Indicates whether the field is a foreign key. Valid values:
-     *
-     *   true: The field is a foreign key.
-     *   false: The field is not a foreign key.
-     *
      * @example true
      *
      * @var bool
@@ -66,10 +67,7 @@ class columnList extends Model
     public $isForeignKey;
 
     /**
-     * @description Indicates whether the field is a partition field. Valid values:
-     *
-     *   true: The field is a partition field.
-     *   false: The field is not a partition field.
+     * @description The data type of the field.
      *
      * @example false
      *
@@ -78,10 +76,7 @@ class columnList extends Model
     public $isPartitionColumn;
 
     /**
-     * @description Indicates whether the field is the primary key. Valid values:
-     *
-     *   true: The field is the primary key.
-     *   false: The field is not the primary key.
+     * @description The description of the field.
      *
      * @example false
      *
@@ -90,7 +85,10 @@ class columnList extends Model
     public $isPrimaryKey;
 
     /**
-     * @description The ordinal number of the field.
+     * @description Indicates whether the field is a foreign key. Valid values:
+     *
+     *   true: The field is a foreign key.
+     *   false: The field is not a foreign key.
      *
      * @example 1
      *
@@ -99,8 +97,6 @@ class columnList extends Model
     public $position;
 
     /**
-     * @description The number of times the field is read.
-     *
      * @example 2
      *
      * @var int

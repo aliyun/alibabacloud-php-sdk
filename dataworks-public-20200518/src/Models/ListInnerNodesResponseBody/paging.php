@@ -10,14 +10,19 @@ use AlibabaCloud\Tea\Model;
 class paging extends Model
 {
     /**
-     * @description The list of inner nodes.
+     * @description The scheduling type of the inner node. Valid values:
+     *
+     *   NORMAL: The inner node is an auto triggered node.
+     *   MANUAL: The inner node is a manually triggered node. Manually triggered nodes cannot be automatically triggered.
+     *   PAUSE: The inner node is a paused node.
+     *   SKIP: The inner node is a dry-run node. Dry-run nodes are started as scheduled but the scheduling system sets the status of the nodes to succeeded when the scheduling system starts to run the nodes.
      *
      * @var nodes[]
      */
     public $nodes;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
      *
      * @example 1
      *
@@ -26,7 +31,7 @@ class paging extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     * @description The total number of inner nodes returned.
      *
      * @example 10
      *
@@ -35,7 +40,7 @@ class paging extends Model
     public $pageSize;
 
     /**
-     * @description The total number of inner nodes returned.
+     * @description The list of inner nodes.
      *
      * @example 100
      *

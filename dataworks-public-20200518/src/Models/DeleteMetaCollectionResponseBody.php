@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetaCollectionResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description Indicates whether the request was successful. Valid values:
      *
+     * false: The request failed.
      * @example 999999
      *
      * @var string
@@ -18,7 +19,7 @@ class DeleteMetaCollectionResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The error code returned.
      *
      * @example The specified product does not exist.
      *
@@ -27,7 +28,7 @@ class DeleteMetaCollectionResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The error message returned.
      *
      * @example 200
      *
@@ -36,8 +37,9 @@ class DeleteMetaCollectionResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     * @description The result of the operation. Valid values:
      *
+     * false: failed
      * @example 0000-ABCD-E****
      *
      * @var string
@@ -45,9 +47,8 @@ class DeleteMetaCollectionResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The result of the operation. Valid values:
+     * @description The HTTP status code returned.
      *
-     * false: failed
      * @example true
      *
      * @var bool
@@ -55,9 +56,6 @@ class DeleteMetaCollectionResponseBody extends Model
     public $status;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     * false: The request failed.
      * @example true
      *
      * @var bool

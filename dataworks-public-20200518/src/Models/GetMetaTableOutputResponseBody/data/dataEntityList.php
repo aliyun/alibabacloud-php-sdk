@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataEntityList extends Model
 {
     /**
-     * @description The end time of the node.
+     * @description The start time of the node.
      *
      * @example 2022-02-12 0:32:12
      *
@@ -18,7 +18,7 @@ class dataEntityList extends Model
     public $endTime;
 
     /**
-     * @description The ID of the workspace.
+     * @description The GUID of the MaxCompute metatable.
      *
      * @example 128
      *
@@ -27,7 +27,7 @@ class dataEntityList extends Model
     public $projectId;
 
     /**
-     * @description The start time of the node.
+     * @description The duration during which the node waits to start.
      *
      * @example 2022-02-12 0:34:13
      *
@@ -36,8 +36,6 @@ class dataEntityList extends Model
     public $startTime;
 
     /**
-     * @description The GUID of the MaxCompute metatable.
-     *
      * @example odps.sample_project.sample_table
      *
      * @var string
@@ -45,8 +43,6 @@ class dataEntityList extends Model
     public $tableGuid;
 
     /**
-     * @description The ID of the node.
-     *
      * @example 1048576
      *
      * @var string
@@ -54,7 +50,7 @@ class dataEntityList extends Model
     public $taskId;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the workspace.
      *
      * @example 987654321
      *
@@ -63,7 +59,7 @@ class dataEntityList extends Model
     public $taskInstanceId;
 
     /**
-     * @description The duration during which the node waits to start.
+     * @description The ID of the node.
      *
      * @example 3
      *

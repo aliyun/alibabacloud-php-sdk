@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListNodesByBaselineResponseBody extends Model
 {
     /**
-     * @description The nodes in the baseline.
+     * @description The name of the node.
      *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The nodes in the baseline.
      *
      * @example 1031203110005
      *
@@ -26,7 +26,7 @@ class ListNodesByBaselineResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description Indicates whether the request is successful.
      *
      * @example The specified parameters are invalid.
      *
@@ -35,7 +35,7 @@ class ListNodesByBaselineResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The error message returned.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class ListNodesByBaselineResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     * @description The error code returned.
      *
      * @example 0000-ABCD-E****
      *
@@ -53,7 +53,7 @@ class ListNodesByBaselineResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The ID of the Alibaba Cloud account used by the node owner.
      *
      * @example true
      *

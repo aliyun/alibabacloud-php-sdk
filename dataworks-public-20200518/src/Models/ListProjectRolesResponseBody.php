@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListProjectRolesResponseBody extends Model
 {
     /**
-     * @description The roles of the workspace.
+     * @description The role ID of the workspace.
      *
      * @var projectRoleList[]
      */
     public $projectRoleList;
 
     /**
-     * @description The ID of the request.
+     * @description The roles of the workspace.
      *
      * @example 1AFAE64E-D1BE-432B-A9****
      *

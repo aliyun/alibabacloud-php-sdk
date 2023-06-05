@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class StartDISyncInstanceResponseBody extends Model
 {
     /**
-     * @description The result returned for the start.
+     * @description Indicates whether the real-time synchronization node or the data synchronization solution is started. Valid values:
+     *
+     *   success: The real-time synchronization node or the data synchronization solution is started.
+     *   fail: The real-time synchronization node or the data synchronization solution fails to be started. You can troubleshoot the issue based on the provided cause.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request. You can locate logs and troubleshoot issues based on the ID.
+     * @description The result returned for the start.
      *
      * @example 0bc1411515937635973****
      *
@@ -26,10 +29,7 @@ class StartDISyncInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   true: The request succeeded.
-     *   false: The request failed.
+     * @description The ID of the request. You can locate logs and troubleshoot issues based on the ID.
      *
      * @example true
      *

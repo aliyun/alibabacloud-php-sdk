@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class shiftSchedules extends Model
 {
     /**
-     * @description The unique identifier of the shift schedule. You can use the identifier to query the on-duty engineers in the shift schedule.
+     * @description The name of the shift schedule.
      *
      * @example 2ab6456ada634b2f938ee******9b45b
      *
@@ -18,8 +18,6 @@ class shiftSchedules extends Model
     public $shiftScheduleIdentifier;
 
     /**
-     * @description The name of the shift schedule.
-     *
      * @var string
      */
     public $shiftScheduleName;

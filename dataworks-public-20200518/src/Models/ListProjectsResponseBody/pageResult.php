@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class pageResult extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The total number of entries returned.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class pageResult extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     * @description The DataWorks workspaces returned.
      *
      * @example 10
      *
@@ -28,14 +28,36 @@ class pageResult extends Model
     public $pageSize;
 
     /**
-     * @description The DataWorks workspaces returned.
+     * @description The status of the workspace. Valid values:
+     *
+     *   0: AVAILABLE, which indicates that the workspace is running as expected.
+     *   1: DELETED, which indicates that the workspace is deleted.
+     *   2: INITIALIZING, which indicates that the workspace is being initialized.
+     *   3: INIT_FAILED, which indicates that the workspace fails to be initialized.
+     *   4: FORBIDDEN, which indicates that the workspace is manually disabled.
+     *   5: DELETING, which indicates that the workspace is being deleted.
+     *   6: DEL_FAILED, which indicates that the workspace fails to be deleted.
+     *   7: FROZEN, which indicates that the workspace is frozen due to overdue payments.
+     *   8: UPDATING, which indicates that the workspace is being updated. After you associate a compute engine with the workspace, the system initializes compute engine and updates the workspace.
+     *   9: UPDATE_FAILED, which indicates that the workspace fails to be updated.
      *
      * @var projectList[]
      */
     public $projectList;
 
     /**
-     * @description The total number of entries returned.
+     * @description The status code of the workspace. Valid values:
+     *
+     *   AVAILABLE: 0, which indicates that the workspace is running as expected.
+     *   DELETED: 1, which indicates that the workspace is deleted.
+     *   INITIALIZING: 2, which indicates that the workspace is being initialized.
+     *   INIT_FAILED: 3, which indicates that the workspace fails to be initialized.
+     *   FORBIDDEN: 4, which indicates that the workspace is manually disabled.
+     *   DELETING: 5, which indicates that the workspace is being deleted.
+     *   DEL_FAILED: 6, which indicates that the workspace fails to be deleted.
+     *   FROZEN: 7, which indicates that the workspace is frozen due to overdue payments.
+     *   UPDATING: 8, which indicates that the workspace is being updated. After you associate a compute engine with the workspace, the system initializes compute engine and updates the workspace.
+     *   UPDATE_FAILED: 9, which indicates that the workspace fails to be updated.
      *
      * @example 123
      *

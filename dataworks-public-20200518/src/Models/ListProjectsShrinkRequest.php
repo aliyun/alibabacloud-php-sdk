@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListProjectsShrinkRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The ID of the resource group.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class ListProjectsShrinkRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The tags.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class ListProjectsShrinkRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the resource group.
+     * @description The tag key.
      *
      * @example rg-acfmzbn7pti3zfa
      *
@@ -36,7 +36,7 @@ class ListProjectsShrinkRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description The tags.
+     * @description The tag value.
      *
      * @var string
      */

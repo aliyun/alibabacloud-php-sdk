@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetTopicInfluenceRequest extends Model
 {
     /**
-     * @description The ID of the event.
-     *
      * @example 1234
      *
      * @var int

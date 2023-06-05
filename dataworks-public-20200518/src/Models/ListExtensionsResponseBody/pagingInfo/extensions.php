@@ -10,35 +10,35 @@ use AlibabaCloud\Tea\Model;
 class extensions extends Model
 {
     /**
-     * @description The extension point events.
+     * @description The name of the event.
      *
      * @var bindEventList[]
      */
     public $bindEventList;
 
     /**
-     * @description The unique code of the extension.
+     * @description The extension point events.
      *
      * @var string
      */
     public $extensionCode;
 
     /**
-     * @description The description of the extension.
+     * @description The name of the extension.
      *
      * @var string
      */
     public $extensionDesc;
 
     /**
-     * @description The name of the extension.
+     * @description The ID of the RAM user.
      *
      * @var string
      */
     public $extensionName;
 
     /**
-     * @description The ID of the RAM user.
+     * @description The unique code of the extension.
      *
      * @example 2003****
      *
@@ -47,9 +47,8 @@ class extensions extends Model
     public $owner;
 
     /**
-     * @description The state of the extension. Valid values:
+     * @description The description of the extension.
      *
-     * 6: Approve Failed
      * @example 0
      *
      * @var int

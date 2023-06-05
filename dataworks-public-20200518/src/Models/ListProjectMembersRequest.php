@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListProjectMembersRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The ID of the request.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class ListProjectMembersRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The results that are returned.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class ListProjectMembersRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the DataWorks workspace.
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
      *
      * @example 27
      *

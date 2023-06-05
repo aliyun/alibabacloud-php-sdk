@@ -9,9 +9,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The cause of the failure to deploy the real-time synchronization node or data synchronization solution.
-     *
-     * If the real-time synchronization node or data synchronization solution is deployed, the value null is returned.
      * @example submit and deploy fail.
      *
      * @var string
@@ -19,11 +16,9 @@ class data extends Model
     public $message;
 
     /**
-     * @description Indicates whether the real-time synchronization node or data synchronization solution is deployed. Valid values:
+     * @description The cause of the failure to deploy the real-time synchronization node or data synchronization solution.
      *
-     *   success: The real-time synchronization node or data synchronization solution is deployed.
-     *   fail: The real-time synchronization node or data synchronization solution fails to be deployed.
-     *
+     * If the real-time synchronization node or data synchronization solution is deployed, the value null is returned.
      * @example success
      *
      * @var string

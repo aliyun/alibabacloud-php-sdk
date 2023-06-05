@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableColumnRequest extends Model
 {
     /**
-     * @description The ID of the E-MapReduce (EMR) cluster. You can log on to the EMR console to obtain the ID.
+     * @description The name of the metatable in the EMR cluster. You can call the [GetMetaDBTableList](~~173916~~) operation to query the name.
      *
      * @example C-010A704DA760****
      *
@@ -18,7 +18,7 @@ class GetMetaTableColumnRequest extends Model
     public $clusterId;
 
     /**
-     * @description The type of the data source. Only emr is supported.
+     * @description The error message.
      *
      * @example emr
      *
@@ -27,7 +27,7 @@ class GetMetaTableColumnRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The name of the metadatabase of the EMR cluster. You can call the [ListMetaDB](~~185662~~) operation to query the name.
+     * @description The type of the data source. Only emr is supported.
      *
      * @example abc
      *
@@ -36,7 +36,7 @@ class GetMetaTableColumnRequest extends Model
     public $databaseName;
 
     /**
-     * @description The number of the page to return.
+     * @description The ID of the E-MapReduce (EMR) cluster. You can log on to the EMR console to obtain the ID.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class GetMetaTableColumnRequest extends Model
     public $pageNum;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The name of the metadatabase of the EMR cluster. You can call the [ListMetaDB](~~185662~~) operation to query the name.
      *
      * @example 10
      *
@@ -54,7 +54,7 @@ class GetMetaTableColumnRequest extends Model
     public $pageSize;
 
     /**
-     * @description The GUID of the metatable. You can call the [GetMetaDBTableList](~~173916~~) operation to query the GUID of the metatable.
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
      *
      * @example odps.engine_name.table_name
      *
@@ -63,7 +63,7 @@ class GetMetaTableColumnRequest extends Model
     public $tableGuid;
 
     /**
-     * @description The name of the metatable in the EMR cluster. You can call the [GetMetaDBTableList](~~173916~~) operation to query the name.
+     * @description The HTTP status code.
      *
      * @example abc
      *

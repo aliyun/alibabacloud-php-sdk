@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class databaseInfo extends Model
 {
     /**
-     * @description The list of metadatabases.
+     * @description The timestamp at which the metadatabase was created. You can convert the timestamp to the related date based on the time zone that you use.
      *
      * @var dbList[]
      */
     public $dbList;
 
     /**
-     * @description The total number of the metadatabases.
+     * @description The type of the metadatabase.
      *
      * @example 10
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListShiftPersonnelsRequest extends Model
 {
     /**
-     * @description The time when the on-duty engineer starts a shift. Set the value to a UNIX timestamp.
+     * @description The time when the on-duty engineer ends a shift. Set the value to a UNIX timestamp.
      *
      * @example 1593950832000
      *
@@ -18,7 +18,7 @@ class ListShiftPersonnelsRequest extends Model
     public $beginTime;
 
     /**
-     * @description The time when the on-duty engineer ends a shift. Set the value to a UNIX timestamp.
+     * @description The ID of the request. You can use the ID to troubleshoot issues.
      *
      * @example 1593950832000
      *
@@ -27,7 +27,7 @@ class ListShiftPersonnelsRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of your Alibaba Cloud account. You can log on to the DataWorks console and move the pointer over the profile picture in the upper-right corner to obtain the ID.
+     * @description The time when the on-duty engineer starts a shift. Set the value to a UNIX timestamp.
      *
      * @example 1933790****551
      *
@@ -36,7 +36,7 @@ class ListShiftPersonnelsRequest extends Model
     public $shiftPersonUID;
 
     /**
-     * @description The unique identifier of the shift schedule.
+     * @description The type of on-duty engineers that you want to query. Valid values: ALL, PRIMARY, BACKUP, and DESIGNATED_USER.
      *
      * @example 2ab6456ada634b2f938ee******9b45b
      *
@@ -45,7 +45,7 @@ class ListShiftPersonnelsRequest extends Model
     public $shiftScheduleIdentifier;
 
     /**
-     * @description The type of on-duty engineers that you want to query. Valid values: ALL, PRIMARY, BACKUP, and DESIGNATED_USER.
+     * @description The ID of your Alibaba Cloud account. You can log on to the DataWorks console and move the pointer over the profile picture in the upper-right corner to obtain the ID.
      *
      * @example ALL
      *

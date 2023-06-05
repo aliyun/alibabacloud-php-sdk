@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RunManualDagNodesResponseBody extends Model
 {
     /**
-     * @description The ID of the DAG for the manually triggered workflow. You can call an operation with this parameter as a request parameter to query the details and statuses of the nodes in this manually triggered workflow.
+     * @description The ID of the request.
      *
      * @example 700000123123141
      *
@@ -18,8 +18,6 @@ class RunManualDagNodesResponseBody extends Model
     public $dagId;
 
     /**
-     * @description The ID of the request.
-     *
      * @example AASFDFSDFG-DFSDF-DFSDFD-SDFSDF
      *
      * @var string

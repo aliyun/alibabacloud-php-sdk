@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The information about the metatable.
+     * @description The GUID of the metatable.
      *
      * @var dataEntityList[]
      */
     public $dataEntityList;
 
     /**
-     * @description Indicates whether the next page has more query results.
+     * @description The name of the metatable.
      *
      * @example true
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $hasNext;
 
     /**
-     * @description The paging information.
+     * @description The information about the metatable.
      *
      * @example odps | retail_e_commerce_2 | retail_e_commerce_2 | dws_ec_trd__cate_commodity_gmv_kpy_fy
      *

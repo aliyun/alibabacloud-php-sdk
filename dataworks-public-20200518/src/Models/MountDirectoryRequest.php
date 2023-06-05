@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class MountDirectoryRequest extends Model
 {
     /**
-     * @description The ID of the directory that you want to add to the left-side navigation pane of DataAnalysis. This parameter is used together with the TargetType parameter.
+     * @description The ID of the request. You can use the ID to troubleshoot issues.
      *
-     * For example, if you set the TargetType parameter to META_ALBUM, you must set the TargetId parameter to the ID of the related data album. You can call the [ListMetaCollections](~~469938~~) operation to obtain the ID of the data album. The ID is indicated by the QualifiedName parameter.
      * @example album.339
      *
      * @var string
@@ -19,7 +18,10 @@ class MountDirectoryRequest extends Model
     public $targetId;
 
     /**
-     * @description The type of the directory that you want to add to the left-side navigation pane of DataAnalysis. Example: META_ALBUM, which indicates the data album.
+     * @description The number of directories that are added. Valid values:
+     *
+     *   0: No directories are added. The left-side navigation pane may contain the specified directory.
+     *   1: One directory is added.
      *
      * @example META_ALBUM
      *

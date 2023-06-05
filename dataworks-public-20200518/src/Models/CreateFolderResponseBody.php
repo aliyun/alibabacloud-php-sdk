@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateFolderResponseBody extends Model
 {
     /**
-     * @description The unique identifier of the folder.
+     * @description The ID of the request. You can use the ID to troubleshoot issues.
      *
      * @example bdfd68****
      *
@@ -18,8 +18,6 @@ class CreateFolderResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
-     *
      * @example Invalid.Tenant.ConnectionNotExists
      *
      * @var string
@@ -27,7 +25,7 @@ class CreateFolderResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description Indicates whether the request was successful.
      *
      * @example The connection does not exist.
      *
@@ -36,7 +34,7 @@ class CreateFolderResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The unique identifier of the folder.
      *
      * @example 200
      *
@@ -45,7 +43,7 @@ class CreateFolderResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     * @description The error message returned.
      *
      * @example 0000-ABCD-EFG
      *
@@ -54,7 +52,7 @@ class CreateFolderResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @description The error code returned.
      *
      * @example true
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListNodesRequest extends Model
 {
     /**
-     * @description The name of the workflow.
+     * @description The error code returned.
      *
      * @example test_bizName
      *
@@ -18,7 +18,7 @@ class ListNodesRequest extends Model
     public $bizName;
 
     /**
-     * @description The name of the node.
+     * @description The ID of the baseline with which the node is associated.
      *
      * @example liux_test_n****
      *
@@ -27,7 +27,7 @@ class ListNodesRequest extends Model
     public $nodeName;
 
     /**
-     * @description The ID of the owner.
+     * @description The description of the node.
      *
      * @example 193379****
      *
@@ -36,7 +36,7 @@ class ListNodesRequest extends Model
     public $owner;
 
     /**
-     * @description The number of the page to return. Minimum value: 1. Maximum value: 100.
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class ListNodesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The ID of the workspace.
      *
      * @example 10
      *
@@ -54,7 +54,7 @@ class ListNodesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The types of the nodes. You can call the [ListNodes](~~173979~~) operation to query the type of the node.
+     * @description The operation that you want to perform. Set the value to **ListNodes**.
      *
      * @example ODPS_SQL
      *
@@ -63,7 +63,7 @@ class ListNodesRequest extends Model
     public $programType;
 
     /**
-     * @description The environment of the workspace. Valid values: PROD and DEV.
+     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
      *
      * @example PROD
      *
@@ -72,7 +72,7 @@ class ListNodesRequest extends Model
     public $projectEnv;
 
     /**
-     * @description The ID of the workspace.
+     * @description The ID of the owner.
      *
      * @example 1234
      *

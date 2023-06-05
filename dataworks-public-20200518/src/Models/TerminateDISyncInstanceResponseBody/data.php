@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The reason why the real-time synchronization node fails to be terminated. If the real-time synchronization node is terminated, this parameter is left empty.
-     *
      * @example fileId:[100] is invalid.
      *
      * @var string
@@ -18,10 +16,7 @@ class data extends Model
     public $message;
 
     /**
-     * @description Indicates whether the real-time synchronization node is terminated. Valid values:
-     *
-     *   success
-     *   fail
+     * @description The reason why the real-time synchronization node fails to be terminated. If the real-time synchronization node is terminated, this parameter is left empty.
      *
      * @example success
      *

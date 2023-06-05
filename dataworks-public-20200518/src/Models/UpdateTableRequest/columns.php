@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class columns extends Model
 {
     /**
-     * @description The name of the field.
+     * @description The comment of the field.
      *
      * @example abc
      *
@@ -18,14 +18,14 @@ class columns extends Model
     public $columnName;
 
     /**
-     * @description The display name of the field.
+     * @description The name of the field.
      *
      * @var string
      */
     public $columnNameCn;
 
     /**
-     * @description The type of the field. For more information, see MaxCompute field types.
+     * @description The sequence number of the field. If the field is a partition field, this parameter is not supported.
      *
      * @example string
      *
@@ -34,14 +34,14 @@ class columns extends Model
     public $columnType;
 
     /**
-     * @description The comment of the field.
+     * @description The type of the field. For more information, see MaxCompute field types.
      *
      * @var string
      */
     public $comment;
 
     /**
-     * @description Specifies whether the field is a partition field. Valid values: 0 and 1. The value 0 indicates that the field is not a partition field. The value 1 indicates that the field is a partition field.
+     * @description The ID of the associated topic.
      *
      * @example 0
      *
@@ -50,7 +50,7 @@ class columns extends Model
     public $isPartitionCol;
 
     /**
-     * @description The length of the field.
+     * @description Specifies whether the field is a partition field. Valid values: 0 and 1. The value 0 indicates that the field is not a partition field. The value 1 indicates that the field is a partition field.
      *
      * @example 10
      *
@@ -59,7 +59,7 @@ class columns extends Model
     public $length;
 
     /**
-     * @description The sequence number of the field. If the field is a partition field, this parameter is not supported.
+     * @description The length of the field.
      *
      * @example 1
      *

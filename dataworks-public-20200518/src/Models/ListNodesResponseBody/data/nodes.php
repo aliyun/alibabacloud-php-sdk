@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
-     * @description The ID of the baseline with which the node is associated.
+     * @description The number of the page to return. Minimum value: 1. Maximum value: 100.
      *
      * @example 123456
      *
@@ -18,7 +18,7 @@ class nodes extends Model
     public $baselineId;
 
     /**
-     * @description The ID of the workflow.
+     * @description The operation that you want to perform. Set the value to **ListNodes**.
      *
      * @example 123
      *
@@ -27,7 +27,7 @@ class nodes extends Model
     public $businessId;
 
     /**
-     * @description The connection string.
+     * @description The name of the resource group.
      *
      * @example odps_first
      *
@@ -36,7 +36,7 @@ class nodes extends Model
     public $connection;
 
     /**
-     * @description The cron expression returned.
+     * @description The name of the workflow.
      *
      * @example 00 00 00 * * ?
      *
@@ -45,7 +45,7 @@ class nodes extends Model
     public $cronExpress;
 
     /**
-     * @description The description of the node.
+     * @description The priority for running the node. Valid values: 1, 3, 5, 7, and 8.
      *
      * @example test
      *
@@ -54,7 +54,7 @@ class nodes extends Model
     public $description;
 
     /**
-     * @description The table and partition filter expression in Data Quality that are associated with the node.
+     * @description The ID of the owner.
      *
      * @example [{"projectName":"ztjy_dim","tableName":"dim_user_agent_manage_area_a","partition":"ds\u003d$[yyyy-mm-dd-1]"}]
      *
@@ -63,7 +63,7 @@ class nodes extends Model
     public $dqcDescription;
 
     /**
-     * @description Indicates whether the node is associated with a monitoring rule in Data Quality. Valid values: 0 and 1. The value 0 indicates that the node is associated with Data Quality. The value 1 indicates that the node is not associated with Data Quality.
+     * @description The connection string.
      *
      * @example 1
      *
@@ -77,7 +77,7 @@ class nodes extends Model
     public $fileType;
 
     /**
-     * @description The ID of the node.
+     * @description The types of the nodes. You can call the [ListNodes](~~173979~~) operation to query the type of the node.
      *
      * @example 1234
      *
@@ -86,7 +86,7 @@ class nodes extends Model
     public $nodeId;
 
     /**
-     * @description The name of the node.
+     * @description The total number of nodes returned.
      *
      * @example liux_test_n****
      *
@@ -95,7 +95,7 @@ class nodes extends Model
     public $nodeName;
 
     /**
-     * @description The ID of the owner.
+     * @description The additional parameters.
      *
      * @example 19337906836551
      *
@@ -104,7 +104,7 @@ class nodes extends Model
     public $ownerId;
 
     /**
-     * @description The additional parameters.
+     * @description The type of the node.
      *
      * @example a=b
      *
@@ -113,7 +113,7 @@ class nodes extends Model
     public $paramValues;
 
     /**
-     * @description The priority for running the node. Valid values: 1, 3, 5, 7, and 8.
+     * @description The ID of the owner.
      *
      * @example 1
      *
@@ -122,7 +122,7 @@ class nodes extends Model
     public $priority;
 
     /**
-     * @description The type of the node.
+     * @description The error message returned.
      *
      * @example ODPS_SQL
      *
@@ -131,7 +131,7 @@ class nodes extends Model
     public $programType;
 
     /**
-     * @description The ID of the workspace.
+     * @description The information about the nodes.
      *
      * @example 33671
      *
@@ -140,7 +140,7 @@ class nodes extends Model
     public $projectId;
 
     /**
-     * @description The ID of the associated workflow.
+     * @description The table and partition filter expression in Data Quality that are associated with the node.
      *
      * @example 1231123
      *
@@ -149,7 +149,7 @@ class nodes extends Model
     public $relatedFlowId;
 
     /**
-     * @description The interval at which the node is rerun after the node fails to run.
+     * @description The environment of the workspace. Valid values: PROD and DEV.
      *
      * @example 60
      *
@@ -158,7 +158,7 @@ class nodes extends Model
     public $repeatInterval;
 
     /**
-     * @description Indicates whether the node can be rerun.
+     * @description The name of the node.
      *
      * @example true
      *
@@ -172,19 +172,16 @@ class nodes extends Model
     public $resGroupIdentifier;
 
     /**
-     * @description The name of the resource group.
+     * @description The ID of the workflow.
+     *
+     * @example The ID of the request. You can use the ID to query logs and troubleshoot issues.
      *
      * @var string
      */
     public $resGroupName;
 
     /**
-     * @description The scheduling type of the node. Valid values:
-     *
-     *   NORMAL: indicates that the node is a normal auto triggered node.
-     *   MANUAL: indicates that the node is a manually triggered node.
-     *   PAUSE: indicates that the node is a paused node.
-     *   SKIP: indicates that the node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
+     * @description The types of the nodes. You can call the [ListNodes](~~173979~~) operation to query the type of the node.
      *
      * @example NORMAL
      *

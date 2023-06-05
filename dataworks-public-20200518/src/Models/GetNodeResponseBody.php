@@ -17,7 +17,7 @@ class GetNodeResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The ID of the node. You can call the [ListNodes](~~173979~~) operation to query the node ID.
      *
      * @example Invalid.Tenant.ConnectionNotExists
      *
@@ -26,7 +26,7 @@ class GetNodeResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The connection string.
      *
      * @example The connection does not exist.
      *
@@ -35,7 +35,7 @@ class GetNodeResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The operation that you want to perform. Set the value to **GetNode**.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class GetNodeResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     * @description Other parameters.
      *
      * @example E6F0DBDD-5AD****
      *
@@ -53,7 +53,7 @@ class GetNodeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The ID of the workflow.
      *
      * @example true
      *

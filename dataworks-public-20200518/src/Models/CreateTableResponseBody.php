@@ -10,7 +10,12 @@ use AlibabaCloud\Tea\Model;
 class CreateTableResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The information about the request task.
+     *
+     * If a request task is aborted due to one of the following issues, address the issue based on the error code and initiate the request task again:
+     *
+     *   The request task fails to be submitted.
+     *   After the request task is submitted, a subtask fails to run.
      *
      * @example abcdef
      *
@@ -19,12 +24,11 @@ class CreateTableResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information about the request task.
+     * @description The status of the current subtask. Valid values:
      *
-     * If a request task is aborted due to one of the following issues, address the issue based on the error code and initiate the request task again:
-     *
-     *   The request task fails to be submitted.
-     *   After the request task is submitted, a subtask fails to run.
+     *   operating: The subtask is running.
+     *   success: The subtask succeeds.
+     *   failure: The subtask fails to run. For more information about the error details, see the Content parameter.
      *
      * @var taskInfo
      */

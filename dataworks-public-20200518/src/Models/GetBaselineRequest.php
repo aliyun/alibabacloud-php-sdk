@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetBaselineRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $baselineId;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListMetaCollectionsRequest extends Model
 {
     /**
-     * @description The ID of the collection administrator.
+     * @description The ID of the collection follower.
      *
      * @example 1200759642363000
      *
@@ -18,9 +18,8 @@ class ListMetaCollectionsRequest extends Model
     public $administrator;
 
     /**
-     * @description ALBUM: data album
+     * @description The ID of the collection creator.
      *
-     * ALBUM_CATEGORY: category in a data album
      * @example ALBUM、ALBUM_CATEGORY
      *
      * @var string
@@ -28,7 +27,7 @@ class ListMetaCollectionsRequest extends Model
     public $collectionType;
 
     /**
-     * @description The ID of the collection creator.
+     * @description The ID of the collection administrator.
      *
      * @example 1200759642363000
      *
@@ -37,7 +36,7 @@ class ListMetaCollectionsRequest extends Model
     public $creator;
 
     /**
-     * @description The ID of the collection follower.
+     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
      *
      * @example 1200759642363000
      *
@@ -46,14 +45,14 @@ class ListMetaCollectionsRequest extends Model
     public $follower;
 
     /**
-     * @description The keyword.
+     * @description The name of the sorting field.
      *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description The paging information. This parameter specifies the start point of the query.
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
      *
      * @example 12345
      *
@@ -62,14 +61,15 @@ class ListMetaCollectionsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The name of the sorting field.
+     * @description ALBUM: data album
      *
+     * ALBUM_CATEGORY: category in a data album
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The keyword.
      *
      * @example 10
      *
@@ -78,7 +78,7 @@ class ListMetaCollectionsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The unique identifier of the parent collection.
+     * @description The paging information. This parameter specifies the start point of the query.
      *
      * @example Album.1234
      *

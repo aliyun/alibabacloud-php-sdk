@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableOutputRequest extends Model
 {
     /**
-     * @description The end date of the time range to query. The end date must be within the previous 30 days.
+     * @description The HTTP status code returned.
      *
      * @example 2022-02-15
      *
@@ -18,7 +18,7 @@ class GetMetaTableOutputRequest extends Model
     public $endDate;
 
     /**
-     * @description The number of the page to return. The value must be a positive integer.
+     * @description The Globally Unique Identifier (GUID) of the MaxCompute metatable.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class GetMetaTableOutputRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. The value must be a positive integer. We recommend that you do not set this parameter to a value greater than 100.
+     * @description The start date of the time range to query. The start date must be within the previous 30 days.
      *
      * @example 10
      *
@@ -36,7 +36,7 @@ class GetMetaTableOutputRequest extends Model
     public $pageSize;
 
     /**
-     * @description The start date of the time range to query. The start date must be within the previous 30 days.
+     * @description The ID of the node.
      *
      * @example 2020-02-02
      *
@@ -45,7 +45,7 @@ class GetMetaTableOutputRequest extends Model
     public $startDate;
 
     /**
-     * @description The Globally Unique Identifier (GUID) of the MaxCompute metatable.
+     * @description The end date of the time range to query. The end date must be within the previous 30 days.
      *
      * @example odps.sample_project.sample_table
      *
@@ -54,7 +54,7 @@ class GetMetaTableOutputRequest extends Model
     public $tableGuid;
 
     /**
-     * @description The ID of the node.
+     * @description The error message returned.
      *
      * @example 1048576
      *

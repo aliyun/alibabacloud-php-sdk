@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetMetaTableChangeLogRequest extends Model
 {
     /**
-     * @description The type of the change. Valid values: CREATE_TABLE, ALTER_TABLE, DROP_TABLE, ADD_PARTITION, and DROP_PARTITION.
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+     *
+     *   By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
+     *   If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
      *
      * @example ALTER_TABLE
      *
@@ -18,10 +21,7 @@ class GetMetaTableChangeLogRequest extends Model
     public $changeType;
 
     /**
-     * @description The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
-     *
-     *   By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
-     *   If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
+     * @description The error message returned.
      *
      * @example 2020-06-02 00:00:00
      *
@@ -30,7 +30,10 @@ class GetMetaTableChangeLogRequest extends Model
     public $endDate;
 
     /**
-     * @description The entity on which the change is made. Valid values: TABLE and PARTITION.
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+     *
+     *   By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
+     *   If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
      *
      * @example TABLE
      *
@@ -39,8 +42,9 @@ class GetMetaTableChangeLogRequest extends Model
     public $objectType;
 
     /**
-     * @description The number of the page to return.
+     * @description The globally unique identifier (GUID) of the table. Specify the GUID in the format of odps.projectName.tableName. You can call the [GetMetaDBTableList](~~173916~~) operation to query the GUID of the table.
      *
+     * >  To query the change logs of a MaxCompute table, you must call the [GetMetaTableChangeLog](~~173925~~) operation.
      * @example 1
      *
      * @var int
@@ -48,7 +52,7 @@ class GetMetaTableChangeLogRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The type of the change. Valid values: CREATE_TABLE, ALTER_TABLE, DROP_TABLE, ADD_PARTITION, and DROP_PARTITION.
      *
      * @example 10
      *
@@ -57,10 +61,7 @@ class GetMetaTableChangeLogRequest extends Model
     public $pageSize;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
-     *
-     *   By default, the system uses the current time as the value of this parameter if the time that you specify is invalid.
-     *   If both the values of the StartDate and EndDate parameters are invalid, the system automatically queries the change logs that are generated within the last 30 days.
+     * @description The HTTP status code returned.
      *
      * @example 2020-06-01 00:00:00
      *
@@ -69,9 +70,8 @@ class GetMetaTableChangeLogRequest extends Model
     public $startDate;
 
     /**
-     * @description The globally unique identifier (GUID) of the table. Specify the GUID in the format of odps.projectName.tableName. You can call the [GetMetaDBTableList](~~173916~~) operation to query the GUID of the table.
+     * @description The entity on which the change is made. Valid values: TABLE and PARTITION.
      *
-     * >  To query the change logs of a MaxCompute table, you must call the [GetMetaTableChangeLog](~~173925~~) operation.
      * @example odps.engine_name.table_name
      *
      * @var string

@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class TerminateDISyncInstanceResponseBody extends Model
 {
     /**
-     * @description The result of the operation.
+     * @description Indicates whether the real-time synchronization node is terminated. Valid values:
+     *
+     *   success
+     *   fail
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request. You can query logs and troubleshoot issues based on the ID.
+     * @description The result of the operation.
      *
      * @example 0bc1411515937635973****
      *
@@ -26,10 +29,7 @@ class TerminateDISyncInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   true: The request is successful.
-     *   false: The request fails.
+     * @description The ID of the request. You can query logs and troubleshoot issues based on the ID.
      *
      * @example true
      *

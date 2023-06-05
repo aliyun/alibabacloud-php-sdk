@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The list of metatables.
+     * @description The name of the metadatabase.
      *
      * @var dataEntityList[]
      */
     public $dataEntityList;
 
     /**
-     * @description The page number of the returned page.
+     * @description The total number of metatables.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The list of metatables.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The total number of metatables.
+     * @description The name of the metatable.
      *
      * @example 100
      *

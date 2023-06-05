@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The information of the node and instance.
+     * @description The ID of the instance.
      *
      * @var dataEntityList[]
      */
     public $dataEntityList;
 
     /**
-     * @description The page number of the returned page.
+     * @description The total number of entries returned.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The information of the node and instance.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The total number of entries returned.
+     * @description The end time of the node.
      *
      * @example 128
      *

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesResponseBody extends Model
 {
     /**
-     * @description The instances returned.
+     * @description The ID of the node. You can call the [ListNodes](~~173979~~) operation to query the ID of the node.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The HTTP status code returned.
      *
      * @example Invalid.Tenant.ProjectNotExists
      *
@@ -26,7 +26,7 @@ class ListInstancesResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The page number of the returned page.
      *
      * @example The project does not exist.
      *
@@ -35,8 +35,9 @@ class ListInstancesResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The error message that is returned for the instance.
      *
+     * This parameter is deprecated. You can call the [GetInstanceLog](~~173983~~) operation to query the error information related to the node.
      * @example 200
      *
      * @var int
@@ -44,7 +45,7 @@ class ListInstancesResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
+     * @description The name of the node.
      *
      * @example E6F0DBDD-5AD****
      *
@@ -53,10 +54,7 @@ class ListInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true: The request was successful.
-     *   false: The request failed.
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
      *
      * @example true
      *

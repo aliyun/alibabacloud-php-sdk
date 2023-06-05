@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The monitoring results returned.
      *
      * @example 1
      *
@@ -19,8 +19,13 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     * @description The type of the monitoring rule. The type of a monitoring rule indicates the importance of the rule. Valid values:
      *
+     *   1: indicates that the monitoring rule is a strong rule.
+     *
+     *   0: indicates that the monitoring rule is a weak rule.
+     *
+     * You can specify whether a monitoring rule is a strong rule based on your business requirements. If a strong rule is used and a critical alert is triggered, nodes are blocked.
      * @example 10
      *
      * @var int
@@ -28,14 +33,14 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The monitoring results returned.
+     * @description The field of the rule attribute. This field is the column name of the data source table that is monitored.
      *
      * @var ruleChecks[]
      */
     public $ruleChecks;
 
     /**
-     * @description The total number of entries returned.
+     * @description The threshold for a warning alert. The threshold indicates the deviation of the monitoring result from the expected value. You can customize this threshold based on your business requirements.
      *
      * @example 50
      *

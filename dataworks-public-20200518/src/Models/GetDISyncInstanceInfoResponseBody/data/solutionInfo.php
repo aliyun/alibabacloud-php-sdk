@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class solutionInfo extends Model
 {
     /**
-     * @description The creator of the data synchronization solution.
+     * @description The step details of the synchronization solution.
      *
      * @example dataworks_3h1
      *
@@ -19,7 +19,7 @@ class solutionInfo extends Model
     public $creatorName;
 
     /**
-     * @description The ID of the data synchronization solution.
+     * @description The creator of the data synchronization solution.
      *
      * @example 100
      *
@@ -28,7 +28,7 @@ class solutionInfo extends Model
     public $id;
 
     /**
-     * @description The status of the data synchronization solution.
+     * @description The ID of the data synchronization solution.
      *
      * @example run
      *
@@ -37,7 +37,7 @@ class solutionInfo extends Model
     public $status;
 
     /**
-     * @description The step details of the synchronization solution.
+     * @description The status of the step in the data synchronization solution.
      *
      * @var stepDetail[]
      */

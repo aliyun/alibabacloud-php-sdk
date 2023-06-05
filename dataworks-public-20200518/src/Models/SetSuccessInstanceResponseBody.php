@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetSuccessInstanceResponseBody extends Model
 {
     /**
-     * @description Indicates whether result details are returned.
+     * @description The error message.
      *
      * @example true
      *
@@ -18,7 +18,7 @@ class SetSuccessInstanceResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code.
+     * @description Indicates whether the request is successful.
      *
      * @example Invalid.Tenant.ConnectionNotExists
      *
@@ -27,7 +27,7 @@ class SetSuccessInstanceResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message.
+     * @description The ID of the request.
      *
      * @example The connection does not exist.
      *
@@ -36,7 +36,7 @@ class SetSuccessInstanceResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code.
+     * @description Indicates whether result details are returned.
      *
      * @example 200
      *
@@ -45,7 +45,7 @@ class SetSuccessInstanceResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
+     * @description The error code.
      *
      * @example E6F0DBDD-5AD****
      *
@@ -54,8 +54,6 @@ class SetSuccessInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
-     *
      * @example true
      *
      * @var bool

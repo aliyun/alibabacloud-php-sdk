@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetTopicResponseBody extends Model
 {
     /**
-     * @description The details of the event.
+     * @description The name of the event.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The details of the event.
      *
      * @example 1031203110005
      *
@@ -26,7 +26,7 @@ class GetTopicResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description Indicates whether the request is successful.
      *
      * @example The specified parameters are invalid.
      *
@@ -35,7 +35,7 @@ class GetTopicResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The error message returned.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class GetTopicResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can troubleshoot issues based on the ID.
+     * @description The error code returned.
      *
      * @example 0000-ABCD-EFGH-IJKLMNOPQ
      *
@@ -53,7 +53,7 @@ class GetTopicResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description The ID of the Apsara Stack tenant account used by the event owner.
      *
      * @example true
      *

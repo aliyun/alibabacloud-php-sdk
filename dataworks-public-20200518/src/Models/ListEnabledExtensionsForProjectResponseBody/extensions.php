@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class extensions extends Model
 {
     /**
-     * @description The creator of the extension.
+     * @description The modifier of the extension.
      *
      * @example 3444434343555
      *
@@ -18,7 +18,7 @@ class extensions extends Model
     public $createUser;
 
     /**
-     * @description The unique code of the extension.
+     * @description The name of the extension.
      *
      * @example a94a8e23bc0b4dfab9a5e4d2f374d645
      *
@@ -27,21 +27,21 @@ class extensions extends Model
     public $extensionCode;
 
     /**
-     * @description The description of the extension.
+     * @description The owner ID.
      *
      * @var string
      */
     public $extensionDesc;
 
     /**
-     * @description The name of the extension.
+     * @description The ID of the tenant.
      *
      * @var string
      */
     public $extensionName;
 
     /**
-     * @description The time when the extension was created.
+     * @description The timestamp when extension was modified.
      *
      * @example 1660117173
      *
@@ -50,8 +50,6 @@ class extensions extends Model
     public $gmtCreate;
 
     /**
-     * @description The timestamp when extension was modified.
-     *
      * @example 1569308162000
      *
      * @var int
@@ -59,7 +57,7 @@ class extensions extends Model
     public $gmtModified;
 
     /**
-     * @description The modifier of the extension.
+     * @description The description of the extension.
      *
      * @example 34452335611988
      *
@@ -68,7 +66,7 @@ class extensions extends Model
     public $modifyUser;
 
     /**
-     * @description The owner ID.
+     * @description The parameter settings of the extension. For more information, see [Configure extension parameters](~~405354~~).
      *
      * @example 21323672*******55500
      *
@@ -77,7 +75,7 @@ class extensions extends Model
     public $owner;
 
     /**
-     * @description The parameter settings of the extension. For more information, see [Configure extension parameters](~~405354~~).
+     * @description The time when the extension was created.
      *
      * @example extension.fileType.23.deploy-file.enabled=true
      *
@@ -86,7 +84,7 @@ class extensions extends Model
     public $parameterSetting;
 
     /**
-     * @description The ID of the tenant.
+     * @description The creator of the extension.
      *
      * @example 529889518659842
      *

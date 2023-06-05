@@ -9,13 +9,66 @@ use AlibabaCloud\Tea\Model;
 class UpdateRemindRequest extends Model
 {
     /**
-     * @description The intervals at which alert notifications are sent. Unit: seconds. Minimum value: 1200. Default value: 1800.
+     * @description The recipient to whom alert notifications are sent. Valid values: OWNER and OTHER. The value OWNER indicates that alert notifications are sent to the object owner. The value OTHER indicates that alert notifications are sent to a specified user.
      *
      * @example 1800
      *
      * @var int
      */
     public $alertInterval;
+
+    /**
+     * @description Specifies whether to enable the alert rule. Valid values:
+     *
+     *   true: enables the alert rule.
+     *   false: disables the alert rule.
+     *
+     * @example SMS,MAIL
+     *
+     * @var string
+     */
+    public $alertMethods;
+
+    /**
+     * @description The webhook URL of the DingTalk chatbot. You can specify multiple webhook URLs. Separate them with commas (,).
+     *
+     * If this parameter is set to undefined, the specified webhook URLs are cleared.
+     * @example 9527952795279527
+     *
+     * @var string
+     */
+    public $alertTargets;
+
+    /**
+     * @description The value format required by this parameter varies based on the value that you specify for the AlertUnit parameter. Take note of the following items:
+     *
+     *   If the AlertUnit parameter is set to OWNER, leave this parameter empty.
+     *   If the AlertUnit parameter is set to OTHER, set this parameter to the unique ID (UID) of the specified user. You can specify multiple IDs. Separate them with commas (,). You can specify a maximum of 10 IDs.
+     *
+     * @example OWNER
+     *
+     * @var string
+     */
+    public $alertUnit;
+
+    /**
+     * @description The ID of the workflow to which the custom alert rule is applied.. An alert rule can monitor a maximum of five workflows. Separate multiple IDs with commas (,).
+     *
+     * This parameter takes effect when you set the RemindUnit parameter to BIZPROCESS.
+     * @example 1,2,3
+     *
+     * @var string
+     */
+    public $baselineIds;
+
+    /**
+     * @description The maximum number of alerts. Valid values: 1 to 10. Default value: 3.
+     *
+     * @example 1,2,3
+     *
+     * @var string
+     */
+    public $bizProcessIds;
 
     /**
      * @description The notification method. Valid values:
@@ -27,52 +80,21 @@ class UpdateRemindRequest extends Model
      *   WEBHOOKS (WeCom or Lark chatbot): Alert notifications are sent by WeCom or Lark messages. If you want to use this notification method, you must configure the Webhooks parameter.
      *
      * You can specify multiple notification methods. Separate the specified notification methods with commas (,).
-     * @example SMS,MAIL
+     * @example {"hour":23,"minu":59}
      *
      * @var string
      */
-    public $alertMethods;
+    public $detail;
 
     /**
-     * @description The value format required by this parameter varies based on the value that you specify for the AlertUnit parameter. Take note of the following items:
+     * @description The ID of the node to which the custom alert rule is applied.. An alert rule can monitor a maximum of 50 nodes. Separate multiple IDs with commas (,).
      *
-     *   If the AlertUnit parameter is set to OWNER, leave this parameter empty.
-     *   If the AlertUnit parameter is set to OTHER, set this parameter to the unique ID (UID) of the specified user. You can specify multiple IDs. Separate them with commas (,). You can specify a maximum of 10 IDs.
-     *
-     * @example 9527952795279527
+     * This parameter takes effect when you set the RemindUnit parameter to NODE.
+     * @example 08:00
      *
      * @var string
      */
-    public $alertTargets;
-
-    /**
-     * @description The recipient to whom alert notifications are sent. Valid values: OWNER and OTHER. The value OWNER indicates that alert notifications are sent to the object owner. The value OTHER indicates that alert notifications are sent to a specified user.
-     *
-     * @example OWNER
-     *
-     * @var string
-     */
-    public $alertUnit;
-
-    /**
-     * @description The ID of the baseline to which the custom alert rule is applied.. An alert rule can monitor a maximum of five baselines. Separate multiple IDs with commas (,).
-     *
-     * This parameter takes effect when you set the RemindUnit parameter to BASELINE.
-     * @example 1,2,3
-     *
-     * @var string
-     */
-    public $baselineIds;
-
-    /**
-     * @description The ID of the workflow to which the custom alert rule is applied.. An alert rule can monitor a maximum of five workflows. Separate multiple IDs with commas (,).
-     *
-     * This parameter takes effect when you set the RemindUnit parameter to BIZPROCESS.
-     * @example 1,2,3
-     *
-     * @var string
-     */
-    public $bizProcessIds;
+    public $dndEnd;
 
     /**
      * @description The details of the conditions that trigger an alert.
@@ -89,24 +111,6 @@ class UpdateRemindRequest extends Model
      *
      *   If the RemindType parameter is set to TIMEOUT, set this parameter to the timeout period. Unit: seconds. Example: 1800. This indicates that an alert notification is sent if the duration of a monitored instance exceeds 30 minutes.
      *
-     * @example {"hour":23,"minu":59}
-     *
-     * @var string
-     */
-    public $detail;
-
-    /**
-     * @description The end of the period during which no alert notifications are sent. Specify the time in the hh:mm format. Valid values of hh: 0 to 23. Valid values of mm: 0 to 59.
-     *
-     * @example 08:00
-     *
-     * @var string
-     */
-    public $dndEnd;
-
-    /**
-     * @description The maximum number of alerts. Valid values: 1 to 10. Default value: 3.
-     *
      * @example 3
      *
      * @var int
@@ -114,42 +118,14 @@ class UpdateRemindRequest extends Model
     public $maxAlertTimes;
 
     /**
-     * @description The ID of the node to which the custom alert rule is applied.. An alert rule can monitor a maximum of 50 nodes. Separate multiple IDs with commas (,).
+     * @description The ID of the workspace to which the custom alert rule is applied.. Only one workspace can be specified for a custom alert rule.
      *
-     * This parameter takes effect when you set the RemindUnit parameter to NODE.
+     * This parameter takes effect when you set the RemindUnit parameter to PROJECT.
      * @example 1,2,3
      *
      * @var string
      */
     public $nodeIds;
-
-    /**
-     * @description The ID of the workspace to which the custom alert rule is applied.. Only one workspace can be specified for a custom alert rule.
-     *
-     * This parameter takes effect when you set the RemindUnit parameter to PROJECT.
-     * @example 1234
-     *
-     * @var int
-     */
-    public $projectId;
-
-    /**
-     * @description The ID of the custom alert rule.
-     *
-     * @example 1234
-     *
-     * @var int
-     */
-    public $remindId;
-
-    /**
-     * @description The name of the custom alert rule. The name must be 1 to 128 characters in length.
-     *
-     * @example update_remindname
-     *
-     * @var string
-     */
-    public $remindName;
 
     /**
      * @description The condition that triggers the alert rule. Valid values:
@@ -161,11 +137,20 @@ class UpdateRemindRequest extends Model
      *   TIMEOUT: The system monitors an instance when it starts to run and sends an alert notification if the instance is still running after the specified period ends. In most cases, you can configure this trigger condition to monitor the duration of node instances.
      *
      * For more information, see [Manage custom alert rules](~~138172~~).
-     * @example FINISHED
+     * @example 1234
      *
-     * @var string
+     * @var int
      */
-    public $remindType;
+    public $projectId;
+
+    /**
+     * @description The end of the period during which no alert notifications are sent. Specify the time in the hh:mm format. Valid values of hh: 0 to 23. Valid values of mm: 0 to 59.
+     *
+     * @example 1234
+     *
+     * @var int
+     */
+    public $remindId;
 
     /**
      * @description The type of the object to which the custom alert rule is applied.. Valid values:
@@ -175,6 +160,25 @@ class UpdateRemindRequest extends Model
      *   PROJECT: workspace
      *   BIZPROCESS: workflow
      *
+     * @example update_remindname
+     *
+     * @var string
+     */
+    public $remindName;
+
+    /**
+     * @description The intervals at which alert notifications are sent. Unit: seconds. Minimum value: 1200. Default value: 1800.
+     *
+     * @example FINISHED
+     *
+     * @var string
+     */
+    public $remindType;
+
+    /**
+     * @description The ID of the baseline to which the custom alert rule is applied.. An alert rule can monitor a maximum of five baselines. Separate multiple IDs with commas (,).
+     *
+     * This parameter takes effect when you set the RemindUnit parameter to BASELINE.
      * @example NODE
      *
      * @var string
@@ -182,9 +186,8 @@ class UpdateRemindRequest extends Model
     public $remindUnit;
 
     /**
-     * @description The webhook URL of the DingTalk chatbot. You can specify multiple webhook URLs. Separate them with commas (,).
+     * @description The HTTP status code returned.
      *
-     * If this parameter is set to undefined, the specified webhook URLs are cleared.
      * @example https://oapi.dingtalk.com/robot/send?access_token=******************************
      *
      * @var string
@@ -192,11 +195,9 @@ class UpdateRemindRequest extends Model
     public $robotUrls;
 
     /**
-     * @description Specifies whether to enable the alert rule. Valid values:
+     * @description The webhook URL of the WeCom or Lark chatbot. You can specify multiple webhook URLs. Separate the specified webhook URLs with commas (,). The WEBHOOKS notification method must be specified for alertMethods. If this parameter is set to undefined, the specified webhook URLs are cleared.
      *
-     *   true: enables the alert rule.
-     *   false: disables the alert rule.
-     *
+     * The webhook URL-based alerting feature is supported in the following regions: China (Shanghai), China (Chengdu), China (Zhangjiakou), China (Beijing), China (Hangzhou), China (Shenzhen), China (Hong Kong), Germany (Frankfurt), and Singapore.
      * @example true
      *
      * @var bool
@@ -204,9 +205,8 @@ class UpdateRemindRequest extends Model
     public $useFlag;
 
     /**
-     * @description The webhook URL of the WeCom or Lark chatbot. You can specify multiple webhook URLs. Separate the specified webhook URLs with commas (,). The WEBHOOKS notification method must be specified for alertMethods. If this parameter is set to undefined, the specified webhook URLs are cleared.
+     * @description Indicates whether the modification to the custom alert rule succeeds.
      *
-     * The webhook URL-based alerting feature is supported in the following regions: China (Shanghai), China (Chengdu), China (Zhangjiakou), China (Beijing), China (Hangzhou), China (Shenzhen), China (Hong Kong), Germany (Frankfurt), and Singapore.
      * @example https://open.feishu.cn/open-apis/bot/v2/hook/*******
      *
      * @var string

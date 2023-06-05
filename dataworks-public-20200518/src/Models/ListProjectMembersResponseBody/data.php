@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The total number of entries returned.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     * @description The information of members in the DataWorks workspace.
      *
      * @example 10
      *
@@ -28,14 +28,18 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The information of members in the DataWorks workspace.
+     * @description The ID of the member.
      *
      * @var projectMemberList[]
      */
     public $projectMemberList;
 
     /**
-     * @description The total number of entries returned.
+     * @description The status of the member. Valid values:
+     *
+     *   0: NORMAL, which indicates that the member is in a normal state.
+     *   1: FORBIDDEN, which indicates that the member is disabled.
+     *   2: DELETED, which indicates that the member is deleted.
      *
      * @example 3
      *

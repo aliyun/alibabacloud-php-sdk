@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListProjectMembersResponseBody extends Model
 {
     /**
-     * @description The results that are returned.
+     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The page number of the returned page.
      *
      * @example 1AFAE64E-D1BE-432B-A9****
      *

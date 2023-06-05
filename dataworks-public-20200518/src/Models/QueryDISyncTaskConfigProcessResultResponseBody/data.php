@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The reason why the parameters fail to be obtained. If the parameters are obtained, the value null is returned.
+     * @description The parameters that are obtained. The parameters are used as the request parameters of the [CreateDISyncTask](~~278725~~) or [UpdateDISyncTask](~~289109~~) operation to create or update a real-time synchronization node or a synchronization solution in Data Integration.
      *
      * @example fileId:[100] is invalid.
      *
@@ -18,10 +18,7 @@ class data extends Model
     public $message;
 
     /**
-     * @description Indicates whether the parameters are obtained. Valid values:
-     *
-     *   success: indicates that the parameters are obtained.
-     *   fail: indicates that the parameters fail to be obtained. You can view the reason for the failure and troubleshoot the issue based on the reason.
+     * @description The reason why the parameters fail to be obtained. If the parameters are obtained, the value null is returned.
      *
      * @example success
      *
@@ -30,8 +27,6 @@ class data extends Model
     public $status;
 
     /**
-     * @description The parameters that are obtained. The parameters are used as the request parameters of the [CreateDISyncTask](~~278725~~) or [UpdateDISyncTask](~~289109~~) operation to create or update a real-time synchronization node or a synchronization solution in Data Integration.
-     *
      * @example {"extend":{"mode":"migration_holo","resourceGroup":"280749","name":"h"},"type":"job","steps":[{"stepType":"mysql","parameter":{"connection":[{"datasourceType":"mysql","datasource":"mm","selectedTables":[{"schema":[{"tableInfos":[{"enable":true,"table":"m_v1","tableName":"m_v1"}]}],"dbName":"m"}]}]},"name":"reader","category":"reader"},{"stepType":"holo","parameter":{"datasource":"h","tableMappingRule":{"datasource":[{"tableRule":[{"srcTable":"m_v1","mergeIntoCycleType":"DEFAULT","hourDeltaEnable":false,"dstTable":"m.m_v1","dayDeltaEnable":false,"primaryKeyInfo":{"column":["id"],"type":"pk"},"dstCreateTableInfo":{"indexType":"m_v1","dataColumn":[{"columnSize":0,"name":"id","index":0,"comment":"","newDigit":0,"type":"int8","digit":0,"primaryKey":true}],"schemaName":"m","tableName":"m_v1"},"srcDbName":"m"],"srcDatasourceName":"mm"}],"totalTableMapping":1},"writeMode":"replay"},"name":"writer","category":"writer"}],"version":"2.0","order":{"hops":[{"from":"reader","to":"writer"}]}}
      *
      * @var string

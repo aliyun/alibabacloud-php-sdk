@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListNodesResponseBody extends Model
 {
     /**
-     * @description The list of nodes.
+     * @description The ID of the associated workflow.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code returned.
+     * @description The HTTP status code returned.
      *
      * @example Invalid.Tenant.ConnectionNotExists
      *
@@ -26,7 +26,7 @@ class ListNodesResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description The page number of the returned page.
      *
      * @example The connection does not exist.
      *
@@ -35,7 +35,7 @@ class ListNodesResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The interval at which the node is rerun after the node fails to run.
      *
      * @example 200
      *
@@ -44,7 +44,7 @@ class ListNodesResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     * @description The list of nodes.
      *
      * @example E6F0DBDD-5AD****
      *
@@ -53,7 +53,7 @@ class ListNodesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the node can be rerun.
      *
      * @example true
      *

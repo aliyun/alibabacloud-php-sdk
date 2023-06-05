@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class themes extends Model
 {
     /**
-     * @description The ID of the topic.
+     * @description The level that corresponds to the topic ID.
      *
      * @example 101
      *
@@ -18,7 +18,7 @@ class themes extends Model
     public $themeId;
 
     /**
-     * @description The level that corresponds to the topic ID.
+     * @description The ID of the request.
      *
      * @example 101
      *

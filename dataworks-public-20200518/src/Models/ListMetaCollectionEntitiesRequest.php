@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListMetaCollectionEntitiesRequest extends Model
 {
     /**
-     * @description The unique identifier of the collection.
+     * @description The type of the entities.
      *
+     * For example, if this parameter is set to maxcompute-table, the entity is a MaxCompute table.
      * @example album.12345
      *
      * @var string
@@ -18,9 +19,8 @@ class ListMetaCollectionEntitiesRequest extends Model
     public $collectionQualifiedName;
 
     /**
-     * @description The type of the entities.
+     * @description The search keyword.
      *
-     * For example, if this parameter is set to maxcompute-table, the entity is a MaxCompute table.
      * @example maxcompute-table
      *
      * @var string
@@ -28,7 +28,7 @@ class ListMetaCollectionEntitiesRequest extends Model
     public $entityType;
 
     /**
-     * @description The search keyword.
+     * @description The paging information. This parameter specifies the start point of the query.
      *
      * @example test
      *
@@ -37,7 +37,7 @@ class ListMetaCollectionEntitiesRequest extends Model
     public $keyword;
 
     /**
-     * @description The paging information. This parameter specifies the start point of the query.
+     * @description The number of entries to return on each page.
      *
      * @example 12222
      *
@@ -46,7 +46,7 @@ class ListMetaCollectionEntitiesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The object returned.
      *
      * @example 10
      *

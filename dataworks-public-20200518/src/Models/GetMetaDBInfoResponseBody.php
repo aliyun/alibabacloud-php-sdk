@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetMetaDBInfoResponseBody extends Model
 {
     /**
-     * @description The business data returned.
+     * @description The time when the compute engine instance was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description test table
      *
      * @example 0bc1411515937****
      *

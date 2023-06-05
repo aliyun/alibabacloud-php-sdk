@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class referenceValue extends Model
 {
     /**
-     * @description The data timestamp. If the monitored business entity is offline data, the value is usually one day before the monitoring is performed.
+     * @description The sample values.
      *
      * @example 2020-12-03
      *
@@ -18,7 +18,7 @@ class referenceValue extends Model
     public $bizDate;
 
     /**
-     * @description The values of the sample field that are grouped by using the GROUP BY clause. For example, the values of the Gender field are grouped by using the GROUP BY clause. In this case, the values of DiscreteProperty are Male, Female, and null.
+     * @description The monitoring result.
      *
      * @example 0
      *
@@ -27,7 +27,7 @@ class referenceValue extends Model
     public $discreteProperty;
 
     /**
-     * @description The monitoring result.
+     * @description The values of the sample field that are grouped by using the GROUP BY clause. For example, the values of the Gender field are grouped by using the GROUP BY clause. In this case, the values of DiscreteProperty are Male, Female, and null.
      *
      * @example 0
      *
@@ -36,7 +36,7 @@ class referenceValue extends Model
     public $singleCheckResult;
 
     /**
-     * @description The threshold.
+     * @description The data timestamp. If the monitored business entity is offline data, the value is usually one day before the monitoring is performed.
      *
      * @example 0.5
      *
@@ -45,7 +45,7 @@ class referenceValue extends Model
     public $threshold;
 
     /**
-     * @description The check value.
+     * @description The threshold.
      *
      * @example 19
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The total number of compute engine instances.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     * @description The list of metatables in the compute engine instance.
      *
      * @example 10
      *
@@ -28,14 +28,14 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The list of metatables in the compute engine instance.
+     * @description The GUID of the metatable.
      *
      * @var tableEntityList[]
      */
     public $tableEntityList;
 
     /**
-     * @description The total number of compute engine instances.
+     * @description The name of the metatable.
      *
      * @example 20
      *

@@ -44,8 +44,6 @@ class calcEngines extends Model
     public $engineId;
 
     /**
-     * @example {"pubEndpoint":"http://service.cn.maxcompute.aliyun.com/api","endpoint":"http://service.cn.maxcompute.aliyun-inc.com/api","resourceGroupType":"ODPS","resourceGroupId":"361826516****","vpcEndpoint":"http://service.cn.maxcompute.aliyun-inc.com/api","projectName":"onefall_test_zjk","taskSameAsOwner":"true"}
-     *
      * @var mixed[]
      */
     public $engineInfo;

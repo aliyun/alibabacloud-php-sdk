@@ -17,16 +17,6 @@ class ListBaselinesResponseBody extends Model
     /**
      * @var string
      */
-    public $dynamicErrorCode;
-
-    /**
-     * @var string
-     */
-    public $dynamicErrorMessage;
-
-    /**
-     * @var string
-     */
     public $errorCode;
 
     /**
@@ -49,14 +39,12 @@ class ListBaselinesResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'data'                => 'Data',
-        'dynamicErrorCode'    => 'DynamicErrorCode',
-        'dynamicErrorMessage' => 'DynamicErrorMessage',
-        'errorCode'           => 'ErrorCode',
-        'errorMessage'        => 'ErrorMessage',
-        'httpStatusCode'      => 'HttpStatusCode',
-        'requestId'           => 'RequestId',
-        'success'             => 'Success',
+        'data'           => 'Data',
+        'errorCode'      => 'ErrorCode',
+        'errorMessage'   => 'ErrorMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -68,12 +56,6 @@ class ListBaselinesResponseBody extends Model
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
-        if (null !== $this->dynamicErrorCode) {
-            $res['DynamicErrorCode'] = $this->dynamicErrorCode;
-        }
-        if (null !== $this->dynamicErrorMessage) {
-            $res['DynamicErrorMessage'] = $this->dynamicErrorMessage;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -104,12 +86,6 @@ class ListBaselinesResponseBody extends Model
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
-        }
-        if (isset($map['DynamicErrorCode'])) {
-            $model->dynamicErrorCode = $map['DynamicErrorCode'];
-        }
-        if (isset($map['DynamicErrorMessage'])) {
-            $model->dynamicErrorMessage = $map['DynamicErrorMessage'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class AddProjectMemberToRoleResponseBody extends Model
 {
     /**
-     * @description The ID of the request. You can use the ID to search for logs and troubleshoot issues based on the logs.
-     *
      * @example 1AFAE64E-D1BE-432B-A9****
      *
      * @var string

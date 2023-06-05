@@ -9,6 +9,24 @@ use AlibabaCloud\Tea\Model;
 class UpdateDataSourceRequest extends Model
 {
     /**
+     * @description The ID of the data source that you want to update. You can call the [ListDataSources](~~211431~~) operation to obtain the ID.
+     *
+     * @example {"accessId":"xssssss","accessKey":"xsaxsaxsa","authType":2,"endpoint":"http://service.odps.aliyun.com/api","project":"xsaxsax","tag":"public"}
+     *
+     * @var string
+     */
+    public $content;
+
+    /**
+     * @description Indicates whether the data source is updated.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $dataSourceId;
+
+    /**
      * @description The details about the data source that you want to update.
      *
      * Examples of details of some common data sources:
@@ -68,24 +86,6 @@ class UpdateDataSourceRequest extends Model
      *   kafka
      *
      * ```
-     * @example {"accessId":"xssssss","accessKey":"xsaxsaxsa","authType":2,"endpoint":"http://service.odps.aliyun.com/api","project":"xsaxsax","tag":"public"}
-     *
-     * @var string
-     */
-    public $content;
-
-    /**
-     * @description The ID of the data source that you want to update. You can call the [ListDataSources](~~211431~~) operation to obtain the ID.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $dataSourceId;
-
-    /**
-     * @description The description of the data source.
-     *
      * @example xxx
      *
      * @var string
@@ -93,10 +93,7 @@ class UpdateDataSourceRequest extends Model
     public $description;
 
     /**
-     * @description The environment in which the data source runs. Valid values:
-     *
-     *   0: development environment
-     *   1: production environment
+     * @description The status of the data source. The parameter is deprecated. Do not use this parameter.
      *
      * @example 1
      *
@@ -105,7 +102,7 @@ class UpdateDataSourceRequest extends Model
     public $envType;
 
     /**
-     * @description The status of the data source. The parameter is deprecated. Do not use this parameter.
+     * @description The HTTP status code returned.
      *
      * @example ENABLED
      *

@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class StopDISyncInstanceRequest extends Model
 {
     /**
-     * @description The ID of the synchronization node. You can call the [ListFiles](~~173942~~) operation to obtain the ID.
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request fails.
      *
      * @example 100
      *
@@ -18,9 +21,9 @@ class StopDISyncInstanceRequest extends Model
     public $fileId;
 
     /**
-     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
+     * @description The type of the synchronization node that you want to stop. Set the value to DI_REALTIME.
      *
-     * This parameter specifies the DataWorks workspace to which the operation is applied.
+     * DI_REALTIME indicates a real-time synchronization node.
      * @example 10000
      *
      * @var int
@@ -28,9 +31,8 @@ class StopDISyncInstanceRequest extends Model
     public $projectId;
 
     /**
-     * @description The type of the synchronization node that you want to stop. Set the value to DI_REALTIME.
+     * @description The ID of the synchronization node. You can call the [ListFiles](~~173942~~) operation to obtain the ID.
      *
-     * DI_REALTIME indicates a real-time synchronization node.
      * @example DI_REALTIME
      *
      * @var string

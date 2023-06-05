@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateRemindResponseBody extends Model
 {
     /**
-     * @description The ID of the custom alert rule returned.
+     * @description The ID of the request. You can use the ID to troubleshoot issues.
      *
      * @example 1234
      *
@@ -18,8 +18,6 @@ class CreateRemindResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned.
-     *
      * @example 1031203110005
      *
      * @var string
@@ -27,7 +25,7 @@ class CreateRemindResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The error message returned.
+     * @description Indicates whether the request was successful.
      *
      * @example The specified parameters are invalid.
      *
@@ -36,7 +34,7 @@ class CreateRemindResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The error message returned.
      *
      * @example 200
      *
@@ -45,7 +43,7 @@ class CreateRemindResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The ID of the request. You can use the ID to troubleshoot issues.
+     * @description The error code returned.
      *
      * @example 0000-ABCD-EFG****
      *
@@ -54,8 +52,6 @@ class CreateRemindResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
-     *
      * @example true
      *
      * @var bool

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetNodeRequest extends Model
 {
     /**
-     * @description The ID of the node. You can call the [ListNodes](~~173979~~) operation to query the node ID.
+     * @description The interval at which the node is rerun after the node fails to run.
      *
      * @example 1234
      *
@@ -18,7 +18,7 @@ class GetNodeRequest extends Model
     public $nodeId;
 
     /**
-     * @description The environment of the workspace. Valid values: PROD and DEV.
+     * @description The priority of the node. Valid values: 1, 3, 5, 7, and 8.
      *
      * @example PROD
      *

@@ -9,10 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetDISyncTaskRequest extends Model
 {
     /**
-     * @description *   If you set the TaskType parameter to DI_REALTIME, set the FileId parameter to the ID of the real-time synchronization node that you want to query.
-     *   If you set the TaskType parameter to DI_SOLUTION, set the FileId parameter to the ID of the data synchronization solution that you want to query.
+     * @description Indicates whether the request is successful. Valid values:
      *
-     * You can call the [ListFiles](~~173942~~) operation to query the ID of the real-time synchronization node or data synchronization solution.
+     *   true: The request is successful.
+     *   false: The request fails.
+     *
      * @example 100
      *
      * @var int
@@ -20,9 +21,11 @@ class GetDISyncTaskRequest extends Model
     public $fileId;
 
     /**
-     * @description The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to query the workspace ID.
+     * @description The type of the object that you want to query. Valid values:
      *
-     * This parameter specifies the DataWorks workspace to which the operation is applied.
+     *   DI_REALTIME: real-time synchronization node
+     *   DI_SOLUTION: data synchronization solution
+     *
      * @example 10000
      *
      * @var int
@@ -30,11 +33,10 @@ class GetDISyncTaskRequest extends Model
     public $projectId;
 
     /**
-     * @description The type of the object that you want to query. Valid values:
+     * @description *   If you set the TaskType parameter to DI_REALTIME, set the FileId parameter to the ID of the real-time synchronization node that you want to query.
+     *   If you set the TaskType parameter to DI_SOLUTION, set the FileId parameter to the ID of the data synchronization solution that you want to query.
      *
-     *   DI_REALTIME: real-time synchronization node
-     *   DI_SOLUTION: data synchronization solution
-     *
+     * You can call the [ListFiles](~~173942~~) operation to query the ID of the real-time synchronization node or data synchronization solution.
      * @example DI_REALTIME
      *
      * @var string

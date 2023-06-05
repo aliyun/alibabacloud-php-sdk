@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $alertEnabled;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $alertMarginThreshold;
@@ -26,6 +30,8 @@ class data extends Model
     public $alertSettings;
 
     /**
+     * @example 1001
+     *
      * @var int
      */
     public $baselineId;
@@ -36,14 +42,23 @@ class data extends Model
     public $baselineName;
 
     /**
+     * @example DAILY
+     *
      * @var string
      */
     public $baselineType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
+
+    /**
+     * @var int[]
+     */
+    public $nodeIds;
 
     /**
      * @var overTimeSettings[]
@@ -51,24 +66,25 @@ class data extends Model
     public $overTimeSettings;
 
     /**
+     * @example 9527952****
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example 10000
+     *
      * @var int
      */
     public $projectId;
-
-    /**
-     * @var int[]
-     */
-    public $taskIds;
     protected $_name = [
         'alertEnabled'         => 'AlertEnabled',
         'alertMarginThreshold' => 'AlertMarginThreshold',
@@ -77,11 +93,11 @@ class data extends Model
         'baselineName'         => 'BaselineName',
         'baselineType'         => 'BaselineType',
         'enabled'              => 'Enabled',
+        'nodeIds'              => 'NodeIds',
         'overTimeSettings'     => 'OverTimeSettings',
         'owner'                => 'Owner',
         'priority'             => 'Priority',
         'projectId'            => 'ProjectId',
-        'taskIds'              => 'TaskIds',
     ];
 
     public function validate()
@@ -118,6 +134,9 @@ class data extends Model
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
+        if (null !== $this->nodeIds) {
+            $res['NodeIds'] = $this->nodeIds;
+        }
         if (null !== $this->overTimeSettings) {
             $res['OverTimeSettings'] = [];
             if (null !== $this->overTimeSettings && \is_array($this->overTimeSettings)) {
@@ -135,9 +154,6 @@ class data extends Model
         }
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
-        }
-        if (null !== $this->taskIds) {
-            $res['TaskIds'] = $this->taskIds;
         }
 
         return $res;
@@ -178,6 +194,11 @@ class data extends Model
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
+        if (isset($map['NodeIds'])) {
+            if (!empty($map['NodeIds'])) {
+                $model->nodeIds = $map['NodeIds'];
+            }
+        }
         if (isset($map['OverTimeSettings'])) {
             if (!empty($map['OverTimeSettings'])) {
                 $model->overTimeSettings = [];
@@ -195,11 +216,6 @@ class data extends Model
         }
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
-        }
-        if (isset($map['TaskIds'])) {
-            if (!empty($map['TaskIds'])) {
-                $model->taskIds = $map['TaskIds'];
-            }
         }
 
         return $model;

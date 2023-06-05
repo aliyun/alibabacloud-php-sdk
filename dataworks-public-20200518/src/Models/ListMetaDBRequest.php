@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListMetaDBRequest extends Model
 {
     /**
-     * @description The ID of the E-MapReduce (EMR) cluster. You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID.
+     * @description The information of the metadatabases.
      *
      * @example abc
      *
@@ -18,7 +18,7 @@ class ListMetaDBRequest extends Model
     public $clusterId;
 
     /**
-     * @description The type of the data source. Only emr is supported.
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
      *
      * @example emr
      *
@@ -27,7 +27,7 @@ class ListMetaDBRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The number of the page to return.
+     * @description The ID of the E-MapReduce (EMR) cluster. You can log on to the [EMR console](https://emr.console.aliyun.com/?spm=a2c4g.11186623.0.0.965cc5c2GeiHet#/cn-hangzhou) to obtain the ID.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class ListMetaDBRequest extends Model
     public $pageNum;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The ID of the request.
      *
      * @example 10
      *
@@ -45,7 +45,7 @@ class ListMetaDBRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the DataWorks workspace. You can call the [ListProjects](~~178393~~) to obtain the ID.
+     * @description The number of the page to return.
      *
      * @example 123
      *

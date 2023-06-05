@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetProjectRequest extends Model
 {
     /**
-     * @description The ID of the DataWorks workspace. You can call the [ListProjects](~~178393~~) operation to obtain the ID.
+     * @description The ID of the request. You can use the ID to locate logs and troubleshoot issues.
      *
      * @example 27
      *

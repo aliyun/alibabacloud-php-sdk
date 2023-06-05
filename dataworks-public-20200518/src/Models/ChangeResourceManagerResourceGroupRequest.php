@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceManagerResourceGroupRequest extends Model
 {
     /**
-     * @description The ID of the resource type. Valid values:
-     *
-     *   If you set the ResourceType parameter to project, set this parameter to the value of ProjectIdentifier. You can call the [ListProjects](~~178393~~) operation to obtain the value of ProjectIdentifier.
-     *   If you set the ResourceType parameter to tenantresourcegroup, set this parameter to the value of ResourceGroupType. You can call the [ListResourceGroups](~~173913~~) operation to obtain the value of ResourceGroupType. Only the values 7, 8, and 9 are valid.
+     * @description The ID of the new resource group.
      *
      * @example test_project
      *
@@ -21,7 +18,7 @@ class ChangeResourceManagerResourceGroupRequest extends Model
     public $resourceId;
 
     /**
-     * @description The ID of the new resource group.
+     * @description Indicates whether the resource group was successfully modified.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -30,10 +27,10 @@ class ChangeResourceManagerResourceGroupRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description The resource type. Valid values:
+     * @description The ID of the resource type. Valid values:
      *
-     *   project: workspace. If you want to modify the resource group that you specify when you activate DataWorks, set the value to project.
-     *   tenantresourcegroup: exclusive resource group. If you want to modify the resource group that you specify when you purchase a DataWorks exclusive resource group, set the value to tenantresourcegroup.
+     *   If you set the ResourceType parameter to project, set this parameter to the value of ProjectIdentifier. You can call the [ListProjects](~~178393~~) operation to obtain the value of ProjectIdentifier.
+     *   If you set the ResourceType parameter to tenantresourcegroup, set this parameter to the value of ResourceGroupType. You can call the [ListResourceGroups](~~173913~~) operation to obtain the value of ResourceGroupType. Only the values 7, 8, and 9 are valid.
      *
      * @example project
      *

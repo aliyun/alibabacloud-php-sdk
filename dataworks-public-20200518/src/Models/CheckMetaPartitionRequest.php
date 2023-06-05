@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CheckMetaPartitionRequest extends Model
 {
     /**
-     * @description The ID of the E-MapReduce (EMR) cluster.
+     * @description The name of the table.
      *
      * @example abc
      *
@@ -18,7 +18,7 @@ class CheckMetaPartitionRequest extends Model
     public $clusterId;
 
     /**
-     * @description The type of the data source. Valid values: odps and emr.
+     * @description Indicates whether the partition exists.
      *
      * @example emr
      *
@@ -27,7 +27,7 @@ class CheckMetaPartitionRequest extends Model
     public $dataSourceType;
 
     /**
-     * @description The name of the database.
+     * @description The type of the data source. Valid values: odps and emr.
      *
      * @example abc
      *
@@ -36,7 +36,7 @@ class CheckMetaPartitionRequest extends Model
     public $databaseName;
 
     /**
-     * @description The name of the partition.
+     * @description The name of the database.
      *
      * @example ds=202005
      *
@@ -45,7 +45,7 @@ class CheckMetaPartitionRequest extends Model
     public $partition;
 
     /**
-     * @description The GUID of the table.
+     * @description The ID of the E-MapReduce (EMR) cluster.
      *
      * @example odps.engine_name.table_name
      *
@@ -54,7 +54,7 @@ class CheckMetaPartitionRequest extends Model
     public $tableGuid;
 
     /**
-     * @description The name of the table.
+     * @description The HTTP status code.
      *
      * @example abc
      *

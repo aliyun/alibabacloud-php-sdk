@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the user who creates the migration task.
+     * @description The ID of the user who manages the migration task.
      *
      * @example 982293332403****
      *
@@ -18,22 +18,11 @@ class data extends Model
     public $createUser;
 
     /**
-     * @description The URL that is used to download the package of the export task.
-     *
      * @example https://shanghai-xxx-oss.oss-cn-shanghai.aliyuncs.com/pre/store/f10_bf47_b4fa7df0860f.zip?Expires=1639540903&OSSAccessKeyId=XXXXXXeF4Lv5j&Signature=qxxxxx
      *
      * @var string
      */
     public $downloadUrl;
-
-    /**
-     * @description The time when the migration task was created.
-     *
-     * @example 1589904000000
-     *
-     * @var int
-     */
-    public $gmtCreate;
 
     /**
      * @description The time when the migration task was modified.
@@ -42,10 +31,19 @@ class data extends Model
      *
      * @var int
      */
+    public $gmtCreate;
+
+    /**
+     * @description The ID of the user who creates the migration task.
+     *
+     * @example 1589904000000
+     *
+     * @var int
+     */
     public $gmtModified;
 
     /**
-     * @description The ID of the migration task.
+     * @description The name of the migration task.
      *
      * @example 1234
      *
@@ -54,31 +52,13 @@ class data extends Model
     public $migrationId;
 
     /**
-     * @description The name of the migration task.
+     * @description The time when the migration task was created.
      *
      * @example test_export_01
      *
      * @var string
      */
     public $name;
-
-    /**
-     * @description The ID of the user who manages the migration task.
-     *
-     * @example 982293332403****
-     *
-     * @var string
-     */
-    public $opUser;
-
-    /**
-     * @description The ID of the DataWorks workspace.
-     *
-     * @example 12345
-     *
-     * @var int
-     */
-    public $projectId;
 
     /**
      * @description The status of the migration task. Valid values:
@@ -93,6 +73,24 @@ class data extends Model
      *   EXPORT_SUCCESS: The migration task successfully exports data objects.
      *   REVOKED: The migration task is canceled.
      *   PARTIAL_SUCCESS: The migration task successfully imports or exports only some data objects.
+     *
+     * @example 982293332403****
+     *
+     * @var string
+     */
+    public $opUser;
+
+    /**
+     * @description The URL that is used to download the package of the export task.
+     *
+     * @example 12345
+     *
+     * @var int
+     */
+    public $projectId;
+
+    /**
+     * @description The ID of the DataWorks workspace.
      *
      * @example EXPORT_SUCCESS
      *

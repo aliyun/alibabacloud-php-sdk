@@ -10,14 +10,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The information about the nodes.
+     * @description The scheduling type of the node. Valid values:
+     *
+     *   NORMAL: indicates that the node is a normal auto triggered node.
+     *   MANUAL: indicates that the node is a manually triggered node.
+     *   PAUSE: indicates that the node is a paused node.
+     *   SKIP: indicates that the node is a dry-run node. Dry-run nodes are started as scheduled but the system sets the status of the nodes to successful when it starts to run them.
      *
      * @var nodes[]
      */
     public $nodes;
 
     /**
-     * @description The page number of the returned page.
+     * @description The name of the node.
      *
      * @example 1
      *
@@ -26,7 +31,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     * @description The cron expression returned.
      *
      * @example 10
      *
@@ -35,7 +40,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The total number of nodes returned.
+     * @description The name of the workflow.
      *
      * @example 66
      *

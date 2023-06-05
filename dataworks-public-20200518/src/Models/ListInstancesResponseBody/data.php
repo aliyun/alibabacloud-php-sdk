@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The information about the instances.
+     * @description The name of the node. You can call the [ListNodes](~~173979~~) operation to query the name of the node.
      *
      * @var instances[]
      */
     public $instances;
 
     /**
-     * @description The page number of the returned page.
+     * @description The time when the node was scheduled to run.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 10. Maximum value: 100.
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
      *
      * @example 10
      *
@@ -35,8 +35,9 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The total number of instances.
+     * @description The priority of the instance. Valid values: 1, 3, 5, 7, and 8.
      *
+     * A greater value indicates a higher priority. Default value: 1.
      * @example 66
      *
      * @var int

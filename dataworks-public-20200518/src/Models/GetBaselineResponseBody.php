@@ -15,48 +15,46 @@ class GetBaselineResponseBody extends Model
     public $data;
 
     /**
-     * @var string
-     */
-    public $dynamicErrorCode;
-
-    /**
-     * @var string
-     */
-    public $dynamicErrorMessage;
-
-    /**
+     * @example 1031203110005
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example The specified parameters are invalid
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example ecb967ec-c137-48a5-860****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'data'                => 'Data',
-        'dynamicErrorCode'    => 'DynamicErrorCode',
-        'dynamicErrorMessage' => 'DynamicErrorMessage',
-        'errorCode'           => 'ErrorCode',
-        'errorMessage'        => 'ErrorMessage',
-        'httpStatusCode'      => 'HttpStatusCode',
-        'requestId'           => 'RequestId',
-        'success'             => 'Success',
+        'data'           => 'Data',
+        'errorCode'      => 'ErrorCode',
+        'errorMessage'   => 'ErrorMessage',
+        'httpStatusCode' => 'HttpStatusCode',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -68,12 +66,6 @@ class GetBaselineResponseBody extends Model
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
-        if (null !== $this->dynamicErrorCode) {
-            $res['DynamicErrorCode'] = $this->dynamicErrorCode;
-        }
-        if (null !== $this->dynamicErrorMessage) {
-            $res['DynamicErrorMessage'] = $this->dynamicErrorMessage;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -104,12 +96,6 @@ class GetBaselineResponseBody extends Model
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
-        }
-        if (isset($map['DynamicErrorCode'])) {
-            $model->dynamicErrorCode = $map['DynamicErrorCode'];
-        }
-        if (isset($map['DynamicErrorMessage'])) {
-            $model->dynamicErrorMessage = $map['DynamicErrorMessage'];
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];

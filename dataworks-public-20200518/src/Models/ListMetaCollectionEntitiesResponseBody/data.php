@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The entities.
+     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
      *
      * @var Entity[]
      */
     public $entityList;
 
     /**
-     * @description The token that is used for the next query.
+     * @description The entities.
      *
      * @example 123344
      *

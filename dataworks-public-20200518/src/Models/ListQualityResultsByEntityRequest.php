@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListQualityResultsByEntityRequest extends Model
 {
     /**
-     * @description The end of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+     * @description The name of the compute engine instance or data source. You can obtain the name from data source configurations.
      *
      * @example 2020-09-21 00:00:00
      *
@@ -18,7 +18,7 @@ class ListQualityResultsByEntityRequest extends Model
     public $endDate;
 
     /**
-     * @description The ID of the partition filter expression. You can call the [GetQualityEntity](~~174003~~) operation to query the ID of the partition filter expression.
+     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
      *
      * @example 152322134
      *
@@ -27,7 +27,7 @@ class ListQualityResultsByEntityRequest extends Model
     public $entityId;
 
     /**
-     * @description The number of the page to return.
+     * @description The error message returned.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class ListQualityResultsByEntityRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10. Maximum value: 100.
+     * @description The HTTP status code returned.
      *
      * @example 10
      *
@@ -50,7 +50,7 @@ class ListQualityResultsByEntityRequest extends Model
     public $projectId;
 
     /**
-     * @description The name of the compute engine instance or data source. You can obtain the name from data source configurations.
+     * @description The ID of the request.
      *
      * @example autotest
      *
@@ -59,7 +59,7 @@ class ListQualityResultsByEntityRequest extends Model
     public $projectName;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
+     * @description The number of the page to return.
      *
      * @example 2020-09-20 00:00:00
      *

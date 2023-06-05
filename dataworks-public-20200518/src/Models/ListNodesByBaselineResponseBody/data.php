@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the node.
-     *
      * @example 1234
      *
      * @var int
@@ -18,14 +16,14 @@ class data extends Model
     public $nodeId;
 
     /**
-     * @description The name of the node.
+     * @description The ID of the workspace to which the node belongs.
      *
      * @var string
      */
     public $nodeName;
 
     /**
-     * @description The ID of the Alibaba Cloud account used by the node owner.
+     * @description The ID of the node.
      *
      * @example 9527952****
      *
@@ -34,8 +32,6 @@ class data extends Model
     public $owner;
 
     /**
-     * @description The ID of the workspace to which the node belongs.
-     *
      * @example 1234
      *
      * @var int
