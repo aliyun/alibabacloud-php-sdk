@@ -4,31 +4,25 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetDetailByUuidResponseBody\assetDetail;
 use AlibabaCloud\Tea\Model;
 
-class DescribePropertyScheduleConfigResponseBody extends Model
+class GetAssetDetailByUuidResponseBody extends Model
 {
     /**
-     * @description The configuration time. Unit: hours.
-     *
-     * >  The value **0** indicates that asset fingerprint collection is disabled for this type of asset.
-     * @example 3
-     *
-     * @var string
+     * @var assetDetail
      */
-    public $config;
+    public $assetDetail;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
-     *
-     * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
+     * @example 4892B68B-47BC-5E56-B327-9C2ACC6C1C09
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'config'    => 'Config',
-        'requestId' => 'RequestId',
+        'assetDetail' => 'AssetDetail',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -38,8 +32,8 @@ class DescribePropertyScheduleConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->config) {
-            $res['Config'] = $this->config;
+        if (null !== $this->assetDetail) {
+            $res['AssetDetail'] = null !== $this->assetDetail ? $this->assetDetail->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -51,13 +45,13 @@ class DescribePropertyScheduleConfigResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribePropertyScheduleConfigResponseBody
+     * @return GetAssetDetailByUuidResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Config'])) {
-            $model->config = $map['Config'];
+        if (isset($map['AssetDetail'])) {
+            $model->assetDetail = assetDetail::fromMap($map['AssetDetail']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

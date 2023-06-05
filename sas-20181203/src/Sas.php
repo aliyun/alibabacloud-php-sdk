@@ -587,6 +587,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetAlarmMachineCountRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAlarmMachineCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAppNetworkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAppNetworkResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetDetailByUuidRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetDetailByUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetSelectionConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetSelectionConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAssetsPropertyDetailRequest;
@@ -16859,6 +16861,55 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAppNetworkWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAssetDetailByUuidRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAssetDetailByUuidResponse
+     */
+    public function getAssetDetailByUuidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAssetDetailByUuid',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAssetDetailByUuidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAssetDetailByUuidRequest $request
+     *
+     * @return GetAssetDetailByUuidResponse
+     */
+    public function getAssetDetailByUuid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAssetDetailByUuidWithOptions($request, $runtime);
     }
 
     /**

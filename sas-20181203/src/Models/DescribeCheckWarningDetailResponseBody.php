@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeCheckWarningDetailResponseBody\checkDetailColumns;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCheckWarningDetailResponseBody extends Model
@@ -16,6 +17,16 @@ class DescribeCheckWarningDetailResponseBody extends Model
      * @var string
      */
     public $advice;
+
+    /**
+     * @var string[][]
+     */
+    public $checkDetailAssetInfo;
+
+    /**
+     * @var checkDetailColumns[]
+     */
+    public $checkDetailColumns;
 
     /**
      * @description The ID of the check item.
@@ -84,14 +95,16 @@ class DescribeCheckWarningDetailResponseBody extends Model
      */
     public $type;
     protected $_name = [
-        'advice'      => 'Advice',
-        'checkId'     => 'CheckId',
-        'description' => 'Description',
-        'item'        => 'Item',
-        'level'       => 'Level',
-        'prompt'      => 'Prompt',
-        'requestId'   => 'RequestId',
-        'type'        => 'Type',
+        'advice'               => 'Advice',
+        'checkDetailAssetInfo' => 'CheckDetailAssetInfo',
+        'checkDetailColumns'   => 'CheckDetailColumns',
+        'checkId'              => 'CheckId',
+        'description'          => 'Description',
+        'item'                 => 'Item',
+        'level'                => 'Level',
+        'prompt'               => 'Prompt',
+        'requestId'            => 'RequestId',
+        'type'                 => 'Type',
     ];
 
     public function validate()
@@ -103,6 +116,18 @@ class DescribeCheckWarningDetailResponseBody extends Model
         $res = [];
         if (null !== $this->advice) {
             $res['Advice'] = $this->advice;
+        }
+        if (null !== $this->checkDetailAssetInfo) {
+            $res['CheckDetailAssetInfo'] = $this->checkDetailAssetInfo;
+        }
+        if (null !== $this->checkDetailColumns) {
+            $res['CheckDetailColumns'] = [];
+            if (null !== $this->checkDetailColumns && \is_array($this->checkDetailColumns)) {
+                $n = 0;
+                foreach ($this->checkDetailColumns as $item) {
+                    $res['CheckDetailColumns'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->checkId) {
             $res['CheckId'] = $this->checkId;
@@ -139,6 +164,20 @@ class DescribeCheckWarningDetailResponseBody extends Model
         $model = new self();
         if (isset($map['Advice'])) {
             $model->advice = $map['Advice'];
+        }
+        if (isset($map['CheckDetailAssetInfo'])) {
+            if (!empty($map['CheckDetailAssetInfo'])) {
+                $model->checkDetailAssetInfo = $map['CheckDetailAssetInfo'];
+            }
+        }
+        if (isset($map['CheckDetailColumns'])) {
+            if (!empty($map['CheckDetailColumns'])) {
+                $model->checkDetailColumns = [];
+                $n                         = 0;
+                foreach ($map['CheckDetailColumns'] as $item) {
+                    $model->checkDetailColumns[$n++] = null !== $item ? checkDetailColumns::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['CheckId'])) {
             $model->checkId = $map['CheckId'];
