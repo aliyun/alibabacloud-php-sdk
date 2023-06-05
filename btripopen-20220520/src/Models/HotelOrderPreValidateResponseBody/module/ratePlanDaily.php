@@ -19,6 +19,11 @@ class ratePlanDaily extends Model
     public $discountPrice;
 
     /**
+     * @var string
+     */
+    public $maxBookingNum;
+
+    /**
      * @example 100
      *
      * @var int
@@ -58,6 +63,7 @@ class ratePlanDaily extends Model
     protected $_name = [
         'board'                 => 'board',
         'discountPrice'         => 'discount_price',
+        'maxBookingNum'         => 'max_booking_num',
         'price'                 => 'price',
         'rateStartTime'         => 'rate_start_time',
         'roomCount'             => 'room_count',
@@ -78,6 +84,9 @@ class ratePlanDaily extends Model
         }
         if (null !== $this->discountPrice) {
             $res['discount_price'] = $this->discountPrice;
+        }
+        if (null !== $this->maxBookingNum) {
+            $res['max_booking_num'] = $this->maxBookingNum;
         }
         if (null !== $this->price) {
             $res['price'] = $this->price;
@@ -114,6 +123,9 @@ class ratePlanDaily extends Model
         }
         if (isset($map['discount_price'])) {
             $model->discountPrice = $map['discount_price'];
+        }
+        if (isset($map['max_booking_num'])) {
+            $model->maxBookingNum = $map['max_booking_num'];
         }
         if (isset($map['price'])) {
             $model->price = $map['price'];

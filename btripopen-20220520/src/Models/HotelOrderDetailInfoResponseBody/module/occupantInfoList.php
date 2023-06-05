@@ -97,6 +97,11 @@ class occupantInfoList extends Model
     public $phone;
 
     /**
+     * @var string
+     */
+    public $roomNo;
+
+    /**
      * @example true
      *
      * @var bool
@@ -130,6 +135,7 @@ class occupantInfoList extends Model
         'lastName'           => 'last_name',
         'name'               => 'name',
         'phone'              => 'phone',
+        'roomNo'             => 'room_no',
         'selected'           => 'selected',
         'staffNo'            => 'staff_no',
         'userType'           => 'user_type',
@@ -186,6 +192,9 @@ class occupantInfoList extends Model
         }
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
+        }
+        if (null !== $this->roomNo) {
+            $res['room_no'] = $this->roomNo;
         }
         if (null !== $this->selected) {
             $res['selected'] = $this->selected;
@@ -252,6 +261,9 @@ class occupantInfoList extends Model
         }
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
+        }
+        if (isset($map['room_no'])) {
+            $model->roomNo = $map['room_no'];
         }
         if (isset($map['selected'])) {
             $model->selected = $map['selected'];
