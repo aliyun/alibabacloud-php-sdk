@@ -97,7 +97,7 @@ class occupantInfoList extends Model
     public $phone;
 
     /**
-     * @var string
+     * @var int
      */
     public $roomNo;
 
