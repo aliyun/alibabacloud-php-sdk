@@ -28,10 +28,18 @@ class encryption extends Model
      * @var string
      */
     public $encryptType;
+
+    /**
+     * @example KMS
+     *
+     * @var string
+     */
+    public $keyServiceType;
     protected $_name = [
-        'cipherText'    => 'CipherText',
-        'decryptKeyUri' => 'DecryptKeyUri',
-        'encryptType'   => 'EncryptType',
+        'cipherText'     => 'CipherText',
+        'decryptKeyUri'  => 'DecryptKeyUri',
+        'encryptType'    => 'EncryptType',
+        'keyServiceType' => 'KeyServiceType',
     ];
 
     public function validate()
@@ -49,6 +57,9 @@ class encryption extends Model
         }
         if (null !== $this->encryptType) {
             $res['EncryptType'] = $this->encryptType;
+        }
+        if (null !== $this->keyServiceType) {
+            $res['KeyServiceType'] = $this->keyServiceType;
         }
 
         return $res;
@@ -70,6 +81,9 @@ class encryption extends Model
         }
         if (isset($map['EncryptType'])) {
             $model->encryptType = $map['EncryptType'];
+        }
+        if (isset($map['KeyServiceType'])) {
+            $model->keyServiceType = $map['KeyServiceType'];
         }
 
         return $model;

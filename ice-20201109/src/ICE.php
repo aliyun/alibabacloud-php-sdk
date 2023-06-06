@@ -44,6 +44,8 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadMediaResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadStreamRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadStreamResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DecryptKMSDataKeyRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DecryptKMSDataKeyResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCategoryRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCategoryResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCustomTemplateRequest;
@@ -129,6 +131,7 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayQosListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayQosListShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeQueryConfigsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeQueryConfigsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateKMSDataKeyResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetContentAnalyzeConfigResponse;
@@ -1407,6 +1410,49 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createUploadStreamWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DecryptKMSDataKeyRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DecryptKMSDataKeyResponse
+     */
+    public function decryptKMSDataKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ciphertextBlob)) {
+            $query['CiphertextBlob'] = $request->ciphertextBlob;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DecryptKMSDataKey',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DecryptKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DecryptKMSDataKeyRequest $request
+     *
+     * @return DecryptKMSDataKeyResponse
+     */
+    public function decryptKMSDataKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->decryptKMSDataKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -3506,6 +3552,39 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeQueryConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GenerateKMSDataKeyResponse
+     */
+    public function generateKMSDataKeyWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GenerateKMSDataKey',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GenerateKMSDataKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GenerateKMSDataKeyResponse
+     */
+    public function generateKMSDataKey()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->generateKMSDataKeyWithOptions($runtime);
     }
 
     /**
