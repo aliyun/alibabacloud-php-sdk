@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateJobResponseBody extends Model
 {
     /**
-     * @description The HTTP status code that is returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -26,7 +26,7 @@ class CreateJobResponseBody extends Model
     public $data;
 
     /**
-     * @description The additional information that is returned.
+     * @description The additional information returned.
      *
      * @example message
      *
@@ -35,7 +35,7 @@ class CreateJobResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 39090022-1F3B-4797-8518-6B61095F1AF0
      *
@@ -44,10 +44,10 @@ class CreateJobResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the job is created. Valid values:
+     * @description If you set JobType to k8s, this parameter is required. Valid values:
      *
-     *   **true**: The job is created.
-     *   **false**: Failed to create the job.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

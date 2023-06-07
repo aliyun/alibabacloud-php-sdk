@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetWfInstanceSuccessResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class SetWfInstanceSuccessResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message that is returned only if the corresponding error occurs.
+     *
      * @example wofkflowId is not existed
      *
      * @var string
@@ -23,6 +27,8 @@ class SetWfInstanceSuccessResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 4F68ABED-AC31-4412-9297-D9A8F0401108
      *
      * @var string
@@ -30,6 +36,11 @@ class SetWfInstanceSuccessResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

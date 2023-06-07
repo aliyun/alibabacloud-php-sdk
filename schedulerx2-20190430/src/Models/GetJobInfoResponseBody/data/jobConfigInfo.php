@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class jobConfigInfo extends Model
 {
     /**
-     * @description The interval at which the system retries to run the job after a job failure. Unit: seconds. Default value: 30.
+     * @description The interval at which the system retried to run the job after a job failure. Default value: 30. Unit: seconds.
      *
      * @example 30
      *
@@ -50,12 +50,12 @@ class jobConfigInfo extends Model
     /**
      * @description The execution mode of the job. Valid values:
      *
-     *   **standalone**
-     *   **broadcast**
-     *   **parallel**
-     *   **grid**
-     *   **batch**
-     *   **shard**
+     *   **Stand-alone operation**
+     *   **Broadcast run**
+     *   **Visual MapReduce**
+     *   **MapReduce**
+     *   ****
+     *   **Shard run**
      *
      * @example standalone
      *
@@ -64,7 +64,7 @@ class jobConfigInfo extends Model
     public $executeMode;
 
     /**
-     * @description The full path that is used to upload files to Object Storage Service (OSS).
+     * @description The full path used to upload files to Object Storage Service (OSS).
      *
      * If you use a JAR package, you can upload the JAR package to this OSS path.
      * @example https://test.oss-cn-hangzhou.aliyuncs.com/schedulerX/test.jar
@@ -74,7 +74,7 @@ class jobConfigInfo extends Model
     public $jarUrl;
 
     /**
-     * @description The ID of the job.
+     * @description The job ID.
      *
      * @example 538039
      *
@@ -90,7 +90,7 @@ class jobConfigInfo extends Model
     public $jobMonitorInfo;
 
     /**
-     * @description The type of the job.
+     * @description The job type.
      *
      * @example java
      *
@@ -99,14 +99,14 @@ class jobConfigInfo extends Model
     public $jobType;
 
     /**
-     * @description The advanced configurations of the job. The parameters are returned only if the execution mode of the job is parallel, grid, or batch.
+     * @description The advanced configurations of the job.
      *
      * @var mapTaskXAttrs
      */
     public $mapTaskXAttrs;
 
     /**
-     * @description The maximum number of retries after a job failure. This parameter is specified based on your business requirements. Default value: 0.
+     * @description The maximum number of retries after a job failure. This parameter was specified based on your business requirements. Default value: 0.
      *
      * @example 0
      *
@@ -115,7 +115,7 @@ class jobConfigInfo extends Model
     public $maxAttempt;
 
     /**
-     * @description The maximum number of concurrent instances. Default value: 1. A value of 1 indicates that if the last triggered instance is running, the next instance is not triggered even if the scheduled point in time for running the next instance is reached.
+     * @description The maximum number of concurrent instances. Default value: 1. The default value indicates that if the last triggered instance is running, the next instance is not triggered even if the scheduled point in time for running the next instance is reached.
      *
      * @example 1
      *
@@ -124,7 +124,7 @@ class jobConfigInfo extends Model
     public $maxConcurrency;
 
     /**
-     * @description The name of the job.
+     * @description The job name.
      *
      * @example helloworld
      *
@@ -133,7 +133,7 @@ class jobConfigInfo extends Model
     public $name;
 
     /**
-     * @description The user-defined parameters. These parameters can be obtained when the job is running.
+     * @description The user-defined parameters that you can obtain when the job is running.
      *
      * @example test
      *
@@ -142,10 +142,10 @@ class jobConfigInfo extends Model
     public $parameters;
 
     /**
-     * @description The status of the job. Valid values:
+     * @description Indicates whether the job was enabled. Valid values:
      *
-     *   **1**: The job is enabled and can be triggered.
-     *   **0**: The job is disabled and cannot be triggered.
+     *   **1**: The job was enabled and could be triggered.
+     *   **0**: The job was disabled and could not be triggered.
      *
      * @example 1
      *

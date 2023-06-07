@@ -27,6 +27,11 @@ class CreateAppGroupRequest extends Model
     public $appName;
 
     /**
+     * @description 应用类型。
+     *
+     * - 2、k8s应用。
+     * @example 1
+     *
      * @var int
      */
     public $appType;
@@ -41,12 +46,17 @@ class CreateAppGroupRequest extends Model
     public $description;
 
     /**
+     * @description 是否开启日志。
+     *
+     * - false：关闭
+     * @example true
+     *
      * @var bool
      */
     public $enableLog;
 
     /**
-     * @description The ID of the application. You can obtain the application ID on the Application Management page in Distributed Task Scheduling Platform.
+     * @description The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
      *
      * @example TestSchedulerx.defaultGroup
      *
@@ -82,7 +92,7 @@ class CreateAppGroupRequest extends Model
     public $monitorContactsJson;
 
     /**
-     * @description The ID of the namespace. You can obtain the ID of the namespace on the Namespace page in Distributed Task Scheduling Platform.
+     * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
      *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
@@ -109,7 +119,7 @@ class CreateAppGroupRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

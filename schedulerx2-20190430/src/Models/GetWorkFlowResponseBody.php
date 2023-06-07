@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetWorkFlowResponseBody extends Model
 {
     /**
-     * @description The error code that is returned.
+     * @description Error codes
      *
      * @example 200
      *
@@ -26,7 +26,7 @@ class GetWorkFlowResponseBody extends Model
     public $data;
 
     /**
-     * @description The error message that is returned.
+     * @description Error message
      *
      * @example workflow is not existed
      *

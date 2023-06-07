@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the workflow instance.
+     * @description The workflow instance ID.
      *
      * @example 111111
      *

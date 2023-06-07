@@ -27,7 +27,7 @@ class CreateNamespaceRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -36,7 +36,7 @@ class CreateNamespaceRequest extends Model
     public $regionId;
 
     /**
-     * @description The UID of the namespace, which is globally unique. We recommend that you use the UUID to generate the UID.
+     * @description The unique identifier (UID) of the namespace. We recommend that you use the universally unique identifier (UUID) to generate the UID.
      *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *

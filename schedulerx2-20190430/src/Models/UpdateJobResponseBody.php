@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateJobResponseBody extends Model
 {
     /**
-     * @description The HTTP status code that is returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class UpdateJobResponseBody extends Model
     public $code;
 
     /**
-     * @description The additional information that is returned only if the error occurs.
+     * @description The additional information returned only if an error occurs.
      *
      * @example job type is java className can not be blank
      *
@@ -27,7 +27,7 @@ class UpdateJobResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4F68ABED-AC31-4412-9297-D9A8F0401108
      *

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class wfInstanceDag extends Model
 {
     /**
+     * @description The dependencies between job instances.
+     *
      * @var edges[]
      */
     public $edges;
 
     /**
+     * @description The job instances.
+     *
      * @var nodes[]
      */
     public $nodes;

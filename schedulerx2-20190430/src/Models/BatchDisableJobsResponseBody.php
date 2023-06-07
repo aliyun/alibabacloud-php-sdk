@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BatchDisableJobsResponseBody extends Model
 {
     /**
-     * @description The status code.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class BatchDisableJobsResponseBody extends Model
     public $code;
 
     /**
-     * @description The additional information returned.
+     * @description The additional information that was returned.
      *
      * @example disable failed jobs=[99341]
      *
@@ -36,10 +36,10 @@ class BatchDisableJobsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**: The call is successful.
-     *   **false**: The call fails.
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example true
      *

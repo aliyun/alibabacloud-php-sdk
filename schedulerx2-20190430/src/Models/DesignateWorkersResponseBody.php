@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DesignateWorkersResponseBody extends Model
 {
     /**
-     * @description The HTTP status code that is returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class DesignateWorkersResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message that is returned if an error occurs.
+     * @description The returned error message.
      *
      * @example job is not existed
      *
@@ -27,7 +27,7 @@ class DesignateWorkersResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 765xxx
      *
@@ -36,7 +36,7 @@ class DesignateWorkersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

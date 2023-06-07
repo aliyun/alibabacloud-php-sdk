@@ -29,8 +29,6 @@ class GetAppGroupResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
-     *
      * @example 39090022-1F3B-4797-8518-6B61095F1AF0
      *
      * @var string

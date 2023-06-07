@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateWorkflowResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class CreateWorkflowResponseBody extends Model
     public $code;
 
     /**
+     * @description The data that was returned for the request.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned error message.
+     *
      * @example timetype is invalid
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateWorkflowResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 39090022-1F3B-4797-8518-6B61095F1AF0
      *
      * @var string
@@ -36,6 +44,11 @@ class CreateWorkflowResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the workflow was created. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BatchEnableJobsResponseBody extends Model
 {
     /**
-     * @description The status code.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class BatchEnableJobsResponseBody extends Model
     public $code;
 
     /**
-     * @description The additional information returned.
+     * @description The returned additional information.
      *
      * @example message
      *
@@ -27,7 +27,7 @@ class BatchEnableJobsResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 71BCC0E3-64B2-4B63-A870-AFB64EBCB5A7
      *
@@ -36,10 +36,10 @@ class BatchEnableJobsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
+     * @description Indicates whether the jobs were enabled at a time. Valid values:
      *
-     *   **true**: The call is successful.
-     *   **false**: The call fails.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

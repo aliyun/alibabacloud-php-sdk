@@ -57,6 +57,8 @@ use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetJobInstanceRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetJobInstanceResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetLogRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetLogResponse;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetOverviewRequest;
+use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetOverviewResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetWorkerListRequest;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetWorkerListResponse;
 use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\GetWorkflowInstanceRequest;
@@ -1211,7 +1213,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * > : The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
+     * > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
      *   *
      * @param ExecuteJobRequest $request ExecuteJobRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -1241,7 +1243,7 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * > : The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
+     * > The combination of the `JobID` and `ScheduleTime` parameters serves as a unique index. Therefore, after the ExecuteJob operation is called to run a job once, a sleep for one second is required before the ExecuteJob operation is called to run the job again. Otherwise, the job may fail.
      *   *
      * @param ExecuteJobRequest $request ExecuteJobRequest
      *
@@ -1504,6 +1506,70 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
+     * @param GetOverviewRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return GetOverviewResponse
+     */
+    public function getOverviewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $query['NamespaceSource'] = $request->namespaceSource;
+        }
+        if (!Utils::isUnset($request->operate)) {
+            $query['Operate'] = $request->operate;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetOverview',
+            'version'     => '2019-04-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetOverviewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetOverviewRequest $request
+     *
+     * @return GetOverviewResponse
+     */
+    public function getOverview($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getOverviewWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetWorkFlowRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1685,10 +1751,14 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * >  Before you call this operation, you must add the following dependency to the pom.xml file:
-     *   *       <groupId>com.aliyun</groupId>
-     *   *       <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *   *       <version>1.0.5</version>.
+     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     *   * ```xml
+     *   * <dependency>
+     *   *     <groupId>com.aliyun</groupId>
+     *   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *   *     <version>1.0.5</version>
+     *   * </dependency>
+     *   * ```.
      *   *
      * @param ListGroupsRequest $request ListGroupsRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -1698,8 +1768,20 @@ class Schedulerx2 extends OpenApiClient
     public function listGroupsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->appGroupName)) {
+            $query['AppGroupName'] = $request->appGroupName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespaceSource)) {
+            $query['NamespaceSource'] = $request->namespaceSource;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1707,7 +1789,7 @@ class Schedulerx2 extends OpenApiClient
             'version'     => '2019-04-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -1718,10 +1800,14 @@ class Schedulerx2 extends OpenApiClient
     }
 
     /**
-     * >  Before you call this operation, you must add the following dependency to the pom.xml file:
-     *   *       <groupId>com.aliyun</groupId>
-     *   *       <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
-     *   *       <version>1.0.5</version>.
+     * Before you call this operation, you must add the following dependency to the pom.xml file:
+     *   * ```xml
+     *   * <dependency>
+     *   *     <groupId>com.aliyun</groupId>
+     *   *     <artifactId>aliyun-java-sdk-schedulerx2</artifactId>
+     *   *     <version>1.0.5</version>
+     *   * </dependency>
+     *   * ```.
      *   *
      * @param ListGroupsRequest $request ListGroupsRequest
      *
@@ -1804,8 +1890,17 @@ class Schedulerx2 extends OpenApiClient
     public function listNamespacesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespaceName)) {
+            $query['NamespaceName'] = $request->namespaceName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -1813,7 +1908,7 @@ class Schedulerx2 extends OpenApiClient
             'version'     => '2019-04-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -2368,6 +2463,9 @@ class Schedulerx2 extends OpenApiClient
         if (!Utils::isUnset($request->taskMaxAttempt)) {
             $body['TaskMaxAttempt'] = $request->taskMaxAttempt;
         }
+        if (!Utils::isUnset($request->template)) {
+            $body['Template'] = $request->template;
+        }
         if (!Utils::isUnset($request->timeExpression)) {
             $body['TimeExpression'] = $request->timeExpression;
         }
@@ -2385,6 +2483,9 @@ class Schedulerx2 extends OpenApiClient
         }
         if (!Utils::isUnset($request->timezone)) {
             $body['Timezone'] = $request->timezone;
+        }
+        if (!Utils::isUnset($request->XAttrs)) {
+            $body['XAttrs'] = $request->XAttrs;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

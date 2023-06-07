@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @description The number of retries when the job instance failed.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class nodes extends Model
     public $attempt;
 
     /**
+     * @description The data timestamp of the job instance.
+     *
      * @example 2023-01-03 18:00:00
      *
      * @var string
@@ -23,6 +27,8 @@ class nodes extends Model
     public $dataTime;
 
     /**
+     * @description The time when the job instance stopped running.
+     *
      * @example 2023-01-03 18:00:21
      *
      * @var string
@@ -30,6 +36,8 @@ class nodes extends Model
     public $endTime;
 
     /**
+     * @description The job ID.
+     *
      * @example 1472
      *
      * @var int
@@ -37,6 +45,8 @@ class nodes extends Model
     public $jobId;
 
     /**
+     * @description The job instance ID.
+     *
      * @example 24058796
      *
      * @var int
@@ -44,6 +54,8 @@ class nodes extends Model
     public $jobInstanceId;
 
     /**
+     * @description The state of the job instance.
+     *
      * @example code=200
      *
      * @var string
@@ -51,6 +63,8 @@ class nodes extends Model
     public $result;
 
     /**
+     * @description The time when the job instance was scheduled to run.
+     *
      * @example 2023-01-03 18:00:03
      *
      * @var string
@@ -58,6 +72,8 @@ class nodes extends Model
     public $scheduleTime;
 
     /**
+     * @description The time when the job instance started to run.
+     *
      * @example 2023-01-03 18:00:03
      *
      * @var string
@@ -65,6 +81,8 @@ class nodes extends Model
     public $startTime;
 
     /**
+     * @description The server on which the job instance was run.
+     *
      * @example 10.163.0.101:34027
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GrantPermissionRequest extends Model
 {
     /**
-     * @description Specifies whether to grant the permissions with the GRANT option. Valid values: -**true**: grants the permissions with the GRANT option. -**false**: does not grant the permissions with the GRANT option.
+     * @description Specifies whether to grant the permissions with the GRANT option. Valid values: -**true** -**false**
      *
      * @example false
      *
@@ -18,7 +18,7 @@ class GrantPermissionRequest extends Model
     public $grantOption;
 
     /**
-     * @description The ID of the application group.
+     * @description The application group ID.
      *
      * @example test.defaultGroup
      *
@@ -27,7 +27,7 @@ class GrantPermissionRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the namespace.
+     * @description The namespace ID.
      *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffcdf01
      *
@@ -36,7 +36,7 @@ class GrantPermissionRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required only for a special third party.
+     * @description The source of the namespace. This parameter is required only for a special third party.
      *
      * @example schedulerx
      *
@@ -45,7 +45,7 @@ class GrantPermissionRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

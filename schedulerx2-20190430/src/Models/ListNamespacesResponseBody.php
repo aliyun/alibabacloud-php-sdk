@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListNamespacesResponseBody extends Model
 {
     /**
-     * @description The HTTP status code that is returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -19,14 +19,14 @@ class ListNamespacesResponseBody extends Model
     public $code;
 
     /**
-     * @description The list of namespaces.
+     * @description The information about the namespaces.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The additional information that is returned.
+     * @description The returned message.
      *
      * @example message
      *
@@ -35,7 +35,7 @@ class ListNamespacesResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 71BCC0E3-64B2-4B63-A870-AFB64EBCB58C
      *
@@ -44,10 +44,10 @@ class ListNamespacesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**: The call is successful.
-     *   **false**: The call fails.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

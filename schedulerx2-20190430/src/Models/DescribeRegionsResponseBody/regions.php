@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class regions extends Model
 {
     /**
-     * @description The displayed name of the region, which varies based on the current language.
+     * @description The display name of the region, which varies based on the current language.
      *
      * @example China (Hangzhou)
      *

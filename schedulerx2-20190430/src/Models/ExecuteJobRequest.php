@@ -27,7 +27,7 @@ class ExecuteJobRequest extends Model
     public $designateType;
 
     /**
-     * @description The ID of the application. You can obtain the application ID on the Application Management page in the SchedulerX console.
+     * @description The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
      *
      * @example testSchedulerx.defaultGroup
      *
@@ -36,7 +36,7 @@ class ExecuteJobRequest extends Model
     public $groupId;
 
     /**
-     * @description The parameters that are passed to trigger the job to run. The input value can be any string. The parameters that are passed are obtained by calling the `context.getInstanceParameters()` class in the `processor` code. The parameters are different from custom parameters for creating jobs.
+     * @description The parameters that are passed to trigger the job to run. The input value can be a random string. The parameters that are passed are obtained by calling the `context.getInstanceParameters()` class in the `processor` code. The parameters are different from custom parameters for creating jobs.
      *
      * @example test
      *
@@ -45,7 +45,7 @@ class ExecuteJobRequest extends Model
     public $instanceParameters;
 
     /**
-     * @description The ID of the job. You can obtain the job ID on the Task Management page in the SchedulerX console.
+     * @description The job ID. You can obtain the job ID on the Task Management page in the SchedulerX console.
      *
      * @example 92583
      *
@@ -63,7 +63,7 @@ class ExecuteJobRequest extends Model
     public $label;
 
     /**
-     * @description The ID of the namespace. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+     * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
      *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
@@ -81,7 +81,7 @@ class ExecuteJobRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

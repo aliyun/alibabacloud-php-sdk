@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ExecuteWorkflowResponseBody extends Model
 {
     /**
-     * @description The HTTP status code that is returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -19,14 +19,14 @@ class ExecuteWorkflowResponseBody extends Model
     public $code;
 
     /**
-     * @description If the call is successful, the ID of the workflow instance is returned.
+     * @description If the request is successful, the ID of the workflow instance is returned.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error message that is returned only if the error occurs.
+     * @description The error message that is returned only if the corresponding error occurs.
      *
      * @example Cannot find product according to your domain.
      *
@@ -35,7 +35,7 @@ class ExecuteWorkflowResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4F68ABED-AC31-4412-9297-D9A8F0401108
      *
@@ -44,7 +44,7 @@ class ExecuteWorkflowResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the API call is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

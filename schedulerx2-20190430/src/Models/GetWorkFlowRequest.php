@@ -27,7 +27,7 @@ class GetWorkFlowRequest extends Model
     public $namespace;
 
     /**
-     * @description The source of the namespcae.
+     * @description The source of the namespace.
      *
      * @example source
      *

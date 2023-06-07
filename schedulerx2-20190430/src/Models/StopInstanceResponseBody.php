@@ -18,7 +18,7 @@ class StopInstanceResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message that is returned if an error occurs.
+     * @description The error message that is returned only if an error occurs.
      *
      * @example Your request is denied as lack of ssl protect.
      *

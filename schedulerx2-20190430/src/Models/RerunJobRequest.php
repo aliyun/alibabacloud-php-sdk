@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RerunJobRequest extends Model
 {
     /**
+     * @description The data timestamp of the job. Specify a string in the HH:mm:ss format.
+     *
      * @example 10:00:00
      *
      * @var string
@@ -16,6 +18,8 @@ class RerunJobRequest extends Model
     public $dataTime;
 
     /**
+     * @description The time when the job stops running. Specify a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1645718400000
      *
      * @var int
@@ -23,6 +27,8 @@ class RerunJobRequest extends Model
     public $endDate;
 
     /**
+     * @description The application group ID. You can obtain the application group ID on the Application Management page in the SchedulerX console.
+     *
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -30,6 +36,8 @@ class RerunJobRequest extends Model
     public $groupId;
 
     /**
+     * @description The job ID.
+     *
      * @example 123
      *
      * @var int
@@ -37,6 +45,8 @@ class RerunJobRequest extends Model
     public $jobId;
 
     /**
+     * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+     *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -44,6 +54,8 @@ class RerunJobRequest extends Model
     public $namespace;
 
     /**
+     * @description The source of the namespace. This parameter is required only for a special third party.
+     *
      * @example schedulerx
      *
      * @var string
@@ -51,6 +63,8 @@ class RerunJobRequest extends Model
     public $namespaceSource;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +72,8 @@ class RerunJobRequest extends Model
     public $regionId;
 
     /**
+     * @description The time when the job starts to rerun. Specify a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1645459200000
      *
      * @var int

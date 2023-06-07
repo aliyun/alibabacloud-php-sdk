@@ -4,14 +4,11 @@
 
 namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models;
 
-use AlibabaCloud\SDK\Schedulerx2\V20190430\Models\CreateNamespaceResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class CreateNamespaceResponseBody extends Model
+class GetOverviewResponseBody extends Model
 {
     /**
-     * @description The HTTP status code.
-     *
      * @example 200
      *
      * @var int
@@ -19,36 +16,27 @@ class CreateNamespaceResponseBody extends Model
     public $code;
 
     /**
-     * @description The information about the namespace.
-     *
-     * @var data
+     * @var string
      */
     public $data;
 
     /**
-     * @description The error message that is returned only if the corresponding error occurs.
-     *
-     * @example namespace=test3 is existed, noting update
+     * @example No access permission for the namespace [***]
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
+     * @description Id of the request
      *
-     * @example 4F68ABED-AC31-4412-9297-D9A8F0401108
+     * @example 39090022-1F3B-4797-8518-6B61095F1AF0
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the application was created. Valid values:
-     *
-     *   **true**
-     *   **false**
-     *
      * @example true
      *
      * @var bool
@@ -73,7 +61,7 @@ class CreateNamespaceResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = $this->data;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -91,7 +79,7 @@ class CreateNamespaceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateNamespaceResponseBody
+     * @return GetOverviewResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -100,7 +88,7 @@ class CreateNamespaceResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            $model->data = $map['Data'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

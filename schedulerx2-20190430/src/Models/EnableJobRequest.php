@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class EnableJobRequest extends Model
 {
     /**
-     * @description The ID of the application. You can obtain the ID of the application on the Application Management page in the SchedulerX console.
+     * @description The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
      *
      * @example testSchedulerx.defaultGroup
      *
@@ -18,7 +18,7 @@ class EnableJobRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the job. You can obtain the ID of the job on the Task Management page in the SchedulerX console.
+     * @description The job ID. You can obtain the job ID on the Task Management page in the SchedulerX console.
      *
      * @example 92583
      *
@@ -27,7 +27,7 @@ class EnableJobRequest extends Model
     public $jobId;
 
     /**
-     * @description The ID of the namespace. You can obtain the ID of the namespace on the Namespace page in the SchedulerX console.
+     * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
      *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
@@ -36,7 +36,7 @@ class EnableJobRequest extends Model
     public $namespace;
 
     /**
-     * @description Required only for a special third party.
+     * @description The source of the namespace. This parameter is required only for a special third party.
      *
      * @example schedulerx
      *
@@ -45,7 +45,7 @@ class EnableJobRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

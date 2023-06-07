@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The unique identifier of the namespace.
+     * @description The UID of the namespace.
      *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *

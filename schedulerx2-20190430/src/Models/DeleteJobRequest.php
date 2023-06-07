@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteJobRequest extends Model
 {
     /**
-     * @description The ID of the application. You can obtain the application ID on the **Application Management** page in Distributed Task Scheduling Platform.
+     * @description The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
      *
      * @example testSchedulerx.defaultGroup
      *
@@ -18,7 +18,7 @@ class DeleteJobRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the job. You can obtain the ID on the **Task Management** page in Distributed Task Scheduling Platform.
+     * @description The ID of the job. You can obtain the ID on the **Task Management** page in the SchedulerX console.
      *
      * @example 92583
      *
@@ -27,7 +27,7 @@ class DeleteJobRequest extends Model
     public $jobId;
 
     /**
-     * @description The ID of the namespace. You can obtain the ID of the namespace on the **Namespace** page in Distributed Task Scheduling Platform.
+     * @description The ID of the namespace. You can obtain the ID of the namespace on the **Namespace** page in the SchedulerX console.
      *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
@@ -36,7 +36,7 @@ class DeleteJobRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required only for a special third party.
+     * @description The source of the namespace. This parameter is required only for a special third party.
      *
      * @example schedulerx
      *

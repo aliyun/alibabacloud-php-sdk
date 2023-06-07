@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class appGroups extends Model
 {
     /**
-     * @description 应用分组ID
+     * @description The application group ID.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class appGroups extends Model
     public $appGroupId;
 
     /**
-     * @description The key for the application.
+     * @description The AppKey for the application.
      *
      * @example a3G77O6NZxq/lyo1NC****==
      *
@@ -36,7 +36,7 @@ class appGroups extends Model
     public $appName;
 
     /**
-     * @description The application description.
+     * @description The description of the application.
      *
      * @example Test
      *

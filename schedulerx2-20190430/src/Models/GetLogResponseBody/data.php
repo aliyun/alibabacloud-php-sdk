@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The logs. The value is an array of strings.
+     *
      * @var string[]
      */
     public $logs;

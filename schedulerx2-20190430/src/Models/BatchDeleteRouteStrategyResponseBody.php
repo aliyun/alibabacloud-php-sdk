@@ -23,8 +23,6 @@ class BatchDeleteRouteStrategyResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
-     *
      * @example 704A2A61-3681-5568-92F7-2DFCC53F33D1
      *
      * @var string

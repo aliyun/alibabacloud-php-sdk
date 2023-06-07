@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RetryJobInstanceRequest extends Model
 {
     /**
+     * @description The application group ID. You can obtain the application group ID on the Application Management page in the SchedulerX console.
+     *
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -16,6 +18,8 @@ class RetryJobInstanceRequest extends Model
     public $groupId;
 
     /**
+     * @description The job ID.
+     *
      * @example 123
      *
      * @var int
@@ -23,6 +27,8 @@ class RetryJobInstanceRequest extends Model
     public $jobId;
 
     /**
+     * @description The job instance ID.
+     *
      * @example 123456
      *
      * @var int
@@ -30,6 +36,8 @@ class RetryJobInstanceRequest extends Model
     public $jobInstanceId;
 
     /**
+     * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+     *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -37,6 +45,8 @@ class RetryJobInstanceRequest extends Model
     public $namespace;
 
     /**
+     * @description The source of the namespace. This parameter is required only for a special third party.
+     *
      * @example schedulerx
      *
      * @var string
@@ -44,6 +54,8 @@ class RetryJobInstanceRequest extends Model
     public $namespaceSource;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

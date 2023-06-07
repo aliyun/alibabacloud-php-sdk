@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRouteStrategyRequest extends Model
 {
     /**
+     * @description The ID of the application group. You can obtain the ID on the **Application Management** page in the SchedulerX console.
+     *
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateRouteStrategyRequest extends Model
     public $groupId;
 
     /**
+     * @description The job ID. You can obtain the ID on the **Task Management** page in the SchedulerX console.
+     *
      * @example 54978
      *
      * @var int
@@ -23,6 +27,8 @@ class CreateRouteStrategyRequest extends Model
     public $jobId;
 
     /**
+     * @description The name of the routing policy.
+     *
      * @example test-strategy
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateRouteStrategyRequest extends Model
     public $name;
 
     /**
+     * @description The namespace ID. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
+     *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateRouteStrategyRequest extends Model
     public $namespace;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +54,11 @@ class CreateRouteStrategyRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether to enable the routing policy. Valid values:
+     *
+     *   **0**: disables the routing policy.
+     *   **1**: enables the routing policy.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +66,8 @@ class CreateRouteStrategyRequest extends Model
     public $status;
 
     /**
+     * @description The details of the routing policy. The value is a JSON string. For more information about this parameter, see **the additional information about request parameters** below this table.
+     *
      * @example [{"percentage":20,"target":"[\"version1\"]","targetType":"label"}]
      *
      * @var string
@@ -58,6 +75,10 @@ class CreateRouteStrategyRequest extends Model
     public $strategyContent;
 
     /**
+     * @description The type of the routing policy. Valid value:
+     *
+     *   **3**: routes by proportion.
+     *
      * @example 3
      *
      * @var int

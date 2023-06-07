@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRouteStrategyResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class CreateRouteStrategyResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned data.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The additional information, including errors and tips.
+     *
      * @example strategy name is null or empty.
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateRouteStrategyResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 4F68ABED-AC31-4412-9297-D9A8F0401108
      *
      * @var string
@@ -36,6 +44,11 @@ class CreateRouteStrategyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetLogRequest extends Model
 {
     /**
+     * @description The time when the job stops running. Specify a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1675739484000
      *
      * @var int
@@ -16,6 +18,8 @@ class GetLogRequest extends Model
     public $endTimestamp;
 
     /**
+     * @description The application group ID. You can obtain the application group ID on the Application Management page in the SchedulerX console.
+     *
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -23,6 +27,8 @@ class GetLogRequest extends Model
     public $groupId;
 
     /**
+     * @description The job ID.
+     *
      * @example 123
      *
      * @var string
@@ -30,6 +36,8 @@ class GetLogRequest extends Model
     public $jobId;
 
     /**
+     * @description The job instance ID.
+     *
      * @example 123456
      *
      * @var string
@@ -37,6 +45,8 @@ class GetLogRequest extends Model
     public $jobInstanceId;
 
     /**
+     * @description The keyword.
+     *
      * @example ERROR
      *
      * @var string
@@ -44,6 +54,8 @@ class GetLogRequest extends Model
     public $keyword;
 
     /**
+     * @description The number of rows to return. The maximum number is 200.
+     *
      * @example 50
      *
      * @var int
@@ -51,6 +63,8 @@ class GetLogRequest extends Model
     public $line;
 
     /**
+     * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+     *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -58,6 +72,8 @@ class GetLogRequest extends Model
     public $namespace;
 
     /**
+     * @description The source of the namespace. This parameter is required only for a special third party.
+     *
      * @example schedulerx
      *
      * @var string
@@ -65,6 +81,8 @@ class GetLogRequest extends Model
     public $namespaceSource;
 
     /**
+     * @description The number of offset rows. This parameter can be used for a paged query.
+     *
      * @example 0
      *
      * @var int
@@ -72,6 +90,8 @@ class GetLogRequest extends Model
     public $offset;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -79,6 +99,8 @@ class GetLogRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether to reverse the order. By default, the order is reversed.
+     *
      * @example true
      *
      * @var bool
@@ -86,6 +108,8 @@ class GetLogRequest extends Model
     public $reverse;
 
     /**
+     * @description The time when the job starts to run. Specify a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1675739364000
      *
      * @var int

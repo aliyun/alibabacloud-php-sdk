@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The list of applications and details of applications.
+     * @description The applications and their details.
      *
      * @var appGroups[]
      */

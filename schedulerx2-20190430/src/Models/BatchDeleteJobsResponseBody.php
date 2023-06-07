@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteJobsResponseBody extends Model
 {
     /**
-     * @description The HTTP status code that is returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class BatchDeleteJobsResponseBody extends Model
     public $code;
 
     /**
-     * @description The additional information that is returned.
+     * @description The additional information returned.
      *
      * @example message
      *
@@ -36,10 +36,10 @@ class BatchDeleteJobsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether jobs are deleted in batches. Valid values:
+     * @description Indicates whether multiple jobs were deleted at a time. Valid values:
      *
-     *   **true**: Jobs are deleted in batches.
-     *   **false**: Failed to delete jobs in batches.
+     *   **true**: Multiple jobs were deleted at a time.
+     *   **false**: Multiple jobs were not deleted at a time.
      *
      * @example true
      *

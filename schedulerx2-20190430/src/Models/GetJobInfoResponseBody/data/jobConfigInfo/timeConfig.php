@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class timeConfig extends Model
 {
     /**
-     * @description If the TimeType parameter is set to **1** (cron), you can customize the calendar.
+     * @description Custom calendar days specified if TimeType is set to **1** (cron).
      *
      * @example Business days
      *
@@ -18,7 +18,7 @@ class timeConfig extends Model
     public $calendar;
 
     /**
-     * @description If the TimeType parameter is set to **1** (cron), you can configure the time offset. Unit: seconds.
+     * @description The time offset specified if TimeType is set to **1** (cron). Unit: seconds.
      *
      * @example 0
      *
@@ -27,12 +27,12 @@ class timeConfig extends Model
     public $dataOffset;
 
     /**
-     * @description The time expression. The time expression varies with the time type:
+     * @description The time expression specified based on the value of TimeType:
      *
-     *   **api**: No time expression exists.
-     *   **fix_rate**: a specific fixed frequency. For example, a value of 30 indicates that the job is triggered every 30 seconds.
-     *   **cron**: a standard Cron expression.
-     *   **second_delay**: a fixed delay after which the job is triggered. Valid values: 1 to 60. Unit: seconds.
+     *   If TimeType is set to **100** (api), no time expression is required.
+     *   If TimeType is set to **3** (fix_rate), this parameter value indicates the specific and fixed frequency. For example, if the value is 30, the system triggers a job every 30 seconds.
+     *   If TimeType is set to **1** (cron), this parameter value indicates the standard CRON expression used to specify the time when to schedule the job.
+     *   If TimeType is set to **4** (second_delay), this parameter value indicates the fixed delay after which the job is triggered. Valid values: 1 to 60. Unit: seconds.
      *
      * @example 0 0/10 * * * ?
      *
@@ -46,6 +46,7 @@ class timeConfig extends Model
      *   **1**: cron
      *   **3**: fix_rate
      *   **4**: second_delay
+     *   **5**: one_time
      *   **100**: api
      *
      * @example 1

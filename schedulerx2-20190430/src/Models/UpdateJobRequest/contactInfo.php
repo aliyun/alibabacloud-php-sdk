@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class contactInfo extends Model
 {
     /**
-     * @description The webhook URL of the DingTalk chatbot. For more information, see [DingTalk development documentation](https://open.dingtalk.com/document/org/application-types).
+     * @description The webhook URL of the DingTalk chatbot.[](https://open.dingtalk.com/document/org/application-types)
      *
      * @example https://oapi.dingtalk.com/robot/send?access_token=**********
      *
@@ -18,7 +18,7 @@ class contactInfo extends Model
     public $ding;
 
     /**
-     * @description The email address of the contact.
+     * @description The email address of the alert contact.
      *
      * @example test***@***.com
      *
@@ -27,7 +27,7 @@ class contactInfo extends Model
     public $userMail;
 
     /**
-     * @description The name of the contact.
+     * @description The name of the alert contact.
      *
      * @example userA
      *
@@ -36,7 +36,7 @@ class contactInfo extends Model
     public $userName;
 
     /**
-     * @description The mobile phone number of the contact.
+     * @description The mobile phone number of the alert contact.
      *
      * @example 1381111****
      *

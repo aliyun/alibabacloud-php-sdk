@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateWorkflowRequest extends Model
 {
     /**
+     * @description The description of the workflow.
+     *
      * @example Test
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateWorkflowRequest extends Model
     public $description;
 
     /**
+     * @description The application group ID. You can obtain the application group ID on the Application Management page in the SchedulerX console.
+     *
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateWorkflowRequest extends Model
     public $groupId;
 
     /**
+     * @description The name of the workflow.
+     *
      * @example helloworld
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateWorkflowRequest extends Model
     public $name;
 
     /**
+     * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+     *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -37,6 +45,8 @@ class UpdateWorkflowRequest extends Model
     public $namespace;
 
     /**
+     * @description The source of the namespace. This parameter is required only for a special third party.
+     *
      * @example schedulerx
      *
      * @var string
@@ -44,6 +54,8 @@ class UpdateWorkflowRequest extends Model
     public $namespaceSource;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +63,11 @@ class UpdateWorkflowRequest extends Model
     public $regionId;
 
     /**
+     * @description The time expression. You can set the time expression based on the selected method that is used to specify time.
+     *
+     *   If you set TimeType to cron, you need to enter a standard cron expression. Online verification is supported.
+     *   If you set TimeType to api, no time expression is required.
+     *
      * @example 0 0/10 * * * ?
      *
      * @var string
@@ -58,6 +75,11 @@ class UpdateWorkflowRequest extends Model
     public $timeExpression;
 
     /**
+     * @description The method that is used to specify the time. Valid values:
+     *
+     *   1: cron
+     *   100: api
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +87,8 @@ class UpdateWorkflowRequest extends Model
     public $timeType;
 
     /**
+     * @description The workflow ID.
+     *
      * @example 123
      *
      * @var string

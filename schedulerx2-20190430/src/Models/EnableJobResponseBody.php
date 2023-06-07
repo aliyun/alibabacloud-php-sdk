@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class EnableJobResponseBody extends Model
 {
     /**
-     * @description The status code.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class EnableJobResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message. The error message is returned only when an error occurs.
+     * @description The error message that is returned only if the corresponding error occurs.
      *
      * @example jobid: 92583 not match groupId: testSchedulerx.defaultGroup
      *
@@ -27,7 +27,7 @@ class EnableJobResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 71BCC0E3-64B2-4B63-A870-AFB64EBCB5A7
      *
@@ -36,10 +36,10 @@ class EnableJobResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**: The call is successful.
-     *   **false**: The call fails.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

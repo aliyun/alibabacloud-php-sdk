@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BatchEnableJobsRequest extends Model
 {
     /**
-     * @description The ID of the application. You can obtain the ID of the application on the **Application Management** page in the SchedulerX console.
+     * @description The application ID. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
      *
      * @example testSchedulerx.defaultGroup
      *
@@ -18,7 +18,7 @@ class BatchEnableJobsRequest extends Model
     public $groupId;
 
     /**
-     * @description The job IDs. Separate multiple job IDs with commas (,).
+     * @description The job IDs. Multiple job IDs are separated with commas (,).
      *
      * @example 99341
      *
@@ -27,7 +27,7 @@ class BatchEnableJobsRequest extends Model
     public $jobIdList;
 
     /**
-     * @description The ID of the namespace to which the job belongs. You can obtain the ID of the namespace on the **Namespace** page in the SchedulerX console.
+     * @description The ID of the namespace to which the job belongs. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
      *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
@@ -36,7 +36,7 @@ class BatchEnableJobsRequest extends Model
     public $namespace;
 
     /**
-     * @description Required only for a special third party.
+     * @description The source of the namespace. This parameter is required only for a special third party.
      *
      * @example schedulerx
      *
@@ -45,7 +45,7 @@ class BatchEnableJobsRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description The ID of the region in which the job resides.
+     * @description The ID of the region to which the job belongs.
      *
      * @example cn-hangzhou
      *

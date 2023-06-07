@@ -141,7 +141,7 @@ class jobs extends Model
     public $parameters;
 
     /**
-     * @description The status of the job. Valid values:
+     * @description Indicates whether the job is enabled. Valid values:
      *
      *   **1**: The job is enabled and can be triggered.
      *   **0**: The job is disabled and cannot be triggered.

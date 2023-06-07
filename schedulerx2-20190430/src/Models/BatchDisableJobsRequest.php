@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BatchDisableJobsRequest extends Model
 {
     /**
-     * @description The ID of the application. You can obtain the ID of the application on the **Application Management** page in the SchedulerX console.
+     * @description The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
      *
      * @example testSchedulerx.defaultGroup
      *
@@ -36,7 +36,7 @@ class BatchDisableJobsRequest extends Model
     public $namespace;
 
     /**
-     * @description Required only for a special third party.
+     * @description The source of the namespace. This parameter is required only for a special third party.
      *
      * @example schedulerx
      *
@@ -45,7 +45,7 @@ class BatchDisableJobsRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description The ID of the region in which the job resides.
+     * @description The ID of the region to which the job belongs.
      *
      * @example cn-hangzhou
      *

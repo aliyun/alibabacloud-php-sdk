@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class jobInstanceDetail extends Model
 {
     /**
-     * @description The data time.
+     * @description The data timestamp of the job instance.
      *
      * @example 2020-07-27 11:52:10
      *
@@ -36,7 +36,7 @@ class jobInstanceDetail extends Model
     public $executor;
 
     /**
-     * @description The ID of the job instance.
+     * @description The job instance ID.
      *
      * @example 11111111
      *
@@ -45,7 +45,7 @@ class jobInstanceDetail extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the job.
+     * @description The job ID.
      *
      * @example 92583
      *
@@ -72,7 +72,7 @@ class jobInstanceDetail extends Model
     public $result;
 
     /**
-     * @description The scheduled time of the job.
+     * @description The time when the job was scheduled to run.
      *
      * @example 2020-07-27 11:52:10
      *
@@ -90,12 +90,12 @@ class jobInstanceDetail extends Model
     public $startTime;
 
     /**
-     * @description The status of the job instance. Valid values:
+     * @description The state of the job instance. Valid values:
      *
      *   **1**: The job instance is waiting for execution.
      *   **3**: The job instance is running.
      *   **4**: The job instance is successful.
-     *   **5**: The job instance fails.
+     *   **5**: The job instance failed.
      *   **9**: The job instance is rejected.
      *
      * Enumeration class: com.alibaba.schedulerx.common.domain.InstanceStatus
@@ -123,11 +123,11 @@ class jobInstanceDetail extends Model
     /**
      * @description The trigger type of the job instance. Valid values:
      *
-     *   **1**: The job instance is triggered at the scheduled time.
-     *   **2**: The job instance is triggered due to data update.
-     *   **3**: The job instance is triggered by an API call.
-     *   **4**: The job instance is triggered because it is manually rerun.
-     *   **5**: The job instance is triggered because the system automatically reruns the job instance upon a system exception, such as a database exception.
+     *   **1**: The job instance was triggered at the scheduled time.
+     *   **2**: The job instance was triggered due to data update.
+     *   **3**: The job instance was triggered by an API call.
+     *   **4**: The job instance was triggered because it is manually rerun.
+     *   **5**: The job instance was triggered because the system automatically reruns the job instance upon a system exception, such as a database exception.
      *
      * Enumeration class: com.alibaba.schedulerx.common.domain.TriggerType
      * @example 3

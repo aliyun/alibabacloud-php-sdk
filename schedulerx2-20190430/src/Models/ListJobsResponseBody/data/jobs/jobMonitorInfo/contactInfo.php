@@ -27,7 +27,7 @@ class contactInfo extends Model
     public $userMail;
 
     /**
-     * @description The name of the user.
+     * @description The username.
      *
      * @example userA
      *

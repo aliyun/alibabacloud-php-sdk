@@ -27,7 +27,7 @@ class namespaces extends Model
     public $name;
 
     /**
-     * @description The ID of the namespace.
+     * @description The namespace ID.
      *
      * @example 1a72ecb1-b4cc-400a-a71b-20cdec9b****
      *

@@ -35,7 +35,7 @@ class GetWorkerListResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 4F68ABED-AC31-4412-9297-D9A8F0401108****
      *

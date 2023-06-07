@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetJobInstanceListRequest extends Model
 {
     /**
+     * @description 结束时间（时间戳）。
+     *
+     * @example 1684202400000
+     *
      * @var int
      */
     public $endTimestamp;
@@ -23,7 +27,7 @@ class GetJobInstanceListRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the job. You can obtain the job ID on the Task Management page in the SchedulerX console.
+     * @description The ID of the job. You can obtain the ID of the job on the Task Management page in the SchedulerX console.
      *
      * @example 92583
      *
@@ -50,7 +54,7 @@ class GetJobInstanceListRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description The ID of the region in which the application resides.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -59,11 +63,20 @@ class GetJobInstanceListRequest extends Model
     public $regionId;
 
     /**
+     * @description 开始时间（时间戳）。
+     *
+     * @example 1684116000000
+     *
      * @var int
      */
     public $startTimestamp;
 
     /**
+     * @description 实例状态。包含以下几种状态：
+     *
+     * 对应枚举类： com.alibaba.schedulerx.common.domain.InstanceStatus
+     * @example 5
+     *
      * @var int
      */
     public $status;

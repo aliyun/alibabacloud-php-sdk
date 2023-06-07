@@ -9,7 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ListGroupsRequest extends Model
 {
     /**
-     * @description The namespace. You can obtain the namespace on the **Namespace** page in Distributed Task Scheduling Platform.
+     * @description 应用分组名称。
+     *
+     * @example k8s-test
+     *
+     * @var string
+     */
+    public $appGroupName;
+
+    /**
+     * @description The namespace ID. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
      *
      * @example 1a72ecb1-b4cc-400a-a71b-20cdec9b****
      *
@@ -18,7 +27,7 @@ class ListGroupsRequest extends Model
     public $namespace;
 
     /**
-     * @description Required only for a special third party.
+     * @description The source of the namespace. This parameter is required only for a special third party.
      *
      * @example schedulerx
      *
@@ -27,7 +36,7 @@ class ListGroupsRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description The ID of the region in which the application is located.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -35,6 +44,7 @@ class ListGroupsRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'appGroupName'    => 'AppGroupName',
         'namespace'       => 'Namespace',
         'namespaceSource' => 'NamespaceSource',
         'regionId'        => 'RegionId',
@@ -47,6 +57,9 @@ class ListGroupsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appGroupName) {
+            $res['AppGroupName'] = $this->appGroupName;
+        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -68,6 +81,9 @@ class ListGroupsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppGroupName'])) {
+            $model->appGroupName = $map['AppGroupName'];
+        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }

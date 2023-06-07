@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateJobRequest extends Model
 {
     /**
-     * @description The interval at which the system attempts to rerun a job. Default value: 30. Unit: seconds.
+     * @description The interval of retries after a job failure. Default value: 30. Unit: seconds.
      *
      * @example 30
      *
@@ -19,7 +19,7 @@ class CreateJobRequest extends Model
     public $attemptInterval;
 
     /**
-     * @description When the Time type parameter is set to cron, you can specify a custom calendar.
+     * @description If you set TimeType to 1 (cron), you can specify calendar days.
      *
      * @example This parameter is not supported. You do not need to specify this parameter.
      *
@@ -30,7 +30,7 @@ class CreateJobRequest extends Model
     /**
      * @description The full path of the job interface class.
      *
-     * This field is available only when you select a java job. In this case, you must enter a full path.
+     * This parameter is available only when you set JobType to java. You must enter a full path.
      * @example com.alibaba.schedulerx.test.helloworld
      *
      * @var string
@@ -47,14 +47,14 @@ class CreateJobRequest extends Model
     public $consumerSize;
 
     /**
-     * @description The information of the job contact.
+     * @description The information about the alert contact.
      *
      * @var contactInfo[]
      */
     public $contactInfo;
 
     /**
-     * @description The script code content that is required when you set the job type to **python**, **shell**, or **go**.
+     * @description The script content. This parameter is required when you set JobType to python, shell, go, or k8s.
      *
      * @example echo \"hello\"
      *
@@ -63,7 +63,7 @@ class CreateJobRequest extends Model
     public $content;
 
     /**
-     * @description When the Time type parameter is set to cron, you can specify a time offset. Unit: seconds.
+     * @description If you set TimeType to 1 (cron), you can specify a time offset. Unit: seconds.
      *
      * @example 2400
      *
@@ -72,7 +72,7 @@ class CreateJobRequest extends Model
     public $dataOffset;
 
     /**
-     * @description The description of the job.
+     * @description The job description.
      *
      * @example Test
      *
@@ -81,7 +81,7 @@ class CreateJobRequest extends Model
     public $description;
 
     /**
-     * @description Default value: 5. This parameter is an advanced configuration item of the MapReduce job.
+     * @description The number of task distribution threads. Default value: 5. This parameter is an advanced configuration item of the MapReduce job.
      *
      * @example 5
      *
@@ -90,14 +90,13 @@ class CreateJobRequest extends Model
     public $dispatcherSize;
 
     /**
-     * @description The execution mode of the job. The following execution modes are supported:
+     * @description The execution mode of the job. Valid values:
      *
-     *   **standalone**: The job runs in standalone mode.
-     *   **broadcast**: The job runs in broadcast mode.
-     *   **parallel**: The job runs in parallel computing mode.
-     *   **grid**: The job runs in memory grid mode.
-     *   **batch**: The job runs in grid computing mode.
-     *   **sharding**: The job runs in sharding mode.
+     *   **Stand-alone operation**
+     *   **Broadcast run**
+     *   **Visual MapReduce**
+     *   **MapReduce**
+     *   **Shard run**
      *
      * @example standalone
      *
@@ -106,10 +105,10 @@ class CreateJobRequest extends Model
     public $executeMode;
 
     /**
-     * @description Specifies whether to turn on Failure alarm. Valid values:
+     * @description Specifies whether to turn on Failure alarm. If the switch is turned on, an alert will be generated upon a failure. Valid values:
      *
-     *   **true**: Turn on Failure alarm.
-     *   **false**: Turn off Failure alarm.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -118,12 +117,16 @@ class CreateJobRequest extends Model
     public $failEnable;
 
     /**
+     * @description The number of consecutive failures. An alert will be received if the number of consecutive failures reaches the value of this parameter.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $failTimes;
 
     /**
-     * @description The ID of the application. You can obtain the application ID on the Application Management page in Distributed Task Scheduling Platform.
+     * @description The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
      *
      * @example testSchedulerx.defaultGroup
      *
@@ -132,7 +135,7 @@ class CreateJobRequest extends Model
     public $groupId;
 
     /**
-     * @description The type of the job. The following job types are supported:
+     * @description The job type. Valid values:
      *
      *   java
      *   python
@@ -151,7 +154,7 @@ class CreateJobRequest extends Model
     public $jobType;
 
     /**
-     * @description The maximum number of attempts that the system can make when an error occurs on a job. You can specify this parameter based on your business requirements. Default value: 0.
+     * @description The maximum number of retries after a job failure. Specify this parameter based on your business requirements. Default value: 0.
      *
      * @example 0
      *
@@ -160,7 +163,7 @@ class CreateJobRequest extends Model
     public $maxAttempt;
 
     /**
-     * @description The maximum number of instances that the system can run at the same time. Default value: 1. When you set this parameter to 1, if the current job does not end, the system will not run the next job even if the runtime is reached.
+     * @description The maximum number of concurrent instances. Default value: 1. The default value indicates that only one instance is allowed to run at a time. When an instance is running, another instance is not triggered even if the scheduled time for running the instance is reached.
      *
      * @example 1
      *
@@ -169,10 +172,10 @@ class CreateJobRequest extends Model
     public $maxConcurrency;
 
     /**
-     * @description Specifies whether to turn on No machine alarm available.
+     * @description Specifies whether to turn on No machine alarm available. If the switch is turned on, an alert will be generated when no machine is available for running the job. Valid values:
      *
-     *   **true**: Turn on No machine alarm available.
-     *   **false**: Turn off No machine alarm available.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -181,7 +184,7 @@ class CreateJobRequest extends Model
     public $missWorkerEnable;
 
     /**
-     * @description The name of the job.
+     * @description The job name.
      *
      * @example helloworld
      *
@@ -190,7 +193,7 @@ class CreateJobRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the namespace. You can obtain the ID of the namespace on the Namespace page in Distributed Task Scheduling Platform.
+     * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
      *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
@@ -199,7 +202,7 @@ class CreateJobRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required only for a special third party.
+     * @description The namespace source. This parameter is required only for a special third party.
      *
      * @example schedulerx
      *
@@ -208,7 +211,7 @@ class CreateJobRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description The number of subtasks that can be pulled at a time. Default value: 100. This parameter is an advanced configuration item of MapReduce job.
+     * @description The number of tasks that can be pulled at a time. Default value: 100. This parameter is an advanced configuration item of the MapReduce job.
      *
      * @example 100
      *
@@ -226,7 +229,7 @@ class CreateJobRequest extends Model
     public $parameters;
 
     /**
-     * @description The maximum number of subtask queues that you can cache. Default value: 10000. This parameter is an advanced configuration item of the MapReduce job.
+     * @description The maximum number of tasks that can be queued. Default value: 10000. This parameter is an advanced configuration item of the MapReduce job.
      *
      * @example 10000
      *
@@ -235,7 +238,7 @@ class CreateJobRequest extends Model
     public $queueSize;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -244,7 +247,7 @@ class CreateJobRequest extends Model
     public $regionId;
 
     /**
-     * @description The channel for sending alerts. Only SMS messages are supported. Set the value to sms.
+     * @description The method that is used to send alerts. Only Short Message Service (SMS) is supported. Default value: sms.
      *
      * @example sms
      *
@@ -253,7 +256,7 @@ class CreateJobRequest extends Model
     public $sendChannel;
 
     /**
-     * @description 0: disabled. 1: enabled. Default value: 1.
+     * @description Specifies whether to enable the job. If this parameter is set to 0, the job is disabled. If this parameter is set to 1, the job is enabled. Default value: 1.
      *
      * @example 1
      *
@@ -262,12 +265,16 @@ class CreateJobRequest extends Model
     public $status;
 
     /**
+     * @description Specifies whether to turn on Successful notice. If the switch is turned on, a notice will be sent when a job succeeds.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $successNoticeEnable;
 
     /**
-     * @description The interval at which the system can rerun the subtask when the subtask fails. Default value: 0. This parameter is an advanced configuration item of the MapReduce job.
+     * @description The interval of retries after a task failure. Default value: 0. This parameter is an advanced configuration item of the MapReduce job.
      *
      * @example 0
      *
@@ -276,7 +283,7 @@ class CreateJobRequest extends Model
     public $taskAttemptInterval;
 
     /**
-     * @description The number of retries that the system can perform when the subtask fails. Default value: 0. This parameter is an advanced configuration item of the MapReduce job.
+     * @description The number of retries after a task failure. Default value: 0. This parameter is an advanced configuration item of the MapReduce job.
      *
      * @example 0
      *
@@ -285,13 +292,13 @@ class CreateJobRequest extends Model
     public $taskMaxAttempt;
 
     /**
-     * @description The time expression. You can set the time expression according to the selected time type.
+     * @description The time expression. Specify the time expression based on the value of TimeType:
      *
-     *   **cron**: Specify a standard Cron expression. You can verify the expression online after you specify the expression.
-     *   **api**: No time expression is available.
-     *   **fixed_rate**: Specify a fixed frequency value. Unit: seconds. For example, if you set this parameter to 30, the system triggers a job every 30 seconds.
-     *   **second_delay**: Specify a delay after which you can run a job. You can specify a value from 1 to 60. Unit: seconds.
-     *   **one_time**: Specify a time in the format of yyyy-MM-dd HH:mm:ss or specify a timestamp in milliseconds. Example: 2022-10-10 10:10:00.
+     *   If you set TimeType to **1** (cron), specify this parameter to a standard CRON expression.
+     *   If you set TimeType to **100** (api), no time expression is required.
+     *   If you set TimeType to **3** (fixed_rate), specify this parameter to a fixed frequency in seconds. For example, if you set this parameter to 30, the system triggers a job every 30 seconds.
+     *   If you set TimeType to **4** (second_delay), specify this parameter to a fixed delay after which the job is triggered. Valid values: 1 to 60. Unit: seconds.
+     *   If you set TimeType to **5** (one_time), specify this parameter to a specific time point at which the job is triggered. The time is in the format of yyyy-MM-dd HH:mm:ss, such as 2022-10-10 10:10:00, or a timestamp in milliseconds.
      *
      * @example 0 0/10 * * * ?
      *
@@ -300,13 +307,13 @@ class CreateJobRequest extends Model
     public $timeExpression;
 
     /**
-     * @description The type of time. The following time types are supported:
+     * @description The time type. Valid values:
      *
-     *   **cron**: 1
-     *   **fixed_rate**: 3
-     *   **second_delay**: 4
-     *   **one_time**: 5
-     *   **api**: 100
+     *   **1**: cron
+     *   **3**: fixed_rate
+     *   **4**: second_delay
+     *   **5**: one_time
+     *   **100**: api
      *
      * @example 1
      *
@@ -324,10 +331,10 @@ class CreateJobRequest extends Model
     public $timeout;
 
     /**
-     * @description Specifies whether to turn on Timeout alarm. Valid values:
+     * @description Specifies whether to turn on Timeout alarm. If the switch is turned on, an alert will be generated upon a timeout. Valid values:
      *
-     *   **true**: Turn on Timeout alarm.
-     *   **false**: Turn off Timeout alarm.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -336,10 +343,10 @@ class CreateJobRequest extends Model
     public $timeoutEnable;
 
     /**
-     * @description Specifies whether to turn on Timeout termination. Valid values:
+     * @description Specifies whether to turn on Timeout termination. If the switch is turned on, the job will be terminated upon a timeout. Valid values:
      *
-     *   **true**: Turn on Timeout termination.
-     *   **false**: Turn off Timeout termination.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -348,6 +355,8 @@ class CreateJobRequest extends Model
     public $timeoutKillEnable;
 
     /**
+     * @description Time zone.
+     *
      * @example GMT+8
      *
      * @var string
@@ -355,7 +364,7 @@ class CreateJobRequest extends Model
     public $timezone;
 
     /**
-     * @description If the Task type parameter is set to k8s, this parameter is required. xxljob task: {"resource":"job"} shell task: {"image":"busybox","resource":"shell"}
+     * @description If you set JobType to k8s, this parameter is required. xxljob task: {"resource":"job"} shell task: {"image":"busybox","resource":"shell"}
      *
      * @example {"resource":"job"}
      *

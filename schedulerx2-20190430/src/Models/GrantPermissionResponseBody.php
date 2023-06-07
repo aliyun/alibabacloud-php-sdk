@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GrantPermissionResponseBody extends Model
 {
     /**
-     * @description The HTTP status code that is returned.
+     * @description The HTTP status code.
      *
      * @example 400
      *
@@ -18,7 +18,7 @@ class GrantPermissionResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message that is returned if an error occurs.
+     * @description The error message that is returned only if the corresponding error occurs.
      *
      * @example Your request is denied as lack of ssl protect.
      *
@@ -27,7 +27,7 @@ class GrantPermissionResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4F68ABED-AC31-4412-9297-D9A8F0401108
      *
@@ -36,10 +36,10 @@ class GrantPermissionResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**: The call is successful.
-     *   **false**: The call fails.
+     *   **true**
+     *   **false**
      *
      * @example false
      *

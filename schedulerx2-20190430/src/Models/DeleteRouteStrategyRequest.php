@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRouteStrategyRequest extends Model
 {
     /**
+     * @description The application ID. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
+     *
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteRouteStrategyRequest extends Model
     public $groupId;
 
     /**
+     * @description The job ID. You can obtain the job ID on the **Task Management** page in the SchedulerX console.
+     *
      * @example 92583
      *
      * @var int
@@ -23,6 +27,8 @@ class DeleteRouteStrategyRequest extends Model
     public $jobId;
 
     /**
+     * @description The namespace ID. You can obtain the ID of the namespace on the **Namespace** page in the SchedulerX console.
+     *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -30,6 +36,8 @@ class DeleteRouteStrategyRequest extends Model
     public $namespace;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DesignateWorkersRequest extends Model
 {
     /**
-     * @description The type of the designated machines. Valid values: 1: worker. 2: label.
+     * @description The type of the machines to be designated. Valid values: 1 and 2. The value 1 specifies the worker type. The value 2 specifies the label type.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DesignateWorkersRequest extends Model
     public $designateType;
 
     /**
-     * @description The ID of the application group.
+     * @description The application group ID.
      *
      * @example hxm.test
      *
@@ -27,7 +27,7 @@ class DesignateWorkersRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the job.
+     * @description The job ID.
      *
      * @example 144153
      *
@@ -36,7 +36,7 @@ class DesignateWorkersRequest extends Model
     public $jobId;
 
     /**
-     * @description The designated `labels`. The value is a `JSON` string.
+     * @description The designated `labels`. Specify the value of the parameter in a `JSON` string.
      *
      * @example ["gray"]
      *
@@ -45,7 +45,7 @@ class DesignateWorkersRequest extends Model
     public $labels;
 
     /**
-     * @description The ID of the namespace.
+     * @description The unique identifier (UID) of the namespace.
      *
      * @example 4a06d5ea-f576-4326-842c-fb14ea043d8d
      *
@@ -63,7 +63,7 @@ class DesignateWorkersRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example public
      *
@@ -81,7 +81,7 @@ class DesignateWorkersRequest extends Model
     public $transferable;
 
     /**
-     * @description The designated workers. The value is a JSON string.
+     * @description The designated machines. Specify the value of the parameter in a JSON string.
      *
      * @example ["127.0.0.1","127.0.0.2"]
      *

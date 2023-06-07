@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RevokePermissionRequest extends Model
 {
     /**
-     * @description The ID of the application. You can obtain the application ID on the Application Management page in the SchedulerX console.
+     * @description The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
      *
      * @example test.defalutGroup
      *
@@ -18,7 +18,7 @@ class RevokePermissionRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the namespace. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+     * @description The unique identifier (UID) of the namespace. You can obtain the namespace UID on the Namespace page in the SchedulerX console.
      *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffcdf01
      *
@@ -27,7 +27,7 @@ class RevokePermissionRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required only for a special third party.
+     * @description The source of the namespace. This parameter is required only for a special third party.
      *
      * @example schedulerx
      *
@@ -36,7 +36,7 @@ class RevokePermissionRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-shenzhen
      *
@@ -45,7 +45,7 @@ class RevokePermissionRequest extends Model
     public $regionId;
 
     /**
-     * @description The unique ID (UID) of the RAM user.
+     * @description The UID of the RAM user.
      *
      * @example 277641081920123456
      *

@@ -18,7 +18,7 @@ class contactInfo extends Model
     public $ding;
 
     /**
-     * @description The email address of the user.
+     * @description The email address of the alert contact.
      *
      * @example user@demo.com
      *
@@ -27,7 +27,7 @@ class contactInfo extends Model
     public $userMail;
 
     /**
-     * @description The name of the user.
+     * @description The name of the alert contact.
      *
      * @example userA
      *
@@ -36,7 +36,7 @@ class contactInfo extends Model
     public $userName;
 
     /**
-     * @description The mobile number of the user.
+     * @description The mobile phone number of the alert contact.
      *
      * @example 1381111****
      *

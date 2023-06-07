@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateAppGroupResponseBody extends Model
 {
     /**
-     * @description The HTTP status code that is returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -26,7 +26,7 @@ class CreateAppGroupResponseBody extends Model
     public $data;
 
     /**
-     * @description The error message that is returned only if an error occurs.
+     * @description The error message that is returned only if the corresponding error occurs.
      *
      * @example Your request is denied as lack of ssl protect.
      *
@@ -35,7 +35,7 @@ class CreateAppGroupResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 883AFE93-FB03-4FA9-A958-E750C6DE120C
      *
@@ -44,10 +44,10 @@ class CreateAppGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the application is created. Valid values:
+     * @description Indicates whether the application was created. Valid values:
      *
-     *   **true**: The application is created.
-     *   **false**: Failed to create the application.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

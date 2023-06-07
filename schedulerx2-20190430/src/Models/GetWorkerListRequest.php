@@ -18,7 +18,7 @@ class GetWorkerListRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the namespace. You can obtain the ID of the namespace on the Namespace page in Distributed Task Scheduling Platform.
+     * @description The ID of the namespace. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
      *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
@@ -27,7 +27,7 @@ class GetWorkerListRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required only for a special third party.
+     * @description The source of the namespace. This parameter is required only for a special third party.
      *
      * @example schedulerx
      *

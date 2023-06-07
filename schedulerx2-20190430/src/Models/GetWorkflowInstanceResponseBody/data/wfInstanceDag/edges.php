@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class edges extends Model
 {
     /**
+     * @description The upstream job instance of the current job instance. The value 0 indicates that the upstream job instance is the root node.
+     *
      * @example 24058798
      *
      * @var int
@@ -16,6 +18,8 @@ class edges extends Model
     public $source;
 
     /**
+     * @description The downstream job instance of the current job instance.
+     *
      * @example 24058796
      *
      * @var int

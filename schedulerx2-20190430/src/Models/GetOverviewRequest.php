@@ -6,38 +6,37 @@ namespace AlibabaCloud\SDK\Schedulerx2\V20190430\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListJobsRequest extends Model
+class GetOverviewRequest extends Model
 {
     /**
-     * @description The ID of the application. You can obtain the application ID on the **Application Management** page in the SchedulerX console.
+     * @example 1684166400
      *
-     * @example DocTest.Group
+     * @var int
+     */
+    public $endTime;
+
+    /**
+     * @example testSchedulerx.defaultGroup
      *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The name of the job.
+     * @example 0
      *
-     * @example helloword
-     *
-     * @var string
+     * @var int
      */
-    public $jobName;
+    public $metricType;
 
     /**
-     * @description The ID of the namespace. You can obtain the namespace ID on the **Namespace** page in the SchedulerX console.
-     *
-     * @example 1a72ecb1-b4cc-400a-a71b-20cdec9b****
+     * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
      */
     public $namespace;
 
     /**
-     * @description The source of the namespace. This parameter is required only for a special third party.
-     *
      * @example schedulerx
      *
      * @var string
@@ -45,8 +44,13 @@ class ListJobsRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description The ID of the region.
+     * @example query
      *
+     * @var string
+     */
+    public $operate;
+
+    /**
      * @example cn-hangzhou
      *
      * @var string
@@ -54,23 +58,20 @@ class ListJobsRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to enable the job. Valid values:
+     * @example 1684166400
      *
-     *   **0**: disables the job.
-     *   **1**: enables the job.
-     *
-     * @example 1
-     *
-     * @var string
+     * @var int
      */
-    public $status;
+    public $startTime;
     protected $_name = [
+        'endTime'         => 'EndTime',
         'groupId'         => 'GroupId',
-        'jobName'         => 'JobName',
+        'metricType'      => 'MetricType',
         'namespace'       => 'Namespace',
         'namespaceSource' => 'NamespaceSource',
+        'operate'         => 'Operate',
         'regionId'        => 'RegionId',
-        'status'          => 'Status',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -80,11 +81,14 @@ class ListJobsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
-        if (null !== $this->jobName) {
-            $res['JobName'] = $this->jobName;
+        if (null !== $this->metricType) {
+            $res['MetricType'] = $this->metricType;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -92,11 +96,14 @@ class ListJobsRequest extends Model
         if (null !== $this->namespaceSource) {
             $res['NamespaceSource'] = $this->namespaceSource;
         }
+        if (null !== $this->operate) {
+            $res['Operate'] = $this->operate;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -105,16 +112,19 @@ class ListJobsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListJobsRequest
+     * @return GetOverviewRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
-        if (isset($map['JobName'])) {
-            $model->jobName = $map['JobName'];
+        if (isset($map['MetricType'])) {
+            $model->metricType = $map['MetricType'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
@@ -122,11 +132,14 @@ class ListJobsRequest extends Model
         if (isset($map['NamespaceSource'])) {
             $model->namespaceSource = $map['NamespaceSource'];
         }
+        if (isset($map['Operate'])) {
+            $model->operate = $map['Operate'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

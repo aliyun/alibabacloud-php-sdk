@@ -18,7 +18,7 @@ class edges extends Model
     public $source;
 
     /**
-     * @description The ID of the target job.
+     * @description The ID of the object job.
      *
      * @example 200
      *

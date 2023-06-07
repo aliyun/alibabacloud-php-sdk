@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRouteStrategyResponseBody extends Model
 {
     /**
+     * @description The HTTP status code that is returned.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteRouteStrategyResponseBody extends Model
     public $code;
 
     /**
+     * @description The additional information that is returned.
+     *
      * @example strategy is already deleted.
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteRouteStrategyResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 71BCC0E3-64B2-4B63-A870-AFB64EBCB5A7
      *
      * @var string
@@ -30,6 +36,11 @@ class DeleteRouteStrategyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

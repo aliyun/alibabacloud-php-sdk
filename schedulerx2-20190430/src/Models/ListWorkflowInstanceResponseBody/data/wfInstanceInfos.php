@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class wfInstanceInfos extends Model
 {
     /**
+     * @description The data timestamp of the workflow instance.
+     *
      * @example 2023-01-03 18:00:00
      *
      * @var string
@@ -16,6 +18,8 @@ class wfInstanceInfos extends Model
     public $dataTime;
 
     /**
+     * @description The time when the workflow instance stopped running.
+     *
      * @example 2023-01-03 18:00:21
      *
      * @var string
@@ -23,6 +27,8 @@ class wfInstanceInfos extends Model
     public $endTime;
 
     /**
+     * @description The time when the workflow instance was scheduled to run.
+     *
      * @example 2023-01-03 18:00:00
      *
      * @var string
@@ -30,6 +36,8 @@ class wfInstanceInfos extends Model
     public $scheduleTime;
 
     /**
+     * @description The time when the workflow instance started to run.
+     *
      * @example 2023-01-03 18:00:01
      *
      * @var string
@@ -37,6 +45,14 @@ class wfInstanceInfos extends Model
     public $startTime;
 
     /**
+     * @description The state of the workflow instance. Valid values:
+     *
+     *   1: pending
+     *   2: preparing
+     *   3: running
+     *   4: successful
+     *   5: failed
+     *
      * @example 5
      *
      * @var int
@@ -44,6 +60,8 @@ class wfInstanceInfos extends Model
     public $status;
 
     /**
+     * @description The workflow instance ID.
+     *
      * @example 123456
      *
      * @var int
@@ -51,6 +69,8 @@ class wfInstanceInfos extends Model
     public $wfInstanceId;
 
     /**
+     * @description The workflow ID.
+     *
      * @example 123
      *
      * @var int

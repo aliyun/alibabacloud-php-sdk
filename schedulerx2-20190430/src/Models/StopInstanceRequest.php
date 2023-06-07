@@ -27,7 +27,7 @@ class StopInstanceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the job. You can obtain the job ID on the Task Management page in the SchedulerX console.
+     * @description The ID of the job. You can obtain the ID of the job on the Task Management page in the SchedulerX console.
      *
      * @example 92583
      *
@@ -54,7 +54,7 @@ class StopInstanceRequest extends Model
     public $namespaceSource;
 
     /**
-     * @description The ID of the region in which the application resides.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ExecuteWorkflowRequest extends Model
 {
     /**
-     * @description The ID of the application. You can obtain the application ID on the Application Management page in Distributed Task Scheduling Platform.
+     * @description The application ID. You can obtain the application ID on the Application Management page in the SchedulerX console.
      *
      * @example testSchedulerx.defaultGroup
      *
@@ -18,7 +18,7 @@ class ExecuteWorkflowRequest extends Model
     public $groupId;
 
     /**
-     * @description The dynamic parameter of the workflow instance. The parameter must be 1 to 1,000 bytes in length.
+     * @description The dynamic parameter of the workflow instance. The value of the parameter can be up to 1,000 bytes in length.
      *
      * @example test
      *
@@ -27,7 +27,7 @@ class ExecuteWorkflowRequest extends Model
     public $instanceParameters;
 
     /**
-     * @description The ID of the namespace. You can obtain the ID of the namespace on the Namespace page in Distributed Task Scheduling Platform.
+     * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
      *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
@@ -36,7 +36,7 @@ class ExecuteWorkflowRequest extends Model
     public $namespace;
 
     /**
-     * @description This parameter is required only for a special third party.
+     * @description The source of the namespace. This parameter is required only for a special third party.
      *
      * @example schedulerx
      *
@@ -50,7 +50,7 @@ class ExecuteWorkflowRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the workflow.
+     * @description The workflow ID.
      *
      * @example 111
      *

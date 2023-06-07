@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class monitorConfig extends Model
 {
     /**
-     * @description Indicates whether an alert is generated upon a failure. Valid values:
+     * @description Indicates whether the Failure alarm switch was turned on. Valid values:
      *
-     *   **true**: The feature is enabled.
-     *   **false**: The feature is disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -21,7 +21,7 @@ class monitorConfig extends Model
     public $failEnable;
 
     /**
-     * @description Indicates whether an alert is generated if no worker is available.
+     * @description Indicates whether the No machine alarm available switch was turned on.
      *
      * @example true
      *
@@ -30,7 +30,7 @@ class monitorConfig extends Model
     public $missWorkerEnable;
 
     /**
-     * @description The notification method. Only Short Message Service (SMS) is supported.
+     * @description The method used to send alerts. Only Short Message Service (SMS) is supported.
      *
      * @example sms
      *
@@ -39,7 +39,7 @@ class monitorConfig extends Model
     public $sendChannel;
 
     /**
-     * @description The timeout threshold. Unit: seconds. Default value: 7200.
+     * @description The timeout threshold. Default value: 7200. Unit: seconds.
      *
      * @example 12300
      *
@@ -48,10 +48,10 @@ class monitorConfig extends Model
     public $timeout;
 
     /**
-     * @description Indicates whether an alert is generated upon a timeout. Valid values:
+     * @description Indicates whether the Timeout alarm switch was turned on. Valid values:
      *
-     *   **true**: The feature is enabled.
-     *   **false**: The feature is disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -60,7 +60,7 @@ class monitorConfig extends Model
     public $timeoutEnable;
 
     /**
-     * @description Indicates whether the job is terminated upon a timeout. By default, this feature is disabled.
+     * @description Indicates whether the Timeout termination switch was turned on. The switch is turned off by default.
      *
      * @example true
      *

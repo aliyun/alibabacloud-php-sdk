@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The list and details of the namespaces.
+     * @description The namespaces and their details.
      *
      * @var namespaces[]
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListWorkflowInstanceRequest extends Model
 {
     /**
+     * @description The application group ID. You can obtain the ID on the Application Management page in the SchedulerX console.
+     *
      * @example testSchedulerx.defaultGroup
      *
      * @var string
@@ -16,6 +18,8 @@ class ListWorkflowInstanceRequest extends Model
     public $groupId;
 
     /**
+     * @description The namespace ID. You can obtain the namespace ID on the Namespace page in the SchedulerX console.
+     *
      * @example adcfc35d-e2fe-4fe9-bbaa-20e90ffc****
      *
      * @var string
@@ -23,6 +27,8 @@ class ListWorkflowInstanceRequest extends Model
     public $namespace;
 
     /**
+     * @description The source of the namespace. This parameter is required only for a special third party.
+     *
      * @example schedulerx
      *
      * @var string
@@ -30,6 +36,8 @@ class ListWorkflowInstanceRequest extends Model
     public $namespaceSource;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +45,8 @@ class ListWorkflowInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @description The workflow ID.
+     *
      * @example 123
      *
      * @var string

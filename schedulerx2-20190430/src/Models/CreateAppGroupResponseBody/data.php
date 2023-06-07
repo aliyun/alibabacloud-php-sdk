@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the job group.
+     * @description The job group ID.
      *
      * @example 6607
      *
