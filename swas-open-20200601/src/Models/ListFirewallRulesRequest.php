@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class ListFirewallRulesRequest extends Model
 {
     /**
+     * @description The ID of the simple application server.
+     *
+     * @example ace0706b2ac4454d984295a94213****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the simple application server.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

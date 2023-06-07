@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class ListSnapshotsRequest extends Model
 {
     /**
+     * @description The ID of the source disk.
+     *
+     * @example d-bp14wq0149cpp2xy****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @description The ID of the simple application server.
+     *
+     * @example 2ad1ae67295445f598017499dc****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the simple application server.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The IDs of the snapshots. The value can be a JSON array that consists of up to 100 snapshot IDs. Separate the snapshot IDs with commas (,).
+     *
+     * @example ["s-bp16oazlsold4dks****", "s-bp16oazlsold4abc****"]
+     *
      * @var string
      */
     public $snapshotIds;
+
+    /**
+     * @var string
+     */
+    public $sourceDiskType;
     protected $_name = [
-        'diskId'      => 'DiskId',
-        'instanceId'  => 'InstanceId',
-        'pageNumber'  => 'PageNumber',
-        'pageSize'    => 'PageSize',
-        'regionId'    => 'RegionId',
-        'snapshotIds' => 'SnapshotIds',
+        'diskId'         => 'DiskId',
+        'instanceId'     => 'InstanceId',
+        'pageNumber'     => 'PageNumber',
+        'pageSize'       => 'PageSize',
+        'regionId'       => 'RegionId',
+        'snapshotIds'    => 'SnapshotIds',
+        'sourceDiskType' => 'SourceDiskType',
     ];
 
     public function validate()
@@ -70,6 +102,9 @@ class ListSnapshotsRequest extends Model
         }
         if (null !== $this->snapshotIds) {
             $res['SnapshotIds'] = $this->snapshotIds;
+        }
+        if (null !== $this->sourceDiskType) {
+            $res['SourceDiskType'] = $this->sourceDiskType;
         }
 
         return $res;
@@ -100,6 +135,9 @@ class ListSnapshotsRequest extends Model
         }
         if (isset($map['SnapshotIds'])) {
             $model->snapshotIds = $map['SnapshotIds'];
+        }
+        if (isset($map['SourceDiskType'])) {
+            $model->sourceDiskType = $map['SourceDiskType'];
         }
 
         return $model;

@@ -11,27 +11,57 @@ class firewallRules extends Model
     /**
      * @var string
      */
+    public $policy;
+
+    /**
+     * @description The port range.
+     *
+     * @example 3306
+     *
+     * @var string
+     */
     public $port;
 
     /**
+     * @description The remarks of the firewall rule.
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The ID of the firewall rule.
+     *
+     * @example eeea34d9867b4d55a4ff8d5fcfbd****
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @description The transport layer protocol. Valid values:
+     *
+     *   TCP: the TCP protocol.
+     *   UDP: the UDP protocol.
+     *   TCP+UDP: the TCP and UDP protocols.
+     *
+     * @example TCP
+     *
      * @var string
      */
     public $ruleProtocol;
+
+    /**
+     * @var string
+     */
+    public $sourceCidrIp;
     protected $_name = [
+        'policy'       => 'Policy',
         'port'         => 'Port',
         'remark'       => 'Remark',
         'ruleId'       => 'RuleId',
         'ruleProtocol' => 'RuleProtocol',
+        'sourceCidrIp' => 'SourceCidrIp',
     ];
 
     public function validate()
@@ -41,6 +71,9 @@ class firewallRules extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->policy) {
+            $res['Policy'] = $this->policy;
+        }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
         }
@@ -52,6 +85,9 @@ class firewallRules extends Model
         }
         if (null !== $this->ruleProtocol) {
             $res['RuleProtocol'] = $this->ruleProtocol;
+        }
+        if (null !== $this->sourceCidrIp) {
+            $res['SourceCidrIp'] = $this->sourceCidrIp;
         }
 
         return $res;
@@ -65,6 +101,9 @@ class firewallRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Policy'])) {
+            $model->policy = $map['Policy'];
+        }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
         }
@@ -76,6 +115,9 @@ class firewallRules extends Model
         }
         if (isset($map['RuleProtocol'])) {
             $model->ruleProtocol = $map['RuleProtocol'];
+        }
+        if (isset($map['SourceCidrIp'])) {
+            $model->sourceCidrIp = $map['SourceCidrIp'];
         }
 
         return $model;

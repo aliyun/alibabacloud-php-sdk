@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class snapshots extends Model
 {
     /**
+     * @description The time when the snapshot was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2021-03-09T07:12:49Z
+     *
      * @var string
      */
     public $creationTime;
@@ -16,14 +20,31 @@ class snapshots extends Model
     /**
      * @var string
      */
+    public $instanceId;
+
+    /**
+     * @description The progress of snapshot creation.
+     *
+     * @example 100%
+     *
+     * @var string
+     */
     public $progress;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The remarks of the snapshot.
+     *
+     * @example test-Remark
+     *
      * @var string
      */
     public $remark;
@@ -31,32 +52,66 @@ class snapshots extends Model
     /**
      * @var string
      */
+    public $rollbackTime;
+
+    /**
+     * @description The ID of the snapshot.
+     *
+     * @example s-bp16oazlsold4dks****
+     *
+     * @var string
+     */
     public $snapshotId;
 
     /**
+     * @description The name of the snapshot.
+     *
+     * @example test-SnapshotName
+     *
      * @var string
      */
     public $snapshotName;
 
     /**
+     * @description The ID of the source disk. This parameter has a value even after the source disk is released.
+     *
+     * @example d-bp14wq0149cpp2xy****
+     *
      * @var string
      */
     public $sourceDiskId;
 
     /**
+     * @description The type of the source disk. Valid values:
+     *
+     *   System: system disk
+     *   data: data disk
+     *
+     * @example System
+     *
      * @var string
      */
     public $sourceDiskType;
 
     /**
+     * @description The status of the snapshot. Valid values:
+     *
+     *   Progressing: The snapshot is being created.
+     *   Accomplished: The snapshot is created.
+     *   Failed: The snapshot failed to be created.
+     *
+     * @example Accomplished
+     *
      * @var string
      */
     public $status;
     protected $_name = [
         'creationTime'   => 'CreationTime',
+        'instanceId'     => 'InstanceId',
         'progress'       => 'Progress',
         'regionId'       => 'RegionId',
         'remark'         => 'Remark',
+        'rollbackTime'   => 'RollbackTime',
         'snapshotId'     => 'SnapshotId',
         'snapshotName'   => 'SnapshotName',
         'sourceDiskId'   => 'SourceDiskId',
@@ -74,6 +129,9 @@ class snapshots extends Model
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
@@ -82,6 +140,9 @@ class snapshots extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->rollbackTime) {
+            $res['RollbackTime'] = $this->rollbackTime;
         }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
@@ -113,6 +174,9 @@ class snapshots extends Model
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
@@ -121,6 +185,9 @@ class snapshots extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['RollbackTime'])) {
+            $model->rollbackTime = $map['RollbackTime'];
         }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];

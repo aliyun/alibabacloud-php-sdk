@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListImagesResponseBody extends Model
 {
     /**
+     * @description Details of the images.
+     *
      * @var images[]
      */
     public $images;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
+     *
      * @var string
      */
     public $requestId;

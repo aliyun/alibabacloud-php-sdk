@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesTrafficPackagesResponseBody extends Model
 {
     /**
+     * @description The details of the data transfer plans of the simple application servers.
+     *
      * @var instanceTrafficPackageUsages[]
      */
     public $instanceTrafficPackageUsages;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F****
+     *
      * @var string
      */
     public $requestId;

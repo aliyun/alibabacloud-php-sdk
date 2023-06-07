@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class instanceTrafficPackageUsages extends Model
 {
     /**
+     * @description The ID of the simple application server.
+     *
+     * @example ccscqwqwqqqw****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The data transfers that exceeds the quota of the data transfer plan in the current month. Unit: Byte.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $trafficOverflow;
 
     /**
+     * @description The unused quota of the data transfer plan in the current month. Unit: Byte.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $trafficPackageRemaining;
 
     /**
+     * @description The quota of the data transfer plan in the current month. Unit: Byte.
+     *
+     * >  TrafficPackageTotal = TrafficUsed + TrafficPackageRemaining
+     * @example 20000
+     *
      * @var int
      */
     public $trafficPackageTotal;
 
     /**
+     * @description The used quota of the data transfer plan in the current month. Unit: Byte.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $trafficUsed;

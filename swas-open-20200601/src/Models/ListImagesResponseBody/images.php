@@ -9,26 +9,51 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @description The description of the image.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example 794c230fd3e64ea19f83f4d7a0ad****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The name of the image.
+     *
+     * @example WordPress-4.8.1
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description The type of the image. Valid values:
+     *
+     *   system
+     *   app
+     *   custom
+     *
+     * @example app
+     *
      * @var string
      */
     public $imageType;
 
     /**
+     * @description The operating system type of the image. Valid values:
+     *
+     *   Linux
+     *   Windows
+     *
+     * @example Linux
+     *
      * @var string
      */
     public $platform;

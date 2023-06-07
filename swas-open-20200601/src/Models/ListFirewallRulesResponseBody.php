@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListFirewallRulesResponseBody extends Model
 {
     /**
+     * @description Details about the firewall rules.
+     *
      * @var firewallRules[]
      */
     public $firewallRules;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of firewall rules.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $totalCount;

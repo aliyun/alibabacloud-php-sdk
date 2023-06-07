@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListPlansRequest extends Model
 {
     /**
+     * @description The region ID of the simple application server. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

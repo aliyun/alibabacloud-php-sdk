@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class ListImagesRequest extends Model
 {
     /**
+     * @description The IDs of the images. The value can be a JSON array that consists of up to 50 image IDs, in the format of `["xxx", "yyy", … "zzz"]`. Separate the image IDs with commas (,).
+     *
+     * @example ["fe9c66133a9d4688872869726b52****", "794c230fd3e64ea19f83f4d7a0ad****"]
+     *
      * @var string
      */
     public $imageIds;
 
     /**
+     * @description The type of the image. Valid values:
+     *
+     *   system
+     *   app
+     *   custom
+     *
+     * @example system
+     *
      * @var string
      */
     public $imageType;
 
     /**
+     * @description The region ID of the images. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

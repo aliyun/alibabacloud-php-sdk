@@ -9,51 +9,98 @@ use AlibabaCloud\Tea\Model;
 class plans extends Model
 {
     /**
+     * @description The peak bandwidth. Unit: Mbit/s.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The number of vCPUs.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $core;
 
     /**
+     * @description The unit of the plan price. Valid values:
+     *
+     *   CNY
+     *   USD
+     *
+     * >  CNY is for the China site (aliyun.com). USD is for the international site (alibabacloud.com).
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @description The size of the disk. Unit: GB.
+     *
+     * @example 40
+     *
      * @var int
      */
     public $diskSize;
 
     /**
+     * @description The category of the disk. Valid values:
+     *
+     *   SSD: standard SSDs
+     *   ESSD: enhanced SSDs
+     *
+     * @example ESSD
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @description The monthly data transfer quota. Unit: GB.
+     *
+     * @example 400
+     *
      * @var int
      */
     public $flow;
 
     /**
+     * @description The memory size. Unit: GB.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @description The monthly price of the plan.
+     *
+     * @example 60
+     *
      * @var float
      */
     public $originPrice;
 
     /**
+     * @description The ID of the plan.
+     *
+     * @example swas.s2.c2m1s40b3t04
+     *
      * @var string
      */
     public $planId;
 
     /**
+     * @description The operating system types supported by the plan.
+     *
+     * @example ["Linux","Windows"]
+     *
      * @var string
      */
     public $supportPlatform;

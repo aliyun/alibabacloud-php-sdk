@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesTrafficPackagesRequest extends Model
 {
     /**
+     * @description The IDs of the simple application servers. The value can be a JSON array that consists of up to 100 simple application server IDs. Separate the server IDs with commas (,).
+     *
+     * @example ["2ad1ae67295445f598017499dc******","2ad1ae67295445f598017499dc******"]
+     *
      * @var string
      */
     public $instanceIds;
 
     /**
+     * @description The region ID of the simple application server. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

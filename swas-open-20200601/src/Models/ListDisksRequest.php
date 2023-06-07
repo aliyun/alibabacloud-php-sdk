@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListDisksRequest extends Model
 {
     /**
+     * @description The IDs of the disks. The value can be a JSON array that consists of up to 100 disk IDs. Separate the disk IDs with commas (,).
+     *
+     * @example ["d-bp14wq0149cpp2x****", "d-bp14wq0149cpp2y****"]
+     *
      * @var string
      */
     public $diskIds;
@@ -16,24 +20,48 @@ class ListDisksRequest extends Model
     /**
      * @var string
      */
+    public $diskType;
+
+    /**
+     * @description The ID of the simple application server.
+     *
+     * @example 2ad1ae67295445f598017499dc****
+     *
+     * @var string
+     */
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the simple application server.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'diskIds'    => 'DiskIds',
+        'diskType'   => 'DiskType',
         'instanceId' => 'InstanceId',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
@@ -49,6 +77,9 @@ class ListDisksRequest extends Model
         $res = [];
         if (null !== $this->diskIds) {
             $res['DiskIds'] = $this->diskIds;
+        }
+        if (null !== $this->diskType) {
+            $res['DiskType'] = $this->diskType;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -76,6 +107,9 @@ class ListDisksRequest extends Model
         $model = new self();
         if (isset($map['DiskIds'])) {
             $model->diskIds = $map['DiskIds'];
+        }
+        if (isset($map['DiskType'])) {
+            $model->diskType = $map['DiskType'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

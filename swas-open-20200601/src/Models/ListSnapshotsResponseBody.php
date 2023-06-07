@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListSnapshotsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details about the snapshots.
+     *
      * @var snapshots[]
      */
     public $snapshots;
 
     /**
+     * @description The total number of snapshots.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
