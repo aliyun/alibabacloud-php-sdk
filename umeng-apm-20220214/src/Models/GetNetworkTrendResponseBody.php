@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Umengapm\V20220214\Models;
 
-use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetSymUploadParamResponseBody\data;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetNetworkTrendResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetSymUploadParamResponseBody extends Model
+class GetNetworkTrendResponseBody extends Model
 {
     /**
      * @example 200
@@ -17,9 +17,7 @@ class GetSymUploadParamResponseBody extends Model
     public $code;
 
     /**
-     * @description data
-     *
-     * @var data
+     * @var data[]
      */
     public $data;
 
@@ -36,21 +34,11 @@ class GetSymUploadParamResponseBody extends Model
      * @var bool
      */
     public $success;
-
-    /**
-     * @description traceId
-     *
-     * @example 210f07c516457690916816858d94ea
-     *
-     * @var string
-     */
-    public $traceId;
     protected $_name = [
         'code'    => 'code',
         'data'    => 'data',
         'msg'     => 'msg',
         'success' => 'success',
-        'traceId' => 'traceId',
     ];
 
     public function validate()
@@ -64,16 +52,19 @@ class GetSymUploadParamResponseBody extends Model
             $res['code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->msg) {
             $res['msg'] = $this->msg;
         }
         if (null !== $this->success) {
             $res['success'] = $this->success;
-        }
-        if (null !== $this->traceId) {
-            $res['traceId'] = $this->traceId;
         }
 
         return $res;
@@ -82,7 +73,7 @@ class GetSymUploadParamResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetSymUploadParamResponseBody
+     * @return GetNetworkTrendResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -91,16 +82,19 @@ class GetSymUploadParamResponseBody extends Model
             $model->code = $map['code'];
         }
         if (isset($map['data'])) {
-            $model->data = data::fromMap($map['data']);
+            if (!empty($map['data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['msg'])) {
             $model->msg = $map['msg'];
         }
         if (isset($map['success'])) {
             $model->success = $map['success'];
-        }
-        if (isset($map['traceId'])) {
-            $model->traceId = $map['traceId'];
         }
 
         return $model;

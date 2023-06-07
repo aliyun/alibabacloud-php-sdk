@@ -6,6 +6,14 @@ namespace AlibabaCloud\SDK\Umengapm\V20220214;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetH5PageTrendRequest;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetH5PageTrendResponse;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetLaunchTrendRequest;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetLaunchTrendResponse;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetNativePageTrendRequest;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetNativePageTrendResponse;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetNetworkTrendRequest;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetNetworkTrendResponse;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetStatTrendRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetStatTrendResponse;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetSymUploadParamRequest;
@@ -54,16 +62,235 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetStatTrendRequest $request
+     * @param GetH5PageTrendRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return GetStatTrendResponse
+     * @return GetH5PageTrendResponse
      */
-    public function getStatTrend($request)
+    public function getH5PageTrendWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appVersion)) {
+            $query['appVersion'] = $request->appVersion;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['dataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['endDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['startDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->timeUnit)) {
+            $query['timeUnit'] = $request->timeUnit;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetH5PageTrend',
+            'version'     => '2022-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/stat/getH5PageTrend',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetH5PageTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetH5PageTrendRequest $request
+     *
+     * @return GetH5PageTrendResponse
+     */
+    public function getH5PageTrend($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getStatTrendWithOptions($request, $headers, $runtime);
+        return $this->getH5PageTrendWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetLaunchTrendRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetLaunchTrendResponse
+     */
+    public function getLaunchTrendWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appVersion)) {
+            $query['appVersion'] = $request->appVersion;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['dataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['endDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['startDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->timeUnit)) {
+            $query['timeUnit'] = $request->timeUnit;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLaunchTrend',
+            'version'     => '2022-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/stat/getLaunchTrend',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLaunchTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetLaunchTrendRequest $request
+     *
+     * @return GetLaunchTrendResponse
+     */
+    public function getLaunchTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getLaunchTrendWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetNativePageTrendRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetNativePageTrendResponse
+     */
+    public function getNativePageTrendWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appVersion)) {
+            $query['appVersion'] = $request->appVersion;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['dataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['endDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['startDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->timeUnit)) {
+            $query['timeUnit'] = $request->timeUnit;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetNativePageTrend',
+            'version'     => '2022-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/stat/getNativePageTrend',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetNativePageTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetNativePageTrendRequest $request
+     *
+     * @return GetNativePageTrendResponse
+     */
+    public function getNativePageTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getNativePageTrendWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetNetworkTrendRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetNetworkTrendResponse
+     */
+    public function getNetworkTrendWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appVersion)) {
+            $query['appVersion'] = $request->appVersion;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['dataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['endDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['startDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->timeUnit)) {
+            $query['timeUnit'] = $request->timeUnit;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetNetworkTrend',
+            'version'     => '2022-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/stat/getNetworkTrend',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetNetworkTrendResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetNetworkTrendRequest $request
+     *
+     * @return GetNetworkTrendResponse
+     */
+    public function getNetworkTrend($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getNetworkTrendWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -112,16 +339,16 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetSymUploadParamRequest $request
+     * @param GetStatTrendRequest $request
      *
-     * @return GetSymUploadParamResponse
+     * @return GetStatTrendResponse
      */
-    public function getSymUploadParam($request)
+    public function getStatTrend($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getSymUploadParamWithOptions($request, $headers, $runtime);
+        return $this->getStatTrendWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -167,16 +394,16 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param GetTodayStatTrendRequest $request
+     * @param GetSymUploadParamRequest $request
      *
-     * @return GetTodayStatTrendResponse
+     * @return GetSymUploadParamResponse
      */
-    public function getTodayStatTrend($request)
+    public function getSymUploadParam($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getTodayStatTrendWithOptions($request, $headers, $runtime);
+        return $this->getSymUploadParamWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -219,16 +446,16 @@ class Umengapm extends OpenApiClient
     }
 
     /**
-     * @param UpdateAlertPlanRequest $request
+     * @param GetTodayStatTrendRequest $request
      *
-     * @return UpdateAlertPlanResponse
+     * @return GetTodayStatTrendResponse
      */
-    public function updateAlertPlan($request)
+    public function getTodayStatTrend($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateAlertPlanWithOptions($request, $headers, $runtime);
+        return $this->getTodayStatTrendWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -268,5 +495,18 @@ class Umengapm extends OpenApiClient
         ]);
 
         return UpdateAlertPlanResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAlertPlanRequest $request
+     *
+     * @return UpdateAlertPlanResponse
+     */
+    public function updateAlertPlan($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAlertPlanWithOptions($request, $headers, $runtime);
     }
 }

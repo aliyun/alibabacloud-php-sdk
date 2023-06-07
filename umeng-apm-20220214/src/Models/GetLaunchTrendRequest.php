@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Umengapm\V20220214\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetStatTrendRequest extends Model
+class GetLaunchTrendRequest extends Model
 {
     /**
-     * @example 1.0
+     * @example 1.0.2
      *
      * @var string
      */
@@ -23,31 +23,31 @@ class GetStatTrendRequest extends Model
     public $dataSourceId;
 
     /**
-     * @example 2021-06-03
+     * @example 2023-05-03
      *
      * @var string
      */
     public $endDate;
 
     /**
-     * @example 2021-06-01
+     * @example 2023-05-01
      *
      * @var string
      */
     public $startDate;
 
     /**
-     * @example 1
+     * @example day
      *
-     * @var int
+     * @var string
      */
-    public $type;
+    public $timeUnit;
     protected $_name = [
         'appVersion'   => 'appVersion',
         'dataSourceId' => 'dataSourceId',
         'endDate'      => 'endDate',
         'startDate'    => 'startDate',
-        'type'         => 'type',
+        'timeUnit'     => 'timeUnit',
     ];
 
     public function validate()
@@ -69,8 +69,8 @@ class GetStatTrendRequest extends Model
         if (null !== $this->startDate) {
             $res['startDate'] = $this->startDate;
         }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->timeUnit) {
+            $res['timeUnit'] = $this->timeUnit;
         }
 
         return $res;
@@ -79,7 +79,7 @@ class GetStatTrendRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetStatTrendRequest
+     * @return GetLaunchTrendRequest
      */
     public static function fromMap($map = [])
     {
@@ -96,8 +96,8 @@ class GetStatTrendRequest extends Model
         if (isset($map['startDate'])) {
             $model->startDate = $map['startDate'];
         }
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
+        if (isset($map['timeUnit'])) {
+            $model->timeUnit = $map['timeUnit'];
         }
 
         return $model;

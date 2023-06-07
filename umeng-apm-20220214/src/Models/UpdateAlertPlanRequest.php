@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlertPlanRequest extends Model
 {
     /**
+     * @example 5fb6001a73749c24fd9cb356
+     *
      * @var string
      */
     public $dataSourceId;
 
     /**
+     * @example 18288
+     *
      * @var int
      */
     public $planId;
 
     /**
+     * @example "1.1.0,1.2.0,1.3.0"
+     *
      * @var string
      */
     public $versions;

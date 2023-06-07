@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlertPlanResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

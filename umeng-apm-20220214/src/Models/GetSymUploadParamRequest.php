@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetSymUploadParamRequest extends Model
 {
     /**
+     * @example 1.0.3
+     *
      * @var string
      */
     public $appVersion;
 
     /**
+     * @example 5fb6001a73749c24fd9cb356
+     *
      * @var string
      */
     public $dataSourceId;
 
     /**
+     * @example symbol.zip
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $fileType;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetTodayStatTrendRequest extends Model
 {
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $appVersion;
 
     /**
+     * @example 5fb6001a73749c24fd9cb356
+     *
      * @var string
      */
     public $dataSourceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

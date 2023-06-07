@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 52
+     *
      * @var int
      */
     public $affectedUserCount;
 
     /**
+     * @example 10.3
+     *
      * @var int
      */
     public $affectedUserRate;
 
     /**
+     * @example 120
+     *
      * @var int
      */
     public $errorCount;
 
     /**
+     * @example 25.6
+     *
      * @var int
      */
     public $errorRate;
 
     /**
+     * @example 2021-06-01
+     *
      * @var string
      */
     public $timePoint;

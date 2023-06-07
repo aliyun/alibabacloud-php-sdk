@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetStatTrendResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -20,11 +22,15 @@ class GetStatTrendResponseBody extends Model
     public $data;
 
     /**
+     * @example succeed in handling request
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
