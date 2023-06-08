@@ -2,17 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CardOcrResponseBody;
+namespace AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
 class result extends Model
 {
-    /**
-     * @var string
-     */
-    public $extCardInfo;
-
     /**
      * @var string
      */
@@ -39,7 +34,6 @@ class result extends Model
      */
     public $transactionId;
     protected $_name = [
-        'extCardInfo'   => 'ExtCardInfo',
         'extIdInfo'     => 'ExtIdInfo',
         'passed'        => 'Passed',
         'subCode'       => 'SubCode',
@@ -53,9 +47,6 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->extCardInfo) {
-            $res['ExtCardInfo'] = $this->extCardInfo;
-        }
         if (null !== $this->extIdInfo) {
             $res['ExtIdInfo'] = $this->extIdInfo;
         }
@@ -80,9 +71,6 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ExtCardInfo'])) {
-            $model->extCardInfo = $map['ExtCardInfo'];
-        }
         if (isset($map['ExtIdInfo'])) {
             $model->extIdInfo = $map['ExtIdInfo'];
         }

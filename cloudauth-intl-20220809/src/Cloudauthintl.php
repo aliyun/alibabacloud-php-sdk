@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeRiskScoreRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeRiskScoreResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeTransactionsListRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeTransactionsListResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessRequest;
@@ -66,10 +68,14 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param CardOcrRequest $request
-     * @param RuntimeOptions $runtime
+     * @deprecated : CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
+     *   *
+     * Deprecated
      *
-     * @return CardOcrResponse
+     * @param CardOcrRequest $request CardOcrRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CardOcrResponse CardOcrResponse
      */
     public function cardOcrWithOptions($request, $runtime)
     {
@@ -121,9 +127,13 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
-     * @param CardOcrRequest $request
+     * @deprecated : CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
+     *   *
+     * Deprecated
      *
-     * @return CardOcrResponse
+     * @param CardOcrRequest $request CardOcrRequest
+     *
+     * @return CardOcrResponse CardOcrResponse
      */
     public function cardOcr($request)
     {
@@ -445,6 +455,73 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTransactionsListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DocOcrRequest  $request
+     * @param RuntimeOptions $runtime
+     *
+     * @return DocOcrResponse
+     */
+    public function docOcrWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->docType)) {
+            $query['DocType'] = $request->docType;
+        }
+        if (!Utils::isUnset($request->idFaceQuality)) {
+            $query['IdFaceQuality'] = $request->idFaceQuality;
+        }
+        if (!Utils::isUnset($request->idOcrPictureBase64)) {
+            $query['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
+        }
+        if (!Utils::isUnset($request->idOcrPictureUrl)) {
+            $query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        if (!Utils::isUnset($request->merchantUserId)) {
+            $query['MerchantUserId'] = $request->merchantUserId;
+        }
+        if (!Utils::isUnset($request->ocr)) {
+            $query['Ocr'] = $request->ocr;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->spoof)) {
+            $query['Spoof'] = $request->spoof;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DocOcr',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DocOcrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DocOcrRequest $request
+     *
+     * @return DocOcrResponse
+     */
+    public function docOcr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->docOcrWithOptions($request, $runtime);
     }
 
     /**
