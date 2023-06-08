@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetDcdnKvRequest extends Model
 {
     /**
-     * @description The name of the namespace.
-     *
-     * @example key1
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description Queries the value of the key in a key-value pair.
-     *
-     * @example ns1
-     *
      * @var string
      */
     public $namespace;
