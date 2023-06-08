@@ -4,11 +4,12 @@
 
 namespace AlibabaCloud\SDK\Avatar\V20220130\Models;
 
-use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextToSignVideoTaskRequest\app;
-use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextToSignVideoTaskRequest\videoInfo;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAudioTo2DAvatarVideoTaskRequest\app;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAudioTo2DAvatarVideoTaskRequest\avatarInfo;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAudioTo2DAvatarVideoTaskRequest\videoInfo;
 use AlibabaCloud\Tea\Model;
 
-class SubmitTextToSignVideoTaskRequest extends Model
+class SubmitAudioTo2DAvatarVideoTaskRequest extends Model
 {
     /**
      * @var app
@@ -16,7 +17,12 @@ class SubmitTextToSignVideoTaskRequest extends Model
     public $app;
 
     /**
-     * @example 12345
+     * @var avatarInfo
+     */
+    public $avatarInfo;
+
+    /**
+     * @example 20516
      *
      * @var int
      */
@@ -25,23 +31,24 @@ class SubmitTextToSignVideoTaskRequest extends Model
     /**
      * @var string
      */
-    public $text;
+    public $title;
 
     /**
      * @var string
      */
-    public $title;
+    public $url;
 
     /**
      * @var videoInfo
      */
     public $videoInfo;
     protected $_name = [
-        'app'       => 'App',
-        'tenantId'  => 'TenantId',
-        'text'      => 'Text',
-        'title'     => 'Title',
-        'videoInfo' => 'VideoInfo',
+        'app'        => 'App',
+        'avatarInfo' => 'AvatarInfo',
+        'tenantId'   => 'TenantId',
+        'title'      => 'Title',
+        'url'        => 'Url',
+        'videoInfo'  => 'VideoInfo',
     ];
 
     public function validate()
@@ -54,14 +61,17 @@ class SubmitTextToSignVideoTaskRequest extends Model
         if (null !== $this->app) {
             $res['App'] = null !== $this->app ? $this->app->toMap() : null;
         }
+        if (null !== $this->avatarInfo) {
+            $res['AvatarInfo'] = null !== $this->avatarInfo ? $this->avatarInfo->toMap() : null;
+        }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
-        if (null !== $this->text) {
-            $res['Text'] = $this->text;
-        }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
         if (null !== $this->videoInfo) {
             $res['VideoInfo'] = null !== $this->videoInfo ? $this->videoInfo->toMap() : null;
@@ -73,7 +83,7 @@ class SubmitTextToSignVideoTaskRequest extends Model
     /**
      * @param array $map
      *
-     * @return SubmitTextToSignVideoTaskRequest
+     * @return SubmitAudioTo2DAvatarVideoTaskRequest
      */
     public static function fromMap($map = [])
     {
@@ -81,14 +91,17 @@ class SubmitTextToSignVideoTaskRequest extends Model
         if (isset($map['App'])) {
             $model->app = app::fromMap($map['App']);
         }
+        if (isset($map['AvatarInfo'])) {
+            $model->avatarInfo = avatarInfo::fromMap($map['AvatarInfo']);
+        }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
-        if (isset($map['Text'])) {
-            $model->text = $map['Text'];
-        }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
         if (isset($map['VideoInfo'])) {
             $model->videoInfo = videoInfo::fromMap($map['VideoInfo']);

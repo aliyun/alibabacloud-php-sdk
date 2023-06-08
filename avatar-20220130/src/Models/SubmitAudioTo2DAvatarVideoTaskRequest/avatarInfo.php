@@ -2,20 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextToSignVideoTaskResponseBody;
+namespace AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAudioTo2DAvatarVideoTaskRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class data extends Model
+class avatarInfo extends Model
 {
     /**
-     * @example 22e733b3-6e19-405d-8782-1af7c072caXX
+     * @example CH_2d_xxxxxxx
      *
      * @var string
      */
-    public $taskUuid;
+    public $code;
     protected $_name = [
-        'taskUuid' => 'TaskUuid',
+        'code' => 'Code',
     ];
 
     public function validate()
@@ -25,8 +25,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->taskUuid) {
-            $res['TaskUuid'] = $this->taskUuid;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
 
         return $res;
@@ -35,13 +35,13 @@ class data extends Model
     /**
      * @param array $map
      *
-     * @return data
+     * @return avatarInfo
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TaskUuid'])) {
-            $model->taskUuid = $map['TaskUuid'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
 
         return $model;

@@ -19,6 +19,10 @@ use AlibabaCloud\SDK\Avatar\V20220130\Models\GetVideoTaskInfoResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\GetVideoTaskInfoShrinkRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\LicenseAuthRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\LicenseAuthResponse;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryAvatarListRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryAvatarListResponse;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryAvatarRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryAvatarResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryRunningInstanceRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryRunningInstanceResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryRunningInstanceShrinkRequest;
@@ -34,15 +38,15 @@ use AlibabaCloud\SDK\Avatar\V20220130\Models\StartTimedResetOperateRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\StartTimedResetOperateResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\StopInstanceResponse;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAudioTo2DAvatarVideoTaskRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAudioTo2DAvatarVideoTaskResponse;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitAudioTo2DAvatarVideoTaskShrinkRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo2DAvatarVideoTaskRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo2DAvatarVideoTaskResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo2DAvatarVideoTaskShrinkRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo3DAvatarVideoTaskRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo3DAvatarVideoTaskResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo3DAvatarVideoTaskShrinkRequest;
-use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextToSignVideoTaskRequest;
-use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextToSignVideoTaskResponse;
-use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextToSignVideoTaskShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -352,6 +356,98 @@ class Avatar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->licenseAuthWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryAvatarRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return QueryAvatarResponse
+     */
+    public function queryAvatarWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAvatar',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryAvatarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryAvatarRequest $request
+     *
+     * @return QueryAvatarResponse
+     */
+    public function queryAvatar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAvatarWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryAvatarListRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return QueryAvatarListResponse
+     */
+    public function queryAvatarListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->modelType)) {
+            $query['ModelType'] = $request->modelType;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAvatarList',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryAvatarListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryAvatarListRequest $request
+     *
+     * @return QueryAvatarListResponse
+     */
+    public function queryAvatarList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAvatarListWithOptions($request, $runtime);
     }
 
     /**
@@ -679,6 +775,75 @@ class Avatar extends OpenApiClient
     }
 
     /**
+     * @param SubmitAudioTo2DAvatarVideoTaskRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return SubmitAudioTo2DAvatarVideoTaskResponse
+     */
+    public function submitAudioTo2DAvatarVideoTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitAudioTo2DAvatarVideoTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->app)) {
+            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->avatarInfo)) {
+            $request->avatarInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->avatarInfo, 'AvatarInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->videoInfo)) {
+            $request->videoInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoInfo, 'VideoInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appShrink)) {
+            $query['App'] = $request->appShrink;
+        }
+        if (!Utils::isUnset($request->avatarInfoShrink)) {
+            $query['AvatarInfo'] = $request->avatarInfoShrink;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        if (!Utils::isUnset($request->videoInfoShrink)) {
+            $query['VideoInfo'] = $request->videoInfoShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitAudioTo2DAvatarVideoTask',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitAudioTo2DAvatarVideoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitAudioTo2DAvatarVideoTaskRequest $request
+     *
+     * @return SubmitAudioTo2DAvatarVideoTaskResponse
+     */
+    public function submitAudioTo2DAvatarVideoTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAudioTo2DAvatarVideoTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitTextTo2DAvatarVideoTaskRequest $tmpReq
      * @param RuntimeOptions                       $runtime
      *
@@ -820,68 +985,5 @@ class Avatar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitTextTo3DAvatarVideoTaskWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param SubmitTextToSignVideoTaskRequest $tmpReq
-     * @param RuntimeOptions                   $runtime
-     *
-     * @return SubmitTextToSignVideoTaskResponse
-     */
-    public function submitTextToSignVideoTaskWithOptions($tmpReq, $runtime)
-    {
-        Utils::validateModel($tmpReq);
-        $request = new SubmitTextToSignVideoTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->app)) {
-            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->videoInfo)) {
-            $request->videoInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->videoInfo, 'VideoInfo', 'json');
-        }
-        $query = [];
-        if (!Utils::isUnset($request->appShrink)) {
-            $query['App'] = $request->appShrink;
-        }
-        if (!Utils::isUnset($request->tenantId)) {
-            $query['TenantId'] = $request->tenantId;
-        }
-        if (!Utils::isUnset($request->text)) {
-            $query['Text'] = $request->text;
-        }
-        if (!Utils::isUnset($request->title)) {
-            $query['Title'] = $request->title;
-        }
-        if (!Utils::isUnset($request->videoInfoShrink)) {
-            $query['VideoInfo'] = $request->videoInfoShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SubmitTextToSignVideoTask',
-            'version'     => '2022-01-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return SubmitTextToSignVideoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param SubmitTextToSignVideoTaskRequest $request
-     *
-     * @return SubmitTextToSignVideoTaskResponse
-     */
-    public function submitTextToSignVideoTask($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->submitTextToSignVideoTaskWithOptions($request, $runtime);
     }
 }

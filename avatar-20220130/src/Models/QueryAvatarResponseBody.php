@@ -4,13 +4,13 @@
 
 namespace AlibabaCloud\SDK\Avatar\V20220130\Models;
 
-use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextToSignVideoTaskResponseBody\data;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryAvatarResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class SubmitTextToSignVideoTaskResponseBody extends Model
+class QueryAvatarResponseBody extends Model
 {
     /**
-     * @example 401
+     * @example 10050008
      *
      * @var string
      */
@@ -34,9 +34,9 @@ class SubmitTextToSignVideoTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @example false
+     * @example true
      *
-     * @var string
+     * @var bool
      */
     public $success;
     protected $_name = [
@@ -76,7 +76,7 @@ class SubmitTextToSignVideoTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SubmitTextToSignVideoTaskResponseBody
+     * @return QueryAvatarResponseBody
      */
     public static function fromMap($map = [])
     {

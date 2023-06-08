@@ -28,6 +28,11 @@ class taskResult extends Model
     public $subtitlesUrl;
 
     /**
+     * @var int
+     */
+    public $videoDuration;
+
+    /**
      * @example xxx/xxxx/xx.mp4
      *
      * @var string
@@ -46,6 +51,7 @@ class taskResult extends Model
         'failCode'         => 'FailCode',
         'failReason'       => 'FailReason',
         'subtitlesUrl'     => 'SubtitlesUrl',
+        'videoDuration'    => 'VideoDuration',
         'videoUrl'         => 'VideoUrl',
         'wordSubtitlesUrl' => 'WordSubtitlesUrl',
     ];
@@ -65,6 +71,9 @@ class taskResult extends Model
         }
         if (null !== $this->subtitlesUrl) {
             $res['SubtitlesUrl'] = $this->subtitlesUrl;
+        }
+        if (null !== $this->videoDuration) {
+            $res['VideoDuration'] = $this->videoDuration;
         }
         if (null !== $this->videoUrl) {
             $res['VideoUrl'] = $this->videoUrl;
@@ -92,6 +101,9 @@ class taskResult extends Model
         }
         if (isset($map['SubtitlesUrl'])) {
             $model->subtitlesUrl = $map['SubtitlesUrl'];
+        }
+        if (isset($map['VideoDuration'])) {
+            $model->videoDuration = $map['VideoDuration'];
         }
         if (isset($map['VideoUrl'])) {
             $model->videoUrl = $map['VideoUrl'];

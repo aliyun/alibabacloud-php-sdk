@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Avatar\V20220130\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SubmitTextToSignVideoTaskResponse extends Model
+class QueryAvatarListResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class SubmitTextToSignVideoTaskResponse extends Model
     public $statusCode;
 
     /**
-     * @var SubmitTextToSignVideoTaskResponseBody
+     * @var QueryAvatarListResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class SubmitTextToSignVideoTaskResponse extends Model
     /**
      * @param array $map
      *
-     * @return SubmitTextToSignVideoTaskResponse
+     * @return QueryAvatarListResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class SubmitTextToSignVideoTaskResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = SubmitTextToSignVideoTaskResponseBody::fromMap($map['body']);
+            $model->body = QueryAvatarListResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Avatar\V20220130\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SubmitTextToSignVideoTaskShrinkRequest extends Model
+class SubmitAudioTo2DAvatarVideoTaskShrinkRequest extends Model
 {
     /**
      * @var string
@@ -14,16 +14,16 @@ class SubmitTextToSignVideoTaskShrinkRequest extends Model
     public $appShrink;
 
     /**
-     * @example 12345
+     * @var string
+     */
+    public $avatarInfoShrink;
+
+    /**
+     * @example 20516
      *
      * @var int
      */
     public $tenantId;
-
-    /**
-     * @var string
-     */
-    public $text;
 
     /**
      * @var string
@@ -33,13 +33,19 @@ class SubmitTextToSignVideoTaskShrinkRequest extends Model
     /**
      * @var string
      */
+    public $url;
+
+    /**
+     * @var string
+     */
     public $videoInfoShrink;
     protected $_name = [
-        'appShrink'       => 'App',
-        'tenantId'        => 'TenantId',
-        'text'            => 'Text',
-        'title'           => 'Title',
-        'videoInfoShrink' => 'VideoInfo',
+        'appShrink'        => 'App',
+        'avatarInfoShrink' => 'AvatarInfo',
+        'tenantId'         => 'TenantId',
+        'title'            => 'Title',
+        'url'              => 'Url',
+        'videoInfoShrink'  => 'VideoInfo',
     ];
 
     public function validate()
@@ -52,14 +58,17 @@ class SubmitTextToSignVideoTaskShrinkRequest extends Model
         if (null !== $this->appShrink) {
             $res['App'] = $this->appShrink;
         }
+        if (null !== $this->avatarInfoShrink) {
+            $res['AvatarInfo'] = $this->avatarInfoShrink;
+        }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
         }
-        if (null !== $this->text) {
-            $res['Text'] = $this->text;
-        }
         if (null !== $this->title) {
             $res['Title'] = $this->title;
+        }
+        if (null !== $this->url) {
+            $res['Url'] = $this->url;
         }
         if (null !== $this->videoInfoShrink) {
             $res['VideoInfo'] = $this->videoInfoShrink;
@@ -71,7 +80,7 @@ class SubmitTextToSignVideoTaskShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return SubmitTextToSignVideoTaskShrinkRequest
+     * @return SubmitAudioTo2DAvatarVideoTaskShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -79,14 +88,17 @@ class SubmitTextToSignVideoTaskShrinkRequest extends Model
         if (isset($map['App'])) {
             $model->appShrink = $map['App'];
         }
+        if (isset($map['AvatarInfo'])) {
+            $model->avatarInfoShrink = $map['AvatarInfo'];
+        }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
         }
-        if (isset($map['Text'])) {
-            $model->text = $map['Text'];
-        }
         if (isset($map['Title'])) {
             $model->title = $map['Title'];
+        }
+        if (isset($map['Url'])) {
+            $model->url = $map['Url'];
         }
         if (isset($map['VideoInfo'])) {
             $model->videoInfoShrink = $map['VideoInfo'];
