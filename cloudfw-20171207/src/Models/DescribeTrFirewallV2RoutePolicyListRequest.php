@@ -33,11 +33,17 @@ class DescribeTrFirewallV2RoutePolicyListRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $policyId;
     protected $_name = [
         'currentPage' => 'CurrentPage',
         'firewallId'  => 'FirewallId',
         'lang'        => 'Lang',
         'pageSize'    => 'PageSize',
+        'policyId'    => 'PolicyId',
     ];
 
     public function validate()
@@ -58,6 +64,9 @@ class DescribeTrFirewallV2RoutePolicyListRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->policyId) {
+            $res['PolicyId'] = $this->policyId;
         }
 
         return $res;
@@ -82,6 +91,9 @@ class DescribeTrFirewallV2RoutePolicyListRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['PolicyId'])) {
+            $model->policyId = $map['PolicyId'];
         }
 
         return $model;

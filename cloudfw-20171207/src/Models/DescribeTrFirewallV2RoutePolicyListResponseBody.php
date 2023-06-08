@@ -17,11 +17,17 @@ class DescribeTrFirewallV2RoutePolicyListResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $totalCount;
+
+    /**
      * @var trFirewallRoutePolicies[]
      */
     public $trFirewallRoutePolicies;
     protected $_name = [
         'requestId'               => 'RequestId',
+        'totalCount'              => 'TotalCount',
         'trFirewallRoutePolicies' => 'TrFirewallRoutePolicies',
     ];
 
@@ -34,6 +40,9 @@ class DescribeTrFirewallV2RoutePolicyListResponseBody extends Model
         $res = [];
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
         if (null !== $this->trFirewallRoutePolicies) {
             $res['TrFirewallRoutePolicies'] = [];
@@ -58,6 +67,9 @@ class DescribeTrFirewallV2RoutePolicyListResponseBody extends Model
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
         if (isset($map['TrFirewallRoutePolicies'])) {
             if (!empty($map['TrFirewallRoutePolicies'])) {
