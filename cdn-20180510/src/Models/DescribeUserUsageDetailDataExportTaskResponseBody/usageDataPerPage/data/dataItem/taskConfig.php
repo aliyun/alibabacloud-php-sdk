@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class taskConfig extends Model
 {
     /**
-     * @description refresh
+     * @description The end of the time range during which data was queried.
      *
      * @example 2018-08-31T15:59:59Z
      *
@@ -18,7 +18,7 @@ class taskConfig extends Model
     public $endTime;
 
     /**
-     * @description The ID of the request.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2018-07-31T16:00:00Z
      *

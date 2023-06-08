@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class referList extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The amount of network traffic. Unit: bytes.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class referList extends Model
     public $flow;
 
     /**
-     * @description The proportion of the amount of network traffic consumed for visiting the web page.
+     * @description The proportion of network traffic consumed to access the URL.
      *
      * @example 0.5
      *
@@ -27,7 +27,7 @@ class referList extends Model
     public $flowProportion;
 
     /**
-     * @description Queries frequently requested web pages of one or more accelerated domain names on a specified day and sorts the web pages. You can query data collected within the last 90 days.
+     * @description The URLs to the most frequently requested web pages.
      *
      * @example learn.aliyundoc.com
      *
@@ -36,7 +36,7 @@ class referList extends Model
     public $referDetail;
 
     /**
-     * @description The proportion of visits to the web page.
+     * @description The number of visits to the URL.
      *
      * @example 3
      *
@@ -45,6 +45,8 @@ class referList extends Model
     public $visitData;
 
     /**
+     * @description The proportion of visits to the URL.
+     *
      * @example 0.5
      *
      * @var float

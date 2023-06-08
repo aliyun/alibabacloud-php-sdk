@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ISPProportionData extends Model
 {
     /**
-     * @description The average response time. Unit: milliseconds.
+     * @description The average response size. Unit: bytes.
      *
      * @example 7081884.7
      *
@@ -18,7 +18,7 @@ class ISPProportionData extends Model
     public $avgObjectSize;
 
     /**
-     * @description The access statistics by ISP.
+     * @description The average response speed. Unit: byte/ms.
      *
      * @example 88.92594866772144
      *
@@ -27,7 +27,7 @@ class ISPProportionData extends Model
     public $avgResponseRate;
 
     /**
-     * @description The total number of requests.
+     * @description The average response time. Unit: milliseconds.
      *
      * @example 79638.0
      *
@@ -36,7 +36,7 @@ class ISPProportionData extends Model
     public $avgResponseTime;
 
     /**
-     * @description The time interval between the data entries. Unit: seconds.
+     * @description The bandwidth.
      *
      * @example 1311.4601296296296
      *
@@ -45,6 +45,8 @@ class ISPProportionData extends Model
     public $bps;
 
     /**
+     * @description The proportion of network traffic.
+     *
      * @example 0.012220518530445479
      *
      * @var string
@@ -52,16 +54,16 @@ class ISPProportionData extends Model
     public $bytesProportion;
 
     /**
-     * @description Queries the proportions of data usage of different Internet service providers (ISPs). Data is collected every day. You can query data collected within the last 90 days.
+     * @description The information about the ISP.
      *
-     * @example DescribeDomainISPData
+     * @example Alibaba
      *
      * @var string
      */
     public $ISP;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the ISP.
      *
      * @example alibaba
      *
@@ -70,7 +72,7 @@ class ISPProportionData extends Model
     public $ispEname;
 
     /**
-     * @description The average response size. Unit: bytes.
+     * @description The proportion of the HTTP status code.
      *
      * @example 0.004509176173513099
      *
@@ -79,7 +81,7 @@ class ISPProportionData extends Model
     public $proportion;
 
     /**
-     * @description The bandwidth value.
+     * @description The QPS.
      *
      * @example 2.3148148148148147E-5
      *
@@ -88,7 +90,7 @@ class ISPProportionData extends Model
     public $qps;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The request error rate.
      *
      * @example 0.0
      *
@@ -97,7 +99,7 @@ class ISPProportionData extends Model
     public $reqErrRate;
 
     /**
-     * @description The information about the ISP.
+     * @description The total volume of traffic.
      *
      * @example 7081884
      *
@@ -106,7 +108,7 @@ class ISPProportionData extends Model
     public $totalBytes;
 
     /**
-     * @description The average response speed. Unit: byte/ms.
+     * @description The total number of requests.
      *
      * @example 1
      *

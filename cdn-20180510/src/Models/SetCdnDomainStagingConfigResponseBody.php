@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class SetCdnDomainStagingConfigResponseBody extends Model
 {
     /**
+     * @description The list of domain configurations.
+     *
      * @var domainConfigList[]
      */
     public $domainConfigList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string

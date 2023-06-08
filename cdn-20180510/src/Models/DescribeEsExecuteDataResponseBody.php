@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEsExecuteDataResponseBody extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeEsExecuteData**.
+     * @description The content of the script.
      *
      * @var contents[]
      */

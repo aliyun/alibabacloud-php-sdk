@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteCdnDomainConfigRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **BatchDeleteCdnDomainConfig**.
+     * @description The accelerated domain names whose configurations you want to delete. Separate multiple accelerated domain names with commas (,).
      *
      * @example example.com,example.org
      *
@@ -18,7 +18,7 @@ class BatchDeleteCdnDomainConfigRequest extends Model
     public $domainNames;
 
     /**
-     * @description The names of the features that you want to manage. Separate feature names with commas (,).
+     * @description The names of the features that you want to delete. Separate multiple feature names with commas (,). For more information about feature names, see [Parameters for configuring features for domain names](~~388460~~).
      *
      * @example referer_white_list_set,https_force
      *

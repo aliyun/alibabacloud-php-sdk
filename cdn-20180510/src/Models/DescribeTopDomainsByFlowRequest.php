@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeTopDomainsByFlowRequest extends Model
 {
     /**
-     * @description The maximum number of domain names to query. Valid values: **1** to **100**. Default value: **20**.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * > The end time must be later than the start time.
      * @example 2019-12-23T08:00:00Z
      *
      * @var string
@@ -18,7 +19,7 @@ class DescribeTopDomainsByFlowRequest extends Model
     public $endTime;
 
     /**
-     * @description The total number of accelerated domain names that are in the **Enabled** state within the current Alibaba Cloud account.
+     * @description The maximum number of domain names to query. Valid values: **1** to **100**. Default value: **20**.
      *
      * @example 20
      *
@@ -27,9 +28,9 @@ class DescribeTopDomainsByFlowRequest extends Model
     public $limit;
 
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time.
+     * > The value of StartTime must be in UTC. For example, if the local time is 00:00 on June 1, 2021, set StartTime to 2021-05-31T16:00:00Z.
      * @example 2019-12-22T08:00:00Z
      *
      * @var string

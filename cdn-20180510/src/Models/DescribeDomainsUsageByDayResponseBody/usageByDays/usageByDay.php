@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class usageByDay extends Model
 {
     /**
+     * @description The byte hit ratio. The byte hit ratio is measured in percentage.
+     *
      * @example 97.46250599529726
      *
      * @var string
@@ -16,6 +18,8 @@ class usageByDay extends Model
     public $bytesHitRate;
 
     /**
+     * @description The peak bandwidth value. Unit: bit/s.
+     *
      * @example 306747.76
      *
      * @var string
@@ -23,6 +27,8 @@ class usageByDay extends Model
     public $maxBps;
 
     /**
+     * @description The time when the bandwidth reached the peak value.
+     *
      * @example 2019-12-23 10:55:00
      *
      * @var string
@@ -30,6 +36,8 @@ class usageByDay extends Model
     public $maxBpsTime;
 
     /**
+     * @description The peak bandwidth value during back-to-origin routing. Unit: bit/s.
+     *
      * @example 72584.072
      *
      * @var string
@@ -37,6 +45,8 @@ class usageByDay extends Model
     public $maxSrcBps;
 
     /**
+     * @description The time when the bandwidth during back-to-origin routing reached the peak value.
+     *
      * @example 2019-12-23 11:45:00
      *
      * @var string
@@ -44,6 +54,8 @@ class usageByDay extends Model
     public $maxSrcBpsTime;
 
     /**
+     * @description The number of queries per second (QPS).
+     *
      * @example 7.466354166666667
      *
      * @var string
@@ -51,6 +63,8 @@ class usageByDay extends Model
     public $qps;
 
     /**
+     * @description The cache hit ratio that is calculated based on requests. The cache hit ratio is measured in percentage.
+     *
      * @example 70.24770071912111
      *
      * @var string
@@ -58,6 +72,8 @@ class usageByDay extends Model
     public $requestHitRate;
 
     /**
+     * @description The timestamp of the data returned.
+     *
      * @example 2019-12-22
      *
      * @var string
@@ -65,6 +81,8 @@ class usageByDay extends Model
     public $timeStamp;
 
     /**
+     * @description The total amount of requests.
+     *
      * @example 645093
      *
      * @var string
@@ -72,6 +90,8 @@ class usageByDay extends Model
     public $totalAccess;
 
     /**
+     * @description The total amount of network traffic. Unit: bytes.
+     *
      * @example 564300099309
      *
      * @var string

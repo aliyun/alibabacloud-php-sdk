@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserVipsByDomainRequest extends Model
 {
     /**
-     * @description The virtual IP address.
+     * @description Specifies whether to query the virtual IP addresses of only healthy CDN POPs. Valid values:
+     *
+     *   **on**：healthy CDN edge nodes.
+     *   **off**：all CDN edge nodes.
      *
      * @example on
      *
@@ -18,7 +21,7 @@ class DescribeUserVipsByDomainRequest extends Model
     public $available;
 
     /**
-     * @description A list of virtual IP addresses.
+     * @description The accelerated domain name. You can specify only one domain name.
      *
      * @example example.com
      *

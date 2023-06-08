@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePreloadDetailByIdRequest extends Model
 {
     /**
+     * @description Queries the details of a preload task by task ID. You can query one task ID at a time.
+     *
      * @example 15423123921
      *
      * @var string

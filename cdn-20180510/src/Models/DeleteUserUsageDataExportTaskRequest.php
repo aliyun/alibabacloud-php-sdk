@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserUsageDataExportTaskRequest extends Model
 {
     /**
-     * @description The ID of the export task that you want to delete.
+     * @description The ID of the task to delete.
      *
      * @example 10
      *

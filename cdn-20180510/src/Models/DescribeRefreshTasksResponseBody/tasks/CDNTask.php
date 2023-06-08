@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CDNTask extends Model
 {
     /**
+     * @description The time when the task was created. The time is displayed in UTC.
+     *
      * @example 2014-11-27T08:23:22Z
      *
      * @var string
@@ -16,6 +18,12 @@ class CDNTask extends Model
     public $creationTime;
 
     /**
+     * @description The type of the error returned when the refresh or prefetch task failed. Valid values:
+     *
+     *   **InternalError**: An internal error occurred.
+     *   **OriginTimeout**: The response from the origin server timed out.
+     *   **OriginReturnStatusCode 5XX**: The origin server returned a 5XX error.
+     *
      * @example Internal Error
      *
      * @var string
@@ -23,6 +31,8 @@ class CDNTask extends Model
     public $description;
 
     /**
+     * @description The URL of the object refreshed.
+     *
      * @example http://example.com/1.txt
      *
      * @var string
@@ -30,6 +40,13 @@ class CDNTask extends Model
     public $objectPath;
 
     /**
+     * @description The type of the task.
+     *
+     *   **file**: refreshes one or more files.
+     *   **directory**: refreshes files in the specified directories.
+     *   **regex**: refreshes content based on a regular expression.
+     *   **preload**: prefetches one or more files.
+     *
      * @example file
      *
      * @var string
@@ -37,6 +54,8 @@ class CDNTask extends Model
     public $objectType;
 
     /**
+     * @description The progress of the task, in percentage.
+     *
      * @example 100%
      *
      * @var string
@@ -44,6 +63,12 @@ class CDNTask extends Model
     public $process;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **Complete**: The task has completed.
+     *   **Refreshing**: The task is in progress.
+     *   **Failed**: The task failed.
+     *
      * @example Complete
      *
      * @var string
@@ -51,6 +76,8 @@ class CDNTask extends Model
     public $status;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 704225667
      *
      * @var string

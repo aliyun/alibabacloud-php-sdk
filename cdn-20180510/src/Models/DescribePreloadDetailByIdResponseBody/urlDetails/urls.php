@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class urls extends Model
 {
     /**
+     * @description The details of resource prefetch.
+     *
+     *   If the resource is prefetched on all POPs, "Successfully preloaded" is returned.
+     *   If the resource fails to be prefetched on some POPs, the failure details separated by vertical bars (|) are returned.
+     *
      * @example Successfully preloaded
      *
      * @var string
@@ -16,6 +21,8 @@ class urls extends Model
     public $description;
 
     /**
+     * @description The success percentage, which indicates the number of POPs on which the resource is prefetched.
+     *
      * @example 47%
      *
      * @var string
@@ -23,6 +30,8 @@ class urls extends Model
     public $success;
 
     /**
+     * @description The URL of the prefetched resource.
+     *
      * @example /abc.jpg
      *
      * @var string

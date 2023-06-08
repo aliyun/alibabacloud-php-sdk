@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteUsageDetailDataExportTaskRequest extends Model
 {
     /**
-     * @description The ID of the task. You can call the [DescribeUserUsageDataExportTask](~~91062~~) operation to query the most recent task list.
+     * @description The ID of the task. You can call the [DescribeUserUsageDataExportTask](~~91062~~) operation to query tasks.
      *
      * @example 10
      *

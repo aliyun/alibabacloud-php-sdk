@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The timestamp of the returned data.
+     *
      * @example 2020-05-06T07:10:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
+     * @description The total amount of network traffic. Unit: bytes.
+     *
      * @example 2838
      *
      * @var string
@@ -23,6 +27,8 @@ class dataModule extends Model
     public $trafficValue;
 
     /**
+     * @description The peak bandwidth value. Unit: bit/s.
+     *
      * @example 75.68
      *
      * @var string

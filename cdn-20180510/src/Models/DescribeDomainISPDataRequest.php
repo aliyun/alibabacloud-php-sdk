@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainISPDataRequest extends Model
 {
     /**
-     * @description The request error rate.
+     * @description The accelerated domain name. You can specify only one domain name in each call.
      *
+     * By default, this operation queries the proportions of data usage for all accelerated domain names.
      * @example example.com
      *
      * @var string
@@ -28,8 +29,9 @@ class DescribeDomainISPDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The accelerated domain name.
+     * @description The beginning of the time range to query.
      *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2019-11-29T05:33:00Z
      *
      * @var string

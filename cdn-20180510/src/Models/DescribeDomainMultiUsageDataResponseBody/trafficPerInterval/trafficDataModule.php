@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class trafficDataModule extends Model
 {
     /**
+     * @description The name of the region.
+     *
      * @example CN
      *
      * @var string
@@ -16,6 +18,8 @@ class trafficDataModule extends Model
     public $area;
 
     /**
+     * @description The bandwidth. Unit: bit/s.
+     *
      * @example 11288111.1
      *
      * @var float
@@ -23,6 +27,8 @@ class trafficDataModule extends Model
     public $bps;
 
     /**
+     * @description The domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -30,6 +36,8 @@ class trafficDataModule extends Model
     public $domain;
 
     /**
+     * @description The startstamp of the returned usage data.
+     *
      * @example 2017-12-10T20:00:00Z
      *
      * @var string
@@ -37,6 +45,14 @@ class trafficDataModule extends Model
     public $timeStamp;
 
     /**
+     * @description The type of requests. Valid values:
+     *
+     *   **StaticHttps**: static HTTPS requests
+     *   **DynamicHttps**: dynamic HTTPS requests
+     *   **DynamicHttp**: dynamic HTTP requests
+     *   **StaticQuic**: static QUIC requests
+     *   **DynamicQuic**: dynamic QUIC requests
+     *
      * @example DynamicHttp
      *
      * @var string

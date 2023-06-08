@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeDetailDataResponseBody extends Model
 {
     /**
-     * @description DescribeDomainRealTimeDetailData
+     * @description The monitoring data of each ISP in each region.
      *
      * @example [
      * ]
@@ -18,6 +18,8 @@ class DescribeDomainRealTimeDetailDataResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example B49E6DDA-F413-422B-B58E-2FA23F286726
      *
      * @var string

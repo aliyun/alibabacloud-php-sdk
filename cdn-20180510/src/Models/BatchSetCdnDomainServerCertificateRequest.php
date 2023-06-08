@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BatchSetCdnDomainServerCertificateRequest extends Model
 {
     /**
-     * @description The region.
+     * @description The name of the certificate.
      *
      * @example yourCertName
      *
@@ -18,10 +18,10 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $certName;
 
     /**
-     * @description Specifies whether to enable the SSL certificate. Valid values:
+     * @description The type of the certificate. Valid values:
      *
-     *   **on**: enables the SSL certificate.
-     *   **off**: disables the SSL certificate. This is the default value.
+     *   **upload**: a user-uploaded SSL certificate.
+     *   **cas**: a certificate that is acquired through Certificate Management Service.
      *
      * @example cas
      *
@@ -30,11 +30,9 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $certType;
 
     /**
-     * @description The type of the SSL certificate. Valid values:
+     * @description The accelerated domain name to which the SSL certificate belongs. The type of request supported by the accelerated domain name must be HTTPS. You can specify multiple accelerated domain names and separate them with commas (,).
      *
-     *   **upload**: a user-uploaded SSL certificate.
-     *   **cas**: a certificate that is issued by SSL Certificates Service.
-     *
+     * >You can configure up to 10 domain names at a time.
      * @example example.com
      *
      * @var string
@@ -42,6 +40,8 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $domainName;
 
     /**
+     * @description Specifies whether to check the certificate name for duplicates. If you set the value to 1, the system does not perform the check and overwrites the information about the existing certificate that uses the same name.
+     *
      * @example 1
      *
      * @var string
@@ -54,6 +54,8 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region.
+     *
      * @example your region
      *
      * @var string
@@ -61,7 +63,7 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $region;
 
     /**
-     * @description The content of the SSL certificate. Specify the content of the certificate only if you want to enable the SSL certificate.
+     * @description The private key. Specify the private key only if you want to enable the SSL certificate.
      *
      * @example yourSSLPri
      *
@@ -70,7 +72,10 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $SSLPri;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to enable the SSL certificate. Default value: off. Valid values:
+     *
+     *   **on** ：enables the SSL certificate.
+     *   **off**：disables the SSL certificate
      *
      * @example on
      *
@@ -79,7 +84,7 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $SSLProtocol;
 
     /**
-     * @description The operation that you want to perform. Set the value to **BatchSetCdnDomainServerCertificate**.
+     * @description The content of the SSL certificate. Specify the content of the SSL certificate only if you want to enable the SSL certificate.
      *
      * @example yourSSLPub
      *

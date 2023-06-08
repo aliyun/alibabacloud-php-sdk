@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BatchStopCdnDomainResponseBody extends Model
 {
     /**
-     * @description The names of the accelerated domain names. You can specify one or more domain names in each request. Separate multiple domain names with commas (,).
+     * @description The ID of the request.
      *
      * @example 324AEFFF-308C-4DA7-8CD3-01B277B98F28
      *

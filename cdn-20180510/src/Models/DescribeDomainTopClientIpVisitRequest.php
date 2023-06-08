@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainTopClientIpVisitRequest extends Model
 {
     /**
-     * @description The ranking of the client IP address returned.
+     * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
      *
+     * By default, this operation queries client IP addresses for all accelerated domain names.
      * @example example.com
      *
      * @var string
@@ -18,8 +19,9 @@ class DescribeDomainTopClientIpVisitRequest extends Model
     public $domainName;
 
     /**
-     * @description A list of client IP addresses.
+     * @description The end of the time range to query.
      *
+     * The end time must be later than the start time.
      * @example 2019-10-01T16:00:00Z
      *
      * @var string
@@ -29,7 +31,7 @@ class DescribeDomainTopClientIpVisitRequest extends Model
     /**
      * @description The maximum number of entries to return. Maximum value: 100.
      *
-     * Default value: 20. The default value 20 specifies that the top 20 data entries are returned.
+     * Default value: 20. The default value specifies that the top 20 IP addresses are returned.
      * @example 20
      *
      * @var string
@@ -37,8 +39,9 @@ class DescribeDomainTopClientIpVisitRequest extends Model
     public $limit;
 
     /**
-     * @description The client IP address returned. Only IPv4 addressed are supported.
+     * @description The name of the region. Separate multiple region names with commas (,).
      *
+     * You can call the [DescribeCdnRegionAndIsp](~~91077~~) operation to query regions.
      * @example beijing
      *
      * @var string
@@ -46,7 +49,7 @@ class DescribeDomainTopClientIpVisitRequest extends Model
     public $locationNameEn;
 
     /**
-     * @description The method that is used to sort the client IP addresses. Valid values:
+     * @description The criterion by which you want to sort client IP addresses. Valid values:
      *
      *   **traf**: by network traffic. This is the default value.
      *   **acc**: by the number of requests.
@@ -58,8 +61,9 @@ class DescribeDomainTopClientIpVisitRequest extends Model
     public $sortBy;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeDomainTopClientIpVisit**.
+     * @description The beginning of the time range to query.
      *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2019-09-30T16:00:00Z
      *
      * @var string

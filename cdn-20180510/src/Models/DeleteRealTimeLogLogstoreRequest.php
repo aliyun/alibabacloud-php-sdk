@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteRealTimeLogLogstoreRequest extends Model
 {
     /**
-     * @description The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](~~144883~~).
+     * @description The name of the Logstore to which log entries are delivered.
      *
      * @example LogstoreName
      *
@@ -18,8 +18,8 @@ class DeleteRealTimeLogLogstoreRequest extends Model
     public $logstore;
 
     /**
-     * @description Deletes the Logstore that is used by a specified configuration record of real-time
-     * log delivery.
+     * @description The name of the Log Service project that is used for real-time log delivery.
+     *
      * @example ProjectName
      *
      * @var string
@@ -27,7 +27,7 @@ class DeleteRealTimeLogLogstoreRequest extends Model
     public $project;
 
     /**
-     * @description The name of the Log Service project that is used for real-time log delivery.
+     * @description The ID of the region where the Log Service project is deployed. For more information, see [Regions that support real-time log delivery](~~144883~~).
      *
      * @example cn-shanghai
      *

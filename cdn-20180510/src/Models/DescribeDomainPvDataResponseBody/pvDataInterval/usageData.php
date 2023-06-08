@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class usageData extends Model
 {
     /**
+     * @description The timestamp of the returned data.
+     *
      * @example 2015-11-28T03:00:00Z
      *
      * @var string
@@ -16,7 +18,7 @@ class usageData extends Model
     public $timeStamp;
 
     /**
-     * @description Queries the page view (PV) data of an accelerated domain name. The data is collected at an interval of 1 hour. You can query data within the last 90 days.
+     * @description The number of PVs.
      *
      * @example 9292
      *

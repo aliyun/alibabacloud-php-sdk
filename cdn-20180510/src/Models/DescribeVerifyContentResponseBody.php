@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVerifyContentResponseBody extends Model
 {
     /**
+     * @description The verification content.
+     *
      * @example verify_dffeb6610035dcb77b413a59c32cd91f
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeVerifyContentResponseBody extends Model
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
      *
      * @var string

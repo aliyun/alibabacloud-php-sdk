@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
-     * @description The progress of the task, in percentage.
+     * @description The time when the task was created. The time is displayed in UTC.
      *
      * @example 2020-08-03T08:54:23Z
      *
@@ -18,7 +18,11 @@ class tasks extends Model
     public $creationTime;
 
     /**
-     * @description The ID of the task.
+     * @description The error returned when the refresh or prefetch task failed. Valid values:
+     *
+     *   **Internal Error**
+     *   **Origin Timeout**
+     *   **Origin Return StatusCode 5XX**
      *
      * @example Internal Error
      *
@@ -27,7 +31,7 @@ class tasks extends Model
     public $description;
 
     /**
-     * @description Queries the status of refresh or prefetch tasks by ID for an accelerated domain name.
+     * @description The path of the object refreshed by the refresh task.
      *
      * @example http://example.com/abc.jpg
      *
@@ -36,7 +40,12 @@ class tasks extends Model
     public $objectPath;
 
     /**
-     * @description The ID of the request.
+     * @description The type of the task. Valid values:
+     *
+     *   **file**: refreshes an individual file.
+     *   **directory**: refreshes files in the specified directory.
+     *   **preload**: prefetches an individual file.
+     *   **regex**: refreshes content based on a regular expression.
      *
      * @example file
      *
@@ -45,7 +54,7 @@ class tasks extends Model
     public $objectType;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeRefreshTaskById**.
+     * @description The progress of the task, in percentage.
      *
      * @example 100%
      *
@@ -54,7 +63,12 @@ class tasks extends Model
     public $process;
 
     /**
-     * @description The time when the task was created. The time is displayed in UTC.
+     * @description The status of the task. Valid values:
+     *
+     *   **Complete**
+     *   **Pending**
+     *   **Refreshing**
+     *   **Failed**
      *
      * @example Complete
      *
@@ -63,6 +77,8 @@ class tasks extends Model
     public $status;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 24840
      *
      * @var string

@@ -47,7 +47,7 @@ class SetWaitingRoomConfigRequest extends Model
     /**
      * @description The regular expression that is used to match URI strings for which the virtual waiting room feature is enabled.
      *
-     * @example xxx
+     * @example .*\/aaa/bbb$
      *
      * @var string
      */
@@ -56,7 +56,7 @@ class SetWaitingRoomConfigRequest extends Model
     /**
      * @description The URL of the waiting page.
      *
-     * @example WaitUrl
+     * @example https://example.com/waitingroom.html
      *
      * @var string
      */

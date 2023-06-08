@@ -119,7 +119,7 @@ class pageData extends Model
     /**
      * @description Indicates whether the accelerated domain name is in a sandbox.
      *
-     * @example normal
+     * @example true
      *
      * @var string
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class domainConfigModel extends Model
 {
     /**
-     * @description The list of domain configurations.
+     * @description The ID of the configuration.
      *
      * @example 1234567
      *
@@ -18,7 +18,7 @@ class domainConfigModel extends Model
     public $configId;
 
     /**
-     * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+     * @description The domain name.
      *
      * @example www.example.com
      *
@@ -27,7 +27,7 @@ class domainConfigModel extends Model
     public $domainName;
 
     /**
-     * @description The domain name.
+     * @description The name of the feature.
      *
      * @example set_resp_header
      *

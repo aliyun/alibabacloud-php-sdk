@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeReqHitRateDataResponseBody extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeDomainRealTimeReqHitRateData**.
+     * @description The data returned.
      *
      * @var data
      */

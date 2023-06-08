@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainISPDataResponseBody extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify only one domain name in each call.
+     * @description The time interval. Unit: seconds.
      *
-     * By default, this operation queries the proportions of data usage for all accelerated domain names.
      * @example 86400
      *
      * @var string
@@ -20,7 +19,7 @@ class DescribeDomainISPDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The end of the time range that was queried.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -29,7 +28,7 @@ class DescribeDomainISPDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeDomainISPData**.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2019-11-30T05:40:00Z
      *
@@ -38,7 +37,7 @@ class DescribeDomainISPDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The number of queries per second.
+     * @description The ID of the request.
      *
      * @example DE81639B-DAC1-4C76-AB72-F34B836837D5
      *
@@ -47,7 +46,7 @@ class DescribeDomainISPDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The proportion of network traffic.
+     * @description The beginning of the time range that was queried.
      *
      * @example 2019-11-29T05:33:00Z
      *
@@ -56,7 +55,7 @@ class DescribeDomainISPDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The proportion of the HTTP status code.
+     * @description The access statistics by ISP.
      *
      * @var value
      */

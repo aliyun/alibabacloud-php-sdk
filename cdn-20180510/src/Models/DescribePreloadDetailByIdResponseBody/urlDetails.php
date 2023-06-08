@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class urlDetails extends Model
 {
     /**
+     * @description The time when the task was created. The time is displayed in UTC.
+     *
      * @example 2022-11-23T02:26:56Z
      *
      * @var string
@@ -17,6 +19,8 @@ class urlDetails extends Model
     public $creationTime;
 
     /**
+     * @description The domain name for prefetching resources.
+     *
      * @example example.com
      *
      * @var string
@@ -24,6 +28,8 @@ class urlDetails extends Model
     public $domain;
 
     /**
+     * @description The time when the task ended. The time is displayed in UTC.
+     *
      * @example 2022-11-23T02:27:00Z
      *
      * @var string
@@ -31,6 +37,8 @@ class urlDetails extends Model
     public $endTime;
 
     /**
+     * @description The progress of the prefetch task, which indicates the number of points of presence (POPs) on which the prefetch task is completed.
+     *
      * @example 100%
      *
      * @var string
@@ -38,6 +46,8 @@ class urlDetails extends Model
     public $process;
 
     /**
+     * @description The turned error code. A value of `0` indicates that the task succeeded.
+     *
      * @example 0
      *
      * @var string
@@ -45,6 +55,12 @@ class urlDetails extends Model
     public $retCode;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **Complete**
+     *   **Refreshing**
+     *   **Failed**
+     *
      * @example Complete
      *
      * @var string
@@ -52,6 +68,9 @@ class urlDetails extends Model
     public $status;
 
     /**
+     * @description The ID of the task that you want to query.
+     *
+     * You can query one task ID at a time.
      * @example 14286878547
      *
      * @var string
@@ -59,6 +78,8 @@ class urlDetails extends Model
     public $taskId;
 
     /**
+     * @description The completion details of all URL resources in the task.
+     *
      * @var urls[]
      */
     public $urls;

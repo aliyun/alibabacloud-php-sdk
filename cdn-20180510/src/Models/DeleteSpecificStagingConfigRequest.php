@@ -18,7 +18,7 @@ class DeleteSpecificStagingConfigRequest extends Model
     public $configId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DeleteSpecificStagingConfig**.
+     * @description The accelerated domain name. You can specify up to 50 domain names in each request. Separate multiple domain names with commas (,).
      *
      * @example example.com
      *

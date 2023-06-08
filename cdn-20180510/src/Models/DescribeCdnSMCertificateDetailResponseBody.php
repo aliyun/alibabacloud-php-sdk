@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnSMCertificateDetailResponseBody extends Model
 {
     /**
-     * @description The name of the certificate.
+     * @description The expiration time of the certificate. The time is displayed in UTC.
      *
      * @example 2022-08-31T09:42:28Z
      *
@@ -27,7 +27,7 @@ class DescribeCdnSMCertificateDetailResponseBody extends Model
     public $certIdentifier;
 
     /**
-     * @description The time when the certificate expires. The time is displayed in UTC.
+     * @description The name of the certificate.
      *
      * @example yourCertName
      *
@@ -45,7 +45,7 @@ class DescribeCdnSMCertificateDetailResponseBody extends Model
     public $certOrg;
 
     /**
-     * @description The top-level domain name.
+     * @description The common name.
      *
      * @example example.com
      *
@@ -54,7 +54,7 @@ class DescribeCdnSMCertificateDetailResponseBody extends Model
     public $commonName;
 
     /**
-     * @description The ID of the request.
+     * @description The content of the encryption certificate.
      *
      * @example -BEGIN CERTIFICATE-----***-----END CERTIFICATE--
      *
@@ -63,7 +63,7 @@ class DescribeCdnSMCertificateDetailResponseBody extends Model
     public $encryptCertificate;
 
     /**
-     * @description The content of the encryption certificate.
+     * @description The ID of the request.
      *
      * @example A7C69682-7F88-40DD-A198-10D0309E439D
      *

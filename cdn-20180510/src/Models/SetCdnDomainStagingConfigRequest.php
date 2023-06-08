@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetCdnDomainStagingConfigRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify only one domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,13 @@ class SetCdnDomainStagingConfigRequest extends Model
     public $domainName;
 
     /**
+     * @description The features that you want to configure. Format:
+     *
+     * > *   **functionName**: The name of the feature. Separate multiple values with commas (,). For more information, see [A list of features](~~388460~~).
+     * >*   **argName**: The feature parameters for **functionName**.
+     * >*   **argValue**: The parameter values set for **functionName**.
+     *
+     * ]
      * @example [{"functionArgs":[{"argName":"enable","argValue":"on"},{"argName":"pri","argValue":"1"},{"argName":"rule","argValue":"xxx"}],"functionName":"edge_function"}]
      *
      * @var string

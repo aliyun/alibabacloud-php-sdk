@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteCdnDomainRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The accelerated domain name that you want to remove. You can specify only one domain name in each call.
      *
      * @example example.com
      *

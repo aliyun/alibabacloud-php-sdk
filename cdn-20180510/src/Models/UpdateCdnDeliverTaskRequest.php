@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UpdateCdnDeliverTaskRequest extends Model
 {
     /**
-     * @description \[{\\"reportId\\":1,\\"conditions\\":\[{\\"field\\":\\"prov\\",\\"op\\":\\"in\\",\\"value\\":\[\\"Heilongjiang\\",\\"Beijing\\"]}]}]
+     * @description The method that is used to send operations reports. Operations reports are sent to you only by email. The settings must be escaped in JSON.
      *
-     * @example The domain name that you want to track. You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,). If you do not specify a domain name, the task collects data from all domain names that belong to your Alibaba Cloud account.
+     * @example {\\"email\\":{\\"subject\\":\\"The email subject\\",\\"to\\":\[\\"songmingyuan@alibaba-inc.com\\",\\"songmingyuan@alibaba-inc.com\\"]}}"
      *
      * @var string
      */
     public $deliver;
 
     /**
-     * @description > You can call this operation up to three times per second per account.
+     * @description The ID of the tracking task that you want to update.
      *
      * @example 3
      *
@@ -27,7 +27,7 @@ class UpdateCdnDeliverTaskRequest extends Model
     public $deliverId;
 
     /**
-     * @description The operations reports that are tracked by the task. The data must be escaped in JSON.
+     * @description The domain name that you want to track. You can specify up to 500 domain names in each request. Separate multiple domain names with commas (,). If you do not specify a domain name, the task collects data from all domain names that belong to your Alibaba Cloud account.
      *
      * @example www.example.com
      *
@@ -36,50 +36,27 @@ class UpdateCdnDeliverTaskRequest extends Model
     public $domainName;
 
     /**
-     * @description **Fields in the ReDatas parameter**
-     *
-     * |conditions|ConDatas\[\]|No|The filter conditions for the report.|
-     *
-     **Fields in the ConDatas parameter**
-     *
-     * |value|String\[\]|No|The array of field values.|
-     *
-     *
-     **Fields in the email parameter**
-     *
-     * |to|String\[\]|Yes|The email addresses to which operations reports are sent.|
-     *
-     *
-     **Fields in the Deliver parameter**
-     *
-     * |to|String\[\]|Yes|The email addresses to which operations reports are sent.|
-     *
-     *
-     **Fields in the Schedule parameter**
-     *
-     * |crontab|String|Yes|Specifies the cycle in which the tracking task is scheduled to run.|
-     * |frequency|String|Yes|The interval at which the reports are sent. Valid values:<br />**h**: by hour<br />**d**: by day<br />**w**: by week|
-     * |status|String|No|The status of the tracking task. Valid values:<br />**enable**<br />**disable**|
-     * |effectiveEnd|String|No|The end time of the tracking task.|
-     * @example The ID of the tracking task that you want to update.
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
      * @description The name of the tracking task.
      *
      * @example Domain name report
      *
      * @var string
      */
+    public $name;
+
+    /**
+     * @description The operations reports that are tracked by the task. The data must be escaped in JSON.
+     *
+     * @example \[{\\"reportId\\":1,\\"conditions\\":\[{\\"field\\":\\"prov\\",\\"op\\":\\"in\\",\\"value\\":\[\\"Heilongjiang\\",\\"Beijing\\"]}]}]
+     *
+     * @var string
+     */
     public $reports;
 
     /**
-     * @description The method that is used to send operations reports. Operations reports are sent to you only by email. The settings must be escaped in JSON.
+     * @description The parameters that specify the time interval at which the tracking task sends operations reports. The settings must be escaped in JSON.
      *
-     * @example {\\"email\\":{\\"subject\\":\\"The email subject\\",\\"to\\":\[\\"songmingyuan@alibaba-inc.com\\",\\"songmingyuan@alibaba-inc.com\\"]}}"
+     * @example "{\\"schedName\\":\\"The name of the tracking task\\",\\"description\\":\\"The description\\",\\"crontab\\":\\"000\*\*?\\",\\"frequency\\":\\"d\\",\\"status\\":\\"enable\\",\\"effectiveFrom\\":\\"2020-09-17T00:00:00Z\\",\\"effectiveEnd\\":\\"2020-11-17T00:00:00Z\\"}"
      *
      * @var string
      */

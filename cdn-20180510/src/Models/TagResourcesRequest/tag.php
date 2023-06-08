@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The key of a tag.
      *
      * @example env
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The operation that you want to perform. Set the value to **TagResources**.
+     * @description The value of a tag.
      *
      * @example value
      *

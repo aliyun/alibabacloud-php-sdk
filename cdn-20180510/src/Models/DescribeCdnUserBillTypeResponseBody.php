@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnUserBillTypeResponseBody extends Model
 {
     /**
+     * @description Details about the metering methods returned.
+     *
      * @var billTypeData
      */
     public $billTypeData;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C370DAF1-C838-4288-A1A0-9A87633D248E
      *
      * @var string

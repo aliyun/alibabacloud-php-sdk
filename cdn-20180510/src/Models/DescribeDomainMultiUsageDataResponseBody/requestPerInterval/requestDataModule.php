@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestDataModule extends Model
 {
     /**
-     * @description DescribeDomainMultiUsageData
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -18,6 +18,8 @@ class requestDataModule extends Model
     public $domain;
 
     /**
+     * @description The number of requests.
+     *
      * @example 11288111
      *
      * @var int
@@ -25,7 +27,7 @@ class requestDataModule extends Model
     public $request;
 
     /**
-     * @description Queries the amount of data transfer and the number of requests for one or more accelerated domain names at a time. Data is collected every 5 minutes.
+     * @description The timestamp of the returned number of requests.
      *
      * @example 2017-12-10T20:00:00Z
      *
@@ -34,8 +36,9 @@ class requestDataModule extends Model
     public $timeStamp;
 
     /**
-     * @description The information about the accelerated domain name.
+     * @description The type.
      *
+     * >  The value is Simple for Alibaba Cloud CDN.
      * @example Simple
      *
      * @var string

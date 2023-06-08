@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateUserUsageDataExportTaskResponseBody extends Model
 {
     /**
+     * @description The end of the time range during which data was queried.
+     *
      * @example 2015-12-10T21:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateUserUsageDataExportTaskResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The ID of the request.
+     *
      * @example ED61C6C3-8241-4187-AAA7-5157AE175CEC
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateUserUsageDataExportTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The start of the time range during which data was queried.
+     *
      * @example 2015-12-10T20:00:00Z
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateUserUsageDataExportTaskResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 129456
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class clientIpList extends Model
 {
     /**
-     * @description Queries client IP addresses that are ranked by the number of requests or the amount of network traffic within a specific time range for one or more accelerated domain names. You can query data collected within the last 90 days.
+     * @description The total number of requests.
      *
      * @example 256
      *
@@ -18,7 +18,7 @@ class clientIpList extends Model
     public $acc;
 
     /**
-     * @description The ID of the request.
+     * @description The client IP address returned. Only IPv4 addressed are supported.
      *
      * @example 1.1.xxx
      *
@@ -27,7 +27,7 @@ class clientIpList extends Model
     public $clientIp;
 
     /**
-     * @description The total amount of network traffic consumed. Unit: bytes.
+     * @description The ranking of the client IP address returned.
      *
      * @example 2
      *
@@ -36,6 +36,8 @@ class clientIpList extends Model
     public $rank;
 
     /**
+     * @description The total amount of network traffic consumed. Unit: bytes.
+     *
      * @example 1024
      *
      * @var int

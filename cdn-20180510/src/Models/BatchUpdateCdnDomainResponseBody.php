@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchUpdateCdnDomainResponseBody extends Model
 {
     /**
-     * @description The information about the addresses of origin servers.
+     * @description The ID of the request.
      *
-     * >  You can set only one of **Sources** and **TopLevelDomain**. If you set both **Sources** and **TopLevelDomain**, **TopLevelDomain** does not take effect.
      * @example 15C66C7B-671A-4297-9187-2C4477247A74
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainCustomLogConfigResponseBody extends Model
 {
     /**
-     * @description The sample log configuration.
+     * @description The ID of the log configuration.
      *
      * @example 123
      *
@@ -18,7 +18,7 @@ class DescribeDomainCustomLogConfigResponseBody extends Model
     public $configId;
 
     /**
-     * @description The ID of the request.
+     * @description The format of the log configuration.
      *
      * @example $time_iso8601_$request_method_$
      *
@@ -27,7 +27,7 @@ class DescribeDomainCustomLogConfigResponseBody extends Model
     public $remark;
 
     /**
-     * @description The format of the log configuration.
+     * @description The ID of the request.
      *
      * @example 94E3559F-7B6A-4A5E-AFFD-44E2A208A249
      *
@@ -36,7 +36,7 @@ class DescribeDomainCustomLogConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeDomainCustomLogConfig**.
+     * @description The sample log configuration.
      *
      * @example [9/Jun/2015:01:58:09+0800]188.165.15.75-1542\"-\"\"GET http://www.aliyun.com/index.html\
      *
@@ -45,7 +45,7 @@ class DescribeDomainCustomLogConfigResponseBody extends Model
     public $sample;
 
     /**
-     * @description The ID of the log configuration.
+     * @description The tag information about the log configuration.
      *
      * @example book
      *

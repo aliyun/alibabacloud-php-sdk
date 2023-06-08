@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class activityLog extends Model
 {
     /**
-     * @description The object that triggered rate limiting.
+     * @description The action that was triggered.
      *
-     * If you do not set this parameter, all events that triggered rate limiting are queried.
      * @example deny
      *
      * @var string
@@ -19,7 +18,7 @@ class activityLog extends Model
     public $action;
 
     /**
-     * @description The ID of the request.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -28,6 +27,8 @@ class activityLog extends Model
     public $domainName;
 
     /**
+     * @description The name of the rule based on which rate limiting was triggered.
+     *
      * @example test
      *
      * @var string
@@ -35,7 +36,7 @@ class activityLog extends Model
     public $ruleName;
 
     /**
-     * @description The log entry of the event that triggered rate limiting.
+     * @description The timestamp of the data returned.
      *
      * @example 2015-12-10T20:00:00Z
      *
@@ -44,7 +45,7 @@ class activityLog extends Model
     public $timeStamp;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The trigger of rate limiting.
      *
      * @example Ip
      *
@@ -53,7 +54,7 @@ class activityLog extends Model
     public $triggerObject;
 
     /**
-     * @description The action that was triggered.
+     * @description The period of time during which rate limiting remains effective.
      *
      * @example 300
      *
@@ -62,9 +63,8 @@ class activityLog extends Model
     public $ttl;
 
     /**
-     * @description The accelerated domain name. You can specify multiple domain names and separate them with commas (,).
+     * @description The value of the trigger for rate limiting.
      *
-     * If you do not specify a domain name, data of all domain names is queried.
      * @example 1.2.3.4
      *
      * @var string

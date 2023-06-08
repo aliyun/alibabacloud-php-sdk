@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainPvDataResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The time interval between the data entries returned. Unit: seconds.
      *
      * @example 3600
      *
@@ -19,7 +19,7 @@ class DescribeDomainPvDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The time interval between the data entries. Unit: seconds.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -28,7 +28,7 @@ class DescribeDomainPvDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The accelerated domain name.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2015-11-28T04:00:00Z
      *
@@ -37,16 +37,15 @@ class DescribeDomainPvDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeDomainPvData**.
+     * @description The number of PVs at each interval.
      *
      * @var pvDataInterval
      */
     public $pvDataInterval;
 
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The ID of the request.
      *
-     * The end time must be later than the start time.
      * @example BCD7D917-76F1-442F-BB75-C810DE34C761
      *
      * @var string
@@ -54,7 +53,7 @@ class DescribeDomainPvDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range during which data was queried.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2015-11-28T03:00:00Z
      *

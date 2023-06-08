@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainQpsDataByLayerResponseBody extends Model
 {
     /**
+     * @description The time interval between the data entries returned. Unit: seconds.
+     *
      * @example 300
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDomainQpsDataByLayerResponseBody extends Model
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeDomainQpsDataByLayerResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range during which data was queried.
+     *
      * @example 2019-11-30T05:40:00Z
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeDomainQpsDataByLayerResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The layer at which the data was collected.
+     *
      * @example all
      *
      * @var string
@@ -38,11 +46,15 @@ class DescribeDomainQpsDataByLayerResponseBody extends Model
     public $layer;
 
     /**
+     * @description The number of queries per second at each interval.
+     *
      * @var qpsDataInterval
      */
     public $qpsDataInterval;
 
     /**
+     * @description The ID of the request.
+     *
      * @example BEA5625F-8FCF-48F4-851B-CA63946DA664
      *
      * @var string
@@ -50,6 +62,8 @@ class DescribeDomainQpsDataByLayerResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The start of the time range during which data was queried.
+     *
      * @example 2019-11-30T05:33:00Z
      *
      * @var string

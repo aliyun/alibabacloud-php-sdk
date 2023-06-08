@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class dataItem extends Model
 {
     /**
-     * @description The download URL.
+     * @description The time when the task was created.
      *
      * @example 2018-10-09T06:33:38Z
      *
@@ -19,7 +19,7 @@ class dataItem extends Model
     public $createTime;
 
     /**
-     * @description The configurations of the task.
+     * @description The download URL.
      *
      * @example https://test.oss-cn-beijing.aliyuncs.com/billing_data/xxx
      *
@@ -28,7 +28,7 @@ class dataItem extends Model
     public $downloadUrl;
 
     /**
-     * @description The time when the task was created.
+     * @description The status of the task.
      *
      * @example success
      *
@@ -37,14 +37,14 @@ class dataItem extends Model
     public $status;
 
     /**
-     * @description The total number of entries returned.
+     * @description The configurations of the task.
      *
      * @var taskConfig
      */
     public $taskConfig;
 
     /**
-     * @description The number of the page returned.
+     * @description The ID of the task.
      *
      * @example 11
      *
@@ -53,17 +53,16 @@ class dataItem extends Model
     public $taskId;
 
     /**
-     * @description The number of entries to return on each page. Default value: **20**. Maximum value: **50**.
+     * @description The name of the task.
      *
-     * Valid values: **1** to **50**.
-     * @example The number of the entries returned per page.
+     * @example Refresh
      *
      * @var string
      */
     public $taskName;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeUserUsageDetailDataExportTask**.
+     * @description The time when the task was last modified.
      *
      * @example 2018-10-09T06:35:46Z
      *

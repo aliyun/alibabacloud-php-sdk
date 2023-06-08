@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class regionProportionData extends Model
 {
     /**
-     * @description The bandwidth.
+     * @description The average response size. Unit: bytes.
      *
      * @example 800019.0
      *
@@ -18,7 +18,7 @@ class regionProportionData extends Model
     public $avgObjectSize;
 
     /**
-     * @description The beginning of the time range that was queried.
+     * @description The average response speed. Unit: bit/s.
      *
      * @example 154.3345765545624
      *
@@ -36,7 +36,7 @@ class regionProportionData extends Model
     public $avgResponseTime;
 
     /**
-     * @description The average response size. Unit: bytes.
+     * @description The bandwidth.
      *
      * @example 380.9614285714286
      *
@@ -45,6 +45,8 @@ class regionProportionData extends Model
     public $bps;
 
     /**
+     * @description The proportion of traffic from the region. For example, a value of 90 indicates that 90% of the traffic is from the region.
+     *
      * @example 0.003544181046236794
      *
      * @var string
@@ -52,6 +54,8 @@ class regionProportionData extends Model
     public $bytesProportion;
 
     /**
+     * @description The proportion of visits from the region. For example, a value of 90 indicates that 90% of the visits are from the region.
+     *
      * @example 0.01155980271270037
      *
      * @var string
@@ -59,7 +63,7 @@ class regionProportionData extends Model
     public $proportion;
 
     /**
-     * @description The ID of the request.
+     * @description The number of queries per second.
      *
      * @example 5.9523809523809524E-5
      *
@@ -68,14 +72,16 @@ class regionProportionData extends Model
     public $qps;
 
     /**
-     * @description DescribeDomainRegionData
+     * @description The information about the region.
+     *
+     * @example Japan
      *
      * @var string
      */
     public $region;
 
     /**
-     * @description Queries the geographic distribution of users. The data is collected at an interval of 1 day. You can query data collected within the last 90 days.
+     * @description The name of the region.
      *
      * @example japan
      *
@@ -84,7 +90,7 @@ class regionProportionData extends Model
     public $regionEname;
 
     /**
-     * @description The time interval between the data entries returned. Unit: seconds.
+     * @description The request error rate. A value of 90 indicates that 90% of the requests encountered errors.
      *
      * @example 0.0
      *
@@ -93,7 +99,7 @@ class regionProportionData extends Model
     public $reqErrRate;
 
     /**
-     * @description The total number of requests.
+     * @description The total traffic. Unit: bytes.
      *
      * @example 2400057
      *
@@ -102,7 +108,7 @@ class regionProportionData extends Model
     public $totalBytes;
 
     /**
-     * @description The proportions of requests initiated from each area.
+     * @description The total number of requests.
      *
      * @example 3
      *

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeEsExceptionDataResponseBody extends Model
 {
     /**
-     * @description Queries the executions errors of scripts in EdgeScript (ES).
+     * @description The content of the script for which an error was reported.
      *
      * @var contents[]
      */
     public $contents;
 
     /**
-     * @description The content of the script.
+     * @description The ID of the request.
      *
      * @example 99D61AB3-6164-4CF2-A0DE-129C9B07618B
      *

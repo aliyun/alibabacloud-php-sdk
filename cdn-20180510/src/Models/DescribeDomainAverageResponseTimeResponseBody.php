@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainAverageResponseTimeResponseBody extends Model
 {
     /**
-     * @description The timestamp of the returned data.
+     * @description The average response time data for time intervals.
      *
      * @var avgRTPerInterval
      */
     public $avgRTPerInterval;
 
     /**
-     * @description The ID of the request.
+     * @description The time interval between the data entries returned.
      *
      * @example 300
      *
@@ -26,7 +26,7 @@ class DescribeDomainAverageResponseTimeResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The average response time collected at each time interval.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -35,7 +35,7 @@ class DescribeDomainAverageResponseTimeResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The beginning of the time range during which data was queried.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2019-11-30T05:40:00Z
      *
@@ -44,7 +44,7 @@ class DescribeDomainAverageResponseTimeResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The time interval between the data entries returned.
+     * @description The ID of the request.
      *
      * @example 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
      *
@@ -53,7 +53,7 @@ class DescribeDomainAverageResponseTimeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2019-11-30T05:33:00Z
      *

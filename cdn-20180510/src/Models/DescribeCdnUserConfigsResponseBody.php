@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnUserConfigsResponseBody extends Model
 {
     /**
-     * @description >  The maximum number of times that each user can call this operation per second is 30.
+     * @description The user configurations.
      *
      * @var configs[]
      */
     public $configs;
 
     /**
-     * @description The name of the feature.
+     * @description The ID of the request.
      *
      * @example 06D29681-B7CD-4034-A8CC-28AFFA213539
      *

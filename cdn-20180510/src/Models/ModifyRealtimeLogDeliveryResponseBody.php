@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyRealtimeLogDeliveryResponseBody extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **ModifyRealtimeLogDelivery**.
+     * @description The ID of the request.
      *
      * @example 9732E117-8A37-49FD-A36F-ABBB87556CA7
      *

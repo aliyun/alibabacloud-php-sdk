@@ -150,7 +150,7 @@ class DescribeUserDomainsRequest extends Model
     /**
      * @description The information about the origin server.
      *
-     * @example ***
+     * @example example.source.com
      *
      * @var string
      */

@@ -15,7 +15,7 @@ class DescribeDomainMax95BpsDataResponseBody extends Model
     public $detailData;
 
     /**
-     * @description http://inner.jing.alibaba-inc.com:1160/v2/api/rtlog/max95BpsData
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -24,6 +24,8 @@ class DescribeDomainMax95BpsDataResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The 95th percentile bandwidth in the Chinese mainland.
+     *
      * @example 16777590.28
      *
      * @var string
@@ -31,7 +33,7 @@ class DescribeDomainMax95BpsDataResponseBody extends Model
     public $domesticMax95Bps;
 
     /**
-     * @description domainName
+     * @description The end of the time range for which the data was queried.
      *
      * @example 2015-12-11T21:00:00Z
      *
@@ -40,6 +42,8 @@ class DescribeDomainMax95BpsDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The 95th percentile bandwidth.
+     *
      * @example 16777590.28
      *
      * @var string
@@ -47,6 +51,8 @@ class DescribeDomainMax95BpsDataResponseBody extends Model
     public $max95Bps;
 
     /**
+     * @description The 95th percentile bandwidth outside the Chinese mainland.
+     *
      * @example 0
      *
      * @var string
@@ -54,7 +60,7 @@ class DescribeDomainMax95BpsDataResponseBody extends Model
     public $overseasMax95Bps;
 
     /**
-     * @description Specified EndTime does not math the specified StartTime.
+     * @description The ID of the request.
      *
      * @example 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
      *
@@ -63,7 +69,7 @@ class DescribeDomainMax95BpsDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description http://inner.jing.alibaba-inc.com:1160/v2/api/rtlog/max95BpsData
+     * @description The beginning of the time range for which the data was queried.
      *
      * @example 2015-12-10T20:00:00Z
      *

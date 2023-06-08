@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainRealTimeHttpCodeDataResponseBody extends Model
 {
     /**
+     * @description The time interval between the data entries returned. Unit: seconds.
+     *
+     * Depending on the maximum time range per query, the value is 60 (1 minute), 300 (5 minutes), or 3600 (1 hour). For more information, see the "Time granularity" section in Usage notes.
      * @example 60
      *
      * @var string
@@ -17,6 +20,8 @@ class DescribeDomainRealTimeHttpCodeDataResponseBody extends Model
     public $dataInterval;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com,example.org
      *
      * @var string
@@ -24,6 +29,8 @@ class DescribeDomainRealTimeHttpCodeDataResponseBody extends Model
     public $domainName;
 
     /**
+     * @description The end of the time range during which data was queried.
+     *
      * @example 2019-11-29T05:42:00Z
      *
      * @var string
@@ -31,11 +38,15 @@ class DescribeDomainRealTimeHttpCodeDataResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The proportions of HTTP status codes at each time interval.
+     *
      * @var realTimeHttpCodeData
      */
     public $realTimeHttpCodeData;
 
     /**
+     * @description The ID of the request.
+     *
      * @example BC858082-736F-4A25-867B-E5B67C85ACF7
      *
      * @var string
@@ -43,6 +54,8 @@ class DescribeDomainRealTimeHttpCodeDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The start of the time range during which data was queried.
+     *
      * @example 2019-11-29T05:39:00Z
      *
      * @var string

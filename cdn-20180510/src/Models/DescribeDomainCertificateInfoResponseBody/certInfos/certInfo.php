@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class certInfo extends Model
 {
     /**
-     * @description The name of the certificate authority (CA) that issued the SSL certificate.
+     * @description The domain name that matches the certificate.
      *
      * @example example.com
      *
@@ -18,19 +18,7 @@ class certInfo extends Model
     public $certDomainName;
 
     /**
-     * @description The status of the SSL certificate.
-     *
-     *   **success**: The SSL certificate is effective.
-     *   **checking**: The system is checking whether the domain name is accelerated by Alibaba Cloud CDN.
-     *   **cname_error**: The domain name is not accelerated by Alibaba Cloud CDN.
-     *   **top_domain_cname_error**: The top-level domain name is not an accelerated domain name.
-     *   **domain_invalid**: The domain name contains invalid characters.
-     *   **unsupport_wildcard**: Wildcard domain names are not supported.
-     *   **applying**: The application for a certificate is in progress.
-     *   **fget_token_timeout**: The application for a certificate timed out.
-     *   **check_token_timeout**: The verification timed out.
-     *   **get_cert_timeout**: The request to obtain the certificate timed out.
-     *   **failed**: The application for a certificate failed.
+     * @description The time at which the certificate expires.
      *
      * @example 2018-06-03T22:03:39Z
      *
@@ -39,7 +27,7 @@ class certInfo extends Model
     public $certExpireTime;
 
     /**
-     * @description The domain name that matches the SSL certificate.
+     * @description The ID of the certificate.
      *
      * @example 9002448
      *
@@ -48,7 +36,10 @@ class certInfo extends Model
     public $certId;
 
     /**
-     * @description The time when the certificate was renewed.
+     * @description The unit of the validity period of the certificate. Valid values:
+     *
+     *   **months**
+     *   **years**
      *
      * @example months
      *
@@ -57,7 +48,7 @@ class certInfo extends Model
     public $certLife;
 
     /**
-     * @description The public key of the SSL certificate.
+     * @description The name of the certificate.
      *
      * @example example.com
      *
@@ -66,7 +57,7 @@ class certInfo extends Model
     public $certName;
 
     /**
-     * @description The time when the SSL certificate became effective.
+     * @description The name of the certificate authority (CA) that issued the certificate.
      *
      * @example Let\"s Encrypt
      *
@@ -75,10 +66,7 @@ class certInfo extends Model
     public $certOrg;
 
     /**
-     * @description The status of HTTPS.
-     *
-     *   **on**: enabled.
-     *   **off**: disabled.
+     * @description The region where the certificate is used.
      *
      * @example cn-hangzhou
      *
@@ -87,7 +75,7 @@ class certInfo extends Model
     public $certRegion;
 
     /**
-     * @description The name of the SSL certificate.
+     * @description The time when the certificate became effective.
      *
      * @example 2018-06-03T22:03:39Z
      *
@@ -96,12 +84,11 @@ class certInfo extends Model
     public $certStartTime;
 
     /**
-     * @description The status of the CNAME of the domain name.
+     * @description The type of the certificate.
      *
-     *   **ok**: The domain name points to the CNAME assigned from Alibaba Cloud Content Delivery Network (CDN).
-     *   **cname_error**: An error occurred and the domain name cannot point to the CNAME.
-     *   **top_domain_cname_error**: An error occurred to the CNAME of the top-level domain name. The domain name cannot point to the CNAME.
-     *   **unsupport_wildcard**: Wildcard domain names are not supported.
+     *   **free**: a free certificate
+     *   **cas**: a certificate that is purchased by using Certificate Management Service
+     *   **upload**: a custom certificate that you upload
      *
      * @example free
      *
@@ -110,10 +97,7 @@ class certInfo extends Model
     public $certType;
 
     /**
-     * @description The status of HTTPS.
-     *
-     *   **on**: enabled.
-     *   **off**: disabled.
+     * @description The time at which the certificate was updated.
      *
      * @example 2018-06-03T22:03:39Z
      *
@@ -122,7 +106,12 @@ class certInfo extends Model
     public $certUpdateTime;
 
     /**
-     * @description >  The maximum number of times that each user can call this operation per second is 100.
+     * @description The CANME status of the domain name.
+     *
+     *   **ok**: The domain name points to the CNAME assigned by Alibaba Cloud CDN.
+     *   **cname_error**: An error occurred and the domain name cannot point to the CNAME.
+     *   **op_domain_cname_error** : An error occurred to the CNAME of the top-level domain. The domain name cannot point to the CNAME.
+     *   **unsupport_wildcard**: The wildcard domain name is not supported.
      *
      * @example ok
      *
@@ -131,11 +120,7 @@ class certInfo extends Model
     public $domainCnameStatus;
 
     /**
-     * @description The type of the SSL certificate. Valid values:
-     *
-     *   **free**: a free SSL certificate.
-     *   **cas**: an SSL certificate purchased from Alibaba Cloud SSL Certificates Service.
-     *   **upload**: a user-uploaded SSL certificate.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -144,7 +129,7 @@ class certInfo extends Model
     public $domainName;
 
     /**
-     * @description The public key of the SSL certificate.
+     * @description The public key of the certificate.
      *
      * @example asdadaxxxx
      *
@@ -153,7 +138,10 @@ class certInfo extends Model
     public $serverCertificate;
 
     /**
-     * @description The accelerated domain name.
+     * @description The status of HTTPS.
+     *
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -162,7 +150,19 @@ class certInfo extends Model
     public $serverCertificateStatus;
 
     /**
-     * @description The domain name that matches the SSL certificate.
+     * @description The status of the certificate. Valid values:
+     *
+     *   **success**: The certificate has taken effect.
+     *   **checking**: The system is checking whether the domain name is using Alibaba Cloud CDN.
+     *   **cname_error**: No valid CNAME record has been added for the domain name.
+     *   **top_domain_cname_error**: No valid CNAME record has been added for the top-level domain.
+     *   **domain_invalid**: The domain name contains invalid characters.
+     *   **unsupport_wildcard**: The domain name is a wildcard domain name. Wildcard domain names are not supported.
+     *   **applying**: The certificate application is in progress.
+     *   **get_token_timeout**: The certificate application request has timed out.
+     *   **check_token_timeout**: The verification has timed out.
+     *   **get_cert_timeout**: The request to obtain the certificate has timed out.
+     *   **failed**: The certificate application request failed.
      *
      * @example success
      *

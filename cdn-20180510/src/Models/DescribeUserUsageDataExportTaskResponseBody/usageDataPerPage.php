@@ -10,18 +10,14 @@ use AlibabaCloud\Tea\Model;
 class usageDataPerPage extends Model
 {
     /**
-     * @description The status of the task.
-     *
-     *   created: The task is being created.
-     *   success: The task has been created.
-     *   failed: The creation of the task failed.
+     * @description The information about the tasks.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The number of the page to return. Valid values: **1** to **100000**.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -30,7 +26,7 @@ class usageDataPerPage extends Model
     public $pageNumber;
 
     /**
-     * @description The description of the task.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -39,7 +35,7 @@ class usageDataPerPage extends Model
     public $pageSize;
 
     /**
-     * @description The start of the time range that was queried.
+     * @description The total number of entries returned.
      *
      * @example 10
      *

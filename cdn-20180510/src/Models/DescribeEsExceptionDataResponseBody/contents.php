@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class contents extends Model
 {
     /**
+     * @description Information about the time column and the error column name.
+     *
      * @var string[]
      */
     public $columns;
 
     /**
+     * @description The name of the table that shows the errors of the script.
+     *
      * @example 401
      *
      * @var string
@@ -22,6 +26,8 @@ class contents extends Model
     public $name;
 
     /**
+     * @description The time columns and error column names.
+     *
      * @var points[]
      */
     public $points;

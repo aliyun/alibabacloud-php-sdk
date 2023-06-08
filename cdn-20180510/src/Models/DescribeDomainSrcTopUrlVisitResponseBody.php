@@ -14,14 +14,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainSrcTopUrlVisitResponseBody extends Model
 {
     /**
-     * @description The amount of network traffic. Unit: bytes.
+     * @description A list of frequently requested URLs.
      *
      * @var allUrlList
      */
     public $allUrlList;
 
     /**
-     * @description The proportion of network traffic consumed to access the URL.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -30,9 +30,8 @@ class DescribeDomainSrcTopUrlVisitResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The ID of the request.
      *
-     * >  The end time must be later than the start time. The difference between the end time and the start time cannot exceed seven days.
      * @example 64D28B53-5902-409B-94F6-FD46680144FE
      *
      * @var string
@@ -40,7 +39,7 @@ class DescribeDomainSrcTopUrlVisitResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The accelerated domain name.
+     * @description The beginning of the time range that was queried.
      *
      * @example 2018-10-03T16:00:00Z
      *
@@ -49,21 +48,29 @@ class DescribeDomainSrcTopUrlVisitResponseBody extends Model
     public $startTime;
 
     /**
+     * @description A list of URLs for which 2xx status codes were returned.
+     *
      * @var url200List
      */
     public $url200List;
 
     /**
+     * @description A list of URLs for which 3xx status codes were returned.
+     *
      * @var url300List
      */
     public $url300List;
 
     /**
+     * @description A list of URLs for which 4xx status codes were returned.
+     *
      * @var url400List
      */
     public $url400List;
 
     /**
+     * @description A list of URLs for which 5xx status codes were returned.
+     *
      * @var url500List
      */
     public $url500List;

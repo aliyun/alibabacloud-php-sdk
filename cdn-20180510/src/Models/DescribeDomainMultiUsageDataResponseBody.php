@@ -20,9 +20,8 @@ class DescribeDomainMultiUsageDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The type of data returned.
+     * @description The ID of the request.
      *
-     * >  For Alibaba Cloud CDN, the valid value is Simple.
      * @example 3C6CCEC4-6B88-4D4A-93E4-D47B3D92CF8F
      *
      * @var string
@@ -30,17 +29,14 @@ class DescribeDomainMultiUsageDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request.
+     * @description The information about requests collected every 5 minutes.
      *
      * @var requestPerInterval
      */
     public $requestPerInterval;
 
     /**
-     * @description The accelerated domain names. You can specify multiple accelerated domain names and separate domain names with commas (,).
-     *
-     * > *   You can specify at most 30 accelerated domain names.
-     *   If you do not set this parameter, the data of all accelerated domain names that belong to your Alibaba Cloud account is queried.
+     * @description The start of the time range that was queried.
      *
      * @example 2017-12-10T20:00:00Z
      *
@@ -49,6 +45,8 @@ class DescribeDomainMultiUsageDataResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The statistics of network traffic collected every 5 minutes.
+     *
      * @var trafficPerInterval
      */
     public $trafficPerInterval;

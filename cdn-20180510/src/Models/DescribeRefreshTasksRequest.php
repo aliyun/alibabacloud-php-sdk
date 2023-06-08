@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRefreshTasksRequest extends Model
 {
     /**
+     * @description The accelerated domain name. You can specify only one accelerated domain name in each call. By default, this operation queries the status of tasks for all accelerated domain names.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeRefreshTasksRequest extends Model
     public $domainName;
 
     /**
+     * @description The end time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * > The end time must be later than the start time.
      * @example 2017-12-22T08:00:00Z
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribeRefreshTasksRequest extends Model
     public $endTime;
 
     /**
+     * @description The path of the object. The path is used as a condition for exact matching.
+     *
      * @example http://example.com/1.txt
      *
      * @var string
@@ -30,6 +37,14 @@ class DescribeRefreshTasksRequest extends Model
     public $objectPath;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   **file**: refreshes one or more files.
+     *   **directory**: refreshes files in specific directories.
+     *   **regex**: refreshes content based on a regular expression.
+     *   **preload**: prefetches one or more files.
+     *
+     * > If you set the **DomainName** or **Status** parameter, you must also set the **ObjectType** parameter.
      * @example file
      *
      * @var string
@@ -42,6 +57,8 @@ class DescribeRefreshTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: **1** to **100000**.
+     *
      * @example 1
      *
      * @var int
@@ -49,6 +66,8 @@ class DescribeRefreshTasksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**. Maximum value: **100**. Valid values: **1** to **100**.
+     *
      * @example 20
      *
      * @var int
@@ -56,6 +75,8 @@ class DescribeRefreshTasksRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmyuji4b6r4**
      *
      * @var string
@@ -68,6 +89,8 @@ class DescribeRefreshTasksRequest extends Model
     public $securityToken;
 
     /**
+     * @description The start of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2017-12-21T08:00:00Z
      *
      * @var string
@@ -75,6 +98,12 @@ class DescribeRefreshTasksRequest extends Model
     public $startTime;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **Complete**: The task is complete.
+     *   **Refreshing**: The task is in progress.
+     *   **Failed**: The task failed.
+     *
      * @example Complete
      *
      * @var string
@@ -82,6 +111,8 @@ class DescribeRefreshTasksRequest extends Model
     public $status;
 
     /**
+     * @description The ID of the task that you want to query.
+     *
      * @example 1234321
      *
      * @var string

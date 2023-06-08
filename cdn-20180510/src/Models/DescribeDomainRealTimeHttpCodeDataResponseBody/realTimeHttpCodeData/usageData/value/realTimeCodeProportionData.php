@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class realTimeCodeProportionData extends Model
 {
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 500
      *
      * @var string
@@ -16,6 +18,8 @@ class realTimeCodeProportionData extends Model
     public $code;
 
     /**
+     * @description The total number of entries.
+     *
      * @example 100
      *
      * @var string
@@ -23,6 +27,8 @@ class realTimeCodeProportionData extends Model
     public $count;
 
     /**
+     * @description The proportion of the HTTP status code.
+     *
      * @example 28.4496124031008
      *
      * @var string

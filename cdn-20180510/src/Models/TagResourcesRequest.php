@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description The ID of the resource. Valid values of N: **1** to **50**.
+     * @description The list of resource IDs. Maximum number of list elements: 50.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class TagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description >  The maximum number of times that each user can call this operation per second is 100.
+     * @description The type of the resource. Set this value to **DOMAIN**.
      *
      * @example DOMAIN
      *
@@ -28,7 +28,7 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The type of resource. The resource type. Set the value to **DOMAIN**.
+     * @description The tags. Maximum number of list elements: 20.
      *
      * @var tag[]
      */

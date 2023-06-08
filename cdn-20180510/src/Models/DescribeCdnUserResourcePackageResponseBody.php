@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnUserResourcePackageResponseBody extends Model
 {
     /**
-     * @description The name of the resource plan.
+     * @description The ID of the request.
      *
      * @example 84839536-2B7E-457D-9D8C-82E6C7D4E1A3
      *
@@ -19,7 +19,7 @@ class DescribeCdnUserResourcePackageResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The time when the resource plan expires.
+     * @description The detailed information about resource plans. The returned information is displayed in an array of ResourcePackageInfo nodes.
      *
      * @var resourcePackageInfos
      */

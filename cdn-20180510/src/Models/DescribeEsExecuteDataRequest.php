@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeEsExecuteDataRequest extends Model
 {
     /**
-     * @description The name of the chart that shows the status of the script.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
+     * > The end time must be later than the start time.
      * @example 2021-02-18T20:00:00Z
      *
      * @var string
@@ -18,7 +19,7 @@ class DescribeEsExecuteDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The value of each time and the column of each data entry.
+     * @description The ID of the rule. You can call the [DescribeCdnDomainConfigs](~~90924~~) operation to query script IDs.
      *
      * @example 212896**
      *
@@ -27,7 +28,7 @@ class DescribeEsExecuteDataRequest extends Model
     public $ruleId;
 
     /**
-     * @description The column names of the chart that shows the status of the script and the time of each data entry.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2021-02-17T20:00:00Z
      *

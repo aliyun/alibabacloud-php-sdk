@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserUsageDetailDataExportTaskRequest extends Model
 {
     /**
-     * @description The name of the task.
+     * @description The number of the page to return. Valid values: **1** to **100000**.
      *
      * @example 1
      *
@@ -18,8 +18,9 @@ class DescribeUserUsageDetailDataExportTaskRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The usage details returned per page.
+     * @description The number of entries to return on each page. Default value: **20**. Maximum value: **50**.
      *
+     * Valid values: an integer from **1** to **50**.
      * @example 10
      *
      * @var string

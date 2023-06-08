@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetDomainServerCertificateRequest extends Model
 {
     /**
-     * @description Specifies whether to check the certificate name for duplicates. If you set the value to 1, the system does not perform the check and overwrites the information of the existing certificate that uses the same name.
+     * @description The name of the SSL certificate. You can specify only one name.
      *
      * @example myCert1
      *
@@ -18,8 +18,12 @@ class SetDomainServerCertificateRequest extends Model
     public $certName;
 
     /**
-     * @description The ID of the request.
+     * @description The type of the certificate. Valid values:
      *
+     *   **upload**: a user-uploaded SSL certificate.
+     *   **cas**: a certificate that is purchased from Alibaba Cloud SSL Certificates Service.
+     *
+     * > If this parameter is set to **cas**, the **PrivateKey** parameter is optional.
      * @example cas
      *
      * @var string
@@ -27,8 +31,9 @@ class SetDomainServerCertificateRequest extends Model
     public $certType;
 
     /**
-     * @description The private key. Specify the private key only if you want to enable the SSL certificate.
+     * @description The accelerated domain name for which you want to configure the SSL certificate. The type of request supported by the domain name must be HTTPS.
      *
+     * You can specify one domain name in each call.
      * @example example.com
      *
      * @var string
@@ -36,10 +41,7 @@ class SetDomainServerCertificateRequest extends Model
     public $domainName;
 
     /**
-     * @description Specifies whether to enable the SSL certificate. Valid values:
-     *
-     *   **on**: enables the SSL certificate.
-     *   **off**: disables the SSL certificate. This is the default value.
+     * @description Specifies whether to check the certificate name for duplicates. If you set the value to 1, the system does not perform the check and overwrites the information about the existing certificate that uses the same name.
      *
      * @example 1
      *
@@ -53,7 +55,7 @@ class SetDomainServerCertificateRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to check the certificate name for duplicates. If you set the value to 1, the system does not perform the check and overwrites the information of the existing certificate that uses the same name.
+     * @description The private key. Specify the private key only if you want to enable the SSL certificate.
      *
      * @example ----BEGIN RSA PRIVATE KEY-----QswCQ****----END RSA PRIVATE KEY-----
      *
@@ -67,13 +69,11 @@ class SetDomainServerCertificateRequest extends Model
     public $securityToken;
 
     /**
-     * @description The type of the SSL certificate. Valid values:
+     * @description The content of the SSL certificate. Specify the content of the SSL certificate only if you want to enable the SSL certificate. You can use one of the following methods to obtain the content of the SSL certificate:
      *
-     *   **upload**: a user-uploaded SSL certificate.
-     *   **cas**: an SSL certificate that is issued by Alibaba Cloud SSL Certificates Service.
-     *   **free**: a free SSL certificate.
+     *   Method 1: Call the [DescribeDomainCertificateInfo](~~91182~~) API operation to query the information about the SSL certificate corresponding to the accelerated domain name and obtain the public key of the ServerCertificate certificate from the returned data.
+     *   Method 2: Call the [DescribeCdnCertificateList](~~91181~~) API operation to query the SSL certificate list corresponding to the accelerated domain name, and obtain the value of CertName from the returned data. Then, Call the [DescribeCdnCertificateDetail](~~131905~~) API operation with CertName as a parameter to obtain the details about the certificate, and obtain the public key of the Cert certificate from the returned data.
      *
-     * >  If this parameter is set to **cas**, the **PrivateKey** parameter is optional.
      * @example ----BEGIN CERTIFICATE----- MIIFz****-----END CERTIFICATE-----
      *
      * @var string
@@ -81,7 +81,10 @@ class SetDomainServerCertificateRequest extends Model
     public $serverCertificate;
 
     /**
-     * @description The name of the SSL certificate. You can specify only one name.
+     * @description Specifies whether to enable the SSL certificate. Default value: off. Valid values:
+     *
+     *   **on** ：enables the SSL certificate.
+     *   **off**：disables the SSL certificate.
      *
      * @example on
      *
