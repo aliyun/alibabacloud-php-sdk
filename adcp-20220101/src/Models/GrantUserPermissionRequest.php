@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GrantUserPermissionRequest extends Model
 {
     /**
-     * @description The ID of the master instance.
-     *
      * @example c102fe5f1ee5d4c87a68121a77d8b****
      *
      * @var string
@@ -23,8 +21,6 @@ class GrantUserPermissionRequest extends Model
     public $isRamRole;
 
     /**
-     * @description The namespace to which the permissions are scoped. By default, this parameter is empty when you set role_type to cluster.
-     *
      * @example default
      *
      * @var string
@@ -32,11 +28,6 @@ class GrantUserPermissionRequest extends Model
     public $namespace;
 
     /**
-     * @description Specifies the predefined role that you want to assign. Valid values:
-     *
-     *   admin: the administrator role.
-     *   dev: the developer role.
-     *
      * @example admin
      *
      * @var string
@@ -44,11 +35,6 @@ class GrantUserPermissionRequest extends Model
     public $roleName;
 
     /**
-     * @description The authorization type. Valid values:
-     *
-     *   cluster: specifies that the permissions are scoped to a master instance.
-     *   namespace: specifies that the permissions are scoped to a namespace of a cluster.
-     *
      * @example cluster
      *
      * @var string
@@ -56,8 +42,6 @@ class GrantUserPermissionRequest extends Model
     public $roleType;
 
     /**
-     * @description The ID of the RAM user.
-     *
      * @example 2176****
      *
      * @var string

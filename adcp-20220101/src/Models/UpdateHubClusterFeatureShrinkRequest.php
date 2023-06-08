@@ -32,6 +32,11 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
     public $argoServerEnabled;
 
     /**
+     * @var bool
+     */
+    public $armsEnabled;
+
+    /**
      * @description Specifies whether to enable the audit logging feature. Valid values:
      *
      *   true: enables the audit logging feature.
@@ -119,6 +124,7 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
         'apiServerEipId'         => 'ApiServerEipId',
         'argoCDEnabled'          => 'ArgoCDEnabled',
         'argoServerEnabled'      => 'ArgoServerEnabled',
+        'armsEnabled'            => 'ArmsEnabled',
         'auditLogEnabled'        => 'AuditLogEnabled',
         'clusterId'              => 'ClusterId',
         'deletionProtection'     => 'DeletionProtection',
@@ -145,6 +151,9 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
         }
         if (null !== $this->argoServerEnabled) {
             $res['ArgoServerEnabled'] = $this->argoServerEnabled;
+        }
+        if (null !== $this->armsEnabled) {
+            $res['ArmsEnabled'] = $this->armsEnabled;
         }
         if (null !== $this->auditLogEnabled) {
             $res['AuditLogEnabled'] = $this->auditLogEnabled;
@@ -193,6 +202,9 @@ class UpdateHubClusterFeatureShrinkRequest extends Model
         }
         if (isset($map['ArgoServerEnabled'])) {
             $model->argoServerEnabled = $map['ArgoServerEnabled'];
+        }
+        if (isset($map['ArmsEnabled'])) {
+            $model->armsEnabled = $map['ArmsEnabled'];
         }
         if (isset($map['AuditLogEnabled'])) {
             $model->auditLogEnabled = $map['AuditLogEnabled'];
