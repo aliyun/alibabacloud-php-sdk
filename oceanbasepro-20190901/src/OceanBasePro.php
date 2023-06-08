@@ -21,6 +21,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantReadOnlyConnectio
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantReadOnlyConnectionResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantSecurityIpGroupRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantSecurityIpGroupResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantUserRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\CreateTenantUserResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteDatabasesRequest;
@@ -31,6 +33,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteOmsOpenAPIProjectReques
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteOmsOpenAPIProjectResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteSecurityIpGroupRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteSecurityIpGroupResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteTenantSecurityIpGroupRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteTenantSecurityIpGroupResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteTenantsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteTenantsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DeleteTenantUsersRequest;
@@ -62,6 +66,18 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyReque
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeInstanceTopologyResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeNodeMetricsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeNodeMetricsResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasAnomalySQLListRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasAnomalySQLListResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasSlowSQLListRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasSlowSQLListResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasSQLDetailsRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasSQLDetailsResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasSQLHistoryListRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasSQLHistoryListResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasSQLPlansRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasSQLPlansResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasTopSQLListRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOasTopSQLListResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOmsOpenAPIProjectRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOmsOpenAPIProjectResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeOmsOpenAPIProjectStepsRequest;
@@ -87,12 +103,16 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLHistoryListRequest
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLHistoryListResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLPlansRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLPlansResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLSamplesRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeSQLSamplesResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantMetricsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantMetricsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantSecurityConfigsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantSecurityConfigsResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantSecurityIpGroupsRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantSecurityIpGroupsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\DescribeTenantTagsRequest;
@@ -130,6 +150,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantPrimaryZoneReques
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantPrimaryZoneResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantResourceRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantResourceResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantSecurityIpGroupRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantSecurityIpGroupResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantTagsRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantTagsResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\ModifyTenantUserDescriptionRequest;
@@ -155,6 +177,8 @@ use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StartOmsOpenAPIProjectRequest
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StartOmsOpenAPIProjectResponse;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StopOmsOpenAPIProjectRequest;
 use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\StopOmsOpenAPIProjectResponse;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\SwitchoverInstanceRequest;
+use AlibabaCloud\SDK\OceanBasePro\V20190901\Models\SwitchoverInstanceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -675,6 +699,58 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param CreateTenantSecurityIpGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateTenantSecurityIpGroupResponse
+     */
+    public function createTenantSecurityIpGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->securityIpGroupName)) {
+            $body['SecurityIpGroupName'] = $request->securityIpGroupName;
+        }
+        if (!Utils::isUnset($request->securityIps)) {
+            $body['SecurityIps'] = $request->securityIps;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTenantSecurityIpGroup',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTenantSecurityIpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateTenantSecurityIpGroupRequest $request
+     *
+     * @return CreateTenantSecurityIpGroupResponse
+     */
+    public function createTenantSecurityIpGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTenantSecurityIpGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateTenantUserRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -933,6 +1009,55 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSecurityIpGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteTenantSecurityIpGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeleteTenantSecurityIpGroupResponse
+     */
+    public function deleteTenantSecurityIpGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->securityIpGroupName)) {
+            $body['SecurityIpGroupName'] = $request->securityIpGroupName;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTenantSecurityIpGroup',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTenantSecurityIpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteTenantSecurityIpGroupRequest $request
+     *
+     * @return DeleteTenantSecurityIpGroupResponse
+     */
+    public function deleteTenantSecurityIpGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTenantSecurityIpGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -1721,6 +1846,441 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param DescribeOasAnomalySQLListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeOasAnomalySQLListResponse
+     */
+    public function describeOasAnomalySQLListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->current)) {
+            $body['Current'] = $request->current;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->filterCondition)) {
+            $body['FilterCondition'] = $request->filterCondition;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeIp)) {
+            $body['NodeIp'] = $request->nodeIp;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKeyWord)) {
+            $body['SearchKeyWord'] = $request->searchKeyWord;
+        }
+        if (!Utils::isUnset($request->searchParam)) {
+            $body['SearchParam'] = $request->searchParam;
+        }
+        if (!Utils::isUnset($request->searchRule)) {
+            $body['SearchRule'] = $request->searchRule;
+        }
+        if (!Utils::isUnset($request->searchValue)) {
+            $body['SearchValue'] = $request->searchValue;
+        }
+        if (!Utils::isUnset($request->sqlId)) {
+            $body['SqlId'] = $request->sqlId;
+        }
+        if (!Utils::isUnset($request->sqlTextLength)) {
+            $body['SqlTextLength'] = $request->sqlTextLength;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOasAnomalySQLList',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeOasAnomalySQLListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeOasAnomalySQLListRequest $request
+     *
+     * @return DescribeOasAnomalySQLListResponse
+     */
+    public function describeOasAnomalySQLList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOasAnomalySQLListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeOasSQLDetailsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeOasSQLDetailsResponse
+     */
+    public function describeOasSQLDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->sqlId)) {
+            $body['SqlId'] = $request->sqlId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOasSQLDetails',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeOasSQLDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeOasSQLDetailsRequest $request
+     *
+     * @return DescribeOasSQLDetailsResponse
+     */
+    public function describeOasSQLDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOasSQLDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeOasSQLHistoryListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeOasSQLHistoryListResponse
+     */
+    public function describeOasSQLHistoryListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeIp)) {
+            $body['NodeIp'] = $request->nodeIp;
+        }
+        if (!Utils::isUnset($request->sqlId)) {
+            $body['SqlId'] = $request->sqlId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOasSQLHistoryList',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeOasSQLHistoryListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeOasSQLHistoryListRequest $request
+     *
+     * @return DescribeOasSQLHistoryListResponse
+     */
+    public function describeOasSQLHistoryList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOasSQLHistoryListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeOasSQLPlansRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeOasSQLPlansResponse
+     */
+    public function describeOasSQLPlansWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->sqlId)) {
+            $body['SqlId'] = $request->sqlId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOasSQLPlans',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeOasSQLPlansResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeOasSQLPlansRequest $request
+     *
+     * @return DescribeOasSQLPlansResponse
+     */
+    public function describeOasSQLPlans($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOasSQLPlansWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeOasSlowSQLListRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeOasSlowSQLListResponse
+     */
+    public function describeOasSlowSQLListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->filterCondition)) {
+            $body['FilterCondition'] = $request->filterCondition;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeIp)) {
+            $body['NodeIp'] = $request->nodeIp;
+        }
+        if (!Utils::isUnset($request->searchKeyWord)) {
+            $body['SearchKeyWord'] = $request->searchKeyWord;
+        }
+        if (!Utils::isUnset($request->searchParam)) {
+            $body['SearchParam'] = $request->searchParam;
+        }
+        if (!Utils::isUnset($request->searchRule)) {
+            $body['SearchRule'] = $request->searchRule;
+        }
+        if (!Utils::isUnset($request->searchValue)) {
+            $body['SearchValue'] = $request->searchValue;
+        }
+        if (!Utils::isUnset($request->sqlId)) {
+            $body['SqlId'] = $request->sqlId;
+        }
+        if (!Utils::isUnset($request->sqlTextLength)) {
+            $body['SqlTextLength'] = $request->sqlTextLength;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOasSlowSQLList',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeOasSlowSQLListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeOasSlowSQLListRequest $request
+     *
+     * @return DescribeOasSlowSQLListResponse
+     */
+    public function describeOasSlowSQLList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOasSlowSQLListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeOasTopSQLListRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeOasTopSQLListResponse
+     */
+    public function describeOasTopSQLListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $body['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->filterCondition)) {
+            $body['FilterCondition'] = $request->filterCondition;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeIp)) {
+            $body['NodeIp'] = $request->nodeIp;
+        }
+        if (!Utils::isUnset($request->searchKeyWord)) {
+            $body['SearchKeyWord'] = $request->searchKeyWord;
+        }
+        if (!Utils::isUnset($request->searchParam)) {
+            $body['SearchParam'] = $request->searchParam;
+        }
+        if (!Utils::isUnset($request->searchRule)) {
+            $body['SearchRule'] = $request->searchRule;
+        }
+        if (!Utils::isUnset($request->searchValue)) {
+            $body['SearchValue'] = $request->searchValue;
+        }
+        if (!Utils::isUnset($request->sqlId)) {
+            $body['SqlId'] = $request->sqlId;
+        }
+        if (!Utils::isUnset($request->sqlTextLength)) {
+            $body['SqlTextLength'] = $request->sqlTextLength;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOasTopSQLList',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeOasTopSQLListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeOasTopSQLListRequest $request
+     *
+     * @return DescribeOasTopSQLListResponse
+     */
+    public function describeOasTopSQLList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOasTopSQLListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeOmsOpenAPIProjectRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -2192,6 +2752,64 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param DescribeSQLSamplesRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeSQLSamplesResponse
+     */
+    public function describeSQLSamplesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->dbName)) {
+            $body['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->sqlId)) {
+            $body['SqlId'] = $request->sqlId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSQLSamples',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSQLSamplesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSQLSamplesRequest $request
+     *
+     * @return DescribeSQLSamplesResponse
+     */
+    public function describeSQLSamples($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSQLSamplesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSecurityIpGroupsRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -2539,6 +3157,52 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTenantSecurityConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeTenantSecurityIpGroupsRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeTenantSecurityIpGroupsResponse
+     */
+    public function describeTenantSecurityIpGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTenantSecurityIpGroups',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTenantSecurityIpGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeTenantSecurityIpGroupsRequest $request
+     *
+     * @return DescribeTenantSecurityIpGroupsResponse
+     */
+    public function describeTenantSecurityIpGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTenantSecurityIpGroupsWithOptions($request, $runtime);
     }
 
     /**
@@ -3506,6 +4170,58 @@ class OceanBasePro extends OpenApiClient
     }
 
     /**
+     * @param ModifyTenantSecurityIpGroupRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ModifyTenantSecurityIpGroupResponse
+     */
+    public function modifyTenantSecurityIpGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->securityIpGroupName)) {
+            $body['SecurityIpGroupName'] = $request->securityIpGroupName;
+        }
+        if (!Utils::isUnset($request->securityIps)) {
+            $body['SecurityIps'] = $request->securityIps;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTenantSecurityIpGroup',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyTenantSecurityIpGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyTenantSecurityIpGroupRequest $request
+     *
+     * @return ModifyTenantSecurityIpGroupResponse
+     */
+    public function modifyTenantSecurityIpGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyTenantSecurityIpGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyTenantTagsRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -4168,5 +4884,54 @@ class OceanBasePro extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopOmsOpenAPIProjectWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SwitchoverInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return SwitchoverInstanceResponse
+     */
+    public function switchoverInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->forced)) {
+            $body['Forced'] = $request->forced;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $body['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->targetInstanceId)) {
+            $body['TargetInstanceId'] = $request->targetInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchoverInstance',
+            'version'     => '2019-09-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SwitchoverInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SwitchoverInstanceRequest $request
+     *
+     * @return SwitchoverInstanceResponse
+     */
+    public function switchoverInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->switchoverInstanceWithOptions($request, $runtime);
     }
 }
