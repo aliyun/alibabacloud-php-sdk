@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceConfigurationResponseBody extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     *
      * @example 151266687691****
      *
      * @var string
@@ -17,11 +19,15 @@ class GetResourceConfigurationResponseBody extends Model
     public $accountId;
 
     /**
+     * @description The configurations of the resource.
+     *
      * @var mixed[]
      */
     public $configuration;
 
     /**
+     * @description The time when the resource was created.
+     *
      * @example 2021-06-30T09:20:08Z
      *
      * @var string
@@ -29,11 +35,16 @@ class GetResourceConfigurationResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The IP addresses.
+     *
+     * > Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
      * @var string[]
      */
     public $ipAddresses;
 
     /**
+     * @description The region ID of the resource.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +52,8 @@ class GetResourceConfigurationResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F1CE0D52-32DA-531A-87A4-B9A5B68D5D8E
      *
      * @var string
@@ -48,6 +61,8 @@ class GetResourceConfigurationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the resource belongs.
+     *
      * @example rg-acfmv4k****
      *
      * @var string
@@ -55,6 +70,8 @@ class GetResourceConfigurationResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the resource.
+     *
      * @example vtb-uf6978gdqbi****
      *
      * @var string
@@ -62,6 +79,8 @@ class GetResourceConfigurationResponseBody extends Model
     public $resourceId;
 
     /**
+     * @description The name of the resource.
+     *
      * @example group1
      *
      * @var string
@@ -69,6 +88,8 @@ class GetResourceConfigurationResponseBody extends Model
     public $resourceName;
 
     /**
+     * @description The type of the resource.
+     *
      * @example ACS::VPC::VSwitch
      *
      * @var string
@@ -76,11 +97,15 @@ class GetResourceConfigurationResponseBody extends Model
     public $resourceType;
 
     /**
+     * @description The tags of the resource.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The zone ID of the resource.
+     *
      * @example cn-hangzhou-k
      *
      * @var string

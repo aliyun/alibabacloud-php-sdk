@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetResourceCenterServiceStatusResponseBody extends Model
 {
     /**
+     * @description The initialization status of the service. Valid values:
+     *
+     *   Pending: The service being initialized.
+     *   Finished: The service is initialized.
+     *
      * @example Pending
      *
      * @var string
@@ -16,6 +21,8 @@ class GetResourceCenterServiceStatusResponseBody extends Model
     public $initialStatus;
 
     /**
+     * @description The ID of the request.
+     *
      * @example AD5F848D-CCDC-5464-93E1-4BA50A4826DD
      *
      * @var string
@@ -23,6 +30,11 @@ class GetResourceCenterServiceStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the service. Valid values:
+     *
+     *   Enabled: The service is activated.
+     *   Disabled: The service is deactivated.
+     *
      * @example Enabled
      *
      * @var string

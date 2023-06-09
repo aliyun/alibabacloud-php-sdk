@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMultiAccountResourceGroupsRequest extends Model
 {
     /**
+     * @description The ID of the management account or member of the resource directory.
+     *
      * @example 1394339739****
      *
      * @var string
@@ -16,6 +18,9 @@ class ListMultiAccountResourceGroupsRequest extends Model
     public $accountId;
 
     /**
+     * @description The maximum number of entries to return on each page.
+     *
+     * Maximum value: 100. Default value: 10.
      * @example 20
      *
      * @var int
@@ -23,6 +28,8 @@ class ListMultiAccountResourceGroupsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example AAAAAS2Nboi3t4xGrdlG5/Ks/Q1xPG9jzviYEuZydevXIkgF
      *
      * @var string
@@ -30,6 +37,8 @@ class ListMultiAccountResourceGroupsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The IDs of resource groups.
+     *
      * @var string[]
      */
     public $resourceGroupIds;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetMultiAccountResourceConfigurationResponseBody extends Model
 {
     /**
+     * @description The ID of the management account or member of the resource directory.
+     *
      * @example 1619302****
      *
      * @var string
@@ -17,11 +19,15 @@ class GetMultiAccountResourceConfigurationResponseBody extends Model
     public $accountId;
 
     /**
+     * @description The configurations of the resource.
+     *
      * @var mixed[]
      */
     public $configuration;
 
     /**
+     * @description The time when the resource was created.
+     *
      * @example 2023-02-14T03:12:11Z
      *
      * @var string
@@ -29,11 +35,16 @@ class GetMultiAccountResourceConfigurationResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The IP addresses.
+     *
+     * > Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
      * @var string[]
      */
     public $ipAddresses;
 
     /**
+     * @description The region ID of the resource.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -41,6 +52,8 @@ class GetMultiAccountResourceConfigurationResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B2DCC08B-C12A-5705-879C-5A1450016156
      *
      * @var string
@@ -48,6 +61,8 @@ class GetMultiAccountResourceConfigurationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the resource belongs.
+     *
      * @example rg-acfmzy6d****
      *
      * @var string
@@ -55,6 +70,8 @@ class GetMultiAccountResourceConfigurationResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the resource.
+     *
      * @example m-eb3hji****
      *
      * @var string
@@ -62,6 +79,8 @@ class GetMultiAccountResourceConfigurationResponseBody extends Model
     public $resourceId;
 
     /**
+     * @description The name of the resource.
+     *
      * @example test_resource
      *
      * @var string
@@ -69,6 +88,8 @@ class GetMultiAccountResourceConfigurationResponseBody extends Model
     public $resourceName;
 
     /**
+     * @description The type of the resource.
+     *
      * @example ACS::VPC::RouteTable
      *
      * @var string
@@ -76,11 +97,15 @@ class GetMultiAccountResourceConfigurationResponseBody extends Model
     public $resourceType;
 
     /**
+     * @description The tags of the resource.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The zone ID of the resource.
+     *
      * @example cn-shanghai-a
      *
      * @var string

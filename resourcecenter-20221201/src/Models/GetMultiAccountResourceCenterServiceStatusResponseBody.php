@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetMultiAccountResourceCenterServiceStatusResponseBody extends Model
 {
     /**
+     * @description The initialization status of the feature. Valid values:
+     *
+     *   Pending: The feature is being initialized.
+     *   Finished: The feature is initialized.
+     *
      * @example Pending
      *
      * @var string
@@ -16,6 +21,8 @@ class GetMultiAccountResourceCenterServiceStatusResponseBody extends Model
     public $initialStatus;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 81671397-1425-51F1-A144-4799E01BEBFF
      *
      * @var string
@@ -23,6 +30,11 @@ class GetMultiAccountResourceCenterServiceStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the feature. Valid values:
+     *
+     *   Enabled: The feature is enabled.
+     *   Disabled: The feature is disabled.
+     *
      * @example Enabled
      *
      * @var string

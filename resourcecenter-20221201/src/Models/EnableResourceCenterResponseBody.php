@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableResourceCenterResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 45357BEF-AB50-5E4D-B05D-5A882A4BE924
      *
      * @var string
@@ -16,6 +18,11 @@ class EnableResourceCenterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The activation status of the service. Valid values:
+     *
+     *   Pending: The service is being activated.
+     *   Enabled: The service is activated.
+     *
      * @example Pending
      *
      * @var string

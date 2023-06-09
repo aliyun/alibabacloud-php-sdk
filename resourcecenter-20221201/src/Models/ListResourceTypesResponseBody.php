@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListResourceTypesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example E5556E4C-479A-5BBB-B325-F07563E7E917
      *
      * @var string
@@ -17,6 +19,8 @@ class ListResourceTypesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the resource types.
+     *
      * @var resourceTypes[]
      */
     public $resourceTypes;

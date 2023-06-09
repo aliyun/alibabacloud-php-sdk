@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListMultiAccountResourceGroupsResponseBody extends Model
 {
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example AAAAAU5VsT9R1adMTuz9GzginZ3Y+7Y/5JATS+6q5GK9kT75
      *
      * @var string
@@ -17,6 +19,8 @@ class ListMultiAccountResourceGroupsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0FF0A66E-781F-51EE-9531-928F197558F2
      *
      * @var string
@@ -24,6 +28,8 @@ class ListMultiAccountResourceGroupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the resource groups.
+     *
      * @var resourceGroups[]
      */
     public $resourceGroups;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMultiAccountTagKeysResponseBody extends Model
 {
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example AAAAARfZmVDe9NvRXloR5+8CK9nNJufMdRA7W1miLC1P****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListMultiAccountTagKeysResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example FA6086F9-6363-51A5-A507-88E3201EBCCB
      *
      * @var string
@@ -23,6 +27,8 @@ class ListMultiAccountTagKeysResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The tag keys.
+     *
      * @var string[]
      */
     public $tagKeys;

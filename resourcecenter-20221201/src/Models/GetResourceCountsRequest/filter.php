@@ -2,14 +2,14 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchMultiAccountResourcesResponseBody;
+namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceCountsRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class filters extends Model
+class filter extends Model
 {
     /**
-     * @description The key of the filter condition.
+     * @description The key of the filter condition. For more information, see `Supported filter parameters`.
      *
      * @example RegionId
      *
@@ -20,6 +20,7 @@ class filters extends Model
     /**
      * @description The matching mode.
      *
+     * The value Equals indicates an equal match.
      * @example Equals
      *
      * @var string
@@ -31,11 +32,11 @@ class filters extends Model
      *
      * @var string[]
      */
-    public $values;
+    public $value;
     protected $_name = [
         'key'       => 'Key',
         'matchType' => 'MatchType',
-        'values'    => 'Values',
+        'value'     => 'Value',
     ];
 
     public function validate()
@@ -51,8 +52,8 @@ class filters extends Model
         if (null !== $this->matchType) {
             $res['MatchType'] = $this->matchType;
         }
-        if (null !== $this->values) {
-            $res['Values'] = $this->values;
+        if (null !== $this->value) {
+            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -61,7 +62,7 @@ class filters extends Model
     /**
      * @param array $map
      *
-     * @return filters
+     * @return filter
      */
     public static function fromMap($map = [])
     {
@@ -72,9 +73,9 @@ class filters extends Model
         if (isset($map['MatchType'])) {
             $model->matchType = $map['MatchType'];
         }
-        if (isset($map['Values'])) {
-            if (!empty($map['Values'])) {
-                $model->values = $map['Values'];
+        if (isset($map['Value'])) {
+            if (!empty($map['Value'])) {
+                $model->value = $map['Value'];
             }
         }
 

@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetMultiAccountResourceConf
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceCenterServiceStatusResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceConfigurationRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceConfigurationResponse;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceCountsRequest;
+use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceCountsResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountResourceGroupsRequest;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountResourceGroupsResponse;
 use AlibabaCloud\SDK\ResourceCenter\V20221201\Models\ListMultiAccountTagKeysRequest;
@@ -138,9 +140,11 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](~~200506~~).
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableMultiAccountResourceCenterResponse
+     * @return EnableMultiAccountResourceCenterResponse EnableMultiAccountResourceCenterResponse
      */
     public function enableMultiAccountResourceCenterWithOptions($runtime)
     {
@@ -161,7 +165,9 @@ class ResourceCenter extends OpenApiClient
     }
 
     /**
-     * @return EnableMultiAccountResourceCenterResponse
+     * If you have created a resource directory for your enterprise, you can enable the cross-account resource search feature by using the management account of the resource directory or a delegated administrator account of Resource Center to view the resources of members in the resource directory. For more information about a resource directory, see [Resource Directory overview](~~200506~~).
+     *   *
+     * @return EnableMultiAccountResourceCenterResponse EnableMultiAccountResourceCenterResponse
      */
     public function enableMultiAccountResourceCenter()
     {
@@ -368,6 +374,52 @@ class ResourceCenter extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getResourceConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetResourceCountsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetResourceCountsResponse
+     */
+    public function getResourceCountsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->groupByKey)) {
+            $query['GroupByKey'] = $request->groupByKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceCounts',
+            'version'     => '2022-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetResourceCountsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetResourceCountsRequest $request
+     *
+     * @return GetResourceCountsResponse
+     */
+    public function getResourceCounts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceCountsWithOptions($request, $runtime);
     }
 
     /**

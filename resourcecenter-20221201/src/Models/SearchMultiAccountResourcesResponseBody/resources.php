@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description The ID of the management account or member of the resource directory.
+     *
      * @example 151266687691****
      *
      * @var string
@@ -17,6 +19,9 @@ class resources extends Model
     public $accountId;
 
     /**
+     * @description The time when the resource was created.
+     *
+     * > Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
      * @example 2021-06-30T09:20:08Z
      *
      * @var string
@@ -24,11 +29,16 @@ class resources extends Model
     public $createTime;
 
     /**
+     * @description The IP addresses.
+     *
+     * > Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
      * @var string[]
      */
     public $ipAddresses;
 
     /**
+     * @description The region ID of the resource.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +46,8 @@ class resources extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the resource belongs.
+     *
      * @example rg-acfmzawhxxc****
      *
      * @var string
@@ -43,6 +55,8 @@ class resources extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the resource.
+     *
      * @example vtb-bp11lbh452fr8940s****
      *
      * @var string
@@ -50,6 +64,8 @@ class resources extends Model
     public $resourceId;
 
     /**
+     * @description The name of the resource.
+     *
      * @example group1
      *
      * @var string
@@ -57,6 +73,8 @@ class resources extends Model
     public $resourceName;
 
     /**
+     * @description The type of the resource.
+     *
      * @example ACS::VPC::RouteTable
      *
      * @var string
@@ -64,11 +82,16 @@ class resources extends Model
     public $resourceType;
 
     /**
+     * @description The tags of the resource.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The zone ID of the resource.
+     *
+     * > Whether this parameter is returned is determined by the Alibaba Cloud service to which the resource belongs.
      * @example cn-hangzhou-k
      *
      * @var string

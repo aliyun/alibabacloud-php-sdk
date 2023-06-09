@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class SearchResourcesResponseBody extends Model
 {
     /**
+     * @description The filter conditions.
+     *
      * @var filters[]
      */
     public $filters;
 
     /**
+     * @description The maximum number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class SearchResourcesResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example eyJzZWFyY2hBZnRlcnMiOlsiMTAwMTU2Nzk4MTU1OSJd****
      *
      * @var string
@@ -30,6 +36,8 @@ class SearchResourcesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example D696E6EF-3A6D-5770-801E-4982081FE4D0
      *
      * @var string
@@ -37,6 +45,8 @@ class SearchResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the resources.
+     *
      * @var resources[]
      */
     public $resources;

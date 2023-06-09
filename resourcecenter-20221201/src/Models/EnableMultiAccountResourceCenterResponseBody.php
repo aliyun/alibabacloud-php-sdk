@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableMultiAccountResourceCenterResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 767038B7-2027-5508-858B-E213232D57D5
      *
      * @var string
@@ -16,6 +18,11 @@ class EnableMultiAccountResourceCenterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the feature. Valid values:
+     *
+     *   Pending: The feature is being enabled.
+     *   Enabled: The feature is enabled.
+     *
      * @example Pending
      *
      * @var string

@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class resourceTypes extends Model
 {
     /**
+     * @description The supported filter conditions.
+     *
      * @var string[]
      */
     public $filterKeys;
 
     /**
+     * @description The name of the Alibaba Cloud service.
+     *
+     * @example Container Service for Kubernetes
+     *
      * @var string
      */
     public $productName;
 
     /**
+     * @description The resource type.
+     *
      * @example ACS::ACK::Cluster
      *
      * @var string
@@ -26,6 +34,10 @@ class resourceTypes extends Model
     public $resourceType;
 
     /**
+     * @description The name of the resource type.
+     *
+     * @example Cluster
+     *
      * @var string
      */
     public $resourceTypeName;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListTagValuesRequest extends Model
 {
     /**
+     * @description The matching mode. Valid values:
+     *
+     *   Equals: equal match
+     *   Prefix: match by prefix
+     *
      * @example Equals
      *
      * @var string
@@ -16,6 +21,9 @@ class ListTagValuesRequest extends Model
     public $matchType;
 
     /**
+     * @description The maximum number of entries to return on each page.
+     *
+     * Default value: 20.
      * @example 10
      *
      * @var int
@@ -23,6 +31,9 @@ class ListTagValuesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * If the total number of entries returned for the current request exceeds the value of the `MaxResults` parameter, the entries are truncated. In this case, you can use the `token` to initiate another request and obtain the remaining entries.
      * @example eyJzZWFyY2hBZnRlcnMiOlsiMTAwMTU2Nzk4MTU1OSJd****
      *
      * @var string
@@ -30,6 +41,8 @@ class ListTagValuesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The tag key.
+     *
      * @example test_key
      *
      * @var string
@@ -37,6 +50,8 @@ class ListTagValuesRequest extends Model
     public $tagKey;
 
     /**
+     * @description The tag value.
+     *
      * @example test_value
      *
      * @var string

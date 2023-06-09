@@ -2,32 +2,30 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models\SearchResourcesResponseBody\resources;
+namespace AlibabaCloud\SDK\ResourceCenter\V20221201\Models\GetResourceCountsResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class tags extends Model
+class filters extends Model
 {
     /**
-     * @description The tag key.
+     * @description The key of the filter condition.
      *
-     * @example test_key
+     * @example RegionId
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description The tag value.
+     * @description The values of the filter condition.
      *
-     * @example test_value
-     *
-     * @var string
+     * @var string[]
      */
-    public $value;
+    public $values;
     protected $_name = [
-        'key'   => 'Key',
-        'value' => 'Value',
+        'key'    => 'Key',
+        'values' => 'Values',
     ];
 
     public function validate()
@@ -40,8 +38,8 @@ class tags extends Model
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->values) {
+            $res['Values'] = $this->values;
         }
 
         return $res;
@@ -50,7 +48,7 @@ class tags extends Model
     /**
      * @param array $map
      *
-     * @return tags
+     * @return filters
      */
     public static function fromMap($map = [])
     {
@@ -58,8 +56,10 @@ class tags extends Model
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['Values'])) {
+            if (!empty($map['Values'])) {
+                $model->values = $map['Values'];
+            }
         }
 
         return $model;

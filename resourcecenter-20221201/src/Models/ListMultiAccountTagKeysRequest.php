@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListMultiAccountTagKeysRequest extends Model
 {
     /**
+     * @description The matching mode. Valid values:
+     *
+     *   Equals: equal match
+     *   Prefix: match by prefix
+     *
      * @example Equals
      *
      * @var string
@@ -16,6 +21,9 @@ class ListMultiAccountTagKeysRequest extends Model
     public $matchType;
 
     /**
+     * @description The maximum number of entries to return on each page.
+     *
+     * Default value: 20.
      * @example 10
      *
      * @var int
@@ -23,6 +31,9 @@ class ListMultiAccountTagKeysRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * If the total number of entries returned for the current request exceeds the value of the `MaxResults` parameter, the entries are truncated. In this case, you can use the `token` to initiate another request and obtain the remaining entries.
      * @example eyJzZWFyY2hBZnRlcnMiOlsiMTAwMTU2Nzk4MTU1OSJd****
      *
      * @var string
@@ -30,6 +41,13 @@ class ListMultiAccountTagKeysRequest extends Model
     public $nextToken;
 
     /**
+     * @description The search scope. You can set the value to one of the following items:
+     *
+     *   ID of a resource directory: Resources within the management account and all members of the resource directory are searched. You can call the [GetResourceDirectory](~~159995~~) operation to obtain the ID.
+     *   ID of the Root folder: Resources within all members in the Root folder and the subfolders of the Root folder are searched. You can call the [ListFoldersForParent](~~159997~~) operation to obtain the ID.
+     *   ID of a folder: Resources within all members in the folder are searched. You can call the [ListFoldersForParent](~~159997~~) operation to obtain the ID.
+     *   ID of a member: Resources within the member are searched. You can call the [ListAccounts](~~160016~~) operation to obtain the ID.
+     *
      * @example rd-r4****
      *
      * @var string
@@ -37,6 +55,8 @@ class ListMultiAccountTagKeysRequest extends Model
     public $scope;
 
     /**
+     * @description The tag key.
+     *
      * @example test_key
      *
      * @var string

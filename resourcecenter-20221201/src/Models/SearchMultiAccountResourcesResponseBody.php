@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class SearchMultiAccountResourcesResponseBody extends Model
 {
     /**
+     * @description The filter conditions.
+     *
      * @var filters[]
      */
     public $filters;
 
     /**
+     * @description The maximum number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -23,11 +27,17 @@ class SearchMultiAccountResourcesResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * @example The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example EFA806B9-7F36-55AB-8B7A-D680C2C5EE57
      *
      * @var string
@@ -35,11 +45,20 @@ class SearchMultiAccountResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the resources.
+     *
      * @var resources[]
      */
     public $resources;
 
     /**
+     * @description The search scope.
+     *
+     *   ID of a resource directory: Resources within the management account and all members of the resource directory are searched.
+     *   ID of the Root folder: Resources within all members in the Root folder and the subfolders of the Root folder are searched.
+     *   ID of a folder: Resources within all members in the folder are searched.
+     *   ID of a member: Resources within the member are searched.
+     *
      * @example rd-r4****
      *
      * @var string

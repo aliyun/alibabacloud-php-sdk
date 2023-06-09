@@ -11,11 +11,16 @@ use AlibabaCloud\Tea\Model;
 class SearchResourcesRequest extends Model
 {
     /**
+     * @description The filter conditions.
+     *
      * @var filter[]
      */
     public $filter;
 
     /**
+     * @description The maximum number of entries to return on each page.
+     *
+     * Default value: 20.
      * @example 10
      *
      * @var int
@@ -23,6 +28,9 @@ class SearchResourcesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * If the total number of entries returned for the current request exceeds the value of the `MaxResults` parameter, the entries are truncated. In this case, you can use the `token` to initiate another request and obtain the remaining entries.
      * @example eyJzZWFyY2hBZnRlcnMiOlsiMTAwMTU2Nzk4MTU1OSJd****
      *
      * @var string
@@ -30,6 +38,8 @@ class SearchResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmzawhxxc****
      *
      * @var string
@@ -37,6 +47,8 @@ class SearchResourcesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The method that is used to sort the entries returned.
+     *
      * @var sortCriterion
      */
     public $sortCriterion;

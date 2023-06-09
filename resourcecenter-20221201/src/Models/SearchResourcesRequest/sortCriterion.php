@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class sortCriterion extends Model
 {
     /**
+     * @description The attribute based on which the entries are sorted.
+     *
+     * The value CreateTime indicates the creation time of resources.
      * @example CreateTime
      *
      * @var string
@@ -16,6 +19,11 @@ class sortCriterion extends Model
     public $key;
 
     /**
+     * @description The order in which the entries are sorted. Valid values:
+     *
+     *   ASC: The entries are sorted in ascending order. This value is the default value.
+     *   DESC: The entries are sorted in descending order.
+     *
      * @example ASC
      *
      * @var string

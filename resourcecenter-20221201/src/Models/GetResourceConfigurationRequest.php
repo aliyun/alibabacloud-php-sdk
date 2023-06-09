@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceConfigurationRequest extends Model
 {
     /**
+     * @description The ID of the resource.
+     *
      * @example eip-bp1kyg72m****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetResourceConfigurationRequest extends Model
     public $resourceId;
 
     /**
+     * @description The region ID of the resource.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -23,6 +27,9 @@ class GetResourceConfigurationRequest extends Model
     public $resourceRegionId;
 
     /**
+     * @description The type of the resource.
+     *
+     * For more information about the resource types supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
      * @example ACS::VPC::RouteTable
      *
      * @var string

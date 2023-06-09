@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceGroups extends Model
 {
     /**
+     * @description The ID of the management account or member of the resource directory.
+     *
      * @example 1394339739****
      *
      * @var string
@@ -16,6 +18,8 @@ class resourceGroups extends Model
     public $accountId;
 
     /**
+     * @description The time when the resource group was created.
+     *
      * @example 2021-06-30T09:20:08Z
      *
      * @var string
@@ -23,6 +27,8 @@ class resourceGroups extends Model
     public $createDate;
 
     /**
+     * @description The display name of the resource group.
+     *
      * @example group1
      *
      * @var string
@@ -30,6 +36,8 @@ class resourceGroups extends Model
     public $displayName;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmzawhxxc****
      *
      * @var string
@@ -37,6 +45,8 @@ class resourceGroups extends Model
     public $id;
 
     /**
+     * @description The unique identifier of the resource group.
+     *
      * @example my-project
      *
      * @var string
@@ -44,6 +54,12 @@ class resourceGroups extends Model
     public $name;
 
     /**
+     * @description The status of the resource group. Valid values:
+     *
+     *   Creating: The resource group is being created.
+     *   OK: The resource group is created.
+     *   PendingDelete: The resource group is waiting to be deleted.
+     *
      * @example OK
      *
      * @var string

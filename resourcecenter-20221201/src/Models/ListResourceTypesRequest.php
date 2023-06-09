@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListResourceTypesRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US: English
+     *
      * @example zh-CN
      *
      * @var string
@@ -16,11 +21,16 @@ class ListResourceTypesRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The query conditions.
+     *
      * @var string[]
      */
     public $query;
 
     /**
+     * @description The resource type.
+     *
+     * For more information about the resource types that are supported by Resource Center, see [Services that work with Resource Center](~~477798~~).
      * @example ACS::ACK::Cluster
      *
      * @var string
