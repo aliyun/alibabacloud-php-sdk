@@ -19,7 +19,7 @@ class ratePlanDaily extends Model
     public $discountPrice;
 
     /**
-     * @var string
+     * @var int
      */
     public $maxBookingNum;
 

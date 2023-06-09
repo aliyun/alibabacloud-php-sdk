@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class InvoiceAddRequest extends Model
 {
     /**
-     * @example xxx
-     *
      * @var string
      */
     public $address;
@@ -21,29 +19,21 @@ class InvoiceAddRequest extends Model
     public $bankName;
 
     /**
-     * @example 123456
-     *
      * @var string
      */
     public $bankNo;
 
     /**
-     * @example 12345
-     *
      * @var string
      */
     public $taxNo;
 
     /**
-     * @example 123
-     *
      * @var string
      */
     public $tel;
 
     /**
-     * @example 340049
-     *
      * @var string
      */
     public $thirdPartId;
@@ -54,8 +44,6 @@ class InvoiceAddRequest extends Model
     public $title;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $type;

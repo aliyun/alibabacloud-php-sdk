@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
-     * @example 2022-07-04T16:13Z
-     *
      * @var string
      */
     public $cancelTime;
@@ -26,8 +24,6 @@ class module extends Model
     public $failReason;
 
     /**
-     * @example 0
-     *
      * @var string
      */
     public $orderStatus;

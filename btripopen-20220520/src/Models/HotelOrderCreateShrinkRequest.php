@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class HotelOrderCreateShrinkRequest extends Model
 {
     /**
-     * @example 123122
-     *
      * @var string
      */
     public $btripUserId;
 
     /**
-     * @example 2020-10-20
-     *
      * @var string
      */
     public $checkIn;
 
     /**
-     * @example 2020-10-20
-     *
      * @var string
      */
     public $checkOut;
 
     /**
-     * @example demo
-     *
      * @var string
      */
     public $contractEmail;
@@ -42,22 +34,16 @@ class HotelOrderCreateShrinkRequest extends Model
     public $contractName;
 
     /**
-     * @example 19281772123
-     *
      * @var string
      */
     public $contractPhone;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $corpPayPrice;
 
     /**
-     * @example dis123
-     *
      * @var string
      */
     public $disOrderId;
@@ -73,15 +59,11 @@ class HotelOrderCreateShrinkRequest extends Model
     public $invoiceInfoShrink;
 
     /**
-     * @example 671570615157
-     *
      * @var int
      */
     public $itemId;
 
     /**
-     * @example fb5e1abf33924b6c912bd6d80deec0eb-1
-     *
      * @var string
      */
     public $itineraryNo;
@@ -92,8 +74,6 @@ class HotelOrderCreateShrinkRequest extends Model
     public $occupantInfoListShrink;
 
     /**
-     * @example 1000
-     *
      * @var int
      */
     public $personPayPrice;
@@ -104,50 +84,36 @@ class HotelOrderCreateShrinkRequest extends Model
     public $promotionInfoShrink;
 
     /**
-     * @example 1399417428510
-     *
      * @var int
      */
     public $ratePlanId;
 
     /**
-     * @example 187211
-     *
      * @var int
      */
     public $roomId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $roomNum;
 
     /**
-     * @example 2088441675613762
-     *
      * @var int
      */
     public $sellerId;
 
     /**
-     * @example 2198781
-     *
      * @var int
      */
     public $shid;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $totalOrderPrice;
 
     /**
-     * @example nonUltron_1673575241156_d91ea8ad16735752359161037bf6cf_c54d3768312a4b249b719f126377bf82
-     *
      * @var string
      */
     public $validateResKey;

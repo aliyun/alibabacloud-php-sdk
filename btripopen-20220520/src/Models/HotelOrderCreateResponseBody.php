@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class HotelOrderCreateResponseBody extends Model
 {
     /**
-     * @example 0
-     *
      * @var string
      */
     public $code;
 
     /**
-     * @example operation success.
-     *
      * @var string
      */
     public $message;
@@ -29,22 +25,16 @@ class HotelOrderCreateResponseBody extends Model
     public $module;
 
     /**
-     * @example C61ECFF6-606B-5F66-B81D-D77369043A5F
-     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $success;
 
     /**
-     * @example 21041ce316577904808056433edbb2
-     *
      * @var string
      */
     public $traceId;

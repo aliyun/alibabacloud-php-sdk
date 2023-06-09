@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
-     * @example 123
-     *
      * @var int
      */
     public $btripOrderId;
 
     /**
-     * @example 100
-     *
      * @var int
      */
     public $totalPrice;

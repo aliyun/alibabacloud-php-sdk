@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class occupantInfoList extends Model
 {
     /**
-     * @example 124231213
-     *
      * @var string
      */
     public $cardNo;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $cardType;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $customerType;
 
     /**
-     * @example 123112
-     *
      * @var string
      */
     public $departmentId;
@@ -42,29 +34,21 @@ class occupantInfoList extends Model
     public $departmentName;
 
     /**
-     * @example demo
-     *
      * @var string
      */
     public $email;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $employeeType;
 
     /**
-     * @example san
-     *
      * @var string
      */
     public $firstName;
 
     /**
-     * @example zhang
-     *
      * @var string
      */
     public $lastName;
@@ -75,8 +59,6 @@ class occupantInfoList extends Model
     public $name;
 
     /**
-     * @example 18277123451
-     *
      * @var string
      */
     public $phone;
@@ -87,15 +69,11 @@ class occupantInfoList extends Model
     public $roomNo;
 
     /**
-     * @example 87817182
-     *
      * @var string
      */
     public $staffNo;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $userType;

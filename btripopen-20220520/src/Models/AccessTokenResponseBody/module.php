@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
-     * @example 70000
-     *
      * @var int
      */
     public $expire;
 
     /**
-     * @example 1652410740914
-     *
      * @var int
      */
     public $start;
 
     /**
-     * @example 37j76df
-     *
      * @var string
      */
     public $token;
