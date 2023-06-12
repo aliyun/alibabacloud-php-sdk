@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Videoenhan\V20200320\Models;
 
+use AlibabaCloud\SDK\Videoenhan\V20200320\Models\MergeVideoModelFaceAdvanceRequest\mergeInfos;
 use AlibabaCloud\Tea\Model;
 use GuzzleHttp\Psr7\Stream;
 
@@ -17,6 +18,11 @@ class MergeVideoModelFaceAdvanceRequest extends Model
     public $faceImageURLObject;
 
     /**
+     * @var mergeInfos[]
+     */
+    public $mergeInfos;
+
+    /**
      * @example 3bf2418c-7adf-4002-a9d6-2f7cf1889c0d
      *
      * @var string
@@ -24,6 +30,7 @@ class MergeVideoModelFaceAdvanceRequest extends Model
     public $templateId;
     protected $_name = [
         'faceImageURLObject' => 'FaceImageURL',
+        'mergeInfos'         => 'MergeInfos',
         'templateId'         => 'TemplateId',
     ];
 
@@ -36,6 +43,15 @@ class MergeVideoModelFaceAdvanceRequest extends Model
         $res = [];
         if (null !== $this->faceImageURLObject) {
             $res['FaceImageURL'] = $this->faceImageURLObject;
+        }
+        if (null !== $this->mergeInfos) {
+            $res['MergeInfos'] = [];
+            if (null !== $this->mergeInfos && \is_array($this->mergeInfos)) {
+                $n = 0;
+                foreach ($this->mergeInfos as $item) {
+                    $res['MergeInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->templateId) {
             $res['TemplateId'] = $this->templateId;
@@ -54,6 +70,15 @@ class MergeVideoModelFaceAdvanceRequest extends Model
         $model = new self();
         if (isset($map['FaceImageURL'])) {
             $model->faceImageURLObject = $map['FaceImageURL'];
+        }
+        if (isset($map['MergeInfos'])) {
+            if (!empty($map['MergeInfos'])) {
+                $model->mergeInfos = [];
+                $n                 = 0;
+                foreach ($map['MergeInfos'] as $item) {
+                    $model->mergeInfos[$n++] = null !== $item ? mergeInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TemplateId'])) {
             $model->templateId = $map['TemplateId'];

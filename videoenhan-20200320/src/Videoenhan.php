@@ -377,6 +377,9 @@ class Videoenhan extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->videoScene)) {
+            $body['VideoScene'] = $request->videoScene;
+        }
         if (!Utils::isUnset($request->videoURL)) {
             $body['VideoURL'] = $request->videoURL;
         }
@@ -2069,6 +2072,9 @@ class Videoenhan extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->faceImageURL)) {
             $body['FaceImageURL'] = $request->faceImageURL;
+        }
+        if (!Utils::isUnset($request->mergeInfos)) {
+            $body['MergeInfos'] = $request->mergeInfos;
         }
         if (!Utils::isUnset($request->templateId)) {
             $body['TemplateId'] = $request->templateId;
