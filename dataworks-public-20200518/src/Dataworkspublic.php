@@ -103,6 +103,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteFolderRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteFolderResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteFromMetaCategoryRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteFromMetaCategoryResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteLineageRelationRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteLineageRelationResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteMetaCategoryRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteMetaCategoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\DeleteMetaCollectionEntityRequest;
@@ -340,6 +342,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInstanceHistoryRequest
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInstanceHistoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListInstancesResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListLineageRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListLineageResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListManualDagInstancesRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListManualDagInstancesResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListMetaCollectionEntitiesRequest;
@@ -408,6 +412,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryDISyncTaskConfigProce
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryDISyncTaskConfigProcessResultResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryPublicModelEngineRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryPublicModelEngineResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RegisterLineageRelationRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RegisterLineageRelationResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RegisterLineageRelationShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RemoveProjectMemberFromRoleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RemoveProjectMemberFromRoleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RestartInstanceRequest;
@@ -3601,6 +3608,55 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteFromMetaCategoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteLineageRelationRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteLineageRelationResponse
+     */
+    public function deleteLineageRelationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->destEntityQualifiedName)) {
+            $query['DestEntityQualifiedName'] = $request->destEntityQualifiedName;
+        }
+        if (!Utils::isUnset($request->relationshipGuid)) {
+            $query['RelationshipGuid'] = $request->relationshipGuid;
+        }
+        if (!Utils::isUnset($request->srcEntityQualifiedName)) {
+            $query['SrcEntityQualifiedName'] = $request->srcEntityQualifiedName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLineageRelation',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteLineageRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteLineageRelationRequest $request
+     *
+     * @return DeleteLineageRelationResponse
+     */
+    public function deleteLineageRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteLineageRelationWithOptions($request, $runtime);
     }
 
     /**
@@ -9658,6 +9714,61 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param ListLineageRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListLineageResponse
+     */
+    public function listLineageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->entityQualifiedName)) {
+            $query['EntityQualifiedName'] = $request->entityQualifiedName;
+        }
+        if (!Utils::isUnset($request->keyword)) {
+            $query['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLineage',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListLineageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListLineageRequest $request
+     *
+     * @return ListLineageResponse
+     */
+    public function listLineage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listLineageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListManualDagInstancesRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -11407,6 +11518,54 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryPublicModelEngineWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RegisterLineageRelationRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RegisterLineageRelationResponse
+     */
+    public function registerLineageRelationWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RegisterLineageRelationShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->lineageRelationRegisterVO)) {
+            $request->lineageRelationRegisterVOShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->lineageRelationRegisterVO, 'LineageRelationRegisterVO', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->lineageRelationRegisterVOShrink)) {
+            $body['LineageRelationRegisterVO'] = $request->lineageRelationRegisterVOShrink;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterLineageRelation',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RegisterLineageRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RegisterLineageRelationRequest $request
+     *
+     * @return RegisterLineageRelationResponse
+     */
+    public function registerLineageRelation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerLineageRelationWithOptions($request, $runtime);
     }
 
     /**
