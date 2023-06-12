@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetUserGroupRequest extends Model
 {
     /**
-     * @example usergroup-6f1ef2fc56b6ab59
-     *
      * @var string
      */
     public $userGroupId;

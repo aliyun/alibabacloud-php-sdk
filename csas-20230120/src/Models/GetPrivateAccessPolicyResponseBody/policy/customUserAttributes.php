@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class customUserAttributes extends Model
 {
     /**
+     * @example 12
+     *
      * @var int
      */
     public $idpId;
 
     /**
+     * @example Equal
+     *
      * @var string
      */
     public $relation;
 
     /**
+     * @example department
+     *
      * @var string
      */
     public $userGroupType;

@@ -33,11 +33,23 @@ class ListConnectorsRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @var string
+     */
+    public $switchStatus;
     protected $_name = [
         'connectorIds' => 'ConnectorIds',
         'currentPage'  => 'CurrentPage',
         'name'         => 'Name',
         'pageSize'     => 'PageSize',
+        'status'       => 'Status',
+        'switchStatus' => 'SwitchStatus',
     ];
 
     public function validate()
@@ -58,6 +70,12 @@ class ListConnectorsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->switchStatus) {
+            $res['SwitchStatus'] = $this->switchStatus;
         }
 
         return $res;
@@ -84,6 +102,12 @@ class ListConnectorsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['SwitchStatus'])) {
+            $model->switchStatus = $map['SwitchStatus'];
         }
 
         return $model;

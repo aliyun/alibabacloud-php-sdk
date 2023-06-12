@@ -63,6 +63,10 @@ class ListPrivateAccessPolicesRequest extends Model
     public $tagId;
 
     /**
+     * @description 用户组ID。取值来源：
+     * - [CreateUserGroup](~~CreateUserGroup~~)：创建用户组。
+     * @example usergroup-6f1ef2fc56b6****
+     *
      * @var string
      */
     public $userGroupId;

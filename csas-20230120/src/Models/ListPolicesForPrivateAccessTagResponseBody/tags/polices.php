@@ -17,11 +17,17 @@ class polices extends Model
     public $applicationType;
 
     /**
+     * @description 内网访问策略创建时间。
+     *
+     * @example 2023-02-21 14:10:16
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description 自定义用户组属性集合。多个自定义用户组属性之间是或的关系，按照合集生效。
+     *
      * @var customUserAttributes[]
      */
     public $customUserAttributes;

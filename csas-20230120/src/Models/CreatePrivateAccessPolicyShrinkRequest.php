@@ -59,6 +59,8 @@ class CreatePrivateAccessPolicyShrinkRequest extends Model
     public $status;
 
     /**
+     * @description 内网访问标签ID集合。最多可输入100个内网访问标签ID。当**ApplicationType**为**Tag时**，必填。和**ApplicationIds**互斥。
+     *
      * @var string
      */
     public $tagIdsShrink;
@@ -69,6 +71,11 @@ class CreatePrivateAccessPolicyShrinkRequest extends Model
     public $userGroupIdsShrink;
 
     /**
+     * @description 内网访问策略的用户组类型。取值：
+     * - **Normal**：普通用户组。
+     * - **Custom**：自定义用户组。
+     * @example Normal
+     *
      * @var string
      */
     public $userGroupMode;

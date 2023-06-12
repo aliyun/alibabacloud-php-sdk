@@ -84,6 +84,8 @@ class polices extends Model
     public $userGroupIds;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $userGroupMode;

@@ -19,7 +19,6 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessTagRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessPolicyRequest;
@@ -39,43 +38,30 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessPolicyResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessPolicyShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessTagRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessTagResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessTagShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessApplicationResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessApplicationShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessTagRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessTagResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessTagShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForUserGroupResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForUserGroupShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationsResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationsShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessPolicesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessPolicesResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessPolicesShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessApplicationResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessApplicationShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessPolicyResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessPolicyShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForPrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForPrivateAccessPolicyResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForPrivateAccessPolicyShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationShrinkRequest;
@@ -84,7 +70,7 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessPolicyShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserGroupResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserGroupShrinkRequest;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -381,22 +367,18 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreateUserGroupRequest $tmpReq
+     * @param CreateUserGroupRequest $request
      * @param RuntimeOptions         $runtime
      *
      * @return CreateUserGroupResponse
      */
-    public function createUserGroupWithOptions($tmpReq, $runtime)
+    public function createUserGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new CreateUserGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->attributes)) {
-            $request->attributesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->attributes, 'Attributes', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->attributesShrink)) {
-            $body['Attributes'] = $request->attributesShrink;
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->attributes)) {
+            $bodyFlat['Attributes'] = $request->attributes;
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
@@ -404,7 +386,8 @@ class Csas extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
         }
-        $req = new OpenApiRequest([
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -778,19 +761,14 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsForPrivateAccessPolicyRequest $tmpReq
+     * @param ListApplicationsForPrivateAccessPolicyRequest $request
      * @param RuntimeOptions                                $runtime
      *
      * @return ListApplicationsForPrivateAccessPolicyResponse
      */
-    public function listApplicationsForPrivateAccessPolicyWithOptions($tmpReq, $runtime)
+    public function listApplicationsForPrivateAccessPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ListApplicationsForPrivateAccessPolicyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->policyIds)) {
-            $request->policyIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policyIds, 'PolicyIds', 'json');
-        }
+        Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -823,19 +801,14 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListApplicationsForPrivateAccessTagRequest $tmpReq
+     * @param ListApplicationsForPrivateAccessTagRequest $request
      * @param RuntimeOptions                             $runtime
      *
      * @return ListApplicationsForPrivateAccessTagResponse
      */
-    public function listApplicationsForPrivateAccessTagWithOptions($tmpReq, $runtime)
+    public function listApplicationsForPrivateAccessTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ListApplicationsForPrivateAccessTagShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tagIds)) {
-            $request->tagIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
-        }
+        Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -868,19 +841,14 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListConnectorsRequest $tmpReq
+     * @param ListConnectorsRequest $request
      * @param RuntimeOptions        $runtime
      *
      * @return ListConnectorsResponse
      */
-    public function listConnectorsWithOptions($tmpReq, $runtime)
+    public function listConnectorsWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ListConnectorsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->connectorIds)) {
-            $request->connectorIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->connectorIds, 'ConnectorIds', 'json');
-        }
+        Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -913,19 +881,14 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPolicesForPrivateAccessApplicationRequest $tmpReq
+     * @param ListPolicesForPrivateAccessApplicationRequest $request
      * @param RuntimeOptions                                $runtime
      *
      * @return ListPolicesForPrivateAccessApplicationResponse
      */
-    public function listPolicesForPrivateAccessApplicationWithOptions($tmpReq, $runtime)
+    public function listPolicesForPrivateAccessApplicationWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ListPolicesForPrivateAccessApplicationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->applicationIds)) {
-            $request->applicationIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationIds, 'ApplicationIds', 'json');
-        }
+        Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -958,19 +921,14 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPolicesForPrivateAccessTagRequest $tmpReq
+     * @param ListPolicesForPrivateAccessTagRequest $request
      * @param RuntimeOptions                        $runtime
      *
      * @return ListPolicesForPrivateAccessTagResponse
      */
-    public function listPolicesForPrivateAccessTagWithOptions($tmpReq, $runtime)
+    public function listPolicesForPrivateAccessTagWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ListPolicesForPrivateAccessTagShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tagIds)) {
-            $request->tagIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
-        }
+        Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1003,19 +961,14 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPolicesForUserGroupRequest $tmpReq
+     * @param ListPolicesForUserGroupRequest $request
      * @param RuntimeOptions                 $runtime
      *
      * @return ListPolicesForUserGroupResponse
      */
-    public function listPolicesForUserGroupWithOptions($tmpReq, $runtime)
+    public function listPolicesForUserGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ListPolicesForUserGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userGroupIds)) {
-            $request->userGroupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userGroupIds, 'UserGroupIds', 'json');
-        }
+        Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1048,19 +1001,14 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateAccessApplicationsRequest $tmpReq
+     * @param ListPrivateAccessApplicationsRequest $request
      * @param RuntimeOptions                       $runtime
      *
      * @return ListPrivateAccessApplicationsResponse
      */
-    public function listPrivateAccessApplicationsWithOptions($tmpReq, $runtime)
+    public function listPrivateAccessApplicationsWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ListPrivateAccessApplicationsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->applicationIds)) {
-            $request->applicationIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationIds, 'ApplicationIds', 'json');
-        }
+        Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1093,19 +1041,14 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateAccessPolicesRequest $tmpReq
+     * @param ListPrivateAccessPolicesRequest $request
      * @param RuntimeOptions                  $runtime
      *
      * @return ListPrivateAccessPolicesResponse
      */
-    public function listPrivateAccessPolicesWithOptions($tmpReq, $runtime)
+    public function listPrivateAccessPolicesWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ListPrivateAccessPolicesShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->policyIds)) {
-            $request->policyIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policyIds, 'PolicyIds', 'json');
-        }
+        Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1138,19 +1081,14 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListPrivateAccessTagsRequest $tmpReq
+     * @param ListPrivateAccessTagsRequest $request
      * @param RuntimeOptions               $runtime
      *
      * @return ListPrivateAccessTagsResponse
      */
-    public function listPrivateAccessTagsWithOptions($tmpReq, $runtime)
+    public function listPrivateAccessTagsWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ListPrivateAccessTagsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->tagIds)) {
-            $request->tagIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
-        }
+        Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1183,19 +1121,14 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListTagsForPrivateAccessApplicationRequest $tmpReq
+     * @param ListTagsForPrivateAccessApplicationRequest $request
      * @param RuntimeOptions                             $runtime
      *
      * @return ListTagsForPrivateAccessApplicationResponse
      */
-    public function listTagsForPrivateAccessApplicationWithOptions($tmpReq, $runtime)
+    public function listTagsForPrivateAccessApplicationWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ListTagsForPrivateAccessApplicationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->applicationIds)) {
-            $request->applicationIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationIds, 'ApplicationIds', 'json');
-        }
+        Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1228,19 +1161,14 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListTagsForPrivateAccessPolicyRequest $tmpReq
+     * @param ListTagsForPrivateAccessPolicyRequest $request
      * @param RuntimeOptions                        $runtime
      *
      * @return ListTagsForPrivateAccessPolicyResponse
      */
-    public function listTagsForPrivateAccessPolicyWithOptions($tmpReq, $runtime)
+    public function listTagsForPrivateAccessPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ListTagsForPrivateAccessPolicyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->policyIds)) {
-            $request->policyIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policyIds, 'PolicyIds', 'json');
-        }
+        Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1273,19 +1201,14 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListUserGroupsRequest $tmpReq
+     * @param ListUserGroupsRequest $request
      * @param RuntimeOptions        $runtime
      *
      * @return ListUserGroupsResponse
      */
-    public function listUserGroupsWithOptions($tmpReq, $runtime)
+    public function listUserGroupsWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ListUserGroupsShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->userGroupIds)) {
-            $request->userGroupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userGroupIds, 'UserGroupIds', 'json');
-        }
+        Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1318,19 +1241,14 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param ListUserGroupsForPrivateAccessPolicyRequest $tmpReq
+     * @param ListUserGroupsForPrivateAccessPolicyRequest $request
      * @param RuntimeOptions                              $runtime
      *
      * @return ListUserGroupsForPrivateAccessPolicyResponse
      */
-    public function listUserGroupsForPrivateAccessPolicyWithOptions($tmpReq, $runtime)
+    public function listUserGroupsForPrivateAccessPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new ListUserGroupsForPrivateAccessPolicyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->policyIds)) {
-            $request->policyIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->policyIds, 'PolicyIds', 'json');
-        }
+        Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1528,22 +1446,18 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserGroupRequest $tmpReq
+     * @param UpdateUserGroupRequest $request
      * @param RuntimeOptions         $runtime
      *
      * @return UpdateUserGroupResponse
      */
-    public function updateUserGroupWithOptions($tmpReq, $runtime)
+    public function updateUserGroupWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new UpdateUserGroupShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->attributes)) {
-            $request->attributesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->attributes, 'Attributes', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->attributesShrink)) {
-            $body['Attributes'] = $request->attributesShrink;
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->attributes)) {
+            $bodyFlat['Attributes'] = $request->attributes;
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
@@ -1554,7 +1468,8 @@ class Csas extends OpenApiClient
         if (!Utils::isUnset($request->userGroupId)) {
             $body['UserGroupId'] = $request->userGroupId;
         }
-        $req = new OpenApiRequest([
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([

@@ -22,6 +22,10 @@ class applications extends Model
     public $applicationId;
 
     /**
+     * @description 内网访问应用创建时间。
+     *
+     * @example 2022-09-27 18:10:25
+     *
      * @var string
      */
     public $createTime;

@@ -22,6 +22,8 @@ class applications extends Model
     public $applicationId;
 
     /**
+     * @example 2022-09-27 18:10:25
+     *
      * @var string
      */
     public $createTime;

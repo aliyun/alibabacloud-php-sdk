@@ -15,6 +15,10 @@ class userGroups extends Model
     public $attributes;
 
     /**
+     * @description 用户组创建时间。
+     *
+     * @example 2022-09-27 18:10:25
+     *
      * @var string
      */
     public $createTime;

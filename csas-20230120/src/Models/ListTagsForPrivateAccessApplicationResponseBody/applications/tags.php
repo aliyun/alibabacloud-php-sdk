@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @example 2022-07-01 16:05:26
+     *
      * @var string
      */
     public $createTime;

@@ -27,13 +27,13 @@ class userGroup extends Model
     public $description;
 
     /**
+     * @example user_group_name
+     *
      * @var string
      */
     public $name;
 
     /**
-     * @example usergroup-6f1ef2fc56b6ab59
-     *
      * @var string
      */
     public $userGroupId;
