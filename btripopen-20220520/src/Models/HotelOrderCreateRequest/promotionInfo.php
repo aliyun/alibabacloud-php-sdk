@@ -15,6 +15,8 @@ class promotionInfo extends Model
     public $promotionDetailInfoList;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $promotionTotalPrice;

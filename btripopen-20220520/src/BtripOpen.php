@@ -4023,6 +4023,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->subCorpIdListShrink)) {
             $body['sub_corp_id_list'] = $request->subCorpIdListShrink;
         }
+        if (!Utils::isUnset($request->syncGroup)) {
+            $body['sync_group'] = $request->syncGroup;
+        }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;

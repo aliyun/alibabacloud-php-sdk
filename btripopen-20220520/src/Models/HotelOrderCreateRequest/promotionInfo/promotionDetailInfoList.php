@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class promotionDetailInfoList extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $checkStatus;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needCheck;
@@ -24,6 +28,8 @@ class promotionDetailInfoList extends Model
     public $promotionCode;
 
     /**
+     * @example 23778127
+     *
      * @var string
      */
     public $promotionId;
@@ -34,11 +40,15 @@ class promotionDetailInfoList extends Model
     public $promotionName;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $promotionPrice;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $promotionType;

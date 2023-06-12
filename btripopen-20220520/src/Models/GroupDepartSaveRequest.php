@@ -43,6 +43,11 @@ class GroupDepartSaveRequest extends Model
      * @var string[]
      */
     public $subCorpIdList;
+
+    /**
+     * @var bool
+     */
+    public $syncGroup;
     protected $_name = [
         'deptName'      => 'dept_name',
         'managerIds'    => 'manager_ids',
@@ -50,6 +55,7 @@ class GroupDepartSaveRequest extends Model
         'outerDeptPid'  => 'outer_dept_pid',
         'status'        => 'status',
         'subCorpIdList' => 'sub_corp_id_list',
+        'syncGroup'     => 'sync_group',
     ];
 
     public function validate()
@@ -76,6 +82,9 @@ class GroupDepartSaveRequest extends Model
         }
         if (null !== $this->subCorpIdList) {
             $res['sub_corp_id_list'] = $this->subCorpIdList;
+        }
+        if (null !== $this->syncGroup) {
+            $res['sync_group'] = $this->syncGroup;
         }
 
         return $res;
@@ -108,6 +117,9 @@ class GroupDepartSaveRequest extends Model
             if (!empty($map['sub_corp_id_list'])) {
                 $model->subCorpIdList = $map['sub_corp_id_list'];
             }
+        }
+        if (isset($map['sync_group'])) {
+            $model->syncGroup = $map['sync_group'];
         }
 
         return $model;

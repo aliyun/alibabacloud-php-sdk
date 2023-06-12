@@ -43,6 +43,11 @@ class GroupDepartSaveShrinkRequest extends Model
      * @var string
      */
     public $subCorpIdListShrink;
+
+    /**
+     * @var bool
+     */
+    public $syncGroup;
     protected $_name = [
         'deptName'            => 'dept_name',
         'managerIds'          => 'manager_ids',
@@ -50,6 +55,7 @@ class GroupDepartSaveShrinkRequest extends Model
         'outerDeptPid'        => 'outer_dept_pid',
         'status'              => 'status',
         'subCorpIdListShrink' => 'sub_corp_id_list',
+        'syncGroup'           => 'sync_group',
     ];
 
     public function validate()
@@ -76,6 +82,9 @@ class GroupDepartSaveShrinkRequest extends Model
         }
         if (null !== $this->subCorpIdListShrink) {
             $res['sub_corp_id_list'] = $this->subCorpIdListShrink;
+        }
+        if (null !== $this->syncGroup) {
+            $res['sync_group'] = $this->syncGroup;
         }
 
         return $res;
@@ -106,6 +115,9 @@ class GroupDepartSaveShrinkRequest extends Model
         }
         if (isset($map['sub_corp_id_list'])) {
             $model->subCorpIdListShrink = $map['sub_corp_id_list'];
+        }
+        if (isset($map['sync_group'])) {
+            $model->syncGroup = $map['sync_group'];
         }
 
         return $model;

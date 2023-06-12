@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class invoiceInfo extends Model
 {
     /**
+     * @example demo
+     *
      * @var string
      */
     public $buyerAdd;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $buyerBankAcc;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $buyerBankAdd;
 
     /**
+     * @example 0571-82321777
+     *
      * @var string
      */
     public $buyerPhone;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $buyerTaxNum;
@@ -59,21 +69,29 @@ class invoiceInfo extends Model
     public $deliveryStreet;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $invoiceMaterial;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $invoiceTitle;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $invoiceType;
@@ -84,11 +102,15 @@ class invoiceInfo extends Model
     public $receiverName;
 
     /**
+     * @example 0571-82321777
+     *
      * @var string
      */
     public $receiverPhone;
 
     /**
+     * @example demo
+     *
      * @var string
      */
     public $remark;

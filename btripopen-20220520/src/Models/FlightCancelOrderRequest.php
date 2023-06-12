@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FlightCancelOrderRequest extends Model
 {
     /**
+     * @example dis123
+     *
      * @var string
      */
     public $disOrderId;
