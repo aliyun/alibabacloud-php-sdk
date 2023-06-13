@@ -296,6 +296,10 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeUserBandWidthDataRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeUserBandWidthDataResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeVSwitchesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeVSwitchesResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeWorkflowActivityRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeWorkflowActivityResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeWorkflowRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\DescribeWorkflowResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DetachDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DetachDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\DistApplicationDataRequest;
@@ -408,12 +412,21 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\ResizeDiskRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\ResizeDiskResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RestartDeviceInstanceRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RestartDeviceInstanceResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RestartWorkflowRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RestartWorkflowResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RestartWorkflowShrinkRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RetryWorkflowRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RetryWorkflowResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RetryWorkflowShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RevokeSecurityGroupEgressRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RevokeSecurityGroupEgressResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RevokeSecurityGroupRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RevokeSecurityGroupResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RollbackApplicationRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RollbackApplicationResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RollbackWorkflowRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RollbackWorkflowResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\RollbackWorkflowShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RunInstancesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RunInstancesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\RunInstancesShrinkRequest;
@@ -454,6 +467,9 @@ use AlibabaCloud\SDK\Ens\V20171110\Models\StopLoadBalancerListenerRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopLoadBalancerListenerResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopSnatIpForSnatEntryRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\StopSnatIpForSnatEntryResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\TerminateWorkflowRequest;
+use AlibabaCloud\SDK\Ens\V20171110\Models\TerminateWorkflowResponse;
+use AlibabaCloud\SDK\Ens\V20171110\Models\TerminateWorkflowShrinkRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesRequest;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnassignPrivateIpAddressesResponse;
 use AlibabaCloud\SDK\Ens\V20171110\Models\UnAssociateEnsEipAddressRequest;
@@ -1154,6 +1170,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->resolution)) {
             $query['Resolution'] = $request->resolution;
+        }
+        if (!Utils::isUnset($request->serverName)) {
+            $query['ServerName'] = $request->serverName;
         }
         if (!Utils::isUnset($request->serverType)) {
             $query['ServerType'] = $request->serverType;
@@ -7812,6 +7831,125 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param DescribeWorkflowRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeWorkflowResponse
+     */
+    public function describeWorkflowWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliUid)) {
+            $query['AliUid'] = $request->aliUid;
+        }
+        if (!Utils::isUnset($request->businessId)) {
+            $query['BusinessId'] = $request->businessId;
+        }
+        if (!Utils::isUnset($request->endDate)) {
+            $query['EndDate'] = $request->endDate;
+        }
+        if (!Utils::isUnset($request->ensRegionId)) {
+            $query['EnsRegionId'] = $request->ensRegionId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startDate)) {
+            $query['StartDate'] = $request->startDate;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->workFlowId)) {
+            $query['WorkFlowId'] = $request->workFlowId;
+        }
+        if (!Utils::isUnset($request->workFlowName)) {
+            $query['WorkFlowName'] = $request->workFlowName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWorkflow',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWorkflowRequest $request
+     *
+     * @return DescribeWorkflowResponse
+     */
+    public function describeWorkflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWorkflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWorkflowActivityRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeWorkflowActivityResponse
+     */
+    public function describeWorkflowActivityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->workFlowId)) {
+            $query['WorkFlowId'] = $request->workFlowId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWorkflowActivity',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWorkflowActivityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWorkflowActivityRequest $request
+     *
+     * @return DescribeWorkflowActivityResponse
+     */
+    public function describeWorkflowActivity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWorkflowActivityWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DetachDiskRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -10348,6 +10486,102 @@ class Ens extends OpenApiClient
     }
 
     /**
+     * @param RestartWorkflowRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RestartWorkflowResponse
+     */
+    public function restartWorkflowWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RestartWorkflowShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->workflowIds)) {
+            $request->workflowIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->workflowIds, 'WorkflowIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->workflowIdsShrink)) {
+            $query['WorkflowIds'] = $request->workflowIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RestartWorkflow',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RestartWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RestartWorkflowRequest $request
+     *
+     * @return RestartWorkflowResponse
+     */
+    public function restartWorkflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->restartWorkflowWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RetryWorkflowRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return RetryWorkflowResponse
+     */
+    public function retryWorkflowWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RetryWorkflowShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->workflowIds)) {
+            $request->workflowIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->workflowIds, 'WorkflowIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->workflowIdsShrink)) {
+            $query['WorkflowIds'] = $request->workflowIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RetryWorkflow',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RetryWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RetryWorkflowRequest $request
+     *
+     * @return RetryWorkflowResponse
+     */
+    public function retryWorkflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retryWorkflowWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RevokeSecurityGroupRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -10525,6 +10759,54 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->rollbackApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RollbackWorkflowRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RollbackWorkflowResponse
+     */
+    public function rollbackWorkflowWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RollbackWorkflowShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->workflowIds)) {
+            $request->workflowIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->workflowIds, 'WorkflowIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->workflowIdsShrink)) {
+            $query['WorkflowIds'] = $request->workflowIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RollbackWorkflow',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RollbackWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RollbackWorkflowRequest $request
+     *
+     * @return RollbackWorkflowResponse
+     */
+    public function rollbackWorkflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->rollbackWorkflowWithOptions($request, $runtime);
     }
 
     /**
@@ -11642,6 +11924,54 @@ class Ens extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopSnatIpForSnatEntryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TerminateWorkflowRequest $tmpReq
+     * @param RuntimeOptions           $runtime
+     *
+     * @return TerminateWorkflowResponse
+     */
+    public function terminateWorkflowWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new TerminateWorkflowShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->workflowIds)) {
+            $request->workflowIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->workflowIds, 'WorkflowIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->workflowIdsShrink)) {
+            $query['WorkflowIds'] = $request->workflowIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TerminateWorkflow',
+            'version'     => '2017-11-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TerminateWorkflowResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TerminateWorkflowRequest $request
+     *
+     * @return TerminateWorkflowResponse
+     */
+    public function terminateWorkflow($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->terminateWorkflowWithOptions($request, $runtime);
     }
 
     /**

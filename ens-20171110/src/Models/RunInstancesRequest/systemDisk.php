@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class systemDisk extends Model
 {
     /**
+     * @var string
+     */
+    public $category;
+
+    /**
      * @example 50
      *
      * @var int
      */
     public $size;
     protected $_name = [
-        'size' => 'Size',
+        'category' => 'Category',
+        'size'     => 'Size',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class systemDisk extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
         }
@@ -40,6 +49,9 @@ class systemDisk extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
         }

@@ -91,6 +91,11 @@ class CreateARMServerInstancesRequest extends Model
     public $resolution;
 
     /**
+     * @var string
+     */
+    public $serverName;
+
+    /**
      * @example cas.cf53r
      *
      * @var string
@@ -109,6 +114,7 @@ class CreateARMServerInstancesRequest extends Model
         'period'       => 'Period',
         'periodUnit'   => 'PeriodUnit',
         'resolution'   => 'Resolution',
+        'serverName'   => 'ServerName',
         'serverType'   => 'ServerType',
     ];
 
@@ -154,6 +160,9 @@ class CreateARMServerInstancesRequest extends Model
         }
         if (null !== $this->resolution) {
             $res['Resolution'] = $this->resolution;
+        }
+        if (null !== $this->serverName) {
+            $res['ServerName'] = $this->serverName;
         }
         if (null !== $this->serverType) {
             $res['ServerType'] = $this->serverType;
@@ -205,6 +214,9 @@ class CreateARMServerInstancesRequest extends Model
         }
         if (isset($map['Resolution'])) {
             $model->resolution = $map['Resolution'];
+        }
+        if (isset($map['ServerName'])) {
+            $model->serverName = $map['ServerName'];
         }
         if (isset($map['ServerType'])) {
             $model->serverType = $map['ServerType'];

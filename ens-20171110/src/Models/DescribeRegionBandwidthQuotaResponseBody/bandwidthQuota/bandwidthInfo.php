@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class bandwidthInfo extends Model
 {
     /**
+     * @var string
+     */
+    public $isp;
+
+    /**
      * @var int
      */
     public $monthAverageQuota;
@@ -28,6 +33,7 @@ class bandwidthInfo extends Model
      */
     public $weekMax;
     protected $_name = [
+        'isp'               => 'Isp',
         'monthAverageQuota' => 'MonthAverageQuota',
         'monthMax'          => 'MonthMax',
         'weekAverageQuota'  => 'WeekAverageQuota',
@@ -41,6 +47,9 @@ class bandwidthInfo extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->isp) {
+            $res['Isp'] = $this->isp;
+        }
         if (null !== $this->monthAverageQuota) {
             $res['MonthAverageQuota'] = $this->monthAverageQuota;
         }
@@ -65,6 +74,9 @@ class bandwidthInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Isp'])) {
+            $model->isp = $map['Isp'];
+        }
         if (isset($map['MonthAverageQuota'])) {
             $model->monthAverageQuota = $map['MonthAverageQuota'];
         }

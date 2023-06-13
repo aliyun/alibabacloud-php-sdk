@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class bandwidthQuota extends Model
 {
     /**
-     * @var bandwidthInfo
+     * @var bandwidthInfo[]
      */
     public $bandwidthInfo;
 
@@ -44,7 +44,13 @@ class bandwidthQuota extends Model
     {
         $res = [];
         if (null !== $this->bandwidthInfo) {
-            $res['BandwidthInfo'] = null !== $this->bandwidthInfo ? $this->bandwidthInfo->toMap() : null;
+            $res['BandwidthInfo'] = [];
+            if (null !== $this->bandwidthInfo && \is_array($this->bandwidthInfo)) {
+                $n = 0;
+                foreach ($this->bandwidthInfo as $item) {
+                    $res['BandwidthInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->date) {
             $res['Date'] = $this->date;
@@ -74,7 +80,13 @@ class bandwidthQuota extends Model
     {
         $model = new self();
         if (isset($map['BandwidthInfo'])) {
-            $model->bandwidthInfo = bandwidthInfo::fromMap($map['BandwidthInfo']);
+            if (!empty($map['BandwidthInfo'])) {
+                $model->bandwidthInfo = [];
+                $n                    = 0;
+                foreach ($map['BandwidthInfo'] as $item) {
+                    $model->bandwidthInfo[$n++] = null !== $item ? bandwidthInfo::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Date'])) {
             $model->date = $map['Date'];
