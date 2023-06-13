@@ -30,6 +30,21 @@ class CreateVpcFirewallCenConfigureRequest extends Model
     public $firewallSwitch;
 
     /**
+     * @var string
+     */
+    public $firewallVSwitchCidrBlock;
+
+    /**
+     * @var string
+     */
+    public $firewallVpcCidrBlock;
+
+    /**
+     * @var string
+     */
+    public $firewallVpcZoneId;
+
+    /**
      * @description The language of the content within the request and response. Valid values:
      *
      *   **zh**: Chinese (default)
@@ -85,14 +100,17 @@ class CreateVpcFirewallCenConfigureRequest extends Model
      */
     public $vpcRegion;
     protected $_name = [
-        'cenId'             => 'CenId',
-        'firewallSwitch'    => 'FirewallSwitch',
-        'lang'              => 'Lang',
-        'memberUid'         => 'MemberUid',
-        'networkInstanceId' => 'NetworkInstanceId',
-        'vSwitchId'         => 'VSwitchId',
-        'vpcFirewallName'   => 'VpcFirewallName',
-        'vpcRegion'         => 'VpcRegion',
+        'cenId'                    => 'CenId',
+        'firewallSwitch'           => 'FirewallSwitch',
+        'firewallVSwitchCidrBlock' => 'FirewallVSwitchCidrBlock',
+        'firewallVpcCidrBlock'     => 'FirewallVpcCidrBlock',
+        'firewallVpcZoneId'        => 'FirewallVpcZoneId',
+        'lang'                     => 'Lang',
+        'memberUid'                => 'MemberUid',
+        'networkInstanceId'        => 'NetworkInstanceId',
+        'vSwitchId'                => 'VSwitchId',
+        'vpcFirewallName'          => 'VpcFirewallName',
+        'vpcRegion'                => 'VpcRegion',
     ];
 
     public function validate()
@@ -107,6 +125,15 @@ class CreateVpcFirewallCenConfigureRequest extends Model
         }
         if (null !== $this->firewallSwitch) {
             $res['FirewallSwitch'] = $this->firewallSwitch;
+        }
+        if (null !== $this->firewallVSwitchCidrBlock) {
+            $res['FirewallVSwitchCidrBlock'] = $this->firewallVSwitchCidrBlock;
+        }
+        if (null !== $this->firewallVpcCidrBlock) {
+            $res['FirewallVpcCidrBlock'] = $this->firewallVpcCidrBlock;
+        }
+        if (null !== $this->firewallVpcZoneId) {
+            $res['FirewallVpcZoneId'] = $this->firewallVpcZoneId;
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
@@ -143,6 +170,15 @@ class CreateVpcFirewallCenConfigureRequest extends Model
         }
         if (isset($map['FirewallSwitch'])) {
             $model->firewallSwitch = $map['FirewallSwitch'];
+        }
+        if (isset($map['FirewallVSwitchCidrBlock'])) {
+            $model->firewallVSwitchCidrBlock = $map['FirewallVSwitchCidrBlock'];
+        }
+        if (isset($map['FirewallVpcCidrBlock'])) {
+            $model->firewallVpcCidrBlock = $map['FirewallVpcCidrBlock'];
+        }
+        if (isset($map['FirewallVpcZoneId'])) {
+            $model->firewallVpcZoneId = $map['FirewallVpcZoneId'];
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];

@@ -25,9 +25,15 @@ class eniList extends Model
      * @var string
      */
     public $eniPrivateIpAddress;
+
+    /**
+     * @var string
+     */
+    public $eniVSwitchId;
     protected $_name = [
         'eniId'               => 'EniId',
         'eniPrivateIpAddress' => 'EniPrivateIpAddress',
+        'eniVSwitchId'        => 'EniVSwitchId',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class eniList extends Model
         }
         if (null !== $this->eniPrivateIpAddress) {
             $res['EniPrivateIpAddress'] = $this->eniPrivateIpAddress;
+        }
+        if (null !== $this->eniVSwitchId) {
+            $res['EniVSwitchId'] = $this->eniVSwitchId;
         }
 
         return $res;
@@ -60,6 +69,9 @@ class eniList extends Model
         }
         if (isset($map['EniPrivateIpAddress'])) {
             $model->eniPrivateIpAddress = $map['EniPrivateIpAddress'];
+        }
+        if (isset($map['EniVSwitchId'])) {
+            $model->eniVSwitchId = $map['EniVSwitchId'];
         }
 
         return $model;

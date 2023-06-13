@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallCenDetailResponseBody\firewallVpc;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallCenDetailResponseBody\localVpc;
 use AlibabaCloud\Tea\Model;
 
@@ -30,6 +31,11 @@ class DescribeVpcFirewallCenDetailResponseBody extends Model
      * @var string
      */
     public $firewallSwitchStatus;
+
+    /**
+     * @var firewallVpc
+     */
+    public $firewallVpc;
 
     /**
      * @description The details about the VPC.
@@ -67,6 +73,7 @@ class DescribeVpcFirewallCenDetailResponseBody extends Model
     protected $_name = [
         'connectType'          => 'ConnectType',
         'firewallSwitchStatus' => 'FirewallSwitchStatus',
+        'firewallVpc'          => 'FirewallVpc',
         'localVpc'             => 'LocalVpc',
         'requestId'            => 'RequestId',
         'vpcFirewallId'        => 'VpcFirewallId',
@@ -85,6 +92,9 @@ class DescribeVpcFirewallCenDetailResponseBody extends Model
         }
         if (null !== $this->firewallSwitchStatus) {
             $res['FirewallSwitchStatus'] = $this->firewallSwitchStatus;
+        }
+        if (null !== $this->firewallVpc) {
+            $res['FirewallVpc'] = null !== $this->firewallVpc ? $this->firewallVpc->toMap() : null;
         }
         if (null !== $this->localVpc) {
             $res['LocalVpc'] = null !== $this->localVpc ? $this->localVpc->toMap() : null;
@@ -115,6 +125,9 @@ class DescribeVpcFirewallCenDetailResponseBody extends Model
         }
         if (isset($map['FirewallSwitchStatus'])) {
             $model->firewallSwitchStatus = $map['FirewallSwitchStatus'];
+        }
+        if (isset($map['FirewallVpc'])) {
+            $model->firewallVpc = firewallVpc::fromMap($map['FirewallVpc']);
         }
         if (isset($map['LocalVpc'])) {
             $model->localVpc = localVpc::fromMap($map['LocalVpc']);

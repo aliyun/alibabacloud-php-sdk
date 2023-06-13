@@ -641,6 +641,15 @@ class Cloudfw extends OpenApiClient
         if (!Utils::isUnset($request->firewallSwitch)) {
             $query['FirewallSwitch'] = $request->firewallSwitch;
         }
+        if (!Utils::isUnset($request->firewallVSwitchCidrBlock)) {
+            $query['FirewallVSwitchCidrBlock'] = $request->firewallVSwitchCidrBlock;
+        }
+        if (!Utils::isUnset($request->firewallVpcCidrBlock)) {
+            $query['FirewallVpcCidrBlock'] = $request->firewallVpcCidrBlock;
+        }
+        if (!Utils::isUnset($request->firewallVpcZoneId)) {
+            $query['FirewallVpcZoneId'] = $request->firewallVpcZoneId;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }

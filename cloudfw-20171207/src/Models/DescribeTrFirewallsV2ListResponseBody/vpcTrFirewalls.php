@@ -5,6 +5,8 @@
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallsV2ListResponseBody;
 
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallsV2ListResponseBody\vpcTrFirewalls\ipsConfig;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallsV2ListResponseBody\vpcTrFirewalls\protectedResource;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallsV2ListResponseBody\vpcTrFirewalls\unprotectedResource;
 use AlibabaCloud\Tea\Model;
 
 class vpcTrFirewalls extends Model
@@ -57,6 +59,11 @@ class vpcTrFirewalls extends Model
     public $precheckStatus;
 
     /**
+     * @var protectedResource
+     */
+    public $protectedResource;
+
+    /**
      * @example cn-hangzhou
      *
      * @var string
@@ -92,6 +99,11 @@ class vpcTrFirewalls extends Model
     public $transitRouterId;
 
     /**
+     * @var unprotectedResource
+     */
+    public $unprotectedResource;
+
+    /**
      * @var string
      */
     public $vpcFirewallName;
@@ -103,11 +115,13 @@ class vpcTrFirewalls extends Model
         'ipsConfig'            => 'IpsConfig',
         'ownerId'              => 'OwnerId',
         'precheckStatus'       => 'PrecheckStatus',
+        'protectedResource'    => 'ProtectedResource',
         'regionNo'             => 'RegionNo',
         'regionStatus'         => 'RegionStatus',
         'resultCode'           => 'ResultCode',
         'routeMode'            => 'RouteMode',
         'transitRouterId'      => 'TransitRouterId',
+        'unprotectedResource'  => 'UnprotectedResource',
         'vpcFirewallName'      => 'VpcFirewallName',
     ];
 
@@ -139,6 +153,9 @@ class vpcTrFirewalls extends Model
         if (null !== $this->precheckStatus) {
             $res['PrecheckStatus'] = $this->precheckStatus;
         }
+        if (null !== $this->protectedResource) {
+            $res['ProtectedResource'] = null !== $this->protectedResource ? $this->protectedResource->toMap() : null;
+        }
         if (null !== $this->regionNo) {
             $res['RegionNo'] = $this->regionNo;
         }
@@ -153,6 +170,9 @@ class vpcTrFirewalls extends Model
         }
         if (null !== $this->transitRouterId) {
             $res['TransitRouterId'] = $this->transitRouterId;
+        }
+        if (null !== $this->unprotectedResource) {
+            $res['UnprotectedResource'] = null !== $this->unprotectedResource ? $this->unprotectedResource->toMap() : null;
         }
         if (null !== $this->vpcFirewallName) {
             $res['VpcFirewallName'] = $this->vpcFirewallName;
@@ -190,6 +210,9 @@ class vpcTrFirewalls extends Model
         if (isset($map['PrecheckStatus'])) {
             $model->precheckStatus = $map['PrecheckStatus'];
         }
+        if (isset($map['ProtectedResource'])) {
+            $model->protectedResource = protectedResource::fromMap($map['ProtectedResource']);
+        }
         if (isset($map['RegionNo'])) {
             $model->regionNo = $map['RegionNo'];
         }
@@ -204,6 +227,9 @@ class vpcTrFirewalls extends Model
         }
         if (isset($map['TransitRouterId'])) {
             $model->transitRouterId = $map['TransitRouterId'];
+        }
+        if (isset($map['UnprotectedResource'])) {
+            $model->unprotectedResource = unprotectedResource::fromMap($map['UnprotectedResource']);
         }
         if (isset($map['VpcFirewallName'])) {
             $model->vpcFirewallName = $map['VpcFirewallName'];
