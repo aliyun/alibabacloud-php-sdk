@@ -23,6 +23,11 @@ class SendMessageShrinkRequest extends Model
     public $sessionId;
 
     /**
+     * @var string
+     */
+    public $streamExtensionShrink;
+
+    /**
      * @example 5615
      *
      * @var int
@@ -39,11 +44,12 @@ class SendMessageShrinkRequest extends Model
      */
     public $VAMLRequestShrink;
     protected $_name = [
-        'feedback'          => 'Feedback',
-        'sessionId'         => 'SessionId',
-        'tenantId'          => 'TenantId',
-        'textRequestShrink' => 'TextRequest',
-        'VAMLRequestShrink' => 'VAMLRequest',
+        'feedback'              => 'Feedback',
+        'sessionId'             => 'SessionId',
+        'streamExtensionShrink' => 'StreamExtension',
+        'tenantId'              => 'TenantId',
+        'textRequestShrink'     => 'TextRequest',
+        'VAMLRequestShrink'     => 'VAMLRequest',
     ];
 
     public function validate()
@@ -58,6 +64,9 @@ class SendMessageShrinkRequest extends Model
         }
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
+        }
+        if (null !== $this->streamExtensionShrink) {
+            $res['StreamExtension'] = $this->streamExtensionShrink;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -85,6 +94,9 @@ class SendMessageShrinkRequest extends Model
         }
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
+        }
+        if (isset($map['StreamExtension'])) {
+            $model->streamExtensionShrink = $map['StreamExtension'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];

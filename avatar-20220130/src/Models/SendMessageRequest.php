@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Avatar\V20220130\Models;
 
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SendMessageRequest\streamExtension;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SendMessageRequest\textRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SendMessageRequest\VAMLRequest;
 use AlibabaCloud\Tea\Model;
@@ -25,6 +26,11 @@ class SendMessageRequest extends Model
     public $sessionId;
 
     /**
+     * @var streamExtension
+     */
+    public $streamExtension;
+
+    /**
      * @example 5615
      *
      * @var int
@@ -41,11 +47,12 @@ class SendMessageRequest extends Model
      */
     public $VAMLRequest;
     protected $_name = [
-        'feedback'    => 'Feedback',
-        'sessionId'   => 'SessionId',
-        'tenantId'    => 'TenantId',
-        'textRequest' => 'TextRequest',
-        'VAMLRequest' => 'VAMLRequest',
+        'feedback'        => 'Feedback',
+        'sessionId'       => 'SessionId',
+        'streamExtension' => 'StreamExtension',
+        'tenantId'        => 'TenantId',
+        'textRequest'     => 'TextRequest',
+        'VAMLRequest'     => 'VAMLRequest',
     ];
 
     public function validate()
@@ -60,6 +67,9 @@ class SendMessageRequest extends Model
         }
         if (null !== $this->sessionId) {
             $res['SessionId'] = $this->sessionId;
+        }
+        if (null !== $this->streamExtension) {
+            $res['StreamExtension'] = null !== $this->streamExtension ? $this->streamExtension->toMap() : null;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -87,6 +97,9 @@ class SendMessageRequest extends Model
         }
         if (isset($map['SessionId'])) {
             $model->sessionId = $map['SessionId'];
+        }
+        if (isset($map['StreamExtension'])) {
+            $model->streamExtension = streamExtension::fromMap($map['StreamExtension']);
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];

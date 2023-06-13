@@ -564,6 +564,9 @@ class Avatar extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new SendMessageShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->streamExtension)) {
+            $request->streamExtensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->streamExtension, 'StreamExtension', 'json');
+        }
         if (!Utils::isUnset($tmpReq->textRequest)) {
             $request->textRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->textRequest, 'TextRequest', 'json');
         }
@@ -576,6 +579,9 @@ class Avatar extends OpenApiClient
         }
         if (!Utils::isUnset($request->sessionId)) {
             $query['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->streamExtensionShrink)) {
+            $query['StreamExtension'] = $request->streamExtensionShrink;
         }
         if (!Utils::isUnset($request->tenantId)) {
             $query['TenantId'] = $request->tenantId;
