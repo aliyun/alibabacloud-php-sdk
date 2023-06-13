@@ -15,6 +15,8 @@ class nodePolicy extends Model
     public $bonds;
 
     /**
+     * @example i-3fdodw2
+     *
      * @var string
      */
     public $nodeId;

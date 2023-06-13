@@ -22,6 +22,8 @@ class networks extends Model
     public $newVpdInfo;
 
     /**
+     * @description 复用VPD信息
+     *
      * @var vpdInfo
      */
     public $vpdInfo;

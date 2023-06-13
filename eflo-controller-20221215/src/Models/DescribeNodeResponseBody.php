@@ -52,6 +52,10 @@ class DescribeNodeResponseBody extends Model
     public $imageId;
 
     /**
+     * @description 镜像名称
+     *
+     * @example Centos7.9_all_0811
+     *
      * @var string
      */
     public $imageName;
@@ -90,8 +94,6 @@ class DescribeNodeResponseBody extends Model
     public $nodeId;
 
     /**
-     * @example running
-     *
      * @var string
      */
     public $operatingState;

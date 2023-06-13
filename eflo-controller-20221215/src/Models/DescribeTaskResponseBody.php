@@ -38,6 +38,11 @@ class DescribeTaskResponseBody extends Model
     public $message;
 
     /**
+     * @var string[]
+     */
+    public $nodeIds;
+
+    /**
      * @example A7FD7411-9395-52E8-AF42-EB3A4A55446D
      *
      * @var string
@@ -74,6 +79,7 @@ class DescribeTaskResponseBody extends Model
         'clusterName' => 'ClusterName',
         'createTime'  => 'CreateTime',
         'message'     => 'Message',
+        'nodeIds'     => 'NodeIds',
         'requestId'   => 'RequestId',
         'steps'       => 'Steps',
         'taskState'   => 'TaskState',
@@ -99,6 +105,9 @@ class DescribeTaskResponseBody extends Model
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->nodeIds) {
+            $res['NodeIds'] = $this->nodeIds;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -144,6 +153,11 @@ class DescribeTaskResponseBody extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['NodeIds'])) {
+            if (!empty($map['NodeIds'])) {
+                $model->nodeIds = $map['NodeIds'];
+            }
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

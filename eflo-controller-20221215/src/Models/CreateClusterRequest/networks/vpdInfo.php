@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class vpdInfo extends Model
 {
     /**
+     * @description 专有网络 id
+     *
+     * @example vpd-vfuz6ejv
+     *
      * @var string
      */
     public $vpdId;
 
     /**
+     * @description 集群子网id列表
+     *
      * @var string[]
      */
     public $vpdSubnets;

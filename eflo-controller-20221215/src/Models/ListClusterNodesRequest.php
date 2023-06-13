@@ -30,6 +30,8 @@ class ListClusterNodesRequest extends Model
     public $nextToken;
 
     /**
+     * @example ng-ec3c96ff0aa4c60d
+     *
      * @var string
      */
     public $nodeGroupId;

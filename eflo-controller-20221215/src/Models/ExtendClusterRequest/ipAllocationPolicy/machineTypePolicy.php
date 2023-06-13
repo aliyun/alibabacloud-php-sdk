@@ -15,6 +15,8 @@ class machineTypePolicy extends Model
     public $bonds;
 
     /**
+     * @example efg1.nvga1
+     *
      * @var string
      */
     public $machineType;

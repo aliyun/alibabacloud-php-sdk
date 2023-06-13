@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class bonds extends Model
 {
     /**
+     * @example Bond0
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example subnet-fdo3dv
+     *
      * @var string
      */
     public $subnet;
