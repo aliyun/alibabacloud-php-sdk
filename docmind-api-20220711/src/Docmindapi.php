@@ -939,6 +939,9 @@ class Docmindapi extends OpenApiClient
         if (!Utils::isUnset($request->fileUrl)) {
             $query['FileUrl'] = $request->fileUrl;
         }
+        if (!Utils::isUnset($request->structureType)) {
+            $query['StructureType'] = $request->structureType;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);

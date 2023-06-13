@@ -28,10 +28,16 @@ class SubmitDocStructureJobRequest extends Model
      * @var string
      */
     public $fileUrl;
+
+    /**
+     * @var string
+     */
+    public $structureType;
     protected $_name = [
         'fileName'          => 'FileName',
         'fileNameExtension' => 'FileNameExtension',
         'fileUrl'           => 'FileUrl',
+        'structureType'     => 'StructureType',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class SubmitDocStructureJobRequest extends Model
         }
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
+        }
+        if (null !== $this->structureType) {
+            $res['StructureType'] = $this->structureType;
         }
 
         return $res;
@@ -70,6 +79,9 @@ class SubmitDocStructureJobRequest extends Model
         }
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
+        }
+        if (isset($map['StructureType'])) {
+            $model->structureType = $map['StructureType'];
         }
 
         return $model;
