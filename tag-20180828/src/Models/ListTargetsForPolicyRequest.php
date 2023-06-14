@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ListTargetsForPolicyRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 50. Maximum value: 1000.
+     * @example 50
+     *
      * @var int
      */
     public $maxResult;
 
     /**
+     * @description The token that is used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
@@ -29,11 +38,19 @@ class ListTargetsForPolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the tag policy.
+     *
+     * @example p-de62a0bf400e4b69****
+     *
      * @var string
      */
     public $policyId;
 
     /**
+     * @description The region ID. Set the value to cn-shanghai.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

@@ -10,20 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListResourcesByTagResponseBody extends Model
 {
     /**
-     * @description 表示当前调用返回读取到的位置，空或者空字符串代表数据已经读取完毕
+     * @description Indicates whether the `next query` is required.
+     *
+     *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the `next query` is not required.
+     *   If the value of this parameter is not empty, the next query is required, and the value is the `token` used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
+     *
+     * @example 7D61FF74-61C2-5768-B01F-05FC97F24F35
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information of the resources.
+     *
      * @var resources[]
      */
     public $resources;

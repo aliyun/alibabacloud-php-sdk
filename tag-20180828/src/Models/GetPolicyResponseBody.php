@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class GetPolicyResponseBody extends Model
 {
     /**
+     * @description The details of the tag policy.
+     *
      * @var policy
      */
     public $policy;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
+     *
+     * @example 1E7A4802-AB57-570A-9860-F15B60E1586B
      *
      * @var string
      */

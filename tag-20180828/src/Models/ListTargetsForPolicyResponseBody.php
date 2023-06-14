@@ -10,26 +10,51 @@ use AlibabaCloud\Tea\Model;
 class ListTargetsForPolicyResponseBody extends Model
 {
     /**
+     * @description Indicates whether the object belongs to the resource directory. Valid values:
+     *
+     *   true: The object belongs to the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+     *   false: The object does not belong to the resource directory. This value is available if you use the Tag Policy feature in single-account mode.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isRd;
 
     /**
+     * @description Indicates whether the next query is required.
+     *
+     *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
+     *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the resource directory.
+     *
+     * >  This parameter is returned only if you use the Tag Policy feature in multi-account mode.
+     * @example rd-3G****
+     *
      * @var string
      */
     public $rdId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2EE71C8D-6DB8-56AC-8B05-3D4C0116E6A1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The objects to which the tag policy is attached.
+     *
      * @var targets[]
      */
     public $targets;

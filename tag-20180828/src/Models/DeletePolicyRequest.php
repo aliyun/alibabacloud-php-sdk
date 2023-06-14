@@ -19,11 +19,19 @@ class DeletePolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the tag policy.
+     *
+     * @example p-557cb141331f41c7****
+     *
      * @var string
      */
     public $policyId;
 
     /**
+     * @description The region ID. Set the value to cn-shanghai.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

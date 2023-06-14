@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class key extends Model
 {
     /**
+     * @description The type of the resource tag. Valid values:
+     *
+     *   custom
+     *   system
+     *
+     * @example custom
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The description of the tag key.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The tag key.
+     *
+     * @example team
+     *
      * @var string
      */
     public $key;

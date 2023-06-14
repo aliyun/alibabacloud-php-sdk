@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class failedResource extends Model
 {
     /**
+     * @description The ARN of the resource.
+     *
+     * @example arn:acs:ecs:cn-hangzhou:123456789****:instance/i-xxxxxxxxxx1
+     *
      * @var string
      */
     public $resourceARN;
 
     /**
+     * @description The information of the error.
+     *
      * @var result
      */
     public $result;

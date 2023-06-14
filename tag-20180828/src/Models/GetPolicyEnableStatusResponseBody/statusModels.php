@@ -9,11 +9,28 @@ use AlibabaCloud\Tea\Model;
 class statusModels extends Model
 {
     /**
+     * @description The status of the Tag Policy feature. Valid values:
+     *
+     *   PendingEnable: The feature is being enabled.
+     *   Enabled: The feature is enabled.
+     *   Closing: The feature is being disabled.
+     *   Disabled: The feature is disabled.
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The mode of the Tag Policy feature. Valid values:
+     *
+     *   USER: single-account mode
+     *   RD: multi-account mode
+     *
+     * For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     * @example RD
+     *
      * @var string
      */
     public $userType;

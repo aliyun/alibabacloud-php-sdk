@@ -14,6 +14,10 @@ class tagValueParamList extends Model
     public $description;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example test
+     *
      * @var string
      */
     public $value;

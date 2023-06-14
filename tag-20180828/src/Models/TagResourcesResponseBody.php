@@ -10,11 +10,21 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesResponseBody extends Model
 {
     /**
+     * @description The information of the resources to which tags fail to be added.
+     *
+     * >
+     *   If tags are added to all resources, the value of `FailedResources` is empty.
+     *   If tags fail to be added to some or all resources, the value of `FailedResources` contains the detailed information of the resources.
+     *
      * @var failedResources
      */
     public $failedResources;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 72086426-9F8C-4A60-852B-864048FD1199
+     *
      * @var string
      */
     public $requestId;

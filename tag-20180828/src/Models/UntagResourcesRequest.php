@@ -19,11 +19,17 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the resources.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example arn:acs:vpc:cn-hangzhou:123456789****:vpc/vpc-bp19dd90tkt6tz7wu****
+     *
      * @var string[]
      */
     public $resourceARN;
@@ -34,6 +40,8 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @example k1
+     *
      * @var string[]
      */
     public $tagKey;

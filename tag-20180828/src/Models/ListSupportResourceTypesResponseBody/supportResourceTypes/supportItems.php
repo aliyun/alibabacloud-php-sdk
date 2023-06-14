@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class supportItems extends Model
 {
     /**
+     * @description Indicates whether the tag-related capability item is supported. Valid values:
+     *
+     *   true: The tag-related capability item is supported.
+     *   false: The tag-related capability item is not supported.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $support;
 
     /**
+     * @description The code of the tag-related capability item.
+     *
+     * @example TAG_CONSOLE_SUPPORT
+     *
      * @var string
      */
     public $supportCode;

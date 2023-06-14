@@ -19,6 +19,10 @@ class GetEffectivePolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID. Set the value to cn-shanghai.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -29,11 +33,26 @@ class GetEffectivePolicyRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the object.
+     *
+     * >  If you use the Tag Policy feature in single-account mode, this parameter is optional. If you use the Tag Policy feature in multi-account mode, this feature is required.
+     * @example 154950938137****
+     *
      * @var string
      */
     public $targetId;
 
     /**
+     * @description The type of the object. Valid values:
+     *
+     *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
+     *   ROOT: the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+     *   FOLDER: a folder other than the Root folder in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+     *   ACCOUNT: a member in a resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+     *
+     * >  If you use the Tag Policy feature in single-account mode, this parameter is optional. If you use the Tag Policy feature in multi-account mode, this feature is required. The value of this parameter is not case-sensitive.
+     * @example ACCOUNT
+     *
      * @var string
      */
     public $targetType;

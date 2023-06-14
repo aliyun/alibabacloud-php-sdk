@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ListSupportResourceTypesRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Maximum value: 1000. Default value: 50.
+     * @example 50
+     *
      * @var int
      */
     public $maxResult;
 
     /**
+     * @description The token that is used to start the next query.
+     *
+     * @example AAAAAYws9fJ0Ur4MGm/5OkDoW/Y3wDNwUdssyKODK+myOlBL
+     *
      * @var string
      */
     public $nextToken;
@@ -29,11 +38,21 @@ class ListSupportResourceTypesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The service code. This parameter specifies a filter condition for the query.
+     *
+     * For more information about service codes, see [Services that work with Tag](~~171455~~).
+     * @example ecs
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The region ID.
+     *
+     * For more information about the region ID, see [Endpoints](~~170112~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,16 +63,32 @@ class ListSupportResourceTypesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The resource type. This parameter specifies a filter condition for the query.
+     *
+     * For more information about resource types, see [Services that work with Tag](~~171455~~).
+     * @example instance
+     *
      * @var string
      */
     public $resourceTye;
 
     /**
+     * @description Specifies whether to return tag-related capability items. Valid values:
+     *
+     *   true: The system returns tag-related capability items.
+     *   false (default value): The system does not return tag-related capability items.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $showItems;
 
     /**
+     * @description The code of the tag-related capability item. This parameter specifies a filter condition for the query.
+     *
+     * @example TAG_CONSOLE_SUPPORT
+     *
      * @var string
      */
     public $supportCode;

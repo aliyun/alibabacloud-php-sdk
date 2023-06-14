@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description The ID of the resource.
+     *
+     * @example vpc-wz9pifyuw26esxd05****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The information of the tags.
+     *
+     * This parameter is returned only if the `IncludeAllTags` parameter is set to `True`.
      * @var tags[]
      */
     public $tags;

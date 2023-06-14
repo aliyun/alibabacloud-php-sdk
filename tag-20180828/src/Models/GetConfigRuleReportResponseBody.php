@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class GetConfigRuleReportResponseBody extends Model
 {
     /**
+     * @description The basic information of the resource non-compliance report that is last generated.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A68BD5BC-5B12-5A9B-8AE9-77884886BE10
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request is successful.
+     *   false: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

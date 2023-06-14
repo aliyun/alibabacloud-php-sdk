@@ -19,6 +19,10 @@ class GetPolicyEnableStatusRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID. Set the value to cn-shanghai.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +38,14 @@ class GetPolicyEnableStatusRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The mode of the Tag Policy feature. This parameter specifies a filter condition for the query. Valid values:
+     *
+     *   USER: single-account mode
+     *   RD: multi-account mode
+     *
+     * >  The value of this parameter is not case-sensitive.
+     * @example RD
+     *
      * @var string
      */
     public $userType;

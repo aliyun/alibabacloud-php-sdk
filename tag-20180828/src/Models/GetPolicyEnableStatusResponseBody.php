@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetPolicyEnableStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6C8DF1B1-C65F-5D3A-9FDA-26A4683BB36B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information of the Tag Policy feature.
+     *
      * @var statusModels[]
      */
     public $statusModels;

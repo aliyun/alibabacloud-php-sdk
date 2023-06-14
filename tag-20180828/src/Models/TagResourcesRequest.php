@@ -19,11 +19,17 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the resources.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example arn:acs:vpc:cn-hangzhou:123456789****:vpc/vpc-bp19dd90tkt6tz7wu****
+     *
      * @var string[]
      */
     public $resourceARN;
@@ -34,6 +40,17 @@ class TagResourcesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The key-value pairs of tags. You can specify 1 to 10 key-value pairs.
+     *
+     * Limits:
+     *
+     *   A tag key must be 1 to 128 characters in length.
+     *   A tag value must be 1 to 128 characters in length.
+     *   Tag keys and tag values are case-sensitive.
+     *   Each tag key on a resource can have only one tag value. If you create a tag that has the same key as an existing tag, the value of the existing tag is overwritten.
+     *
+     * @example {"k1":"v1","k2":"v2"}
+     *
      * @var string
      */
     public $tags;

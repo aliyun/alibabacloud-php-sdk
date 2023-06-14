@@ -15,21 +15,44 @@ class ListResourcesByTagRequest extends Model
     public $tagFilter;
 
     /**
+     * @description The type of the query. Valid values:
+     *
+     *   EQUAL: exact match for resources to which the specified tag is added. This is the default value.
+     *   NOT: exact match for resources to which the specified tag is not added.
+     *
+     * @example EQUAL
+     *
      * @var string
      */
     public $fuzzyType;
 
     /**
+     * @description Specifies whether to return the information of tags added to the resources. Valid values:
+     *
+     *   False: does not return the information of tags added to the resources. This is the default value.
+     *   True: returns the information of all tags added to the resources.
+     *
+     * @example False
+     *
      * @var bool
      */
     public $includeAllTags;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 50. Maximum value: 1000.
+     * @example 50
+     *
      * @var int
      */
     public $maxResult;
 
     /**
+     * @description The token that is used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
@@ -45,6 +68,11 @@ class ListResourcesByTagRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * For more information about the region ID, see [Endpoints](~~170112~~).
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
@@ -55,6 +83,13 @@ class ListResourcesByTagRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The resource type. This parameter specifies a filter condition for the query.
+     *
+     *   If you set the FuzzyType parameter to EQUAL, you can set this parameter to a resource type provided in [Types of resources that support Tag API operations](~~172061~~).
+     *   If you set the FuzzyType parameter to NOT, you can set this parameter to a resource type provided in **Types of resources that support queries based on the NOT operator**.
+     *
+     * @example ALIYUN::VPC::VPC
+     *
      * @var string
      */
     public $resourceType;

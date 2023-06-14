@@ -15,16 +15,32 @@ class ListTagValuesRequest extends Model
     public $tagFilter;
 
     /**
+     * @description The type of the query. Valid values:
+     *
+     *   EQUAL: exact match. This is the default value.
+     *   PREFIX: prefix-based fuzzy match.
+     *
+     * >  This parameter is available only in the China (Shenzhen) and China (Hong Kong) regions.
+     * @example EQUAL
+     *
      * @var string
      */
     public $fuzzyType;
 
     /**
+     * @description The tag key. This parameter specifies a filter condition for the query.
+     *
+     * @example k1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The token that is used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
@@ -40,16 +56,34 @@ class ListTagValuesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of tag values to return on each page.
+     *
+     * Maximum value: 1000. Default value: 50.
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The category of the tags. This parameter specifies a filter condition for the query. Valid values:
+     *
+     *   ResourceTag: resource tags, including custom and system tags. This is the default value.
+     *   MetaTag: preset tags.
+     *
+     * >  The value of this parameter is not case-sensitive.
+     * @example ResourceTag
+     *
      * @var string
      */
     public $queryType;
 
     /**
+     * @description The region ID.
+     *
+     * For more information about the region ID, see [Endpoints](~~170112~~).
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -60,6 +94,11 @@ class ListTagValuesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The type of the resources. This parameter specifies a filter condition for the query.
+     *
+     * For more information about supported resource types, see [Types of resources that support Tag API operations](~~172061~~).
+     * @example ALIYUN::ECS::INSTANCE
+     *
      * @var string
      */
     public $resourceType;

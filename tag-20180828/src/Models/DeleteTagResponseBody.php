@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteTagResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @example 6E27F22C-EDA3-132E-A53F-77DE3BC2343D
      *
      * @var string
      */

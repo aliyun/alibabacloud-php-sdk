@@ -9,12 +9,18 @@ use AlibabaCloud\Tea\Model;
 class GetEffectivePolicyResponseBody extends Model
 {
     /**
+     * @description The effective tag policy.
+     *
+     * @example {\"tags\":{\"costcenter\":{\"tag_value\":[\"Beijing\",\"Shanghai\"],\"tag_key\":\"CostCenter\"}}}
+     *
      * @var string
      */
     public $effectivePolicy;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
+     *
+     * @example BB532282-94F5-5F56-877F-32D5E2A04F3F
      *
      * @var string
      */

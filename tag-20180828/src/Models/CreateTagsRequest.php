@@ -20,6 +20,11 @@ class CreateTagsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The description of the tag value.
+     *
+     * Valid values of N: 1 to 10.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

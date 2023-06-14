@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example InvalidResourceId.NotFound
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error message.
+     *
+     * @example The specified ResourceIds are not found in our records.
+     *
      * @var string
      */
     public $message;

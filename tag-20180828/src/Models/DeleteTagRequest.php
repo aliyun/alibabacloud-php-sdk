@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTagRequest extends Model
 {
     /**
+     * @example Environment
+     *
      * @var string
      */
     public $key;
@@ -24,6 +26,10 @@ class DeleteTagRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +40,8 @@ class DeleteTagRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $value;

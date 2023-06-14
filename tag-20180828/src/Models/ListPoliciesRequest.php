@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ListPoliciesRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 50. Maximum value: 1000.
+     * @example 50
+     *
      * @var int
      */
     public $maxResult;
 
     /**
+     * @description The token that is used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
@@ -39,6 +48,10 @@ class ListPoliciesRequest extends Model
     public $policyNames;
 
     /**
+     * @description The region ID. Set the value to cn-shanghai.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -49,6 +62,14 @@ class ListPoliciesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The mode of the Tag Policy feature. This parameter specifies a filter condition for the query. Valid values:
+     *
+     *   USER: single-account mode
+     *   RD: multi-account mode
+     *
+     * >  The value of this parameter is not case-sensitive.
+     * @example USER
+     *
      * @var string
      */
     public $userType;

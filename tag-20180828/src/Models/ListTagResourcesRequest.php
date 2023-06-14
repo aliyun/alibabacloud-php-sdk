@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The type of the tag. Valid values:
+     *
+     *   Custom
+     *   System
+     *   All
+     *
+     * Default value: All.
+     * @example Custom
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The token that is used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
@@ -29,16 +42,27 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Maximum value: 1000. Default value: 50.
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the resources.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example arn:acs:ecs:cn-hangzhou:123456789****:instance/i-bp15hr53jws84akg****
+     *
      * @var string[]
      */
     public $resourceARN;
@@ -49,6 +73,17 @@ class ListTagResourcesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The key-value pairs of tags. You can specify 1 to 10 key-value pairs.
+     *
+     * Limits:
+     *
+     *   A tag key must be 1 to 128 characters in length.
+     *   A tag value must be 1 to 128 characters in length.
+     *   Tag keys and tag values are case-sensitive.
+     *   Each tag key on a resource can have only one tag value. If you create a tag that has the same key as an existing tag, the value of the existing tag is overwritten.
+     *
+     * @example {"k1":"v1","k2":"v2"}
+     *
      * @var string
      */
     public $tags;

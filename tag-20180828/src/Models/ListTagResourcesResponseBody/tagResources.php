@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
+     * @description The ARN of the resource.
+     *
+     * @example arn:acs:ecs:cn-hangzhou:123456789****:instance/i-bp15hr53jws84akg****
+     *
      * @var string
      */
     public $resourceARN;
 
     /**
+     * @description The information of the tags.
+     *
      * @var tags[]
      */
     public $tags;

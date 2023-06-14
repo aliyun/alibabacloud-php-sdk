@@ -8,6 +8,10 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Tag\V20180828\Models\AttachPolicyRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\AttachPolicyResponse;
+use AlibabaCloud\SDK\Tag\V20180828\Models\CheckCreatedByEnabledRequest;
+use AlibabaCloud\SDK\Tag\V20180828\Models\CheckCreatedByEnabledResponse;
+use AlibabaCloud\SDK\Tag\V20180828\Models\CloseCreatedByRequest;
+use AlibabaCloud\SDK\Tag\V20180828\Models\CloseCreatedByResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\CreatePolicyRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\CreatePolicyResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\CreateTagsRequest;
@@ -20,6 +24,10 @@ use AlibabaCloud\SDK\Tag\V20180828\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\DetachPolicyRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\DetachPolicyResponse;
+use AlibabaCloud\SDK\Tag\V20180828\Models\DisablePolicyTypeRequest;
+use AlibabaCloud\SDK\Tag\V20180828\Models\DisablePolicyTypeResponse;
+use AlibabaCloud\SDK\Tag\V20180828\Models\EnablePolicyTypeRequest;
+use AlibabaCloud\SDK\Tag\V20180828\Models\EnablePolicyTypeResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\GenerateConfigRuleReportRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\GenerateConfigRuleReportResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\GetConfigRuleReportRequest;
@@ -50,6 +58,8 @@ use AlibabaCloud\SDK\Tag\V20180828\Models\ListTargetsForPolicyRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\ListTargetsForPolicyResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\ModifyPolicyRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\ModifyPolicyResponse;
+use AlibabaCloud\SDK\Tag\V20180828\Models\OpenCreatedByRequest;
+use AlibabaCloud\SDK\Tag\V20180828\Models\OpenCreatedByResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Tag\V20180828\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Tag\V20180828\Models\UntagResourcesRequest;
@@ -137,10 +147,13 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param AttachPolicyRequest $request
-     * @param RuntimeOptions      $runtime
+     * If you use the Tag Policy feature in single-account mode, you can call this API operation to attach a tag policy to the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to attach a tag policy to the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * This topic provides an example on how to call the API operation to attach the tag policy with an ID of `p-de62a0bf400e4b69****` to the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *   *
+     * @param AttachPolicyRequest $request AttachPolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachPolicyResponse
+     * @return AttachPolicyResponse AttachPolicyResponse
      */
     public function attachPolicyWithOptions($request, $runtime)
     {
@@ -186,9 +199,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param AttachPolicyRequest $request
+     * If you use the Tag Policy feature in single-account mode, you can call this API operation to attach a tag policy to the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to attach a tag policy to the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * This topic provides an example on how to call the API operation to attach the tag policy with an ID of `p-de62a0bf400e4b69****` to the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *   *
+     * @param AttachPolicyRequest $request AttachPolicyRequest
      *
-     * @return AttachPolicyResponse
+     * @return AttachPolicyResponse AttachPolicyResponse
      */
     public function attachPolicy($request)
     {
@@ -198,10 +214,122 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param CreatePolicyRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param CheckCreatedByEnabledRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return CreatePolicyResponse
+     * @return CheckCreatedByEnabledResponse
+     */
+    public function checkCreatedByEnabledWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckCreatedByEnabled',
+            'version'     => '2018-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckCreatedByEnabledResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckCreatedByEnabledRequest $request
+     *
+     * @return CheckCreatedByEnabledResponse
+     */
+    public function checkCreatedByEnabled($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkCreatedByEnabledWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CloseCreatedByRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CloseCreatedByResponse
+     */
+    public function closeCreatedByWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CloseCreatedBy',
+            'version'     => '2018-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CloseCreatedByResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CloseCreatedByRequest $request
+     *
+     * @return CloseCreatedByResponse
+     */
+    public function closeCreatedBy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->closeCreatedByWithOptions($request, $runtime);
+    }
+
+    /**
+     * This topic provides an example on how to call the API operation to create a tag policy named `test`. In this example, the Tag Policy feature in multi-account mode is used. The tag policy defines that resources to which the `CostCenter:Beijing` or `CostCenter:Shanghai` tag is added are compliant and other resources are not compliant.
+     *   *
+     * @param CreatePolicyRequest $request CreatePolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreatePolicyResponse CreatePolicyResponse
      */
     public function createPolicyWithOptions($request, $runtime)
     {
@@ -253,9 +381,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param CreatePolicyRequest $request
+     * This topic provides an example on how to call the API operation to create a tag policy named `test`. In this example, the Tag Policy feature in multi-account mode is used. The tag policy defines that resources to which the `CostCenter:Beijing` or `CostCenter:Shanghai` tag is added are compliant and other resources are not compliant.
+     *   *
+     * @param CreatePolicyRequest $request CreatePolicyRequest
      *
-     * @return CreatePolicyResponse
+     * @return CreatePolicyResponse CreatePolicyResponse
      */
     public function createPolicy($request)
     {
@@ -265,10 +395,13 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param CreateTagsRequest $request
-     * @param RuntimeOptions    $runtime
+     * The region ID.
+     *   * >  Only `cn-hangzhou` is supported.
+     *   *
+     * @param CreateTagsRequest $request CreateTagsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTagsResponse
+     * @return CreateTagsResponse CreateTagsResponse
      */
     public function createTagsWithOptions($request, $runtime)
     {
@@ -308,9 +441,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param CreateTagsRequest $request
+     * The region ID.
+     *   * >  Only `cn-hangzhou` is supported.
+     *   *
+     * @param CreateTagsRequest $request CreateTagsRequest
      *
-     * @return CreateTagsResponse
+     * @return CreateTagsResponse CreateTagsResponse
      */
     public function createTags($request)
     {
@@ -320,10 +456,13 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyRequest $request
-     * @param RuntimeOptions      $runtime
+     * Before you delete a tag policy, make sure that the tag policy is detached from all objects to which the tag policy is attached. For more information about how to detach a tag policy, see [DetachPolicy](~~429724~~).
+     *   * This topic provides an example on how to call the API operation to delete the tag policy with an ID of `p-557cb141331f41c7****`.
+     *   *
+     * @param DeletePolicyRequest $request DeletePolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeletePolicyResponse
+     * @return DeletePolicyResponse DeletePolicyResponse
      */
     public function deletePolicyWithOptions($request, $runtime)
     {
@@ -363,9 +502,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param DeletePolicyRequest $request
+     * Before you delete a tag policy, make sure that the tag policy is detached from all objects to which the tag policy is attached. For more information about how to detach a tag policy, see [DetachPolicy](~~429724~~).
+     *   * This topic provides an example on how to call the API operation to delete the tag policy with an ID of `p-557cb141331f41c7****`.
+     *   *
+     * @param DeletePolicyRequest $request DeletePolicyRequest
      *
-     * @return DeletePolicyResponse
+     * @return DeletePolicyResponse DeletePolicyResponse
      */
     public function deletePolicy($request)
     {
@@ -375,10 +517,13 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param DeleteTagRequest $request
-     * @param RuntimeOptions   $runtime
+     * The region ID.
+     *   * >  Only `cn-hangzhou` is supported.
+     *   *
+     * @param DeleteTagRequest $request DeleteTagRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteTagResponse
+     * @return DeleteTagResponse DeleteTagResponse
      */
     public function deleteTagWithOptions($request, $runtime)
     {
@@ -421,9 +566,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param DeleteTagRequest $request
+     * The region ID.
+     *   * >  Only `cn-hangzhou` is supported.
+     *   *
+     * @param DeleteTagRequest $request DeleteTagRequest
      *
-     * @return DeleteTagResponse
+     * @return DeleteTagResponse DeleteTagResponse
      */
     public function deleteTag($request)
     {
@@ -491,10 +639,13 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param DetachPolicyRequest $request
-     * @param RuntimeOptions      $runtime
+     * If you use the Tag Policy feature in single-account mode, you can call this API operation to detach a tag policy from the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to detach a tag policy from the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * This topic provides an example on how to call the API operation to detach the tag policy with an ID of `p-a3381efe2fe34a75****` from the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *   *
+     * @param DetachPolicyRequest $request DetachPolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachPolicyResponse
+     * @return DetachPolicyResponse DetachPolicyResponse
      */
     public function detachPolicyWithOptions($request, $runtime)
     {
@@ -540,9 +691,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param DetachPolicyRequest $request
+     * If you use the Tag Policy feature in single-account mode, you can call this API operation to detach a tag policy from the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to detach a tag policy from the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * This topic provides an example on how to call the API operation to detach the tag policy with an ID of `p-a3381efe2fe34a75****` from the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *   *
+     * @param DetachPolicyRequest $request DetachPolicyRequest
      *
-     * @return DetachPolicyResponse
+     * @return DetachPolicyResponse DetachPolicyResponse
      */
     public function detachPolicy($request)
     {
@@ -552,10 +706,129 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param GenerateConfigRuleReportRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param DisablePolicyTypeRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return GenerateConfigRuleReportResponse
+     * @return DisablePolicyTypeResponse
+     */
+    public function disablePolicyTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisablePolicyType',
+            'version'     => '2018-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisablePolicyTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DisablePolicyTypeRequest $request
+     *
+     * @return DisablePolicyTypeResponse
+     */
+    public function disablePolicyType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disablePolicyTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnablePolicyTypeRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return EnablePolicyTypeResponse
+     */
+    public function enablePolicyTypeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->userType)) {
+            $query['UserType'] = $request->userType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnablePolicyType',
+            'version'     => '2018-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnablePolicyTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnablePolicyTypeRequest $request
+     *
+     * @return EnablePolicyTypeResponse
+     */
+    public function enablePolicyType($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enablePolicyTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * If you use the Tag Policy feature in single-account mode, you can call this API operation to generate a resource non-compliance report for the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to generate a resource non-compliance report for the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * This topic provides an example on how to call this API operation to generate a resource non-compliance report for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *   *
+     * @param GenerateConfigRuleReportRequest $request GenerateConfigRuleReportRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GenerateConfigRuleReportResponse GenerateConfigRuleReportResponse
      */
     public function generateConfigRuleReportWithOptions($request, $runtime)
     {
@@ -601,9 +874,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param GenerateConfigRuleReportRequest $request
+     * If you use the Tag Policy feature in single-account mode, you can call this API operation to generate a resource non-compliance report for the current logon account. If you use the Tag Policy feature in multi-account mode, you can call this API operation to generate a resource non-compliance report for the Root folder, a folder other than the Root folder, or a member in a resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * This topic provides an example on how to call this API operation to generate a resource non-compliance report for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *   *
+     * @param GenerateConfigRuleReportRequest $request GenerateConfigRuleReportRequest
      *
-     * @return GenerateConfigRuleReportResponse
+     * @return GenerateConfigRuleReportResponse GenerateConfigRuleReportResponse
      */
     public function generateConfigRuleReport($request)
     {
@@ -613,10 +889,13 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param GetConfigRuleReportRequest $request
-     * @param RuntimeOptions             $runtime
+     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the basic information of the resource non-compliance report that is last generated for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the basic information of the resource non-compliance report that is last generated for an object in the resource directory. The object can be the Root folder, a folder other than the Root folder, or a member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * This topic provides an example on how to call this API operation to query the basic information of the resource non-compliance report that is last generated for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that the ID of the report is `crp-ao0786618088006c****`.
+     *   *
+     * @param GetConfigRuleReportRequest $request GetConfigRuleReportRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetConfigRuleReportResponse
+     * @return GetConfigRuleReportResponse GetConfigRuleReportResponse
      */
     public function getConfigRuleReportWithOptions($request, $runtime)
     {
@@ -662,9 +941,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param GetConfigRuleReportRequest $request
+     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the basic information of the resource non-compliance report that is last generated for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the basic information of the resource non-compliance report that is last generated for an object in the resource directory. The object can be the Root folder, a folder other than the Root folder, or a member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * This topic provides an example on how to call this API operation to query the basic information of the resource non-compliance report that is last generated for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that the ID of the report is `crp-ao0786618088006c****`.
+     *   *
+     * @param GetConfigRuleReportRequest $request GetConfigRuleReportRequest
      *
-     * @return GetConfigRuleReportResponse
+     * @return GetConfigRuleReportResponse GetConfigRuleReportResponse
      */
     public function getConfigRuleReport($request)
     {
@@ -674,10 +956,14 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param GetEffectivePolicyRequest $request
-     * @param RuntimeOptions            $runtime
+     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * An effective tag policy is obtained based on tag policy inheritance. For more information, see [Inheritance of a tag policy and calculation of an effective tag policy](~~417435~~).
+     *   * This topic provides an example on how to call the API operation to query the effective tag policy for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *   *
+     * @param GetEffectivePolicyRequest $request GetEffectivePolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetEffectivePolicyResponse
+     * @return GetEffectivePolicyResponse GetEffectivePolicyResponse
      */
     public function getEffectivePolicyWithOptions($request, $runtime)
     {
@@ -720,9 +1006,13 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param GetEffectivePolicyRequest $request
+     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the effective tag policy for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the effective tag policy for the Root folder, a folder other than the Root folder, or a member in the resource directory. You can also use a member of a resource directory to call this API operation to query the effective tag policy for the member. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * An effective tag policy is obtained based on tag policy inheritance. For more information, see [Inheritance of a tag policy and calculation of an effective tag policy](~~417435~~).
+     *   * This topic provides an example on how to call the API operation to query the effective tag policy for the current logon account. In this example, the Tag Policy feature in single-account mode is used.
+     *   *
+     * @param GetEffectivePolicyRequest $request GetEffectivePolicyRequest
      *
-     * @return GetEffectivePolicyResponse
+     * @return GetEffectivePolicyResponse GetEffectivePolicyResponse
      */
     public function getEffectivePolicy($request)
     {
@@ -732,10 +1022,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyRequest $request
-     * @param RuntimeOptions   $runtime
+     * This topic provides an example on how to call the API operation to query the details of the tag policy with an ID of `p-557cb141331f41c7****`.
+     *   *
+     * @param GetPolicyRequest $request GetPolicyRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPolicyResponse
+     * @return GetPolicyResponse GetPolicyResponse
      */
     public function getPolicyWithOptions($request, $runtime)
     {
@@ -775,9 +1067,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyRequest $request
+     * This topic provides an example on how to call the API operation to query the details of the tag policy with an ID of `p-557cb141331f41c7****`.
+     *   *
+     * @param GetPolicyRequest $request GetPolicyRequest
      *
-     * @return GetPolicyResponse
+     * @return GetPolicyResponse GetPolicyResponse
      */
     public function getPolicy($request)
     {
@@ -787,10 +1081,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyEnableStatusRequest $request
-     * @param RuntimeOptions               $runtime
+     * This topic provides an example on how to call the API operation to query the status of the Tag Policy feature for the current logon account. The response shows that the Tag Policy feature in multi-account mode is enabled for the current logon account.
+     *   *
+     * @param GetPolicyEnableStatusRequest $request GetPolicyEnableStatusRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPolicyEnableStatusResponse
+     * @return GetPolicyEnableStatusResponse GetPolicyEnableStatusResponse
      */
     public function getPolicyEnableStatusWithOptions($request, $runtime)
     {
@@ -833,9 +1129,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param GetPolicyEnableStatusRequest $request
+     * This topic provides an example on how to call the API operation to query the status of the Tag Policy feature for the current logon account. The response shows that the Tag Policy feature in multi-account mode is enabled for the current logon account.
+     *   *
+     * @param GetPolicyEnableStatusRequest $request GetPolicyEnableStatusRequest
      *
-     * @return GetPolicyEnableStatusResponse
+     * @return GetPolicyEnableStatusResponse GetPolicyEnableStatusResponse
      */
     public function getPolicyEnableStatus($request)
     {
@@ -845,10 +1143,13 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListConfigRulesForTargetRequest $request
-     * @param RuntimeOptions                  $runtime
+     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag detection tasks for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag detection tasks for the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * This topic provides an example on how to call the API operation to query the tag detection tasks for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag detection task exists.
+     *   *
+     * @param ListConfigRulesForTargetRequest $request ListConfigRulesForTargetRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListConfigRulesForTargetResponse
+     * @return ListConfigRulesForTargetResponse ListConfigRulesForTargetResponse
      */
     public function listConfigRulesForTargetWithOptions($request, $runtime)
     {
@@ -906,9 +1207,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListConfigRulesForTargetRequest $request
+     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the tag detection tasks for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the tag detection tasks for the Root folder, a folder other than the Root folder, or a member in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * This topic provides an example on how to call the API operation to query the tag detection tasks for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that only one tag detection task exists.
+     *   *
+     * @param ListConfigRulesForTargetRequest $request ListConfigRulesForTargetRequest
      *
-     * @return ListConfigRulesForTargetResponse
+     * @return ListConfigRulesForTargetResponse ListConfigRulesForTargetResponse
      */
     public function listConfigRulesForTarget($request)
     {
@@ -918,10 +1222,13 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListPoliciesRequest $request
-     * @param RuntimeOptions      $runtime
+     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query all tag policies that are created for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query all tag policies that are created for the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * This topic provides an example on how to call the API operation to query all tag policies that are created for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that two tag policies are created.
+     *   *
+     * @param ListPoliciesRequest $request ListPoliciesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPoliciesResponse
+     * @return ListPoliciesResponse ListPoliciesResponse
      */
     public function listPoliciesWithOptions($request, $runtime)
     {
@@ -973,9 +1280,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListPoliciesRequest $request
+     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query all tag policies that are created for the account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query all tag policies that are created for the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * This topic provides an example on how to call the API operation to query all tag policies that are created for the current logon account. In this example, the Tag Policy feature in single-account mode is used. The response shows that two tag policies are created.
+     *   *
+     * @param ListPoliciesRequest $request ListPoliciesRequest
      *
-     * @return ListPoliciesResponse
+     * @return ListPoliciesResponse ListPoliciesResponse
      */
     public function listPolicies($request)
     {
@@ -985,10 +1295,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListPoliciesForTargetRequest $request
-     * @param RuntimeOptions               $runtime
+     * For more information about common request parameters, see [Common parameters](~~159973~~).
+     *   *
+     * @param ListPoliciesForTargetRequest $request ListPoliciesForTargetRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPoliciesForTargetResponse
+     * @return ListPoliciesForTargetResponse ListPoliciesForTargetResponse
      */
     public function listPoliciesForTargetWithOptions($request, $runtime)
     {
@@ -1037,9 +1349,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListPoliciesForTargetRequest $request
+     * For more information about common request parameters, see [Common parameters](~~159973~~).
+     *   *
+     * @param ListPoliciesForTargetRequest $request ListPoliciesForTargetRequest
      *
-     * @return ListPoliciesForTargetResponse
+     * @return ListPoliciesForTargetResponse ListPoliciesForTargetResponse
      */
     public function listPoliciesForTarget($request)
     {
@@ -1049,10 +1363,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListResourcesByTagRequest $request
-     * @param RuntimeOptions            $runtime
+     * This topic provides an example on how to call the API operation in the China (Shenzhen) region to query virtual private clouds (VPCs) to which the tag key `k1` is added. The response shows that the tag key is added to two VPCs.
+     *   *
+     * @param ListResourcesByTagRequest $request ListResourcesByTagRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListResourcesByTagResponse
+     * @return ListResourcesByTagResponse ListResourcesByTagResponse
      */
     public function listResourcesByTagWithOptions($request, $runtime)
     {
@@ -1110,9 +1426,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListResourcesByTagRequest $request
+     * This topic provides an example on how to call the API operation in the China (Shenzhen) region to query virtual private clouds (VPCs) to which the tag key `k1` is added. The response shows that the tag key is added to two VPCs.
+     *   *
+     * @param ListResourcesByTagRequest $request ListResourcesByTagRequest
      *
-     * @return ListResourcesByTagResponse
+     * @return ListResourcesByTagResponse ListResourcesByTagResponse
      */
     public function listResourcesByTag($request)
     {
@@ -1122,10 +1440,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListSupportResourceTypesRequest $request
-     * @param RuntimeOptions                  $runtime
+     * This topic provides an example on how to call the API operation to query the resource types supported by tags.
+     *   *
+     * @param ListSupportResourceTypesRequest $request ListSupportResourceTypesRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSupportResourceTypesResponse
+     * @return ListSupportResourceTypesResponse ListSupportResourceTypesResponse
      */
     public function listSupportResourceTypesWithOptions($request, $runtime)
     {
@@ -1180,9 +1500,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListSupportResourceTypesRequest $request
+     * This topic provides an example on how to call the API operation to query the resource types supported by tags.
+     *   *
+     * @param ListSupportResourceTypesRequest $request ListSupportResourceTypesRequest
      *
-     * @return ListSupportResourceTypesResponse
+     * @return ListSupportResourceTypesResponse ListSupportResourceTypesResponse
      */
     public function listSupportResourceTypes($request)
     {
@@ -1192,10 +1514,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request
-     * @param RuntimeOptions     $runtime
+     * This topic provides an example on how to call the API operation to query the tag keys in the `cn-hangzhou` region. The response shows that the following tag keys exist: `team`, `k1`, and `k2`.
+     *   *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeysWithOptions($request, $runtime)
     {
@@ -1256,9 +1580,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListTagKeysRequest $request
+     * This topic provides an example on how to call the API operation to query the tag keys in the `cn-hangzhou` region. The response shows that the following tag keys exist: `team`, `k1`, and `k2`.
+     *   *
+     * @param ListTagKeysRequest $request ListTagKeysRequest
      *
-     * @return ListTagKeysResponse
+     * @return ListTagKeysResponse ListTagKeysResponse
      */
     public function listTagKeys($request)
     {
@@ -1268,10 +1594,15 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * This topic provides an example on how to call the API operation to query the tags that are added to resources in the cn-hangzhou region. The response shows the following information:
+     *   * *   The tags `k1:v1` and `k2:v2` are added to the Elastic Compute Service (ECS) instance `i-bp15hr53jws84akg****`.
+     *   * *   The tags `k1:v1` and `k2:v2` are added to the disk `d-bp16cat8zekjocv4****`.
+     *   * *   The tags `k1:v1` and `k2:v2` are added to the virtual private cloud (VPC) `vpc-bp19dd90tkt6tz7wu****`.
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -1326,9 +1657,14 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * This topic provides an example on how to call the API operation to query the tags that are added to resources in the cn-hangzhou region. The response shows the following information:
+     *   * *   The tags `k1:v1` and `k2:v2` are added to the Elastic Compute Service (ECS) instance `i-bp15hr53jws84akg****`.
+     *   * *   The tags `k1:v1` and `k2:v2` are added to the disk `d-bp16cat8zekjocv4****`.
+     *   * *   The tags `k1:v1` and `k2:v2` are added to the virtual private cloud (VPC) `vpc-bp19dd90tkt6tz7wu****`.
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -1338,10 +1674,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListTagValuesRequest $request
-     * @param RuntimeOptions       $runtime
+     * This topic provides an example on how to call the API operation to query the values of the tag key `k1` in the `cn-hangzhou` region. The response shows that the value of the tag key `k1` is `v1`.
+     *   *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValuesWithOptions($request, $runtime)
     {
@@ -1402,9 +1740,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListTagValuesRequest $request
+     * This topic provides an example on how to call the API operation to query the values of the tag key `k1` in the `cn-hangzhou` region. The response shows that the value of the tag key `k1` is `v1`.
+     *   *
+     * @param ListTagValuesRequest $request ListTagValuesRequest
      *
-     * @return ListTagValuesResponse
+     * @return ListTagValuesResponse ListTagValuesResponse
      */
     public function listTagValues($request)
     {
@@ -1414,10 +1754,13 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListTargetsForPolicyRequest $request
-     * @param RuntimeOptions              $runtime
+     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the object to which a tag policy is attached. The object is the current logon account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the objects to which a tag policy is attached. The objects include the Root folder, folders other than the Root folder, and members in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * This topic provides an example on how to call the API operation to query the objects to which the tag policy with an ID of `p-de62a0bf400e4b69****` is attached. In this example, the Tag Policy feature in multi-account mode is used. The response shows that the tag policy is attached to two members in the related resource directory.
+     *   *
+     * @param ListTargetsForPolicyRequest $request ListTargetsForPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTargetsForPolicyResponse
+     * @return ListTargetsForPolicyResponse ListTargetsForPolicyResponse
      */
     public function listTargetsForPolicyWithOptions($request, $runtime)
     {
@@ -1463,9 +1806,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ListTargetsForPolicyRequest $request
+     * If you use the Tag Policy feature in single-account mode, you can use the current logon account to call this API operation to query the object to which a tag policy is attached. The object is the current logon account. If you use the Tag Policy feature in multi-account mode, you can use the management account of a resource directory to call this API operation to query the objects to which a tag policy is attached. The objects include the Root folder, folders other than the Root folder, and members in the resource directory. For more information about the modes of the Tag Policy feature, see [Modes of the Tag Policy feature](~~417434~~).
+     *   * This topic provides an example on how to call the API operation to query the objects to which the tag policy with an ID of `p-de62a0bf400e4b69****` is attached. In this example, the Tag Policy feature in multi-account mode is used. The response shows that the tag policy is attached to two members in the related resource directory.
+     *   *
+     * @param ListTargetsForPolicyRequest $request ListTargetsForPolicyRequest
      *
-     * @return ListTargetsForPolicyResponse
+     * @return ListTargetsForPolicyResponse ListTargetsForPolicyResponse
      */
     public function listTargetsForPolicy($request)
     {
@@ -1475,10 +1821,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ModifyPolicyRequest $request
-     * @param RuntimeOptions      $runtime
+     * This topic provides an example on how to call the API operation to change the name of a tag policy to `test`.
+     *   *
+     * @param ModifyPolicyRequest $request ModifyPolicyRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyPolicyResponse
+     * @return ModifyPolicyResponse ModifyPolicyResponse
      */
     public function modifyPolicyWithOptions($request, $runtime)
     {
@@ -1530,9 +1878,11 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param ModifyPolicyRequest $request
+     * This topic provides an example on how to call the API operation to change the name of a tag policy to `test`.
+     *   *
+     * @param ModifyPolicyRequest $request ModifyPolicyRequest
      *
-     * @return ModifyPolicyResponse
+     * @return ModifyPolicyResponse ModifyPolicyResponse
      */
     public function modifyPolicy($request)
     {
@@ -1542,10 +1892,68 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * @param OpenCreatedByRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return TagResourcesResponse
+     * @return OpenCreatedByResponse
+     */
+    public function openCreatedByWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'OpenCreatedBy',
+            'version'     => '2018-08-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return OpenCreatedByResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param OpenCreatedByRequest $request
+     *
+     * @return OpenCreatedByResponse
+     */
+    public function openCreatedBy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->openCreatedByWithOptions($request, $runtime);
+    }
+
+    /**
+     * Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](~~156983~~).
+     *   * This topic provides an example on how to call the API operation to add the tags `k1:v1` and `k2:v2` to the virtual private cloud (VPC) `vpc-bp19dd90tkt6tz7wu****` in the `cn-hangzhou` region.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -1591,9 +1999,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * Tags are used to identify resources. Tags allow you to categorize, search for, and aggregate resources that have the same characteristics from different dimensions. This facilitates resource management. For more information, see [Tag overview](~~156983~~).
+     *   * This topic provides an example on how to call the API operation to add the tags `k1:v1` and `k2:v2` to the virtual private cloud (VPC) `vpc-bp19dd90tkt6tz7wu****` in the `cn-hangzhou` region.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -1603,10 +2014,13 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * After you remove a tag, the tag is automatically deleted within 24 hours if it is not added to other resources.
+     *   * This topic provides an example on how to call the API operation to remove the tag whose tag key is `k1` from the virtual private cloud (VPC) `vpc-bp19dd90tkt6tz7wu****` in the `cn-hangzhou` region.
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -1652,9 +2066,12 @@ class Tag extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * After you remove a tag, the tag is automatically deleted within 24 hours if it is not added to other resources.
+     *   * This topic provides an example on how to call the API operation to remove the tag whose tag key is `k1` from the virtual private cloud (VPC) `vpc-bp19dd90tkt6tz7wu****` in the `cn-hangzhou` region.
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {

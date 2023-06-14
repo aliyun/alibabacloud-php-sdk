@@ -9,36 +9,76 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
+     * >  This parameter is returned only if you use the Tag Policy feature in multi-account mode.
+     * @example ca-efdc33dc9b37002d****
+     *
      * @var string
      */
     public $aggregatorId;
 
     /**
+     * @description The ID of the rule.
+     *
+     * @example cr-0lb4866180880069****
+     *
      * @var string
      */
     public $configRuleId;
 
     /**
+     * @description The use scenario of the tag policy. Valid values:
+     *
+     *   tags: enables tags with specified tag values to be added to resources.
+     *   rg_inherit: enables resources in a resource group to automatically inherit tags from the resource group.
+     *
+     * @example tags
+     *
      * @var string
      */
     public $policyType;
 
     /**
+     * @description Indicates whether automatic remediation is enabled. Valid values:
+     *
+     *   true: enabled
+     *   false: disabled
+     *
+     * @example false
+     *
      * @var bool
      */
     public $remediation;
 
     /**
+     * @description The tag key.
+     *
+     * @example CostCenter
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The ID of the object.
+     *
+     * @example 134254031178****
+     *
      * @var string
      */
     public $targetId;
 
     /**
+     * @description The type of the object. Valid values:
+     *
+     *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
+     *   ROOT: the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+     *   FOLDER: a folder other than the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+     *   ACCOUNT: a member in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+     *
+     * @example USER
+     *
      * @var string
      */
     public $targetType;

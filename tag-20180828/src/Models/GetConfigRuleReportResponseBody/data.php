@@ -9,21 +9,44 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The time when the report was generated. This value is a UNIX timestamp.
+     *
+     * @example 1655089159000
+     *
      * @var int
      */
     public $createdTime;
 
     /**
+     * @description The ID of the report.
+     *
+     * @example crp-ao0786618088006c****
+     *
      * @var string
      */
     public $reportId;
 
     /**
+     * @description The ID of the object.
+     *
+     * >  This parameter is returned if you set the `TargetType` and `TargetId` parameters in the current request to the same values as the parameters that are configured when you call the [GenerateConfigRuleReport](~~433313~~) operation to generate the report.
+     * @example 154950938137****
+     *
      * @var string
      */
     public $targetId;
 
     /**
+     * @description The type of the object. Valid values:
+     *
+     *   USER: the current logon account. This value is available if you use the Tag Policy feature in single-account mode.
+     *   ROOT: the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+     *   FOLDER: a folder other than the Root folder in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+     *   ACCOUNT: a member in the resource directory. This value is available if you use the Tag Policy feature in multi-account mode.
+     *
+     * >  This parameter is returned if you set the `TargetType` and `TargetId` parameters in the current request to the same values as the parameters that are configured when you call the [GenerateConfigRuleReport](~~433313~~) operation to generate the report.
+     * @example ACCOUNT
+     *
      * @var string
      */
     public $targetType;

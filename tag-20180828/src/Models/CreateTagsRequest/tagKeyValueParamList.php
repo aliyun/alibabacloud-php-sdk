@@ -15,6 +15,11 @@ class tagKeyValueParamList extends Model
     public $description;
 
     /**
+     * @description The description of the tag key.
+     *
+     * Valid values of N: 1 to 10.
+     * @example Environment
+     *
      * @var string
      */
     public $key;

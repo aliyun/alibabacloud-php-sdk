@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListSupportResourceTypesResponseBody extends Model
 {
     /**
+     * @description Indicates whether the next query is required.
+     *
+     *   If the value of this parameter is empty, all results are returned, and the next query is not required.
+     *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
+     *
+     * @example AAAAAYws9fJ0Ur4MGm
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ABC71772-F3A1-59CA-B811-4A5B0E0B72F8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The supported resource types.
+     *
      * @var supportResourceTypes[]
      */
     public $supportResourceTypes;

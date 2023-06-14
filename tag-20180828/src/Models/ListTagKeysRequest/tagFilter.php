@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class tagFilter extends Model
 {
     /**
+     * @description The tag key.
+     *
+     * >  This parameter is available only in the China (Shenzhen) and China (Hong Kong) regions.
+     * @example team
+     *
      * @var string
      */
     public $key;

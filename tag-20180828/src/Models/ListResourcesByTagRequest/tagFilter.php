@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class tagFilter extends Model
 {
     /**
+     * @description The tag key. This parameter specifies a filter condition for the query.
+     *
+     * The tag key can be a maximum of 128 characters in length. It cannot contain `http://` or `https://` and cannot start with `acs:` or `aliyun`.
+     * @example k1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The tag value. This parameter specifies a filter condition for the query.
+     *
+     * The tag value can be a maximum of 128 characters in length. It cannot contain `http://` or `https://` and cannot start with `acs:` or `aliyun`.
+     * @example v1
+     *
      * @var string
      */
     public $value;

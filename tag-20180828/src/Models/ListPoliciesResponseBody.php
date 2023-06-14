@@ -10,17 +10,28 @@ use AlibabaCloud\Tea\Model;
 class ListPoliciesResponseBody extends Model
 {
     /**
+     * @description Indicates whether the next query is required.
+     *
+     *   If the value of this parameter is empty (`"NextToken": ""`), all results are returned, and the next query is not required.
+     *   If the value of this parameter is not empty, the next query is required, and the value is the token used to start the next query.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The tag policies.
+     *
      * @var policyList[]
      */
     public $policyList;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
+     *
+     * @example 72477CFF-5B24-5E30-9861-3DD9C4BD46E5
      *
      * @var string
      */

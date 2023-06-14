@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class supportResourceTypes extends Model
 {
     /**
+     * @description The service code.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The resource type.
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The supported tag-related capability items.
+     *
+     * >  This parameter is returned only if the `ShowItems` parameter is set to `true`.
      * @var supportItems[]
      */
     public $supportItems;
