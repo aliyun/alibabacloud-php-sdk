@@ -59,6 +59,11 @@ class InvoiceAddRequest extends Model
      * @var int
      */
     public $type;
+
+    /**
+     * @var int
+     */
+    public $unitType;
     protected $_name = [
         'address'     => 'address',
         'bankName'    => 'bank_name',
@@ -68,6 +73,7 @@ class InvoiceAddRequest extends Model
         'thirdPartId' => 'third_part_id',
         'title'       => 'title',
         'type'        => 'type',
+        'unitType'    => 'unit_type',
     ];
 
     public function validate()
@@ -100,6 +106,9 @@ class InvoiceAddRequest extends Model
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
+        }
+        if (null !== $this->unitType) {
+            $res['unit_type'] = $this->unitType;
         }
 
         return $res;
@@ -136,6 +145,9 @@ class InvoiceAddRequest extends Model
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+        if (isset($map['unit_type'])) {
+            $model->unitType = $map['unit_type'];
         }
 
         return $model;

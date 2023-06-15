@@ -5484,6 +5484,9 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->type)) {
             $body['type'] = $request->type;
         }
+        if (!Utils::isUnset($request->unitType)) {
+            $body['unit_type'] = $request->unitType;
+        }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -5610,6 +5613,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->type)) {
             $body['type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->unitType)) {
+            $body['unit_type'] = $request->unitType;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
