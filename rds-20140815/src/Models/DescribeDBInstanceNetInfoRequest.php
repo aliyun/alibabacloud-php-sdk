@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceNetInfoRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOC*****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5*****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The type of the endpoint. Valid values:
+     *
+     *   **Normal**: regular endpoint
+     *   **ReadWriteSplitting**: read/write splitting endpoint
+     *
+     * > By default, the system returns both types of endpoints.
+     * @example Normal
+     *
      * @var string
      */
     public $DBInstanceNetRWSplitType;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example None
+     *
      * @var int
      */
     public $flag;
 
     /**
+     * @description The name of the dedicated cluster to which the instance belongs. This parameter takes effect only when the instance runs MySQL on RDS Standard Edition and is created in a dedicated cluster.
+     *
+     * @example rgc-2ze*****
+     *
      * @var string
      */
     public $generalGroupName;

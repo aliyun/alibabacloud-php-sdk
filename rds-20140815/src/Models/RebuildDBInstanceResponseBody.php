@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class RebuildDBInstanceResponseBody extends Model
 {
     /**
+     * @description The serial number of the task in the rebuild task queue. When the serial number becomes 0, the system starts to rebuild the secondary instance.
+     *
+     * @example 3298015
+     *
      * @var int
      */
     public $migrationId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 355DA57C-8CC4-40AB-B3F8-B684BA32EB9E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 208676661
+     *
      * @var int
      */
     public $taskId;

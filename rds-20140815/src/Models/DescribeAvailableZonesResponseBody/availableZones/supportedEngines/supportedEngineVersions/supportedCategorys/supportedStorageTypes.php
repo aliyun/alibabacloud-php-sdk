@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class supportedStorageTypes extends Model
 {
     /**
+     * @description The storage type of the instance.
+     *
+     * @example local_ssd
+     *
      * @var string
      */
     public $storageType;

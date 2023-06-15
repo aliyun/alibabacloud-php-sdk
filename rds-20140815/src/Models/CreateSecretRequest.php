@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class CreateSecretRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCz*****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-sdfljk123***
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example users
+     *
      * @var string
      */
     public $dbNames;
 
     /**
+     * @description The description of the credential.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The engine of the database.
+     *
+     * > Only MySQL is supported.
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
@@ -39,16 +60,28 @@ class CreateSecretRequest extends Model
     public $ownerId;
 
     /**
+     * @description The password that is used to access the database.
+     *
+     * @example 12345678
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the ID of the resource group.
+     *
+     * @example rg-acfmxypivk***
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -64,11 +97,19 @@ class CreateSecretRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The name of the credential.
+     *
+     * @example Foo
+     *
      * @var string
      */
     public $secretName;
 
     /**
+     * @description The username that is used to access the database.
+     *
+     * @example user_jack
+     *
      * @var string
      */
     public $username;

@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class serverlessConfig extends Model
 {
     /**
+     * @description Specifies whether to enable the automatic start and stop feature for the serverless instance. After the automatic start and stop feature is enabled, if no connections to the instance are established within 10 minutes, the instance is suspended. After a connection is established to the instance, the instance is automatically resumed. Valid values:
+     *
+     *   true: enables the feature.
+     *   false (default): disables the feature.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoPause;
 
     /**
+     * @description The maximum number of RDS Capacity Units (RCUs).
+     *
+     * @example 8
+     *
      * @var float
      */
     public $maxCapacity;
 
     /**
+     * @description The minimum number of RCUs.
+     *
+     * @example 0.5
+     *
      * @var float
      */
     public $minCapacity;
 
     /**
+     * @description Specifies whether to enable the forced scaling feature for the serverless instance. In most cases, ApsaraDB RDS automatically scales in or out the RCUs of a serverless instance based on business requirements in real time. In rare cases, the scaling does not take effect in real time. You can enable the forced scaling feature to forcefully scales in or out the RCUs of the instance. Valid values:
+     *
+     *   true: enables the feature.
+     *   false (default): disables the feature.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $switchForce;

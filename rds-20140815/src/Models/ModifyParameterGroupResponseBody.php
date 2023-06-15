@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyParameterGroupResponseBody extends Model
 {
     /**
+     * @description The parameter template ID.
+     *
+     * @example rpg-13ppdh****
+     *
      * @var string
      */
     public $parameterGroupId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 857DC00B-7B85-4853-8B27-AD65EB618BC6
+     *
      * @var string
      */
     public $requestId;

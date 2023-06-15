@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class activityInfo extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example Error description
+     *
      * @var string
      */
     public $checkErrMsg;
 
     /**
+     * @description The error code that is returned.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $success;

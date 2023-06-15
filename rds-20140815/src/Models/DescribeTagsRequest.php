@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOC****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     *
+     * > If you specify this parameter, all tags that are added to the instance are queried. Other filter conditions are invalid.
+     * @example rm-uf6wjk5****
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -29,6 +38,10 @@ class DescribeTagsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,16 +57,28 @@ class DescribeTagsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of resource. Set the value to INSTANCE.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tag that you want to query. The value of the parameter consists of TagKey and TagValue. Format: `{"TagKey":"TagValue"}`.
+     *
+     * @example {“key1”:”value1”}
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The ID of the proxy mode.
+     *
+     * @example API
+     *
      * @var string
      */
     public $proxyId;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeErrorLogsResponseBody extends Model
 {
     /**
+     * @description The list of items in an error log.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of error logs on the current page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 98504E07-BB0E-40FC-B152-E4882615812C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of error logs.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalRecordCount;

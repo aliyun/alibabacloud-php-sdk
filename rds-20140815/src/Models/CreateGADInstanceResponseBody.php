@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateGADInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9F8C06AD-3F37-57A0-ABBF-ABD7824F55CE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of the information returned.
+     *
      * @var result
      */
     public $result;

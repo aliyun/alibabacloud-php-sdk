@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceEndpointAddressResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 08A3B71B-FE08-4B03-974F-CC7EA6DB1828
+     *
      * @var string
      */
     public $requestId;

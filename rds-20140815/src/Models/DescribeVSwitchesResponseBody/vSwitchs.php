@@ -9,47 +9,91 @@ use AlibabaCloud\Tea\Model;
 class vSwitchs extends Model
 {
     /**
+     * @description 交换机中可用的IP地址数量。
+     *
+     * @example 1
+     *
+     * @var string
+     */
+    public $availableIpAddressCount;
+
+    /**
+     * @description The CIDR blocks of the vSwitches.
+     *
+     * @example 172.16.0.0/24
+     *
      * @var string
      */
     public $cidrBlock;
 
     /**
+     * @description The descriptions of the vSwitches.
+     *
+     * @example VSwitchDescription
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the vSwitch is the default vSwitch. Valid values:
+     *
+     *   **true**: The vSwitch is the default vSwitch.
+     *   **false**: The vSwitch is not the default vSwitch.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @description The ID of the zone to which the vSwitches belong.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $izNo;
 
     /**
+     * @description The status of a vSwitch. Valid values:
+     *
+     *   **Pending**: The vSwitch is being configured.
+     *   **Available**: The vSwitch is available.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-bp1pnaz94xc**********
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The name of the vSwitch.
+     *
+     * @example test
+     *
      * @var string
      */
     public $vSwitchName;
     protected $_name = [
-        'cidrBlock'   => 'CidrBlock',
-        'description' => 'Description',
-        'isDefault'   => 'IsDefault',
-        'izNo'        => 'IzNo',
-        'status'      => 'Status',
-        'vSwitchId'   => 'VSwitchId',
-        'vSwitchName' => 'VSwitchName',
+        'availableIpAddressCount' => 'AvailableIpAddressCount',
+        'cidrBlock'               => 'CidrBlock',
+        'description'             => 'Description',
+        'isDefault'               => 'IsDefault',
+        'izNo'                    => 'IzNo',
+        'status'                  => 'Status',
+        'vSwitchId'               => 'VSwitchId',
+        'vSwitchName'             => 'VSwitchName',
     ];
 
     public function validate()
@@ -59,6 +103,9 @@ class vSwitchs extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->availableIpAddressCount) {
+            $res['AvailableIpAddressCount'] = $this->availableIpAddressCount;
+        }
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
         }
@@ -92,6 +139,9 @@ class vSwitchs extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AvailableIpAddressCount'])) {
+            $model->availableIpAddressCount = $map['AvailableIpAddressCount'];
+        }
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
         }

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CalculateDBInstanceWeightResponseBody extends Model
 {
     /**
+     * @description An array that consists of the system-assigned read weights.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C816A4BF-A6EC-4722-95F9-2055859CCFD2
+     *
      * @var string
      */
     public $requestId;

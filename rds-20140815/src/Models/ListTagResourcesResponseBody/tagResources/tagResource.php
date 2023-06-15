@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The resource type. The value `ALIYUN::RDS::INSTANCE` indicates ApsaraDB RDS instances.
+     *
+     * @example ALIYUN::RDS::INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The key of the tag.
+     *
+     * @example testkey1
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value that is associated with the specified tag key.
+     *
+     * @example testvalue1
+     *
      * @var string
      */
     public $tagValue;

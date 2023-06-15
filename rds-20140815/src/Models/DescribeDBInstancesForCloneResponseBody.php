@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesForCloneResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details about the instances.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 120
+     *
      * @var int
      */
     public $totalRecordCount;

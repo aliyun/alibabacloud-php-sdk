@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBProxyEndpointAddressResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 50F6C32B-DD73-4DA1-ADA2-0EAF2B0FCD8A
+     *
      * @var string
      */
     public $requestId;

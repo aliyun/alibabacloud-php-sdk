@@ -10,76 +10,140 @@ use AlibabaCloud\Tea\Model;
 class database extends Model
 {
     /**
+     * @description An array that consists of the details of the accounts. Each account has specific permissions on the database.
+     *
      * @var accounts
      */
     public $accounts;
 
     /**
+     * @description The name of the character set.
+     *
+     * @example utf8
+     *
      * @var string
      */
     public $characterSetName;
 
     /**
+     * @description The collation of the character set. The example value C stands for localization.
+     *
+     * >  This parameter is returned only for instances that run PostgreSQL.
+     * @example C
+     *
      * @var string
      */
     public $collate;
 
     /**
+     * @description The limit on the number of concurrent requests. The value -1 indicates that the number of concurrent requests is unlimited.
+     *
+     * >  This parameter is returned only for instances that run PostgreSQL.
+     * @example -1
+     *
      * @var string
      */
     public $connLimit;
 
     /**
+     * @description The type of the character set.
+     *
+     * >  This parameter is returned only for instances that run PostgreSQL.
+     * @example en_US.utf8
+     *
      * @var string
      */
     public $ctype;
 
     /**
+     * @description The description of the database.
+     *
+     * @example testdb
+     *
      * @var string
      */
     public $DBDescription;
 
     /**
+     * @description The ID of the instance to which the database belongs.
+     *
+     * @example rm-uf6wjk5****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example testDB01
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The status of the database. Valid values:
+     *
+     *   **Creating**
+     *   **Running**
+     *   **Deleting**
+     *
+     * @example Creating
+     *
      * @var string
      */
     public $DBStatus;
 
     /**
+     * @description The database engine of the instance to which the database belongs.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The reserved parameter.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tablespace of the database.
+     *
+     * >  This parameter is returned only for instances that run PostgreSQL.
+     * @example pg_default
+     *
      * @var string
      */
     public $tablespace;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

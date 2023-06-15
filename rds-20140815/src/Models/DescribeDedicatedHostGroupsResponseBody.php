@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostGroupsResponseBody extends Model
 {
     /**
+     * @description An array that consists of dedicated clusters returned.
+     *
      * @var dedicatedHostGroups
      */
     public $dedicatedHostGroups;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example AB44DC0A-7E77-442A-97A9-C6418694CB22
+     *
      * @var string
      */
     public $requestId;

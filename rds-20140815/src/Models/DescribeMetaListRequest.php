@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetaListRequest extends Model
 {
     /**
+     * @description The ID of the backup set from which you want to restore data. You can call the [DescribeBackups](~~26273~~) operation to query the IDs of backup sets.
+     *
+     * > If you set the **RestoreType** parameter to **BackupSetID**, you must also specify this parameter.
+     * @example 14358
+     *
      * @var int
      */
     public $backupSetID;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The name of the database to query. The system implements exact match based on the value of this parameter and returns the name of the matched database and the names of all tables contained in the database.
+     *
+     * > If you leave this parameter empty, the system returns all databases that are created on the instance.
+     * @example testdb1
+     *
      * @var string
      */
     public $getDbName;
@@ -34,21 +52,40 @@ class DescribeMetaListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: any non-zero positive integer.**** Default value: **1**.
+     *
+     * > This parameter only takes effect when you specify the **PageSize** parameter.
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @description The number of entries to return on each page. Default value: **1**.
+     *
+     * > This parameter only takes effect when you specify the **PageIndex** parameter.
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the database to query. The system implements fuzzy match based on the value of this parameter and returns only the name of the matched database.
+     *
+     * > For example, if you set the value to `test`, the system returns `testdb1` and `testdb2`. Then, you can specify the **GetDbName** parameter to query tables in the required database.
+     * @example test
+     *
      * @var string
      */
     public $pattern;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -64,11 +101,24 @@ class DescribeMetaListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The point in time to which you want to restore data. The specified point in time must be earlier than the current time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC. You can call the [DescribeBackups](~~26273~~) operation to query the restorable time range.
+     *
+     * > If you set the **RestoreType** parameter to **RestoreTime**, you must also specify this parameter.
+     * @example 2019-05-30T03:29:10Z
+     *
      * @var string
      */
     public $restoreTime;
 
     /**
+     * @description The method that is used to restore data. Valid values:
+     *
+     *   **BackupSetID**: Data is restored from a backup set. If you use this value, you must also specify the **BackupSetID** parameter.
+     *   **RestoreTime**: Data is restored to a specific point in time. If you use this value, you must also specify the **RestoreTime** parameter.
+     *
+     * Default value: **BackupSetID**.
+     * @example BackupSetID
+     *
      * @var string
      */
     public $restoreType;

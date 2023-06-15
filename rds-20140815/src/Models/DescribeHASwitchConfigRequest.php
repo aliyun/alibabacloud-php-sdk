@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeHASwitchConfigRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -19,6 +23,10 @@ class DescribeHASwitchConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpgradeMajorVersionTasksRequest extends Model
 {
     /**
+     * @description The ID of the original instance.
+     *
+     * @example pgm-bp1gm3yh0ht1****
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -24,11 +28,25 @@ class DescribeUpgradeMajorVersionTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Valid values: any non-zero positive integer.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Valid values: **30** to **100**.
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -44,11 +62,24 @@ class DescribeUpgradeMajorVersionTasksRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The major engine version of the new instance. Valid values:
+     *
+     *   **10.0**
+     *   **11.0**
+     *   **12.0**
+     *   **13.0**
+     *
+     * @example 12.0
+     *
      * @var string
      */
     public $targetMajorVersion;
 
     /**
+     * @description This parameter is reserved. You do not need to specify this parameter.
+     *
+     * @example 417450000
+     *
      * @var int
      */
     public $taskId;

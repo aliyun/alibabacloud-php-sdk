@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosticReportListResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5*****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The details of a diagnostic report.
+     *
      * @var reportList[]
      */
     public $reportList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B7E9A79C-DE1B-4398-845F-D654FC0958BD
+     *
      * @var string
      */
     public $requestId;

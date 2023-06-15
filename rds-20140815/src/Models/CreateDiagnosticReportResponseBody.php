@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateDiagnosticReportResponseBody extends Model
 {
     /**
+     * @description The ID of the diagnostic report.
+     *
+     * @example 10166270
+     *
      * @var string
      */
     public $reportId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8DA8956A-53DA-423E-9540-387428ED37FF-5711
+     *
      * @var string
      */
     public $requestId;

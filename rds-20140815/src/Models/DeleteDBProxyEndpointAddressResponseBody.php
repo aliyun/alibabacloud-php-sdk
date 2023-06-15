@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBProxyEndpointAddressResponseBody extends Model
 {
     /**
+     * @example 343356C6-64B2-4245-ADEB-C9BD165EDD11
+     *
      * @var string
      */
     public $requestId;

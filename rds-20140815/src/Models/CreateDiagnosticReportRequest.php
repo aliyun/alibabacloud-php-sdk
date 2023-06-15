@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateDiagnosticReportRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk521****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The end time of the monitored data that is used to generate the diagnostic report. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 2018-06-12T15:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The start time of the monitored data that is used to generate the diagnostic report. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 2018-06-11T15:00Z
+     *
      * @var string
      */
     public $startTime;

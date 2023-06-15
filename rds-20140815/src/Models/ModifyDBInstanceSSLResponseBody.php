@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceSSLResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 777C4593-8053-427B-99E2-105593277CAB
+     *
      * @var string
      */
     public $requestId;

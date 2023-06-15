@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableRecoveryTimeRequest extends Model
 {
     /**
+     * @description The ID of the cross-region backup file. You can call the [DescribeCrossRegionBackups](~~121733~~) operation to query IDs of backup files.
+     *
+     * @example 14***
+     *
      * @var int
      */
     public $crossBackupId;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-uf6wjk5*****
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -24,11 +32,19 @@ class DescribeAvailableRecoveryTimeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;

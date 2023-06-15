@@ -9,82 +9,227 @@ use AlibabaCloud\Tea\Model;
 class unitNode extends Model
 {
     /**
+     * @description The name of the unit node that you want to create. The name must meet the following requirements:
+     *
+     *   The name must be **2 to 255** characters in length.
+     *   The name can contain letters, digits, underscores (\_), and hyphens (-) and must start with a letter.
+     *   It cannot start with `http://` or `https://`.
+     *
+     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     *
+     * @example test
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @description The storage capacity of the unit node that you want to create. Unit: GB. The storage capacity increases in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can also call the [DescribeAvailableResource](~~134039~~) operation to query the storage capacity range that is supported for a specified instance type in a region.
+     *
+     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $DBInstanceStorage;
 
     /**
+     * @description The storage type that is used by the instance. Valid values:
+     *
+     *   **local_ssd**: local SSD (recommended).
+     *   **cloud_ssd**: standard SSD. This storage type is not recommended. Standard SSDs are no longer available for purchase in some Alibaba Cloud regions.
+     *   **cloud_essd**: ESSD of performance level 1 (PL1).
+     *   **cloud_essd2**: ESSD of PL2.
+     *   **cloud_essd3**: ESSDs of PL3.
+     *
+     * The default value of this parameter is determined by the instance type specified by the **DBInstanceClass** parameter.
+     *
+     *   If the instance type specifies the local disk storage type, the default value of this parameter is **local_ssd**.
+     *   If the instance type specifies the cloud disk storage type, the default value of this parameter is **cloud_essd**.
+     *
+     * @example cloud_essd2
+     *
+     * @var string
+     */
+    public $DBInstanceStorageType;
+
+    /**
+     * @description The instance type of the unit node that you want to create. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can call the [DescribeAvailableResource](~~134039~~) operation to query the available instance types in a region.
+     *
+     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     *
+     * @example rds.mysql.t1.small
+     *
      * @var string
      */
     public $dbInstanceClass;
 
     /**
+     * @description The conflict resolution policy based on which Data Transmission Service (DTS) responds to primary key conflicts during data synchronization to the unit node that you want to create. Valid values:
+     *
+     *   **overwrite**: DTS overwrites the conflicting primary key on the destination node.
+     *   **interrupt**: DTS stops the synchronization task, reports an error, and then exits.
+     *   **ignore**: DTS hides the conflicting primary key on the node.
+     *
+     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     *
+     * @example overwrite
+     *
      * @var string
      */
     public $dtsConflict;
 
     /**
+     * @description The specifications of the data synchronization task for the unit node that you want to create. Valid values:
+     *
+     *   **small**
+     *   **medium**
+     *   **large**
+     *   **micro**
+     *
+     * > For more information, see [Specifications of data synchronization tasks](~~26605~~).
+     *
+     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     *
+     * @example medium
+     *
      * @var string
      */
     public $dtsInstanceClass;
 
     /**
+     * @description The database engine of the unit node that you want to create. Set the value to **MySQL**.
+     *
+     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the unit node that you want to create. Valid values:
+     *
+     *   **8.0**
+     *   **5.7**
+     *   **5.6**
+     *   **5.5**
+     *
+     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     *
+     * @example 8.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The billing method of the unit node that you want to create. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
+     *
+     * > The system automatically generates a purchase order and completes the payment.
+     *
+     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     *
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The region ID of the unit node that you want to create. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionID;
 
     /**
+     * @description The IP address whitelist of the unit node that you want to create. For more information, see [IP address whitelist](~~43185~~). If you want to add more than one entry to the IP address whitelist, separate the entries with commas (,). Each entry must be unique. The IP address whitelist can contain up to 1,000 entries. The entries in the IP address whitelist must be in one of the following formats:
+     *
+     *   IP addresses, such as `10.10.10.10`.
+     *   CIDR blocks, such as `10.10.10.10/24`. In this example, **24** indicates that the prefix of each IP address in the IP address whitelist is 24 bits in length. You can replace 24 with a value within the range of **1 to 32**.
+     *
+     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     *
+     * @example 10.10.10.10
+     *
      * @var string
      */
     public $securityIPList;
 
     /**
+     * @description The vSwitch ID of the unit node that you want to create.
+     *
+     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     *
+     * @example vsw-bp1tg609m5j85********
+     *
      * @var string
      */
     public $vSwitchID;
 
     /**
+     * @description The virtual private cloud (VPC) ID of the unit node that you want to create.
+     *
+     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     *
+     * @example vpc-bp19ame5m1r3o********
+     *
      * @var string
      */
     public $vpcID;
 
     /**
+     * @description The zone ID of the unit node that you want to create. You can call the [DescribeRegions](~~26243~~) operation to query the ID of the zone.
+     *
+     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneID;
 
     /**
+     * @description The zone ID of the secondary node of the unit node that you want to create. You can call the [DescribeRegions](~~26243~~) operation to query the ID of the zone.
+     *
+     *   If the value of this parameter is the same as the **zone ID** of the unit node that you want to create, the single-zone deployment method is used.
+     *   If the value of this parameter is different from the **zone ID** of the unit node that you want to create, the multiple-zone deployment method is used.
+     *
+     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneIDSlave1;
 
     /**
+     * @description The zone ID of the logger node of the unit node that you want to create. You can call the [DescribeRegions](~~26243~~) operation to query the ID of the zone.
+     *
+     *   If the value of this parameter is the same as the **zone ID** of the unit node that you want to create, the single-zone deployment method is used.
+     *   If the value of this parameter is different from the **zone ID** of the unit node that you want to create, the multiple-zone deployment method is used.
+     *
+     **N** specifies unit node N. The value of N is an integer that ranges from **1 to 10**. You can create up to 10 unit nodes in a global active database cluster.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneIDSlave2;
     protected $_name = [
         'DBInstanceDescription' => 'DBInstanceDescription',
         'DBInstanceStorage'     => 'DBInstanceStorage',
+        'DBInstanceStorageType' => 'DBInstanceStorageType',
         'dbInstanceClass'       => 'DbInstanceClass',
         'dtsConflict'           => 'DtsConflict',
         'dtsInstanceClass'      => 'DtsInstanceClass',
@@ -112,6 +257,9 @@ class unitNode extends Model
         }
         if (null !== $this->DBInstanceStorage) {
             $res['DBInstanceStorage'] = $this->DBInstanceStorage;
+        }
+        if (null !== $this->DBInstanceStorageType) {
+            $res['DBInstanceStorageType'] = $this->DBInstanceStorageType;
         }
         if (null !== $this->dbInstanceClass) {
             $res['DbInstanceClass'] = $this->dbInstanceClass;
@@ -169,6 +317,9 @@ class unitNode extends Model
         }
         if (isset($map['DBInstanceStorage'])) {
             $model->DBInstanceStorage = $map['DBInstanceStorage'];
+        }
+        if (isset($map['DBInstanceStorageType'])) {
+            $model->DBInstanceStorageType = $map['DBInstanceStorageType'];
         }
         if (isset($map['DbInstanceClass'])) {
             $model->dbInstanceClass = $map['DbInstanceClass'];

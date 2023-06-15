@@ -9,41 +9,76 @@ use AlibabaCloud\Tea\Model;
 class hbaItem extends Model
 {
     /**
+     * @description The IP address of the client.
+     *
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The name of the database that the specified users are allowed to access.
+     *
+     * @example all
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @description The mask of the instance.
+     *
+     * @example null
+     *
      * @var string
      */
     public $mask;
 
     /**
+     * @description The authentication method.
+     *
+     * @example md5
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @description The value of this parameter varies based on the value of the Method parameter. The value is fixed as null.
+     *
+     * @example null
+     *
      * @var string
      */
     public $option;
 
     /**
+     * @description The priority of the instance.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $priorityId;
 
     /**
+     * @description The type of the connection.
+     *
+     * - **host**: The record matches TCP/IP connections, including SSL connections and non-SSL connections.
+     * - **hostssl**: The record matches only TCP/IP connections that are established over SSL.
+     * - **hostnossl**: The record matches only TCP/IP connections that are not established over SSL.
+     * @example host
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The username of the account that is used to connect to the instance.
+     *
+     * @example all
+     *
      * @var string
      */
     public $user;

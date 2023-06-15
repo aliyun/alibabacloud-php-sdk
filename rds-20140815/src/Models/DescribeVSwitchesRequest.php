@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesRequest extends Model
 {
     /**
+     * @description The ID of the dedicated cluster. You can call the [DescribeDedicatedHostGroups](~~141946~~) operation to query the ID of the dedicated cluster. If you configure this parameter, the details about all vSwitches in the VPC to which the dedicated cluster belongs are returned.
+     *
+     **
+     *
+     * You must configure this parameter or the **VpcId** parameter.
+     * @example dhg-7a9********
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
@@ -24,21 +31,37 @@ class DescribeVSwitchesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1 to 50**. Default value: **30**.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the vSwitch. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -59,11 +82,22 @@ class DescribeVSwitchesRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the VPC to which the vSwitches belong.
+     *
+     **
+     *
+     * You must configure this parameter or the **DedicatedHostGroupId** parameter.
+     * @example vpc-bp1opxu1zkhn**********
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the zone to which the vSwitches belong. You can call the [DescribeAvailableZones](~~169126~~) operation to query the ID of the zone. If you configure this parameter, the query results are filtered based on the value of this parameter and only the details about the vSwitches that are deployed in the specified zone are returned.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

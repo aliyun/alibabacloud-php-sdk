@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-m5ezban**********
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description The ID of the dedicated cluster.
+     *
+     * > If the instance does not reside in the specified dedicated cluster, no value is returned.
+     * @example dhg-4n*****
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @description The ID of the host on which the instance resides in the dedicated cluster.
+     *
+     * > If the instance does not reside in the specified dedicated cluster, no value is returned.
+     * @example i-bpxxxxxxx
+     *
      * @var string
      */
     public $dedicatedHostId;
 
     /**
+     * @description The unique identifier of the instance.
+     *
+     * > The value \*\*-1\*\* is returned for an instance that does not reside in a dedicated cluster.
+     * @example 349054
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The type of the node. Valid values:
+     *
+     *   **Master**: a primary node
+     *   **Slave**: a secondary node
+     *
+     * @example master
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-qingdao-c
+     *
      * @var string
      */
     public $zoneId;

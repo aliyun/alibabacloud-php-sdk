@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ActivateMigrationTargetInstanceRequest extends Model
 {
     /**
+     * @description The ID of the destination instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the IDs of instances.
+     *
+     * @example pgm-bp102g323jd4****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description Specifies whether to forcefully perform a switchover. Set the value to 1. The value 1 specifies a forceful switchover.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $forceSwitch;
@@ -24,11 +32,20 @@ class ActivateMigrationTargetInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description A reserved parameter. This parameter does not take effect.
+     *
+     * @example 2022-02-25T06:57:41Z
+     *
      * @var string
      */
     public $switchTime;
 
     /**
+     * @description The time when you want to perform the switchover.
+     *
+     * Set the value to 0. The value 0 specifies an immediate switchover.
+     * @example 0
+     *
      * @var string
      */
     public $switchTimeMode;

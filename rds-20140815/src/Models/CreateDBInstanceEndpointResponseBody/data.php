@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The internal endpoint.
+     *
+     * @example rm-****.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The endpoint ID of the instance.
+     *
+     * @example ep-****
+     *
      * @var string
      */
     public $DBInstanceEndpointId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-****
+     *
      * @var string
      */
     public $DBInstanceName;

@@ -11,71 +11,142 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceNetInfo extends Model
 {
     /**
+     * @description The Tabular Data Stream (TDS) port of the instance for which Babelfish is enabled.
+     *
+     * > This parameter applies only to ApsaraDB RDS for PostgreSQL instances. For more information about Babelfish for ApsaraDB RDS for PostgreSQL, see [Introduction to Babelfish](~~428613~~).
+     * @example 1433
+     *
      * @var string
      */
     public $babelfishPort;
 
     /**
+     * @description The endpoint of the instance.
+     *
+     * @example rm-uf6w*****.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The type of the endpoint. Valid values:
+     *
+     *   **Normal**: regular endpoint
+     *   **ReadWriteSplitting**: read/write splitting endpoint
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $connectionStringType;
 
     /**
+     * @description Details of the weight. This parameter is returned only when the read/write splitting feature is enabled for the instance.
+     *
      * @var DBInstanceWeights
      */
     public $DBInstanceWeights;
 
     /**
+     * @description The policy that is used to assign read weights. This parameter is returned only for a read/write splitting endpoint. Valid values:
+     *
+     *   **Standard**: The system automatically assigns read weights to the instance and its read-only instances based on the specifications of these instances.
+     *   **Custom**: You must manually allocate read weights to the instance and its read-only instances.
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $distributionType;
 
     /**
+     * @description The remaining validity period of the instance of the classic network in hybrid access mode. Unit: seconds.
+     *
+     * @example 1209534
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The IP address of the endpoint.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $IPAddress;
 
     /**
+     * @description The type of the network.
+     *
+     *   Valid values when the instance resides in the classic network:
+     *   **Inner:**: internal network
+     *   **Public**: Internet
+     *   Valid values when the instance resides in a VPC:
+     *   **Private**: internal network
+     *   **Public**: Internet
+     *
+     * @example Public
+     *
      * @var string
      */
     public $IPType;
 
     /**
+     * @description The latency threshold. This parameter is returned only for a read/write splitting endpoint. Unit: seconds.
+     *
+     * > If the latency on a read-only instance exceeds the specified threshold, the system no longer forwards read requests to the read-only instance.
+     * @example 12
+     *
      * @var string
      */
     public $maxDelayTime;
 
     /**
+     * @description The port that is used to connect to the instance.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description An array that consists of the details about the IP address whitelists.
+     *
      * @var securityIPGroups
      */
     public $securityIPGroups;
 
     /**
+     * @description Indicates whether the IP version can be updated. Valid values:
+     *
+     *   **Enable**: The IP version can be updated.
+     *   **Disabled**: The IP version cannot be updated.
+     *
+     * > The IP version can be updated from IPv4 to IPv6.
+     * @example Disabled
+     *
      * @var string
      */
     public $upgradeable;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-uf6f7l4fg90*****
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-uf6adz52c2p*****
+     *
      * @var string
      */
     public $vSwitchId;

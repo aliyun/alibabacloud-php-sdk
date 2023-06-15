@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceIpHostnameResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The internal IP addresses and hostnames of the ECS instances where the primary and secondary instances reside. Format: IP address 1,Hostname 1;IP address 2,Hostname 2.
+     *
+     * @example 172.16.xx.xx,sdxxxxxxxxB;172.16.xx.xx,sdxxxxxxxxA
+     *
      * @var string
      */
     public $ipHostnameInfos;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 67CD4719-51E3-4A76-A38C-02F45FAE7E36
+     *
      * @var string
      */
     public $requestId;

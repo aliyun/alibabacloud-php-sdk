@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceNetInfoForChannelRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 0c593ea1-3bea-11e9-b96b-88**********
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
+     *
+     * @example rm-bp1k8s41l2o52****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The type of the endpoint to query. Valid values:
+     *
+     *   **0**: a regular endpoint. This is the default value.
+     *   **1**: a read/write splitting endpoint that is assigned after the shared proxy feature is enabled.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $DBInstanceNetRWSplitType;
 
     /**
+     * @description An internal parameter. You do not need to specify this parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $flag;

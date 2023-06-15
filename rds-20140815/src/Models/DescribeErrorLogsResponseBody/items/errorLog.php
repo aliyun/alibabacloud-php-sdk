@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class errorLog extends Model
 {
     /**
+     * @description The time when the error log was generated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2011-05-30T12:11:04Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The error log information.
+     *
+     * @example spid52 DBCC TRACEON 3499, server process ID (SPID) 52. This is an informational message only; no user action is required
+     *
      * @var string
      */
     public $errorInfo;

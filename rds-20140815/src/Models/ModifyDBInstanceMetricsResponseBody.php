@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceMetricsResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example pgm-bp1s1j103lo6****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B55934BB-FFAA-5276-80A8-E0FDB12810B3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The application scope of this modification. Valid values:
+     *
+     *   **instance**: This modification is applied only to the current instance.
+     *   **region**: This modification is applied to all ApsaraDB RDS for PostgreSQL instances that are equipped with the same type of storage media as the current instance in the region to which the current instance belongs.
+     *
+     * @example instance
+     *
      * @var string
      */
     public $scope;

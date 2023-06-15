@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceByTagsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCz*****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-uf6w**********
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -29,16 +37,29 @@ class DescribeDBInstanceByTagsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Valid values: any non-zero positive integer.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: **30 to 100**. Default value: **30**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +75,10 @@ class DescribeDBInstanceByTagsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description A deprecated parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $proxyId;

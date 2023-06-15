@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListClassesResponseBody extends Model
 {
     /**
+     * @description An array that consists of available instance types.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CF8D35BF-263D-4F7B-883A-1163B79A9EC6
+     *
      * @var string
      */
     public $requestId;

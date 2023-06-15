@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class secrets extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example 1266348003******
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The description of the credential.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the credential for the created Data API account.
+     *
+     * @example acs:rds:cn-hangzhou:1335786***:dbInstance/rm-bp1m7l3j63****
+     *
      * @var string
      */
     public $secretArn;
 
     /**
+     * @description The name of the credential.
+     *
+     * @example Foo
+     *
      * @var string
      */
     public $secretName;
 
     /**
+     * @description The username that is used to access the database.
+     *
+     * @example user_jack
+     *
      * @var string
      */
     public $username;

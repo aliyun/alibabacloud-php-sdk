@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceAttributeRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can specify up to 30 instance IDs in a single request. If you specify multiple instance IDs, separate the instance IDs with commas (,).
+     *
+     * @example rm-uf6wjk5*****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description Specifies whether the instance expires. Valid values:
+     *
+     *   **True**: The instance expires.
+     *   **False**: The instance does not expire.
+     *
+     * @example False
+     *
      * @var string
      */
     public $expired;

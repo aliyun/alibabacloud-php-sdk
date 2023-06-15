@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RestoreDdrTableResponseBody extends Model
 {
     /**
+     * @example rm-uf6wjk5*****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 75BBF1EF-1E90-4950-BFFB-252D26E8259B
+     *
      * @var string
      */
     public $requestId;

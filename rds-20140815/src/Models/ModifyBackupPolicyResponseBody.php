@@ -9,41 +9,82 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyResponseBody extends Model
 {
     /**
+     * @description The method that is used to compress backups. Valid values:
+     *
+     *   **0:** Backups are not compressed.
+     *   **1**: Backups are compressed by using the zlib tool.
+     *   **2**: Backups are compressed in parallel by using the zlib tool.
+     *   **4**: Backups are compressed by using the QuickLZ tool and can be used to restore individual databases and tables.
+     *   **8**: Backups are compressed by using the QuickLZ tool but cannot be used to restore individual databases or tables. This value is supported only for instances that run MySQL 8.0.
+     *
+     * @example 4
+     *
      * @var string
      */
     public $compressType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceID;
 
     /**
+     * @description Indicates whether the log backup feature is enabled. Valid values:
+     *
+     *   **1**: The feature is enabled.
+     *   **0**: The feature is disabled.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $enableBackupLog;
 
     /**
+     * @description Specifies whether to forcefully delete log backup files from the instance when the storage usage of the instance exceeds 80% or the amount of remaining storage on the instance is less than 5 GB.
+     *
+     * @example Disable
+     *
      * @var string
      */
     public $highSpaceUsageProtection;
 
     /**
+     * @description The number of hours for which log backup files are retained on the instance.
+     *
+     * @example 18
+     *
      * @var int
      */
     public $localLogRetentionHours;
 
     /**
+     * @description The maximum storage usage that is allowed for log backup files on the instance.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $localLogRetentionSpace;
 
     /**
+     * @description The number of binary log files on the instance.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $logBackupLocalRetentionNumber;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DA147739-AEAD-4417-9089-65E9B1D8240D
+     *
      * @var string
      */
     public $requestId;

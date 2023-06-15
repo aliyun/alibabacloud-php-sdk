@@ -9,19 +9,30 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsRequest extends Model
 {
     /**
+     * @example rm-uf6wjk5******
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example RDS_MySQL
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @example 2020-06-18T16:00Z
+     *
      * @var string
      */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $nodeId;
 
     /**
      * @var string
@@ -34,11 +45,15 @@ class DescribeSlowLogRecordsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -54,11 +69,15 @@ class DescribeSlowLogRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example U2FsdGVk****
+     *
      * @var string
      */
     public $SQLHASH;
 
     /**
+     * @example 2020-06-17T16:00Z
+     *
      * @var string
      */
     public $startTime;
@@ -66,6 +85,7 @@ class DescribeSlowLogRecordsRequest extends Model
         'DBInstanceId'         => 'DBInstanceId',
         'DBName'               => 'DBName',
         'endTime'              => 'EndTime',
+        'nodeId'               => 'NodeId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -91,6 +111,9 @@ class DescribeSlowLogRecordsRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->nodeId) {
+            $res['NodeId'] = $this->nodeId;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -136,6 +159,9 @@ class DescribeSlowLogRecordsRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['NodeId'])) {
+            $model->nodeId = $map['NodeId'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

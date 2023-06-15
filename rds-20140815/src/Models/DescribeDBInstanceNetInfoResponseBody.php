@@ -10,21 +10,41 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceNetInfoResponseBody extends Model
 {
     /**
+     * @description Details of the endpoints of the instance.
+     *
      * @var DBInstanceNetInfos
      */
     public $DBInstanceNetInfos;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **Classic**: classic network
+     *   **VPC**: virtual private cloud (VPC)
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 777C4593-8053-427B-99E2-105593277CAB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The whitelist mode of the instance. Valid values:
+     *
+     *   **normal**: standard whitelist mode
+     *   **safety**: enhanced whitelist mode
+     *
+     * @example safety
+     *
      * @var string
      */
     public $securityIPMode;

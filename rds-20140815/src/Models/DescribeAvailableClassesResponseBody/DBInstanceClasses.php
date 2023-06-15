@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceClasses extends Model
 {
     /**
+     * @description The instance type of the instance.
+     *
+     * @example rds.mysql.c1.large
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @description The storage capacity range that is supported for the instance.
+     *
      * @var DBInstanceStorageRange
      */
     public $DBInstanceStorageRange;

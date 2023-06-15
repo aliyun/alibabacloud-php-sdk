@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceMetricsRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example pgm-bp1s1j103lo6****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyPGHbaConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 458E0781-C46C-55F5-A0E5-1DD284B28A3F
+     *
      * @var string
      */
     public $requestId;

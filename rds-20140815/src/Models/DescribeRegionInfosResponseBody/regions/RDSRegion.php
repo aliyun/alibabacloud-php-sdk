@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RDSRegion extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

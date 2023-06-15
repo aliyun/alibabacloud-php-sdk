@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class supportedCategorys extends Model
 {
     /**
+     * @description The RDS edition of the instance.
+     *
+     * @example HighAvailability
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description An array that consists of the storage types available in the zone.
+     *
      * @var supportedStorageTypes[]
      */
     public $supportedStorageTypes;

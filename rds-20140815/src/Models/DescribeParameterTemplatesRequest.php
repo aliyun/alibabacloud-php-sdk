@@ -9,26 +9,60 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterTemplatesRequest extends Model
 {
     /**
+     * @description The RDS edition of the instance. Valid values:
+     *
+     *   **Basic:** The instance is of the Basic Edition.
+     *   **HighAvailability:** The instance is of the High-availability Edition.
+     *   **Finance:** The instance is of the Enterprise Edition.
+     *
+     * @example Basic
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The client token that is used to ensure the idempotency of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-bp1imnm**********
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The database engine that the instance runs. Valid values:
+     *
+     *   **mysql:** The instance runs MySQL.
+     *   **mssql:** The instance runs SQL Server.
+     *   **PostgreSQL:** The instance runs PostgreSQL.
+     *   **MariaDB:** The instance runs MariaDB.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The version of the database engine. Valid values:
+     *
+     *   MySQL: **5.5 | 5.6 | 5.7 | 8.0**
+     *   SQL Server: **2008r2**
+     *   PostgreSQL: **9.4 | 10.0 | 11.0 | 12.0 | 13.0 | 14.0**
+     *   MariaDB: **10.3**
+     *
+     * @example 8.0
+     *
      * @var string
      */
     public $engineVersion;
@@ -44,6 +78,10 @@ class DescribeParameterTemplatesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

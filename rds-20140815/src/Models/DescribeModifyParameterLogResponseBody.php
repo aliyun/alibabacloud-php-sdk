@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeModifyParameterLogResponseBody extends Model
 {
     /**
+     * @description The ID of the RDS instance.
+     *
+     * @example rm-uf6wjk5xxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The database engine that the RDS instance runs.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The version of the database engine that the RDS instance runs.
+     *
+     * @example 5.6
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description An array that consists of parameter reconfiguration log entries.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C8E88DED-533F-4B3C-9207-731FBF394CCA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableMetricsResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-bp1*****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description An array that consists of the details of the enhanced monitoring metric.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5CD61041-35F7-10F7-BE94-33A48B221218
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of enhanced monitoring metrics that are available for the instance.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $totalRecordCount;

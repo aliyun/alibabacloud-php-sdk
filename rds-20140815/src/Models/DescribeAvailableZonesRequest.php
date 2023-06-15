@@ -9,36 +9,115 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableZonesRequest extends Model
 {
     /**
+     * @description The RDS edition of the instance. Valid values:
+     *
+     *   **Basic**: RDS Basic Edition.
+     *   **HighAvailability**: RDS High-availability Edition.
+     *   **cluster**: RDS Cluster Edition for MySQL.
+     *   **AlwaysOn**: RDS Cluster Edition for SQL Server.
+     *   **Finance**: RDS Enterprise Edition.
+     *
+     **Serverless instances**
+     *
+     *   **serverless_basic**: RDS Serverless Basic Edition. This edition is available only for instances that run MySQL and PostgreSQL.
+     *   **serverless_standard**: RDS Serverless High-availability Edition for MySQL.
+     *   **serverless_ha** RDS Serverless High-availability Edition for SQL Server.
+     *
+     * @example HighAvailability
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The commodity code of the instance. This operation can return the resources that you can purchase based on the specified commodity code. Valid values:
+     *
+     *   **bards**: The instance is a pay-as-you-go primary instance. This value is available at the China site (aliyun.com).
+     *   **rds**: The instance is a subscription primary instance. This value is available at the China site (aliyun.com).
+     *   **rords**: The instance is a pay-as-you-go read-only instance. This value is available at the China site (aliyun.com).
+     *   **rds_rordspre_public_cn**: The instance is a subscription read-only instance. This value is available at the China site (aliyun.com).
+     *   **bards_intl**: The instance is a pay-as-you-go primary instance. This value is available at the International site (alibabacloud.com).
+     *   **rds_intl**: The instance is a subscription primary instance. This value is available at the International site (alibabacloud.com).
+     *   **rords_intl**: The instance is a pay-as-you-go read-only instance. This value is available at the International site (alibabacloud.com).
+     *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance. This value is available at the International site (alibabacloud.com).
+     *   **rds_serverless_public_cn**: The instance is a serverless instance. This value is available at the China site (aliyun.com).
+     *   **rds_serverless_public_intl**: The instance is a serverless instance. This value is available at the International site (alibabacloud.com).
+     *
+     * @example bards
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description The ID of the primary instance. If you want to query the read-only instances that you can purchase for a primary instance, you can specify this parameter.
+     *
+     * If you set **CommodityCode** to one of the following values, you must specify this parameter:
+     *
+     *   **rords_intl**
+     *   **rds_rordspre_public_intl**
+     *   **rords**
+     *   **rds_rordspre_public_cn**
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description Specifies whether to return the zones in which the single-zone deployment method is supported. Valid values:
+     *
+     *   **1** (default): returns the zones.
+     *   **0**: does not return the zones.
+     *
+     * > The single-zone deployment method allows you to deploy an instance that runs RDS Enterprise Edition in a single zone.
+     * @example 0
+     *
      * @var string
      */
     public $dispenseMode;
 
     /**
+     * @description The database engine of the instance. Valid values:
+     *
+     *   **MySQL**
+     *   **SQLServer**
+     *   **PostgreSQL**
+     *   **MariaDB**
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance. Valid values:
+     *
+     *   Valid values if you set Engine to MySQL: **5.5**, **5.6**, **5.7**, and **8.0**
+     *   Valid values if you set Engine to SQLServer: **2008r2**, **08r2\_ent_ha**, **2012**, **2012\_ent_ha**, **2012\_std_ha**, **2012\_web**, **2014\_std_ha**, **2016\_ent_ha**, **2016\_std_ha**, **2016\_web**, **2017\_std_ha**, **2017\_ent**, **2019\_std_ha**, and **2019\_ent**
+     *   Valid values if you set Engine to PostgreSQL: **10.0**, **11.0**, **12.0**, **13.0**, **14.0**, and **15.0**
+     *   Valid value if you set Engine to MariaDB: **10.3**
+     *
+     **Serverless instances**
+     *
+     *   Valid values if you set Engine to MySQL: **5.7** and **8.0**
+     *   Valid values if you set Engine to SQLServer: **2016\_std_sl**, **2017\_std_sl**, and **2019\_std_sl**
+     *   Valid value if you set Engine to PostgreSQL: **14.0**
+     *
+     * > ApsaraDB RDS for MariaDB does not support serverless instances.
+     * @example 8.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,6 +128,10 @@ class DescribeAvailableZonesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The zone ID of the instance. If the instance spans more than one zone, the value of this parameter contains an `MAZ` part, such as `cn-hangzhou-MAZ6(b,f)` and `cn-hangzhou-MAZ5(b,e,f)`. You can call the [DescribeRegions](~~26243~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $zoneId;

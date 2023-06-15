@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class hbaItem extends Model
 {
     /**
+     * @description The IP addresses from which the specified users can access the specified databases. The value is fixed as 0.0.0.0/0.
+     *
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The names of the databases that the specified users are allowed to access. The value is fixed as all or replication.
+     *
+     * @example all
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @description The mask of the instance. The value is fixed as null.
+     *
+     * @example null
+     *
      * @var string
      */
     public $mask;
 
     /**
+     * @description The authentication method. The value is fixed as md5.
+     *
+     * @example md5
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @description The value of this parameter is based on the value of the Method parameter. The value is fixed as null.
+     *
+     * @example null
+     *
      * @var string
      */
     public $option;
 
     /**
+     * @description The priority of the configuration items in the pg_hba.conf file. This value is automatically generated.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $priorityId;
 
     /**
+     * @description The type of connection to the instance. The value is fixed as host.
+     *
+     * @example host
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The user that is allowed to access the instance. The value is fixed as all.
+     *
+     * @example all
+     *
      * @var string
      */
     public $user;

@@ -15,11 +15,19 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The IDs of the instances. You can specify up to 50 instance IDs.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string[]
      */
     public $resourceId;
@@ -35,11 +43,17 @@ class TagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Set the value to **INSTANCE**.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags to be added to the resources. You can specify up to 20 tags.
+     *
      * @var tag[]
      */
     public $tag;

@@ -9,26 +9,48 @@ use AlibabaCloud\Tea\Model;
 class DBClusterNode extends Model
 {
     /**
+     * @description The specification of the node.
+     *
+     * @example mysql.n2.medium.xc
+     *
      * @var string
      */
     public $classCode;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example rn-****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The region ID of the node.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $nodeRegionId;
 
     /**
+     * @description The role of node. The valid values:
+     *
+     * - **primary**: primary node.
+     * - **secondary**: standby node.
+     * @example primary
+     *
      * @var string
      */
     public $nodeRole;
 
     /**
+     * @description The zone ID of the node.
+     *
+     * @example cn-beijing-h
+     *
      * @var string
      */
     public $nodeZoneId;

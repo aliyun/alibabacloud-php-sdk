@@ -9,61 +9,109 @@ use AlibabaCloud\Tea\Model;
 class eventItems extends Model
 {
     /**
+     * @description The ID of the user who executed the event.
+     *
+     * @example 22973492**********
+     *
      * @var int
      */
     public $callerUid;
 
     /**
+     * @description The ID of the event.
+     *
+     * @example 11000053
+     *
      * @var int
      */
     public $eventId;
 
     /**
+     * @description The name of the event. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
+     *
+     * @example ModifySecurityIPList
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description The request or context parameters of the event.
+     *
+     * @example {\"Domain\": \"rds-inc-share.aliyuncs.com\", \"Api\": \"ReleaseInstancePublicConnection\"}
+     *
      * @var string
      */
     public $eventPayload;
 
     /**
+     * @description The source of the event. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
+     *
+     * @example FROM_USER
+     *
      * @var string
      */
     public $eventReason;
 
     /**
+     * @description The time when the event was recorded. The time is slightly later than the time the event occurred.
+     *
+     * @example 2019-08-20T01:12:49Z
+     *
      * @var string
      */
     public $eventRecordTime;
 
     /**
+     * @description The time when the event occurred.
+     *
+     * @example 2019-08-20T01:08:22Z
+     *
      * @var string
      */
     public $eventTime;
 
     /**
+     * @description The type of the event. For more information, see [View the event history of an ApsaraDB RDS instance](~~129759~~).
+     *
+     * @example NetworkManagement
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The type of the user who executed the event.
+     *
+     * @example SYSTEM
+     *
      * @var string
      */
     public $eventUserType;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the resource associated with the event. Only instance IDs are supported for this parameter.
+     *
+     * @example rm-bp1z3065m9976ix8a
+     *
      * @var string
      */
     public $resourceName;
 
     /**
+     * @description The type of the resource associated with the event. Only instances are supported for this parameter.
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;

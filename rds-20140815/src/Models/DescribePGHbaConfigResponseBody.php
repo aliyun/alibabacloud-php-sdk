@@ -11,36 +11,66 @@ use AlibabaCloud\Tea\Model;
 class DescribePGHbaConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-bp1*****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description An array that consists of the default configuration items in the pg_hba.conf file.
+     *
      * @var defaultHbaItems
      */
     public $defaultHbaItems;
 
     /**
+     * @description The time when the previous modification was made to the pg_hba.conf file.
+     *
+     * @example 2021-11-25T06:00:40Z
+     *
      * @var string
      */
     public $hbaModifyTime;
 
     /**
+     * @description The status of the previous modification to the pg_hba.conf file.
+     *
+     * Valid values:
+     *
+     *   **success**: The modification is successful.
+     *   **setting**: The modification is being applied.
+     *   **failed**: The modification fails.
+     *
+     * @example success
+     *
      * @var string
      */
     public $lastModifyStatus;
 
     /**
+     * @description The reason why the previous modification was made to the pg_hba.conf file.
+     *
+     * @example The specified users (testuser) is not exist.
+     *
      * @var string
      */
     public $modifyStatusReason;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A147A124-A147-5CCF-9609-B73C028848DF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of the current configuration items in the pg_hba.conf file.
+     *
      * @var runningHbaItems
      */
     public $runningHbaItems;

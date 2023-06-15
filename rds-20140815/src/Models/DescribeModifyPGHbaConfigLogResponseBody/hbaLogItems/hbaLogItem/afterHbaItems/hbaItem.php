@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class hbaItem extends Model
 {
     /**
+     * @description The IP address of the instance.
+     *
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The name of the database.
+     *
+     * @example all
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @description The mask of the instance.
+     *
+     * @example null
+     *
      * @var string
      */
     public $mask;
 
     /**
+     * @description The authentication method.
+     *
+     * @example ldap
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @description The value of this parameter was set based on the value of the Method parameter.
+     *
+     * @example null
+     *
      * @var string
      */
     public $option;
 
     /**
+     * @description The priority of the configuration item in the pg_hba.conf file.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $priorityId;
 
     /**
+     * @description The type of the connection.
+     *
+     * @example host
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The username of the account that was used to connect to the instance.
+     *
+     * @example ldapuser
+     *
      * @var string
      */
     public $user;

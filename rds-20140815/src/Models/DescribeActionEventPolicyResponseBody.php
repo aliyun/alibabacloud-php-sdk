@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeActionEventPolicyResponseBody extends Model
 {
     /**
+     * @description Indicates whether the event history feature is enabled.
+     *
+     * @example True
+     *
      * @var string
      */
     public $enableEventLog;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CCECD3CD-AB2D-4F6D-BEDE-47BC90A398D2
+     *
      * @var string
      */
     public $requestId;

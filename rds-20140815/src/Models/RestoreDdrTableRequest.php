@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RestoreDdrTableRequest extends Model
 {
     /**
+     * @example 279563
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example rm-bpxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -29,11 +35,15 @@ class RestoreDdrTableRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -49,26 +59,36 @@ class RestoreDdrTableRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 2020-04-25T16:00:00Z
+     *
      * @var string
      */
     public $restoreTime;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $restoreType;
 
     /**
+     * @example rm-bpxxxxx
+     *
      * @var string
      */
     public $sourceDBInstanceName;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $sourceRegion;
 
     /**
+     * @example [{"type":"db","name":"testdb1","newname":"testdb1","tables":[{"type":"table","name":"test1","newname":"test1_backup"},{"type":"table","name":"test2","newname":"test2_backup"}]}]
+     *
      * @var string
      */
     public $tableMeta;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBProxyRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-bp1ja4f56s7us****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description An internal parameter. You do not need to specify this parameter.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $DBProxyEngineType;
@@ -24,11 +32,19 @@ class DescribeDBProxyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;

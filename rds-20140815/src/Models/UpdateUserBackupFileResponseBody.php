@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserBackupFileResponseBody extends Model
 {
     /**
+     * @description The ID of the backup file.
+     *
+     * @example b-g14d0m772f7b********
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 6A236067-4727-4B42-92CF-734E417ED69A
+     *
      * @var string
      */
     public $requestId;

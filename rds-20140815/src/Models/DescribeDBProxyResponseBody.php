@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyAVZones;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\DBProxyConnectStringItems;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBProxyResponseBody\dbProxyEndpointItems;
 use AlibabaCloud\Tea\Model;
@@ -11,70 +12,162 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBProxyResponseBody extends Model
 {
     /**
+     * @description The list of zones that are available for the database proxy.
+     *
+     * @var DBProxyAVZones
+     */
+    public $DBProxyAVZones;
+
+    /**
+     * @description An array consisting of the information about the proxy endpoint that is created for the instance.
+     *
      * @var DBProxyConnectStringItems
      */
     public $DBProxyConnectStringItems;
 
     /**
+     * @description An internal parameter. You can ignore this parameter.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $DBProxyEngineType;
 
     /**
+     * @description The version of the proxy instance.
+     *
+     * @example 1.13.11
+     *
      * @var string
      */
     public $DBProxyInstanceCurrentMinorVersion;
 
     /**
+     * @description The latest version that is available for the proxy instance.
+     *
+     * @example 1.13.12
+     *
      * @var string
      */
     public $DBProxyInstanceLatestMinorVersion;
 
     /**
+     * @description The name of the proxy instance.
+     *
+     * @example gos787jog2wk0ye1****
+     *
      * @var string
      */
     public $DBProxyInstanceName;
 
     /**
+     * @description The number of proxies that are enabled on the instance.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $DBProxyInstanceNum;
 
     /**
+     * @description This parameter is available only for ApsaraDB RDS for PostgreSQL instances. The specifications of the proxy instance that is enabled.
+     *
+     * For example, a value of 4/8 indicates that the proxy instance has 4 cores and 8 GB of memory.
+     * @example 4/8
+     *
      * @var string
      */
     public $DBProxyInstanceSize;
 
     /**
+     * @description The status of the proxy instance.
+     *
+     * Valid values:
+     *
+     *   DBInstanceClassChanging
+     *
+     * <!-- -->
+     *
+     *   Creating
+     *
+     * <!-- -->
+     *
+     *   Running
+     *
+     * <!-- -->
+     *
+     *   Deleting
+     *
+     * <!-- -->
+     * @example Running
+     *
      * @var string
      */
     public $DBProxyInstanceStatus;
 
     /**
+     * @description The type of the database proxy that is enabled on the instance.
+     *
+     * Valid values:
+     *
+     *   1
+     *
+     * <!-- -->
+     *
+     *   2
+     *
+     * <!-- -->
+     * @example 2
+     *
      * @var string
      */
     public $DBProxyInstanceType;
 
     /**
+     * @description The status of the database proxy.
+     *
+     * Valid values:
+     *
+     *   Shutdown
+     *
+     * <!-- -->
+     *
+     *   Startup
+     *
+     * <!-- -->
+     * @example Startup
+     *
      * @var string
      */
     public $DBProxyServiceStatus;
 
     /**
+     * @description The proxy terminals of the instance.
+     *
      * @var dbProxyEndpointItems
      */
     public $dbProxyEndpointItems;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 909A69EE-71C8-4417-A0B9-FF085407E1E3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
+        'DBProxyAVZones'                     => 'DBProxyAVZones',
         'DBProxyConnectStringItems'          => 'DBProxyConnectStringItems',
         'DBProxyEngineType'                  => 'DBProxyEngineType',
         'DBProxyInstanceCurrentMinorVersion' => 'DBProxyInstanceCurrentMinorVersion',
@@ -97,6 +190,9 @@ class DescribeDBProxyResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBProxyAVZones) {
+            $res['DBProxyAVZones'] = null !== $this->DBProxyAVZones ? $this->DBProxyAVZones->toMap() : null;
+        }
         if (null !== $this->DBProxyConnectStringItems) {
             $res['DBProxyConnectStringItems'] = null !== $this->DBProxyConnectStringItems ? $this->DBProxyConnectStringItems->toMap() : null;
         }
@@ -148,6 +244,9 @@ class DescribeDBProxyResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBProxyAVZones'])) {
+            $model->DBProxyAVZones = DBProxyAVZones::fromMap($map['DBProxyAVZones']);
+        }
         if (isset($map['DBProxyConnectStringItems'])) {
             $model->DBProxyConnectStringItems = DBProxyConnectStringItems::fromMap($map['DBProxyConnectStringItems']);
         }

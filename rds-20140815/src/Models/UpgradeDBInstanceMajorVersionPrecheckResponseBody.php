@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBInstanceMajorVersionPrecheckResponseBody extends Model
 {
     /**
+     * @description The name of the instance.
+     *
+     * @example pgm-bp1c808s731l****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 99C1FEEE-FB44-5342-8EBA-DC1E1A1557A4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The new major engine version of the instance.
+     *
+     * @example 12.0
+     *
      * @var string
      */
     public $targetMajorVersion;
 
     /**
+     * @description The ID of the upgrade check task.
+     *
+     * @example 41698****
+     *
      * @var string
      */
     public $taskId;

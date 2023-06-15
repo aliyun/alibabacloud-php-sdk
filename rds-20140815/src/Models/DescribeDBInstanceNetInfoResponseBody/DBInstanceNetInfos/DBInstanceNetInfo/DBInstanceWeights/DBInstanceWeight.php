@@ -9,26 +9,52 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceWeight extends Model
 {
     /**
+     * @description The availability of the instance. Valid values:
+     *
+     *   **Unavailable**
+     *   **Available**
+     *
+     * @example Unavailable
+     *
      * @var string
      */
     public $availability;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5*****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The database engine of the instance. Valid values:
+     *
+     *   **Master**: primary instance
+     *   **Readonly**: read-only instance
+     *
+     * @example Master
+     *
      * @var string
      */
     public $DBInstanceType;
 
     /**
+     * @description A deprecated parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The weight of the instance.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $weight;

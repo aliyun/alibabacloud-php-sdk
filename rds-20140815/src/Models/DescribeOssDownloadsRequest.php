@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeOssDownloadsRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the backup data migration task. You can call the [DescribeMigrateTasks](~~64563~~) operation to query the ID of the migration task.
+     *
+     * @example 5625458541
+     *
      * @var string
      */
     public $migrateTaskId;
@@ -24,6 +32,10 @@ class DescribeOssDownloadsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;

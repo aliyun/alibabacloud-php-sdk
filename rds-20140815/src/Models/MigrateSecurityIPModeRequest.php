@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class MigrateSecurityIPModeRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     *
+     * @example rm-uf6wjk5****
+     *
      * @var string
      */
     public $DBInstanceId;

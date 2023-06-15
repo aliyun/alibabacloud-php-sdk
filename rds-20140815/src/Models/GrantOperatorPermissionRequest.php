@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GrantOperatorPermissionRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The time when the permissions of the service account expire. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2019-03-27T16:00:00Z
+     *
      * @var string
      */
     public $expiredTime;
@@ -29,6 +37,13 @@ class GrantOperatorPermissionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The permissions that you want to grant to the service account. Valid values:
+     *
+     *   **Control**: the configuration permissions, which allow you to view and modify the configuration of the instance.
+     *   **Data**: the data permissions, which allow you to view the schemas, indexes, and SQL statements of the instance.
+     *
+     * @example Control
+     *
      * @var string
      */
     public $privileges;

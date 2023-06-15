@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ReleaseReadWriteSplittingConnectionRequest extends Model
 {
     /**
+     * @description The ID of the primary instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;

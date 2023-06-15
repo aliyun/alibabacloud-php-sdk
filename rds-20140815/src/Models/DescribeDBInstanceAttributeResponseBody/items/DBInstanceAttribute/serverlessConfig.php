@@ -9,21 +9,45 @@ use AlibabaCloud\Tea\Model;
 class serverlessConfig extends Model
 {
     /**
+     * @description Indicates whether the automatic suspension feature is enabled for the serverless instance. Valid values:
+     *
+     * - **true**: The feature is enabled.
+     * - **false**: The feature is disabled. This is the default value.
+     *
+     * >  After the automatic suspension feature is enabled, if no connections to the instance are established within 10 minutes, the instance is suspended. After a connection is established to the instance, the instance is automatically resumed.
+     * @example true
+     *
      * @var bool
      */
     public $autoPause;
 
     /**
+     * @description The maximum value of RCU.
+     *
+     * @example 8
+     *
      * @var float
      */
     public $scaleMax;
 
     /**
+     * @description The minimum value of RDS Capacity Unit (RCU).
+     *
+     * @example 0.5
+     *
      * @var float
      */
     public $scaleMin;
 
     /**
+     * @description Indicates whether the forced scaling feature is enabled for the serverless instance.
+     *
+     * - **true**: The feature is enabled.
+     * - **false**: The feature is disabled. This is the default value.
+     *
+     * >  In most cases, ApsaraDB RDS automatically scales in or out the RCUs of a serverless instance based on business requirements in real time. In some cases, the scaling does not take effect in real time. You can enable the forced scaling feature to forcefully scales in or out the RCUs of the instance.
+     * @example false
+     *
      * @var bool
      */
     public $switchForce;

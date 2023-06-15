@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UnlockAccountResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example AA65190D-852A-4C9B-88DA-E92698CAA350
+     *
      * @var string
      */
     public $requestId;

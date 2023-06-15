@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class relatedCustinsInfo extends Model
 {
     /**
+     * @description The time when the parameter template was applied.
+     *
+     * @example 2022-10-17T03:19:02Z
+     *
      * @var string
      */
     public $appliedTime;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-bp170****
+     *
      * @var string
      */
     public $DBInstanceName;

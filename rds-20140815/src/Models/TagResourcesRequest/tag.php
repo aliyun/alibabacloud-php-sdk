@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of the tag that you want to add to the instance. The value of this parameter cannot be an empty string.
+     *
+     * @example testkey1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The tag value that is associated with the specified tag key. This parameter can be an empty string.
+     *
+     * @example testvalue1
+     *
      * @var string
      */
     public $value;

@@ -9,11 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateParameterGroupRequest extends Model
 {
     /**
+     * @description The database engine. Valid values:
+     *
+     *   **mysql**
+     *   **PostgreSQL**
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance.
+     *
+     *   If the instance runs MySQL, the instance must run one of the following MySQL versions:
+     *
+     *   **5.6**
+     *   **5.7**
+     *   **8.0**
+     *
+     *   If the instance runs PostgreSQL, the instance must run one of the following PostgreSQL versions:
+     *
+     *   **10.0**
+     *   **11.0**
+     *   **12.0**
+     *   **13.0**
+     *   **14.0**
+     *   **15.0**
+     *
+     * @example 5.7
+     *
      * @var string
      */
     public $engineVersion;
@@ -24,21 +50,40 @@ class CreateParameterGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The description of the parameter template. The value can be up to 200 characters in length.
+     *
+     * @example test
+     *
      * @var string
      */
     public $parameterGroupDesc;
 
     /**
+     * @description The name of the parameter template.
+     *
+     *   The value must start with a letter and can contain letters, digits, periods (.), and underscores (\_).
+     *   The value can be 8 to 64 characters in length.
+     *
+     * @example test1234
+     *
      * @var string
      */
     public $parameterGroupName;
 
     /**
+     * @description A JSON string that consists of parameters and their values in the parameter template. Format: {"Parameter 1":"Value of Parameter 1","Parameter 2":"Value of Parameter 2"...}. For more information about the parameters that can be modified, see [Modify the parameters of an ApsaraDB RDS for MySQL instance](~~96063~~) or [Modify the parameters of an ApsaraDB RDS for PostgreSQL instance](~~96751~~).
+     *
+     * @example {"back_log":"3000","wait_timeout":"86400"}
+     *
      * @var string
      */
     public $parameters;
 
     /**
+     * @description The region ID of the parameter template. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

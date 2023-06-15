@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class CreateMigrateTaskResponseBody extends Model
 {
     /**
+     * @description The type of the migration task. Valid values:
+     *
+     *   **FULL**: The migration task migrates full backup files.
+     *   **UPDF**: The migration task migrates incremental or log backup files.
+     *
+     * @example FULL
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example test02
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The ID of the migration task.
+     *
+     * @example 564563256
+     *
      * @var string
      */
     public $migrateTaskId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 866F5EB8-4650-4061-87F0-379F6F968BCE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 5451225
+     *
      * @var string
      */
     public $taskId;

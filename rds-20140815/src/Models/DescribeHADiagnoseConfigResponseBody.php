@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeHADiagnoseConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 06B220E2-EAC5-4DBE-A1FC-1B62DB6A****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The availability check method of the instance. Valid values:
+     *
+     *   **LONG**: Alibaba Cloud uses persistent connections to check the availability of the instance.
+     *   **SHORT**: Alibaba Cloud uses short-lived connections to check the availability of the instance.
+     *
+     * @example LONG
+     *
      * @var string
      */
     public $tcpConnectionType;

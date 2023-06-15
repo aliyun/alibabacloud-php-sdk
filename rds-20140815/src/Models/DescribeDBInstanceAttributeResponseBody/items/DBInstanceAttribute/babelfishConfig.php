@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class babelfishConfig extends Model
 {
     /**
+     * @description The switch to enable or disable Babelfish.
+     *
+     * >  If Babelfish is enabled when you purchase an ApsaraDB RDS for PostgreSQL instance, this parameter is fixed as **true**.
+     * @example true
+     *
      * @var string
      */
     public $babelfishEnabled;
 
     /**
+     * @description The migration mode for Babelfish. Valid values:
+     *
+     * - **single-db**
+     * - **multi-db**
+     *
+     * >  For more information about migration modes for Babelfish, see [Migration modes](https://www.alibabacloud.com/help/en/apsaradb-for-rds/latest/babelfish-for-pg).
+     * @example single-db
+     *
      * @var string
      */
     public $migrationMode;

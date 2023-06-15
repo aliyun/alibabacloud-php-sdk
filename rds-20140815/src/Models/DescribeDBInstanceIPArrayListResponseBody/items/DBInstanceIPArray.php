@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceIPArray extends Model
 {
     /**
+     * @description The attribute of the IP address whitelist. By default, this parameter is empty.
+     *
+     * > The IP address whitelists that have the hidden attribute are not displayed in the ApsaraDB RDS console. These IP address whitelists are used to access Alibaba Cloud services, such as Data Transmission Service (DTS).
+     * @example hidden
+     *
      * @var string
      */
     public $DBInstanceIPArrayAttribute;
 
     /**
+     * @description The name of the IP address whitelist.
+     *
+     * @example rds_default
+     *
      * @var string
      */
     public $DBInstanceIPArrayName;
 
     /**
+     * @description The IP addresses in the IP address whitelist.
+     *
+     * @example 192.168.1.0/24
+     *
      * @var string
      */
     public $securityIPList;
 
     /**
+     * @description The type of the IP address.
+     *
+     * @example IPv4
+     *
      * @var string
      */
     public $securityIPType;

@@ -9,46 +9,98 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsRequest extends Model
 {
     /**
+     * @description The ID of the backup set.
+     *
+     * @example 327329803
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The backup mode. Valid values:
+     *
+     *   **Automated**
+     *   **Manual**
+     *
+     * @example Automated
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @description The status of the backup set. Valid values:
+     *
+     *   **Success**
+     *   **Failed**
+     *
+     * @example Success
+     *
      * @var string
      */
     public $backupStatus;
 
     /**
+     * @description The backup type. Valid values:
+     *
+     *   **FullBackup**: full backup
+     *   **IncrementalBackup**: incremental backup
+     *
+     * @example FullBackup
+     *
      * @var string
      */
     public $backupType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * > We recommend that you specify a time range that is as short as possible to avoid timeout.
+     * @example 2011-06-15T16:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -59,6 +111,10 @@ class DescribeBackupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 2011-06-01T16:00Z
+     *
      * @var string
      */
     public $startTime;

@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackupFileRequest extends Model
 {
     /**
+     * @description The ID of the backup set. You can specify the IDs of up to 100 backup sets at a time. Separate the IDs with commas (,).
+     *
+     * >
+     *
+     *   Only the IDs of the backup sets for the database is supported.
+     *
+     *   You can call the [DescribeBackups](~~26273~~) operation to query the IDs of backup sets.
+     *
+     * @example 29304****
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description Specifies whether to delete the backup sets that are generated before the specified point in time. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * @example 2011-06-11T16:00:00Z
+     *
      * @var string
      */
     public $backupTime;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-bp6wjk5******
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example testdb
+     *
      * @var string
      */
     public $DBName;
@@ -34,6 +56,10 @@ class DeleteBackupFileRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

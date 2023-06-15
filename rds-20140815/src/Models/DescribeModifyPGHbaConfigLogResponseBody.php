@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeModifyPGHbaConfigLogResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example pgm-bp1lymyn1v3i****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description An array that consists of the modifications to the pg_hba.conf file.
+     *
      * @var hbaLogItems
      */
     public $hbaLogItems;
 
     /**
+     * @description The number of modification records.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $logItemCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6D797E6B-E157-510C-A27F-6F9E6DA40633
+     *
      * @var string
      */
     public $requestId;

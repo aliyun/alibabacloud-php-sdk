@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DBInstancePerformance extends Model
 {
     /**
+     * @description The CPU utilization of the instance in percentage.
+     *
+     * @example 0.70
+     *
      * @var string
      */
     public $CPUUsage;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example DatabaseTest
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The disk usage of the instance in percentage.
+     *
+     * @example 14.56
+     *
      * @var string
      */
     public $diskUsage;
 
     /**
+     * @description The IOPS usage of the instance in percentage.
+     *
+     * @example 0.15
+     *
      * @var string
      */
     public $IOPSUsage;
 
     /**
+     * @description The number of sessions.
+     *
+     * @example 0.10
+     *
      * @var string
      */
     public $sessionUsage;

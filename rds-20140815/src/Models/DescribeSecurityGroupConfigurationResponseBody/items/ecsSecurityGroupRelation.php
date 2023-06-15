@@ -9,23 +9,48 @@ use AlibabaCloud\Tea\Model;
 class ecsSecurityGroupRelation extends Model
 {
     /**
+     * @description The network type of the ECS security group. Valid values:
+     *
+     *   **Classic**
+     *   **VPC**
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the ECS security group.
+     *
+     * @example sg-xxxxxxx
+     *
      * @var string
      */
     public $securityGroupId;
+
+    /**
+     * @description The name of the security group.
+     *
+     * @example security-group-emraccess
+     *
+     * @var string
+     */
+    public $securityGroupName;
     protected $_name = [
-        'networkType'     => 'NetworkType',
-        'regionId'        => 'RegionId',
-        'securityGroupId' => 'SecurityGroupId',
+        'networkType'       => 'NetworkType',
+        'regionId'          => 'RegionId',
+        'securityGroupId'   => 'SecurityGroupId',
+        'securityGroupName' => 'SecurityGroupName',
     ];
 
     public function validate()
@@ -43,6 +68,9 @@ class ecsSecurityGroupRelation extends Model
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->securityGroupName) {
+            $res['SecurityGroupName'] = $this->securityGroupName;
         }
 
         return $res;
@@ -64,6 +92,9 @@ class ecsSecurityGroupRelation extends Model
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['SecurityGroupName'])) {
+            $model->securityGroupName = $map['SecurityGroupName'];
         }
 
         return $model;

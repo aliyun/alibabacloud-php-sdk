@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrossRegionBackupDBInstanceRequest extends Model
 {
     /**
+     * @description The ID of the instance. Up to 30 instance IDs are allowed in a single request. If you enter more than one instance ID, separate them with commas (,).
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -19,16 +23,29 @@ class DescribeCrossRegionBackupDBInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return per page. Default value: 30.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

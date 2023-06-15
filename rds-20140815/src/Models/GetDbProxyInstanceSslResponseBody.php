@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetDbProxyInstanceSslResponseBody extends Model
 {
     /**
+     * @description An array that consists of SSL encryption settings.
+     *
      * @var dbProxyCertListItems
      */
     public $dbProxyCertListItems;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D330E60C-8AAA-4D63-8F64-5B78F4692F98
+     *
      * @var string
      */
     public $requestId;

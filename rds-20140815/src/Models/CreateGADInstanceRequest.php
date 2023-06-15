@@ -11,46 +11,89 @@ use AlibabaCloud\Tea\Model;
 class CreateGADInstanceRequest extends Model
 {
     /**
+     * @description The ID of the primary instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of instance. The primary instance serves as the central node of the global active database cluster.
+     *
+     * >
+     *
+     *   A primary instance can serve as the central node only of a single global active database cluster.
+     *
+     *   Only a primary instance that is created in one of the following regions can serve as the central node of a global active database cluster: China (Hangzhou), China (Shanghai), China (Qingdao), China (Beijing), China (Zhangjiakou), China (Shenzhen), and China (Chengdu).
+     *
+     * @example rm-uf6wjk5*******
+     *
      * @var string
      */
     public $centralDBInstanceId;
 
     /**
+     * @description The username of the privileged account of the central node. You can call the [DescribeAccounts](~~26265~~) operation to query the privileged account of the central node.
+     *
+     * @example test
+     *
      * @var string
      */
     public $centralRdsDtsAdminAccount;
 
     /**
+     * @description The password of the privileged account of the central node.
+     *
+     * @example Test12345
+     *
      * @var string
      */
     public $centralRdsDtsAdminPassword;
 
     /**
+     * @description The region ID of the central node. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $centralRegionId;
 
     /**
+     * @description A JSON array that consists of the information about a specified database on the central node. All database information that you specify in this array is synchronized to the unit nodes of the global active database cluster. The JSON array contains the following fields:
+     *
+     *   **name**: the name of the database.
+     *   **all**: specifies whether to synchronize all data in the database or the table. Valid values: **true** and **false**.
+     *   **Table**: the name of the table. If you set the **all** field to **false**, you must nest the name of the table that you want to synchronize into the JSON array.
+     *
+     * Example: `{ "testdb": { "name": "testdb", "all": false, "Table": { "order": { "name": "order", "all": true }, "ordernew": { "name": "ordernew", "all": true } } } }`
+     * @example {    "testdb": {     "name": "testdb",     "all": false,     "Table": {       "order": {         "name": "order",         "all": true       },       "ordernew": {         "name": "ordernew",         "all": true       }     }   } }
+     *
      * @var string
      */
     public $DBList;
 
     /**
+     * @description The name of the global active database cluster.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description An array that consists of the details about the tag.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description An array that consists of the details about the unit node.
+     *
      * @var unitNode[]
      */
     public $unitNode;

@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListUserBackupFilesRequest extends Model
 {
     /**
+     * @description The ID of the full backup file.
+     *
+     * @example b-kwwvr7v8t7of********
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The description of the full backup file.
+     *
+     * > The system implements a fuzzy match based on the value of this parameter.
+     * @example BackupTest
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The URL from which you can download the full backup file that is stored as an object in an Object Storage Service (OSS) bucket. For more information about how to obtain the URL, see [Obtain the access URL after you upload objects](~~39607~~).
+     *
+     * @example https://******.oss-ap-********.aliyuncs.com/backup_qp.xb
+     *
      * @var string
      */
     public $ossUrl;
@@ -29,6 +42,10 @@ class ListUserBackupFilesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,11 +61,25 @@ class ListUserBackupFilesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The status of the full backup file. Valid values:
+     *
+     *   **Importing**: The full backup file is being imported.
+     *   **Failed**: The full backup file fails to be imported.
+     *   **CheckSucccess**: The full backup file passes the check.
+     *   **BackupSuccess**: The full backup file is imported.
+     *   **Deleted**: The full backup file is deleted.
+     *
+     * @example CheckSuccess
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tag that is added to the full backup file.
+     *
+     * @example key1:value1
+     *
      * @var string
      */
     public $tags;

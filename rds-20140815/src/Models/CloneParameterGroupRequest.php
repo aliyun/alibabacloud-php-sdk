@@ -14,21 +14,37 @@ class CloneParameterGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The description of the parameter template in the destination region.
+     *
+     * @example CloneGroup1
+     *
      * @var string
      */
     public $parameterGroupDesc;
 
     /**
+     * @description The ID of the parameter template. You can call the [DescribeParameterGroups](~~144491~~) operation to query the most recent parameter templates in a region.
+     *
+     * @example rpg-13ppdh****
+     *
      * @var string
      */
     public $parameterGroupId;
 
     /**
+     * @description The name of the parameter template in the destination region.
+     *
+     * @example tartestgroup
+     *
      * @var string
      */
     public $parameterGroupName;
 
     /**
+     * @description The ID of the source region to which the parameter template belongs. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,6 +60,10 @@ class CloneParameterGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the destination region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $targetRegionId;

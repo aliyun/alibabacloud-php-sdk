@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupConfigurationResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxx
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description An array that consists of ECS security groups.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 87BDAE8C-ACB0-4A26-BBCC-7D1DD31D630D
+     *
      * @var string
      */
     public $requestId;

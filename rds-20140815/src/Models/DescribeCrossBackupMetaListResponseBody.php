@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrossBackupMetaListResponseBody extends Model
 {
     /**
+     * @description The instance to which the cross-region backup file belongs.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description An array that consists of the information about the databases and tables whose data is included in the cross-region backup file.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 60F9A12A-16B8-4728-B099-4CA38D32C31C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalPageCount;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

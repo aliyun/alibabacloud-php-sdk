@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeTasksRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 2020-11-20T02:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -29,11 +37,19 @@ class DescribeTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: any non-zero positive integer. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **30 to 100**. Default value: **30**.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -49,16 +65,28 @@ class DescribeTasksRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 2020-11-20T01:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the task. This parameter is invalid.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The operation that is used by the task.
+     *
+     * @example CreateInstance
+     *
      * @var string
      */
     public $taskAction;

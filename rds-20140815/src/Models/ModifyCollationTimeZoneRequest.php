@@ -9,11 +9,34 @@ use AlibabaCloud\Tea\Model;
 class ModifyCollationTimeZoneRequest extends Model
 {
     /**
+     * @description The character set collation of the instance. Valid values:
+     *
+     *   **Latin1\_General_CI_AS**
+     *   **Latin1\_General_CS_AS**
+     *   **SQL_Latin1\_General_CP1\_CI_AS**
+     *   **SQL_Latin1\_General_CP1\_CS_AS**
+     *   **Chinese_PRC_CS_AS**
+     *   **Chinese_PRC_BIN**
+     *   **Chinese_PRC_CI_AS**
+     *   **Japanese_CI_AS**
+     *   **Japanese_CS_AS**
+     *   **Chinese_Taiwan_Stroke_CI_AS**
+     *   **Chinese_Taiwan_Stroke_CS_AS**
+     *
+     * By default, the system does not modify the character set collation of the instance.
+     *
+     * > You must specify one of the **Collation** and **Timezone** parameters.
+     * @example Latin1_General_CI_AS
+     *
      * @var string
      */
     public $collation;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -34,6 +57,11 @@ class ModifyCollationTimeZoneRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The time zone of the instance. By default, the system does not modify the time zone.
+     *
+     * > You must specify one of the **Collation** and **Timezone** parameters.
+     * @example China Standard Time
+     *
      * @var string
      */
     public $timezone;

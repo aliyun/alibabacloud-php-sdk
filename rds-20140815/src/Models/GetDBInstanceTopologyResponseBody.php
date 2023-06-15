@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class GetDBInstanceTopologyResponseBody extends Model
 {
     /**
+     * @description An internal parameter. You can ignore this parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The details about the topology.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description An internal parameter. You can ignore this parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7430AB1A-6D49-5B6D-B9E5-920250076074
+     *
      * @var string
      */
     public $requestId;

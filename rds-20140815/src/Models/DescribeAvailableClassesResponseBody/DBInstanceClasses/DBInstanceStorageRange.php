@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceStorageRange extends Model
 {
     /**
+     * @description The maximum storage capacity that is supported for the instance. Unit: GB.
+     *
+     * @example 2000
+     *
      * @var int
      */
     public $maxValue;
 
     /**
+     * @description The minimum storage capacity that is supported for the instance. Unit: GB.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $minValue;
 
     /**
+     * @description The minimum step size at which you can adjust the storage capacity of the instance. The minimum step size is 5 GB.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $step;

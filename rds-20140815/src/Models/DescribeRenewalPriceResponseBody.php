@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeRenewalPriceResponseBody extends Model
 {
     /**
+     * @description An array that consists of price information.
+     *
      * @var priceInfo
      */
     public $priceInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DC9F4EF6-D038-4405-B497-1F48E722C9F2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of the details of the promotion rule.
+     *
      * @var rules
      */
     public $rules;

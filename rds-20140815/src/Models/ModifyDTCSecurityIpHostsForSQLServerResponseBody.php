@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class ModifyDTCSecurityIpHostsForSQLServerResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The result of the whitelist configuration. Valid values:
+     *
+     *   **Success**
+     *   **Fail**
+     *
+     * @example Success
+     *
      * @var string
      */
     public $DTCSetResult;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 671B6D32-B907-4EFF-A3B7-94D2EAD5E3A3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 178968983
+     *
      * @var string
      */
     public $taskId;

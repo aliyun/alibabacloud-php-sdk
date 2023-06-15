@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyHADiagnoseConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9EFA6DF3-5247-4D9D-80AA-68765BE6D5EA
+     *
      * @var string
      */
     public $requestId;

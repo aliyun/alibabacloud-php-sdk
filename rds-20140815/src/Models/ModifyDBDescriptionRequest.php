@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBDescriptionRequest extends Model
 {
     /**
+     * @description The description of the database.
+     *
+     * @example Test database A
+     *
      * @var string
      */
     public $DBDescription;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example testDB01
+     *
      * @var string
      */
     public $DBName;

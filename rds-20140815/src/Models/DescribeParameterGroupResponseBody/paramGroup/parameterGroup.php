@@ -10,56 +10,105 @@ use AlibabaCloud\Tea\Model;
 class parameterGroup extends Model
 {
     /**
+     * @description The time when the parameter template was created.
+     *
+     * @example 2019-10-22T06:02:53Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The database engine.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version.
+     *
+     * @example 5.6
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description Indicates whether the restart of an instance is required for the parameter template to take effect. Valid values:
+     *
+     *   **0**: A restart is not required.
+     *   **1**: A restart is required.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $forceRestart;
 
     /**
+     * @description The number of parameters in the parameter template.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $paramCounts;
 
     /**
+     * @description The array of parameters.
+     *
      * @var paramDetail
      */
     public $paramDetail;
 
     /**
+     * @description The description of the parameter template.
+     *
+     * @example testGroup1
+     *
      * @var string
      */
     public $parameterGroupDesc;
 
     /**
+     * @description The ID of the parameter template.
+     *
+     * @example rpg-dp****
+     *
      * @var string
      */
     public $parameterGroupId;
 
     /**
+     * @description The name of the parameter template.
+     *
+     * @example test123456
+     *
      * @var string
      */
     public $parameterGroupName;
 
     /**
+     * @description The type of the parameter template. Valid values:
+     *
+     *   **0**: the default parameter template.
+     *   **1**: a custom parameter template.
+     *   **2**: an automatic backup parameter template. After you apply this type of template, the system automatically backs up the original parameter settings and saves the backup as a template.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $parameterGroupType;
 
     /**
+     * @description The time when the parameter template was last updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-10-22T06:07:54Z
+     *
      * @var string
      */
     public $updateTime;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceKeywordsResponseBody extends Model
 {
     /**
+     * @description The type of reserved keyword returned.
+     *
+     * @example account
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of reserved keywords.
+     *
      * @var words
      */
     public $words;

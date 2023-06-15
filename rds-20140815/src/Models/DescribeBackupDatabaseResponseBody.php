@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupDatabaseResponseBody extends Model
 {
     /**
+     * @description The name of the database. Format: "db1,db2".
+     *
+     * @example db1,db2
+     *
      * @var string
      */
     public $databaseNames;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 08A3B71B-FE08-4B03-974F-CC7EA6DB1828
+     *
      * @var string
      */
     public $requestId;

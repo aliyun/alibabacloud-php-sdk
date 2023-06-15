@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeReadDBInstanceDelayResponseBody extends Model
 {
     /**
+     * @description The ID of the primary instance.
+     *
+     * @example rm-bp*****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The latency of data replication between the primary instance and the read-only instance.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $delayTime;
 
     /**
+     * @description An array that consists of latency information.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The ID of the read-only instance.
+     *
+     * @example rr-bp*****
+     *
      * @var string
      */
     public $readDBInstanceId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F1BDDEA8-452D-450B-AB10-CD5C5BAFC5DF
+     *
      * @var string
      */
     public $requestId;

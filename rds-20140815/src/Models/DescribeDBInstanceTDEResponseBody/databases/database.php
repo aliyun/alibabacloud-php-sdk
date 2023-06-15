@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class database extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example test02
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The TDE status at the database level. Valid values: **Enabled and Disabled**.
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $TDEStatus;

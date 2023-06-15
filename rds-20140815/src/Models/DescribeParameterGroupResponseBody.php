@@ -11,16 +11,25 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterGroupResponseBody extends Model
 {
     /**
+     * @description The information about the parameter template.
+     *
      * @var paramGroup
      */
     public $paramGroup;
 
     /**
+     * @description The instance to which the parameter template was applied.
+     *
+     * >  The RelatedCustinsInfo parameter is available only for ApsaraDB RDS for PostgreSQL instances.
      * @var relatedCustinsInfo
      */
     public $relatedCustinsInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 498AE8CA-8C81-4A01-AF37-2B902014ED30
+     *
      * @var string
      */
     public $requestId;

@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description An array that consists of details of the endpoint.
+     *
      * @var DBInstanceEndpoints
      */
     public $DBInstanceEndpoints;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example rm-u****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description The version of the IP protocol. Valid values:
+     *
+     *   **ipv4**
+     *   **ipv6**
+     *
+     * @example ipv4
+     *
      * @var string
      */
     public $ipVersion;

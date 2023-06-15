@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceNetworkTypeResponseBody extends Model
 {
     /**
+     * @description The endpoint that is used to connect to the instance.
+     *
+     * @example rm-bp1*****************.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 1025486523574
+     *
      * @var string
      */
     public $taskId;

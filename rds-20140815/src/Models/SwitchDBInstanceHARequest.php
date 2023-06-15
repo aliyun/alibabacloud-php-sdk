@@ -9,21 +9,45 @@ use AlibabaCloud\Tea\Model;
 class SwitchDBInstanceHARequest extends Model
 {
     /**
+     * @description The ID of the primary instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The time when the switching takes effect. Valid values:
+     *
+     *   **Immediate**: The switching immediately takes effect.
+     *   **MaintainTime**: The switching takes effect during the maintenance time.
+     *
+     * Default value: **Immediate**.
+     * @example Immediate
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @description Specifies whether to enable forcible switching. Valid values:
+     *
+     *   **Yes**
+     *   **No**
+     *
+     * Default value: **No**.
+     * @example No
+     *
      * @var string
      */
     public $force;
 
     /**
+     * @description The unique ID of the secondary instance. You can call [DescribeDBInstanceHAConfig](~~26244~~) to query the secondary instance ID.
+     *
+     * @example 349054
+     *
      * @var string
      */
     public $nodeId;

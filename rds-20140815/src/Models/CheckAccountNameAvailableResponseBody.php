@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckAccountNameAvailableResponseBody extends Model
 {
     /**
+     * @example 5E4AA101-1EE5-41C0-AE6D-0F066331AC1C
+     *
      * @var string
      */
     public $requestId;

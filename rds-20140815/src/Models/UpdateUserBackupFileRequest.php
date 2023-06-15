@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserBackupFileRequest extends Model
 {
     /**
+     * @description The ID of the backup file. You can call the [ListUserBackupFiles](~~257821~~) operation to query the ID of the backup file.
+     *
+     * @example b-kwwvr7v8t7of********
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The new description of the full backup file.
+     *
+     * @example CommentTest
+     *
      * @var string
      */
     public $comment;
@@ -24,6 +32,10 @@ class UpdateUserBackupFileRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,6 +51,10 @@ class UpdateUserBackupFileRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The new retention period of the full backup file. Unit: days. Valid values: any non-zero positive integer.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $retention;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CheckCloudResourceAuthorizedRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-t4n7j9eb52y7c1960
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -24,11 +28,19 @@ class CheckCloudResourceAuthorizedRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy**********
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -49,6 +61,10 @@ class CheckCloudResourceAuthorizedRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the destination region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example us-east-1
+     *
      * @var string
      */
     public $targetRegionId;

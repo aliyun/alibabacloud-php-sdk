@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class performanceValue extends Model
 {
     /**
+     * @description The time when the value of the performance metric was recorded. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-10-10T09:00:00Z
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @description The value of the performance metric.
+     *
+     * @example 2.83
+     *
      * @var string
      */
     public $value;

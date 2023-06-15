@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBProxyEndpointAddressRequest extends Model
 {
     /**
+     * @example rm-t4n3a****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example Public
+     *
      * @var string
      */
     public $DBProxyConnectStringNetType;
 
     /**
+     * @example ta9um4****
+     *
      * @var string
      */
     public $DBProxyEndpointId;
 
     /**
+     * @example normal
+     *
      * @var string
      */
     public $DBProxyEngineType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

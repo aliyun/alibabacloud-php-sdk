@@ -9,46 +9,95 @@ use AlibabaCloud\Tea\Model;
 class DescribeDetachedBackupsRequest extends Model
 {
     /**
+     * @description The ID of the data backup file.
+     *
+     * @example 327xxxxx3
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The backup mode of the data backup file. Valid values:
+     *
+     *   **Automated**
+     *   **Manual**
+     *
+     * @example Automated
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @description The status of the data backup file. Valid values:
+     *
+     *   **Success**
+     *   **Failed**
+     *
+     * @example Success
+     *
      * @var string
      */
     public $backupStatus;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time.
+     *
+     * The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     * @example 2021-03-15T16:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     *
+     * >  Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * >  Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -59,6 +108,11 @@ class DescribeDetachedBackupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     * @example 2021-03-01T16:00Z
+     *
      * @var string
      */
     public $startTime;

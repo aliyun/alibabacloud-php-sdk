@@ -11,26 +11,45 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceEndpoint extends Model
 {
     /**
+     * @description An array that consists of the details of the endpoint.
+     *
      * @var addressItems
      */
     public $addressItems;
 
     /**
+     * @description The user-defined description of the endpoint.
+     *
+     * @example for readonly business
+     *
      * @var string
      */
     public $endpointDescription;
 
     /**
+     * @description The endpoint ID of the instance.
+     *
+     * @example ep-****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The type of the endpoint. Valid values:
+     *
+     *   **Primary**: read/write endpoint of the instance
+     *   **Readonly**: read-only endpoint of the instance
+     *
+     * @example Readonly
+     *
      * @var string
      */
     public $endpointType;
 
     /**
+     * @description An array consisting of the details of the node that is configured for the endpoint.
+     *
      * @var nodeItems
      */
     public $nodeItems;

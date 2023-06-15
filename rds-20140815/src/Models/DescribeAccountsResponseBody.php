@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountsResponseBody extends Model
 {
     /**
+     * @description The details of the accounts.
+     *
      * @var accounts
      */
     public $accounts;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A2E94301-D07F-4457-9B49-6AA2BB388C85
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The first time when the superuser account was enabled. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2020-02-06T11:00:00Z
+     *
      * @var string
      */
     public $systemAdminAccountFirstActivationTime;
 
     /**
+     * @description Indicates whether the superuser account is enabled.
+     *
+     * @example True
+     *
      * @var string
      */
     public $systemAdminAccountStatus;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

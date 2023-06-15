@@ -15,26 +15,51 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceAttribute extends Model
 {
     /**
+     * @description The maximum number of accounts that can be created on an instance.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $accountMaxQuantity;
 
     /**
+     * @description The advanced features that are enabled for the instance. If multiple advanced features are enabled, the advanced features are separated by commas (,). This parameter is available only to instances that run **SQL Server**. Valid values:
+     *
+     *   **LinkedServer**
+     *   **DistributeTransaction**
+     *
+     * @example LinkedServer
+     *
      * @var string
      */
     public $advancedFeatures;
 
     /**
+     * @description The method that is used to update the minor engine version of the instance. Valid values:
+     *
+     *   **Auto:** automatic update.
+     *   **Manual**: manual update. ApsaraDB RDS automatically updates the minor engine version of the instance only when the minor engine version is phased out.
+     *
+     * @example Auto
+     *
      * @var string
      */
     public $autoUpgradeMinorVersion;
 
     /**
+     * @description The availability status of the instance in percentage.
+     *
+     * @example 100.0%
+     *
      * @var string
      */
     public $availabilityValue;
 
     /**
+     * @description The configuration of Babelfish for the instance.
+     *
+     * >  This parameter applies only to ApsaraDB RDS for PostgreSQL instances for which Babelfish is enabled. For more information, see [Introduction to Babelfish](https://www.alibabacloud.com/help/en/apsaradb-for-rds/latest/babelfish-for-pg).
      * @var babelfishConfig
      */
     public $babelfishConfig;
@@ -42,309 +67,624 @@ class DBInstanceAttribute extends Model
     /**
      * @var string
      */
+    public $bpeEnabled;
+
+    /**
+     * @var bool
+     */
+    public $burstingEnabled;
+
+    /**
+     * @description The RDS edition of the instance. Valid values:
+     *
+     *   **Basic**: RDS Basic Edition
+     *   **HighAvailability**: RDS High-availability Edition
+     *   **AlwaysOn**: RDS Cluster Edition for SQL Server
+     *   **cluster**: RDS Cluster Edition for MySQL
+     *   **Finance**: RDS Enterprise Edition
+     *
+     * @example Basic
+     *
+     * @var string
+     */
     public $category;
 
     /**
+     * @description The character set collation of the instance.
+     *
+     * @example Chinese_PRC_CI_AS
+     *
      * @var string
      */
     public $collation;
 
     /**
+     * @description The connection mode of the instance. Valid values:
+     *
+     *   **Standard**: standard mode
+     *   **Safe**: proxy mode
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $connectionMode;
 
     /**
+     * @description The internal endpoint of the instance.
+     *
+     * @example rm-uf6wjk5*****.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The type of the proxy that is used by the instance. Valid values:
+     *
+     *   **1**: shared proxy
+     *   **2**: dedicated proxy
+     *
+     * >  We recommend that you use the **ProxyType** parameter instead of this parameter.
+     * @example 2
+     *
      * @var string
      */
     public $consoleVersion;
 
     /**
+     * @description The time when the instance was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2011-05-30T12:11:04Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The minor engine version of the instance.
+     *
+     * @example rds_20181010
+     *
      * @var string
      */
     public $currentKernelVersion;
 
     /**
+     * @description The nodes of cluster.
+     *
      * @var DBClusterNodes
      */
     public $DBClusterNodes;
 
     /**
+     * @description The number of cores that are configured for the instance.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $DBInstanceCPU;
 
     /**
+     * @description The instance type of the instance. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~).
+     *
+     * @example rds.mys2.small
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @description The instance family to which the instance belongs. Valid values:
+     *
+     *   **s**: shared instance family
+     *   **x**: general-purpose instance family
+     *   **d**: dedicated instance family
+     *   **h**: dedicated host instance family
+     *
+     * @example s
+     *
      * @var string
      */
     public $DBInstanceClassType;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example my database.
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5*****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The memory size of the instance. Unit: MB.
+     *
+     * @example 4096
+     *
      * @var int
      */
     public $DBInstanceMemory;
 
     /**
+     * @description The type of the network over which the instance is connected. Valid values:
+     *
+     *   **Internet**
+     *   **Intranet**
+     *
+     * @example Internet
+     *
      * @var string
      */
     public $DBInstanceNetType;
 
     /**
+     * @description The status of the instance. For more information, see [Instance states](~~26315~~).
+     *
+     * @example Running
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @description The storage capacity of the instance. Unit: GB.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $DBInstanceStorage;
 
     /**
+     * @description The storage type of the instance. Valid values:
+     *
+     *   **local_ssd** and **ephemeral_ssd**: local SSD
+     *   **cloud_ssd**: standard SSD
+     *   **cloud_essd**: enhanced SSD (ESSD)
+     *
+     * @example local_ssd
+     *
      * @var string
      */
     public $DBInstanceStorageType;
 
     /**
+     * @description The type of the instance. Valid values:
+     *
+     *   **Primary**: primary instance
+     *   **Readonly**: read-only instance
+     *   **Guard**: disaster recovery instance
+     *   **Temp**: temporary instance
+     *
+     * @example Primary
+     *
      * @var string
      */
     public $DBInstanceType;
 
     /**
+     * @description The maximum number of databases that can be created on the instance.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $DBMaxQuantity;
 
     /**
+     * @description The ID of the dedicated cluster to which the instance belongs.
+     *
+     * @example dhg-7a9*****
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @description Indicates whether the release protection feature is enabled. Valid values:
+     *
+     * - **true**: The feature is enabled.
+     * - **false**: The feature is disabled.
+     * @example true
+     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
+     * @description The database engine of the instance. Valid values:
+     *
+     *   **MySQL**
+     *   **PostgreSQL**
+     *   **SQLServer**
+     *   **MariaDB**
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance.
+     *
+     * @example 5.5
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The time at which the instance expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * >  Pay-as-you-go instances never expire.
+     * @example 2019-03-27T16:00:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The extended information of the instance.
+     *
      * @var extra
      */
     public $extra;
 
     /**
+     * @description The name of the dedicated cluster to which the instance belongs. This parameter is returned only when the instance runs MySQL on RDS Standard Edition and is created in a dedicated cluster.
+     *
+     * @example TestGroup
+     *
      * @var string
      */
     public $generalGroupName;
 
     /**
+     * @description The ID of the disaster recovery instance that is attached to the instance.
+     *
+     * @example rm-uf64zsu*****
+     *
      * @var string
      */
     public $guardDBInstanceId;
 
     /**
+     * @description The type of the IP address that is used by the instance. The value is fixed as **IPv4**.
+     *
+     * @example IPv4
+     *
      * @var string
      */
     public $IPType;
 
     /**
+     * @description The ID of the instance from which incremental data comes. The incremental data of a disaster recovery instance or read-only instance comes from its primary instance. If this parameter is not returned, the instance is a primary instance.
+     *
+     * @example rm-uf6wjk5*****
+     *
      * @var string
      */
     public $incrementSourceDBInstanceId;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **Classic**
+     *   **VPC**
+     *
+     * @example Classic
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @description The architecture type of the instance. Valid values:
+     *
+     * - **x86**
+     * - **arm**
+     * @example x86
+     *
      * @var string
      */
     public $instructionSetArch;
 
     /**
+     * @description The latest minor engine version that is supported by the instance.
+     *
+     * @example rds_20201031
+     *
      * @var string
      */
     public $latestKernelVersion;
 
     /**
+     * @description The lock mode of the instance. Valid values:
+     *
+     *   **Unlock**: The instance is not locked.
+     *   **ManualLock**: The instance is manually locked.
+     *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
+     *   **LockByRestoration**: The instance is automatically locked due to instance restoration.
+     *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage.
+     *   **LockReadInstanceByDiskQuota**: The instance is a read-only instance and is automatically locked when the disk space is exhausted.
+     *
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
 
     /**
+     * @description The reason why the instance was locked.
+     *
+     * @example instance_expired
+     *
      * @var string
      */
     public $lockReason;
 
     /**
+     * @description The maintenance window of the instance. The time is displayed in UTC. Take note that the maintenance window displayed in the ApsaraDB RDS console is equal to the value of this parameter plus 8 hours.
+     *
+     * @example 00:00Z-02:00Z
+     *
      * @var string
      */
     public $maintainTime;
 
     /**
+     * @description The ID of the primary instance.
+     *
+     * >  If this parameter is not returned, the instance is the primary instance.
+     * @example rm-uf6wjk5*****
+     *
      * @var string
      */
     public $masterInstanceId;
 
     /**
+     * @description The ID of the primary zone.
+     *
+     * @example 5454284
+     *
      * @var string
      */
     public $masterZone;
 
     /**
+     * @description The maximum number of concurrent connections that are allowed by the instance.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $maxConnections;
 
     /**
+     * @description The maximum I/O throughput. Unit: MB/s.
+     *
+     * @example 0MB/s
+     *
      * @var int
      */
     public $maxIOMBPS;
 
     /**
+     * @description The maximum number of I/O requests that can be processed by the instance per second.
+     *
+     * @example 150
+     *
      * @var int
      */
     public $maxIOPS;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go
+     *   **Prepaid**: subscription
+     *
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The internal port number that is used to connect to the instance.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The type of the proxy that is supported by the instance. Valid values:
+     *
+     *   **0**: The instance does not support database proxies.
+     *   **1**: The instance supports shared proxies, with which the instance runs in multi-tenant mode.
+     *   **2**: The instance supports dedicated proxies, with which the instance runs in single-tenant mode.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $proxyType;
 
     /**
+     * @description An array that consists of the IDs of the read-only instances that are attached to the primary instance.
+     *
      * @var readOnlyDBInstanceIds
      */
     public $readOnlyDBInstanceIds;
 
     /**
+     * @description The latency at which the read-only instances replicate data. The read-only instances replicate data from the primary instance at the latency that is specified by the **ReadonlyInstanceSQLDelayedTime** parameter. Unit: seconds.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $readonlyInstanceSQLDelayedTime;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The IP addresses in the IP address whitelist.
+     *
+     * @example 192.168.XX.XX/24
+     *
      * @var string
      */
     public $securityIPList;
 
     /**
+     * @description The whitelist mode of the instance. Valid values:
+     *
+     *   **normal**: standard whitelist mode
+     *   **safety**: enhanced whitelist mode
+     *
+     * @example normal
+     *
      * @var string
      */
     public $securityIPMode;
 
     /**
+     * @description The settings of the serverless instance.
+     *
      * @var serverlessConfig
      */
     public $serverlessConfig;
 
     /**
+     * @description An array that consists of the details about the secondary zones.
+     *
      * @var slaveZones
      */
     public $slaveZones;
 
     /**
+     * @description Indicates whether the instance supports superuser accounts, such as the system administrator (SA) account, the Active Directory (AD) account, and the host account.
+     *
+     *   **Enable**: Superuser accounts are supported.
+     *   **Disabled**: Superuser accounts are not supported.
+     *
+     * @example Disabled
+     *
      * @var string
      */
     public $superPermissionMode;
 
     /**
+     * @description The ID of the temporary instance that is attached to the instance.
+     *
+     * @example rm-uf64zsu*****
+     *
      * @var string
      */
     public $tempDBInstanceId;
 
     /**
+     * @description The time zone of the instance.
+     *
+     * @example Central Standard Time
+     *
      * @var string
      */
     public $timeZone;
 
     /**
+     * @description The information about the exception that is detected on the instance. This parameter is returned only when the instance runs MySQL on RDS Standard Edition and is created in a dedicated cluster.
+     *
+     * @example it\"s ok
+     *
      * @var string
      */
     public $tips;
 
     /**
+     * @description The severity level of the exception that is detected on the instance. This parameter is returned only when the instance runs MySQL on RDS Standard Edition and is created in a dedicated cluster. Valid values:
+     *
+     *   **1**: The instance is normal.
+     *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance. You must adjust the specifications of these instances based on your business requirements.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $tipsLevel;
 
     /**
+     * @description The ID of the vSwitch that serves the instance.
+     *
+     * @example vsw-*****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC to which the instance belongs. This parameter is returned only when the instance resides in a VPC.
+     *
+     * @example vpc-23rsxdf*****
+     *
      * @var string
      */
     public $vpcCloudInstanceId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the instance belongs.
+     *
+     * @example vpc-*****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the zone to which the instances belong.
+     *
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @description An internal parameter. This operation does not return a value for this parameter.
+     *
+     * @example none
+     *
      * @var string
      */
     public $kindCode;
@@ -354,6 +694,8 @@ class DBInstanceAttribute extends Model
         'autoUpgradeMinorVersion'        => 'AutoUpgradeMinorVersion',
         'availabilityValue'              => 'AvailabilityValue',
         'babelfishConfig'                => 'BabelfishConfig',
+        'bpeEnabled'                     => 'BpeEnabled',
+        'burstingEnabled'                => 'BurstingEnabled',
         'category'                       => 'Category',
         'collation'                      => 'Collation',
         'connectionMode'                 => 'ConnectionMode',
@@ -439,6 +781,12 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->babelfishConfig) {
             $res['BabelfishConfig'] = null !== $this->babelfishConfig ? $this->babelfishConfig->toMap() : null;
+        }
+        if (null !== $this->bpeEnabled) {
+            $res['BpeEnabled'] = $this->bpeEnabled;
+        }
+        if (null !== $this->burstingEnabled) {
+            $res['BurstingEnabled'] = $this->burstingEnabled;
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
@@ -652,6 +1000,12 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['BabelfishConfig'])) {
             $model->babelfishConfig = babelfishConfig::fromMap($map['BabelfishConfig']);
+        }
+        if (isset($map['BpeEnabled'])) {
+            $model->bpeEnabled = $map['BpeEnabled'];
+        }
+        if (isset($map['BurstingEnabled'])) {
+            $model->burstingEnabled = $map['BurstingEnabled'];
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];

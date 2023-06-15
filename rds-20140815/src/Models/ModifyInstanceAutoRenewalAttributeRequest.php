@@ -9,26 +9,45 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAutoRenewalAttributeRequest extends Model
 {
     /**
+     * @description Specifies whether to enable or disable auto-renewal. Valid values: **True and False**.
+     *
+     * @example True
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-bpxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The number of months for auto-renewal. Valid values: **1 to 12**.
+     *
+     * >  You must specify this parameter if you set the** AutoRenew **parameter to** True**.
+     * @example 2
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example testuser@aliyun.com
+     *
      * @var string
      */
     public $ownerAccount;
@@ -39,6 +58,10 @@ class ModifyInstanceAutoRenewalAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

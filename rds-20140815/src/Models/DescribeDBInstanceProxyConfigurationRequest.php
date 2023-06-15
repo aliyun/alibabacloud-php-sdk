@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceProxyConfigurationRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;

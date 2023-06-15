@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceEndpointAddressRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+     *
+     * The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @example 6000170000591aed949d0f****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The prefix of the public endpoint.
+     *
+     * @example rm-*****
+     *
      * @var string
      */
     public $connectionStringPrefix;
 
     /**
+     * @description The endpoint ID of the instance. You can call the [DescribeDBInstanceEndpoints](~~464397~~) operation to query the endpoint ID of the instance.
+     *
+     * @example ep-****
+     *
      * @var string
      */
     public $DBInstanceEndpointId;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The network type of the endpoint. Only Internet is supported. Set the value to **Public**.
+     *
+     * @example Public
+     *
      * @var string
      */
     public $ipType;
 
     /**
+     * @description The port number of the public endpoint.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;

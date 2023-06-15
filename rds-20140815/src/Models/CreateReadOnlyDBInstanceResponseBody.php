@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateReadOnlyDBInstanceResponseBody extends Model
 {
     /**
+     * @description The internal endpoint that is used to connect to the read-only instance.
+     *
+     * @example rr-****.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The ID of the read-only instance.
+     *
+     * @example rr-uf6wjk5****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 10078937****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The internal port number that is used to connect to the read-only instance.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
+     *
      * @var string
      */
     public $requestId;

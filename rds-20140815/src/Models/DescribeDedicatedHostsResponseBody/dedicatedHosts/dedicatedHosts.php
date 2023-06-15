@@ -9,141 +9,275 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHosts extends Model
 {
     /**
+     * @description The account of the host. You can call the [CreateDedicatedHostAccount](~~196877~~) operation to create a host account.
+     *
+     * @example test123
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description Indicates whether the system allows you to create instances on the host. Valid values:
+     *
+     *   **0**: The system does not allow you to create instances on the host.
+     *   **1**: The system allows you to create instances on the host.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $allocationStatus;
 
     /**
+     * @description The ID of the bastion host.
+     *
+     * @example bastionhost-cn-m7xxxxxxxx
+     *
      * @var string
      */
     public $bastionInstanceId;
 
     /**
+     * @description The core overcommitment ratio of the dedicated cluster. Unit: %. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
+     *
+     * @example 200
+     *
      * @var string
      */
     public $CPUAllocationRatio;
 
     /**
+     * @description The number of used cores on the host.
+     *
+     * @example 4
+     *
      * @var string
      */
     public $cpuUsed;
 
     /**
+     * @description The time when the host was created.
+     *
+     * @example 2021-03-25 17:29:06.0
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The ID of the dedicated cluster.
+     *
+     * @example dhg-7a9xxxxxxxx
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @description The ID of the host.
+     *
+     * @example i-bpxxxxxxx
+     *
      * @var string
      */
     public $dedicatedHostId;
 
     /**
+     * @description The disk overcommitment ratio of the dedicated cluster. Unit: %. For more information about the disk overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
+     *
+     * @example 200
+     *
      * @var string
      */
     public $diskAllocationRatio;
 
     /**
+     * @description The time when the host expires.
+     *
+     * @example 2021-04-25T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The database engine of instances that are created on the host.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The total number of cores that are configured for the host.
+     *
+     * @example 8
+     *
      * @var string
      */
     public $hostCPU;
 
     /**
+     * @description The specifications of the host.
+     *
+     * @example ecs.i2.16xlarge
+     *
      * @var string
      */
     public $hostClass;
 
     /**
+     * @description The total memory space of the host. Unit: MB.
+     *
+     * @example 32238
+     *
      * @var string
      */
     public $hostMem;
 
     /**
+     * @description The name of the host.
+     *
+     * @example testHost1
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The status of the host. Valid values:
+     *
+     *   **0**: The host is being created.
+     *   **1**: The host is running.
+     *   **2**: The host is faulty.
+     *   **3**: The host is being replaced.
+     *   **4**: The host is deprecated.
+     *   **5**: The host is being deleted.
+     *   **6**: The host is restarting.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostStatus;
 
     /**
+     * @description The storage capacity of the host. Unit: MB.
+     *
+     * @example 2097152
+     *
      * @var string
      */
     public $hostStorage;
 
     /**
+     * @description The type of storage media that is used for the host. Valid values:
+     *
+     *   **dhg_cloud_ssd**: enhanced SSD
+     *   **dhg_local_ssd**: local SSD
+     *
+     * @example dhg_cloud_ssd
+     *
      * @var string
      */
     public $hostType;
 
     /**
+     * @description The internal IP address of the host.
+     *
+     * @example 192.xx.xx.xx
+     *
      * @var string
      */
     public $IPAddress;
 
     /**
+     * @description The image of the host. This parameter is returned only when the **Engine** parameter is set to **mssql**. Valid values:
+     *
+     *   **WindowsWithMssqlStdLicense**: a Windows image, which contains the licenses of the SQL Server Standard Edition
+     *   **WindowsWithMssqlEntLisence**: a Windows image, which contains the licenses of the SQL Server Enterprise Edition
+     *   **WindowsWithMssqlWebLisence**: a Windows image, which contains the licenses of the SQL Server Web Edition
+     *
+     * @example WindowsWithMssqlStdLicense
+     *
      * @var string
      */
     public $imageCategory;
 
     /**
+     * @description The total number of instances that are created on the host.
+     *
+     * @example 4
+     *
      * @var string
      */
     public $instanceNumber;
 
     /**
+     * @description The maximum memory usage per host in the dedicated cluster.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $memAllocationRatio;
 
     /**
+     * @description The amount of used memory space on the host. Unit: MB.
+     *
+     * @example 16384
+     *
      * @var string
      */
     public $memoryUsed;
 
     /**
+     * @description Indicates whether the operating system permissions of the host can be granted. Valid values:
+     *
+     *   **0** or **null**: The permissions cannot be granted.
+     *   **1**: The permissions can be granted.
+     *   **3**: The permissions have been granted.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $openPermission;
 
     /**
+     * @description The amount of used storage space on the host.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $storageUsed;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the host belongs.
+     *
+     * @example vpc-bpxxxxxxx
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The ID of the vSwitch associated with the specified VPC.
+     *
+     * @example vsw-bpxxxxxxx
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The zone ID of the host.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

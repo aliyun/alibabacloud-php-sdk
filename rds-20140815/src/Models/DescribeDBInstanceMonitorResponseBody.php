@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceMonitorResponseBody extends Model
 {
     /**
+     * @description The monitoring frequency. Unit: seconds.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 30829FD4-1A84-4C2A-A625-2EADECB95CA3
+     *
      * @var string
      */
     public $requestId;

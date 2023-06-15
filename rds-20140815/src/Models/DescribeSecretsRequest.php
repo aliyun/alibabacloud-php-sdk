@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecretsRequest extends Model
 {
     /**
+     * @description The language of the text within the response. Valid values:
+     *
+     *   **zh-CN**: Chinese
+     *   **en-US**: English
+     *
+     * > The default value is **en-US**.
+     * @example en-US
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCz*****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-xjkljjxxxxx
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @description The database engine of the database.
+     *
+     * > Only MySQL is supported.
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
@@ -39,16 +60,29 @@ class DescribeSecretsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     *
+     * > The default value is 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

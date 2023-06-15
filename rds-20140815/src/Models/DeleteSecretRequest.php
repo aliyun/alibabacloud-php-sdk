@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class DeleteSecretRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCz*****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * > If you specify this parameter, you must also specify **SecretName**.
+     * @example rm-sfjdlsjxxxxx
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @description The engine of the database.
+     *
+     * > Only MySQL is supported.
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
@@ -29,6 +43,10 @@ class DeleteSecretRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~446624~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,11 +62,26 @@ class DeleteSecretRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the credential for the created Data API account. You can call the [CreateSecret](~~446607~~) operation to obtain the value of this parameter.
+     *
+     * > You must specify one of **SecretName** and SecretArn.
+     * @example acs:rds:cn-hangzhou:1335786***:dbInstance/rm-bp1m7l3j63****
+     *
      * @var string
      */
     public $secretArn;
 
     /**
+     * @description The name of the credential.
+     *
+     * >
+     *
+     *   You must specify one of **SecretArn** and SecretName.
+     *
+     *   If you specify this parameter, you must also specify **DbInstanceId**.
+     *
+     * @example Foo
+     *
      * @var string
      */
     public $secretName;

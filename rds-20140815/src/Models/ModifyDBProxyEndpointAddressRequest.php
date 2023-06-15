@@ -9,31 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBProxyEndpointAddressRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-t4n3a****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The network type of the proxy endpoint. Valid values:
+     *
+     *   **Public**: Internet
+     *   **VPC**: virtual private cloud (VPC)
+     *   **Classic**: classic network
+     *
+     * If the instance runs MySQL, the default value of this parameter is **Classic**.
+     *
+     * > If the instance runs PostgreSQL, you must set this parameter to **Public** or **VPC**.
+     * @example Public
+     *
      * @var string
      */
     public $DBProxyConnectStringNetType;
 
     /**
+     * @description The ID of the proxy endpoint. You can call the [DescribeDBProxyEndpoint](~~140955~~) operation to query the ID of the proxy endpoint.
+     *
+     * @example ta9um4****
+     *
      * @var string
      */
     public $DBProxyEndpointId;
 
     /**
+     * @description An internal parameter. You do not need to specify this parameter.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $DBProxyEngineType;
 
     /**
+     * @description The new prefix of the proxy endpoint. Enter a prefix.
+     *
+     * > You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
+     * @example test123456
+     *
      * @var string
      */
     public $DBProxyNewConnectString;
 
     /**
+     * @description The port number that is associated with the proxy endpoint. Enter a port number.
+     *
+     * > You must specify at least one of the **DBProxyNewConnectString** and **DBProxyNewConnectStringPort** parameters.
+     * @example 3307
+     *
      * @var string
      */
     public $DBProxyNewConnectStringPort;

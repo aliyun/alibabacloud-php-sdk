@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsResponseBody extends Model
 {
     /**
+     * @example rm-uf6wjk5*******
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description An array that consists of the information about each slow query log.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @example 4DBB1BB0-E5D8-4D41-B1C9-142364DB****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

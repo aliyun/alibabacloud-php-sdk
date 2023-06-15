@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class tagInfos extends Model
 {
     /**
+     * @description The IDs of the instances to which the tag is added.
+     *
      * @var DBInstanceIds
      */
     public $DBInstanceIds;
 
     /**
+     * @description The key of the tag.
+     *
+     * @example key1
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The value of the tag.
+     *
+     * @example value1
+     *
      * @var string
      */
     public $tagValue;

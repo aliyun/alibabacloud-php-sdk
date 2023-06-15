@@ -14,11 +14,20 @@ class CheckServiceLinkedRoleRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * >  The configuration of the RegionId parameter does not affect your query results. You can configure any region for this parameter. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
+     * @example rg-bp67acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -34,6 +43,11 @@ class CheckServiceLinkedRoleRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The name of the SLR.
+     *
+     * >  For more information about the SLRs supported by ApsaraDB RDS, see [Service-linked roles](~~342840~~).
+     * @example AliyunServiceRoleForRdsPgsqlOnEcs
+     *
      * @var string
      */
     public $serviceLinkedRole;

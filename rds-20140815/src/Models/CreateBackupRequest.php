@@ -9,31 +9,85 @@ use AlibabaCloud\Tea\Model;
 class CreateBackupRequest extends Model
 {
     /**
+     * @description The backup type. Valid values:
+     *
+     *   **Logical**: logical backup
+     *   **Physical**: physical backup
+     *   **Snapshot**: snapshot backup
+     *
+     * Default value: **Physical**.
+     *
+     * >
+     *
+     *   You can perform a logical backup only when databases are created on the instance.
+     *
+     *   When you perform a snapshot backup on an ApsaraDB RDS for MariaDB instance, you must set this parameter to **Physical**.
+     *   For more information about the supported backup types, see [Back up an ApsaraDB RDS for MySQL instance](~~98818~~).
+     *   When you perform a snapshot backup on an ApsaraDB RDS for SQL Server instance that uses cloud disks, you must set this parameter to **Snapshot**.
+     *
+     * @example Physical
+     *
      * @var string
      */
     public $backupMethod;
 
     /**
+     * @description The backup policy. Valid values:
+     *
+     *   **db**: a database-level backup.
+     *   **instance**: an instance-level backup.
+     *
+     * > You can specify this parameter when you perform a logical backup on an ApsaraDB RDS for MySQL instance. You can also specify this parameter when you perform a full physical backup on an ApsaraDB RDS for SQL Server instance.
+     * @example db
+     *
      * @var string
      */
     public $backupStrategy;
 
     /**
+     * @description The backup method. Valid values:
+     *
+     *   **Auto**: full or incremental backup that is automatically selected
+     *   **FullBackup**: full backup
+     *
+     * Default value: **Auto**.
+     *
+     * >
+     *
+     *   You must set this parameter only when the instance runs SQL Server.
+     *
+     *   This parameter is valid only when you set the **BackupMethod** parameter to **Physical**.
+     *
+     * @example Auto
+     *
      * @var string
      */
     public $backupType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The names of the databases whose data you want to back up. Separate the names of the databases with commas (,).
+     *
+     * > You can specify this parameter when you perform a logical backup on individual databases of an ApsaraDB RDS for MySQL instance. You can also specify this parameter when you perform a full physical backup on individual databases of an ApsaraDB RDS for SQL Server instance.
+     * @example rds_mysql
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;

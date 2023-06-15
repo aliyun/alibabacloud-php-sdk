@@ -9,26 +9,58 @@ use AlibabaCloud\Tea\Model;
 class StartDBInstanceRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-bp****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The policy based on which the system migrates the data of the instance. Valid values:
+     *
+     *   **0**: the default value. The system preferentially upgrades or downgrades the instance without a migration. If the resources on the host on which the instance resides are insufficient, the system migrates the instance to another suitable host.
+     *   **1**: The system upgrades or downgrades the instance without a migration. If the upgrade or downgrade is not supported, the system reports an error.
+     *   **2**: The system migrates the data of the instance from the host on which the instance resides to another host. You must also specify the **DedicatedHostGroupId**, **TargetDedicatedHostIdForMaster**, and **TargetDedicatedHostIdForSlave** parameters. If you set the DBInstanceTransType parameter to 2, you cannot migrate the data of the instance to the host on which the instance resides. If you migrate the data of the instance to the host on which the instance resides, the migration fails.
+     *
+     * > Only the instances that are created in dedicated clusters are supported.
+     * @example 0
+     *
      * @var int
      */
     public $DBInstanceTransType;
 
     /**
+     * @description The ID of the dedicated cluster. You can call the [DescribeDedicatedHostGroups](~~141946~~) operation to query the ID of the dedicated cluster.
+     *
+     * > Only the instances that are created in dedicated clusters are supported.
+     * @example dhg-39****
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @description The time at which you want the change to take effect. Valid values:
+     *
+     *   **Immediate**: The change immediately takes effect.
+     *   **MaintainTime**: The change takes effect during the maintenance window that you specified. For more information, see [ModifyDBInstanceMaintainTime](~~26249~~).
+     *   **SpecificTime**: The change takes effect at a specified point in time.
+     *
+     * > Only the instances that are created in dedicated clusters are supported.
+     * @example Immediate
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @description The database engine version of the instance.
+     *
+     * > Only the instances that are created in dedicated clusters are supported.
+     * @example 5.7
+     *
      * @var string
      */
     public $engineVersion;
@@ -39,6 +71,10 @@ class StartDBInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,41 +90,99 @@ class StartDBInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The custom time at which you want the change to take effect. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * >
+     *
+     *   This parameter must be specified when you set the **EffectiveTime** parameter to **Specified**.
+     *
+     *   Only the instances that are created in dedicated clusters are supported.
+     *
+     * @example 2019-10-21T10:00:00Z
+     *
      * @var string
      */
     public $specifiedTime;
 
     /**
+     * @description The storage capacity of the instance. Valid values: **5 to 2000**. Unit: GB. If you do not specify this parameter, the storage capacity of the instance remains unchanged.
+     *
+     * > Only the instances that are created in dedicated clusters are supported.
+     * @example 1000
+     *
      * @var int
      */
     public $storage;
 
     /**
+     * @description The instance type of the instance.
+     *
+     * > Only the instances that are created in dedicated clusters are supported.
+     * @example rds.ebmhfc6.20xlarge
+     *
      * @var string
      */
     public $targetDBInstanceClass;
 
     /**
+     * @description The ID of the host on which the logger instance is created.
+     *
+     * >
+     *
+     *   This parameter is invalid.
+     *
+     * @example dh-bp****
+     *
      * @var string
      */
     public $targetDedicatedHostIdForLog;
 
     /**
+     * @description The ID of the host on which the primary instance is created.
+     *
+     * >
+     *
+     *   This parameter must be specified when you set the **DBInstanceTransType** parameter to **2**.
+     *
+     *   Only the instances that are created in dedicated clusters are supported.
+     *
+     * @example dh-bp****
+     *
      * @var string
      */
     public $targetDedicatedHostIdForMaster;
 
     /**
+     * @description The ID of the host on which the secondary instance is created.
+     *
+     * >
+     *
+     *   This parameter must be specified when you set the **DBInstanceTransType** parameter to **2**.
+     *
+     *   Only the instances that are created in dedicated clusters are supported.
+     *
+     * @example dh-bp****
+     *
      * @var string
      */
     public $targetDedicatedHostIdForSlave;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * > Only the instances that are created in dedicated clusters are supported.
+     * @example vsw-****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * > Only the instances that are created in dedicated clusters are supported.
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $zoneId;

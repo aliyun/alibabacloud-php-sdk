@@ -9,31 +9,66 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceExpireTime extends Model
 {
     /**
+     * @description The description of the instance.
+     *
+     * @example Test database
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The status of the instance. For more information, see [Instance state table](~~26315~~).
+     *
+     * @example Running
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @description The expiration date and time of the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * > Pay-as-you-go instances never expire.
+     * @example 2019-03-27T16:00:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The lock mode of the instance. Valid values:
+     *
+     *   **Unlock**: The instance is not locked.
+     *   **ManualLock**: The instance is manually locked.
+     *   **LockByExpiration**: The instance is automatically locked after it expires.
+     *   **LockByRestoration**: The instance is automatically locked before it is rolled back.
+     *   **LockByDiskQuota**: The instance is automatically locked after its storage capacity is exhausted.
+     *   **LockReadInstanceByDiskQuota**: The instance is a read-only instance and is automatically locked after its storage capacity is exhausted.
+     *
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go
+     *   **Prepaid**: subscription
+     *
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;

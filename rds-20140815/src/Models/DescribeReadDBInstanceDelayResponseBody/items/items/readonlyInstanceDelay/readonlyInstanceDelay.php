@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class readonlyInstanceDelay extends Model
 {
     /**
+     * @description The duration that is allowed for the latency in the persistence of WAL data. Unit: seconds.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $flushLag;
 
     /**
+     * @description The data size that is allowed for the latency in the persistence of WAL data. Unit: MB.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $flushLatency;
 
     /**
+     * @description The ID of the read-only instance.
+     *
+     * @example rr-bp*****
+     *
      * @var string
      */
     public $readDBInstanceName;
 
     /**
+     * @description The duration that is allowed for the latency in the playback of WAL data. Unit: seconds.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $replayLag;
 
     /**
+     * @description The data size that is allowed for the latency in the playback of WAL data. Unit: MB.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $replayLatency;
 
     /**
+     * @description The data size that is allowed for the latency in the sending of WAL data. Unit: MB.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $sendLatency;
 
     /**
+     * @description The duration that is allowed for the latency in the write-back of WAL data. Unit: seconds.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $writeLag;
 
     /**
+     * @description The data size that is allowed for the latency in the write-back of WAL data. Unit: MB.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $writeLatency;

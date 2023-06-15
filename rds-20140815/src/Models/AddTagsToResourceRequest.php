@@ -15,11 +15,20 @@ class AddTagsToResourceRequest extends Model
     public $tag;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can enter up to 30 instance IDs in a single request. If you enter more than one instance ID, you must separate the instance IDs with commas (,).
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -35,6 +44,10 @@ class AddTagsToResourceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hagnzhou
+     *
      * @var string
      */
     public $regionId;
@@ -50,11 +63,20 @@ class AddTagsToResourceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags that you want to bind. Each tag consists of a TagKey and a TagValue. You can specify up to five tags in a single request. Format: {"key1":"value1","key2":"value2"...}.
+     *
+     * >  The TagKey is required, and the TagValue is optional.
+     * @example {“key1”:”value1”,“key2”:””}
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The ID of the proxy pattern.
+     *
+     * @example API
+     *
      * @var string
      */
     public $proxyId;

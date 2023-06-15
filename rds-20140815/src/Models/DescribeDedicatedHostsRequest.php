@@ -9,31 +9,69 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostsRequest extends Model
 {
     /**
+     * @description Specifies whether to query the hosts on which you can create instances or those on which you cannot create instances. Valid values:
+     *
+     *   **0**: queries the hosts on which you cannot create instances
+     *   **1**: queries the hosts on which you can create instances
+     *
+     * @example 1
+     *
      * @var string
      */
     public $allocationStatus;
 
     /**
+     * @description The ID of the dedicated cluster. You can call the [DescribeDedicatedHostGroups](~~141946~~) operation to query the IDs of dedicated clusters.
+     *
+     * @example dhg-7a9xxxxxxxx
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @description The ID of the host.
+     *
+     * @example ch-t4nn100ddxxxxxxxx
+     *
      * @var string
      */
     public $dedicatedHostId;
 
     /**
+     * @description The status of the hosts. Valid values:
+     *
+     *   **0**: queries the hosts that are being created
+     *   **1**: queries the hosts that are running
+     *   **2**: queries the hosts that are faulty
+     *   **3**: queries the hosts that are being replaced
+     *   **4**: queries the hosts that are deprecated
+     *   **5**: queries the hosts that are being deleted
+     *   **6**: queries the hosts that are restarting
+     *
+     * @example 1
+     *
      * @var string
      */
     public $hostStatus;
 
     /**
+     * @description The type of storage media that is used for the hosts. Valid values:
+     *
+     *   **dhg_cloud_ssd**: enhanced solid-state drive (SSD)
+     *   **dhg_local_ssd**: local SSD
+     *
+     * @example dhg_cloud_ssd
+     *
      * @var string
      */
     public $hostType;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 102565235
+     *
      * @var int
      */
     public $orderId;
@@ -44,6 +82,10 @@ class DescribeDedicatedHostsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the hosts. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -59,6 +101,10 @@ class DescribeDedicatedHostsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The zone ID of the hosts.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

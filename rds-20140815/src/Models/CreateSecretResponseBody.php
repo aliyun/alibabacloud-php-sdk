@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class CreateSecretResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example DF4961DD-16F5-5B24-BD4C-0C7788F7ADAF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ARN of the credential for the created Data API account.
+     *
+     * @example acs:rds:cn-hangzhou:1335786***:dbInstance/rm-bp1m7l3j63****
+     *
      * @var string
      */
     public $secretArn;
 
     /**
+     * @description The name of the credential.
+     *
+     * @example Foo
+     *
      * @var string
      */
     public $secretName;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

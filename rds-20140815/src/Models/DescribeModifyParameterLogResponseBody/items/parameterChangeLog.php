@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class parameterChangeLog extends Model
 {
     /**
+     * @description The time when the parameter was reconfigured. This value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1584076066000
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The new value of the parameter.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $newParameterValue;
 
     /**
+     * @description The original value of the parameter.
+     *
+     * @example 8
+     *
      * @var string
      */
     public $oldParameterValue;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example innodb_stats_sample_pages
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @description The status of the new value specified for the parameter. Valid values:
+     *
+     *   **Applied:** The new value has taken effect.
+     *   **Syncing:** The new value is being applied and has not taken effect.
+     *
+     * @example Syncing
+     *
      * @var string
      */
     public $status;

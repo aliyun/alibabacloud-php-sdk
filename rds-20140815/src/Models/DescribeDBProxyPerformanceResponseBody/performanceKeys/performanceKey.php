@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class performanceKey extends Model
 {
     /**
+     * @description The name of the performance metric.
+     *
+     * @example cpu_ratio
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The format in which the value of the performance metric is returned.
+     *
+     * @example docker_container_cpu
+     *
      * @var string
      */
     public $valueFormat;
 
     /**
+     * @description An array that consists of the values of the performance metric in the following format: {value1, value2, ...}.
+     *
      * @var values
      */
     public $values;

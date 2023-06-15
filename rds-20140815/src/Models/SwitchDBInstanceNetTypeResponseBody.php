@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class SwitchDBInstanceNetTypeResponseBody extends Model
 {
     /**
+     * @description The endpoint that is used to connect to the instance after the switch of endpoints.
+     *
+     * @example new**********.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $newConnectionString;
 
     /**
+     * @description The endpoint that is used to connect to the instance before the switch of endpoints.
+     *
+     * @example rm-bp1**************.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $oldConnectionString;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 65BDA532-28AF-4122-AA39-B382721EEE64
+     *
      * @var string
      */
     public $requestId;

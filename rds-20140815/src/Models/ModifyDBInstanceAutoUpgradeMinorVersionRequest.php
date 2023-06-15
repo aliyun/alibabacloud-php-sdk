@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceAutoUpgradeMinorVersionRequest extends Model
 {
     /**
+     * @description The method that is used to update the minor engine version of the instance. Valid values:
+     *
+     *   **Auto:** automatic update.
+     *   **Manual**: manual update. ApsaraDB RDS automatically updates the current minor engine version of the instance only when the current minor engine version is phased out.
+     *
+     * @example Auto
+     *
      * @var string
      */
     public $autoUpgradeMinorVersion;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxx
+     *
      * @var string
      */
     public $DBInstanceId;

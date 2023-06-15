@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableCrossRegionResponseBody extends Model
 {
     /**
+     * @description An array that consists of destination regions for cross-region backups.
+     *
      * @var regions
      */
     public $regions;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 39265F46-EC77-4036-8AC4-F035F32F6BE2
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,41 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceDeletionProtectionRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * >
+     *
+     *   Before you call the DescribeDBInstances operation, make sure that your instance is one of the following instances:
+     *
+     *   The instance runs MySQL.
+     *   The instance runs PostgreSQL.
+     *   The instance runs MariaDB.
+     *
+     *   The instance is a pay-as-you-go instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description Specifies whether to enable the release protection feature for the read-only instance. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $deletionProtection;

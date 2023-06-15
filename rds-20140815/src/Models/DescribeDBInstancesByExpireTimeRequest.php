@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesByExpireTimeRequest extends Model
 {
     /**
+     * @description The number of remaining days for which the instances are available. Valid values: **0 to 180**.
+     *
+     * @example 180
+     *
      * @var int
      */
     public $expirePeriod;
 
     /**
+     * @description Specifies whether to query instances that have expired. Valid values:
+     *
+     *   **True**: queries instances that have expired.
+     *   **False**: does not query instances that have expired.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $expired;
@@ -29,16 +40,30 @@ class DescribeDBInstancesByExpireTimeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: any **non-zero** positive integer.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1 to 100**.
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,11 +79,19 @@ class DescribeDBInstancesByExpireTimeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag that is added to the instance. Each tag is a key-value pair that consists of two parts: TagKey and TagValue. You can specify a maximum of five tags in the following format for each request: `{"key1":"value1","key2":"value2"...}`.
+     *
+     * @example {"key1":"value1"}
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description A deprecated parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $proxyId;

@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class nodeItems extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example rn-xxxx-****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The weight of the node. Read requests are distributed based on the weight.
+     *
+     * Valid values: 0 to 100.
+     * @example 50
+     *
      * @var int
      */
     public $weight;

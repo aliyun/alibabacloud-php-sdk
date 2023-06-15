@@ -9,26 +9,45 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceEndpointShrinkRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+     *
+     * The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @example 6000170000591aed949d0f****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The user-defined description of the endpoint.
+     *
+     * @example for readonly business
+     *
      * @var string
      */
     public $DBInstanceEndpointDescription;
 
     /**
+     * @description The endpoint ID of the instance. You can call the [DescribeDBInstanceEndpoints](~~464397~~) operation to query the endpoint ID of the instance.
+     *
+     * @example ep-****
+     *
      * @var string
      */
     public $DBInstanceEndpointId;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The information about the node that is configured for the endpoint.
+     *
      * @var string
      */
     public $nodeItemsShrink;

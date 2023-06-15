@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RevokeAccountPrivilegeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example E22099CA-A61E-4992-A0B7-CE82DC175626
+     *
      * @var string
      */
     public $requestId;

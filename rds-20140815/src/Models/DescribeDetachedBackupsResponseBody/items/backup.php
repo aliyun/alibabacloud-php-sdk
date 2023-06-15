@@ -9,86 +9,179 @@ use AlibabaCloud\Tea\Model;
 class backup extends Model
 {
     /**
+     * @description The URL that is used to download the data backup file over the Internet. If the data backup file cannot be downloaded, an empty string is returned.
+     *
+     * @example http://rdsbak-hz-v3.oss-cn-hangzhou.aliyuncs.com/xxxxx
+     *
      * @var string
      */
     public $backupDownloadURL;
 
     /**
+     * @description The end time of the backup.
+     *
+     * The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     * @example 2019-02-13T12:20:00Z
+     *
      * @var string
      */
     public $backupEndTime;
 
     /**
+     * @description The ID of the data backup file.
+     *
+     * @example 321020562
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The URL that is used to download the data backup file over an internal network. If the data backup file cannot be downloaded, an empty string is returned.
+     *
+     * @example http://rdsbak-hz-v3.oss-cn-hangzhou-internal.aliyuncs.com/xxxxx
+     *
      * @var string
      */
     public $backupIntranetDownloadURL;
 
     /**
+     * @description The method that is used to generate the data backup file. Valid values:
+     *
+     *   **Logical**: logical backup
+     *   **Physical**: physical backup
+     *
+     * @example Physical
+     *
      * @var string
      */
     public $backupMethod;
 
     /**
+     * @description The backup mode of the data backup file. Valid values:
+     *
+     *   **Automated**
+     *   **Manual**
+     *
+     * @example Automated
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @description The size of the data backup file. Unit: bytes.
+     *
+     * @example 2167808
+     *
      * @var int
      */
     public $backupSize;
 
     /**
+     * @description The start time of the backup.
+     *
+     * The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     * @example 2019-02-03T12:20:00Z
+     *
      * @var string
      */
     public $backupStartTime;
 
     /**
+     * @description The status of the data backup file. Valid values:
+     *
+     *   **Success**
+     *   **Failed**
+     *
+     * @example Success
+     *
      * @var string
      */
     public $backupStatus;
 
     /**
+     * @description The backup type. Valid values:
+     *
+     *   **FullBackup**
+     *   **IncrementalBackup**
+     *
+     * @example FullBackup
+     *
      * @var string
      */
     public $backupType;
 
     /**
+     * @description The point in time at which the data in the data backup file is consistent. The return value of this parameter is a timestamp.
+     *
+     * >  If the instance runs MySQL 5.6, a timestamp is returned. Otherwise, the value 0 is returned.
+     * @example 1576506856
+     *
      * @var int
      */
     public $consistentTime;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example test
+     *
      * @var string
      */
     public $DBInstanceComment;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The No. of the instance that generates the data backup file. This parameter is used to indicate whether the instance that generates the data backup file is a primary instance or a secondary instance.
+     *
+     * @example 5882781
+     *
      * @var string
      */
     public $hostInstanceID;
 
     /**
+     * @description Indicates whether the data backup file is available. Valid values:
+     *
+     *   **0**: The data backup file is unavailable.
+     *   **1**: The data backup file is available.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $isAvail;
 
     /**
+     * @description The status of the data backup file that is used to restore individual databases or tables. Valid values:
+     *
+     *   **OK**: The data backup file is normal.
+     *   **LARGE**: The data backup file contains an abnormally large number of tables. It cannot be used to restore individual databases or tables.
+     *   **EMPTY**: The data backup file is generated from a failed backup task.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $metaStatus;
 
     /**
+     * @description Indicates whether the data backup file can be deleted. Valid values:
+     *
+     *   **Enabled**: The data backup file can be deleted.
+     *   **Disabled**: The data backup file cannot be deleted.
+     *
+     * @example Disabled
+     *
      * @var string
      */
     public $storeStatus;

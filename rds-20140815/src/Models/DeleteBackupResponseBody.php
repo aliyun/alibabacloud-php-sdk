@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 37441409-FFD1-40AA-8EC5-9ECF5E2F7C29
+     *
      * @var string
      */
     public $requestId;

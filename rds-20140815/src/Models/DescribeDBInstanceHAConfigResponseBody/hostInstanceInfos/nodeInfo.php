@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class nodeInfo extends Model
 {
     /**
+     * @example 2018-05-05T15:15:00Z
+     *
      * @var string
      */
     public $dataSyncTime;
 
     /**
+     * @example 2018-05-05T15:15:00Z
+     *
      * @var string
      */
     public $logSyncTime;
 
     /**
+     * @example 3397027
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example Master
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example NotAvailable
+     *
      * @var string
      */
     public $syncStatus;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

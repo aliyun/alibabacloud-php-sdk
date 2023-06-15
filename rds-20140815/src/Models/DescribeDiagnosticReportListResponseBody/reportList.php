@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class reportList extends Model
 {
     /**
+     * @description The time when the diagnosis was performed.
+     *
+     * @example 2018-01-17T12:46:09Z
+     *
      * @var string
      */
     public $diagnosticTime;
 
     /**
+     * @description The URL that is used to download the diagnostic report over the Internet. If the diagnostic report cannot be downloaded, an empty string is returned.
+     *
+     * @example http://rdsreport-hz-v3.oss-cn-hangzhou.aliyuncs.com/xxxxx
+     *
      * @var string
      */
     public $downloadURL;
 
     /**
+     * @description The end time of the monitoring data.
+     *
+     * @example 2018-01-10T15:31:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The diagnostic score.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $score;
 
     /**
+     * @description The start time of the monitoring data.
+     *
+     * @example 2018-01-10T15:30:00Z
+     *
      * @var string
      */
     public $startTime;

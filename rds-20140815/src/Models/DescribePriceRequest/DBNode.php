@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DBNode extends Model
 {
     /**
+     * @description The specification of the node.
+     *
+     * @example mysql.n2.small.xc
+     *
      * @var string
      */
     public $classCode;
 
     /**
+     * @description The zone ID of the node.
+     *
+     * @example cn-hangzhou-j
+     *
      * @var string
      */
     public $zoneId;

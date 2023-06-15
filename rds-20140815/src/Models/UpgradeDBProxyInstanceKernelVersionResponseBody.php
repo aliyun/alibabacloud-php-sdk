@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBProxyInstanceKernelVersionResponseBody extends Model
 {
     /**
+     * @description The ID of the database proxy of the instance.
+     *
+     * @example bu9***
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 44537EC8-DFA2-4745-B579-E733FF2C5B9A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
+     * @example 334362871
+     *
      * @var string
      */
     public $taskId;

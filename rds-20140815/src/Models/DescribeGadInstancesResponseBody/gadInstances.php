@@ -10,36 +10,67 @@ use AlibabaCloud\Tea\Model;
 class gadInstances extends Model
 {
     /**
+     * @description The time when the global active database cluster was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2021-10-21T02:57:08Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The name of the global active database cluster.
+     *
+     * @example GadTest
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description An array that consists of the details about the nodes in the global active database cluster.
+     *
      * @var gadInstanceMembers[]
      */
     public $gadInstanceMembers;
 
     /**
+     * @description The ID of the global active database cluster.
+     *
+     * @example gad-rm-bp1npi2j8********
+     *
      * @var string
      */
     public $gadInstanceName;
 
     /**
+     * @description The time when the most recent modification was made to the global active database cluster. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2021-10-21T03:01:20Z
+     *
      * @var string
      */
     public $modificationTime;
 
     /**
+     * @description The database engine that is run by the global active database cluster.
+     *
+     * >  The value of this parameter is fixed as **mysql**.
+     * @example mysql
+     *
      * @var string
      */
     public $service;
 
     /**
+     * @description The status of the global active database cluster. Valid values:
+     *
+     *   **activation**: The global active database cluster is running.
+     *   **creating**: The global active database cluster is being created.
+     *   **replica_adding**: Nodes are being added to the global active database cluster.
+     *
+     * @example activation
+     *
      * @var string
      */
     public $status;

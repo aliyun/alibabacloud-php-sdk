@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class addressItem extends Model
 {
     /**
+     * @description The endpoint of the instance.
+     *
+     * @example rm****.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The IP address of the endpoint.
+     *
+     * @example 10.71.XX.XX
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @description The type of the IP address. Valid values:
+     *
+     *   **Public**: Internet
+     *   **Private**: internal network
+     *
+     * @example Private
+     *
      * @var string
      */
     public $ipType;
 
     /**
+     * @description The port number of the endpoint.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-bp12u14ecz****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-bp17xdic25d****
+     *
      * @var string
      */
     public $vpcId;

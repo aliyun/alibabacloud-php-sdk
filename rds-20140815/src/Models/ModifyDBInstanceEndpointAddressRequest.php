@@ -9,36 +9,65 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceEndpointAddressRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+     *
+     * The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @example 6000170000591aed949d0f****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The endpoint that you want to modify. The endpoint can be a public endpoint or an internal endpoint.
+     *
+     * @example rm-uf6wjk5****.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The prefix of the new endpoint. You can modify only the prefix of the endpoint that is specified by the ConnectionString parameter.
+     *
+     * @example rm-bp181qoj4s34m33****
+     *
      * @var string
      */
     public $connectionStringPrefix;
 
     /**
+     * @description The endpoint ID of the instance. You can call the [DescribeDBInstanceEndpoints](~~610488~~) operation to query the endpoint ID of the instance.
+     *
+     * @example ep-****
+     *
      * @var string
      */
     public $DBInstanceEndpointId;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The port number of the new endpoint.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The IP address of the internal endpoint.
+     *
+     * @example 172.16.XX.XX
+     *
      * @var string
      */
     public $privateIpAddress;
@@ -49,11 +78,19 @@ class ModifyDBInstanceEndpointAddressRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The vSwitch ID of the internal endpoint.
+     *
+     * @example vsw-bp12u14ecz****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The VPC ID of the internal endpoint.
+     *
+     * @example vpc-bp17xdic25d****
+     *
      * @var string
      */
     public $vpcId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAutoRenewalAttributeRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-bpxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -29,16 +37,32 @@ class DescribeInstanceAutoRenewalAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   **30**(Default)
+     *   **50**
+     *   **100**
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +78,10 @@ class DescribeInstanceAutoRenewalAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the proxy mode.
+     *
+     * @example API
+     *
      * @var string
      */
     public $proxyId;

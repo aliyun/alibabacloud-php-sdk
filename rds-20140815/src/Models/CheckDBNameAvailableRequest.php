@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CheckDBNameAvailableRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-t4n3axxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The database name that you want to check.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $DBName;

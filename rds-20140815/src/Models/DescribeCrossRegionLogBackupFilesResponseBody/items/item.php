@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The ID of the destination region where the cross-region log backup file is stored.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $crossBackupRegion;
 
     /**
+     * @description The external URL from which you can download the cross-region log backup file.
+     *
+     * @example http://rdsddrlog-zb.oss-cn-zhangjiakou.aliyuncs.com/xxxxx
+     *
      * @var string
      */
     public $crossDownloadLink;
 
     /**
+     * @description The internal URL from which you can download the cross-region log backup file.
+     *
+     * @example http://rdsddrlog-zb.oss-cn-zhangjiakou-internal.aliyuncs.com/xxxxx
+     *
      * @var string
      */
     public $crossIntranetDownloadLink;
 
     /**
+     * @description The ID of the cross-region log backup file.
+     *
+     * @example 14567
+     *
      * @var int
      */
     public $crossLogBackupId;
 
     /**
+     * @description The size of the cross-region log backup file. Unit: bytes.
+     *
+     * @example 5312836
+     *
      * @var int
      */
     public $crossLogBackupSize;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example 8161055
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @description The time when the download URL of the cross-region log backup file expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-06-30T15:00:00Z
+     *
      * @var string
      */
     public $linkExpiredTime;
 
     /**
+     * @description The start time of the cross-region log backup file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-05-30T12:10:00Z
+     *
      * @var string
      */
     public $logBeginTime;
 
     /**
+     * @description The end time of the cross-region log backup file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*hh:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-05-30T20:10:00Z
+     *
      * @var string
      */
     public $logEndTime;
 
     /**
+     * @description The name of the cross-region log backup file.
+     *
+     * @example cn-hangzhou_rm-bpxxxxx_7198739_mysql-bin.000230
+     *
      * @var string
      */
     public $logFileName;

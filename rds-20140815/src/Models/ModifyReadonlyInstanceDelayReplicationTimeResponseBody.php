@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ModifyReadonlyInstanceDelayReplicationTimeResponseBody extends Model
 {
     /**
+     * @description The ID of the read-only instance.
+     *
+     * @example rr-bpxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The latency at which data is replicated from the primary instance to the read-only instance. Unit: seconds.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $readSQLReplicationTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BBB11B5A-7B37-493A-87E6-490BCB7BDF98
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the replication task.
+     *
+     * @example 241535739
+     *
      * @var string
      */
     public $taskId;

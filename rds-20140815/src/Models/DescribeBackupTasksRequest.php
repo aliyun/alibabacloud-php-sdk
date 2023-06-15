@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupTasksRequest extends Model
 {
     /**
+     * @description The ID of the backup task.
+     *
+     * @example 4762614
+     *
      * @var int
      */
     public $backupJobId;
 
     /**
+     * @description The status of the backup task. Valid values:
+     *
+     *   **NoStart**: The backup task is not started.
+     *   **Progressing**: The backup task is in progress.
+     *
+     * By default, this operation returns backup tasks in both states.
+     * @example NoStart
+     *
      * @var string
      */
     public $backupJobStatus;
 
     /**
+     * @description The backup mode. Valid values:
+     *
+     *   **Automated**
+     *   **Manual**
+     *
+     * @example Automated
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $flag;

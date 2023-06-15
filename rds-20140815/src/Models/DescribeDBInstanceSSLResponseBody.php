@@ -9,96 +9,209 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceSSLResponseBody extends Model
 {
     /**
+     * @description The method that is used to verify the identities of clients. This parameter is supported only when the instance runs PostgreSQL with cloud disks. Valid values:
+     *
+     *   **cert**
+     *   **perfer**
+     *   **verify-ca**
+     *   **verify-full** (supported only when the instance runs PostgreSQL 12 or later)
+     *
+     * @example cert
+     *
      * @var string
      */
     public $ACL;
 
     /**
+     * @description The type of the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks. Valid values:
+     *
+     *   **aliyun**: a cloud certificate
+     *   **custom**: a custom certificate
+     *
+     * @example aliyun
+     *
      * @var string
      */
     public $CAType;
 
     /**
+     * @description The public key of the CA that issues client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+     *
+     * @example -----BEGIN CERTIFICATE-----MIID*****viXk=-----END CERTIFICATE-----
+     *
      * @var string
      */
     public $clientCACert;
 
     /**
+     * @description The content of the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC. This parameter is not supported now.
+     *
+     * @example -
+     *
      * @var string
      */
     public $clientCACertExpireTime;
 
     /**
+     * @description The certificate revocation list (CRL) that contains revoked client certificates. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+     *
+     * @example -----BEGIN X509 CRL-----MIIB****19mg==-----END X509 CRL-----
+     *
      * @var string
      */
     public $clientCertRevocationList;
 
     /**
+     * @description The endpoint that is protected by SSL encryption.
+     *
+     * @example rm-bp162dfr55g47****.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The status of the SSL link. This parameter is supported only when the instance runs PostgreSQL with cloud disks. Valid values:
+     *
+     *   **success**
+     *   **setting**
+     *   **failed**
+     *
+     * @example setting
+     *
      * @var string
      */
     public $lastModifyStatus;
 
     /**
+     * @description The reason why the SSL link stays in the current state. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+     *
+     * @example Modify DB Instance SSL Config.
+     *
      * @var string
      */
     public $modifyStatusReason;
 
     /**
+     * @description The method that is used to verify the replication permission. This parameter is supported only when the instance runs PostgreSQL with cloud disks. Valid values:
+     *
+     *   **cert**
+     *   **perfer**
+     *   **verify-ca**
+     *   **verify-full** (supported only when the instance runs PostgreSQL 12 or later)
+     *
+     * @example cert
+     *
      * @var string
      */
     public $replicationACL;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7705151C-E242-55AF-9929-2A3C39D979D2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the server certificate needs to be updated.
+     *
+     *   Valid values for ApsaraDB RDS for MySQL instances and ApsaraDB RDS for SQL Server instances:
+     *
+     *   **No**
+     *   **Yes**
+     *
+     *   Valid values for ApsaraDB RDS for PostgreSQL instances:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * @example Yes
+     *
      * @var string
      */
     public $requireUpdate;
 
     /**
+     * @description The server certificate that needs to be updated. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+     *
+     * @example -
+     *
      * @var string
      */
     public $requireUpdateItem;
 
     /**
+     * @description The reason why the server certificate needs to be updated. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+     *
+     * @example -
+     *
      * @var string
      */
     public $requireUpdateReason;
 
     /**
+     * @description The time when the server certificate was created. This parameter is supported only when the instance runs PostgreSQL with cloud disks. In addition, this parameter is valid only when CAType is set to aliyun.
+     *
+     * @example -
+     *
      * @var string
      */
     public $SSLCreateTime;
 
     /**
+     * @description Indicates whether SSL encryption is enabled.
+     *
+     *   Valid values for ApsaraDB RDS for MySQL instances and ApsaraDB RDS for SQL Server instances:
+     *
+     *   **Yes**
+     *   **No**
+     *
+     *   Valid values for ApsaraDB RDS for PostgreSQL instances:
+     *
+     *   **on**: enabled
+     *   **off**: disabled
+     *
+     * @example Yes
+     *
      * @var string
      */
     public $SSLEnabled;
 
     /**
+     * @description The time when the server certificate expires. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2022-10-11T08:16:43Z
+     *
      * @var string
      */
     public $SSLExpireTime;
 
     /**
+     * @description The URL of the certificate that is used to issue the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+     *
+     * @example -
+     *
      * @var string
      */
     public $serverCAUrl;
 
     /**
+     * @description The content of the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+     *
+     * @example -----BEGIN CERTIFICATE-----MIID*****QqEP-----END CERTIFICATE-----
+     *
      * @var string
      */
     public $serverCert;
 
     /**
+     * @description The private key of the server certificate. This parameter is supported only when the instance runs PostgreSQL with cloud disks.
+     *
+     * @example -----BEGIN PRIVATE KEY-----MIIE****ihfg==-----END PRIVATE KEY-----
+     *
      * @var string
      */
     public $serverKey;

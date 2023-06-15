@@ -9,56 +9,133 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceShrinkRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCz*****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The commodity code of the instance. Valid values:
+     *
+     *   **bards**: The instance is a pay-as-you-go primary instance. This value is available at the China site (aliyun.com).
+     *   **rds**: The instance is a subscription primary instance. This is the default value. This value is available at the China site (aliyun.com).
+     *   **rords**: The instance is a pay-as-you-go read-only instance. This value is available at the China site (aliyun.com).
+     *   **rds_rordspre_public_cn**: The instance is a subscription read-only instance. This value is available on the China site (aliyun.com).
+     *   **bards_intl**: The instance is a pay-as-you-go primary instance. This value is available on the International site (alibabacloud.com).
+     *   **rds_intl**: The instance is a subscription primary instance. This value is available on the International site (alibabacloud.com).
+     *   **rords_intl**: The instance is a pay-as-you-go read-only instance. This value is available on the International site (alibabacloud.com).
+     *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance. This value is available on the International site (alibabacloud.com).
+     *
+     * > If you want to query the price of a read-only instance, you must specify this parameter.
+     * @example rds
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description The instance type of the instance. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~).
+     *
+     * @example rds.mysql.s1.small
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @description The ID of the instance for which you want to change the specifications or the instance that you want to renew.
+     *
+     * > *   If you want to query the price of an specification change order or a renewal order, you must specify this parameter. - If the instance is a read-only instance, you must set this parameter to the ID of its primary instance.
+     * @example rm-*****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The storage capacity of the instance. Unit: GB. You can increase the storage capacity at a step size of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~).
+     *
+     * @example 20
+     *
      * @var int
      */
     public $DBInstanceStorage;
 
     /**
+     * @description The storage type of the instance. Valid values:
+     *
+     *   **local_ssd**: local SSD
+     *   **cloud_ssd**: standard SSD
+     *   **cloud_essd**: enhanced SSD (ESSD) of performance level 1 (PL1)
+     *   **cloud_essd2**: ESSD of PL2
+     *   **cloud_essd3**: ESSD of PL3
+     *
+     * @example local_ssd
+     *
      * @var string
      */
     public $DBInstanceStorageType;
 
     /**
+     * @description The information about the node.
+     *
+     * > This parameter is suitable for RDS instances that run MySQL on RDS Cluster Edition.
      * @var string
      */
     public $DBNodeShrink;
 
     /**
+     * @description The database engine of the instance. Valid values:
+     *
+     *   **MySQL**
+     *   **SQLServer**
+     *   **PostgreSQL**
+     *   **MariaDB**
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance.
+     *
+     *   Valid values when you set the Engine parameter to MySQL: **5.5**, **5.6**, **5.7**, and **8.0**
+     *   Valid values when you set the Engine parameter to SQLServer: **2008r2**, **2012**, **2012\_ent_ha**, **2012\_std_ha**, **2012\_web**, **2014\_std_ha**, **2016\_ent_ha**, **2016\_std_ha**, **2016\_web**, **2017\_std_ha**, **2017\_ent**, **2019\_std_ha**, and **2019\_ent**
+     *   Valid values when you set the Engine parameter to PostgreSQL: **10.0**, **11.0**, **12.0**, **13.0**, **14.0**, and **15.0**
+     *   Valid value when you set the Engine parameter to MariaDB: **10.3**
+     *
+     * @example 5.5
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The role of the instance. Valid values:
+     *
+     *   **0**: primary instance
+     *   **3**: read-only instance
+     *
+     * @example 0
+     *
      * @var int
      */
     public $instanceUsedType;
 
     /**
+     * @description The type of the order. Valid values:
+     *
+     *   **BUY**: purchase order
+     *   **UPGRADE**: specification change order
+     *   **RENEW**: renewal order
+     *
+     * @example BUY
+     *
      * @var string
      */
     public $orderType;
@@ -74,16 +151,31 @@ class DescribePriceShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **Prepaid**: subscription
+     *   **Postpaid**: pay-as-you-go
+     *
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The number of instances that you want to purchase. Valid values: **0 to 30**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -99,16 +191,36 @@ class DescribePriceShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The unit that is used to calculate the subscription duration of the instance. If you set the **CommodityCode** parameter to **RDS**, **rds_rordspre_public_cn**, **rds_intl**, or **rds_rordspre_public_intl**, you must also specify this parameter. Valid values:
+     *
+     *   **Year**
+     *   **Month**
+     *
+     * @example Year
+     *
      * @var string
      */
     public $timeType;
 
     /**
+     * @description The subscription duration of the instance.
+     *
+     *   If you set the **TimeType** parameter to **Year**, the value of the UsedTime parameter ranges from **1 to 100**.
+     *   If you set the **TimeType** parameter to **Month**, the value of the UsedTime parameter ranges from **1 to 999**.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $usedTime;
 
     /**
+     * @description The zone ID of the primary instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent zone list.
+     *
+     * > This parameter is required to identify the zone for a vSwitch if you have specified the virtual private cloud (VPC) and the vSwitch.
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

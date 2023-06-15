@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBInstanceKernelVersionResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-bpxxxxx
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DA2ECBA0-4745-4491-9166-799FF8984AC9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The new minor engine version of the instance.
+     *
+     * @example xcluster80_20210305
+     *
      * @var string
      */
     public $targetMinorVersion;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 226917711
+     *
      * @var string
      */
     public $taskId;

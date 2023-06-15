@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class readOnlyDBInstanceId extends Model
 {
     /**
+     * @description The ID of the read-only instance.
+     *
+     * @example rm-bpxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;

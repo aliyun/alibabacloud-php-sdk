@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class SQLRecord extends Model
 {
     /**
+     * @description The username of the account that is recorded in the SQL audit log entry.
+     *
+     * @example accounttest
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The name of the database.
+     *
+     * @example testDB
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The time at which the SQL statement was executed. The time follows the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2011-06-11T15:00:23Z
+     *
      * @var string
      */
     public $executeTime;
 
     /**
+     * @description The IP address of the client that is connected to the instance.
+     *
+     * @example 192.168.0.121
+     *
      * @var string
      */
     public $hostAddress;
 
     /**
+     * @description The number of SQL audit log entries that are returned.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $returnRowCounts;
 
     /**
+     * @description The SQL statement that is executed in the query.
+     *
+     * @example update test.zxb set id=0 limit 1
+     *
      * @var string
      */
     public $SQLText;
 
     /**
+     * @description The ID of the thread.
+     *
+     * @example 1025865428
+     *
      * @var string
      */
     public $threadID;
 
     /**
+     * @description The execution duration of the SQL statement. Unit: microseconds.
+     *
+     * @example 600
+     *
      * @var int
      */
     public $totalExecutionTimes;

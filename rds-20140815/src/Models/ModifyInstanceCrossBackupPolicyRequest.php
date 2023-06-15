@@ -9,26 +9,54 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceCrossBackupPolicyRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the cross-region backup feature on the instance. This parameter specifies whether you can back up data and logs. Valid values:
+     *
+     *   **0**: disables the feature.
+     *   **1:** enables the feature.
+     *
+     * > Before you enable the cross-region backup feature, you must configure the CrossBackupRegion parameter.
+     * @example 1
+     *
      * @var string
      */
     public $backupEnabled;
 
     /**
+     * @description The ID of the region in which the cross-region backup files of the instance are stored.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $crossBackupRegion;
 
     /**
+     * @description The policy that is used to save the cross-region backup files of the instance. Set the value to **1**. The value 1 specifies that all cross-region backup files are saved.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $crossBackupType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description Specifies whether to enable the cross-region log backup feature on the instance. Valid values:
+     *
+     *   **0**: disables the feature.
+     *   **1:** enables the feature.
+     *
+     * > You can enable the cross-region log backup feature only when the cross-region backup feature is enabled.
+     * @example 1
+     *
      * @var string
      */
     public $logBackupEnabled;
@@ -39,6 +67,10 @@ class ModifyInstanceCrossBackupPolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the source instance belongs. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,11 +86,19 @@ class ModifyInstanceCrossBackupPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The policy that is used to retain the cross-region backup files of the instance. Set the value to 1. The value **1** specifies that the cross-region backup files of the instance are retained based on the specified retention period.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $retentType;
 
     /**
+     * @description The number of days for which the cross-region backup files of the instance are retained. Valid values: **7 to 1825**.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $retention;

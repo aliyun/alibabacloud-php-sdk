@@ -9,21 +9,45 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBInstanceEngineVersionRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The time at which you want the specification change to take effect. Valid values:
+     *
+     *   **Immediate**: The specification change takes effect immediately.
+     *   **MaintainTime**: The change is applied during the specified maintenance window. For more information, see [ModifyDBInstanceMaintainTime](~~26249~~).
+     *
+     * Default value: **Immediate**.
+     * @example Immediate
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @description The major engine version that the new instance runs. Valid values:
+     *
+     *   **8.0**
+     *   **5.7**
+     *   **5.6**
+     *
+     * @example 5.7
+     *
      * @var string
      */
     public $engineVersion;

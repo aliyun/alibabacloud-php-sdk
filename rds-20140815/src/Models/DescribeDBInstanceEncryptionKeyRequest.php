@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceEncryptionKeyRequest extends Model
 {
     /**
+     * @description The ID of the instance You can call the [DescribeDBInstances](~~26232~~) operation to query the IDs of instances.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the custom key.
+     *
+     * @example 749c1df7-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+     *
      * @var string
      */
     public $encryptionKey;
@@ -29,6 +37,10 @@ class DescribeDBInstanceEncryptionKeyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -49,6 +61,10 @@ class DescribeDBInstanceEncryptionKeyRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the destination region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $targetRegionId;

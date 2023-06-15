@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class whiteListGroups extends Model
 {
     /**
+     * @description The IP address of the ECS instance and the hostname of the Windows computer. Format: IP address,Hostname. Multiple values are separated with semicolons (;).
+     *
+     * @example 192.168.1.100,k3ecstest
+     *
      * @var string
      */
     public $securityIpHosts;
 
     /**
+     * @description The name of the distributed transaction whitelist.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $whitelistGroupName;

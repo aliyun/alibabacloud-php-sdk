@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifySQLCollectorRetentionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 21383BB3-3845-4628-B422-B4FB5C83DEBD
+     *
      * @var string
      */
     public $requestId;

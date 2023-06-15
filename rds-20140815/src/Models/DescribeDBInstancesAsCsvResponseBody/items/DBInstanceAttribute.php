@@ -9,206 +9,381 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceAttribute extends Model
 {
     /**
+     * @description The maximum number of accounts.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $accountMaxQuantity;
 
     /**
+     * @description The type of the account.
+     *
+     * @example super
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @description The service availability of the instance in percentage.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $availabilityValue;
 
     /**
+     * @description The category of the instance.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The connection mode of the instance. Valid values:
+     *
+     *   **Performance**: standard mode
+     *   **Safety**: enhanced mode
+     *
+     * @example Performance
+     *
      * @var string
      */
     public $connectionMode;
 
     /**
+     * @description The internal endpoint of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The time when the audio or video file was created.
+     *
+     * @example 2011-05-30T12:11:04Z
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The number of cores that are configured for the instance.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $DBInstanceCPU;
 
     /**
+     * @description The instance type of the instance.
+     *
+     * @example rds.mys2.small
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @description The instance family.
+     *
+     * @example s
+     *
      * @var string
      */
     public $DBInstanceClassType;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The memory size of the instance. Unit: MB.
+     *
+     * @example 4096
+     *
      * @var int
      */
     public $DBInstanceMemory;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **Internet**
+     *   **Intranet**
+     *
+     * @example Internet
+     *
      * @var string
      */
     public $DBInstanceNetType;
 
     /**
+     * @description The status of the instance.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @description The storage capacity of the instance. Unit: GB.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $DBInstanceStorage;
 
     /**
+     * @description The type of the instance. Valid values:
+     *
+     *   **Primary**: primary instance
+     *   **Readonly**: read-only instance
+     *   **Guard**: disaster recovery instance
+     *   **Temp**: temporary instance
+     *
+     * @example Primary
+     *
      * @var string
      */
     public $DBInstanceType;
 
     /**
+     * @description The maximum number of databases that can be created on the instance.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $DBMaxQuantity;
 
     /**
+     * @description The type of the database engine.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The engine version of the instance.
+     *
+     * @example 8.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The expiration time.
+     *
+     * @example 2019-03-27T16:00:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The ID of the disaster recovery instance that is attached to the instance.
+     *
+     * @example rm-uf64zsuxxxxxxxxxx
+     *
      * @var string
      */
     public $guardDBInstanceId;
 
     /**
+     * @description The ID of the instance from which incremental data comes. The incremental data of a disaster recovery instance or read-only instance comes from its primary instance. If this parameter is not returned, the instance is a primary instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $incrementSourceDBInstanceId;
 
     /**
+     * @description The type of the network.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @description The lock mode of the instance.
+     *
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
 
     /**
+     * @description The reason why the instance was locked.
+     *
+     * @example instance_expired
+     *
      * @var string
      */
     public $lockReason;
 
     /**
+     * @description The maintenance window of the instance. The time is displayed in UTC. Take note that the maintenance window that is displayed in the ApsaraDB RDS console is equal to the value of this parameter plus 8 hours.
+     *
+     * @example 00:00Z-02:00Z
+     *
      * @var string
      */
     public $maintainTime;
 
     /**
+     * @description The ID of the primary instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $masterInstanceId;
 
     /**
+     * @description The maximum number of concurrent connections that are allowed by the instance.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $maxConnections;
 
     /**
+     * @description The maximum number of I/O requests that is processed by the instance per second.
+     *
+     * @example 150
+     *
      * @var int
      */
     public $maxIOPS;
 
     /**
+     * @description The billing method of the instance.
+     *
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The port that is used to connect to the instance over an internal network.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The latency of data replication from the primary instance to the read-only instance. This parameter is valid for read-only instances.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $readDelayTime;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The IP address whitelist of the instance.
+     *
+     * @example 42.xx.xx.xx
+     *
      * @var string
      */
     public $securityIPList;
 
     /**
+     * @description None.
+     *
+     * @example No
+     *
      * @var string
      */
     public $supportUpgradeAccountType;
 
     /**
+     * @description The tag.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The ID of the temporary instance that is attached to the instance.
+     *
+     * @example rm-uf64zsuxxxxxxxxxx
+     *
      * @var string
      */
     public $tempDBInstanceId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-uf6adz52c2pxxxxxxxxxx
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-uf6f7l4fg90xxxxxxxxxx
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the zone in which the instance resides.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

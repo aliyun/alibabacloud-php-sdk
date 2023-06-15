@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class MigrateDBInstanceResponseBody extends Model
 {
     /**
+     * @description The serial number of the task in the migration task queue. When the serial number becomes 0, the system starts the migration.
+     *
+     * @example 2245016
+     *
      * @var int
      */
     public $migrationId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 498AE8CA-8C81-4A01-AF37-2B902014ED30
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 108246861
+     *
      * @var int
      */
     public $taskId;

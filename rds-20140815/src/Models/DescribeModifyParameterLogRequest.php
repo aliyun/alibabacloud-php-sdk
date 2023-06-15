@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeModifyParameterLogRequest extends Model
 {
     /**
+     * @description The ID of the RDS instance.
+     *
+     * @example rm-uf6wjk5xxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The end of the time range to query. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 2020-03-01T10:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -29,11 +37,25 @@ class DescribeModifyParameterLogRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -49,6 +71,10 @@ class DescribeModifyParameterLogRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 2020-03-01T00:00Z
+     *
      * @var string
      */
     public $startTime;

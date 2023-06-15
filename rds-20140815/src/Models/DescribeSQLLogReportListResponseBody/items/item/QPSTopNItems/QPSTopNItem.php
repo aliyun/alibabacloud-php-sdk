@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class QPSTopNItem extends Model
 {
     /**
+     * @description The number of times that the SQL statement is executed.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $SQLExecuteTimes;
 
     /**
+     * @description The SQL statement returned.
+     *
+     * >  Only the first 128 characters of the SQL statement are returned. In addition, only the SQL statements that take more than 5 ms to execute are returned.
+     * @example SELECT * FROM table_name;
+     *
      * @var string
      */
     public $SQLText;

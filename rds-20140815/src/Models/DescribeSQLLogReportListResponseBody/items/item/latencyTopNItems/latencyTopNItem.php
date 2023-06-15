@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class latencyTopNItem extends Model
 {
     /**
+     * @description The average time that is required to execute the SQL statement. Unit: milliseconds.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $avgLatency;
 
     /**
+     * @description The number of times that the SQL statement is executed.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $SQLExecuteTimes;
 
     /**
+     * @description The SQL statement returned.
+     *
+     * >  Only the first 128 characters of the SQL statement are returned. In addition, only the SQL statements that take more than 100 ms to execute are returned.
+     * @example SELECT * FROM table_name;
+     *
      * @var string
      */
     public $SQLText;

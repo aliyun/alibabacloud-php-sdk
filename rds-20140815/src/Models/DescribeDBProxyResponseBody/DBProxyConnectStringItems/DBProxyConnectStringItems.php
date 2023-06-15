@@ -9,39 +9,107 @@ use AlibabaCloud\Tea\Model;
 class DBProxyConnectStringItems extends Model
 {
     /**
+     * @description The endpoint of the proxy terminal.
+     *
+     * @example gos787jog2wk0ye1****-rw4rm.rwlb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $DBProxyConnectString;
 
     /**
+     * @description The network type of the proxy endpoint.
+     *
+     * Valid values:
+     *
+     *   OuterString
+     *
+     * <!-- -->
+     *
+     *   InnerString
+     *
+     * <!-- -->
+     * @example InnerString
+     *
      * @var string
      */
     public $DBProxyConnectStringNetType;
 
     /**
+     * @description The network type of the database proxy.
+     *
+     * Valid values:
+     *
+     *   0
+     *
+     * <!-- -->
+     *
+     *   1
+     *
+     * <!-- -->
+     *
+     *   2
+     *
+     * <!-- -->
+     * @example 2
+     *
      * @var string
      */
     public $DBProxyConnectStringNetWorkType;
 
     /**
+     * @description The port number that is associated with the proxy endpoint.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $DBProxyConnectStringPort;
 
     /**
+     * @description The ID of the proxy terminal to which the proxy endpoint belongs.
+     *
+     * @example 20****
+     *
      * @var string
      */
     public $DBProxyEndpointId;
 
     /**
+     * @description The name of the proxy terminal to which the proxy endpoint belongs.
+     *
+     * @example gos787jog2wk0ye1****
+     *
      * @var string
      */
     public $DBProxyEndpointName;
 
     /**
+     * @description The VPC that is associated with the proxy endpoint.
+     *
+     * @example vpc-uf6oobt****
+     *
+     * @var string
+     */
+    public $DBProxyVpcId;
+
+    /**
+     * @description The ID of the proxy instance.
+     *
+     * @example rm-bp145737x5****131161274792****
+     *
      * @var string
      */
     public $DBProxyVpcInstanceId;
+
+    /**
+     * @description The vSwitch that is associated with the proxy endpoint.
+     *
+     * @example vsw-uf6l0pic17****
+     *
+     * @var string
+     */
+    public $DBProxyVswitchId;
     protected $_name = [
         'DBProxyConnectString'            => 'DBProxyConnectString',
         'DBProxyConnectStringNetType'     => 'DBProxyConnectStringNetType',
@@ -49,7 +117,9 @@ class DBProxyConnectStringItems extends Model
         'DBProxyConnectStringPort'        => 'DBProxyConnectStringPort',
         'DBProxyEndpointId'               => 'DBProxyEndpointId',
         'DBProxyEndpointName'             => 'DBProxyEndpointName',
+        'DBProxyVpcId'                    => 'DBProxyVpcId',
         'DBProxyVpcInstanceId'            => 'DBProxyVpcInstanceId',
+        'DBProxyVswitchId'                => 'DBProxyVswitchId',
     ];
 
     public function validate()
@@ -77,8 +147,14 @@ class DBProxyConnectStringItems extends Model
         if (null !== $this->DBProxyEndpointName) {
             $res['DBProxyEndpointName'] = $this->DBProxyEndpointName;
         }
+        if (null !== $this->DBProxyVpcId) {
+            $res['DBProxyVpcId'] = $this->DBProxyVpcId;
+        }
         if (null !== $this->DBProxyVpcInstanceId) {
             $res['DBProxyVpcInstanceId'] = $this->DBProxyVpcInstanceId;
+        }
+        if (null !== $this->DBProxyVswitchId) {
+            $res['DBProxyVswitchId'] = $this->DBProxyVswitchId;
         }
 
         return $res;
@@ -110,8 +186,14 @@ class DBProxyConnectStringItems extends Model
         if (isset($map['DBProxyEndpointName'])) {
             $model->DBProxyEndpointName = $map['DBProxyEndpointName'];
         }
+        if (isset($map['DBProxyVpcId'])) {
+            $model->DBProxyVpcId = $map['DBProxyVpcId'];
+        }
         if (isset($map['DBProxyVpcInstanceId'])) {
             $model->DBProxyVpcInstanceId = $map['DBProxyVpcInstanceId'];
+        }
+        if (isset($map['DBProxyVswitchId'])) {
+            $model->DBProxyVswitchId = $map['DBProxyVswitchId'];
         }
 
         return $model;

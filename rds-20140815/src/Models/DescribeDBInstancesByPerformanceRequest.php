@@ -15,11 +15,19 @@ class DescribeDBInstancesByPerformanceRequest extends Model
     public $tag;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -35,21 +43,39 @@ class DescribeDBInstancesByPerformanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **5** to **100**.
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -65,21 +91,37 @@ class DescribeDBInstancesByPerformanceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The sorting basis.
+     *
+     * @example CPU_Usage
+     *
      * @var string
      */
     public $sortKey;
 
     /**
+     * @description The sorting method.
+     *
+     * @example ASC
+     *
      * @var string
      */
     public $sortMethod;
 
     /**
+     * @description The tags that are added to the instances. Each tag is a key-value pair that consists of two parts: TagKey and TagValue. Format: `{"key1":"value1"}`.
+     *
+     * @example {"key1":"value1"}
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The ID of the proxy mode.
+     *
+     * @example API
+     *
      * @var string
      */
     public $proxyId;

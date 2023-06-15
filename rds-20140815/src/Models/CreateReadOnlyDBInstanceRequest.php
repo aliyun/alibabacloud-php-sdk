@@ -9,6 +9,20 @@ use AlibabaCloud\Tea\Model;
 class CreateReadOnlyDBInstanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
+     * @description Specifies whether to enable the auto-renewal feature for the read-only instance. If you set the PayType parameter to Prepaid, you must also specify this parameter. Valid values:
+     *
+     *   **true**: enables the feature.
+     *   **false**: disables the feature.
+     *
+     * > * If you set the Period parameter to Month, the auto-renewal cycle is one month.
+     * > * If you set the Period parameter to Year, the auto-renewal cycle is one year.
+     * @example true
+     *
      * @var string
      */
     public $autoRenew;
@@ -16,64 +30,154 @@ class CreateReadOnlyDBInstanceRequest extends Model
     /**
      * @var string
      */
+    public $bpeEnabled;
+
+    /**
+     * @var bool
+     */
+    public $burstingEnabled;
+
+    /**
+     * @description The RDS edition of the read-only instance. Valid values:
+     *
+     *   **Basic**: RDS Basic Edition.
+     *   **HighAvailability**: RDS High-availability Edition. This is the default value.
+     *   **AlwaysOn**: RDS Cluster Edition.
+     *
+     * > If the primary instance runs PostgreSQL with cloud disks, you must set this parameter to **Basic**.
+     * @example HighAvailability
+     *
+     * @var string
+     */
     public $category;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOC****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The instance type of the read-only instance. For more information, see [Read-only ApsaraDB RDS instance types](~~145759~~). We recommend that you specify an instance type whose specifications are higher than or equal to the specifications of the instance type of the primary instance. If the specifications of the read-only instance are lower than the specifications of the primary instance, the read-only instance may encounter issues such as high latency and heavy load.
+     *
+     * @example rds.mys2.small
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @description The description of the read-only instance. The description must be 2 to 256 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). The value must start with a letter
+     *
+     * > The value cannot start with `http://` or `https://`.
+     * @example Test read-only instance
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @description The ID of the primary instance.
+     *
+     * @example rm-uf6wjk5****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The storage capacity of the read-only instance. For more information, see the **Storage space** column in [Read-only instance types](~~145759~~). This value must be a multiple of 5 GB. Unit: GB.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $DBInstanceStorage;
 
     /**
+     * @description The storage type of the read-only instance. Valid values:
+     *
+     *   **local_ssd**: local SSD
+     *   **cloud_ssd**: standard SSD
+     *   **cloud_essd**: enhanced SSD (ESSD) of performance level 1 (PL1)
+     *   **cloud_essd2**: ESSD of PL2
+     *   **cloud_essd3**: ESSD of PL3
+     *
+     * > * If the primary instance runs MySQL with local disks, you must set this parameter to **local\_ssd**. If the primary instance runs MySQL with cloud disks, you must set this parameter to cloud\_ssd, cloud\_essd, cloud\_essd2, or cloud\_essd3.
+     * > * If the primary instance runs SQL Server, you must set this parameter to cloud\_ssd, cloud\_essd, cloud\_essd2, or cloud\_essd3.
+     * @example local_ssd
+     *
      * @var string
      */
     public $DBInstanceStorageType;
 
     /**
+     * @description The ID of the dedicated cluster to which the read-only instance belongs. This parameter is valid when you create the read-only instance in a dedicated cluster.
+     *
+     * @example dhg-4n****
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @description Specifies whether to enable the release protection feature for the read-only instance. Valid values:
+     *
+     *   **true**: enables the feature.
+     *   **false**: disables the feature. This is the default value.
+     *
+     * > This feature can be enabled only when you set the **PayType** parameter to **Postpaid**.
+     * @example true
+     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
+     * @description The major engine version of the read-only instance. The read-only instance and the primary instance must run the same major engine version.
+     *
+     *   If the read-only instance runs MySQL, set this parameter to **5.6**, **5.7**, or **8.0**.
+     *   If the read-only instance runs SQL Server, set this parameter to **2017\_ent or 2019\_ent**.
+     *   If the read-only instance runs PostgreSQL, set this parameter to **10.0, 11.0, 12.0, 13.0, 14.0, or 15.0**
+     *
+     * @example 5.6
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $gdnInstanceName;
 
     /**
+     * @description The network type of the read-only instance. Valid values:
+     *
+     *   **VPC**
+     *   **Classic**
+     *
+     * Default value: VPC. If you set this parameter to VPC, you must also specify the **VPCId** and **VSwitchId** parameters.
+     *
+     * > The network type of the read-only instance can be different from the network type of the primary instance.
+     * @example Classic
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $instructionSetArch;
@@ -89,26 +193,52 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The billing method of the read-only instance. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go
+     *   **Prepaid**: subscription
+     *
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The renewal cycle of the read-only instance. Valid values:
+     *
+     *   **Year**
+     *   **Month**
+     *
+     * @example Month
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @description The private IP address of the read-only instance. The private IP address must be within the CIDR block that is supported by the specified vSwitch. The system assigns a private IP address to the read-only instance based on the values of the **VPCId** and **VSwitchId** parameters.
+     *
+     * @example 172.16.XX.XX
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @description The region ID of the read-only instance. The read-only instance and the primary instance must reside in the same region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -124,41 +254,78 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the host on which the primary instance resides. This parameter is valid when you create the read-only instance in a dedicated cluster.
+     *
+     * @example i-bp****
+     *
      * @var string
      */
     public $targetDedicatedHostIdForMaster;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $tddlBizType;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example None
+     *
      * @var string
      */
     public $tddlRegionConfig;
 
     /**
+     * @description The subscription duration of the read-only instance. Valid values:
+     *
+     *   If you set the **Period** parameter to **Year**, the value of the **UsedTime** parameter ranges from **1** to **5**.
+     *   If you set the **Period** parameter to **Month**, the value of the **UsedTime** parameter ranges from **1** to **9**.
+     *
+     * > If you set the **PayType** parameter to **Prepaid**, you must specify the UsedTime parameter.
+     * @example 1
+     *
      * @var string
      */
     public $usedTime;
 
     /**
+     * @description The virtual private cloud (VPC) ID of the read-only instance. If you leave the **InstanceNetworkType** parameter empty or set it to **VPC**, you must also specify this parameter.
+     *
+     * > * If the primary instance uses local disks, the read-only instance and the primary instance can belong to the same VPC or different VPCs.
+     * > * If the primary instance uses cloud disks, the read-only instance and the primary instance must belong to the same VPC.
+     * @example vpc-uf6f7l4fg90****
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The vSwitch ID of the read-only instance. If you leave the **InstanceNetworkType** parameter empty or set it to **VPC**, you must specify the VSwitchId parameter.
+     *
+     * @example vsw-uf6adz52c2p****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The zone ID of the read-only instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
+        'autoPay'                        => 'AutoPay',
         'autoRenew'                      => 'AutoRenew',
+        'bpeEnabled'                     => 'BpeEnabled',
+        'burstingEnabled'                => 'BurstingEnabled',
         'category'                       => 'Category',
         'clientToken'                    => 'ClientToken',
         'DBInstanceClass'                => 'DBInstanceClass',
@@ -197,8 +364,17 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
+        }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->bpeEnabled) {
+            $res['BpeEnabled'] = $this->bpeEnabled;
+        }
+        if (null !== $this->burstingEnabled) {
+            $res['BurstingEnabled'] = $this->burstingEnabled;
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
@@ -299,8 +475,17 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
+        }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
+        }
+        if (isset($map['BpeEnabled'])) {
+            $model->bpeEnabled = $map['BpeEnabled'];
+        }
+        if (isset($map['BurstingEnabled'])) {
+            $model->burstingEnabled = $map['BurstingEnabled'];
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];

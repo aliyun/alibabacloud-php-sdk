@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesAsCsvResponseBody extends Model
 {
     /**
+     * @description An array that consists of the fields in **DBInstanceAttribute**.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A444291****
+     *
      * @var string
      */
     public $requestId;

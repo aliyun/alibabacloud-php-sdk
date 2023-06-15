@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class serverlessConfiguration extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoPause;
 
     /**
+     * @example 8
+     *
      * @var float
      */
     public $maxCapacity;
 
     /**
+     * @example 0.5
+     *
      * @var float
      */
     public $minCapacity;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $switchForce;

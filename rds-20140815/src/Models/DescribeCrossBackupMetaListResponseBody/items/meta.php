@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class meta extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example testdb1
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @description The size of the table. Unit: KB. If the database contains more than one table, the names of these tables are separated by commas (,).
+     *
+     * @example 1000
+     *
      * @var string
      */
     public $size;
 
     /**
+     * @description An array that consists of the names of the tables that the database contains. If the database contains more than one table, the names of these tables are separated by commas (,).
+     *
+     * @example test1,test2
+     *
      * @var string
      */
     public $tables;

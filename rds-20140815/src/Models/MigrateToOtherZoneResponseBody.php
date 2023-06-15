@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class MigrateToOtherZoneResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the order. This parameter is returned only when the instance runs MySQL.
+     *
+     * @example 213341575990728
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 65BDA532-28AF-4122-AA39-B382721EEE64
+     *
      * @var string
      */
     public $requestId;

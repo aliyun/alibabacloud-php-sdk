@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class DescribeADInfoResponseBody extends Model
 {
     /**
+     * @description The DNS information about the AD domain.
+     *
+     * @example 100.100.XX.XX
+     *
      * @var string
      */
     public $ADDNS;
 
     /**
+     * @description The service IP address of the AD domain.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $ADServerIpAddress;
 
     /**
+     * @description The status of the AD domain. Valid values:
+     *
+     *   **-1**: The instance is being added to the AD domain.
+     *   **0**: The instance fails to be added to the AD domain.
+     *   **1**: The instance is added to the AD domain.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $ADStatus;
 
     /**
+     * @description The cause of the exception.
+     *
+     * @example XXXX
+     *
      * @var string
      */
     public $abnormalReason;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The username of the AD domain.
+     *
+     * @example test_01
+     *
      * @var string
      */
     public $userName;

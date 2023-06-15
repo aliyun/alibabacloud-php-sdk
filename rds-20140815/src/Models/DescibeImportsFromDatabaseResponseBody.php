@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescibeImportsFromDatabaseResponseBody extends Model
 {
     /**
+     * @description An array that consists of migration tasks.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B000AA91-393D-46F9-8D9B-098E28931A3A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

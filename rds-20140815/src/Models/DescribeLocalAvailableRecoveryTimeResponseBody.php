@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeLocalAvailableRecoveryTimeResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The start of the time range to which the instance can be restored.
+     *
+     * @example 2020-03-16T07:59:18Z
+     *
      * @var string
      */
     public $recoveryBeginTime;
 
     /**
+     * @description The end of the time range to which the instance can be restored.
+     *
+     * @example 2020-03-20T08:41:29Z
+     *
      * @var string
      */
     public $recoveryEndTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 14E986AC-0F27-4FFB-8EED-9A8A3A2A0309
+     *
      * @var string
      */
     public $requestId;

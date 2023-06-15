@@ -10,61 +10,138 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceAccount extends Model
 {
     /**
+     * @description The description of the account.
+     *
+     * @example Test account
+     *
      * @var string
      */
     public $accountDescription;
 
     /**
+     * @description The username of the account.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The status of the account. Valid values:
+     *
+     *   **Unavailable**
+     *   **Available**
+     *
+     * @example Available
+     *
      * @var string
      */
     public $accountStatus;
 
     /**
+     * @description The type of the account. Valid values:
+     *
+     *   **Normal**: standard account
+     *   **Super**: privileged account
+     *   **Sysadmin**: superuser account that has the system administrator permissions
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @description Indicates whether the account has the row-level security (RLS) permissions. Valid values:
+     *
+     *   **t**: yes
+     *   **f**: no
+     *
+     * > This parameter is returned only for instances that run PostgreSQL.
+     * @example f
+     *
      * @var string
      */
     public $bypassRLS;
 
     /**
+     * @description Indicates whether the account has the permissions to create databases. Valid values:
+     *
+     *   **t**: yes
+     *   **f**: no
+     *
+     * > This parameter is returned only for instances that run PostgreSQL.
+     * @example t
+     *
      * @var string
      */
     public $createDB;
 
     /**
+     * @description Indicates whether the account has the permissions to create roles. Valid values:
+     *
+     *   **t**: yes
+     *   **f**: no
+     *
+     * > This parameter is returned only for instances that run PostgreSQL.
+     * @example t
+     *
      * @var string
      */
     public $createRole;
 
     /**
+     * @description The ID of the instance to which the account belongs.
+     *
+     * @example rm-uf6wjk5*****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The details of the permissions that are granted to the account.
+     *
      * @var databasePrivileges
      */
     public $databasePrivileges;
 
     /**
+     * @description Indicates whether the number of databases that are managed by the account exceeds the upper limit. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 0
+     *
      * @var string
      */
     public $privExceeded;
 
     /**
+     * @description Indicates whether the account has the replication permissions. Valid values:
+     *
+     *   **t**: yes
+     *   **f**: no
+     *
+     * > This parameter is returned only for instances that run PostgreSQL.
+     * @example t
+     *
      * @var string
      */
     public $replication;
 
     /**
+     * @description The expiration time of the password. Valid values:
+     *
+     *   **infinity**: The password never expires.
+     *   **Empty**: The expiration time is not specified.
+     *   **Actual expiration time** in the format of *yyyy-MM-dd*T*HH:mm:ss*Z in UTC. Example: 2022-10-01T00:00:00Z.
+     *
+     * > This parameter is returned only for instances that run PostgreSQL.
+     * @example 2022-10-01T00:00:00Z
+     *
      * @var string
      */
     public $validUntil;

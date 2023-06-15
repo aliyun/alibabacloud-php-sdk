@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CheckInstanceExistResponseBody extends Model
 {
     /**
+     * @description Indicates whether the instance exists. Valid values:
+     *
+     *   **true**: The instance exists.
+     *   **false**: The instance does not exist.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isExistInstance;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 11439B36-F703-49EB-8656-D3C87BE28B57
+     *
      * @var string
      */
     public $requestId;

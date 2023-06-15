@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class MigrateConnectionToOtherZoneRequest extends Model
 {
     /**
+     * @description The endpoint of the instance. The endpoint is specified when you create the instance.
+     *
+     * @example rm-bp1oypo6ky19y****
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     *
+     * @example rm-bp1oypo6ky19y****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

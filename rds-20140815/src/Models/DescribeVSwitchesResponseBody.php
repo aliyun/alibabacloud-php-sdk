@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page. The value of this parameter is the same as the value of the **PageSize** parameter in the request parameters.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example 8A68AEA1-AFBD-53F8-9BBB-06555EAE5C0E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The details about the vSwitches.
+     *
      * @var vSwitchs[]
      */
     public $vSwitchs;

@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBProxyInstanceRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-t4n3a****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description An internal parameter. You do not need to specify this parameter.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $DBProxyEngineType;
 
     /**
+     * @description The number of proxy instances that are enabled. If the value of this parameter is 0, the database proxy feature is disabled for the instance. Valid values: **1** to **60**.
+     *
+     * >  The capability of the database proxy to process requests increases with the number of proxy instances that are enabled. You can monitor the load on the instance and specify an appropriate number of proxy instances based on the load monitoring data.
+     * @example 2
+     *
      * @var string
      */
     public $DBProxyInstanceNum;
 
     /**
+     * @description The type of database proxy that is enabled for the instance. Set the value to **DedicatedProxy**.
+     *
+     * @example DedicatedProxy
+     *
      * @var string
      */
     public $DBProxyInstanceType;
 
     /**
+     * @description The point in time at which you want to apply the new database proxy settings. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * >  If you set the **EffectiveTime** parameter to **SpecificTime**, you must specify the EffectiveSpecificTime parameter.
+     * @example 2019-07-10T13:15:12Z
+     *
      * @var string
      */
     public $effectiveSpecificTime;
 
     /**
+     * @description The time when you want to apply the new database proxy settings. Valid values:
+     *
+     *   **Immediate**: ApsaraDB RDS immediately applies the new settings.
+     *   **MaintainTime**: ApsaraDB RDS applies the new settings during the maintenance window that you specified. For more information, see [Modify the maintenance window](~~26249~~).
+     *   **SpecificTime**: ApsaraDB RDS applies the new settings at a specified point in time.
+     *
+     * Default value: **MaintainTime**.
+     * @example MaintainTime
+     *
      * @var string
      */
     public $effectiveTime;
@@ -44,6 +75,10 @@ class ModifyDBProxyInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the instance resides. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

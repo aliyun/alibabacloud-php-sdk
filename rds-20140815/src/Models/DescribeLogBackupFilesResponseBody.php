@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogBackupFilesResponseBody extends Model
 {
     /**
+     * @description The details of log files.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of log files on the current page.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F8EC669C-FC85-43D7-AF06-C3641626B37E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total size of log files. Unit: bytes.
+     *
+     * @example 2300
+     *
      * @var int
      */
     public $totalFileSize;
 
     /**
+     * @description The total number of log files.
+     *
+     * @example 17
+     *
      * @var int
      */
     public $totalRecordCount;

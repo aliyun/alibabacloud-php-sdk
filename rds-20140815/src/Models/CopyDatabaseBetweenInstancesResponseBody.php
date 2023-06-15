@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CopyDatabaseBetweenInstancesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 803D11AF-C370-465B-AB46-CB3A642DC303
+     *
      * @var string
      */
     public $requestId;

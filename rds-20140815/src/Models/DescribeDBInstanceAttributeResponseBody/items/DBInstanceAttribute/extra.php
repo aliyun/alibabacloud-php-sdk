@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class extra extends Model
 {
     /**
+     * @description The IDs of the instances.
+     *
      * @var DBInstanceIds
      */
     public $DBInstanceIds;

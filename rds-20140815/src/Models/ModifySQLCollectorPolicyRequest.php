@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifySQLCollectorPolicyRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -24,6 +28,10 @@ class ModifySQLCollectorPolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
+     *
+     * @example rg-acfmx**********
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -39,6 +47,10 @@ class ModifySQLCollectorPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to enable or disable the SQL Explorer (SQL Audit) feature. Valid values: **Enable and Disabled**.
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $SQLCollectorStatus;

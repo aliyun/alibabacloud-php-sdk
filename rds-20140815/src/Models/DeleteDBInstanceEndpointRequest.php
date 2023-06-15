@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBInstanceEndpointRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ep-****
+     *
      * @var string
      */
     public $DBInstanceEndpointId;
 
     /**
+     * @example rm-****
+     *
      * @var string
      */
     public $DBInstanceId;

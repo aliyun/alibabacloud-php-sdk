@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class AllocateInstancePublicConnectionRequest extends Model
 {
     /**
+     * @description The Tabular Data Stream (TDS) port of the instance for which Babelfish is enabled.
+     *
+     * > This parameter applies only to ApsaraDB RDS for PostgreSQL instances. For more information about Babelfish for ApsaraDB RDS for PostgreSQL, see [Introduction to Babelfish](~~428613~~).
+     * @example 1433
+     *
      * @var string
      */
     public $babelfishPort;
 
     /**
+     * @description The prefix of the public endpoint. A valid public endpoint is in the following format: Prefix.Database engine.rds.aliyuncs.com. Example: test1234.mysql.rds.aliyuncs.com.
+     *
+     * > The value can be 5 to 40 characters in length and can contain letters, digits, and hyphens (-). The value cannot contain any of the following characters: ~ ! # % ^ & \* = + | {} ; : \" " , <> / ?
+     * @example test1234
+     *
      * @var string
      */
     public $connectionStringPrefix;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5*****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The name of the dedicated cluster to which the instance belongs. This parameter takes effect only when the instance runs MySQL on RDS Standard Edition and is created in a dedicated cluster.
+     *
+     * @example rgc-bp1tkv8*****
+     *
      * @var string
      */
     public $generalGroupName;
@@ -39,6 +57,10 @@ class AllocateInstancePublicConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The public port of the instance. Valid values: **1000 to 5999**.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;

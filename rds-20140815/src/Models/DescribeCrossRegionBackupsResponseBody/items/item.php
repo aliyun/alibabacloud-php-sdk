@@ -10,96 +10,190 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The time when the cross-region data backup file was generated.
+     *
+     * @example 2019-06-15T12:10:00Z
+     *
      * @var string
      */
     public $backupEndTime;
 
     /**
+     * @description The method that is used to generate the cross-region data backup file. Valid values:
+     *
+     *   **L**: logical backup
+     *   **P**: physical backup
+     *
+     * @example P
+     *
      * @var string
      */
     public $backupMethod;
 
     /**
+     * @description The level at which the cross-region data backup file is generated.
+     *
+     *   **0**: instance-level backup
+     *   **1**: database-level backup
+     *
+     * @example 0
+     *
      * @var int
      */
     public $backupSetScale;
 
     /**
+     * @description The status of the cross-region data backup. Valid values:
+     *
+     *   **0**: The cross-region data backup is successful.
+     *   **1**: The cross-region data backup failed.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $backupSetStatus;
 
     /**
+     * @description The time when the cross-region data backup started.
+     *
+     * @example 2019-05-30T12:10:00Z
+     *
      * @var string
      */
     public $backupStartTime;
 
     /**
+     * @description The type of the cross-region data backup. Valid values:
+     *
+     *   **F**: full data backup
+     *   **I**: incremental data backup
+     *
+     * @example F
+     *
      * @var string
      */
     public $backupType;
 
     /**
+     * @description The RDS edition of the instance. Valid values:
+     *
+     *   **Basic**: Basic Edition.
+     *   **HighAvailability**: High-availability Edition.
+     *   **Finance**: Enterprise Edition. This edition is supported only by the China site (aliyun.com).
+     *
+     * @example HighAvailability
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The point in time that is indicated by the data in the cross-region data backup file.
+     *
+     * @example 2019-06-12T05:44:46Z
+     *
      * @var string
      */
     public $consistentTime;
 
     /**
+     * @description The external URL from which you can download the cross-region data backup file.
+     *
+     * @example http://rdsddrbak-shanghai.oss-cn-shanghai.aliyuncs.com/xxxxx
+     *
      * @var string
      */
     public $crossBackupDownloadLink;
 
     /**
+     * @description The ID of the cross-region data backup file.
+     *
+     * @example 14377
+     *
      * @var int
      */
     public $crossBackupId;
 
     /**
+     * @description The ID of the destination region where the cross-region data backup file of the instance is stored.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $crossBackupRegion;
 
     /**
+     * @description The name of the compressed package that contains the cross-region data backup file.
+     *
+     * @example cn-hangzhou_rm-xxxxx_hins81xxx_data_20190612134426_qp.xb
+     *
      * @var string
      */
     public $crossBackupSetFile;
 
     /**
+     * @description The location where the cross-region data backup file is stored.
+     *
+     * @example oss
+     *
      * @var string
      */
     public $crossBackupSetLocation;
 
     /**
+     * @description The size of the cross-region data backup file. Unit: bytes.
+     *
+     * @example 5312836
+     *
      * @var int
      */
     public $crossBackupSetSize;
 
     /**
+     * @description The storage type. Valid values:
+     *
+     *   **local_ssd**: local SSD. This is the recommended storage type.
+     *   **cloud_ssd**: standard SSD.
+     *   **cloud_essd**: enhanced SSD (ESSD).
+     *
+     * @example ssd
+     *
      * @var string
      */
     public $DBInstanceStorageType;
 
     /**
+     * @description The engine of the database.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The version of the database engine.
+     *
+     * @example 5.6
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The ID of the instance. This parameter is used to determine whether the instance that generates the cross-region data backup file is a primary or secondary instance.
+     *
+     * @example 8161055
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @description An array that consists of the regions to which the cross-region data backup file can be restored.
+     *
      * @var restoreRegions
      */
     public $restoreRegions;

@@ -9,96 +9,134 @@ use AlibabaCloud\Tea\Model;
 class SQLSlowRecord extends Model
 {
     /**
+     * @example example
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $clientHostName;
 
     /**
+     * @example 0.002
+     *
      * @var int
      */
     public $cpuTime;
 
     /**
+     * @example testDB
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @example 2020-06-18T01:40:44Z
+     *
      * @var string
      */
     public $executionStartTime;
 
     /**
+     * @example xxx[xxx] @  [1xx.xxx.xxx.xx]
+     *
      * @var string
      */
     public $hostAddress;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $lastRowsAffectedCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $lockTimes;
 
     /**
+     * @example 383
+     *
      * @var int
      */
     public $logicalIORead;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $parseRowCounts;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $physicalIORead;
 
     /**
+     * @example 2001
+     *
      * @var int
      */
     public $queryTimeMS;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $queryTimes;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $returnRowCounts;
 
     /**
+     * @example 34
+     *
      * @var int
      */
     public $rowsAffectedCount;
 
     /**
+     * @example U2FsdGVk****
+     *
      * @var string
      */
     public $SQLHash;
 
     /**
+     * @example select sleep(2)
+     *
      * @var string
      */
     public $SQLText;
 
     /**
+     * @example user
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @example 22
+     *
      * @var int
      */
     public $writeIOCount;

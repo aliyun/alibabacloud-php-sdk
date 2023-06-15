@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class CopyDatabaseResponseBody extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example test02
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The status of the database. Valid values:
+     *
+     *   **Creating**
+     *   **Running**
+     *   **Deleting**
+     *
+     * @example Creating
+     *
      * @var string
      */
     public $DBStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 2562****
+     *
      * @var string
      */
     public $taskId;

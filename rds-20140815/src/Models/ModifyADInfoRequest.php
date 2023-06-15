@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class ModifyADInfoRequest extends Model
 {
     /**
+     * @description The account of the AD domain.
+     *
+     * @example test_account
+     *
      * @var string
      */
     public $ADAccountName;
 
     /**
+     * @description The DNS information about the AD domain.
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $ADDNS;
 
     /**
+     * @description The password for the account of the AD domain.
+     *
+     * @example test_password
+     *
      * @var string
      */
     public $ADPassword;
 
     /**
+     * @description The IP address of the AD domain.
+     *
+     * @example 47.100.XX.XX
+     *
      * @var string
      */
     public $ADServerIpAddress;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -44,6 +68,10 @@ class ModifyADInfoRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

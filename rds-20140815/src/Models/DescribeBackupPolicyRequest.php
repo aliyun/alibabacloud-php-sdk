@@ -9,16 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPolicyRequest extends Model
 {
     /**
+     * @description The backup type. Valid values:
+     *
+     *   **DataBackupPolicy**: data backup
+     *   **LogBackupPolicy**: log backup
+     *
+     * @example DataBackupPolicy
+     *
      * @var string
      */
     public $backupPolicyMode;
 
     /**
+     * @description The method that is used to compress backup data. Valid values:
+     *
+     *   **0**: Backup data is not compressed.
+     *   **1**: Backup data is compressed by using zlib.
+     *   **2**: Backup data is compressed by using zlib that invokes more than one thread in parallel for each backup.
+     *   **4**: Backup data is compressed by using QuickLZ and can be used to restore individual databases and tables.
+     *   **8**: Backup data is compressed by using QuickLZ but cannot be used to restore individual databases or tables. This value is available only when the instance runs MySQL 8.0.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $compressType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -34,6 +55,14 @@ class DescribeBackupPolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The policy that is used to retain archived backup files if the instance is released. Valid values:
+     *
+     *   **None**: No archived backup files are retained.
+     *   **Lastest**: Only the last archived backup file is retained.
+     *   **All**: All archived backup files are retained.
+     *
+     * @example Lastest
+     *
      * @var string
      */
     public $releasedKeepPolicy;

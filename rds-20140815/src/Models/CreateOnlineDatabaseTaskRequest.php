@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateOnlineDatabaseTaskRequest extends Model
 {
     /**
+     * @description The consistency check method after the database is open. Valid values:
+     *
+     *   **SyncExecuteDBCheck**: synchronous database check
+     *   **AsyncExecuteDBCheck**: asynchronous database check
+     *
+     * > The check methods are supported for RDS instances that run SQL Server 2008 R2.
+     * @example AsyncExecuteDBCheck
+     *
      * @var string
      */
     public $checkDBMode;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCz****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example testDB
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The ID of the migration task.
+     *
+     * @example 5652255443
+     *
      * @var string
      */
     public $migrateTaskId;

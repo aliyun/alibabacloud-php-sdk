@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLCollectorRetentionResponseBody extends Model
 {
     /**
+     * @description The log backup retention duration that is allowed by the SQL explorer feature on the instance. Valid values:
+     *
+     *   **30:** 30 days
+     *   **180:** 180 days
+     *   **365:** one year
+     *   **1095:** three years
+     *   **1825:** five years
+     *
+     * @example 365
+     *
      * @var string
      */
     public $configValue;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D5CEDCC2-CA75-43F7-9508-92F418CE6391
+     *
      * @var string
      */
     public $requestId;

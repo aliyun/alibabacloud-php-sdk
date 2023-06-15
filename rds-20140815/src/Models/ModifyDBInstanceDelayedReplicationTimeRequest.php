@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceDelayedReplicationTimeRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-uf6wjk5*****
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -19,6 +23,10 @@ class ModifyDBInstanceDelayedReplicationTimeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The replication latency of the read-only instance. Unit: seconds.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $readSQLReplicationTime;

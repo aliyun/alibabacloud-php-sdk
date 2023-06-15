@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class backupDownloadLinkByDB extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example dbs
+     *
      * @var string
      */
     public $dataBase;
 
     /**
+     * @description The public URL from which you can download the backup set.
+     *
+     * @example https://cn-hangzhou.bak.rds.aliyuncs.com/custins53664665/hins18676859_2021072909473127987849.zip?Expires=*****&dbList=tb1
+     *
      * @var string
      */
     public $downloadLink;
 
     /**
+     * @description The internal URL from which you can download the backup set.
+     *
+     * @example https://cn-hangzhou-internal.bak.rds.aliyuncs.com/custins53664665/hins18676859_2021072909473127987849.zip?Expires=*****&dbList=tb1
+     *
      * @var string
      */
     public $intranetDownloadLink;

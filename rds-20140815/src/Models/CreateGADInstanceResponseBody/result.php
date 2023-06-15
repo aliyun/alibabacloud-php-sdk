@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The number of unit nodes that are created by calling this operation.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $createMemberCount;
 
     /**
+     * @description The ID of the global active database cluster.
+     *
+     * @example gad-rm-bp1npi2j8********
+     *
      * @var string
      */
     public $gadInstanceName;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 5374xxxx
+     *
      * @var string
      */
     public $taskID;

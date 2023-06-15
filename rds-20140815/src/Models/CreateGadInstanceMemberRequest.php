@@ -10,36 +10,67 @@ use AlibabaCloud\Tea\Model;
 class CreateGadInstanceMemberRequest extends Model
 {
     /**
+     * @description The ID of the central node. You can call the [DescribeGadInstances](~~330105~~) operation to query the ID of the central node.
+     *
+     * @example gad-rm-bp1npi2j8****
+     *
      * @var string
      */
     public $centralDBInstanceId;
 
     /**
+     * @description The username of the privileged account of the central node. You can call the [DescribeAccounts](~~26265~~) operation to query the privileged account of the central node.
+     *
+     * @example test
+     *
      * @var string
      */
     public $centralRdsDtsAdminAccount;
 
     /**
+     * @description The password of the privileged account of the central node.
+     *
+     * @example Test12345
+     *
      * @var string
      */
     public $centralRdsDtsAdminPassword;
 
     /**
+     * @description The region ID of the central node. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $centralRegionId;
 
     /**
+     * @description A JSON array that consists of the information about the databases on the central node. All database information that you specify in this array is synchronized to the unit nodes of the global active database cluster. The JSON array contains the following parameters:
+     *
+     *   **name**: the name of the database.
+     *   **all**: specifies whether to synchronize all data in the database or the table. Valid values: **true** and **false**.
+     *   **Table**: the name of the table. If you set the **all** parameter to **false**, you must nest the name of the table that you want to synchronize into the JSON array.
+     *
+     * >  For more information, see [Objects of DTS tasks](~~209545~~).
+     * @example {    "testdb": {     "name": "testdb",     "all": false,     "Table": {       "order": {         "name": "order",         "all": true       },       "ordernew": {         "name": "ordernew",         "all": true       }     }   } }
+     *
      * @var string
      */
     public $DBList;
 
     /**
+     * @description The ID of the global active database cluster. You can call the [DescribeGadInstances](~~330105~~) operation to query the ID of the global active database cluster.
+     *
+     * @example gad-rm-bp1npi2j8****
+     *
      * @var string
      */
     public $gadInstanceId;
 
     /**
+     * @description The list of the unit nodes.
+     *
      * @var unitNode[]
      */
     public $unitNode;

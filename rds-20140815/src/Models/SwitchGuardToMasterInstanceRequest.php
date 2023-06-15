@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SwitchGuardToMasterInstanceRequest extends Model
 {
     /**
+     * @description The ID of the disaster recovery instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-uf6wjk5*****
+     *
      * @var string
      */
     public $DBInstanceId;

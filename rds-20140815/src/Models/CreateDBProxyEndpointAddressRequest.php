@@ -9,51 +9,101 @@ use AlibabaCloud\Tea\Model;
 class CreateDBProxyEndpointAddressRequest extends Model
 {
     /**
+     * @description The prefix of the proxy endpoint. Enter a custom prefix.
+     *
+     * @example test1234
+     *
      * @var string
      */
     public $connectionStringPrefix;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-t4n3axxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The network type of the proxy endpoint. Valid values:
+     *
+     *   **Public**: Internet
+     *   **VPC**: Virtual Private Cloud (VPC)
+     *   **Classic**: classic network
+     *
+     * Default value: **Classic**
+     * @example Public
+     *
      * @var string
      */
     public $DBProxyConnectStringNetType;
 
     /**
+     * @description The ID of the proxy endpoint. You can call the [DescribeDBProxyEndpoint](~~140955~~) operation to query the ID of the proxy endpoint.
+     *
+     * @example ta9um4xxxxx
+     *
      * @var string
      */
     public $DBProxyEndpointId;
 
     /**
+     * @description An internal parameter. You do not need to specify this parameter.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $DBProxyEngineType;
 
     /**
+     * @description The port number that is associated with the proxy endpoint.
+     *
+     *   If the instance runs MySQL, the default value is **3306**.
+     *   If the instance runs PostgreSQL, the default value is **5432**.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $DBProxyNewConnectStringPort;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the VPC to which the proxy endpoint belongs. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the ID of the VPC.
+     *
+     * > This parameter must be specified when **DBProxyConnectStringNetType** is set to **VPC**.
+     * @example vpc-bpxxxxxx
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The ID of the vSwitch that is associated with the specified VPC. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the ID of the vSwitch.
+     *
+     * > This parameter must be specified when **DBProxyConnectStringNetType** is set to **VPC**.
+     * @example vsw-bpxxxxxx
+     *
      * @var string
      */
     public $vSwitchId;

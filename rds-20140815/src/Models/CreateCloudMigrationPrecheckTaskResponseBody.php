@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateCloudMigrationPrecheckTaskResponseBody extends Model
 {
     /**
+     * @description The name of the instance.
+     *
+     * @example pgm-bp102g323jd4****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 60F9A12A-16B8-4728-B099-4CA38D32C31C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 439946016
+     *
      * @var int
      */
     public $taskId;
 
     /**
+     * @description The name of the task.
+     *
+     * @example slf7w7wj3g
+     *
      * @var string
      */
     public $taskName;

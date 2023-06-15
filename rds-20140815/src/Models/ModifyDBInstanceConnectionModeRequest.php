@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceConnectionModeRequest extends Model
 {
     /**
+     * @description The connection mode of the instance. Valid values:
+     *
+     *   **Standard**: standard mode
+     *   **Safe**: database proxy mode
+     *
+     * >  SQL Server 2012, SQL Server 2016, and SQL Server 2017 support only the standard mode.
+     * @example Performance
+     *
      * @var string
      */
     public $connectionMode;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example testuser@aliyun.com
+     *
      * @var string
      */
     public $ownerAccount;

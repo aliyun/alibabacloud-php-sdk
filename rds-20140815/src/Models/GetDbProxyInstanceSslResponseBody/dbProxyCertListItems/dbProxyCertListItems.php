@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class dbProxyCertListItems extends Model
 {
     /**
+     * @description The dedicated proxy endpoint for which SSL encryption is enabled.
+     *
+     * @example test1234.rwlb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $certCommonName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-t4n3axxxxx
+     *
      * @var string
      */
     public $dbInstanceName;
 
     /**
+     * @description The ID of the dedicated proxy endpoint.
+     *
+     * @example buxxxxxxx
+     *
      * @var string
      */
     public $endpointName;
 
     /**
+     * @description The default identifier of the dedicated proxy endpoint. The value is fixed as **RWSplit**.
+     *
+     * @example RWSplit
+     *
      * @var string
      */
     public $endpointType;
 
     /**
+     * @description The time when the certificate expires.
+     *
+     * @example 2021-12-16T08:43:20Z
+     *
      * @var string
      */
     public $sslExpiredTime;

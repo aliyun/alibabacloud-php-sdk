@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class endpointConnectItems extends Model
 {
     /**
+     * @description The proxy endpoint queried.
+     *
+     * @example testproxy****.rwlb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $dbProxyEndpointConnectString;
 
     /**
+     * @description The network type of the proxy endpoint. Valid values:
+     *
+     *   **0**: Internet
+     *   **1**: classic network
+     *   **2**: virtual private cloud (VPC)
+     *
+     * @example 2
+     *
      * @var string
      */
     public $dbProxyEndpointNetType;
 
     /**
+     * @description The port number that is associated with the proxy endpoint. Default value: **3306**.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $dbProxyEndpointPort;

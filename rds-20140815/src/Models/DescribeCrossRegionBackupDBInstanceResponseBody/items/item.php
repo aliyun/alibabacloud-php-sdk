@@ -9,71 +9,140 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description The status of the cross-region backup feature on the instance. Valid values:
+     *
+     *   **Disable**
+     *   **Enable**
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $backupEnabled;
 
     /**
+     * @description The time when cross-region backup was enabled on the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-06-12T05:44:21Z
+     *
      * @var string
      */
     public $backupEnabledTime;
 
     /**
+     * @description The ID of the region in which the cross-region data backup file is stored.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $crossBackupRegion;
 
     /**
+     * @description The policy that is used to save the cross-region backup files of the instance. Default value: **1**. The value 1 indicates that all cross-region backup files are saved.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $crossBackupType;
 
     /**
+     * @description The name of the instance. It must be 2 to 256 characters in length. The name can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     *
+     * > The value cannot start with http:// or https://.
+     * @example Test database
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The status of the instance. For more information, see [Instance states](~~26315~~).
+     *
+     * @example Running
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @description The database engine of the instance.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance.
+     *
+     * @example 5.6
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The lock status of the instance. Valid values:
+     *
+     *   **Unlock**: The instance is not locked.
+     *   **ManualLock**: The instance is manually locked.
+     *   **LockByExpiration**: The instance is automatically locked after it expires.
+     *   **LockByRestoration**: The instance is automatically locked before it is rolled back.
+     *   **LockByDiskQuota**: The instance is automatically locked because its storage capacity is exhausted and the instance is inaccessible.
+     *
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
 
     /**
+     * @description The status of the cross-region log backup feature on the instance. Valid values:
+     *
+     *   **Disable**
+     *   **Enable**
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $logBackupEnabled;
 
     /**
+     * @description The time when cross-region log backup was enabled on the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-06-12T05:44:21Z
+     *
      * @var string
      */
     public $logBackupEnabledTime;
 
     /**
+     * @description The policy that is used to retain the cross-region backup files of the instance. Cross-region backups can be retained only based on the specified retention period. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $retentType;
 
     /**
+     * @description The number of days for which the cross-region backup files of the instance are retained. Valid values: **7 to 1825**.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $retention;

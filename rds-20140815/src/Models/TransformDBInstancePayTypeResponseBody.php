@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class TransformDBInstancePayTypeResponseBody extends Model
 {
     /**
+     * @description The billing method.
+     *
+     * @example Prepaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The expiration time.
+     *
+     * > If you call this operation to change the billing method of an instance from subscription to pay-as-you-go, this parameter is not returned.
+     * @example 2020-04-20T10:00:00Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 205157600280623
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5E6E09DE-5B12-4BFF-A55E-1C86EDE06D9A
+     *
      * @var string
      */
     public $requestId;

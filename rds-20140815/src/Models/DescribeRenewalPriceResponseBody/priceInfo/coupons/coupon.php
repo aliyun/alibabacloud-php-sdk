@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class coupon extends Model
 {
     /**
+     * @description The ID of the coupon.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $couponNo;
 
     /**
+     * @description The description of the coupon.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the coupon is selected.
+     *
+     * @example true
+     *
      * @var string
      */
     public $isSelected;
 
     /**
+     * @description The name of the coupon.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;

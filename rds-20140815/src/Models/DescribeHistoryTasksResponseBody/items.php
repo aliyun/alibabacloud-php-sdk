@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example {\"steps\":[{\"action_info\":{\"Waiting\":[\"modifySwitchTime\"]},\"step_name\":\"exec_task\"}]}
+     *
      * @var string
      */
     public $actionInfo;
 
     /**
+     * @example 141345906006****
+     *
      * @var string
      */
     public $callerSource;
 
     /**
+     * @example User
+     *
      * @var string
      */
     public $callerUid;
 
     /**
+     * @example exec_task
+     *
      * @var string
      */
     public $currentStepName;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example 2022-02-03T12:06:17Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example rm-uf62br2491p5l****
+     *
      * @var string
      */
     public $instanceId;
@@ -49,16 +63,22 @@ class items extends Model
     public $instanceName;
 
     /**
+     * @example Instance
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $product;
 
     /**
+     * @example 79.0
+     *
      * @var float
      */
     public $progress;
@@ -69,41 +89,57 @@ class items extends Model
     public $reasonCode;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $remainTime;
 
     /**
+     * @example 2022-02-03T11:31:03Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Running
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example {\"callerUid\":\"test\"}
+     *
      * @var string
      */
     public $taskDetail;
 
     /**
+     * @example t-83br18hloy3faf****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example autotest_dispatch_cases
+     *
      * @var string
      */
     public $taskType;
 
     /**
+     * @example 141345906006****
+     *
      * @var string
      */
     public $uid;

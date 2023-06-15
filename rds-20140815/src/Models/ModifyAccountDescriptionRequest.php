@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountDescriptionRequest extends Model
 {
     /**
+     * @description The description of the account. The value must be 2 to 256 characters in length The value can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     *
+     * > The value cannot start with http:// or https://.
+     * @example Test Account A
+     *
      * @var string
      */
     public $accountDescription;
 
     /**
+     * @description The name of the account.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;

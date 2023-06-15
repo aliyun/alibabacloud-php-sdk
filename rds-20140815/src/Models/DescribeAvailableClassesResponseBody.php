@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableClassesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the instance types available for the instance.
+     *
      * @var DBInstanceClasses[]
      */
     public $DBInstanceClasses;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7E4448A6-9FE6-4474-A0C1-AA7CFC772CAC
+     *
      * @var string
      */
     public $requestId;

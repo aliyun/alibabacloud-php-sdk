@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceNetInfoForChannelResponseBody extends Model
 {
     /**
+     * @description The network information about the instance.
+     *
      * @var DBInstanceNetInfos
      */
     public $DBInstanceNetInfos;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **VPC**: a virtual private cloud (VPC)
+     *   **Classic**: classic network
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 61DF1F28-F409-50C0-B90A-CCE82D44****
+     *
      * @var string
      */
     public $requestId;

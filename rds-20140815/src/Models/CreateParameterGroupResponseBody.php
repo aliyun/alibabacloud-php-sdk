@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateParameterGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the parameter template. You can call the [DescribeParameterGroups](~~144491~~) operation to query the IDs of parameter templates.
+     *
+     * @example rpg-q488w14xvsk****
+     *
      * @var string
      */
     public $parameterGroupId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7A41C147-C8D0-4DAE-A1A2-17EBCD60DFA1
+     *
      * @var string
      */
     public $requestId;

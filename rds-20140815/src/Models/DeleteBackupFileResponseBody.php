@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackupFileResponseBody extends Model
 {
     /**
+     * @description An array that consists of the IDs of deleted backup sets.
+     *
      * @var deletedBaksetIds
      */
     public $deletedBaksetIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C7B3A91C-0ACD-4948-ACAE-xxxxxxxD4069
+     *
      * @var string
      */
     public $requestId;

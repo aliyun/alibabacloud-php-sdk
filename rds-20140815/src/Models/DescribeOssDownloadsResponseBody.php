@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeOssDownloadsResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description Details of the backup file.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The ID of the migration task.
+     *
+     * @example 562154852
+     *
      * @var string
      */
     public $migrateTaskId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A5409D02-D661-4BF3-8F3D-0A814D0574E7
+     *
      * @var string
      */
     public $requestId;

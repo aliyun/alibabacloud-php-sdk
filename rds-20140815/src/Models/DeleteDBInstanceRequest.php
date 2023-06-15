@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBInstanceRequest extends Model
 {
     /**
+     * @example rm-uf6wjk5****
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -24,6 +26,8 @@ class DeleteDBInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example Lastest
+     *
      * @var string
      */
     public $releasedKeepPolicy;

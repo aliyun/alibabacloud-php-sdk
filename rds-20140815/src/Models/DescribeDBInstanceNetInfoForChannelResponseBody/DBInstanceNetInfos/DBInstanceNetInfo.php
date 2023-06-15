@@ -11,71 +11,137 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceNetInfo extends Model
 {
     /**
+     * @description The availability of the instance. Valid values:
+     *
+     *   **Unavailable**
+     *   **Available**
+     *
+     * @example Unavailable
+     *
      * @var string
      */
     public $availability;
 
     /**
+     * @description The endpoint of the instance.
+     *
+     * @example rm-uf6w*****.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The type of the endpoint. Valid values:
+     *
+     *   **Normal**: a regular endpoint
+     *   **ReadWriteSplitting**: a read/write splitting endpoint that is assigned after the shared proxy feature is enabled.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $connectionStringType;
 
     /**
+     * @description An array that consists of the information about read weights to implement read/write splitting after the shared proxy feature is enabled.
+     *
      * @var DBInstanceWeights
      */
     public $DBInstanceWeights;
 
     /**
+     * @description The policy that is used to assign read weights. This parameter is returned only for a read/write splitting endpoint that is assigned after the shared proxy feature is enabled. Valid values:
+     *
+     *   **Standard**: The system automatically allocates read weights to the instance and its read-only instances based on the specifications of the instances.
+     *   **Custom**: You must manually assign read weights to the instance and its read-only instances.
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $distributionType;
 
     /**
+     * @description The IP address.
+     *
+     * @example 172.16.XX.XX
+     *
      * @var string
      */
     public $IPAddress;
 
     /**
+     * @description The network type of the IP address. Valid values:
+     *
+     *   **Public**: the Internet
+     *   **Inner**: the classic network
+     *   **Private**: a VPC
+     *
+     * @example Inner
+     *
      * @var string
      */
     public $IPType;
 
     /**
+     * @description The latency threshold that is allowed for read/write splitting of the shared proxy feature. Unit: seconds
+     *
+     * > This parameter is returned only when the **ConnectionStringType** parameter is set to **ReadWriteSplitting**.
+     * @example 12
+     *
      * @var string
      */
     public $maxDelayTime;
 
     /**
+     * @description The service port number.
+     *
+     * @example 6379
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description An array that consists of the details about the IP address whitelist.
+     *
      * @var securityIPGroups
      */
     public $securityIPGroups;
 
     /**
+     * @description An internal parameter. This operation does not return a value for this parameter.
+     *
+     * @example Disabled
+     *
      * @var string
      */
     public $upgradeable;
 
     /**
+     * @description The ID of the VPC in which the instance is deployed.
+     *
+     * @example vpc-bp1nme44gek34slfc****
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The ID of the vSwitch to which the instance belongs.
+     *
+     * @example vsw-bp1e7clcw529l773d****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The expiration time of the endpoint of the classic network type. Unit: seconds.
+     *
+     * @example 5183779
+     *
      * @var string
      */
     public $expiredTime;

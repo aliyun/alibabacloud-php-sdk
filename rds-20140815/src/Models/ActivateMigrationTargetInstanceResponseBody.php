@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ActivateMigrationTargetInstanceResponseBody extends Model
 {
     /**
+     * @description The name of the destination instance.
+     *
+     * @example pgm-bp102g323jd4****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 76364A52-E0AB-5CC8-9818-CF1DC482C092
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The private IP address that is used to connect to the self-managed PostgreSQL instance.
+     *
+     * @example 172.16.XX.XX
+     *
      * @var string
      */
     public $sourceIpAddress;
 
     /**
+     * @description The port number that is used to connect to the self-managed PostgreSQL instance.
+     *
+     * @example 5432
+     *
      * @var int
      */
     public $sourcePort;
 
     /**
+     * @description The ID of the identification task.
+     *
+     * @example 440913675
+     *
      * @var int
      */
     public $taskId;

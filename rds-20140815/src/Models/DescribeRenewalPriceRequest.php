@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeRenewalPriceRequest extends Model
 {
     /**
+     * @description The additional business information about the instance.
+     *
+     * @example 121436975448952
+     *
      * @var string
      */
     public $businessInfo;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The instance type of the instance. For more information, see [Primary instance types](~~26312~~). By default, the current instance type applies.
+     *
+     * @example mysql.n2.medium.2c
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The type of the order that you want to place. Set the value to **BUY**.
+     *
+     * @example BUY
+     *
      * @var string
      */
     public $orderType;
@@ -44,16 +64,31 @@ class DescribeRenewalPriceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go
+     *   **Prepaid**: subscription
+     *
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The number of the instances. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -69,11 +104,25 @@ class DescribeRenewalPriceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The renewal cycle of the instance. Valid values:
+     *
+     *   **Year**
+     *   **Month**
+     *
+     * @example Year
+     *
      * @var string
      */
     public $timeType;
 
     /**
+     * @description The subscription duration of the instance. Valid values:
+     *
+     *   If you set the **TimeType** parameter to **Year**, the value of the UsedTime parameter is within the range of **1 to 3**.
+     *   If you set the **TimeType** parameter to **Month**, the value of the UsedTime parameter is within the range of **1 to 9**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $usedTime;

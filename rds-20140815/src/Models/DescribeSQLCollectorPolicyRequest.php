@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLCollectorPolicyRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -29,6 +37,10 @@ class DescribeSQLCollectorPolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
+     * @example rg-acfmyxxxxxxxxxx
+     *
      * @var string
      */
     public $resourceGroupId;

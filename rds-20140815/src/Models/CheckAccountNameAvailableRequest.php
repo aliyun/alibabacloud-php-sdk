@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CheckAccountNameAvailableRequest extends Model
 {
     /**
+     * @example DatabaseTest
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example rm-uf6wjk5xxxxx
+     *
      * @var string
      */
     public $DBInstanceId;

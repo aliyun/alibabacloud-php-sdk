@@ -9,61 +9,135 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesForCloneRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The connection mode of the instance. Valid values:
+     *
+     *   **Standard**: standard mode
+     *   **Safe**: database proxy mode
+     *
+     * By default, this operation queries the instances that use any of the supported connection modes.
+     * @example Standard
+     *
      * @var string
      */
     public $connectionMode;
 
     /**
+     * @description The ID of the current instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $currentInstanceId;
 
     /**
+     * @description The instance type of the instance. For more information, see [Instance types](~~26312~~).
+     *
+     * @example mysql.n1.micro.1
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The status of the instance. For more information, see [Instance state table](~~26315~~).
+     *
+     * @example Running
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @description The role of the instance that you want to query. Valid values:
+     *
+     *   **Primary**: primary instance
+     *   **Readonly**: read-only instance
+     *   **Guard**: disaster recovery instance
+     *   **Temp**: temporary instance
+     *
+     * By default, this operation queries the instances of all roles.
+     * @example Primary
+     *
      * @var string
      */
     public $DBInstanceType;
 
     /**
+     * @description The database engine of the instance. Valid values:
+     *
+     *   MySQL
+     *   SQLServer
+     *   PostgreSQL
+     *   PPAS
+     *   MariaDB
+     *
+     * By default, this operation queries the instances that run any of the supported database engine types.
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The version of the database engine.
+     *
+     * @example 5.7
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description Specifies whether the instance expires. Valid values:
+     *
+     *   **True**: queries the instances that have expired.
+     *   **False**: does not query instances that have expired.
+     *
+     * @example True
+     *
      * @var string
      */
     public $expired;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **Classic**
+     *   **VPC**
+     *
+     * @example Classic
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @description The type of the database node. Valid values:
+     *
+     *   **Master**: the primary node
+     *   **Slave**: the secondary node
+     *
+     * @example Master
+     *
      * @var string
      */
     public $nodeType;
@@ -79,26 +153,51 @@ class DescribeDBInstancesForCloneRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1 to 100**.
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go
+     *   **Prepaid**: subscription
+     *
+     * By default, this operation queries the instances that use any of the supported billing methods.
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -114,26 +213,46 @@ class DescribeDBInstancesForCloneRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The keyword that is used for the search. The keyword can be part of an instance ID or an instance description.
+     *
+     * @example rm-uf6w
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-j6csw46bgrgkxxxxxxxxxx
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-j6cjvqms29yxxxxxxxxxx
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @description The ID of the proxy mode.
+     *
+     * @example API
+     *
      * @var string
      */
     public $proxyId;

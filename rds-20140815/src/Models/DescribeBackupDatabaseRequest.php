@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupDatabaseRequest extends Model
 {
     /**
+     * @description The ID of the backup set.
+     *
+     * @example 90262212
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;

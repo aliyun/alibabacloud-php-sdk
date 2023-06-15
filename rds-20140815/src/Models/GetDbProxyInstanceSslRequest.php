@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetDbProxyInstanceSslRequest extends Model
 {
     /**
+     * @description An internal parameter. You do not need to specify this parameter.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $DBProxyEngineType;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-t4n3axxxxx
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

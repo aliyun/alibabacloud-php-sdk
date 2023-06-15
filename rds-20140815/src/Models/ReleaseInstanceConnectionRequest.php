@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstanceConnectionRequest extends Model
 {
     /**
+     * @description The public endpoint of the instance.
+     *
+     * @example rm-uf6wjk5xxxx.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $currentConnectionString;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **VPC**
+     *   **Classic**
+     *
+     * @example Classic
+     *
      * @var string
      */
     public $instanceNetworkType;

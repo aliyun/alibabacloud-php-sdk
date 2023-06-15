@@ -10,21 +10,40 @@ use AlibabaCloud\Tea\Model;
 class ModifyPGHbaConfigRequest extends Model
 {
     /**
+     * @description A reserved parameter. You do not need to specify this parameter.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of instance.
+     *
+     * @example pgm-bp1lymyn1v3i****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The details of the AD domain.
+     *
      * @var hbaItem[]
      */
     public $hbaItem;
 
     /**
+     * @description The method that you use to modify the pg_hba.conf file. Valid values:
+     *
+     *   **add**: adds one or more records. If you use this method, make sure that the value of the PriorityId parameter for each new record is different from the value of the PriorityId parameter for any existing record.
+     *   **delete**: deletes one or more records. If you use this method, the record that corresponds to the specified value of the **PriorityId** parameter is deleted from the pg_hba.conf file.
+     *   **modify**: modifies one or more records. If you use this method, the record that corresponds to the specified value of the **PriorityId** parameter is modified.
+     *   **update**: overwrites the existing configuration in the pg_hba.conf file by using the new configuration.
+     *
+     * @example add
+     *
      * @var string
      */
     public $opsType;

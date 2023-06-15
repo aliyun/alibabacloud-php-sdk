@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceMaintainTimeRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotency of requests. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The maintenance time of the instance. Specify the time in the ISO 8601 standard in the *HH:mm*Z-*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 22:00Z-02:00Z
+     *
      * @var string
      */
     public $maintainTime;

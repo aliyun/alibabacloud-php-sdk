@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabasesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the information about databases.
+     *
      * @var databases
      */
     public $databases;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2603CA96-B17D-4903-BC04-61A2C829CD94
+     *
      * @var string
      */
     public $requestId;

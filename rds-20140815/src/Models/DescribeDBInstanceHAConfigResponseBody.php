@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceHAConfigResponseBody extends Model
 {
     /**
+     * @example rm-uf6wjk5xxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example RPO
+     *
      * @var string
      */
     public $HAMode;
@@ -25,11 +29,15 @@ class DescribeDBInstanceHAConfigResponseBody extends Model
     public $hostInstanceInfos;
 
     /**
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example Sync
+     *
      * @var string
      */
     public $syncMode;

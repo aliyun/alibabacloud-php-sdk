@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class nodeItems extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the node.
+     *
+     * You can use one of the following methods to query the ID of the node:
+     *
+     *   Log on to the ApsaraDB RDS console, go to the instance details page, and then view the ID of the node in the instance topology section.
+     *   Call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the ID of the node.
+     *
+     * @example rn-xxxx-****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The weight of the node. Read requests are distributed based on the weight.
+     *
+     * Valid values: 0 to 100.
+     * @example 50
+     *
      * @var int
      */
     public $weight;

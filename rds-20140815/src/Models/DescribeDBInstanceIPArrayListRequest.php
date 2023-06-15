@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceIPArrayListRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -24,6 +28,15 @@ class DescribeDBInstanceIPArrayListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The network type of the IP address whitelist. Valid values:
+     *
+     *   **Classic**: classic network in enhanced whitelist mode
+     *   **VPC**: virtual private cloud (VPC) in enhanced whitelist mode
+     *   **MIX**: standard whitelist mode
+     *
+     * By default, this operation returns IP address whitelists of all network types.
+     * @example VPC
+     *
      * @var string
      */
     public $whitelistNetworkType;

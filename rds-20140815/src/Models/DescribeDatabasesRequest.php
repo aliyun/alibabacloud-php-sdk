@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabasesRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example testDB01
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The status of the database. Valid values:
+     *
+     *   **Creating**
+     *   **Running**
+     *   **Deleting**
+     *
+     * @example Creating
+     *
      * @var string
      */
     public $DBStatus;
@@ -34,16 +50,34 @@ class DescribeDatabasesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * Default value: 30.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy****
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDTCSecurityIpHostsForSQLServerRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -24,11 +28,19 @@ class DescribeDTCSecurityIpHostsForSQLServerRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region in which the instances reside. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;

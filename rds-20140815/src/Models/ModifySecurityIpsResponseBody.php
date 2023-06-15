@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityIpsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 115855279
+     *
      * @var string
      */
     public $taskId;

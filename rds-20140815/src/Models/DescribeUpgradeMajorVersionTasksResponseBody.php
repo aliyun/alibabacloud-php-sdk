@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeUpgradeMajorVersionTasksResponseBody extends Model
 {
     /**
+     * @description An array that consists of the information about the tasks that are returned.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 152E0C6D-B9C3-4468-9F2C-FEF9D9E8417B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

@@ -10,36 +10,63 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrossRegionBackupDBInstanceResponseBody extends Model
 {
     /**
+     * @description An array that consists of instances and their cross-region backup settings.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The total number of items returned for cross-region backup settings.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $itemsNumbers;
 
     /**
+     * @description The page number of the returned page. Valid values: any non-zero positive integer.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Default value: 30.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 33517002-182D-40BE-93EC-610BD3381045
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalRecords;

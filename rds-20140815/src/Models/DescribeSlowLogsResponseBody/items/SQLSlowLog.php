@@ -9,46 +9,88 @@ use AlibabaCloud\Tea\Model;
 class SQLSlowLog extends Model
 {
     /**
+     * @description The average execution duration per SQL statement in the query. Unit: seconds.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 1
+     *
      * @var int
      */
     public $avgExecutionTime;
 
     /**
+     * @description The average number of I/O writes per SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $avgIOWriteCounts;
 
     /**
+     * @description The average number of rows that are affected by the last SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $avgLastRowsAffectedCounts;
 
     /**
+     * @description The average number of logical reads per SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $avgLogicalReadCounts;
 
     /**
+     * @description The average number of physical reads per SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $avgPhysicalReadCounts;
 
     /**
+     * @description The average number of rows that were affected per SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $avgRowsAffectedCounts;
 
     /**
+     * @description The date when the data was generated.
+     *
+     * @example 2011-05-30Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The name of the database that was queried.
+     *
+     * @example RDS_MySQL
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The longest execution duration of a specific SQL statement in the query. Unit: seconds.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $maxExecutionTime;
@@ -56,14 +98,33 @@ class SQLSlowLog extends Model
     /**
      * @var int
      */
+    public $maxExecutionTimeMS;
+
+    /**
+     * @description The largest number of I/O writes that were performed by a specific SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
+     * @var int
+     */
     public $maxIOWriteCounts;
 
     /**
+     * @description The largest number of rows that were affected by the last SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $maxLastRowsAffectedCounts;
 
     /**
+     * @description The longest lock duration that was caused by a specific SQL statement in the query. Unit: seconds.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $maxLockTime;
@@ -71,164 +132,317 @@ class SQLSlowLog extends Model
     /**
      * @var int
      */
+    public $maxLockTimeMS;
+
+    /**
+     * @description The largest number of logical reads that were performed by a specific SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
+     * @var int
+     */
     public $maxLogicalReadCounts;
 
     /**
+     * @description The largest number of physical reads that were performed by a specific SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $maxPhysicalReadCounts;
 
     /**
+     * @description The largest number of rows that were affected by a specific SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $maxRowsAffectedCounts;
 
     /**
+     * @description The smallest number of I/O writes that were performed by a specific SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $minIOWriteCounts;
 
     /**
+     * @description The smallest number of rows that were affected by the last SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $minLastRowsAffectedCounts;
 
     /**
+     * @description The smallest number of logical reads that were performed by a specific SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $minLogicalReadCounts;
 
     /**
+     * @description The smallest number of physical reads that were performed by a specific SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $minPhysicalReadCounts;
 
     /**
+     * @description The smallest number of rows that were affected by a specific SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $minRowsAffectedCounts;
 
     /**
+     * @description The total number of SQL statements that were executed in the query. This parameter is returned only for instances that run MySQL.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $mySQLTotalExecutionCounts;
 
     /**
+     * @description The total execution duration of all SQL statements in the query. This parameter is returned only for instances that run MySQL. Unit: seconds.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $mySQLTotalExecutionTimes;
 
     /**
+     * @description The largest number of rows that were parsed by a specific SQL statement in the query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $parseMaxRowCount;
 
     /**
+     * @description The total number of rows that were parsed by all SQL statements in the query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $parseTotalRowCounts;
 
     /**
+     * @description The date on which the data report was generated.
+     *
+     * @example 2011-05-30Z
+     *
      * @var string
      */
     public $reportTime;
 
     /**
+     * @description The largest number of rows that were returned by a specific SQL statement in the query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $returnMaxRowCount;
 
     /**
+     * @description The total number of rows that were returned by all SQL statements in the query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $returnTotalRowCounts;
 
     /**
+     * @description The unique ID of the SQL statement. The ID is used to obtain the slow query logs of the SQL statement.
+     *
+     * @example U2FsdGVkxxxx
+     *
      * @var string
      */
     public $SQLHASH;
 
     /**
+     * @description The ID of the SQL statement in the statistical template of slow query logs. This parameter is replaced by the **SQLHASH** parameter.
+     *
+     * @example 521584
+     *
      * @var string
      */
     public $SQLIdStr;
 
     /**
+     * @description The average amount of CPU time per SQL statement in the query. Unit: seconds.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $SQLServerAvgCpuTime;
 
     /**
+     * @description The average execution duration per SQL statement in the query. Unit: seconds.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $SQLServerAvgExecutionTime;
 
     /**
+     * @description The largest amount of CPU time that was used by a specific SQL statement in the query. Unit: seconds.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $SQLServerMaxCpuTime;
 
     /**
+     * @description The smallest amount of CPU time that was used by a specific SQL statement. Unit: seconds.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $SQLServerMinCpuTime;
 
     /**
+     * @description The smallest execution duration of a specific SQL statement in the query. Unit: seconds.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $SQLServerMinExecutionTime;
 
     /**
+     * @description The total amount of CPU time that was used by all SQL statements in the query. Unit: seconds.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $SQLServerTotalCpuTime;
 
     /**
+     * @description The total number of SQL statements that were executed in the query. This parameter is returned only for instances that run SQL Server.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $SQLServerTotalExecutionCounts;
 
     /**
+     * @description The total execution duration of all SQL statements in the query. This parameter is returned only for instances that run SQL Server. Unit: milliseconds.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $SQLServerTotalExecutionTimes;
 
     /**
+     * @description The SQL statement that was executed in the query.
+     *
+     * @example select id,name from tb_table
+     *
      * @var string
      */
     public $SQLText;
 
     /**
+     * @description The ID of the slow query log summary.
+     *
+     * @example 26584213
+     *
      * @var int
      */
     public $slowLogId;
 
     /**
+     * @description The total number of I/O writes that were performed by all SQL statements in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $totalIOWriteCounts;
 
     /**
+     * @description The total number of rows that were affected by the last SQL statement in the query.
+     *
+     * >  This parameter is returned only for instances that run SQL Server.
+     * @example 0
+     *
      * @var int
      */
     public $totalLastRowsAffectedCounts;
 
     /**
+     * @description The total lock duration that was caused by all SQL statements in the query. Unit: seconds.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $totalLockTimes;
 
     /**
+     * @description The total number of logical reads that were performed by all SQL statements in the query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalLogicalReadCounts;
 
     /**
+     * @description The total number of physical reads that were performed by all SQL statements in the query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalPhysicalReadCounts;
 
     /**
+     * @description The total number of rows that were affected by all SQL statements in the query.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $totalRowsAffectedCounts;
@@ -242,9 +456,11 @@ class SQLSlowLog extends Model
         'createTime'                    => 'CreateTime',
         'DBName'                        => 'DBName',
         'maxExecutionTime'              => 'MaxExecutionTime',
+        'maxExecutionTimeMS'            => 'MaxExecutionTimeMS',
         'maxIOWriteCounts'              => 'MaxIOWriteCounts',
         'maxLastRowsAffectedCounts'     => 'MaxLastRowsAffectedCounts',
         'maxLockTime'                   => 'MaxLockTime',
+        'maxLockTimeMS'                 => 'MaxLockTimeMS',
         'maxLogicalReadCounts'          => 'MaxLogicalReadCounts',
         'maxPhysicalReadCounts'         => 'MaxPhysicalReadCounts',
         'maxRowsAffectedCounts'         => 'MaxRowsAffectedCounts',
@@ -314,6 +530,9 @@ class SQLSlowLog extends Model
         if (null !== $this->maxExecutionTime) {
             $res['MaxExecutionTime'] = $this->maxExecutionTime;
         }
+        if (null !== $this->maxExecutionTimeMS) {
+            $res['MaxExecutionTimeMS'] = $this->maxExecutionTimeMS;
+        }
         if (null !== $this->maxIOWriteCounts) {
             $res['MaxIOWriteCounts'] = $this->maxIOWriteCounts;
         }
@@ -322,6 +541,9 @@ class SQLSlowLog extends Model
         }
         if (null !== $this->maxLockTime) {
             $res['MaxLockTime'] = $this->maxLockTime;
+        }
+        if (null !== $this->maxLockTimeMS) {
+            $res['MaxLockTimeMS'] = $this->maxLockTimeMS;
         }
         if (null !== $this->maxLogicalReadCounts) {
             $res['MaxLogicalReadCounts'] = $this->maxLogicalReadCounts;
@@ -461,6 +683,9 @@ class SQLSlowLog extends Model
         if (isset($map['MaxExecutionTime'])) {
             $model->maxExecutionTime = $map['MaxExecutionTime'];
         }
+        if (isset($map['MaxExecutionTimeMS'])) {
+            $model->maxExecutionTimeMS = $map['MaxExecutionTimeMS'];
+        }
         if (isset($map['MaxIOWriteCounts'])) {
             $model->maxIOWriteCounts = $map['MaxIOWriteCounts'];
         }
@@ -469,6 +694,9 @@ class SQLSlowLog extends Model
         }
         if (isset($map['MaxLockTime'])) {
             $model->maxLockTime = $map['MaxLockTime'];
+        }
+        if (isset($map['MaxLockTimeMS'])) {
+            $model->maxLockTimeMS = $map['MaxLockTimeMS'];
         }
         if (isset($map['MaxLogicalReadCounts'])) {
             $model->maxLogicalReadCounts = $map['MaxLogicalReadCounts'];

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CheckServiceLinkedRoleResponseBody extends Model
 {
     /**
+     * @description Indicates whether an SLR is created.
+     *
+     * @example true
+     *
      * @var string
      */
     public $hasServiceLinkedRole;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example AB44DC0A-7E77-442A-97A9-C6418694CB22
+     *
      * @var string
      */
     public $requestId;

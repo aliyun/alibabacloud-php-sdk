@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CloneParameterGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1D3D5995-6BDD-43B5-93B8-2C41A2ACD6AA
+     *
      * @var string
      */
     public $requestId;

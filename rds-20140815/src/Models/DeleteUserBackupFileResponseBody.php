@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserBackupFileResponseBody extends Model
 {
     /**
+     * @description The ID of the deleted full backup file.
+     *
+     * @example b-w1haya7e4i25********
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F28AE40B-203B-4CFE-B81F-FD981CD97B17
+     *
      * @var string
      */
     public $requestId;

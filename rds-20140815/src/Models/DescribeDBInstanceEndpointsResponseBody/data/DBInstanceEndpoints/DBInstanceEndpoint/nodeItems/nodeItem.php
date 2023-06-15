@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class nodeItem extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-u****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example rn-****13p6tum4289h
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The weight of the node. Read requests are distributed based on the weight.
+     *
+     * Valid values: 0 to 100.
+     * @example 50
+     *
      * @var int
      */
     public $weight;

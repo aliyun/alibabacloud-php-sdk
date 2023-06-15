@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
+     * @description The description of the promotion rule.
+     *
+     * @example Content
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the promotion rule.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the promotion rule.
+     *
+     * @example 1001199213
+     *
      * @var int
      */
     public $ruleId;

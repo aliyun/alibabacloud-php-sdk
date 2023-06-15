@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogFilesRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The name of the audit log file.
+     *
+     * @example custinsxxxxx.csv
+     *
      * @var string
      */
     public $fileName;
@@ -29,11 +37,21 @@ class DescribeSQLLogFilesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: **1 to 100000**.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid value: **30 to 200**.
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;

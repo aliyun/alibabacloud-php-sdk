@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeDTCSecurityIpHostsForSQLServerResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The number of distributed transaction whitelists.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $ipHostPairNum;
 
     /**
+     * @description Details of distributed transaction whitelists.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2CA62A70-2203-45C6-8E90-8971D5ACC0C2
+     *
      * @var string
      */
     public $requestId;

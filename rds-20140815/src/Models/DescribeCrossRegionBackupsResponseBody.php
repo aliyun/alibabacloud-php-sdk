@@ -10,41 +10,72 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrossRegionBackupsResponseBody extends Model
 {
     /**
+     * @description The end of the time range that is queried.
+     *
+     * @example 2019-06-15T12:10:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description An array that consists of details of the cross-region data backup files.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page. Valid values: any non-zero positive integer.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of cross-region data backup files on the current page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 60912B41-7579-4B5D-B289-8856030F0A6A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range that is queried.
+     *
+     * @example 2019-05-30T12:10:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalRecordCount;

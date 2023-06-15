@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class RevokeAccountPrivilegeRequest extends Model
 {
     /**
+     * @description The name of the account.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The name of the database. You can revoke all permissions of the account on this database. Separate multiple databases with commas (,).
+     *
+     * @example testDB
+     *
      * @var string
      */
     public $DBName;

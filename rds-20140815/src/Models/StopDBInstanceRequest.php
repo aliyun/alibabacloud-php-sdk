@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class StopDBInstanceRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-bp1q915x50h******
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -19,6 +23,10 @@ class StopDBInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

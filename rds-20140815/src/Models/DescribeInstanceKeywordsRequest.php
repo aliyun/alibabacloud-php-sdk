@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceKeywordsRequest extends Model
 {
     /**
+     * @description The type of reserved keyword to query. Valid values:
+     *
+     *   **account**
+     *   **database**
+     *
+     * @example account
+     *
      * @var string
      */
     public $key;

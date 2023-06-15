@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudMigrationPrecheckResultRequest extends Model
 {
     /**
+     * @description The ID of the destination instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the IDs of instances.
+     *
+     * @example pgm-bp102g323jd4****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description The page number. Valid values: any non-zero positive integer. The default value is 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 30 to 100. The default value is 30.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -29,21 +41,40 @@ class DescribeCloudMigrationPrecheckResultRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The private or public IP address that is used to connect to the self-managed PostgreSQL instance.
+     *
+     *   If the self-managed PostgreSQL instance resides on an Elastic Compute Service (ECS) instance, enter the private IP address of the ECS instance. For more information about how to obtain the private IP address of an ECS instance, see [View IP addresses](~~273914~~).
+     *   If the self-managed PostgreSQL instance resides in an on-premises data center, enter the private IP address of the on-premises data center.
+     *
+     * @example 172.2.XX.XX
+     *
      * @var string
      */
     public $sourceIpAddress;
 
     /**
+     * @description The port number that is used to connect to the self-managed PostgreSQL instance. You can run the netstat -a | grep PGSQL command to obtain the port number.
+     *
+     * @example 5432
+     *
      * @var int
      */
     public $sourcePort;
 
     /**
+     * @description The ID of the task. You can obtain the ID of the task from the response that is returned after you call the [CreateCloudMigrationPrecheckTask](~~409831~~) operation to create the task.
+     *
+     * @example 439946016
+     *
      * @var int
      */
     public $taskId;
 
     /**
+     * @description The name of the task. You can obtain the name of the task from the response that is returned after you call the [CreateCloudMigrationPrecheckTask](~~409831~~) operation to create the task.
+     *
+     * @example slf7w7wj3g
+     *
      * @var string
      */
     public $taskName;

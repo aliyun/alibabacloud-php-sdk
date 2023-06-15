@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ReceiveDBInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the disaster recovery instance after the switchover.
+     *
+     * @example rm-tr2whku*****
+     *
      * @var string
      */
     public $guardDBInstanceId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example EFB6083A-7699-489B-8278-C0CB4793A96E
+     *
      * @var string
      */
     public $requestId;

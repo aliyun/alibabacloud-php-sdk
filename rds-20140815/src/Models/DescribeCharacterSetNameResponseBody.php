@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeCharacterSetNameResponseBody extends Model
 {
     /**
+     * @description An array that consists of the character sets that are supported for the instance.
+     *
      * @var characterSetNameItems
      */
     public $characterSetNameItems;
 
     /**
+     * @description The database engine that is run on the instance.
+     *
+     * @example mysql
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
+     *
      * @var string
      */
     public $requestId;

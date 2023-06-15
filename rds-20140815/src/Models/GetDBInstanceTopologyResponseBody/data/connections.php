@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class connections extends Model
 {
     /**
+     * @description The endpoint of the instance.
+     *
+     * @example rm-m5ezban**********.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-m5ezban**********
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description The network type of the endpoint. Valid values:
+     *
+     *   **vpc**
+     *   **public**
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-qingdao-c
+     *
      * @var string
      */
     public $zoneId;

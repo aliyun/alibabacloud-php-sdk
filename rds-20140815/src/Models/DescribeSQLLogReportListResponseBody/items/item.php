@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class item extends Model
 {
     /**
+     * @description An array that consists of SQL statements executed with the highest latency.
+     *
      * @var latencyTopNItems
      */
     public $latencyTopNItems;
 
     /**
+     * @description An array that consists of SQL statements executed the most frequently.
+     *
      * @var QPSTopNItems
      */
     public $QPSTopNItems;
 
     /**
+     * @description The time when the report was generated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-03-27T16:00:00Z
+     *
      * @var string
      */
     public $reportTime;

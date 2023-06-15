@@ -9,26 +9,51 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBProxyRequest extends Model
 {
     /**
+     * @description Specifies whether to enable or disable the database proxy feature. Valid values:
+     *
+     *   **Startup**: enables the database proxy feature.
+     *   **Shutdown**: disables the database proxy feature.
+     *
+     * @example Startup
+     *
      * @var string
      */
     public $configDBProxyService;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description An internal parameter. You do not need to specify this parameter.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $DBProxyEngineType;
 
     /**
+     * @description The number of proxy instances that are enabled. Valid values: **1** to **60**. Default value: **1**.
+     *
+     * > The capability to process requests increases in proportion with the number of proxy instances. You can specify a proper number of proxy instances based on the monitoring information of database loads.
+     * @example 1
+     *
      * @var string
      */
     public $DBProxyInstanceNum;
 
     /**
+     * @description The network type of the instance. Set the value to **VPC**.
+     *
+     * > This parameter is required if you enable the database proxy feature for an ApsaraDB RDS for MySQL instance that uses cloud disks or an ApsaraDB RDS for PostgreSQL instance.
+     * @example VPC
+     *
      * @var string
      */
     public $instanceNetworkType;
@@ -39,11 +64,19 @@ class ModifyDBProxyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -59,11 +92,21 @@ class ModifyDBProxyRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the instance belongs. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the VPC ID of the instance.
+     *
+     * > This parameter is required if you enable the database proxy feature for an ApsaraDB RDS for MySQL instance that uses cloud disks or an ApsaraDB RDS for PostgreSQL instance.
+     * @example vpc-xxxxxxxxxxxx
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The ID of the vSwitch that is associated with the specified VPC. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the VPC ID of the instance.
+     *
+     * > This parameter is required if you enable the database proxy feature for an ApsaraDB RDS for MySQL instance that uses cloud disks or an ApsaraDB RDS for PostgreSQL instance.
+     * @example vsw-xxxxxxxxxxxx
+     *
      * @var string
      */
     public $vSwitchId;

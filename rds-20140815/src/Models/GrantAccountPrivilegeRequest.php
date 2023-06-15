@@ -9,21 +9,50 @@ use AlibabaCloud\Tea\Model;
 class GrantAccountPrivilegeRequest extends Model
 {
     /**
+     * @description The username of the account.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The permissions that you want to grant to the account. The number of permissions must be the same as the number of databases that you specify for the DBName parameter. You can specify this parameter based on your business requirements. Valid values:
+     *
+     *   **ReadWrite**: read and write permissions
+     *   **ReadOnly**: read-only permissions
+     *   **DDLOnly**: DDL-only permissions
+     *   **DMLOnly**: DML-only permissions
+     *   **DBOwner**: database owner permissions
+     *
+     * >
+     *
+     *   If the instance runs MySQL or MariaDB, you can set this parameter to **ReadWrite**, **ReadOnly**, **DDLOnly**, or **DMLOnly**.
+     *
+     *   If the instance runs SQL Server, you can set this parameter to **ReadWrite**, **ReadOnly**, or **DBOwner**.
+     *   If the instance runs PostgreSQL and uses cloud disks, you can set this parameter to **DBOwner**.
+     *
+     * @example ReadWrite
+     *
      * @var string
      */
     public $accountPrivilege;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The name of the database on which you want to grant permissions. Separate multiple database names with commas (,).
+     *
+     * @example testDB1
+     *
      * @var string
      */
     public $DBName;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceDetailResponseBody extends Model
 {
     /**
+     * @description Indicates whether the instance is in the active state.
+     *
+     * @example Invalid
+     *
      * @var string
      */
     public $activationState;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-bp6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The type of the license.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $licenseType;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 06B220E2-EAC5-4DBE-A1FC-1B62DB6A****
+     *
      * @var string
      */
     public $requestId;

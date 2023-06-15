@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class MigrateDBInstanceRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the dedicated cluster. You can call the [DescribeDedicatedHostGroups](~~141946~~) operation to query the ID of the dedicated cluster.
+     *
+     * @example dhg-4nxxxxxxx
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @description The time when you want the system to start the migration. Valid values:
+     *
+     *   **Immediately**: The system immediately starts the migration. This is the default value.
+     *   **MaintainTime**: The system starts the migration during the specified maintenance window.
+     *   **Specified**: The system starts the migration at the specified point in time.
+     *
+     * @example MaintainTime
+     *
      * @var string
      */
     public $effectiveTime;
@@ -29,6 +45,10 @@ class MigrateDBInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,26 +64,47 @@ class MigrateDBInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The point in time when you want the system to start the migration. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * > This parameter must be specified when you set **EffectiveTime** to **Specified**.
+     * @example 2019-10-21T10:00:00Z
+     *
      * @var string
      */
     public $specifiedTime;
 
     /**
+     * @description The ID of the host to which you want to migrate the primary instance. You can call the [DescribeDedicatedHosts](~~200944~~) operation to obtain the ID of the host.
+     *
+     * @example i-bpxxxxxxx1
+     *
      * @var string
      */
     public $targetDedicatedHostIdForMaster;
 
     /**
+     * @description The ID of the host to which you want to migrate the secondary instance. You can call the [DescribeDedicatedHosts](~~200944~~) operation to obtain the ID of the host.
+     *
+     * @example i-bpxxxxxxx2
+     *
      * @var string
      */
     public $targetDedicatedHostIdForSlave;
 
     /**
+     * @description The zone ID of the secondary instance.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneIdForFollower;
 
     /**
+     * @description The zone ID of the logger instance.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneIdForLog;

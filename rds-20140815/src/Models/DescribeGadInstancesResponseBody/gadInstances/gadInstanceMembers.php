@@ -9,41 +9,81 @@ use AlibabaCloud\Tea\Model;
 class gadInstanceMembers extends Model
 {
     /**
+     * @description The ID of the node.
+     *
+     * @example rm-bp1npi2j8********
+     *
      * @var string
      */
     public $DBInstanceID;
 
     /**
+     * @description A JSON array that consists of the details about the Data Transmission Service (DTS) synchronization task.
+     *
+     * >  Each unit node uses DTS to synchronize data with the central node. This parameter contains the ID of the DTS synchronization link and the ID of the DTS synchronization request.
+     * @example {\"dtsInstanceId\":\"dtsm9t107c********\",\"dtsRequestId\":\"190F0C6C-4BE6-5676-989B-DBDE6D34CD9C\"}
+     *
      * @var string
      */
     public $dtsInstance;
 
     /**
+     * @description The database engine that is run by the node.
+     *
+     * >  The value of this parameter is fixed as **mysql**.
+     * @example mysql
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version that is run by the node.
+     *
+     * @example 8.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The ID of the region where the node resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The type of the node. Valid values:
+     *
+     *   **CENTRAL**: The node is the central node. Each global active database cluster has only one central node. All unit nodes synchronize data from the central node.
+     *   **UNIT**: The node is a unit node. Each global active database cluster can have up to 10 unit nodes. All unit nodes synchronize data from the central node.
+     *
+     * @example CENTRAL
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The status of the node. Valid values:
+     *
+     *   **activation**: The node is running.
+     *   **creating**: The node is being created.
+     *
+     * @example activation
+     *
      * @var string
      */
     public $status;

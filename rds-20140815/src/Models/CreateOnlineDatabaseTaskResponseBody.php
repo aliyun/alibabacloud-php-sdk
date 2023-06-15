@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateOnlineDatabaseTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1B2EBD14-36F6-4645-A3F9-DE19D321C18F
+     *
      * @var string
      */
     public $requestId;

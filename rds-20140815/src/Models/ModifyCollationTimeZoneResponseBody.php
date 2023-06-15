@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ModifyCollationTimeZoneResponseBody extends Model
 {
     /**
+     * @description The character set collation of the instance.
+     *
+     * @example Latin1_General_CI_AS
+     *
      * @var string
      */
     public $collation;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8EA054AF-DFA7-497D-9F57-790FFC974C0B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 114413215
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The time zone of the instance.
+     *
+     * @example China Standard Time
+     *
      * @var string
      */
     public $timezone;

@@ -9,21 +9,55 @@ use AlibabaCloud\Tea\Model;
 class dbProxyEndpointItems extends Model
 {
     /**
+     * @description The description of the proxy terminal.
+     *
+     * @example proxy-test
+     *
      * @var string
      */
     public $dbProxyEndpointAliases;
 
     /**
+     * @description The ID of the proxy terminal.
+     *
+     * @example gos787jog2wk0ye1****
+     *
      * @var string
      */
     public $dbProxyEndpointName;
 
     /**
+     * @description The type of the proxy terminal.
+     *
+     * Valid values:
+     *
+     *   Custom
+     *
+     * <!-- -->
+     *
+     *   RWSplit
+     *
+     * <!-- -->
+     * @example RWSplit
+     *
      * @var string
      */
     public $dbProxyEndpointType;
 
     /**
+     * @description The read and write attributes of the proxy terminal.
+     *
+     * Valid values:
+     *
+     *   ReadOnly
+     *
+     * <!-- -->
+     *
+     *   ReadWrite
+     *
+     * <!-- -->
+     * @example ReadWrite
+     *
      * @var string
      */
     public $dbProxyReadWriteMode;

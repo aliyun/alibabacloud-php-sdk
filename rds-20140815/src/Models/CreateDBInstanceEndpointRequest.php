@@ -10,41 +10,77 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceEndpointRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+     *
+     * The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @example 6000170000591aed949d0f****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The prefix of the internal endpoint.
+     *
+     * When you create any type of endpoint, an internal endpoint is automatically created for the endpoint. This parameter specifies the prefix of the internal endpoint.
+     * @example rm-****-ro
+     *
      * @var string
      */
     public $connectionStringPrefix;
 
     /**
+     * @description The user-defined description of the endpoint.
+     *
+     * @example for readonly business
+     *
      * @var string
      */
     public $DBInstanceEndpointDescription;
 
     /**
+     * @description The type of the endpoint. Valid values:
+     *
+     *   Primary: read/write endpoint of the instance
+     *   Readonly: read-only endpoint of the instance
+     *
+     * @example Readonly
+     *
      * @var string
      */
     public $DBInstanceEndpointType;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The node that is configured for the endpoint.
+     *
      * @var nodeItems[]
      */
     public $nodeItems;
 
     /**
+     * @description The port number of the internal endpoint. You can specify the port number for the internal endpoint.
+     *
+     * Valid values: 3000 to 5999.
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The IP address of the internal endpoint.
+     *
+     * @example 172.16.XX.XX
+     *
      * @var string
      */
     public $privateIpAddress;
@@ -55,11 +91,19 @@ class CreateDBInstanceEndpointRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The vSwitch ID of the internal endpoint.
+     *
+     * @example vsw-bp1kqp****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The virtual private cloud (VPC) ID of the internal endpoint.
+     *
+     * @example vpc-xxxmmxjqqi****
+     *
      * @var string
      */
     public $vpcId;

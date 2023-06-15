@@ -9,26 +9,48 @@ use AlibabaCloud\Tea\Model;
 class CreateDdrInstanceResponseBody extends Model
 {
     /**
+     * @description The endpoint that is used to connect to the destination instance.
+     *
+     * > **DBInstanceNetType** indicates whether the endpoint is internal or public.
+     * @example rm-xxxxx.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The ID of the destination instance.
+     *
+     * @example rm-xxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 2038691xxxxx
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The port number that is used to connect to the destination instance.
+     *
+     * > **DBInstanceNetType** indicates whether the port is internal or public.
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E52666CC-330E-418A-8E5B-A19E3FB42D13
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribePGHbaConfigRequest extends Model
 {
     /**
+     * @description This parameter is reserved. You do not need to specify this parameter.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of instance.
+     *
+     * @example pgm-bp1lymyn1v3i****
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -29,6 +37,10 @@ class DescribePGHbaConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;

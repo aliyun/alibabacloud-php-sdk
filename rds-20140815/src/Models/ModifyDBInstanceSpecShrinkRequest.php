@@ -9,46 +9,88 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceSpecShrinkRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $burstingEnabled;
+
+    /**
+     * @example HighAvailability
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The ID of the dedicated cluster.
+     *
+     * @example rds.mys2.small
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @description N/A
+     *
+     * @example rm-uf6wjk5*******
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $DBInstanceStorage;
 
     /**
+     * @description The specification changes of a serverless ApsaraDB RDS for MySQL instance.
+     *
+     * @example local_ssd
+     *
      * @var string
      */
     public $DBInstanceStorageType;
 
     /**
+     * @description Specifies whether to enable the forced scaling feature for the serverless instance. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * @example dhg-7a9********
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @description The maximum number of RDS Capacity Units (RCUs).
+     *
+     * @example Up
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example MaintainTime
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @description The validity period of the specification changes on an ApsaraDB RDS for SQL Server instance. Unit: day.
+     *
+     * @example 5.6
+     *
      * @var string
      */
     public $engineVersion;
@@ -64,11 +106,25 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @description The time at which you want to change the specifications. We recommend that you apply the specification during off-peak hours. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * >
+     *
+     *   You must specify a point in time later than the current time. Otherwise, the specification change task fails. The current time refers to the time to call this operation. If the specification change task fails, you must wait for the order to be automatically canceled, and then call this operation again.
+     *
+     *   If you want to increase the storage capacity or change the ESSD storage type between different PLs, the specification change immediately takes effect and does not affect your workloads. You do not need to configure this parameter.
+     *
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example rg-acfmy**********
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -89,25 +145,48 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $serverlessConfigurationShrink;
 
     /**
+     * @description The minimum number of RCUs.
+     *
+     * @example Specifies whether to enable the automatic suspension feature.
+     *
      * @var string
      */
     public $sourceBiz;
 
     /**
+     * @description The response parameters.
+     *
+     * @example 2019-07-10T13:15:12Z
+     *
      * @var string
      */
     public $switchTime;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $usedTime;
 
     /**
+     * @description The RDS edition of the instance. Valid values:
+     *
+     *   **Basic**: RDS Basic Edition.
+     *   **HighAvailability**: RDS High-availability Edition.
+     *   **AlwaysOn**: RDS Cluster Edition for SQL Server.
+     *   **Finance**: RDS Enterprise Edition. This edition is available only on the China site (aliyun.com).
+     *
+     * > If you set **EngineVersion** to an SQL Server version number, you must also specify this parameter.
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
+        'burstingEnabled'               => 'BurstingEnabled',
         'category'                      => 'Category',
         'DBInstanceClass'               => 'DBInstanceClass',
         'DBInstanceId'                  => 'DBInstanceId',
@@ -137,6 +216,9 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->burstingEnabled) {
+            $res['BurstingEnabled'] = $this->burstingEnabled;
+        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -209,6 +291,9 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BurstingEnabled'])) {
+            $model->burstingEnabled = $map['BurstingEnabled'];
+        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }

@@ -9,46 +9,89 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The description of the enhanced monitoring metric.
+     *
+     * @example OS CPU utilization, equal to the number of OS-consumed CPUs divided by the total number of CPUs
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The category of the enhanced monitoring metric. Valid values:
+     *
+     *   **os**: OS metric
+     *   **db**: database metric
+     *
+     * @example os
+     *
      * @var string
      */
     public $dimension;
 
     /**
+     * @description The key of the group to which the enhanced monitoring metric belongs.
+     *
+     * @example os.cpu_usage
+     *
      * @var string
      */
     public $groupKey;
 
     /**
+     * @description The name of the group to which the enhanced monitoring metric belongs.
+     *
+     * @example CPU Utilization Rate
+     *
      * @var string
      */
     public $groupKeyType;
 
     /**
+     * @description The method that is used to aggregate the monitoring data of the enhanced monitoring metric. Valid values:
+     *
+     *   **avg**: The system calculates the average value of the enhanced monitoring metric.
+     *   **min**: The system calculates the minimum value of the enhanced monitoring metric.
+     *   **max**: The system calculates the maximum value of the enhanced monitoring metric.
+     *
+     * @example avg
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @description The key of the enhanced monitoring metric.
+     *
+     * @example os.cpu_usage.sys.avg
+     *
      * @var string
      */
     public $metricsKey;
 
     /**
+     * @description The alias of the enhanced monitoring metric.
+     *
+     * @example os.cpu_usage.sys
+     *
      * @var string
      */
     public $metricsKeyAlias;
 
     /**
+     * @description The serial number of the enhanced monitoring metric.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $sortRule;
 
     /**
+     * @description The unit of the enhanced monitoring metric.
+     *
+     * @example %
+     *
      * @var string
      */
     public $unit;

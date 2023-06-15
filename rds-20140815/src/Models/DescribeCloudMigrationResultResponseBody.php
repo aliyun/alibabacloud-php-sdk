@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudMigrationResultResponseBody extends Model
 {
     /**
+     * @description The details of the cloud migration tasks.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1B983C48-9793-5EAA-8F7F-00EAEC517675
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalSize;

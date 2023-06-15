@@ -10,31 +10,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details about the instance.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The token that is used to display the next page. If the returned entries are displayed on multiple pages, the next page can be displayed when you call this operation again with **NextToken** specified.
+     *
+     * @example o7PORW5o2TJg**********
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * > If you specify **MaxResults** or **NextToken**, only the value **1** is returned. You can ignore the value 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * > If you specify **MaxResults** or **NextToken**, only the number of entries on the current page is returned. You can ignore the number.
+     * @example 100
+     *
      * @var int
      */
     public $totalRecordCount;

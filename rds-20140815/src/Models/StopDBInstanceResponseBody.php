@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class StopDBInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example A417FB41-A3D9-464E-AD0A-C7FE05C72E98
+     *
      * @var string
      */
     public $requestId;

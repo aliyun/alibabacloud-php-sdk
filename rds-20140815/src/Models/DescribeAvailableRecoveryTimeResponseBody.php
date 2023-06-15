@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableRecoveryTimeResponseBody extends Model
 {
     /**
+     * @description The ID of the cross-region backup file.
+     *
+     * @example 14377
+     *
      * @var int
      */
     public $crossBackupId;
 
     /**
+     * @description The start time to which data can be restored. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-06-12T05:22:29Z
+     *
      * @var string
      */
     public $recoveryBeginTime;
 
     /**
+     * @description The end time to which data can be restored. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-06-12T07:33:12Z
+     *
      * @var string
      */
     public $recoveryEndTime;
 
     /**
+     * @description The region ID of the source instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8CCBF4BA-7CE1-47E1-B49F-E97EA200A40D
+     *
      * @var string
      */
     public $requestId;

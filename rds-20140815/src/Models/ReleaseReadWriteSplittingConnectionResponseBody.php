@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ReleaseReadWriteSplittingConnectionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5A77D650-27A1-4E08-AD9E-59008EDB6927
+     *
      * @var string
      */
     public $requestId;

@@ -9,61 +9,112 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The content of the assessment report.
+     *
+     * @example [Check rds empty]\nCheck rds databases: success\n[Check source connectivity]\nCheck ip connectable: success\nCheck port connectable: success\nCheck database connectable: success\nCheck account replication privilege: success\nCheck account createrole privilege: success\nCheck account monitor privilege: success\n[Check source version]\nCheck major version consistent: success\n[Check source glibc version]\nCheck source glibc version compatible: warning(warning:source glibc version is not compatible with rds pg)\n[Check disk size]\nCheck disk size enough: success\n[Check wal keep size]\nCheck wal keep size large enough: success\n[Check spec params]\nCheck if spec params too large: success\n [Check triggers]\nCheck triggers compatible: success\n[Check user functions]\nCheck user functions compatible: success\n*Migrate check success*
+     *
      * @var string
      */
     public $detail;
 
     /**
+     * @description The time when the task was created.
+     *
+     * @example 2022-02-25T06:57:41Z
+     *
      * @var string
      */
     public $gmtCreated;
 
     /**
+     * @description The time when the task was modified.
+     *
+     * @example 2022-02-25T06:58:00Z
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The username of the account.
+     *
+     * @example migratetest
+     *
      * @var string
      */
     public $sourceAccount;
 
     /**
+     * @description The environment in which the self-managed PostgreSQL instance runs.
+     *
+     *   **idcOnVpc**: The self-managed PostgreSQL instance resides in a data center. The data center can communicate with the VPC to which the ApsaraDB RDS for PostgreSQL instance belongs.
+     *   **ecsOnVpc**: The self-managed PostgreSQL instance resides on an ECS instance.
+     *
+     * @example ecsonvpc
+     *
      * @var string
      */
     public $sourceCategory;
 
     /**
+     * @description The private IP address that is used to connect to the self-managed PostgreSQL instance.
+     *
+     * @example 172.2.XX.XX
+     *
      * @var string
      */
     public $sourceIpAddress;
 
     /**
+     * @description The password of the account.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $sourcePassword;
 
     /**
+     * @description The port number that is used to connect to the self-managed PostgreSQL instance.
+     *
+     * @example 5432
+     *
      * @var int
      */
     public $sourcePort;
 
     /**
+     * @description A reserved parameter. The return value of this parameter is null.
+     *
+     * @example null
+     *
      * @var string
      */
     public $targetEip;
 
     /**
+     * @description The ID of the destination instance.
+     *
+     * @example pgm-bp102g323jd4****
+     *
      * @var string
      */
     public $targetInstanceName;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 440420798
+     *
      * @var int
      */
     public $taskId;
 
     /**
+     * @description The name of the task.
+     *
+     * @example lxbv6rtxno8
+     *
      * @var string
      */
     public $taskName;

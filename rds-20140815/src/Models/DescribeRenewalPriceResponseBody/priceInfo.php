@@ -12,36 +12,58 @@ use AlibabaCloud\Tea\Model;
 class priceInfo extends Model
 {
     /**
+     * @description The information about the promotion.
+     *
      * @var activityInfo
      */
     public $activityInfo;
 
     /**
+     * @description An array that consists of information about the coupon.
+     *
      * @var coupons
      */
     public $coupons;
 
     /**
+     * @description The currency unit.
+     *
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @description The discount.
+     *
+     * @example 27
+     *
      * @var float
      */
     public $discountPrice;
 
     /**
+     * @description The original price.
+     *
+     * @example 138
+     *
      * @var float
      */
     public $originalPrice;
 
     /**
+     * @description An array that consists of the ID of the promotion rule.
+     *
      * @var ruleIds
      */
     public $ruleIds;
 
     /**
+     * @description The transaction price, which is equal to the original price minus the discount.
+     *
+     * @example 111
+     *
      * @var float
      */
     public $tradePrice;

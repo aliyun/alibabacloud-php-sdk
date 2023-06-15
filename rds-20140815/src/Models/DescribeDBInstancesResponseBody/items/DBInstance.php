@@ -12,238 +12,476 @@ class DBInstance extends Model
     /**
      * @var string
      */
+    public $bpeEnabled;
+
+    /**
+     * @var bool
+     */
+    public $burstingEnabled;
+
+    /**
+     * @description The RDS edition of the instance. Valid values:
+     *
+     *   **Basic**: RDS Basic Edition
+     *   **HighAvailability**: RDS High-availability Edition
+     *   **Finance**: RDS Enterprise Edition
+     *
+     * > This parameter is returned only when **InstanceLevel** is set to **1**.
+     * @example Basic
+     *
+     * @var string
+     */
     public $category;
 
     /**
+     * @description The connection mode of the instance. Valid values:
+     *
+     *   **Standard**: standard mode
+     *   **Safe**: database proxy mode
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $connectionMode;
 
     /**
+     * @description The endpoint of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The creation time of the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-11-05T11:26:02Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The instance type of the instance. For information, see [Primary ApsaraDB RDS instance types](~~26312~~).
+     *
+     * @example rds.mys2.small
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example Test database
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The type of the network connection to the instance. Valid values:
+     *
+     *   **Internet**
+     *   **Intranet**
+     *
+     * @example Internet
+     *
      * @var string
      */
     public $DBInstanceNetType;
 
     /**
+     * @description The status of the instance. For more information, see [Instance states](~~26315~~).
+     *
+     * @example Running
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @description The storage type of the instance.
+     *
+     * @example ModuleList.4.ModuleCode
+     *
      * @var string
      */
     public $DBInstanceStorageType;
 
     /**
+     * @description The role of the instance. Valid values:
+     *
+     *   **Primary**: primary instance
+     *   **Readonly**: read-only instance
+     *   **Guard**: disaster recovery instance
+     *   **Temp**: temporary instance
+     *
+     * @example Primary
+     *
      * @var string
      */
     public $DBInstanceType;
 
     /**
+     * @description The ID of the dedicated cluster.
+     *
+     * @example dhg-7a9xxxxxxxx
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @description The name of the dedicated cluster to which the instance belongs.
+     *
+     * @example testhostgroup
+     *
      * @var string
      */
     public $dedicatedHostGroupName;
 
     /**
+     * @description The ID of the host on which the logger instance resides.
+     *
+     * @example dh-bpxxxx
+     *
      * @var string
      */
     public $dedicatedHostIdForLog;
 
     /**
+     * @description The ID of the host on which the primary instance resides.
+     *
+     * @example dh-bpxxxx
+     *
      * @var string
      */
     public $dedicatedHostIdForMaster;
 
     /**
+     * @description The ID of the host on which the secondary instance resides.
+     *
+     * @example dh-bpxxxx
+     *
      * @var string
      */
     public $dedicatedHostIdForSlave;
 
     /**
+     * @description The name of the host on which the logger instance resides.
+     *
+     * @example testlog
+     *
      * @var string
      */
     public $dedicatedHostNameForLog;
 
     /**
+     * @description The name of the host on which the primary instance resides.
+     *
+     * @example testmaster
+     *
      * @var string
      */
     public $dedicatedHostNameForMaster;
 
     /**
+     * @description The name of the host on which the secondary instance resides.
+     *
+     * @example testslave
+     *
      * @var string
      */
     public $dedicatedHostNameForSlave;
 
     /**
+     * @description The zone ID of the host on which the logger instance resides.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $dedicatedHostZoneIdForLog;
 
     /**
+     * @description The zone ID of the host on which the primary instance resides.
+     *
+     * @example cn-hangzhou-c
+     *
      * @var string
      */
     public $dedicatedHostZoneIdForMaster;
 
     /**
+     * @description The zone ID of the host on which the secondary instance resides.
+     *
+     * @example cn-hangzhou-d
+     *
      * @var string
      */
     public $dedicatedHostZoneIdForSlave;
 
     /**
+     * @description Indicates whether the release protection feature is enabled for the instance. Valid values:
+     *
+     *   **true**: The feature is enabled.
+     *   **false**: The feature is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
+     * @description The time when the instance was destroyed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-11-05T11:26:02Z
+     *
      * @var string
      */
     public $destroyTime;
 
     /**
+     * @description The database engine of the instance.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance.
+     *
+     * @example 5.7
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The expiration time of the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * > Pay-as-you-go instances never expire.
+     * @example 2019-02-27T16:00:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The name of the dedicated cluster to which the instance belongs. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition.
+     *
+     * @example TestGroup
+     *
      * @var string
      */
     public $generalGroupName;
 
     /**
+     * @description The ID of the disaster recovery instance. This parameter is returned only when the instance is a primary instance and has a disaster recovery instance.
+     *
+     * @example rm-uf64zsuxxxxxxxxxx
+     *
      * @var string
      */
     public $guardDBInstanceId;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **Classic**
+     *   **VPC**
+     *
+     * @example Classic
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @description The lock mode of the instance. Valid values:
+     *
+     *   **Unlock**: The instance is not locked.
+     *   \*\* ManualLock\*\*: The instance is manually locked.
+     *   **LockByExpiration**: The instance is automatically locked after it expires.
+     *   **LockByRestoration**: The instance is automatically locked before it is rolled back.
+     *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage capacity.
+     *   **Released**: The instance is released. After an instance is released, the instance cannot be unlocked. You can only restore the backup data of the instance to a new instance. This process requires a long period of time.
+     *
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
 
     /**
+     * @description The reason why the instance was locked.
+     *
+     * @example instance_expired
+     *
      * @var string
      */
     public $lockReason;
 
     /**
+     * @description The ID of the primary instance. If the value of this parameter is null, the instance is a primary instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $masterInstanceId;
 
     /**
+     * @description Indicates whether the multi-zone deployment method is used for the instance. Valid values: **true and false**.
+     *
+     * > If the multi-zone deployment method is used for the instance, the zone ID of the instance contains MAZ. Example: `cn-hangzhou-MAZ10(h,i)`.
+     * @example true
+     *
      * @var bool
      */
     public $mutriORsignle;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go
+     *   **Prepaid**: subscription
+     *
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description An array that consists of the IDs of the read-only instances that are attached to the instance. This parameter is returned only when the instance is a primary instance and has read-only instances.
+     *
      * @var readOnlyDBInstanceIds
      */
     public $readOnlyDBInstanceIds;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmyxxxxxxx
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the instance supports weight-based switchovers for high availability. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition. Valid values:
+     *
+     *   **100**: The instance supports weight-based switchovers for high availability.
+     *   **0**: The instance does not support weight-based switchovers for high availability.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $switchWeight;
 
     /**
+     * @description The ID of the temporary instance. This parameter is returned only when the instance is a primary instance and has a temporary instance.
+     *
+     * @example rm-uf64zsuxxxxxxxxxx
+     *
      * @var string
      */
     public $tempDBInstanceId;
 
     /**
+     * @description The information about the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition.
+     *
+     * @example Run as expected.
+     *
      * @var string
      */
     public $tips;
 
     /**
+     * @description The severity level of the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition. Valid values:
+     *
+     *   **1**: The instance is normal.
+     *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance, and the performance is affected. You must adjust the specifications of these instances based on your business requirements.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $tipsLevel;
 
     /**
+     * @description The vSwitch ID of the instance.
+     *
+     * @example vsw-uf6adz52c2pxxxxxxx
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The VPC ID of the instance. This parameter is returned only when the instance resides in a VPC.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $vpcCloudInstanceId;
 
     /**
+     * @description The VPC ID of the instance.
+     *
+     * @example vpc-uf6f7l4fg90xxxxxxx
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The name of the VPC.
+     *
+     * @example test-huadong
+     *
      * @var string
      */
     public $vpcName;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
+        'bpeEnabled'                   => 'BpeEnabled',
+        'burstingEnabled'              => 'BurstingEnabled',
         'category'                     => 'Category',
         'connectionMode'               => 'ConnectionMode',
         'connectionString'             => 'ConnectionString',
@@ -300,6 +538,12 @@ class DBInstance extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bpeEnabled) {
+            $res['BpeEnabled'] = $this->bpeEnabled;
+        }
+        if (null !== $this->burstingEnabled) {
+            $res['BurstingEnabled'] = $this->burstingEnabled;
+        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -453,6 +697,12 @@ class DBInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BpeEnabled'])) {
+            $model->bpeEnabled = $map['BpeEnabled'];
+        }
+        if (isset($map['BurstingEnabled'])) {
+            $model->burstingEnabled = $map['BurstingEnabled'];
+        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }

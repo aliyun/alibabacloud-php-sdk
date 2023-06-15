@@ -9,21 +9,46 @@ use AlibabaCloud\Tea\Model;
 class TransformDBInstancePayTypeRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the auto-renewal feature for the instance. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * >
+     *
+     *   This parameter is valid only when you change the billing method from pay-as-you-go to subscription.
+     *
+     *   All strings except **true** are considered **false**.
+     *
+     * @example true
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @description The additional business information about the instance.
+     *
+     * @example None
+     *
      * @var string
      */
     public $businessInfo;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -39,11 +64,26 @@ class TransformDBInstancePayTypeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go
+     *   **Prepaid**: subscription
+     *
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The renewal cycle of the instance. Valid values:
+     *
+     *   **Year**
+     *   **Month**
+     *
+     * > This parameter must be specified if you set **PayType** to **Prepaid**.
+     * @example Month
+     *
      * @var string
      */
     public $period;
@@ -59,6 +99,14 @@ class TransformDBInstancePayTypeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The subscription duration of the instance. Valid values:
+     *
+     *   If you set **Period** to **Year**, the value of UsedTime ranges from **1 to 5**.
+     *   If you set **Period** to **Month**, the value of UsedTime ranges from **1 to 9**.
+     *
+     * > This parameter must be specified if you set **PayType** to **Prepaid**.
+     * @example 1
+     *
      * @var int
      */
     public $usedTime;

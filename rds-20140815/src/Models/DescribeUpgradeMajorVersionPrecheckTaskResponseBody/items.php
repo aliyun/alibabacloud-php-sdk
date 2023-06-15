@@ -9,36 +9,72 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The time at which the upgrade check was performed.
+     *
+     * The value of this parameter is a timestamp that follows the UNIX time format. Unit: milliseconds.
+     * @example 1635143903000
+     *
      * @var string
      */
     public $checkTime;
 
     /**
+     * @description The content of the upgrade check report.
+     *
+     * @example [user_check_report]User check success\n[pg_upgrade_internal.log]Performing...
+     *
      * @var string
      */
     public $detail;
 
     /**
+     * @description The expiration time of the upgrade check report.
+     *
+     * The value of this parameter is a timestamp that follows the UNIX time format. Unit: milliseconds.
+     * @example 1635748703000
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @description The result of the upgrade check.
+     *
+     * Valid values:
+     *
+     *   Success
+     *   Fail
+     *
+     * >  If the check result is **Fail**, you must check the value of the **Detail** parameter to obtain the information about the errors that occurred. After you handle the errors, you can try again. For more information about how to handle common errors, see [Introduction to the check report for a major engine version upgrade to an ApsaraDB RDS for PostgreSQL instance](~~218391~~).
+     * @example Success
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @description The original major engine version of the instance.
+     *
+     * @example 11.0
+     *
      * @var string
      */
     public $sourceMajorVersion;
 
     /**
+     * @description The new major engine version of the instance.
+     *
+     * @example 12.0
+     *
      * @var string
      */
     public $targetMajorVersion;
 
     /**
+     * @description The ID of the upgrade check task.
+     *
+     * @example 416980000
+     *
      * @var int
      */
     public $taskId;

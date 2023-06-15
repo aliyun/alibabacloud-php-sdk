@@ -9,121 +9,266 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPolicyResponseBody extends Model
 {
     /**
+     * @description The number of archived backup files that are retained.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $archiveBackupKeepCount;
 
     /**
+     * @description The cycle based on which archived backup files are retained.
+     *
+     * @example ByMonth
+     *
      * @var string
      */
     public $archiveBackupKeepPolicy;
 
     /**
+     * @description The number of days for which archived backup files are retained.
+     *
+     * @example 365
+     *
      * @var string
      */
     public $archiveBackupRetentionPeriod;
 
     /**
+     * @description The backup interval. Unit: minutes.
+     *
+     *   If the instance runs MySQL, the interval is the same as the value of the Snapshot Backup Start Time parameter rather than the Snapshot Backup Period parameter in the ApsaraDB RDS console. For more information, see [Back up an ApsaraDB RDS for MySQL instance](~~98818~~).
+     *   If the instance runs SQL Server, the interval is the same as the log backup frequency.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $backupInterval;
 
     /**
+     * @description Indicates whether the log backup feature is enabled. Valid values:
+     *
+     *   **Enable**
+     *   **Disabled**
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $backupLog;
 
     /**
+     * @description The backup method of the instance. Valid values:
+     *
+     *   **Physical**: physical backup
+     *   **Snapshot**: snapshot backup
+     *
+     * > This parameter is returned only when the instance runs SQL Server and uses cloud disks.
+     * @example Physical
+     *
      * @var string
      */
     public $backupMethod;
 
     /**
+     * @description The number of days for which data backup files are retained.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $backupRetentionPeriod;
 
     /**
+     * @description Indicates whether to enable the single-digit second backup feature. This feature allows ApsaraDB RDS to complete a backup within single-digit seconds. Valid values:
+     *
+     *   **Flash**: The single-digit second backup feature is enabled.
+     *   **Standard**: The single-digit second backup feature is disabled.
+     *
+     * > This parameter takes effect only when you set the **BackupPolicyMode** parameter to **DataBackupPolicy**.
+     * @example Standard
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The method that is used to compress backup data. Valid values:
+     *
+     *   **0**: Backup data is not compressed.
+     *   **1**: Backup data is compressed by using zlib.
+     *   **2**: Backup data is compressed by using zlib that invokes more than one thread in parallel for each backup.
+     *   **4**: Backup data is compressed by using QuickLZ and can be used to restore individual databases and tables.
+     *   **8**: Backup data is compressed by using QuickLZ but cannot be used to restore individual databases or tables. This value is available only when the instance runs MySQL 8.0.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $compressType;
 
     /**
+     * @description Indicates whether the log backup feature is enabled. Valid values:
+     *
+     *   **1**: The log backup feature is enabled.
+     *   **0**: The log backup feature is disabled.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $enableBackupLog;
 
     /**
+     * @description Indicates whether incremental backup is enabled. Valid values:
+     *
+     *   **True**: Incremental backup is enabled.
+     *   **False**: Incremental backup is disabled.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $enableIncrementDataBackup;
 
     /**
+     * @description Indicates whether the log backup deletion feature is enabled. If the disk usage exceeds 80% or the remaining disk space is less than 5 GB on the instance, this feature deletes binary log files. Valid values:
+     *
+     *   **Disable**
+     *   **Enable**
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $highSpaceUsageProtection;
 
     /**
+     * @description The number of hours for which log backup files are retained on the instance.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $localLogRetentionHours;
 
     /**
+     * @description The maximum storage usage that is allowed for log files on the instance.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $localLogRetentionSpace;
 
     /**
+     * @description The backup frequency of logs. Valid values:
+     *
+     *   **LogInterval**: Log backups are performed every 30 minutes.
+     *   Default value: same as the value of the **PreferredBackupPeriod** parameter.
+     *
+     * > The **LogBackupFrequency** parameter is supported only when the instance runs **SQL Server**.
+     * @example LogInterval
+     *
      * @var string
      */
     public $logBackupFrequency;
 
     /**
+     * @description The number of binary log files that you want to retain on the instance.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $logBackupLocalRetentionNumber;
 
     /**
+     * @description The number of days for which log backup files are retained.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $logBackupRetentionPeriod;
 
     /**
+     * @description The cycle based on which you want to perform a backup. Separate multiple values with commas (,). Valid values:
+     *
+     *   **Monday**
+     *   **Tuesday**
+     *   **Wednesday**
+     *   **Thursday**
+     *   **Friday**
+     *   **Saturday**
+     *   **Sunday**
+     *
+     * @example Monday,Wednesday,Friday,Sunday
+     *
      * @var string
      */
     public $preferredBackupPeriod;
 
     /**
+     * @description The time when a data backup is performed. The time follows the ISO 8601 standard in the *HH:mm*Z-*HH:mm*Z format. The time is displayed in UTC.
+     *
+     * @example 15:00Z-16:00Z
+     *
      * @var string
      */
     public $preferredBackupTime;
 
     /**
+     * @description The time when the next backup is performed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     *
+     * @example 2018-01-19T15:15Z
+     *
      * @var string
      */
     public $preferredNextBackupTime;
 
     /**
+     * @description The policy that is used to retain archived backup files if the instance is released. Valid values:
+     *
+     *   **None**: No archived backup files are retained.
+     *   **Lastest**: Only the last archived backup file is retained.
+     *   **All**: All archived backup files are retained.
+     *
+     * @example None
+     *
      * @var string
      */
     public $releasedKeepPolicy;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B87E2AB3-B7C9-4394-9160-7F639F732031
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description A reserved parameter.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $supportReleasedKeep;
 
     /**
+     * @description Indicates whether the instance supports snapshot backups. Valid values:
+     *
+     *   **1**: The instance supports snapshot backups.
+     *   **0**: The instance does not support snapshot backups.
+     *
+     * > This parameter is returned only when the instance runs SQL Server.
+     * @example 1
+     *
      * @var int
      */
     public $supportVolumeShadowCopy;

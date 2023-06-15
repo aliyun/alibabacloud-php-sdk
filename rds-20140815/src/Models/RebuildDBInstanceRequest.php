@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RebuildDBInstanceRequest extends Model
 {
     /**
+     * @description The ID of the primary instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the dedicated cluster. You can call the [DescribeDedicatedHostGroups](~~141946~~) operation to query the IDs of dedicated clusters.
+     *
+     * @example dhg-4nxxxxxxx
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @description The ID of the host on which the system rebuilds the secondary instance.
+     *
+     * >  If you do not specify this parameter, the system preferentially rebuilds the secondary instance on the original host on which the secondary instance resides. If the remaining storage space of the original host is insufficient, the system rebuilds the secondary instance on a host on which the primary instance does not reside. If no suitable hosts are found, the system reports an error that indicates insufficient storage space.
+     * @example i-bpxxxxxxx
+     *
      * @var string
      */
     public $dedicatedHostId;
@@ -29,11 +42,22 @@ class RebuildDBInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The role of the secondary instance that you want to rebuild. Valid values:
+     *
+     *   **FOLLOWER**: secondary instance
+     *   **LOG**: logger instance
+     *
+     * @example FOLLOWER
+     *
      * @var string
      */
     public $rebuildNodeType;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

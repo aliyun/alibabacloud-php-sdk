@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogsRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The name of the database that you want to query.
+     *
+     * @example RDS_MySQL
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. The time span between the start time and the end time cannot exceed 31 days. Specify the time in the *yyyy-MM-dd*Z format. The time must be in UTC.
+     *
+     * @example 2011-05-30Z
+     *
      * @var string
      */
     public $endTime;
@@ -34,11 +46,20 @@ class DescribeSlowLogsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **30** to **100**. Default value: **30**.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -54,11 +75,25 @@ class DescribeSlowLogsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The dimension based on which ApsaraDB RDS sorts the returned entries. Valid values:
+     *
+     *   **TotalExecutionCounts**: ApsaraDB RDS sorts the returned entries based on the total number of SQL statements that are executed.
+     *   **TotalQueryTimes**: ApsaraDB RDS sorts the returned entries based on the total execution duration.
+     *   **TotalLogicalReads**: ApsaraDB RDS sorts the returned entries based on the total number of logical reads.
+     *   **TotalPhysicalReads**: ApsaraDB RDS sorts the returned entries based on the total number of physical reads.
+     *
+     * >  This parameter is supported only for instances that run SQL Server 2008 R2.
+     * @example TotalExecutionCounts
+     *
      * @var string
      */
     public $sortKey;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*Z format. The time must be in UTC.
+     *
+     * @example 2011-05-01Z
+     *
      * @var string
      */
     public $startTime;

@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrossRegionBackupsRequest extends Model
 {
     /**
+     * @description The ID of the cross-region data backup file.
+     *
+     * @example 603524***
+     *
      * @var int
      */
     public $backupId;
 
     /**
+     * @description The ID of the cross-region data backup file.
+     *
+     * >  You must specify the **CrossBackupId** parameter. Alternatively, you must specify the **StartTime** and **EndTime** parameters.
+     * @example 14562
+     *
      * @var int
      */
     public $crossBackupId;
 
     /**
+     * @description The ID of the destination region where the cross-region data backup file is stored.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $crossBackupRegion;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2019-06-15T12:10:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -39,21 +60,43 @@ class DescribeCrossRegionBackupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * Default value: 30.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -69,6 +112,10 @@ class DescribeCrossRegionBackupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2019-05-30T12:10:00Z
+     *
      * @var string
      */
     public $startTime;

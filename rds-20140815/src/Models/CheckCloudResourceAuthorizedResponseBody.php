@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class CheckCloudResourceAuthorizedResponseBody extends Model
 {
     /**
+     * @description The authorization status. Valid values:
+     *
+     *   **1**: authorized
+     *   **0**: not authorized
+     *
+     * @example 1
+     *
      * @var int
      */
     public $authorizationState;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8B993DA9-5272-5414-94E3-4CA8BA0146C2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role. A RAM role is a virtual identity that you can create within your Alibaba Cloud account. For more information, see [RAM role overview](~~93689~~).
+     *
+     * >  This parameter is available only when the instance runs MySQL.
+     * @example acs:ram::1406926****:role/aliyunrdsinstanceencryptiondefaultrole
+     *
      * @var string
      */
     public $roleArn;

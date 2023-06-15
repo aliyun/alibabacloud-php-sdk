@@ -10,26 +10,45 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesByExpireTimeResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details about the instances.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page. Valid values: any **non-zero** positive integer.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of instances returned on the current page.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $totalRecordCount;

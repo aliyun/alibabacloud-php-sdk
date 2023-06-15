@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListUserBackupFilesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the information about the full backup files that are returned.
+     *
      * @var records[]
      */
     public $records;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example AD67C22F-64F3-4448-A9A8-D1606D242879
+     *
      * @var string
      */
     public $requestId;

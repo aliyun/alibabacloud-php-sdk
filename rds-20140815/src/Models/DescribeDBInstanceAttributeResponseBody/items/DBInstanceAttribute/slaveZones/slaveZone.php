@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class slaveZone extends Model
 {
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $zoneId;

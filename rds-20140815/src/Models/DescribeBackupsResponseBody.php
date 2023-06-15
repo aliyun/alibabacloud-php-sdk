@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details of the returned backup sets.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of backup sets on the current page.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1A6D328C-84B8-40DC-BF49-6C73984D7494
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The size of the snapshot chain of the instance. Unit: bytes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $totalEcsSnapshotSize;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $totalRecordCount;

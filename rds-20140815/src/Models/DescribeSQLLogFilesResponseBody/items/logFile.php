@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class logFile extends Model
 {
     /**
+     * @description The name of the audit log file.
+     *
+     * @example custinsxxxxx.csv
+     *
      * @var string
      */
     public $fileID;
 
     /**
+     * @description The download URL of the audit log file. If the audit log file cannot be downloaded, this parameter is null.
+     *
+     * @example http://rdslog-hz-v3.oss-cn-hangzhou.aliyuncs.com/xxxxx
+     *
      * @var string
      */
     public $logDownloadURL;
 
     /**
+     * @description The time at which the last SQL statement recorded in the audit log file was executed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2015-05-24T07:00:00Z
+     *
      * @var string
      */
     public $logEndTime;
 
     /**
+     * @description The size of the audit log file. Unit: bytes.
+     *
+     * @example 3000
+     *
      * @var string
      */
     public $logSize;
 
     /**
+     * @description The time at which the first SQL statement recorded in the audit log file was executed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2015-05-23T07:00:00Z
+     *
      * @var string
      */
     public $logStartTime;
 
     /**
+     * @description The status of the audit log file. Valid values:
+     *
+     *   **Success**
+     *   **Failed**
+     *   **Generating**
+     *
+     * @example Success
+     *
      * @var string
      */
     public $logStatus;

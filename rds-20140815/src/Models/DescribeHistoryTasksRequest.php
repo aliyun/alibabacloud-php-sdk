@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeHistoryTasksRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $fromExecTime;
 
     /**
+     * @example 2022-01-02T11:31:03Z
+     *
      * @var string
      */
     public $fromStartTime;
@@ -24,6 +28,8 @@ class DescribeHistoryTasksRequest extends Model
     public $instanceId;
 
     /**
+     * @example Instance
+     *
      * @var string
      */
     public $instanceType;
@@ -31,17 +37,45 @@ class DescribeHistoryTasksRequest extends Model
     /**
      * @var int
      */
+    public $ownerId;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @example rg-aekzbvctytru7ua
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
 
     /**
      * @var string
@@ -64,28 +98,36 @@ class DescribeHistoryTasksRequest extends Model
     public $taskType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $toExecTime;
 
     /**
+     * @example 2022-03-02T11:31:03Z
+     *
      * @var string
      */
     public $toStartTime;
     protected $_name = [
-        'fromExecTime'  => 'FromExecTime',
-        'fromStartTime' => 'FromStartTime',
-        'instanceId'    => 'InstanceId',
-        'instanceType'  => 'InstanceType',
-        'pageNumber'    => 'PageNumber',
-        'pageSize'      => 'PageSize',
-        'regionId'      => 'RegionId',
-        'securityToken' => 'SecurityToken',
-        'status'        => 'Status',
-        'taskId'        => 'TaskId',
-        'taskType'      => 'TaskType',
-        'toExecTime'    => 'ToExecTime',
-        'toStartTime'   => 'ToStartTime',
+        'fromExecTime'         => 'FromExecTime',
+        'fromStartTime'        => 'FromStartTime',
+        'instanceId'           => 'InstanceId',
+        'instanceType'         => 'InstanceType',
+        'ownerId'              => 'OwnerId',
+        'pageNumber'           => 'PageNumber',
+        'pageSize'             => 'PageSize',
+        'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
+        'securityToken'        => 'SecurityToken',
+        'status'               => 'Status',
+        'taskId'               => 'TaskId',
+        'taskType'             => 'TaskType',
+        'toExecTime'           => 'ToExecTime',
+        'toStartTime'          => 'ToStartTime',
     ];
 
     public function validate()
@@ -107,6 +149,9 @@ class DescribeHistoryTasksRequest extends Model
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -115,6 +160,15 @@ class DescribeHistoryTasksRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
@@ -158,6 +212,9 @@ class DescribeHistoryTasksRequest extends Model
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -166,6 +223,15 @@ class DescribeHistoryTasksRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];

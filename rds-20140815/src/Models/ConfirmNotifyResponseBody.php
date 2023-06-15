@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ConfirmNotifyResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6919FA39-04CF-571F-A6B0-DCC7AECB4170
+     *
      * @var string
      */
     public $requestId;

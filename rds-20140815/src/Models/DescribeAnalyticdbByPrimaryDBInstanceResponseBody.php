@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeAnalyticdbByPrimaryDBInstanceResponseBody extends Model
 {
     /**
+     * @description The number of associated analytic instances.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $analyticDBCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 77862BFF-ED59-552A-A2E8-692FEAFC9527
+     *
      * @var string
      */
     public $requestId;

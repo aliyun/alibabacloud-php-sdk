@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBInstanceResponseBody extends Model
 {
     /**
+     * @example ap-southeast-1
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 65BDA532-28AF-4122-AA39-B382721EEE64
+     *
      * @var string
      */
     public $requestId;

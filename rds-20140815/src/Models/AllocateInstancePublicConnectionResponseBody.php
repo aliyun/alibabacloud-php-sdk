@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class AllocateInstancePublicConnectionResponseBody extends Model
 {
     /**
+     * @description The endpoint of the instance.
+     *
+     * @example test*****.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-bp1*****
+     *
      * @var string
      */
     public $dbInstanceName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 65BDA532-28AF-4122-AA39-B382721EEE64
+     *
      * @var string
      */
     public $requestId;

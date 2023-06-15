@@ -11,79 +11,186 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @var string
      */
+    public $category;
+
+    /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCzxxxxxxx
+     *
+     * @var string
+     */
     public $clientToken;
 
     /**
+     * @description The connection mode of the instance. Valid values:
+     *
+     *   **Standard**: standard mode
+     *   **Safe**: database proxy mode
+     *
+     * By default, this operation queries the instances that use any of the supported connection modes.
+     * @example Standard
+     *
      * @var string
      */
     public $connectionMode;
 
     /**
+     * @description The endpoint of the instance. You must specify this parameter only when you want to query a single instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx.mysql.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The instance type of the instance. For information, see [Primary ApsaraDB RDS instance types](~~26312~~).
+     *
+     * @example rds.mys2.small
+     *
      * @var string
      */
     public $DBInstanceClass;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The status of the instance. For more information, see [Instance states](~~26315~~).
+     *
+     * @example Running
+     *
      * @var string
      */
     public $DBInstanceStatus;
 
     /**
+     * @description The role of the instance. Valid values:
+     *
+     *   **Primary**: primary instance
+     *   **Readonly**: read-only instance
+     *   **Guard**: disaster recovery instance
+     *   **Temp**: temporary instance
+     *
+     * By default, this operation returns the instances that assume any of the supported roles.
+     * @example Primary
+     *
      * @var string
      */
     public $DBInstanceType;
 
     /**
+     * @description The ID of the dedicated cluster.
+     *
+     * @example dhg-7a9xxxxxxxx
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @description The host ID of the instance in the dedicated cluster.
+     *
+     * @example i-bpxxxxxxx
+     *
      * @var string
      */
     public $dedicatedHostId;
 
     /**
+     * @description The database engine of the instance. Valid values:
+     *
+     *   **MySQL**
+     *   **SQLServer**
+     *   **PostgreSQL**
+     *   **MariaDB**
+     *
+     * By default, this operation returns the instances that run any of the supported database engines.
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance.
+     *
+     * @example 5.7
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description Specifies whether to query instances that have expired. Valid values:
+     *
+     *   **True**: queries instances that have expired.
+     *   **False**: does not query instances that have expired.
+     *
+     * @example True
+     *
      * @var string
      */
     public $expired;
 
     /**
+     * @description 实例过滤条件参数及其值的JSON串
+     *
+     * @example {"babelfishEnabled":"true"}
+     *
+     * @var string
+     */
+    public $filter;
+
+    /**
+     * @description Specifies whether to return the RDS edition of the instance by using the Category parameter. Valid values:
+     *
+     *   **0**: returns the RDS edition of the instance.
+     *   **1**: does not return the RDS edition of the instance.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $instanceLevel;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **VPC**
+     *   **Classic**
+     *
+     * By default, this operation returns the instances that reside in any of the supported network types.
+     * @example Classic
+     *
      * @var string
      */
     public $instanceNetworkType;
 
     /**
+     * @description The number of entries to return per page. Valid values: **1 to 100**.
+     *
+     * Default value: **30**.
+     *
+     * > If you specify this parameter, **PageSize** and **PageNumber** are unavailable.
+     * @example 30
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to display the next page. You must set this parameter to the value that is returned from the most recent call of the **DescribeDBInstances** operation for **NextToken**. If the returned entries are displayed on multiple pages, the next page can be displayed when you call this operation again with this parameter specified.
+     *
+     * @example o7PORW5o2TJg**********
+     *
      * @var string
      */
     public $nextToken;
@@ -99,26 +206,51 @@ class DescribeDBInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **100**.
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go
+     *   **Prepaid**: subscription
+     *
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmyxxxxx
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -134,35 +266,60 @@ class DescribeDBInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The keyword that is used for fuzzy search. The keyword can be part of an instance ID or an instance description.
+     *
+     * @example rm-uf6w
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @description The tag that is added to the instance. Each tag is a key-value pair that consists of two fields: TagKey and TagValue. You can specify a maximum of five tags in the following format for each request: {"key1":"value1","key2":"value2"...}.
+     *
+     * @example {"key1":"value1"}
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The vSwitch ID of the instance.
+     *
+     * @example vsw-uf6adz52c2pxxxxxxxxxx
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The VPC ID of the instance.
+     *
+     * @example vpc-uf6f7l4fg90xxxxxxxxxx
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @description The ID of the proxy mode.
+     *
+     * @example API
+     *
      * @var string
      */
     public $proxyId;
     protected $_name = [
+        'category'             => 'Category',
         'clientToken'          => 'ClientToken',
         'connectionMode'       => 'ConnectionMode',
         'connectionString'     => 'ConnectionString',
@@ -175,6 +332,7 @@ class DescribeDBInstancesRequest extends Model
         'engine'               => 'Engine',
         'engineVersion'        => 'EngineVersion',
         'expired'              => 'Expired',
+        'filter'               => 'Filter',
         'instanceLevel'        => 'InstanceLevel',
         'instanceNetworkType'  => 'InstanceNetworkType',
         'maxResults'           => 'MaxResults',
@@ -203,6 +361,9 @@ class DescribeDBInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->category) {
+            $res['Category'] = $this->category;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -238,6 +399,9 @@ class DescribeDBInstancesRequest extends Model
         }
         if (null !== $this->expired) {
             $res['Expired'] = $this->expired;
+        }
+        if (null !== $this->filter) {
+            $res['Filter'] = $this->filter;
         }
         if (null !== $this->instanceLevel) {
             $res['InstanceLevel'] = $this->instanceLevel;
@@ -308,6 +472,9 @@ class DescribeDBInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Category'])) {
+            $model->category = $map['Category'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -343,6 +510,9 @@ class DescribeDBInstancesRequest extends Model
         }
         if (isset($map['Expired'])) {
             $model->expired = $map['Expired'];
+        }
+        if (isset($map['Filter'])) {
+            $model->filter = $map['Filter'];
         }
         if (isset($map['InstanceLevel'])) {
             $model->instanceLevel = $map['InstanceLevel'];

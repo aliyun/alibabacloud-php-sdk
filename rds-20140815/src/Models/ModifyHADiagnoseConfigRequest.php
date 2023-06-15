@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyHADiagnoseConfigRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -19,6 +23,10 @@ class ModifyHADiagnoseConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +42,13 @@ class ModifyHADiagnoseConfigRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The availability check method of the instance. Valid values:
+     *
+     *   **SHORT**: Alibaba Cloud uses short-lived connections to check the availability of the instance.
+     *   **LONG**: Alibaba Cloud uses persistent connections to check the availability of the instance.
+     *
+     * @example SHORT
+     *
      * @var string
      */
     public $tcpConnectionType;

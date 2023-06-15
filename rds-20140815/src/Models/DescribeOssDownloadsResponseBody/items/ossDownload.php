@@ -9,41 +9,90 @@ use AlibabaCloud\Tea\Model;
 class ossDownload extends Model
 {
     /**
+     * @description The backup type. Valid values:
+     *
+     *   **Database**: full backup file
+     *   **Differential_Database**: incremental backup file
+     *   **Transaction_Log**: log backup file
+     *
+     * @example Database
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @description The time when the backup file was created in the download list. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-08-17T12:45:15Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The description of the file.
+     *
+     * @example App description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The end of the time range. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2017-08-27T12:45:15Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The name of the backup file stored in the Object Storage Service (OSS) bucket.
+     *
+     * @example test
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description The size of the backup file. Unit: MB
+     *
+     * @example 2
+     *
      * @var string
      */
     public $fileSize;
 
     /**
+     * @description Indicates whether the backup file is available. Valid values: **True and False**.
+     *
+     * @example True
+     *
      * @var string
      */
     public $isAvailable;
 
     /**
+     * @description The state of the backup file. Valid values:
+     *
+     *   **NoStart**:
+     *   **Downloading**
+     *   **Finished**
+     *   **DownloadFailed**
+     *   **VerifyFailed**
+     *   **Deleted**
+     *   **DeleteFailed**
+     *   **CheckSuccess**
+     *   **CheckFailed**
+     *   **Restoring**
+     *   **Restored**
+     *   **RestoredFailed**
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $status;

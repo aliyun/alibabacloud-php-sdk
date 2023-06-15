@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeMigrateTaskByIdRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-bp11e1tzgxxxx4ox
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the migration task. You can call the [DescribeMigrateTasks](~~64563~~) operation to query the ID of the migration task.
+     *
+     * @example 235943
+     *
      * @var string
      */
     public $migrateTaskId;
@@ -24,6 +32,10 @@ class DescribeMigrateTaskByIdRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;

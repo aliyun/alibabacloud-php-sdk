@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBProxyPerformanceResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example lsmexxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description An internal parameter. You do not need to specify this parameter.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $DBProxyEngineType;
 
     /**
+     * @description The end of the time range that is queried.
+     *
+     * @example 2019-09-21T18:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description An array that consists of the performance metrics that are returned.
+     *
      * @var performanceKeys
      */
     public $performanceKeys;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DD31056F-A0CE-41D7-AD39-689B6ABAE982
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range that is queried.
+     *
+     * @example 2019-09-19T01:00:00Z
+     *
      * @var string
      */
     public $startTime;

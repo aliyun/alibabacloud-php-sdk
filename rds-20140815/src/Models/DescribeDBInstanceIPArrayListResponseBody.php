@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceIPArrayListResponseBody extends Model
 {
     /**
+     * @description An array that consists of the details of the IP address whitelists.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E2B6AF71-DC32-4055-B477-43B348798D10
+     *
      * @var string
      */
     public $requestId;

@@ -10,116 +10,240 @@ use AlibabaCloud\Tea\Model;
 class backup extends Model
 {
     /**
+     * @description An array consisting of URLs from which you can download backup sets of individual databases.
+     *
      * @var backupDownloadLinkByDB
      */
     public $backupDownloadLinkByDB;
 
     /**
+     * @description The URL that is used to download the backup set over the Internet. If the backup set cannot be downloaded, null is returned.
+     *
+     * > For example, if BackupMethod of an ApsaraDB RDS for SQL Server instance is set to **Snapshot**, a null string is returned.
+     * @example http://rdsbak-hz-v3.oss-cn-hangzhou.aliyuncs.com/xxxxx
+     *
      * @var string
      */
     public $backupDownloadURL;
 
     /**
+     * @description The end time of the backup task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-02-13T12:20:00Z
+     *
      * @var string
      */
     public $backupEndTime;
 
     /**
+     * @description The ID of the backup set.
+     *
+     * @example 321020562
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The initiator of the backup task. Valid values:
+     *
+     *   **System**
+     *   **User**
+     *
+     * @example System
+     *
      * @var string
      */
     public $backupInitiator;
 
     /**
+     * @description The URL that is used to download the backup set over an internal network. If the backup set cannot be downloaded, null is returned.
+     *
+     * > For example, if BackupMethod of an ApsaraDB RDS for SQL Server instance is set to **Snapshot**, a null string is returned.
+     * @example http://rdsbak-hz-v3.oss-cn-hangzhou-internal.aliyuncs.com/xxxxx
+     *
      * @var string
      */
     public $backupIntranetDownloadURL;
 
     /**
+     * @description The method that is used to generate the backup set. Valid values:
+     *
+     *   **Logical**: logical backup
+     *   **Physical**: physical backup
+     *   **Snapshot**: snapshot backup
+     *
+     * @example Physical
+     *
      * @var string
      */
     public $backupMethod;
 
     /**
+     * @description The backup mode of the backup set. Valid values:
+     *
+     *   **Automated**
+     *   **Manual**
+     *
+     * @example Automated
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @description The backup size. Unit: bytes.
+     *
+     * @example 2167808
+     *
      * @var int
      */
     public $backupSize;
 
     /**
+     * @description The start time of the backup task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-02-03T12:20:00Z
+     *
      * @var string
      */
     public $backupStartTime;
 
     /**
+     * @description The status of the backup set.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $backupStatus;
 
     /**
+     * @description The backup type of the backup set. Valid values:
+     *
+     *   **FullBackup**: full backup
+     *   **IncrementalBackup**: incremental backup
+     *
+     * @example FullBackup
+     *
      * @var string
      */
     public $backupType;
 
     /**
+     * @description The checksum. The value of this parameter is calculated by using the CRC64 algorithm.
+     *
+     * @example 1835830439**********
+     *
      * @var string
      */
     public $checksum;
 
     /**
+     * @description The point in time at which the data in the backup set is consistent. The return value of this parameter is a timestamp.
+     *
+     * > If the instance runs MySQL 5.6, a timestamp is returned. Otherwise, the value 0 is returned.
+     * @example 1576506856
+     *
      * @var int
      */
     public $consistentTime;
 
     /**
+     * @description The backup mode of the backup set. Valid values:
+     *
+     *   0: the standard mode. This mode supports full backups and incremental backups.
+     *   1: the copy-only mode. This mode supports only full backups.
+     *
+     * > This parameter is returned only when the instance runs SQL Server.
+     * @example 0
+     *
      * @var string
      */
     public $copyOnlyBackup;
 
     /**
+     * @description The ID of the instance
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The encryption information about the backup set.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $encryption;
 
     /**
+     * @description The No. of the instance that generates the backup set. This parameter is used to indicate whether the instance that generates the backup set is a primary instance or a secondary instance.
+     *
+     * @example 5882781
+     *
      * @var string
      */
     public $hostInstanceID;
 
     /**
+     * @description Indicates whether the backup set is available. Valid values:
+     *
+     *   **0**: The backup set is unavailable.
+     *   **1**: The backup set is available.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $isAvail;
 
     /**
+     * @description The status of the backup set that is used to restore individual databases or tables. Valid values:
+     *
+     *   **OK**: The backup set is normal.
+     *   **LARGE**: The backup set contains an abnormally large number of tables. It cannot be used to restore individual databases or tables.
+     *   **EMPTY**: The backup set is generated from a failed backup task.
+     *
+     * > If an empty string is returned, the backup set cannot be used to restore individual databases or tables.
+     * @example OK
+     *
      * @var string
      */
     public $metaStatus;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The storage class of the backup set. Valid values:
+     *
+     *   **0**: regular storage
+     *   **1**: archive storage
+     *
+     * @example 0
+     *
      * @var string
      */
     public $storageClass;
 
     /**
+     * @description Indicates whether the backup set can be deleted. Valid values:
+     *
+     *   **Enabled**: The backup set can be deleted.
+     *   **Disabled**: The backup set cannot be deleted.
+     *
+     * @example Disabled
+     *
      * @var string
      */
     public $storeStatus;

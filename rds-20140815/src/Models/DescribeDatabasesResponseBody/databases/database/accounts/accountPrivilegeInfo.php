@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class accountPrivilegeInfo extends Model
 {
     /**
+     * @description The username of the account.
+     *
+     * @example test
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @description The permissions that the account has on the database. Valid values:
+     *
+     *   **ReadWrite**: read and write permissions
+     *   **ReadOnly**: read-only permissions
+     *   **DMLOnly**: DML-only permissions
+     *   **DDLOnly**: DDL-only permissions
+     *
+     * @example DMLOnly
+     *
      * @var string
      */
     public $accountPrivilege;
 
     /**
+     * @description The details of the permissions that the account has on the database.
+     *
+     * @example SELECT
+     *
      * @var string
      */
     public $accountPrivilegeDetail;

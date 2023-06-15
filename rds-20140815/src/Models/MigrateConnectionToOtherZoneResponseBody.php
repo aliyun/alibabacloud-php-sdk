@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class MigrateConnectionToOtherZoneResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example InvalidParam
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error message.
+     *
+     * @example Invalid Parameter.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 65BDA532-28AF-4122-AA39-B382721EEE64
+     *
      * @var string
      */
     public $requestId;

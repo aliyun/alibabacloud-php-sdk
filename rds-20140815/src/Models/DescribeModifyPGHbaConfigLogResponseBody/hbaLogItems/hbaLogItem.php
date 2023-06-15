@@ -11,26 +11,46 @@ use AlibabaCloud\Tea\Model;
 class hbaLogItem extends Model
 {
     /**
+     * @description The configuration of the pg_hba.conf file after the modification was made.
+     *
      * @var afterHbaItems
      */
     public $afterHbaItems;
 
     /**
+     * @description The configuration of the pg_hba.conf file before the modification was made.
+     *
      * @var beforeHbaItems
      */
     public $beforeHbaItems;
 
     /**
+     * @description The status of the modification.
+     *
+     *   **success**: The modification is successful.
+     *   **failed**: The modification failed.
+     *   **setting**: The modification is being applied.
+     *
+     * @example success
+     *
      * @var string
      */
     public $modifyStatus;
 
     /**
+     * @description The time when the pg_hba.conf file was modified. The time is displayed in UTC.
+     *
+     * @example 2021-11-25T06:00:40Z
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The reason why the modification failed.
+     *
+     * @example null
+     *
      * @var string
      */
     public $statusReason;

@@ -9,31 +9,60 @@ use AlibabaCloud\Tea\Model;
 class ModifyDbProxyInstanceSslRequest extends Model
 {
     /**
+     * @description An internal parameter. You do not need to specify this parameter.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $DBProxyEngineType;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     *
+     * @example rm-t4n3axxxxx
+     *
      * @var string
      */
     public $dbInstanceId;
 
     /**
+     * @description The dedicated proxy endpoint of the instance.
+     *
+     * @example test123456.rwlb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $dbProxyConnectString;
 
     /**
+     * @description The ID of the proxy endpoint. You can call the [DescribeDBProxyEndpoint](~~140955~~) operation to query the ID of the proxy endpoint.
+     *
+     * @example ta9um4xxxxx
+     *
      * @var string
      */
     public $dbProxyEndpointId;
 
     /**
+     * @description The SSL configuration setting that you want to apply on the instance. Valid values:
+     *
+     *   0: disables SSL encryption.
+     *   1: enables SSL encryption or modifies the endpoint that requires SSL encryption.
+     *   2: updates the validity period of the SSL certificate.
+     *
+     * > This setting causes your instance to restart. Proceed with caution.
+     * @example 1
+     *
      * @var string
      */
     public $dbProxySslEnabled;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

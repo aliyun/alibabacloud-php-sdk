@@ -10,136 +10,255 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHostGroups extends Model
 {
     /**
+     * @description The policy based on which the system allocates resources in the dedicated cluster. Valid values:
+     *
+     *   **Evenly**: The system evenly allocates the resources to all the hosts in the dedicated cluster.
+     *   **Intensively**: The system preferentially allocates the resources to the heavily loaded hosts in the dedicated cluster.
+     *
+     * @example Evenly
+     *
      * @var string
      */
     public $allocationPolicy;
 
     /**
+     * @description The ID of the bastion host.
+     *
+     * @example bastionhost-cn-m7xxxxxxxx
+     *
      * @var string
      */
     public $bastionInstanceId;
 
     /**
+     * @description The percentage of allocated cores in the dedicated cluster. Unit: %.
+     *
+     * @example 25
+     *
      * @var float
      */
     public $cpuAllocateRation;
 
     /**
+     * @description The number of allocated cores in the dedicated cluster.
+     *
+     * @example 8
+     *
      * @var float
      */
     public $cpuAllocatedAmount;
 
     /**
+     * @description The core overcommitment ratio of the dedicated cluster. Unit: %. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
+     *
+     * @example 200
+     *
      * @var int
      */
     public $cpuAllocationRatio;
 
     /**
+     * @description The timestamp when the dedicated cluster was created.
+     *
+     * @example 1571125370000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The type of storage media that is used for the hosts in the dedicated cluster. Valid values:
+     *
+     *   **dhg_cloud_ssd**: standard or enhanced solid-state drive (SSD)
+     *   **dhg_local_ssd**: local SSD
+     *
+     * @example dhg_cloud_ssd
+     *
      * @var mixed[]
      */
     public $dedicatedHostCountGroupByHostType;
 
     /**
+     * @description The name of the dedicated cluster.
+     *
+     * @example testHostGroup
+     *
      * @var string
      */
     public $dedicatedHostGroupDesc;
 
     /**
+     * @description The ID of the dedicated cluster.
+     *
+     * @example dhg-7a9xxxxxxxx
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @description The percentage of allocated disk space in the dedicated cluster. Unit: %.
+     *
+     * @example 0.49
+     *
      * @var float
      */
     public $diskAllocateRation;
 
     /**
+     * @description The amount of allocated disk space in the dedicated cluster. Unit: GB.
+     *
+     * @example 200
+     *
      * @var float
      */
     public $diskAllocatedAmount;
 
     /**
+     * @description The disk overcommitment ratio of the dedicated cluster. Unit: %. For more information about the disk overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
+     *
+     * @example 200
+     *
      * @var int
      */
     public $diskAllocationRatio;
 
     /**
+     * @description The amount of used disk space in the dedicated cluster. Unit: GB.
+     *
+     * @example 20
+     *
      * @var float
      */
     public $diskUsedAmount;
 
     /**
+     * @description The disk usage of the dedicated cluster. Unit: %.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $diskUtility;
 
     /**
+     * @description The database engine that is run on the instances in the dedicated cluster.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The total number of hosts in the dedicated cluster.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $hostNumber;
 
     /**
+     * @description The policy based on which the system handles host failures. Valid values:
+     *
+     *   **Auto**: The system automatically replaces faulty hosts.
+     *   **Manual**: You must manually replace faulty hosts.
+     *
+     * @example Auto
+     *
      * @var string
      */
     public $hostReplacePolicy;
 
     /**
+     * @description The total number of instances in the dedicated cluster.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $instanceNumber;
 
     /**
+     * @description The percentage of allocated memory space in the dedicated cluster. Unit: %.
+     *
+     * @example 33.7
+     *
      * @var float
      */
     public $memAllocateRation;
 
     /**
+     * @description The amount of allocated memory space in the dedicated cluster.
+     *
+     * @example 16384
+     *
      * @var float
      */
     public $memAllocatedAmount;
 
     /**
+     * @description The memory overcommitment ratio of the dedicated cluster. Unit: %. For more information about the memory overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
+     *
+     * @example 90
+     *
      * @var int
      */
     public $memAllocationRatio;
 
     /**
+     * @description The amount of used memory space in the dedicated cluster. Unit: MB.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $memUsedAmount;
 
     /**
+     * @description The memory usage of the dedicated cluster. Unit: %.
+     *
+     * @example 0
+     *
      * @var float
      */
     public $memUtility;
 
     /**
+     * @description Indicates whether the operating system permissions of the hosts in the dedicated cluster can be granted. Valid values:
+     *
+     *   **0** or **null**: The permissions cannot be granted.
+     *   **1**: The permissions can be granted.
+     *   **3**: The permissions have been granted.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $openPermission;
 
     /**
+     * @description The name and ID of the dedicated cluster. The value of this parameter consists of two parts: the value of the **DedicatedHostGroupDesc** parameter and the value of the **DedicatedHostGroupId** parameter. Format: DedicatedHostGroupDesc/DedicatedHostGroupId.
+     *
+     * @example testHostGroup/dhg-7a9xxxxxxxx
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the dedicated cluster belongs.
+     *
+     * @example vpc-bp1oxxxxxx
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description A list of zones to which the hosts of the dedicated cluster belong.
+     *
      * @var zoneIDList
      */
     public $zoneIDList;

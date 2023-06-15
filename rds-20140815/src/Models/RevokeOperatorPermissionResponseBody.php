@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RevokeOperatorPermissionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 842B73C8-5776-4BD9-9872-69C8C46DD7D3
+     *
      * @var string
      */
     public $requestId;
