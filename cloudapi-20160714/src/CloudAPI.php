@@ -234,6 +234,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSignaturesByApiRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSignaturesByApiResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSignaturesRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSignaturesResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSummaryDataRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSummaryDataResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSystemParametersRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeSystemParametersResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeTrafficControlsByApiRequest;
@@ -6776,6 +6778,49 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSignaturesByApiWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeSummaryDataRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeSummaryDataResponse
+     */
+    public function describeSummaryDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSummaryData',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSummaryDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSummaryDataRequest $request
+     *
+     * @return DescribeSummaryDataResponse
+     */
+    public function describeSummaryData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSummaryDataWithOptions($request, $runtime);
     }
 
     /**
