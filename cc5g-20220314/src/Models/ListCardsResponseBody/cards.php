@@ -120,8 +120,6 @@ class cards extends Model
     public $spec;
 
     /**
-     * @example Available
-     *
      * @var string
      */
     public $status;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class subItems extends Model
 {
     /**
+     * @example CardStatus
+     *
      * @var string
      */
     public $subItem;
 
     /**
+     * @example Card status is real-time
+     *
      * @var string
      */
     public $subItemInfo;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $subItemStatus;

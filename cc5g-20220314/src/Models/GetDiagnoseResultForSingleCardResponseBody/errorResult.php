@@ -16,6 +16,8 @@ class errorResult extends Model
     public $errorDesc;
 
     /**
+     * @example CardStatus
+     *
      * @var string
      */
     public $errorItem;

@@ -16,8 +16,6 @@ class netLinks extends Model
     public $APN;
 
     /**
-     * @example 2022-3-15 22:20:00
-     *
      * @var string
      */
     public $createTime;
@@ -74,6 +72,13 @@ class netLinks extends Model
     public $status;
 
     /**
+     * @example Standard
+     *
+     * @var string
+     */
+    public $type;
+
+    /**
      * @var string[]
      */
     public $vSwitchs;
@@ -94,6 +99,7 @@ class netLinks extends Model
         'netLinkId'   => 'NetLinkId',
         'regionId'    => 'RegionId',
         'status'      => 'Status',
+        'type'        => 'Type',
         'vSwitchs'    => 'VSwitchs',
         'vpcId'       => 'VpcId',
     ];
@@ -131,6 +137,9 @@ class netLinks extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
         if (null !== $this->vSwitchs) {
             $res['VSwitchs'] = $this->vSwitchs;
@@ -176,6 +185,9 @@ class netLinks extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
         if (isset($map['VSwitchs'])) {
             if (!empty($map['VSwitchs'])) {

@@ -23,6 +23,8 @@ class FailCardsRequest extends Model
     public $dryRun;
 
     /**
+     * @example FailCards
+     *
      * @var string[]
      */
     public $iccids;

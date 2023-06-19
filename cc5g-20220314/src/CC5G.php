@@ -60,6 +60,8 @@ use AlibabaCloud\SDK\CC5G\V20220314\Models\ListAuthorizationRulesRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListAuthorizationRulesResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListBatchOperateCardsTasksRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListBatchOperateCardsTasksResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardDayUsagesRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardDayUsagesResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardsRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardsResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardUsagesRequest;
@@ -1579,6 +1581,46 @@ class CC5G extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listBatchOperateCardsTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCardDayUsagesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListCardDayUsagesResponse
+     */
+    public function listCardDayUsagesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCardDayUsages',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCardDayUsagesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCardDayUsagesRequest $request
+     *
+     * @return ListCardDayUsagesResponse
+     */
+    public function listCardDayUsages($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCardDayUsagesWithOptions($request, $runtime);
     }
 
     /**

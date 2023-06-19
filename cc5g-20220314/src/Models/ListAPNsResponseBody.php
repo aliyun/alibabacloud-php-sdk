@@ -29,8 +29,6 @@ class ListAPNsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description Id of the request
-     *
      * @example A175C091-3910-51AF-8D84-D5717B9B8D38
      *
      * @var string

@@ -30,8 +30,6 @@ class CreateWirelessCloudConnectorGroupRequest extends Model
     public $dryRun;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $name;
