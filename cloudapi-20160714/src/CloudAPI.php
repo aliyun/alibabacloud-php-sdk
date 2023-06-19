@@ -7893,6 +7893,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
+        if (!Utils::isUnset($request->supportSSE)) {
+            $query['SupportSSE'] = $request->supportSSE;
+        }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
         }

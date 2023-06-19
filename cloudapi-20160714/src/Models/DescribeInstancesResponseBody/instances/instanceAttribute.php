@@ -46,6 +46,11 @@ class instanceAttribute extends Model
     public $classicEgressAddress;
 
     /**
+     * @var string
+     */
+    public $connectCidrBlocks;
+
+    /**
      * @description VPC融合类型专享实例联通的用户VPC ID
      *
      * @example vpc-m5eo7khlb4h4f8y9egsdg
@@ -193,6 +198,16 @@ class instanceAttribute extends Model
     public $intranetSegments;
 
     /**
+     * @var string
+     */
+    public $maintainEndTime;
+
+    /**
+     * @var string
+     */
+    public $maintainStartTime;
+
+    /**
      * @description VPC融合类型专享实例连通的用户VPC内的网络信息
      *
      * @var networkInterfaceAttributes
@@ -282,6 +297,7 @@ class instanceAttribute extends Model
         'aclStatus'                  => 'AclStatus',
         'aclType'                    => 'AclType',
         'classicEgressAddress'       => 'ClassicEgressAddress',
+        'connectCidrBlocks'          => 'ConnectCidrBlocks',
         'connectVpcId'               => 'ConnectVpcId',
         'createdTime'                => 'CreatedTime',
         'dedicatedInstanceType'      => 'DedicatedInstanceType',
@@ -303,6 +319,8 @@ class instanceAttribute extends Model
         'instanceType'               => 'InstanceType',
         'internetEgressAddress'      => 'InternetEgressAddress',
         'intranetSegments'           => 'IntranetSegments',
+        'maintainEndTime'            => 'MaintainEndTime',
+        'maintainStartTime'          => 'MaintainStartTime',
         'networkInterfaceAttributes' => 'NetworkInterfaceAttributes',
         'regionId'                   => 'RegionId',
         'status'                     => 'Status',
@@ -339,6 +357,9 @@ class instanceAttribute extends Model
         }
         if (null !== $this->classicEgressAddress) {
             $res['ClassicEgressAddress'] = $this->classicEgressAddress;
+        }
+        if (null !== $this->connectCidrBlocks) {
+            $res['ConnectCidrBlocks'] = $this->connectCidrBlocks;
         }
         if (null !== $this->connectVpcId) {
             $res['ConnectVpcId'] = $this->connectVpcId;
@@ -402,6 +423,12 @@ class instanceAttribute extends Model
         }
         if (null !== $this->intranetSegments) {
             $res['IntranetSegments'] = $this->intranetSegments;
+        }
+        if (null !== $this->maintainEndTime) {
+            $res['MaintainEndTime'] = $this->maintainEndTime;
+        }
+        if (null !== $this->maintainStartTime) {
+            $res['MaintainStartTime'] = $this->maintainStartTime;
         }
         if (null !== $this->networkInterfaceAttributes) {
             $res['NetworkInterfaceAttributes'] = null !== $this->networkInterfaceAttributes ? $this->networkInterfaceAttributes->toMap() : null;
@@ -469,6 +496,9 @@ class instanceAttribute extends Model
         if (isset($map['ClassicEgressAddress'])) {
             $model->classicEgressAddress = $map['ClassicEgressAddress'];
         }
+        if (isset($map['ConnectCidrBlocks'])) {
+            $model->connectCidrBlocks = $map['ConnectCidrBlocks'];
+        }
         if (isset($map['ConnectVpcId'])) {
             $model->connectVpcId = $map['ConnectVpcId'];
         }
@@ -531,6 +561,12 @@ class instanceAttribute extends Model
         }
         if (isset($map['IntranetSegments'])) {
             $model->intranetSegments = $map['IntranetSegments'];
+        }
+        if (isset($map['MaintainEndTime'])) {
+            $model->maintainEndTime = $map['MaintainEndTime'];
+        }
+        if (isset($map['MaintainStartTime'])) {
+            $model->maintainStartTime = $map['MaintainStartTime'];
         }
         if (isset($map['NetworkInterfaceAttributes'])) {
             $model->networkInterfaceAttributes = networkInterfaceAttributes::fromMap($map['NetworkInterfaceAttributes']);

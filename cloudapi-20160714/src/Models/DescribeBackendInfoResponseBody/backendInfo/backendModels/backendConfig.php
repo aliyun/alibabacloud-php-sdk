@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels;
 
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\discoveryConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\eventBridgeConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\functionComputeConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeBackendInfoResponseBody\backendInfo\backendModels\backendConfig\mockConfig;
@@ -13,6 +14,11 @@ use AlibabaCloud\Tea\Model;
 
 class backendConfig extends Model
 {
+    /**
+     * @var discoveryConfig
+     */
+    public $discoveryConfig;
+
     /**
      * @var eventBridgeConfig
      */
@@ -57,6 +63,7 @@ class backendConfig extends Model
      */
     public $vpcConfig;
     protected $_name = [
+        'discoveryConfig'       => 'DiscoveryConfig',
         'eventBridgeConfig'     => 'EventBridgeConfig',
         'functionComputeConfig' => 'FunctionComputeConfig',
         'httpTargetHostName'    => 'HttpTargetHostName',
@@ -74,6 +81,9 @@ class backendConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->discoveryConfig) {
+            $res['DiscoveryConfig'] = null !== $this->discoveryConfig ? $this->discoveryConfig->toMap() : null;
+        }
         if (null !== $this->eventBridgeConfig) {
             $res['EventBridgeConfig'] = null !== $this->eventBridgeConfig ? $this->eventBridgeConfig->toMap() : null;
         }
@@ -110,6 +120,9 @@ class backendConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DiscoveryConfig'])) {
+            $model->discoveryConfig = discoveryConfig::fromMap($map['DiscoveryConfig']);
+        }
         if (isset($map['EventBridgeConfig'])) {
             $model->eventBridgeConfig = eventBridgeConfig::fromMap($map['EventBridgeConfig']);
         }

@@ -83,6 +83,11 @@ class ModifyApiGroupRequest extends Model
     public $securityToken;
 
     /**
+     * @var string
+     */
+    public $supportSSE;
+
+    /**
      * @example Key， Value
      *
      * @var tag[]
@@ -107,6 +112,7 @@ class ModifyApiGroupRequest extends Model
         'passthroughHeaders' => 'PassthroughHeaders',
         'rpcPattern'         => 'RpcPattern',
         'securityToken'      => 'SecurityToken',
+        'supportSSE'         => 'SupportSSE',
         'tag'                => 'Tag',
         'userLogConfig'      => 'UserLogConfig',
     ];
@@ -150,6 +156,9 @@ class ModifyApiGroupRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->supportSSE) {
+            $res['SupportSSE'] = $this->supportSSE;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -207,6 +216,9 @@ class ModifyApiGroupRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['SupportSSE'])) {
+            $model->supportSSE = $map['SupportSSE'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

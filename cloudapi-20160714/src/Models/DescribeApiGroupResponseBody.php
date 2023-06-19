@@ -200,6 +200,16 @@ class DescribeApiGroupResponseBody extends Model
     public $ipv6Status;
 
     /**
+     * @var string
+     */
+    public $migrationError;
+
+    /**
+     * @var string
+     */
+    public $migrationStatus;
+
+    /**
      * @description The last modification time (UTC) of the API group.
      *
      * @example 2016-08-01T06:54:32Z
@@ -325,6 +335,8 @@ class DescribeApiGroupResponseBody extends Model
         'instanceType'          => 'InstanceType',
         'instanceVipList'       => 'InstanceVipList',
         'ipv6Status'            => 'Ipv6Status',
+        'migrationError'        => 'MigrationError',
+        'migrationStatus'       => 'MigrationStatus',
         'modifiedTime'          => 'ModifiedTime',
         'passthroughHeaders'    => 'PassthroughHeaders',
         'regionId'              => 'RegionId',
@@ -408,6 +420,12 @@ class DescribeApiGroupResponseBody extends Model
         }
         if (null !== $this->ipv6Status) {
             $res['Ipv6Status'] = $this->ipv6Status;
+        }
+        if (null !== $this->migrationError) {
+            $res['MigrationError'] = $this->migrationError;
+        }
+        if (null !== $this->migrationStatus) {
+            $res['MigrationStatus'] = $this->migrationStatus;
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
@@ -519,6 +537,12 @@ class DescribeApiGroupResponseBody extends Model
         }
         if (isset($map['Ipv6Status'])) {
             $model->ipv6Status = $map['Ipv6Status'];
+        }
+        if (isset($map['MigrationError'])) {
+            $model->migrationError = $map['MigrationError'];
+        }
+        if (isset($map['MigrationStatus'])) {
+            $model->migrationStatus = $map['MigrationStatus'];
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
