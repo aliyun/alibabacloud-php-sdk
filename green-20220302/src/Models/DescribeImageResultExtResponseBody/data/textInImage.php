@@ -12,8 +12,14 @@ class textInImage extends Model
      * @var string[]
      */
     public $ocrDatas;
+
+    /**
+     * @var string[]
+     */
+    public $riskWords;
     protected $_name = [
-        'ocrDatas' => 'OcrDatas',
+        'ocrDatas'  => 'OcrDatas',
+        'riskWords' => 'RiskWords',
     ];
 
     public function validate()
@@ -25,6 +31,9 @@ class textInImage extends Model
         $res = [];
         if (null !== $this->ocrDatas) {
             $res['OcrDatas'] = $this->ocrDatas;
+        }
+        if (null !== $this->riskWords) {
+            $res['RiskWords'] = $this->riskWords;
         }
 
         return $res;
@@ -41,6 +50,11 @@ class textInImage extends Model
         if (isset($map['OcrDatas'])) {
             if (!empty($map['OcrDatas'])) {
                 $model->ocrDatas = $map['OcrDatas'];
+            }
+        }
+        if (isset($map['RiskWords'])) {
+            if (!empty($map['RiskWords'])) {
+                $model->riskWords = $map['RiskWords'];
             }
         }
 
