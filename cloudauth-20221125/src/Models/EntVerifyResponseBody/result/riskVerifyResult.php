@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class riskVerifyResult extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $found;

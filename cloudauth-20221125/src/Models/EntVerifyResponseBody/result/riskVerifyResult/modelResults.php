@@ -16,8 +16,6 @@ class modelResults extends Model
     public $modelName;
 
     /**
-     * @example 9999
-     *
      * @var string
      */
     public $result;

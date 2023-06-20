@@ -52,15 +52,11 @@ class EntVerifyRequest extends Model
     public $licenseNo;
 
     /**
-     * @example 3219893173829193227
-     *
      * @var string
      */
     public $merchantBizId;
 
     /**
-     * @example 432312421
-     *
      * @var string
      */
     public $merchantUserId;
@@ -73,8 +69,6 @@ class EntVerifyRequest extends Model
     public $riskModelVersion;
 
     /**
-     * @example BUSINESS_AUTHENTICITY_RANK
-     *
      * @var string
      */
     public $riskVerifyType;
