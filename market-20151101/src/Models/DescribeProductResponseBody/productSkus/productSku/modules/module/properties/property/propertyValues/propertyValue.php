@@ -14,31 +14,43 @@ class propertyValue extends Model
     public $displayName;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $max;
 
     /**
+     * @example 11
+     *
      * @var string
      */
     public $min;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $step;
 
     /**
+     * @example single_string
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example m-28e213e7t
+     *
      * @var string
      */
     public $value;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeProjectInfoResponseBody extends Model
 {
     /**
+     * @example ee3e1b3b-6c38-4bcf-be40-5a946cfda761
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class DescribeProjectInfoResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

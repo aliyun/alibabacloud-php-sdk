@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class instanceItem extends Model
 {
     /**
+     * @example {}
+     *
      * @var string
      */
     public $apiJson;
 
     /**
+     * @example {"frontEndUrl":"https://***.aliyun.com","password":"Sjtv***","adminUrl":"https://***.aiiyun.com","username":"aliyun***"}
+     *
      * @var string
      */
     public $appJson;
 
     /**
+     * @example 1570634021000
+     *
      * @var int
      */
     public $beganOn;
 
     /**
+     * @example 1570634021000
+     *
      * @var int
      */
     public $createdOn;
 
     /**
+     * @example 1570644021000
+     *
      * @var int
      */
     public $endOn;
@@ -39,31 +49,43 @@ class instanceItem extends Model
     public $extendJson;
 
     /**
+     * @example {"password":"***","ip":"118.31.***.41","innerIp":"118.31.***.41","region":"","username":"***","beianInfo":""}
+     *
      * @var string
      */
     public $hostJson;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $idaasJson;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $imageJson;
 
     /**
+     * @example 1551111111
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example 204211111111111
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example cmgj00**11
+     *
      * @var string
      */
     public $productCode;
@@ -74,16 +96,22 @@ class instanceItem extends Model
     public $productName;
 
     /**
+     * @example cmgj00**11-prepay
+     *
      * @var string
      */
     public $productSkuCode;
 
     /**
+     * @example APP
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @example OPENED
+     *
      * @var string
      */
     public $status;

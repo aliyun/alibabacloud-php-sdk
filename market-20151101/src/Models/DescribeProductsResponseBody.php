@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeProductsResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -25,11 +29,15 @@ class DescribeProductsResponseBody extends Model
     public $productItems;
 
     /**
+     * @example A077D99E-0C4D-421E-A5D4-F533F6657817
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 75
+     *
      * @var int
      */
     public $totalCount;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class extendInfo extends Model
 {
     /**
+     * @example -
+     *
      * @var int
      */
     public $accountQuantity;
 
     /**
+     * @example 190311111111****
+     *
      * @var int
      */
     public $aliUid;
 
     /**
+     * @example id***@**.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 129****1111
+     *
      * @var string
      */
     public $mobile;

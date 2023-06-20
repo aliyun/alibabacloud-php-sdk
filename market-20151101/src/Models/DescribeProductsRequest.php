@@ -15,11 +15,15 @@ class DescribeProductsRequest extends Model
     public $filter;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

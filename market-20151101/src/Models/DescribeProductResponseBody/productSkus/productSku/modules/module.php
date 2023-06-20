@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class module extends Model
 {
     /**
+     * @example img_id
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 248220
+     *
      * @var string
      */
     public $id;

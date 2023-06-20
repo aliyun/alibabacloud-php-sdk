@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class wangWang extends Model
 {
     /**
+     * @example 123
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @example ABC
+     *
      * @var string
      */
     public $userName;

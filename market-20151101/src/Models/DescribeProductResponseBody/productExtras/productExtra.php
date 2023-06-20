@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class productExtra extends Model
 {
     /**
+     * @example product_advantage
+     *
      * @var string
      */
     public $key;
@@ -19,11 +21,15 @@ class productExtra extends Model
     public $label;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $order;
 
     /**
+     * @example HTML
+     *
      * @var string
      */
     public $type;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class propertyValue extends Model
 {
     /**
+     * @example 12
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $max;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $min;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $step;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $value;

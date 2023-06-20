@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $allowRollbackNode;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoFinishNode;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $finalStepNo;
 
     /**
+     * @example 1588834325000
+     *
      * @var int
      */
     public $gmtExpired;
 
     /**
+     * @example 1588834325000
+     *
      * @var int
      */
     public $gmtFinished;
 
     /**
+     * @example 1588834325000
+     *
      * @var int
      */
     public $gmtStart;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needAttachment;
 
     /**
+     * @example 8472
+     *
      * @var int
      */
     public $nextNodeId;
 
     /**
+     * @example 8471
+     *
      * @var int
      */
     public $nodeId;
@@ -59,26 +77,36 @@ class result extends Model
     public $nodeName;
 
     /**
+     * @example Finish
+     *
      * @var string
      */
     public $nodeStatus;
 
     /**
+     * @example System
+     *
      * @var string
      */
     public $operatorRole;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $parentNodeId;
 
     /**
+     * @example 8470
+     *
      * @var int
      */
     public $previousNodeId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $stepNo;

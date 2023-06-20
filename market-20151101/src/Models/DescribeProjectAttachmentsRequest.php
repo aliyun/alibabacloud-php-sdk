@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeProjectAttachmentsRequest extends Model
 {
     /**
+     * @example 4****89
+     *
      * @var string
      */
     public $instanceId;

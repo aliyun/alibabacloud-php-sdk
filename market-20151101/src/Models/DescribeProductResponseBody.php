@@ -17,16 +17,22 @@ class DescribeProductResponseBody extends Model
     public $auditFailMsg;
 
     /**
+     * @example function_fail
+     *
      * @var string
      */
     public $auditStatus;
 
     /**
+     * @example 1581609600000
+     *
      * @var int
      */
     public $auditTime;
 
     /**
+     * @example cmjj01**45
+     *
      * @var string
      */
     public $code;
@@ -37,16 +43,22 @@ class DescribeProductResponseBody extends Model
     public $description;
 
     /**
+     * @example 523617212
+     *
      * @var int
      */
     public $frontCategoryId;
 
     /**
+     * @example 1578931200000
+     *
      * @var int
      */
     public $gmtCreated;
 
     /**
+     * @example 1578931200000
+     *
      * @var int
      */
     public $gmtModified;
@@ -57,6 +69,8 @@ class DescribeProductResponseBody extends Model
     public $name;
 
     /**
+     * @example https://oss.aliyuncs.com/photogallery/photo/1930532890589852/6245/495d5f19-03e4-4c2e-9c4e-bef9ab6af1e1.png
+     *
      * @var string
      */
     public $picUrl;
@@ -72,11 +86,15 @@ class DescribeProductResponseBody extends Model
     public $productSkus;
 
     /**
+     * @example 6EF60BEC-0242-43AF-BB20-270359FB54A7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 5.0
+     *
      * @var float
      */
     public $score;
@@ -92,21 +110,29 @@ class DescribeProductResponseBody extends Model
     public $shortDescription;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 1526111111****
+     *
      * @var int
      */
     public $supplierPk;
 
     /**
+     * @example MIRROR
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $useCount;

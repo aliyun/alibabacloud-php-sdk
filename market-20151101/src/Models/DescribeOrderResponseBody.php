@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeOrderResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $accountQuantity;
 
     /**
+     * @example 190311111111****
+     *
      * @var int
      */
     public $aliUid;
@@ -26,11 +30,15 @@ class DescribeOrderResponseBody extends Model
     public $components;
 
     /**
+     * @example 0.0
+     *
      * @var float
      */
     public $couponPrice;
 
     /**
+     * @example 1531191564000
+     *
      * @var int
      */
     public $createdOn;
@@ -41,46 +49,64 @@ class DescribeOrderResponseBody extends Model
     public $instanceIds;
 
     /**
+     * @example 202211111111111
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $orderStatus;
 
     /**
+     * @example NEW
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example 10.0
+     *
      * @var float
      */
     public $originalPrice;
 
     /**
+     * @example 1531191675000
+     *
      * @var int
      */
     public $paidOn;
 
     /**
+     * @example PAID
+     *
      * @var string
      */
     public $payStatus;
 
     /**
+     * @example 0.0
+     *
      * @var float
      */
     public $paymentPrice;
 
     /**
+     * @example MONTH
+     *
      * @var string
      */
     public $periodType;
 
     /**
+     * @example cmgj02****
+     *
      * @var string
      */
     public $productCode;
@@ -91,16 +117,22 @@ class DescribeOrderResponseBody extends Model
     public $productName;
 
     /**
+     * @example cmgj02****-prepay
+     *
      * @var string
      */
     public $productSkuCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 6EF60BEC-0242-43AF-BB20-270359FB54A7
+     *
      * @var string
      */
     public $requestId;
@@ -116,6 +148,8 @@ class DescribeOrderResponseBody extends Model
     public $supplierTelephones;
 
     /**
+     * @example 0.0
+     *
      * @var float
      */
     public $totalPrice;

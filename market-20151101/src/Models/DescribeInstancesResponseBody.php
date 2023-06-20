@@ -15,21 +15,29 @@ class DescribeInstancesResponseBody extends Model
     public $instanceItems;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 54C22FB9-0CB1-5629-97A8-653FC7990F00
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 55
+     *
      * @var int
      */
     public $totalCount;

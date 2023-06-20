@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PauseProjectRequest extends Model
 {
     /**
+     * @example 4****89
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1922
+     *
      * @var int
      */
     public $nodeId;

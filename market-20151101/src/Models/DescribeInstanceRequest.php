@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRequest extends Model
 {
     /**
+     * @example 155****11
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example NEW
+     *
      * @var string
      */
     public $orderType;

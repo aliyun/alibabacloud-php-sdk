@@ -14,6 +14,8 @@ class promotionRule extends Model
     public $name;
 
     /**
+     * @example 102112
+     *
      * @var string
      */
     public $ruleId;

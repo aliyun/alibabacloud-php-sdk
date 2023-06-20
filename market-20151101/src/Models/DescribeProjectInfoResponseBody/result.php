@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $currentStepNo;
 
     /**
+     * @example 27291111****
+     *
      * @var int
      */
     public $customerAliUid;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $finalStepNo;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $finishType;
 
     /**
+     * @example 1588834324000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 1620403200000
+     *
      * @var int
      */
     public $gmtExpired;
 
     /**
+     * @example 1620403200000
+     *
      * @var int
      */
     public $gmtFinished;
 
     /**
+     * @example 4****89
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 2059111111111
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example cmgj***055
+     *
      * @var string
      */
     public $productCode;
@@ -64,6 +84,8 @@ class result extends Model
     public $productName;
 
     /**
+     * @example yuncode****500001
+     *
      * @var string
      */
     public $productSkuCode;
@@ -74,21 +96,29 @@ class result extends Model
     public $productSkuName;
 
     /**
+     * @example Starting
+     *
      * @var string
      */
     public $projectStatus;
 
     /**
+     * @example 45121111****
+     *
      * @var int
      */
     public $supplierAliUid;
 
     /**
+     * @example 410
+     *
      * @var int
      */
     public $templateId;
 
     /**
+     * @example Public
+     *
      * @var string
      */
     public $templateType;

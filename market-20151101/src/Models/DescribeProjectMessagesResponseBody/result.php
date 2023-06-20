@@ -14,11 +14,15 @@ class result extends Model
     public $content;
 
     /**
+     * @example 1589015560000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 452611111****
+     *
      * @var int
      */
     public $operator;
@@ -29,6 +33,8 @@ class result extends Model
     public $operatorName;
 
     /**
+     * @example Provider
+     *
      * @var string
      */
     public $operatorRole;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class licenseAttribute extends Model
 {
     /**
+     * @example -
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example -
+     *
      * @var string
      */
     public $value;

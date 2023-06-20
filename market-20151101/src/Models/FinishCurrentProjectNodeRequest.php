@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class FinishCurrentProjectNodeRequest extends Model
 {
     /**
+     * @example 4****89
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1924
+     *
      * @var int
      */
     public $nodeId;

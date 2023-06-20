@@ -14,6 +14,8 @@ class orderPeriod extends Model
     public $name;
 
     /**
+     * @example HOUR
+     *
      * @var string
      */
     public $periodType;

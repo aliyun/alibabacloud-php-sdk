@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceRequest extends Model
 {
     /**
+     * @example {"components":{"package_version":"yuncode12928000016"},"duration":1,"pricingCycle":"YEAR","productCode":"cmgj01**28","quantity":1,"skuCode":"prepay"}
+     *
      * @var string
      */
     public $commodity;
 
     /**
+     * @example INSTANCE_BUY
+     *
      * @var string
      */
     public $orderType;

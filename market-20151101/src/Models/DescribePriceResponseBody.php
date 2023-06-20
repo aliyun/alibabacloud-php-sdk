@@ -16,31 +16,43 @@ class DescribePriceResponseBody extends Model
     public $coupons;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $cuxiao;
 
     /**
+     * @example MONTH
+     *
      * @var string
      */
     public $cycle;
 
     /**
+     * @example 178.20
+     *
      * @var float
      */
     public $discountPrice;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example ORDER.NO_REAL_NAME_AUTHENTICATION
+     *
      * @var string
      */
     public $expressionCode;
@@ -56,11 +68,15 @@ class DescribePriceResponseBody extends Model
     public $infoTitle;
 
     /**
+     * @example 198.00
+     *
      * @var float
      */
     public $originalPrice;
 
     /**
+     * @example cmgj01****
+     *
      * @var string
      */
     public $productCode;
@@ -71,6 +87,8 @@ class DescribePriceResponseBody extends Model
     public $promotionRules;
 
     /**
+     * @example 19.80
+     *
      * @var float
      */
     public $tradePrice;

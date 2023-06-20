@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class shopInfo extends Model
 {
     /**
+     * @example 46**41@example.com
+     *
      * @var string
      */
     public $emails;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $id;

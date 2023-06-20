@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PushMeteringDataRequest extends Model
 {
     /**
+     * @example [{"InstanceId":"1000001","StartTime":"100000000","EndTime":"100000010","Entities":[{"Key":"PeriodMin","Value":"96","meteringAssit":"cmapi00060317-PeriodMin-4"}]}]
+     *
      * @var string
      */
     public $metering;

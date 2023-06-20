@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class coupon extends Model
 {
     /**
+     * @example 100.00
+     *
      * @var float
      */
     public $canPromFee;
@@ -24,16 +26,22 @@ class coupon extends Model
     public $couponName;
 
     /**
+     * @example ActiveCoupon
+     *
      * @var string
      */
     public $couponOptionCode;
 
     /**
+     * @example 3874923111
+     *
      * @var string
      */
     public $couponOptionNo;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isSelected;

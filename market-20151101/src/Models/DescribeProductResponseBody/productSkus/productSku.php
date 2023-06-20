@@ -11,21 +11,29 @@ use AlibabaCloud\Tea\Model;
 class productSku extends Model
 {
     /**
+     * @example PREPAY
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example cmjj01****-Package
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example {\"img_id\":{\"img_version|img_region\":{\"V1.7|cn-shenzhen-st3-a01\":[\"m-wz9ho4hmos0lpxcldqoq\"]}}
+     *
      * @var string
      */
     public $constraints;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hidden;
@@ -36,6 +44,8 @@ class productSku extends Model
     public $modules;
 
     /**
+     * @example 21
+     *
      * @var string
      */
     public $name;

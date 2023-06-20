@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class productItem extends Model
 {
     /**
+     * @example 53398003
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example cmjj02****
+     *
      * @var string
      */
     public $code;
@@ -29,6 +33,8 @@ class productItem extends Model
     public $deliveryWay;
 
     /**
+     * @example https://oss.aliyuncs.com/photogallery/photo/1904996544835414/7549/767d6d07-8366-4822-b84e-61f6ea10d146.png
+     *
      * @var string
      */
     public $imageUrl;
@@ -39,16 +45,22 @@ class productItem extends Model
     public $name;
 
     /**
+     * @example windows
+     *
      * @var string
      */
     public $operationSystem;
 
     /**
+     * @example {\"DiscountPrice\": 0.0, \"TradePrice\": 15750.0, \"Currency\": \"CNY\", \"OriginalPrice\": 15750.0, \"RuleIds\": {\"RuleId\": []}, \"Coupons\": {\"Coupon\": []}}
+     *
      * @var string
      */
     public $priceInfo;
 
     /**
+     * @example 5.0
+     *
      * @var string
      */
     public $score;
@@ -64,6 +76,8 @@ class productItem extends Model
     public $suggestedPrice;
 
     /**
+     * @example 228399
+     *
      * @var int
      */
     public $supplierId;
@@ -79,6 +93,8 @@ class productItem extends Model
     public $tags;
 
     /**
+     * @example /products/53616009/cmjj02****.html
+     *
      * @var string
      */
     public $targetUrl;

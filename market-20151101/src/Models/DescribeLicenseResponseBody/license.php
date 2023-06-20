@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class license extends Model
 {
     /**
+     * @example 2019-05-25 09:00:00
+     *
      * @var string
      */
     public $activateTime;
 
     /**
+     * @example 2019-05-25 09:00:00
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2019-06-25 09:00:00
+     *
      * @var string
      */
     public $expiredTime;
@@ -36,21 +42,29 @@ class license extends Model
     public $extendInfo;
 
     /**
+     * @example 1551111111
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example -
+     *
      * @var string
      */
     public $licenseCode;
 
     /**
+     * @example ACTIVATED
+     *
      * @var string
      */
     public $licenseStatus;
 
     /**
+     * @example cmgj02****
+     *
      * @var string
      */
     public $productCode;
@@ -61,6 +75,8 @@ class license extends Model
     public $productName;
 
     /**
+     * @example cmgj02****-prepay
+     *
      * @var string
      */
     public $productSkuId;

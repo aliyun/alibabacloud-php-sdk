@@ -15,11 +15,15 @@ class CreateOrderResponseBody extends Model
     public $instanceIds;
 
     /**
+     * @example 202********0117
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 4ca591b5-bc30-4fa7-aeaa-c4d0ec5d24ed
+     *
      * @var string
      */
     public $requestId;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class property extends Model
 {
     /**
+     * @example 12
+     *
      * @var string
      */
     public $displayUnit;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $name;
@@ -30,6 +36,8 @@ class property extends Model
     public $propertyValues;
 
     /**
+     * @example 12
+     *
      * @var string
      */
     public $showType;

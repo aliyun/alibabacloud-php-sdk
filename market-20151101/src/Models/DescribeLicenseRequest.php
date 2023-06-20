@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeLicenseRequest extends Model
 {
     /**
+     * @example xxxxxx
+     *
      * @var string
      */
     public $licenseCode;

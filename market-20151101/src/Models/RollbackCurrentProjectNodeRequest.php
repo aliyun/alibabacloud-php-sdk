@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RollbackCurrentProjectNodeRequest extends Model
 {
     /**
+     * @example 4****89
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1925
+     *
      * @var int
      */
     public $nodeId;

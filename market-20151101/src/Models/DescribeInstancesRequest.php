@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesRequest extends Model
 {
     /**
+     * @example cmgj000112,cmgj000113
+     *
      * @var string
      */
     public $codes;
 
     /**
+     * @example cmgj000114,cmgj000115
+     *
      * @var string
      */
     public $exceptCodes;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $productType;

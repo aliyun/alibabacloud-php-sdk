@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ActivateLicenseRequest extends Model
 {
     /**
+     * @example 129****1111
+     *
      * @var string
      */
     public $identification;
 
     /**
+     * @example APSEDH8TA5CSGK-********_6CNTACBH9EQPOATFXJQL4B2COE7M43VVQ7GUGKAA
+     *
      * @var string
      */
     public $licenseCode;

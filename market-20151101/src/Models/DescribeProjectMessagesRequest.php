@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeProjectMessagesRequest extends Model
 {
     /**
+     * @example 4****89
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;

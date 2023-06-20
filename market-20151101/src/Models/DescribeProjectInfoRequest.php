@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeProjectInfoRequest extends Model
 {
     /**
+     * @example 4****89
+     *
      * @var string
      */
     public $instanceId;

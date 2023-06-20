@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeProductRequest extends Model
 {
     /**
+     * @description AliUid
+     *
+     * @example 190********569
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @example cmjj01**45
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $queryDraft;

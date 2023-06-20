@@ -8,10 +8,21 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Market\V20151101\Models\ActivateLicenseRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\ActivateLicenseResponse;
+use AlibabaCloud\SDK\Market\V20151101\Models\AutoRenewInstanceRequest;
+use AlibabaCloud\SDK\Market\V20151101\Models\AutoRenewInstanceResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\CreateOrderRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\CreateOrderResponse;
+use AlibabaCloud\SDK\Market\V20151101\Models\CrossAccountVerifyTokenRequest;
+use AlibabaCloud\SDK\Market\V20151101\Models\CrossAccountVerifyTokenResponse;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeApiMeteringRequest;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeApiMeteringResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeCurrentNodeInfoRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeCurrentNodeInfoResponse;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsLinkRequest;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsLinkResponse;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsLinkShrinkRequest;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsRequest;
+use AlibabaCloud\SDK\Market\V20151101\Models\DescribeDistributionProductsResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstanceRequest;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstanceResponse;
 use AlibabaCloud\SDK\Market\V20151101\Models\DescribeInstancesRequest;
@@ -157,6 +168,61 @@ class Market extends OpenApiClient
     }
 
     /**
+     * @param AutoRenewInstanceRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return AutoRenewInstanceResponse
+     */
+    public function autoRenewInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->autoRenewCycle)) {
+            $body['AutoRenewCycle'] = $request->autoRenewCycle;
+        }
+        if (!Utils::isUnset($request->autoRenewDuration)) {
+            $body['AutoRenewDuration'] = $request->autoRenewDuration;
+        }
+        if (!Utils::isUnset($request->orderBizId)) {
+            $body['OrderBizId'] = $request->orderBizId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $body['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AutoRenewInstance',
+            'version'     => '2015-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AutoRenewInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AutoRenewInstanceRequest $request
+     *
+     * @return AutoRenewInstanceResponse
+     */
+    public function autoRenewInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->autoRenewInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateOrderRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -215,6 +281,89 @@ class Market extends OpenApiClient
     }
 
     /**
+     * @param CrossAccountVerifyTokenRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CrossAccountVerifyTokenResponse
+     */
+    public function crossAccountVerifyTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->token)) {
+            $body['Token'] = $request->token;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CrossAccountVerifyToken',
+            'version'     => '2015-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CrossAccountVerifyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CrossAccountVerifyTokenRequest $request
+     *
+     * @return CrossAccountVerifyTokenResponse
+     */
+    public function crossAccountVerifyToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->crossAccountVerifyTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeApiMeteringRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeApiMeteringResponse
+     */
+    public function describeApiMeteringWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApiMetering',
+            'version'     => '2015-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApiMeteringResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeApiMeteringRequest $request
+     *
+     * @return DescribeApiMeteringResponse
+     */
+    public function describeApiMetering($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApiMeteringWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeCurrentNodeInfoRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -255,6 +404,94 @@ class Market extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCurrentNodeInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDistributionProductsRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeDistributionProductsResponse
+     */
+    public function describeDistributionProductsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDistributionProducts',
+            'version'     => '2015-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDistributionProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDistributionProductsRequest $request
+     *
+     * @return DescribeDistributionProductsResponse
+     */
+    public function describeDistributionProducts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDistributionProductsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDistributionProductsLinkRequest $tmpReq
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDistributionProductsLinkResponse
+     */
+    public function describeDistributionProductsLinkWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DescribeDistributionProductsLinkShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->codes)) {
+            $request->codesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->codes, 'Codes', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->codesShrink)) {
+            $query['Codes'] = $request->codesShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDistributionProductsLink',
+            'version'     => '2015-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDistributionProductsLinkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDistributionProductsLinkRequest $request
+     *
+     * @return DescribeDistributionProductsLinkResponse
+     */
+    public function describeDistributionProductsLink($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDistributionProductsLinkWithOptions($request, $runtime);
     }
 
     /**
@@ -727,10 +964,13 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectNodesRequest $request
-     * @param RuntimeOptions              $runtime
+     * **
+     *   * **
+     *   *
+     * @param DescribeProjectNodesRequest $request DescribeProjectNodesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProjectNodesResponse
+     * @return DescribeProjectNodesResponse DescribeProjectNodesResponse
      */
     public function describeProjectNodesWithOptions($request, $runtime)
     {
@@ -758,9 +998,12 @@ class Market extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectNodesRequest $request
+     * **
+     *   * **
+     *   *
+     * @param DescribeProjectNodesRequest $request DescribeProjectNodesRequest
      *
-     * @return DescribeProjectNodesResponse
+     * @return DescribeProjectNodesResponse DescribeProjectNodesResponse
      */
     public function describeProjectNodes($request)
     {

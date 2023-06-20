@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOrderRequest extends Model
 {
     /**
+     * @example 2709c68a-d569-4819-9c5d-1222ed2ee924
+     *
      * @var string
      */
     public $clientToken;
@@ -19,21 +21,29 @@ class CreateOrderRequest extends Model
     public $commodity;
 
     /**
+     * @example abc
+     *
      * @var string
      */
     public $orderSouce;
 
     /**
+     * @example INSTANCE_BUY
+     *
      * @var string
      */
     public $orderType;
 
     /**
+     * @example 111********11
+     *
      * @var string
      */
     public $ownerId;
 
     /**
+     * @example HAND
+     *
      * @var string
      */
     public $paymentType;

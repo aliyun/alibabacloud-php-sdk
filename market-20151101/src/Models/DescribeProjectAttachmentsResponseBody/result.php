@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example Mzc4NDAtODQ3MjY4MzI=
+     *
      * @var string
      */
     public $attachmentToken;
 
     /**
+     * @example File
+     *
      * @var string
      */
     public $attachmentType;
@@ -24,36 +28,50 @@ class result extends Model
     public $content;
 
     /**
+     * @example http://delivery-center.oss-cn-shanghai.aliyuncs.com/6a8****0e2/e0a***f3.jpg?Expires=1589334682&OSSAccessKeyId=wI2r*********&Signature=JWB39pUxs7RCqrcw58qXPEGu6M0%3D
+     *
      * @var string
      */
     public $fileLink;
 
     /**
+     * @example 1589334682404
+     *
      * @var int
      */
     public $fileLinkGmtExpired;
 
     /**
+     * @example f8-test-perview.jpeg
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example 109124
+     *
      * @var int
      */
     public $fileSize;
 
     /**
+     * @example jpg
+     *
      * @var string
      */
     public $fileSuffix;
 
     /**
+     * @example 1587968858000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 8472
+     *
      * @var int
      */
     public $nodeId;
@@ -64,6 +82,8 @@ class result extends Model
     public $nodeName;
 
     /**
+     * @example 45261111****
+     *
      * @var int
      */
     public $operator;
@@ -74,11 +94,15 @@ class result extends Model
     public $operatorName;
 
     /**
+     * @example Provider
+     *
      * @var string
      */
     public $operatorRole;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $stepNo;

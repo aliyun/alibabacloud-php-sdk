@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class relationalData extends Model
 {
     /**
+     * @example STARTED
+     *
      * @var string
      */
     public $serviceStatus;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCurrentNodeInfoResponseBody extends Model
 {
     /**
+     * @example 00eb4de1-6cff-4f56-833e-7b1e070e398d
+     *
      * @var string
      */
     public $requestId;
@@ -20,6 +22,8 @@ class DescribeCurrentNodeInfoResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

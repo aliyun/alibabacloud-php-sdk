@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RollbackCurrentProjectNodeResponseBody extends Model
 {
     /**
+     * @example ee69a00f-189b-400f-9fd2-af89749fb50f
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -11,31 +11,48 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceResponseBody extends Model
 {
     /**
+     * @example {"frontEndUrl":"https://****.aliyundoc.com","password":"Sjtv***","adminUrl":"https://****.aliyundoc.com","username":"aliyun***"}
+     *
      * @var string
      */
     public $appJson;
 
     /**
+     * @var string
+     */
+    public $autoRenewal;
+
+    /**
+     * @example 1570634021000
+     *
      * @var int
      */
     public $beganOn;
 
     /**
+     * @example {"package_version":"yuncode000111"}
+     *
      * @var string
      */
     public $componentJson;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $constraints;
 
     /**
+     * @example 1570634018000
+     *
      * @var int
      */
     public $createdOn;
 
     /**
+     * @example 1602259200000
+     *
      * @var int
      */
     public $endOn;
@@ -46,16 +63,22 @@ class DescribeInstanceResponseBody extends Model
     public $extendJson;
 
     /**
+     * @example {"password":"***","ip":"118.31.***.41","innerIp":"118.31.***.41","region":"","username":"***","beianInfo":""}
+     *
      * @var string
      */
     public $hostJson;
 
     /**
+     * @example 1551111111
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isTrial;
@@ -66,11 +89,15 @@ class DescribeInstanceResponseBody extends Model
     public $modules;
 
     /**
+     * @example 204211111111111
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example cmgj00**11
+     *
      * @var string
      */
     public $productCode;
@@ -81,11 +108,15 @@ class DescribeInstanceResponseBody extends Model
     public $productName;
 
     /**
+     * @example cmgj00**11-prepay
+     *
      * @var string
      */
     public $productSkuCode;
 
     /**
+     * @example APP
+     *
      * @var string
      */
     public $productType;
@@ -96,6 +127,8 @@ class DescribeInstanceResponseBody extends Model
     public $relationalData;
 
     /**
+     * @example OPENED
+     *
      * @var string
      */
     public $status;
@@ -106,6 +139,7 @@ class DescribeInstanceResponseBody extends Model
     public $supplierName;
     protected $_name = [
         'appJson'        => 'AppJson',
+        'autoRenewal'    => 'AutoRenewal',
         'beganOn'        => 'BeganOn',
         'componentJson'  => 'ComponentJson',
         'constraints'    => 'Constraints',
@@ -135,6 +169,9 @@ class DescribeInstanceResponseBody extends Model
         $res = [];
         if (null !== $this->appJson) {
             $res['AppJson'] = $this->appJson;
+        }
+        if (null !== $this->autoRenewal) {
+            $res['AutoRenewal'] = $this->autoRenewal;
         }
         if (null !== $this->beganOn) {
             $res['BeganOn'] = $this->beganOn;
@@ -204,6 +241,9 @@ class DescribeInstanceResponseBody extends Model
         $model = new self();
         if (isset($map['AppJson'])) {
             $model->appJson = $map['AppJson'];
+        }
+        if (isset($map['AutoRenewal'])) {
+            $model->autoRenewal = $map['AutoRenewal'];
         }
         if (isset($map['BeganOn'])) {
             $model->beganOn = $map['BeganOn'];
