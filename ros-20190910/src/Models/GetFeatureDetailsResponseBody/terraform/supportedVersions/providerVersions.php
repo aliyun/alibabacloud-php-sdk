@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class providerVersions extends Model
 {
     /**
-     * @description The resource types that support the price inquiry feature.
+     * @description The name of the provider.
      *
      * @example alicloud
      *
@@ -18,7 +18,7 @@ class providerVersions extends Model
     public $providerName;
 
     /**
-     * @description The resource types that support the resource group feature.
+     * @description The versions of the provider.
      *
      * @var string[]
      */

@@ -43,15 +43,13 @@ class GetTemplateEstimateCostRequest extends Model
     public $regionId;
 
     /**
+     * @example c754d2a4-28f1-46df-b557-9586173a****
+     *
      * @var string
      */
     public $stackId;
 
     /**
-     * @description The version of the template. This parameter takes effect only when the TemplateId parameter is specified.
-     *
-     * @example The parameters.
-     *
      * @var string
      */
     public $templateBody;

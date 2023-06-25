@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class supportedVersions extends Model
 {
     /**
-     * @description The resource types that support the price inquiry feature.
+     * @description The names and versions of the providers that correspond to the Terraform versions.
      *
      * @var providerVersions[]
      */
     public $providerVersions;
 
     /**
-     * @description The resource type that support the risk check feature.
+     * @description The Terraform version.
      *
      * @example 1.0.11
      *
@@ -26,7 +26,7 @@ class supportedVersions extends Model
     public $terraformVersion;
 
     /**
-     * @description The resource types that support the risk check performed to detect risks caused by a stack deletion operation.
+     * @description The Terraform version that is supported by ROS. The parameter value is the same as the value of the Transform parameter in a Terraform template.
      *
      * @example Aliyun::Terraform-v1.0
      *
@@ -35,7 +35,7 @@ class supportedVersions extends Model
     public $transform;
 
     /**
-     * @description The resource types that support the risk check performed to detect risks caused by a stack deletion operation.
+     * @description The versions to which Terraform can be updated in ROS.
      *
      * @var string[]
      */

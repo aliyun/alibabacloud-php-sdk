@@ -10,37 +10,35 @@ use AlibabaCloud\Tea\Model;
 class supportedResourceTypes extends Model
 {
     /**
-     * @description Indicates whether the resource scope can be specified by tag, resource group, or resource. Valid values:
+     * @description The resource types that support the custom tag feature.
      *
-     * - false
      * @var string[]
      */
     public $customTag;
 
     /**
-     * @description Indicates whether the resource scope can be specified by resource group. Valid values:
+     * @description The resource types that support the price inquiry feature.
      *
-     * - false
      * @var string[]
      */
     public $estimateCost;
 
     /**
-     * @description Details of the resource cleaner feature.
+     * @description The resource types that support the resource group feature.
      *
      * @var string[]
      */
     public $resourceGroup;
 
     /**
-     * @description The resource type that can be cleaned up.
+     * @description The resource type that support the risk check feature.
      *
      * @var stackOperationRisk
      */
     public $stackOperationRisk;
 
     /**
-     * @description The resource types that support the scenario feature.
+     * @description The resource types that support the system tag `acs:ros:stackId`.
      *
      * @var string[]
      */

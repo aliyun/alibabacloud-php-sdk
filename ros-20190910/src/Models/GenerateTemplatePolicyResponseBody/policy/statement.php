@@ -16,6 +16,11 @@ class statement extends Model
     public $action;
 
     /**
+     * @var mixed[]
+     */
+    public $condition;
+
+    /**
      * @description The effect of the statement. Valid values:
      *
      *   Allow
@@ -36,9 +41,10 @@ class statement extends Model
      */
     public $resource;
     protected $_name = [
-        'action'   => 'Action',
-        'effect'   => 'Effect',
-        'resource' => 'Resource',
+        'action'    => 'Action',
+        'condition' => 'Condition',
+        'effect'    => 'Effect',
+        'resource'  => 'Resource',
     ];
 
     public function validate()
@@ -50,6 +56,9 @@ class statement extends Model
         $res = [];
         if (null !== $this->action) {
             $res['Action'] = $this->action;
+        }
+        if (null !== $this->condition) {
+            $res['Condition'] = $this->condition;
         }
         if (null !== $this->effect) {
             $res['Effect'] = $this->effect;
@@ -73,6 +82,9 @@ class statement extends Model
             if (!empty($map['Action'])) {
                 $model->action = $map['Action'];
             }
+        }
+        if (isset($map['Condition'])) {
+            $model->condition = $map['Condition'];
         }
         if (isset($map['Effect'])) {
             $model->effect = $map['Effect'];

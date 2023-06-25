@@ -61,11 +61,6 @@ class GetTemplateParameterConstraintsShrinkRequest extends Model
     public $stackId;
 
     /**
-     * @description The structure that contains the template body.
-     *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
-     * @example {"Parameters":{"ZoneInfo":{"Type": "String"},"InstanceType": {"Type": "String"}},"ROSTemplateFormatVersion": "2015-09-01","Resources":{"ECS":{"Properties":{"ZoneId":{"Ref": "ZoneInfo"},"InstanceType": {"Ref": "InstanceType"}},"Type": "ALIYUN::ECS::Instance"}}}
-     *
      * @var string
      */
     public $templateBody;

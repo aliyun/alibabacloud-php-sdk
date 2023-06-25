@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsResponseBody;
 
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsResponseBody\parameterConstraints\notSupportResources;
+use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsResponseBody\parameterConstraints\originalConstraints;
 use AlibabaCloud\SDK\ROS\V20190910\Models\GetTemplateParameterConstraintsResponseBody\parameterConstraints\queryErrors;
 use AlibabaCloud\Tea\Model;
 
@@ -71,6 +72,11 @@ class parameterConstraints extends Model
     public $notSupportResources;
 
     /**
+     * @var originalConstraints[]
+     */
+    public $originalConstraints;
+
+    /**
      * @description The name of the parameter.
      *
      * @example ZoneInfo
@@ -102,6 +108,7 @@ class parameterConstraints extends Model
         'illegalValueByParameterConstraints' => 'IllegalValueByParameterConstraints',
         'illegalValueByRules'                => 'IllegalValueByRules',
         'notSupportResources'                => 'NotSupportResources',
+        'originalConstraints'                => 'OriginalConstraints',
         'parameterKey'                       => 'ParameterKey',
         'queryErrors'                        => 'QueryErrors',
         'type'                               => 'Type',
@@ -138,6 +145,15 @@ class parameterConstraints extends Model
                 $n = 0;
                 foreach ($this->notSupportResources as $item) {
                     $res['NotSupportResources'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->originalConstraints) {
+            $res['OriginalConstraints'] = [];
+            if (null !== $this->originalConstraints && \is_array($this->originalConstraints)) {
+                $n = 0;
+                foreach ($this->originalConstraints as $item) {
+                    $res['OriginalConstraints'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -200,6 +216,15 @@ class parameterConstraints extends Model
                 $n                          = 0;
                 foreach ($map['NotSupportResources'] as $item) {
                     $model->notSupportResources[$n++] = null !== $item ? notSupportResources::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['OriginalConstraints'])) {
+            if (!empty($map['OriginalConstraints'])) {
+                $model->originalConstraints = [];
+                $n                          = 0;
+                foreach ($map['OriginalConstraints'] as $item) {
+                    $model->originalConstraints[$n++] = null !== $item ? originalConstraints::fromMap($item) : $item;
                 }
             }
         }

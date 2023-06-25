@@ -9,14 +9,7 @@ use AlibabaCloud\Tea\Model;
 class stackOperationRisk extends Model
 {
     /**
-     * @description The filters that are used to filter resources. Valid values:
-     *
-     *   RegionId: the ID of the region.
-     *   ResourceId: the ID of the resource.
-     *   ResourceName: the name of the resource.
-     *   Tags: the tags of the resource.
-     *   ResourceGroupId: the ID of the resource group.
-     *   DeletionProtection: the deletion protection feature.
+     * @description The resource types that support the risk check performed to detect risks caused by a stack deletion operation.
      *
      * @var string[]
      */

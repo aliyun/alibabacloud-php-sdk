@@ -36,10 +36,16 @@ class GenerateTemplateByScratchRequest extends Model
      * @var string
      */
     public $templateScratchId;
+
+    /**
+     * @var string
+     */
+    public $templateType;
     protected $_name = [
         'provisionRegionId' => 'ProvisionRegionId',
         'regionId'          => 'RegionId',
         'templateScratchId' => 'TemplateScratchId',
+        'templateType'      => 'TemplateType',
     ];
 
     public function validate()
@@ -57,6 +63,9 @@ class GenerateTemplateByScratchRequest extends Model
         }
         if (null !== $this->templateScratchId) {
             $res['TemplateScratchId'] = $this->templateScratchId;
+        }
+        if (null !== $this->templateType) {
+            $res['TemplateType'] = $this->templateType;
         }
 
         return $res;
@@ -78,6 +87,9 @@ class GenerateTemplateByScratchRequest extends Model
         }
         if (isset($map['TemplateScratchId'])) {
             $model->templateScratchId = $map['TemplateScratchId'];
+        }
+        if (isset($map['TemplateType'])) {
+            $model->templateType = $map['TemplateType'];
         }
 
         return $model;

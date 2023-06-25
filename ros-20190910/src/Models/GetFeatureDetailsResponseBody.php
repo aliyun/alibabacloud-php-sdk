@@ -20,7 +20,7 @@ class GetFeatureDetailsResponseBody extends Model
     public $driftDetection;
 
     /**
-     * @description The resource types that support the system tag `acs:ros:stackId`.
+     * @description The ID of the request.
      *
      * @example EBF833DA-D0E2-52BE-92E2-59CA56BE834E
      *
@@ -29,7 +29,7 @@ class GetFeatureDetailsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The names of properties that are supported by the resource type.
+     * @description Details of the resource cleaner feature.
      *
      * @var resourceCleaner
      */
@@ -41,19 +41,21 @@ class GetFeatureDetailsResponseBody extends Model
     public $resourceImport;
 
     /**
+     * @description Details of the template parameter constraint feature.
+     *
      * @var templateParameterConstraints
      */
     public $templateParameterConstraints;
 
     /**
-     * @description The names of the side effects. The StopInstance value indicates that an instance that is related to the specified resource is stopped.
+     * @description Details of the scenario feature.
      *
      * @var templateScratch
      */
     public $templateScratch;
 
     /**
-     * @description The resource types that support the custom tag feature.
+     * @description Details of the Terraform hosting feature.
      *
      * @var terraform
      */

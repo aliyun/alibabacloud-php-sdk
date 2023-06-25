@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListStackOperationRisksRequest extends Model
 {
     /**
-     * @description The resource N that you want to retain in the stack.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (\_). For more information, see [How to ensure idempotence](~~134212~~).
      *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
@@ -18,58 +18,16 @@ class ListStackOperationRisksRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to retain all resources in the stack.
+     * @description The type of the operation of which you want to detect risks. Valid values:
      *
-     * Default value: false. Valid values:
+     *   DeleteStack: detects high risks that may arise in resources when you delete a stack.
+     *   CreateStack: detects the missing permissions when you fail to create a stack.
      *
-     *   true
-     *   false
-     *
-     * >  This parameter takes effect when the OperationType parameter is set to DeleteStack.
      * @example DeleteStack
      *
      * @var string
      */
     public $operationType;
-
-    /**
-     * @description The resource N that you want to retain in the stack.
-     *
-     * @example test-role
-     *
-     * @var string
-     */
-    public $ramRoleName;
-
-    /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.
-     *
-     * For more information, see [Ensure idempotence](~~134212~~).
-     * @example cn-hangzhou
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
-     *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
-     * @example false
-     *
-     * @var bool
-     */
-    public $retainAllResources;
-
-    /**
-     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of the RegionId parameter is used.
-     *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
-     * @example WebServer
-     *
-     * @var string[]
-     */
-    public $retainResources;
 
     /**
      * @description The name of the RAM role.
@@ -78,6 +36,47 @@ class ListStackOperationRisksRequest extends Model
      *   If you do not specify a RAM role, ROS creates stacks based on the permissions of your Alibaba Cloud account.
      *
      * The name of the RAM role can be up to 64 bytes in length.
+     * @example test-role
+     *
+     * @var string
+     */
+    public $ramRoleName;
+
+    /**
+     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description Specifies whether to retain all resources in the stack. Valid values:
+     *
+     *   true
+     *   false (default)
+     *
+     * > This parameter takes effect only if you set OperationType to DeleteStack.
+     * @example false
+     *
+     * @var bool
+     */
+    public $retainAllResources;
+
+    /**
+     * @description The list of resources to retain.
+     *
+     * > This parameter takes effect only if you set OperationType to DeleteStack.
+     * @example WebServer
+     *
+     * @var string[]
+     */
+    public $retainResources;
+
+    /**
+     * @description The ID of the stack.
+     *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -85,9 +84,9 @@ class ListStackOperationRisksRequest extends Model
     public $stackId;
 
     /**
-     * @description The version of the template.
+     * @description The template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
      *
-     * >  This parameter takes effect only when the TemplateId parameter is specified.
+     * > You must specify one of TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
      * @example {"ROSTemplateFormatVersion":"2015-09-01"}
      *
      * @var string
@@ -95,8 +94,9 @@ class ListStackOperationRisksRequest extends Model
     public $templateBody;
 
     /**
-     * @description The resources that are at risk.
+     * @description The ID of the template. This parameter applies to shared and private templates.
      *
+     * > You must specify one of TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string
@@ -104,8 +104,9 @@ class ListStackOperationRisksRequest extends Model
     public $templateId;
 
     /**
-     * @description The ID of the request.
+     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo and oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length. If you do not specify RegionId in the URL, the region ID of the stack is used.
      *
+     * > You must specify one of TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
      * @example oss://ros-template/demo
      *
      * @var string
@@ -113,8 +114,9 @@ class ListStackOperationRisksRequest extends Model
     public $templateURL;
 
     /**
-     * @description The logical ID of the resource. The logical ID is the resource name that is defined in the template.
+     * @description The version of the template.
      *
+     * > This parameter takes effect only if you specify TemplateId.
      * @example v1
      *
      * @var string

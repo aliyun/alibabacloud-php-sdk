@@ -18,7 +18,7 @@ class terraform extends Model
     public $supportedResourceTypes;
 
     /**
-     * @description The resource types that support the custom tag feature.
+     * @description The Terraform versions.
      *
      * @var supportedVersions[]
      */

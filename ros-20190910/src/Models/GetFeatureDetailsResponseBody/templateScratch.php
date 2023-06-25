@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class templateScratch extends Model
 {
     /**
-     * @description The names of the side effects. The StopInstance value indicates that an instance that is related to the specified resource is stopped.
+     * @description The resource types that support the scenario feature.
      *
      * @var supportedResourceTypes[]
      */

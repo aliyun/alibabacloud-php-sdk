@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class resourceCleaner extends Model
 {
     /**
+     * @description The resource types that can be cleaned up.
+     *
      * @var supportedResourceTypes[]
      */
     public $supportedResourceTypes;

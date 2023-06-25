@@ -1714,6 +1714,9 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->templateScratchId)) {
             $query['TemplateScratchId'] = $request->templateScratchId;
         }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1861,7 +1864,9 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * The Terraform version that is supported by ROS. The parameter value is the same as the value of the Transform parameter in a Terraform template.
+     * You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
+     *   * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
+     *   * >  In the Examples section, only part of the sample code is provided.
      *   *
      * @param GetFeatureDetailsRequest $request GetFeatureDetailsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -1897,7 +1902,9 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * The Terraform version that is supported by ROS. The parameter value is the same as the value of the Transform parameter in a Terraform template.
+     * You can call this operation to query the Terraform hosting, resource cleaner, and scenario features.
+     *   * This topic provides an example on how to query the details of features supported by ROS in the China (Hangzhou) region. The details include Terraform versions, provider versions, and supported resource types.
+     *   * >  In the Examples section, only part of the sample code is provided.
      *   *
      * @param GetFeatureDetailsRequest $request GetFeatureDetailsRequest
      *
@@ -2557,9 +2564,6 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->stackId)) {
             $query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->templateBody)) {
-            $query['TemplateBody'] = $request->templateBody;
-        }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
@@ -2575,8 +2579,13 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->templateVersion)) {
             $query['TemplateVersion'] = $request->templateVersion;
         }
+        $body = [];
+        if (!Utils::isUnset($request->templateBody)) {
+            $body['TemplateBody'] = $request->templateBody;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetTemplateEstimateCost',
@@ -2646,9 +2655,6 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->stackId)) {
             $query['StackId'] = $request->stackId;
         }
-        if (!Utils::isUnset($request->templateBody)) {
-            $query['TemplateBody'] = $request->templateBody;
-        }
         if (!Utils::isUnset($request->templateId)) {
             $query['TemplateId'] = $request->templateId;
         }
@@ -2658,8 +2664,13 @@ class ROS extends OpenApiClient
         if (!Utils::isUnset($request->templateVersion)) {
             $query['TemplateVersion'] = $request->templateVersion;
         }
+        $body = [];
+        if (!Utils::isUnset($request->templateBody)) {
+            $body['TemplateBody'] = $request->templateBody;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'GetTemplateParameterConstraints',
@@ -3387,7 +3398,9 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * The ID of the stack.
+     * The ListStackOperationRisks operation is suitable for the following scenarios:
+     *   * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the cause of each risk in a resource.
+     *   * *   When you create a stack, the creation may fail. In this case, you can call this operation to check which types of permissions that are required to create stacks are missing.
      *   *
      * @param ListStackOperationRisksRequest $request ListStackOperationRisksRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -3450,7 +3463,9 @@ class ROS extends OpenApiClient
     }
 
     /**
-     * The ID of the stack.
+     * The ListStackOperationRisks operation is suitable for the following scenarios:
+     *   * *   You want to detect high risks that may arise in resources when you delete a stack that contains the resources, and query the cause of each risk in a resource.
+     *   * *   When you create a stack, the creation may fail. In this case, you can call this operation to check which types of permissions that are required to create stacks are missing.
      *   *
      * @param ListStackOperationRisksRequest $request ListStackOperationRisksRequest
      *
