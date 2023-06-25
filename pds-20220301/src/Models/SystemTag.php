@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class SystemTag extends Model
 {
     /**
+     * @example 0.877
+     *
+     * @var float
+     */
+    public $centricScore;
+
+    /**
      * @example 0.98
      *
      * @var float
@@ -43,11 +50,12 @@ class SystemTag extends Model
      */
     public $tagLevel;
     protected $_name = [
-        'confidence' => 'confidence',
-        'name'       => 'name',
-        'parentName' => 'parent_name',
-        'source'     => 'source',
-        'tagLevel'   => 'tag_level',
+        'centricScore' => 'centric_score',
+        'confidence'   => 'confidence',
+        'name'         => 'name',
+        'parentName'   => 'parent_name',
+        'source'       => 'source',
+        'tagLevel'     => 'tag_level',
     ];
 
     public function validate()
@@ -57,6 +65,9 @@ class SystemTag extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->centricScore) {
+            $res['centric_score'] = $this->centricScore;
+        }
         if (null !== $this->confidence) {
             $res['confidence'] = $this->confidence;
         }
@@ -84,6 +95,9 @@ class SystemTag extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['centric_score'])) {
+            $model->centricScore = $map['centric_score'];
+        }
         if (isset($map['confidence'])) {
             $model->confidence = $map['confidence'];
         }

@@ -79,23 +79,29 @@ class ListFileRequest extends Model
     public $status;
 
     /**
+     * @var ImageProcess[]
+     */
+    public $thumbnailProcesses;
+
+    /**
      * @example file
      *
      * @var string
      */
     public $type;
     protected $_name = [
-        'category'       => 'category',
-        'driveId'        => 'drive_id',
-        'fields'         => 'fields',
-        'limit'          => 'limit',
-        'marker'         => 'marker',
-        'orderBy'        => 'order_by',
-        'orderDirection' => 'order_direction',
-        'parentFileId'   => 'parent_file_id',
-        'shareId'        => 'share_id',
-        'status'         => 'status',
-        'type'           => 'type',
+        'category'           => 'category',
+        'driveId'            => 'drive_id',
+        'fields'             => 'fields',
+        'limit'              => 'limit',
+        'marker'             => 'marker',
+        'orderBy'            => 'order_by',
+        'orderDirection'     => 'order_direction',
+        'parentFileId'       => 'parent_file_id',
+        'shareId'            => 'share_id',
+        'status'             => 'status',
+        'thumbnailProcesses' => 'thumbnail_processes',
+        'type'               => 'type',
     ];
 
     public function validate()
@@ -134,6 +140,14 @@ class ListFileRequest extends Model
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
+        }
+        if (null !== $this->thumbnailProcesses) {
+            $res['thumbnail_processes'] = [];
+            if (null !== $this->thumbnailProcesses && \is_array($this->thumbnailProcesses)) {
+                foreach ($this->thumbnailProcesses as $key => $val) {
+                    $res['thumbnail_processes'][$key] = null !== $val ? $val->toMap() : $val;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
@@ -179,6 +193,9 @@ class ListFileRequest extends Model
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
+        }
+        if (isset($map['thumbnail_processes'])) {
+            $model->thumbnailProcesses = $map['thumbnail_processes'];
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];

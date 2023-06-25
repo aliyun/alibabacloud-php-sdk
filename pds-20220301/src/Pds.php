@@ -7,6 +7,8 @@ namespace AlibabaCloud\SDK\Pds\V20220301;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AddGroupMemberRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AddGroupMemberResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\AddStoryFilesRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\AddStoryFilesResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AuthorizeRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AuthorizeResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AuthorizeShrinkRequest;
@@ -20,6 +22,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\CompleteFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CompleteFileResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CopyFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CopyFileResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CreateCustomizedStoryRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CreateCustomizedStoryResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateDriveRequest;
@@ -32,6 +36,10 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\CreateIdentityToBenefitPkgMappingReque
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateIdentityToBenefitPkgMappingResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateShareLinkRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateShareLinkResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CreateSimilarImageClusterTaskRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CreateSimilarImageClusterTaskResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CreateStoryRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CreateStoryResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateUserRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CreateUserResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CsiGetFileInfoRequest;
@@ -46,6 +54,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteGroupRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteGroupResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteRevisionRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteRevisionResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteStoryRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteStoryResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteUserRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\DeleteUserResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\DeltaGetLastCursorRequest;
@@ -90,6 +100,10 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\GetShareLinkRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetShareLinkResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetShareLinkTokenRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetShareLinkTokenResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\GetStoryRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\GetStoryResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\GetTaskStatusRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\GetTaskStatusResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetUploadUrlRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetUploadUrlResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\GetUserRequest;
@@ -150,6 +164,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveFaceGroupFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveFaceGroupFileResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveGroupMemberRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveGroupMemberResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveStoryFilesRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveStoryFilesResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RestoreFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RestoreFileResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RestoreRevisionRequest;
@@ -166,6 +182,10 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\SearchFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\SearchFileResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\SearchShareLinkRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\SearchShareLinkResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\SearchSimilarImageClustersRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\SearchSimilarImageClustersResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\SearchStoriesRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\SearchStoriesResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\SearchUserRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\SearchUserResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\TokenRequest;
@@ -188,6 +208,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateRevisionRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateRevisionResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateShareLinkRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateShareLinkResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateStoryRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateStoryResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateUserRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateUserResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -265,6 +287,58 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->addGroupMemberWithOptions($domainId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param AddStoryFilesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddStoryFilesResponse
+     */
+    public function addStoryFilesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->driveId)) {
+            $body['drive_id'] = $request->driveId;
+        }
+        if (!Utils::isUnset($request->files)) {
+            $body['files'] = $request->files;
+        }
+        if (!Utils::isUnset($request->storyId)) {
+            $body['story_id'] = $request->storyId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddStoryFiles',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/image/add_story_files',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddStoryFilesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddStoryFilesRequest $request
+     *
+     * @return AddStoryFilesResponse
+     */
+    public function addStoryFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->addStoryFilesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -588,6 +662,70 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->copyFileWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateCustomizedStoryRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateCustomizedStoryResponse
+     */
+    public function createCustomizedStoryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->customLabels)) {
+            $body['custom_labels'] = $request->customLabels;
+        }
+        if (!Utils::isUnset($request->driveId)) {
+            $body['drive_id'] = $request->driveId;
+        }
+        if (!Utils::isUnset($request->storyCover)) {
+            $body['story_cover'] = $request->storyCover;
+        }
+        if (!Utils::isUnset($request->storyFiles)) {
+            $body['story_files'] = $request->storyFiles;
+        }
+        if (!Utils::isUnset($request->storyName)) {
+            $body['story_name'] = $request->storyName;
+        }
+        if (!Utils::isUnset($request->storySubType)) {
+            $body['story_sub_type'] = $request->storySubType;
+        }
+        if (!Utils::isUnset($request->storyType)) {
+            $body['story_type'] = $request->storyType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCustomizedStory',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/image/create_customized_story',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCustomizedStoryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomizedStoryRequest $request
+     *
+     * @return CreateCustomizedStoryResponse
+     */
+    public function createCustomizedStory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createCustomizedStoryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1026,6 +1164,128 @@ class Pds extends OpenApiClient
     }
 
     /**
+     * @param CreateSimilarImageClusterTaskRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return CreateSimilarImageClusterTaskResponse
+     */
+    public function createSimilarImageClusterTaskWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->driveId)) {
+            $body['drive_id'] = $request->driveId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSimilarImageClusterTask',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/image/create_similar_image_cluster_task',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSimilarImageClusterTaskResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSimilarImageClusterTaskRequest $request
+     *
+     * @return CreateSimilarImageClusterTaskResponse
+     */
+    public function createSimilarImageClusterTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createSimilarImageClusterTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateStoryRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CreateStoryResponse
+     */
+    public function createStoryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->address)) {
+            $body['address'] = $request->address;
+        }
+        if (!Utils::isUnset($request->customLabels)) {
+            $body['custom_labels'] = $request->customLabels;
+        }
+        if (!Utils::isUnset($request->driveId)) {
+            $body['drive_id'] = $request->driveId;
+        }
+        if (!Utils::isUnset($request->maxImageCount)) {
+            $body['max_image_count'] = $request->maxImageCount;
+        }
+        if (!Utils::isUnset($request->minImageCount)) {
+            $body['min_image_count'] = $request->minImageCount;
+        }
+        if (!Utils::isUnset($request->storyEndTime)) {
+            $body['story_end_time'] = $request->storyEndTime;
+        }
+        if (!Utils::isUnset($request->storyId)) {
+            $body['story_id'] = $request->storyId;
+        }
+        if (!Utils::isUnset($request->storyName)) {
+            $body['story_name'] = $request->storyName;
+        }
+        if (!Utils::isUnset($request->storyStartTime)) {
+            $body['story_start_time'] = $request->storyStartTime;
+        }
+        if (!Utils::isUnset($request->storySubType)) {
+            $body['story_sub_type'] = $request->storySubType;
+        }
+        if (!Utils::isUnset($request->storyType)) {
+            $body['story_type'] = $request->storyType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateStory',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/image/create_story',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateStoryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateStoryRequest $request
+     *
+     * @return CreateStoryResponse
+     */
+    public function createStory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createStoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param CreateUserRequest $request
      * @param string[]          $headers
      * @param RuntimeOptions    $runtime
@@ -1390,6 +1650,55 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->deleteRevisionWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DeleteStoryRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return DeleteStoryResponse
+     */
+    public function deleteStoryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->driveId)) {
+            $body['drive_id'] = $request->driveId;
+        }
+        if (!Utils::isUnset($request->storyId)) {
+            $body['story_id'] = $request->storyId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteStory',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/image/delete_story',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteStoryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteStoryRequest $request
+     *
+     * @return DeleteStoryResponse
+     */
+    public function deleteStory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteStoryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2507,6 +2816,122 @@ class Pds extends OpenApiClient
     }
 
     /**
+     * @param GetStoryRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetStoryResponse
+     */
+    public function getStoryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->coverImageThumbnailProcess)) {
+            $body['cover_image_thumbnail_process'] = $request->coverImageThumbnailProcess;
+        }
+        if (!Utils::isUnset($request->coverVideoThumbnailProcess)) {
+            $body['cover_video_thumbnail_process'] = $request->coverVideoThumbnailProcess;
+        }
+        if (!Utils::isUnset($request->driveId)) {
+            $body['drive_id'] = $request->driveId;
+        }
+        if (!Utils::isUnset($request->imageThumbnailProcess)) {
+            $body['image_thumbnail_process'] = $request->imageThumbnailProcess;
+        }
+        if (!Utils::isUnset($request->imageUrlProcess)) {
+            $body['image_url_process'] = $request->imageUrlProcess;
+        }
+        if (!Utils::isUnset($request->storyId)) {
+            $body['story_id'] = $request->storyId;
+        }
+        if (!Utils::isUnset($request->urlExpireSec)) {
+            $body['url_expire_sec'] = $request->urlExpireSec;
+        }
+        if (!Utils::isUnset($request->videoThumbnailProcess)) {
+            $body['video_thumbnail_process'] = $request->videoThumbnailProcess;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetStory',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/image/get_story',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetStoryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetStoryRequest $request
+     *
+     * @return GetStoryResponse
+     */
+    public function getStory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getStoryWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetTaskStatusRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetTaskStatusResponse
+     */
+    public function getTaskStatusWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->driveId)) {
+            $body['drive_id'] = $request->driveId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['task_id'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTaskStatus',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/image/get_task_status',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTaskStatusResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTaskStatusRequest $request
+     *
+     * @return GetTaskStatusResponse
+     */
+    public function getTaskStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTaskStatusWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param GetUploadUrlRequest $request
      * @param string[]            $headers
      * @param RuntimeOptions      $runtime
@@ -3272,6 +3697,9 @@ class Pds extends OpenApiClient
         }
         if (!Utils::isUnset($request->status)) {
             $body['status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->thumbnailProcesses)) {
+            $body['thumbnail_processes'] = $request->thumbnailProcesses;
         }
         if (!Utils::isUnset($request->type)) {
             $body['type'] = $request->type;
@@ -4168,6 +4596,58 @@ class Pds extends OpenApiClient
     }
 
     /**
+     * @param RemoveStoryFilesRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RemoveStoryFilesResponse
+     */
+    public function removeStoryFilesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->driveId)) {
+            $body['drive_id'] = $request->driveId;
+        }
+        if (!Utils::isUnset($request->files)) {
+            $body['files'] = $request->files;
+        }
+        if (!Utils::isUnset($request->storyId)) {
+            $body['story_id'] = $request->storyId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveStoryFiles',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/image/remove_story_files',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveStoryFilesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveStoryFilesRequest $request
+     *
+     * @return RemoveStoryFilesResponse
+     */
+    public function removeStoryFiles($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->removeStoryFilesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param RestoreFileRequest $request
      * @param string[]           $headers
      * @param RuntimeOptions     $runtime
@@ -4623,6 +5103,158 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->searchShareLinkWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SearchSimilarImageClustersRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return SearchSimilarImageClustersResponse
+     */
+    public function searchSimilarImageClustersWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->driveId)) {
+            $body['drive_id'] = $request->driveId;
+        }
+        if (!Utils::isUnset($request->imageThumbnailProcess)) {
+            $body['image_thumbnail_process'] = $request->imageThumbnailProcess;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $body['limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $body['marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $body['order'] = $request->order;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchSimilarImageClusters',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/image/query_similar_image_clusters',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchSimilarImageClustersResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchSimilarImageClustersRequest $request
+     *
+     * @return SearchSimilarImageClustersResponse
+     */
+    public function searchSimilarImageClusters($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->searchSimilarImageClustersWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param SearchStoriesRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SearchStoriesResponse
+     */
+    public function searchStoriesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->coverImageThumbnailProcess)) {
+            $body['cover_image_thumbnail_process'] = $request->coverImageThumbnailProcess;
+        }
+        if (!Utils::isUnset($request->coverVideoThumbnailProcess)) {
+            $body['cover_video_thumbnail_process'] = $request->coverVideoThumbnailProcess;
+        }
+        if (!Utils::isUnset($request->createTimeRange)) {
+            $body['create_time_range'] = $request->createTimeRange;
+        }
+        if (!Utils::isUnset($request->customLabels)) {
+            $body['custom_labels'] = $request->customLabels;
+        }
+        if (!Utils::isUnset($request->driveId)) {
+            $body['drive_id'] = $request->driveId;
+        }
+        if (!Utils::isUnset($request->faceGroupIds)) {
+            $body['face_group_ids'] = $request->faceGroupIds;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $body['limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->marker)) {
+            $body['marker'] = $request->marker;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $body['order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $body['sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->storyEndTimeRange)) {
+            $body['story_end_time_range'] = $request->storyEndTimeRange;
+        }
+        if (!Utils::isUnset($request->storyId)) {
+            $body['story_id'] = $request->storyId;
+        }
+        if (!Utils::isUnset($request->storyName)) {
+            $body['story_name'] = $request->storyName;
+        }
+        if (!Utils::isUnset($request->storyStartTimeRange)) {
+            $body['story_start_time_range'] = $request->storyStartTimeRange;
+        }
+        if (!Utils::isUnset($request->storyType)) {
+            $body['story_type'] = $request->storyType;
+        }
+        if (!Utils::isUnset($request->urlExpireSec)) {
+            $body['url_expire_sec'] = $request->urlExpireSec;
+        }
+        if (!Utils::isUnset($request->withEmptyStories)) {
+            $body['with_empty_stories'] = $request->withEmptyStories;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SearchStories',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/image/find_stories',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SearchStoriesResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param SearchStoriesRequest $request
+     *
+     * @return SearchStoriesResponse
+     */
+    public function searchStories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->searchStoriesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5321,6 +5953,64 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->updateShareLinkWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateStoryRequest $request
+     * @param string[]           $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return UpdateStoryResponse
+     */
+    public function updateStoryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cover)) {
+            $body['cover'] = $request->cover;
+        }
+        if (!Utils::isUnset($request->customLabels)) {
+            $body['custom_labels'] = $request->customLabels;
+        }
+        if (!Utils::isUnset($request->driveId)) {
+            $body['drive_id'] = $request->driveId;
+        }
+        if (!Utils::isUnset($request->storyId)) {
+            $body['story_id'] = $request->storyId;
+        }
+        if (!Utils::isUnset($request->storyName)) {
+            $body['story_name'] = $request->storyName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateStory',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/image/update_story',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateStoryResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateStoryRequest $request
+     *
+     * @return UpdateStoryResponse
+     */
+    public function updateStory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateStoryWithOptions($request, $headers, $runtime);
     }
 
     /**

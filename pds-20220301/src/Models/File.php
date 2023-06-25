@@ -75,12 +75,17 @@ class File extends Model
     public $hidden;
 
     /**
+     * @var ImageMediaMetadata
+     */
+    public $imageMediaMetadata;
+
+    /**
      * @var investigationInfo
      */
     public $investigationInfo;
 
     /**
-     * @var string
+     * @var string[]
      */
     public $labels;
 
@@ -130,6 +135,11 @@ class File extends Model
     public $thumbnail;
 
     /**
+     * @var string[]
+     */
+    public $thumbnailUrls;
+
+    /**
      * @var string
      */
     public $trashedAt;
@@ -149,34 +159,36 @@ class File extends Model
      */
     public $uploadId;
     protected $_name = [
-        'category'          => 'category',
-        'contentHash'       => 'content_hash',
-        'contentHashName'   => 'content_hash_name',
-        'contentType'       => 'content_type',
-        'crc64Hash'         => 'crc64_hash',
-        'createdAt'         => 'created_at',
-        'description'       => 'description',
-        'domainId'          => 'domain_id',
-        'downloadUrl'       => 'download_url',
-        'driveId'           => 'drive_id',
-        'fileExtension'     => 'file_extension',
-        'fileId'            => 'file_id',
-        'hidden'            => 'hidden',
-        'investigationInfo' => 'investigation_info',
-        'labels'            => 'labels',
-        'localCreatedAt'    => 'local_created_at',
-        'localModifiedAt'   => 'local_modified_at',
-        'name'              => 'name',
-        'parentFileId'      => 'parent_file_id',
-        'revisionId'        => 'revision_id',
-        'size'              => 'size',
-        'starred'           => 'starred',
-        'status'            => 'status',
-        'thumbnail'         => 'thumbnail',
-        'trashedAt'         => 'trashed_at',
-        'type'              => 'type',
-        'updatedAt'         => 'updated_at',
-        'uploadId'          => 'upload_id',
+        'category'           => 'category',
+        'contentHash'        => 'content_hash',
+        'contentHashName'    => 'content_hash_name',
+        'contentType'        => 'content_type',
+        'crc64Hash'          => 'crc64_hash',
+        'createdAt'          => 'created_at',
+        'description'        => 'description',
+        'domainId'           => 'domain_id',
+        'downloadUrl'        => 'download_url',
+        'driveId'            => 'drive_id',
+        'fileExtension'      => 'file_extension',
+        'fileId'             => 'file_id',
+        'hidden'             => 'hidden',
+        'imageMediaMetadata' => 'image_media_metadata',
+        'investigationInfo'  => 'investigation_info',
+        'labels'             => 'labels',
+        'localCreatedAt'     => 'local_created_at',
+        'localModifiedAt'    => 'local_modified_at',
+        'name'               => 'name',
+        'parentFileId'       => 'parent_file_id',
+        'revisionId'         => 'revision_id',
+        'size'               => 'size',
+        'starred'            => 'starred',
+        'status'             => 'status',
+        'thumbnail'          => 'thumbnail',
+        'thumbnailUrls'      => 'thumbnail_urls',
+        'trashedAt'          => 'trashed_at',
+        'type'               => 'type',
+        'updatedAt'          => 'updated_at',
+        'uploadId'           => 'upload_id',
     ];
 
     public function validate()
@@ -225,6 +237,9 @@ class File extends Model
         if (null !== $this->hidden) {
             $res['hidden'] = $this->hidden;
         }
+        if (null !== $this->imageMediaMetadata) {
+            $res['image_media_metadata'] = null !== $this->imageMediaMetadata ? $this->imageMediaMetadata->toMap() : null;
+        }
         if (null !== $this->investigationInfo) {
             $res['investigation_info'] = null !== $this->investigationInfo ? $this->investigationInfo->toMap() : null;
         }
@@ -257,6 +272,9 @@ class File extends Model
         }
         if (null !== $this->thumbnail) {
             $res['thumbnail'] = $this->thumbnail;
+        }
+        if (null !== $this->thumbnailUrls) {
+            $res['thumbnail_urls'] = $this->thumbnailUrls;
         }
         if (null !== $this->trashedAt) {
             $res['trashed_at'] = $this->trashedAt;
@@ -321,11 +339,16 @@ class File extends Model
         if (isset($map['hidden'])) {
             $model->hidden = $map['hidden'];
         }
+        if (isset($map['image_media_metadata'])) {
+            $model->imageMediaMetadata = ImageMediaMetadata::fromMap($map['image_media_metadata']);
+        }
         if (isset($map['investigation_info'])) {
             $model->investigationInfo = investigationInfo::fromMap($map['investigation_info']);
         }
         if (isset($map['labels'])) {
-            $model->labels = $map['labels'];
+            if (!empty($map['labels'])) {
+                $model->labels = $map['labels'];
+            }
         }
         if (isset($map['local_created_at'])) {
             $model->localCreatedAt = $map['local_created_at'];
@@ -353,6 +376,9 @@ class File extends Model
         }
         if (isset($map['thumbnail'])) {
             $model->thumbnail = $map['thumbnail'];
+        }
+        if (isset($map['thumbnail_urls'])) {
+            $model->thumbnailUrls = $map['thumbnail_urls'];
         }
         if (isset($map['trashed_at'])) {
             $model->trashedAt = $map['trashed_at'];
