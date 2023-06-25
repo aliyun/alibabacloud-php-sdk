@@ -28,6 +28,21 @@ class SubmitTextTo2DAvatarVideoTaskRequest extends Model
     public $avatarInfo;
 
     /**
+     * @var bool
+     */
+    public $callback;
+
+    /**
+     * @var string
+     */
+    public $callbackParams;
+
+    /**
+     * @var string
+     */
+    public $extParams;
+
+    /**
      * @example xxxxx
      *
      * @var int
@@ -49,13 +64,16 @@ class SubmitTextTo2DAvatarVideoTaskRequest extends Model
      */
     public $videoInfo;
     protected $_name = [
-        'app'        => 'App',
-        'audioInfo'  => 'AudioInfo',
-        'avatarInfo' => 'AvatarInfo',
-        'tenantId'   => 'TenantId',
-        'text'       => 'Text',
-        'title'      => 'Title',
-        'videoInfo'  => 'VideoInfo',
+        'app'            => 'App',
+        'audioInfo'      => 'AudioInfo',
+        'avatarInfo'     => 'AvatarInfo',
+        'callback'       => 'Callback',
+        'callbackParams' => 'CallbackParams',
+        'extParams'      => 'ExtParams',
+        'tenantId'       => 'TenantId',
+        'text'           => 'Text',
+        'title'          => 'Title',
+        'videoInfo'      => 'VideoInfo',
     ];
 
     public function validate()
@@ -73,6 +91,15 @@ class SubmitTextTo2DAvatarVideoTaskRequest extends Model
         }
         if (null !== $this->avatarInfo) {
             $res['AvatarInfo'] = null !== $this->avatarInfo ? $this->avatarInfo->toMap() : null;
+        }
+        if (null !== $this->callback) {
+            $res['Callback'] = $this->callback;
+        }
+        if (null !== $this->callbackParams) {
+            $res['CallbackParams'] = $this->callbackParams;
+        }
+        if (null !== $this->extParams) {
+            $res['ExtParams'] = $this->extParams;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -106,6 +133,15 @@ class SubmitTextTo2DAvatarVideoTaskRequest extends Model
         }
         if (isset($map['AvatarInfo'])) {
             $model->avatarInfo = avatarInfo::fromMap($map['AvatarInfo']);
+        }
+        if (isset($map['Callback'])) {
+            $model->callback = $map['Callback'];
+        }
+        if (isset($map['CallbackParams'])) {
+            $model->callbackParams = $map['CallbackParams'];
+        }
+        if (isset($map['ExtParams'])) {
+            $model->extParams = $map['ExtParams'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];

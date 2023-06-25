@@ -24,6 +24,21 @@ class SubmitTextTo2DAvatarVideoTaskShrinkRequest extends Model
     public $avatarInfoShrink;
 
     /**
+     * @var bool
+     */
+    public $callback;
+
+    /**
+     * @var string
+     */
+    public $callbackParams;
+
+    /**
+     * @var string
+     */
+    public $extParams;
+
+    /**
      * @example xxxxx
      *
      * @var int
@@ -48,6 +63,9 @@ class SubmitTextTo2DAvatarVideoTaskShrinkRequest extends Model
         'appShrink'        => 'App',
         'audioInfoShrink'  => 'AudioInfo',
         'avatarInfoShrink' => 'AvatarInfo',
+        'callback'         => 'Callback',
+        'callbackParams'   => 'CallbackParams',
+        'extParams'        => 'ExtParams',
         'tenantId'         => 'TenantId',
         'text'             => 'Text',
         'title'            => 'Title',
@@ -69,6 +87,15 @@ class SubmitTextTo2DAvatarVideoTaskShrinkRequest extends Model
         }
         if (null !== $this->avatarInfoShrink) {
             $res['AvatarInfo'] = $this->avatarInfoShrink;
+        }
+        if (null !== $this->callback) {
+            $res['Callback'] = $this->callback;
+        }
+        if (null !== $this->callbackParams) {
+            $res['CallbackParams'] = $this->callbackParams;
+        }
+        if (null !== $this->extParams) {
+            $res['ExtParams'] = $this->extParams;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -102,6 +129,15 @@ class SubmitTextTo2DAvatarVideoTaskShrinkRequest extends Model
         }
         if (isset($map['AvatarInfo'])) {
             $model->avatarInfoShrink = $map['AvatarInfo'];
+        }
+        if (isset($map['Callback'])) {
+            $model->callback = $map['Callback'];
+        }
+        if (isset($map['CallbackParams'])) {
+            $model->callbackParams = $map['CallbackParams'];
+        }
+        if (isset($map['ExtParams'])) {
+            $model->extParams = $map['ExtParams'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];

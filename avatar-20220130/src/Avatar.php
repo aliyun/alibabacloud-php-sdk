@@ -810,6 +810,15 @@ class Avatar extends OpenApiClient
         if (!Utils::isUnset($request->avatarInfoShrink)) {
             $query['AvatarInfo'] = $request->avatarInfoShrink;
         }
+        if (!Utils::isUnset($request->callback)) {
+            $query['Callback'] = $request->callback;
+        }
+        if (!Utils::isUnset($request->callbackParams)) {
+            $query['CallbackParams'] = $request->callbackParams;
+        }
+        if (!Utils::isUnset($request->extParams)) {
+            $query['ExtParams'] = $request->extParams;
+        }
         if (!Utils::isUnset($request->tenantId)) {
             $query['TenantId'] = $request->tenantId;
         }
@@ -878,6 +887,15 @@ class Avatar extends OpenApiClient
         }
         if (!Utils::isUnset($request->avatarInfoShrink)) {
             $query['AvatarInfo'] = $request->avatarInfoShrink;
+        }
+        if (!Utils::isUnset($request->callback)) {
+            $query['Callback'] = $request->callback;
+        }
+        if (!Utils::isUnset($request->callbackParams)) {
+            $query['CallbackParams'] = $request->callbackParams;
+        }
+        if (!Utils::isUnset($request->extParams)) {
+            $query['ExtParams'] = $request->extParams;
         }
         if (!Utils::isUnset($request->tenantId)) {
             $query['TenantId'] = $request->tenantId;
@@ -953,6 +971,15 @@ class Avatar extends OpenApiClient
         }
         if (!Utils::isUnset($request->avatarInfoShrink)) {
             $query['AvatarInfo'] = $request->avatarInfoShrink;
+        }
+        if (!Utils::isUnset($request->callback)) {
+            $query['Callback'] = $request->callback;
+        }
+        if (!Utils::isUnset($request->callbackParams)) {
+            $query['CallbackParams'] = $request->callbackParams;
+        }
+        if (!Utils::isUnset($request->extParams)) {
+            $query['ExtParams'] = $request->extParams;
         }
         if (!Utils::isUnset($request->tenantId)) {
             $query['TenantId'] = $request->tenantId;
