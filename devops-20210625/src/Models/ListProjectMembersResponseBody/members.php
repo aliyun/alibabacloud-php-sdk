@@ -126,6 +126,8 @@ class members extends Model
     public $realNamePinyin;
 
     /**
+     * @description 角色名称
+     *
      * @var string
      */
     public $roleName;

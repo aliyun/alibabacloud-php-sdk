@@ -9,15 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoryMemberWithInheritedRequest extends Model
 {
     /**
-     * @description accessToken
+     * @example f0b1e61db5961df5975a93f9129d2513
      *
      * @var string
      */
     public $accessToken;
 
     /**
-     * @example 5ebbc0228123212b59xxxxx
-     *
      * @var string
      */
     public $organizationId;

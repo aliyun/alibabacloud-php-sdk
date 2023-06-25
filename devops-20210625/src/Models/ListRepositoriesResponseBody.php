@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoriesResponseBody extends Model
 {
     /**
-     * @example ”“
-     *
      * @var int
      */
     public $errorCode;

@@ -93,8 +93,6 @@ class UpdateRepositoryRequest extends Model
     public $openCloneDownloadControl;
 
     /**
-     * @example codeup/codeup-demo
-     *
      * @var string
      */
     public $path;

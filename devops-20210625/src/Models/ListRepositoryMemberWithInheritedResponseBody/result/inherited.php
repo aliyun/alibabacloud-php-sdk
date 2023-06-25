@@ -11,8 +11,6 @@ class inherited extends Model
     /**
      * @description id
      *
-     * @example 123
-     *
      * @var int
      */
     public $id;
@@ -25,8 +23,6 @@ class inherited extends Model
     public $name;
 
     /**
-     * @example test/codeup
-     *
      * @var string
      */
     public $nameWithNamespace;
@@ -39,15 +35,11 @@ class inherited extends Model
     public $path;
 
     /**
-     * @example test / codeup
-     *
      * @var string
      */
     public $pathWithNamespace;
 
     /**
-     * @example GROUP
-     *
      * @var string
      */
     public $type;

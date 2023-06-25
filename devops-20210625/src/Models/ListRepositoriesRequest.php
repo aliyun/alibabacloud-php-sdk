@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoriesRequest extends Model
 {
     /**
-     * @example 146dd344827fe2444f952e931e51xxxx
-     *
      * @var string
      */
     public $accessToken;
@@ -30,8 +28,6 @@ class ListRepositoriesRequest extends Model
     public $orderBy;
 
     /**
-     * @example 5ebbc0228123212b59xxxxx
-     *
      * @var string
      */
     public $organizationId;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class signature extends Model
 {
     /**
+     * @description GPG密钥ID
+     *
+     * @example 34d2c47c7ce46a5c4639c5ffe208
+     *
      * @var string
      */
     public $gpgKeyId;
 
     /**
+     * @example verified
+     *
      * @var string
      */
     public $verificationStatus;

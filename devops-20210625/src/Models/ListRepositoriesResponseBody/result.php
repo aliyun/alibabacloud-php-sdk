@@ -30,8 +30,6 @@ class result extends Model
     public $archive;
 
     /**
-     * @example ""
-     *
      * @var string
      */
     public $avatarUrl;
@@ -49,8 +47,6 @@ class result extends Model
     public $description;
 
     /**
-     * @example ""
-     *
      * @var string
      */
     public $importStatus;
@@ -70,8 +66,6 @@ class result extends Model
     public $name;
 
     /**
-     * @example codeup-test-org / test-codeup
-     *
      * @var string
      */
     public $nameWithNamespace;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetCodeupOrganizationResponseBody extends Model
 {
     /**
+     * @example InvalidTagGroup.IdNotFound
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example ASSDS-ASSASX-XSAXSA-XSAXSAXS
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class GetCodeupOrganizationResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

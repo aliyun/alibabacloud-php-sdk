@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 2022-03-12 12:00:00
+     *
      * @var string
      */
     public $createdAt;
 
     /**
+     * @example 3624
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 100003
+     *
      * @var int
      */
     public $namespaceId;
 
     /**
+     * @example 60de7a6852743a5162b5f957
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example test-codeup
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example 2022-03-18 14:24:54
+     *
      * @var string
      */
     public $updatedAt;
 
     /**
+     * @example ORG_MEMBER
+     *
      * @var string
      */
     public $userRole;

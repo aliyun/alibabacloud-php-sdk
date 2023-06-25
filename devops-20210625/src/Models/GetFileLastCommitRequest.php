@@ -16,7 +16,7 @@ class GetFileLastCommitRequest extends Model
     public $accessToken;
 
     /**
-     * @example src/main/java/Main.java
+     * @example src/main/test.java
      *
      * @var string
      */

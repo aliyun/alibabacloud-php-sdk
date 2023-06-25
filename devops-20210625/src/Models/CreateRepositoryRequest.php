@@ -103,15 +103,11 @@ class CreateRepositoryRequest extends Model
     public $name;
 
     /**
-     * @example 2022
-     *
      * @var int
      */
     public $namespaceId;
 
     /**
-     * @example a/b/c
-     *
      * @var string
      */
     public $path;

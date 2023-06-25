@@ -21,6 +21,8 @@ class result extends Model
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableSslVerification;
@@ -33,30 +35,32 @@ class result extends Model
     public $id;
 
     /**
-     * @example OK
-     *
      * @var string
      */
     public $lastTestResult;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $mergeRequestsEvents;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $noteEvents;
 
     /**
-     * @example 123456xxx
-     *
      * @var int
      */
     public $projectId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $pushEvents;
@@ -69,6 +73,8 @@ class result extends Model
     public $secretToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $tagPushEvents;

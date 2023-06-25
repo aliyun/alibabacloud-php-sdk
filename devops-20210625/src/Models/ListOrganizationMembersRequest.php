@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListOrganizationMembersRequest extends Model
 {
     /**
+     * @description 返回信息中是否包含第三方信息，默认不包含。
+     *
+     * @var bool
+     */
+    public $containsExternInfo;
+
+    /**
      * @example 1236666
      *
      * @var string
@@ -62,6 +69,7 @@ class ListOrganizationMembersRequest extends Model
      */
     public $state;
     protected $_name = [
+        'containsExternInfo'     => 'containsExternInfo',
         'externUid'              => 'externUid',
         'joinTimeFrom'           => 'joinTimeFrom',
         'joinTimeTo'             => 'joinTimeTo',
@@ -79,6 +87,9 @@ class ListOrganizationMembersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->containsExternInfo) {
+            $res['containsExternInfo'] = $this->containsExternInfo;
+        }
         if (null !== $this->externUid) {
             $res['externUid'] = $this->externUid;
         }
@@ -115,6 +126,9 @@ class ListOrganizationMembersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['containsExternInfo'])) {
+            $model->containsExternInfo = $map['containsExternInfo'];
+        }
         if (isset($map['externUid'])) {
             $model->externUid = $map['externUid'];
         }

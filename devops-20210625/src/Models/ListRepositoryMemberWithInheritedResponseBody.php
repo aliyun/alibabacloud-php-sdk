@@ -10,22 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoryMemberWithInheritedResponseBody extends Model
 {
     /**
-     * @example None
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example error
-     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @example 56C33A95-C04F-59F0-B3CD-E2A2EB9FADBB
-     *
      * @var string
      */
     public $requestId;
@@ -36,8 +30,6 @@ class ListRepositoryMemberWithInheritedResponseBody extends Model
     public $result;
 
     /**
-     * @example True
-     *
      * @var bool
      */
     public $success;

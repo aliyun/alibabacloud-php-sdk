@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @example 40
-     *
      * @var int
      */
     public $accessLevel;
@@ -24,8 +22,6 @@ class result extends Model
     public $avatarUrl;
 
     /**
-     * @example yunxiao-test@aliyun.com
-     *
      * @var string
      */
     public $email;
@@ -38,8 +34,6 @@ class result extends Model
     public $externUserId;
 
     /**
-     * @example 19946
-     *
      * @var int
      */
     public $id;

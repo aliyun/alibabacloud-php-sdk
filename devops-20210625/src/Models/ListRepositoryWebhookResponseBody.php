@@ -10,15 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoryWebhookResponseBody extends Model
 {
     /**
-     * @example 404
-     *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @example SYSTEM_NOT_FOUND_ERROR
-     *
      * @var string
      */
     public $errorMessage;
@@ -36,6 +32,8 @@ class ListRepositoryWebhookResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

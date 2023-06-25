@@ -45,6 +45,10 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateSprintResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateSshKeyResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateTagRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateTagResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateTestCaseRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateTestCaseResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateUserKeyRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateUserKeyResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateVariableGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateVariableGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemCommentRequest;
@@ -85,6 +89,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryWebhookResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteResourceMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteTagRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteTagResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteUserKeyRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteUserKeyResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteVariableGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemAllCommentRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteWorkitemAllCommentResponse;
@@ -133,6 +139,10 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetRepositoryTagResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetSearchCodePreviewRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetSearchCodePreviewResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetSprintInfoResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetTestcaseListRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetTestcaseListResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetTestResultListRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetTestResultListResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetUserInfoRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetUserInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVariableGroupResponse;
@@ -212,6 +222,10 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListServiceConnectionsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListServiceConnectionsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListSprintsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListSprintsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListTestCaseFieldsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListTestCaseFieldsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserKeysRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserKeysResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemAllFieldsRequest;
@@ -270,6 +284,10 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateRepositoryResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateResourceMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateResourceMemberResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateTestCaseRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateTestCaseResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateTestResultRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateTestResultResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateVariableGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateVariableGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkitemCommentRequest;
@@ -1566,6 +1584,138 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                $organizationId
+     * @param CreateTestCaseRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTestCaseResponse
+     */
+    public function createTestCaseWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->assignedTo)) {
+            $body['assignedTo'] = $request->assignedTo;
+        }
+        if (!Utils::isUnset($request->directoryIdentifier)) {
+            $body['directoryIdentifier'] = $request->directoryIdentifier;
+        }
+        if (!Utils::isUnset($request->fieldValueList)) {
+            $body['fieldValueList'] = $request->fieldValueList;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $body['priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->spaceIdentifier)) {
+            $body['spaceIdentifier'] = $request->spaceIdentifier;
+        }
+        if (!Utils::isUnset($request->subject)) {
+            $body['subject'] = $request->subject;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->testcaseStepContentInfo)) {
+            $body['testcaseStepContentInfo'] = $request->testcaseStepContentInfo;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTestCase',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/testhub/testcase',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTestCaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $organizationId
+     * @param CreateTestCaseRequest $request
+     *
+     * @return CreateTestCaseResponse
+     */
+    public function createTestCase($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createTestCaseWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateUserKeyRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateUserKeyResponse
+     */
+    public function createUserKeyWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->expireTime)) {
+            $body['expireTime'] = $request->expireTime;
+        }
+        if (!Utils::isUnset($request->keyScope)) {
+            $body['keyScope'] = $request->keyScope;
+        }
+        if (!Utils::isUnset($request->publicKey)) {
+            $body['publicKey'] = $request->publicKey;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $body['title'] = $request->title;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateUserKey',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v3/user/keys/create',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateUserKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateUserKeyRequest $request
+     *
+     * @return CreateUserKeyResponse
+     */
+    public function createUserKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createUserKeyWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param string                     $organizationId
      * @param CreateVariableGroupRequest $request
      * @param string[]                   $headers
@@ -2817,6 +2967,57 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->deleteTagWithOptions($repositoryId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string               $keyId
+     * @param DeleteUserKeyRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteUserKeyResponse
+     */
+    public function deleteUserKeyWithOptions($keyId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteUserKey',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v3/user/keys/' . OpenApiUtilClient::getEncodeParam($keyId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteUserKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string               $keyId
+     * @param DeleteUserKeyRequest $request
+     *
+     * @return DeleteUserKeyResponse
+     */
+    public function deleteUserKey($keyId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteUserKeyWithOptions($keyId, $request, $headers, $runtime);
     }
 
     /**
@@ -4261,6 +4462,119 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                   $organizationId
+     * @param string                   $testPlanIdentifier
+     * @param GetTestResultListRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetTestResultListResponse
+     */
+    public function getTestResultListWithOptions($organizationId, $testPlanIdentifier, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->conditions)) {
+            $body['conditions'] = $request->conditions;
+        }
+        if (!Utils::isUnset($request->directoryIdentifier)) {
+            $body['directoryIdentifier'] = $request->directoryIdentifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTestResultList',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/testhub/testplan/' . OpenApiUtilClient::getEncodeParam($testPlanIdentifier) . '/testresults',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTestResultListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $organizationId
+     * @param string                   $testPlanIdentifier
+     * @param GetTestResultListRequest $request
+     *
+     * @return GetTestResultListResponse
+     */
+    public function getTestResultList($organizationId, $testPlanIdentifier, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTestResultListWithOptions($organizationId, $testPlanIdentifier, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                 $organizationId
+     * @param GetTestcaseListRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetTestcaseListResponse
+     */
+    public function getTestcaseListWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->conditions)) {
+            $body['conditions'] = $request->conditions;
+        }
+        if (!Utils::isUnset($request->directoryIdentifier)) {
+            $body['directoryIdentifier'] = $request->directoryIdentifier;
+        }
+        if (!Utils::isUnset($request->maxResult)) {
+            $body['maxResult'] = $request->maxResult;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->spaceIdentifier)) {
+            $body['spaceIdentifier'] = $request->spaceIdentifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTestcaseList',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/testhub/testcases',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTestcaseListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $organizationId
+     * @param GetTestcaseListRequest $request
+     *
+     * @return GetTestcaseListResponse
+     */
+    public function getTestcaseList($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTestcaseListWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param GetUserInfoRequest $request
      * @param string[]           $headers
      * @param RuntimeOptions     $runtime
@@ -4984,6 +5298,9 @@ class Devops extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->containsExternInfo)) {
+            $query['containsExternInfo'] = $request->containsExternInfo;
+        }
         if (!Utils::isUnset($request->externUid)) {
             $query['externUid'] = $request->externUid;
         }
@@ -6710,6 +7027,115 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->listSprintsWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $organizationId
+     * @param ListTestCaseFieldsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListTestCaseFieldsResponse
+     */
+    public function listTestCaseFieldsWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->spaceIdentifier)) {
+            $query['spaceIdentifier'] = $request->spaceIdentifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTestCaseFields',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/testhub/testcase/fields',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTestCaseFieldsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $organizationId
+     * @param ListTestCaseFieldsRequest $request
+     *
+     * @return ListTestCaseFieldsResponse
+     */
+    public function listTestCaseFields($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listTestCaseFieldsWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListUserKeysRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListUserKeysResponse
+     */
+    public function listUserKeysWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['orderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['sort'] = $request->sort;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserKeys',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v3/user/keys',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUserKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUserKeysRequest $request
+     *
+     * @return ListUserKeysResponse
+     */
+    public function listUserKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listUserKeysWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -8702,6 +9128,111 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->updateResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $accountId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $organizationId
+     * @param string                $testcaseIdentifier
+     * @param UpdateTestCaseRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateTestCaseResponse
+     */
+    public function updateTestCaseWithOptions($organizationId, $testcaseIdentifier, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->updateWorkitemPropertyRequest)) {
+            $body['updateWorkitemPropertyRequest'] = $request->updateWorkitemPropertyRequest;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTestCase',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/testhub/testcase/' . OpenApiUtilClient::getEncodeParam($testcaseIdentifier) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTestCaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $organizationId
+     * @param string                $testcaseIdentifier
+     * @param UpdateTestCaseRequest $request
+     *
+     * @return UpdateTestCaseResponse
+     */
+    public function updateTestCase($organizationId, $testcaseIdentifier, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateTestCaseWithOptions($organizationId, $testcaseIdentifier, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $organizationId
+     * @param string                  $testPlanIdentifier
+     * @param string                  $testcaseIdentifier
+     * @param UpdateTestResultRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateTestResultResponse
+     */
+    public function updateTestResultWithOptions($organizationId, $testPlanIdentifier, $testcaseIdentifier, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->executor)) {
+            $body['executor'] = $request->executor;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTestResult',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/testhub/testplan/' . OpenApiUtilClient::getEncodeParam($testPlanIdentifier) . '/testresult/' . OpenApiUtilClient::getEncodeParam($testcaseIdentifier) . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTestResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $organizationId
+     * @param string                  $testPlanIdentifier
+     * @param string                  $testcaseIdentifier
+     * @param UpdateTestResultRequest $request
+     *
+     * @return UpdateTestResultResponse
+     */
+    public function updateTestResult($organizationId, $testPlanIdentifier, $testcaseIdentifier, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateTestResultWithOptions($organizationId, $testPlanIdentifier, $testcaseIdentifier, $request, $headers, $runtime);
     }
 
     /**

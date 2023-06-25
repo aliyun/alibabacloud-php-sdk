@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetFileLastCommitResponseBody extends Model
 {
     /**
+     * @example SYSTEM_UNKNOWN_ERROR
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example F7B85D1B-D1C2-140F-A039-341859F130B9
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class GetFileLastCommitResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

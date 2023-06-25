@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoryWebhookRequest extends Model
 {
     /**
-     * @example a6e60c028c046ee9a64dxxx
-     *
      * @var string
      */
     public $accessToken;
 
     /**
-     * @example 5ebbc0228123212b59xxxxx
-     *
      * @var string
      */
     public $organizationId;
