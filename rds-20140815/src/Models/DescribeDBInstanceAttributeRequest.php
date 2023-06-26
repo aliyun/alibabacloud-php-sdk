@@ -21,7 +21,7 @@ class DescribeDBInstanceAttributeRequest extends Model
      * @description Specifies whether the instance expires. Valid values:
      *
      *   **True**: The instance expires.
-     *   **False**: The instance does not expire.
+     *   **False:** The instance does not expire.
      *
      * @example False
      *

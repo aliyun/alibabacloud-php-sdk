@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesAsCsvRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $cachedAsync;
+
+    /**
      * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
@@ -16,6 +21,11 @@ class DescribeDBInstancesAsCsvRequest extends Model
      * @var string
      */
     public $DBInstanceId;
+
+    /**
+     * @var string
+     */
+    public $exportKey;
 
     /**
      * @var int
@@ -50,7 +60,9 @@ class DescribeDBInstancesAsCsvRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'cachedAsync'          => 'CachedAsync',
         'DBInstanceId'         => 'DBInstanceId',
+        'exportKey'            => 'ExportKey',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
         'resourceGroupId'      => 'ResourceGroupId',
@@ -65,8 +77,14 @@ class DescribeDBInstancesAsCsvRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cachedAsync) {
+            $res['CachedAsync'] = $this->cachedAsync;
+        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->exportKey) {
+            $res['ExportKey'] = $this->exportKey;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -95,8 +113,14 @@ class DescribeDBInstancesAsCsvRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CachedAsync'])) {
+            $model->cachedAsync = $map['CachedAsync'];
+        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['ExportKey'])) {
+            $model->exportKey = $map['ExportKey'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

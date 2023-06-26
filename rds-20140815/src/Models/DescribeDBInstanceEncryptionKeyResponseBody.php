@@ -46,7 +46,7 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
     public $encryptionKey;
 
     /**
-     * @description An array that consists of keys.
+     * @description The details about the key.
      *
      * @var encryptionKeyList[]
      */
@@ -55,8 +55,8 @@ class DescribeDBInstanceEncryptionKeyResponseBody extends Model
     /**
      * @description The status of the key. Valid values:
      *
-     *   Enabled
-     *   Disabled
+     *   **Enabled**
+     *   **Disabled**
      *
      * @example Enabled
      *

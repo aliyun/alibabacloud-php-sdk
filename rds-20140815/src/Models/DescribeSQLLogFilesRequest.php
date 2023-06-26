@@ -37,9 +37,8 @@ class DescribeSQLLogFilesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Valid values: **1 to 100000**.
+     * @description The number of the page to return. Valid values: **1 to 100000**. Default value: **1**.
      *
-     * Default value: **1**.
      * @example 1
      *
      * @var int
@@ -47,9 +46,8 @@ class DescribeSQLLogFilesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid value: **30 to 200**.
+     * @description The number of entries to return on each page. Valid value: **30 to 200**. Default value: **30**.
      *
-     * Default value: **30**.
      * @example 30
      *
      * @var int

@@ -26,7 +26,7 @@ class DescribeSQLLogFilesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -44,7 +44,7 @@ class DescribeSQLLogFilesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of returned entries.
+     * @description The total number of entries returned.
      *
      * @example 10
      *

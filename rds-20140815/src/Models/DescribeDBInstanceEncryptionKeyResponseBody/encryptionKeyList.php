@@ -56,8 +56,8 @@ class encryptionKeyList extends Model
     /**
      * @description The status of the key. Valid values:
      *
-     *   Enabled
-     *   Disabled
+     *   **Enabled**
+     *   **Disabled**
      *
      * @example Enabled
      *
@@ -66,9 +66,12 @@ class encryptionKeyList extends Model
     public $encryptionKeyStatus;
 
     /**
-     * @description The type of the key.
+     * @description The type of the key. Valid values:
      *
-     * @example ALIAS
+     *   **CMK**
+     *   **ServiceKey**
+     *
+     * @example ServiceKey
      *
      * @var string
      */
@@ -102,9 +105,12 @@ class encryptionKeyList extends Model
     public $origin;
 
     /**
-     * @description The role of the instance that uses the key. Valid values: ***master**: primary instance*. **slave**: read-only instance.
+     * @description The role of the instance. Valid values:
      *
-     * @example master
+     *   **Master**: primary instance
+     *   **slave**: read-only instance
+     *
+     * @example Master
      *
      * @var string
      */

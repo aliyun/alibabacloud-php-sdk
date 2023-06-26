@@ -5,6 +5,9 @@
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDatabasesResponseBody\databases;
 
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDatabasesResponseBody\databases\database\accounts;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDatabasesResponseBody\databases\database\advancedInfo;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDatabasesResponseBody\databases\database\basicInfo;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDatabasesResponseBody\databases\database\runtimeInfo;
 use AlibabaCloud\Tea\Model;
 
 class database extends Model
@@ -15,6 +18,16 @@ class database extends Model
      * @var accounts
      */
     public $accounts;
+
+    /**
+     * @var advancedInfo
+     */
+    public $advancedInfo;
+
+    /**
+     * @var basicInfo
+     */
+    public $basicInfo;
 
     /**
      * @description The name of the character set.
@@ -130,6 +143,11 @@ class database extends Model
     public $resourceGroupId;
 
     /**
+     * @var runtimeInfo
+     */
+    public $runtimeInfo;
+
+    /**
      * @description The tablespace of the database.
      *
      * >  This parameter is returned only for instances that run PostgreSQL.
@@ -149,6 +167,8 @@ class database extends Model
     public $totalCount;
     protected $_name = [
         'accounts'         => 'Accounts',
+        'advancedInfo'     => 'AdvancedInfo',
+        'basicInfo'        => 'BasicInfo',
         'characterSetName' => 'CharacterSetName',
         'collate'          => 'Collate',
         'connLimit'        => 'ConnLimit',
@@ -161,6 +181,7 @@ class database extends Model
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
         'resourceGroupId'  => 'ResourceGroupId',
+        'runtimeInfo'      => 'RuntimeInfo',
         'tablespace'       => 'Tablespace',
         'totalCount'       => 'TotalCount',
     ];
@@ -174,6 +195,12 @@ class database extends Model
         $res = [];
         if (null !== $this->accounts) {
             $res['Accounts'] = null !== $this->accounts ? $this->accounts->toMap() : null;
+        }
+        if (null !== $this->advancedInfo) {
+            $res['AdvancedInfo'] = null !== $this->advancedInfo ? $this->advancedInfo->toMap() : null;
+        }
+        if (null !== $this->basicInfo) {
+            $res['BasicInfo'] = null !== $this->basicInfo ? $this->basicInfo->toMap() : null;
         }
         if (null !== $this->characterSetName) {
             $res['CharacterSetName'] = $this->characterSetName;
@@ -211,6 +238,9 @@ class database extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->runtimeInfo) {
+            $res['RuntimeInfo'] = null !== $this->runtimeInfo ? $this->runtimeInfo->toMap() : null;
+        }
         if (null !== $this->tablespace) {
             $res['Tablespace'] = $this->tablespace;
         }
@@ -231,6 +261,12 @@ class database extends Model
         $model = new self();
         if (isset($map['Accounts'])) {
             $model->accounts = accounts::fromMap($map['Accounts']);
+        }
+        if (isset($map['AdvancedInfo'])) {
+            $model->advancedInfo = advancedInfo::fromMap($map['AdvancedInfo']);
+        }
+        if (isset($map['BasicInfo'])) {
+            $model->basicInfo = basicInfo::fromMap($map['BasicInfo']);
         }
         if (isset($map['CharacterSetName'])) {
             $model->characterSetName = $map['CharacterSetName'];
@@ -267,6 +303,9 @@ class database extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['RuntimeInfo'])) {
+            $model->runtimeInfo = runtimeInfo::fromMap($map['RuntimeInfo']);
         }
         if (isset($map['Tablespace'])) {
             $model->tablespace = $map['Tablespace'];

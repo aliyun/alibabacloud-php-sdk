@@ -27,7 +27,7 @@ class DBClusterNode extends Model
     public $nodeId;
 
     /**
-     * @description The region ID of the node.
+     * @description The ID of the region.
      *
      * @example cn-beijing
      *
@@ -36,10 +36,11 @@ class DBClusterNode extends Model
     public $nodeRegionId;
 
     /**
-     * @description The role of node. The valid values:
+     * @description The role of the node. Valid values:
      *
-     * - **primary**: primary node.
-     * - **secondary**: standby node.
+     *   **primary**: primary node
+     *   **secondary**: secondary node
+     *
      * @example primary
      *
      * @var string
@@ -47,7 +48,7 @@ class DBClusterNode extends Model
     public $nodeRole;
 
     /**
-     * @description The zone ID of the node.
+     * @description The zone ID of the instance.
      *
      * @example cn-beijing-h
      *

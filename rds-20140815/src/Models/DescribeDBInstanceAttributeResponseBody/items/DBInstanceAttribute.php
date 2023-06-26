@@ -15,7 +15,7 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceAttribute extends Model
 {
     /**
-     * @description The maximum number of accounts that can be created on an instance.
+     * @description The maximum number of accounts that can be created on the instance.
      *
      * @example 50
      *
@@ -57,19 +57,27 @@ class DBInstanceAttribute extends Model
     public $availabilityValue;
 
     /**
-     * @description The configuration of Babelfish for the instance.
+     * @description The configuration of the Babelfish feature for the ApsaraDB RDS for PostgreSQL instance.
      *
-     * >  This parameter applies only to ApsaraDB RDS for PostgreSQL instances for which Babelfish is enabled. For more information, see [Introduction to Babelfish](https://www.alibabacloud.com/help/en/apsaradb-for-rds/latest/babelfish-for-pg).
+     * > This parameter applies only to ApsaraDB RDS for PostgreSQL instances for which Babelfish is enabled. For more information, see [Introduction to Babelfish](~~428613~~).
      * @var babelfishConfig
      */
     public $babelfishConfig;
 
     /**
+     * @description <props="china">预留参数，无需配置。</props>
+     * <props="intl">无效参数，无需配置。</props>
+     * @example false
+     *
      * @var string
      */
     public $bpeEnabled;
 
     /**
+     * @description <props="china">预留参数，无需配置。</props>
+     * <props="intl">无效参数，无需配置。</props>
+     * @example false
+     *
      * @var bool
      */
     public $burstingEnabled;
@@ -79,9 +87,10 @@ class DBInstanceAttribute extends Model
      *
      *   **Basic**: RDS Basic Edition
      *   **HighAvailability**: RDS High-availability Edition
-     *   **AlwaysOn**: RDS Cluster Edition for SQL Server
      *   **cluster**: RDS Cluster Edition for MySQL
+     *   **AlwaysOn**: RDS Cluster Edition for SQL Server
      *   **Finance**: RDS Enterprise Edition
+     *   **Serverless_basic**: RDS Serverless Basic Edition
      *
      * @example Basic
      *
@@ -102,7 +111,7 @@ class DBInstanceAttribute extends Model
      * @description The connection mode of the instance. Valid values:
      *
      *   **Standard**: standard mode
-     *   **Safe**: proxy mode
+     *   **Safe**: database proxy mode
      *
      * @example Standard
      *
@@ -125,7 +134,7 @@ class DBInstanceAttribute extends Model
      *   **1**: shared proxy
      *   **2**: dedicated proxy
      *
-     * >  We recommend that you use the **ProxyType** parameter instead of this parameter.
+     * > We recommend that you use the **ProxyType** parameter instead of this parameter.
      * @example 2
      *
      * @var string
@@ -133,7 +142,7 @@ class DBInstanceAttribute extends Model
     public $consoleVersion;
 
     /**
-     * @description The time when the instance was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The creation time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2011-05-30T12:11:04Z
      *
@@ -151,7 +160,7 @@ class DBInstanceAttribute extends Model
     public $currentKernelVersion;
 
     /**
-     * @description The nodes of cluster.
+     * @description The information about the node in the cluster.
      *
      * @var DBClusterNodes
      */
@@ -192,7 +201,7 @@ class DBInstanceAttribute extends Model
     /**
      * @description The description of the instance.
      *
-     * @example my database.
+     * @example The number of cores that are configured for the instance.
      *
      * @var string
      */
@@ -219,8 +228,8 @@ class DBInstanceAttribute extends Model
     /**
      * @description The type of the network over which the instance is connected. Valid values:
      *
-     *   **Internet**
-     *   **Intranet**
+     *   **Internet**: Internet
+     *   **Intranet**: internal network
      *
      * @example Internet
      *
@@ -251,7 +260,7 @@ class DBInstanceAttribute extends Model
      *
      *   **local_ssd** and **ephemeral_ssd**: local SSD
      *   **cloud_ssd**: standard SSD
-     *   **cloud_essd**: enhanced SSD (ESSD)
+     *   **cloud_essd**: enhanced SSD
      *
      * @example local_ssd
      *
@@ -283,7 +292,7 @@ class DBInstanceAttribute extends Model
     public $DBMaxQuantity;
 
     /**
-     * @description The ID of the dedicated cluster to which the instance belongs.
+     * @description The ID of the dedicated cluster.
      *
      * @example dhg-7a9*****
      *
@@ -294,8 +303,9 @@ class DBInstanceAttribute extends Model
     /**
      * @description Indicates whether the release protection feature is enabled. Valid values:
      *
-     * - **true**: The feature is enabled.
-     * - **false**: The feature is disabled.
+     *   **true**: The feature is enabled.
+     *   **false**: The feature is disabled.
+     *
      * @example true
      *
      * @var bool
@@ -317,7 +327,7 @@ class DBInstanceAttribute extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The version of the database engine.
      *
      * @example 5.5
      *
@@ -326,9 +336,9 @@ class DBInstanceAttribute extends Model
     public $engineVersion;
 
     /**
-     * @description The time at which the instance expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The expiration time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
-     * >  Pay-as-you-go instances never expire.
+     * > Pay-as-you-go instances never expire.
      * @example 2019-03-27T16:00:00Z
      *
      * @var string
@@ -343,7 +353,7 @@ class DBInstanceAttribute extends Model
     public $extra;
 
     /**
-     * @description The name of the dedicated cluster to which the instance belongs. This parameter is returned only when the instance runs MySQL on RDS Standard Edition and is created in a dedicated cluster.
+     * @description The name of the dedicated cluster to which the instance belongs. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition.
      *
      * @example TestGroup
      *
@@ -361,7 +371,7 @@ class DBInstanceAttribute extends Model
     public $guardDBInstanceId;
 
     /**
-     * @description The type of the IP address that is used by the instance. The value is fixed as **IPv4**.
+     * @description The type of the IP address. Only **IPv4** addresses are supported.
      *
      * @example IPv4
      *
@@ -381,8 +391,8 @@ class DBInstanceAttribute extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **Classic**
-     *   **VPC**
+     *   **Classic**: classic network
+     *   **VPC**: virtual private cloud (VPC)
      *
      * @example Classic
      *
@@ -393,8 +403,9 @@ class DBInstanceAttribute extends Model
     /**
      * @description The architecture type of the instance. Valid values:
      *
-     * - **x86**
-     * - **arm**
+     *   **x86**
+     *   **arm**
+     *
      * @example x86
      *
      * @var string
@@ -418,7 +429,7 @@ class DBInstanceAttribute extends Model
      *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
      *   **LockByRestoration**: The instance is automatically locked due to instance restoration.
      *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage.
-     *   **LockReadInstanceByDiskQuota**: The instance is a read-only instance and is automatically locked when the disk space is exhausted.
+     *   **LockReadInstanceByDiskQuota**: The instance is a read-only instance and is automatically locked due to exhausted storage.
      *
      * @example Unlock
      *
@@ -447,7 +458,7 @@ class DBInstanceAttribute extends Model
     /**
      * @description The ID of the primary instance.
      *
-     * >  If this parameter is not returned, the instance is the primary instance.
+     * > If this parameter is not returned, the instance is the primary instance.
      * @example rm-uf6wjk5*****
      *
      * @var string
@@ -455,7 +466,7 @@ class DBInstanceAttribute extends Model
     public $masterInstanceId;
 
     /**
-     * @description The ID of the primary zone.
+     * @description The zone ID of the primary instance.
      *
      * @example 5454284
      *
@@ -464,7 +475,7 @@ class DBInstanceAttribute extends Model
     public $masterZone;
 
     /**
-     * @description The maximum number of concurrent connections that are allowed by the instance.
+     * @description The maximum number of concurrent connections.
      *
      * @example 60
      *
@@ -482,7 +493,7 @@ class DBInstanceAttribute extends Model
     public $maxIOMBPS;
 
     /**
-     * @description The maximum number of I/O requests that can be processed by the instance per second.
+     * @description The maximum number of I/O requests that is processed by the instance per second.
      *
      * @example 150
      *
@@ -503,7 +514,7 @@ class DBInstanceAttribute extends Model
     public $payType;
 
     /**
-     * @description The internal port number that is used to connect to the instance.
+     * @description The port that is used to connect to the instance over an internal network.
      *
      * @example 3306
      *
@@ -525,14 +536,14 @@ class DBInstanceAttribute extends Model
     public $proxyType;
 
     /**
-     * @description An array that consists of the IDs of the read-only instances that are attached to the primary instance.
+     * @description An array consisting of the IDs of the read-only instances that are attached to the primary instance.
      *
      * @var readOnlyDBInstanceIds
      */
     public $readOnlyDBInstanceIds;
 
     /**
-     * @description The latency at which the read-only instances replicate data. The read-only instances replicate data from the primary instance at the latency that is specified by the **ReadonlyInstanceSQLDelayedTime** parameter. Unit: seconds.
+     * @description The latency at which the system replicates data to read-only instances. The system replicates data from the primary instance to the read-only instances at the latency that is specified by the **ReadonlyInstanceSQLDelayedTime** parameter. Unit: seconds.
      *
      * @example 30
      *
@@ -550,7 +561,7 @@ class DBInstanceAttribute extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs.
+     * @description The ID of the resource group.
      *
      * @example rg-acfmy*****
      *
@@ -624,19 +635,19 @@ class DBInstanceAttribute extends Model
     public $timeZone;
 
     /**
-     * @description The information about the exception that is detected on the instance. This parameter is returned only when the instance runs MySQL on RDS Standard Edition and is created in a dedicated cluster.
+     * @description The information about the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition.
      *
-     * @example it\"s ok
+     * @example The IP addresses in the IP address whitelist.
      *
      * @var string
      */
     public $tips;
 
     /**
-     * @description The severity level of the exception that is detected on the instance. This parameter is returned only when the instance runs MySQL on RDS Standard Edition and is created in a dedicated cluster. Valid values:
+     * @description The severity level of the exception that is detected on the instance. This parameter is returned only when the instance is created in an ApsaraDB MyBase cluster that runs MySQL on Standard Edition. Valid values:
      *
      *   **1**: The instance is normal.
-     *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance. You must adjust the specifications of these instances based on your business requirements.
+     *   **2**: The specifications of the read-only instances do not match the specifications of the primary instance, and the performance is affected. You must adjust the specifications of these instances based on your business requirements.
      *
      * @example 1
      *
@@ -645,7 +656,7 @@ class DBInstanceAttribute extends Model
     public $tipsLevel;
 
     /**
-     * @description The ID of the vSwitch that serves the instance.
+     * @description The ID of the vSwitch.
      *
      * @example vsw-*****
      *
@@ -654,7 +665,7 @@ class DBInstanceAttribute extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the VPC to which the instance belongs. This parameter is returned only when the instance resides in a VPC.
+     * @description The VPC ID of the instance. This parameter is returned only when the instance resides in a VPC.
      *
      * @example vpc-23rsxdf*****
      *
@@ -663,7 +674,7 @@ class DBInstanceAttribute extends Model
     public $vpcCloudInstanceId;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the instance belongs.
+     * @description The ID of the VPC.
      *
      * @example vpc-*****
      *
@@ -672,7 +683,7 @@ class DBInstanceAttribute extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone to which the instances belong.
+     * @description The zone ID of the instance.
      *
      * @example cn-hangzhou-a
      *
@@ -681,10 +692,12 @@ class DBInstanceAttribute extends Model
     public $zoneId;
 
     /**
-     * @description An internal parameter. This operation does not return a value for this parameter.
+     * @description An internal parameter. You can ignore this parameter.
      *
-     * @example none
+     * @example The architecture type of the instance. Valid values:
      *
+     * - **x86**
+     * - **arm**
      * @var string
      */
     public $kindCode;

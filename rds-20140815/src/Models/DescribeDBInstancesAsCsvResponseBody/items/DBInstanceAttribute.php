@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesAsCsvResponseBody\items;
 
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeDBInstancesAsCsvResponseBody\items\DBInstanceAttribute\slaveZones;
 use AlibabaCloud\Tea\Model;
 
 class DBInstanceAttribute extends Model
@@ -209,6 +210,11 @@ class DBInstanceAttribute extends Model
     public $expireTime;
 
     /**
+     * @var string
+     */
+    public $exportKey;
+
+    /**
      * @description The ID of the disaster recovery instance that is attached to the instance.
      *
      * @example rm-uf64zsuxxxxxxxxxx
@@ -335,6 +341,11 @@ class DBInstanceAttribute extends Model
     public $securityIPList;
 
     /**
+     * @var slaveZones
+     */
+    public $slaveZones;
+
+    /**
      * @description None.
      *
      * @example No
@@ -409,6 +420,7 @@ class DBInstanceAttribute extends Model
         'engine'                      => 'Engine',
         'engineVersion'               => 'EngineVersion',
         'expireTime'                  => 'ExpireTime',
+        'exportKey'                   => 'ExportKey',
         'guardDBInstanceId'           => 'GuardDBInstanceId',
         'incrementSourceDBInstanceId' => 'IncrementSourceDBInstanceId',
         'instanceNetworkType'         => 'InstanceNetworkType',
@@ -423,6 +435,7 @@ class DBInstanceAttribute extends Model
         'readDelayTime'               => 'ReadDelayTime',
         'regionId'                    => 'RegionId',
         'securityIPList'              => 'SecurityIPList',
+        'slaveZones'                  => 'SlaveZones',
         'supportUpgradeAccountType'   => 'SupportUpgradeAccountType',
         'tags'                        => 'Tags',
         'tempDBInstanceId'            => 'TempDBInstanceId',
@@ -501,6 +514,9 @@ class DBInstanceAttribute extends Model
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+        if (null !== $this->exportKey) {
+            $res['ExportKey'] = $this->exportKey;
+        }
         if (null !== $this->guardDBInstanceId) {
             $res['GuardDBInstanceId'] = $this->guardDBInstanceId;
         }
@@ -542,6 +558,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
+        }
+        if (null !== $this->slaveZones) {
+            $res['SlaveZones'] = null !== $this->slaveZones ? $this->slaveZones->toMap() : null;
         }
         if (null !== $this->supportUpgradeAccountType) {
             $res['SupportUpgradeAccountType'] = $this->supportUpgradeAccountType;
@@ -636,6 +655,9 @@ class DBInstanceAttribute extends Model
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+        if (isset($map['ExportKey'])) {
+            $model->exportKey = $map['ExportKey'];
+        }
         if (isset($map['GuardDBInstanceId'])) {
             $model->guardDBInstanceId = $map['GuardDBInstanceId'];
         }
@@ -677,6 +699,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
+        }
+        if (isset($map['SlaveZones'])) {
+            $model->slaveZones = slaveZones::fromMap($map['SlaveZones']);
         }
         if (isset($map['SupportUpgradeAccountType'])) {
             $model->supportUpgradeAccountType = $map['SupportUpgradeAccountType'];

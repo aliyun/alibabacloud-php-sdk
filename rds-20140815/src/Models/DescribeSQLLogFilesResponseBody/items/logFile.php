@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class logFile extends Model
 {
     /**
-     * @description The name of the audit log file.
+     * @description The name of the file.
      *
      * @example custinsxxxxx.csv
      *
@@ -18,7 +18,7 @@ class logFile extends Model
     public $fileID;
 
     /**
-     * @description The download URL of the audit log file. If the audit log file cannot be downloaded, this parameter is null.
+     * @description The download URL of the file. If the audit log file cannot be downloaded, this parameter is null.
      *
      * @example http://rdslog-hz-v3.oss-cn-hangzhou.aliyuncs.com/xxxxx
      *
