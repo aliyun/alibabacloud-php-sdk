@@ -16,6 +16,16 @@ class module extends Model
     public $cancelSuccess;
 
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $desc;
+
+    /**
      * @example 100
      *
      * @var int
@@ -23,6 +33,8 @@ class module extends Model
     public $forfeitFee;
     protected $_name = [
         'cancelSuccess' => 'cancel_success',
+        'code'          => 'code',
+        'desc'          => 'desc',
         'forfeitFee'    => 'forfeit_fee',
     ];
 
@@ -35,6 +47,12 @@ class module extends Model
         $res = [];
         if (null !== $this->cancelSuccess) {
             $res['cancel_success'] = $this->cancelSuccess;
+        }
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
+        }
+        if (null !== $this->desc) {
+            $res['desc'] = $this->desc;
         }
         if (null !== $this->forfeitFee) {
             $res['forfeit_fee'] = $this->forfeitFee;
@@ -53,6 +71,12 @@ class module extends Model
         $model = new self();
         if (isset($map['cancel_success'])) {
             $model->cancelSuccess = $map['cancel_success'];
+        }
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
+        }
+        if (isset($map['desc'])) {
+            $model->desc = $map['desc'];
         }
         if (isset($map['forfeit_fee'])) {
             $model->forfeitFee = $map['forfeit_fee'];
