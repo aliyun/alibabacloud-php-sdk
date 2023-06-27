@@ -32,9 +32,11 @@ class Dysmsapi extends OpenApiClient
         $this->_endpointRule = 'central';
         $this->_endpointMap  = [
             'ap-southeast-1' => 'dysmsapi.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-5' => 'dysmsapi-xman.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-5' => 'dysmsapi.ap-southeast-5.aliyuncs.com',
             'cn-beijing'     => 'dysmsapi-proxy.cn-beijing.aliyuncs.com',
             'cn-hongkong'    => 'dysmsapi-xman.cn-hongkong.aliyuncs.com',
+            'eu-central-1'   => 'dysmsapi.eu-central-1.aliyuncs.com',
+            'us-east-1'      => 'dysmsapi.us-east-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dysmsapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -64,10 +66,17 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param BatchSendMessageToGlobeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
+     *   * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages exceeding more than 1,000 mobile number per request, you can choose to use the broadcast messaging feature available in the Alibaba Cloud SMS console.
+     *   * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](~~SendMessageToGlobe~~) operation to ensure that messages are delivered on time.
+     *   * *   In each request, you can send messages to up to 1,000 mobile phone numbers.
+     *   * ### QPS limit
+     *   * You may call this operation only once per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
+     *   *
+     * @param BatchSendMessageToGlobeRequest $request BatchSendMessageToGlobeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchSendMessageToGlobeResponse
+     * @return BatchSendMessageToGlobeResponse BatchSendMessageToGlobeResponse
      */
     public function batchSendMessageToGlobeWithOptions($request, $runtime)
     {
@@ -88,6 +97,9 @@ class Dysmsapi extends OpenApiClient
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
+        if (!Utils::isUnset($request->validityPeriod)) {
+            $query['ValidityPeriod'] = $request->validityPeriod;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -107,9 +119,16 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param BatchSendMessageToGlobeRequest $request
+     * *   You cannot call the BatchSendMessageToGlobe operation to send messages to the Chinese mainland.
+     *   * *   You can call the BatchSendMessageToGlobe operation to send notifications and promotional messages to a limited number of mobile phone numbers at a time. To send messages exceeding more than 1,000 mobile number per request, you can choose to use the broadcast messaging feature available in the Alibaba Cloud SMS console.
+     *   * *   For time-sensitive related messages, we recommend that you use the [SendMessageToGlobe](~~SendMessageToGlobe~~) operation to ensure that messages are delivered on time.
+     *   * *   In each request, you can send messages to up to 1,000 mobile phone numbers.
+     *   * ### QPS limit
+     *   * You may call this operation only once per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
+     *   *
+     * @param BatchSendMessageToGlobeRequest $request BatchSendMessageToGlobeRequest
      *
-     * @return BatchSendMessageToGlobeResponse
+     * @return BatchSendMessageToGlobeResponse BatchSendMessageToGlobeResponse
      */
     public function batchSendMessageToGlobe($request)
     {
@@ -119,10 +138,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param ConversionDataRequest $request
-     * @param RuntimeOptions        $runtime
+     * Metrics:
+     *   * *   Requested OTP messages
+     *   * *   Verified OTP messages
+     *   * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+     *   *
+     * @param ConversionDataRequest $request ConversionDataRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConversionDataResponse
+     * @return ConversionDataResponse ConversionDataResponse
      */
     public function conversionDataWithOptions($request, $runtime)
     {
@@ -153,9 +177,14 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param ConversionDataRequest $request
+     * Metrics:
+     *   * *   Requested OTP messages
+     *   * *   Verified OTP messages
+     *   * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+     *   *
+     * @param ConversionDataRequest $request ConversionDataRequest
      *
-     * @return ConversionDataResponse
+     * @return ConversionDataResponse ConversionDataResponse
      */
     public function conversionData($request)
     {
@@ -165,10 +194,13 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryMessageRequest $request
-     * @param RuntimeOptions      $runtime
+     * ### QPS limit
+     *   * You can call this operation up to 300 times per second. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param QueryMessageRequest $request QueryMessageRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return QueryMessageResponse
+     * @return QueryMessageResponse QueryMessageResponse
      */
     public function queryMessageWithOptions($request, $runtime)
     {
@@ -196,9 +228,12 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param QueryMessageRequest $request
+     * ### QPS limit
+     *   * You can call this operation up to 300 times per second. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param QueryMessageRequest $request QueryMessageRequest
      *
-     * @return QueryMessageResponse
+     * @return QueryMessageResponse QueryMessageResponse
      */
     public function queryMessage($request)
     {
@@ -208,10 +243,15 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SendMessageToGlobeRequest $request
-     * @param RuntimeOptions            $runtime
+     * ### Usage notes
+     *   * You cannot call the SendMessageToGlobe operation to send messages to the Chinese mainland.
+     *   * ### QPS limit
+     *   * You may call this operation up to 300 times per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
+     *   *
+     * @param SendMessageToGlobeRequest $request SendMessageToGlobeRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendMessageToGlobeResponse
+     * @return SendMessageToGlobeResponse SendMessageToGlobeResponse
      */
     public function sendMessageToGlobeWithOptions($request, $runtime)
     {
@@ -228,6 +268,9 @@ class Dysmsapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->to)) {
             $query['To'] = $request->to;
+        }
+        if (!Utils::isUnset($request->validityPeriod)) {
+            $query['ValidityPeriod'] = $request->validityPeriod;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -248,9 +291,14 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SendMessageToGlobeRequest $request
+     * ### Usage notes
+     *   * You cannot call the SendMessageToGlobe operation to send messages to the Chinese mainland.
+     *   * ### QPS limit
+     *   * You may call this operation up to 300 times per second. If the number of calls per second exceeds this limit, throttling will be triggered. This can potentially impact your business operations. Therefore, we recommend that you take note of this limit when making calls to this operation.
+     *   *
+     * @param SendMessageToGlobeRequest $request SendMessageToGlobeRequest
      *
-     * @return SendMessageToGlobeResponse
+     * @return SendMessageToGlobeResponse SendMessageToGlobeResponse
      */
     public function sendMessageToGlobe($request)
     {
@@ -260,10 +308,13 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SendMessageWithTemplateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * ### Usage notes
+     *   * You can call the SendMessageWithTemplate operation to send messages only to the Chinese mainland.
+     *   *
+     * @param SendMessageWithTemplateRequest $request SendMessageWithTemplateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendMessageWithTemplateResponse
+     * @return SendMessageWithTemplateResponse SendMessageWithTemplateResponse
      */
     public function sendMessageWithTemplateWithOptions($request, $runtime)
     {
@@ -284,6 +335,9 @@ class Dysmsapi extends OpenApiClient
         if (!Utils::isUnset($request->to)) {
             $query['To'] = $request->to;
         }
+        if (!Utils::isUnset($request->validityPeriod)) {
+            $query['ValidityPeriod'] = $request->validityPeriod;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -303,9 +357,12 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SendMessageWithTemplateRequest $request
+     * ### Usage notes
+     *   * You can call the SendMessageWithTemplate operation to send messages only to the Chinese mainland.
+     *   *
+     * @param SendMessageWithTemplateRequest $request SendMessageWithTemplateRequest
      *
-     * @return SendMessageWithTemplateResponse
+     * @return SendMessageWithTemplateResponse SendMessageWithTemplateResponse
      */
     public function sendMessageWithTemplate($request)
     {
@@ -315,10 +372,18 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SmsConversionRequest $request
-     * @param RuntimeOptions       $runtime
+     * Metrics:
+     *   * *   Requested OTP messages
+     *   * *   Verified OTP messages
+     *   * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+     *   * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations:
+     *   * > * Call the SmsConversion operation in an asynchronous manner by configuring queues or events.
+     *   * > * Manually degrade your services or use a circuit breaker to automatically degrade services.
+     *   *
+     * @param SmsConversionRequest $request SmsConversionRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SmsConversionResponse
+     * @return SmsConversionResponse SmsConversionResponse
      */
     public function smsConversionWithOptions($request, $runtime)
     {
@@ -352,9 +417,17 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
-     * @param SmsConversionRequest $request
+     * Metrics:
+     *   * *   Requested OTP messages
+     *   * *   Verified OTP messages
+     *   * An OTP conversion rate is calculated based on the following formula: OTP conversion rate = Number of verified OTP messages/Number of requested OTP messages.
+     *   * > If you call the SmsConversion operation to query OTP conversion rates, your business may be affected. We recommend that you perform the following operations:
+     *   * > * Call the SmsConversion operation in an asynchronous manner by configuring queues or events.
+     *   * > * Manually degrade your services or use a circuit breaker to automatically degrade services.
+     *   *
+     * @param SmsConversionRequest $request SmsConversionRequest
      *
-     * @return SmsConversionResponse
+     * @return SmsConversionResponse SmsConversionResponse
      */
     public function smsConversion($request)
     {

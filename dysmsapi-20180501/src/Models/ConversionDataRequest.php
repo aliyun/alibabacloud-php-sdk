@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ConversionDataRequest extends Model
 {
     /**
+     * @description Conversion rate monitoring return value.
+     *
+     * >  The value of this parameter is of type double, and the value is between \[0,1].
+     * @example 0.53
+     *
      * @var string
      */
     public $conversionRate;
 
     /**
+     * @description Timestamp of the conversion rate observation should be a Unix timestamp, millisecond-level long integer.
+     *
+     * >  If this field is not specified: the current timestamp is the default.
+     * @example 1349055900000
+     *
      * @var int
      */
     public $reportTime;

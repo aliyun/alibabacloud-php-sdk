@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ConversionDataResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F655A8D5-B967-440B-8683-DAD6FF8D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Status code. Returning OK means the request was successful. For other error codes, please refer to the [Error codes](~~180674~~) list.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $responseCode;
 
     /**
+     * @description The description of the status code.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $responseDescription;

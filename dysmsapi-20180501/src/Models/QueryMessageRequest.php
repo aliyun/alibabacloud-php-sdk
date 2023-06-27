@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class QueryMessageRequest extends Model
 {
     /**
+     * @description The ID of the message.
+     *
+     * @example 1008030xxx3003
+     *
      * @var string
      */
     public $messageId;

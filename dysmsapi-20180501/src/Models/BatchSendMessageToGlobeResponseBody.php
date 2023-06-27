@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class BatchSendMessageToGlobeResponseBody extends Model
 {
     /**
+     * @description The list of mobile phone numbers that failed to receive the message.
+     *
+     * @example ["931520581****","931530581****"]
+     *
      * @var string
      */
     public $failedList;
 
     /**
+     * @description The sender ID returned.
+     *
+     * @example Alicloud321
+     *
      * @var string
      */
     public $from;
 
     /**
+     * @description The ID of the message.
+     *
+     * @example ["123****","124****"]
+     *
      * @var string
      */
     public $messageIdList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F655A8D5-B967-440B-8683-DAD6FF8D28D3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status code. If OK is returned, the request is successful. For more information, see [Error codes](https://www.alibabacloud.com/help/zh/short-message-service/latest/error-codes).
+     *
+     * @example OK
+     *
      * @var string
      */
     public $responseCode;
 
     /**
+     * @description The description of the status code.
+     *
+     * @example The SMS Send Request was accepted
+     *
      * @var string
      */
     public $responseDescription;
 
     /**
+     * @description The number of mobile phone numbers that received the message.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $successCount;

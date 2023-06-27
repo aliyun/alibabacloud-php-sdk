@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class numberDetail extends Model
 {
     /**
+     * @description The carrier that owns the mobile phone number.
+     *
+     * @example China Mobile
+     *
      * @var string
      */
     public $carrier;
 
     /**
+     * @description The country to which the mobile phone number belongs.
+     *
+     * @example China
+     *
      * @var string
      */
     public $country;
 
     /**
+     * @description The region to which the mobile phone number belongs.
+     *
+     * @example Nanjing, Jiangsu
+     *
      * @var string
      */
     public $region;

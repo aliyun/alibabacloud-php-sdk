@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class SmsConversionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F655A8D5-B967-440B-8683-DAD6FF8D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status code. If OK is returned, the request is successful. For more information, see [Error codes](~~180674~~).
+     *
+     * @example OK
+     *
      * @var string
      */
     public $responseCode;
 
     /**
+     * @description The description of the status code.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $responseDescription;

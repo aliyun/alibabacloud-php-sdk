@@ -10,61 +10,111 @@ use AlibabaCloud\Tea\Model;
 class QueryMessageResponseBody extends Model
 {
     /**
+     * @description The status code of the message.
+     *
+     * @example DELIVERED
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The description of the status code.
+     *
+     * @example success
+     *
      * @var string
      */
     public $errorDescription;
 
     /**
+     * @description The content of the message.
+     *
+     * @example Hello!
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the message.
+     *
+     * @example 1008030xxx3003
+     *
      * @var string
      */
     public $messageId;
 
     /**
+     * @description The details about the mobile phone number.
+     *
      * @var numberDetail
      */
     public $numberDetail;
 
     /**
+     * @description The time when the delivery receipt was received from the carrier.
+     *
+     * @example Mon, 24 Dec 2018 16:58:22 +0800
+     *
      * @var string
      */
     public $receiveDate;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F655A8D5-B967-440B-8683-DAD6FF8D28D0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status code of the delivery request.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $responseCode;
 
     /**
+     * @description The description of the delivery request status.
+     *
+     * @example The SMS Send Request was accepted
+     *
      * @var string
      */
     public $responseDescription;
 
     /**
+     * @description The time when the message was sent to the carrier.
+     *
+     * @example Mon, 24 Dec 2018 16:58:22 +0800
+     *
      * @var string
      */
     public $sendDate;
 
     /**
+     * @description The delivery status of the message.
+     *
+     *   1: The message was sent.
+     *   2: The message failed to be sent.
+     *   3: The message is being sent.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The mobile phone number to which the message was sent.
+     *
+     * @example 6581xxx810
+     *
      * @var string
      */
     public $to;
