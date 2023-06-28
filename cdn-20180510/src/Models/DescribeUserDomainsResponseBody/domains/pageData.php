@@ -90,6 +90,11 @@ class pageData extends Model
     public $domainStatus;
 
     /**
+     * @var string
+     */
+    public $globalResourcePlan;
+
+    /**
      * @description The time when the accelerated domain name was added.
      *
      * @example 2015-10-28T09:32:51Z
@@ -144,19 +149,20 @@ class pageData extends Model
      */
     public $sslProtocol;
     protected $_name = [
-        'cdnType'         => 'CdnType',
-        'cname'           => 'Cname',
-        'coverage'        => 'Coverage',
-        'description'     => 'Description',
-        'domainId'        => 'DomainId',
-        'domainName'      => 'DomainName',
-        'domainStatus'    => 'DomainStatus',
-        'gmtCreated'      => 'GmtCreated',
-        'gmtModified'     => 'GmtModified',
-        'resourceGroupId' => 'ResourceGroupId',
-        'sandbox'         => 'Sandbox',
-        'sources'         => 'Sources',
-        'sslProtocol'     => 'SslProtocol',
+        'cdnType'            => 'CdnType',
+        'cname'              => 'Cname',
+        'coverage'           => 'Coverage',
+        'description'        => 'Description',
+        'domainId'           => 'DomainId',
+        'domainName'         => 'DomainName',
+        'domainStatus'       => 'DomainStatus',
+        'globalResourcePlan' => 'GlobalResourcePlan',
+        'gmtCreated'         => 'GmtCreated',
+        'gmtModified'        => 'GmtModified',
+        'resourceGroupId'    => 'ResourceGroupId',
+        'sandbox'            => 'Sandbox',
+        'sources'            => 'Sources',
+        'sslProtocol'        => 'SslProtocol',
     ];
 
     public function validate()
@@ -186,6 +192,9 @@ class pageData extends Model
         }
         if (null !== $this->domainStatus) {
             $res['DomainStatus'] = $this->domainStatus;
+        }
+        if (null !== $this->globalResourcePlan) {
+            $res['GlobalResourcePlan'] = $this->globalResourcePlan;
         }
         if (null !== $this->gmtCreated) {
             $res['GmtCreated'] = $this->gmtCreated;
@@ -237,6 +246,9 @@ class pageData extends Model
         }
         if (isset($map['DomainStatus'])) {
             $model->domainStatus = $map['DomainStatus'];
+        }
+        if (isset($map['GlobalResourcePlan'])) {
+            $model->globalResourcePlan = $map['GlobalResourcePlan'];
         }
         if (isset($map['GmtCreated'])) {
             $model->gmtCreated = $map['GmtCreated'];

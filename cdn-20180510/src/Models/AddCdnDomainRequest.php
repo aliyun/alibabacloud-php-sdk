@@ -44,6 +44,11 @@ class AddCdnDomainRequest extends Model
     /**
      * @var string
      */
+    public $globalResourcePlan;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -104,17 +109,18 @@ class AddCdnDomainRequest extends Model
      */
     public $topLevelDomain;
     protected $_name = [
-        'cdnType'         => 'CdnType',
-        'checkUrl'        => 'CheckUrl',
-        'domainName'      => 'DomainName',
-        'ownerAccount'    => 'OwnerAccount',
-        'ownerId'         => 'OwnerId',
-        'resourceGroupId' => 'ResourceGroupId',
-        'scope'           => 'Scope',
-        'securityToken'   => 'SecurityToken',
-        'sources'         => 'Sources',
-        'tag'             => 'Tag',
-        'topLevelDomain'  => 'TopLevelDomain',
+        'cdnType'            => 'CdnType',
+        'checkUrl'           => 'CheckUrl',
+        'domainName'         => 'DomainName',
+        'globalResourcePlan' => 'GlobalResourcePlan',
+        'ownerAccount'       => 'OwnerAccount',
+        'ownerId'            => 'OwnerId',
+        'resourceGroupId'    => 'ResourceGroupId',
+        'scope'              => 'Scope',
+        'securityToken'      => 'SecurityToken',
+        'sources'            => 'Sources',
+        'tag'                => 'Tag',
+        'topLevelDomain'     => 'TopLevelDomain',
     ];
 
     public function validate()
@@ -132,6 +138,9 @@ class AddCdnDomainRequest extends Model
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->globalResourcePlan) {
+            $res['GlobalResourcePlan'] = $this->globalResourcePlan;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -183,6 +192,9 @@ class AddCdnDomainRequest extends Model
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['GlobalResourcePlan'])) {
+            $model->globalResourcePlan = $map['GlobalResourcePlan'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

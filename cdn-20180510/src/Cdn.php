@@ -380,6 +380,9 @@ class Cdn extends OpenApiClient
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
         }
+        if (!Utils::isUnset($request->globalResourcePlan)) {
+            $query['GlobalResourcePlan'] = $request->globalResourcePlan;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
