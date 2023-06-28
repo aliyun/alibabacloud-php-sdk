@@ -49,13 +49,19 @@ class AddDirectionalAddressRequest extends Model
      * @var string
      */
     public $source;
+
+    /**
+     * @var bool
+     */
+    public $urlInsecurityForce;
     protected $_name = [
-        'address'     => 'Address',
-        'addressType' => 'AddressType',
-        'groupId'     => 'GroupId',
-        'msgNotify'   => 'MsgNotify',
-        'serialNo'    => 'SerialNo',
-        'source'      => 'Source',
+        'address'            => 'Address',
+        'addressType'        => 'AddressType',
+        'groupId'            => 'GroupId',
+        'msgNotify'          => 'MsgNotify',
+        'serialNo'           => 'SerialNo',
+        'source'             => 'Source',
+        'urlInsecurityForce' => 'UrlInsecurityForce',
     ];
 
     public function validate()
@@ -82,6 +88,9 @@ class AddDirectionalAddressRequest extends Model
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
+        }
+        if (null !== $this->urlInsecurityForce) {
+            $res['UrlInsecurityForce'] = $this->urlInsecurityForce;
         }
 
         return $res;
@@ -112,6 +121,9 @@ class AddDirectionalAddressRequest extends Model
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
+        }
+        if (isset($map['UrlInsecurityForce'])) {
+            $model->urlInsecurityForce = $map['UrlInsecurityForce'];
         }
 
         return $model;

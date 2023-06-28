@@ -58,6 +58,11 @@ class data extends Model
     public $effectiveTotalFlow;
 
     /**
+     * @var int
+     */
+    public $monthExceedFee;
+
+    /**
      * @example 100
      *
      * @var int
@@ -120,6 +125,7 @@ class data extends Model
         'credentialType'         => 'CredentialType',
         'effectiveAvailableFlow' => 'EffectiveAvailableFlow',
         'effectiveTotalFlow'     => 'EffectiveTotalFlow',
+        'monthExceedFee'         => 'MonthExceedFee',
         'monthFeatureFee'        => 'MonthFeatureFee',
         'monthUsedAmount'        => 'MonthUsedAmount',
         'poolAvaiable'           => 'PoolAvaiable',
@@ -157,6 +163,9 @@ class data extends Model
         }
         if (null !== $this->effectiveTotalFlow) {
             $res['EffectiveTotalFlow'] = $this->effectiveTotalFlow;
+        }
+        if (null !== $this->monthExceedFee) {
+            $res['MonthExceedFee'] = $this->monthExceedFee;
         }
         if (null !== $this->monthFeatureFee) {
             $res['MonthFeatureFee'] = $this->monthFeatureFee;
@@ -214,6 +223,9 @@ class data extends Model
         }
         if (isset($map['EffectiveTotalFlow'])) {
             $model->effectiveTotalFlow = $map['EffectiveTotalFlow'];
+        }
+        if (isset($map['MonthExceedFee'])) {
+            $model->monthExceedFee = $map['MonthExceedFee'];
         }
         if (isset($map['MonthFeatureFee'])) {
             $model->monthFeatureFee = $map['MonthFeatureFee'];

@@ -204,6 +204,9 @@ class Linkcard extends OpenApiClient
         if (!Utils::isUnset($request->source)) {
             $query['Source'] = $request->source;
         }
+        if (!Utils::isUnset($request->urlInsecurityForce)) {
+            $query['UrlInsecurityForce'] = $request->urlInsecurityForce;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
