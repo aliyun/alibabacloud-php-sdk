@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateBasicEndpointGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the endpoint group.
+     * @description The endpoint group ID.
      *
      * @example epg-bp1dmlohjjz4kqaun****
      *
@@ -18,7 +18,7 @@ class CreateBasicEndpointGroupResponseBody extends Model
     public $endpointGroupId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *

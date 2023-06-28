@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateIpSetsResponseBody extends Model
 {
     /**
-     * @description The ID of the GA instance.
+     * @description The GA instance ID.
      *
      * @example ga-bp1yeeq8yfoyszmq****
      *
@@ -26,7 +26,7 @@ class CreateIpSetsResponseBody extends Model
     public $ipSets;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1F4B6A4A-C89E-489E-BAF1-52777EE148EF
      *

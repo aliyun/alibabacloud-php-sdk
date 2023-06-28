@@ -31,6 +31,8 @@ class CreateForwardingRulesRequest extends Model
     public $clientToken;
 
     /**
+     * @description Details about the forwarding rules.
+     *
      * @example test
      *
      * @var forwardingRules[]

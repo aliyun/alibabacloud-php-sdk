@@ -21,7 +21,7 @@ class DescribeEndpointGroupResponseBody extends Model
     public $acceleratorId;
 
     /**
-     * @description Indicates the state of the binding relationship between the Log Service project and the endpoint group. Valid values:
+     * @description Indicates the status of the binding between the Log Service project and the endpoint group. Valid values:
      *
      *   **on**: The Log Service project is bound to the endpoint group.
      *   **off**: No Log Service projects are bound to the endpoint group.
@@ -44,10 +44,10 @@ class DescribeEndpointGroupResponseBody extends Model
     public $description;
 
     /**
-     * @description Indicates whether the access logging feature is enabled. Valid values:
+     * @description Indicates whether the access log feature is enabled. Valid values:
      *
-     *   **on**: The access logging feature is enabled.
-     *   **off**: The access logging feature is disabled.
+     *   **on**: enabled
+     *   **off**: disabled
      *
      * @example on
      *
@@ -56,7 +56,7 @@ class DescribeEndpointGroupResponseBody extends Model
     public $enableAccessLog;
 
     /**
-     * @description The configurations of endpoints in the endpoint group.
+     * @description The configurations of the endpoint.
      *
      * @var endpointConfigurations[]
      */
@@ -88,7 +88,7 @@ class DescribeEndpointGroupResponseBody extends Model
     public $endpointGroupRegion;
 
     /**
-     * @description The type of the endpoint group. Valid values:
+     * @description The type of endpoint group. Valid values:
      *
      *   **default**: a default endpoint group
      *   **virtual**: a virtual endpoint group
@@ -100,7 +100,7 @@ class DescribeEndpointGroupResponseBody extends Model
     public $endpointGroupType;
 
     /**
-     * @description The endpoint group IP addresses to be confirmed. After the GA instance is upgraded, the IP addresses that are added to the endpoint group need to be confirmed.
+     * @description The endpoint group IP addresses to be confirmed after the GA instance is upgraded.
      *
      * @var string[]
      */
@@ -128,8 +128,8 @@ class DescribeEndpointGroupResponseBody extends Model
     /**
      * @description Indicates whether the health check feature is enabled. Valid values:
      *
-     *   **true**: The health check feature is enabled.
-     *   **false**: The health check feature is disabled.
+     *   **true**: enabled
+     *   **false**: disabled
      *
      * @example true
      *
@@ -147,7 +147,7 @@ class DescribeEndpointGroupResponseBody extends Model
     public $healthCheckIntervalSeconds;
 
     /**
-     * @description The path to which health check requests are sent.
+     * @description The path to which health check probes are sent.
      *
      * @example /healthcheck
      *
@@ -239,10 +239,10 @@ class DescribeEndpointGroupResponseBody extends Model
     public $slsRegion;
 
     /**
-     * @description The state of the endpoint group.
+     * @description The status of the endpoint group. Valid values:
      *
      *   **init**: The endpoint group is being initialized.
-     *   **active**: The endpoint group is running normally.
+     *   **active**: The endpoint group is running as expected.
      *   **updating**: The endpoint group is being updated.
      *   **deleting**: The endpoint group is being deleted.
      *
@@ -253,6 +253,8 @@ class DescribeEndpointGroupResponseBody extends Model
     public $state;
 
     /**
+     * @description Tags.
+     *
      * @var tags[]
      */
     public $tags;

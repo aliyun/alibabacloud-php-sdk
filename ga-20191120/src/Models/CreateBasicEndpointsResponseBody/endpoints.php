@@ -42,12 +42,12 @@ class endpoints extends Model
     public $endpointSubAddress;
 
     /**
-     * @description The type of endpoint. Valid values:
+     * @description The type of the endpoint. Valid values:
      *
-     *   **ENI**: ENI.
-     *   **SLB**: CLB instance.
-     *   **ECS**: ECS instance.
-     *   **NLB**: NLB instance.
+     *   **ENI:** ENI.
+     *   **SLB:** CLB instance.
+     *   **ECS:** ECS instance.
+     *   **NLB:** NLB instance.
      *
      * @example ENI
      *

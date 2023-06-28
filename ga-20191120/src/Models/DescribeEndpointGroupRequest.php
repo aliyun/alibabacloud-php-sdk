@@ -18,7 +18,7 @@ class DescribeEndpointGroupRequest extends Model
     public $endpointGroupId;
 
     /**
-     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The ID of the region where your Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

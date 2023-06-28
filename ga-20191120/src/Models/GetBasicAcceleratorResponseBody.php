@@ -77,6 +77,13 @@ class GetBasicAcceleratorResponseBody extends Model
     public $createTime;
 
     /**
+     * @description 基础型全球加速实例是否开启跨境线路功能。取值：
+     *
+     * - **true**：开启跨境线路功能，可以加速跨境线路。
+     *
+     * - **false**：关闭跨境线路功能，不可以加速跨境线路。
+     * @example false
+     *
      * @var bool
      */
     public $crossBorderStatus;

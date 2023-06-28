@@ -62,9 +62,8 @@ class CreateAcceleratorRequest extends Model
     /**
      * @description The bandwidth billing method. Valid values:
      *
-     *   **BandwidthPackage:** billed based on bandwidth plans.
+     *   **BandwidthPackage:** billed based on bandwidth plans. This is the default value.
      *   **CDT:** billed based on data transfer.
-     *   **CDT95:** billed based on the 95th percentile bandwidth. The bills are managed by using Cloud Data Transfer (CDT). This bandwidth billing method is not available by default. Contact your Alibaba Cloud account manager for more information.
      *
      * @example BandwidthPackage
      *
@@ -85,6 +84,11 @@ class CreateAcceleratorRequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
      * @description The subscription duration of the GA instance.
      *
      *   If you set the **PricingCycle** parameter to **Month**, the valid values for the **Duration** parameter are **1** to **9**.
@@ -95,6 +99,11 @@ class CreateAcceleratorRequest extends Model
      * @var int
      */
     public $duration;
+
+    /**
+     * @var string
+     */
+    public $instanceChargeType;
 
     /**
      * @description The configurations of the acceleration area.
@@ -191,7 +200,9 @@ class CreateAcceleratorRequest extends Model
         'autoUseCoupon'        => 'AutoUseCoupon',
         'bandwidthBillingType' => 'BandwidthBillingType',
         'clientToken'          => 'ClientToken',
+        'dryRun'               => 'DryRun',
         'duration'             => 'Duration',
+        'instanceChargeType'   => 'InstanceChargeType',
         'ipSetConfig'          => 'IpSetConfig',
         'name'                 => 'Name',
         'pricingCycle'         => 'PricingCycle',
@@ -227,8 +238,14 @@ class CreateAcceleratorRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->dryRun) {
+            $res['DryRun'] = $this->dryRun;
+        }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
+        }
+        if (null !== $this->instanceChargeType) {
+            $res['InstanceChargeType'] = $this->instanceChargeType;
         }
         if (null !== $this->ipSetConfig) {
             $res['IpSetConfig'] = null !== $this->ipSetConfig ? $this->ipSetConfig->toMap() : null;
@@ -290,8 +307,14 @@ class CreateAcceleratorRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['DryRun'])) {
+            $model->dryRun = $map['DryRun'];
+        }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
+        }
+        if (isset($map['InstanceChargeType'])) {
+            $model->instanceChargeType = $map['InstanceChargeType'];
         }
         if (isset($map['IpSetConfig'])) {
             $model->ipSetConfig = ipSetConfig::fromMap($map['IpSetConfig']);

@@ -14,7 +14,7 @@ class TagResourcesRequest extends Model
      *
      * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the value of **RequestId**as the value of **ClientToken**. The value of **RequestId** for each API request may be different.
+     * > If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -35,8 +35,9 @@ class TagResourcesRequest extends Model
      *
      *   If you set the **ResourceType** parameter to **accelerator**, set the value of ResourceId to the ID of a standard GA instance.
      *   If you set the **ResourceType** parameter to **basicaccelerator**, set the value of ResourceId to the ID of a basic GA instance.
-     *   If you set the **ResourceType** parameter to**bandwidthpackage**, set the value of ResourceId to the ID of a bandwidth plan.
+     *   If you set the **ResourceType** parameter to **bandwidthpackage**, set the value of ResourceId to the ID of a bandwidth plan.
      *   If you set the **ResourceType** parameter to **acl**, set the value of ResourceId to the ID of an ACL.
+     *   If you set the **ResourceType** parameter to **endpointgroup**, set the value of ResourceId to the ID of an EndpointGroup.
      *
      * You can specify 1 to 50 GA resource IDs.
      * @var string[]
@@ -50,6 +51,7 @@ class TagResourcesRequest extends Model
      *   **basicaccelerator:** a basic GA instance.
      *   **bandwidthpackage:** a bandwidth plan.
      *   **acl:** an access control list (ACL).
+     *   **endpointgroup:** an endpoint group (EndpointGroup).
      *
      * @example accelerator
      *

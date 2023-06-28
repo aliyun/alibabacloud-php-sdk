@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ipSets extends Model
 {
     /**
-     * @description The ID of the region that is accelerated.
+     * @description The ID of the acceleration region.
      *
      * @example cn-hangzhou
      *
@@ -43,7 +43,7 @@ class ipSets extends Model
     public $ipSetId;
 
     /**
-     * @description The version of the accelerated IP address. Valid values:
+     * @description The version of the IP protocol. Valid values:
      *
      *   **IPv4**
      *   **IPv6**
@@ -55,6 +55,21 @@ class ipSets extends Model
     public $ipVersion;
 
     /**
+     * @description The line type of the elastic IP address (EIP) in the acceleration region. Valid values:
+     *
+     *   **BGP**: BGP (Multi-ISP) lines.
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines If the acceleration region is China (Hong Kong) and a basic bandwidth plan whose bandwidth type is Premium is associated with the GA instance, the default value of IspType is BGP_PRO.
+     *
+     * If you are allowed to use single-ISP bandwidth, you can also specify one of the following values:
+     *
+     *   **ChinaTelecom**: China Telecom (single ISP)
+     *   **ChinaUnicom**: China Unicom (single ISP)
+     *   **ChinaMobile**: China Mobile (single ISP)
+     *   **ChinaTelecom_L2**: China Telecom \_L2 (single ISP)
+     *   **ChinaUnicom_L2**: China Unicom \_L2 (single ISP)
+     *   **ChinaMobile_L2**: China Mobile \_L2 (single ISP)
+     *
+     * > Different acceleration regions support different single-ISP BGP lines.
      * @example BGP
      *
      * @var string
@@ -65,9 +80,9 @@ class ipSets extends Model
      * @description The status of the acceleration region. Valid values:
      *
      *   **init**: The acceleration region is being initialized.
-     *   **active**: The acceleration region is in the running state.
+     *   **active**: The acceleration region is running.
      *   **updating**: The acceleration region is being configured.
-     *   **Deleting**: The acceleration region is being deleted.
+     *   **deleting**: The acceleration region is being deleted.
      *
      * @example active
      *

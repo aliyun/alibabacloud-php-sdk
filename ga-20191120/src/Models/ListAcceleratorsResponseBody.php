@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListAcceleratorsResponseBody extends Model
 {
     /**
-     * @description The information about the GA instances.
+     * @description The GA instances.
      *
      * @var accelerators[]
      */

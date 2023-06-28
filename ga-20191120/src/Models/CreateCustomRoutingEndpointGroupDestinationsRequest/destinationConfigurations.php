@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class destinationConfigurations extends Model
 {
     /**
-     * @description The first port of the backend service port range.
+     * @description The last port of the backend service port range.
      *
      * Valid values: **1** to **65499**. The value of **FromPort** must be equal to or smaller than the value of **ToPort**.
      *
-     * > This parameter is required.
+     * You can specify up to 20 last ports in each call.
      * @example 80
      *
      * @var int
@@ -23,21 +23,18 @@ class destinationConfigurations extends Model
     /**
      * @description The backend service protocol of the endpoint group. Valid values:
      *
-     *   **TCP**: TCP
-     *   **UDP**: UDP
-     *   **TCP,UDP**: TCP and UDP
+     *   **TCP**
+     *   **UDP**
+     *   **TCP+UDP: the TCP and UDP protocols.**
      *
-     * You can specify up to four protocols for each mapping configuration.
+     * You can specify up to four backend service protocols for each endpoint group mapping.
      * @var string[]
      */
     public $protocols;
 
     /**
-     * @description The last port of the backend service port range.
+     * @description The response parameters.
      *
-     * Valid values: **1** to **65499**. The value of **FromPort** must be equal to or smaller than the value of **ToPort**.
-     *
-     * > This parameter is required.
      * @example 80
      *
      * @var int

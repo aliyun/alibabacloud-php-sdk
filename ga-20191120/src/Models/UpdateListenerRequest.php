@@ -13,11 +13,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateListenerRequest extends Model
 {
     /**
+     * @description The range of ports that are used by backend servers to receive requests.
+     *
      * @var backendPorts[]
      */
     public $backendPorts;
 
     /**
+     * @description The SSL certificate.
+     *
      * @var certificates[]
      */
     public $certificates;
@@ -37,9 +41,9 @@ class UpdateListenerRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -47,9 +51,8 @@ class UpdateListenerRequest extends Model
     public $clientToken;
 
     /**
-     * @description The description of the listener.
+     * @description The description of the listener. The description can be at most 200 characters in length.
      *
-     * The description can be at most 200 characters in length.
      * @example Listener
      *
      * @var string
@@ -76,6 +79,11 @@ class UpdateListenerRequest extends Model
     public $name;
 
     /**
+     * @description The listener ports that are used to receive requests and forward the requests to endpoints.
+     *
+     * Valid values: **1** to **65499**.
+     *
+     * The maximum number of ports that can be configured varies based on the routing type and protocol of the listener. For more information, see [Listener overview](~~153216~~).
      * @var portRanges[]
      */
     public $portRanges;
@@ -97,10 +105,10 @@ class UpdateListenerRequest extends Model
     /**
      * @description Specifies whether to reserve client IP addresses. Default value: false. Valid values:
      *
-     *   **true**: reserves client IP addresses. After client IP addresses are reserved, you can view the source IP addresses of clients over the backend service.
-     *   **false**: does not reserve client IP addresses.
+     *   **true**: enables client IP preservation. After client IP addresses are reserved, you can view client IP addresses on the endpoints.
+     *   **false** (default): disables client IP preservation.
      *
-     * >  This parameter will be discontinued in the API operations that are used to configure listeners. We recommend that you set this parameter when you call API operations to configure endpoint groups. For more information about the **ProxyProtocol** parameter, see [CreateEndpointGroup](~~153259~~) and [UpdateEndpointGroup](~~153262~~).
+     * > This parameter will be deprecated in the API operations that are used to configure listeners. We recommend that you set this parameter when you call API operations to configure endpoint groups. For more information about the **ProxyProtocol** parameter, see [CreateEndpointGroup](~~153259~~) and [UpdateEndpointGroup](~~153262~~).
      * @example false
      *
      * @var string
@@ -122,17 +130,17 @@ class UpdateListenerRequest extends Model
      *   **tls_cipher_policy\_1\_0**
      *
      *   Supported Transport Layer Security (TLS) versions: TLS 1.0, TLS 1.1, and TLS 1.2
-     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
+     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA
      *
      *   **tls_cipher_policy\_1\_1**
      *
      *   Supported TLS versions: TLS 1.1 and TLS 1.2
-     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
+     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA
      *
      *   **tls_cipher_policy\_1\_2**
      *
      *   Supported TLS version: TLS 1.2
-     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA.
+     *   Supported cipher suites: ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, AES128-GCM-SHA256, AES256-GCM-SHA384, AES128-SHA256, AES256-SHA256, ECDHE-RSA-AES128-SHA, ECDHE-RSA-AES256-SHA, AES128-SHA, AES256-SHA, and DES-CBC3-SHA
      *
      *   **tls_cipher_policy\_1\_2\_strict**
      *
@@ -144,7 +152,7 @@ class UpdateListenerRequest extends Model
      *   Supported TLS versions: TLS 1.2 and TLS 1.3
      *   Supported cipher suites: TLS_AES\_128\_GCM_SHA256, TLS_AES\_256\_GCM_SHA384, TLS_CHACHA20\_POLY1305\_SHA256, TLS_AES\_128\_CCM_SHA256, TLS_AES\_128\_CCM\_8\_SHA256, ECDHE-ECDSA-AES128-GCM-SHA256, ECDHE-ECDSA-AES256-GCM-SHA384, ECDHE-ECDSA-AES128-SHA256, ECDHE-ECDSA-AES256-SHA384, ECDHE-RSA-AES128-GCM-SHA256, ECDHE-RSA-AES256-GCM-SHA384, ECDHE-RSA-AES128-SHA256, ECDHE-RSA-AES256-SHA384, ECDHE-ECDSA-AES128-SHA, ECDHE-ECDSA-AES256-SHA, ECDHE-RSA-AES128-SHA, and ECDHE-RSA-AES256-SHA
      *
-     * >  You can specify this parameter only for HTTPS listeners.
+     * > This parameter is available only when you create an HTTPS listener.
      * @example tls_cipher_policy_1_0
      *
      * @var string
@@ -152,7 +160,7 @@ class UpdateListenerRequest extends Model
     public $securityPolicyId;
 
     /**
-     * @description The configurations of the `XForward` headers.
+     * @description The `XForward` headers.
      *
      * @var XForwardedForConfig
      */

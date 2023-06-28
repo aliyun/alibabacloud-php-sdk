@@ -30,14 +30,14 @@ class endpointGroups extends Model
     public $description;
 
     /**
-     * @description The configurations of the endpoint.
+     * @description Configurations of Endpoints.
      *
      * @var endpointConfigurations[]
      */
     public $endpointConfigurations;
 
     /**
-     * @description The ID of an endpoint group.
+     * @description The ID of the endpoint group.
      *
      * @example epg-bp16jdc00bhe97sr5****
      *
@@ -64,8 +64,8 @@ class endpointGroups extends Model
     /**
      * @description The type of the endpoint group. Valid values:
      *
-     *   **default**: a default endpoint group
-     *   **virtual**: a virtual endpoint group
+     *   **default:** a default endpoint group.
+     *   **virtual:** a virtual endpoint group.
      *
      * @example default
      *
@@ -74,7 +74,7 @@ class endpointGroups extends Model
     public $endpointGroupType;
 
     /**
-     * @description The endpoint group IP addresses to be confirmed after the GA instance is upgraded.
+     * @description The list of endpoint group IP addresses to be confirmed after the GA instance is upgraded.
      *
      * @var string[]
      */
@@ -83,8 +83,8 @@ class endpointGroups extends Model
     /**
      * @description The protocol that is used by the backend service. Valid values:
      *
-     *   **HTTP**: HTTP
-     *   **HTTPS**: HTTPS
+     *   **HTTP:** HTTP.
+     *   **HTTPS:** HTTPS.
      *
      * @example HTTP
      *
@@ -93,7 +93,7 @@ class endpointGroups extends Model
     public $endpointRequestProtocol;
 
     /**
-     * @description The ID of the forwarding rule that is associated with the endpoint group.
+     * @description IDs of forwarding rules that are associated with endpoint groups.
      *
      * @var string[]
      */
@@ -102,8 +102,8 @@ class endpointGroups extends Model
     /**
      * @description Indicates whether the health check feature is enabled. Valid values:
      *
-     *   **true**: The health check feature is enabled.
-     *   **false**: The health check feature is disabled.
+     *   **true:** The health check feature is enabled.
+     *   **false:** The health check feature is disabled.
      *
      * @example true
      *
@@ -121,7 +121,7 @@ class endpointGroups extends Model
     public $healthCheckIntervalSeconds;
 
     /**
-     * @description The path to which health check requests are sent.
+     * @description The path to which health check probes are sent.
      *
      * @example /healthcheck
      *
@@ -139,11 +139,11 @@ class endpointGroups extends Model
     public $healthCheckPort;
 
     /**
-     * @description The protocol over which health check requests are sent. Valid values:
+     * @description The protocol over which health check probes are sent. Valid values:
      *
-     *   **tcp**: TCP
-     *   **http**: HTTP
-     *   **https**: HTTPS
+     *   **tcp:** TCP.
+     *   **http:** HTTP.
+     *   **https:** HTTPS.
      *
      * @example tcp
      *
@@ -170,7 +170,7 @@ class endpointGroups extends Model
     public $name;
 
     /**
-     * @description The mappings between ports.
+     * @description Mappings between ports.
      *
      * @var portOverrides[]
      */
@@ -179,10 +179,10 @@ class endpointGroups extends Model
     /**
      * @description The state of the endpoint group. Valid values:
      *
-     *   **init**: The endpoint group is being initialized.
-     *   **active**: The endpoint group is running normally.
-     *   **updating**:The endpoint group is being updated.
-     *   **deleteing**: The endpoint group is being deleted.
+     *   **init:** The endpoint group is being initialized.
+     *   **active:** The endpoint group is running as expected.
+     *   **updating:**The endpoint group is being updated.
+     *   **deleteing:** The endpoint group is being deleted.
      *
      * @example active
      *
@@ -191,6 +191,8 @@ class endpointGroups extends Model
     public $state;
 
     /**
+     * @description Tags of GA instances.
+     *
      * @var tags[]
      */
     public $tags;

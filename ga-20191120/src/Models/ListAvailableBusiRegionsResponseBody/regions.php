@@ -11,15 +11,17 @@ class regions extends Model
     /**
      * @description The name of the region.
      *
+     * @example China (Qingdao)
+     *
      * @var string
      */
     public $localName;
 
     /**
-     * @description Indicates whether it is a point of presence (PoP). Valid values:
+     * @description Indicates whether the region is a point of presence (PoP). Valid values:
      *
-     *   **true**: It is a PoP.
-     *   **false**: It is not a PoP.
+     *   **true**: The region is a PoP.
+     *   **false**: The region is not a PoP.
      *
      * @example false
      *

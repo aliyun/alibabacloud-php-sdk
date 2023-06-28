@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteBandwidthPackageResponseBody extends Model
 {
     /**
-     * @description The ID of the bandwidth plan.
+     * @description The bandwidth plan ID.
      *
      * @example gbwp-bp1sgzldyj6b4q7cx****
      *
@@ -18,7 +18,7 @@ class DeleteBandwidthPackageResponseBody extends Model
     public $bandwidthPackageId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6FEA0CF3-D3B9-43E5-A304-D217037876A8
      *

@@ -18,7 +18,7 @@ class UpdateDomainStateResponseBody extends Model
     public $domain;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
@@ -27,12 +27,12 @@ class UpdateDomainStateResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ICP filing status of the accelerated domain name.
+     * @description The ICP filing status of the accelerated domain name. Valid values:
      *
-     *   **illegal**: The domain name is illegal.
-     *   **inactive**: The domain name has not completed ICP filing.
-     *   **active**: The domain name has completed ICP filing.
-     *   **unknown**: The ICP filing status is unknown.
+     *   **illegal:** The domain name is illegal.
+     *   **inactive:** The domain name has not completed ICP filing.
+     *   **active:** The domain name has a valid ICP number.
+     *   **unknown:** The ICP filing status is unknown.
      *
      * @example active
      *

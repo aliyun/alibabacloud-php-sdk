@@ -10,12 +10,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateIpSetsRequest extends Model
 {
     /**
+     * @description The acceleration regions.
+     *
      * @var ipSets[]
      */
     public $ipSets;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The region ID of the Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

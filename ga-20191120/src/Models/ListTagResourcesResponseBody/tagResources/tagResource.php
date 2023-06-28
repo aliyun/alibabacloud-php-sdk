@@ -24,6 +24,7 @@ class tagResource extends Model
      *   **basicaccelerator:** a basic GA instance.
      *   **bandwidthpackage:** a bandwidth plan.
      *   **acl:** an ACL.
+     *   **endpointgroup:** an EndpointGroup.
      *
      * @example accelerator
      *

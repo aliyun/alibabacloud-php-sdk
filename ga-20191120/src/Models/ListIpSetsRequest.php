@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListIpSetsRequest extends Model
 {
     /**
-     * @description The ID of the GA instance that you want to query.
+     * @description The ID of the GA instance.
      *
      * @example ga-bp1yeeq8yfoyszmqy****
      *
@@ -36,7 +36,7 @@ class ListIpSetsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the Global Accelerator (GA) instance that you want to query is deployed. Set the value to **cn-hangzhou**.
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

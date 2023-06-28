@@ -21,8 +21,8 @@ class ListEndpointGroupsRequest extends Model
     /**
      * @description Specifies whether the access logging feature is enabled. Default value: off. Valid values:
      *
-     *   **on**: The access logging feature is enabled.
-     *   **off**: The access logging feature is disabled.
+     *   **on:** enables the access logging feature.
+     *   **off:** disables the access logging feature.
      *
      * @example on
      *
@@ -42,8 +42,8 @@ class ListEndpointGroupsRequest extends Model
     /**
      * @description The type of the endpoint group. Valid values:
      *
-     *   **default**: a default endpoint group
-     *   **virtual**: a virtual endpoint group
+     *   **default:** a default endpoint group.
+     *   **virtual:** a virtual endpoint group.
      *   If you leave this parameter empty, all default and virtual endpoint groups are queried.
      *
      * @example virtual
@@ -89,6 +89,8 @@ class ListEndpointGroupsRequest extends Model
     public $regionId;
 
     /**
+     * @description Tags of GA instances.
+     *
      * @var tag[]
      */
     public $tag;

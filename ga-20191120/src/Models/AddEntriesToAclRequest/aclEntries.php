@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class aclEntries extends Model
 {
     /**
-     * @description The IP address or CIDR block that you want to add to the network ACL.
+     * @description The IP address(192.168.XX.XX) or CIDR(10.0.XX.XX/24) block that you want to add to the network ACL.
      *
      * >  This parameter is required.
      * @example 10.0.XX.XX/24

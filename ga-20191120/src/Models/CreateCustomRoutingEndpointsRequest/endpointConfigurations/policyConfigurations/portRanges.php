@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class portRanges extends Model
 {
     /**
-     * @description The first port of the destination port range. The value of this parameter must fall within the port range of the endpoint group.
+     * @description The last port of the destination port range. The value of this parameter must fall within the port range of the endpoint group.
      *
      * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
      *
-     * You can specify port ranges for up to 20 destinations for each endpoint and specify up to 20 first ports for each destination.
+     * You can specify port ranges for up to 20 destinations for each endpoint and specify up to 20 last ports for each destination.
      * @example 80
      *
      * @var int
@@ -21,11 +21,8 @@ class portRanges extends Model
     public $fromPort;
 
     /**
-     * @description The last port of the destination port range. The value of this parameter must fall within the port range of the endpoint group.
+     * @description The returned information.
      *
-     * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
-     *
-     * You can specify port ranges for up to 20 destinations for each endpoint and specify up to 20 last ports for each destination.
      * @example 80
      *
      * @var int

@@ -89,7 +89,7 @@ class accelerateIpEndpointRelations extends Model
      *   **ECS**: Elastic Compute Service (ECS) instance.
      *   **NLB**: Network Load Balancer (NLB) instance.
      *
-     * @example ENI
+     * @example NLB
      *
      * @var string
      */

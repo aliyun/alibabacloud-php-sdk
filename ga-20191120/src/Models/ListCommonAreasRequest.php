@@ -11,8 +11,8 @@ class ListCommonAreasRequest extends Model
     /**
      * @description The IP version used to connect to the GA instance. Valid values:
      *
-     *   **IPv4** (default): queries regions that support IPv4.
-     *   **IPv6** :queries regions that support IPv6.
+     *   **IPv4** (default)
+     *   **IPv6**
      *
      * @example IPv4
      *
@@ -21,7 +21,7 @@ class ListCommonAreasRequest extends Model
     public $ipVersion;
 
     /**
-     * @description Specifies whether to query regions where endpoint groups can be deployed.
+     * @description Specifies whether to query regions where endpoint groups of GA can be deployed. Valid values:
      *
      *   **true**: yes
      *   **false** (default): no
@@ -33,10 +33,10 @@ class ListCommonAreasRequest extends Model
     public $isEpg;
 
     /**
-     * @description Specifies whether to query regions supported by GA.
+     * @description Specifies whether to query regions supported by GA. Valid values:
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   **true**
+     *   **false** (default)
      *
      * @example true
      *

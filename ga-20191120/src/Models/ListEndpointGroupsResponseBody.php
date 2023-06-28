@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListEndpointGroupsResponseBody extends Model
 {
     /**
-     * @description The configurations of the endpoint group.
+     * @description Configurations of endpoint groups.
      *
      * @var endpointGroups[]
      */
@@ -26,7 +26,7 @@ class ListEndpointGroupsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries returned on each page.
      *
      * @example 10
      *
@@ -44,7 +44,7 @@ class ListEndpointGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of returned entries.
      *
      * @example 1
      *

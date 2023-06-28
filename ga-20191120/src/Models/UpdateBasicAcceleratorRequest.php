@@ -22,7 +22,7 @@ class UpdateBasicAcceleratorRequest extends Model
      *
      * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
-     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567****
      *
      * @var string
@@ -49,7 +49,7 @@ class UpdateBasicAcceleratorRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the region where the basic GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The ID of the region to which the basic GA instance belongs. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

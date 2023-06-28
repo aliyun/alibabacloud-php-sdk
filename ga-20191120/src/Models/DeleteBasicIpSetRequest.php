@@ -11,9 +11,9 @@ class DeleteBasicIpSetRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -21,7 +21,7 @@ class DeleteBasicIpSetRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the acceleration region.
+     * @description The ID of the acceleration region of the basic GA instance.
      *
      * @example ips-bp11r5jb8ogp122xl****
      *

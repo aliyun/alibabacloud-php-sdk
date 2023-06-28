@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAclRequest extends Model
 {
     /**
+     * @description The ACL entries.
+     *
      * @var aclEntries[]
      */
     public $aclEntries;
@@ -70,6 +72,8 @@ class CreateAclRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmwj7wvng3jbi
      *
      * @var string

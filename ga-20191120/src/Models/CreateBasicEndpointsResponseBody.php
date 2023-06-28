@@ -19,7 +19,7 @@ class CreateBasicEndpointsResponseBody extends Model
     public $endpointGroupId;
 
     /**
-     * @description The endpoints that are associated with the basic GA instance.
+     * @description The endpoints in the endpoint group.
      *
      * @var endpoints[]
      */

@@ -12,14 +12,17 @@ use AlibabaCloud\Tea\Model;
 class GetAclResponseBody extends Model
 {
     /**
-     * @description The list of network ACL entries that are returned. A maximum of 20 network ACL entries can be returned.
+     * @description The network ACL entry.
      *
      * @var aclEntries[]
      */
     public $aclEntries;
 
     /**
-     * @description The ID of the network ACL.
+     * @description The IP version of the network ACL. Valid values:
+     *
+     *   **IPv4**
+     *   **IPv6**
      *
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
@@ -28,13 +31,20 @@ class GetAclResponseBody extends Model
     public $aclId;
 
     /**
-     * @description The name of the network ACL.
-     *
      * @example test-acl
      *
      * @var string
      */
     public $aclName;
+
+    /**
+     * @description The list of network ACL entries that are returned. A maximum of 20 network ACL entries can be returned.
+     *
+     * @example active
+     *
+     * @var string
+     */
+    public $aclStatus;
 
     /**
      * @description The state of the network ACL. Valid values:
@@ -45,18 +55,6 @@ class GetAclResponseBody extends Model
      *   **updating**: The network ACL is being updated.
      *   **deleting**: The network ACL is being deleted.
      *
-     * @example active
-     *
-     * @var string
-     */
-    public $aclStatus;
-
-    /**
-     * @description The IP version of the network ACL. Valid values:
-     *
-     *   **IPv4**
-     *   **IPv6**
-     *
      * @example IPv4
      *
      * @var string
@@ -64,14 +62,14 @@ class GetAclResponseBody extends Model
     public $addressIPVersion;
 
     /**
-     * @description The listeners that are associated with the network ACL.
+     * @description The ID of the listener.
      *
      * @var relatedListeners[]
      */
     public $relatedListeners;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the network ACL.
      *
      * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *

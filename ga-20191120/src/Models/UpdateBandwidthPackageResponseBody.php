@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateBandwidthPackageResponseBody extends Model
 {
     /**
-     * @description The ID of the bandwidth plan.
+     * @description The bandwidth plan ID.
      *
      * @example gbwp-bp1eo4f57z1kbbcmn****
      *
@@ -36,7 +36,7 @@ class UpdateBandwidthPackageResponseBody extends Model
     public $name;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1DF3A3CB-B621-44F8-9870-C20D034D7AB
      *

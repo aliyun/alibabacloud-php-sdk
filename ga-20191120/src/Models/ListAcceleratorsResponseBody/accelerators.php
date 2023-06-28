@@ -79,6 +79,11 @@ class accelerators extends Model
     public $crossBorderMode;
 
     /**
+     * @description Indicates whether cross-border acceleration is enabled.
+     * - **true**: yes
+     * - **false**: no
+     * @example false
+     *
      * @var bool
      */
     public $crossBorderStatus;
@@ -238,6 +243,17 @@ class accelerators extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @description Indicates the upgradable state of the GA instance.
+     * - **notUpgradable**: The GA instance can not be upgraded
+     * - **upgradable**: The GA instance can be upgraded
+     * - **upgradeFailed**: The GA instance has been upgraded and failed
+     * @example notUpgradable
+     *
+     * @var string
+     */
+    public $upgradableStatus;
     protected $_name = [
         'acceleratorId'               => 'AcceleratorId',
         'bandwidth'                   => 'Bandwidth',
@@ -262,6 +278,7 @@ class accelerators extends Model
         'state'                       => 'State',
         'tags'                        => 'Tags',
         'type'                        => 'Type',
+        'upgradableStatus'            => 'UpgradableStatus',
     ];
 
     public function validate()
@@ -345,6 +362,9 @@ class accelerators extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->upgradableStatus) {
+            $res['UpgradableStatus'] = $this->upgradableStatus;
         }
 
         return $res;
@@ -432,6 +452,9 @@ class accelerators extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['UpgradableStatus'])) {
+            $model->upgradableStatus = $map['UpgradableStatus'];
         }
 
         return $model;

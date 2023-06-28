@@ -33,10 +33,10 @@ class endpoints extends Model
     public $endpointSubAddress;
 
     /**
-     * @description The type of the secondary address of the endpoint. Valid values:
+     * @description The secondary address type of the endpoint. Valid values:
      *
-     *   **primary**: a primary private IP address.
-     *   **secondary**: a secondary private IP address.
+     *   **primary:** a primary private IP address.
+     *   **secondary:** a secondary private IP address.
      *
      * This parameter is required if the endpoint type is **ECS**, **ENI**, or **NLB**. If the endpoint type is **NLB**, only **primary** is supported.
      * @example primary
@@ -48,10 +48,10 @@ class endpoints extends Model
     /**
      * @description The type of the endpoint. Valid values:
      *
-     *   **ENI**: elastic network interface (ENI).
-     *   **SLB**: Classic Load Balancer (CLB) instance.
-     *   **ECS**: Elastic Compute Service (ECS) instance.
-     *   **NLB**: Network Load Balancer (NLB) instance.
+     *   **ENI:** elastic network interface (ENI).
+     *   **SLB:** Classic Load Balancer (CLB) instance.
+     *   **ECS:** Elastic Compute Service (ECS) instance.
+     *   **NLB:** Network Load Balancer (NLB) instance.
      *
      * >  This parameter is required.
      * @example ENI
@@ -73,7 +73,7 @@ class endpoints extends Model
     /**
      * @description The name of the endpoint.
      *
-     * The name must be 2 to 64 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * The name must be 2 to 64 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
      * @example ep01
      *
      * @var string

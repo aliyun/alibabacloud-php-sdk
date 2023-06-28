@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddEntriesToAclRequest extends Model
 {
     /**
+     * @description The ACL entries.
+     *
      * @var aclEntries[]
      */
     public $aclEntries;

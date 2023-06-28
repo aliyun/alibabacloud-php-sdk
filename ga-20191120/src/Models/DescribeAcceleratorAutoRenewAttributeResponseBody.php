@@ -20,8 +20,8 @@ class DescribeAcceleratorAutoRenewAttributeResponseBody extends Model
     /**
      * @description Indicates whether auto-renewal is enabled. Valid values:
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   **true**: enabled
+     *   **false** (default): disabled
      *
      * @example false
      *
@@ -30,7 +30,7 @@ class DescribeAcceleratorAutoRenewAttributeResponseBody extends Model
     public $autoRenew;
 
     /**
-     * @description The auto-renewal period. Unit: months.
+     * @description The auto-renewal duration. Unit: months.
      *
      * This parameter is returned only if **AutoRenew** is set to **true**.
      * @example 1
@@ -43,8 +43,8 @@ class DescribeAcceleratorAutoRenewAttributeResponseBody extends Model
      * @description Indicates how the GA instance is renewed. Valid values:
      *
      *   **AutoRenewal**: The GA instance is automatically renewed.
-     *   **Normal**: The GA instance is manually renewed.
-     *   **NotRenewal**: The GA instance is not renewed after the instance expires. The system sends only a non-renewal reminder three days before the expiration date. The system no longer sends notifications to remind you to renew the GA instance.
+     *   **Normal**: You must manually renew the GA instance.
+     *   **NotRenewal**: The GA instance is not renewed after it expires. The system sends only a non-renewal reminder three days before the expiration date. The system no longer sends notifications to remind you to renew the GA instance.
      *
      * @example Normal
      *

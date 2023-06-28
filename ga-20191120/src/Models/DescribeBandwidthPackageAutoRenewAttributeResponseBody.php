@@ -21,7 +21,7 @@ class DescribeBandwidthPackageAutoRenewAttributeResponseBody extends Model
     public $autoRenew;
 
     /**
-     * @description The auto-renewal duration. Unit: months. Valid values: **1** to **12**.
+     * @description The auto-renewal period. Unit: months. Valid values: **1** to **12**.
      *
      * > : This parameter takes effect only if **AutoRenew** is set to **true**.
      * @example 1

@@ -14,10 +14,7 @@ class AssociateAclsWithListenerRequest extends Model
     public $aclIds;
 
     /**
-     * @description The type of ACL. Valid values:
-     *
-     *   **white**: a whitelist. Only requests from the IP addresses or CIDR blocks in the ACL are forwarded. Whitelists apply to scenarios in which you want to allow only specific IP addresses to access an application. Your service may be adversely affected if the whitelist is not properly configured. After you configure a whitelist for a listener, only requests from the IP addresses that are added to the whitelist are forwarded by the listener. If the whitelist is enabled but no IP addresses are added to it, the listener does not forward requests.
-     *   **black**: a blacklist. All requests from the IP addresses or CIDR blocks in the ACL are denied. Blacklists apply to scenarios in which you want to deny access from specific IP addresses to an application. If the blacklist is enabled but no IP addresses are added to it, the listener forwards all requests.
+     * @description The ID of the listener.
      *
      * @example White
      *
@@ -26,11 +23,11 @@ class AssociateAclsWithListenerRequest extends Model
     public $aclType;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The type of ACL. Valid values:
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *   **white**: a whitelist. Only requests from the IP addresses or CIDR blocks in the ACL are forwarded. Whitelists apply to scenarios in which you want to allow only specific IP addresses to access an application. Your service may be adversely affected if the whitelist is not properly configured. After you configure a whitelist for a listener, only requests from the IP addresses that are added to the whitelist are forwarded by the listener. If the whitelist is enabled but no IP addresses are added to it, the listener does not forward requests.
+     *   **black**: a blacklist. All requests from the IP addresses or CIDR blocks in the ACL are denied. Blacklists apply to scenarios in which you want to deny access from specific IP addresses to an application. If the blacklist is enabled but no IP addresses are added to it, the listener forwards all requests.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example 02fb3da4****
      *
      * @var string
@@ -38,11 +35,11 @@ class AssociateAclsWithListenerRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to only precheck the request. Default value: false. Valid values:
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     *   **true**: prechecks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-     *   **false**: sends the request. If the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
      *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example false
      *
      * @var bool
@@ -50,7 +47,7 @@ class AssociateAclsWithListenerRequest extends Model
     public $dryRun;
 
     /**
-     * @description The ID of the listener.
+     * @description The ID of the ACL. You can associate up to two ACL IDs.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -61,7 +58,7 @@ class AssociateAclsWithListenerRequest extends Model
     /**
      * @description The ID of the region.
      *
-     * @example 64ADAB1E-0B7F-4FD8-A404-3BECC0E9CCFF
+     * @example cn-hangzhou
      *
      * @var string
      */

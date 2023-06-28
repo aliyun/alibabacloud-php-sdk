@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class accelerateRegion extends Model
 {
     /**
-     * @description The ID of the region that requires acceleration.
+     * @description The acceleration region IDs.
      *
      * The number of regions that can be added varies based on the specification of the GA instance. For more information, see [Overview](~~153127~~).
      * @example cn-huhehaote
@@ -25,7 +25,7 @@ class accelerateRegion extends Model
      *
      *   Each acceleration region must be allocated a minimum of 2 Mbit/s of bandwidth.
      *
-     *   The total bandwidth for all acceleration regions cannot exceed the bandwidth limit of your basic bandwidth plan.
+     *   The total bandwidth for all acceleration regions cannot exceed the maximum bandwidth of the basic bandwidth plan.
      *
      * @example 2
      *
@@ -36,8 +36,8 @@ class accelerateRegion extends Model
     /**
      * @description The IP version used to connect to the GA instance. Valid values:
      *
-     *   **IPv4** (default): IPv4
-     *   **IPv6**: IPv6
+     *   **IPv4** (default)
+     *   **IPv6**
      *
      * @example IPv6
      *
@@ -48,8 +48,8 @@ class accelerateRegion extends Model
     /**
      * @description The line type of the elastic IP address (EIP) in the acceleration region. Valid values:
      *
-     *   **BGP**: BGP (Multi-ISP) lines.
-     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines. If the acceleration region is China (Hong Kong) and a basic bandwidth plan whose bandwidth type is Premium is associated with the GA instance, the default value of IspType is BGP_PRO.
+     *   **BGP**
+     *   **BGP_PRO** If the acceleration region is China (Hong Kong) and a basic bandwidth plan whose bandwidth type is Premium is associated with the GA instance, the default value of IspType is BGP_PRO.
      *
      * If you are allowed to use single-ISP bandwidth, you can also specify one of the following values:
      *
@@ -60,7 +60,7 @@ class accelerateRegion extends Model
      *   **ChinaUnicom_L2**: China Unicom \_L2 (single ISP)
      *   **ChinaMobile_L2**: China Mobile \_L2 (single ISP)
      *
-     * >  The supported single-ISP line types vary based on the acceleration region.
+     * > Different acceleration regions support different single-ISP BGP lines.
      * @example BGP
      *
      * @var string

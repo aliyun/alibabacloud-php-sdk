@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListIspTypesRequest extends Model
 {
     /**
+     * @example ga-bp1odcab8tmno0hdq****
+     *
      * @var string
      */
     public $acceleratorId;

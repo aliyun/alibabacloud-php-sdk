@@ -34,6 +34,8 @@ class UpdateEndpointGroupsRequest extends Model
     public $dryRun;
 
     /**
+     * @description Terminal node group configuration information.
+     *
      * @var endpointGroupConfigurations[]
      */
     public $endpointGroupConfigurations;

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateCustomRoutingEndpointTrafficPoliciesResponseBody extends Model
 {
     /**
-     * @description The IDs of the access policies of traffic.
+     * @description The IDs of the traffic destinations.
      *
      * @var string[]
      */
     public $policyIds;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *

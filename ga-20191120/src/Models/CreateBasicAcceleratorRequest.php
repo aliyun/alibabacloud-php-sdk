@@ -12,8 +12,8 @@ class CreateBasicAcceleratorRequest extends Model
     /**
      * @description Specifies whether to enable automatic payment. Valid values:
      *
-     *   **false** (default): disables automatic payment. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
-     *   **true**: enables automatic payment. Payments are automatically completed.
+     *   **false:** disables automatic payment. If you select this option, you must go to the Order Center to complete the payment after an order is generated. This is the default value.
+     *   **true:** enables automatic payment. Payments are automatically completed.
      *
      * @example false
      *
@@ -22,10 +22,10 @@ class CreateBasicAcceleratorRequest extends Model
     public $autoPay;
 
     /**
-     * @description Specifies whether to enable auto-renewal for the GA instance. Valid values:
+     * @description Specifies whether to enable auto-renewal for the basic GA instance. Valid values:
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   **true:** enables auto-renewal for the basic GA instance.
+     *   **false:** disables auto-renewal for the basic GA instance. This is the default value.
      *
      * @example false
      *
@@ -38,7 +38,7 @@ class CreateBasicAcceleratorRequest extends Model
      *
      * Valid values: **1** to **12**. Default value: **1**.
      *
-     * > : This parameter takes effect only if **AutoRenew** is set to **true**.
+     * >  This parameter takes effect only when the **AutoPay** parameter is set to **true**.
      * @example 1
      *
      * @var int
@@ -46,12 +46,12 @@ class CreateBasicAcceleratorRequest extends Model
     public $autoRenewDuration;
 
     /**
-     * @description Specifies whether to automatically pay bills by using coupons. Default value: false. Valid values:
+     * @description Specifies whether to automatically apply coupons to your bills. Valid values:
      *
-     *   **true**: automatically pays bills by using coupons.
-     *   **false**: does not automatically pay bills by using coupons.
+     *   **true:** automatically applies coupons to your bills.
+     *   **false:** does not automatically apply coupons to your bills. This is the default value.
      *
-     * >  This parameter takes effect only if **AutoPay** is set to **true**.
+     * >  This parameter takes effect only when the **AutoPay** parameter is set to **true**.
      * @example false
      *
      * @var string
@@ -61,9 +61,9 @@ class CreateBasicAcceleratorRequest extends Model
     /**
      * @description The bandwidth billing method. Valid values:
      *
-     *   **BandwidthPackage**: billed based on bandwidth plans.
-     *   **CDT**: billed through Cloud Data Transfer (CDT) and based on data transfer.
-     *   **CDT95**: billed through CDT and based on the 95th percentile bandwidth. This bandwidth billing method is available only for users that are included in the whitelist.
+     *   **BandwidthPackage:** billed based on bandwidth plans.
+     *   **CDT:** billed based on data transfer. The bills are managed by using Cloud Data Transfer (CDT).
+     *   **CDT95:** billed based on the 95th percentile bandwidth. The bills are managed by using Cloud Data Transfer (CDT). This bandwidth billing method is not available by default. Contact your Alibaba Cloud account manager for more information.
      *
      * @example CDT
      *
@@ -72,8 +72,9 @@ class CreateBasicAcceleratorRequest extends Model
     public $bandwidthBillingType;
 
     /**
-     * @description The billing method. Set the value to **PREPAY**, which specifies the subscription billing method.
-     *
+     * @description The billing method of the basic GA instance. Valid values:
+     * - **PREPAY**: subscription. This is the default value.
+     * - **POSTPAY**: pay-as-you-go.
      * @example PREPAY
      *
      * @var string
@@ -83,9 +84,9 @@ class CreateBasicAcceleratorRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+     * >  If you do not set this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** may be different for each API request.
      * @example 123e4567****
      *
      * @var string
@@ -93,10 +94,10 @@ class CreateBasicAcceleratorRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to perform a dry run. Default value: false. Valid values:
+     * @description Specifies whether to perform a dry run. Valid values:
      *
-     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-     *   **false**: performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *   **true:** performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false**: performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed. This is the default value.
      *
      * @example false
      *
@@ -105,10 +106,10 @@ class CreateBasicAcceleratorRequest extends Model
     public $dryRun;
 
     /**
-     * @description The subscription duration.
+     * @description The subscription duration of the GA instance.
      *
-     *   If the **PricingCycle** parameter is set to **Month**, the valid values for the **Duration** parameter are **1** to **9**.
-     *   If the **PricingCycle** parameter is set to **Year**, the valid values for the **Duration** parameter are **1** to **3**.
+     *   If you set the **PricingCycle** parameter to **Month**, the valid values for the **Duration** parameter are **1** to **9**.
+     *   If you set the **PricingCycle** parameter to **Year**, the valid values for the **Duration** parameter are **1** to **3**.
      *
      * @example 1
      *
@@ -117,10 +118,10 @@ class CreateBasicAcceleratorRequest extends Model
     public $duration;
 
     /**
-     * @description The billing cycle of the GA instance. Valid values:
+     * @description The billing cycle of the basic GA instance. Valid values:
      *
-     *   **Month**: billed on a monthly basis.
-     *   **Year**: billed on an annual basis.
+     *   **Month:** billed on a monthly basis.
+     *   **Year:** billed on an annual basis.
      *
      * @example Month
      *
@@ -129,9 +130,9 @@ class CreateBasicAcceleratorRequest extends Model
     public $pricingCycle;
 
     /**
-     * @description The coupon code.
+     * @description The code of the coupon.
      *
-     * >  This parameter is available only on the international site (alibabacloud.com).
+     * >  This parameter takes effect only for accounts registered on the international site (alibabacloud.com).
      * @example 50003298014****
      *
      * @var string
@@ -139,7 +140,7 @@ class CreateBasicAcceleratorRequest extends Model
     public $promotionOptionNo;
 
     /**
-     * @description The ID of the region to which the basic GA instance belongs. Set the value to **cn-hangzhou**.
+     * @description The ID of the region where the basic GA instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

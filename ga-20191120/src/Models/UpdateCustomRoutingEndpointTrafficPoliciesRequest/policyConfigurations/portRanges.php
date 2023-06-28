@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class portRanges extends Model
 {
     /**
-     * @description The start port of the port range in the destination to which to allow traffic. The specified port must fall within the port range of the specified endpoint group.
+     * @description The first port of the destination port range. The specified port must fall within the port range of the specified endpoint group.
      *
      * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the access policy of traffic for the specified endpoint.
      *
@@ -21,11 +21,11 @@ class portRanges extends Model
     public $fromPort;
 
     /**
-     * @description The end port of the port range in the destination to which to allow traffic. The specified port must fall within the port range of the specified endpoint group.
+     * @description The last port of the destination port range. The specified port must fall within the port range of the specified endpoint group.
      *
-     * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the access policy of traffic for the specified endpoint.
+     * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**. You can call the [DescribeCustomRoutingEndpoint](~~449386~~) operation to query the traffic policy for the specified endpoint.
      *
-     * You can specify port ranges for up to 500 destinations for each endpoint and specify up to 10 end ports for each destination.
+     * You can specify port ranges for up to 500 destinations in each endpoint and specify up to 10 last ports for each destination.
      * @example 80
      *
      * @var int

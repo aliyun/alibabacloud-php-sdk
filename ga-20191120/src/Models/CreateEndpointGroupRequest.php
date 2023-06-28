@@ -43,6 +43,8 @@ class CreateEndpointGroupRequest extends Model
     public $description;
 
     /**
+     * @description The configurations of the endpoint.
+     *
      * @var endpointConfigurations[]
      */
     public $endpointConfigurations;
@@ -75,10 +77,8 @@ class CreateEndpointGroupRequest extends Model
      *   **HTTP**
      *   **HTTPS**
      *
-     * >
-     *   You can set this parameter only when the listener that is associated with the endpoint group uses **HTTP** or **HTTPS**.
-     *   For an **HTTP** listener, the backend service protocol must be **HTTP**.
-     *
+     * > *   You can set this parameter only when the listener that is associated with the endpoint group uses **HTTP** or **HTTPS**.
+     * >*   For an **HTTP** listener, the backend service protocol must be **HTTP**.
      * @example HTTP
      *
      * @var string
@@ -157,6 +157,8 @@ class CreateEndpointGroupRequest extends Model
     public $name;
 
     /**
+     * @description The mappings between ports.
+     *
      * @var portOverrides[]
      */
     public $portOverrides;
@@ -171,6 +173,8 @@ class CreateEndpointGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description Tags of GA instances.
+     *
      * @var tag[]
      */
     public $tag;

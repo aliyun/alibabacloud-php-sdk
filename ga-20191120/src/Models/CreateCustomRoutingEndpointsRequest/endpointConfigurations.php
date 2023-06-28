@@ -10,8 +10,13 @@ use AlibabaCloud\Tea\Model;
 class endpointConfigurations extends Model
 {
     /**
-     * @description The name of the vSwitch that is specified as an endpoint.
+     * @description The traffic policy that is used to process traffic to the endpoint. Valid values:
      *
+     *   **DenyAll** (default): denies all traffic to the endpoint.
+     *   **AllowAll**: allows all traffic to the endpoint.
+     *   **AllowCustom**: allows traffic only to specified destinations in the endpoint.
+     *
+     * If you set this parameter to AllowCustom, you must specify IP addresses and port ranges as the destinations to which traffic is distributed. If you specify only IP addresses and do not specify port ranges, GA can forward traffic to the specified IP addresses over all destination ports.
      * @example vsw-test01
      *
      * @var string
@@ -27,13 +32,9 @@ class endpointConfigurations extends Model
     public $policyConfigurations;
 
     /**
-     * @description The traffic policy that is used to process traffic to the endpoint. Valid values:
+     * @description The destination to which traffic is forwarded.
      *
-     *   **DenyAll** (default): denies all traffic to the endpoint.
-     *   **AllowAll**: allows all traffic to the endpoint.
-     *   **AllowCustom**: allows traffic only to specified destinations in the endpoint.
-     *
-     * If you set this parameter to AllowCustom, you must specify IP addresses and port ranges as the destinations to which traffic is distributed. If you specify only IP addresses and do not specify port ranges, GA can forward traffic to the specified IP addresses over all destination ports.
+     * You can specify up to 20 destinations for each endpoint.
      * @example DenyAll
      *
      * @var string
@@ -41,9 +42,8 @@ class endpointConfigurations extends Model
     public $trafficToEndpointPolicy;
 
     /**
-     * @description The type of endpoint.
+     * @description The ID of the vSwitch that is specified as an endpoint.
      *
-     * Set the value to **PrivateSubNet**, which specifies a private CIDR block. This is the default value.
      * @example PrivateSubNet
      *
      * @var string

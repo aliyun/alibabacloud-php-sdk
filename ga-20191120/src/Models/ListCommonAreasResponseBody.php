@@ -17,7 +17,7 @@ class ListCommonAreasResponseBody extends Model
     public $areas;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example DE77A7F3-3B74-41C0-A5BC-CAFD188C28B6
      *

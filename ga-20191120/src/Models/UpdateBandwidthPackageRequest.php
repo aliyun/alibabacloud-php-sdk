@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateBandwidthPackageRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic payment. Default value: false. Valid values:
+     * @description Specifies whether to enable automatic payment. Valid values:
      *
-     *   **false**: disables automatic payment. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
+     *   **false** (default): disables automatic payment. If you select this option, you must go to Order Center to complete the payment after an order is generated.
      *   **true**: enables automatic payment. Payments are automatically completed.
      *
      * @example false
@@ -21,10 +21,10 @@ class UpdateBandwidthPackageRequest extends Model
     public $autoPay;
 
     /**
-     * @description Specifies whether to use coupons. Default value: false. Valid values:
+     * @description Specifies whether to use coupons. Valid values:
      *
-     *   **true**: uses coupons.
-     *   **false**: does not use coupons.
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -54,11 +54,11 @@ class UpdateBandwidthPackageRequest extends Model
     /**
      * @description The type of bandwidth. Valid values:
      *
-     *   **Basic**: basic
-     *   **Enhanced**: enhanced
-     *   **Advanced**: premium
+     *   **Basic**
+     *   **Enhanced**
+     *   **Advanced**
      *
-     * >  You can only upgrade **Basic** bandwidth to **Enhanced** bandwidth. You cannot change **Enhanced** bandwidth or **Advanced** bandwidth to another type.
+     * >  You can upgrade **Basic** bandwidth to **Enhanced** bandwidth. You cannot change **Enhanced** or **Advanced** bandwidth to another type of bandwidth.
      * @example Basic
      *
      * @var string
@@ -76,9 +76,8 @@ class UpdateBandwidthPackageRequest extends Model
     public $description;
 
     /**
-     * @description The name of the bandwidth plan.
+     * @description The name of the bandwidth plan. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
      * @example testName
      *
      * @var string
@@ -86,7 +85,7 @@ class UpdateBandwidthPackageRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

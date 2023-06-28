@@ -18,7 +18,7 @@ class DeleteAcceleratorRequest extends Model
     public $acceleratorId;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The ID of the region where your GA instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

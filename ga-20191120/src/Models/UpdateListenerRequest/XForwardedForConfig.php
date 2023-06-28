@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class XForwardedForConfig extends Model
 {
     /**
-     * @description Specifies whether to use the `GA-AP` header to retrieve the information about acceleration regions. Default value: false. Valid values:
+     * @description Specifies whether to use the `GA-AP` header to retrieve information about acceleration regions. Valid values:
      *
      *   **true**: yes
-     *   **false**: no
+     *   **false** (default): no
      *
-     * >  You can specify this parameter only for HTTP and HTTPS listeners.
+     * > This parameter is available only when you create an HTTPS or HTTP listener.
      * @example false
      *
      * @var bool
@@ -22,12 +22,12 @@ class XForwardedForConfig extends Model
     public $XForwardedForGaApEnabled;
 
     /**
-     * @description Specifies whether to use the `GA-ID` header to retrieve the ID of the GA instance. Default value: false. Valid values:
+     * @description Specifies whether to use the `GA-ID` header to retrieve the ID of the GA instance. Valid values:
      *
      *   **true**: yes
-     *   **false**: no
+     *   **false** (default): no
      *
-     * >  You can specify this parameter only for HTTP and HTTPS listeners.
+     * > This parameter is available only when you create an HTTPS or HTTP listener.
      * @example false
      *
      * @var bool
@@ -35,12 +35,12 @@ class XForwardedForConfig extends Model
     public $XForwardedForGaIdEnabled;
 
     /**
-     * @description Specifies whether to use the `GA-X-Forward-Port` header to retrieve the listener ports of the GA instance. Default value: false. Valid values:
+     * @description Specifies whether to use the `GA-X-Forward-Port` header to retrieve the listener ports of the GA instance. Valid values:
      *
      *   **true**: yes
-     *   **false**: no
+     *   **false** (default): no
      *
-     * >  You can specify this parameter only for HTTP and HTTPS listeners.
+     * > This parameter is available only when you create an HTTPS or HTTP listener.
      * @example false
      *
      * @var bool
@@ -48,12 +48,12 @@ class XForwardedForConfig extends Model
     public $XForwardedForPortEnabled;
 
     /**
-     * @description Specifies whether to use the `GA-X-Forward-Proto` header to retrieve the listener protocol of the GA instance. Default value: false. Valid values:
+     * @description Specifies whether to use the `GA-X-Forward-Proto` header to retrieve the listener protocol of the GA instance. Valid values:
      *
      *   **true**: yes
-     *   **false**: no
+     *   **false** (default): no
      *
-     * >  You can specify this parameter only for HTTP and HTTPS listeners.
+     * > This parameter is available only when you create an HTTPS or HTTP listener.
      * @example false
      *
      * @var bool
@@ -61,12 +61,12 @@ class XForwardedForConfig extends Model
     public $XForwardedForProtoEnabled;
 
     /**
-     * @description Specifies whether to use the `X-Real-IP` header to retrieve client IP addresses. Default value: false. Valid values:
+     * @description Specifies whether to use the `X-Real-IP` header to retrieve client IP addresses. Valid values:
      *
      *   **true**: yes
-     *   **false**: no
+     *   **false** (default): no
      *
-     * >  You can specify this parameter only for HTTP and HTTPS listeners.
+     * > This parameter is available only when you create an HTTPS or HTTP listener.
      * @example false
      *
      * @var bool

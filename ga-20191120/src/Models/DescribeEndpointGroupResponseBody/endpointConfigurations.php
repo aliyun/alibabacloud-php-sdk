@@ -11,8 +11,8 @@ class endpointConfigurations extends Model
     /**
      * @description Indicates whether the client IP address preservation feature is enabled. Valid values:
      *
-     *   **true**: The client IP address preservation feature is enabled.
-     *   **false**: The client IP address preservation feature is disabled.
+     *   **true**: enabled
+     *   **false**: disabled
      *
      * @example false
      *
@@ -21,6 +21,10 @@ class endpointConfigurations extends Model
     public $enableClientIPPreservation;
 
     /**
+     * @description 是否使用ProxyProtocol方式保留客户端源IP。
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableProxyProtocol;
@@ -35,7 +39,7 @@ class endpointConfigurations extends Model
     public $endpoint;
 
     /**
-     * @description The port that is used to monitor latency.
+     * @description The port that is used to monitor the latency.
      *
      * @example 80
      *
@@ -56,15 +60,15 @@ class endpointConfigurations extends Model
     public $probeProtocol;
 
     /**
-     * @description The type of the endpoint. Valid values:
+     * @description The type of endpoint. Valid values:
      *
      *   **Domain**: a custom domain name
      *   **Ip**: a custom IP address
      *   **PublicIp**: a public IP address provided by Alibaba Cloud
-     *   **ECS**: an Elastic Compute Service (ECS) instance
-     *   **SLB**: a Server Load Balancer (SLB) instance
-     *   **ALB**: an Application Load Balancer (ALB) instance
-     *   **OSS**: an Object Storage Service (OSS) bucket
+     *   **ECS:** Elastic Compute Service (ECS) instance
+     *   **SLB**: Server Load Balancer (SLB) instance
+     *   **ALB**: Application Load Balancer (ALB) instance
+     *   **OSS**: Object Storage Service (OSS) bucket
      *
      * @example Ip
      *

@@ -59,10 +59,9 @@ class DescribeAcceleratorResponseBody extends Model
     public $createTime;
 
     /**
-     * @description The type of cross-border acceleration. This parameter is returned for GA instances whose bandwidth metering method is pay-by-data-transfer.
+     * @description The type of cross-border acceleration. This parameter is returned for GA instances whose bandwidth metering method is pay-by-data-transfer (CDT).
      *
-     **bpgPro** is returned, which indicates BGP (Multi-ISP) Pro lines.
-     *
+     * Only **bpgPro** may be returned, which indicates BGP (Multi-ISP) Pro lines.
      * @example bpgPro
      *
      * @var string
@@ -70,6 +69,11 @@ class DescribeAcceleratorResponseBody extends Model
     public $crossBorderMode;
 
     /**
+     * @description Indicates whether cross-border acceleration is enabled.
+     * - **true**: yes
+     * - **false**: no
+     * @example false
+     *
      * @var bool
      */
     public $crossBorderStatus;
@@ -241,6 +245,17 @@ class DescribeAcceleratorResponseBody extends Model
      * @var tags[]
      */
     public $tags;
+
+    /**
+     * @description Indicates the upgradable state of the GA instance.
+     * - **notUpgradable**: The GA instance can not be upgraded
+     * - **upgradable**: The GA instance can be upgraded
+     * - **upgradeFailed**: The GA instance has been upgraded and failed
+     * @example notUpgradable
+     *
+     * @var string
+     */
+    public $upgradableStatus;
     protected $_name = [
         'acceleratorId'               => 'AcceleratorId',
         'bandwidthBillingType'        => 'BandwidthBillingType',
@@ -265,6 +280,7 @@ class DescribeAcceleratorResponseBody extends Model
         'spec'                        => 'Spec',
         'state'                       => 'State',
         'tags'                        => 'Tags',
+        'upgradableStatus'            => 'UpgradableStatus',
     ];
 
     public function validate()
@@ -348,6 +364,9 @@ class DescribeAcceleratorResponseBody extends Model
                     $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->upgradableStatus) {
+            $res['UpgradableStatus'] = $this->upgradableStatus;
         }
 
         return $res;
@@ -435,6 +454,9 @@ class DescribeAcceleratorResponseBody extends Model
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UpgradableStatus'])) {
+            $model->upgradableStatus = $map['UpgradableStatus'];
         }
 
         return $model;

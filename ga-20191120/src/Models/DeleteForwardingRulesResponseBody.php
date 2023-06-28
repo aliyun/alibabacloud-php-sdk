@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DeleteForwardingRulesResponseBody extends Model
 {
     /**
-     * @description Details about the forwarding rules.
+     * @description The forwarding rules.
      *
      * @var forwardingRules[]
      */
     public $forwardingRules;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example CFC67ED9-4AB1-431F-B6E3-A752B7B8CCD4
      *

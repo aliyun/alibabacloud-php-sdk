@@ -49,6 +49,13 @@ class UpdateBasicEndpointGroupRequest extends Model
     public $endpointGroupId;
 
     /**
+     * @description The secondary address of the endpoint.
+     *
+     * This parameter is required when the accelerated IP address is associated with the secondary private IP address of an ECS instance or an ENI.
+     *
+     *   If the endpoint type is **ECS**, you can set the **EndpointSubAddress** parameter to the secondary private IP address of the primary ENI. If the parameter is left empty, the primary private IP address of the primary ENI is used.
+     *   If the endpoint type is **ENI**, you can set the **EndpointSubAddress** parameter to the secondary private IP address of the secondary ENI. If the parameter is left empty, the primary private IP address of the secondary ENI is used.
+     *
      * @example 172.16.XX.XX
      *
      * @var string
