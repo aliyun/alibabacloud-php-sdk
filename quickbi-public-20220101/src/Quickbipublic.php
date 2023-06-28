@@ -90,6 +90,12 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListUserGroupsByUserIdReques
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ListUserGroupsByUserIdResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\ModifyApiDatasourceParametersResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryComponentPerformanceRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryComponentPerformanceResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCubeOptimizationRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCubeOptimizationResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCubePerformanceRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCubePerformanceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataServiceRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDataServiceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryDatasetDetailInfoRequest;
@@ -107,6 +113,8 @@ use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationWorkspaceLi
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryOrganizationWorkspaceListResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryReadableResourcesListByUserIdRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryReadableResourcesListByUserIdResponse;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryReportPerformanceRequest;
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryReportPerformanceResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryShareListRequest;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryShareListResponse;
 use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QuerySharesToUserListRequest;
@@ -208,9 +216,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Indicates whether the request is successful. Valid values:
-     *   * *   true: The request was successful.
-     *   * *   false: The request failed.
+     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n.
      *   *
      * @param AddDataLevelPermissionRuleUsersRequest $request AddDataLevelPermissionRuleUsersRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -243,9 +249,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Indicates whether the request is successful. Valid values:
-     *   * *   true: The request was successful.
-     *   * *   false: The request failed.
+     * > : You can only Quick BI the new row-column permission model. If you are still using the old row-column permission model, migrate to the new row-column permission model before you call this operation. To migrate row-level permissions to the new row-level permission model, perform the following steps: Choose Organizations> Security Configurations> Upgrade Row-Level Permissions. On the Upgrade Row-Level Permissions page, click **Upgrade**.\\n.
      *   *
      * @param AddDataLevelPermissionRuleUsersRequest $request AddDataLevelPermissionRuleUsersRequest
      *
@@ -2254,6 +2258,168 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
+     * @param QueryComponentPerformanceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryComponentPerformanceResponse
+     */
+    public function queryComponentPerformanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->costTimeAvgMin)) {
+            $query['CostTimeAvgMin'] = $request->costTimeAvgMin;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryComponentPerformance',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryComponentPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryComponentPerformanceRequest $request
+     *
+     * @return QueryComponentPerformanceResponse
+     */
+    public function queryComponentPerformance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryComponentPerformanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryCubeOptimizationRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryCubeOptimizationResponse
+     */
+    public function queryCubeOptimizationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCubeOptimization',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCubeOptimizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryCubeOptimizationRequest $request
+     *
+     * @return QueryCubeOptimizationResponse
+     */
+    public function queryCubeOptimization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCubeOptimizationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryCubePerformanceRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return QueryCubePerformanceResponse
+     */
+    public function queryCubePerformanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->costTimeAvgMin)) {
+            $query['CostTimeAvgMin'] = $request->costTimeAvgMin;
+        }
+        if (!Utils::isUnset($request->cubeId)) {
+            $query['CubeId'] = $request->cubeId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCubePerformance',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCubePerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryCubePerformanceRequest $request
+     *
+     * @return QueryCubePerformanceResponse
+     */
+    public function queryCubePerformance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCubePerformanceWithOptions($request, $runtime);
+    }
+
+    /**
      * f4cc43bc3***.
      *   *
      * @param QueryDataServiceRequest $request QueryDataServiceRequest
@@ -2307,9 +2473,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The execution result of the interface is returned. Valid values:
-     *   * *   true: The request was successful.
-     *   * *   false: The request fails.
+     * The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
      *   *
      * @param QueryDatasetDetailInfoRequest $request QueryDatasetDetailInfoRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2342,9 +2506,7 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * The execution result of the interface is returned. Valid values:
-     *   * *   true: The request was successful.
-     *   * *   false: The request fails.
+     * The data source, directory, and dataset model (including dimensions, measures, physical fields, custom SQL text, and association relationships).
      *   *
      * @param QueryDatasetDetailInfoRequest $request QueryDatasetDetailInfoRequest
      *
@@ -2670,6 +2832,67 @@ class Quickbipublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryReadableResourcesListByUserIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryReportPerformanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return QueryReportPerformanceResponse
+     */
+    public function queryReportPerformanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->costTimeAvgMin)) {
+            $query['CostTimeAvgMin'] = $request->costTimeAvgMin;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryType)) {
+            $query['QueryType'] = $request->queryType;
+        }
+        if (!Utils::isUnset($request->reportId)) {
+            $query['ReportId'] = $request->reportId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->workspaceId)) {
+            $query['WorkspaceId'] = $request->workspaceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryReportPerformance',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryReportPerformanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryReportPerformanceRequest $request
+     *
+     * @return QueryReportPerformanceResponse
+     */
+    public function queryReportPerformance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryReportPerformanceWithOptions($request, $runtime);
     }
 
     /**
@@ -3531,14 +3754,10 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Indicates whether the request is successful. Valid values:
-     *   * *   true: The request was successful.
-     *   * *   false: The request failed.
-     *   *
-     * @param SetDataLevelPermissionRuleConfigRequest $request SetDataLevelPermissionRuleConfigRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * @param SetDataLevelPermissionRuleConfigRequest $request
+     * @param RuntimeOptions                          $runtime
      *
-     * @return SetDataLevelPermissionRuleConfigResponse SetDataLevelPermissionRuleConfigResponse
+     * @return SetDataLevelPermissionRuleConfigResponse
      */
     public function setDataLevelPermissionRuleConfigWithOptions($request, $runtime)
     {
@@ -3566,13 +3785,9 @@ class Quickbipublic extends OpenApiClient
     }
 
     /**
-     * Indicates whether the request is successful. Valid values:
-     *   * *   true: The request was successful.
-     *   * *   false: The request failed.
-     *   *
-     * @param SetDataLevelPermissionRuleConfigRequest $request SetDataLevelPermissionRuleConfigRequest
+     * @param SetDataLevelPermissionRuleConfigRequest $request
      *
-     * @return SetDataLevelPermissionRuleConfigResponse SetDataLevelPermissionRuleConfigResponse
+     * @return SetDataLevelPermissionRuleConfigResponse
      */
     public function setDataLevelPermissionRuleConfig($request)
     {

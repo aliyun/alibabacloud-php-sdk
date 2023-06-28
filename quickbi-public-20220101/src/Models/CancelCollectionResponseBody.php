@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelCollectionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 7c7223ae-****-3c744528014b
      *
      * @var string
@@ -16,6 +18,11 @@ class CancelCollectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The execution result of the interface is returned. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request fails.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,11 @@ class CancelCollectionResponseBody extends Model
     public $result;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

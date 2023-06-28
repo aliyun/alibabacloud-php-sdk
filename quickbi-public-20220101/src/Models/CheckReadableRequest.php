@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CheckReadableRequest extends Model
 {
     /**
+     * @description The user ID of the Quick BI to be checked.
+     *
      * @example de4bc5f9429141cc8091cdd1c15b****
      *
      * @var string
@@ -16,6 +18,8 @@ class CheckReadableRequest extends Model
     public $userId;
 
     /**
+     * @description The ID of the work. Resources here include BI portal, dashboards, spreadsheets, and self-service access.
+     *
      * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
      *
      * @var string

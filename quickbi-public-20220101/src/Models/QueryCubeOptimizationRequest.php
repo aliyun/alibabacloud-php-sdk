@@ -6,18 +6,16 @@ namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryDatasetDetailInfoRequest extends Model
+class QueryCubeOptimizationRequest extends Model
 {
     /**
-     * @description The ID of the training dataset that you want to remove from the specified custom linguistic model.
-     *
-     * @example 5820f58c-c734-4d8a-baf1-7979af4f****
+     * @example 95296e95-ca89-4c7d-8af9-dedf0ad0****
      *
      * @var string
      */
-    public $datasetId;
+    public $workspaceId;
     protected $_name = [
-        'datasetId' => 'DatasetId',
+        'workspaceId' => 'WorkspaceId',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class QueryDatasetDetailInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->datasetId) {
-            $res['DatasetId'] = $this->datasetId;
+        if (null !== $this->workspaceId) {
+            $res['WorkspaceId'] = $this->workspaceId;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class QueryDatasetDetailInfoRequest extends Model
     /**
      * @param array $map
      *
-     * @return QueryDatasetDetailInfoRequest
+     * @return QueryCubeOptimizationRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DatasetId'])) {
-            $model->datasetId = $map['DatasetId'];
+        if (isset($map['WorkspaceId'])) {
+            $model->workspaceId = $map['WorkspaceId'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryEmbeddedStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example D787E1A3-A93C-424A-B626-C2B05DF8D885
      *
      * @var string
@@ -16,6 +18,11 @@ class QueryEmbeddedStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Whether the work is enabled for embedding. Valid values:
+     *
+     *   true: embedded
+     *   false: not embedded
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,11 @@ class QueryEmbeddedStatusResponseBody extends Model
     public $result;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
+     *
      * @example true
      *
      * @var bool

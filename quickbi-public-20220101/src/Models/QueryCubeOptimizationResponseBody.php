@@ -4,31 +4,24 @@
 
 namespace AlibabaCloud\SDK\Quickbipublic\V20220101\Models;
 
+use AlibabaCloud\SDK\Quickbipublic\V20220101\Models\QueryCubeOptimizationResponseBody\result;
 use AlibabaCloud\Tea\Model;
 
-class AddDataLevelPermissionRuleUsersResponseBody extends Model
+class QueryCubeOptimizationResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example D8749D65-E80A-433C-AF1B-CE9C180FF3B4
+     * @example D787E1A3-A93C-424A-B626-C2B05DF8D885
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description The execution result of the interface. Valid values:\n\n*   true: The request was successful.\n*   false: The request failed.\n
-     *
-     * @example true
-     *
-     * @var bool
+     * @var result[]
      */
     public $result;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:\n\n*   true: The request was successful.\n*   false: The request failed.\n
-     *
      * @example true
      *
      * @var bool
@@ -51,7 +44,13 @@ class AddDataLevelPermissionRuleUsersResponseBody extends Model
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->result) {
-            $res['Result'] = $this->result;
+            $res['Result'] = [];
+            if (null !== $this->result && \is_array($this->result)) {
+                $n = 0;
+                foreach ($this->result as $item) {
+                    $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -63,7 +62,7 @@ class AddDataLevelPermissionRuleUsersResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return AddDataLevelPermissionRuleUsersResponseBody
+     * @return QueryCubeOptimizationResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -72,7 +71,13 @@ class AddDataLevelPermissionRuleUsersResponseBody extends Model
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['Result'])) {
-            $model->result = $map['Result'];
+            if (!empty($map['Result'])) {
+                $model->result = [];
+                $n             = 0;
+                foreach ($map['Result'] as $item) {
+                    $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
