@@ -336,6 +336,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainStagingConfigResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnFullDomainsBlockIPRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnFullDomainsBlockIPResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnUserConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnUserConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetRoutineSubdomainRequest;
@@ -7373,7 +7375,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -7398,7 +7400,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * > You can call this operation up to 100 times per second per account.
      *   *
      * @return DescribeDcdnUserTagsResponse DescribeDcdnUserTagsResponse
      */
@@ -9805,6 +9807,62 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setDcdnDomainStagingConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * > You can call this operation up to 10 times per second per account.
+     *   *
+     * @param SetDcdnFullDomainsBlockIPRequest $request SetDcdnFullDomainsBlockIPRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SetDcdnFullDomainsBlockIPResponse SetDcdnFullDomainsBlockIPResponse
+     */
+    public function setDcdnFullDomainsBlockIPWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->blockInterval)) {
+            $body['BlockInterval'] = $request->blockInterval;
+        }
+        if (!Utils::isUnset($request->IPList)) {
+            $body['IPList'] = $request->IPList;
+        }
+        if (!Utils::isUnset($request->operationType)) {
+            $body['OperationType'] = $request->operationType;
+        }
+        if (!Utils::isUnset($request->updateType)) {
+            $body['UpdateType'] = $request->updateType;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDcdnFullDomainsBlockIP',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetDcdnFullDomainsBlockIPResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * > You can call this operation up to 10 times per second per account.
+     *   *
+     * @param SetDcdnFullDomainsBlockIPRequest $request SetDcdnFullDomainsBlockIPRequest
+     *
+     * @return SetDcdnFullDomainsBlockIPResponse SetDcdnFullDomainsBlockIPResponse
+     */
+    public function setDcdnFullDomainsBlockIP($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDcdnFullDomainsBlockIPWithOptions($request, $runtime);
     }
 
     /**

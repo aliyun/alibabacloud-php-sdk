@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The value of the returned tag.
+     * @description The tag key.
      *
      * @example region
      *
