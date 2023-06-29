@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateRuleResponseBody extends Model
 {
     /**
+     * @description The unique ID of the sensitive data detection rule.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
+     *
      * @var string
      */
     public $requestId;

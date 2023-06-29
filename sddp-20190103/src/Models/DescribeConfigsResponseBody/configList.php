@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class configList extends Model
 {
     /**
+     * @description The code of the common configuration item.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The description of the default value for the common configuration item.
+     *
+     * @example The volume of logs of a specific type that are generated on the current day is less than 30% of the average volume of logs generated in the previous 10 days.
+     *
      * @var string
      */
     public $defaultValue;
 
     /**
+     * @description The description of the common configuration item.
+     *
+     * @example Anomalous log output
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The unique ID of the common configuration item.
+     *
+     * @example 2133
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The value of the common configuration item.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $value;

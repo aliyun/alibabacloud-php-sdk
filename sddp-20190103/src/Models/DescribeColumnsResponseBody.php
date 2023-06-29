@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeColumnsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description An array that consists of data in the column of the table.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 769FB3C1-F4C9-4******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $totalCount;

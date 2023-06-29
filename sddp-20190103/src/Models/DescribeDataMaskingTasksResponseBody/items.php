@@ -9,81 +9,152 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The destination directory.
+     *
+     * @example ***\/table1
+     *
      * @var string
      */
     public $dstPath;
 
     /**
+     * @description The service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $dstType;
 
     /**
+     * @description The service to which the de-identified data belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $dstTypeCode;
 
     /**
+     * @description The time when the task was created. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1582992000000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @description Indicates whether the de-identification task is running.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $hasUnfinishProcess;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Indicates whether the source table is de-identified.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $originalTable;
 
     /**
+     * @description The user who created the de-identification task.
+     *
+     * @example owner
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @description The number of times that the de-identification task is run.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $runCount;
 
     /**
+     * @description The source path.
+     *
+     * @example ***\/table2
+     *
      * @var string
      */
     public $srcPath;
 
     /**
+     * @description The code of the service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $srcType;
 
     /**
+     * @description The service to which the data to be de-identified belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $srcTypeCode;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: enabled
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example mt4HBgtw1B******
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The name of the task.
+     *
+     * @example Task name
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The mode in which the de-identification task is run. Valid values:
+     *
+     *   **1**: manual
+     *   **2**: scheduled
+     *   **3**: manual and scheduled
+     *
+     * @example 1
+     *
      * @var int
      */
     public $triggerType;

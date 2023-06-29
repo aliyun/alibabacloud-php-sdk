@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventTypesResponseBody extends Model
 {
     /**
+     * @description An array that consists of the types of anomalous events.
+     *
+     * > If you leave the ParentTypeId parameter empty, anomalous event types are returned. If you set the ParentTypeId parameter, anomalous event subtypes under the specified anomalous event type are returned.
      * @var eventTypeList[]
      */
     public $eventTypeList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+     *
      * @var string
      */
     public $requestId;

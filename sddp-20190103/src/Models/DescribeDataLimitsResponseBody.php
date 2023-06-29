@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataLimitsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description An array that consists of the data assets.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 769FB3C1-F4C9-42DF-9B72-7077A8989***
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $totalCount;

@@ -4,101 +4,204 @@
 
 namespace AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeInstancesResponseBody;
 
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeInstancesResponseBody\items\modelTags;
 use AlibabaCloud\Tea\Model;
 
 class items extends Model
 {
     /**
+     * @description The point in time when the data asset was created. This value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1637226782000
+     *
      * @var int
      */
     public $creationTime;
 
     /**
+     * @description The name of the department to which the data asset belongs.
+     *
+     * @example ***DemoCenter
+     *
      * @var string
      */
     public $departName;
 
     /**
+     * @description The unique ID of the data asset.
+     *
+     * @example 11111
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The description of the data asset.
+     *
+     * @example Data asset Information 1
+     *
      * @var string
      */
     public $instanceDescription;
 
     /**
+     * @description The security status of the data asset. Valid values:
+     *
+     *   **true**: The data asset is secure.
+     *   **false**: The data asset is insecure.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $labelsec;
 
     /**
+     * @description The point in time when the data asset was last scanned. This value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1637622793000
+     *
      * @var int
      */
     public $lastFinishTime;
 
     /**
+     * @var modelTags[]
+     */
+    public $modelTags;
+
+    /**
+     * @description The name of the data asset.
+     *
+     * @example gxdata
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $odpsRiskLevelName;
 
     /**
+     * @description The Alibaba Cloud account to which the data asset belongs.
+     *
+     * @example dtdep-239-******
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @description The name of the service to which the data asset belongs, such as MaxCompute, OSS, and ApsaraDB RDS. For more information about the types of data assets from which DSC can scan for sensitive data, see [Supported data assets](~~212906~~).
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The ID of the service to which the data asset belongs.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $productId;
 
     /**
+     * @description The protection status of the data asset. Valid values:
+     *
+     *   **true**: The data asset is being protected.
+     *   **false**: The data asset is not protected.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $protection;
 
     /**
+     * @description The sensitivity level of the data asset. A higher sensitivity level indicates that the identified data is more sensitive.
+     *
+     *   **1**: No sensitive data is identified.
+     *   **2**: sensitive data at level 1.
+     *   **3**: sensitive data at level 2.
+     *   **4**: sensitive data at level 3
+     *   **5**: sensitive data at level 4.
+     *   **6**: sensitive data at level 5.
+     *   **7**: sensitive data at level 6.
+     *   **8**: sensitive data at level 7.
+     *   **9**: sensitive data at level 8.
+     *   **10**: sensitive data at level 9.
+     *   **11**: sensitive data at level 10.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $riskLevelId;
 
     /**
+     * @description The name of the sensitivity level for the data asset.
+     *
+     * @example Sensitive data at level 1
+     *
      * @var string
      */
     public $riskLevelName;
 
     /**
+     * @description The name of the sensitive data detection rule that the data asset hits.
+     *
+     * @example \*\*\* rule
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description Indicates whether the data asset contains sensitive data. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $sensitive;
 
     /**
+     * @description The total number of sensitive data objects in the data asset. For example, if the data asset is an ApsaraDB RDS instance, the value indicates the total number of sensitive tables in all databases of the instance.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $sensitiveCount;
 
     /**
+     * @description The name of the tenant.
+     *
+     * @example Tenant 1
+     *
      * @var string
      */
     public $tenantName;
 
     /**
+     * @description The total number of data objects in the data asset. For example, if the data asset is an ApsaraDB RDS instance, the value indicates the total number of tables in all databases of the instance.
+     *
+     * @example 231
+     *
      * @var int
      */
     public $totalCount;
@@ -109,6 +212,7 @@ class items extends Model
         'instanceDescription' => 'InstanceDescription',
         'labelsec'            => 'Labelsec',
         'lastFinishTime'      => 'LastFinishTime',
+        'modelTags'           => 'ModelTags',
         'name'                => 'Name',
         'odpsRiskLevelName'   => 'OdpsRiskLevelName',
         'owner'               => 'Owner',
@@ -148,6 +252,15 @@ class items extends Model
         }
         if (null !== $this->lastFinishTime) {
             $res['LastFinishTime'] = $this->lastFinishTime;
+        }
+        if (null !== $this->modelTags) {
+            $res['ModelTags'] = [];
+            if (null !== $this->modelTags && \is_array($this->modelTags)) {
+                $n = 0;
+                foreach ($this->modelTags as $item) {
+                    $res['ModelTags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -217,6 +330,15 @@ class items extends Model
         }
         if (isset($map['LastFinishTime'])) {
             $model->lastFinishTime = $map['LastFinishTime'];
+        }
+        if (isset($map['ModelTags'])) {
+            if (!empty($map['ModelTags'])) {
+                $model->modelTags = [];
+                $n                = 0;
+                foreach ($map['ModelTags'] as $item) {
+                    $model->modelTags[$n++] = null !== $item ? modelTags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

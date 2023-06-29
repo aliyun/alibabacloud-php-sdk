@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSourcesResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description An array that consists of the queried data assets.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 5A7E8FB9-5011-5A90-97D9-AE587047****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

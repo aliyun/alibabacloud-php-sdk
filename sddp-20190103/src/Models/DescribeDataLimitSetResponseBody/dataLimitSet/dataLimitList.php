@@ -9,56 +9,116 @@ use AlibabaCloud\Tea\Model;
 class dataLimitList extends Model
 {
     /**
+     * @description Indicates whether the test of connectivity between DSC and the data asset is passed.
+     *
+     *   **2**: The connectivity test is in progress.
+     *   **3**: The connectivity test is passed.
+     *   **4**: The connectivity test failed.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $checkStatus;
 
     /**
+     * @description The name of the data detection status.
+     *
+     * @example Connectivity test status
+     *
      * @var string
      */
     public $checkStatusName;
 
     /**
+     * @description The connection string that is used to access the data asset.
+     *
+     * @example Connection string
+     *
      * @var string
      */
     public $connector;
 
     /**
+     * @description The time when the data asset was created. Unit: milliseconds.
+     *
+     * @example 1625587423000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @description The ID of the data asset.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The region in which the data asset resides.
+     *
+     * @example China (Hangzhou)
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The parent asset ID of the data asset.
+     *
+     * @example db
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @description The region in which the data asset resides.
+     *
+     * @example cn-****
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of service to which the data asset belongs. Valid values:
+     *
+     *   **1**: MaxCompute
+     *   **2**: OSS
+     *   **3**: AnalyticDB for MySQL
+     *   **4**: Tablestore
+     *   **5**: ApsaraDB RDS
+     *
+     * @example 2
+     *
      * @var int
      */
     public $resourceType;
 
     /**
+     * @description The code of the service to which the data asset belongs. Valid values:
+     *
+     *   **ODPS**
+     *   **OSS**
+     *   **ADS**
+     *   **OTS**
+     *   **RDS**
+     *
+     * @example OSS
+     *
      * @var string
      */
     public $resourceTypeCode;
 
     /**
+     * @description The username that is used to access the data asset.
+     *
+     * @example tsts
+     *
      * @var string
      */
     public $userName;

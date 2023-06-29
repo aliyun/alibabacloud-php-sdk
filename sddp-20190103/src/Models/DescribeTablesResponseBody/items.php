@@ -10,86 +10,167 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The point in time when the table was created. Unit: milliseconds.
+     *
+     * @example 1536751124000
+     *
      * @var int
      */
     public $creationTime;
 
     /**
+     * @description The ID of the table.
+     *
+     * @example 222
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The description of the data asset.
+     *
+     * @example Description 1
+     *
      * @var string
      */
     public $instanceDescription;
 
     /**
+     * @description The ID of the data asset to which the table belongs.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @description The name of the data asset to which the table belongs.
+     *
+     * @example Data Asset 1
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The name of the table.
+     *
+     * @example gxdata
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The Alibaba Cloud account to which the table belongs.
+     *
+     * @example dtdep-239-******
+     *
      * @var string
      */
     public $owner;
 
     /**
+     * @description The name of the service to which the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**. For more information about the types of data assets from which DSC can scan for sensitive data, see [Supported data assets](~~212906~~).
+     *
+     * @example MaxCompute
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The ID of the service to which the table belongs.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $productId;
 
     /**
+     * @description The sensitivity level of the table. Each sensitivity level ID corresponds to a sensitivity level name. Valid values:
+     *
+     *   **1**: N/A, which indicates that no sensitive data is detected.
+     *   **2**: S1, which indicates the low sensitivity level.
+     *   **3**: S2, which indicates the medium sensitivity level.
+     *   **4**: S3, which indicates the high sensitivity level.
+     *   **5**: S4, which indicates the highest sensitivity level.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $riskLevelId;
 
     /**
+     * @description The name of the sensitivity level for the table. Valid values:
+     *
+     *   **N/A**: indicates that no sensitive data is detected.
+     *   **S1**: indicates the low sensitivity level.
+     *   **S2**: indicates the medium sensitivity level.
+     *   **S3**: indicates the high sensitivity level.
+     *   **S4**: indicates the highest sensitivity level.
+     *
+     * @example S2
+     *
      * @var string
      */
     public $riskLevelName;
 
     /**
+     * @description The information about the sensitive data detection rules that are hit.
+     *
      * @var ruleList[]
      */
     public $ruleList;
 
     /**
+     * @description Indicates whether the table contains sensitive fields. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $sensitive;
 
     /**
+     * @description The total number of sensitive fields in the table.
+     *
+     * @example 32
+     *
      * @var int
      */
     public $sensitiveCount;
 
     /**
+     * @description The percentage of sensitive fields in the table.
+     *
+     * @example 21%
+     *
      * @var string
      */
     public $sensitiveRatio;
 
     /**
+     * @description The name of the tenant.
+     *
+     * @example Tenant 1
+     *
      * @var string
      */
     public $tenantName;
 
     /**
+     * @description The total number of fields in the table.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $totalCount;

@@ -9,56 +9,108 @@ use AlibabaCloud\Tea\Model;
 class CreateScanTaskRequest extends Model
 {
     /**
+     * @description The unique ID of the data asset, such as an instance, a database, and a bucket. You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the unique ID.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $dataLimitId;
 
     /**
+     * @description The interval between two consecutive custom scan tasks. Unit: days. Valid values: 1 to 2147483648.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $intervalDay;
 
     /**
+     * @description The language of the content within the request and response.
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The data to be scanned in the Object Storage Service (OSS) bucket. Prefix match, suffix match, and regular expression match are supported.
+     *
+     * @example /test/test
+     *
      * @var string
      */
     public $ossScanPath;
 
     /**
+     * @description The type of the service to which the data assets to be scanned belong. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $resourceType;
 
     /**
+     * @description The time when the scan task is executed next time. Unit: hours.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $runHour;
 
     /**
+     * @description The time when the scan task is executed next time. Unit: minutes.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $runMinute;
 
     /**
+     * @description The matching rule that specifies the scan scope of the custom scan task. This parameter takes effect only if you set the **ScanRangeContent** parameter. Valid values:
+     *
+     *   **0**: exact match
+     *   **1**: prefix match
+     *   **2**: suffix match
+     *   **3**: regular expression match
+     *
+     * @example 0
+     *
      * @var int
      */
     public $scanRange;
 
     /**
+     * @description The data to be scanned in a structured data asset. Prefix match, suffix match, and regular expression match are supported.
+     *
+     * @example datamask/
+     *
      * @var string
      */
     public $scanRangeContent;
 
     /**
+     * @description The name of the scan task.
+     *
+     * @example scan-test-sample****
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The account that is used to create the scan task.
+     *
+     * @example demo
+     *
      * @var string
      */
     public $taskUserName;

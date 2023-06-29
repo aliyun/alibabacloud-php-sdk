@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskLevelsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 136082B3-B21F-5E9D-B68E-991FFD205D24
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description An array that consists of sensitivity levels.
+     *
      * @var riskLevelList[]
      */
     public $riskLevelList;

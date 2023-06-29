@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class content extends Model
 {
     /**
+     * @description The title of the content in the anomalous event.
+     *
+     * @example Anomaly description
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The description of the content in the anomalous event.
+     *
+     * @example The account was used to access OSS from an unusual terminal whose IP address is 1.2.3.4 from 00:06:45 on September 9, 2019 to 00:57:37 on September 9, 2019.
+     *
      * @var string
      */
     public $value;

@@ -9,76 +9,179 @@ use AlibabaCloud\Tea\Model;
 class DescribeRulesRequest extends Model
 {
     /**
+     * @description The content type of the sensitive data detection rule. Valid values:
+     *
+     *   **0**: keyword
+     *   **2**: regular expression
+     *
+     * @example 2
+     *
      * @var int
      */
     public $category;
 
     /**
+     * @description The type of the content in the sensitive data detection rule. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates attempts to exploit SQL injections. The value 2 indicates bypass by using SQL injections. The value 3 indicates abuse of stored procedures. The value 4 indicates buffer overflow. The value 5 indicates SQL injections based on errors.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $contentCategory;
 
     /**
+     * @description The page number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The type of the sensitive data detection rule. Valid values:
+     *
+     *   **0**: built-in rule
+     *   **1**: custom rule
+     *
+     * @example 1
+     *
      * @var int
      */
     public $customType;
 
     /**
+     * @description The parent group type of the rule.
+     *
+     * @example 4_1
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description Specifies whether to allow earlier versions of request parameters to support keywords that are supported in later versions of request parameters. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * > To specify keywords as the content type of the sensitive data detection rule, you can set the Category parameter to 0 for earlier versions of request parameters and set the Category parameter to 5 for later versions of request parameters. You can specify the KeywordCompatible parameter based on your business requirements.
+     * @example true
+     *
      * @var bool
      */
     public $keywordCompatible;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The match type. Valid values:
+     *
+     *   1: rule-based match
+     *   2: dictionary-based match
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $matchType;
+
+    /**
+     * @description The name of the sensitive data detection rule. Fuzzy match is supported.
+     *
+     * @example \*\*\* rule
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the service to which the data asset belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+     *
+     * @example MaxCompute
+     *
      * @var int
      */
     public $productCode;
 
     /**
+     * @description The ID of the service to which the sensitive data detection rule is applied. Valid values include **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value 3 indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $productId;
 
     /**
+     * @description The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+     *
+     *   **1**: N/A, which indicates that no sensitive data is detected.
+     *   **2**: S1, which indicates the low sensitivity level.
+     *   **3**: S2, which indicates the medium sensitivity level.
+     *   **4**: S3, which indicates the high sensitivity level.
+     *   **5**: S4, which indicates the highest sensitivity level.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $riskLevelId;
 
     /**
+     * @description The type of the sensitive data detection rule. Valid values:
+     *
+     *   **1**: sensitive data detection rule
+     *   **2**: audit rule
+     *   **3**: anomalous event detection rule
+     *   **99**: custom rule
+     *
+     * @example 1
+     *
      * @var int
      */
     public $ruleType;
 
     /**
+     * @description The status of the sensitive data detection rule. Valid values:
+     *
+     *   **1**: enabled
+     *   **0**: disabled
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The severity level of the alert. Valid values:
+     *
+     *   **1**: low
+     *   **2**: medium
+     *   **3**: high
+     *
+     * @example 2
+     *
      * @var int
      */
     public $warnLevel;
@@ -90,6 +193,7 @@ class DescribeRulesRequest extends Model
         'groupId'           => 'GroupId',
         'keywordCompatible' => 'KeywordCompatible',
         'lang'              => 'Lang',
+        'matchType'         => 'MatchType',
         'name'              => 'Name',
         'pageSize'          => 'PageSize',
         'productCode'       => 'ProductCode',
@@ -127,6 +231,9 @@ class DescribeRulesRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->matchType) {
+            $res['MatchType'] = $this->matchType;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -184,6 +291,9 @@ class DescribeRulesRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['MatchType'])) {
+            $model->matchType = $map['MatchType'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

@@ -9,61 +9,122 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the security audit feature. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $auditStatus;
 
     /**
+     * @description Specifies whether DSC is authorized to access the data asset.
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * @example 0
+     *
      * @var int
      */
     public $authStatus;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The type of the database engine. Valid values: **MySQL, MariaDB, Oracle, PostgreSQL, and SQLServer**.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engineType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example instance-demo-****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh_cn**: Simplified Chinese (default)
+     *   **en_us**: English
+     *
+     * @example zh_cn
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the service to which the data asset to query belongs. Valid values: **MaxCompute, OSS, ADS, OTS, and RDS**.
+     *
+     * @example MaxCompute
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The ID of the service to which the data asset to query belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates Object Storage Service (OSS). The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $productId;
 
     /**
+     * @description The content based on which a fuzzy search is performed.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @description The data asset type based on which a fuzzy search is performed.
+     *
+     *   **InstanceId**: the ID of the instance.
+     *   **InstanceName**: the name of the instance.
+     *   **DatabaseName**: the name of the database.
+     *
+     * @example InstanceId
+     *
      * @var string
      */
     public $searchType;
 
     /**
+     * @description The region in which the data asset resides. For more information, see [Supported regions](~~214257~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $serviceRegionId;

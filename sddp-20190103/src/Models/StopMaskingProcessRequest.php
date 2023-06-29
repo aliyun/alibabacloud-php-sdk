@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class StopMaskingProcessRequest extends Model
 {
     /**
+     * @description The unique ID of the de-identification task. You can query the task ID by calling the [DescribeDataMaskingTasks](~~DescribeDataMaskingTasks~~) operation.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh_cn**: Simplified Chinese (default)
+     *   **en_us**: English
+     *
+     * @example zh_cn
+     *
      * @var string
      */
     public $lang;

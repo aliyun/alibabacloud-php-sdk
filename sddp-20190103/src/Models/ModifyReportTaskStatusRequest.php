@@ -9,11 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyReportTaskStatusRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+     *
+     *   **zh_cn**: Simplified Chinese
+     *   **en_us**: English
+     *
+     * @example zh_cn
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description Specifies the status of the report task. Valid values:
+     *
+     *   **0**: disabled
+     *   **1**: enabled
+     *
+     * > This parameter is required.
+     * @example 0
+     *
      * @var int
      */
     public $reportTaskStatus;

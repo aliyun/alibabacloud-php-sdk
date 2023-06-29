@@ -9,41 +9,78 @@ use AlibabaCloud\Tea\Model;
 class handleInfoList extends Model
 {
     /**
+     * @description The account that is used to handle the anomalous event.
+     *
+     * @example sddp-test2
+     *
      * @var string
      */
     public $currentValue;
 
     /**
+     * @description The point in time when the account was locked. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1611139155000
+     *
      * @var int
      */
     public $disableTime;
 
     /**
+     * @description The point in time when the account was unlocked. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1611139155000
+     *
      * @var int
      */
     public $enableTime;
 
     /**
+     * @description The handling method.
+     *
+     * @example Remove from the whitelist
+     *
      * @var string
      */
     public $handlerName;
 
     /**
+     * @description The type of the handling method.
+     *
+     * @example rds_security_ip
+     *
      * @var string
      */
     public $handlerType;
 
     /**
+     * @description The duration for which the handling operation takes effect. If you leave this parameter empty, the handling operation is permanently valid. Unit: minutes.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $handlerValue;
 
     /**
+     * @description The ID of the handling record.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The status of the account that triggered the anomalous event. Valid values:
+     *
+     *   **0**: locked
+     *   **1**: unlocked
+     *   **-1**: failed to unlock the account
+     *   **-2**: failed to enable the account
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;

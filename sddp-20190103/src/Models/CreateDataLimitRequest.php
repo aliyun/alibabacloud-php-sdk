@@ -9,95 +9,214 @@ use AlibabaCloud\Tea\Model;
 class CreateDataLimitRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the security audit feature. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * @example 1
+     *
      * @var int
      */
     public $auditStatus;
 
     /**
+     * @description Specifies whether to automatically trigger a re-scan after a rule is modified. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * > When a re-scan is triggered, DSC scans all data in your data asset.
+     * @example 1
+     *
      * @var int
      */
     public $autoScan;
 
     /**
+     * @description The permissions. Valid values:
+     *
+     *   **ReadOnly**: read-only permissions
+     *   **ReadWrite**: read and write permissions
+     *
+     * @example ReadOnly
+     *
+     * @var string
+     */
+    public $certificatePermission;
+
+    /**
+     * @description Specifies whether to enable sensitive data detection. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * > If this is your first time to authorize DSC to access the data asset, the default value is 1. If this is not your first time to authorize DSC to access the data asset, the default value is the same as that used in the last authorization operation. Both 1 and 0 are possible.
+     * @example 1
+     *
      * @var int
      */
     public $enable;
 
     /**
+     * @description The database engine that is run by the instance. Valid values:
+     *
+     *   **MySQL**
+     *   **SQLServer**
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engineType;
 
     /**
+     * @description Specifies whether to enable anomalous event detection. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes (default)
+     *
+     * @example 1
+     *
      * @var int
      */
     public $eventStatus;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+     *
+     *   **zh_cn**: Chinese
+     *   **en_us**: English
+     *
+     * @example zh_cn
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The retention period of raw logs after you enable the security audit feature. Unit: days. Valid values:
+     *
+     *   **30**
+     *   **90**
+     *   **180**
+     *   **365**
+     *
+     * @example 30
+     *
      * @var int
      */
     public $logStoreDay;
 
     /**
+     * @description Specifies whether to enable optical character recognition (OCR). Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 0
+     *
      * @var int
      */
     public $ocrStatus;
 
     /**
+     * @description The name of the data asset.
+     *
+     * @example test-11**
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @description The password that is used to access the database.
+     *
+     * @example passwd
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description The port that is used to connect to the database.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The type of service to which the data asset belongs. Valid values:
+     *
+     *   **1** :MaxCompute
+     *   **2**: Object Storage Service (OSS)
+     *   **3**: AnalyticDB for MySQL
+     *   **4** :Tablestore
+     *   **5**: ApsaraDB RDS
+     *
+     * @example 1
+     *
      * @var int
      */
     public $resourceType;
 
     /**
+     * @description The number of sensitive data samples that are collected after sensitive data detection is enabled. Valid values:
+     *
+     *   **0**
+     *   **5**
+     *   **10**
+     *
+     * @example 0
+     *
      * @var int
      */
     public $samplingSize;
 
     /**
+     * @description The region in which the data asset resides. Valid values:
+     *
+     *   **cn-beijing**: China (Beijing).
+     *   **cn-zhangjiakou**: China (Zhangjiakou)
+     *   **cn-huhehaote**: China (Hohhot)
+     *   **cn-hangzhou**: China (Hangzhou)
+     *   **cn-shanghai**: China (Shanghai)
+     *   **cn-shenzhen**: China (Shenzhen)
+     *   **cn-hongkong**: China (Hong Kong)
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $serviceRegionId;
 
     /**
+     * @description The username that is used to access the database.
+     *
+     * @example yhm
+     *
      * @var string
      */
     public $userName;
     protected $_name = [
-        'auditStatus'     => 'AuditStatus',
-        'autoScan'        => 'AutoScan',
-        'enable'          => 'Enable',
-        'engineType'      => 'EngineType',
-        'eventStatus'     => 'EventStatus',
-        'lang'            => 'Lang',
-        'logStoreDay'     => 'LogStoreDay',
-        'ocrStatus'       => 'OcrStatus',
-        'parentId'        => 'ParentId',
-        'password'        => 'Password',
-        'port'            => 'Port',
-        'resourceType'    => 'ResourceType',
-        'samplingSize'    => 'SamplingSize',
-        'serviceRegionId' => 'ServiceRegionId',
-        'userName'        => 'UserName',
+        'auditStatus'           => 'AuditStatus',
+        'autoScan'              => 'AutoScan',
+        'certificatePermission' => 'CertificatePermission',
+        'enable'                => 'Enable',
+        'engineType'            => 'EngineType',
+        'eventStatus'           => 'EventStatus',
+        'lang'                  => 'Lang',
+        'logStoreDay'           => 'LogStoreDay',
+        'ocrStatus'             => 'OcrStatus',
+        'parentId'              => 'ParentId',
+        'password'              => 'Password',
+        'port'                  => 'Port',
+        'resourceType'          => 'ResourceType',
+        'samplingSize'          => 'SamplingSize',
+        'serviceRegionId'       => 'ServiceRegionId',
+        'userName'              => 'UserName',
     ];
 
     public function validate()
@@ -112,6 +231,9 @@ class CreateDataLimitRequest extends Model
         }
         if (null !== $this->autoScan) {
             $res['AutoScan'] = $this->autoScan;
+        }
+        if (null !== $this->certificatePermission) {
+            $res['CertificatePermission'] = $this->certificatePermission;
         }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
@@ -169,6 +291,9 @@ class CreateDataLimitRequest extends Model
         }
         if (isset($map['AutoScan'])) {
             $model->autoScan = $map['AutoScan'];
+        }
+        if (isset($map['CertificatePermission'])) {
+            $model->certificatePermission = $map['CertificatePermission'];
         }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];

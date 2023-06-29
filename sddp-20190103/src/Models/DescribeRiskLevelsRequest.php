@@ -9,11 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskLevelsRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   zh_cn: Chinese (default)
+     *   en_us: English
+     *
+     * @example zh_cn
+     *
      * @var string
      */
     public $lang;
+
+    /**
+     * @description The ID of the industry-specific rule template.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $templateId;
     protected $_name = [
-        'lang' => 'Lang',
+        'lang'       => 'Lang',
+        'templateId' => 'TemplateId',
     ];
 
     public function validate()
@@ -25,6 +42,9 @@ class DescribeRiskLevelsRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->templateId) {
+            $res['TemplateId'] = $this->templateId;
         }
 
         return $res;
@@ -40,6 +60,9 @@ class DescribeRiskLevelsRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['TemplateId'])) {
+            $model->templateId = $map['TemplateId'];
         }
 
         return $model;

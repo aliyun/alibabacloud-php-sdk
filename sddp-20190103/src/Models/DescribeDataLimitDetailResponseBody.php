@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataLimitDetailResponseBody extends Model
 {
     /**
+     * @description The details of the data asset.
+     *
      * @var dataLimit
      */
     public $dataLimit;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+     *
      * @var string
      */
     public $requestId;

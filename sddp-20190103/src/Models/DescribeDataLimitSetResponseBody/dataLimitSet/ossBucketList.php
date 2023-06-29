@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ossBucketList extends Model
 {
     /**
+     * @description The name of the OSS bucket to which the OSS object belongs.
+     *
+     * @example oss-bucket
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @description The region ID of the OSS object.
+     *
+     * @example cn-****
+     *
      * @var string
      */
     public $regionId;

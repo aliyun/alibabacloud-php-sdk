@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ManualTriggerMaskingProcessResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 769FB3C1-F4C9-4******
+     *
      * @var string
      */
     public $requestId;

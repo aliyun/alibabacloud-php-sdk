@@ -9,21 +9,45 @@ use AlibabaCloud\Tea\Model;
 class ModifyRuleStatusRequest extends Model
 {
     /**
+     * @description The ID of the sensitive data detection rule.
+     *
+     * > You can query the ID of the sensitive data detection rule by calling the **DescribeRules** operation.
+     * @example 12341
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the sensitive data detection rule. Separate multiple IDs with commas (,).
+     *
+     * > You can query the ID of the sensitive data detection rule by calling the **DescribeRules** operation.
+     * @example 1,2,3,4
+     *
      * @var string
      */
     public $ids;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description Specifies whether to enable or disable the sensitive data detection rule. Valid values:
+     *
+     *   **0**: disables the sensitive data detection rule.
+     *   **1**: enables the sensitive data detection rule.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;

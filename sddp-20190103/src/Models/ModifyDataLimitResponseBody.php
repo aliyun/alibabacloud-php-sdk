@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyDataLimitResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 7C3AC882-E5A8-4855-BE77-B6837B695EF1
+     *
      * @var string
      */
     public $requestId;

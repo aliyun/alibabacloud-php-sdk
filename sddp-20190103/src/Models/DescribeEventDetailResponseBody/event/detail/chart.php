@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class chart extends Model
 {
     /**
+     * @description The data in the baseline behavior profile of the anomalous event.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The name of the baseline behavior chart of the anomalous event.
+     *
+     * @example Baseline behavior chart
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The type of the chart. Valid values:
+     *
+     *   **1**: column chart
+     *   **2**: line chart
+     *
+     * @example 1
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The descriptive label of data on the x-axis.
+     *
+     * @example Number of days
+     *
      * @var string
      */
     public $XLabel;
 
     /**
+     * @description The descriptive label of data on the y-axis.
+     *
+     * @example Value
+     *
      * @var string
      */
     public $YLabel;

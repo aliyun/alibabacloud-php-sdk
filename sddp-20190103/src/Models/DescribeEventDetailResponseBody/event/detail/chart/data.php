@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The values of data on the x-axis.
+     *
+     * @example [test1,test2,...]
+     *
      * @var string[]
      */
     public $x;
 
     /**
+     * @description The values of data on the y-axis.
+     *
+     * @example [1,2,3,...]
+     *
      * @var string[]
      */
     public $y;

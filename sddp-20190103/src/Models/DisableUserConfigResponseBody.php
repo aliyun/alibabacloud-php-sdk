@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DisableUserConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example AC314611-D907-5EBF-B6D8-70425E5A8643
+     *
      * @var string
      */
     public $requestId;

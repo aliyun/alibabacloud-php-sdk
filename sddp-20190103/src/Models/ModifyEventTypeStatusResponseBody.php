@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyEventTypeStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 208B016D-4CB9-4A85-96A5-0B8ED1E*****
+     *
      * @var string
      */
     public $requestId;

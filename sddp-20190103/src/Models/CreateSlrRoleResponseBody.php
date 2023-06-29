@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateSlrRoleResponseBody extends Model
 {
     /**
+     * @description Indicates whether the service-linked role was created. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hasPermission;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
+     * @example 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
+     *
      * @var string
      */
     public $requestId;

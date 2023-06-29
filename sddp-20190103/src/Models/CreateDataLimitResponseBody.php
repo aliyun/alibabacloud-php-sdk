@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateDataLimitResponseBody extends Model
 {
     /**
+     * @description The ID of the data asset.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7C3AC882-E5A8-4855-BE77-B6837B695EF1
+     *
      * @var string
      */
     public $requestId;

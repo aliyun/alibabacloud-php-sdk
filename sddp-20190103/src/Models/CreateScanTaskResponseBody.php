@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateScanTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the custom scan task.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B1F2BB1F-04EC-5D36-B136-B4DE17FD8DE0
+     *
      * @var string
      */
     public $requestId;

@@ -9,56 +9,106 @@ use AlibabaCloud\Tea\Model;
 class subTypeList extends Model
 {
     /**
+     * @description The service to which the anomalous event detection rule applies. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $adaptedProduct;
 
     /**
+     * @description The code of the anomalous event subtype.
+     *
+     * @example 020008
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The code of the configuration.
+     *
+     * @example 0100**
+     *
      * @var string
      */
     public $configCode;
 
     /**
+     * @description The content format of anomalous event detection rule. Valid values:
+     *
+     *   **0**: numeric values such as thresholds
+     *   **1**: text such as IP addresses
+     *
+     * @example 1
+     *
      * @var int
      */
     public $configContentType;
 
     /**
+     * @description The description of the configuration.
+     *
+     * @example The period of time for which the permission is not used exceeds the threshold. The specified threshold is ${value} calendar days.
+     *
      * @var string
      */
     public $configDescription;
 
     /**
+     * @description The value of the configuration.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $configValue;
 
     /**
+     * @description The description of the anomalous event subtype.
+     *
+     * @example Inappropriate configuration-No protection for the MaxCompute sensitive project, \*\*\*\*
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The number of times that the anomalous event hits the anomalous event detection rule.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $eventHitCount;
 
     /**
+     * @description The ID of the anomalous event subtype.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the anomalous event subtype.
+     *
+     * @example Inappropriate configuration-No protection for the MaxCompute sensitive project
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Indicates whether detection is enabled for the anomalous event subtype. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;

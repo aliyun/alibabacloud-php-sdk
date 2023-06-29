@@ -9,66 +9,137 @@ use AlibabaCloud\Tea\Model;
 class DescribeColumnsRequest extends Model
 {
     /**
+     * @description The page number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The ID of the instance to which data in the column of the table belongs.
+     *
+     * > You can call the [DescribeInstances](~~DescribeRules~~) operation to query the IDs of instances.
+     * @example 1
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @description The name of the instance to which data in the column of the table belongs.
+     *
+     * @example rm-bp17t1htja573l5i8****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+     *
+     *   **zh_cn**: Chinese
+     *   **en_us**: English
+     *
+     * @example zh_cn
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The search keyword. Fuzzy match is supported.
+     *
+     * For example, if you enter **test**, all columns whose names contain **test** are retrieved.
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the service to which data in the column of the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+     *
+     * @example MaxCompute
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The sensitivity level of the sensitive data that hits the sensitive data detection rule. Valid values:
+     *
+     *   **1**: N/A
+     *   **2**: S1
+     *   **3**: S2
+     *   **4**: S3
+     *   **5**: S4
+     *
+     * @example 2
+     *
      * @var int
      */
     public $riskLevelId;
 
     /**
+     * @description The ID of the sensitive data detection rule that data in the column of the table hits.
+     *
+     * > You can call the [DescribeRules](~~DescribeRules~~) operation to query the IDs of sensitive data detection rules.
+     * @example 11111
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @description The name of the sensitive data detection rule that data in the column of the table hits.
+     *
+     * @example ID card number (the Chinese mainland)
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The name of the sensitivity level of the data that hits the sensitive data detection rule. Valid values:
+     *
+     *   **N/A**: No sensitive data is detected.
+     *   **S1**: indicates the low sensitivity level.
+     *   **S2**: indicates the medium sensitivity level.
+     *   **S3**: indicates the high sensitivity level.
+     *   **S4**: indicates the highest sensitivity level.
+     *
+     * @example S2
+     *
      * @var string
      */
     public $sensLevelName;
 
     /**
+     * @description The ID of the table to which the column belongs.
+     *
+     * > You can call the [DescribeTables](~~DescribeTables~~) operation to query the IDs of tables.
+     * @example 11132334
+     *
      * @var int
      */
     public $tableId;
 
     /**
+     * @description The name of the table.
+     *
+     * @example it_table
+     *
      * @var string
      */
     public $tableName;

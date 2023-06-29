@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteRuleRequest extends Model
 {
     /**
+     * @description The ID of the sensitive data detection rule.
+     *
+     * @example 122300
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The language of the content within the request and response. Valid values: **zh** and **en**. The value zh indicates Chinese, and the value en indicates English.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;

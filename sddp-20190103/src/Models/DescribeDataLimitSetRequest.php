@@ -9,16 +9,38 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataLimitSetRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh_cn**: Simplified Chinese (default)
+     *   **en_us**: English
+     *
+     * @example zh_cn
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The parent asset ID of the data asset.
+     *
+     * You can call the [DescribeDataLimitDetail](~~DescribeDataLimitDetail~~) or [DescribeDataLimits](~~DescribeDataLimits~~) operation to obtain the parent asset ID of the data asset from the value of the **ParentId** parameter.
+     * @example db
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @description The type of service to which the data asset belongs. Valid values:
+     *
+     *   **1**: MaxCompute
+     *   **2**: OSS
+     *   **3**: AnalyticDB for MySQL
+     *   **4**: Tablestore
+     *   **5**: ApsaraDB RDS
+     *
+     * @example 2
+     *
      * @var int
      */
     public $resourceType;

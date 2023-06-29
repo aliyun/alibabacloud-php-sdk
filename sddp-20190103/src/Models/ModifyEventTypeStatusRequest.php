@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ModifyEventTypeStatusRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values: **zh** and **en**. The value zh indicates Chinese, and the value en indicates English.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The ID of the anomalous event subtype. Separate multiple IDs with commas (,).
+     *
+     * > You can call the **DescribeEventTypes** operation to query the ID of anomalous event subtype.
+     * @example 020008
+     *
      * @var string
      */
     public $subTypeIds;

@@ -11,116 +11,216 @@ use AlibabaCloud\Tea\Model;
 class event extends Model
 {
     /**
+     * @description The time when the alert for the anomalous event was generated. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1545829129000
+     *
      * @var int
      */
     public $alertTime;
 
     /**
+     * @description Indicates whether the handling result of the anomalous event is used to enhance the detection of anomalous events. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * > If you enhance the detection of anomalous events, the detection accuracy and the rate of triggering alerts for anomalous events are improved.
+     * @example false
+     *
      * @var bool
      */
     public $backed;
 
     /**
+     * @description The instance name of the service in which the anomalous event was detected.
+     *
+     * @example in-222***
+     *
      * @var string
      */
     public $dataInstance;
 
     /**
+     * @description The display name of the account that is used to handle the anomalous event.
+     *
+     * @example yundunsr
+     *
      * @var string
      */
     public $dealDisplayName;
 
     /**
+     * @description The username of the account that is used to handle the anomalous event.
+     *
+     * @example det1111
+     *
      * @var string
      */
     public $dealLoginName;
 
     /**
+     * @description The reason why the anomalous event is handled.
+     *
+     * @example Anomaly confirmed
+     *
      * @var string
      */
     public $dealReason;
 
     /**
+     * @description The time when the anomalous event was handled. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1230000
+     *
      * @var int
      */
     public $dealTime;
 
     /**
+     * @description The ID of the account that is used to handle the anomalous event.
+     *
+     * @example 229157443385014***
+     *
      * @var int
      */
     public $dealUserId;
 
     /**
+     * @description The content in the details of the anomalous event.
+     *
      * @var detail
      */
     public $detail;
 
     /**
+     * @description The display name of the account that triggered the anomalous event.
+     *
+     * @example yundunsr
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The time when the anomalous event occurred. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1545829129000
+     *
      * @var int
      */
     public $eventTime;
 
     /**
+     * @description An array that consists of the handling records of the anomalous event.
+     *
      * @var handleInfoList[]
      */
     public $handleInfoList;
 
     /**
+     * @description The unique ID of the anomalous event.
+     *
+     * @example 52234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The details of the alert logs.
+     *
+     * @example {"client_ip": ["106.11.XX.XX", "106.11.XX.XX", "106.11.XX.XX", "106.11.XX.XX", "106.11.XX.XX", "106.11.XX.XX", "106.11.XX.XX", "106.11.XX.XX", "106.11.XX.XX"], "start_time": "2020-05-10 00:00:01", "instance": ["omniscience-data", "punish-beaver-data"], "end_time": "2020-05-10 00:21:22", "client_ua": ["Java/1.8.0_152", "Java/1.8.0_92", "aliyun-sdk-java/2.0.0", "aliyun-sdk-java/2.8.0(Linux/4.9.151-015.ali3000.alios7.x86_64/amd64;1.8.0_152)"], "user_name": 1512222261295262}
+     *
      * @var string
      */
     public $logDetail;
 
     /**
+     * @description The username of the account that triggered the anomalous event.
+     *
+     * @example det1111
+     *
      * @var string
      */
     public $loginName;
 
     /**
+     * @description The name of the service in which the anomalous event was detected. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+     *
+     * @example MaxCompute
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The handling status for the anomalous event. Valid values:
+     *
+     *   **0**: unhandled
+     *   **1**: confirmed
+     *   **2**: marked as false positive
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The name of the handling status for the anomalous event.
+     *
+     * @example Pending
+     *
      * @var string
      */
     public $statusName;
 
     /**
+     * @description The code of the anomalous event subtype.
+     *
+     * @example 020008
+     *
      * @var string
      */
     public $subTypeCode;
 
     /**
+     * @description The name of the anomalous event subtype.
+     *
+     * @example Anomalous volume of downloaded data
+     *
      * @var string
      */
     public $subTypeName;
 
     /**
+     * @description The code of the anomalous event type.
+     *
+     * @example 02
+     *
      * @var string
      */
     public $typeCode;
 
     /**
+     * @description The name of the anomalous event type. Valid values:
+     *
+     *   **01**: anomalous permission usage
+     *   **02**: anomalous data flow
+     *   **03**: anomalous data operation
+     *
+     * @example Anomalous data flow
+     *
      * @var string
      */
     public $typeName;
 
     /**
+     * @description The ID of the account that triggered the anomalous event.
+     *
+     * @example 229157443385014***
+     *
      * @var int
      */
     public $userId;

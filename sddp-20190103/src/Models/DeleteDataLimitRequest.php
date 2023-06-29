@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataLimitRequest extends Model
 {
     /**
+     * @description The ID of the data asset.
+     *
+     * You can call the DescribeDataLimits operation to query the IDs of data assets. The value of the Id response parameter indicates the ID of a data asset.
+     * @example 12033
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+     *
+     *   **zh_cn**: Chinese
+     *   **en_us**: English
+     *
+     * @example zh_cn
+     *
      * @var string
      */
     public $lang;

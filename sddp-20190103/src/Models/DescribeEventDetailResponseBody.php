@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventDetailResponseBody extends Model
 {
     /**
+     * @description The details of the anomalous event.
+     *
      * @var event
      */
     public $event;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 69FB3C1-F4C9-42DF-9B72-7077A8989C13
+     *
      * @var string
      */
     public $requestId;

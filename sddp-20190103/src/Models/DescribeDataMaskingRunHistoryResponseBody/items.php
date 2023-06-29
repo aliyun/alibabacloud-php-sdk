@@ -9,96 +9,185 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The number of rows that are in conflict with the data to be de-identified in the destination table to which the data to be de-identified is moved.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $conflictCount;
 
     /**
+     * @description The type of the service to which the de-identified data belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $dstType;
 
     /**
+     * @description The service that stores the de-identified data. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+     *
+     * @example OSS
+     *
      * @var string
      */
     public $dstTypeCode;
 
     /**
+     * @description The end time of the de-identification task.
+     *
+     * @example 1582251233000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The error code that is returned when the de-identification task fails.
+     *
+     * @example masking_task_not_found
+     *
      * @var string
      */
     public $failCode;
 
     /**
+     * @description The reason why the de-identification task fails.
+     *
+     * @example error
+     *
      * @var string
      */
     public $failMsg;
 
     /**
+     * @description Indicates whether a file is available for download.
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $hasDownloadFile;
 
     /**
+     * @description The number of created subtasks.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $hasSubProcess;
 
     /**
+     * @description The ID of the task execution record.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The number of rows that are de-identified.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $maskingCount;
 
     /**
+     * @description The progress of the de-identification task.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $percentage;
 
     /**
+     * @description The number of times that the de-identification task is executed.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $runIndex;
 
     /**
+     * @description The name of the source table.
+     *
+     * @example add
+     *
      * @var string
      */
     public $srcTableName;
 
     /**
+     * @description The type of the service to which the data to be de-identified belongs. Valid values: **1**, **2**, **3**, **4**, and **5**. The value 1 indicates MaxCompute. The value 2 indicates OSS. The value indicates AnalyticDB for MySQL. The value 4 indicates Tablestore. The value 5 indicates ApsaraDB RDS.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $srcType;
 
     /**
+     * @description The service to which the data to be de-identified belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+     *
+     * @example OSS
+     *
      * @var string
      */
     public $srcTypeCode;
 
     /**
+     * @description The time when the de-identification task was executed. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1582251233000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The status of the de-identification task. Valid values:
+     *
+     *   **-1**: waiting
+     *   **0**: being executed
+     *   **1**: executed
+     *   **2**: failed to be executed
+     *   **3**: terminated
+     *   **4**: partially failed
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The ID of the identification task.
+     *
+     * @example mt4HBgtw1B******
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The mode in which the de-identification task is executed. Valid values:
+     *
+     *   **1**: manual
+     *   **2**: scheduled
+     *
+     * @example 1
+     *
      * @var int
      */
     public $type;

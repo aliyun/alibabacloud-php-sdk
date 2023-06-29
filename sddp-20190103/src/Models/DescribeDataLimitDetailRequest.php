@@ -9,16 +9,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataLimitDetailRequest extends Model
 {
     /**
+     * @description The unique ID of the data asset that you want to query.
+     *
+     * > You can call the [DescribeDataLimits](~~DescribeDataLimits~~) operation to query the ID of the data asset.
+     * @example 12300
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Simplified Chinese.
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The network type of the data asset that you want to query. Valid values:
+     *
+     *   **1**: virtual private cloud (VPC)
+     *   **2**: classic network
+     *
+     * @example 1
+     *
      * @var int
      */
     public $networkType;

@@ -12,31 +12,61 @@ use AlibabaCloud\Tea\Model;
 class dataLimitSet extends Model
 {
     /**
+     * @description An array that consists of data assets that DSC is authorized to scan.
+     *
      * @var dataLimitList[]
      */
     public $dataLimitList;
 
     /**
+     * @description An array consisting of the OSS objects that DSC is authorized to scan.
+     *
      * @var ossBucketList[]
      */
     public $ossBucketList;
 
     /**
+     * @description An array consisting of the regions in which the data assets can be scanned.
+     *
      * @var regionList[]
      */
     public $regionList;
 
     /**
+     * @description The type of service to which the data asset belongs. Valid values:
+     *
+     *   **1**: MaxCompute
+     *   **2**: OSS
+     *   **3**: AnalyticDB for MySQL
+     *   **4**: Tablestore
+     *   **5**: ApsaraDB RDS
+     *
+     * @example 2
+     *
      * @var int
      */
     public $resourceType;
 
     /**
+     * @description The service to which the data asset belongs. Valid values:
+     *
+     *   **ODPS**
+     *   **OSS**
+     *   **ADS**
+     *   **OTS**
+     *   **RDS**
+     *
+     * @example OSS
+     *
      * @var string
      */
     public $resourceTypeCode;
 
     /**
+     * @description The total number of data objects in the data assets.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

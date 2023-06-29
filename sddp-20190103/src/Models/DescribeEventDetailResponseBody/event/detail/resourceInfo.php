@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class resourceInfo extends Model
 {
     /**
+     * @description The source title.
+     *
+     * @example Risk
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The source description.
+     *
+     * @example Based on the record of authentication by using an unusual terminal, an attacker may have obtained the access permission of the account, or an employee accessed data from a personal terminal.
+     *
      * @var string
      */
     public $value;

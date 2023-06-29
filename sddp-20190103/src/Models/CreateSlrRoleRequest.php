@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class CreateSlrRoleRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+     *
+     *   **zh_cn**: Simplified Chinese
+     *   **en_us**: English
+     *
+     * @example zh_cn
+     *
      * @var string
      */
     public $lang;

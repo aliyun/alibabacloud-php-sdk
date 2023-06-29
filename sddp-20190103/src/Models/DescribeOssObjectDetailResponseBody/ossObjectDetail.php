@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class ossObjectDetail extends Model
 {
     /**
+     * @description The name of the OSS bucket to which the OSS object belongs.
+     *
+     * @example bucke***
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @description The type of the OSS object.
+     *
+     * @example Excel file
+     *
      * @var string
      */
     public $categoryName;
 
     /**
+     * @description The name of the OSS object.
+     *
+     * @example obj_id
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region ID of the OSS object.
+     *
+     * @example cn-***
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the sensitivity level for the OSS object.
+     *
+     * @example Medium sensitivity level
+     *
      * @var string
      */
     public $riskLevelName;
 
     /**
+     * @description An array consisting of the sensitive data detection rules that the OSS object hits.
+     *
      * @var ruleList[]
      */
     public $ruleList;

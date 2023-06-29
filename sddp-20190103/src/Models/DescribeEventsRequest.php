@@ -9,76 +9,148 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventsRequest extends Model
 {
     /**
+     * @description The page number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The ID of the account that handles the anomalous event.
+     *
+     * @example yundun-***
+     *
      * @var string
      */
     public $dealUserId;
 
     /**
+     * @description The end of the time range during which the anomalous events are detected. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1698700000
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The unique ID of the anomalous event.
+     *
+     * @example 789026
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the data asset.
+     *
+     * @example rm-uf6yzvbc2tg90iuxk.l****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+     *
+     *   **zh_cn**: Chinese
+     *   **en_us**: English
+     *
+     * @example zh_cn
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the service to which the table belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+     *
+     * @example OSS
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The beginning of the time range during which the anomalous events are detected. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1657900000
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The handling status of the anomalous event. Valid values:
+     *
+     *   0: unhandled
+     *   1: confirmed
+     *   2: marked as false positive
+     *
+     * @example 1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The name of the anomalous event subtype.
+     *
+     * > You can call the **DescribeEventTypes** operation to query the name of the anomalous event subtype.
+     * @example Anomalous volume of downloaded data
+     *
      * @var string
      */
     public $subTypeCode;
 
     /**
+     * @description The name of the destination service in an anomalous data flow. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $targetProductCode;
 
     /**
+     * @description The name of the anomalous event type. Valid values:
+     *
+     *   01: anomalous permission usage
+     *   02: anomalous data flow
+     *   03: anomalous data operation
+     *
+     * @example 02
+     *
      * @var string
      */
     public $typeCode;
 
     /**
+     * @description The ID of the account that triggered the anomalous event.
+     *
+     * @example 1978132506596***
+     *
      * @var int
      */
     public $userId;
 
     /**
+     * @description The username of the RAM user.
+     *
+     * @example name
+     *
      * @var string
      */
     public $userName;

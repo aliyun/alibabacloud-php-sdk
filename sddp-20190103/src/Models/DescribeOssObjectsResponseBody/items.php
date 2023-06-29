@@ -10,71 +10,131 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The name of the OSS bucket.
+     *
+     * @example oss-duplicate-***
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @description The type ID of the OSS object. Valid values include **900001**, **800015**, or **800005**, which indicates the MP4 file, PDF file, or OSS configuration file, respectively.
+     *
+     * @example 900001
+     *
      * @var int
      */
     public $category;
 
     /**
+     * @description The file type of the OSS object.
+     *
+     * @example MP4 file
+     *
      * @var string
      */
     public $categoryName;
 
     /**
+     * @description The file ID of the OSS object.
+     *
+     * @example file-22***
+     *
      * @var string
      */
     public $fileId;
 
     /**
+     * @description The ID of the OSS object.
+     *
+     * @example 17383
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The ID of the instance to which the OSS object belongs.
+     *
+     * @example 1232122
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @description The name of the OSS object.
+     *
+     * @example obj_id
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region ID of the OSS object.
+     *
+     * @example cn-***
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The sensitivity level of the OSS object. Valid values:
+     *
+     *   **1**: N/A, which indicates that no sensitive data is detected.
+     *   **2**: S1, which indicates the low sensitivity level.
+     *   **3**: S2, which indicates the medium sensitivity level.
+     *   **4**: S3, which indicates the high sensitivity level.
+     *   **5**: S4, which indicates the highest sensitivity level.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $riskLevelId;
 
     /**
+     * @description The name of the sensitivity level for the OSS object.
+     *
+     * @example Medium sensitivity level
+     *
      * @var string
      */
     public $riskLevelName;
 
     /**
+     * @description The number of rules that are hit.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $ruleCount;
 
     /**
+     * @description An array that consists of the rules.
+     *
      * @var ruleList[]
      */
     public $ruleList;
 
     /**
+     * @description The number of fields that are hit.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $sensitiveCount;
 
     /**
+     * @description The size of the file. Unit: bytes.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the common alert configuration.
+     *
+     * @example 12300
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 208B016D-4CB9-4A85-96A5-0B8ED1EBF271
+     *
      * @var string
      */
     public $requestId;

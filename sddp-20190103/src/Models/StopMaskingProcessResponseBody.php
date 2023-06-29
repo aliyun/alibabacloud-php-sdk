@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class StopMaskingProcessResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+     *
      * @var string
      */
     public $requestId;

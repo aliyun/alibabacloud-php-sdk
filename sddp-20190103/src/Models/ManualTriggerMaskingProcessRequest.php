@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class ManualTriggerMaskingProcessRequest extends Model
 {
     /**
+     * @description The ID of the de-identification task.
+     *
+     * The ID of the de-identification task is a string. You can call the DescribeDataMaskingTasks operation to query the ID.
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataAssetsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description An array that consists of data assets.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 71064826-726F-4ADA-B879-05D8055476FB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of queried data assets that contain sensitive data.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

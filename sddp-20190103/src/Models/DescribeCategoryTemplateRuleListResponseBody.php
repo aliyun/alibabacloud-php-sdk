@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeCategoryTemplateRuleListResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The list of rules.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 136082B3-B21F-5E9D-B68E-991FFD205D24
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of rules in the template.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

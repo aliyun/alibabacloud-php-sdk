@@ -9,184 +9,406 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description Indicates whether the security audit feature is enabled. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $auditStatus;
 
     /**
+     * @description Indicates whether the data asset can be automatically scanned. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * @example 1
+     *
      * @var int
      */
     public $autoScan;
 
     /**
+     * @description The data detection status. Valid values:
+     *
+     *   **0**: The data detection is ready.
+     *   **1**: The data detection is running.
+     *   **2**: The connectivity test is in progress.
+     *   **3**: The connectivity test passed.
+     *   **4**: The connectivity test failed.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $checkStatus;
 
     /**
+     * @description The name of the data detection status.
+     *
+     * @example Connectivity test status
+     *
      * @var string
      */
     public $checkStatusName;
 
     /**
+     * @description Indicates whether DSC has the data de-identification permissions on the data asset. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $datamaskStatus;
 
     /**
+     * @description The database engine version of the instance.
+     *
+     * @example 2.0
+     *
      * @var string
      */
     public $dbVersion;
 
     /**
+     * @description Indicates whether DSC has the data detection permissions on the data asset. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $enable;
 
     /**
+     * @description The type of the database engine. Valid values include **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, and **MongoDB**.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engineType;
 
     /**
+     * @description The error code that is returned.
+     *
+     * @example connect_network_error
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description The reason for the failure.
+     *
+     * @example The password is invalid.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description Indicates whether the data leak prevention feature is enabled. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes (default value)
+     *
+     * @example 1
+     *
      * @var int
      */
     public $eventStatus;
 
     /**
+     * @description The time when the data asset was created. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 145600000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @description The ID of the data asset.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $instanceDescription;
 
     /**
+     * @description The ID of the instance to which the table belongs.
+     *
+     * @example 12332
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The time when the last scan was finished.
+     *
+     *   The value is a UNIX timestamp.
+     *   Unit: milliseconds.
+     *
+     * @example 145600000
+     *
      * @var int
      */
     public $lastFinishedTime;
 
     /**
+     * @description The region in which the data asset resides.
+     *
+     * @example China (Hangzhou)
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The retention period of raw logs. Unit: days.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $logStoreDay;
 
     /**
+     * @description The next time when the data asset is scanned. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1676620236000
+     *
      * @var int
      */
     public $nextStartTime;
 
     /**
+     * @description Indicates whether the optical character recognition (OCR) feature is enabled. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * @example 1
+     *
      * @var int
      */
     public $ocrStatus;
 
     /**
+     * @description The parent ID of the data asset. Valid values include **bucket, db, and project**.
+     *
+     * @example project
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @description The port number of the self-managed database.
+     *
+     * @example 3306
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The status of the data asset scan. Valid values:
+     *
+     *   **-1**: invalid
+     *   **0**: waiting
+     *   **1**: being scanned
+     *   **2**: suspended
+     *   **3**: completed
+     *
+     * @example 3
+     *
      * @var int
      */
     public $processStatus;
 
     /**
+     * @description The total number of data tables or files.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $processTotalCount;
 
     /**
+     * @description The region in which the data asset resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the service to which the data asset belongs. Valid values:
+     *
+     *   **1**: MaxCompute
+     *   **2**: OSS
+     *   **3**: AnalyticDB for MySQL
+     *   **4**: Tablestore
+     *   **5**: ApsaraDB RDS
+     *   **6**: self-managed database
+     *
+     * @example 5
+     *
      * @var int
      */
     public $resourceType;
 
     /**
+     * @description The code of the service to which the data asset belongs. Valid values include **MaxCompute, OSS, ADS, OTS, and RDS**.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $resourceTypeCode;
 
     /**
+     * @description The number of sensitive data samples. Valid values: **0**, **5**, and **10**. Unit: data entries.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $samplingSize;
 
     /**
+     * @description The array consisting of the IDs of the security groups that are used by PrivateLink when you install the DSC agent.
+     *
+     * @var string[]
+     */
+    public $securityGroupIdList;
+
+    /**
+     * @description Indicates whether the security audit feature is supported. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportAudit;
 
     /**
+     * @description Indicates whether data de-identification is supported. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportDatamask;
 
     /**
+     * @description Indicates whether anomalous event detection is supported. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportEvent;
 
     /**
+     * @description Indicates whether OCR is supported. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportOcr;
 
     /**
+     * @description Indicates whether the data asset scan feature is supported. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $supportScan;
 
     /**
+     * @description The alias of the tenant.
+     *
+     * @example insta_gram
+     *
      * @var string
      */
     public $tenantName;
 
     /**
+     * @description The total number of fields in the table.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The username that is used to access the data asset.
+     *
+     * @example tsts
+     *
      * @var string
      */
     public $userName;
+
+    /**
+     * @description The array consisting of the IDs of the vSwitches that are used by PrivateLink when you install the DSC agent.
+     *
+     * @var string[]
+     */
+    public $vSwitchIdList;
+
+    /**
+     * @description The ID of the virtual private cloud (VPC) to which the data asset belongs.
+     *
+     * @example vpc-2zevcqke6hh09c41****
+     *
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'auditStatus'         => 'AuditStatus',
         'autoScan'            => 'AutoScan',
@@ -216,6 +438,7 @@ class items extends Model
         'resourceType'        => 'ResourceType',
         'resourceTypeCode'    => 'ResourceTypeCode',
         'samplingSize'        => 'SamplingSize',
+        'securityGroupIdList' => 'SecurityGroupIdList',
         'supportAudit'        => 'SupportAudit',
         'supportDatamask'     => 'SupportDatamask',
         'supportEvent'        => 'SupportEvent',
@@ -224,6 +447,8 @@ class items extends Model
         'tenantName'          => 'TenantName',
         'totalCount'          => 'TotalCount',
         'userName'            => 'UserName',
+        'vSwitchIdList'       => 'VSwitchIdList',
+        'vpcId'               => 'VpcId',
     ];
 
     public function validate()
@@ -317,6 +542,9 @@ class items extends Model
         if (null !== $this->samplingSize) {
             $res['SamplingSize'] = $this->samplingSize;
         }
+        if (null !== $this->securityGroupIdList) {
+            $res['SecurityGroupIdList'] = $this->securityGroupIdList;
+        }
         if (null !== $this->supportAudit) {
             $res['SupportAudit'] = $this->supportAudit;
         }
@@ -340,6 +568,12 @@ class items extends Model
         }
         if (null !== $this->userName) {
             $res['UserName'] = $this->userName;
+        }
+        if (null !== $this->vSwitchIdList) {
+            $res['VSwitchIdList'] = $this->vSwitchIdList;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -437,6 +671,11 @@ class items extends Model
         if (isset($map['SamplingSize'])) {
             $model->samplingSize = $map['SamplingSize'];
         }
+        if (isset($map['SecurityGroupIdList'])) {
+            if (!empty($map['SecurityGroupIdList'])) {
+                $model->securityGroupIdList = $map['SecurityGroupIdList'];
+            }
+        }
         if (isset($map['SupportAudit'])) {
             $model->supportAudit = $map['SupportAudit'];
         }
@@ -460,6 +699,14 @@ class items extends Model
         }
         if (isset($map['UserName'])) {
             $model->userName = $map['UserName'];
+        }
+        if (isset($map['VSwitchIdList'])) {
+            if (!empty($map['VSwitchIdList'])) {
+                $model->vSwitchIdList = $map['VSwitchIdList'];
+            }
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

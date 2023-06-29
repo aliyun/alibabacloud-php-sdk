@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeConfigsResponseBody extends Model
 {
     /**
+     * @description An array that consists of common configuration items for alerts.
+     *
      * @var configList[]
      */
     public $configList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 769FB3C1-F4C9-42DF-9B72-7077A8989C13
+     *
      * @var string
      */
     public $requestId;

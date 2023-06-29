@@ -9,101 +9,192 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The time when an alert was triggered for the anomalous event. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 154529000
+     *
      * @var int
      */
     public $alertTime;
 
     /**
+     * @description Indicates whether the detection of anomalous events is enhanced. If the detection of anomalous events is enhanced, the detection accuracy and the rate of triggering alerts for anomalous events are improved. Valid values:
+     *
+     *   true: yes
+     *   false: no
+     *
+     * @example false
+     *
      * @var bool
      */
     public $backed;
 
     /**
+     * @description The display name of the account that is used to handle the anomalous event.
+     *
+     * @example yundunsr
+     *
      * @var string
      */
     public $dealDisplayName;
 
     /**
+     * @description The username of the account that is used to handle the anomalous event.
+     *
+     * @example det1111
+     *
      * @var string
      */
     public $dealLoginName;
 
     /**
+     * @description The time when the anomalous event was handled. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 12223300
+     *
      * @var int
      */
     public $dealTime;
 
     /**
+     * @description The ID of the account that is used to handle the anomalous event.
+     *
+     * @example 229157443385014***
+     *
      * @var int
      */
     public $dealUserId;
 
     /**
+     * @description The display name of the account that triggered the anomalous event.
+     *
+     * @example yundunsr
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The time when the anomalous event occurred. The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1545829129000
+     *
      * @var int
      */
     public $eventTime;
 
     /**
+     * @description The ID of the anomalous event.
+     *
+     * @example 42233335555
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The username of the account that triggered the anomalous event.
+     *
+     * @example det1111
+     *
      * @var string
      */
     public $loginName;
 
     /**
+     * @description The name of the service in which the anomalous event was detected.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @description The handling status for the anomalous event. Valid values:
+     *
+     *   0: unhandled
+     *   1: confirmed
+     *   2: marked as false positive
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The name of the handling status for the anomalous event.
+     *
+     * @example Pending
+     *
      * @var string
      */
     public $statusName;
 
     /**
+     * @description The code of the anomalous event subtype.
+     *
+     * @example 020008
+     *
      * @var string
      */
     public $subTypeCode;
 
     /**
+     * @description The name of the anomalous event subtype.
+     *
+     * @example Anomalous volume of downloaded data
+     *
      * @var string
      */
     public $subTypeName;
 
     /**
+     * @description The name of the destination service in an anomalous data flow.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $targetProductCode;
 
     /**
+     * @description The code of the anomalous event type.
+     *
+     * @example 02
+     *
      * @var string
      */
     public $typeCode;
 
     /**
+     * @description The name of the anomalous event type.
+     *
+     * @example Anomalous data flow
+     *
      * @var string
      */
     public $typeName;
 
     /**
+     * @description The ID of the account that triggered the anomalous event.
+     *
+     * @example 1978132506596***
+     *
      * @var int
      */
     public $userId;
 
     /**
+     * @description The severity of the anomalous event.
+     *
+     *   **1**: low
+     *   **2**: medium
+     *   **3**: high
+     *
+     * @example 2
+     *
      * @var int
      */
     public $warnLevel;

@@ -9,41 +9,85 @@ use AlibabaCloud\Tea\Model;
 class DescribePackagesRequest extends Model
 {
     /**
+     * @description The page number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The ID of the instance to which the package belongs.
+     *
+     * > You can call the **DescribeInstances** operation to query the ID of the instance.
+     * @example 12321
+     *
      * @var int
      */
     public $instanceId;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+     *
+     *   **zh_cn**: Chinese
+     *   **en_us**: English
+     *
+     * @example zh_cn
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The search keyword. Fuzzy match is supported.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the service to which the package belongs.
+     *
+     * > You can call the **DescribeDataAssets** operation to query the ID of the service.
+     * @example 2566600
+     *
      * @var int
      */
     public $productId;
 
     /**
+     * @description The sensitivity level of the package. Valid values:
+     *
+     *   **1**: N/A, which indicates that no sensitive data is detected.
+     *   **2**: S1, which indicates the low sensitivity level.
+     *   **3**: S2, which indicates the medium sensitivity level.
+     *   **4**: S3, which indicates the high sensitivity level.
+     *   **5**: S4, which indicates the highest sensitivity level.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $riskLevelId;
 
     /**
+     * @description The ID of the sensitive data detection rule that the package hits.
+     *
+     * > You can call the **DescribeRules** operation to query the ID of the sensitive data detection rule.
+     * @example 266666
+     *
      * @var int
      */
     public $ruleId;

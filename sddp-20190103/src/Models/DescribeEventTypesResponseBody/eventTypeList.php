@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class eventTypeList extends Model
 {
     /**
+     * @description The code of the anomalous event type.
+     *
+     * @example 01
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The description of the anomalous event type.
+     *
+     * @example Anomalous permission usage,\*\*\*\*
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the anomalous event type.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the anomalous event type.
+     *
+     * @example Anomalous permission usage
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description An array that consists of anomalous event subtypes.
+     *
      * @var subTypeList[]
      */
     public $subTypeList;

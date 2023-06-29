@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserStatusRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh_cn**: Simplified Chinese (default)
+     *   **en_us**: English
+     *
+     * @example zh_cn
+     *
      * @var string
      */
     public $lang;

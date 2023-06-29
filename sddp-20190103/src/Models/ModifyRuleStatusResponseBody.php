@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyRuleStatusResponseBody extends Model
 {
     /**
+     * @description The IDs of sensitive data detection rules whose status failed to be changed. Multiple IDs are separated with commas (,).
+     *
+     * @example 1,2,3,4
+     *
      * @var string
      */
     public $failedIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7C3AC882-E5A8-4855-BE77-B6837B695EF1
+     *
      * @var string
      */
     public $requestId;

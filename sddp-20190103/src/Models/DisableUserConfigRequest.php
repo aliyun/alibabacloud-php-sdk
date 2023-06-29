@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DisableUserConfigRequest extends Model
 {
     /**
+     * @description The code of the configuration item. You can call the [DescribeConfigs](~~DescribeConfigs~~) operation to obtain the code of the configuration item.
+     *
+     * @example access_failed_cnt
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh_cn**: Chinese (default)
+     *   **en_us**: English
+     *
+     * @example zh_cn
+     *
      * @var string
      */
     public $lang;

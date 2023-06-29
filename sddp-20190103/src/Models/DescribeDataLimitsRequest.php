@@ -9,66 +9,147 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataLimitsRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the security audit feature. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $auditStatus;
 
     /**
+     * @description The data detection status. Valid values:
+     *
+     *   **0**: The data detection is ready.
+     *   **1**: The data detection is running.
+     *   **2**: The connectivity test is in progress.
+     *   **3**: The connectivity test passed.
+     *   **4**: The connectivity test failed.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $checkStatus;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description Specifies whether DSC has the data de-identification permissions on the data asset. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $datamaskStatus;
 
     /**
+     * @description Specifies whether DSC has the data detection permissions on the data asset. Valid values:
+     *
+     *   **1**: yes
+     *   **0**: no
+     *
+     * @example 1
+     *
      * @var int
      */
     public $enable;
 
     /**
+     * @description The end of the time range to query The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1616068534877
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The type of the database engine. Valid values include **MySQL**, **SQLServer**, **Oracle**, **PostgreSQL**, and **MongoDB**.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engineType;
 
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The parent ID of the data asset to be queried. Valid values:
+     *
+     *   The name or ID of the MaxCompute project.
+     *   The name or ID of the OSS bucket.
+     *   The name or ID of the ApsaraDB RDS instance or database.
+     *
+     * @example 1112
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @description The type of the service to which the data asset to be queried belongs. Valid values:
+     *
+     *   **1**: MaxCompute
+     *   **2**: Object Storage Service (OSS)
+     *   **3**: AnalyticDB for MySQL
+     *   **4**: Tablestore
+     *   **5**: ApsaraDB RDS
+     *   **6**: self-managed database
+     *
+     * @example 1
+     *
      * @var int
      */
     public $resourceType;
 
     /**
+     * @description The region in which the data asset resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $serviceRegionId;
 
     /**
+     * @description The beginning of the time range to query The value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example 1616068534877
+     *
      * @var int
      */
     public $startTime;

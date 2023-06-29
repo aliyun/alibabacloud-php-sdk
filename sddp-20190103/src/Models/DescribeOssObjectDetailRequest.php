@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeOssObjectDetailRequest extends Model
 {
     /**
+     * @description The ID of the OSS object.
+     *
+     * > You can call the **DescribeOssObjects** operation to obtain the ID of the OSS object.
+     * @example 12345213
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh_cn**. Valid values:
+     *
+     *   **zh_cn**: Chinese
+     *   **en_us**: English
+     *
+     * @example zh_cn
+     *
      * @var string
      */
     public $lang;
