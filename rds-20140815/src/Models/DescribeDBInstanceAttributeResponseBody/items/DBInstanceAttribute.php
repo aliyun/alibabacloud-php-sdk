@@ -502,6 +502,11 @@ class DBInstanceAttribute extends Model
     public $maxIOPS;
 
     /**
+     * @var string
+     */
+    public $PGBouncerEnabled;
+
+    /**
      * @description The billing method of the instance. Valid values:
      *
      *   **Postpaid**: pay-as-you-go
@@ -750,6 +755,7 @@ class DBInstanceAttribute extends Model
         'maxConnections'                 => 'MaxConnections',
         'maxIOMBPS'                      => 'MaxIOMBPS',
         'maxIOPS'                        => 'MaxIOPS',
+        'PGBouncerEnabled'               => 'PGBouncerEnabled',
         'payType'                        => 'PayType',
         'port'                           => 'Port',
         'proxyType'                      => 'ProxyType',
@@ -923,6 +929,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->maxIOPS) {
             $res['MaxIOPS'] = $this->maxIOPS;
+        }
+        if (null !== $this->PGBouncerEnabled) {
+            $res['PGBouncerEnabled'] = $this->PGBouncerEnabled;
         }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
@@ -1142,6 +1151,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['MaxIOPS'])) {
             $model->maxIOPS = $map['MaxIOPS'];
+        }
+        if (isset($map['PGBouncerEnabled'])) {
+            $model->PGBouncerEnabled = $map['PGBouncerEnabled'];
         }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];

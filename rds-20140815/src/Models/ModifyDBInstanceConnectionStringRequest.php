@@ -67,6 +67,11 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $ownerId;
 
     /**
+     * @var string
+     */
+    public $PGBouncerPort;
+
+    /**
      * @description The port number after the change.
      *
      * @example 3306
@@ -92,6 +97,7 @@ class ModifyDBInstanceConnectionStringRequest extends Model
         'generalGroupName'        => 'GeneralGroupName',
         'ownerAccount'            => 'OwnerAccount',
         'ownerId'                 => 'OwnerId',
+        'PGBouncerPort'           => 'PGBouncerPort',
         'port'                    => 'Port',
         'resourceOwnerAccount'    => 'ResourceOwnerAccount',
         'resourceOwnerId'         => 'ResourceOwnerId',
@@ -124,6 +130,9 @@ class ModifyDBInstanceConnectionStringRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->PGBouncerPort) {
+            $res['PGBouncerPort'] = $this->PGBouncerPort;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
@@ -166,6 +175,9 @@ class ModifyDBInstanceConnectionStringRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PGBouncerPort'])) {
+            $model->PGBouncerPort = $map['PGBouncerPort'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];

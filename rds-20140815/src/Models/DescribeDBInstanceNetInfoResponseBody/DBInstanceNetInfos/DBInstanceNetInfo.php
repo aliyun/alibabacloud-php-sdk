@@ -105,6 +105,11 @@ class DBInstanceNetInfo extends Model
     public $maxDelayTime;
 
     /**
+     * @var string
+     */
+    public $PGBouncerPort;
+
+    /**
      * @description The port that is used to connect to the instance.
      *
      * @example 3306
@@ -160,6 +165,7 @@ class DBInstanceNetInfo extends Model
         'IPAddress'            => 'IPAddress',
         'IPType'               => 'IPType',
         'maxDelayTime'         => 'MaxDelayTime',
+        'PGBouncerPort'        => 'PGBouncerPort',
         'port'                 => 'Port',
         'securityIPGroups'     => 'SecurityIPGroups',
         'upgradeable'          => 'Upgradeable',
@@ -200,6 +206,9 @@ class DBInstanceNetInfo extends Model
         }
         if (null !== $this->maxDelayTime) {
             $res['MaxDelayTime'] = $this->maxDelayTime;
+        }
+        if (null !== $this->PGBouncerPort) {
+            $res['PGBouncerPort'] = $this->PGBouncerPort;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
@@ -254,6 +263,9 @@ class DBInstanceNetInfo extends Model
         }
         if (isset($map['MaxDelayTime'])) {
             $model->maxDelayTime = $map['MaxDelayTime'];
+        }
+        if (isset($map['PGBouncerPort'])) {
+            $model->PGBouncerPort = $map['PGBouncerPort'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];

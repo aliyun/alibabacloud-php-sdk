@@ -37,6 +37,8 @@ class DescribeParametersResponseBody extends Model
     public $engineVersion;
 
     /**
+     * @description Parameter template information.
+     *
      * @var paramGroupInfo
      */
     public $paramGroupInfo;

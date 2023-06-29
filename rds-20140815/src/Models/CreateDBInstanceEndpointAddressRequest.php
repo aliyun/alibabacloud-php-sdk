@@ -64,6 +64,11 @@ class CreateDBInstanceEndpointAddressRequest extends Model
     public $port;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -74,6 +79,7 @@ class CreateDBInstanceEndpointAddressRequest extends Model
         'DBInstanceId'           => 'DBInstanceId',
         'ipType'                 => 'IpType',
         'port'                   => 'Port',
+        'resourceGroupId'        => 'ResourceGroupId',
         'resourceOwnerId'        => 'ResourceOwnerId',
     ];
 
@@ -101,6 +107,9 @@ class CreateDBInstanceEndpointAddressRequest extends Model
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
@@ -134,6 +143,9 @@ class CreateDBInstanceEndpointAddressRequest extends Model
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];

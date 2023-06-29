@@ -57,6 +57,11 @@ class AllocateInstancePublicConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @var string
+     */
+    public $PGBouncerPort;
+
+    /**
      * @description The public port of the instance. Valid values: **1000 to 5999**.
      *
      * @example 3306
@@ -81,6 +86,7 @@ class AllocateInstancePublicConnectionRequest extends Model
         'generalGroupName'       => 'GeneralGroupName',
         'ownerAccount'           => 'OwnerAccount',
         'ownerId'                => 'OwnerId',
+        'PGBouncerPort'          => 'PGBouncerPort',
         'port'                   => 'Port',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
@@ -110,6 +116,9 @@ class AllocateInstancePublicConnectionRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->PGBouncerPort) {
+            $res['PGBouncerPort'] = $this->PGBouncerPort;
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
@@ -149,6 +158,9 @@ class AllocateInstancePublicConnectionRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PGBouncerPort'])) {
+            $model->PGBouncerPort = $map['PGBouncerPort'];
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];

@@ -783,6 +783,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->PGBouncerPort)) {
+            $query['PGBouncerPort'] = $request->PGBouncerPort;
+        }
         if (!Utils::isUnset($request->port)) {
             $query['Port'] = $request->port;
         }
@@ -2420,6 +2423,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->privateIpAddress)) {
             $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
@@ -2496,6 +2502,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->port)) {
             $query['Port'] = $request->port;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
@@ -2676,6 +2685,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -7703,8 +7715,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is no longer available. You can call the DescribeDBInstanceAttribute operation to query information about an instance.
+     * @deprecated : DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
+     *   * This operation is no longer available. You can call the DescribeDBInstanceAttribute operation to query information about an instance.
      *   *
+     * Deprecated
+     *
      * @param DescribeDBInstancesAsCsvRequest $request DescribeDBInstancesAsCsvRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -7757,8 +7772,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * This operation is no longer available. You can call the DescribeDBInstanceAttribute operation to query information about an instance.
+     * @deprecated : DescribeDBInstancesAsCsv is deprecated, please use Rds::2014-08-15::DescribeDBInstances instead.
+     *   * This operation is no longer available. You can call the DescribeDBInstanceAttribute operation to query information about an instance.
      *   *
+     * Deprecated
+     *
      * @param DescribeDBInstancesAsCsvRequest $request DescribeDBInstancesAsCsvRequest
      *
      * @return DescribeDBInstancesAsCsvResponse DescribeDBInstancesAsCsvResponse
@@ -13732,6 +13750,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->PGBouncerPort)) {
+            $query['PGBouncerPort'] = $request->PGBouncerPort;
         }
         if (!Utils::isUnset($request->port)) {
             $query['Port'] = $request->port;

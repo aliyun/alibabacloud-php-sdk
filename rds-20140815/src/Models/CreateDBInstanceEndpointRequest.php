@@ -86,6 +86,11 @@ class CreateDBInstanceEndpointRequest extends Model
     public $privateIpAddress;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -116,6 +121,7 @@ class CreateDBInstanceEndpointRequest extends Model
         'nodeItems'                     => 'NodeItems',
         'port'                          => 'Port',
         'privateIpAddress'              => 'PrivateIpAddress',
+        'resourceGroupId'               => 'ResourceGroupId',
         'resourceOwnerId'               => 'ResourceOwnerId',
         'vSwitchId'                     => 'VSwitchId',
         'vpcId'                         => 'VpcId',
@@ -157,6 +163,9 @@ class CreateDBInstanceEndpointRequest extends Model
         }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
@@ -208,6 +217,9 @@ class CreateDBInstanceEndpointRequest extends Model
         }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
