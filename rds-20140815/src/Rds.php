@@ -375,6 +375,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBDescriptionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBDescriptionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceAutoUpgradeMinorVersionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceAutoUpgradeMinorVersionResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConfigRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConfigResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionModeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionModeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyDBInstanceConnectionStringRequest;
@@ -13654,6 +13656,73 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBInstanceAutoUpgradeMinorVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDBInstanceConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyDBInstanceConfigResponse
+     */
+    public function modifyDBInstanceConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->configName)) {
+            $query['ConfigName'] = $request->configName;
+        }
+        if (!Utils::isUnset($request->configValue)) {
+            $query['ConfigValue'] = $request->configValue;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstanceConfig',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBInstanceConfigRequest $request
+     *
+     * @return ModifyDBInstanceConfigResponse
+     */
+    public function modifyDBInstanceConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBInstanceConfigWithOptions($request, $runtime);
     }
 
     /**
