@@ -1456,10 +1456,12 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param CreateDataTrackOrderRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * This operation is available only for instances that are managed in Security Collaboration mode.
+     *   *
+     * @param CreateDataTrackOrderRequest $tmpReq  CreateDataTrackOrderRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDataTrackOrderResponse
+     * @return CreateDataTrackOrderResponse CreateDataTrackOrderResponse
      */
     public function createDataTrackOrderWithOptions($tmpReq, $runtime)
     {
@@ -1504,9 +1506,11 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * @param CreateDataTrackOrderRequest $request
+     * This operation is available only for instances that are managed in Security Collaboration mode.
+     *   *
+     * @param CreateDataTrackOrderRequest $request CreateDataTrackOrderRequest
      *
-     * @return CreateDataTrackOrderResponse
+     * @return CreateDataTrackOrderResponse CreateDataTrackOrderResponse
      */
     public function createDataTrackOrder($request)
     {

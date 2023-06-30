@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class databaseExportOrderDetail extends Model
 {
     /**
+     * @description The business background information of the database export ticket.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The user who submitted the ticket.
+     *
      * @example dmsuser
      *
      * @var string
@@ -22,6 +26,8 @@ class databaseExportOrderDetail extends Model
     public $committer;
 
     /**
+     * @description The ID of the user who submitted the ticket. This ID is a user ID and is not the ID of an Alibaba Cloud account.
+     *
      * @example 12***
      *
      * @var string
@@ -29,6 +35,8 @@ class databaseExportOrderDetail extends Model
     public $committerId;
 
     /**
+     * @description The ticket ID.
+     *
      * @example 821****
      *
      * @var int
@@ -36,11 +44,15 @@ class databaseExportOrderDetail extends Model
     public $id;
 
     /**
+     * @description The key information about the ticket.
+     *
      * @var keyInfo
      */
     public $keyInfo;
 
     /**
+     * @description The execution logs.
+     *
      * @example 2023-04-12 14:58:32:015 Database Dump Start.
      * 2023-04-12 14:58:32:096 set server side query timeout, sql : set max_execution_time = 0
      * @var string
@@ -48,6 +60,8 @@ class databaseExportOrderDetail extends Model
     public $log;
 
     /**
+     * @description The name that is used to search for the database.
+     *
      * @example test@xxx.xxx.xxx.xxx:3306
      *
      * @var string
@@ -55,11 +69,15 @@ class databaseExportOrderDetail extends Model
     public $searchName;
 
     /**
+     * @description The status description of the ticket.
+     *
      * @var string
      */
     public $statusDesc;
 
     /**
+     * @description The status description of the workflow.
+     *
      * @var string
      */
     public $workflowStatusDesc;

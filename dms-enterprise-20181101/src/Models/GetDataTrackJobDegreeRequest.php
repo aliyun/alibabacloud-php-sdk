@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataTrackJobDegreeRequest extends Model
 {
     /**
+     * @description The ID of the ticket. You can call the [ListOrders](~~144643~~) operation to query the ticket ID.
+     *
      * @example 321****
      *
      * @var int
@@ -16,6 +18,8 @@ class GetDataTrackJobDegreeRequest extends Model
     public $orderId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     *
      * @example 3***
      *
      * @var int

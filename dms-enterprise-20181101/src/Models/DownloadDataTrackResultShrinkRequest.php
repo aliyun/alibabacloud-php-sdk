@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DownloadDataTrackResultShrinkRequest extends Model
 {
     /**
+     * @description The condition to filter columns.
+     *
      * @var string
      */
     public $columnFilterShrink;
 
     /**
+     * @description The IDs of the events.
+     *
      * @var string
      */
     public $eventIdListShrink;
 
     /**
+     * @description The end time of the time range in which you want to track data operations. The time must be specified in the yyyy-MM-dd HH:mm:ss format.
+     *
      * @example 2023-04-23 10:00:00
      *
      * @var string
@@ -26,6 +32,8 @@ class DownloadDataTrackResultShrinkRequest extends Model
     public $filterEndTime;
 
     /**
+     * @description The start time of the time range in which you want to track data operations. The time must be specified in the yyyy-MM-dd HH:mm:ss format.
+     *
      * @example 2023-04-23 00:00:00
      *
      * @var string
@@ -33,16 +41,22 @@ class DownloadDataTrackResultShrinkRequest extends Model
     public $filterStartTime;
 
     /**
+     * @description The names of the tables for which you want to track data operations.
+     *
      * @var string
      */
     public $filterTableListShrink;
 
     /**
+     * @description The types of data operations that you want to track.
+     *
      * @var string
      */
     public $filterTypeListShrink;
 
     /**
+     * @description The ID of the ticket. You can call the [ListOrders](~~144643~~) operation to obtain the ticket ID.
+     *
      * @example 406****
      *
      * @var int
@@ -50,6 +64,11 @@ class DownloadDataTrackResultShrinkRequest extends Model
     public $orderId;
 
     /**
+     * @description The type of the SQL statement.
+     *
+     *   **REVERSE**: undoes or rolls back an executed SQL statement, which is equivalent to the UNDO SQL statement.
+     *   **FORWARD**: redoes or re-executes an SQL statement that failed to be executed, which is equivalent to the REDO SQL statement.
+     *
      * @example REVERSE
      *
      * @var string
@@ -57,6 +76,8 @@ class DownloadDataTrackResultShrinkRequest extends Model
     public $rollbackSQLType;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     *
      * @example 3***
      *
      * @var int

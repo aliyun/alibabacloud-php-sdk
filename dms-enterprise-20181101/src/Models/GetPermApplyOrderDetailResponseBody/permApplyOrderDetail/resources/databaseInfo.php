@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class databaseInfo extends Model
 {
     /**
-     * @description The ID of the database.
+     * @description The database ID.
      *
      * @example 12345
      *
@@ -27,7 +27,7 @@ class databaseInfo extends Model
     public $dbType;
 
     /**
-     * @description The nickname of the owner of the database.
+     * @description The type of the environment to which the instance belongs. For more information, see [Change the environment type of an instance](~~163309~~).
      *
      * @example product
      *
@@ -38,8 +38,8 @@ class databaseInfo extends Model
     /**
      * @description Indicates whether the database is a logical database. Valid values:
      *
-     *   **true**: The database is a logical database.
-     *   **false**: The database is not a logical database.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -48,14 +48,14 @@ class databaseInfo extends Model
     public $logic;
 
     /**
-     * @description test@xxxx:3306[test]
+     * @description The IDs of the owners of the database.
      *
      * @var int[]
      */
     public $ownerIds;
 
     /**
-     * @description The ID of the owner of the database.
+     * @description The nicknames of the owners of the database.
      *
      * @var string[]
      */
@@ -63,8 +63,8 @@ class databaseInfo extends Model
 
     /**
      * @description The name that is used to search for the database.
-     * > We recommend that you do not use this parameter for business development. The format of the parameter value may be modified in later versions.
-     * @example test@xxxx:3306[test]
+     *
+     * @example test@xxxx:3306【test】
      *
      * @var string
      */

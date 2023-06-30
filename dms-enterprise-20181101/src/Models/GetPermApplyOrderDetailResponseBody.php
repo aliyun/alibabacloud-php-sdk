@@ -35,7 +35,7 @@ class GetPermApplyOrderDetailResponseBody extends Model
     public $permApplyOrderDetail;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
      *
      * @example A4C4499E-5AC2-4318-9FCF-03E426781A04
      *
@@ -44,7 +44,10 @@ class GetPermApplyOrderDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

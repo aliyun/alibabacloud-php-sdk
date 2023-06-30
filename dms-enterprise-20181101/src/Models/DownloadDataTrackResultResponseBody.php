@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DownloadDataTrackResultResponseBody extends Model
 {
     /**
+     * @description The ID of the download key, which is used to download the parsing result of the data tracking task.
+     *
      * @example e23dd7ec-a19f-4a69-8eb3-8ffd26e6****
      *
      * @var string
@@ -16,6 +18,8 @@ class DownloadDataTrackResultResponseBody extends Model
     public $downloadKeyId;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -23,6 +27,8 @@ class DownloadDataTrackResultResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -30,6 +36,8 @@ class DownloadDataTrackResultResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The request ID.
+     *
      * @example B43AD641-49C2-5299-9E06-1B37EC1B****
      *
      * @var string
@@ -37,6 +45,11 @@ class DownloadDataTrackResultResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDataTrackOrderResponseBody extends Model
 {
     /**
+     * @description The IDs of the data tracking tickets.
+     *
      * @var int[]
      */
     public $createOrderResult;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -21,6 +25,8 @@ class CreateDataTrackOrderResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -28,6 +34,8 @@ class CreateDataTrackOrderResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The request ID.
+     *
      * @example 283C461F-11D8-48AA-B695-DF092DA32AF3
      *
      * @var string
@@ -35,6 +43,11 @@ class CreateDataTrackOrderResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

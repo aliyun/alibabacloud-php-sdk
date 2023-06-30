@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataTrackOrderDetail extends Model
 {
     /**
+     * @description The name that is used to search for the database.
+     *
      * @example xxx@yyy:3306
      *
      * @var string
@@ -16,6 +18,8 @@ class dataTrackOrderDetail extends Model
     public $databaseSearchName;
 
     /**
+     * @description The ID of the database.
+     *
      * @example 3431****
      *
      * @var int
@@ -23,6 +27,8 @@ class dataTrackOrderDetail extends Model
     public $dbId;
 
     /**
+     * @description The end time of the time range in which data operations are tracked. The time is in the yyyy-MM-dd HH:mm:ss format.
+     *
      * @example 2023-04-23 10:00:00
      *
      * @var string
@@ -30,6 +36,8 @@ class dataTrackOrderDetail extends Model
     public $jobEndTime;
 
     /**
+     * @description The start time of the time range in which data operations are tracked. The time is in the yyyy-MM-dd HH:mm:ss format.
+     *
      * @example 2023-04-23 00:00:00
      *
      * @var string
@@ -37,6 +45,18 @@ class dataTrackOrderDetail extends Model
     public $jobStartTime;
 
     /**
+     * @description The status of the data tracking task. Valid values:
+     *
+     *   **INIT**: The task is being initialized.
+     *   **LISTING**: The binary logs are being obtained.
+     *   **LIST_SUCCESS**: The binary logs are successfully obtained.
+     *   **DOWNLOADING**: The binary logs are being downloaded.
+     *   **DOWNLOAD_FAIL**: The binary logs failed to be downloaded.
+     *   **DOWNLOAD_SUCCESS**: The binary logs are successfully downloaded.
+     *   **FILTERING**: The binary logs are being parsed.
+     *   **FILTER_FAIL**: The binary logs failed to be parsed.
+     *   **FILTER_SUCCESS**: The binary logs are successfully parsed.
+     *
      * @example FILTER_SUCCESS
      *
      * @var string
@@ -44,6 +64,11 @@ class dataTrackOrderDetail extends Model
     public $jobStatus;
 
     /**
+     * @description Indicates whether the database is a logical database. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -51,6 +76,8 @@ class dataTrackOrderDetail extends Model
     public $logic;
 
     /**
+     * @description The name of the database.
+     *
      * @example as_task
      *
      * @var string
@@ -58,6 +85,8 @@ class dataTrackOrderDetail extends Model
     public $schemaName;
 
     /**
+     * @description The description of the task status.
+     *
      * @example searching success
      *
      * @var string
@@ -65,11 +94,15 @@ class dataTrackOrderDetail extends Model
     public $statusDesc;
 
     /**
+     * @description The names of the tables for which data operations are tracked.
+     *
      * @var string[]
      */
     public $tableNames;
 
     /**
+     * @description The types of data operations that are tracked.
+     *
      * @var string[]
      */
     public $trackTypes;

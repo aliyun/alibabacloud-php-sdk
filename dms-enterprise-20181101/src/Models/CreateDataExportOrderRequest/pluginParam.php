@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class pluginParam extends Model
 {
     /**
+     * @description The estimated number of data rows to be affected.
+     *
      * @example 1
      *
      * @var int
@@ -17,11 +19,15 @@ class pluginParam extends Model
     public $affectRows;
 
     /**
+     * @description The reason for the export ticket.
+     *
      * @var string
      */
     public $classify;
 
     /**
+     * @description The database ID.
+     *
      * @example 18****
      *
      * @var int
@@ -29,6 +35,8 @@ class pluginParam extends Model
     public $dbId;
 
     /**
+     * @description The SQL statements that can be executed.
+     *
      * @example SELECT * FROM DMS_test
      * LIMIT 20;
      * @var string
@@ -36,6 +44,11 @@ class pluginParam extends Model
     public $exeSQL;
 
     /**
+     * @description Specifies whether to skip verification. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -43,11 +56,15 @@ class pluginParam extends Model
     public $ignoreAffectRows;
 
     /**
+     * @description The reason for skipping verification. This parameter is required if you set IgnoreAffectRows to true.
+     *
      * @var string
      */
     public $ignoreAffectRowsReason;
 
     /**
+     * @description The instance ID.
+     *
      * @example 132****
      *
      * @var int
@@ -55,6 +72,12 @@ class pluginParam extends Model
     public $instanceId;
 
     /**
+     * @description Specifies whether the database is a logical database. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * > If you set this parameter to **true**, the database that you specify must be a logical database.
      * @example true
      *
      * @var bool
@@ -62,6 +85,8 @@ class pluginParam extends Model
     public $logic;
 
     /**
+     * @description The information about the watermarks.
+     *
      * @var watermark
      */
     public $watermark;

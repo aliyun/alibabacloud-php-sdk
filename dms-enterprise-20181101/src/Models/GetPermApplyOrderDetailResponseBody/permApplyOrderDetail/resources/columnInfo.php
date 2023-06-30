@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class columnInfo extends Model
 {
     /**
-     * @description The name of the table.
+     * @description The name of the column.
      *
      * @example test_col
      *
@@ -18,7 +18,7 @@ class columnInfo extends Model
     public $columnName;
 
     /**
-     * @description The information about the column.
+     * @description The name of the table.
      *
      * @example test_tb
      *

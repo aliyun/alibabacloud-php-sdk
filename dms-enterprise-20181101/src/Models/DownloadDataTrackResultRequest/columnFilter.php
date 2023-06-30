@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class columnFilter extends Model
 {
     /**
+     * @description The end value of the range used in the filter condition. This parameter takes effect only when Operator is set to BETWEEN.
+     *
      * @example 10
      *
      * @var string
@@ -16,6 +18,8 @@ class columnFilter extends Model
     public $betweenEnd;
 
     /**
+     * @description The start value of the range used in the filter condition. This parameter takes effect only when Operator is set to BETWEEN.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,8 @@ class columnFilter extends Model
     public $betweenStart;
 
     /**
+     * @description The name of the column.
+     *
      * @example account_name
      *
      * @var string
@@ -30,11 +36,23 @@ class columnFilter extends Model
     public $columnName;
 
     /**
+     * @description The IN list used in the filter condition.
+     *
      * @var string[]
      */
     public $inList;
 
     /**
+     * @description The type of the operator used to configure the filter condition. Valid values:
+     *
+     *   **EQUAL**: retrieves the column whose value is equal to the specified value.
+     *   **NOT_EQUAL**: retrieves the column whose value is not equal to the specified value.
+     *   **IN**: retrieves the column whose value is in the IN list.
+     *   **BETWEEN**: retrieves the column whose value is in the specified range.
+     *   **LESS**: retrieves the column whose value is less than the specified value.
+     *   **MORE**: retrieves the column whose value is greater than the specified value.
+     *   **NOT_IN**: retrieves the column whose value is not in the IN list.
+     *
      * @example EQUAL
      *
      * @var string
@@ -42,6 +60,8 @@ class columnFilter extends Model
     public $operator;
 
     /**
+     * @description The value used in the filter condition.
+     *
      * @example 1
      *
      * @var string

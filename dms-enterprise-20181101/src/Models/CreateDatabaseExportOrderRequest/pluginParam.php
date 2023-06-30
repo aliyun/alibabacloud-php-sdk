@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class pluginParam extends Model
 {
     /**
+     * @description The reason for the database export.
+     *
      * @var string
      */
     public $classify;
 
     /**
+     * @description The configurations for database export.
+     *
      * @var config
      */
     public $config;
 
     /**
+     * @description The database ID.
+     *
      * @example 17****
      *
      * @var int
@@ -27,6 +33,8 @@ class pluginParam extends Model
     public $dbId;
 
     /**
+     * @description The instance ID.
+     *
      * @example 137****
      *
      * @var int
@@ -34,6 +42,11 @@ class pluginParam extends Model
     public $instanceId;
 
     /**
+     * @description Specifies whether the database is a logical database. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -41,6 +54,8 @@ class pluginParam extends Model
     public $logic;
 
     /**
+     * @description The name that is used to search for the database.
+     *
      * @example test@xxx.xxx.xxx.xxx:3306
      *
      * @var string

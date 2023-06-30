@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDataExportOrderRequest extends Model
 {
     /**
+     * @description The key of the attachment that provides more instructions for the ticket. You can call the [GetUserUploadFileJob](~~206069~~) operation to obtain the attachment key.
+     *
      * @example order_attachment.txt
      *
      * @var string
@@ -17,11 +19,15 @@ class CreateDataExportOrderRequest extends Model
     public $attachmentKey;
 
     /**
+     * @description The purpose or objective of the ticket. This parameter helps reduce unnecessary communication.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The ID of the parent ticket.
+     *
      * @example 877****
      *
      * @var int
@@ -29,16 +35,23 @@ class CreateDataExportOrderRequest extends Model
     public $parentId;
 
     /**
+     * @description The parameters of the ticket.
+     *
      * @var pluginParam
      */
     public $pluginParam;
 
     /**
+     * @description The stakeholders involved in this operation.
+     *
      * @var int[]
      */
     public $relatedUserList;
 
     /**
+     * @description The tenant ID.
+     *
+     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the DMS console. For more information, see the [View information about the current tenant](~~181330~~) section of the "Manage DMS tenants" topic.
      * @example 3***
      *
      * @var int

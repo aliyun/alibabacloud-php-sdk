@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class columns extends Model
 {
     /**
+     * @description The name of the column.
+     *
      * @example basic_platform
      *
      * @var string
@@ -16,6 +18,8 @@ class columns extends Model
     public $columnName;
 
     /**
+     * @description The position of the column.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class columns extends Model
     public $columnPosition;
 
     /**
+     * @description The data type of the column. Examples: BIGINT, INT, and VARCHAR.
+     *
      * @example BIGINT
      *
      * @var string
@@ -30,6 +36,11 @@ class columns extends Model
     public $columnType;
 
     /**
+     * @description Indicates whether the column is a virtual column. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

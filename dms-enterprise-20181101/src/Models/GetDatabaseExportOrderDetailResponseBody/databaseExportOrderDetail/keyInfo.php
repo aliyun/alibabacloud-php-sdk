@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class keyInfo extends Model
 {
     /**
+     * @description The time when the ticket was submitted.
+     *
      * @example 2023-04-13 13:44:59
      *
      * @var string
@@ -17,11 +19,15 @@ class keyInfo extends Model
     public $auditDate;
 
     /**
+     * @description The configuration information about the ticket.
+     *
      * @var config
      */
     public $config;
 
     /**
+     * @description The database ID.
+     *
      * @example 2583****
      *
      * @var int
@@ -29,6 +35,8 @@ class keyInfo extends Model
     public $dbId;
 
     /**
+     * @description The URL that is used to download the export result.
+     *
      * @example https://oss.xxx.com
      *
      * @var string

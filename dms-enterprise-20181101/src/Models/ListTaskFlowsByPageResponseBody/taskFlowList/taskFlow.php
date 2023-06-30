@@ -29,7 +29,12 @@ class taskFlow extends Model
     /**
      * @var string
      */
-    public $cronParam;
+    public $cronBeginDate;
+
+    /**
+     * @var string
+     */
+    public $cronEndDate;
 
     /**
      * @var string
@@ -54,6 +59,11 @@ class taskFlow extends Model
      * @var string
      */
     public $dagName;
+
+    /**
+     * @var string
+     */
+    public $dagOwnerId;
 
     /**
      * @description The username of the owner of the task flow.
@@ -119,6 +129,11 @@ class taskFlow extends Model
     public $scenarioId;
 
     /**
+     * @var string
+     */
+    public $scheduleParam;
+
+    /**
      * @description The status of the task flow. Valid values:
      *
      *   **0**: invalid
@@ -143,11 +158,13 @@ class taskFlow extends Model
     protected $_name = [
         'creatorId'            => 'CreatorId',
         'creatorNickName'      => 'CreatorNickName',
-        'cronParam'            => 'CronParam',
+        'cronBeginDate'        => 'CronBeginDate',
+        'cronEndDate'          => 'CronEndDate',
         'cronStr'              => 'CronStr',
         'cronSwitch'           => 'CronSwitch',
         'cronType'             => 'CronType',
         'dagName'              => 'DagName',
+        'dagOwnerId'           => 'DagOwnerId',
         'dagOwnerNickName'     => 'DagOwnerNickName',
         'deployId'             => 'DeployId',
         'description'          => 'Description',
@@ -155,6 +172,7 @@ class taskFlow extends Model
         'latestInstanceStatus' => 'LatestInstanceStatus',
         'latestInstanceTime'   => 'LatestInstanceTime',
         'scenarioId'           => 'ScenarioId',
+        'scheduleParam'        => 'ScheduleParam',
         'status'               => 'Status',
         'timeZoneId'           => 'TimeZoneId',
         'triggerType'          => 'TriggerType',
@@ -173,8 +191,11 @@ class taskFlow extends Model
         if (null !== $this->creatorNickName) {
             $res['CreatorNickName'] = $this->creatorNickName;
         }
-        if (null !== $this->cronParam) {
-            $res['CronParam'] = $this->cronParam;
+        if (null !== $this->cronBeginDate) {
+            $res['CronBeginDate'] = $this->cronBeginDate;
+        }
+        if (null !== $this->cronEndDate) {
+            $res['CronEndDate'] = $this->cronEndDate;
         }
         if (null !== $this->cronStr) {
             $res['CronStr'] = $this->cronStr;
@@ -187,6 +208,9 @@ class taskFlow extends Model
         }
         if (null !== $this->dagName) {
             $res['DagName'] = $this->dagName;
+        }
+        if (null !== $this->dagOwnerId) {
+            $res['DagOwnerId'] = $this->dagOwnerId;
         }
         if (null !== $this->dagOwnerNickName) {
             $res['DagOwnerNickName'] = $this->dagOwnerNickName;
@@ -208,6 +232,9 @@ class taskFlow extends Model
         }
         if (null !== $this->scenarioId) {
             $res['ScenarioId'] = $this->scenarioId;
+        }
+        if (null !== $this->scheduleParam) {
+            $res['ScheduleParam'] = $this->scheduleParam;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -236,8 +263,11 @@ class taskFlow extends Model
         if (isset($map['CreatorNickName'])) {
             $model->creatorNickName = $map['CreatorNickName'];
         }
-        if (isset($map['CronParam'])) {
-            $model->cronParam = $map['CronParam'];
+        if (isset($map['CronBeginDate'])) {
+            $model->cronBeginDate = $map['CronBeginDate'];
+        }
+        if (isset($map['CronEndDate'])) {
+            $model->cronEndDate = $map['CronEndDate'];
         }
         if (isset($map['CronStr'])) {
             $model->cronStr = $map['CronStr'];
@@ -250,6 +280,9 @@ class taskFlow extends Model
         }
         if (isset($map['DagName'])) {
             $model->dagName = $map['DagName'];
+        }
+        if (isset($map['DagOwnerId'])) {
+            $model->dagOwnerId = $map['DagOwnerId'];
         }
         if (isset($map['DagOwnerNickName'])) {
             $model->dagOwnerNickName = $map['DagOwnerNickName'];
@@ -271,6 +304,9 @@ class taskFlow extends Model
         }
         if (isset($map['ScenarioId'])) {
             $model->scenarioId = $map['ScenarioId'];
+        }
+        if (isset($map['ScheduleParam'])) {
+            $model->scheduleParam = $map['ScheduleParam'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

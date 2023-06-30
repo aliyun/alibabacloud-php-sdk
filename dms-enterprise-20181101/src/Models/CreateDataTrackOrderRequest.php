@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class CreateDataTrackOrderRequest extends Model
 {
     /**
+     * @description The purpose or objective of the data tracking ticket. This parameter is used to help reduce unnecessary communication.
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The parameters of the ticket.
+     *
      * @var param
      */
     public $param;
 
     /**
+     * @description The IDs of the operators that are related to the ticket.
+     *
      * @var string[]
      */
     public $relatedUserList;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to query the tenant ID.
+     *
      * @example 3***
      *
      * @var int

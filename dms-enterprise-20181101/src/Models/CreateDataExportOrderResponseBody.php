@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateDataExportOrderResponseBody extends Model
 {
     /**
+     * @description The content of the ticket.
+     *
      * @var createOrderResult
      */
     public $createOrderResult;
 
     /**
+     * @description The error code.
+     *
      * @example UnknownError
      *
      * @var string
@@ -22,6 +26,8 @@ class CreateDataExportOrderResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -29,6 +35,8 @@ class CreateDataExportOrderResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
      * @example 7FAD400F-7A5C-4193-8F9A-39D86C4F0231
      *
      * @var string
@@ -36,6 +44,11 @@ class CreateDataExportOrderResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDataTrackResultDownloadStatusRequest extends Model
 {
     /**
+     * @description The ID of the download key, which is used to identify the parsing progress of data tracking logs. You can call the DownloadDataTrackResult operation to query the ID of the key.
+     *
      * @example e23dd7ec-a19f-4a69-8eb3-8ffd26e6****
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryDataTrackResultDownloadStatusRequest extends Model
     public $downloadKeyId;
 
     /**
+     * @description The ID of the ticket. You can call the [ListOrders](~~144643~~) operation to query the ID of the ticket.
+     *
      * @example 11****
      *
      * @var int
@@ -23,6 +27,8 @@ class QueryDataTrackResultDownloadStatusRequest extends Model
     public $orderId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the ID of the tenant.
+     *
      * @example 1***
      *
      * @var int

@@ -24,15 +24,16 @@ class permApplyOrderDetail extends Model
     public $applyType;
 
     /**
-     * @description The type of permissions that you apply for. Valid values:
+     * @description The type of the permissions that you apply for. Valid values:
      *
-     *   **1**: the permissions to query information
-     *   **2**: the permissions to export information
-     *   **3**: the permissions to query and export information
-     *   **4**: the permissions to modify information
-     *   **5**: the permissions to query and modify information
-     *   **6**: the permissions to export and modify information
-     *   **7**: the permissions to query, export, and modify information
+     *   **1**: the permissions to query information.
+     *   **2**: the permissions to export information.
+     *   **3**: the permissions to query and export information.
+     *   **4**: the permissions to modify information.
+     *   **5**: the permissions to query and modify information.
+     *   **6**: the permissions to export and modify information.
+     *   **7**: the permissions to query, export, and modify information.
+     *   **8**: the permissions to log on to the database.
      *
      * @example 7
      *

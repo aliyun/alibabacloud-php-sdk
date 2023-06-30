@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SearchDataTrackResultShrinkRequest extends Model
 {
     /**
+     * @description The condition to filter columns.
+     *
      * @var string
      */
     public $columnFilterShrink;
 
     /**
+     * @description The end time of the time range in which you want to track data operations. The time must be in the yyyy-MM-dd HH:mm:ss format.
+     *
      * @example 2023-04-23 10:00:00
      *
      * @var string
@@ -21,6 +25,8 @@ class SearchDataTrackResultShrinkRequest extends Model
     public $filterEndTime;
 
     /**
+     * @description The start time of the time range in which you want to track data operations. The time must be in the yyyy-MM-dd HH:mm:ss format.
+     *
      * @example 2023-04-23 00:00:00
      *
      * @var string
@@ -28,16 +34,22 @@ class SearchDataTrackResultShrinkRequest extends Model
     public $filterStartTime;
 
     /**
+     * @description The names of the tables for which you want to track data operations.
+     *
      * @var string
      */
     public $filterTableListShrink;
 
     /**
+     * @description The types of data operations that you want to track.
+     *
      * @var string
      */
     public $filterTypeListShrink;
 
     /**
+     * @description The ID of the ticket. You can call the [ListOrders](~~144643~~) operation to query the ticket ID.
+     *
      * @example 420****
      *
      * @var int
@@ -45,6 +57,8 @@ class SearchDataTrackResultShrinkRequest extends Model
     public $orderId;
 
     /**
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~198074~~) operation to query the tenant ID.
+     *
      * @example 62***
      *
      * @var int

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The export options for big data. The options are used to filter the big data to be exported. You can leave this parameter empty.
+     *
      * @var string[]
      */
     public $dataOption;
 
     /**
+     * @description The type of data that you want to export. Valid values:
+     *
+     *   **DATA**: The data of the database is exported.
+     *   **STRUCT**: The schema of the database is exported.
+     *   **DATA_STRUCT**: The data and schema of the database are exported.
+     *
      * @example DATA
      *
      * @var string
@@ -21,26 +29,40 @@ class config extends Model
     public $exportContent;
 
     /**
+     * @description The types of schemas that you want to export.
+     *
      * @var string[]
      */
     public $exportTypes;
 
     /**
+     * @description The extension options of the SQL script. You can leave this parameter empty.
+     *
      * @var string[]
      */
     public $SQLExtOption;
 
     /**
+     * @description The tables that you want to export.
+     *
      * @var string[]
      */
     public $selectedTables;
 
     /**
+     * @description The conditions used to filter the tables to be exported.
+     *
      * @var string[]
      */
     public $tables;
 
     /**
+     * @description The format in which the database is exported. Valid values:
+     *
+     *   **SQL**
+     *   **CSV**
+     *   **XLSX**
+     *
      * @example SQL
      *
      * @var string

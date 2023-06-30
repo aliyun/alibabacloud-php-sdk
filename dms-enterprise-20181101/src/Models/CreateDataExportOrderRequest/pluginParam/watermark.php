@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class watermark extends Model
 {
     /**
+     * @description The field into which the watermark is to be embedded.
+     *
      * @example user_number
      *
      * @var string
@@ -16,21 +18,29 @@ class watermark extends Model
     public $columnName;
 
     /**
+     * @description The information to be embedded as a watermark into data.
+     *
      * @var string
      */
     public $dataWatermark;
 
     /**
+     * @description The information to be embedded as a watermark into files.
+     *
      * @var string
      */
     public $fileWatermark;
 
     /**
+     * @description One or more primary keys or unique keys.
+     *
      * @var string[]
      */
     public $keys;
 
     /**
+     * @description The methods in which the watermark is embedded.
+     *
      * @var string[]
      */
     public $watermarkTypes;

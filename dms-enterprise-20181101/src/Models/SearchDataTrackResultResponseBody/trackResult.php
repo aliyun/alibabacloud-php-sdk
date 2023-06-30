@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class trackResult extends Model
 {
     /**
+     * @description The details of the event logs.
+     *
      * @var eventList[]
      */
     public $eventList;
 
     /**
+     * @description The metadata of tables for which you track data operations.
+     *
      * @var tableInfoList[]
      */
     public $tableInfoList;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 109
      *
      * @var int

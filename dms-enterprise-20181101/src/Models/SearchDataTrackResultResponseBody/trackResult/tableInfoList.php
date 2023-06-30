@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class tableInfoList extends Model
 {
     /**
+     * @description The information about columns.
+     *
      * @var columns[]
      */
     public $columns;
 
     /**
+     * @description The description of the column.
+     *
      * @example auto-description
      *
      * @var string
@@ -22,6 +26,8 @@ class tableInfoList extends Model
     public $description;
 
     /**
+     * @description The name of the database.
+     *
      * @example prod_eb_vas
      *
      * @var string
@@ -29,6 +35,8 @@ class tableInfoList extends Model
     public $schemaName;
 
     /**
+     * @description The name of the table.
+     *
      * @example import_table_test1
      *
      * @var string

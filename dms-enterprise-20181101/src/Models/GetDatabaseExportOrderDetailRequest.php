@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDatabaseExportOrderDetailRequest extends Model
 {
     /**
+     * @description The ticket ID. You can call the [ListOrders](~~144643~~) operation to obtain the ticket ID.
+     *
      * @example 821****
      *
      * @var int
@@ -16,6 +18,9 @@ class GetDatabaseExportOrderDetailRequest extends Model
     public $orderId;
 
     /**
+     * @description The ID of the tenant.
+     *
+     * > To view the ID of the tenant, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the [View information about the current tenant](~~181330~~) section of the "Manage DMS tenants" topic.
      * @example 3***
      *
      * @var int

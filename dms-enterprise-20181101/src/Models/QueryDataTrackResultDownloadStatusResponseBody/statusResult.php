@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class statusResult extends Model
 {
     /**
+     * @description The status of the download task. Valid values:
+     *
+     *   **INIT**: The download task is being initialized.
+     *   **LISTING**: The download task is in a transient intermediate state during the initialization.
+     *   **DOWNLOADING**: The download task is being processed.
+     *   **DOWNLOAD_SUCCESS**: The download task was successfully processed.
+     *   **DOWNLOAD_FAIL**: The download task failed.
+     *
      * @example DOWNLOAD_SUCCESS
      *
      * @var string
@@ -16,6 +24,8 @@ class statusResult extends Model
     public $downloadStatus;
 
     /**
+     * @description The URL that is used to download data tracking logs. This parameter is returned only when the value of DownloadStatus is DOWNLOAD_SUCCESS.
+     *
      * @example https://idbsaasstore.oss-cn-zhangjiakou.aliyuncs.com/****_REDO_31201_207.zip?Expires=1682239593&OSSAccessKeyId=****&Signature=****
      *
      * @var string
@@ -23,6 +33,8 @@ class statusResult extends Model
     public $downloadUrl;
 
     /**
+     * @description The description of the state.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -30,6 +42,8 @@ class statusResult extends Model
     public $statusDesc;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 69
      *
      * @var int

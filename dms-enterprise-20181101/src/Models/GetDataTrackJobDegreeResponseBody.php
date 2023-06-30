@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetDataTrackJobDegreeResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -17,6 +19,8 @@ class GetDataTrackJobDegreeResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example UnknownError
      *
      * @var string
@@ -24,11 +28,15 @@ class GetDataTrackJobDegreeResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The progress details of the data tracking task.
+     *
      * @var jobDegree
      */
     public $jobDegree;
 
     /**
+     * @description The request ID.
+     *
      * @example C51420E3-144A-4A94-B473-8662FCF4AD10
      *
      * @var string
@@ -36,6 +44,11 @@ class GetDataTrackJobDegreeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

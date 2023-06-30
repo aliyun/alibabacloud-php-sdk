@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class tableMetaList extends Model
 {
     /**
+     * @description The information about columns.
+     *
      * @var columns[]
      */
     public $columns;
 
     /**
+     * @description The name of the database.
+     *
      * @example DB165
      *
      * @var string
@@ -22,6 +26,8 @@ class tableMetaList extends Model
     public $schemaName;
 
     /**
+     * @description The name of the table.
+     *
      * @example live_stat
      *
      * @var string

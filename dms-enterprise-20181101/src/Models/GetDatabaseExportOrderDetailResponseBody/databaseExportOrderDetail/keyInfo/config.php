@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The database name.
+     *
      * @example dmstest
      *
      * @var string
@@ -19,6 +21,12 @@ class config extends Model
     public $dbName;
 
     /**
+     * @description The type of data that was exported. Valid values:
+     *
+     *   **DATA**: The data of the database was exported.
+     *   **STRUCT**: The schema of the database was exported.
+     *   **DATA_STRUCT**: The data and schema of the database were exported.
+     *
      * @example DATA
      *
      * @var string
@@ -26,21 +34,33 @@ class config extends Model
     public $exportContent;
 
     /**
+     * @description The type of schema that was exported.
+     *
      * @var exportTypes
      */
     public $exportTypes;
 
     /**
+     * @description The extension options of the SQL script.
+     *
      * @var SQLExtOption
      */
     public $SQLExtOption;
 
     /**
+     * @description The tables that were exported from the database.
+     *
      * @var selectedTables
      */
     public $selectedTables;
 
     /**
+     * @description The format in which the database was exported. Valid values:
+     *
+     *   **SQL**
+     *   **CSV**
+     *   **XLSX**
+     *
      * @example SQL
      *
      * @var string

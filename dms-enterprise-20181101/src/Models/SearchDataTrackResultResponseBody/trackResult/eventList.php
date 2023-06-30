@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class eventList extends Model
 {
     /**
+     * @description The data records after you perform data operations in the database.
+     *
      * @var string[]
      */
     public $dataAfter;
 
     /**
+     * @description The data records before you perform data operations in the database.
+     *
      * @var string[]
      */
     public $dataBefore;
 
     /**
+     * @description The ID of the event.
+     *
      * @example 1
      *
      * @var int
@@ -26,6 +32,8 @@ class eventList extends Model
     public $eventId;
 
     /**
+     * @description The length of the event content. Unit: bytes.
+     *
      * @example 4324
      *
      * @var int
@@ -33,6 +41,8 @@ class eventList extends Model
     public $eventLength;
 
     /**
+     * @description The event time.
+     *
      * @example 2023-04-23 10:25:47
      *
      * @var string
@@ -40,6 +50,15 @@ class eventList extends Model
     public $eventTimestamp;
 
     /**
+     * @description The type of the event. Valid values:
+     *
+     *   **WRITE_ROWS**: indicates an INSERT operation.
+     *   **UPDATE_ROWS**: indicates an UPDATE operation.
+     *   **DELETE_ROWS**: indicates a DELETE operation.
+     *   **EXT_WRITE_ROWS**: indicates an INSERT operation, which is equivalent to WRITE_ROWS.
+     *   **EXT_UPDATE_ROWS**: indicates an UPDATE operation, which is equivalent to UPDATE_ROWS.
+     *   **EXT_DELETE_ROWS**: indicates a DELETE operation, which is equivalent to DELETE_ROWS.
+     *
      * @example UPDATE_ROWS
      *
      * @var string
@@ -47,6 +66,8 @@ class eventList extends Model
     public $eventType;
 
     /**
+     * @description The SQL statements used to roll back the data change.
+     *
      * @example -- Timestamp:2023-04-23 10:25:47 #1\r\nUPDATE `dc_test`.`tb_chunk_dml` SET `id`=1 , `gmt_create`=\"2021-09-30T00:00:00\" , `content`=\"2023-03-30 14:51:50\" , `c1`=\"2023-04-17 13:42:03\" , `c_id`=1 , `c13425`=\"b\\\"\" , `c432532535`= null , `c1432`= null , `c143243253`= null , `c1432535`= null , `c43125325`= null , `c3425325`= null WHERE  (`id`=1)"
      *
      * @var string

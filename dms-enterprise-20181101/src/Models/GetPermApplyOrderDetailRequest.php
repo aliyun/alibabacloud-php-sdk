@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetPermApplyOrderDetailRequest extends Model
 {
     /**
-     * @description The ID of the ticket.
+     * @description The ticket ID. You can call the [ListOrders](~~465867~~) operation to query the ticket ID.
      *
      * @example 730000
      *
@@ -18,9 +18,9 @@ class GetPermApplyOrderDetailRequest extends Model
     public $orderId;
 
     /**
-     * @description The ID of the tenant.
+     * @description The tenant ID.
      *
-     * > To view the ID of the tenant, log on to the Data Management (DMS) console and move the pointer over the profile picture in the upper-right corner. For more information, see [Manage DMS tenants](~~181330~~).
+     * > To view the tenant ID, move the pointer over the profile picture in the upper-right corner of the Data Management (DMS) console. For more information, see the [View information about the current tenant](~~181330~~) section of the "Manage DMS tenants" topic.
      * @example -1
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class jobDegree extends Model
 {
     /**
+     * @description The progress of binary log download. Valid values: 0 to 1. A value of 1 indicates that binary log download is complete.
+     *
      * @example 1
      *
      * @var float
@@ -16,6 +18,8 @@ class jobDegree extends Model
     public $downloadCompletionDegree;
 
     /**
+     * @description The progress of binary log parsing. Valid values: 0 to 1. A value of 1 indicates that binary log parsing is complete.
+     *
      * @example 1
      *
      * @var float
@@ -23,6 +27,18 @@ class jobDegree extends Model
     public $filterCompletionDegree;
 
     /**
+     * @description The status of the data tracking task. Valid values:
+     *
+     *   **INIT**: The task is being initialized.
+     *   **LISTING**: The binary logs are being obtained.
+     *   **LIST_SUCCESS**: The binary logs are successfully obtained.
+     *   **DOWNLOADING**: The binary logs are being downloaded.
+     *   **DOWNLOAD_FAIL**: The binary logs failed to be downloaded.
+     *   **DOWNLOAD_SUCCESS**: The binary logs are successfully downloaded.
+     *   **FILTERING**: The binary logs are being parsed.
+     *   **FILTER_FAIL**: The binary logs failed to be parsed.
+     *   **FILTER_SUCCESS**: The binary logs are successfully parsed.
+     *
      * @example FILTER_SUCCESS
      *
      * @var string
@@ -30,6 +46,8 @@ class jobDegree extends Model
     public $jobStatus;
 
     /**
+     * @description The progress of binary log obtaining. Valid values: 0 to 1. A value of 1 indicates that binary log obtaining is complete.
+     *
      * @example 1
      *
      * @var float
@@ -37,6 +55,8 @@ class jobDegree extends Model
     public $listCompletionDegree;
 
     /**
+     * @description The description of the task status.
+     *
      * @example searching success
      *
      * @var string
