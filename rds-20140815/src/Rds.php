@@ -13373,6 +13373,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->backupPolicyMode)) {
             $query['BackupPolicyMode'] = $request->backupPolicyMode;
         }
+        if (!Utils::isUnset($request->backupPriority)) {
+            $query['BackupPriority'] = $request->backupPriority;
+        }
         if (!Utils::isUnset($request->backupRetentionPeriod)) {
             $query['BackupRetentionPeriod'] = $request->backupRetentionPeriod;
         }

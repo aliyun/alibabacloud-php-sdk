@@ -73,6 +73,11 @@ class DescribeBackupPolicyResponseBody extends Model
     public $backupMethod;
 
     /**
+     * @var int
+     */
+    public $backupPriority;
+
+    /**
      * @description The number of days for which data backup files are retained.
      *
      * @example 7
@@ -252,6 +257,11 @@ class DescribeBackupPolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @var bool
+     */
+    public $supportModifyBackupPriority;
+
+    /**
      * @description A reserved parameter.
      *
      * @example 0
@@ -279,6 +289,7 @@ class DescribeBackupPolicyResponseBody extends Model
         'backupInterval'                => 'BackupInterval',
         'backupLog'                     => 'BackupLog',
         'backupMethod'                  => 'BackupMethod',
+        'backupPriority'                => 'BackupPriority',
         'backupRetentionPeriod'         => 'BackupRetentionPeriod',
         'category'                      => 'Category',
         'compressType'                  => 'CompressType',
@@ -295,6 +306,7 @@ class DescribeBackupPolicyResponseBody extends Model
         'preferredNextBackupTime'       => 'PreferredNextBackupTime',
         'releasedKeepPolicy'            => 'ReleasedKeepPolicy',
         'requestId'                     => 'RequestId',
+        'supportModifyBackupPriority'   => 'SupportModifyBackupPriority',
         'supportReleasedKeep'           => 'SupportReleasedKeep',
         'supportVolumeShadowCopy'       => 'SupportVolumeShadowCopy',
     ];
@@ -323,6 +335,9 @@ class DescribeBackupPolicyResponseBody extends Model
         }
         if (null !== $this->backupMethod) {
             $res['BackupMethod'] = $this->backupMethod;
+        }
+        if (null !== $this->backupPriority) {
+            $res['BackupPriority'] = $this->backupPriority;
         }
         if (null !== $this->backupRetentionPeriod) {
             $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
@@ -372,6 +387,9 @@ class DescribeBackupPolicyResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->supportModifyBackupPriority) {
+            $res['SupportModifyBackupPriority'] = $this->supportModifyBackupPriority;
+        }
         if (null !== $this->supportReleasedKeep) {
             $res['SupportReleasedKeep'] = $this->supportReleasedKeep;
         }
@@ -407,6 +425,9 @@ class DescribeBackupPolicyResponseBody extends Model
         }
         if (isset($map['BackupMethod'])) {
             $model->backupMethod = $map['BackupMethod'];
+        }
+        if (isset($map['BackupPriority'])) {
+            $model->backupPriority = $map['BackupPriority'];
         }
         if (isset($map['BackupRetentionPeriod'])) {
             $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
@@ -455,6 +476,9 @@ class DescribeBackupPolicyResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SupportModifyBackupPriority'])) {
+            $model->supportModifyBackupPriority = $map['SupportModifyBackupPriority'];
         }
         if (isset($map['SupportReleasedKeep'])) {
             $model->supportReleasedKeep = $map['SupportReleasedKeep'];

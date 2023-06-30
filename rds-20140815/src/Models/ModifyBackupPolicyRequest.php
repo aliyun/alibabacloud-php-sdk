@@ -129,6 +129,11 @@ class ModifyBackupPolicyRequest extends Model
     public $backupPolicyMode;
 
     /**
+     * @var int
+     */
+    public $backupPriority;
+
+    /**
      * @description The number of days for which you want to retain data backup files. Valid values: **7 to 730**.
      *
      * >
@@ -391,6 +396,7 @@ class ModifyBackupPolicyRequest extends Model
         'backupLog'                     => 'BackupLog',
         'backupMethod'                  => 'BackupMethod',
         'backupPolicyMode'              => 'BackupPolicyMode',
+        'backupPriority'                => 'BackupPriority',
         'backupRetentionPeriod'         => 'BackupRetentionPeriod',
         'category'                      => 'Category',
         'compressType'                  => 'CompressType',
@@ -439,6 +445,9 @@ class ModifyBackupPolicyRequest extends Model
         }
         if (null !== $this->backupPolicyMode) {
             $res['BackupPolicyMode'] = $this->backupPolicyMode;
+        }
+        if (null !== $this->backupPriority) {
+            $res['BackupPriority'] = $this->backupPriority;
         }
         if (null !== $this->backupRetentionPeriod) {
             $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
@@ -529,6 +538,9 @@ class ModifyBackupPolicyRequest extends Model
         }
         if (isset($map['BackupPolicyMode'])) {
             $model->backupPolicyMode = $map['BackupPolicyMode'];
+        }
+        if (isset($map['BackupPriority'])) {
+            $model->backupPriority = $map['BackupPriority'];
         }
         if (isset($map['BackupRetentionPeriod'])) {
             $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
