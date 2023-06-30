@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteDataLimitRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteDataLimitResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteRuleRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DeleteRuleResponse;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeCategoryTemplateListRequest;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeCategoryTemplateListResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeCategoryTemplateRuleListRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeCategoryTemplateRuleListResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeColumnsRequest;
@@ -604,6 +606,58 @@ class Sddp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCategoryTemplateListRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeCategoryTemplateListResponse
+     */
+    public function describeCategoryTemplateListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->usageScenario)) {
+            $query['UsageScenario'] = $request->usageScenario;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCategoryTemplateList',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCategoryTemplateListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCategoryTemplateListRequest $request
+     *
+     * @return DescribeCategoryTemplateListResponse
+     */
+    public function describeCategoryTemplateList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCategoryTemplateListWithOptions($request, $runtime);
     }
 
     /**
