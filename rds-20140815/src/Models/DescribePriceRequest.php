@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Rds\V20140815\Models;
 
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceRequest\DBNode;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceRequest\serverlessConfig;
 use AlibabaCloud\Tea\Model;
 
 class DescribePriceRequest extends Model
@@ -192,6 +193,11 @@ class DescribePriceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var serverlessConfig
+     */
+    public $serverlessConfig;
+
+    /**
      * @description The unit that is used to calculate the subscription duration of the instance. If you set the **CommodityCode** parameter to **RDS**, **rds_rordspre_public_cn**, **rds_intl**, or **rds_rordspre_public_intl**, you must also specify this parameter. Valid values:
      *
      *   **Year**
@@ -244,6 +250,7 @@ class DescribePriceRequest extends Model
         'regionId'              => 'RegionId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
+        'serverlessConfig'      => 'ServerlessConfig',
         'timeType'              => 'TimeType',
         'usedTime'              => 'UsedTime',
         'zoneId'                => 'ZoneId',
@@ -315,6 +322,9 @@ class DescribePriceRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->serverlessConfig) {
+            $res['ServerlessConfig'] = null !== $this->serverlessConfig ? $this->serverlessConfig->toMap() : null;
         }
         if (null !== $this->timeType) {
             $res['TimeType'] = $this->timeType;
@@ -396,6 +406,9 @@ class DescribePriceRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ServerlessConfig'])) {
+            $model->serverlessConfig = serverlessConfig::fromMap($map['ServerlessConfig']);
         }
         if (isset($map['TimeType'])) {
             $model->timeType = $map['TimeType'];

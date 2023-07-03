@@ -10336,6 +10336,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($tmpReq->DBNode)) {
             $request->DBNodeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->DBNode, 'DBNode', 'json');
         }
+        if (!Utils::isUnset($tmpReq->serverlessConfig)) {
+            $request->serverlessConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfig, 'ServerlessConfig', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -10390,6 +10393,9 @@ class Rds extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->serverlessConfigShrink)) {
+            $query['ServerlessConfig'] = $request->serverlessConfigShrink;
         }
         if (!Utils::isUnset($request->timeType)) {
             $query['TimeType'] = $request->timeType;

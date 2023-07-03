@@ -191,6 +191,11 @@ class DescribePriceShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var string
+     */
+    public $serverlessConfigShrink;
+
+    /**
      * @description The unit that is used to calculate the subscription duration of the instance. If you set the **CommodityCode** parameter to **RDS**, **rds_rordspre_public_cn**, **rds_intl**, or **rds_rordspre_public_intl**, you must also specify this parameter. Valid values:
      *
      *   **Year**
@@ -225,27 +230,28 @@ class DescribePriceShrinkRequest extends Model
      */
     public $zoneId;
     protected $_name = [
-        'clientToken'           => 'ClientToken',
-        'commodityCode'         => 'CommodityCode',
-        'DBInstanceClass'       => 'DBInstanceClass',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceStorage'     => 'DBInstanceStorage',
-        'DBInstanceStorageType' => 'DBInstanceStorageType',
-        'DBNodeShrink'          => 'DBNode',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'instanceUsedType'      => 'InstanceUsedType',
-        'orderType'             => 'OrderType',
-        'ownerAccount'          => 'OwnerAccount',
-        'ownerId'               => 'OwnerId',
-        'payType'               => 'PayType',
-        'quantity'              => 'Quantity',
-        'regionId'              => 'RegionId',
-        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
-        'resourceOwnerId'       => 'ResourceOwnerId',
-        'timeType'              => 'TimeType',
-        'usedTime'              => 'UsedTime',
-        'zoneId'                => 'ZoneId',
+        'clientToken'            => 'ClientToken',
+        'commodityCode'          => 'CommodityCode',
+        'DBInstanceClass'        => 'DBInstanceClass',
+        'DBInstanceId'           => 'DBInstanceId',
+        'DBInstanceStorage'      => 'DBInstanceStorage',
+        'DBInstanceStorageType'  => 'DBInstanceStorageType',
+        'DBNodeShrink'           => 'DBNode',
+        'engine'                 => 'Engine',
+        'engineVersion'          => 'EngineVersion',
+        'instanceUsedType'       => 'InstanceUsedType',
+        'orderType'              => 'OrderType',
+        'ownerAccount'           => 'OwnerAccount',
+        'ownerId'                => 'OwnerId',
+        'payType'                => 'PayType',
+        'quantity'               => 'Quantity',
+        'regionId'               => 'RegionId',
+        'resourceOwnerAccount'   => 'ResourceOwnerAccount',
+        'resourceOwnerId'        => 'ResourceOwnerId',
+        'serverlessConfigShrink' => 'ServerlessConfig',
+        'timeType'               => 'TimeType',
+        'usedTime'               => 'UsedTime',
+        'zoneId'                 => 'ZoneId',
     ];
 
     public function validate()
@@ -308,6 +314,9 @@ class DescribePriceShrinkRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->serverlessConfigShrink) {
+            $res['ServerlessConfig'] = $this->serverlessConfigShrink;
         }
         if (null !== $this->timeType) {
             $res['TimeType'] = $this->timeType;
@@ -383,6 +392,9 @@ class DescribePriceShrinkRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['ServerlessConfig'])) {
+            $model->serverlessConfigShrink = $map['ServerlessConfig'];
         }
         if (isset($map['TimeType'])) {
             $model->timeType = $map['TimeType'];

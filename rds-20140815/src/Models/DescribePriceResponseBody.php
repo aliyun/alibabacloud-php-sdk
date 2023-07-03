@@ -37,11 +37,23 @@ class DescribePriceResponseBody extends Model
      * @var bool
      */
     public $showDiscount;
+
+    /**
+     * @var float
+     */
+    public $tradeMaxRCUAmount;
+
+    /**
+     * @var float
+     */
+    public $tradeMinRCUAmount;
     protected $_name = [
-        'priceInfo'    => 'PriceInfo',
-        'requestId'    => 'RequestId',
-        'rules'        => 'Rules',
-        'showDiscount' => 'ShowDiscount',
+        'priceInfo'         => 'PriceInfo',
+        'requestId'         => 'RequestId',
+        'rules'             => 'Rules',
+        'showDiscount'      => 'ShowDiscount',
+        'tradeMaxRCUAmount' => 'TradeMaxRCUAmount',
+        'tradeMinRCUAmount' => 'TradeMinRCUAmount',
     ];
 
     public function validate()
@@ -62,6 +74,12 @@ class DescribePriceResponseBody extends Model
         }
         if (null !== $this->showDiscount) {
             $res['ShowDiscount'] = $this->showDiscount;
+        }
+        if (null !== $this->tradeMaxRCUAmount) {
+            $res['TradeMaxRCUAmount'] = $this->tradeMaxRCUAmount;
+        }
+        if (null !== $this->tradeMinRCUAmount) {
+            $res['TradeMinRCUAmount'] = $this->tradeMinRCUAmount;
         }
 
         return $res;
@@ -86,6 +104,12 @@ class DescribePriceResponseBody extends Model
         }
         if (isset($map['ShowDiscount'])) {
             $model->showDiscount = $map['ShowDiscount'];
+        }
+        if (isset($map['TradeMaxRCUAmount'])) {
+            $model->tradeMaxRCUAmount = $map['TradeMaxRCUAmount'];
+        }
+        if (isset($map['TradeMinRCUAmount'])) {
+            $model->tradeMinRCUAmount = $map['TradeMinRCUAmount'];
         }
 
         return $model;

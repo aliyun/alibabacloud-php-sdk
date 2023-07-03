@@ -34,6 +34,10 @@ class AddTagsToResourceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The logon name of the RAM user.
+     *
+     * @example testuser@aliyun.com
+     *
      * @var string
      */
     public $ownerAccount;
