@@ -63,11 +63,15 @@ class CreateAsyncPredictRequest extends Model
     public $modelVersion;
 
     /**
+     * @example ContractNERPretrain
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example V1
+     *
      * @var string
      */
     public $serviceVersion;

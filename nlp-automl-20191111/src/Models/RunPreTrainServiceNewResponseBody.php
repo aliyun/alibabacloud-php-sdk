@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Nlpautoml\V20191111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RunPreTrainServiceResponseBody extends Model
+class RunPreTrainServiceNewResponseBody extends Model
 {
     /**
      * @var int
@@ -19,8 +19,6 @@ class RunPreTrainServiceResponseBody extends Model
     public $predictResult;
 
     /**
-     * @example 7310FFCF-9FE8-4257-AE38-0E1AD828C2CC
-     *
      * @var string
      */
     public $requestId;
@@ -53,7 +51,7 @@ class RunPreTrainServiceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RunPreTrainServiceResponseBody
+     * @return RunPreTrainServiceNewResponseBody
      */
     public static function fromMap($map = [])
     {

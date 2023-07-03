@@ -8,10 +8,14 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Nlpautoml\V20191111\Models\CreateAsyncPredictRequest;
 use AlibabaCloud\SDK\Nlpautoml\V20191111\Models\CreateAsyncPredictResponse;
+use AlibabaCloud\SDK\Nlpautoml\V20191111\Models\FindUserReport4AlinlpRequest;
+use AlibabaCloud\SDK\Nlpautoml\V20191111\Models\FindUserReport4AlinlpResponse;
 use AlibabaCloud\SDK\Nlpautoml\V20191111\Models\GetAsyncPredictRequest;
 use AlibabaCloud\SDK\Nlpautoml\V20191111\Models\GetAsyncPredictResponse;
 use AlibabaCloud\SDK\Nlpautoml\V20191111\Models\GetPredictResultRequest;
 use AlibabaCloud\SDK\Nlpautoml\V20191111\Models\GetPredictResultResponse;
+use AlibabaCloud\SDK\Nlpautoml\V20191111\Models\RunPreTrainServiceNewRequest;
+use AlibabaCloud\SDK\Nlpautoml\V20191111\Models\RunPreTrainServiceNewResponse;
 use AlibabaCloud\SDK\Nlpautoml\V20191111\Models\RunPreTrainServiceRequest;
 use AlibabaCloud\SDK\Nlpautoml\V20191111\Models\RunPreTrainServiceResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -124,6 +128,61 @@ class Nlpautoml extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAsyncPredictWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param FindUserReport4AlinlpRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return FindUserReport4AlinlpResponse
+     */
+    public function findUserReport4AlinlpWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->beginTime)) {
+            $body['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->customerUserParentId)) {
+            $body['CustomerUserParentId'] = $request->customerUserParentId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->modelType)) {
+            $body['ModelType'] = $request->modelType;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'FindUserReport4Alinlp',
+            'version'     => '2019-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FindUserReport4AlinlpResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FindUserReport4AlinlpRequest $request
+     *
+     * @return FindUserReport4AlinlpResponse
+     */
+    public function findUserReport4Alinlp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->findUserReport4AlinlpWithOptions($request, $runtime);
     }
 
     /**
@@ -268,5 +327,54 @@ class Nlpautoml extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->runPreTrainServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RunPreTrainServiceNewRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return RunPreTrainServiceNewResponse
+     */
+    public function runPreTrainServiceNewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->predictContent)) {
+            $body['PredictContent'] = $request->predictContent;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $body['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $body['ServiceVersion'] = $request->serviceVersion;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RunPreTrainServiceNew',
+            'version'     => '2019-11-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RunPreTrainServiceNewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RunPreTrainServiceNewRequest $request
+     *
+     * @return RunPreTrainServiceNewResponse
+     */
+    public function runPreTrainServiceNew($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->runPreTrainServiceNewWithOptions($request, $runtime);
     }
 }
