@@ -37,17 +37,25 @@ class CreateVpcGatewayEndpointResponseBody extends Model
     public $requestId;
 
     /**
+     * @example rg-acfmxazb4ph****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example com.aliyun.cn-hangzhou.oss
      *
      * @var string
      */
     public $serviceName;
     protected $_name = [
-        'creationTime' => 'CreationTime',
-        'endpointId'   => 'EndpointId',
-        'endpointName' => 'EndpointName',
-        'requestId'    => 'RequestId',
-        'serviceName'  => 'ServiceName',
+        'creationTime'    => 'CreationTime',
+        'endpointId'      => 'EndpointId',
+        'endpointName'    => 'EndpointName',
+        'requestId'       => 'RequestId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'serviceName'     => 'ServiceName',
     ];
 
     public function validate()
@@ -68,6 +76,9 @@ class CreateVpcGatewayEndpointResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
@@ -95,6 +106,9 @@ class CreateVpcGatewayEndpointResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vpnBgpConfig extends Model
 {
     /**
+     * @description The authentication key of the BGP routing protocol.
+     *
      * @example AuthKey****
      *
      * @var string
@@ -16,6 +18,11 @@ class vpnBgpConfig extends Model
     public $authKey;
 
     /**
+     * @description The status of the BGP routing protocol. Valid values:
+     *
+     *   **true**: enabled
+     *   **false**: disabled
+     *
      * @example true
      *
      * @var string
@@ -23,6 +30,8 @@ class vpnBgpConfig extends Model
     public $enableBgp;
 
     /**
+     * @description The ASN on the Alibaba Cloud side.
+     *
      * @example 65531
      *
      * @var int
@@ -30,6 +39,8 @@ class vpnBgpConfig extends Model
     public $localAsn;
 
     /**
+     * @description The BGP IP address on the Alibaba Cloud side.
+     *
      * @example 169.254.11.2
      *
      * @var string
@@ -37,6 +48,8 @@ class vpnBgpConfig extends Model
     public $localBgpIp;
 
     /**
+     * @description The autonomous system number (ASN) of the peer.
+     *
      * @example 65530
      *
      * @var int
@@ -44,6 +57,8 @@ class vpnBgpConfig extends Model
     public $peerAsn;
 
     /**
+     * @description The BGP IP address of the peer.
+     *
      * @example 169.254.11.1
      *
      * @var string
@@ -51,6 +66,11 @@ class vpnBgpConfig extends Model
     public $peerBgpIp;
 
     /**
+     * @description The negotiation status of the BGP routing protocol.
+     *
+     *   **success**: normal
+     *   **failed**: abnormal
+     *
      * @example success
      *
      * @var string
@@ -58,6 +78,8 @@ class vpnBgpConfig extends Model
     public $status;
 
     /**
+     * @description The CIDR block of the IPsec tunnel. The CIDR block belongs to 169.254.0.0/16. The mask of the CIDR block is 30 bits in length.
+     *
      * @example 169.254.11.0/30
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ikeConfig extends Model
 {
     /**
+     * @description The IKE authentication algorithm.
+     *
      * @example sha1
      *
      * @var string
@@ -16,6 +18,8 @@ class ikeConfig extends Model
     public $ikeAuthAlg;
 
     /**
+     * @description The IKE encryption algorithm.
+     *
      * @example aes
      *
      * @var string
@@ -23,6 +27,8 @@ class ikeConfig extends Model
     public $ikeEncAlg;
 
     /**
+     * @description The IKE lifetime. Unit: seconds.
+     *
      * @example 86400
      *
      * @var int
@@ -30,6 +36,11 @@ class ikeConfig extends Model
     public $ikeLifetime;
 
     /**
+     * @description The IKE negotiation mode.
+     *
+     *   **main**: This mode offers higher security during negotiations.
+     *   **aggressive**: This mode is faster and has a higher success rate.
+     *
      * @example main
      *
      * @var string
@@ -37,6 +48,8 @@ class ikeConfig extends Model
     public $ikeMode;
 
     /**
+     * @description The DH group.
+     *
      * @example group2
      *
      * @var string
@@ -44,6 +57,12 @@ class ikeConfig extends Model
     public $ikePfs;
 
     /**
+     * @description The version of the IKE protocol.
+     *
+     *   **ikev1**
+     *   **ikev2**
+     *
+     * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and is more suitable for scenarios in which multiple CIDR blocks are used.
      * @example ikev1
      *
      * @var string
@@ -51,6 +70,8 @@ class ikeConfig extends Model
     public $ikeVersion;
 
     /**
+     * @description The identifier on the data center side.
+     *
      * @example 116.64.XX.XX
      *
      * @var string
@@ -58,6 +79,8 @@ class ikeConfig extends Model
     public $localId;
 
     /**
+     * @description The pre-shared key.
+     *
      * @example pgw6dy7****
      *
      * @var string
@@ -65,6 +88,8 @@ class ikeConfig extends Model
     public $psk;
 
     /**
+     * @description The identifier on the Alibaba Cloud side.
+     *
      * @example 139.17.XX.XX
      *
      * @var string

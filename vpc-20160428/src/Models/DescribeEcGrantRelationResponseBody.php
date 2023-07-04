@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEcGrantRelationResponseBody extends Model
 {
     /**
+     * @description The number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,11 +19,15 @@ class DescribeEcGrantRelationResponseBody extends Model
     public $count;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the VBR belongs.
+     *
      * @var ecGrantRelations[]
      */
     public $ecGrantRelations;
 
     /**
+     * @description The number of entries returned on each page.
+     *
      * @example 1
      *
      * @var int
@@ -36,6 +42,8 @@ class DescribeEcGrantRelationResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The query results.
+     *
      * @example E6E90F6B-2B41-5AAF-ABEB-236ADBAAD91D
      *
      * @var string
@@ -43,6 +51,8 @@ class DescribeEcGrantRelationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 10
      *
      * @var int

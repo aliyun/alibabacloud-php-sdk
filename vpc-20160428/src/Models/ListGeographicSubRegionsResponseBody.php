@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListGeographicSubRegionsResponseBody extends Model
 {
     /**
+     * @description The number of entries returned.
+     *
      * @example 10
      *
      * @var int
@@ -16,11 +18,15 @@ class ListGeographicSubRegionsResponseBody extends Model
     public $count;
 
     /**
+     * @description The list of regions available for Express Connect circuits.
+     *
      * @var string[]
      */
     public $geographicSubRegions;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
      * @var string

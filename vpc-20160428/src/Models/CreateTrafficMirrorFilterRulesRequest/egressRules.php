@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class egressRules extends Model
 {
     /**
+     * @description The protocol that is used by the outbound traffic to be mirrored. Valid values:
+     *
+     *   **ALL**: all protocols
+     *   **ICMP**: ICMP
+     *   **TCP**: TCP
+     *   **UDP**: UDP
+     *
      * @example accept
      *
      * @var string
@@ -16,6 +23,9 @@ class egressRules extends Model
     public $action;
 
     /**
+     * @description The ID of the region to which the mirrored traffic belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
      * @example 10.0.0.0/24
      *
      * @var string
@@ -23,6 +33,8 @@ class egressRules extends Model
     public $destinationCidrBlock;
 
     /**
+     * @description The destination CIDR block of the outbound traffic.
+     *
      * @example 22/40
      *
      * @var string
@@ -30,6 +42,9 @@ class egressRules extends Model
     public $destinationPortRange;
 
     /**
+     * @description The source port range of the outbound traffic. Valid values for a port: **1** to **65535**. Separate the first port and the last port with a forward slash (/). Examples: **1/200** and **80/80**. You cannot set this parameter to only **-1/-1**, which specifies all ports.
+     *
+     * >  If you set **EgressRules.N.Protocol** to **ALL** or **ICMP**, you do not need to set this parameter. In this case, all ports are available.
      * @example 1
      *
      * @var int
@@ -37,6 +52,8 @@ class egressRules extends Model
     public $priority;
 
     /**
+     * @description The priority of the outbound rule. A smaller value indicates a higher priority. The maximum value of **N** is **10**. You can configure up to 10 outbound rules for a filter.
+     *
      * @example TCP
      *
      * @var string
@@ -44,6 +61,9 @@ class egressRules extends Model
     public $protocol;
 
     /**
+     * @description The destination port range of the outbound traffic. Valid values for a port: **1** to **65535**. Separate the first port and the last port with a forward slash (/). Examples: **1/200** and **80/80**. You cannot set this parameter to only **-1/-1**, which specifies all ports.
+     *
+     * >  If you set **EgressRules.N.Protocol** to **ALL** or **ICMP**, you do not need to set this parameter. In this case, all ports are available.
      * @example 10.0.0.0/24
      *
      * @var string
@@ -51,6 +71,8 @@ class egressRules extends Model
     public $sourceCidrBlock;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 22/40
      *
      * @var string

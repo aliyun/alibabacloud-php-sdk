@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeZonesRequest extends Model
 {
     /**
+     * @description The language used in the **LocalName** parameter to display the zone names. Valid values:
+     *
+     *   **zh-cn**: Chinese
+     *   **en-us**: English
+     *   **ja**: Japanese
+     *
      * @example zh-cn
      *
      * @var string
@@ -26,6 +32,8 @@ class DescribeZonesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where zones are queried. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +51,8 @@ class DescribeZonesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the zones to be queried. Default value: **AvailabilityZone**. This value indicates Alibaba Cloud zones.
+     *
      * @example AvailabilityZone
      *
      * @var string

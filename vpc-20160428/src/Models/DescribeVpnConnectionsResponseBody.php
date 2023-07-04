@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnConnectionsResponseBody extends Model
 {
     /**
+     * @description The number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeVpnConnectionsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeVpnConnectionsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 238752DC-0693-49BE-9C85-711D5691D3E5
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeVpnConnectionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeVpnConnectionsResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The information about the IPsec-VPN connection.
+     *
      * @var vpnConnections
      */
     public $vpnConnections;

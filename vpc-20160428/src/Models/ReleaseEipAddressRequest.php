@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReleaseEipAddressRequest extends Model
 {
     /**
+     * @description The ID of the EIP that you want to release.
+     *
      * @example eip-2zeerraiwb7uj6i0d****
      *
      * @var string
@@ -26,6 +28,8 @@ class ReleaseEipAddressRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the EIP belongs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

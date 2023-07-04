@@ -19,6 +19,9 @@ class DownloadVpnConnectionConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where you want to create the IPsec-VPN connection.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string
@@ -36,6 +39,8 @@ class DownloadVpnConnectionConfigRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the IPsec-VPN connection.
+     *
      * @example vco-bp1bbi27hojx80nck****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcPrefixListResponseBody extends Model
 {
     /**
+     * @description The ID of the prefix list.
+     *
      * @example pl-0b700s2ee3***
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateVpcPrefixListResponseBody extends Model
     public $prefixListId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
      *
      * @var string
@@ -23,6 +27,10 @@ class CreateVpcPrefixListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the prefix list belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;

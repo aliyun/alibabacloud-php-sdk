@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class associatedPhysicalConnection extends Model
 {
     /**
+     * @description The circuit code of the Express Connect circuit. The circuit code is predefined by the connectivity provider.
+     *
      * @example longtel0**
      *
      * @var string
@@ -16,6 +18,11 @@ class associatedPhysicalConnection extends Model
     public $circuitCode;
 
     /**
+     * @description Indicates whether IPv6 is enabled. Valid values:
+     *
+     *   **true**: enabled.
+     *   **false**: disabled.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class associatedPhysicalConnection extends Model
     public $enableIpv6;
 
     /**
+     * @description The IPv4 address of the gateway device on the Alibaba Cloud side.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -30,6 +39,8 @@ class associatedPhysicalConnection extends Model
     public $localGatewayIp;
 
     /**
+     * @description The IPv6 address of the gateway device on the Alibaba Cloud side.
+     *
      * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
      *
      * @var string
@@ -37,6 +48,8 @@ class associatedPhysicalConnection extends Model
     public $localIpv6GatewayIp;
 
     /**
+     * @description The IPv4 address of the VBR on the user side.
+     *
      * @example 116.62.XX.XX
      *
      * @var string
@@ -44,6 +57,8 @@ class associatedPhysicalConnection extends Model
     public $peerGatewayIp;
 
     /**
+     * @description The IPv6 address of the gateway device in the data center.
+     *
      * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
      *
      * @var string
@@ -51,6 +66,9 @@ class associatedPhysicalConnection extends Model
     public $peerIpv6GatewayIp;
 
     /**
+     * @description The subnet mask for the IPv6 addresses of the gateway devices on the Alibaba Cloud side and on the user side.
+     *
+     * The two IPv6 addresses must fall within the same subnet.
      * @example 2408:4004:cc:400::/56
      *
      * @var string
@@ -58,6 +76,9 @@ class associatedPhysicalConnection extends Model
     public $peeringIpv6SubnetMask;
 
     /**
+     * @description The subnet mask for the IPv4 addresses of the gateway devices on the Alibaba Cloud side and on the user side.
+     *
+     * The two IPv4 addresses must fall within the same subnet.
      * @example 255.255.255.252
      *
      * @var string
@@ -65,6 +86,11 @@ class associatedPhysicalConnection extends Model
     public $peeringSubnetMask;
 
     /**
+     * @description The business status of the Express Connect circuit.
+     *
+     *   **Normal**: normal
+     *   **FinancialLocked**: locked due to overdue payments
+     *
      * @example Normal
      *
      * @var string
@@ -72,6 +98,8 @@ class associatedPhysicalConnection extends Model
     public $physicalConnectionBusinessStatus;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
      * @example pc-119mfjzm7****
      *
      * @var string
@@ -79,6 +107,8 @@ class associatedPhysicalConnection extends Model
     public $physicalConnectionId;
 
     /**
+     * @description The UID of the Alibaba Cloud account to which the Express Connect circuit belongs.
+     *
      * @example 12345678****
      *
      * @var string
@@ -86,6 +116,19 @@ class associatedPhysicalConnection extends Model
     public $physicalConnectionOwnerUid;
 
     /**
+     * @description The status of the Express Connect circuit.
+     *
+     *   **Initial**: The application is under review.
+     *   **Approved**: The application is approved.
+     *   **Allocating**: The system is allocating resources.
+     *   **Allocated**: The Express Connect circuit is under construction.
+     *   **Confirmed**: The Express Connect circuit is pending for user confirmation.
+     *   **Enabled**: The Express Connect circuit is enabled.
+     *   **Rejected**: The application is rejected.
+     *   **Canceled**: The application is canceled.
+     *   **Allocation Failed**: The system failed to allocate resources.
+     *   **Terminated**: The Express Connect circuit is disabled.
+     *
      * @example Enabled
      *
      * @var string
@@ -93,6 +136,15 @@ class associatedPhysicalConnection extends Model
     public $physicalConnectionStatus;
 
     /**
+     * @description The status of the VBR. Valid values:
+     *
+     *   **unconfirmed**: pending confirmation from other users
+     *   **active**: normal
+     *   **terminating**: being disabled
+     *   **terminated**: disabled
+     *   **recovering**: being enabled
+     *   **deleting:** The endpoint is being deleted.
+     *
      * @example active
      *
      * @var string
@@ -100,6 +152,8 @@ class associatedPhysicalConnection extends Model
     public $status;
 
     /**
+     * @description The VLAN ID of the VBR.
+     *
      * @example 0
      *
      * @var string
@@ -107,6 +161,8 @@ class associatedPhysicalConnection extends Model
     public $vlanId;
 
     /**
+     * @description The ID of the VBR interface, which can be used as the next hop of a VBR route.
+     *
      * @example ri-kojok19x3j0q6k****
      *
      * @var string

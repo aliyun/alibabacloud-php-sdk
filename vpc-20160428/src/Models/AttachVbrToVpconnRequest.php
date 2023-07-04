@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AttachVbrToVpconnRequest extends Model
 {
     /**
+     * @description Specifies whether to precheck the request only. Valid values:
+     *
+     *   **true**: only prechecks the request but does not associate the VBR with the hosted connection. The system prechecks the request syntax, instance status, and whether the required parameters are specified. An error message is returned if the request fails to pass the precheck. If the request passes the precheck, the system returns the ID of the request.
+     *   **false** (default): sends the request. If the request passes the precheck, the VBR is associated with the hosted connection.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,9 @@ class AttachVbrToVpconnRequest extends Model
     public $dryRun;
 
     /**
+     * @description The region ID of the hosted connection.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +31,9 @@ class AttachVbrToVpconnRequest extends Model
     public $regionId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * The client token must be unique among different requests. It can contain only ASCII characters and cannot exceed 64 characters in length.
      * @example CBCE910E-D396-4944-8****
      *
      * @var string
@@ -30,6 +41,8 @@ class AttachVbrToVpconnRequest extends Model
     public $token;
 
     /**
+     * @description The ID of the VBR.
+     *
      * @example vbr-bp133sn3nwjvu7twc****
      *
      * @var string
@@ -37,6 +50,8 @@ class AttachVbrToVpconnRequest extends Model
     public $vbrId;
 
     /**
+     * @description The ID of the hosted connection.
+     *
      * @example pc-bp1mrgfbtmc9brre7****
      *
      * @var string

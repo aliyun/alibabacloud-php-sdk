@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualBorderRouterRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +18,9 @@ class CreateVirtualBorderRouterRequest extends Model
     public $bandwidth;
 
     /**
+     * @description The IP address of the gateway device in the data center. Only the owner of the VBR can set or modify this parameter.
+     *
+     * When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
      * @example longtel001
      *
      * @var string
@@ -23,6 +28,9 @@ class CreateVirtualBorderRouterRequest extends Model
     public $circuitCode;
 
     /**
+     * @description The IPv6 address of the VBR. Only the owner of the VBR can set or modify this parameter.
+     *
+     * When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -30,6 +38,11 @@ class CreateVirtualBorderRouterRequest extends Model
     public $clientToken;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests.
+     *
+     * >  If you do not set this parameter, the system automatically sets **ClientToken** to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example desc
      *
      * @var string
@@ -37,6 +50,8 @@ class CreateVirtualBorderRouterRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the VBR.
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +59,9 @@ class CreateVirtualBorderRouterRequest extends Model
     public $enableIpv6;
 
     /**
+     * @description The subnet mask of the IP addresses of the VBR and the gateway device in the data center.
+     *
+     * The two IP addresses must fall within the same subnet.
      * @example 192.168.XX.XX
      *
      * @var string
@@ -51,6 +69,9 @@ class CreateVirtualBorderRouterRequest extends Model
     public $localGatewayIp;
 
     /**
+     * @description The subnet mask of the IPv6 addresses of the VBR and the gateway device in the data center.
+     *
+     * The two IPv6 addresses must fall within the same subnet.
      * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
      *
      * @var string
@@ -58,6 +79,8 @@ class CreateVirtualBorderRouterRequest extends Model
     public $localIpv6GatewayIp;
 
     /**
+     * @description The operation that you want to perform. Set the value to **CreateVirtualBorderRouter**.
+     *
      * @example test
      *
      * @var string
@@ -75,6 +98,9 @@ class CreateVirtualBorderRouterRequest extends Model
     public $ownerId;
 
     /**
+     * @description The description of the VBR.
+     *
+     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
      * @example 116.62.XX.XX
      *
      * @var string
@@ -82,6 +108,11 @@ class CreateVirtualBorderRouterRequest extends Model
     public $peerGatewayIp;
 
     /**
+     * @description Specifies whether to enable IPv6. Valid values:
+     *
+     *   **true**: enables IPv6.
+     *   **false** (default): disables IPv6.
+     *
      * @example 2001:XXXX:4:4:4:4:4:4
      *
      * @var string
@@ -89,6 +120,11 @@ class CreateVirtualBorderRouterRequest extends Model
     public $peerIpv6GatewayIp;
 
     /**
+     * @description The bandwidth of the VBR. Unit: Mbit/s.
+     *
+     *   When you create a VBR for a dedicated connection, valid values are **50**, **100**, **200**, **300**, **400**, **500**, **1000**, **2048**, **5120**, **8192**, **10240**, **20480**, **40960**, **50120**, **61440**, and **102400**.
+     *   You do not need to set this parameter when you create a VBR for a hosted connection. The bandwidth is already configured when the hosted connection is created.
+     *
      * @example 2408:4004:cc:400::/56
      *
      * @var string
@@ -96,6 +132,9 @@ class CreateVirtualBorderRouterRequest extends Model
     public $peeringIpv6SubnetMask;
 
     /**
+     * @description The name of the VBR.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example 255.255.255.252
      *
      * @var string
@@ -103,6 +142,9 @@ class CreateVirtualBorderRouterRequest extends Model
     public $peeringSubnetMask;
 
     /**
+     * @description The VLAN ID of the VBR. Valid values: **0 to 2999**.
+     *
+     * >  Only the owner of the Express Connect circuit can set this parameter. The VLAN IDs of two VBRs of the same the Express Connect circuit must be different.
      * @example pc-2zextbehcx****
      *
      * @var string
@@ -110,6 +152,9 @@ class CreateVirtualBorderRouterRequest extends Model
     public $physicalConnectionId;
 
     /**
+     * @description The account ID of the VBR owner.
+     *
+     * The default value is the ID of the current Alibaba Cloud account.
      * @example cn-shanghai
      *
      * @var string
@@ -127,6 +172,9 @@ class CreateVirtualBorderRouterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
+     *
+     * >  Only the owner of the Express Connect circuit can set this parameter.
      * @example 168811111****
      *
      * @var int
@@ -134,6 +182,9 @@ class CreateVirtualBorderRouterRequest extends Model
     public $vbrOwnerId;
 
     /**
+     * @description The IP address of the VBR. Only the owner of the VBR can set or modify this parameter.
+     *
+     * When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
      * @example 0
      *
      * @var int

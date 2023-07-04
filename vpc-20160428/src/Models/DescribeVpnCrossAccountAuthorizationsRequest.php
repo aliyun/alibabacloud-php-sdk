@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnCrossAccountAuthorizationsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** of each API request may be different.
      * @example 123e4567-e89b-12d3-a456-4266****
      *
      * @var string
@@ -21,6 +26,8 @@ class DescribeVpnCrossAccountAuthorizationsRequest extends Model
     public $ownerAccount;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +35,8 @@ class DescribeVpnCrossAccountAuthorizationsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+     *
      * @example 10
      *
      * @var int
@@ -35,6 +44,9 @@ class DescribeVpnCrossAccountAuthorizationsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region to which the IPsec-VPN connection belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example ap-southeast-2
      *
      * @var string
@@ -52,6 +64,8 @@ class DescribeVpnCrossAccountAuthorizationsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the IPsec-VPN connection.
+     *
      * @example vco-p0w2jpkhi2eeop6q6****
      *
      * @var string

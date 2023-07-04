@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class natIpCidrs extends Model
 {
     /**
+     * @description The time when the CIDR block was created.
+     *
      * @example 2021-06-28T20:50Z
      *
      * @var string
@@ -16,6 +18,11 @@ class natIpCidrs extends Model
     public $creationTime;
 
     /**
+     * @description Indicates whether the CIDR block is the default CIDR block of the NAT gateway. Valid values:
+     *
+     *   **true**: The CIDR block is the default CIDR block of the NAT gateway.
+     *   **false**: The CIDR block is not the default CIDR block of the NAT gateway.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class natIpCidrs extends Model
     public $isDefault;
 
     /**
+     * @description The ID of the VPC NAT gateway.
+     *
      * @example ngw-gw8v16wgvtq26vh59****
      *
      * @var string
@@ -30,6 +39,8 @@ class natIpCidrs extends Model
     public $natGatewayId;
 
     /**
+     * @description The CIDR block of the NAT gateway.
+     *
      * @example 172.16.0.0/24
      *
      * @var string
@@ -37,6 +48,8 @@ class natIpCidrs extends Model
     public $natIpCidr;
 
     /**
+     * @description The description of the CIDR block of the NAT gateway.
+     *
      * @example test
      *
      * @var string
@@ -44,6 +57,8 @@ class natIpCidrs extends Model
     public $natIpCidrDescription;
 
     /**
+     * @description The ID of the CIDR block of the NAT gateway.
+     *
      * @example vpcnatcidr-gw8ov42ei6xh1jys2****
      *
      * @var string
@@ -51,6 +66,8 @@ class natIpCidrs extends Model
     public $natIpCidrId;
 
     /**
+     * @description The name of the CIDR block of the NAT gateway.
+     *
      * @example Name
      *
      * @var string
@@ -58,6 +75,8 @@ class natIpCidrs extends Model
     public $natIpCidrName;
 
     /**
+     * @description The status of the CIDR block of the NAT gateway. If **Available** is returned, it indicates that the CIDR block is available.
+     *
      * @example Available
      *
      * @var string

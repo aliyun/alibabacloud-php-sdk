@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessPointsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acceptLanguage;
+
+    /**
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -21,6 +28,8 @@ class DescribeAccessPointsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -28,6 +37,9 @@ class DescribeAccessPointsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the access point.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +56,7 @@ class DescribeAccessPointsRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'acceptLanguage'       => 'AcceptLanguage',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
@@ -59,6 +72,9 @@ class DescribeAccessPointsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceptLanguage) {
+            $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
@@ -89,6 +105,9 @@ class DescribeAccessPointsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceptLanguage'])) {
+            $model->acceptLanguage = $map['AcceptLanguage'];
+        }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }

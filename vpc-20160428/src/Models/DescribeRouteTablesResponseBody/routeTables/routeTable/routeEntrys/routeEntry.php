@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class routeEntry extends Model
 {
     /**
+     * @description The description of the router entry.
+     *
      * @example RouteEntryDescription
      *
      * @var string
@@ -17,6 +19,8 @@ class routeEntry extends Model
     public $description;
 
     /**
+     * @description The destination CIDR block of the route entry.
+     *
      * @example 192.168.0.1/24
      *
      * @var string
@@ -24,6 +28,8 @@ class routeEntry extends Model
     public $destinationCidrBlock;
 
     /**
+     * @description The ID of the next hop.
+     *
      * @example ri-2zeo3xzyf38r4urzd****
      *
      * @var string
@@ -31,6 +37,12 @@ class routeEntry extends Model
     public $instanceId;
 
     /**
+     * @description The type of the route.
+     *
+     *   **local**: a vSwitch route
+     *   **service**: a cloud service route
+     *   **classicLink**: a route added by the system after ClassicLink is enabled
+     *
      * @example local
      *
      * @var string
@@ -38,6 +50,8 @@ class routeEntry extends Model
     public $nextHopType;
 
     /**
+     * @description The list of next hops of equal-cost multi-path routing (ECMP) routes.
+     *
      * @var nextHops
      */
     public $nextHops;
@@ -50,6 +64,8 @@ class routeEntry extends Model
     public $routeEntryId;
 
     /**
+     * @description The name of the route entry.
+     *
      * @example test
      *
      * @var string
@@ -57,6 +73,8 @@ class routeEntry extends Model
     public $routeEntryName;
 
     /**
+     * @description The ID of the route table to which the route entry belongs.
+     *
      * @example vtb-bp145q7glnuzdvzu2****
      *
      * @var string
@@ -64,6 +82,12 @@ class routeEntry extends Model
     public $routeTableId;
 
     /**
+     * @description The state of the route entry.
+     *
+     *   **Pending**: The route entry is being configured.
+     *   **Available**: The route entry is available.
+     *   **Modifying**: The route entry is being modified.
+     *
      * @example Pending
      *
      * @var string
@@ -71,6 +95,12 @@ class routeEntry extends Model
     public $status;
 
     /**
+     * @description The type of the route entry.
+     *
+     *   **System** : a system route entry
+     *   **Custom**: a custom route entry
+     *   **BGP**: a BGP route entry
+     *
      * @example System
      *
      * @var string

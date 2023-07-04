@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetPhysicalConnectionServiceStatusResponseBody extends Model
 {
     /**
+     * @description Indicates whether billing for outbound data transfer is enabled. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class GetPhysicalConnectionServiceStatusResponseBody extends Model
     public $enabled;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
      *
      * @var string

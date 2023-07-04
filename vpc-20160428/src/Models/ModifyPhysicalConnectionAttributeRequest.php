@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyPhysicalConnectionAttributeRequest extends Model
 {
     /**
+     * @description The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
+     *
      * @example longtel001
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $circuitCode;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate a token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example efefe566754h
      *
      * @var string
@@ -23,11 +27,23 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the Express Connect circuit.
+     *
+     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      * @var string
      */
     public $description;
 
     /**
+     * @description The connectivity provider of the Express Connect circuit. Valid values:
+     *
+     *   **CT**: China Telecom
+     *   **CU**: China Unicom
+     *   **CM**: China Mobile
+     *   **CO**: other connectivity providers in the Chinese mainland
+     *   **Equinix**: Equinix
+     *   **Other**: other connectivity providers outside the Chinese Mainland
+     *
      * @example CT
      *
      * @var string
@@ -35,6 +51,9 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $lineOperator;
 
     /**
+     * @description The name of the Express Connect circuit.
+     *
+     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @var string
      */
     public $name;
@@ -50,11 +69,15 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The geographical location of the data center.
+     *
      * @var string
      */
     public $peerLocation;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
      * @example pc-119mfjzm******
      *
      * @var string
@@ -62,6 +85,17 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $physicalConnectionId;
 
     /**
+     * @description The port type of the Express Connect circuit. Valid values:
+     *
+     *   **100Base-T**: 100 Mbit/s copper Ethernet port
+     *   **1000Base-T** (default): 1,000 Mbit/s copper Ethernet port
+     *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 kilometers)
+     *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
+     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 kilometers)
+     *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
+     *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
+     *
+     * >  If you want to use the 40GBase-LR or 100GBase-LR port for an Express Connect circuit, you must first contact your account manager to obtain information about resource supplies.
      * @example 1000Base-LX
      *
      * @var string
@@ -69,6 +103,8 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $portType;
 
     /**
+     * @description The ID of the redundant Express Connect circuit. The redundant Express Connect circuit must be in the **Allocated**, **Confirmed**, or **Enabled** state.
+     *
      * @example pc-119mfjzm7
      *
      * @var string
@@ -76,6 +112,9 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $redundantPhysicalConnectionId;
 
     /**
+     * @description The region ID of the Express Connect circuit.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string
@@ -93,6 +132,8 @@ class ModifyPhysicalConnectionAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The bandwidth value for the connection over the Express Connect circuit. Unit: Mbit/s. Valid values: 2 to 10240.
+     *
      * @example 5
      *
      * @var int

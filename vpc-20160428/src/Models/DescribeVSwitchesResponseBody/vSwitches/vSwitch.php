@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class vSwitch extends Model
 {
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example 1
      *
      * @var int
@@ -18,6 +20,8 @@ class vSwitch extends Model
     public $availableIpAddressCount;
 
     /**
+     * @description The ID of the zone to which the vSwitch belongs.
+     *
      * @example 172.16.0.0/24
      *
      * @var string
@@ -25,6 +29,8 @@ class vSwitch extends Model
     public $cidrBlock;
 
     /**
+     * @description The ID of the network access control list (ACL).
+     *
      * @example 2022-01-18T12:43:57Z
      *
      * @var string
@@ -32,6 +38,8 @@ class vSwitch extends Model
     public $creationTime;
 
     /**
+     * @description The IPv6 CIDR block of the vSwitch.
+     *
      * @example VSwitchDescription
      *
      * @var string
@@ -39,6 +47,8 @@ class vSwitch extends Model
     public $description;
 
     /**
+     * @description The key of the tag that is added to the vSwitch.
+     *
      * @example 2408:4002:10c4:4e03::/64
      *
      * @var string
@@ -46,6 +56,8 @@ class vSwitch extends Model
     public $ipv6CidrBlock;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     *
      * @example true
      *
      * @var bool
@@ -53,6 +65,8 @@ class vSwitch extends Model
     public $isDefault;
 
     /**
+     * @description The IPv4 CIDR block of the vSwitch.
+     *
      * @example nacl-a2do9e413e0spzasx****
      *
      * @var string
@@ -60,6 +74,8 @@ class vSwitch extends Model
     public $networkAclId;
 
     /**
+     * @description The description of the vSwitches.
+     *
      * @example 253460731706911258
      *
      * @var int
@@ -67,6 +83,8 @@ class vSwitch extends Model
     public $ownerId;
 
     /**
+     * @description The name of the vSwitch.
+     *
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -79,6 +97,13 @@ class vSwitch extends Model
     public $routeTable;
 
     /**
+     * @var string
+     */
+    public $shareType;
+
+    /**
+     * @description The number of available IP addresses in the vSwitch.
+     *
      * @example Available
      *
      * @var string
@@ -86,11 +111,15 @@ class vSwitch extends Model
     public $status;
 
     /**
+     * @description The information about the route table.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The ID of the resource group to which the vSwitch belongs.
+     *
      * @example vsw-25bcdxs7pv1****
      *
      * @var string
@@ -98,6 +127,8 @@ class vSwitch extends Model
     public $vSwitchId;
 
     /**
+     * @description The value of the tag that is added to the vSwitch.
+     *
      * @example vSwitch
      *
      * @var string
@@ -105,6 +136,11 @@ class vSwitch extends Model
     public $vSwitchName;
 
     /**
+     * @description Indicates whether the vSwitch is the default vSwitch. Valid values:
+     *
+     *   **true**: The vSwitch is the default vSwitch.
+     *   **false**: The vSwitch is not the default vSwitch.
+     *
      * @example vpc-257gcdcdq64****
      *
      * @var string
@@ -112,6 +148,8 @@ class vSwitch extends Model
     public $vpcId;
 
     /**
+     * @description The tag information about the vSwitch.
+     *
      * @example cn-hangzhou-d
      *
      * @var string
@@ -128,6 +166,7 @@ class vSwitch extends Model
         'ownerId'                 => 'OwnerId',
         'resourceGroupId'         => 'ResourceGroupId',
         'routeTable'              => 'RouteTable',
+        'shareType'               => 'ShareType',
         'status'                  => 'Status',
         'tags'                    => 'Tags',
         'vSwitchId'               => 'VSwitchId',
@@ -172,6 +211,9 @@ class vSwitch extends Model
         }
         if (null !== $this->routeTable) {
             $res['RouteTable'] = null !== $this->routeTable ? $this->routeTable->toMap() : null;
+        }
+        if (null !== $this->shareType) {
+            $res['ShareType'] = $this->shareType;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -232,6 +274,9 @@ class vSwitch extends Model
         }
         if (isset($map['RouteTable'])) {
             $model->routeTable = routeTable::fromMap($map['RouteTable']);
+        }
+        if (isset($map['ShareType'])) {
+            $model->shareType = $map['ShareType'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

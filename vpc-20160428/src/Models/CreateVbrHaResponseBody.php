@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVbrHaResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateVbrHaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the VBR failover group.
+     *
      * @example vbrha-sa1sxheuxtd98****
      *
      * @var string

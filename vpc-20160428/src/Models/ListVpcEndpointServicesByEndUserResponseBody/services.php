@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class services extends Model
 {
     /**
+     * @description The domain name of the cloud service to which the endpoint service belongs.
+     *
      * @example {   \"Version\" : \"1\",   \"Statement\" : [ {     \"Effect\" : \"Allow\",     \"Action\" : \"*\",     \"Principal\" : \"*\",     \"Resource\" : \"*\"   } ] }
      *
      * @var string
@@ -23,6 +25,8 @@ class services extends Model
     public $serviceDomain;
 
     /**
+     * @description The default access policy.
+     *
      * @example vpces-m5enwdmilo210aibo9****
      *
      * @var string
@@ -30,6 +34,11 @@ class services extends Model
     public $serviceId;
 
     /**
+     * @description Indicate whether the endpoint service supports the access policy. Valid values:
+     *
+     *   **false**: no
+     *   **true**: yes
+     *
      * @example com.aliyun.cn-hangzhou.oss
      *
      * @var string

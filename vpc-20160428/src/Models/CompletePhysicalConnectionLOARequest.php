@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CompletePhysicalConnectionLOARequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that it is unique among different requests.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** of each API request may be different.
      * @example 02fb3da4-230e-11e9-8e44-0016e04115b
      *
      * @var string
@@ -16,6 +21,8 @@ class CompletePhysicalConnectionLOARequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
      * @example pc-bp10tvlhnwkw****
      *
      * @var string
@@ -23,6 +30,8 @@ class CompletePhysicalConnectionLOARequest extends Model
     public $instanceId;
 
     /**
+     * @description The circuit code provided by the connectivity provider.
+     *
      * @example aaa111****
      *
      * @var string
@@ -30,6 +39,8 @@ class CompletePhysicalConnectionLOARequest extends Model
     public $lineCode;
 
     /**
+     * @description The label of the cable in the data center.
+     *
      * @example bbb222****
      *
      * @var string
@@ -47,6 +58,9 @@ class CompletePhysicalConnectionLOARequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the Express Connect circuit.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string

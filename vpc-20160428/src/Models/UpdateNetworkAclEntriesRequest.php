@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateNetworkAclEntriesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -28,6 +33,8 @@ class UpdateNetworkAclEntriesRequest extends Model
     public $ingressAclEntries;
 
     /**
+     * @description The ID of the network ACL.
+     *
      * @example nacl-bp1lhl0taikrzxsc****
      *
      * @var string
@@ -40,6 +47,9 @@ class UpdateNetworkAclEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the network ACL.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +67,11 @@ class UpdateNetworkAclEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to update outbound rules. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
      * @example false
      *
      * @var bool
@@ -64,6 +79,11 @@ class UpdateNetworkAclEntriesRequest extends Model
     public $updateEgressAclEntries;
 
     /**
+     * @description Specifies whether to update inbound rules. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
      * @example false
      *
      * @var bool

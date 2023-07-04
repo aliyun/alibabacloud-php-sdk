@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class bgpGroup extends Model
 {
     /**
+     * @description The key used by the BGP group.
+     *
      * @example !PWZ****
      *
      * @var string
@@ -16,6 +18,8 @@ class bgpGroup extends Model
     public $authKey;
 
     /**
+     * @description The ID of the BGP group.
+     *
      * @example bgpg-bp1k25cyp26cllath****
      *
      * @var string
@@ -23,11 +27,16 @@ class bgpGroup extends Model
     public $bgpGroupId;
 
     /**
+     * @description The description of the BGP group.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The hold time to receive BGP messages. Unit: seconds.
+     *
+     * >  If no message is received within the hold time, the BGP peer is considered disconnected.
      * @example 30
      *
      * @var string
@@ -35,6 +44,11 @@ class bgpGroup extends Model
     public $hold;
 
     /**
+     * @description The IP version of the BGP group. Valid values:
+     *
+     *   **ipv4**: IPv4
+     *   **ipv6**: IPv6. IPv6 is supported only if the VBR of the BGP group has IPv6 enabled.
+     *
      * @example IPv4
      *
      * @var string
@@ -42,6 +56,11 @@ class bgpGroup extends Model
     public $ipVersion;
 
     /**
+     * @description Indicates whether the ASN is fake. Valid values:
+     *
+     *   **false**: no
+     *   **true**: yes
+     *
      * @example true
      *
      * @var string
@@ -49,6 +68,8 @@ class bgpGroup extends Model
     public $isFake;
 
     /**
+     * @description The keepalive time. Unit: seconds.
+     *
      * @example 10
      *
      * @var string
@@ -56,6 +77,8 @@ class bgpGroup extends Model
     public $keepalive;
 
     /**
+     * @description The ASN of the VBR.
+     *
      * @example 45104
      *
      * @var string
@@ -63,6 +86,8 @@ class bgpGroup extends Model
     public $localAsn;
 
     /**
+     * @description The name of the BGP group.
+     *
      * @example name
      *
      * @var string
@@ -70,6 +95,8 @@ class bgpGroup extends Model
     public $name;
 
     /**
+     * @description The autonomous system number (ASN) of the gateway device in the data center.
+     *
      * @example 1****
      *
      * @var string
@@ -77,6 +104,8 @@ class bgpGroup extends Model
     public $peerAsn;
 
     /**
+     * @description The ID of the region to which the BGP group belongs.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -84,6 +113,8 @@ class bgpGroup extends Model
     public $regionId;
 
     /**
+     * @description The maximum number of route entries for BGP dynamic route learning.
+     *
      * @example 99
      *
      * @var string
@@ -91,6 +122,8 @@ class bgpGroup extends Model
     public $routeLimit;
 
     /**
+     * @description The ID of the VBR.
+     *
      * @example vbr-bp1ctxy813985gkuk****
      *
      * @var string
@@ -98,6 +131,8 @@ class bgpGroup extends Model
     public $routerId;
 
     /**
+     * @description The status of the BGP group.
+     *
      * @example Available
      *
      * @var string

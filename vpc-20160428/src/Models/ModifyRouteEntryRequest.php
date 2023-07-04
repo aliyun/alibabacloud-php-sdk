@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyRouteEntryRequest extends Model
 {
     /**
+     * @description The description of the route entry.
+     *
+     * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
      * @example EntryDescription
      *
      * @var string
@@ -26,6 +29,9 @@ class ModifyRouteEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the route belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +49,8 @@ class ModifyRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the custom route entry.
+     *
      * @example rte-acfvgfsghfdd****
      *
      * @var string
@@ -50,6 +58,9 @@ class ModifyRouteEntryRequest extends Model
     public $routeEntryId;
 
     /**
+     * @description The name of the route entry.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example EntryName
      *
      * @var string

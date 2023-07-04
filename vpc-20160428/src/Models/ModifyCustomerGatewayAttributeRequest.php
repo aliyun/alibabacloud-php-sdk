@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyCustomerGatewayAttributeRequest extends Model
 {
     /**
+     * @description The authentication key of the BGP routing protocol for the gateway device in the data center.
+     *
+     * The key must be 1 to 64 characters in length. It can contain only ASCII characters and cannot contain spaces or question marks (?).
      * @example AuthKey****
      *
      * @var string
@@ -16,6 +19,11 @@ class ModifyCustomerGatewayAttributeRequest extends Model
     public $authKey;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example 02fb3da4-130e-11e9-8e44****
      *
      * @var string
@@ -23,6 +31,8 @@ class ModifyCustomerGatewayAttributeRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the customer gateway.
+     *
      * @example cgw-bp1pvpl9r9adju6l5****
      *
      * @var string
@@ -30,6 +40,9 @@ class ModifyCustomerGatewayAttributeRequest extends Model
     public $customerGatewayId;
 
     /**
+     * @description The description of the customer gateway.
+     *
+     * The description must be 1 to 100 characters in length, and cannot start with `http://` or `https://`.
      * @example desctest
      *
      * @var string
@@ -37,6 +50,9 @@ class ModifyCustomerGatewayAttributeRequest extends Model
     public $description;
 
     /**
+     * @description The name of the customer gateway.
+     *
+     * The name must be 1 to 100 characters in length, and cannot start with `http://` or `https://`.
      * @example nametest
      *
      * @var string
@@ -54,6 +70,9 @@ class ModifyCustomerGatewayAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the NAT gateway is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string

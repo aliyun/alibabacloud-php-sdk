@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeGrantRulesToCenResponseBody extends Model
 {
     /**
+     * @description The ID of the authorized CEN instance.
+     *
      * @var cenGrantRules
      */
     public $cenGrantRules;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeGrantRulesToCenResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeGrantRulesToCenResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example F5BB78C8-5F41-464F-B9FF-5E0A7198BA26
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeGrantRulesToCenResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the authorization.
+     *
      * @example 1
      *
      * @var int

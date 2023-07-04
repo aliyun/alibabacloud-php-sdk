@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateBgpGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the BGP group.
+     *
      * @example bgpg-bp1k25cyp26cllath****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateBgpGroupResponseBody extends Model
     public $bgpGroupId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C1221A1F-2ACD-4592-8F27-474E02883159
      *
      * @var string

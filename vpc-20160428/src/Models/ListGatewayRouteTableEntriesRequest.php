@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayRouteTableEntriesRequest extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 192.168.0.5
      *
      * @var string
@@ -16,6 +18,11 @@ class ListGatewayRouteTableEntriesRequest extends Model
     public $destinationCidrBlock;
 
     /**
+     * @description The token that determines the start point of the query. Valid values:
+     *
+     *   If no value is returned for **NextToken**, no next queries are sent.
+     *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+     *
      * @example vtb-5ts0ohchwkp3dydt2****
      *
      * @var string
@@ -23,6 +30,8 @@ class ListGatewayRouteTableEntriesRequest extends Model
     public $gatewayRouteTableId;
 
     /**
+     * @description The ID of the gateway route table that you want to query.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +39,8 @@ class ListGatewayRouteTableEntriesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The destination CIDR block of the route in the gateway route table.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -47,6 +58,11 @@ class ListGatewayRouteTableEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The token that determines the start point of the query. Valid values:
+     *
+     *   If this is your first query and no next queries are to be sent, ignore this parameter.
+     *   If a next query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *
      * @example ap-southeast-6
      *
      * @var string

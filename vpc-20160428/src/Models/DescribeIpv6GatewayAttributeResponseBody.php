@@ -10,6 +10,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6GatewayAttributeResponseBody extends Model
 {
     /**
+     * @description The service status of the IPv6 gateway. Valid values:
+     *
+     *   **Normal**: The IPv6 gateway runs as expected.
+     *   **FinacialLocked**: The IPv6 gateway is locked due to overdue payments.
+     *   **SecurityLocked**: The IPv6 gateway is locked due to security reasons.
+     *
      * @example Normal
      *
      * @var string
@@ -17,6 +23,8 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
     public $businessStatus;
 
     /**
+     * @description The time when the IPv6 gateway was created.
+     *
      * @example 2018-12-05T09:21:35Z
      *
      * @var string
@@ -24,6 +32,8 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
     public $creationTime;
 
     /**
+     * @description The description of the IPv6 gateway.
+     *
      * @example test
      *
      * @var string
@@ -31,13 +41,17 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
     public $description;
 
     /**
-     * @example 2018-12-05T09:21:35Z
+     * @description The time when the IPv6 gateway expires.
+     *
+     * @example 2019-1-05T09:21:35Z
      *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The metering method of the IPv6 gateway.
+     *
      * @example PostPaid
      *
      * @var string
@@ -45,13 +59,17 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
     public $instanceChargeType;
 
     /**
-     * @example ipv6gw-123456xxxxxxxx
+     * @description The ID of the IPv6 gateway.
+     *
+     * @example ipv6gw-hp3y0l3ln89j8cdvf****
      *
      * @var string
      */
     public $ipv6GatewayId;
 
     /**
+     * @description The name of the IPv6 gateway.
+     *
      * @example test
      *
      * @var string
@@ -59,6 +77,8 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
     public $name;
 
     /**
+     * @description The ID of the region where the IPv6 gateway is deployed.
+     *
      * @example cn-huhehaote
      *
      * @var string
@@ -66,18 +86,29 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
     public $regionId;
 
     /**
-     * @example ipv6gw-hp33p10bdbt77xxxxxxxx
+     * @description The ID of the request.
+     *
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The status of the IPv6 gateway. Valid values:
+     *
+     *   **Pending**
+     *   **Available**
+     *
      * @example Available
      *
      * @var string
@@ -85,12 +116,16 @@ class DescribeIpv6GatewayAttributeResponseBody extends Model
     public $status;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags
      */
     public $tags;
 
     /**
-     * @example vpc-123456xxxxxxxx
+     * @description The ID of the virtual private cloud (VPC) to which the IPv6 gateway belongs.
+     *
+     * @example vpc-123sedrfswd23****
      *
      * @var string
      */

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateIpv6EgressOnlyRuleRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The value of RequestId for each API request may be different.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -16,6 +19,9 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the egress-only rule.
+     *
+     * The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example ruledescription
      *
      * @var string
@@ -23,6 +29,8 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the IPv6 address for which you want to create an egress-only rule.
+     *
      * @example ipv6-hp3nxjkfxn5pnhgl5****
      *
      * @var string
@@ -30,6 +38,9 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
     public $instanceId;
 
     /**
+     * @description The type of the instance for which you want to create an egress-only rule.
+     *
+     * Set the value to **Ipv6Address** (default). This value specifies the IPv6 address type.
      * @example Ipv6Address
      *
      * @var string
@@ -37,6 +48,8 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
     public $instanceType;
 
     /**
+     * @description The ID of the IPv6 gateway.
+     *
      * @example ipv6gw-hp3c2paq0ywauasza****
      *
      * @var string
@@ -44,6 +57,9 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
     public $ipv6GatewayId;
 
     /**
+     * @description The name of the egress-only rule.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example rulename
      *
      * @var string
@@ -61,6 +77,9 @@ class CreateIpv6EgressOnlyRuleRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the IPv6 gateway.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-huhehaote
      *
      * @var string

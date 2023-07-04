@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteVcoRouteEntryRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** of each API request may be different.
      * @example 123e4567-e89b-12d3-a456-4266****
      *
      * @var string
@@ -16,6 +21,8 @@ class DeleteVcoRouteEntryRequest extends Model
     public $clientToken;
 
     /**
+     * @description The next hop of the destination-based route that you want to delete.
+     *
      * @example vco-p0w5112fgnl2ihlmf****
      *
      * @var string
@@ -23,6 +30,8 @@ class DeleteVcoRouteEntryRequest extends Model
     public $nextHop;
 
     /**
+     * @description The tunneling protocol. Set the value to **Ipsec**, which specifies the IPsec tunneling protocol.
+     *
      * @example Ipsec
      *
      * @var string
@@ -35,6 +44,9 @@ class DeleteVcoRouteEntryRequest extends Model
     public $ownerAccount;
 
     /**
+     * @description The ID of the region to which the IPsec-VPN connection belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example ap-southeast-2
      *
      * @var string
@@ -52,6 +64,8 @@ class DeleteVcoRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The destination CIDR block of the destination-based route that you want to delete.
+     *
      * @example 192.168.10.0/24
      *
      * @var string
@@ -59,6 +73,8 @@ class DeleteVcoRouteEntryRequest extends Model
     public $routeDest;
 
     /**
+     * @description The ID of the IPsec-VPN connection.
+     *
      * @example vco-p0w5112fgnl2ihlmf****
      *
      * @var string
@@ -66,6 +82,11 @@ class DeleteVcoRouteEntryRequest extends Model
     public $vpnConnectionId;
 
     /**
+     * @description The weight of the destination-based route that you want to delete. Valid values:
+     *
+     *   **0**: a low priority
+     *   **100**: a high priority
+     *
      * @example 100
      *
      * @var int

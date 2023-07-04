@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyIPv6TranslatorBandwidthRequest extends Model
 {
     /**
+     * @description Specifies whether to enable auto-payment for the instance. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,8 @@ class ModifyIPv6TranslatorBandwidthRequest extends Model
     public $autoPay;
 
     /**
+     * @description The maximum bandwidth of the IPv6 Translation Service instance. Valid values: **1** to **200**. Unit: Mbit/s.
+     *
      * @example 2
      *
      * @var int
@@ -23,14 +30,19 @@ class ModifyIPv6TranslatorBandwidthRequest extends Model
     public $bandwidth;
 
     /**
-     * @example sha1111
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @example ipv6trans-bp1858ysxxxxxx
+     * @description The ID of the IPv6 Translation Service instance.
+     *
+     * @example ipv6trans-bp1858ys****
      *
      * @var string
      */
@@ -47,6 +59,8 @@ class ModifyIPv6TranslatorBandwidthRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

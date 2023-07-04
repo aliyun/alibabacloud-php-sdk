@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetNatGatewayConvertStatusResponseBody extends Model
 {
     /**
+     * @description The status during the switch.
+     *
      * @var convertSteps[]
      */
     public $convertSteps;
 
     /**
+     * @description The type of the NAT gateway. Set the value to **Enhanced**, which specifies an enhanced Internet NAT gateway.
+     *
      * @example Enhanced
      *
      * @var string
@@ -22,6 +26,8 @@ class GetNatGatewayConvertStatusResponseBody extends Model
     public $dstNatType;
 
     /**
+     * @description The ID of the Internet NAT gateway.
+     *
      * @example ngw-bp1b0lic8uz4r6vf2****
      *
      * @var string
@@ -29,6 +35,8 @@ class GetNatGatewayConvertStatusResponseBody extends Model
     public $natGatewayId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
      * @var string

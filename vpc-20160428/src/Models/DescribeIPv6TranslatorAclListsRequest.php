@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeIPv6TranslatorAclListsRequest extends Model
 {
     /**
-     * @example ipv6transacl-bp1de2xxxx
+     * @description The ID of the ACL.
+     *
+     * @example ipv6transacl-bp1de2****
      *
      * @var string
      */
     public $aclId;
 
     /**
+     * @description The name of the ACL.
+     *
      * @example acl1
      *
      * @var string
@@ -33,6 +37,8 @@ class DescribeIPv6TranslatorAclListsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -40,6 +46,8 @@ class DescribeIPv6TranslatorAclListsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -47,6 +55,8 @@ class DescribeIPv6TranslatorAclListsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region of the ACL.
+     *
      * @example cn-hangzhou
      *
      * @var string

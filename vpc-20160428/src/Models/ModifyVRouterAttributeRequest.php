@@ -26,6 +26,9 @@ class ModifyVRouterAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The description of the vRouter.
+     *
+     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +46,8 @@ class ModifyVRouterAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example vrt-gw0p7zigake75znix****
      *
      * @var string

@@ -15,6 +15,11 @@ class DescribeVirtualBorderRoutersRequest extends Model
     public $filter;
 
     /**
+     * @description Specifies whether cross-account VBRs are included.
+     *
+     *   **true**: yes
+     *   **false**: no. This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -27,6 +32,8 @@ class DescribeVirtualBorderRoutersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -34,6 +41,8 @@ class DescribeVirtualBorderRoutersRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -41,6 +50,8 @@ class DescribeVirtualBorderRoutersRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region where the VBRs are deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-shanghai
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class dhcpOptions extends Model
 {
     /**
+     * @description The status of the VPC that is associated with the DHCP options set. Valid values:
+     *
+     *   **InUse**: in use
+     *   **Pending**: being configured
+     *
      * @example example.com
      *
      * @var string
@@ -16,18 +21,26 @@ class dhcpOptions extends Model
     public $domainName;
 
     /**
-     * @example 192.xx.xx.123
+     * @description The information about the virtual private cloud (VPC) that is associated with the DHCP options set.
+     *
+     * @example 192.XX.XX.123
      *
      * @var string
      */
     public $domainNameServers;
 
     /**
+     * @example 3650d
+     *
      * @var string
      */
     public $ipv6LeaseTime;
 
     /**
+     * @description The ID of the VPC that is associated with the DHCP options set.
+     *
+     * @example 3650d
+     *
      * @var string
      */
     public $leaseTime;

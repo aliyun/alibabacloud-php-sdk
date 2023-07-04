@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateIpv6EgressOnlyRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the egress-only rule.
+     *
      * @example ipv6py-hp3w98rmlbqp01245****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateIpv6EgressOnlyRuleResponseBody extends Model
     public $ipv6EgressRuleId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 9DFEDBEE-E5AB-49E8-A2DC-CC114C67AF75
      *
      * @var string

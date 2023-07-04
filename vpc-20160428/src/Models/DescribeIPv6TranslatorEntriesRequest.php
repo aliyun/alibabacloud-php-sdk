@@ -9,13 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeIPv6TranslatorEntriesRequest extends Model
 {
     /**
-     * @example ipv6transacl-bp1de2xxxx
+     * @description The ID of the network ACL.
+     *
+     * @example ipv6transacl-bp1de2****
      *
      * @var string
      */
     public $aclId;
 
     /**
+     * @description Specifies whether to enable access control lists (ACLs). Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
      * @example off
      *
      * @var string
@@ -23,6 +30,11 @@ class DescribeIPv6TranslatorEntriesRequest extends Model
     public $aclStatus;
 
     /**
+     * @description The ACL type. Valid values:
+     *
+     *   **white**: a whitelist. IPv6 addresses in the ACL are allowed to access backend services.
+     *   **black**: a blacklist. IPv6 addresses in the ACL are not allowed to access backend services.
+     *
      * @example white
      *
      * @var string
@@ -30,13 +42,17 @@ class DescribeIPv6TranslatorEntriesRequest extends Model
     public $aclType;
 
     /**
-     * @example 2400:3200:1600::xx
+     * @description The IPv6 address allocated to the IPv6 Translation Service instance.
+     *
+     * @example 2400:3200:1600::XX
      *
      * @var string
      */
     public $allocateIpv6Addr;
 
     /**
+     * @description The port used by the IPv6 address allocated to the IPv6 Translation Service instance.
+     *
      * @example 80
      *
      * @var int
@@ -44,13 +60,17 @@ class DescribeIPv6TranslatorEntriesRequest extends Model
     public $allocateIpv6Port;
 
     /**
-     * @example 47.99.xx.xx
+     * @description The public IPv4 address that needs to provide IPv6 services.
+     *
+     * @example 47.99.XX.XX
      *
      * @var string
      */
     public $backendIpv4Addr;
 
     /**
+     * @description The port used by the public IPv4 address that needs to provide IPv6 services.
+     *
      * @example 80
      *
      * @var int
@@ -58,13 +78,18 @@ class DescribeIPv6TranslatorEntriesRequest extends Model
     public $backendIpv4Port;
 
     /**
-     * @example sha1111
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The name of the IPv6 mapping entry.
+     *
      * @example entryname
      *
      * @var string
@@ -72,14 +97,19 @@ class DescribeIPv6TranslatorEntriesRequest extends Model
     public $entryName;
 
     /**
-     * @example ipv6transentry-bp1g8bhrdexxxxx
+     * @description The ID of the IPv6 mapping entry.
+     *
+     * > If **Ipv6TranslatorId** and **Ipv6TranslatorEntryId** are empty, information about all IPv6 mapping entries is returned. If only **Ipv6TranslatorEntryId** is empty, information about the IPv6 mapping entries of the current IPv6 Translation Service instance is returned.
+     * @example ipv6transentry-bp1g8bhrde****
      *
      * @var string
      */
     public $ipv6TranslatorEntryId;
 
     /**
-     * @example ipv6trans-bp1858ysxxxxxx
+     * @description The ID of the IPv6 Translation Service instance.
+     *
+     * @example ipv6trans-bp1858ysxx****
      *
      * @var string
      */
@@ -96,6 +126,8 @@ class DescribeIPv6TranslatorEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -103,6 +135,8 @@ class DescribeIPv6TranslatorEntriesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -110,6 +144,8 @@ class DescribeIPv6TranslatorEntriesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -127,6 +163,8 @@ class DescribeIPv6TranslatorEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The protocol used by the data to be forwarded.
+     *
      * @example tcp
      *
      * @var string

@@ -12,26 +12,38 @@ use AlibabaCloud\Tea\Model;
 class trafficMirrorFilters extends Model
 {
     /**
+     * @description The details about the outbound rules.
+     *
      * @var egressRules[]
      */
     public $egressRules;
 
     /**
+     * @description The details about the inbound rules.
+     *
      * @var ingressRules[]
      */
     public $ingressRules;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The description of the filter.
+     *
      * @example This is a filter.
      *
      * @var string
@@ -39,6 +51,8 @@ class trafficMirrorFilters extends Model
     public $trafficMirrorFilterDescription;
 
     /**
+     * @description The ID of the filter.
+     *
      * @example tmf-j6cmls82xnc86vtpe****
      *
      * @var string
@@ -46,6 +60,8 @@ class trafficMirrorFilters extends Model
     public $trafficMirrorFilterId;
 
     /**
+     * @description The name of the filter.
+     *
      * @example abc
      *
      * @var string
@@ -53,6 +69,13 @@ class trafficMirrorFilters extends Model
     public $trafficMirrorFilterName;
 
     /**
+     * @description The status of the filter. Valid values:
+     *
+     *   **Creating**
+     *   **Created**
+     *   **Modifying**
+     *   **Deleting**
+     *
      * @example Created
      *
      * @var string

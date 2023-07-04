@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVcoRouteEntriesResponseBody extends Model
 {
     /**
+     * @description The number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeVcoRouteEntriesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeVcoRouteEntriesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E18980E8-C8C2-31BD-8156-AE2BBDEC87E1
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeVcoRouteEntriesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeVcoRouteEntriesResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The list of routes.
+     *
      * @var vcoRouteEntries[]
      */
     public $vcoRouteEntries;

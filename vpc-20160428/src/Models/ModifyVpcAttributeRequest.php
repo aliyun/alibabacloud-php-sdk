@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpcAttributeRequest extends Model
 {
     /**
+     * @description The new IPv4 CIDR block of the VPC.
+     *
+     * >  Your services are not affected when you modify the VPC CIDR block.
      * @example 192.168.0.0/24
      *
      * @var string
@@ -16,6 +19,9 @@ class ModifyVpcAttributeRequest extends Model
     public $cidrBlock;
 
     /**
+     * @description The new description of the VPC.
+     *
+     * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
      * @example This is my VPC.
      *
      * @var string
@@ -23,6 +29,11 @@ class ModifyVpcAttributeRequest extends Model
     public $description;
 
     /**
+     * @description Specifies whether to enable IPv6 CIDR blocks. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +41,8 @@ class ModifyVpcAttributeRequest extends Model
     public $enableIPv6;
 
     /**
+     * @description The IPv6 CIDR block of the VPC.
+     *
      * @example 2408:XXXX:0:6a::/56
      *
      * @var string
@@ -37,6 +50,14 @@ class ModifyVpcAttributeRequest extends Model
     public $ipv6CidrBlock;
 
     /**
+     * @description The type of IPv6 CIDR block. Valid values:
+     *
+     *   **BGP** (default): Alibaba Cloud Border Gateway Protocol (BGP) IPv6
+     *   **ChinaMobile**: China Mobile (single ISP)
+     *   **ChinaUnicom**: China Unicom (single ISP)
+     *   **ChinaTelecom**: China Telecom (single ISP)
+     *
+     * >  If your Alibaba Cloud account is allowed to use single-ISP bandwidth, valid values are: **ChinaTelecom**, **ChinaUnicom**, and **ChinaMobile**.
      * @example BGP
      *
      * @var string
@@ -54,6 +75,9 @@ class ModifyVpcAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the VPC.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -71,6 +95,8 @@ class ModifyVpcAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the VPC that you want to modify.
+     *
      * @example vpc-bp1qtbach57ywecf****
      *
      * @var string
@@ -78,6 +104,9 @@ class ModifyVpcAttributeRequest extends Model
     public $vpcId;
 
     /**
+     * @description The new name of the VPC.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example Vpc-1
      *
      * @var string

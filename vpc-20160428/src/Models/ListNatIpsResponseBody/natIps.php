@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class natIps extends Model
 {
     /**
+     * @description Indicates whether the IP address is the default IP address of the NAT gateway. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class natIps extends Model
     public $isDefault;
 
     /**
+     * @description The ID of the Virtual Private Cloud (VPC) NAT gateway to which the IP address is assigned.
+     *
      * @example ngw-gw8v16wgvtq26vh59****
      *
      * @var string
@@ -23,6 +30,8 @@ class natIps extends Model
     public $natGatewayId;
 
     /**
+     * @description The IP address.
+     *
      * @example 192.168.0.126
      *
      * @var string
@@ -30,6 +39,8 @@ class natIps extends Model
     public $natIp;
 
     /**
+     * @description The CIDR block to which the IP address belongs.
+     *
      * @example 192.168.0.0/24
      *
      * @var string
@@ -37,6 +48,8 @@ class natIps extends Model
     public $natIpCidr;
 
     /**
+     * @description The description of the IP address.
+     *
      * @example default
      *
      * @var string
@@ -44,6 +57,8 @@ class natIps extends Model
     public $natIpDescription;
 
     /**
+     * @description The ID of the IP address.
+     *
      * @example vpcnatip-gw8a863sut1zijxh0****
      *
      * @var string
@@ -51,6 +66,8 @@ class natIps extends Model
     public $natIpId;
 
     /**
+     * @description The name of the IP address.
+     *
      * @example default
      *
      * @var string
@@ -58,6 +75,15 @@ class natIps extends Model
     public $natIpName;
 
     /**
+     * @description The status of the IP address. Valid values:
+     *
+     *   **Available**: available
+     *   **Deleted**: deleted
+     *   **Deleting**: deleting
+     *   **Creating**: creating
+     *   **Associated**: specified in an SNAT or DNAT entry
+     *   **Associating**: being specified in an SNAT or DNAT entry
+     *
      * @example Available
      *
      * @var string

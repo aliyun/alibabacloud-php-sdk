@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVirtualBorderRoutersForPhysicalConnectionResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionResponseBody extends Mode
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionResponseBody extends Mode
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7C5AE8B3-A2D8-428D-A2FF-93A225C0821E
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionResponseBody extends Mode
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionResponseBody extends Mode
     public $totalCount;
 
     /**
+     * @description The information about VBRs.
+     *
      * @var virtualBorderRouterForPhysicalConnectionSet
      */
     public $virtualBorderRouterForPhysicalConnectionSet;

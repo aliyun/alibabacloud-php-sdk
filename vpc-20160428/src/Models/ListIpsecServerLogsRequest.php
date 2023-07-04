@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListIpsecServerLogsRequest extends Model
 {
     /**
+     * @description The beginning of the time range to query. The value must be a UNIX timestamp. For example, 1671003744 specifies 15:42:24 (UTC+8) on December 14, 2022.
+     *
+     * >  If you specify **From**, you must also specify **To** or **MinutePeriod**.
      * @example 1671003744
      *
      * @var int
@@ -16,6 +19,8 @@ class ListIpsecServerLogsRequest extends Model
     public $from;
 
     /**
+     * @description The ID of the IPsec server.
+     *
      * @example iss-2zei2n5q5zhirfh73****
      *
      * @var string
@@ -23,6 +28,9 @@ class ListIpsecServerLogsRequest extends Model
     public $ipsecServerId;
 
     /**
+     * @description The interval at which log data is queried. Valid values: **1** to **10**. Unit: minutes.
+     *
+     * >  If both **From** and **To** are not specified, you must specify **MinutePeriod**.
      * @example 10
      *
      * @var int
@@ -30,6 +38,8 @@ class ListIpsecServerLogsRequest extends Model
     public $minutePeriod;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +47,8 @@ class ListIpsecServerLogsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +56,9 @@ class ListIpsecServerLogsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region where the IPsec server is created.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +66,9 @@ class ListIpsecServerLogsRequest extends Model
     public $regionId;
 
     /**
+     * @description The end of the time range to query. The value must be a unix timestamp. For example, 1671004344 specifies 15:52:24 (UTC+8) on December 14, 2022.
+     *
+     * >  If you specify **To**, you must also specify **From** or **MinutePeriod**.
      * @example 1671004344
      *
      * @var int

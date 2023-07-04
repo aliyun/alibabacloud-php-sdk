@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyGlobalAccelerationInstanceSpecRequest extends Model
 {
     /**
+     * @description The maximum bandwidth of the GA instance. Unit: Mbit/s. Set the value to **10**.
+     *
      * @example 10
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyGlobalAccelerationInstanceSpecRequest extends Model
     public $bandwidth;
 
     /**
+     * @description The ID of the GA instance.
+     *
      * @example ga-32s33s****
      *
      * @var string
@@ -33,6 +37,9 @@ class ModifyGlobalAccelerationInstanceSpecRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the GA instance.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

@@ -19,6 +19,9 @@ class OpenPhysicalConnectionServiceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the Express Connect circuit is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

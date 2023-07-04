@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointServicesByEndUserResponseBody extends Model
 {
     /**
+     * @description The ID of the endpoint service.
+     *
      * @example 20
      *
      * @var int
@@ -17,6 +19,8 @@ class ListVpcEndpointServicesByEndUserResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The list of entries returned.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -24,6 +28,8 @@ class ListVpcEndpointServicesByEndUserResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 0AB1129F-32C1-5E4D-9E22-E4A859CA46EB
      *
      * @var string
@@ -31,6 +37,8 @@ class ListVpcEndpointServicesByEndUserResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The name of the endpoint service.
+     *
      * @var services[]
      */
     public $services;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomerGatewayRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 02fb3da4-130e-11e9-8e44-0016e04****
      *
      * @var string
@@ -16,6 +21,8 @@ class DeleteCustomerGatewayRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the customer gateway.
+     *
      * @example cgw-bp1pvpl9r9adju6l5****
      *
      * @var string
@@ -33,6 +40,8 @@ class DeleteCustomerGatewayRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the customer gateway. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-shanghai
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class crossAccountAuthorizations extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the IPsec-VPN connection belongs.
+     *
      * @example 1250123456123456
      *
      * @var int
@@ -16,6 +18,8 @@ class crossAccountAuthorizations extends Model
     public $aliUid;
 
     /**
+     * @description The ID of the CEN instance.
+     *
      * @example cen-vv8h0t3klfpaae****
      *
      * @var string
@@ -23,6 +27,9 @@ class crossAccountAuthorizations extends Model
     public $bindInstance;
 
     /**
+     * @description The resource type of the authorization.
+     *
+     * The value is set to **CEN**, which indicates that the IPsec-VPN connection can be associated with a transit router of a Cloud Enterprise Network (CEN) instance that belongs to another Alibaba Cloud account.
      * @example CEN
      *
      * @var string
@@ -30,6 +37,8 @@ class crossAccountAuthorizations extends Model
     public $bindProduct;
 
     /**
+     * @description The ID of the Alibaba Cloud account whose resource the IPsec-VPN connection can be associated with.
+     *
      * @example 1210123456123456
      *
      * @var int
@@ -37,6 +46,9 @@ class crossAccountAuthorizations extends Model
     public $bindUid;
 
     /**
+     * @description The timestamp when the authorization for the IPsec-VPN connection was created.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1658201810000
      *
      * @var int
@@ -44,6 +56,8 @@ class crossAccountAuthorizations extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the IPsec-VPN connection.
+     *
      * @example vco-p0w2jpkhi2eeop6q6****
      *
      * @var string

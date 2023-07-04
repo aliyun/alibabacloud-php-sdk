@@ -10,6 +10,18 @@ use AlibabaCloud\Tea\Model;
 class CreateRouteEntryRequest extends Model
 {
     /**
+     * @description The type of next hop of the custom route entry. Valid values:
+     *
+     *   **Instance**: an Elastic Compute Service (ECS) instance. This is the default value.
+     *   **HaVip**: a high-availability virtual IP address (HAVIP).
+     *   **RouterInterface**: a router interface.
+     *   **NetworkInterface**: an elastic network interface (ENI).
+     *   **VpnGateway**: a VPN gateway.
+     *   **IPv6Gateway**: an IPv6 gateway.
+     *   **NatGateway**: a NAT gateway.
+     *   **Attachment**: a transit router.
+     *   **VpcPeer**: a VPC peering connection.
+     *
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -17,6 +29,8 @@ class CreateRouteEntryRequest extends Model
     public $clientToken;
 
     /**
+     * @description The weight of the next hop of the ECMP route entry.
+     *
      * @example test
      *
      * @var string
@@ -24,6 +38,9 @@ class CreateRouteEntryRequest extends Model
     public $description;
 
     /**
+     * @description The name of the custom route entry that you want to add.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example 192.168.0.0/24
      *
      * @var string
@@ -31,6 +48,9 @@ class CreateRouteEntryRequest extends Model
     public $destinationCidrBlock;
 
     /**
+     * @description The description of the custom route entry.
+     *
+     * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
      * @example i-j6c2fp57q8rr4jlu****
      *
      * @var string
@@ -43,6 +63,8 @@ class CreateRouteEntryRequest extends Model
     public $nextHopList;
 
     /**
+     * @description The type of next hop of the ECMP route entry. Set the value to **RouterInterface**.
+     *
      * @example RouterInterface
      *
      * @var string
@@ -60,6 +82,8 @@ class CreateRouteEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the next hop.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -77,6 +101,8 @@ class CreateRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the next hop of the ECMP route.
+     *
      * @example test
      *
      * @var string
@@ -84,6 +110,11 @@ class CreateRouteEntryRequest extends Model
     public $routeEntryName;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example vtb-bp145q7glnuzd****
      *
      * @var string

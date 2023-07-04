@@ -26,6 +26,8 @@ class DescribeHaVipsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +35,8 @@ class DescribeHaVipsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -40,6 +44,9 @@ class DescribeHaVipsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region to which the HAVIP belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -47,6 +54,10 @@ class DescribeHaVipsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the HAVIP belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;

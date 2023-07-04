@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeletionProtectionRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,6 +21,8 @@ class DeletionProtectionRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the instance for which you want to enable deletion protection.
+     *
      * @example eip-uf6id7gvguruxe41v****
      *
      * @var string
@@ -28,6 +35,11 @@ class DeletionProtectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description Specifies whether to enable deletion protection. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -35,6 +47,8 @@ class DeletionProtectionRequest extends Model
     public $protectionEnable;
 
     /**
+     * @description The ID of the region where the instance for which you want to enable deletion protection is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -52,6 +66,12 @@ class DeletionProtectionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of instance. Valid values:
+     *
+     *   **EIP**: Elastic IP Address (EIP)
+     *   **CBWP**: EIP bandwidth plan
+     *   **NATGW**: NAT gateway
+     *
      * @example EIP
      *
      * @var string

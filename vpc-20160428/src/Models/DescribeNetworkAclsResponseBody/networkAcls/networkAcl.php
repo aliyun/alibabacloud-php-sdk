@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class networkAcl extends Model
 {
     /**
+     * @description The name of the outbound rule.
+     *
      * @example 2021-12-25 11:44:17
      *
      * @var string
@@ -20,6 +22,10 @@ class networkAcl extends Model
     public $creationTime;
 
     /**
+     * @description The action to be performed on network traffic that matches the rule. Valid values:
+     *
+     * - **accept**: allows network traffic.
+     * - **drop**: blocks network traffic.
      * @example This is my NetworkAcl.
      *
      * @var string
@@ -32,11 +38,23 @@ class networkAcl extends Model
     public $egressAclEntries;
 
     /**
+     * @description The association status of the resource. Valid values:
+     *
+     * - **BINDED**: associated
+     * - **BINDING**: being associated
+     * - **UNBINDING**: disassociated
      * @var ingressAclEntries
      */
     public $ingressAclEntries;
 
     /**
+     * @description The protocol. Valid values:
+     *
+     * - **icmp**: ICMP
+     * - **gre**: GRE
+     * - **tcp**: TCP
+     * - **udp**: UDP
+     * - **all**: all protocols
      * @example nacl-a2do9e413e0spxscd****
      *
      * @var string
@@ -44,6 +62,8 @@ class networkAcl extends Model
     public $networkAclId;
 
     /**
+     * @description The description of the outbound rule.
+     *
      * @example acl-1
      *
      * @var string
@@ -51,6 +71,8 @@ class networkAcl extends Model
     public $networkAclName;
 
     /**
+     * @description The destination CIDR block.
+     *
      * @example 253460731706911258
      *
      * @var int
@@ -58,6 +80,10 @@ class networkAcl extends Model
     public $ownerId;
 
     /**
+     * @description The destination port range of the outbound traffic.
+     *
+     * - If **Protocol** of the outbound rule is set to **all**, **icmp**, or **gre**, the port range is **-1/-1**, which specifies all ports.
+     * - If **Protocol** of the outbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200. 80/80 indicates port 80. Valid values for a port: **1** to **65535**.
      * @example cn-hangzhou
      *
      * @var string
@@ -70,6 +96,8 @@ class networkAcl extends Model
     public $resources;
 
     /**
+     * @description The outbound rules.
+     *
      * @example Available
      *
      * @var string
@@ -82,6 +110,8 @@ class networkAcl extends Model
     public $tags;
 
     /**
+     * @description The ID of the outbound rule.
+     *
      * @example vpc-m5ebpc2xh64mqm27e****
      *
      * @var string

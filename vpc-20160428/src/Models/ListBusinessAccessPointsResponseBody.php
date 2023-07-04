@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListBusinessAccessPointsResponseBody extends Model
 {
     /**
+     * @description The list of access points.
+     *
      * @var businessAccessPoints[]
      */
     public $businessAccessPoints;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 611CB80C-B6A9-43DB-9E38-0B0AC3D9B58F
      *
      * @var string

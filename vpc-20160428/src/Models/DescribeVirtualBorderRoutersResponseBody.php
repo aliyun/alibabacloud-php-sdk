@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVirtualBorderRoutersResponseBody extends Model
 {
     /**
+     * @description The number of the returned page. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeVirtualBorderRoutersResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeVirtualBorderRoutersResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DE77A7F3-3B74-41C0-A5BC-CAFD188C28B6
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeVirtualBorderRoutersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeVirtualBorderRoutersResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The information about the queried VBRs.
+     *
      * @var virtualBorderRouterSet
      */
     public $virtualBorderRouterSet;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteSslVpnServerRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** of each API request may be different.
      * @example 02fb3da4-130e-11e9-8e44-0016e04115b
      *
      * @var string
@@ -26,6 +31,9 @@ class DeleteSslVpnServerRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the SSL servers are created.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +51,8 @@ class DeleteSslVpnServerRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the SSL server.
+     *
      * @example vss-bp18q7hzj6largv4v****
      *
      * @var string

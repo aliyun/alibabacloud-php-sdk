@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class trafficMirrorSessions extends Model
 {
     /**
+     * @description Indicates whether the traffic mirror session was enabled.
+     *
+     *   **false**: the traffic mirror session was disabled. This is the default value.
+     *   **true**: the traffic mirror session was enabled.
+     *
      * @example false
      *
      * @var bool
@@ -17,6 +22,8 @@ class trafficMirrorSessions extends Model
     public $enabled;
 
     /**
+     * @description The maximum transmission unit (MTU).
+     *
      * @example 1500
      *
      * @var int
@@ -24,6 +31,9 @@ class trafficMirrorSessions extends Model
     public $packetLength;
 
     /**
+     * @description The priority of the traffic mirror session.
+     *
+     * A smaller value indicates a higher priority.
      * @example 1
      *
      * @var int
@@ -31,16 +41,24 @@ class trafficMirrorSessions extends Model
     public $priority;
 
     /**
+     * @description The ID of the resource group to which the mirrored traffic belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The ID of the traffic mirror filter.
+     *
      * @example tmf-j6cmls82xnc86vtpe****
      *
      * @var string
@@ -48,6 +66,11 @@ class trafficMirrorSessions extends Model
     public $trafficMirrorFilterId;
 
     /**
+     * @description The status of the traffic mirror session.
+     *
+     *   **Normal**: active
+     *   **FinancialLocked**: locked due to overdue payments
+     *
      * @example Normal
      *
      * @var string
@@ -55,6 +78,8 @@ class trafficMirrorSessions extends Model
     public $trafficMirrorSessionBusinessStatus;
 
     /**
+     * @description The description of the traffic mirror session.
+     *
      * @example This is a session.
      *
      * @var string
@@ -62,6 +87,8 @@ class trafficMirrorSessions extends Model
     public $trafficMirrorSessionDescription;
 
     /**
+     * @description The ID of the traffic mirror session.
+     *
      * @example tms-j6cla50buc44ap8tu****
      *
      * @var string
@@ -69,6 +96,8 @@ class trafficMirrorSessions extends Model
     public $trafficMirrorSessionId;
 
     /**
+     * @description The name of the traffic mirror session.
+     *
      * @example abc
      *
      * @var string
@@ -76,6 +105,13 @@ class trafficMirrorSessions extends Model
     public $trafficMirrorSessionName;
 
     /**
+     * @description The status of the traffic mirror session. Valid values:
+     *
+     *   **Creating**
+     *   **Created**
+     *   **Modifying**
+     *   **Deleting**
+     *
      * @example Created
      *
      * @var string
@@ -83,11 +119,15 @@ class trafficMirrorSessions extends Model
     public $trafficMirrorSessionStatus;
 
     /**
+     * @description The ID of the mirror source.
+     *
      * @var string[]
      */
     public $trafficMirrorSourceIds;
 
     /**
+     * @description The ID of the mirror destination.
+     *
      * @example eni-j6c2fp57q8rr47rp****
      *
      * @var string
@@ -95,6 +135,11 @@ class trafficMirrorSessions extends Model
     public $trafficMirrorTargetId;
 
     /**
+     * @description The type of the traffic mirror destination. Valid values:
+     *
+     *   **NetworkInterface**: an ENI
+     *   **SLB**: an internal-facing SLB instance
+     *
      * @example NetworkInterface
      *
      * @var string
@@ -102,6 +147,8 @@ class trafficMirrorSessions extends Model
     public $trafficMirrorTargetType;
 
     /**
+     * @description You can specify VNIs to distinguish different mirrored traffic.
+     *
      * @example 10
      *
      * @var int

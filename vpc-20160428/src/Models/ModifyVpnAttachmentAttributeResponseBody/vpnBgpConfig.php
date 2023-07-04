@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class vpnBgpConfig extends Model
 {
     /**
+     * @description Indicates whether BGP is enabled for the IPsec-VPN connection.
+     *
+     *   **true:** BGP is enabled.
+     *   **false:** BGP is disabled.
+     *
      * @example true
      *
      * @var string
@@ -16,6 +21,8 @@ class vpnBgpConfig extends Model
     public $enableBgp;
 
     /**
+     * @description The ASN on the Alibaba Cloud side.
+     *
      * @example 45104
      *
      * @var int
@@ -23,6 +30,8 @@ class vpnBgpConfig extends Model
     public $localAsn;
 
     /**
+     * @description The BGP IP address on the Alibaba Cloud side.
+     *
      * @example 169.254.11.1
      *
      * @var string
@@ -30,6 +39,8 @@ class vpnBgpConfig extends Model
     public $localBgpIp;
 
     /**
+     * @description The ASN on the data center side.
+     *
      * @example 65535
      *
      * @var int
@@ -37,6 +48,8 @@ class vpnBgpConfig extends Model
     public $peerAsn;
 
     /**
+     * @description The BGP IP address on the data center side.
+     *
      * @example 169.254.11.2
      *
      * @var string
@@ -44,6 +57,11 @@ class vpnBgpConfig extends Model
     public $peerBgpIp;
 
     /**
+     * @description The negotiation status of BGP.
+     *
+     *   **success:** normal.
+     *   **false:** abnormal.
+     *
      * @example false
      *
      * @var string
@@ -51,6 +69,8 @@ class vpnBgpConfig extends Model
     public $status;
 
     /**
+     * @description The CIDR block of the IPsec tunnel.
+     *
      * @example 169.254.11.0/30
      *
      * @var string

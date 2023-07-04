@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifySslVpnServerResponseBody extends Model
 {
     /**
+     * @description The encryption algorithm.
+     *
      * @example AES-128-CBC
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $cipher;
 
     /**
+     * @description The client IP address pool.
+     *
      * @example 10.30.30.0/24
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $clientIpPool;
 
     /**
+     * @description Indicates whether data compression is enabled.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +36,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $compress;
 
     /**
+     * @description The total number of current connections.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +45,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $connections;
 
     /**
+     * @description The time when the SSL server was created.
+     *
      * @example 1492753580000
      *
      * @var int
@@ -44,6 +54,11 @@ class ModifySslVpnServerResponseBody extends Model
     public $createTime;
 
     /**
+     * @description Indicates whether two-factor authentication is enabled.
+     *
+     *   **true**: enabled
+     *   **false** (default): disabled
+     *
      * @example false
      *
      * @var bool
@@ -51,6 +66,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $enableMultiFactorAuth;
 
     /**
+     * @description The ID of the IDaaS instance.
+     *
      * @example idaas-cn-hangzhou-****
      *
      * @var string
@@ -58,6 +75,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $IDaaSInstanceId;
 
     /**
+     * @description The public IP address.
+     *
      * @example 47.98.XX.XX
      *
      * @var string
@@ -65,6 +84,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $internetIp;
 
     /**
+     * @description The CIDR block of the client.
+     *
      * @example 10.20.20.0/24
      *
      * @var string
@@ -72,6 +93,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $localSubnet;
 
     /**
+     * @description The maximum number of connections.
+     *
      * @example 5
      *
      * @var int
@@ -79,6 +102,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $maxConnections;
 
     /**
+     * @description The name of the SSL server.
+     *
      * @example test
      *
      * @var string
@@ -86,6 +111,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $name;
 
     /**
+     * @description The port that is used by the SSL server.
+     *
      * @example 1194
      *
      * @var int
@@ -93,6 +120,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $port;
 
     /**
+     * @description The protocol that is used by the SSL server.
+     *
      * @example UDP
      *
      * @var string
@@ -100,6 +129,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $proto;
 
     /**
+     * @description The ID of the region where the SSL server is created.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -107,6 +138,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DF11D6F6-E35A-41C3-9B20-6FC8A901FE65
      *
      * @var string
@@ -114,6 +147,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the SSL server.
+     *
      * @example vss-bp18q7hzj6largv4v****
      *
      * @var string
@@ -121,6 +156,8 @@ class ModifySslVpnServerResponseBody extends Model
     public $sslVpnServerId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1q8bgx4xnkm2ogj****
      *
      * @var string

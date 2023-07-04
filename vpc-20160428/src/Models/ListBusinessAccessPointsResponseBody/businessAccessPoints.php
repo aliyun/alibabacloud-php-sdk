@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class businessAccessPoints extends Model
 {
     /**
+     * @description The ID of the access point.
+     *
      * @example ap-cn-hangzhou-xs-B
      *
      * @var string
@@ -16,11 +18,16 @@ class businessAccessPoints extends Model
     public $accessPointId;
 
     /**
+     * @description The name of the access point.
+     *
      * @var string
      */
     public $accessPointName;
 
     /**
+     * @description The ID of the cloud box.
+     *
+     * >  This parameter is available if the Express Connect circuit supports cloud boxes and the access point supports cloud boxes.
      * @example cb-****
      *
      * @var string
@@ -28,6 +35,8 @@ class businessAccessPoints extends Model
     public $cloudBoxInstanceIds;
 
     /**
+     * @description The latitude of the access point.
+     *
      * @example 30.198416
      *
      * @var float
@@ -35,6 +44,8 @@ class businessAccessPoints extends Model
     public $latitude;
 
     /**
+     * @description The longitude of the access point.
+     *
      * @example 120.247514
      *
      * @var float
@@ -42,6 +53,15 @@ class businessAccessPoints extends Model
     public $longitude;
 
     /**
+     * @description The connectivity provider of the Express Connect circuit. Valid values:
+     *
+     *   **CT**: China Telecom
+     *   **CU**: China Unicom
+     *   **CM**: China Mobile
+     *   **CO**: other connectivity providers in the Chinese mainland
+     *   **Equinix**: Equinix
+     *   **Other**: other connectivity providers outside the Chinese mainland
+     *
      * @example CT
      *
      * @var string
@@ -49,6 +69,17 @@ class businessAccessPoints extends Model
     public $supportLineOperator;
 
     /**
+     * @description The port type supported by the access point. Valid values:
+     *
+     *   **100Base-T**: 100 Mbit/s copper Ethernet port
+     *   **1000Base-T**: 1,000 Mbit/s copper Ethernet port
+     *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 km)
+     *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
+     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 kilometers)
+     *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
+     *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
+     *
+     * >  If you want to use the 40GBase-LR or 100GBase-LR port for an Express Connect circuit, you must first contact your account manager to obtain information about resource supplies.
      * @example 1000Base-T
      *
      * @var string

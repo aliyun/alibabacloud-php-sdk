@@ -19,6 +19,8 @@ class DescribeRouteTableListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 1
      *
      * @var int
@@ -26,6 +28,8 @@ class DescribeRouteTableListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The ID of the resource group to which the route table to be queried belongs.
+     *
      * @example 10
      *
      * @var int
@@ -33,6 +37,8 @@ class DescribeRouteTableListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example ap-southeast-6
      *
      * @var string
@@ -40,6 +46,8 @@ class DescribeRouteTableListRequest extends Model
     public $regionId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeRouteTableList**.
+     *
      * @example rg-acfmxazb4ph****
      *
      * @var string
@@ -57,6 +65,8 @@ class DescribeRouteTableListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The name of the route table that you want to query.
+     *
      * @example vtb-bp145q7glnuzdvzu2****
      *
      * @var string
@@ -64,6 +74,8 @@ class DescribeRouteTableListRequest extends Model
     public $routeTableId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example doctest
      *
      * @var string
@@ -71,6 +83,9 @@ class DescribeRouteTableListRequest extends Model
     public $routeTableName;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the route table belongs.
+     *
+     * After this parameter is set, the value of the **RouterType** parameter is automatically set to **VRouter**.
      * @example vrt-bp1lhl0taikrteen8****
      *
      * @var string
@@ -78,6 +93,8 @@ class DescribeRouteTableListRequest extends Model
     public $routerId;
 
     /**
+     * @description The ID of the router to which the route table belongs.
+     *
      * @example VRouter
      *
      * @var string
@@ -85,6 +102,8 @@ class DescribeRouteTableListRequest extends Model
     public $routerType;
 
     /**
+     * @description The ID of the route table that you want to query.
+     *
      * @example vpc-bp15zckdt37pq72****
      *
      * @var string

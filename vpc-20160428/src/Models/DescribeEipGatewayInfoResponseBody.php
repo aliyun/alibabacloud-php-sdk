@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEipGatewayInfoResponseBody extends Model
 {
     /**
+     * @description The status code of the operation.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeEipGatewayInfoResponseBody extends Model
     public $code;
 
     /**
+     * @description The detailed information about the EIP.
+     *
      * @var eipInfos
      */
     public $eipInfos;
 
     /**
+     * @description The result of the operation.
+     *
      * @example successful
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeEipGatewayInfoResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C0FD0EED-F90D-4479-803D-DD62335357E5
      *
      * @var string

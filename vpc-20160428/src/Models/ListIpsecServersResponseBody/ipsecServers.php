@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class ipsecServers extends Model
 {
     /**
+     * @description The client CIDR block. It refers to the CIDR block that is allocated to the virtual interface of the client.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -18,6 +20,9 @@ class ipsecServers extends Model
     public $clientIpPool;
 
     /**
+     * @description The time when the IPsec server was created.
+     *
+     * T is used as a delimiter. Z indicates that the time is in UTC.
      * @example 2018-12-03T10:11:55Z
      *
      * @var string
@@ -25,6 +30,11 @@ class ipsecServers extends Model
     public $creationTime;
 
     /**
+     * @description Indicates whether the current IPsec tunnel is deleted and negotiations are reinitiated. Valid values:
+     *
+     *   **true**: immediately initiates negotiations after the configuration is completed.
+     *   **false**: initiates negotiations when inbound traffic is detected.
+     *
      * @example false
      *
      * @var bool
@@ -32,6 +42,8 @@ class ipsecServers extends Model
     public $effectImmediately;
 
     /**
+     * @description The ID of the Identity as a Service (IDaaS) instance.
+     *
      * @example idaas-cn-hangzhou-****
      *
      * @var string
@@ -39,11 +51,15 @@ class ipsecServers extends Model
     public $IDaaSInstanceId;
 
     /**
+     * @description The configurations of phase 1 negotiations.
+     *
      * @var ikeConfig
      */
     public $ikeConfig;
 
     /**
+     * @description The public IP address of the VPN gateway.
+     *
      * @example 47.22.XX.XX
      *
      * @var string
@@ -51,11 +67,15 @@ class ipsecServers extends Model
     public $internetIp;
 
     /**
+     * @description The configuration of phase 2 negotiations.
+     *
      * @var ipsecConfig
      */
     public $ipsecConfig;
 
     /**
+     * @description The ID of the IPsec server.
+     *
      * @example iss-bp1bo3xuvcxo7ixll****
      *
      * @var string
@@ -63,6 +83,8 @@ class ipsecServers extends Model
     public $ipsecServerId;
 
     /**
+     * @description The name of the IPsec server.
+     *
      * @example test
      *
      * @var string
@@ -70,6 +92,8 @@ class ipsecServers extends Model
     public $ipsecServerName;
 
     /**
+     * @description The local CIDR blocks, which refer to the CIDR blocks on the virtual private cloud (VPC) side.
+     *
      * @example 192.168.0.0/16,172.17.0.0/16
      *
      * @var string
@@ -77,6 +101,9 @@ class ipsecServers extends Model
     public $localSubnet;
 
     /**
+     * @description The number of SSL-VPN connections supported by the VPN gateway.
+     *
+     * >  The number of SSL-VPN connections specified in this parameter includes both SSL-VPN and IPsec-VPN connections. For example, if a VPN gateway supports up to five SSL-VPN connections, and three SSL-VPN connections are already established to SSL clients. In this case, you can establish at most two connections to IPsec servers.
      * @example 5
      *
      * @var int
@@ -84,6 +111,11 @@ class ipsecServers extends Model
     public $maxConnections;
 
     /**
+     * @description Indicates whether two-factor authentication is enabled. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -91,6 +123,8 @@ class ipsecServers extends Model
     public $multiFactorAuthEnabled;
 
     /**
+     * @description The number of clients that are connected to the IPsec server.
+     *
      * @example 1
      *
      * @var int
@@ -98,6 +132,8 @@ class ipsecServers extends Model
     public $onlineClientCount;
 
     /**
+     * @description The pre-shared key.
+     *
      * @example pgw6dy7d****
      *
      * @var string
@@ -105,6 +141,8 @@ class ipsecServers extends Model
     public $psk;
 
     /**
+     * @description Indicates whether pre-shared key authentication is enabled. Pre-shared key authentication is enabled only when the value is set to **true**.
+     *
      * @example true
      *
      * @var bool
@@ -112,6 +150,8 @@ class ipsecServers extends Model
     public $pskEnabled;
 
     /**
+     * @description The ID of the region where the IPsec server is created.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -119,6 +159,8 @@ class ipsecServers extends Model
     public $regionId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1q8bgx4xnkm2ogj****
      *
      * @var string

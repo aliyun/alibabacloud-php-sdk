@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class CreateTrafficMirrorFilterRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that the value is unique among all requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -18,6 +23,11 @@ class CreateTrafficMirrorFilterRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false**: performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed. This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -45,6 +55,9 @@ class CreateTrafficMirrorFilterRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the mirrored traffic belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
      * @example cn-hongkong
      *
      * @var string
@@ -52,6 +65,10 @@ class CreateTrafficMirrorFilterRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the mirrored traffic belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -67,6 +84,9 @@ class CreateTrafficMirrorFilterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The description of the filter.
+     *
+     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example this is a filter.
      *
      * @var string
@@ -74,6 +94,9 @@ class CreateTrafficMirrorFilterRequest extends Model
     public $trafficMirrorFilterDescription;
 
     /**
+     * @description The name of the filter.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example abc
      *
      * @var string

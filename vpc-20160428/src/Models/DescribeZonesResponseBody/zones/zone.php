@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class zone extends Model
 {
     /**
+     * @description The name of the zone.
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The ID of the zone.
+     *
      * @example cn-hangzhou-b
      *
      * @var string
@@ -21,6 +25,8 @@ class zone extends Model
     public $zoneId;
 
     /**
+     * @description The type of the zones to be queried. Default value: **AvailabilityZone**. This value indicates Alibaba Cloud zones.
+     *
      * @example AvailabilityZone
      *
      * @var string

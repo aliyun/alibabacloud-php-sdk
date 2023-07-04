@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class eipSegment extends Model
 {
     /**
+     * @description The time when the contiguous EIP group was created. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
+     *
      * @example 2020-03-06T12:30:07Z
      *
      * @var string
@@ -16,6 +18,8 @@ class eipSegment extends Model
     public $creationTime;
 
     /**
+     * @description The description of the contiguous EIP group.
+     *
      * @example MyEipSegment
      *
      * @var string
@@ -23,6 +27,8 @@ class eipSegment extends Model
     public $descritpion;
 
     /**
+     * @description The ID of the contiguous EIP group.
+     *
      * @example eipsg-2zett8ba055tbsxme****
      *
      * @var string
@@ -30,13 +36,17 @@ class eipSegment extends Model
     public $instanceId;
 
     /**
-     * @example 28
+     * @description The number of EIPs in the contiguous EIP group.
+     *
+     * @example 16
      *
      * @var string
      */
     public $ipCount;
 
     /**
+     * @description The name of the contiguous EIP group.
+     *
      * @example MyEipSegment
      *
      * @var string
@@ -44,6 +54,8 @@ class eipSegment extends Model
     public $name;
 
     /**
+     * @description The ID of the region to which the contiguous EIP group belongs.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +63,8 @@ class eipSegment extends Model
     public $regionId;
 
     /**
+     * @description The CIDR block and mask of the contiguous EIP group.
+     *
      * @example 161.xx.xx.32/28
      *
      * @var string
@@ -58,11 +72,22 @@ class eipSegment extends Model
     public $segment;
 
     /**
+     * @description The status of the contiguous EIP group.
+     *
+     *   **Allocating**: being allocated
+     *   **Allocated**: allocated
+     *   **Releasing**: being released
+     *
      * @example Allocated
      *
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $zone;
     protected $_name = [
         'creationTime' => 'CreationTime',
         'descritpion'  => 'Descritpion',
@@ -72,6 +97,7 @@ class eipSegment extends Model
         'regionId'     => 'RegionId',
         'segment'      => 'Segment',
         'status'       => 'Status',
+        'zone'         => 'Zone',
     ];
 
     public function validate()
@@ -104,6 +130,9 @@ class eipSegment extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->zone) {
+            $res['Zone'] = $this->zone;
         }
 
         return $res;
@@ -140,6 +169,9 @@ class eipSegment extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Zone'])) {
+            $model->zone = $map['Zone'];
         }
 
         return $model;

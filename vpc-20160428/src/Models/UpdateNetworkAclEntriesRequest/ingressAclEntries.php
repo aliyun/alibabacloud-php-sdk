@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ingressAclEntries extends Model
 {
     /**
+     * @description The description of the inbound rule.
+     *
+     * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
      * @example This is IngressAclEntries.
      *
      * @var string
@@ -16,6 +19,8 @@ class ingressAclEntries extends Model
     public $description;
 
     /**
+     * @description The type of the rule. Set the value to **custom**, which specifies custom rules.
+     *
      * @example custom
      *
      * @var string
@@ -23,6 +28,9 @@ class ingressAclEntries extends Model
     public $entryType;
 
     /**
+     * @description The ID of the inbound rule.
+     *
+     * Valid values of **N**: **0** to **29**. You can update at most 30 inbound rules.
      * @example nae-2zepn32de59j8m4****
      *
      * @var string
@@ -30,6 +38,9 @@ class ingressAclEntries extends Model
     public $networkAclEntryId;
 
     /**
+     * @description The name of the inbound rule.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example acl-3
      *
      * @var string
@@ -37,6 +48,11 @@ class ingressAclEntries extends Model
     public $networkAclEntryName;
 
     /**
+     * @description The action to be performed on network traffic that matches the rule. Valid values:
+     *
+     *   **accept**: allows the network traffic.
+     *   **drop**: blocks the network traffic.
+     *
      * @example accept
      *
      * @var string
@@ -44,6 +60,11 @@ class ingressAclEntries extends Model
     public $policy;
 
     /**
+     * @description The source port range of the inbound rule.
+     *
+     *   If **Protocol** of the inbound rule is set to **all**, **icmp**, or **gre**, the port range is **-1/-1**, which specifies all ports.
+     *   If **Protocol** of the inbound rule is set to **tcp** or **udp**, set the port range in the following format: **1/200** or **80/80**, which specifies port 1 to port 200 or port 80. Valid values for a port: **1** to **65535**.
+     *
      * @example -1/-1
      *
      * @var string
@@ -51,6 +72,14 @@ class ingressAclEntries extends Model
     public $port;
 
     /**
+     * @description The protocol type. Valid values:
+     *
+     *   **icmp**: Internet Control Message Protocol (ICMP)
+     *   **gre**: Generic Routing Encapsulation (GRE)
+     *   **tcp**: TCP
+     *   **udp**: UDP
+     *   **all**: all protocols
+     *
      * @example all
      *
      * @var string
@@ -58,6 +87,8 @@ class ingressAclEntries extends Model
     public $protocol;
 
     /**
+     * @description The source CIDR block.
+     *
      * @example 10.0.0.0/24
      *
      * @var string

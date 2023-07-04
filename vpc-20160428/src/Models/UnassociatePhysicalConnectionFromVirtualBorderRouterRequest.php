@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
 {
     /**
-     * @example longtel001
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that the value is unique among all requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
      */
@@ -26,6 +31,8 @@ class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
      * @example pc-bp1qrb3044eqixog****
      *
      * @var string
@@ -33,6 +40,9 @@ class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
     public $physicalConnectionId;
 
     /**
+     * @description The region ID of the Express Connect circuit.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +60,8 @@ class UnassociatePhysicalConnectionFromVirtualBorderRouterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the VBR that you want to disassociate from the Express Connect circuit.
+     *
      * @example vbr-bp16ksp61j7e0tkn*****
      *
      * @var string

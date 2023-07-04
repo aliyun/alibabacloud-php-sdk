@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateBgpPeerRequest extends Model
 {
     /**
+     * @description The BFD hop count. Valid values: **1** to **255**.
+     *
+     * The parameter specifies the maximum number of network devices that a packet can traverse from the source to the destination. Set a value based on your network topology.
      * @example 3
      *
      * @var int
@@ -16,6 +19,8 @@ class CreateBgpPeerRequest extends Model
     public $bfdMultiHop;
 
     /**
+     * @description The ID of the BGP group.
+     *
      * @example bgpg-wz9f62v4fbg****
      *
      * @var string
@@ -23,6 +28,11 @@ class CreateBgpPeerRequest extends Model
     public $bgpGroupId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * >  If you do not set this parameter, the system uses the value of **RequestId** as **ClientToken**. The value of **RequestId** for each API request is different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -30,6 +40,11 @@ class CreateBgpPeerRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to enable the Bidirectional Forwarding Detection (BFD) feature. Valid values:
+     *
+     *   **true**: enables BFD.
+     *   **false**: disables BFD.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +52,11 @@ class CreateBgpPeerRequest extends Model
     public $enableBfd;
 
     /**
+     * @description The IP version. Valid values:
+     *
+     *   **IPv4**: This is the default value.
+     *   **IPv6**: IPv6 is supported only if the VBR for which you want to create the BGP group has IPv6 enabled.
+     *
      * @example ipv4
      *
      * @var string
@@ -54,6 +74,8 @@ class CreateBgpPeerRequest extends Model
     public $ownerId;
 
     /**
+     * @description The IP address of the BGP peer.
+     *
      * @example 116.62.XX.XX
      *
      * @var string
@@ -61,6 +83,9 @@ class CreateBgpPeerRequest extends Model
     public $peerIpAddress;
 
     /**
+     * @description The ID of the region to which the BGP group belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string

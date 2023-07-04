@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AllocateVpcIpv6CidrRequest extends Model
 {
     /**
+     * @description The type of the IPv6 address pool. Set the value to **custom**.
+     *
+     * >  This parameter is required.
      * @example custom
      *
      * @var string
@@ -16,6 +19,9 @@ class AllocateVpcIpv6CidrRequest extends Model
     public $addressPoolType;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** of each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -23,6 +29,8 @@ class AllocateVpcIpv6CidrRequest extends Model
     public $clientToken;
 
     /**
+     * @description The IPv6 CIDR block that you want to reserve.
+     *
      * @example 2408:XXXX:0:a600::/56
      *
      * @var string
@@ -30,6 +38,18 @@ class AllocateVpcIpv6CidrRequest extends Model
     public $ipv6CidrBlock;
 
     /**
+     * @description The type of the IPv6 CIDR block. Valid values:
+     *
+     *   **BGP**: Alibaba Cloud Border Gateway Protocol (BGP) IPv6. This is the default value.
+     *   **ChinaMobile**: China Mobile (single ISP).
+     *   **ChinaUnicom**: China Unicom (single ISP).
+     *   **ChinaTelecom**: China Telecom (single ISP).
+     *
+     * >
+     *
+     *   If your Alibaba Cloud account is allowed to use single-ISP bandwidth, valid values are: **ChinaTelecom**, **ChinaUnicom**, and **ChinaMobile**.
+     *   You can reserve only one IPv6 CIDR block of each type. After a reserved IPv6 CIDR block of a type is allocated to a VPC, you can reserve another IPv6 CIDR of the type.
+     *
      * @example BGP
      *
      * @var string
@@ -47,6 +67,9 @@ class AllocateVpcIpv6CidrRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the VPC belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

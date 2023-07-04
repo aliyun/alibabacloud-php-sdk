@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouterInterfaceAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the access point.
+     *
      * @example ap-cn-qingdao-ls-A
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $accessPointId;
 
     /**
+     * @description The bandwidth of the router interface. Unit: Mbit/s.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,12 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $bandwidth;
 
     /**
+     * @description The status of the router interface. Valid values:
+     *
+     *   **Normal**: normal
+     *   **FinancialLocked**: locked due to overdue payments
+     *   **SecurityLocked**: locked due to security reasons
+     *
      * @example Normal
      *
      * @var string
@@ -30,6 +40,11 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $businessStatus;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   **AfterPay**: pay-as-you-go
+     *   **PrePaid**: subscription
+     *
      * @example AfterPay
      *
      * @var string
@@ -37,6 +52,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $chargeType;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var string
@@ -44,6 +61,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $code;
 
     /**
+     * @description The time when the connection is established.
+     *
      * @example 2022-04-14T08:58:04Z
      *
      * @var string
@@ -51,6 +70,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $connectedTime;
 
     /**
+     * @description The time when the router interface was created.
+     *
      * @example 2022-04-14T08:57:24Z
      *
      * @var string
@@ -58,6 +79,11 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $creationTime;
 
     /**
+     * @description Indicates whether the connection is a cross-border connection. Valid values:
+     *
+     *   **false**: no
+     *   **true**: yes
+     *
      * @example false
      *
      * @var bool
@@ -65,11 +91,15 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $crossBorder;
 
     /**
+     * @description The description of the router interface.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The end of the time range queried.
+     *
      * @example 2999-09-08T16:00:00Z
      *
      * @var string
@@ -77,6 +107,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The time when the router interface was modified.
+     *
      * @example 2022-04-28T10:02:12Z
      *
      * @var string
@@ -84,6 +116,11 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $gmtModified;
 
     /**
+     * @description Indicates whether renewal data is included. Valid values:
+     *
+     *   **false**: no
+     *   **true**: yes
+     *
      * @example false
      *
      * @var string
@@ -91,6 +128,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $hasReservationData;
 
     /**
+     * @description The rate of health checks. Unit: seconds. The value indicates the interval at which probe packets are sent during a health check.
+     *
      * @example 2
      *
      * @var int
@@ -98,6 +137,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $hcRate;
 
     /**
+     * @description The health check threshold, which is the number of probe packets that are sent during a health check. Unit: packets.
+     *
      * @example 8
      *
      * @var int
@@ -105,6 +146,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $hcThreshold;
 
     /**
+     * @description The source IP address that is used for health checks.
+     *
      * @example 1.1.XX.XX
      *
      * @var string
@@ -112,6 +155,13 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $healthCheckSourceIp;
 
     /**
+     * @description The health check status. Valid values:
+     *
+     *   **Abnormal**: abnormal.
+     *   **Normal**: normal.
+     *   **NoRedundantRoute**: No redundant route is configured.
+     *   **NoHealthCheckConfig**: No health check is configured.
+     *
      * @example normal
      *
      * @var string
@@ -119,6 +169,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $healthCheckStatus;
 
     /**
+     * @description The destination IP address that is used for health checks.
+     *
      * @example 2.2.XX.XX
      *
      * @var string
@@ -126,6 +178,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $healthCheckTargetIp;
 
     /**
+     * @description The message returned.
+     *
      * @example successful
      *
      * @var string
@@ -133,11 +187,15 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $message;
 
     /**
+     * @description The name of the router interface.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the peer access point.
+     *
      * @example ap-cn-qingdao-ls-B
      *
      * @var string
@@ -145,6 +203,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $oppositeAccessPointId;
 
     /**
+     * @description The bandwidth of the peer router interface. Unit: Mbit/s.
+     *
      * @example 0
      *
      * @var int
@@ -152,6 +212,12 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $oppositeBandwidth;
 
     /**
+     * @description The service status of the peer router interface. Valid values:
+     *
+     *   **Normal**: normal
+     *   **FinancialLocked**: locked due to overdue payments
+     *   **SecurityLocked**: locked due to security reasons
+     *
      * @example Normal
      *
      * @var string
@@ -159,6 +225,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $oppositeInterfaceBusinessStatus;
 
     /**
+     * @description The ID of the peer router interface.
+     *
      * @example ri-bp1xkrzttximaoxbl****
      *
      * @var string
@@ -166,6 +234,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $oppositeInterfaceId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the peer router interface belongs.
+     *
      * @example 1321932713****
      *
      * @var string
@@ -173,6 +243,22 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $oppositeInterfaceOwnerId;
 
     /**
+     * @description The specification of the peer router interface. Valid values:
+     *
+     *   **Mini.2**: 2 Mbit/s
+     *   **Mini.5**: 5 Mbit/s
+     *   **Small.1**: 10 Mbit/s
+     *   **Small.2**: 20 Mbit/s
+     *   **Small.5**: 50 Mbit/s
+     *   **Middle.1**: 100 Mbit/s
+     *   **Middle.2**: 200 Mbit/s
+     *   **Middle.5**: 500 Mbit/s
+     *   **Large.1**: 1,000 Mbit/s
+     *   **Large.2**: 2,000 Mbit/s
+     *   **Large.5**: 5,000 Mbit/s
+     *   **Xlarge.1**: 10,000 Mbit/s
+     *   **Negative**: not applicable
+     *
      * @example Negative
      *
      * @var string
@@ -180,6 +266,19 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $oppositeInterfaceSpec;
 
     /**
+     * @description The status of the peer router interface. Valid values:
+     *
+     *   **Idle**: not connected
+     *   **AcceptingConnecting**: accepting a connection
+     *   **Connecting**: connecting
+     *   **Activating**: being activated
+     *   **Active**: activated
+     *   **Modifying**: being modified
+     *   **Deactivating**: being disabled
+     *   **Inactive**: disabled
+     *   **Deleting**: being deleted
+     *   **Deleted**: deleted
+     *
      * @example Active
      *
      * @var string
@@ -187,6 +286,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $oppositeInterfaceStatus;
 
     /**
+     * @description The region ID of the peer router interface.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -194,6 +295,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $oppositeRegionId;
 
     /**
+     * @description The ID of the router to which the peer router interface belongs.
+     *
      * @example vrt-bp11xvy6lb9photuu****
      *
      * @var string
@@ -201,6 +304,11 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $oppositeRouterId;
 
     /**
+     * @description The type of the router to which the peer router interface belongs. Valid values:
+     *
+     *   **VRouter**: a vRouter
+     *   **VBR**: a virtual border router (VBR)
+     *
      * @example VRouter
      *
      * @var string
@@ -208,6 +316,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $oppositeRouterType;
 
     /**
+     * @description The ID of the peer VPC.
+     *
      * @example vpc-bp1b49rqrybk45nio****
      *
      * @var string
@@ -215,6 +325,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $oppositeVpcInstanceId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 01818199-04F6-47F4-9ADF-7CC824CF57A4
      *
      * @var string
@@ -222,6 +334,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The time when the renewal takes effect.
+     *
      * @example 2022-06-11T16:00:00Z
      *
      * @var string
@@ -229,6 +343,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $reservationActiveTime;
 
     /**
+     * @description The bandwidth after the renewal takes effect. Unit: Mbit/s.
+     *
      * @example 100
      *
      * @var string
@@ -236,6 +352,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $reservationBandwidth;
 
     /**
+     * @description The metering method that is used after the renewal takes effect. The value is set to **PayByBandwidth**, which indicates the pay-by-bandwidth metering method.
+     *
      * @example PayByBandwidth
      *
      * @var string
@@ -243,6 +361,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $reservationInternetChargeType;
 
     /**
+     * @description The type of the renewal order. The value is set to **RENEW**, which indicates that the order is placed for service renewal.
+     *
      * @example RENEW
      *
      * @var string
@@ -250,6 +370,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $reservationOrderType;
 
     /**
+     * @description Indicates whether the router interface is the requester or the acceptor of the peering connection.
+     *
      * @example InitiatingSide
      *
      * @var string
@@ -257,6 +379,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $role;
 
     /**
+     * @description The ID of the router to which the router interface belongs.
+     *
      * @example vbr-m5ex0xf63xk8s5bob****
      *
      * @var string
@@ -264,6 +388,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $routerId;
 
     /**
+     * @description The ID of the router interface.
+     *
      * @example ri-m5egfc10sednwk2yt****
      *
      * @var string
@@ -271,6 +397,11 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $routerInterfaceId;
 
     /**
+     * @description The type of the router to which the route table belongs. Valid values:
+     *
+     *   **VRouter**: a vRouter
+     *   **VBR**: a VBR
+     *
      * @example VRouter
      *
      * @var string
@@ -278,6 +409,21 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $routerType;
 
     /**
+     * @description The specification of the router interface. Valid values:
+     *
+     *   **Mini.2**: 2 Mbit/s
+     *   **Mini.5**: 5 Mbit/s
+     *   **Small.1**: 10 Mbit/s
+     *   **Small.2**: 20 Mbit/s
+     *   **Small.5**: 50 Mbit/s
+     *   **Middle.1**: 100 Mbit/s
+     *   **Middle.2**: 200 Mbit/s
+     *   **Middle.5**: 500 Mbit/s
+     *   **Large.1**: 1,000 Mbit/s
+     *   **Large.2**: 2,000 Mbit/s
+     *   **Large.5**: 5,000 Mbit/s
+     *   **Xlarge.1**: 10,000 Mbit/s
+     *
      * @example Mini.2
      *
      * @var string
@@ -285,6 +431,18 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $spec;
 
     /**
+     * @description The status of the router interface. Valid values:
+     *
+     *   **Idle**: not connected
+     *   **AcceptingConnecting**: accepting a connection
+     *   **Connecting**: connecting
+     *   **Activating**: being activated
+     *   **Active**: activated
+     *   **Modifying**: being modified
+     *   **Deactivating**: being disabled
+     *   **Inactive**: disabled
+     *   **Deleting**: being deleted
+     *
      * @example Active
      *
      * @var string
@@ -292,6 +450,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $status;
 
     /**
+     * @description Indicates whether the operation is successful.
+     *
      * @example true
      *
      * @var bool
@@ -299,6 +459,8 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $success;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the router interface belongs.
+     *
      * @example vpc-bp1b49rqrybk45nio****
      *
      * @var string

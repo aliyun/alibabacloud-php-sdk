@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyVSwitchAttributeRequest extends Model
 {
     /**
+     * @description The new description for the vSwitch.
+     *
+     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example This is my vswitch.
      *
      * @var string
@@ -16,6 +19,11 @@ class ModifyVSwitchAttributeRequest extends Model
     public $description;
 
     /**
+     * @description Specifies whether to enable the IPv6 feature for the vSwitch. Valid values:
+     *
+     *   **true**: enables the IPv6 feature.
+     *   **false**: disables the IPv6 feature. This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +31,9 @@ class ModifyVSwitchAttributeRequest extends Model
     public $enableIPv6;
 
     /**
+     * @description The last eight bits of the IPv6 CIDR block of the vSwitch. Valid values: **0** to **255**.
+     *
+     * You can set this parameter only when the IPv6 feature is enabled for the virtual private cloud (VPC) to which the vSwitch belongs.
      * @example 10
      *
      * @var int
@@ -40,6 +51,8 @@ class ModifyVSwitchAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the vSwitch is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +70,8 @@ class ModifyVSwitchAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-25nacdfvue4****
      *
      * @var string
@@ -64,6 +79,9 @@ class ModifyVSwitchAttributeRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The new name for the vSwitch.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example VSwitch-1
      *
      * @var string
@@ -71,6 +89,9 @@ class ModifyVSwitchAttributeRequest extends Model
     public $vSwitchName;
 
     /**
+     * @description The IPv6 CIDR block of the VPC to which the vSwitch belongs.
+     *
+     * You can set this parameter only when the IPv6 feature is enabled for the VPC.
      * @example 2408:XXXX:312:3e00::/56
      *
      * @var string

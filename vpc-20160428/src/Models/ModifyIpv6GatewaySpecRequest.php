@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyIpv6GatewaySpecRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters and cannot exceed 64 characters in length.
      * @example 123456
      *
      * @var string
@@ -16,6 +19,8 @@ class ModifyIpv6GatewaySpecRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the IPv6 gateway.
+     *
      * @example ipv6gw-123456xxxxxxxx
      *
      * @var string
@@ -33,6 +38,8 @@ class ModifyIpv6GatewaySpecRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the available regions.
+     *
      * @example cn-huhehaote
      *
      * @var string
@@ -50,6 +57,8 @@ class ModifyIpv6GatewaySpecRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description This parameter is no longer used because no specifications options are available for the IPv6 gateway.
+     *
      * @var string
      */
     public $spec;

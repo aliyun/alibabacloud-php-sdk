@@ -16,6 +16,8 @@ class eipMonitorData extends Model
     public $eipBandwidth;
 
     /**
+     * @description The sum of inbound and outbound traffic.
+     *
      * @example 465
      *
      * @var int
@@ -23,6 +25,8 @@ class eipMonitorData extends Model
     public $eipFlow;
 
     /**
+     * @description The number of packets.
+     *
      * @example 3434
      *
      * @var int
@@ -30,6 +34,8 @@ class eipMonitorData extends Model
     public $eipPackets;
 
     /**
+     * @description The inbound traffic. Unit: bytes.
+     *
      * @example 122
      *
      * @var int
@@ -37,6 +43,8 @@ class eipMonitorData extends Model
     public $eipRX;
 
     /**
+     * @description The outbound traffic. Unit: bytes.
+     *
      * @example 343
      *
      * @var int
@@ -44,6 +52,8 @@ class eipMonitorData extends Model
     public $eipTX;
 
     /**
+     * @description The timestamp of the monitoring data. Specify the time in the ISO8601 standard. Example: `2020-01-21T09:50:23Z`.
+     *
      * @example 2020-01-21T09:50:23Z
      *
      * @var string

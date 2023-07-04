@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteRouterInterfaceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** in each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -26,6 +31,9 @@ class DeleteRouterInterfaceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the router interface is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string
@@ -43,6 +51,8 @@ class DeleteRouterInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the router interface.
+     *
      * @example ri-2zeo3xzyf38r4urz****
      *
      * @var string

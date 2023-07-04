@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The value of the tag that is added to the route table.
+     *
      * @example type
      *
      * @var string
@@ -16,6 +18,8 @@ class tag extends Model
     public $key;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example ingress
      *
      * @var string

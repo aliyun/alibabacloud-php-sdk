@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ingressAclEntry extends Model
 {
     /**
+     * @description The tag key.
+     *
      * @example This is IngressAclEntries.
      *
      * @var string
@@ -16,6 +18,8 @@ class ingressAclEntry extends Model
     public $description;
 
     /**
+     * @description The type of the associated resource.
+     *
      * @example nae-a2dk86arlydmezasw****
      *
      * @var string
@@ -23,6 +27,8 @@ class ingressAclEntry extends Model
     public $networkAclEntryId;
 
     /**
+     * @description The ID of the associated resource.
+     *
      * @example acl-3
      *
      * @var string
@@ -30,6 +36,8 @@ class ingressAclEntry extends Model
     public $networkAclEntryName;
 
     /**
+     * @description The tag list.
+     *
      * @example accept
      *
      * @var string
@@ -51,6 +59,8 @@ class ingressAclEntry extends Model
     public $protocol;
 
     /**
+     * @description The tag value.
+     *
      * @example 10.0.0.0/24
      *
      * @var string

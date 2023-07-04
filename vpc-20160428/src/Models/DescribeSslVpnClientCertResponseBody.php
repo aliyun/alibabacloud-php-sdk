@@ -9,26 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeSslVpnClientCertResponseBody extends Model
 {
     /**
+     * @description The CA certificate.
+     *
      * @var string
      */
     public $caCert;
 
     /**
+     * @description The client certificate.
+     *
      * @var string
      */
     public $clientCert;
 
     /**
+     * @description The configuration of the client.
+     *
      * @var string
      */
     public $clientConfig;
 
     /**
+     * @description The key of the client.
+     *
      * @var string
      */
     public $clientKey;
 
     /**
+     * @description The timestamp that indicates when the SSL client certificate was created. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1552550980000
      *
      * @var int
@@ -36,6 +47,9 @@ class DescribeSslVpnClientCertResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The timestamp that indicates when the SSL client certificate expires. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1647158980000
      *
      * @var int
@@ -43,6 +57,8 @@ class DescribeSslVpnClientCertResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The name of the SSL client certificate.
+     *
      * @example nametest
      *
      * @var string
@@ -50,6 +66,8 @@ class DescribeSslVpnClientCertResponseBody extends Model
     public $name;
 
     /**
+     * @description The ID of the region where the SSL client certificate is created.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +75,8 @@ class DescribeSslVpnClientCertResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 5BE01CD7-5A50-472D-AC14-CA181C5C03BE
      *
      * @var string
@@ -64,6 +84,8 @@ class DescribeSslVpnClientCertResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the SSL client certificate.
+     *
      * @example vsc-bp13k5mp4tg8v3z9b****
      *
      * @var string
@@ -71,6 +93,8 @@ class DescribeSslVpnClientCertResponseBody extends Model
     public $sslVpnClientCertId;
 
     /**
+     * @description The ID of the SSL server.
+     *
      * @example vss-bp155e9yclsg1xgq4****
      *
      * @var string
@@ -78,6 +102,12 @@ class DescribeSslVpnClientCertResponseBody extends Model
     public $sslVpnServerId;
 
     /**
+     * @description The status of the SSL client certificate. Valid values:
+     *
+     *   **expiring-soon**: The certificate expires in one week.
+     *   **normal**: The certificate is active.
+     *   **expired**: The certificate has expired.
+     *
      * @example normal
      *
      * @var string

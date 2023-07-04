@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetNatGatewayConvertStatusRequest extends Model
 {
     /**
+     * @description The ID of the Internet NAT gateway to be queried.
+     *
      * @example ngw-bp1b0lic8uz4r6vf2****
      *
      * @var string
@@ -26,6 +28,8 @@ class GetNatGatewayConvertStatusRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the NAT gateway belongs.
+     *
      * @example cn-qingdao
      *
      * @var string

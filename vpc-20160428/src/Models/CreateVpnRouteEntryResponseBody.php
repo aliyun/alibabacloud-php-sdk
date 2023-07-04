@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnRouteEntryResponseBody extends Model
 {
     /**
+     * @description The timestamp when the destination-based route was created. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1492747187000
      *
      * @var int
@@ -16,6 +19,8 @@ class CreateVpnRouteEntryResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The description of the destination-based route.
+     *
      * @example mytest
      *
      * @var string
@@ -23,6 +28,8 @@ class CreateVpnRouteEntryResponseBody extends Model
     public $description;
 
     /**
+     * @description The next hop of the destination-based route.
+     *
      * @example vco-bp15oes1py4i66rmd****
      *
      * @var string
@@ -30,6 +37,8 @@ class CreateVpnRouteEntryResponseBody extends Model
     public $nextHop;
 
     /**
+     * @description The tunneling protocol. The value is set to **Ipsec**, which indicates the IPsec tunneling protocol.
+     *
      * @example Ipsec
      *
      * @var string
@@ -37,6 +46,8 @@ class CreateVpnRouteEntryResponseBody extends Model
     public $overlayMode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 5BE01CD7-5A50-472D-AC14-CA181C5C03BE
      *
      * @var string
@@ -44,6 +55,8 @@ class CreateVpnRouteEntryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The destination CIDR block of the destination-based route.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -51,6 +64,11 @@ class CreateVpnRouteEntryResponseBody extends Model
     public $routeDest;
 
     /**
+     * @description The status of the destination-based route.
+     *
+     *   **published**: advertised to the VPC route table.
+     *   **normal**: not advertised to the VPC route table.
+     *
      * @example published
      *
      * @var string
@@ -58,13 +76,20 @@ class CreateVpnRouteEntryResponseBody extends Model
     public $state;
 
     /**
-     * @example vpn-bp1cmw7jh1nfe43m9****
+     * @description The ID of the VPN gateway.
+     *
+     * @example vpn-bp1a3kqjiiq9legfx****
      *
      * @var string
      */
     public $vpnInstanceId;
 
     /**
+     * @description The weight of the destination-based route. Valid values:
+     *
+     *   **100**: a high priority
+     *   **0**: a low priority
+     *
      * @example 0
      *
      * @var int

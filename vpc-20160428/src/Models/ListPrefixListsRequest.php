@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListPrefixListsRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -17,6 +19,11 @@ class ListPrefixListsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If this is your first query and no next queries are to be sent, ignore this parameter.
+     *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -41,6 +48,9 @@ class ListPrefixListsRequest extends Model
     public $prefixListIds;
 
     /**
+     * @description The name of the prefix list to query.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example name
      *
      * @var string
@@ -48,6 +58,9 @@ class ListPrefixListsRequest extends Model
     public $prefixListName;
 
     /**
+     * @description The ID of the region where you want to query prefix lists.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -55,6 +68,10 @@ class ListPrefixListsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the prefix list belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;

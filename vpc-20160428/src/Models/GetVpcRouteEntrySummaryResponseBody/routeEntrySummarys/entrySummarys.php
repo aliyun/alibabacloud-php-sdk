@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class entrySummarys extends Model
 {
     /**
+     * @description The number of entries returned.
+     *
      * @example 10
      *
      * @var int
@@ -16,6 +18,14 @@ class entrySummarys extends Model
     public $count;
 
     /**
+     * @description The type of the route. Valid values:
+     *
+     *   **All**: all route types
+     *   **Custom**: a custom route
+     *   **System**: a system route
+     *   **BGP**: a BGP route
+     *   **CEN**: a CEN route
+     *
      * @example Custom
      *
      * @var string

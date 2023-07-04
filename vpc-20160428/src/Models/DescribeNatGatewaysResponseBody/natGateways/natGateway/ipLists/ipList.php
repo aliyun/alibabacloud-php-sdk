@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ipList extends Model
 {
     /**
+     * @description The ID of the EIP associated with the NAT gateway.
+     *
      * @example eip-m5egzuvp3dgixen6****
      *
      * @var string
@@ -16,6 +18,8 @@ class ipList extends Model
     public $allocationId;
 
     /**
+     * @description The IP address of the EIP associated with the NAT gateway.
+     *
      * @example 116.62.XX.XX
      *
      * @var string
@@ -23,6 +27,8 @@ class ipList extends Model
     public $ipAddress;
 
     /**
+     * @description The private IP address of the NAT gateway.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -30,6 +36,11 @@ class ipList extends Model
     public $privateIpAddress;
 
     /**
+     * @description Indicates whether IP addresses that are used in DNAT entries can be specified in SNAT entries. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +48,13 @@ class ipList extends Model
     public $snatEntryEnabled;
 
     /**
+     * @description The association between the EIP and the Internet NAT gateway. Valid values:
+     *
+     *   **UsedByForwardTable**: The EIP is specified in a DNAT entry.
+     *   **UsedBySnatTable**: The EIP is specified in an SNAT entry.
+     *   **UsedByForwardSnatTable**: The EIP is specified in both an SNAT entry and a DNAT entry.
+     *   **Idle**: The EIP is not specified in a DNAT or SNAT entry.
+     *
      * @example UsedByForwardTable
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpcPrefixListRequest extends Model
 {
     /**
+     * @description The region ID of the prefix list.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,6 +19,8 @@ class DeleteVpcPrefixListRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example false
      *
      * @var bool
@@ -33,6 +38,11 @@ class DeleteVpcPrefixListRequest extends Model
     public $ownerId;
 
     /**
+     * @description Specifies whether to check the request without performing the operation. Valid values:
+     *
+     *   **true**: checks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails to pass the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. If the request passes the check, a 2xx HTTP status code is returned and the operation is performed.
+     *
      * @example pl-0b78hw45f****
      *
      * @var string

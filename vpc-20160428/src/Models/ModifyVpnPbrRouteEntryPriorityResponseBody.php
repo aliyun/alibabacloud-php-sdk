@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnPbrRouteEntryPriorityResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 5BE01CD7-5A50-472D-AC14-CA181C5C03BE
      *
      * @var string

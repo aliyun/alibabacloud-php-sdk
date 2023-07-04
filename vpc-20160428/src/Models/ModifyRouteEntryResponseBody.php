@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyRouteEntryResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 861E6630-AEC0-4B2D-B214-6CB5E44B7F04
      *
      * @var string

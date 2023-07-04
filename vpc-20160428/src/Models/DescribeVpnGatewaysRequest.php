@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnGatewaysRequest extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example Normal
      *
      * @var string
@@ -17,7 +19,10 @@ class DescribeVpnGatewaysRequest extends Model
     public $businessStatus;
 
     /**
-     * @example false
+     * @description The type of the VPN gateway.
+     *
+     * The value is set to **Normal**, which indicates a standard NAT gateway.
+     * @example true
      *
      * @var bool
      */
@@ -34,6 +39,8 @@ class DescribeVpnGatewaysRequest extends Model
     public $ownerId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -41,6 +48,8 @@ class DescribeVpnGatewaysRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The list of VPN gateways.
+     *
      * @example 10
      *
      * @var int
@@ -48,7 +57,10 @@ class DescribeVpnGatewaysRequest extends Model
     public $pageSize;
 
     /**
-     * @example cn-hangzhou
+     * @description The tag key. The tag key cannot be an empty string.
+     *
+     * You can specify at most 20 tag keys in each call.
+     * @example cn-zhangjiakou
      *
      * @var string
      */
@@ -65,7 +77,9 @@ class DescribeVpnGatewaysRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @example init
+     * @description The ID of the request.
+     *
+     * @example active
      *
      * @var string
      */
@@ -77,6 +91,9 @@ class DescribeVpnGatewaysRequest extends Model
     public $tag;
 
     /**
+     * @description The tag value.
+     *
+     * Each tag key corresponds to one tag value. You can specify at most 20 tag values in each call.
      * @example vpc-bp1m3i0kn1nd4wiw9****
      *
      * @var string
@@ -84,6 +101,8 @@ class DescribeVpnGatewaysRequest extends Model
     public $vpcId;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example vpn-bp17lofy9fd0dnvzv****
      *
      * @var string

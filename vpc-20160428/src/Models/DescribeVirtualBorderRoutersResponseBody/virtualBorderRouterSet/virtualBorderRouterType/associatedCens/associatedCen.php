@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class associatedCen extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
      * @example cen-kojok19xxx****
      *
      * @var string
@@ -16,6 +18,8 @@ class associatedCen extends Model
     public $cenId;
 
     /**
+     * @description The user ID (UID) of the Alibaba Cloud account to which the CEN instance belongs.
+     *
      * @example 1688000000000****
      *
      * @var int
@@ -23,6 +27,13 @@ class associatedCen extends Model
     public $cenOwnerId;
 
     /**
+     * @description The status of the CEN instance. Valid values:
+     *
+     * - **Attached**: The VBR is attached to the CEN instance.
+     * - **Attaching**: The VBR is being attached to the CEN instance.
+     * - **Detached**: The VBR is detached from the CEN instance.
+     * - **Detaching**: The VBR is being detached from the CEN instance.
+     * - If no value is returned, the VBR is not attached to a CEN instance.
      * @example Attached
      *
      * @var string

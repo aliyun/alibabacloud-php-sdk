@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEipGatewayInfoRequest extends Model
 {
     /**
+     * @description The ID of the secondary ENI that is associated with the EIP.
+     *
      * @example eni-bp1d66qjxb3qoin3****
      *
      * @var string
@@ -16,20 +18,18 @@ class DescribeEipGatewayInfoRequest extends Model
     public $instanceId;
 
     /**
-     * @example 111
-     *
      * @var string
      */
     public $ownerAccount;
 
     /**
-     * @example 111
-     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The region to which the EIP that you want to query belongs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-zhangjiakou
      *
      * @var string
@@ -37,15 +37,11 @@ class DescribeEipGatewayInfoRequest extends Model
     public $regionId;
 
     /**
-     * @example 111
-     *
      * @var string
      */
     public $resourceOwnerAccount;
 
     /**
-     * @example 111
-     *
      * @var int
      */
     public $resourceOwnerId;

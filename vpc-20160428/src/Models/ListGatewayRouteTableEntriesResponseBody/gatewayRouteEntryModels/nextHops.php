@@ -9,21 +9,36 @@ use AlibabaCloud\Tea\Model;
 class nextHops extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $enabled;
 
     /**
+     * @description The weight of the route.
+     *
+     * @example vpn-bp10zyaph5cc8b7c7****
+     *
      * @var string
      */
     public $nextHopId;
 
     /**
+     * @description Indicates whether the route is available. Valid values:
+     *
+     *   **0**: unavailable
+     *   **1**: available
+     *
+     * @example Instance
+     *
      * @var string
      */
     public $nextHopType;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $weight;

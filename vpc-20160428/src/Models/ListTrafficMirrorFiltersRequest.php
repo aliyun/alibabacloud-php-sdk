@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListTrafficMirrorFiltersRequest extends Model
 {
     /**
+     * @description The maximum number of entries to return.
+     *
+     * Valid values: **1** to **100**. Default value: **10**.
      * @example 10
      *
      * @var int
@@ -17,6 +20,11 @@ class ListTrafficMirrorFiltersRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If this is your first query and no next queries are to be sent, ignore this parameter.
+     *   If a next query is to be performed, set the value to the NextToken value returned in the last call to the ListListenerCertificates operation.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -34,6 +42,9 @@ class ListTrafficMirrorFiltersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the mirrored traffic belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
      * @example cn-hongkong
      *
      * @var string
@@ -41,6 +52,10 @@ class ListTrafficMirrorFiltersRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the mirrored traffic belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -68,6 +83,8 @@ class ListTrafficMirrorFiltersRequest extends Model
     public $trafficMirrorFilterIds;
 
     /**
+     * @description The name of the filter.
+     *
      * @example abc
      *
      * @var string

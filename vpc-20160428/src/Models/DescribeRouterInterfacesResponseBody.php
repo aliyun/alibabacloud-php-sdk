@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouterInterfacesResponseBody extends Model
 {
     /**
+     * @description The number of the returned page. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeRouterInterfacesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeRouterInterfacesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C7F6FCBD-F9CC-4501-8EF3-CDC9577CAE45
      *
      * @var string
@@ -31,11 +37,15 @@ class DescribeRouterInterfacesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The details of the router interface.
+     *
      * @var routerInterfaceSet
      */
     public $routerInterfaceSet;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

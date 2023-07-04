@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ikeConfig extends Model
 {
     /**
+     * @description The IKE authentication algorithm. Valid values: **sha1** and **MD5**.
+     *
      * @example sha1
      *
      * @var string
@@ -16,6 +18,8 @@ class ikeConfig extends Model
     public $ikeAuthAlg;
 
     /**
+     * @description The IKE encryption algorithm.
+     *
      * @example aes
      *
      * @var string
@@ -23,6 +27,8 @@ class ikeConfig extends Model
     public $ikeEncAlg;
 
     /**
+     * @description The IKE lifetime. Unit: seconds.
+     *
      * @example 86400
      *
      * @var int
@@ -30,6 +36,8 @@ class ikeConfig extends Model
     public $ikeLifetime;
 
     /**
+     * @description The IKE mode. Valid values: **main** and **aggressive**. The **main** mode offers higher security. If NAT traversal is enabled, we recommend that you use the **aggressive** mode.
+     *
      * @example main
      *
      * @var string
@@ -37,6 +45,8 @@ class ikeConfig extends Model
     public $ikeMode;
 
     /**
+     * @description The DH group.
+     *
      * @example group2
      *
      * @var string
@@ -44,6 +54,8 @@ class ikeConfig extends Model
     public $ikePfs;
 
     /**
+     * @description The IKE version.
+     *
      * @example ikev1
      *
      * @var string
@@ -51,6 +63,8 @@ class ikeConfig extends Model
     public $ikeVersion;
 
     /**
+     * @description The local ID. The default value is the IP address of the VPN gateway. You can specify the value as an IP address or in the FQDN format.
+     *
      * @example 116.62.XX.XX
      *
      * @var string
@@ -58,6 +72,8 @@ class ikeConfig extends Model
     public $localId;
 
     /**
+     * @description The pre-shared key.
+     *
      * @example pgw6dy7d1i8i****
      *
      * @var string
@@ -65,6 +81,8 @@ class ikeConfig extends Model
     public $psk;
 
     /**
+     * @description The peer ID. The default value is the IP address of the customer gateway. You can specify the value as an IP address or in the fully qualified domain name (FQDN) format.
+     *
      * @example 139.196.XX.XX
      *
      * @var string

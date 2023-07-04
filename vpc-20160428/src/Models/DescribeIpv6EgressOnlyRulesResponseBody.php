@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6EgressOnlyRulesResponseBody extends Model
 {
     /**
+     * @description The details about the egress-only rules.
+     *
      * @var ipv6EgressOnlyRules
      */
     public $ipv6EgressOnlyRules;
 
     /**
+     * @description The number of the returned page. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeIpv6EgressOnlyRulesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeIpv6EgressOnlyRulesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E16671B7-DEA6-48E0-8E9C-41913DAD44DD
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeIpv6EgressOnlyRulesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ActiveFlowLogResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1
      *
      * @var string
@@ -16,6 +18,11 @@ class ActiveFlowLogResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the operation is successful. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var string

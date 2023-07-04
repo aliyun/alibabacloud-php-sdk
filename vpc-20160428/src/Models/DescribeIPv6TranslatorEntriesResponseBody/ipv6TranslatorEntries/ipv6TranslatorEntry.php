@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ipv6TranslatorEntry extends Model
 {
     /**
-     * @example ipv6transacl-bp1de2xxxx
+     * @description The ID of the associated ACL.
+     *
+     * @example ipv6transacl-bp1de2****
      *
      * @var string
      */
     public $aclId;
 
     /**
+     * @description Indicates whether ACLs are enabled.
+     *
      * @example on
      *
      * @var string
@@ -23,6 +27,11 @@ class ipv6TranslatorEntry extends Model
     public $aclStatus;
 
     /**
+     * @description The ACL type.
+     *
+     *   **white**: a whitelist. IPv6 addresses in the ACL are allowed to access backend services.
+     *   **black**: a blacklist. IPv6 addresses in the ACL are not allowed to access backend services.
+     *
      * @example white
      *
      * @var string
@@ -30,13 +39,17 @@ class ipv6TranslatorEntry extends Model
     public $aclType;
 
     /**
-     * @example 2400:3200:1600::xxx
+     * @description The IPv6 address allocated to the IPv6 Translation Service instance.
+     *
+     * @example 2400:3200:1600::XX
      *
      * @var string
      */
     public $allocateIpv6Addr;
 
     /**
+     * @description The port used by the IPv6 address allocated to the IPv6 Translation Service instance.
+     *
      * @example 80
      *
      * @var int
@@ -44,13 +57,17 @@ class ipv6TranslatorEntry extends Model
     public $allocateIpv6Port;
 
     /**
-     * @example 47.99.xx.xx
+     * @description The public IP address of the backend IPv4 server.
+     *
+     * @example 47.99.XX.XX
      *
      * @var string
      */
     public $backendIpv4Addr;
 
     /**
+     * @description The public IPv4 port used by the IPv4 server that needs to provide IPv6 access.
+     *
      * @example 80
      *
      * @var string
@@ -58,6 +75,8 @@ class ipv6TranslatorEntry extends Model
     public $backendIpv4Port;
 
     /**
+     * @description The bandwidth specified in the IPv6 mapping entry.
+     *
      * @example 1
      *
      * @var string
@@ -65,6 +84,8 @@ class ipv6TranslatorEntry extends Model
     public $entryBandwidth;
 
     /**
+     * @description The description of the IPv6 mapping entry.
+     *
      * @example description
      *
      * @var string
@@ -72,6 +93,8 @@ class ipv6TranslatorEntry extends Model
     public $entryDescription;
 
     /**
+     * @description The name of the IPv6 mapping entry.
+     *
      * @example name
      *
      * @var string
@@ -79,6 +102,8 @@ class ipv6TranslatorEntry extends Model
     public $entryName;
 
     /**
+     * @description The status of the IPv6 mapping entry.
+     *
      * @example active
      *
      * @var string
@@ -86,20 +111,26 @@ class ipv6TranslatorEntry extends Model
     public $entryStatus;
 
     /**
-     * @example ipv6transentry-bp1g8bhrdexxxxx
+     * @description The ID of the IPv6 mapping entry.
+     *
+     * @example ipv6transentry-bp1g8bhrde****
      *
      * @var string
      */
     public $ipv6TranslatorEntryId;
 
     /**
-     * @example ipv6trans-bp1858ysxxxxxx
+     * @description The ID of the IPv6 Translation Service instance to which the IPv6 mapping entry belongs.
+     *
+     * @example ipv6trans-bp1858ys****
      *
      * @var string
      */
     public $ipv6TranslatorId;
 
     /**
+     * @description The region of the IPv6 Translation Service instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -107,6 +138,8 @@ class ipv6TranslatorEntry extends Model
     public $regionId;
 
     /**
+     * @description The protocol.
+     *
      * @example tcp
      *
      * @var string

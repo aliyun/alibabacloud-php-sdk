@@ -19,6 +19,9 @@ class DescribeServerRelatedGlobalAccelerationInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the GA instance.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +39,8 @@ class DescribeServerRelatedGlobalAccelerationInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the backend service instance.
+     *
      * @example i-12s3sdf****
      *
      * @var string
@@ -43,6 +48,11 @@ class DescribeServerRelatedGlobalAccelerationInstancesRequest extends Model
     public $serverId;
 
     /**
+     * @description The type of the backend service instance. Valid values:
+     *
+     *   **EcsInstance** (default): Elastic Compute Service (ECS)
+     *   **SlbInstance**: Server Load Balancer (SLB)
+     *
      * @example EcsInstance
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nextHopList extends Model
 {
     /**
+     * @description The ID of the next hop that is configured for ECMP routing. You can specify information about at most 16 next hops.
+     *
      * @example ri-2zeo3xzyf38r43cd****
      *
      * @var string
@@ -16,6 +18,8 @@ class nextHopList extends Model
     public $nextHopId;
 
     /**
+     * @description The type of the next hop that is configured for ECMP routing. Set the value to **RouterInterface**. You can specify information about at most 16 next hops.
+     *
      * @example RouterInterface
      *
      * @var string

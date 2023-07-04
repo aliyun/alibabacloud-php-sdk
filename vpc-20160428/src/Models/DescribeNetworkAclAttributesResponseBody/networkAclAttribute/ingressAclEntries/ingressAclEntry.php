@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ingressAclEntry extends Model
 {
     /**
+     * @description The tag list.
+     *
      * @example This is IngressAclEntries.
      *
      * @var string
@@ -16,6 +18,11 @@ class ingressAclEntry extends Model
     public $description;
 
     /**
+     * @description The status of the associated resource. Valid values:
+     *
+     * - **BINDED**: The resource is associated with the network ACL.
+     * - **BINDING**: The resource is being associated with the network ACL.
+     * - **UNBINDING**: The resource is disassociated from the network ACL.
      * @example nae-a2dk86arlydmevfbg****
      *
      * @var string
@@ -23,6 +30,8 @@ class ingressAclEntry extends Model
     public $networkAclEntryId;
 
     /**
+     * @description The type of resource with which you want to associate the network ACL. The value is set to **VSwitch**.
+     *
      * @example acl-3
      *
      * @var string
@@ -30,6 +39,8 @@ class ingressAclEntry extends Model
     public $networkAclEntryName;
 
     /**
+     * @description The ID of the associated resource.
+     *
      * @example accept
      *
      * @var string
@@ -44,6 +55,8 @@ class ingressAclEntry extends Model
     public $port;
 
     /**
+     * @description The tag value.
+     *
      * @example all
      *
      * @var string
@@ -51,6 +64,8 @@ class ingressAclEntry extends Model
     public $protocol;
 
     /**
+     * @description The tag key.
+     *
      * @example 10.0.0.0/24
      *
      * @var string

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ModifySslVpnServerRequest extends Model
 {
     /**
+     * @description The encryption algorithm that is used by the SSL server. Valid values:
+     *
+     *   **AES-128-CBC** (default): AES-128-CBC
+     *   **AES-192-CBC**: AES-192-CBC
+     *   **AES-256-CBC**: AES-256-CBC
+     *   **none**: does not use an encryption algorithm.
+     *
      * @example AES-128-CBC
      *
      * @var string
@@ -16,6 +23,8 @@ class ModifySslVpnServerRequest extends Model
     public $cipher;
 
     /**
+     * @description The client IP address pool.
+     *
      * @example 10.30.30.0/24
      *
      * @var string
@@ -23,6 +32,11 @@ class ModifySslVpnServerRequest extends Model
     public $clientIpPool;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example 02fb3da4-130e-11e9-8e44-0016e04115b
      *
      * @var string
@@ -30,6 +44,11 @@ class ModifySslVpnServerRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to enable data compression. Valid values:
+     *
+     *   **true** (default): yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +56,11 @@ class ModifySslVpnServerRequest extends Model
     public $compress;
 
     /**
+     * @description Specifies whether to enable two-factor authentication.
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
      * @example false
      *
      * @var bool
@@ -44,6 +68,8 @@ class ModifySslVpnServerRequest extends Model
     public $enableMultiFactorAuth;
 
     /**
+     * @description The ID of the Identity as a Service (IDaaS) instance.
+     *
      * @example idaas-cn-hangzhou-****
      *
      * @var string
@@ -51,6 +77,8 @@ class ModifySslVpnServerRequest extends Model
     public $IDaaSInstanceId;
 
     /**
+     * @description The ID of the region where the IDaaS instance is created.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +86,8 @@ class ModifySslVpnServerRequest extends Model
     public $IDaaSRegionId;
 
     /**
+     * @description The CIDR block of the client.
+     *
      * @example 10.20.20.0/24
      *
      * @var string
@@ -65,6 +95,9 @@ class ModifySslVpnServerRequest extends Model
     public $localSubnet;
 
     /**
+     * @description The name of the SSL server.
+     *
+     * The name must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -82,6 +115,10 @@ class ModifySslVpnServerRequest extends Model
     public $ownerId;
 
     /**
+     * @description The port used by the SSL server. Default value: **1194**. The following ports are not supported:
+     *
+     **22, 2222, 22222, 9000, 9001, 9002, 7505, 80, 443, 53, 68, 123, 4510, 4560, 500, and 4500**.
+     *
      * @example 1194
      *
      * @var int
@@ -89,6 +126,11 @@ class ModifySslVpnServerRequest extends Model
     public $port;
 
     /**
+     * @description The protocol that is used by the SSL server. Valid values:
+     *
+     *   **TCP**: TCP
+     *   **UDP** (default): UDP
+     *
      * @example UDP
      *
      * @var string
@@ -96,6 +138,9 @@ class ModifySslVpnServerRequest extends Model
     public $proto;
 
     /**
+     * @description The ID of the region where the VPN gateway is created.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -113,6 +158,8 @@ class ModifySslVpnServerRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the SSL server.
+     *
      * @example vss-bp18q7hzj6largv4v****
      *
      * @var string

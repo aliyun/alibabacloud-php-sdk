@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListVpcGatewayEndpointsResponseBody extends Model
 {
     /**
+     * @description The name of the endpoint service.
+     *
      * @var endpoints[]
      */
     public $endpoints;
@@ -22,6 +24,8 @@ class ListVpcGatewayEndpointsResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The name of the gateway endpoint.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -29,6 +33,8 @@ class ListVpcGatewayEndpointsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the gateway endpoint.
+     *
      * @example 0AB1129F-32C1-5E4D-9E22-E4A859CA46EB
      *
      * @var string
@@ -36,6 +42,8 @@ class ListVpcGatewayEndpointsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The description of the gateway endpoint.
+     *
      * @example 10
      *
      * @var int

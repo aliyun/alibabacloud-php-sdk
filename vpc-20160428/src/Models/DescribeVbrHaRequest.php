@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeVbrHaRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      * @example CBCE910E-D396-4944-8****
      *
      * @var string
@@ -16,6 +19,11 @@ class DescribeVbrHaRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to precheck the request. Valid values:
+     *
+     *   **true**: prechecks the request without performing the operation. The system checks the request format, instance status, and whether the required parameters are specified. An error message is returned if the request fails the precheck. If the request passes the precheck, `DRYRUN.SUCCESS` is returned.
+     *   **false**: prechecks the request. After the request passes the precheck, the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -33,6 +41,8 @@ class DescribeVbrHaRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the VBR is deployed.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -50,6 +60,8 @@ class DescribeVbrHaRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the VBR failover group.
+     *
      * @example vbrha-sa1sxheuxtd98****
      *
      * @var string
@@ -57,6 +69,8 @@ class DescribeVbrHaRequest extends Model
     public $vbrHaId;
 
     /**
+     * @description The ID of the VBR.
+     *
      * @example vbr-bp1jcg5cmxjbl9xgc****
      *
      * @var string

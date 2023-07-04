@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DissociateVpnGatewayWithCertificateRequest extends Model
 {
     /**
+     * @description The certificate ID.
+     *
+     * > The certificate ID is generated after the SSL certificate is associated with the VPN gateway. It is not the ID of the SSL certificate. You can call [ListVpnCertificateAssociations](~~203359~~) to query certificate IDs.
      * @example 6bfe4218-ea1d****
      *
      * @var string
@@ -16,6 +19,11 @@ class DissociateVpnGatewayWithCertificateRequest extends Model
     public $certificateId;
 
     /**
+     * @description The certificate type. Valid values:
+     *
+     *   **Encryption**
+     *   **Signature**
+     *
      * @example Encryption
      *
      * @var string
@@ -23,6 +31,11 @@ class DissociateVpnGatewayWithCertificateRequest extends Model
     public $certificateType;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 02fb3da4-130e*******
      *
      * @var string
@@ -30,6 +43,11 @@ class DissociateVpnGatewayWithCertificateRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request passes the dry run, the `DryRunOperation` error code is returned. Otherwise, an error message is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -37,6 +55,9 @@ class DissociateVpnGatewayWithCertificateRequest extends Model
     public $dryRun;
 
     /**
+     * @description The region ID of the VPN gateway.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +65,8 @@ class DissociateVpnGatewayWithCertificateRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1q8bgx4xnkm2ogj****
      *
      * @var string

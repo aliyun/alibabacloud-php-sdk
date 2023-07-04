@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class sslVpnClientCertKey extends Model
 {
     /**
+     * @description The timestamp that indicates when the SSL client certificate was created. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1492747187000
      *
      * @var int
@@ -16,6 +19,9 @@ class sslVpnClientCertKey extends Model
     public $createTime;
 
     /**
+     * @description The timestamp that indicates when the SSL client certificate expires. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1494966335000
      *
      * @var int
@@ -23,6 +29,8 @@ class sslVpnClientCertKey extends Model
     public $endTime;
 
     /**
+     * @description The name of the SSL client certificate.
+     *
      * @example cert1
      *
      * @var string
@@ -30,6 +38,8 @@ class sslVpnClientCertKey extends Model
     public $name;
 
     /**
+     * @description The region where the SSL client certificate is created.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +47,8 @@ class sslVpnClientCertKey extends Model
     public $regionId;
 
     /**
+     * @description The ID of the SSL client certificate.
+     *
      * @example vsc-bp1n8wcf134yl0osr****
      *
      * @var string
@@ -44,6 +56,8 @@ class sslVpnClientCertKey extends Model
     public $sslVpnClientCertId;
 
     /**
+     * @description The ID of the SSL server.
+     *
      * @example vss-bp18q7hzj6largv4v****
      *
      * @var string
@@ -51,6 +65,12 @@ class sslVpnClientCertKey extends Model
     public $sslVpnServerId;
 
     /**
+     * @description The status of the SSL client certificate. Valid values:
+     *
+     *   **expiring-soon**: The certificate expires in one week.
+     *   **normal**: The certificate is active.
+     *   **expired**: The certificate has expired.
+     *
      * @example normal
      *
      * @var string

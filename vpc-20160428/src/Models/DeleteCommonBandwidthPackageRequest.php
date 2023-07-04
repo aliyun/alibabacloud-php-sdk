@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCommonBandwidthPackageRequest extends Model
 {
     /**
+     * @description The ID of the EIP bandwidth plan.
+     *
      * @example cbwp-2ze2ic1xd2qeqk145pn4u
      *
      * @var string
@@ -16,6 +18,11 @@ class DeleteCommonBandwidthPackageRequest extends Model
     public $bandwidthPackageId;
 
     /**
+     * @description Specifies whether to forcibly delete the EIP bandwidth plan. Valid values:
+     *
+     *   **false** (default): deletes the EIP bandwidth plan only when no EIPs are associated with the EIP bandwidth plan.
+     *   **true**: disassociates all EIPs from the EIP bandwidth plan and deletes the EIP bandwidth plan.
+     *
      * @example false
      *
      * @var string
@@ -33,6 +40,9 @@ class DeleteCommonBandwidthPackageRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the EIP bandwidth plan is created.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

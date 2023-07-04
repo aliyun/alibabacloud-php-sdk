@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyIPv6TranslatorAclListEntryRequest extends Model
 {
     /**
+     * @description The remarks of the ACL rule.
+     *
+     * It must be 2 to 100 characters in length, and can contain digits, underscores (\_), and hyphens (-). It must start with a letter.
      * @example client IP
      *
      * @var string
@@ -16,6 +19,8 @@ class ModifyIPv6TranslatorAclListEntryRequest extends Model
     public $aclEntryComment;
 
     /**
+     * @description The ID of the ACL rule to which the IP entry belongs.
+     *
      * @example ipv6transaclentry-bp1jzyn7ra8pyxehd****
      *
      * @var string
@@ -23,6 +28,8 @@ class ModifyIPv6TranslatorAclListEntryRequest extends Model
     public $aclEntryId;
 
     /**
+     * @description The ID of the ACL to which the IP entry belongs.
+     *
      * @example ipv6transacl-bp1b4z3tleyhq1s50****
      *
      * @var string
@@ -40,6 +47,8 @@ class ModifyIPv6TranslatorAclListEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region of the ACL.
+     *
      * @example cn-hangzhou
      *
      * @var string

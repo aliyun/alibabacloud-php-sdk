@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddIPv6TranslatorAclListEntryRequest extends Model
 {
     /**
+     * @description The remarks of the ACL entry.
+     *
+     * It must be 2 to 100 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
      * @example clientIP1
      *
      * @var string
@@ -16,13 +19,17 @@ class AddIPv6TranslatorAclListEntryRequest extends Model
     public $aclEntryComment;
 
     /**
-     * @example 12XX:0:0:dc30::0102
+     * @description The IPv6 address or IPv6 CIDR block that you want to add to the ACL entry, for example, 12XX:0:0:XXXX::0102 or 12XX:0:0:XXXX::/60.
+     *
+     * @example 12XX:0:0:XXXX::0102
      *
      * @var string
      */
     public $aclEntryIp;
 
     /**
+     * @description The ID of the ACL to which you want to add the IP entry.
+     *
      * @example ipv6transacl-bp1dcdvfe2****
      *
      * @var string
@@ -40,6 +47,8 @@ class AddIPv6TranslatorAclListEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the ACL.
+     *
      * @example cn-hangzhou
      *
      * @var string

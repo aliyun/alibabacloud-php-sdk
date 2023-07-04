@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGlobalAccelerationInstanceRequest extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
      * @example ga-asdfsl22s****
      *
      * @var string
@@ -26,6 +28,9 @@ class DeleteGlobalAccelerationInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the GA instance.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

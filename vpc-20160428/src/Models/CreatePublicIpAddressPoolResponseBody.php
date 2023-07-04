@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePublicIpAddressPoolResponseBody extends Model
 {
     /**
+     * @description The ID of the IP address pool.
+     *
      * @example pippool-6wetvn6fumkgycssx****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreatePublicIpAddressPoolResponseBody extends Model
     public $pulbicIpAddressPoolId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *
      * @var string
@@ -23,6 +27,10 @@ class CreatePublicIpAddressPoolResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the IP address pool belongs.
+     *
+     * @example rg-acfmxazb4pcdvf****
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @description The region ID of the network ACL. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example vsw-bp1de348lntdw****
      *
      * @var string
@@ -16,6 +18,8 @@ class resource extends Model
     public $resourceId;
 
     /**
+     * @description The ID of the network ACL.
+     *
      * @example VSwitch
      *
      * @var string

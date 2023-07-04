@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointServicesByEndUserRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 20
      *
      * @var int
@@ -16,6 +18,9 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
     public $maxResults;
 
     /**
+     * @description The region ID of the gateway endpoint.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -33,6 +38,11 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
     public $ownerId;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If no value is returned for **NextToken**, no next queries are sent.
+     *   If **NextToken** is returned, the value is the token that is used for the next query.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +60,8 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
+     *
      * @example com.aliyun.cn-hangzhou.oss
      *
      * @var string

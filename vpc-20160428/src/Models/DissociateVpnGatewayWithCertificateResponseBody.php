@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DissociateVpnGatewayWithCertificateResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 611CB80C-B6A9-43DB-9E38-0B0AC3D9B58F
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnConnectionsRequest extends Model
 {
     /**
+     * @description The ID of the customer gateway.
+     *
      * @example cgw-bp1mvj4g9kogw****
      *
      * @var string
@@ -27,6 +29,8 @@ class DescribeVpnConnectionsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -34,6 +38,8 @@ class DescribeVpnConnectionsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+     *
      * @example 10
      *
      * @var int
@@ -41,6 +47,9 @@ class DescribeVpnConnectionsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region where the IPsec-VPN connection is established.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -63,6 +72,8 @@ class DescribeVpnConnectionsRequest extends Model
     public $tag;
 
     /**
+     * @description The ID of the IPsec-VPN connection.
+     *
      * @example vco-bp10lz7aejumd****
      *
      * @var string
@@ -70,6 +81,8 @@ class DescribeVpnConnectionsRequest extends Model
     public $vpnConnectionId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1q8bgx4xnkx****
      *
      * @var string

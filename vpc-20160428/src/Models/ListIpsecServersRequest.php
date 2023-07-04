@@ -16,6 +16,9 @@ class ListIpsecServersRequest extends Model
     public $ipsecServerId;
 
     /**
+     * @description The name of the IPsec server.
+     *
+     * The name must be 1 to 100 characters in length, and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -23,6 +26,8 @@ class ListIpsecServersRequest extends Model
     public $ipsecServerName;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **20**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +35,11 @@ class ListIpsecServersRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
+     *   If a subsequent query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
      * @var string
@@ -37,6 +47,9 @@ class ListIpsecServersRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the region where the IPsec server is created.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +57,8 @@ class ListIpsecServersRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1q8bgx4xnkm2ogj****
      *
      * @var string

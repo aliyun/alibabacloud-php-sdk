@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouteTablesResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeRouteTablesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeRouteTablesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DC668356-BCB4-42FD-9BC3-FA2B2E04B634
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeRouteTablesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Details about the route table.
+     *
      * @var routeTables
      */
     public $routeTables;

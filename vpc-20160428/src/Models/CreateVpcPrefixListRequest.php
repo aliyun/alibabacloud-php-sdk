@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcPrefixListRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -17,6 +22,11 @@ class CreateVpcPrefixListRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -24,13 +34,20 @@ class CreateVpcPrefixListRequest extends Model
     public $dryRun;
 
     /**
-     * @example ipv4
+     * @description The IP version. Valid values:
+     *
+     *   **IPv4** (default)
+     *   **IPv6**
+     *
+     * @example IPv4
      *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @description The maximum number of CIDR blocks that you can specify in the prefix list. Default value: 50.
+     *
      * @example 50
      *
      * @var int
@@ -48,6 +65,9 @@ class CreateVpcPrefixListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The description of the prefix list.
+     *
+     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example description
      *
      * @var string
@@ -60,6 +80,9 @@ class CreateVpcPrefixListRequest extends Model
     public $prefixListEntries;
 
     /**
+     * @description The name of the prefix list.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example name
      *
      * @var string
@@ -67,6 +90,9 @@ class CreateVpcPrefixListRequest extends Model
     public $prefixListName;
 
     /**
+     * @description The ID of the region where you want to create the prefix list.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -74,6 +100,10 @@ class CreateVpcPrefixListRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the prefix list belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;

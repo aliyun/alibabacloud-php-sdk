@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class GetVpnGatewayDiagnoseResultResponseBody extends Model
 {
     /**
+     * @description The time when the diagnostic started.
+     *
+     * The time follows the ISO8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
      * @example 2022-12-15T05:28:57Z
      *
      * @var string
@@ -17,6 +20,8 @@ class GetVpnGatewayDiagnoseResultResponseBody extends Model
     public $beginTime;
 
     /**
+     * @description The ID of the diagnostic.
+     *
      * @example vpndgn-uf6sgneym02lxyuv4****
      *
      * @var string
@@ -24,11 +29,16 @@ class GetVpnGatewayDiagnoseResultResponseBody extends Model
     public $diagnoseId;
 
     /**
+     * @description The information about the diagnostic items.
+     *
      * @var diagnoseResult[]
      */
     public $diagnoseResult;
 
     /**
+     * @description The timestamp when the system finishes diagnosing the item.
+     *
+     * The time follows the ISO8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
      * @example 2022-12-15T05:29:08Z
      *
      * @var string
@@ -36,6 +46,8 @@ class GetVpnGatewayDiagnoseResultResponseBody extends Model
     public $finishTime;
 
     /**
+     * @description The number of diagnostic items that have been diagnosed.
+     *
      * @example 7
      *
      * @var int
@@ -43,6 +55,8 @@ class GetVpnGatewayDiagnoseResultResponseBody extends Model
     public $finishedCount;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 312C4D5A-6563-5FC6-8C6E-A43A5A316FEB
      *
      * @var string
@@ -50,6 +64,8 @@ class GetVpnGatewayDiagnoseResultResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource that is diagnosed.
+     *
      * @example vco-uf6huqsu63azl7mdp****
      *
      * @var string
@@ -57,6 +73,9 @@ class GetVpnGatewayDiagnoseResultResponseBody extends Model
     public $resourceInstanceId;
 
     /**
+     * @description The type of the resource.
+     *
+     * The value is set to **IPsec**, which indicates an IPsec-VPN connection.
      * @example IPsec
      *
      * @var string
@@ -64,6 +83,8 @@ class GetVpnGatewayDiagnoseResultResponseBody extends Model
     public $resourceType;
 
     /**
+     * @description The total number of diagnostic items.
+     *
      * @example 7
      *
      * @var int
@@ -71,6 +92,8 @@ class GetVpnGatewayDiagnoseResultResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-uf6fzwp0ck3frwtbk****
      *
      * @var string

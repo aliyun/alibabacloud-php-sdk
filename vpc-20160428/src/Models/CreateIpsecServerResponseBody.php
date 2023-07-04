@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateIpsecServerResponseBody extends Model
 {
     /**
+     * @description The time when the IPsec server was created.
+     *
+     * T is used as a delimiter. Z indicates that the time is in UTC.
      * @example 2021-02-22T03:24:28Z
      *
      * @var string
@@ -16,6 +19,8 @@ class CreateIpsecServerResponseBody extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the IPsec server.
+     *
      * @example iss-bp1jougp8cfsbo8y9****
      *
      * @var string
@@ -23,6 +28,8 @@ class CreateIpsecServerResponseBody extends Model
     public $ipsecServerId;
 
     /**
+     * @description The name of the IPsec server.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +37,8 @@ class CreateIpsecServerResponseBody extends Model
     public $ipsecServerName;
 
     /**
+     * @description The ID of the region where the VPN gateway is deployed.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +46,8 @@ class CreateIpsecServerResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 690A967E-D4CD-4B69-8C78-94FE828BA10B
      *
      * @var string
@@ -44,6 +55,8 @@ class CreateIpsecServerResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp17lofy9fd0dnvzv****
      *
      * @var string

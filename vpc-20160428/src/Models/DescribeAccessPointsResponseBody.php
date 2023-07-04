@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessPointsResponseBody extends Model
 {
     /**
+     * @description The information about the access point.
+     *
      * @var accessPointSet
      */
     public $accessPointSet;
 
     /**
+     * @description The number of the returned page. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeAccessPointsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeAccessPointsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 3E85D803-C7CF-4BCD-9CFE-6DBA1DFFA027
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeAccessPointsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
      * @example 5
      *
      * @var int

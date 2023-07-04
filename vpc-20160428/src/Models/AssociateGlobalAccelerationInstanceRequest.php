@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AssociateGlobalAccelerationInstanceRequest extends Model
 {
     /**
+     * @description The ID of the backend server.
+     *
      * @example i-saf23****
      *
      * @var string
@@ -16,6 +18,8 @@ class AssociateGlobalAccelerationInstanceRequest extends Model
     public $backendServerId;
 
     /**
+     * @description The region of the backend server. The region must belong to the service area of the GA instance.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -23,6 +27,11 @@ class AssociateGlobalAccelerationInstanceRequest extends Model
     public $backendServerRegionId;
 
     /**
+     * @description The backend server type. Valid values:
+     *
+     *   **EcsInstance** (default): ECS instance
+     *   **SlbInstance**: SLB instance
+     *
      * @example EcsInstance
      *
      * @var string
@@ -30,6 +39,8 @@ class AssociateGlobalAccelerationInstanceRequest extends Model
     public $backendServerType;
 
     /**
+     * @description The ID of the GA instance.
+     *
      * @example ga-lsajj32****
      *
      * @var string
@@ -47,6 +58,8 @@ class AssociateGlobalAccelerationInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the GA instance. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

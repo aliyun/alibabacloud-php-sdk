@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListDhcpOptionsSetsResponseBody extends Model
 {
     /**
+     * @description The number of VPCs with which the DHCP options set is associated.
+     *
      * @var dhcpOptionsSets[]
      */
     public $dhcpOptionsSets;
 
     /**
+     * @description The ID of the DHCP options set.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd********
      *
      * @var string
@@ -22,15 +26,25 @@ class ListDhcpOptionsSetsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The name of the DHCP options set.
+     *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @example 10
+     *
+     * @var string
+     */
+    public $totalCount;
     protected $_name = [
         'dhcpOptionsSets' => 'DhcpOptionsSets',
         'nextToken'       => 'NextToken',
         'requestId'       => 'RequestId',
+        'totalCount'      => 'TotalCount',
     ];
 
     public function validate()
@@ -54,6 +68,9 @@ class ListDhcpOptionsSetsResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -81,6 +98,9 @@ class ListDhcpOptionsSetsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

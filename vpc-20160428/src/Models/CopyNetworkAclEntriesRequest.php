@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CopyNetworkAclEntriesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 123
      *
      * @var string
@@ -16,6 +21,8 @@ class CopyNetworkAclEntriesRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the network ACL.
+     *
      * @example nacl-a2do9e413e0spxxxxxxxx
      *
      * @var string
@@ -28,6 +35,8 @@ class CopyNetworkAclEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region where the network ACL is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -45,6 +54,8 @@ class CopyNetworkAclEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the network ACL whose rules you want to copy.
+     *
      * @example nacl-ghuo9ehg3e0spxxxxxxxx
      *
      * @var string

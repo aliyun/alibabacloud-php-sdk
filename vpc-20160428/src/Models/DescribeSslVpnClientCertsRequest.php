@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSslVpnClientCertsRequest extends Model
 {
     /**
+     * @description The name of the SSL client certificate.
+     *
      * @example cert1
      *
      * @var string
@@ -26,6 +28,8 @@ class DescribeSslVpnClientCertsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +37,8 @@ class DescribeSslVpnClientCertsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+     *
      * @example 10
      *
      * @var int
@@ -40,6 +46,9 @@ class DescribeSslVpnClientCertsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the SSL client certificates to be queried.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +66,8 @@ class DescribeSslVpnClientCertsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the SSL client certificate.
+     *
      * @example vsc-bp1n8wcf134yl0osr****
      *
      * @var string
@@ -64,6 +75,8 @@ class DescribeSslVpnClientCertsRequest extends Model
     public $sslVpnClientCertId;
 
     /**
+     * @description The ID of the SSL server.
+     *
      * @example vss-bp18q7hzj6largv4v****
      *
      * @var string

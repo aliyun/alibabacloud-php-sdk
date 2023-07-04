@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetFlowLogServiceStatusResponseBody extends Model
 {
     /**
+     * @description Indicates whether the flow log feature is enabled. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no You can call the [OpenFlowLogService](~~449637~~) operation to enable the flow log feature.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class GetFlowLogServiceStatusResponseBody extends Model
     public $enabled;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 54B48E3D-DF70-471B-AA93-06F83A1B457
      *
      * @var string

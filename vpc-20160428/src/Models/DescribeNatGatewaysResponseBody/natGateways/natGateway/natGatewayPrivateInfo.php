@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class natGatewayPrivateInfo extends Model
 {
     /**
+     * @description The ID of the elastic network interface (ENI).
+     *
      * @example eni-m5eg4ozy5st8q3q4****
      *
      * @var string
@@ -16,6 +18,11 @@ class natGatewayPrivateInfo extends Model
     public $eniInstanceId;
 
     /**
+     * @description The mode in which the ENI is associated with the NAT gateway.
+     *
+     *   **indirect**: non-cut-through mode
+     *   If an empty value is returned, it indicates that the cut-through mode is used.
+     *
      * @example indirect
      *
      * @var string
@@ -23,6 +30,8 @@ class natGatewayPrivateInfo extends Model
     public $eniType;
 
     /**
+     * @description The zone to which the NAT gateway belongs.
+     *
      * @example cn-hangzhou-b
      *
      * @var string
@@ -30,6 +39,8 @@ class natGatewayPrivateInfo extends Model
     public $izNo;
 
     /**
+     * @description The maximum bandwidth. Unit: Mbit/s.
+     *
      * @example 5120
      *
      * @var int
@@ -37,6 +48,8 @@ class natGatewayPrivateInfo extends Model
     public $maxBandwidth;
 
     /**
+     * @description The number of new connections to the NAT gateway. Unit: connections per second.
+     *
      * @example 100000
      *
      * @var int
@@ -44,6 +57,8 @@ class natGatewayPrivateInfo extends Model
     public $maxSessionEstablishRate;
 
     /**
+     * @description The number of concurrent connections to the NAT gateway. Unit: connections.
+     *
      * @example 2000000
      *
      * @var int
@@ -51,6 +66,8 @@ class natGatewayPrivateInfo extends Model
     public $maxSessionQuota;
 
     /**
+     * @description The private IP address.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -58,6 +75,8 @@ class natGatewayPrivateInfo extends Model
     public $privateIpAddress;
 
     /**
+     * @description The ID of the vSwitch to which the NAT gateway belongs.
+     *
      * @example vsw-bp1s2laxhdf9ayjbo****
      *
      * @var string

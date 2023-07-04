@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVRoutersResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeVRoutersResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeVRoutersResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeVRoutersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeVRoutersResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The details about the vRouters.
+     *
      * @var VRouters
      */
     public $VRouters;

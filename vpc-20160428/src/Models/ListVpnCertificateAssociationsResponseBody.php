@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListVpnCertificateAssociationsResponseBody extends Model
 {
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -17,6 +19,11 @@ class ListVpnCertificateAssociationsResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If **NextToken** is not empty, the value indicates the token that is used for the next query.
+     *
      * @example caeba0bbb2be****
      *
      * @var string
@@ -24,6 +31,8 @@ class ListVpnCertificateAssociationsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 197AF2BD-547F-470C-B29A-8400400233EB
      *
      * @var string
@@ -31,6 +40,8 @@ class ListVpnCertificateAssociationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 4
      *
      * @var int
@@ -38,6 +49,8 @@ class ListVpnCertificateAssociationsResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The association information.
+     *
      * @var vpnCertificateRelations[]
      */
     public $vpnCertificateRelations;

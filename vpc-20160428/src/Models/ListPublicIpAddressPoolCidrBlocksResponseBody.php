@@ -10,13 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListPublicIpAddressPoolCidrBlocksResponseBody extends Model
 {
     /**
-     * @example 10
+     * @description The token that is used for the next query. Valid values:
      *
-     * @var int
-     */
-    public $maxResults;
-
-    /**
+     *   If **NextToken** was not returned, it indicates that no additional results exist.
+     *   If **NextToken** is returned, the value is the token that is used for the next query.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -24,11 +22,15 @@ class ListPublicIpAddressPoolCidrBlocksResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @var publicIpPoolCidrBlockList[]
      */
     public $publicIpPoolCidrBlockList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *
      * @var string
@@ -36,13 +38,14 @@ class ListPublicIpAddressPoolCidrBlocksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The maximum number of entries returned. Valid values: **10** to **100**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'maxResults'                => 'MaxResults',
         'nextToken'                 => 'NextToken',
         'publicIpPoolCidrBlockList' => 'PublicIpPoolCidrBlockList',
         'requestId'                 => 'RequestId',
@@ -56,9 +59,6 @@ class ListPublicIpAddressPoolCidrBlocksResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->maxResults) {
-            $res['MaxResults'] = $this->maxResults;
-        }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
@@ -89,9 +89,6 @@ class ListPublicIpAddressPoolCidrBlocksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['MaxResults'])) {
-            $model->maxResults = $map['MaxResults'];
-        }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }

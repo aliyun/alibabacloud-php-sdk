@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class routeEntrySummarys extends Model
 {
     /**
+     * @description The information about the routes of different types in one route table.
+     *
      * @var entrySummarys[]
      */
     public $entrySummarys;
 
     /**
+     * @description The ID of the route table.
+     *
      * @example vtb-bp145q7glnuzdvzu2****
      *
      * @var string

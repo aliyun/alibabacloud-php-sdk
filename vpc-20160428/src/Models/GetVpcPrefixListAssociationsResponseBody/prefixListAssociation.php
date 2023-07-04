@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class prefixListAssociation extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the prefix list belongs.
+     *
      * @example 153460731706****
      *
      * @var string
@@ -16,6 +18,8 @@ class prefixListAssociation extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the prefix list.
+     *
      * @example pl-0b7hwu67****
      *
      * @var string
@@ -23,6 +27,8 @@ class prefixListAssociation extends Model
     public $prefixListId;
 
     /**
+     * @description The reason why the association failed.
+     *
      * @example failed
      *
      * @var string
@@ -30,11 +36,17 @@ class prefixListAssociation extends Model
     public $reason;
 
     /**
+     * @description The region ID of the prefix list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the associated resource.
+     *
      * @example vtb-bp1drpcfz9srr393h****
      *
      * @var string
@@ -42,6 +54,11 @@ class prefixListAssociation extends Model
     public $resourceId;
 
     /**
+     * @description The type of the associated resource. Valid values:
+     *
+     *   **vpcRouteTable** :VPC route table.
+     *   **trRouteTable**: route table of a transit router.
+     *
      * @example vpcRouteTable
      *
      * @var string
@@ -49,11 +66,24 @@ class prefixListAssociation extends Model
     public $resourceType;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource associated with the prefix list belongs.
+     *
+     * @example 132193271328****
+     *
      * @var string
      */
     public $resourceUid;
 
     /**
+     * @description The status of the prefix list. Valid values:
+     *
+     *   **Created**
+     *   **ModifyFailed**
+     *   **Creating**
+     *   **Modifying**
+     *   **Deleting**
+     *   **Deleted**
+     *
      * @example Success
      *
      * @var string

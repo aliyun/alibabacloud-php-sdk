@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class virtualPhysicalConnections extends Model
 {
     /**
+     * @description The ID of the access point that is associated with the Express Connect circuit.
+     *
      * @example ap-cn-hangzhou-finance-yh-E
      *
      * @var string
@@ -16,11 +18,15 @@ class virtualPhysicalConnections extends Model
     public $accessPointId;
 
     /**
+     * @description The geographical location of the access device.
+     *
      * @var string
      */
     public $adLocation;
 
     /**
+     * @description The Alibaba Cloud account ID of the hosted connection owner.
+     *
      * @example 253460731706911258
      *
      * @var string
@@ -28,6 +34,8 @@ class virtualPhysicalConnections extends Model
     public $aliUid;
 
     /**
+     * @description The bandwidth of the Express Connect circuit. Unit: Mbit/s.
+     *
      * @example 50
      *
      * @var int
@@ -35,6 +43,12 @@ class virtualPhysicalConnections extends Model
     public $bandwidth;
 
     /**
+     * @description The business status of the Express Connect circuit. Valid values:
+     *
+     *   **Normal**: enabled
+     *   **FinancialLocked**: locked due to overdue payments
+     *   **SecurityLocked**: locked for security reasons
+     *
      * @example Normal
      *
      * @var string
@@ -42,6 +56,9 @@ class virtualPhysicalConnections extends Model
     public $businessStatus;
 
     /**
+     * @description The billing method of the Express Connect circuit.
+     *
+     * The value is set to **Prepaid**, which indicates the subscription billing method.
      * @example Prepaid
      *
      * @var string
@@ -49,6 +66,8 @@ class virtualPhysicalConnections extends Model
     public $chargeType;
 
     /**
+     * @description The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
+     *
      * @example longtel001
      *
      * @var string
@@ -56,6 +75,8 @@ class virtualPhysicalConnections extends Model
     public $circuitCode;
 
     /**
+     * @description The time when the Express Connect circuit was created.
+     *
      * @example 2021-06-08T12:20:55
      *
      * @var string
@@ -63,6 +84,8 @@ class virtualPhysicalConnections extends Model
     public $creationTime;
 
     /**
+     * @description The description of the Express Connect circuit.
+     *
      * @example desctest
      *
      * @var string
@@ -70,6 +93,8 @@ class virtualPhysicalConnections extends Model
     public $description;
 
     /**
+     * @description The time when the Express Connect circuit was enabled.
+     *
      * @example 2021-10-08T10:44Z
      *
      * @var string
@@ -77,6 +102,9 @@ class virtualPhysicalConnections extends Model
     public $enabledTime;
 
     /**
+     * @description The expiration date of the hosted connection.
+     *
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
      * @example 2021-11-08T16:00:00Z
      *
      * @var string
@@ -84,6 +112,10 @@ class virtualPhysicalConnections extends Model
     public $endTime;
 
     /**
+     * @description The estimated bandwidth value of the hosted connection. The estimated bandwidth takes effect after you complete the payment.
+     *
+     **M** indicates Mbit/s and **G** indicates Gbit/s.
+     *
      * @example 50M
      *
      * @var string
@@ -91,6 +123,15 @@ class virtualPhysicalConnections extends Model
     public $expectSpec;
 
     /**
+     * @description The connectivity provider of the Express Connect circuit. Valid values:
+     *
+     *   **CT**: China Telecom
+     *   **CU**: China Unicom
+     *   **CM**: China Mobile
+     *   **CO**: other connectivity providers in the Chinese mainland
+     *   **Equinix**: Equinix
+     *   **Other**: other connectivity providers outside the Chinese mainland
+     *
      * @example CU
      *
      * @var string
@@ -98,6 +139,16 @@ class virtualPhysicalConnections extends Model
     public $lineOperator;
 
     /**
+     * @description The status of the LOA. Valid values:
+     *
+     *   **Applying**: The LOA is pending approval.
+     *   **Accept**: The LOA is approved.
+     *   **Available**: The LOA is available.
+     *   **Rejected**: The LOA is rejected.
+     *   **Completing**: The Express Connect circuit is under construction.
+     *   **Complete**: The Express Connect circuit is installed.
+     *   **Deleted**: The LOA is deleted.
+     *
      * @example Available
      *
      * @var string
@@ -105,6 +156,8 @@ class virtualPhysicalConnections extends Model
     public $loaStatus;
 
     /**
+     * @description The name of the Express Connect circuit.
+     *
      * @example nametest
      *
      * @var string
@@ -112,6 +165,11 @@ class virtualPhysicalConnections extends Model
     public $name;
 
     /**
+     * @description The payer of the hosted connection. Valid values:
+     *
+     *   **PayByPhysicalConnectionOwner**: the owner of the shared Express Connect circuit
+     *   **PayByVirtualPhysicalConnectionOwner**: the owner of the hosted connection
+     *
      * @example PayByPhysicalConnectionOwner
      *
      * @var string
@@ -119,6 +177,8 @@ class virtualPhysicalConnections extends Model
     public $orderMode;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the Express Connect circuit belongs.
+     *
      * @example 283117732402483989
      *
      * @var string
@@ -126,6 +186,8 @@ class virtualPhysicalConnections extends Model
     public $parentPhysicalConnectionAliUid;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
      * @example pc-bp1ciz7ekd2grn1as****
      *
      * @var string
@@ -133,11 +195,15 @@ class virtualPhysicalConnections extends Model
     public $parentPhysicalConnectionId;
 
     /**
+     * @description The geographical location of the data center.
+     *
      * @var string
      */
     public $peerLocation;
 
     /**
+     * @description The ID of the hosted connection.
+     *
      * @example pc-bp1mrgfbtmc9brre7****
      *
      * @var string
@@ -145,6 +211,8 @@ class virtualPhysicalConnections extends Model
     public $physicalConnectionId;
 
     /**
+     * @description The port number of the access device.
+     *
      * @example 80
      *
      * @var string
@@ -152,6 +220,16 @@ class virtualPhysicalConnections extends Model
     public $portNumber;
 
     /**
+     * @description The port type. Valid values:
+     *
+     *   **100Base-T**: 100 Mbit/s copper Ethernet port
+     *   **1000Base-T**: 1,000 Mbit/s copper Ethernet port
+     *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 kilometers)
+     *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
+     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 kilometers)
+     *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
+     *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
+     *
      * @example 10GBase-LR
      *
      * @var string
@@ -159,6 +237,11 @@ class virtualPhysicalConnections extends Model
     public $portType;
 
     /**
+     * @description The type of connection over the Express Connect circuit. Valid values:
+     *
+     *   **VirtualPhysicalConnection**: a hosted connection
+     *   **PhysicalConnection**: a dedicated connection
+     *
      * @example VirtualPhysicalConnection
      *
      * @var string
@@ -166,6 +249,8 @@ class virtualPhysicalConnections extends Model
     public $productType;
 
     /**
+     * @description The ID of the redundant Express Connect circuit.
+     *
      * @example pc-119mfjzm****
      *
      * @var string
@@ -173,11 +258,17 @@ class virtualPhysicalConnections extends Model
     public $redundantPhysicalConnectionId;
 
     /**
+     * @example rg-acfm3wmsyuimpma
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The bandwidth value of the hosted connection.
+     *
+     **M** indicates Mbit/s and **G** indicates Gbit/s.
+     *
      * @example 50M
      *
      * @var string
@@ -185,6 +276,19 @@ class virtualPhysicalConnections extends Model
     public $spec;
 
     /**
+     * @description The status of the Express Connect circuit. Valid values:
+     *
+     *   **Initial**: The application is under review.
+     *   **Approved**: The application is approved.
+     *   **Allocating**: The system is allocating resources.
+     *   **Allocated**: The Express Connect circuit is under construction.
+     *   **Confirmed**: The Express Connect circuit is pending user confirmation.
+     *   **Enabled**: The Express Connect circuit is enabled.
+     *   **Rejected**: The application is rejected.
+     *   **Canceled**: The application is canceled.
+     *   **Allocation Failed**: The system failed to allocate resources.
+     *   **Terminated**: The Express Connect circuit is disabled.
+     *
      * @example Enabled
      *
      * @var string
@@ -192,6 +296,8 @@ class virtualPhysicalConnections extends Model
     public $status;
 
     /**
+     * @description The type of Express Connect circuit. Default value: **VPC**.
+     *
      * @example VPC
      *
      * @var string
@@ -199,6 +305,12 @@ class virtualPhysicalConnections extends Model
     public $type;
 
     /**
+     * @description The service status of the hosted connection. Valid values:
+     *
+     *   **Confirmed**: accepted
+     *   **UnConfirmed**: pending acceptance
+     *   **Deleted**: deleted
+     *
      * @example Confirmed
      *
      * @var string
@@ -206,6 +318,8 @@ class virtualPhysicalConnections extends Model
     public $virtualPhysicalConnectionStatus;
 
     /**
+     * @description The VLAN ID of the hosted connection.
+     *
      * @example 10
      *
      * @var string

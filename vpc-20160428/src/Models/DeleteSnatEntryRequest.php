@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteSnatEntryRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -26,6 +31,9 @@ class DeleteSnatEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the NAT gateway.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +51,8 @@ class DeleteSnatEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the SNAT entry that you want to delete.
+     *
      * @example snat-bp1vcgcf8tm0plqcg****
      *
      * @var string
@@ -50,6 +60,8 @@ class DeleteSnatEntryRequest extends Model
     public $snatEntryId;
 
     /**
+     * @description The ID of the SNAT table to which the SNAT entry belongs.
+     *
      * @example stb-bp190wu8io1vgev80****
      *
      * @var string

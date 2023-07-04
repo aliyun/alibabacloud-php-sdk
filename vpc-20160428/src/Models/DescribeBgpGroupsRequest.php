@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBgpGroupsRequest extends Model
 {
     /**
+     * @description The ID of the BGP group.
+     *
      * @example bgpg-bp1k25cyp26cllath****
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeBgpGroupsRequest extends Model
     public $bgpGroupId;
 
     /**
+     * @description Specifies whether the BGP group is the default one. Valid values:
+     *
+     *   **false**: yes
+     *   **true**: no
+     *
      * @example false
      *
      * @var bool
@@ -33,6 +40,8 @@ class DescribeBgpGroupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -40,6 +49,8 @@ class DescribeBgpGroupsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -47,6 +58,9 @@ class DescribeBgpGroupsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the VBR.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string
@@ -64,6 +78,8 @@ class DescribeBgpGroupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the virtual border router (VBR) that is associated with the BGP group.
+     *
      * @example vbr-bp1ctxy813985gkuk****
      *
      * @var string

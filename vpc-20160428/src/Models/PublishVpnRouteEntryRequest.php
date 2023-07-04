@@ -9,13 +9,20 @@ use AlibabaCloud\Tea\Model;
 class PublishVpnRouteEntryRequest extends Model
 {
     /**
-     * @example d7d24a21-f4ba-4454-9173-b3828dae492b
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * @example d7d24a21-f4ba-4454-9173-b382****
      *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The next hop of the VPN gateway route.
+     *
      * @example vco-bp15oes1py4i66rmd****
      *
      * @var string
@@ -33,6 +40,11 @@ class PublishVpnRouteEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description Specifies whether to advertise the VPN gateway route to the VPC route table. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -40,6 +52,9 @@ class PublishVpnRouteEntryRequest extends Model
     public $publishVpc;
 
     /**
+     * @description The ID of the region where the VPN gateway is created.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +72,8 @@ class PublishVpnRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The destination CIDR block of the VPN gateway route.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -64,6 +81,11 @@ class PublishVpnRouteEntryRequest extends Model
     public $routeDest;
 
     /**
+     * @description The type of the VPN gateway route. Valid values:
+     *
+     *   **pbr**: policy-based route
+     *   **dbr**: destination-based route
+     *
      * @example pbr
      *
      * @var string
@@ -71,6 +93,8 @@ class PublishVpnRouteEntryRequest extends Model
     public $routeType;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1a3kqjiiq9legfx****
      *
      * @var string

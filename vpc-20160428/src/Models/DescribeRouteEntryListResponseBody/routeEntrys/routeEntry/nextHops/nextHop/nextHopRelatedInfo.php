@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nextHopRelatedInfo extends Model
 {
     /**
+     * @description The ID of the instance associated with the next hop.
+     *
      * @example vpc-bp1t36rn9l53iwbsf****
      *
      * @var string
@@ -16,6 +18,12 @@ class nextHopRelatedInfo extends Model
     public $instanceId;
 
     /**
+     * @description The type of the instance associated with the next hop. Valid values:
+     *
+     *   **VPC**: a virtual private cloud (VPC)
+     *   **VBR**: a VBR
+     *   **PCONN**: an Express Connect circuit
+     *
      * @example VPC
      *
      * @var string
@@ -23,6 +31,8 @@ class nextHopRelatedInfo extends Model
     public $instanceType;
 
     /**
+     * @description The region ID of the instance associated with the next hop.
+     *
      * @example ch-hangzhou
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVbrHaResponseBody extends Model
 {
     /**
+     * @description The time when the VBR was created.
+     *
      * @example 2021-06-08T12:20:55
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeVbrHaResponseBody extends Model
     public $creationTime;
 
     /**
+     * @description The description of the VBR failover group.
+     *
+     * The description must be 2 to 256 characters in length. It must start with a letter and cannot start with `http://`or `https://`.
      * @example desc
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribeVbrHaResponseBody extends Model
     public $description;
 
     /**
+     * @description The name of the VBR failover group.
+     *
      * @example VBRHa
      *
      * @var string
@@ -30,6 +37,8 @@ class DescribeVbrHaResponseBody extends Model
     public $name;
 
     /**
+     * @description The ID of the other VBR in the VBR failover group.
+     *
      * @example vbr-bp12mw1f8k3jgygk9****
      *
      * @var string
@@ -37,6 +46,8 @@ class DescribeVbrHaResponseBody extends Model
     public $peerVbrId;
 
     /**
+     * @description The ID of the region where the VBR is deployed.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +55,8 @@ class DescribeVbrHaResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *
      * @var string
@@ -51,6 +64,11 @@ class DescribeVbrHaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The state of the VBR failover group.
+     *
+     *   **Creating**: The VBR failover group is being created.
+     *   **Active**: The VBR failover group is running as expected.
+     *
      * @example Active
      *
      * @var string
@@ -58,6 +76,8 @@ class DescribeVbrHaResponseBody extends Model
     public $status;
 
     /**
+     * @description The ID of the VBR failover group.
+     *
      * @example vbrha-sa1sxheuxtd98****
      *
      * @var string
@@ -65,6 +85,8 @@ class DescribeVbrHaResponseBody extends Model
     public $vbrHaId;
 
     /**
+     * @description The ID of the VBR.
+     *
      * @example vbr-bp1jcg5cmxjbl9xgc****
      *
      * @var string

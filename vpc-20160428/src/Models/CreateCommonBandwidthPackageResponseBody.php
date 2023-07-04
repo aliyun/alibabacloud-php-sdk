@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCommonBandwidthPackageResponseBody extends Model
 {
     /**
+     * @description The ID of the resource group.
+     *
      * @example cbwp-bp1vevu8h3ieh****
      *
      * @var string

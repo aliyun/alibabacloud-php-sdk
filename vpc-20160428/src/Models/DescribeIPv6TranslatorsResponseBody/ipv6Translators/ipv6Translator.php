@@ -10,20 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ipv6Translator extends Model
 {
     /**
-     * @example 47.99.xx.xx
+     * @description The IPv4 address allocated to the IPv6 Translation Service instance.
+     *
+     * @example 47.99.XX.XX
      *
      * @var string
      */
     public $allocateIpv4Addr;
 
     /**
-     * @example 2400:3200:1600::xxx
+     * @description The IPv6 address allocated to the IPv6 Translation Service instance.
+     *
+     * @example 2400:3200:1600::XXXX
      *
      * @var string
      */
     public $allocateIpv6Addr;
 
     /**
+     * @description The bandwidth of the IPv6 Translation Service instance.
+     *
      * @example 1
      *
      * @var string
@@ -31,6 +37,8 @@ class ipv6Translator extends Model
     public $availableBandwidth;
 
     /**
+     * @description The bandwidth of the IPv6 Translation Service instance. Unit: Mbit/s.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +46,11 @@ class ipv6Translator extends Model
     public $bandwidth;
 
     /**
+     * @description The business status of the IPv6 Translation Service instance. Valid values:
+     *
+     *   **Normal**
+     *   **FinancialLocked**
+     *
      * @example Normal
      *
      * @var string
@@ -45,6 +58,8 @@ class ipv6Translator extends Model
     public $businessStatus;
 
     /**
+     * @description The timestamp when the IPv6 Translation Service instance was created.
+     *
      * @example 1537151540000
      *
      * @var int
@@ -52,6 +67,8 @@ class ipv6Translator extends Model
     public $createTime;
 
     /**
+     * @description The description of the IPv6 Translation Service instance.
+     *
      * @example descriptionforinstance
      *
      * @var string
@@ -59,6 +76,8 @@ class ipv6Translator extends Model
     public $description;
 
     /**
+     * @description The timestamp when IPv6 Translation Service instance expires.
+     *
      * @example 1539792000000
      *
      * @var int
@@ -66,18 +85,24 @@ class ipv6Translator extends Model
     public $endTime;
 
     /**
+     * @description The IDs of IPv6 mapping entries of the IPv6 Translation Service instance.
+     *
      * @var ipv6TranslatorEntryIds
      */
     public $ipv6TranslatorEntryIds;
 
     /**
-     * @example ipv6trans-bp1858ysxxxxxx
+     * @description The ID of the IPv6 Translation Service instance.
+     *
+     * @example ipv6trans-bp1858ys*****
      *
      * @var string
      */
     public $ipv6TranslatorId;
 
     /**
+     * @description The name of the IPv6 Translation Service instance.
+     *
      * @example test
      *
      * @var string
@@ -85,6 +110,11 @@ class ipv6Translator extends Model
     public $name;
 
     /**
+     * @description The billing method of the IPv6 Translation Service instance.
+     *
+     *   **Prepay**: subscription
+     *   **Postpay**: pay-as-you-go
+     *
      * @example Prepay
      *
      * @var string
@@ -92,6 +122,8 @@ class ipv6Translator extends Model
     public $payType;
 
     /**
+     * @description The region of the IPv6 Translation Service instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -99,6 +131,8 @@ class ipv6Translator extends Model
     public $regionId;
 
     /**
+     * @description The specification of the IPv6 Translation Service instance.
+     *
      * @example small
      *
      * @var string
@@ -106,6 +140,8 @@ class ipv6Translator extends Model
     public $spec;
 
     /**
+     * @description The status of the IPv6 Translation Service instance.
+     *
      * @example active
      *
      * @var string

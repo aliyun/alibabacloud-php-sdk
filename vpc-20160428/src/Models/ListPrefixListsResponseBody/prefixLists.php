@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class prefixLists extends Model
 {
     /**
+     * @description The CIDR block specified in the prefix list.
+     *
      * @var string[]
      */
     public $cidrBlocks;
 
     /**
+     * @description The time when the prefix list was created.
+     *
      * @example 2022-07-12T14:22:32Z
      *
      * @var string
@@ -22,13 +26,20 @@ class prefixLists extends Model
     public $creationTime;
 
     /**
-     * @example ipv4
+     * @description The IP version of the prefix list. Valid values:
+     *
+     *   **IPv4**
+     *   **IPV6**
+     *
+     * @example IPV4
      *
      * @var string
      */
     public $ipVersion;
 
     /**
+     * @description The maximum number of CIDR blocks that you can specify in the prefix list.
+     *
      * @example 10
      *
      * @var int
@@ -36,6 +47,8 @@ class prefixLists extends Model
     public $maxEntries;
 
     /**
+     * @description The Alibaba Cloud account to which the prefix list belongs.
+     *
      * @example 1210123456123456
      *
      * @var string
@@ -43,6 +56,8 @@ class prefixLists extends Model
     public $ownerId;
 
     /**
+     * @description The description of the prefix list.
+     *
      * @example Created with oss service by system.
      *
      * @var string
@@ -50,6 +65,8 @@ class prefixLists extends Model
     public $prefixListDescription;
 
     /**
+     * @description The ID of the prefix list.
+     *
      * @example pl-m5estsqsdqwg88hjf****
      *
      * @var string
@@ -57,6 +74,8 @@ class prefixLists extends Model
     public $prefixListId;
 
     /**
+     * @description The name of the prefix list.
+     *
      * @example test
      *
      * @var string
@@ -64,6 +83,13 @@ class prefixLists extends Model
     public $prefixListName;
 
     /**
+     * @description The status of the prefix list. Valid values:
+     *
+     *   **Created**
+     *   **Deleted**
+     *   **Modifying**
+     *
+     * >  This parameter is the same as the **Status** parameter.
      * @example Created
      *
      * @var string
@@ -71,16 +97,29 @@ class prefixLists extends Model
     public $prefixListStatus;
 
     /**
+     * @description The region ID of the prefix list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the prefix list belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the prefix list is shared. Valid values:
+     *
+     *   **Shared**: The prefix list is shared.
+     *   If an empty value is returned, it indicates that the prefix list is not shared.
+     *
      * @example Shared
      *
      * @var string
@@ -88,6 +127,12 @@ class prefixLists extends Model
     public $shareType;
 
     /**
+     * @description The status of the prefix list. Valid values:
+     *
+     *   **Created**
+     *   **Deleted**
+     *   **Modifying**
+     *
      * @example Created
      *
      * @var string
@@ -95,6 +140,8 @@ class prefixLists extends Model
     public $status;
 
     /**
+     * @description The list of tags that are added to the resource group.
+     *
      * @var tags[]
      */
     public $tags;

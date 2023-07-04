@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   **zh-CN** (default): Chinese
+     *   **en-US**: English
+     *
      * @example zh-CN
      *
      * @var string
@@ -26,6 +31,10 @@ class DescribeRegionsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The service type. Default value: **VPC**.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $productType;

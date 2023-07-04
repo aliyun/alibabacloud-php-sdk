@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouterInterfaceAttributeRequest extends Model
 {
     /**
+     * @description The ID of the router interface.
+     *
      * @example ri-m5egfc10sednwk2yt****
      *
      * @var string
@@ -21,6 +23,9 @@ class DescribeRouterInterfaceAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the router interface belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-qingdao
      *
      * @var string

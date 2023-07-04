@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class accessPointFeatureModel extends Model
 {
     /**
+     * @description The feature of the access point.
+     *
      * @example AP_Support_VbrBandwidthLimit
      *
      * @var string
@@ -16,6 +18,8 @@ class accessPointFeatureModel extends Model
     public $featureKey;
 
     /**
+     * @description The feature value of the access point.
+     *
      * @example true
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ingressAclEntry extends Model
 {
     /**
+     * @description The association status of the resource. Valid values:
+     *
+     * - **BINDED**: The resource is associated with the network ACL.
+     * - **BINDING**: The resource is being associated with the network ACL.
+     * - **UNBINDING**: The resource is disassociated from the network ACL.
      * @example This is IngressAclEntries.
      *
      * @var string
@@ -16,6 +21,8 @@ class ingressAclEntry extends Model
     public $description;
 
     /**
+     * @description The destination CIDR block.
+     *
      * @example nae-a2dk86arlydmexscd****
      *
      * @var string
@@ -23,6 +30,10 @@ class ingressAclEntry extends Model
     public $networkAclEntryId;
 
     /**
+     * @description The destination port range of the outbound rule.
+     *
+     * - If **Protocol** of the outbound rule is set to **all**, **icmp**, or **gre**, the port range is **-1/-1**, which indicates all ports.
+     * - If **Protocol** of the outbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200. 80/80 indicates port 80. Valid values for a port: **1** to **65535**.
      * @example acl-3
      *
      * @var string
@@ -30,6 +41,8 @@ class ingressAclEntry extends Model
     public $networkAclEntryName;
 
     /**
+     * @description The details about the resource that is associated with the network ACL.
+     *
      * @example accept
      *
      * @var string
@@ -44,6 +57,8 @@ class ingressAclEntry extends Model
     public $port;
 
     /**
+     * @description The ID of the associated resource.
+     *
      * @example all
      *
      * @var string
@@ -51,6 +66,8 @@ class ingressAclEntry extends Model
     public $protocol;
 
     /**
+     * @description The type of the associated resource.
+     *
      * @example 10.0.0.0/24
      *
      * @var string

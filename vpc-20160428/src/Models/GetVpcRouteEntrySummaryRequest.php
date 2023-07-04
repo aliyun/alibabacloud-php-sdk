@@ -19,6 +19,9 @@ class GetVpcRouteEntrySummaryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the route table.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +39,14 @@ class GetVpcRouteEntrySummaryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the route. Valid values:
+     *
+     *   **All**: all route types
+     *   **Custom**: a custom route
+     *   **System**: a system route
+     *   **BGP**: a BGP route
+     *   **CEN**: a Cloud Enterprise Network (CEN) route
+     *
      * @example Custom
      *
      * @var string
@@ -43,6 +54,8 @@ class GetVpcRouteEntrySummaryRequest extends Model
     public $routeEntryType;
 
     /**
+     * @description The ID of the route table that you want to query.
+     *
      * @example vtb-bp145q7glnuzdvzu2****
      *
      * @var string
@@ -50,6 +63,8 @@ class GetVpcRouteEntrySummaryRequest extends Model
     public $routeTableId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the route table belongs.
+     *
      * @example vpc-bp15zckdt37pq72****
      *
      * @var string

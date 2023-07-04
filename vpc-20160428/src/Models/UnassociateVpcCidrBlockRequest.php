@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UnassociateVpcCidrBlockRequest extends Model
 {
     /**
+     * @description The secondary IPv6 CIDR block to be deleted.
+     *
+     * >  You must set one of the **Ipv6CidrBlock** and **SecondaryCidrBlock** parameters.
+     * @example 2408:XXXX:0:6a::/56
+     *
      * @var string
      */
     public $IPv6CidrBlock;
@@ -24,6 +29,9 @@ class UnassociateVpcCidrBlockRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the VPC to which the secondary CIDR block to be deleted belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example ch-hangzhou
      *
      * @var string
@@ -41,6 +49,9 @@ class UnassociateVpcCidrBlockRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The secondary IPv4 CIDR block to be deleted.
+     *
+     * >  You must set one of the **SecondaryCidrBlock** and **Ipv6CidrBlock** parameters.
      * @example 192.168.0.0/16
      *
      * @var string
@@ -48,6 +59,8 @@ class UnassociateVpcCidrBlockRequest extends Model
     public $secondaryCidrBlock;
 
     /**
+     * @description The ID of the VPC from which you want to delete a secondary CIDR block.
+     *
      * @example vpc-o6wrloqsdqc9io3mg****
      *
      * @var string

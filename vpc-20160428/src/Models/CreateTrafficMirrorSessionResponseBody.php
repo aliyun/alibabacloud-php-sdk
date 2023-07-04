@@ -16,11 +16,15 @@ class CreateTrafficMirrorSessionResponseBody extends Model
     public $requestId;
 
     /**
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the resource group to which the mirrored traffic belongs.
+     *
      * @example tms-j6ce5di4w7nvigfjz****
      *
      * @var string

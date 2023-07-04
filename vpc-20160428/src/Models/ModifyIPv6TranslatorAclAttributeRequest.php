@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyIPv6TranslatorAclAttributeRequest extends Model
 {
     /**
-     * @example ipv6transacl-bp1de2xxxx
+     * @description The ID of the ACL that you want to modify.
+     *
+     * @example ipv6transacl-bp1de2****
      *
      * @var string
      */
     public $aclId;
 
     /**
+     * @description The name of the ACL.
+     *
      * @example acl1
      *
      * @var string
@@ -23,7 +27,10 @@ class ModifyIPv6TranslatorAclAttributeRequest extends Model
     public $aclName;
 
     /**
-     * @example sha223ndd2333
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
      */
@@ -40,6 +47,8 @@ class ModifyIPv6TranslatorAclAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region of the IPv6 Translation Service instance. You can call the DescribeRegions operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

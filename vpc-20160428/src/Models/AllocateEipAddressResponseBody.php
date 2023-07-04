@@ -23,6 +23,8 @@ class AllocateEipAddressResponseBody extends Model
     public $eipAddress;
 
     /**
+     * @description The ID of the EIP.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +32,8 @@ class AllocateEipAddressResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The EIP that is allocated. This parameter is returned only when **InstanceChargeType** is set to **PostPaid**.
+     *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyRouteTableAttributesRequest extends Model
 {
     /**
+     * @description The description of the route table.
+     *
+     * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
      * @var string
      */
     public $description;
@@ -24,6 +27,9 @@ class ModifyRouteTableAttributesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the virtual private cloud (VPC) to which the route table belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -41,6 +47,8 @@ class ModifyRouteTableAttributesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the route table.
+     *
      * @example vtb-bp145q7glnuzdvzu2****
      *
      * @var string
@@ -48,6 +56,9 @@ class ModifyRouteTableAttributesRequest extends Model
     public $routeTableId;
 
     /**
+     * @description The name of the route table.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example doctest
      *
      * @var string

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListPublicIpAddressPoolsRequest extends Model
 {
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -17,6 +22,21 @@ class ListPublicIpAddressPoolsRequest extends Model
     public $dryRun;
 
     /**
+     * @description The line type. Valid values:
+     *
+     *   **BGP** (default): BGP (Multi-ISP) lines
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines
+     *
+     * If you are allowed to use single-ISP bandwidth, you can also choose one of the following values:
+     *
+     *   **ChinaTelecom**: China Telecom
+     *   **ChinaUnicom**: China Unicom
+     *   **ChinaMobile**: China Mobile
+     *   **ChinaTelecom_L2**: China Telecom L2
+     *   **ChinaUnicom_L2**: China Unicom L2
+     *   **ChinaMobile_L2**: China Mobile L2
+     *
+     * If your services are deployed in China East 1 Finance, this parameter is required and you must set the value to **BGP_FinanceCloud**.
      * @example BGP
      *
      * @var string
@@ -24,6 +44,8 @@ class ListPublicIpAddressPoolsRequest extends Model
     public $isp;
 
     /**
+     * @description The maximum number of entries to return. Valid values: **10** to **100**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -31,6 +53,9 @@ class ListPublicIpAddressPoolsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The name of the IP address pool.
+     *
+     * This parameter is optional. The name must be 1 to 128 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example AddressPoolName
      *
      * @var string
@@ -38,6 +63,11 @@ class ListPublicIpAddressPoolsRequest extends Model
     public $name;
 
     /**
+     * @description The token that determines the start point of the next query. Valid values:
+     *
+     *   If this is your first query and no subsequent queries are to be sent, ignore this parameter.
+     *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -60,6 +90,9 @@ class ListPublicIpAddressPoolsRequest extends Model
     public $publicIpAddressPoolIds;
 
     /**
+     * @description The ID of the region where you want to query IP address pools.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-chengdu
      *
      * @var string
@@ -67,6 +100,10 @@ class ListPublicIpAddressPoolsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the IP address pool belongs.
+     *
+     * @example rg-acfmxazb4pcdvf****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -82,6 +119,12 @@ class ListPublicIpAddressPoolsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The status of the IP address pool. Valid values:
+     *
+     *   **Created**: The IP address pool is available.
+     *   **Deleting**: The IP address pool is being deleted.
+     *   **Modifying**: The IP address pool is being modified.
+     *
      * @example Created
      *
      * @var string

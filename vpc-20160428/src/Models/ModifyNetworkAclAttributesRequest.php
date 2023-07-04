@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkAclAttributesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,6 +21,9 @@ class ModifyNetworkAclAttributesRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the network ACL.
+     *
+     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example This is my NetworkAcl.
      *
      * @var string
@@ -23,6 +31,8 @@ class ModifyNetworkAclAttributesRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the network ACL.
+     *
      * @example acl-bp1lhl0taikrxxxxxxxx
      *
      * @var string
@@ -30,6 +40,9 @@ class ModifyNetworkAclAttributesRequest extends Model
     public $networkAclId;
 
     /**
+     * @description The name of the network ACL.
+     *
+     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example acl-1
      *
      * @var string
@@ -42,6 +55,9 @@ class ModifyNetworkAclAttributesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the network ACL.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

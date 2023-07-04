@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UnassociateEipAddressRequest extends Model
 {
     /**
+     * @description The type of instance from which you want to disassociate the EIP. Valid values:
+     *
+     *   **EcsInstance** (default): an Elastic Compute Service (ECS) instance in a virtual private cloud (VPC)
+     *   **SlbInstance**: a Server Load Balancer (SLB) instance in a VPC
+     *   **NetworkInterface**: a secondary elastic network interface (ENI) in a VPC
+     *   **Nat**: a NAT gateway
+     *   **HaVip**: a high-availability virtual IP address (HAVIP)
+     *
      * @example eip-2zeerraiwb7uj6i0d****
      *
      * @var string
@@ -23,6 +31,8 @@ class UnassociateEipAddressRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the EIP that you want to disassociate.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +40,8 @@ class UnassociateEipAddressRequest extends Model
     public $force;
 
     /**
+     * @description The private IP address of the ECS instance or the secondary ENI from which you want to disassociate the EIP.
+     *
      * @example i-hp3akk9irtd69jad****
      *
      * @var string
@@ -37,6 +49,11 @@ class UnassociateEipAddressRequest extends Model
     public $instanceId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** might be different for each API request.
      * @example EcsInstance
      *
      * @var string
@@ -54,6 +71,8 @@ class UnassociateEipAddressRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 192.XX.XX.2
      *
      * @var string
@@ -61,6 +80,8 @@ class UnassociateEipAddressRequest extends Model
     public $privateIpAddress;
 
     /**
+     * @description The ID of the instance from which you want to disassociate the EIP.
+     *
      * @example cn-hangzhou
      *
      * @var string

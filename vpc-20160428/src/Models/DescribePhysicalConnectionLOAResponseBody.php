@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePhysicalConnectionLOAResponseBody extends Model
 {
     /**
+     * @description The LOA information about the Express Connect circuit.
+     *
      * @var physicalConnectionLOAType
      */
     public $physicalConnectionLOAType;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 318BB676-0A2B-43A0-9AD8-F1D34E93750F
      *
      * @var string

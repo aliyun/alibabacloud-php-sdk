@@ -16,13 +16,6 @@ class AllocateEipSegmentAddressResponseBody extends Model
     public $eipSegmentInstanceId;
 
     /**
-     * @example 2022****
-     *
-     * @var int
-     */
-    public $orderId;
-
-    /**
      * @example F7A6301A-64BA-41EC-8284-8F4838C15D1F
      *
      * @var string
@@ -30,7 +23,6 @@ class AllocateEipSegmentAddressResponseBody extends Model
     public $requestId;
     protected $_name = [
         'eipSegmentInstanceId' => 'EipSegmentInstanceId',
-        'orderId'              => 'OrderId',
         'requestId'            => 'RequestId',
     ];
 
@@ -43,9 +35,6 @@ class AllocateEipSegmentAddressResponseBody extends Model
         $res = [];
         if (null !== $this->eipSegmentInstanceId) {
             $res['EipSegmentInstanceId'] = $this->eipSegmentInstanceId;
-        }
-        if (null !== $this->orderId) {
-            $res['OrderId'] = $this->orderId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -64,9 +53,6 @@ class AllocateEipSegmentAddressResponseBody extends Model
         $model = new self();
         if (isset($map['EipSegmentInstanceId'])) {
             $model->eipSegmentInstanceId = $map['EipSegmentInstanceId'];
-        }
-        if (isset($map['OrderId'])) {
-            $model->orderId = $map['OrderId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

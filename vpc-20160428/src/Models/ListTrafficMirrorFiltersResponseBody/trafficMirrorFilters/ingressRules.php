@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ingressRules extends Model
 {
     /**
+     * @description The action of the inbound rule. Valid values:
+     *
+     *   **accept**: accepts network traffic.
+     *   **drop**: does not collect network traffic.
+     *
      * @example accept
      *
      * @var string
@@ -16,6 +21,8 @@ class ingressRules extends Model
     public $action;
 
     /**
+     * @description The destination CIDR block of the inbound traffic.
+     *
      * @example 0.0.0.0/0
      *
      * @var string
@@ -23,6 +30,8 @@ class ingressRules extends Model
     public $destinationCidrBlock;
 
     /**
+     * @description The destination port range of the inbound traffic.
+     *
      * @example -1/-1
      *
      * @var string
@@ -30,6 +39,8 @@ class ingressRules extends Model
     public $destinationPortRange;
 
     /**
+     * @description The priority of the inbound rule. A smaller value indicates a higher priority.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +48,13 @@ class ingressRules extends Model
     public $priority;
 
     /**
+     * @description The protocol that is used by the inbound traffic to be mirrored. Valid values:
+     *
+     *   **ALL**: all protocols
+     *   **ICMP**: ICMP
+     *   **TCP**: TCP
+     *   **UDP**: UDP
+     *
      * @example ALL
      *
      * @var string
@@ -44,6 +62,8 @@ class ingressRules extends Model
     public $protocol;
 
     /**
+     * @description The source CIDR block of the inbound traffic.
+     *
      * @example 0.0.0.0/0
      *
      * @var string
@@ -51,6 +71,8 @@ class ingressRules extends Model
     public $sourceCidrBlock;
 
     /**
+     * @description The destination port range of the inbound traffic.
+     *
      * @example -1/-1
      *
      * @var string
@@ -58,6 +80,11 @@ class ingressRules extends Model
     public $sourcePortRange;
 
     /**
+     * @description The direction of the network traffic. Valid values:
+     *
+     *   **egress**: outbound
+     *   **ingress**: inbound
+     *
      * @example ingress
      *
      * @var string
@@ -65,6 +92,8 @@ class ingressRules extends Model
     public $trafficDirection;
 
     /**
+     * @description The ID of the filter associated with the inbound rule.
+     *
      * @example tmf-j6cmls82xnc86vtpe****
      *
      * @var string
@@ -72,6 +101,8 @@ class ingressRules extends Model
     public $trafficMirrorFilterId;
 
     /**
+     * @description The ID of the inbound rule.
+     *
      * @example tmr-j6cezu8e68rnpepet****
      *
      * @var string
@@ -79,6 +110,13 @@ class ingressRules extends Model
     public $trafficMirrorFilterRuleId;
 
     /**
+     * @description The status of the inbound rule. Valid values:
+     *
+     *   **Creating**
+     *   **Created**
+     *   **Modifying**
+     *   **Deleting**
+     *
      * @example Created
      *
      * @var string

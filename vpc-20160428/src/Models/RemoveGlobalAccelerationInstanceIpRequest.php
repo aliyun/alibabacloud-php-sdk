@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveGlobalAccelerationInstanceIpRequest extends Model
 {
     /**
+     * @description The ID of the shared-bandwidth instance.
+     *
      * @example ga-m5ex47zwya1sejyni****
      *
      * @var string
@@ -16,6 +18,9 @@ class RemoveGlobalAccelerationInstanceIpRequest extends Model
     public $globalAccelerationInstanceId;
 
     /**
+     * @description The ID of the EIP.
+     *
+     * To query the EIP ID, call DescribeEipAddresses.
      * @example eip-bp13e9i2qst4g6jzi****
      *
      * @var string
@@ -33,6 +38,9 @@ class RemoveGlobalAccelerationInstanceIpRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the shared-bandwidth instance is located.
+     *
+     * To query the region ID, call DescribeRegions.
      * @example cn-hangzhou
      *
      * @var string

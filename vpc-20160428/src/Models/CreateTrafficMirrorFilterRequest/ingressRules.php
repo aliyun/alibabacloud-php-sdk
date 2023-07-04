@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ingressRules extends Model
 {
     /**
+     * @description The action of the inbound rule. Valid values:
+     *
+     *   **accept**: collects network traffic.
+     *   **drop**: does not collect network traffic.
+     *
      * @example accept
      *
      * @var string
@@ -16,6 +21,8 @@ class ingressRules extends Model
     public $action;
 
     /**
+     * @description The destination CIDR block of the inbound traffic.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -23,6 +30,9 @@ class ingressRules extends Model
     public $destinationCidrBlock;
 
     /**
+     * @description The destination port range of the inbound traffic. Valid values for a port: **1** to **65535**. Separate the first port and the last port with a forward slash (/). Examples: **1/200** and **80/80**.
+     *
+     * >  If you set **IngressRules.N.Protocol** to **ALL** or **ICMP**, you do not need to set this parameter. In this case, all ports are available.
      * @example 80/120
      *
      * @var string
@@ -30,6 +40,9 @@ class ingressRules extends Model
     public $destinationPortRange;
 
     /**
+     * @description The priority of the inbound rule. A smaller value indicates a higher priority.
+     *
+     * The maximum value of **N** is **10**. You can configure up to 10 inbound rules for a filter.
      * @example 1
      *
      * @var int
@@ -37,6 +50,13 @@ class ingressRules extends Model
     public $priority;
 
     /**
+     * @description The protocol that is used by the inbound traffic to be mirrored. Valid values:
+     *
+     *   **ALL**: all protocols
+     *   **ICMP**: ICMP
+     *   **TCP**: TCP
+     *   **UDP**: UDP
+     *
      * @example TCP
      *
      * @var string
@@ -44,6 +64,8 @@ class ingressRules extends Model
     public $protocol;
 
     /**
+     * @description The source CIDR block of the inbound traffic.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -51,6 +73,9 @@ class ingressRules extends Model
     public $sourceCidrBlock;
 
     /**
+     * @description The source port range of the inbound traffic. Valid values for a port: **1** to **65535**. Separate the first port and the last port with a forward slash (/). Examples: **1/200** and **80/80**.
+     *
+     * >  If you set **IngressRules.N.Protocol** to **ALL** or **ICMP**, you do not need to set this parameter. In this case, all ports are available.
      * @example 80/120
      *
      * @var string

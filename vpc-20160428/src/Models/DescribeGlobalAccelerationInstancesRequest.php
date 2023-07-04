@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalAccelerationInstancesRequest extends Model
 {
     /**
+     * @description The bandwidth type of the GA instance. Valid values:
+     *
+     *   **Sharing**
+     *   **Exclusive** (default)
+     *
      * @example Exclusive
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     public $bandwidthType;
 
     /**
+     * @description The ID of the GA instance.
+     *
      * @example ga-234sljmxaz****
      *
      * @var string
@@ -23,6 +30,11 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     public $globalAccelerationInstanceId;
 
     /**
+     * @description Specifies whether to return information about pending orders. Valid values:
+     *
+     *   **false** (default)
+     *   **true**
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +42,8 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     public $includeReservationData;
 
     /**
+     * @description The public IP address of the GA instance.
+     *
      * @example 12.xx.xx.78
      *
      * @var string
@@ -37,6 +51,8 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     public $ipAddress;
 
     /**
+     * @description The name of the GA instance.
+     *
      * @example GA-1
      *
      * @var string
@@ -54,6 +70,8 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 10
      *
      * @var int
@@ -61,6 +79,8 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -68,6 +88,8 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the GA instance. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -85,6 +107,8 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the backend service instance.
+     *
      * @example i-sxjblddejj9x****
      *
      * @var string
@@ -92,6 +116,13 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     public $serverId;
 
     /**
+     * @description The region of the backend service. Valid values:
+     *
+     *   **china-mainland**
+     *   **north-america**
+     *   **asia-pacific**
+     *   **europe**
+     *
      * @example china-mainland
      *
      * @var string
@@ -99,6 +130,13 @@ class DescribeGlobalAccelerationInstancesRequest extends Model
     public $serviceLocation;
 
     /**
+     * @description The status of the GA instance. Valid values:
+     *
+     *   **Available**
+     *   **Inuse**
+     *   **Associating**
+     *   **Unassociating**
+     *
      * @example Available
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AssociateNetworkAclRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -17,6 +19,11 @@ class AssociateNetworkAclRequest extends Model
     public $clientToken;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example nacl-a2do9e413e0sp****
      *
      * @var string
@@ -29,6 +36,8 @@ class AssociateNetworkAclRequest extends Model
     public $ownerId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **AssociateNetworkAcl**.
+     *
      * @example cn-hangzhou
      *
      * @var string

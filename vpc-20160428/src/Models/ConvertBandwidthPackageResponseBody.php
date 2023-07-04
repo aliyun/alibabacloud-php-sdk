@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ConvertBandwidthPackageResponseBody extends Model
 {
     /**
+     * @description The ID of the Internet Shared Bandwidth instance after the conversion.
+     *
      * @example bwp-s6lmotmkkf567b****
      *
      * @var string
@@ -16,6 +18,8 @@ class ConvertBandwidthPackageResponseBody extends Model
     public $convertInstanceId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 455AC20C-7061-446A-BDBD-B3BEE0856304
      *
      * @var string

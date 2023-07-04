@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class physicalConnectionLOAType extends Model
 {
     /**
+     * @description The name of the construction company.
+     *
      * @example company
      *
      * @var string
@@ -17,6 +19,8 @@ class physicalConnectionLOAType extends Model
     public $companyLocalizedName;
 
     /**
+     * @description The name of the organization that requires the Express Connect circuit.
+     *
      * @example test1234
      *
      * @var string
@@ -24,6 +28,8 @@ class physicalConnectionLOAType extends Model
     public $companyName;
 
     /**
+     * @description The time when construction starts.
+     *
      * @example 2019-02-26T08:00:00Z
      *
      * @var string
@@ -31,6 +37,8 @@ class physicalConnectionLOAType extends Model
     public $constructionTime;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
      * @example pc-bp1ca4wca27****
      *
      * @var string
@@ -38,6 +46,8 @@ class physicalConnectionLOAType extends Model
     public $instanceId;
 
     /**
+     * @description The circuit code provided by the connectivity provider.
+     *
      * @example aaa111
      *
      * @var string
@@ -45,6 +55,8 @@ class physicalConnectionLOAType extends Model
     public $lineCode;
 
     /**
+     * @description The label of the cable in the data center.
+     *
      * @example bbb222
      *
      * @var string
@@ -52,6 +64,13 @@ class physicalConnectionLOAType extends Model
     public $lineLabel;
 
     /**
+     * @description The type of the Express Connect circuit. Valid values:
+     *
+     *   **MSTP**
+     *   **MPLSVPN**
+     *   **FIBRE**
+     *   **Other**
+     *
      * @example FIBRE
      *
      * @var string
@@ -59,6 +78,8 @@ class physicalConnectionLOAType extends Model
     public $lineType;
 
     /**
+     * @description The download URL of the LOA file.
+     *
      * @example http://******
      *
      * @var string
@@ -66,11 +87,15 @@ class physicalConnectionLOAType extends Model
     public $loaUrl;
 
     /**
+     * @description The information about the construction workers.
+     *
      * @var PMInfo
      */
     public $PMInfo;
 
     /**
+     * @description The on-site construction company.
+     *
      * @example ctcu
      *
      * @var string
@@ -78,6 +103,16 @@ class physicalConnectionLOAType extends Model
     public $SI;
 
     /**
+     * @description The status of the LOA. Valid values:
+     *
+     *   **Applying**: The LOA is pending for approval.
+     *   **Accept**: The LOA is approved.
+     *   **Available**: The LOA is available.
+     *   **Rejected**: The LOA is rejected.
+     *   **Completing**: The Express Connect circuit is under construction.
+     *   **Complete**: The Express Connect circuit is installed.
+     *   **Deleted**: The LOA is deleted.
+     *
      * @example Available
      *
      * @var string

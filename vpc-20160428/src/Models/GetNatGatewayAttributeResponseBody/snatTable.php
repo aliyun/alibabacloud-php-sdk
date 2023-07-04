@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class snatTable extends Model
 {
     /**
+     * @description The number of SNAT entries.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class snatTable extends Model
     public $snatEntryCount;
 
     /**
+     * @description The ID of the SNAT table.
+     *
      * @example stb-SnatTableIds****
      *
      * @var string

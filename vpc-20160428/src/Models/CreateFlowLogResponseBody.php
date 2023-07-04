@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowLogResponseBody extends Model
 {
     /**
+     * @description The ID of the flow log.
+     *
      * @example fl-m5e8vhz2t21sel1nq****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateFlowLogResponseBody extends Model
     public $flowLogId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 54B48E3D-DF70-471B-AA93-08E683A1B457
      *
      * @var string
@@ -23,11 +27,20 @@ class CreateFlowLogResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxazdjdhd****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the operation is successful. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var string

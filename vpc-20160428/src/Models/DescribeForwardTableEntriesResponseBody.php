@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeForwardTableEntriesResponseBody extends Model
 {
     /**
+     * @description The details of DNAT entries.
+     *
      * @var forwardTableEntries
      */
     public $forwardTableEntries;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeForwardTableEntriesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeForwardTableEntriesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A6C4A8B1-7561-4509-949C-20DEB40D71E6
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeForwardTableEntriesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
      * @example 5
      *
      * @var int

@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowLogsRequest extends Model
 {
     /**
+     * @description The description of the flow log.
+     *
+     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example This is my Flowlog.
      *
      * @var string
@@ -17,6 +20,8 @@ class DescribeFlowLogsRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the flow log.
+     *
      * @example fl-bp1f6qqhsrc2c12ta****
      *
      * @var string
@@ -24,6 +29,9 @@ class DescribeFlowLogsRequest extends Model
     public $flowLogId;
 
     /**
+     * @description The name of the flow log.
+     *
+     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example myFlowlog
      *
      * @var string
@@ -31,6 +39,8 @@ class DescribeFlowLogsRequest extends Model
     public $flowLogName;
 
     /**
+     * @description The Logstore that stores the captured traffic data.
+     *
      * @example FlowLogStore
      *
      * @var string
@@ -48,6 +58,8 @@ class DescribeFlowLogsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -55,6 +67,8 @@ class DescribeFlowLogsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -62,6 +76,8 @@ class DescribeFlowLogsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The project that manages the captured traffic data.
+     *
      * @example FlowLogProject
      *
      * @var string
@@ -69,6 +85,9 @@ class DescribeFlowLogsRequest extends Model
     public $projectName;
 
     /**
+     * @description The region ID of the flow log.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -76,11 +95,17 @@ class DescribeFlowLogsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the flow log belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the resource from which traffic is captured.
+     *
      * @example eni-askldfas****
      *
      * @var string
@@ -98,6 +123,12 @@ class DescribeFlowLogsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource from which traffic is captured. Valid values:
+     *
+     *   **NetworkInterface**: elastic network interface (ENI)
+     *   **VSwitch**: all ENIs in a vSwitch
+     *   **VPC**: all ENIs in a virtual private cloud (VPC)
+     *
      * @example NetworkInterface
      *
      * @var string
@@ -105,6 +136,12 @@ class DescribeFlowLogsRequest extends Model
     public $resourceType;
 
     /**
+     * @description The status of the flow log. Valid values:
+     *
+     *   **Active**: enabled
+     *   **Activating**: being enabled
+     *   **Inactive**: disabled
+     *
      * @example Active
      *
      * @var string
@@ -117,6 +154,12 @@ class DescribeFlowLogsRequest extends Model
     public $tags;
 
     /**
+     * @description The type of traffic that is captured. Valid values:
+     *
+     *   **All**: all traffic
+     *   **Allow**: traffic that is allowed by access control
+     *   **Drop**: traffic that is denied by access control
+     *
      * @example All
      *
      * @var string
@@ -124,6 +167,8 @@ class DescribeFlowLogsRequest extends Model
     public $trafficType;
 
     /**
+     * @description The ID of the VPC to which the flow log belongs.
+     *
      * @example vpc-bp1nwd16gvo1wgs****
      *
      * @var string

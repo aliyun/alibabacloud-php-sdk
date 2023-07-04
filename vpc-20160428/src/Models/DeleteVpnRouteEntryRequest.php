@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpnRouteEntryRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example d7d24a21-f4ba-4454-9173-b3828dae492b
      *
      * @var string
@@ -16,6 +21,8 @@ class DeleteVpnRouteEntryRequest extends Model
     public $clientToken;
 
     /**
+     * @description The next hop of the destination-based route.
+     *
      * @example vco-bp15oes1py4i66rmd****
      *
      * @var string
@@ -23,6 +30,8 @@ class DeleteVpnRouteEntryRequest extends Model
     public $nextHop;
 
     /**
+     * @description The tunnel protocol. Set the value to **Ipsec**.
+     *
      * @example Ipsec
      *
      * @var string
@@ -40,6 +49,8 @@ class DeleteVpnRouteEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the VPN gateway is created. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +68,8 @@ class DeleteVpnRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The destination CIDR block of the destination-based route.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -64,6 +77,8 @@ class DeleteVpnRouteEntryRequest extends Model
     public $routeDest;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1a3kqjiiq9legfx****
      *
      * @var string
@@ -71,6 +86,11 @@ class DeleteVpnRouteEntryRequest extends Model
     public $vpnGatewayId;
 
     /**
+     * @description The weight of the destination-based route. Valid values:
+     *
+     *   **0**: a low priority
+     *   **100**: a high priority
+     *
      * @example 0
      *
      * @var int

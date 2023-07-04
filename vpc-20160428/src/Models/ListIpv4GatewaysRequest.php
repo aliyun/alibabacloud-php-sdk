@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListIpv4GatewaysRequest extends Model
 {
     /**
+     * @description The ID of the IPv4 gateway.
+     *
      * @example ipv4gw-5tsnc6s4ogsedtp3k****
      *
      * @var string
@@ -17,6 +19,9 @@ class ListIpv4GatewaysRequest extends Model
     public $ipv4GatewayId;
 
     /**
+     * @description The name of the IPv4 gateway.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example name
      *
      * @var string
@@ -24,6 +29,8 @@ class ListIpv4GatewaysRequest extends Model
     public $ipv4GatewayName;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -31,6 +38,11 @@ class ListIpv4GatewaysRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If this is your first query and no next queries are to be sent, ignore this parameter.
+     *   If a next query is to be sent, set the value to the value of NextToken that is returned from the last call.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -48,6 +60,9 @@ class ListIpv4GatewaysRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the IPv4 gateways to be queried are deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example ap-southeast-6
      *
      * @var string
@@ -55,6 +70,10 @@ class ListIpv4GatewaysRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the IPv4 gateway belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -75,6 +94,8 @@ class ListIpv4GatewaysRequest extends Model
     public $tags;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) with which the IPv4 gateway is associated.
+     *
      * @example vpc-5tsrxlw7dv074gci4****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCommonBandwidthPackageAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example B450CAD8-50BC-4506-ADA7-35C6CE63E96B
      *
      * @var string

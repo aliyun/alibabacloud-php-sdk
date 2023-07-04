@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UnTagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags from the specified resource. Valid values:
+     *
+     *   **true**: removes all tags from the specified resource.
+     *   **false**: does not remove all tags from the specified resource. This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -26,6 +31,9 @@ class UnTagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the resource belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +58,16 @@ class UnTagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The resource type. Valid values:
+     *
+     *   **VPC**: a virtual private cloud (VPC)
+     *   **VSWITCH**: a vSwitch
+     *   **ROUTETABLE**: a route table
+     *   **EIP**: an elastic IP address (EIP)
+     *   **VpnGateway**: a VPN gateway
+     *   **NATGATEWAY**: a NAT gateway
+     *   **COMMONBANDWIDTHPACKAGE**: an EIP bandwidth plan
+     *
      * @example VPC
      *
      * @var string

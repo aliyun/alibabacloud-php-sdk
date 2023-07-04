@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateNetworkAclEntriesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 1170A5A0-E760-4331-9133-A7D38D973215
      *
      * @var string

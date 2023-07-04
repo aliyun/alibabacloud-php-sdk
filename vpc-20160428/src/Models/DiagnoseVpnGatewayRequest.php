@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DiagnoseVpnGatewayRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The ID of each request may be different.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -16,6 +19,11 @@ class DiagnoseVpnGatewayRequest extends Model
     public $clientToken;
 
     /**
+     * @description The configuration when you check the connectivity of the IPsec-VPN connection. Valid values:
+     *
+     *   **PrivateSourceIp**: the source IP address used when you check the connectivity of the IPsec-VPN connection. The source IP address must be on the VPC side.
+     *   **PrivateDestinationIp**: the destination IP address used when you check the connectivity of the IPsec-VPN connection. The destination IP address must be on the data center side.
+     *
      * @example {"PrivateSourceIp":"192.168.1.1","PrivateDestinationIp":"192.168.0.1"}
      *
      * @var string
@@ -23,6 +31,9 @@ class DiagnoseVpnGatewayRequest extends Model
     public $IPsecExtendInfo;
 
     /**
+     * @description The region ID of the VPN gateway.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-qingdao
      *
      * @var string
@@ -30,6 +41,8 @@ class DiagnoseVpnGatewayRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource to be diagnosed.
+     *
      * @example vco-uf66xniofskqtuoz1****
      *
      * @var string
@@ -37,6 +50,9 @@ class DiagnoseVpnGatewayRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource.
+     *
+     * Set the value to **Ipsec**, which specifies an IPsec-VPN connection.
      * @example IPsec
      *
      * @var string
@@ -44,6 +60,8 @@ class DiagnoseVpnGatewayRequest extends Model
     public $resourceType;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-m5efhj0k1p47ctuhl****
      *
      * @var string

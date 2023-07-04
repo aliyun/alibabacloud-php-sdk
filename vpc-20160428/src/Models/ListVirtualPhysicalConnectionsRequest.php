@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListVirtualPhysicalConnectionsRequest extends Model
 {
     /**
+     * @description Specifies whether the hosted connection is accepted by the tenant. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -17,6 +22,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $isConfirmed;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -24,6 +31,11 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
+     *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *
      * @example dd20****
      *
      * @var string
@@ -31,6 +43,9 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the Express Connect circuit over which the hosted connection is created.
+     *
+     * Express Connect circuits in this topic refer to Express Connect circuits over which hosted connections are created.
      * @example pc-bp1ciz7ekd2grn1as****
      *
      * @var string
@@ -38,6 +53,9 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $physicalConnectionId;
 
     /**
+     * @description The region ID of the hosted connection.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string
@@ -45,6 +63,8 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $regionId;
 
     /**
+     * @example rg-acfmxazb4p****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -62,6 +82,12 @@ class ListVirtualPhysicalConnectionsRequest extends Model
     public $virtualPhysicalConnectionAliUids;
 
     /**
+     * @description The business status of the hosted connection. Valid values:
+     *
+     *   **Normal**: normal
+     *   **FinancialLocked**: locked due to overdue payments
+     *   **SecurityLocked**: locked for security reasons
+     *
      * @example Normal
      *
      * @var string

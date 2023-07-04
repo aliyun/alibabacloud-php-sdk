@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAclsResponseBody extends Model
 {
     /**
+     * @description The destination port range of the inbound traffic.
+     *
+     *   If **Protocol** of the inbound rule is set to **all**, **icmp**, or **gre**, the port range is **-1/-1**, which indicates all ports.
+     *   If **Protocol** of the inbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200. 80/80 indicates port 80. Valid values for a port: **1** to **65535**.
+     *
      * @var networkAcls
      */
     public $networkAcls;
 
     /**
+     * @description The source CIDR block.
+     *
      * @example 1
      *
      * @var string
@@ -22,6 +29,11 @@ class DescribeNetworkAclsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The action to be performed on network traffic that matches the rule. Valid values:
+     *
+     *   **accept**: allows network traffic.
+     *   **drop**: blocks network traffic.
+     *
      * @example 10
      *
      * @var string
@@ -29,6 +41,8 @@ class DescribeNetworkAclsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The description of the inbound rule.
+     *
      * @example F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1
      *
      * @var string
@@ -36,6 +50,14 @@ class DescribeNetworkAclsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The protocol. Valid values:
+     *
+     *   **icmp**: ICMP
+     *   **gre**: GRE
+     *   **tcp**: TCP
+     *   **udp**: UDP
+     *   **all**: all protocols
+     *
      * @example 2
      *
      * @var string

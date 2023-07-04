@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteNatIpCidrRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -16,6 +21,11 @@ class DeleteNatIpCidrRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether only to precheck this request. Valid values:
+     *
+     *   **true**: sends the precheck request but does delete the NAT CIDR block. The system checks your AccessKey pair, the RAM user permissions, and the required parameters. If the request fails the precheck, an error code is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *   **false**: sends the API request. This is the default value. If the request passes the precheck, a 2XX HTTP status code is returned and the NAT CIDR block is deleted.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +33,8 @@ class DeleteNatIpCidrRequest extends Model
     public $dryRun;
 
     /**
+     * @description The ID of the NAT gateway to which the NAT CIDR block to be deleted belongs.
+     *
      * @example ngw-gw8v16wgvtq26vh59****
      *
      * @var string
@@ -30,6 +42,11 @@ class DeleteNatIpCidrRequest extends Model
     public $natGatewayId;
 
     /**
+     * @description The NAT CIDR block to be deleted.
+     *
+     *   Before you delete a NAT CIDR block, you must delete all NAT IP addresses from the CIDR block.
+     *   The default NAT CIDR block cannot be deleted.
+     *
      * @example 172.16.0.0/24
      *
      * @var string
@@ -47,6 +64,9 @@ class DeleteNatIpCidrRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the NAT gateway to which the NAT CIDR block to be deleted belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example eu-central-1
      *
      * @var string

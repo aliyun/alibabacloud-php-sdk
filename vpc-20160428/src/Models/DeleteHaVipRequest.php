@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteHaVipRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** in each API request may be different.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -16,6 +21,8 @@ class DeleteHaVipRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the HAVIP that you want to delete.
+     *
      * @example havip-2zeo05qre24nhrqpy****
      *
      * @var string
@@ -37,6 +44,8 @@ class DeleteHaVipRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the HAVIP is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-shanghai
      *
      * @var string

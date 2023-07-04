@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyIpv6AddressAttributeRequest extends Model
 {
     /**
+     * @description The description of the IPv6 address.
+     *
+     * It must be 2 to 256 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter. The name must start with a letter but cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -16,6 +19,8 @@ class ModifyIpv6AddressAttributeRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the IPv6 address.
+     *
      * @example ipv6-hp32vv2klzw4yerdf****
      *
      * @var string
@@ -23,6 +28,9 @@ class ModifyIpv6AddressAttributeRequest extends Model
     public $ipv6AddressId;
 
     /**
+     * @description The name of the IPv6 address.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter. The name must start with a letter but cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -40,6 +48,8 @@ class ModifyIpv6AddressAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the IPv6 address. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-huhehaote
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyBgpPeerAttributeRequest extends Model
 {
     /**
+     * @description The BFD hop count. Valid values: **1** to **255**.
+     *
+     * The parameter specifies the maximum number of network devices that a packet can traverse from the source to the destination. You can set a proper value based on the factors that affect the physical connection.
      * @example 3
      *
      * @var int
@@ -16,6 +19,8 @@ class ModifyBgpPeerAttributeRequest extends Model
     public $bfdMultiHop;
 
     /**
+     * @description The ID of the BGP group to which the BGP peer that you want to modify belongs.
+     *
      * @example bgpg-m5eo12jxuw2hc0uqq****
      *
      * @var string
@@ -23,6 +28,8 @@ class ModifyBgpPeerAttributeRequest extends Model
     public $bgpGroupId;
 
     /**
+     * @description The ID of the BGP peer that you want to modify.
+     *
      * @example bgp-m5eoyp2mwegk8ce9v****
      *
      * @var string
@@ -30,6 +37,11 @@ class ModifyBgpPeerAttributeRequest extends Model
     public $bgpPeerId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -37,6 +49,11 @@ class ModifyBgpPeerAttributeRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to enable the Bidirectional Forwarding Detection (BFD) feature. Valid values:
+     *
+     *   **true**: enables BFD.
+     *   **false**: disables BFD. This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -54,6 +71,8 @@ class ModifyBgpPeerAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The IP address of the BGP peer that you want to modify.
+     *
      * @example 116.62.XX.XX
      *
      * @var string
@@ -61,6 +80,9 @@ class ModifyBgpPeerAttributeRequest extends Model
     public $peerIpAddress;
 
     /**
+     * @description The region ID of the BGP group to which the BGP peer that you want to modify belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string

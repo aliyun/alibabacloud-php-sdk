@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The filter keys. You can specify at most five filter keys. Valid values of **N**: **1 to 5**.
+     *
+     * The following filter keys are supported:
+     *
+     *   **VpcId**: virtual private cloud (VPC) ID
+     *   **VSwitchId**: vSwitch ID
+     *   **Status**: HAVIP status
+     *   **HaVipId**: HAVIP ID
+     *   **HaVipAddress**: HAVIP IP address
+     *
+     * The logical operator among multiple filter keys is AND. HAVIPs can be queried only if all filter keys are matched.
      * @example HaVipId
      *
      * @var string

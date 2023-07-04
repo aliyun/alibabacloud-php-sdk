@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class vpnCertificateRelations extends Model
 {
     /**
+     * @description The time when the certificate was associated.
+     *
+     * The time follows the ISO8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
      * @example 2020-12-29T09:30:29Z
      *
      * @var string
@@ -16,6 +19,8 @@ class vpnCertificateRelations extends Model
     public $associationTime;
 
     /**
+     * @description The certificate ID.
+     *
      * @example 6bfe4218-ea1d****
      *
      * @var string
@@ -23,6 +28,11 @@ class vpnCertificateRelations extends Model
     public $certificateId;
 
     /**
+     * @description The certificate type.
+     *
+     *   **Encryption**
+     *   **Signature**
+     *
      * @example Signature
      *
      * @var string
@@ -30,6 +40,8 @@ class vpnCertificateRelations extends Model
     public $certificateType;
 
     /**
+     * @description The ID of the region where the VPN gateway is created.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +49,8 @@ class vpnCertificateRelations extends Model
     public $regionId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1usbiorilk51760****
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateNatGatewayNatTypeRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -16,6 +21,12 @@ class UpdateNatGatewayNatTypeRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether only to precheck this request. Valid values:
+     *
+     **true**: prechecks the request but does not upgrade the Internet NAT gateway. The system checks your AccessKey pair, the Resource Access Management (RAM) user permissions, and the required parameters. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+     *
+     **false** (default): If the request passes the precheck, a 2XX HTTP status code is returned and the standard NAT gateway is upgraded.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +34,8 @@ class UpdateNatGatewayNatTypeRequest extends Model
     public $dryRun;
 
     /**
+     * @description The ID of the standard NAT gateway to be upgraded.
+     *
      * @example ngw-bp1b0lic8uz4r6vf2****
      *
      * @var string
@@ -30,6 +43,8 @@ class UpdateNatGatewayNatTypeRequest extends Model
     public $natGatewayId;
 
     /**
+     * @description The type of Internet NAT gateway. Set the value to **Enhanced**, which specifies an enhanced Internet NAT gateway.
+     *
      * @example Enhanced
      *
      * @var string
@@ -47,6 +62,9 @@ class UpdateNatGatewayNatTypeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the NAT gateway that you want to upgrade is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-qingdao
      *
      * @var string
@@ -64,6 +82,9 @@ class UpdateNatGatewayNatTypeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The vSwitch to which the enhanced Internet NAT gateway belongs.
+     *
+     * >  If you do not set this parameter, the system creates an Internet NAT gateway in a random vSwitch of a virtual private cloud (VPC).
      * @example vsw-bp17nszybg8epodke****
      *
      * @var string

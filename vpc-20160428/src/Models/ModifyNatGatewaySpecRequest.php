@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyNatGatewaySpecRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically complete the payment.
+     *
+     *   **true**: enables automatic payment. Payments are automatically completed.
+     *   **false** (default): disables automatic payment. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,9 @@ class ModifyNatGatewaySpecRequest extends Model
     public $autoPay;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
      * @example 123e4567-e89b-12d3-a456-426655****
      *
      * @var string
@@ -23,6 +31,8 @@ class ModifyNatGatewaySpecRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the Internet NAT gateway that you want to upgrade.
+     *
      * @example ngw-bp1uewa15k4iy5770****
      *
      * @var string
@@ -40,6 +50,9 @@ class ModifyNatGatewaySpecRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the Internet NAT gateway is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +70,12 @@ class ModifyNatGatewaySpecRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The size of the Internet NAT gateway. Valid values:
+     *
+     *   **Small**: small
+     *   **Middle**: medium
+     *   **Large**: large
+     *
      * @example Middle
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateIpv6GatewayRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that the value is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system sets **ClientToken** to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -16,6 +21,9 @@ class CreateIpv6GatewayRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the IPv6 gateway.
+     *
+     * The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example ipv6gatewayforVPC1
      *
      * @var string
@@ -23,6 +31,9 @@ class CreateIpv6GatewayRequest extends Model
     public $description;
 
     /**
+     * @description The name of the IPv6 gateway.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example ipv6GW
      *
      * @var string
@@ -40,6 +51,8 @@ class CreateIpv6GatewayRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     *
      * @example cn-huhehaote
      *
      * @var string
@@ -47,6 +60,10 @@ class CreateIpv6GatewayRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -62,6 +79,8 @@ class CreateIpv6GatewayRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the VPC for which you want to create the IPv6 gateway.
+     *
      * @example vpc-123sedrfswd23****
      *
      * @var string

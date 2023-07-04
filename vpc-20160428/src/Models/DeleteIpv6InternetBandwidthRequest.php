@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpv6InternetBandwidthRequest extends Model
 {
     /**
-     * @example ipv6bw-uf6hcyzu65v98v3du****
+     * @description The ID of the IPv6 address.
+     *
+     * >  You must set one of the **Ipv6AddressId** and **Ipv6InternetBandwidthId** parameters.
+     * @example ipv6-2zen5j4axcp5l5qyy****
      *
      * @var string
      */
     public $ipv6AddressId;
 
     /**
+     * @description The ID of the Internet bandwidth that you purchase for the IPv6 gateway.
+     *
+     * >  You must set one of the **Ipv6AddressId** and **Ipv6InternetBandwidthId** parameters.
      * @example ipv6bw-uf6hcyzu65v98v3du****
      *
      * @var string
@@ -33,6 +39,9 @@ class DeleteIpv6InternetBandwidthRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the IPv6 gateway is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-huhehaote
      *
      * @var string

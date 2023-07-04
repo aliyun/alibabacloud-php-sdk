@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class associatedCen extends Model
 {
     /**
+     * @description Indicates whether the VPC supports IPv4 gateways.
+     *
+     * - **true**: yes
+     * - **false**: no
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string
@@ -16,6 +20,8 @@ class associatedCen extends Model
     public $cenId;
 
     /**
+     * @description The IPv6 CIDR block of the VPC.
+     *
      * @example 283117732402483989
      *
      * @var int
@@ -23,6 +29,8 @@ class associatedCen extends Model
     public $cenOwnerId;
 
     /**
+     * @description The ID of the IPv4 gateway.
+     *
      * @example Attached
      *
      * @var string

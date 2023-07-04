@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeServerRelatedGlobalAccelerationInstancesResponseBody extends Model
 {
     /**
+     * @description The list of GA instances.
+     *
      * @var globalAccelerationInstances
      */
     public $globalAccelerationInstances;
 
     /**
+     * @description The request ID.
+     *
      * @example A8252014-D8DE-4D85-AF35-AFEXXXXXXX
      *
      * @var string

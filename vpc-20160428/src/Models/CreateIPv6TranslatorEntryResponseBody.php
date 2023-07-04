@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateIPv6TranslatorEntryResponseBody extends Model
 {
     /**
+     * @description The ID of the IPv6 Translation Service instance.
+     *
      * @example ipv6transentry-xxxxxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateIPv6TranslatorEntryResponseBody extends Model
     public $ipv6TranslatorEntryId;
 
     /**
+     * @description The request ID.
+     *
      * @example DCE5D25-FFC9-492A-8371-12A4E0EE2E05
      *
      * @var string

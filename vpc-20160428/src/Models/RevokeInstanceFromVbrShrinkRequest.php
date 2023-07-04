@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RevokeInstanceFromVbrShrinkRequest extends Model
 {
     /**
+     * @description The VBRs for which you want to revoke permissions on the VPC. Valid values:
+     *
+     *   **ALL**: Permissions on the VPC are revoked for all VBRs in the specified region. **VbrInstanceIds** can be left empty.
+     *   **Specify**: Permissions on the VPC are revoked for the specified VBRs. **VbrInstanceIds** must be assigned a value.
+     *
      * @example ALL
      *
      * @var string
@@ -16,6 +21,8 @@ class RevokeInstanceFromVbrShrinkRequest extends Model
     public $grantType;
 
     /**
+     * @description The VPC ID.
+     *
      * @example vpc-bp1brjuegjc88v3u9****
      *
      * @var string
@@ -23,6 +30,9 @@ class RevokeInstanceFromVbrShrinkRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the region where the VPC is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -30,11 +40,15 @@ class RevokeInstanceFromVbrShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The IDs of the VBRs for which you want to revoke the permissions.
+     *
      * @var string
      */
     public $vbrInstanceIdsShrink;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the VBR belongs.
+     *
      * @example 1210123456123456
      *
      * @var string
@@ -42,6 +56,8 @@ class RevokeInstanceFromVbrShrinkRequest extends Model
     public $vbrOwnerUid;
 
     /**
+     * @description The ID of the region where the VBR is deployed.
+     *
      * @example cn-hangzhou
      *
      * @var string

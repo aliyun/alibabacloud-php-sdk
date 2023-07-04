@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponseBody extends Model
 {
     /**
+     * @description The number of endpoints that can be created.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class VpcDescribeVpcNatGatewayNetworkInterfaceQuotaResponseBody extends Model
     public $quota;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 611CB80C-B6A9-43DB-9E38-0B0AC3D9B58F
      *
      * @var string

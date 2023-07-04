@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomerGatewayResponseBody extends Model
 {
     /**
+     * @description The timestamp generated when the customer gateway was created. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1493363486000
      *
      * @var int
@@ -16,6 +19,8 @@ class CreateCustomerGatewayResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The ID of the customer gateway.
+     *
      * @example cgw-bp1jrawp82av6bws9****
      *
      * @var string
@@ -23,6 +28,8 @@ class CreateCustomerGatewayResponseBody extends Model
     public $customerGatewayId;
 
     /**
+     * @description The description of the customer gateway.
+     *
      * @example desctest
      *
      * @var string
@@ -30,6 +37,8 @@ class CreateCustomerGatewayResponseBody extends Model
     public $description;
 
     /**
+     * @description The static public IP address of the gateway device in the data center.
+     *
      * @example 101.12.XX.XX
      *
      * @var string
@@ -37,6 +46,8 @@ class CreateCustomerGatewayResponseBody extends Model
     public $ipAddress;
 
     /**
+     * @description The name of the customer gateway.
+     *
      * @example nametest
      *
      * @var string
@@ -44,6 +55,8 @@ class CreateCustomerGatewayResponseBody extends Model
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
      * @example D32B3C26-6C6C-4988-93E9-D2A6444CE6AE
      *
      * @var string

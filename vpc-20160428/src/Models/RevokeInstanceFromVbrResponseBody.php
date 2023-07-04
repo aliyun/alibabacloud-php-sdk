@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RevokeInstanceFromVbrResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 45B7AA4A-4658-5FFC-90DD-9B8729F301BB
      *
      * @var string

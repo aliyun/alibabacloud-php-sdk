@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionResponseBody\ikeConfig;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionResponseBody\ipsecConfig;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionResponseBody\tags;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionResponseBody\tunnelOptionsSpecification;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionResponseBody\vcoHealthCheck;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpnConnectionResponseBody\vpnBgpConfig;
 use AlibabaCloud\Tea\Model;
@@ -14,6 +15,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnConnectionResponseBody extends Model
 {
     /**
+     * @description The ID of the CEN instance to which the transit router belongs.
+     *
      * @example cen-lxxpbpalc776qz****
      *
      * @var string
@@ -21,6 +24,12 @@ class DescribeVpnConnectionResponseBody extends Model
     public $attachInstanceId;
 
     /**
+     * @description The type of resource that is associated with the IPsec-VPN connection. Valid values:
+     *
+     *   **CEN**: indicates that the IPsec-VPN connection is associated with a transit router of a Cloud Enterprise Network (CEN) instance.
+     *   **NO_ASSOCIATED**: indicates that the IPsec-VPN connection is not associated with a resource.
+     *   **VPNGW**: indicates that the IPsec-VPN connection is associated with a VPN gateway.
+     *
      * @example CEN
      *
      * @var string
@@ -28,6 +37,9 @@ class DescribeVpnConnectionResponseBody extends Model
     public $attachType;
 
     /**
+     * @description The timestamp that indicates when the IPsec-VPN connection was established. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1492753817000
      *
      * @var int
@@ -35,6 +47,11 @@ class DescribeVpnConnectionResponseBody extends Model
     public $createTime;
 
     /**
+     * @description Indicates whether the IPsec-VPN connection is associated with a transit router that belongs to another Alibaba Cloud account. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example false
      *
      * @var bool
@@ -42,6 +59,8 @@ class DescribeVpnConnectionResponseBody extends Model
     public $crossAccountAuthorized;
 
     /**
+     * @description The ID of the customer gateway.
+     *
      * @example cgw-bp1mvj4g9kogwwcxk****
      *
      * @var string
@@ -49,6 +68,11 @@ class DescribeVpnConnectionResponseBody extends Model
     public $customerGatewayId;
 
     /**
+     * @description Indicates whether IPsec negotiations immediately start.
+     *
+     *   **true**: Negotiations are reinitiated after the configuration is changed.
+     *   **false**: Negotiations are reinitiated when traffic is detected.
+     *
      * @example true
      *
      * @var bool
@@ -56,6 +80,12 @@ class DescribeVpnConnectionResponseBody extends Model
     public $effectImmediately;
 
     /**
+     * @description Indicates whether dead peer detection (DPD) is enabled.
+     *
+     *   **false**: disabled
+     *   **true**: enabled
+     *
+     * After you enable DPD, the initiator of the IPsec-VPN connection sends DPD packets to check the existence and availability of the peer. If no response is received from the peer within a specified period of time, the connection fails. Then, the ISAKMP SA, IPsec SA, and IPsec tunnel are deleted.
      * @example true
      *
      * @var bool
@@ -63,6 +93,12 @@ class DescribeVpnConnectionResponseBody extends Model
     public $enableDpd;
 
     /**
+     * @description Indicates whether NAT traversal is enabled. Valid values:
+     *
+     *   **true**: NAT traversal is enabled.
+     *   **false**: NAT traversal is disabled.
+     *
+     * After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the VPN tunnel.
      * @example true
      *
      * @var bool
@@ -70,11 +106,20 @@ class DescribeVpnConnectionResponseBody extends Model
     public $enableNatTraversal;
 
     /**
+     * @var bool
+     */
+    public $enableTunnelsBgp;
+
+    /**
+     * @description The configurations of Phase 1 negotiations.
+     *
      * @var ikeConfig
      */
     public $ikeConfig;
 
     /**
+     * @description The gateway IP address of the IPsec-VPN connection.
+     *
      * @example 47.XX.XX.162
      *
      * @var string
@@ -82,11 +127,16 @@ class DescribeVpnConnectionResponseBody extends Model
     public $internetIp;
 
     /**
+     * @description The configuration of phase 2 negotiations.
+     *
      * @var ipsecConfig
      */
     public $ipsecConfig;
 
     /**
+     * @description The CIDR block on the Alibaba Cloud side.
+     *
+     * CIDR blocks are separated with commas (,).
      * @example 10.0.0.0/8
      *
      * @var string
@@ -94,6 +144,8 @@ class DescribeVpnConnectionResponseBody extends Model
     public $localSubnet;
 
     /**
+     * @description The name of the IPsec-VPN connection.
+     *
      * @example ipsec1
      *
      * @var string
@@ -101,6 +153,11 @@ class DescribeVpnConnectionResponseBody extends Model
     public $name;
 
     /**
+     * @description The network type of the IPsec-VPN connection. Valid values:
+     *
+     *   **public**: an encrypted connection over the Internet.
+     *   **private**: an encrypted connection over private networks.
+     *
      * @example public
      *
      * @var string
@@ -108,6 +165,8 @@ class DescribeVpnConnectionResponseBody extends Model
     public $networkType;
 
     /**
+     * @description The CA certificate of the peer.
+     *
      * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW****
      *
      * @var string
@@ -115,6 +174,9 @@ class DescribeVpnConnectionResponseBody extends Model
     public $remoteCaCertificate;
 
     /**
+     * @description The CIDR block on the data center side.
+     *
+     * CIDR blocks are separated with commas (,).
      * @example 192.168.0.0/16
      *
      * @var string
@@ -122,6 +184,8 @@ class DescribeVpnConnectionResponseBody extends Model
     public $remoteSubnet;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F2310D45-BCF6-4E2E-9082-B4503844BA4C
      *
      * @var string
@@ -129,6 +193,8 @@ class DescribeVpnConnectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The bandwidth specification of the IPsec-VPN connection. Unit: **Mbit/s**.
+     *
      * @example 1000M
      *
      * @var string
@@ -136,6 +202,19 @@ class DescribeVpnConnectionResponseBody extends Model
     public $spec;
 
     /**
+     * @description The association status of the IPsec-VPN connection. Valid values:
+     *
+     *   **active**: The IPsec-VPN connection is associated with a VPN gateway.
+     *   **init**: The IPsec-VPN connection is not associated with a resource and is being initialized.
+     *   **attaching**: The IPsec-VPN connection is being associated with a transit router.
+     *   **attached**: The IPsec-VPN connection is associated with a transit router.
+     *   **detaching**: The IPsec-VPN connection is being disassociated from a transit router.
+     *   **financialLocked**: The IPsec-VPN connection is locked due to overdue payments.
+     *   **provisioning**: The IPsec-VPN connection is being prepared.
+     *   **updating**: The IPsec-VPN connection is being updated.
+     *   **Upgrading**: The IPsec-VPN connection is being upgraded.
+     *   **deleted**: The IPsec-VPN connection is deleted.
+     *
      * @example attached
      *
      * @var string
@@ -143,6 +222,13 @@ class DescribeVpnConnectionResponseBody extends Model
     public $state;
 
     /**
+     * @description The status of the IPsec-VPN connection. Valid values:
+     *
+     *   **ike_sa_not_established**: Phase 1 negotiations failed.
+     *   **ike_sa_established**: Phase 1 negotiations were successful.
+     *   **ipsec_sa_not_established**: Phase 2 negotiations failed.
+     *   **ipsec_sa_established**: Phase 2 negotiations were successful.
+     *
      * @example ike_sa_not_established
      *
      * @var string
@@ -150,11 +236,15 @@ class DescribeVpnConnectionResponseBody extends Model
     public $status;
 
     /**
+     * @description The list of tags added to the IPsec-VPN connection.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The ID of the transit router with which the IPsec-VPN connection is associated.
+     *
      * @example tr-p0we2edef9qr44a85****
      *
      * @var string
@@ -162,6 +252,8 @@ class DescribeVpnConnectionResponseBody extends Model
     public $transitRouterId;
 
     /**
+     * @description The name of the transit router.
+     *
      * @example nametest
      *
      * @var string
@@ -169,16 +261,27 @@ class DescribeVpnConnectionResponseBody extends Model
     public $transitRouterName;
 
     /**
+     * @var tunnelOptionsSpecification
+     */
+    public $tunnelOptionsSpecification;
+
+    /**
+     * @description The information about health checks.
+     *
      * @var vcoHealthCheck
      */
     public $vcoHealthCheck;
 
     /**
+     * @description The configurations of the BGP routing protocol.
+     *
      * @var vpnBgpConfig
      */
     public $vpnBgpConfig;
 
     /**
+     * @description The ID of the IPsec-VPN connection.
+     *
      * @example vco-bp1bbi27hojx80nck****
      *
      * @var string
@@ -186,6 +289,8 @@ class DescribeVpnConnectionResponseBody extends Model
     public $vpnConnectionId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1q8bgx4xnkm2ogj****
      *
      * @var string
@@ -193,40 +298,45 @@ class DescribeVpnConnectionResponseBody extends Model
     public $vpnGatewayId;
 
     /**
+     * @description The ID of the zone where the IPsec-VPN connection is deployed.
+     *
+     * You can call [DescribeZones](~~36064~~) to query zone IDs.
      * @example ap-southeast-2b
      *
      * @var string
      */
     public $zoneNo;
     protected $_name = [
-        'attachInstanceId'       => 'AttachInstanceId',
-        'attachType'             => 'AttachType',
-        'createTime'             => 'CreateTime',
-        'crossAccountAuthorized' => 'CrossAccountAuthorized',
-        'customerGatewayId'      => 'CustomerGatewayId',
-        'effectImmediately'      => 'EffectImmediately',
-        'enableDpd'              => 'EnableDpd',
-        'enableNatTraversal'     => 'EnableNatTraversal',
-        'ikeConfig'              => 'IkeConfig',
-        'internetIp'             => 'InternetIp',
-        'ipsecConfig'            => 'IpsecConfig',
-        'localSubnet'            => 'LocalSubnet',
-        'name'                   => 'Name',
-        'networkType'            => 'NetworkType',
-        'remoteCaCertificate'    => 'RemoteCaCertificate',
-        'remoteSubnet'           => 'RemoteSubnet',
-        'requestId'              => 'RequestId',
-        'spec'                   => 'Spec',
-        'state'                  => 'State',
-        'status'                 => 'Status',
-        'tags'                   => 'Tags',
-        'transitRouterId'        => 'TransitRouterId',
-        'transitRouterName'      => 'TransitRouterName',
-        'vcoHealthCheck'         => 'VcoHealthCheck',
-        'vpnBgpConfig'           => 'VpnBgpConfig',
-        'vpnConnectionId'        => 'VpnConnectionId',
-        'vpnGatewayId'           => 'VpnGatewayId',
-        'zoneNo'                 => 'ZoneNo',
+        'attachInstanceId'           => 'AttachInstanceId',
+        'attachType'                 => 'AttachType',
+        'createTime'                 => 'CreateTime',
+        'crossAccountAuthorized'     => 'CrossAccountAuthorized',
+        'customerGatewayId'          => 'CustomerGatewayId',
+        'effectImmediately'          => 'EffectImmediately',
+        'enableDpd'                  => 'EnableDpd',
+        'enableNatTraversal'         => 'EnableNatTraversal',
+        'enableTunnelsBgp'           => 'EnableTunnelsBgp',
+        'ikeConfig'                  => 'IkeConfig',
+        'internetIp'                 => 'InternetIp',
+        'ipsecConfig'                => 'IpsecConfig',
+        'localSubnet'                => 'LocalSubnet',
+        'name'                       => 'Name',
+        'networkType'                => 'NetworkType',
+        'remoteCaCertificate'        => 'RemoteCaCertificate',
+        'remoteSubnet'               => 'RemoteSubnet',
+        'requestId'                  => 'RequestId',
+        'spec'                       => 'Spec',
+        'state'                      => 'State',
+        'status'                     => 'Status',
+        'tags'                       => 'Tags',
+        'transitRouterId'            => 'TransitRouterId',
+        'transitRouterName'          => 'TransitRouterName',
+        'tunnelOptionsSpecification' => 'TunnelOptionsSpecification',
+        'vcoHealthCheck'             => 'VcoHealthCheck',
+        'vpnBgpConfig'               => 'VpnBgpConfig',
+        'vpnConnectionId'            => 'VpnConnectionId',
+        'vpnGatewayId'               => 'VpnGatewayId',
+        'zoneNo'                     => 'ZoneNo',
     ];
 
     public function validate()
@@ -259,6 +369,9 @@ class DescribeVpnConnectionResponseBody extends Model
         }
         if (null !== $this->enableNatTraversal) {
             $res['EnableNatTraversal'] = $this->enableNatTraversal;
+        }
+        if (null !== $this->enableTunnelsBgp) {
+            $res['EnableTunnelsBgp'] = $this->enableTunnelsBgp;
         }
         if (null !== $this->ikeConfig) {
             $res['IkeConfig'] = null !== $this->ikeConfig ? $this->ikeConfig->toMap() : null;
@@ -304,6 +417,9 @@ class DescribeVpnConnectionResponseBody extends Model
         }
         if (null !== $this->transitRouterName) {
             $res['TransitRouterName'] = $this->transitRouterName;
+        }
+        if (null !== $this->tunnelOptionsSpecification) {
+            $res['TunnelOptionsSpecification'] = null !== $this->tunnelOptionsSpecification ? $this->tunnelOptionsSpecification->toMap() : null;
         }
         if (null !== $this->vcoHealthCheck) {
             $res['VcoHealthCheck'] = null !== $this->vcoHealthCheck ? $this->vcoHealthCheck->toMap() : null;
@@ -356,6 +472,9 @@ class DescribeVpnConnectionResponseBody extends Model
         if (isset($map['EnableNatTraversal'])) {
             $model->enableNatTraversal = $map['EnableNatTraversal'];
         }
+        if (isset($map['EnableTunnelsBgp'])) {
+            $model->enableTunnelsBgp = $map['EnableTunnelsBgp'];
+        }
         if (isset($map['IkeConfig'])) {
             $model->ikeConfig = ikeConfig::fromMap($map['IkeConfig']);
         }
@@ -400,6 +519,9 @@ class DescribeVpnConnectionResponseBody extends Model
         }
         if (isset($map['TransitRouterName'])) {
             $model->transitRouterName = $map['TransitRouterName'];
+        }
+        if (isset($map['TunnelOptionsSpecification'])) {
+            $model->tunnelOptionsSpecification = tunnelOptionsSpecification::fromMap($map['TunnelOptionsSpecification']);
         }
         if (isset($map['VcoHealthCheck'])) {
             $model->vcoHealthCheck = vcoHealthCheck::fromMap($map['VcoHealthCheck']);

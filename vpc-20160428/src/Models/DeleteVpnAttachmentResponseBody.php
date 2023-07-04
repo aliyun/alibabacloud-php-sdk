@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpnAttachmentResponseBody extends Model
 {
     /**
+     * @description The status code returned for the operation. A value of **200** indicates that the operation is performed.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteVpnAttachmentResponseBody extends Model
     public $code;
 
     /**
+     * @description The information returned for the operation.
+     *
      * @example successful
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteVpnAttachmentResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 29440C49-398F-3D06-BA8B-E3CD13F3246D
      *
      * @var string
@@ -30,6 +36,11 @@ class DeleteVpnAttachmentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the operation is performed.
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool

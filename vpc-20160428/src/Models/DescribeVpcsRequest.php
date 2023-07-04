@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcsRequest extends Model
 {
     /**
+     * @description Indicates whether the VPC is the default VPC in the region. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example dopt-o6w0df4epg9zo8isy****
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeVpcsRequest extends Model
     public $dhcpOptionsSetId;
 
     /**
+     * @description The number of entries returned.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +30,8 @@ class DescribeVpcsRequest extends Model
     public $dryRun;
 
     /**
+     * @description The number of the returned page.
+     *
      * @example false
      *
      * @var bool
@@ -40,6 +49,8 @@ class DescribeVpcsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The time when the VPC was created.
+     *
      * @example 1
      *
      * @var int
@@ -47,6 +58,11 @@ class DescribeVpcsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The status of the VPC. Valid values:
+     *
+     *   **Pending**: being configured
+     *   **Available**: available
+     *
      * @example 10
      *
      * @var int
@@ -54,6 +70,8 @@ class DescribeVpcsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -61,6 +79,8 @@ class DescribeVpcsRequest extends Model
     public $regionId;
 
     /**
+     * @description The details of the VPCs.
+     *
      * @example rg-acfmxvfvazb4p****
      *
      * @var string
@@ -78,6 +98,8 @@ class DescribeVpcsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the DHCP options set.
+     *
      * @example vpc-bp1b1xjllp3ve5yze****
      *
      * @var string
@@ -85,6 +107,8 @@ class DescribeVpcsRequest extends Model
     public $vpcId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example Vpc-1
      *
      * @var string
@@ -92,6 +116,8 @@ class DescribeVpcsRequest extends Model
     public $vpcName;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example 253460731706911258
      *
      * @var int

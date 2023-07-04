@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteIPv6TranslatorRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      * @example ClientToken
      *
      * @var string
@@ -16,7 +19,9 @@ class DeleteIPv6TranslatorRequest extends Model
     public $clientToken;
 
     /**
-     * @example ipv6trans-bp1i8ahxut1iexxxx
+     * @description The ID of the IPv6 Translation Service instance.
+     *
+     * @example ipv6trans-bp1i8ahxut1ie****
      *
      * @var string
      */
@@ -33,6 +38,8 @@ class DeleteIPv6TranslatorRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the IPv6 Translation Service instance.
+     *
      * @example cn-hangzhou
      *
      * @var string

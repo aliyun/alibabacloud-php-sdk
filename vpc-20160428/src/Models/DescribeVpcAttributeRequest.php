@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcAttributeRequest extends Model
 {
     /**
+     * @description The region ID of the VPC.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,8 @@ class DescribeVpcAttributeRequest extends Model
     public $dryRun;
 
     /**
+     * @description The name of the VPC.
+     *
      * @example false
      *
      * @var bool
@@ -33,6 +37,8 @@ class DescribeVpcAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the VPC belongs.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +56,11 @@ class DescribeVpcAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Indicates whether the ClassicLink feature is enabled. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
      * @example vpc-bp18sth14qii3pnv****
      *
      * @var string

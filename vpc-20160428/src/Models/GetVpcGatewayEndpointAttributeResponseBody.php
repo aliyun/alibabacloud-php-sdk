@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\GetVpcGatewayEndpointAttributeResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
 class GetVpcGatewayEndpointAttributeResponseBody extends Model
@@ -16,6 +17,15 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
     public $creationTime;
 
     /**
+     * @description The status of the gateway endpoint. Valid values:
+     *
+     *   **Creating**: being created
+     *   **Created**: created
+     *   **Modifying**: being modified
+     *   **Associating**: being associated
+     *   **Dissociating**: being disassociated
+     *   **Deleting**: being deleted
+     *
      * @example test
      *
      * @var string
@@ -23,6 +33,8 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
     public $endpointDescription;
 
     /**
+     * @description The access policy for the cloud service.
+     *
      * @example vpce-bp1w1dmdqjpwul0v3****
      *
      * @var string
@@ -30,6 +42,8 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
     public $endpointId;
 
     /**
+     * @description The time when the endpoint was created. The time follows the ISO 8601 standard in UTC in the YYYY-MM-DDThh:mm:ssZ format.
+     *
      * @example test
      *
      * @var string
@@ -51,6 +65,8 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
     public $policyDocument;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the gateway endpoint belongs.
+     *
      * @example A1122D0F-7B3B-5445-BB19-17F27F97FE1C
      *
      * @var string
@@ -58,16 +74,30 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @example rg-acfmxvfvazb4p****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var string[]
      */
     public $routeTables;
 
     /**
+     * @description The ID of the route table associated with the gateway endpoint.
+     *
      * @example com.aliyun.cn-hangzhou.oss
      *
      * @var string
      */
     public $serviceName;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @example vpc-bp1nh86rugg01zol0****
@@ -83,8 +113,10 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
         'endpointStatus'      => 'EndpointStatus',
         'policyDocument'      => 'PolicyDocument',
         'requestId'           => 'RequestId',
+        'resourceGroupId'     => 'ResourceGroupId',
         'routeTables'         => 'RouteTables',
         'serviceName'         => 'ServiceName',
+        'tags'                => 'Tags',
         'vpcId'               => 'VpcId',
     ];
 
@@ -116,11 +148,23 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->routeTables) {
             $res['RouteTables'] = $this->routeTables;
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -158,6 +202,9 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['RouteTables'])) {
             if (!empty($map['RouteTables'])) {
                 $model->routeTables = $map['RouteTables'];
@@ -165,6 +212,15 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

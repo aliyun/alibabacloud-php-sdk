@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UnassociateRouteTableRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example 02fb3da4-130e-11e9-8e44-0016e04115b
      *
      * @var string
@@ -26,6 +31,9 @@ class UnassociateRouteTableRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the virtual private cloud (VPC) to which the route table belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +51,8 @@ class UnassociateRouteTableRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the route table.
+     *
      * @example vtb-bp145q7glnuzdvzu2****
      *
      * @var string
@@ -50,6 +60,8 @@ class UnassociateRouteTableRequest extends Model
     public $routeTableId;
 
     /**
+     * @description The ID of the vSwitch from which you want to disassociate the route table.
+     *
      * @example vsw-25naue4****
      *
      * @var string

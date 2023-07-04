@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6GatewaysRequest extends Model
 {
     /**
+     * @description The ID of the IPv6 gateway.
+     *
      * @example ipv6gw-hp3rwmtmfhgis****
      *
      * @var string
@@ -17,6 +19,9 @@ class DescribeIpv6GatewaysRequest extends Model
     public $ipv6GatewayId;
 
     /**
+     * @description The name of the IPv6 gateway.
+     *
+     * The name must be 2 to 256 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter. It cannot start with `http://` or `https://`.
      * @example ipv6GW
      *
      * @var string
@@ -34,6 +39,8 @@ class DescribeIpv6GatewaysRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -41,6 +48,8 @@ class DescribeIpv6GatewaysRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -48,6 +57,9 @@ class DescribeIpv6GatewaysRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region where the IPv6 gateway is deployed.
+     *
+     * >  IPv6 gateways are available in the following regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Ulanqab), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), China (Guangzhou), China (Chengdu), China (Hong Kong), Philippines (Manila), Singapore, US (Virginia), and Germany (Frankfurt).
      * @example cn-huhehaote
      *
      * @var string
@@ -55,6 +67,10 @@ class DescribeIpv6GatewaysRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -75,6 +91,8 @@ class DescribeIpv6GatewaysRequest extends Model
     public $tags;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the IPv6 gateway belongs.
+     *
      * @example vpc-123sedrfswd23****
      *
      * @var string

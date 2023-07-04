@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class prefixListEntries extends Model
 {
     /**
+     * @description The CIDR block specified in the prefix list.
+     *
+     * @example 192.168.0.0/16
+     *
      * @var string
      */
     public $cidr;
 
     /**
+     * @description The description of the CIDR block specified in the prefix list.
+     *
+     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
+     * @example CIDR
+     *
      * @var string
      */
     public $description;

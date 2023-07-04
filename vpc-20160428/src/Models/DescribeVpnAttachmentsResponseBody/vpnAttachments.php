@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vpnAttachments extends Model
 {
     /**
+     * @description The type of resource that is associated with the IPsec-VPN connection. The value is set to **CEN**, which indicates that the IPsec-VPN connection is associated with a transit router.
+     *
      * @example CEN
      *
      * @var string
@@ -16,6 +18,11 @@ class vpnAttachments extends Model
     public $attachType;
 
     /**
+     * @description Indicates whether the IPsec-VPN connection is associated with a transit router that belongs to another Alibaba Cloud account. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +30,8 @@ class vpnAttachments extends Model
     public $crossAccountAuthorized;
 
     /**
+     * @description The description of the IPsec-VPN connection.
+     *
      * @example desctest
      *
      * @var string
@@ -30,6 +39,8 @@ class vpnAttachments extends Model
     public $description;
 
     /**
+     * @description The ID of the IPsec-VPN connection.
+     *
      * @example vco-p0w2jpkhi2eeop6q6****
      *
      * @var string
@@ -37,6 +48,8 @@ class vpnAttachments extends Model
     public $instanceId;
 
     /**
+     * @description The name of the IPsec-VPN connection.
+     *
      * @example nametest1
      *
      * @var string
@@ -44,6 +57,8 @@ class vpnAttachments extends Model
     public $name;
 
     /**
+     * @description The ID of the transit router with which the IPsec-VPN connection is associated.
+     *
      * @example tr-p0wkh4yryb1dnanqw****
      *
      * @var string
@@ -51,6 +66,8 @@ class vpnAttachments extends Model
     public $transitRouterId;
 
     /**
+     * @description The name of the transit router.
+     *
      * @example nametest2
      *
      * @var string

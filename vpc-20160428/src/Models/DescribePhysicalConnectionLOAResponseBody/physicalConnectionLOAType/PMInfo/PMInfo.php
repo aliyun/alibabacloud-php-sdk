@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PMInfo extends Model
 {
     /**
+     * @description The identity document number of the construction worker.
+     *
      * @example 12345671****
      *
      * @var string
@@ -16,6 +18,12 @@ class PMInfo extends Model
     public $PMCertificateNo;
 
     /**
+     * @description The identity document type of the construction worker. Valid values:
+     *
+     *   **IDCard**: identity card
+     *   **Passport**: passport
+     *   **Other**: other identity documents
+     *
      * @example Other
      *
      * @var string
@@ -23,6 +31,8 @@ class PMInfo extends Model
     public $PMCertificateType;
 
     /**
+     * @description The phone number of the construction worker.
+     *
      * @example 18910010****
      *
      * @var string
@@ -30,6 +40,11 @@ class PMInfo extends Model
     public $PMContactInfo;
 
     /**
+     * @description The gender of the construction worker. Valid values:
+     *
+     *   **Male**: male
+     *   **Female**: female
+     *
      * @example Male
      *
      * @var string
@@ -37,6 +52,8 @@ class PMInfo extends Model
     public $PMGender;
 
     /**
+     * @description The name of the construction worker.
+     *
      * @example name
      *
      * @var string

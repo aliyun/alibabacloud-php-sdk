@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class privateInfo extends Model
 {
     /**
+     * @description The ID of the elastic network interface (ENI).
+     *
      * @example eni-bp1cmgtoaka8vfyg****
      *
      * @var string
@@ -16,6 +18,8 @@ class privateInfo extends Model
     public $eniInstanceId;
 
     /**
+     * @description The zone where the NAT gateway is deployed.
+     *
      * @example cn-qingdao-b
      *
      * @var string
@@ -23,6 +27,8 @@ class privateInfo extends Model
     public $izNo;
 
     /**
+     * @description The maximum bandwidth. Unit: Mbit/s.
+     *
      * @example 5120
      *
      * @var int
@@ -30,6 +36,8 @@ class privateInfo extends Model
     public $maxBandwidth;
 
     /**
+     * @description The private IP address.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -37,6 +45,8 @@ class privateInfo extends Model
     public $privateIpAddress;
 
     /**
+     * @description The ID of the vSwitch to which the NAT gateway belongs.
+     *
      * @example vsw-bp1s2laxhdf9ayjbo***
      *
      * @var string

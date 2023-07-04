@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePublicIpAddressResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribePublicIpAddressResponseBody extends Model
     public $code;
 
     /**
+     * @description The response message.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribePublicIpAddressResponseBody extends Model
     public $message;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class DescribePublicIpAddressResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 100
      *
      * @var int
@@ -37,6 +45,8 @@ class DescribePublicIpAddressResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The range of the public IP addresses of the VPC in the region.
+     *
      * @example 110.11.1.0/24
      *
      * @var string[]
@@ -44,6 +54,8 @@ class DescribePublicIpAddressResponseBody extends Model
     public $publicIpAddress;
 
     /**
+     * @description The ID of the region to which the public IP addresses belong.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +63,8 @@ class DescribePublicIpAddressResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
      *
      * @var string
@@ -58,6 +72,11 @@ class DescribePublicIpAddressResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -65,6 +84,8 @@ class DescribePublicIpAddressResponseBody extends Model
     public $success;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

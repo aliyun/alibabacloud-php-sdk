@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vcoRouteEntries extends Model
 {
     /**
+     * @description The list of autonomous system (AS) numbers that the BGP route goes through.
+     *
      * @example [12000]
      *
      * @var string
@@ -16,6 +18,8 @@ class vcoRouteEntries extends Model
     public $asPath;
 
     /**
+     * @description The community value carried by the BGP route.
+     *
      * @example 65535:65510
      *
      * @var string
@@ -23,6 +27,9 @@ class vcoRouteEntries extends Model
     public $community;
 
     /**
+     * @description The timestamp when the route was created.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1658217008000
      *
      * @var int
@@ -30,6 +37,8 @@ class vcoRouteEntries extends Model
     public $createTime;
 
     /**
+     * @description The next hop of the route.
+     *
      * @example vco-p0w2jpkhi2eeop6q6****
      *
      * @var string
@@ -37,6 +46,8 @@ class vcoRouteEntries extends Model
     public $nextHop;
 
     /**
+     * @description The destination CIDR block of the route.
+     *
      * @example 192.168.10.0/24
      *
      * @var string
@@ -44,6 +55,11 @@ class vcoRouteEntries extends Model
     public $routeDest;
 
     /**
+     * @description The route type. Valid values:
+     *
+     *   **custom**: a destination-based route
+     *   **bgp**: a BGP route
+     *
      * @example custom
      *
      * @var string
@@ -51,6 +67,11 @@ class vcoRouteEntries extends Model
     public $routeEntryType;
 
     /**
+     * @description The source of the BGP route. Valid values:
+     *
+     *   **CLOUD**: indicates that the current BGP route is learned by the IPsec-VPN connection from the transit router.
+     *   **VPN_BGP**: indicates that the current BGP route is learned by the IPsec-VPN connection from the data center.
+     *
      * @example CLOUD
      *
      * @var string
@@ -58,6 +79,11 @@ class vcoRouteEntries extends Model
     public $source;
 
     /**
+     * @description The status of the route.
+     *
+     *   **published**: indicates that the current route is advertised to the transit router.
+     *   **Active**: indicates that the current BGP route is available.
+     *
      * @example published
      *
      * @var string
@@ -65,6 +91,8 @@ class vcoRouteEntries extends Model
     public $state;
 
     /**
+     * @description The ID of the IPsec-VPN connection.
+     *
      * @example vco-p0w2jpkhi2eeop6q6****
      *
      * @var string
@@ -72,6 +100,11 @@ class vcoRouteEntries extends Model
     public $vpnConnectionId;
 
     /**
+     * @description The weight of the destination-based route. Valid values:
+     *
+     *   **0**: a low priority
+     *   **100**: a high priority
+     *
      * @example 100
      *
      * @var int

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListVirtualPhysicalConnectionsResponseBody extends Model
 {
     /**
+     * @description The number of entries returned in this query.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,11 @@ class ListVirtualPhysicalConnectionsResponseBody extends Model
     public $count;
 
     /**
+     * @description The token that determines the start point of the query. Valid values:
+     *
+     *   If **NextToken** was not returned, it indicates that no additional results exist.
+     *   If **NextToken** is not empty, the value indicates the token that is used for the next query.
+     *
      * @example dd20****
      *
      * @var string
@@ -24,6 +31,8 @@ class ListVirtualPhysicalConnectionsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 2A55F69E-EE3D-5CBE-8805-734F7D5B46B9
      *
      * @var string
@@ -31,6 +40,8 @@ class ListVirtualPhysicalConnectionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +49,8 @@ class ListVirtualPhysicalConnectionsResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The list of hosted connections returned.
+     *
      * @var virtualPhysicalConnections[]
      */
     public $virtualPhysicalConnections;

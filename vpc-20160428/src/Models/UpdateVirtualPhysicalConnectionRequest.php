@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UpdateVirtualPhysicalConnectionRequest extends Model
 {
     /**
+     * @description The region ID of the hosted connection.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example false
      *
      * @var bool
@@ -16,6 +19,8 @@ class UpdateVirtualPhysicalConnectionRequest extends Model
     public $dryRun;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 50M
      *
      * @var string
@@ -23,6 +28,11 @@ class UpdateVirtualPhysicalConnectionRequest extends Model
     public $expectSpec;
 
     /**
+     * @description Specifies whether to check the request without performing the operation. Valid values:
+     *
+     *   **true**: checks the request without performing the operation. The VLAN ID of the hosted connection is not changed. The system checks the required parameters, request syntax, and instance status. If the check fails, the corresponding error message is returned. If the request passes the check, the system returns the ID of the request.
+     *   **false** (default): sends the request. If the request passes the check, the VLAN ID of the hosted connection is changed.
+     *
      * @example pc-bp1mrgfbtmc9brre7****
      *
      * @var string
@@ -30,6 +40,11 @@ class UpdateVirtualPhysicalConnectionRequest extends Model
     public $instanceId;
 
     /**
+     * @description Indicates whether the VLAN ID of the hosted connection is changed. Valid values:
+     *
+     *   **true**: The VLAN ID of the hosted connection is changed.
+     *   **false**: The VLAN ID of the hosted connection is not changed.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +52,14 @@ class UpdateVirtualPhysicalConnectionRequest extends Model
     public $regionId;
 
     /**
+     * @description The estimated bandwidth value of the hosted connection. The estimated bandwidth value takes effect after the payment is completed.
+     *
+     * Valid values: **50M**, **100M**, **200M**, **300M**, **400M**, **500M**, **1G**, **2G**, **5G**, **8G**, and **10G**.
+     *
+     * >  By default, the values of **2G**, **5G**, **8G**, and **10G** are unavailable. If you want to specify these values, contact your customer manager.
+     *
+     **M** indicates Mbit/s and **G** indicates Gbit/s.
+     *
      * @example CBCE910E-D396-4944-8****
      *
      * @var string
@@ -44,6 +67,11 @@ class UpdateVirtualPhysicalConnectionRequest extends Model
     public $token;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system automatically uses **RequestId** as **ClientToken**. The value of **RequestId** in each API request may be different.
      * @example 1
      *
      * @var int

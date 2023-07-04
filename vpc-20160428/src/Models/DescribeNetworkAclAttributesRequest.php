@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAclAttributesRequest extends Model
 {
     /**
+     * @description The action to be performed on network traffic that matches the rule. Valid values:
+     *
+     *   **accept**: allows network traffic.
+     *   **drop**: blocks network traffic.
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeNetworkAclAttributesRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the inbound rule.
+     *
      * @example nacl-a2do9e413e0spzasx****
      *
      * @var string
@@ -28,6 +35,8 @@ class DescribeNetworkAclAttributesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The name of the inbound rule.
+     *
      * @example cn-hangzhou
      *
      * @var string

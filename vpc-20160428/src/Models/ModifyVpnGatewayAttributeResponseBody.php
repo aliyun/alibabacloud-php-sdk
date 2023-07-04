@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnGatewayAttributeResponseBody extends Model
 {
     /**
+     * @description Indicates whether BGP routes are automatically advertised to the VPC. Valid values:
+     *
+     *   **true:** yes.
+     *   **false:** no.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,11 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $autoPropagate;
 
     /**
+     * @description The payment status of the VPN gateway. Valid values:
+     *
+     *   **Normal:** The VPN gateway is running as expected.
+     *   **FinancialLocked:** The VPN gateway is locked due to overdue payments.
+     *
      * @example Normal
      *
      * @var string
@@ -23,6 +33,9 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $businessStatus;
 
     /**
+     * @description The timestamp generated when the VPN gateway was created. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1492753580000
      *
      * @var int
@@ -30,6 +43,8 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The description of the VPN gateway.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +52,21 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $disasterRecoveryInternetIp;
+
+    /**
+     * @var string
+     */
+    public $disasterRecoveryVSwitchId;
+
+    /**
+     * @description The BGP status of the VPN gateway. Valid values:
+     *
+     *   **true:** enabled.
+     *   **false:** disabled.
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +74,9 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $enableBgp;
 
     /**
+     * @description The timestamp generated when the VPN gateway expires. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1495382400000
      *
      * @var int
@@ -51,6 +84,8 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The public IP address of the VPN gateway.
+     *
      * @example 116.62.XX.XX
      *
      * @var string
@@ -58,6 +93,8 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the VPN gateway.
+     *
      * @example 172.27.30.24
      *
      * @var string
@@ -65,6 +102,8 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $intranetIp;
 
     /**
+     * @description The name of the VPN gateway.
+     *
      * @example test
      *
      * @var string
@@ -72,6 +111,8 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 54B48E3D-DF70-471B-AA93-08E683A1B457
      *
      * @var string
@@ -79,6 +120,8 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The maximum bandwidth of the VPN gateway. Unit: Mbit/s.
+     *
      * @example 5M
      *
      * @var string
@@ -86,6 +129,19 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $spec;
 
     /**
+     * @var string
+     */
+    public $sslVpnInternetIp;
+
+    /**
+     * @description The status of the VPN gateway. Valid values:
+     *
+     *   **init:** The VPN gateway is being initialized.
+     *   **provisioning:** The VPN gateway is being prepared.
+     *   **active:** The VPN gateway is ready.
+     *   **updating:** The VPN gateway is being updated.
+     *   **deleting:** The VPN gateway is being deleted.
+     *
      * @example active
      *
      * @var string
@@ -93,6 +149,8 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $status;
 
     /**
+     * @description The ID of the vSwitch to which the VPN gateway belongs.
+     *
      * @example vsw-bp1y9ovl1cu9ou4tv****
      *
      * @var string
@@ -100,6 +158,8 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC to which the VPN gateway belongs.
+     *
      * @example vpc-bp1ub1yt9cvakoel****
      *
      * @var string
@@ -107,27 +167,32 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $vpcId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1q8bgx4xnkm2ogj****
      *
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'autoPropagate'  => 'AutoPropagate',
-        'businessStatus' => 'BusinessStatus',
-        'createTime'     => 'CreateTime',
-        'description'    => 'Description',
-        'enableBgp'      => 'EnableBgp',
-        'endTime'        => 'EndTime',
-        'internetIp'     => 'InternetIp',
-        'intranetIp'     => 'IntranetIp',
-        'name'           => 'Name',
-        'requestId'      => 'RequestId',
-        'spec'           => 'Spec',
-        'status'         => 'Status',
-        'vSwitchId'      => 'VSwitchId',
-        'vpcId'          => 'VpcId',
-        'vpnGatewayId'   => 'VpnGatewayId',
+        'autoPropagate'              => 'AutoPropagate',
+        'businessStatus'             => 'BusinessStatus',
+        'createTime'                 => 'CreateTime',
+        'description'                => 'Description',
+        'disasterRecoveryInternetIp' => 'DisasterRecoveryInternetIp',
+        'disasterRecoveryVSwitchId'  => 'DisasterRecoveryVSwitchId',
+        'enableBgp'                  => 'EnableBgp',
+        'endTime'                    => 'EndTime',
+        'internetIp'                 => 'InternetIp',
+        'intranetIp'                 => 'IntranetIp',
+        'name'                       => 'Name',
+        'requestId'                  => 'RequestId',
+        'spec'                       => 'Spec',
+        'sslVpnInternetIp'           => 'SslVpnInternetIp',
+        'status'                     => 'Status',
+        'vSwitchId'                  => 'VSwitchId',
+        'vpcId'                      => 'VpcId',
+        'vpnGatewayId'               => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -149,6 +214,12 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->disasterRecoveryInternetIp) {
+            $res['DisasterRecoveryInternetIp'] = $this->disasterRecoveryInternetIp;
+        }
+        if (null !== $this->disasterRecoveryVSwitchId) {
+            $res['DisasterRecoveryVSwitchId'] = $this->disasterRecoveryVSwitchId;
+        }
         if (null !== $this->enableBgp) {
             $res['EnableBgp'] = $this->enableBgp;
         }
@@ -169,6 +240,9 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
+        }
+        if (null !== $this->sslVpnInternetIp) {
+            $res['SslVpnInternetIp'] = $this->sslVpnInternetIp;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -206,6 +280,12 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['DisasterRecoveryInternetIp'])) {
+            $model->disasterRecoveryInternetIp = $map['DisasterRecoveryInternetIp'];
+        }
+        if (isset($map['DisasterRecoveryVSwitchId'])) {
+            $model->disasterRecoveryVSwitchId = $map['DisasterRecoveryVSwitchId'];
+        }
         if (isset($map['EnableBgp'])) {
             $model->enableBgp = $map['EnableBgp'];
         }
@@ -226,6 +306,9 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
+        }
+        if (isset($map['SslVpnInternetIp'])) {
+            $model->sslVpnInternetIp = $map['SslVpnInternetIp'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

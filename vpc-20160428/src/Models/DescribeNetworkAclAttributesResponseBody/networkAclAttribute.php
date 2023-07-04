@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class networkAclAttribute extends Model
 {
     /**
+     * @description The ID of the outbound rule.
+     *
      * @example 2021-12-25 11:33:27
      *
      * @var string
@@ -20,6 +22,8 @@ class networkAclAttribute extends Model
     public $creationTime;
 
     /**
+     * @description The name of the outbound rule.
+     *
      * @example This is my NetworkAcl.
      *
      * @var string
@@ -32,11 +36,15 @@ class networkAclAttribute extends Model
     public $egressAclEntries;
 
     /**
+     * @description The details about the resource that is associated with the network ACL.
+     *
      * @var ingressAclEntries
      */
     public $ingressAclEntries;
 
     /**
+     * @description The description of the outbound rule.
+     *
      * @example nacl-a2do9e413e0spnhmj****
      *
      * @var string
@@ -44,6 +52,10 @@ class networkAclAttribute extends Model
     public $networkAclId;
 
     /**
+     * @description The action to be performed on network traffic that matches the rule. Valid values:
+     *
+     * - **accept**: allows network traffic.
+     * - **drop**: blocks network traffic.
      * @example acl-1
      *
      * @var string
@@ -51,6 +63,13 @@ class networkAclAttribute extends Model
     public $networkAclName;
 
     /**
+     * @description The protocol. Valid values:
+     *
+     * - **icmp**: ICMP
+     * - **gre**: GRE
+     * - **tcp**: TCP
+     * - **udp**: UDP
+     * - **all**: all protocols
      * @example 253460731706911258
      *
      * @var int
@@ -58,6 +77,8 @@ class networkAclAttribute extends Model
     public $ownerId;
 
     /**
+     * @description The destination CIDR block.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -70,6 +91,11 @@ class networkAclAttribute extends Model
     public $resources;
 
     /**
+     * @description The destination port range of the inbound traffic.
+     *
+     *   If **Protocol** of the inbound rule is set to **all**, **icmp**, or **gre**, the port range is **-1/-1**, which indicates all ports.
+     *   If **Protocol** of the inbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**, which indicates port 1 to port 200, or port 80. Valid values for a port: **1** to **65535**.
+     *
      * @example Available
      *
      * @var string
@@ -82,6 +108,8 @@ class networkAclAttribute extends Model
     public $tags;
 
     /**
+     * @description The information about the outbound rules of the network ACL.
+     *
      * @example vpc-a2d33rfpl72k5defr****
      *
      * @var string

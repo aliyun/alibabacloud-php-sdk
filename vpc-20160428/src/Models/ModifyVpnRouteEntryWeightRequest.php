@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnRouteEntryWeightRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** of each API request may be different.
      * @example d7d24a21-f4ba-4454-9173-b3828dae492b
      *
      * @var string
@@ -16,6 +21,11 @@ class ModifyVpnRouteEntryWeightRequest extends Model
     public $clientToken;
 
     /**
+     * @description The new weight that you want to set for the destination-based route. Valid values:
+     *
+     *   **0**: a low priority
+     *   **100**: a high priority
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +33,8 @@ class ModifyVpnRouteEntryWeightRequest extends Model
     public $newWeight;
 
     /**
+     * @description The next hop of the destination-based route.
+     *
      * @example vco-bp15oes1py4i66rmd****
      *
      * @var string
@@ -30,6 +42,8 @@ class ModifyVpnRouteEntryWeightRequest extends Model
     public $nextHop;
 
     /**
+     * @description The tunneling protocol. Set the value to **Ipsec**.
+     *
      * @example Ipsec
      *
      * @var string
@@ -47,6 +61,8 @@ class ModifyVpnRouteEntryWeightRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the VPN gateway is created. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -64,6 +80,8 @@ class ModifyVpnRouteEntryWeightRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The destination CIDR block of the destination-based route.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -71,6 +89,8 @@ class ModifyVpnRouteEntryWeightRequest extends Model
     public $routeDest;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1a3kqjiiq9legfx****
      *
      * @var string
@@ -78,6 +98,11 @@ class ModifyVpnRouteEntryWeightRequest extends Model
     public $vpnGatewayId;
 
     /**
+     * @description The previous weight of the destination-based route. Valid values:
+     *
+     *   **0**: a low priority
+     *   **100**: a high priority
+     *
      * @example 0
      *
      * @var int

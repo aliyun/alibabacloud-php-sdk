@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTrafficMirrorFilterRulesRequest extends Model
 {
     /**
+     * @description The ID of the inbound or outbound rule.
+     *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteTrafficMirrorFilterRulesRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the region to which the mirrored traffic belongs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
+     *
      * @example false
      *
      * @var bool
@@ -50,6 +54,11 @@ class DeleteTrafficMirrorFilterRulesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to check the request without performing the operation. Valid values:
+     *
+     *   **true**: checks the API request without performing the operation. The system checks the required parameters, request format, and limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. After the request passes the check, the operation is performed.
+     *
      * @example tmf-j6cmls82xnc86vtpe****
      *
      * @var string

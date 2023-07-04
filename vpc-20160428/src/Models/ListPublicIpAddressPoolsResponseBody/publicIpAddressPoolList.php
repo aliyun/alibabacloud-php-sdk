@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class publicIpAddressPoolList extends Model
 {
     /**
+     * @description The region ID of the IP address pool.
+     *
      * @example 2022-05-10T01:37:38Z
      *
      * @var string
@@ -17,6 +19,12 @@ class publicIpAddressPoolList extends Model
     public $creationTime;
 
     /**
+     * @description The status of the IP address pool. Valid values:
+     *
+     *   **Created**: The IP address pool is available.
+     *   **Deleting**: The IP address pool is being deleted.
+     *   **Modifying**: The IP address pool is being modified.
+     *
      * @example AddressPoolDescription
      *
      * @var string
@@ -24,6 +32,8 @@ class publicIpAddressPoolList extends Model
     public $description;
 
     /**
+     * @description The number of occupied IP addresses in the public IP address pool.
+     *
      * @example true
      *
      * @var bool
@@ -31,6 +41,8 @@ class publicIpAddressPoolList extends Model
     public $ipAddressRemaining;
 
     /**
+     * @description The time when the IP address pool was created. The time is displayed in `YYYY-MM-DDThh:mm:ssZ` format.
+     *
      * @example BGP
      *
      * @var string
@@ -38,6 +50,21 @@ class publicIpAddressPoolList extends Model
     public $isp;
 
     /**
+     * @description The line type.
+     *
+     *   **BGP**: BGP (Multi-ISP) lines
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines
+     *
+     * If you are allowed to use single-ISP bandwidth, one of the following values is returned:
+     *
+     *   **ChinaTelecom**: China Telecom
+     *   **ChinaUnicom**: China Unicom
+     *   **ChinaMobile**: China Mobile
+     *   **ChinaTelecom_L2**: China Telecom L2
+     *   **ChinaUnicom_L2**: China Unicom L2
+     *   **ChinaMobile_L2**: China Mobile L2
+     *
+     * If your services are deployed in China East 1 Finance, **BGP_FinanceCloud** is returned.
      * @example AddressPoolName
      *
      * @var string
@@ -45,11 +72,20 @@ class publicIpAddressPoolList extends Model
     public $name;
 
     /**
+     * @description Indicates whether the IP address pool has idle IP addresses. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example 121012345612****
+     *
      * @var int
      */
     public $ownerId;
 
     /**
+     * @description The list of IP address pools.
+     *
      * @example pippool-6wetvn6fumkgycssx****
      *
      * @var string
@@ -57,6 +93,8 @@ class publicIpAddressPoolList extends Model
     public $publicIpAddressPoolId;
 
     /**
+     * @description The ID of the IP address pool.
+     *
      * @example cn-chengdu
      *
      * @var string
@@ -64,16 +102,29 @@ class publicIpAddressPoolList extends Model
     public $regionId;
 
     /**
+     * @description Indicates whether the IP address pool is shared.
+     *
+     *   **Shared**: The IP address pool is shared.
+     *   An empty value indicates that the IP address pool is not shared.
+     *
+     * @example rg-acfmxazb4pcdvf****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The Alibaba Cloud account to which the IP address pool belongs.
+     *
+     * @example Shared
+     *
      * @var string
      */
     public $shareType;
 
     /**
+     * @description The name of the IP address pool.
+     *
      * @example Created
      *
      * @var string
@@ -81,11 +132,15 @@ class publicIpAddressPoolList extends Model
     public $status;
 
     /**
+     * @description The ID of the resource group to which the IP address pool belongs.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The description of the IP address pool.
+     *
      * @example 100
      *
      * @var int
@@ -93,11 +148,18 @@ class publicIpAddressPoolList extends Model
     public $totalIpNum;
 
     /**
+     * @description The total number of IP addresses in the public IP address pool.
+     *
      * @example 20
      *
      * @var int
      */
     public $usedIpNum;
+
+    /**
+     * @var bool
+     */
+    public $userType;
     protected $_name = [
         'creationTime'          => 'CreationTime',
         'description'           => 'Description',
@@ -113,6 +175,7 @@ class publicIpAddressPoolList extends Model
         'tags'                  => 'Tags',
         'totalIpNum'            => 'TotalIpNum',
         'usedIpNum'             => 'UsedIpNum',
+        'userType'              => 'UserType',
     ];
 
     public function validate()
@@ -169,6 +232,9 @@ class publicIpAddressPoolList extends Model
         }
         if (null !== $this->usedIpNum) {
             $res['UsedIpNum'] = $this->usedIpNum;
+        }
+        if (null !== $this->userType) {
+            $res['UserType'] = $this->userType;
         }
 
         return $res;
@@ -229,6 +295,9 @@ class publicIpAddressPoolList extends Model
         }
         if (isset($map['UsedIpNum'])) {
             $model->usedIpNum = $map['UsedIpNum'];
+        }
+        if (isset($map['UserType'])) {
+            $model->userType = $map['UserType'];
         }
 
         return $model;

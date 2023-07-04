@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCustomerGatewayAttributeResponseBody extends Model
 {
     /**
+     * @description The timestamp generated when the customer gateway was created.
+     *
      * @example 1492747187000
      *
      * @var int
@@ -16,6 +18,8 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The ID of the customer gateway.
+     *
      * @example cgw-bp1pvpl9r9adju6l5****
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
     public $customerGatewayId;
 
     /**
+     * @description The description of the customer gateway.
+     *
      * @example desctest
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
     public $description;
 
     /**
+     * @description The public IP address of the gateway device in the data center.
+     *
      * @example 139.32.XX.XX
      *
      * @var string
@@ -37,6 +45,8 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
     public $ipAddress;
 
     /**
+     * @description The name of the customer gateway.
+     *
      * @example nametest
      *
      * @var string
@@ -44,6 +54,8 @@ class ModifyCustomerGatewayAttributeResponseBody extends Model
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 8AA5CE21-2E6A-4530-BDF5-F055849476E6
      *
      * @var string

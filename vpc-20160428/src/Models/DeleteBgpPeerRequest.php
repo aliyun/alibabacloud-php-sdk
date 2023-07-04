@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteBgpPeerRequest extends Model
 {
     /**
+     * @description The ID of the BGP peer.
+     *
      * @example bgp-wz977wcrmb69a********
      *
      * @var string
@@ -16,6 +18,11 @@ class DeleteBgpPeerRequest extends Model
     public $bgpPeerId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -33,6 +40,9 @@ class DeleteBgpPeerRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the BGP group.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string

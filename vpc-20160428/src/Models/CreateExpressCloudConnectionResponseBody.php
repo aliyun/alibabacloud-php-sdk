@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateExpressCloudConnectionResponseBody extends Model
 {
     /**
+     * @description The ID of the ECC instance.
+     *
      * @example ecc-jg************
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateExpressCloudConnectionResponseBody extends Model
     public $eccId;
 
     /**
+     * @description The request ID.
+     *
      * @example C004F022-1CC2-4958-9937-675513A2CD7E
      *
      * @var string

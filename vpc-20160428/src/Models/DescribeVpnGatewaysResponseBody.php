@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnGatewaysResponseBody extends Model
 {
     /**
+     * @description The public IP address of the VPN gateway.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeVpnGatewaysResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of SSL-VPN connections supported by the VPN gateway.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeVpnGatewaysResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The maximum bandwidth of the VPN gateway. **M** indicates Mbit/s.
+     *
      * @example DF11D6F6-E35A-41C3-9B20-6FC8A901FE65
      *
      * @var string
@@ -31,6 +37,9 @@ class DescribeVpnGatewaysResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The timestamp when the VPN gateway was created. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1
      *
      * @var int
@@ -38,6 +47,11 @@ class DescribeVpnGatewaysResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description Indicates whether BGP routes are automatically advertised to the VPC. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @var vpnGateways
      */
     public $vpnGateways;

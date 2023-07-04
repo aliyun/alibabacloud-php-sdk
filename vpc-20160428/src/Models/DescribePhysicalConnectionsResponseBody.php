@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePhysicalConnectionsResponseBody extends Model
 {
     /**
+     * @description The number of the returned page. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribePhysicalConnectionsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Default value: **10**. Valid values: **1** to **50**.
+     *
      * @example 10
      *
      * @var int
@@ -24,11 +28,15 @@ class DescribePhysicalConnectionsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The list of Express Connect circuits.
+     *
      * @var physicalConnectionSet
      */
     public $physicalConnectionSet;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0E6D0EC4-7C91-53E2-9F65-64BF713114B0
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribePhysicalConnectionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
      * @example 1
      *
      * @var int

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ipv6Gateway extends Model
 {
     /**
+     * @description The state of the IPv6 gateway. Valid values:
+     *
+     *   **Normal**: The IPv6 gateway runs as expected.
+     *   **FinancialLocked**: The IPv6 gateway is locked due to overdue payments.
+     *
      * @example Normal
      *
      * @var string
@@ -17,6 +22,8 @@ class ipv6Gateway extends Model
     public $businessStatus;
 
     /**
+     * @description The time when the IPv6 gateway was created.
+     *
      * @example 2020-12-20T14:51:23Z
      *
      * @var string
@@ -24,6 +31,8 @@ class ipv6Gateway extends Model
     public $creationTime;
 
     /**
+     * @description The description of the IPv6 gateway.
+     *
      * @example descriptionforIPv6GW
      *
      * @var string
@@ -31,6 +40,8 @@ class ipv6Gateway extends Model
     public $description;
 
     /**
+     * @description The time when the IPv6 gateway expires.
+     *
      * @example 2021-12-20T14:51:23Z
      *
      * @var string
@@ -38,6 +49,9 @@ class ipv6Gateway extends Model
     public $expiredTime;
 
     /**
+     * @description The billing method of the IPv6 gateway.
+     *
+     * The value is set to **PostPaid**. This value indicates the pay-as-you-go billing method.
      * @example PostPaid
      *
      * @var string
@@ -45,6 +59,8 @@ class ipv6Gateway extends Model
     public $instanceChargeType;
 
     /**
+     * @description The ID of the IPv6 gateway.
+     *
      * @example ipv6gw-hp3rwmtmfhgisipv6gw-hp3rwmtmfhgis****
      *
      * @var string
@@ -52,6 +68,8 @@ class ipv6Gateway extends Model
     public $ipv6GatewayId;
 
     /**
+     * @description The name of the IPv6 gateway.
+     *
      * @example ipv6GW
      *
      * @var string
@@ -59,6 +77,8 @@ class ipv6Gateway extends Model
     public $name;
 
     /**
+     * @description The region ID of the IPv6 gateway.
+     *
      * @example cn-huhehaote
      *
      * @var string
@@ -66,11 +86,20 @@ class ipv6Gateway extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The state of the IPv6 gateway. Valid values:
+     *
+     *   **Pending**: The IPv6 gateway is being configured.
+     *   **Available**: The IPv6 gateway is available.
+     *
      * @example Available
      *
      * @var string
@@ -78,11 +107,15 @@ class ipv6Gateway extends Model
     public $status;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The ID of the VPC to which the IPv6 gateway belongs.
+     *
      * @example vpc-123sedrfswd23****
      *
      * @var string

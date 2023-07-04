@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class bgpPeer extends Model
 {
     /**
+     * @description The number of advertised routes.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class bgpPeer extends Model
     public $advertisedRouteCount;
 
     /**
+     * @description The authentication key of the BGP group.
+     *
      * @example !PWZ****
      *
      * @var string
@@ -23,6 +27,8 @@ class bgpPeer extends Model
     public $authKey;
 
     /**
+     * @description The Bidirectional Forwarding Detection (BFD) hop count.
+     *
      * @example 3
      *
      * @var int
@@ -30,6 +36,8 @@ class bgpPeer extends Model
     public $bfdMultiHop;
 
     /**
+     * @description The ID of the BGP group.
+     *
      * @example bgpg-2zev8h2wo414sfh****
      *
      * @var string
@@ -37,6 +45,8 @@ class bgpPeer extends Model
     public $bgpGroupId;
 
     /**
+     * @description The ID of the BGP peer.
+     *
      * @example bgp-2ze3un0ft1jd1xd****
      *
      * @var string
@@ -44,6 +54,14 @@ class bgpPeer extends Model
     public $bgpPeerId;
 
     /**
+     * @description The status of the BGP connection. Valid values:
+     *
+     *   **Idle**: not connected
+     *   **Connect**: in use
+     *   **Active**: available
+     *   **Established**: established
+     *   **Down**: unavailable
+     *
      * @example Connect
      *
      * @var string
@@ -51,6 +69,8 @@ class bgpPeer extends Model
     public $bgpStatus;
 
     /**
+     * @description The description of the BGP group.
+     *
      * @example test
      *
      * @var string
@@ -58,6 +78,11 @@ class bgpPeer extends Model
     public $description;
 
     /**
+     * @description Indicates whether BFD is enabled. Valid values:
+     *
+     *   **true**: enabled
+     *   **false**: disabled
+     *
      * @example true
      *
      * @var bool
@@ -65,6 +90,8 @@ class bgpPeer extends Model
     public $enableBfd;
 
     /**
+     * @description The time when the BGP peer is modified.
+     *
      * @example 2022-05-20T07:29:08Z
      *
      * @var string
@@ -72,6 +99,8 @@ class bgpPeer extends Model
     public $gmtModified;
 
     /**
+     * @description The hold time.
+     *
      * @example 30
      *
      * @var string
@@ -79,6 +108,8 @@ class bgpPeer extends Model
     public $hold;
 
     /**
+     * @description The version of the IP address.
+     *
      * @example ipv4
      *
      * @var string
@@ -86,6 +117,11 @@ class bgpPeer extends Model
     public $ipVersion;
 
     /**
+     * @description Indicates whether a fake ASN is used. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -93,6 +129,8 @@ class bgpPeer extends Model
     public $isFake;
 
     /**
+     * @description The Keepalive interval.
+     *
      * @example 10
      *
      * @var string
@@ -100,6 +138,8 @@ class bgpPeer extends Model
     public $keepalive;
 
     /**
+     * @description The AS number of the device on the Alibaba Cloud side.
+     *
      * @example 45104
      *
      * @var string
@@ -107,6 +147,8 @@ class bgpPeer extends Model
     public $localAsn;
 
     /**
+     * @description The name of the BGP peer.
+     *
      * @example test
      *
      * @var string
@@ -114,6 +156,8 @@ class bgpPeer extends Model
     public $name;
 
     /**
+     * @description The autonomous system (AS) number of the BGP peer.
+     *
      * @example 65515
      *
      * @var string
@@ -121,6 +165,8 @@ class bgpPeer extends Model
     public $peerAsn;
 
     /**
+     * @description The IP address of the BGP peer.
+     *
      * @example 116.62.XX.XX
      *
      * @var string
@@ -128,6 +174,8 @@ class bgpPeer extends Model
     public $peerIpAddress;
 
     /**
+     * @description The number of received routes.
+     *
      * @example 0
      *
      * @var int
@@ -135,6 +183,8 @@ class bgpPeer extends Model
     public $receivedRouteCount;
 
     /**
+     * @description The ID of the region to which the BGP group belongs.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -142,6 +192,8 @@ class bgpPeer extends Model
     public $regionId;
 
     /**
+     * @description The limit on routes.
+     *
      * @example 110
      *
      * @var string
@@ -149,6 +201,8 @@ class bgpPeer extends Model
     public $routeLimit;
 
     /**
+     * @description The ID of the router.
+     *
      * @example vbr-2zecmmvg5gvu8i4te****
      *
      * @var string
@@ -156,6 +210,14 @@ class bgpPeer extends Model
     public $routerId;
 
     /**
+     * @description The status of the BGP peer. Valid values:
+     *
+     *   **Pending**
+     *   **Available**
+     *   **Modifying**
+     *   **Deleting**
+     *   **Deleted**
+     *
      * @example Available
      *
      * @var string

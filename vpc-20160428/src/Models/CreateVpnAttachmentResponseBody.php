@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnAttachmentResponseBody extends Model
 {
     /**
+     * @description The status code returned by the current operation. **200** indicates that the operation is successful.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,9 @@ class CreateVpnAttachmentResponseBody extends Model
     public $code;
 
     /**
+     * @description The timestamp generated when the IPsec-VPN connection was established. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1658201810000
      *
      * @var int
@@ -23,6 +28,8 @@ class CreateVpnAttachmentResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The information returned by the current operation.
+     *
      * @example successful
      *
      * @var string
@@ -30,6 +37,8 @@ class CreateVpnAttachmentResponseBody extends Model
     public $message;
 
     /**
+     * @description The name of the IPsec-VPN connection.
+     *
      * @example nametest
      *
      * @var string
@@ -37,6 +46,8 @@ class CreateVpnAttachmentResponseBody extends Model
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 88187252-0E26-3C4D-9D1D-32A04454EBBA
      *
      * @var string
@@ -44,6 +55,11 @@ class CreateVpnAttachmentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the current operation is successful.
+     *
+     *   **true**: The operation is successful.
+     *   **false**: The operation failed.
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +67,8 @@ class CreateVpnAttachmentResponseBody extends Model
     public $success;
 
     /**
+     * @description The ID of the IPsec-VPN connection.
+     *
      * @example vco-p0wb09rama8qwwgfn****
      *
      * @var string

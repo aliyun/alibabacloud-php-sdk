@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListPublicIpAddressPoolCidrBlocksRequest extends Model
 {
     /**
+     * @description The CIDR blocks.
+     *
      * @example 47.0.XX.XX/24
      *
      * @var string
@@ -16,6 +18,11 @@ class ListPublicIpAddressPoolCidrBlocksRequest extends Model
     public $cidrBlock;
 
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +30,8 @@ class ListPublicIpAddressPoolCidrBlocksRequest extends Model
     public $dryRun;
 
     /**
+     * @description The maximum number of entries to return. Valid values: **10** to **100**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +39,11 @@ class ListPublicIpAddressPoolCidrBlocksRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If this is your first query and no next queries are to be sent, ignore this parameter.
+     *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -47,6 +61,8 @@ class ListPublicIpAddressPoolCidrBlocksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the IP address pool.
+     *
      * @example pippool-6wetvn6fumkgycssx****
      *
      * @var string
@@ -54,6 +70,8 @@ class ListPublicIpAddressPoolCidrBlocksRequest extends Model
     public $publicIpAddressPoolId;
 
     /**
+     * @description The region ID of the CIDR blocks.
+     *
      * @example cn-chengdu
      *
      * @var string

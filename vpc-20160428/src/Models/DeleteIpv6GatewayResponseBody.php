@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpv6GatewayResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example E9A8AABE-A84B-4AF2-A68A-8E2EA190E7AE
      *
      * @var string

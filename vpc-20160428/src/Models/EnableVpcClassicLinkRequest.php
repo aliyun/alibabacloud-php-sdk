@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class EnableVpcClassicLinkRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -26,6 +31,9 @@ class EnableVpcClassicLinkRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the VPC for which you want to enable ClassicLink.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +51,8 @@ class EnableVpcClassicLinkRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-bp1m7v25emi1h5mtc****
      *
      * @var string

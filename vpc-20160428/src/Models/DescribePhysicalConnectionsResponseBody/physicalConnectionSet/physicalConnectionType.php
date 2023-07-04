@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class physicalConnectionType extends Model
 {
     /**
+     * @description The ID of the access point.
+     *
      * @example ap-cn-hangzhou-finance-yh-E
      *
      * @var string
@@ -16,6 +18,8 @@ class physicalConnectionType extends Model
     public $accessPointId;
 
     /**
+     * @description The type of the access point.
+     *
      * @example VPC
      *
      * @var string
@@ -25,9 +29,19 @@ class physicalConnectionType extends Model
     /**
      * @var string
      */
+    public $adDetailLocation;
+
+    /**
+     * @description The geographical location of the access device.
+     *
+     * @var string
+     */
     public $adLocation;
 
     /**
+     * @description The maximum bandwidth of the Express Connect circuit.
+     *
+     * Unit: Gbit/s.
      * @example 10
      *
      * @var int
@@ -35,6 +49,12 @@ class physicalConnectionType extends Model
     public $bandwidth;
 
     /**
+     * @description The status of the Express Connect circuit. Valid values:
+     *
+     *   **Normal**: enabled
+     *   **FinancialLocked**: locked due to overdue payments
+     *   **SecurityLocked**: locked for security reasons
+     *
      * @example Normal
      *
      * @var string
@@ -42,6 +62,9 @@ class physicalConnectionType extends Model
     public $businessStatus;
 
     /**
+     * @description The billing method of the Express Connect circuit.
+     *
+     * If the value is set to **Prepaid**, it indicates that the Express Connect circuit is billed on a subscription basis.
      * @example Prepaid
      *
      * @var string
@@ -49,6 +72,8 @@ class physicalConnectionType extends Model
     public $chargeType;
 
     /**
+     * @description The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
+     *
      * @example longtel001
      *
      * @var string
@@ -56,6 +81,8 @@ class physicalConnectionType extends Model
     public $circuitCode;
 
     /**
+     * @description The time when the Express Connect circuit was created.
+     *
      * @example 2021-08-24T07:30:58Z
      *
      * @var string
@@ -63,6 +90,8 @@ class physicalConnectionType extends Model
     public $creationTime;
 
     /**
+     * @description The description of the Express Connect circuit.
+     *
      * @example desctest
      *
      * @var string
@@ -70,6 +99,8 @@ class physicalConnectionType extends Model
     public $description;
 
     /**
+     * @description The time when the Express Connect circuit was enabled.
+     *
      * @example 2021-08-24T07:33:18Z
      *
      * @var string
@@ -77,6 +108,8 @@ class physicalConnectionType extends Model
     public $enabledTime;
 
     /**
+     * @description The time when the Express Connect circuit expires.
+     *
      * @example 2022-04-24T16:00:00Z
      *
      * @var string
@@ -84,6 +117,10 @@ class physicalConnectionType extends Model
     public $endTime;
 
     /**
+     * @description The estimated bandwidth value of the hosted connection. The estimated bandwidth takes effect after you complete the payment.
+     *
+     **M** indicates Mbit/s and **G** indicates Gbit/s.
+     *
      * @example 50M
      *
      * @var string
@@ -91,6 +128,11 @@ class physicalConnectionType extends Model
     public $expectSpec;
 
     /**
+     * @description Indicates whether the data about pending orders is returned. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example false
      *
      * @var string
@@ -98,6 +140,15 @@ class physicalConnectionType extends Model
     public $hasReservationData;
 
     /**
+     * @description The connectivity provider of the Express Connect circuit. Valid values:
+     *
+     *   **CT**: China Telecom.
+     *   **CU**: China Unicom.
+     *   **CM**: China Mobile.
+     *   **CO**: other connectivity providers in the Chinese mainland.
+     *   **Equinix**: Equinix.
+     *   **Other**: other connectivity providers outside the Chinese mainland.
+     *
      * @example CT
      *
      * @var string
@@ -105,6 +156,16 @@ class physicalConnectionType extends Model
     public $lineOperator;
 
     /**
+     * @description The status of the letter of authorization (LOA). Valid values:
+     *
+     *   **Applying**: The LOA is pending approval.
+     *   **Accept**: The LOA is approved.
+     *   **Available**: The LOA is available.
+     *   **Rejected**: The LOA is rejected.
+     *   **Completing**: The Express Connect circuit is under construction.
+     *   **Complete**: The Express Connect circuit is installed.
+     *   **Deleted**: The LOA is deleted.
+     *
      * @example Available
      *
      * @var string
@@ -112,6 +173,8 @@ class physicalConnectionType extends Model
     public $loaStatus;
 
     /**
+     * @description The name of the Express Connect circuit.
+     *
      * @example nametest
      *
      * @var string
@@ -119,6 +182,11 @@ class physicalConnectionType extends Model
     public $name;
 
     /**
+     * @description The payer for the hosted connection. Valid values:
+     *
+     *   **PayByPhysicalConnectionOwner**: The partner pays for the hosted connection.
+     *   **PayByVirtualPhysicalConnectionOwner**: The tenant pays for the hosted connection.
+     *
      * @example PayByPhysicalConnectionOwner
      *
      * @var string
@@ -126,6 +194,8 @@ class physicalConnectionType extends Model
     public $orderMode;
 
     /**
+     * @description The Alibaba Cloud account ID of the Express Connect circuit that is used to create the hosted connection.
+     *
      * @example 283117732402483989
      *
      * @var int
@@ -133,6 +203,8 @@ class physicalConnectionType extends Model
     public $parentPhysicalConnectionAliUid;
 
     /**
+     * @description The ID of the Express Connect circuit that is used to create the hosted connection.
+     *
      * @example pc-bp1ciz7ekd2grn1as****
      *
      * @var string
@@ -140,11 +212,15 @@ class physicalConnectionType extends Model
     public $parentPhysicalConnectionId;
 
     /**
+     * @description The geographical location of the data center.
+     *
      * @var string
      */
     public $peerLocation;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
      * @example pc-bp1ciz7ekd2grn1as****
      *
      * @var string
@@ -152,6 +228,8 @@ class physicalConnectionType extends Model
     public $physicalConnectionId;
 
     /**
+     * @description The ID of the port on the access device.
+     *
      * @example 1/1/1
      *
      * @var string
@@ -159,6 +237,17 @@ class physicalConnectionType extends Model
     public $portNumber;
 
     /**
+     * @description The port type. Valid values:
+     *
+     *   **100Base-T**: 100 Mbit/s copper Ethernet port
+     *   **1000Base-T**: 1,000 Mbit/s copper Ethernet port
+     *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 km)
+     *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
+     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 km)
+     *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
+     *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
+     *
+     * >  Whether 40GBase-LR and 100GBase-LR ports can be created is based on resource supplies. For more information, contact your business manager.
      * @example 10GBase-LR
      *
      * @var string
@@ -166,6 +255,11 @@ class physicalConnectionType extends Model
     public $portType;
 
     /**
+     * @description The type of the Express Connect circuit. Valid values:
+     *
+     *   **VirtualPhysicalConnection**: a shared Express Connect circuit
+     *   **PhysicalConnection**: a dedicated Express Connect circuit
+     *
      * @example PhysicalConnection
      *
      * @var string
@@ -173,6 +267,8 @@ class physicalConnectionType extends Model
     public $productType;
 
     /**
+     * @description The ID of the redundant Express Connect circuit.
+     *
      * @example pc-119mfjzm****
      *
      * @var string
@@ -180,6 +276,8 @@ class physicalConnectionType extends Model
     public $redundantPhysicalConnectionId;
 
     /**
+     * @description The time when the pending order takes effect.
+     *
      * @example 2022-02-25T11:01:04Z
      *
      * @var string
@@ -187,6 +285,9 @@ class physicalConnectionType extends Model
     public $reservationActiveTime;
 
     /**
+     * @description The billing method of the pending order.
+     *
+     * The value is set to **PayByBandwidth**, which indicates the pay-by-bandwidth metering method.
      * @example PayByBandwidth
      *
      * @var string
@@ -194,6 +295,9 @@ class physicalConnectionType extends Model
     public $reservationInternetChargeType;
 
     /**
+     * @description The type of the pending order.
+     *
+     * If the value is set to **RENEW**, it indicates that the order is placed for service renewal.
      * @example RENEW
      *
      * @var string
@@ -201,11 +305,16 @@ class physicalConnectionType extends Model
     public $reservationOrderType;
 
     /**
+     * @example rg-acfmwu3k52prgdi
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The specification of the Express Connect circuit.
+     *
+     * Unit: **G** (Gbit/s).
      * @example 10G
      *
      * @var string
@@ -213,6 +322,20 @@ class physicalConnectionType extends Model
     public $spec;
 
     /**
+     * @description The status of the Express Connect circuit. Valid values:
+     *
+     *   **Initial**: The application is under review.
+     *   **Approved**: The application is approved.
+     *   **Allocating**: The system is allocating resources.
+     *   **Allocated**: The Express Connect circuit is under construction.
+     *   **Confirmed**: The Express Connect circuit is pending user confirmation.
+     *   **Enabled**: The Express Connect circuit is enabled.
+     *   **Rejected**: The application is rejected.
+     *   **Canceled**: The application is canceled.
+     *   **Allocation Failed**: The system failed to allocate resources.
+     *   **Terminating**: The Express Connect circuit is being disabled.
+     *   **Terminated**: The Express Connect circuit is disabled.
+     *
      * @example Enabled
      *
      * @var string
@@ -220,6 +343,8 @@ class physicalConnectionType extends Model
     public $status;
 
     /**
+     * @description The type of the Express Connect circuit. The value is set to **VPC**.
+     *
      * @example VPC
      *
      * @var string
@@ -227,6 +352,8 @@ class physicalConnectionType extends Model
     public $type;
 
     /**
+     * @description The number of hosted connections that are established over the Express Connect circuit.
+     *
      * @example 0
      *
      * @var int
@@ -234,6 +361,8 @@ class physicalConnectionType extends Model
     public $virtualPhysicalConnectionCount;
 
     /**
+     * @description The VLAN ID of the hosted connection.
+     *
      * @example 10
      *
      * @var string
@@ -241,6 +370,12 @@ class physicalConnectionType extends Model
     public $vlanId;
 
     /**
+     * @description The status of the hosted connection. Valid values:
+     *
+     *   **Confirmed**: accepted
+     *   **UnConfirmed**: pending acceptance
+     *   **Deleted**: deleted
+     *
      * @example Confirmed
      *
      * @var string
@@ -249,6 +384,7 @@ class physicalConnectionType extends Model
     protected $_name = [
         'accessPointId'                  => 'AccessPointId',
         'accessPointType'                => 'AccessPointType',
+        'adDetailLocation'               => 'AdDetailLocation',
         'adLocation'                     => 'AdLocation',
         'bandwidth'                      => 'Bandwidth',
         'businessStatus'                 => 'BusinessStatus',
@@ -296,6 +432,9 @@ class physicalConnectionType extends Model
         }
         if (null !== $this->accessPointType) {
             $res['AccessPointType'] = $this->accessPointType;
+        }
+        if (null !== $this->adDetailLocation) {
+            $res['AdDetailLocation'] = $this->adDetailLocation;
         }
         if (null !== $this->adLocation) {
             $res['AdLocation'] = $this->adLocation;
@@ -413,6 +552,9 @@ class physicalConnectionType extends Model
         }
         if (isset($map['AccessPointType'])) {
             $model->accessPointType = $map['AccessPointType'];
+        }
+        if (isset($map['AdDetailLocation'])) {
+            $model->adDetailLocation = $map['AdDetailLocation'];
         }
         if (isset($map['AdLocation'])) {
             $model->adLocation = $map['AdLocation'];

@@ -23,6 +23,8 @@ class AllocateEipAddressProResponseBody extends Model
     public $eipAddress;
 
     /**
+     * @description The IP address of the requested EIP.
+     *
      * @example 20190000
      *
      * @var int
@@ -30,6 +32,8 @@ class AllocateEipAddressProResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *
      * @var string
@@ -37,6 +41,8 @@ class AllocateEipAddressProResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the specified EIP.
+     *
      * @example rg-resourcegroup****
      *
      * @var string

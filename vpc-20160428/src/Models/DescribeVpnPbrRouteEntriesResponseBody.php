@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnPbrRouteEntriesResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeVpnPbrRouteEntriesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeVpnPbrRouteEntriesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 5BE01CD7-5A50-472D-AC14-CA181C5C03BE
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeVpnPbrRouteEntriesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -38,6 +46,8 @@ class DescribeVpnPbrRouteEntriesResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The list of policy-based routes.
+     *
      * @var vpnPbrRouteEntries
      */
     public $vpnPbrRouteEntries;

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnatTableEntriesRequest extends Model
 {
     /**
+     * @description The ID of the NAT gateway.
+     *
+     * >  You must set at least one of the **SnatTableId** and **NatGatewayId** parameters.
      * @example ngw-bp1uewa15k4iy5770****
      *
      * @var string
@@ -26,6 +29,8 @@ class DescribeSnatTableEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +38,8 @@ class DescribeSnatTableEntriesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -40,6 +47,9 @@ class DescribeSnatTableEntriesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the NAT gateway.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +67,8 @@ class DescribeSnatTableEntriesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the SNAT entry.
+     *
      * @example snat-8vbae8uqh7rjpk7d2****
      *
      * @var string
@@ -64,6 +76,9 @@ class DescribeSnatTableEntriesRequest extends Model
     public $snatEntryId;
 
     /**
+     * @description The name of the SNAT entry.
+     *
+     * The name must be 2 to 128 characters in length, and can contain digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example SnatEntry-1
      *
      * @var string
@@ -71,6 +86,9 @@ class DescribeSnatTableEntriesRequest extends Model
     public $snatEntryName;
 
     /**
+     * @description *   When you query SNAT entries of Internet NAT gateways, this parameter specifies the EIP in an SNAT entry.
+     *   When you query SNAT entries of VPC NAT gateways, this parameter specifies the NAT IP address in an SNAT entry.
+     *
      * @example 116.22.XX.XX
      *
      * @var string
@@ -78,6 +96,9 @@ class DescribeSnatTableEntriesRequest extends Model
     public $snatIp;
 
     /**
+     * @description The ID of the SNAT table.
+     *
+     * >  You must set at least one of the **SnatTableId** and **NatGatewayId** parameters.
      * @example stb-8vbczigrhop8x5u3t****
      *
      * @var string
@@ -85,6 +106,8 @@ class DescribeSnatTableEntriesRequest extends Model
     public $snatTableId;
 
     /**
+     * @description The source CIDR block specified in the SNAT entry.
+     *
      * @example 116.22.XX.XX/24
      *
      * @var string
@@ -92,6 +115,11 @@ class DescribeSnatTableEntriesRequest extends Model
     public $sourceCIDR;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     *   When you query SNAT entries of Internet NAT gateways, this parameter specifies that Elastic Compute Service (ECS) instances in the vSwitch can use SNAT entries to access the Internet.
+     *   When you query SNAT entries of virtual private cloud (VPC) NAT gateways, this parameter specifies that ECS instances in the vSwitch can use SNAT entries to access external networks.
+     *
      * @example vsw-3xbjkhjshjdf****
      *
      * @var string

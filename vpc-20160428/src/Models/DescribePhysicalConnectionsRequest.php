@@ -11,6 +11,9 @@ use AlibabaCloud\Tea\Model;
 class DescribePhysicalConnectionsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
      * @example 02fb3da4-130e-11e9-8e44-001
      *
      * @var string
@@ -23,6 +26,11 @@ class DescribePhysicalConnectionsRequest extends Model
     public $filter;
 
     /**
+     * @description Specifies whether to return the data about pending orders. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
      * @example false
      *
      * @var bool
@@ -40,6 +48,8 @@ class DescribePhysicalConnectionsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -47,6 +57,8 @@ class DescribePhysicalConnectionsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+     *
      * @example 10
      *
      * @var int
@@ -54,6 +66,9 @@ class DescribePhysicalConnectionsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the Express Connect circuit.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -61,6 +76,8 @@ class DescribePhysicalConnectionsRequest extends Model
     public $regionId;
 
     /**
+     * @example rg-aek2yvwibxrmrkq
+     *
      * @var string
      */
     public $resourceGroupId;

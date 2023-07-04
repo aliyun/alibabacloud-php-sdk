@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateVcoRouteEntryResponseBody extends Model
 {
     /**
+     * @description The timestamp when the destination-based route was created. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1658387202664
      *
      * @var int
@@ -16,6 +19,8 @@ class CreateVcoRouteEntryResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The description of the destination-based route.
+     *
      * @example desctest
      *
      * @var string
@@ -23,6 +28,8 @@ class CreateVcoRouteEntryResponseBody extends Model
     public $description;
 
     /**
+     * @description The next hop of the destination-based route.
+     *
      * @example vco-p0w2jpkhi2eeop6q6****
      *
      * @var string
@@ -30,6 +37,9 @@ class CreateVcoRouteEntryResponseBody extends Model
     public $nextHop;
 
     /**
+     * @description The tunneling protocol.
+     *
+     * The value is set to **Ipsec**, which indicates the IPsec tunneling protocol.
      * @example Ipsec
      *
      * @var string
@@ -37,6 +47,8 @@ class CreateVcoRouteEntryResponseBody extends Model
     public $overlayMode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CFC4D13B-E680-3985-95B1-87AA155481DF
      *
      * @var string
@@ -44,6 +56,8 @@ class CreateVcoRouteEntryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The destination CIDR block of the destination-based route.
+     *
      * @example 192.168.10.0/24
      *
      * @var string
@@ -51,6 +65,9 @@ class CreateVcoRouteEntryResponseBody extends Model
     public $routeDest;
 
     /**
+     * @description The status of the destination-based route.
+     *
+     * Only **published** is returned, which indicates that the current route is published to the transit router.
      * @example published
      *
      * @var string
@@ -58,6 +75,8 @@ class CreateVcoRouteEntryResponseBody extends Model
     public $state;
 
     /**
+     * @description The ID of the IPsec-VPN connection.
+     *
      * @example vco-p0w2jpkhi2eeop6q6****
      *
      * @var string
@@ -65,6 +84,11 @@ class CreateVcoRouteEntryResponseBody extends Model
     public $vpnConnectionId;
 
     /**
+     * @description The weight of the destination-based route.
+     *
+     *   **0**: a low priority
+     *   **100**: a high priority
+     *
      * @example 100
      *
      * @var int

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreatePhysicalConnectionOccupancyOrderRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic payments. Valid values:
+     *
+     *   **true**: yes Make sure that you have a sufficient balance in your account. Otherwise, your order becomes invalid and is automatically canceled.
+     *   **false**: disables automatic payment. This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,9 @@ class CreatePhysicalConnectionOccupancyOrderRequest extends Model
     public $autoPay;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that it is unique among different requests.
      * @example CBCE910E-D396-4944
      *
      * @var string
@@ -23,6 +31,10 @@ class CreatePhysicalConnectionOccupancyOrderRequest extends Model
     public $clientToken;
 
     /**
+     * @description The billing method of the Express Connect circuit. Set the value to
+     *
+     **PrePaid**, which specifies the subscription billing method. If you choose this billing method, make sure that your Alibaba Cloud account supports balance payments or credit payments.
+     *
      * @example PrePaid
      *
      * @var string
@@ -40,6 +52,11 @@ class CreatePhysicalConnectionOccupancyOrderRequest extends Model
     public $ownerId;
 
     /**
+     * @description The subscription duration.
+     *
+     *   If **PricingCycle** is set to **Month**, set **Period** to a value from **1 to 9**.
+     *   If **PricingCycle** is set to **Year**, set **Period** to a value from **1 to 5**.
+     *
      * @example 1
      *
      * @var int
@@ -47,6 +64,8 @@ class CreatePhysicalConnectionOccupancyOrderRequest extends Model
     public $period;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
      * @example pc-bp1hp0wr072f6****
      *
      * @var string
@@ -54,6 +73,11 @@ class CreatePhysicalConnectionOccupancyOrderRequest extends Model
     public $physicalConnectionId;
 
     /**
+     * @description The billing cycle of the subscription. Valid values:
+     *
+     *   **Month**: Bills are paid on a monthly basis. This is the default value.
+     *   **Year**: Bills are paid on an annual basis.
+     *
      * @example Month
      *
      * @var string
@@ -61,6 +85,9 @@ class CreatePhysicalConnectionOccupancyOrderRequest extends Model
     public $pricingCycle;
 
     /**
+     * @description The region ID of the Express Connect circuit.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

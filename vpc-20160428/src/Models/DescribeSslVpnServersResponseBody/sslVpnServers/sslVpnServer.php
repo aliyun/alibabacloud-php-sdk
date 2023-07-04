@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sslVpnServer extends Model
 {
     /**
+     * @description The encryption algorithm.
+     *
      * @example AES-128-CBC
      *
      * @var string
@@ -16,6 +18,8 @@ class sslVpnServer extends Model
     public $cipher;
 
     /**
+     * @description The client CIDR block.
+     *
      * @example 10.10.1.0/24
      *
      * @var string
@@ -23,6 +27,11 @@ class sslVpnServer extends Model
     public $clientIpPool;
 
     /**
+     * @description Indicates whether data compression is enabled. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +39,8 @@ class sslVpnServer extends Model
     public $compress;
 
     /**
+     * @description The total number of current connections.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +48,8 @@ class sslVpnServer extends Model
     public $connections;
 
     /**
+     * @description The timestamp generated when the SSL server was created.
+     *
      * @example 1613800884000
      *
      * @var int
@@ -44,6 +57,11 @@ class sslVpnServer extends Model
     public $createTime;
 
     /**
+     * @description Indicates whether two-factor authentication is enabled. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +69,8 @@ class sslVpnServer extends Model
     public $enableMultiFactorAuth;
 
     /**
+     * @description The ID of the Identity as a Service (IDaaS) instance.
+     *
      * @example idaas-cn-hangzhou-****
      *
      * @var string
@@ -58,6 +78,8 @@ class sslVpnServer extends Model
     public $IDaaSInstanceId;
 
     /**
+     * @description The ID of the region where the IDaaS instance is created.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +87,8 @@ class sslVpnServer extends Model
     public $IDaaSRegionId;
 
     /**
+     * @description The public IP address of the VPN gateway.
+     *
      * @example 47.5.XX.XX
      *
      * @var string
@@ -72,6 +96,8 @@ class sslVpnServer extends Model
     public $internetIp;
 
     /**
+     * @description The local CIDR block.
+     *
      * @example 192.168.0.0/24
      *
      * @var string
@@ -79,6 +105,8 @@ class sslVpnServer extends Model
     public $localSubnet;
 
     /**
+     * @description The maximum number of connections.
+     *
      * @example 5
      *
      * @var int
@@ -86,6 +114,8 @@ class sslVpnServer extends Model
     public $maxConnections;
 
     /**
+     * @description The name of the SSL server.
+     *
      * @example test
      *
      * @var string
@@ -93,6 +123,8 @@ class sslVpnServer extends Model
     public $name;
 
     /**
+     * @description The port that is used by the SSL server.
+     *
      * @example 1194
      *
      * @var int
@@ -100,6 +132,8 @@ class sslVpnServer extends Model
     public $port;
 
     /**
+     * @description The protocol that is used by the SSL server.
+     *
      * @example UDP
      *
      * @var string
@@ -107,6 +141,8 @@ class sslVpnServer extends Model
     public $proto;
 
     /**
+     * @description The ID of the region where the SSL server is created.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -114,6 +150,8 @@ class sslVpnServer extends Model
     public $regionId;
 
     /**
+     * @description The ID of the SSL server.
+     *
      * @example vss-bp15j3du13gq1dgey****
      *
      * @var string
@@ -121,6 +159,8 @@ class sslVpnServer extends Model
     public $sslVpnServerId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1on0xae9d771ggi****
      *
      * @var string

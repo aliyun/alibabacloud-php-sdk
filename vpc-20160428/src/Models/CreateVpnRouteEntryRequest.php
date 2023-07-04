@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnRouteEntryRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system automatically uses **RequestId** as **ClientToken**. The value of **RequestId** may be different for each API request.
      * @example d7d24a21-f4ba-4454-9173-b3828dae****
      *
      * @var string
@@ -16,6 +21,9 @@ class CreateVpnRouteEntryRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the destination-based route.
+     *
+     * The description must be **1** to **100** characters in length, and cannot start with `http://` or `https://`.
      * @example mytest
      *
      * @var string
@@ -23,6 +31,8 @@ class CreateVpnRouteEntryRequest extends Model
     public $description;
 
     /**
+     * @description The next hop of the destination-based route.
+     *
      * @example vco-bp15oes1py4i66rmd****
      *
      * @var string
@@ -30,6 +40,8 @@ class CreateVpnRouteEntryRequest extends Model
     public $nextHop;
 
     /**
+     * @description The tunneling protocol. Set the value to **Ipsec**.
+     *
      * @example Ipsec
      *
      * @var string
@@ -47,6 +59,11 @@ class CreateVpnRouteEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description Specifies whether to advertise the destination-based route to a virtual private cloud (VPC) route table. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -54,6 +71,9 @@ class CreateVpnRouteEntryRequest extends Model
     public $publishVpc;
 
     /**
+     * @description The ID of the region where the VPN gateway is created.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -71,6 +91,8 @@ class CreateVpnRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The destination CIDR block of the destination-based route.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -78,6 +100,8 @@ class CreateVpnRouteEntryRequest extends Model
     public $routeDest;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1a3kqjiiq9legfx****
      *
      * @var string
@@ -85,6 +109,11 @@ class CreateVpnRouteEntryRequest extends Model
     public $vpnGatewayId;
 
     /**
+     * @description The weight of the destination-based route. Valid values:
+     *
+     *   **100**: a high priority
+     *   **0**: a low priority
+     *
      * @example 0
      *
      * @var int

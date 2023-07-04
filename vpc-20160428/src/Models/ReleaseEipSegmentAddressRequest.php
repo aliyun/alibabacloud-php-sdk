@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ReleaseEipSegmentAddressRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** for each API request may be different.
      * @example 02fb3da4-130e-11e9-8e44-001sdfg
      *
      * @var string
@@ -26,6 +31,8 @@ class ReleaseEipSegmentAddressRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the contiguous EIPs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +50,9 @@ class ReleaseEipSegmentAddressRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the group to which the contiguous EIPs to be released belongs.
+     *
+     * The system releases all EIPs in the group.
      * @example eipsg-2zett8ba055tbsxme****
      *
      * @var string

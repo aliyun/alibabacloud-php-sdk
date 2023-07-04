@@ -9,20 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeIPv6TranslatorsRequest extends Model
 {
     /**
-     * @example 47.99.xx.xx
+     * @description The IPv4 address allocated to the IPv6 Translation Service instance.
+     *
+     * @example 47.99.XX.XX
      *
      * @var string
      */
     public $allocateIpv4Addr;
 
     /**
-     * @example 2400:3200:1600::xxx
+     * @description The IPv6 address allocated to the IPv6 Translation Service instance.
+     *
+     * @example 2400:3200:1600::XXXX
      *
      * @var string
      */
     public $allocateIpv6Addr;
 
     /**
+     * @description The business status of the IPv6 Translation Service instance. Valid values:
+     *
+     *   **Normal**
+     *   **FinancialLocked**
+     *
      * @example Normal
      *
      * @var string
@@ -30,13 +39,17 @@ class DescribeIPv6TranslatorsRequest extends Model
     public $businessStatus;
 
     /**
-     * @example ipv6trans-bp1858ysxxxxxx
+     * @description The ID of the IPv6 Translation Service instance.
+     *
+     * @example ipv6trans-bp1858ys****
      *
      * @var string
      */
     public $ipv6TranslatorId;
 
     /**
+     * @description The name of the IPv6 Translation Service instance.
+     *
      * @example ipv6_1
      *
      * @var string
@@ -54,6 +67,8 @@ class DescribeIPv6TranslatorsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -61,13 +76,20 @@ class DescribeIPv6TranslatorsRequest extends Model
     public $pageNumber;
 
     /**
-     * @example 1
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The billing method of the IPv6 Translation Service instance. Valid values:
+     *
+     *   **Prepay**: subscription
+     *   **Postpay**: pay-as-you-go
+     *
      * @example Prepay
      *
      * @var string
@@ -75,6 +97,8 @@ class DescribeIPv6TranslatorsRequest extends Model
     public $payType;
 
     /**
+     * @description The region of the IPv6 Translation Service instance. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -92,6 +116,8 @@ class DescribeIPv6TranslatorsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The specification of the IPv6 Translation Service instance. Set the value to **small**.
+     *
      * @example small
      *
      * @var string
@@ -99,6 +125,16 @@ class DescribeIPv6TranslatorsRequest extends Model
     public $spec;
 
     /**
+     * @description The status of the IPv6 Translation Service instance. Valid values:
+     *
+     *   **init**
+     *   **provisioning**
+     *   **active**
+     *   **updating**
+     *   **upgrading**
+     *   **deleting**
+     *   **deleted**
+     *
      * @example active
      *
      * @var string

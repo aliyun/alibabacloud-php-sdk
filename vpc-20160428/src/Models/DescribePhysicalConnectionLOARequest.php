@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribePhysicalConnectionLOARequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribePhysicalConnectionLOARequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
      * @example pc-bp1ca4wca27ex****
      *
      * @var string
@@ -33,6 +40,9 @@ class DescribePhysicalConnectionLOARequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the Express Connect circuit.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

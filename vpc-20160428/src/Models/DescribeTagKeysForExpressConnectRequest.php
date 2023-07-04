@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagKeysForExpressConnectRequest extends Model
 {
     /**
+     * @description The keyword of the tag. The keyword is used to perform a fuzzy match. You can specify a keyword to query all tags that contain the keyword.
+     *
      * @example keyword
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeTagKeysForExpressConnectRequest extends Model
     public $keyword;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,11 @@ class DescribeTagKeysForExpressConnectRequest extends Model
     public $maxResult;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If this is your first query and no next queries are to be sent, ignore this parameter.
+     *   If a next query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -40,6 +49,9 @@ class DescribeTagKeysForExpressConnectRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the resource belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -62,6 +74,8 @@ class DescribeTagKeysForExpressConnectRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Set the value to **PHYSICALCONNECTION**, which specifies an Express Connect circuit.
+     *
      * @example PHYSICALCONNECTION
      *
      * @var string

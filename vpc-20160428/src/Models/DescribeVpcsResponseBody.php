@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcsResponseBody extends Model
 {
     /**
+     * @description The name of the VPC.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeVpcsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the VPC belongs.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeVpcsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region to which the VPC belongs.
+     *
      * @example C6532AA8-D0F7-497F-A8EE-094126D441F5
      *
      * @var string
@@ -31,6 +37,8 @@ class DescribeVpcsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the vRouter.
+     *
      * @example 2
      *
      * @var int
@@ -38,6 +46,13 @@ class DescribeVpcsResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The status of the DHCP options set. Valid values:
+     *
+     *   **Available**: available
+     *   **InUse**: in use
+     *   **Deleted**: deleted
+     *   **Pending**: being configured
+     *
      * @var vpcs
      */
     public $vpcs;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnassociateHaVipRequest extends Model
 {
     /**
+     * @description The ID of the HAVIP that you want to disassociate.
+     *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
      * @var string
@@ -16,6 +18,8 @@ class UnassociateHaVipRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example True
      *
      * @var string
@@ -23,6 +27,12 @@ class UnassociateHaVipRequest extends Model
     public $force;
 
     /**
+     * @description Specifies whether to forcefully disassociate the HAVIP from the ECS instance or ENI. Valid values:
+     *
+     *   **True**: yes
+     *   **False** (default): no
+     *
+     * >  If you set the value to **False**, you cannot disassociate the HAVIP from the primary instance.
      * @example havip-2zeo05qre24nhrqpy****
      *
      * @var string
@@ -30,6 +40,12 @@ class UnassociateHaVipRequest extends Model
     public $haVipId;
 
     /**
+     * @description The type of the instance from which you want to disassociate the HAVIP. Valid values:
+     *
+     *   **EcsInstance**: an ECS instance
+     *   **NetworkInterface**: an ENI
+     *
+     * >  If you want to disassociate the HAVIP from an ENI, this parameter is required.
      * @example i-faf344422ffsfad****
      *
      * @var string
@@ -54,6 +70,8 @@ class UnassociateHaVipRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the ECS instance or ENI from which you want to disassociate the HAVIP.
+     *
      * @example cn-shanghai
      *
      * @var string

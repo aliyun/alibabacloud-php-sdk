@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class prefixListEntry extends Model
 {
     /**
+     * @description The CIDR blocks specified in the prefix list.
+     *
      * @example 192.168.0.0/16
      *
      * @var string
@@ -16,6 +18,8 @@ class prefixListEntry extends Model
     public $cidr;
 
     /**
+     * @description The description of the prefix list.
+     *
      * @example description
      *
      * @var string
@@ -23,6 +27,8 @@ class prefixListEntry extends Model
     public $description;
 
     /**
+     * @description The ID of the prefix list.
+     *
      * @example pl-0b7hwu67****
      *
      * @var string
@@ -30,6 +36,8 @@ class prefixListEntry extends Model
     public $prefixListId;
 
     /**
+     * @description The region ID of the prefix list.
+     *
      * @example cn-hangzhou
      *
      * @var string

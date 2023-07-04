@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ipv6Address extends Model
 {
     /**
+     * @description The time when the IPv6 address was created.
+     *
      * @example 2020-12-20T14:56:09Z
      *
      * @var string
@@ -17,6 +19,8 @@ class ipv6Address extends Model
     public $allocationTime;
 
     /**
+     * @description The ID of the instance that is assigned the IPv6 address.
+     *
      * @example i-2ze72wuqj4y3jl4f****
      *
      * @var string
@@ -24,6 +28,8 @@ class ipv6Address extends Model
     public $associatedInstanceId;
 
     /**
+     * @description The type of the instance that is assigned the IPv6 address.
+     *
      * @example EcsInstance
      *
      * @var string
@@ -31,6 +37,8 @@ class ipv6Address extends Model
     public $associatedInstanceType;
 
     /**
+     * @description The IPv6 address.
+     *
      * @example 2408:XXXX:153:3921:851c:c435:7b12:1c5f
      *
      * @var string
@@ -38,6 +46,8 @@ class ipv6Address extends Model
     public $ipv6Address;
 
     /**
+     * @description The ID of the IPv6 address.
+     *
      * @example ipv6-2zen5j4axcp5l5qyy****
      *
      * @var string
@@ -45,6 +55,8 @@ class ipv6Address extends Model
     public $ipv6AddressId;
 
     /**
+     * @description The name of the IPv6 address.
+     *
      * @example test
      *
      * @var string
@@ -52,6 +64,8 @@ class ipv6Address extends Model
     public $ipv6AddressName;
 
     /**
+     * @description The ID of the IPv6 gateway to which the IPv6 address belongs.
+     *
      * @example ipv6gw-2zewg0l66s73b4k2q****
      *
      * @var string
@@ -59,11 +73,20 @@ class ipv6Address extends Model
     public $ipv6GatewayId;
 
     /**
+     * @description The information about the Internet bandwidth of the IPv6 address.
+     *
      * @var ipv6InternetBandwidth
      */
     public $ipv6InternetBandwidth;
 
     /**
+     * @description The service provider of the IPv6 address. Valid values:
+     *
+     *   **BGP**: Alibaba Cloud Border Gateway Protocol (BGP) IPv6. This is the default value.
+     *   **ChinaMobile**: China Mobile (single ISP).
+     *   **ChinaUnicom**: China Unicom (single ISP).
+     *   **ChinaTelecom**: China Telecom (single ISP).
+     *
      * @example BGP
      *
      * @var string
@@ -71,6 +94,11 @@ class ipv6Address extends Model
     public $ipv6Isp;
 
     /**
+     * @description The type of communication supported by the IPv6 address. Valid values:
+     *
+     *   **Private**: communication within private networks
+     *   **Public**: communication over the Internet
+     *
      * @example Private
      *
      * @var string
@@ -78,6 +106,12 @@ class ipv6Address extends Model
     public $networkType;
 
     /**
+     * @description The maximum bandwidth value of the IPv6 address.
+     *
+     *   If the IPv6 address is associated with an EIP bandwidth plan, the value of **RealBandwidth** is the maximum bandwidth value of the EIP bandwidth plan.
+     *   If the IPv6 address is not associated with an EIP bandwidth plan, the value of **RealBandwidth** is the maximum bandwidth value of the Internet bandwidth of the IPv6 address.
+     *   If the IPv6 address is not associated with an EIP bandwidth plan or an Internet bandwidth plan, the values of **RealBandwidth** and **Bandwidth** are both 0.
+     *
      * @example 5
      *
      * @var int
@@ -85,6 +119,11 @@ class ipv6Address extends Model
     public $realBandwidth;
 
     /**
+     * @description The status of the IPv6 address. Valid values:
+     *
+     *   **Pending**: being configured
+     *   **Available**: available
+     *
      * @example Available
      *
      * @var string
@@ -92,6 +131,8 @@ class ipv6Address extends Model
     public $status;
 
     /**
+     * @description The ID of the vSwitch to which the IPv6 address belongs.
+     *
      * @example vsw-25navfgbue4g****
      *
      * @var string
@@ -99,6 +140,8 @@ class ipv6Address extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC to which the IPv6 address belongs.
+     *
      * @example vpc-bp15zckdt37pq72zv****
      *
      * @var string

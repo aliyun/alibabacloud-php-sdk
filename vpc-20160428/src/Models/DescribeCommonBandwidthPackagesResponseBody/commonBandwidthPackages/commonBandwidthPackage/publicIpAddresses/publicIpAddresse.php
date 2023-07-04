@@ -23,6 +23,10 @@ class publicIpAddresse extends Model
     public $bandwidthPackageIpRelationStatus;
 
     /**
+     * @description The edition of Anti-DDoS.
+     *
+     * - If this parameter is empty, it indicates that Anti-DDoS Origin Basic was enabled.
+     * - If **AntiDDoS_Enhanced** is returned, it indicates that Anti-DDoS Pro/Premium was enabled.
      * @example 47.95.XX.XX
      *
      * @var string

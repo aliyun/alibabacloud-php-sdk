@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePublicIpAddressPoolAttributeRequest extends Model
 {
     /**
+     * @description The region ID of the IP address pool that you want to modify.
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdatePublicIpAddressPoolAttributeRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
      * @example AddressPoolDescription
      *
      * @var string
@@ -23,6 +30,8 @@ class UpdatePublicIpAddressPoolAttributeRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the request.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +39,11 @@ class UpdatePublicIpAddressPoolAttributeRequest extends Model
     public $dryRun;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** may be different for each API request.
      * @example AddressPoolName
      *
      * @var string
@@ -47,6 +61,9 @@ class UpdatePublicIpAddressPoolAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The description of the IP address pool.
+     *
+     * This parameter is optional. If you enter a description, the description must be 2 to 256 characters in length, and cannot start with http:// or https://.
      * @example pippool-6wetvn6fumkgycssx****
      *
      * @var string

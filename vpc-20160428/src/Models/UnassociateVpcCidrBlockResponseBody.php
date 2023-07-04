@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnassociateVpcCidrBlockResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example C1221A1F-2ACD-4592-8F27-474E02883159
      *
      * @var string

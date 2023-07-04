@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DiagnoseVpnGatewayResponseBody extends Model
 {
     /**
+     * @description The ID of the diagnostic operation.
+     *
      * @example vpndgn-uf6kuxbe3iv028k3s****
      *
      * @var string
@@ -16,6 +18,8 @@ class DiagnoseVpnGatewayResponseBody extends Model
     public $diagnoseId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
      * @var string

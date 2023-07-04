@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesForExpressConnectRequest extends Model
 {
     /**
+     * @description The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
+     *
      * @example 20
      *
      * @var int
@@ -17,6 +19,11 @@ class ListTagResourcesForExpressConnectRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If this is your first query or no next query is to be sent, ignore this parameter.
+     *   If a next query is to be sent, set the value to the value of **NextToken** that is returned in the last call.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -34,6 +41,9 @@ class ListTagResourcesForExpressConnectRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the resource.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -56,6 +66,8 @@ class ListTagResourcesForExpressConnectRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Set the value to **PHYSICALCONNECTION**, which specifies the Express Connect circuit.
+     *
      * @example PHYSICALCONNECTION
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateVbrHaRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * The client token must be unique among different requests. It can contain only ASCII characters and cannot exceed 64 characters in length.
      * @example CBCE910E-D396-4944-8****
      *
      * @var string
@@ -16,6 +19,9 @@ class CreateVbrHaRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the VBR failover group.
+     *
+     * The description must be 2 to 256 characters in length. It must start with a letter and cannot start with `http://`or `https://`.
      * @example VBRHa
      *
      * @var string
@@ -23,6 +29,11 @@ class CreateVbrHaRequest extends Model
     public $description;
 
     /**
+     * @description Specifies whether to precheck the request. Valid values:
+     *
+     *   **true**: prechecks the request without performing the operation. The system checks the request format, instance status, and whether the required parameters are specified. An error message is returned if the request fails the precheck. If the request passes the precheck, `DRYRUN.SUCCESS` is returned.
+     *   **false**: prechecks the request. After the request passes the precheck, the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +41,8 @@ class CreateVbrHaRequest extends Model
     public $dryRun;
 
     /**
+     * @description The name of the VBR failover group.
+     *
      * @example VBRHa
      *
      * @var string
@@ -47,6 +60,8 @@ class CreateVbrHaRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the other VBR in the VBR failover group.
+     *
      * @example vbr-bp12mw1f8k3jgygk9****
      *
      * @var string
@@ -54,6 +69,8 @@ class CreateVbrHaRequest extends Model
     public $peerVbrId;
 
     /**
+     * @description The ID of the region where the VBR is deployed.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -71,6 +88,8 @@ class CreateVbrHaRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the VBR.
+     *
      * @example vbr-bp1jcg5cmxjbl9xgc****
      *
      * @var string

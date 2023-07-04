@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpcRequest extends Model
 {
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     * - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description Specifies whether to forcefully delete the VPC. Valid values:
+     *
+     * - **true**: yes
+     * - **false** (default): no
+     *
+     * - Only an IPv6 gateway and routes that point to the IPv6 gateway exist in the VPC.
+     * @example false
+     *
      * @var bool
      */
     public $forceDelete;
@@ -29,6 +43,9 @@ class DeleteVpcRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the VPC is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -46,6 +63,8 @@ class DeleteVpcRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the VPC that you want to delete.
+     *
      * @example vpc-bp1m7v25emi1h5mtc****
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnPbrRouteEntryResponseBody extends Model
 {
     /**
+     * @description The timestamp generated when the policy-based route was created. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1492747187000
      *
      * @var int
@@ -16,13 +19,17 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
     public $createTime;
 
     /**
-     * @example 111
+     * @description The description of the policy-based route.
+     *
+     * @example desctest
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The next hop of the policy-based route.
+     *
      * @example vco-bp15oes1py4i66rmd****
      *
      * @var string
@@ -30,6 +37,8 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
     public $nextHop;
 
     /**
+     * @description The tunneling protocol. The value is set to **Ipsec**, which indicates the IPsec tunneling protocol.
+     *
      * @example Ipsec
      *
      * @var string
@@ -37,11 +46,17 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
     public $overlayMode;
 
     /**
+     * @description The priority of the policy-based route.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 5BE01CD7-5A50-472D-AC14-CA181C5C03BE
      *
      * @var string
@@ -49,6 +64,8 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The destination CIDR block of the policy-based route.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -56,6 +73,8 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
     public $routeDest;
 
     /**
+     * @description The source CIDR block of the policy-based route.
+     *
      * @example 192.168.1.0/24
      *
      * @var string
@@ -63,6 +82,11 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
     public $routeSource;
 
     /**
+     * @description The status of the policy-based route. Valid values:
+     *
+     *   **published**: advertised to the VPC route table.
+     *   **normal**: not advertised to the VPC route table.
+     *
      * @example normal
      *
      * @var string
@@ -70,6 +94,8 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
     public $state;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1cmw7jh1nfe43m9****
      *
      * @var string
@@ -77,6 +103,11 @@ class CreateVpnPbrRouteEntryResponseBody extends Model
     public $vpnInstanceId;
 
     /**
+     * @description The weight of the policy-based route.
+     *
+     *   **100**: The IPsec-VPN connection associated with the policy-based route serves as an active connection.
+     *   **0**: The IPsec-VPN connection associated with the policy-based route serves as a standby connection.
+     *
      * @example 0
      *
      * @var int

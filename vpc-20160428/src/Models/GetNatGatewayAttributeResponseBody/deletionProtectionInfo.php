@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class deletionProtectionInfo extends Model
 {
     /**
+     * @description Indicates whether deletion protection is enabled.
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool

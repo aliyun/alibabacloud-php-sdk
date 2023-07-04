@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifySnatEntryRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. The value of **RequestId** may be different for each API request.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -26,6 +31,9 @@ class ModifySnatEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the NAT gateway is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +51,8 @@ class ModifySnatEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the SNAT entry that you want to modify.
+     *
      * @example snat-bp1vcgcf8tm0plqcg****
      *
      * @var string
@@ -50,6 +60,9 @@ class ModifySnatEntryRequest extends Model
     public $snatEntryId;
 
     /**
+     * @description The name of the SNAT entry.
+     *
+     * The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      * @example SnatEntry-1
      *
      * @var string
@@ -57,6 +70,12 @@ class ModifySnatEntryRequest extends Model
     public $snatEntryName;
 
     /**
+     * @description *   The elastic IP addresses (EIPs) in the SNAT entry when you modify an SNAT entry of an Internet NAT gateway. Separate EIPs with commas (,).
+     *
+     * If you select multiple EIPs to create an SNAT address pool, connections are hashed to these EIPs. Network traffic may not be evenly distributed to the EIPs because the amount of traffic passes through each connection varies. We recommend that you associate these EIPs with the same EIP bandwidth plan to prevent service interruptions due to the bandwidth limit of an individual EIP.
+     *
+     *   When you modify an SNAT entry of a VPC NAT gateway, this parameter specifies the NAT IP address in the SNAT entry.
+     *
      * @example 47.98.XX.XX
      *
      * @var string
@@ -64,6 +83,8 @@ class ModifySnatEntryRequest extends Model
     public $snatIp;
 
     /**
+     * @description The ID of the SNAT table to which the SNAT entry belongs.
+     *
      * @example stb-8vbczigrhop8x5u3t****
      *
      * @var string

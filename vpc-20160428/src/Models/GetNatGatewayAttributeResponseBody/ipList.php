@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ipList extends Model
 {
     /**
+     * @description The ID of the EIP.
+     *
      * @example eip-bp13e9i2qst4g6jzi****
      *
      * @var string
@@ -16,6 +18,8 @@ class ipList extends Model
     public $allocationId;
 
     /**
+     * @description The IP address of the EIP.
+     *
      * @example 116.33.XX.XX
      *
      * @var string
@@ -23,6 +27,12 @@ class ipList extends Model
     public $ipAddress;
 
     /**
+     * @description The association status of the EIP.
+     *
+     *   **idle**: The EIP is not specified in an SNAT entry or a DNAT entry.
+     *   **UsedBySnatTable**: The EIP is specified in an SNAT entry.
+     *   **UsedByForwardTable**: The EIP is specified in a DNAT entry.
+     *
      * @example idle
      *
      * @var string

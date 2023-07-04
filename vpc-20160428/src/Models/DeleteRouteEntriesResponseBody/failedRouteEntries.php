@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class failedRouteEntries extends Model
 {
     /**
+     * @description The destination CIDR block of the route entry that failed to be deleted. IPv4 and IPv6 CIDR blocks are supported.
+     *
      * @example 47.100.XX.XX/24
      *
      * @var string
@@ -16,6 +18,8 @@ class failedRouteEntries extends Model
     public $dstCidrBlock;
 
     /**
+     * @description The error code.
+     *
      * @example VPC_ROUTER_ENTRY_NOT_EXIST
      *
      * @var string
@@ -23,6 +27,8 @@ class failedRouteEntries extends Model
     public $failedCode;
 
     /**
+     * @description The error message.
+     *
      * @example vRouterEntry not exists
      *
      * @var string
@@ -30,6 +36,8 @@ class failedRouteEntries extends Model
     public $failedMessage;
 
     /**
+     * @description The ID of the next hop that failed to be deleted.
+     *
      * @example i-j6c2fp57q8rr4jlu****
      *
      * @var string
@@ -37,6 +45,8 @@ class failedRouteEntries extends Model
     public $nextHop;
 
     /**
+     * @description The ID of the route entry that failed to be deleted.
+     *
      * @example rte-bp1mnnr2al0naomnpv****
      *
      * @var string

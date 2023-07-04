@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AssociateRouteTablesWithVpcGatewayEndpointRequest extends Model
 {
     /**
+     * @description The region ID of the gateway endpoint.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -16,6 +19,8 @@ class AssociateRouteTablesWithVpcGatewayEndpointRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +28,9 @@ class AssociateRouteTablesWithVpcGatewayEndpointRequest extends Model
     public $dryRun;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate a client token. Make sure that a unique client token is used for each request. The **client token** can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** of each API request may be different.
      * @example vpce-m5e371h5clm3uadih****
      *
      * @var string

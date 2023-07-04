@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnablePhysicalConnectionRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 02fb3da4-130e-11e9-8e44-0016e04115b
      *
      * @var string
@@ -26,6 +28,9 @@ class EnablePhysicalConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The operation that you want to perform.
+     *
+     * Set the value to **EnablePhysicalConnection**.
      * @example pc-119mfjz****
      *
      * @var string
@@ -33,6 +38,8 @@ class EnablePhysicalConnectionRequest extends Model
     public $physicalConnectionId;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
      * @example cn-shanghai
      *
      * @var string

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchAttributesResponseBody extends Model
 {
     /**
+     * @description The number of available IP addresses.
+     *
      * @example 12
      *
      * @var int
@@ -18,6 +20,8 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $availableIpAddressCount;
 
     /**
+     * @description The CIDR block of the vSwitch.
+     *
      * @example 192.168.0.1/24
      *
      * @var string
@@ -25,6 +29,8 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $cidrBlock;
 
     /**
+     * @description The time when the vSwitch was created.
+     *
      * @example 2021-08-22T10:40:25Z
      *
      * @var string
@@ -32,6 +38,8 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $creationTime;
 
     /**
+     * @description The description of the vSwitch.
+     *
      * @example abc
      *
      * @var string
@@ -39,6 +47,8 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $description;
 
     /**
+     * @description The IPv6 CIDR block of the vSwitch.
+     *
      * @example 2408:XXXX:3c5:44e::/64
      *
      * @var string
@@ -46,6 +56,11 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $ipv6CidrBlock;
 
     /**
+     * @description Indicates whether the vSwitch is the default vSwitch. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example false
      *
      * @var bool
@@ -53,6 +68,8 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $isDefault;
 
     /**
+     * @description The network access control list (ACL) rules.
+     *
      * @example 1
      *
      * @var string
@@ -60,6 +77,8 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $networkAclId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the vSwitch belongs.
+     *
      * @example 287683832402436789
      *
      * @var int
@@ -67,6 +86,8 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7B48B4B9-1EAD-469F-B488-594DAB4B6A1A
      *
      * @var string
@@ -74,6 +95,8 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxazb4ph****
      *
      * @var string
@@ -81,11 +104,23 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description The information about the route table that is associated with the vSwitch.
+     *
      * @var routeTable
      */
     public $routeTable;
 
     /**
+     * @var string
+     */
+    public $shareType;
+
+    /**
+     * @description The status of the vSwitch. Valid values:
+     *
+     *   **Pending**
+     *   **Available**
+     *
      * @example Pending
      *
      * @var string
@@ -93,11 +128,15 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $status;
 
     /**
+     * @description The tag list.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-25b7pv15t****
      *
      * @var string
@@ -105,6 +144,8 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $vSwitchId;
 
     /**
+     * @description The name of the vSwitch.
+     *
      * @example test
      *
      * @var string
@@ -112,6 +153,8 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $vSwitchName;
 
     /**
+     * @description The ID of the VPC to which the vSwitch belongs.
+     *
      * @example vpc-257gq642n****
      *
      * @var string
@@ -119,6 +162,8 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $vpcId;
 
     /**
+     * @description The ID of the zone to which the vSwitch belongs.
+     *
      * @example cn-beijing-a
      *
      * @var string
@@ -136,6 +181,7 @@ class DescribeVSwitchAttributesResponseBody extends Model
         'requestId'               => 'RequestId',
         'resourceGroupId'         => 'ResourceGroupId',
         'routeTable'              => 'RouteTable',
+        'shareType'               => 'ShareType',
         'status'                  => 'Status',
         'tags'                    => 'Tags',
         'vSwitchId'               => 'VSwitchId',
@@ -183,6 +229,9 @@ class DescribeVSwitchAttributesResponseBody extends Model
         }
         if (null !== $this->routeTable) {
             $res['RouteTable'] = null !== $this->routeTable ? $this->routeTable->toMap() : null;
+        }
+        if (null !== $this->shareType) {
+            $res['ShareType'] = $this->shareType;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -246,6 +295,9 @@ class DescribeVSwitchAttributesResponseBody extends Model
         }
         if (isset($map['RouteTable'])) {
             $model->routeTable = routeTable::fromMap($map['RouteTable']);
+        }
+        if (isset($map['ShareType'])) {
+            $model->shareType = $map['ShareType'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

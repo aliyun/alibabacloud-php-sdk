@@ -16,6 +16,8 @@ class ModifyCommonBandwidthPackageSpecRequest extends Model
     public $bandwidth;
 
     /**
+     * @description The ID of the request.
+     *
      * @example cbwp-2ze2ic1xd2qeqk145****
      *
      * @var string
@@ -33,6 +35,9 @@ class ModifyCommonBandwidthPackageSpecRequest extends Model
     public $ownerId;
 
     /**
+     * @description The maximum bandwidth of the EIP bandwidth plan. Unit: Mbit/s.
+     *
+     * Valid values: **1** to **1000**.
      * @example cn-hangzhou
      *
      * @var string

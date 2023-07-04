@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomerGatewayRequest extends Model
 {
     /**
+     * @description The autonomous system number (ASN) of the gateway device in the data center.
+     *
+     **Asn** is a 4-byte number. You can enter the number in two segments and separate the first 16 bits from the following 16 bits with a period (.). Enter the number in each segment in the decimal format.
+     *
+     * For example, if you enter 123.456, the ASN is: 123 × 65536 + 456 = 8061384.
      * @example 65530
      *
      * @var string
@@ -17,6 +22,9 @@ class CreateCustomerGatewayRequest extends Model
     public $asn;
 
     /**
+     * @description The authentication key of the BGP routing protocol for the gateway device in the data center.
+     *
+     * The key must be 1 to 64 characters in length. It can contain only ASCII characters and cannot contain spaces or question marks (?).
      * @example AuthKey****
      *
      * @var string
@@ -24,6 +32,11 @@ class CreateCustomerGatewayRequest extends Model
     public $authKey;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 02fb3da4-130e-11e9-8e44****
      *
      * @var string
@@ -31,6 +44,9 @@ class CreateCustomerGatewayRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the customer gateway.
+     *
+     * The description must be 1 to 100 characters in length, and cannot start with `http://` or `https://`.
      * @example desctest
      *
      * @var string
@@ -38,6 +54,8 @@ class CreateCustomerGatewayRequest extends Model
     public $description;
 
     /**
+     * @description The static public IP address of the gateway device in the data center.
+     *
      * @example 101.12.XX.XX
      *
      * @var string
@@ -45,6 +63,9 @@ class CreateCustomerGatewayRequest extends Model
     public $ipAddress;
 
     /**
+     * @description The name of the customer gateway.
+     *
+     * The name must be 1 to 100 characters in length, and cannot start with `http://` or `https://`.
      * @example nametest
      *
      * @var string
@@ -62,6 +83,9 @@ class CreateCustomerGatewayRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the customer gateway.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string

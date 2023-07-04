@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListFullNatEntriesRequest extends Model
 {
     /**
+     * @description The ID of the FULLNAT table to which the FULLNAT entries to be queried belong.
+     *
+     * >  You must specify at least one of the **FullNatTableId** and **NatGatewayId** parameters.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -16,6 +19,8 @@ class ListFullNatEntriesRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the elastic network interface (ENI) that you want to query. You can specify up to 20 ENIs.
+     *
      * @example fullnat-gw8fz23jezpbblf1j****
      *
      * @var string
@@ -28,6 +33,9 @@ class ListFullNatEntriesRequest extends Model
     public $fullNatEntryNames;
 
     /**
+     * @description The name of the FULLNAT entry that you want to query. You can enter the names of up to 20 FULLNAT entries.
+     *
+     * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example fulltb-gw88z7hhlv43rmb26****
      *
      * @var string
@@ -35,6 +43,8 @@ class ListFullNatEntriesRequest extends Model
     public $fullNatTableId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example TCP
      *
      * @var string
@@ -42,6 +52,11 @@ class ListFullNatEntriesRequest extends Model
     public $ipProtocol;
 
     /**
+     * @description The protocol of the packets that are forwarded by the port. Valid values:
+     *
+     *   **TCP**
+     *   **UDP**
+     *
      * @example 20
      *
      * @var int
@@ -49,6 +64,8 @@ class ListFullNatEntriesRequest extends Model
     public $maxResults;
 
     /**
+     * @description The ID of the VPC NAT gateway.
+     *
      * @example ngw-bp1uewa15k4iy5770****
      *
      * @var string
@@ -61,6 +78,9 @@ class ListFullNatEntriesRequest extends Model
     public $networkInterfaceIds;
 
     /**
+     * @description The region ID of the virtual private cloud (VPC) NAT gateway to which the FULLNAT entries to be queried belong.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
      * @var string
@@ -78,6 +98,9 @@ class ListFullNatEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
+     * >  You must specify at least one of the **FullNatTableId** and **NatGatewayId** parameters.
      * @example eu-central-1
      *
      * @var string

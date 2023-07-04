@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyIPv6TranslatorAttributeRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      * @example sha1111
      *
      * @var string
@@ -16,6 +19,8 @@ class ModifyIPv6TranslatorAttributeRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of IPv6 Translation Service. This parameter is empty by default. It must be 2 to 100 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It cannot start with http:// or [https://](https://。).
+     *
      * @example instancedescription
      *
      * @var string
@@ -23,13 +28,17 @@ class ModifyIPv6TranslatorAttributeRequest extends Model
     public $description;
 
     /**
-     * @example ipv6trans-bp1858ysxxxxxx
+     * @description The ID of the IPv6 Translation Service instance.
+     *
+     * @example ipv6trans-bp1858ys****
      *
      * @var string
      */
     public $ipv6TranslatorId;
 
     /**
+     * @description The name of the IPv6 Translation Service instance. The default name is the instance ID. It must be 2 to 100 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It cannot start with http:// or [https://](https://。).
+     *
      * @example instancename
      *
      * @var string
@@ -47,6 +56,8 @@ class ModifyIPv6TranslatorAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

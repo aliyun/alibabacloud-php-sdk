@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBgpPeersRequest extends Model
 {
     /**
+     * @description The ID of the BGP group to which the BGP peer that you want to query belongs.
+     *
      * @example bgpg-2zev8h2wo414sfh****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeBgpPeersRequest extends Model
     public $bgpGroupId;
 
     /**
+     * @description The ID of the BGP peer that you want to query.
+     *
      * @example bgp-2ze3un0ft1jd1xd****
      *
      * @var string
@@ -23,6 +27,11 @@ class DescribeBgpPeersRequest extends Model
     public $bgpPeerId;
 
     /**
+     * @description Specifies whether the BGP group is the default BGP group. Valid values:
+     *
+     *   **true**: The BGP group is the default BGP group.
+     *   **false**: The BGP group is not the default BGP group.
+     *
      * @example false
      *
      * @var bool
@@ -40,6 +49,8 @@ class DescribeBgpPeersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -47,6 +58,8 @@ class DescribeBgpPeersRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -54,6 +67,9 @@ class DescribeBgpPeersRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the BGP group to which the BGP peer that you want to query belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string
@@ -71,6 +87,8 @@ class DescribeBgpPeersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the virtual border router (VBR) that is associated with the BGP peer that you want to query.
+     *
      * @example vbr-2zecmmvg5gvu8i4te****
      *
      * @var string

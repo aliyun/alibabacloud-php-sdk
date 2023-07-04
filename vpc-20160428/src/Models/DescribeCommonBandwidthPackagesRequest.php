@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeCommonBandwidthPackagesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCommonBandwidthPackagesRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example cbwp-2ze2ic1xd2qeqk145****
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $bandwidthPackageId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +28,8 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $dryRun;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +37,11 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $includeReservationData;
 
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and instance status. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false**: performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed. This is the default value.
+     *
      * @example test123
      *
      * @var string
@@ -47,6 +59,11 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $ownerId;
 
     /**
+     * @description Specifies whether to enable Anti-DDoS Pro/Premium. Valid values:
+     *
+     *   **false**: disables Anti-DDoS Pro/Premium. This is the default value.
+     *   **true**: enables Anti-DDoS Pro/Premium.
+     *
      * @example 1
      *
      * @var int
@@ -54,6 +71,8 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -61,6 +80,8 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the EIP bandwidth plan.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -68,6 +89,8 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $regionId;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example rg-acfmxazb4ph****
      *
      * @var string
@@ -85,11 +108,18 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The number of the returned page.
+     *
      * @example false
      *
      * @var bool
      */
     public $securityProtectionEnabled;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'bandwidthPackageId'        => 'BandwidthPackageId',
         'dryRun'                    => 'DryRun',
@@ -104,6 +134,7 @@ class DescribeCommonBandwidthPackagesRequest extends Model
         'resourceOwnerAccount'      => 'ResourceOwnerAccount',
         'resourceOwnerId'           => 'ResourceOwnerId',
         'securityProtectionEnabled' => 'SecurityProtectionEnabled',
+        'tag'                       => 'Tag',
     ];
 
     public function validate()
@@ -151,6 +182,15 @@ class DescribeCommonBandwidthPackagesRequest extends Model
         }
         if (null !== $this->securityProtectionEnabled) {
             $res['SecurityProtectionEnabled'] = $this->securityProtectionEnabled;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -202,6 +242,15 @@ class DescribeCommonBandwidthPackagesRequest extends Model
         }
         if (isset($map['SecurityProtectionEnabled'])) {
             $model->securityProtectionEnabled = $map['SecurityProtectionEnabled'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6GatewayAttributeRequest extends Model
 {
     /**
-     * @example ipv6gw-123456xxxxxxxx
+     * @description The ID of the IPv6 gateway that you want to query.
+     *
+     * @example ipv6gw-hp3y0l3ln89j8cdvf****
      *
      * @var string
      */
@@ -26,6 +28,8 @@ class DescribeIpv6GatewayAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-huhehaote
      *
      * @var string

@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class ListFullNatEntriesResponseBody extends Model
 {
     /**
+     * @description The frontend port that is used for port mapping in FULLNAT entries. Valid values: **1** to **65535**.
+     *
      * @var fullNatEntries[]
      */
     public $fullNatEntries;
 
     /**
+     * @description Indicates whether the token for the next query exists. Valid values:
+     *
+     *   If the value of **NextToken** is empty, no next queries are sent.
+     *   If the value of **NextToken** is returned, the value indicates the token that is used for the next query.
+     *
      * @example fullnat-gw8fz23jezpbblf1j****
      *
      * @var string
@@ -22,6 +29,8 @@ class ListFullNatEntriesResponseBody extends Model
     public $fullNatTableId;
 
     /**
+     * @description The NAT IP address that is used for address translation in FULLNAT entries.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +38,8 @@ class ListFullNatEntriesResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The number of FULLNAT entries returned.
+     *
      * @example ngw-gw8054kn57y3hq3bv****
      *
      * @var string
@@ -36,6 +47,8 @@ class ListFullNatEntriesResponseBody extends Model
     public $natGatewayId;
 
     /**
+     * @description The information about the FULLNAT entries that are queried.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
      * @var string
@@ -43,6 +56,8 @@ class ListFullNatEntriesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the FULLNAT table to which the queried FULLNAT entries belong.
+     *
      * @example F03E41F6-1A74-311F-8D98-124EEE9F37B8
      *
      * @var string
@@ -50,6 +65,8 @@ class ListFullNatEntriesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The maximum number of entries returned.
+     *
      * @example 1
      *
      * @var int

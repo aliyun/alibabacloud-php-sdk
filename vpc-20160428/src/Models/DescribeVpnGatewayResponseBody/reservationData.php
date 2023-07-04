@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class reservationData extends Model
 {
     /**
+     * @description The custom tag of the VPN gateway.
+     *
      * @example 2020-07-20T16:00:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class reservationData extends Model
     public $reservationEndTime;
 
     /**
+     * @description The bandwidth specification of the pending order. Unit: Mbit/s.
+     *
      * @example enable
      *
      * @var string
@@ -23,6 +27,9 @@ class reservationData extends Model
     public $reservationIpsec;
 
     /**
+     * @description If the order type is **TEMP_UPGRADE** (temporary upgrade), this parameter indicates the time when the temporary upgrade expires.
+     *
+     * If the order type is **RENEWCHANGE** (specification change) or **RENEW** (renewal), this parameter indicates the time when the renewal or specification change takes effect.
      * @example 5
      *
      * @var int
@@ -30,6 +37,11 @@ class reservationData extends Model
     public $reservationMaxConnections;
 
     /**
+     * @description The IPsec-VPN status of the pending order. Valid values:
+     *
+     *   **enable**: enabled
+     *   **disable**: disabled
+     *
      * @example TEMP_UPGRADE
      *
      * @var string
@@ -37,6 +49,11 @@ class reservationData extends Model
     public $reservationOrderType;
 
     /**
+     * @description The SSL-VPN status of the pending order. Valid values:
+     *
+     *   **enable**: enabled
+     *   **disable**: disabled
+     *
      * @example 5
      *
      * @var string
@@ -44,6 +61,8 @@ class reservationData extends Model
     public $reservationSpec;
 
     /**
+     * @description The maximum number of concurrent SSL-VPN connections for the pending order.
+     *
      * @example enable
      *
      * @var string
@@ -51,6 +70,12 @@ class reservationData extends Model
     public $reservationSsl;
 
     /**
+     * @description The type of the pending order. Valid values:
+     *
+     *   **RENEWCHANGE**: renewal with upgrade or downgrade
+     *   **TEMP_UPGRADE**: temporary upgrade
+     *   **RENEW**: renewal
+     *
      * @example 1
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetVpcPrefixListAssociationsResponseBody extends Model
 {
     /**
+     * @description The number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,11 @@ class GetVpcPrefixListAssociationsResponseBody extends Model
     public $count;
 
     /**
+     * @description The token that determines the start point of the next query. Valid values:
+     *
+     *   If no value is returned for **NextToken**, no next queries are sent.
+     *   If **NextToken** is not empty, the value indicates the token that is used for the next query.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -24,11 +31,15 @@ class GetVpcPrefixListAssociationsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The information about the network instances that are associated with the prefix list.
+     *
      * @var prefixListAssociation[]
      */
     public $prefixListAssociation;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *
      * @var string
@@ -36,6 +47,8 @@ class GetVpcPrefixListAssociationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

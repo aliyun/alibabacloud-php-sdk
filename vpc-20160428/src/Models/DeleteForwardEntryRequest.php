@@ -16,6 +16,8 @@ class DeleteForwardEntryRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example fwd-8vbn3bc8roygjp0gy****
      *
      * @var string
@@ -23,6 +25,11 @@ class DeleteForwardEntryRequest extends Model
     public $forwardEntryId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example ftb-8vbx8xu2lqj9qb334****
      *
      * @var string
@@ -40,6 +47,8 @@ class DeleteForwardEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the DNAT entry to be deleted.
+     *
      * @example cn-hangzhou
      *
      * @var string

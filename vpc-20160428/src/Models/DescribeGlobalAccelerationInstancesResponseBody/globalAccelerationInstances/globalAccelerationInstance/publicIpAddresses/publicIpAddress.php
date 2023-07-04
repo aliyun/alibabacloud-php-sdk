@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class publicIpAddress extends Model
 {
     /**
+     * @description The ID of the public IP address of the GA instance.
+     *
      * @example eip-bp19yqraac4w3y0jd****
      *
      * @var string
@@ -16,6 +18,8 @@ class publicIpAddress extends Model
     public $allocationId;
 
     /**
+     * @description The public IP address of the GA instance.
+     *
      * @example 12.xx.xx.78
      *
      * @var string

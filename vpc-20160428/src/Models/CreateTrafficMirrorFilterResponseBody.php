@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTrafficMirrorFilterResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 28DB147D-217B-43E8-9E94-A3F6837DDC8A
      *
      * @var string
@@ -16,11 +18,17 @@ class CreateTrafficMirrorFilterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the mirrored traffic belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the filter.
+     *
      * @example tmf-j6cmls82xnc86vtpe****
      *
      * @var string

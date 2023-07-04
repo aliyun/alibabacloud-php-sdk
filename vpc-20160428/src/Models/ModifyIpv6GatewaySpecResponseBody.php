@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyIpv6GatewaySpecResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 9DFEDBEE-E5AB-49E8-A2DC-CC114C67AF75
      *
      * @var string

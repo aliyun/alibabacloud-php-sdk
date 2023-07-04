@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCommonBandwidthPackageIpBandwidthRequest extends Model
 {
     /**
+     * @description The maximum bandwidth for the EIP. This value cannot be larger than the maximum bandwidth of the EIP bandwidth plan. Unit: Mbit/s.
+     *
      * @example 500
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyCommonBandwidthPackageIpBandwidthRequest extends Model
     public $bandwidth;
 
     /**
+     * @description The ID of the EIP bandwidth plan.
+     *
      * @example cbwp-2zep6hw5d6y8exscd****
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyCommonBandwidthPackageIpBandwidthRequest extends Model
     public $bandwidthPackageId;
 
     /**
+     * @description The ID of the EIP that is associated with the EIP bandwidth plan.
+     *
      * @example eip-2zewysoansu0svfbg****
      *
      * @var string
@@ -40,6 +46,8 @@ class ModifyCommonBandwidthPackageIpBandwidthRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the EIP bandwidth plan. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

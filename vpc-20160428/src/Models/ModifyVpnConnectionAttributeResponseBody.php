@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnConnectionAttributeResponseBody\ikeConfig;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnConnectionAttributeResponseBody\ipsecConfig;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnConnectionAttributeResponseBody\tunnelOptionsSpecification;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnConnectionAttributeResponseBody\vcoHealthCheck;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVpnConnectionAttributeResponseBody\vpnBgpConfig;
 use AlibabaCloud\Tea\Model;
@@ -13,6 +14,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnConnectionAttributeResponseBody extends Model
 {
     /**
+     * @description The timestamp generated when the IPsec-VPN connection was established. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1492753817000
      *
      * @var int
@@ -20,6 +24,8 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The ID of the customer gateway.
+     *
      * @example cgw-p0w2jemrcj5u61un8****
      *
      * @var string
@@ -27,6 +33,8 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $customerGatewayId;
 
     /**
+     * @description The description of the IPsec-VPN connection.
+     *
      * @example description
      *
      * @var string
@@ -34,6 +42,11 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $description;
 
     /**
+     * @description Indicates whether IPsec negotiations immediately start after the configuration takes effect. Valid values:
+     *
+     *   **true:** IPsec negotiations immediately start after the configuration takes effect.
+     *   **false:** IPsec negotiations start when inbound traffic is detected.
+     *
      * @example false
      *
      * @var bool
@@ -41,6 +54,11 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $effectImmediately;
 
     /**
+     * @description Indicates whether DPD is enabled. Valid values:
+     *
+     *   **false:** The DPD feature is disabled.
+     *   **true:** The DPD feature is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -48,6 +66,11 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $enableDpd;
 
     /**
+     * @description Indicates whether NAT traversal is enabled. Valid values:
+     *
+     *   **false:** NAT traversal is disabled.
+     *   **true:** NAT traversal is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -55,16 +78,27 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $enableNatTraversal;
 
     /**
+     * @var bool
+     */
+    public $enableTunnelsBgp;
+
+    /**
+     * @description The configurations of Phase 1 negotiations.
+     *
      * @var ikeConfig
      */
     public $ikeConfig;
 
     /**
+     * @description The configurations of Phase 2 negotiations.
+     *
      * @var ipsecConfig
      */
     public $ipsecConfig;
 
     /**
+     * @description The CIDR block on the VPC side.
+     *
      * @example 10.1.1.0/24,10.1.2.0/24
      *
      * @var string
@@ -72,6 +106,8 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $localSubnet;
 
     /**
+     * @description The name of the IPsec-VPN connection.
+     *
      * @example nametest
      *
      * @var string
@@ -79,6 +115,8 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $name;
 
     /**
+     * @description The CIDR block on the data center side.
+     *
      * @example 10.2.1.0/24,10.2.2.0/24
      *
      * @var string
@@ -86,6 +124,8 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $remoteSubnet;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7DB79D0C-5F27-4AB5-995B-79BE55102F90
      *
      * @var string
@@ -93,16 +133,27 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @var tunnelOptionsSpecification
+     */
+    public $tunnelOptionsSpecification;
+
+    /**
+     * @description The health check configurations.
+     *
      * @var vcoHealthCheck
      */
     public $vcoHealthCheck;
 
     /**
+     * @description The BGP configurations.
+     *
      * @var vpnBgpConfig
      */
     public $vpnBgpConfig;
 
     /**
+     * @description The ID of the IPsec-VPN connection.
+     *
      * @example vco-bp1bbi27hojx80nck****
      *
      * @var string
@@ -110,28 +161,32 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
     public $vpnConnectionId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1q8bgx4xnkm2ogj****
      *
      * @var string
      */
     public $vpnGatewayId;
     protected $_name = [
-        'createTime'         => 'CreateTime',
-        'customerGatewayId'  => 'CustomerGatewayId',
-        'description'        => 'Description',
-        'effectImmediately'  => 'EffectImmediately',
-        'enableDpd'          => 'EnableDpd',
-        'enableNatTraversal' => 'EnableNatTraversal',
-        'ikeConfig'          => 'IkeConfig',
-        'ipsecConfig'        => 'IpsecConfig',
-        'localSubnet'        => 'LocalSubnet',
-        'name'               => 'Name',
-        'remoteSubnet'       => 'RemoteSubnet',
-        'requestId'          => 'RequestId',
-        'vcoHealthCheck'     => 'VcoHealthCheck',
-        'vpnBgpConfig'       => 'VpnBgpConfig',
-        'vpnConnectionId'    => 'VpnConnectionId',
-        'vpnGatewayId'       => 'VpnGatewayId',
+        'createTime'                 => 'CreateTime',
+        'customerGatewayId'          => 'CustomerGatewayId',
+        'description'                => 'Description',
+        'effectImmediately'          => 'EffectImmediately',
+        'enableDpd'                  => 'EnableDpd',
+        'enableNatTraversal'         => 'EnableNatTraversal',
+        'enableTunnelsBgp'           => 'EnableTunnelsBgp',
+        'ikeConfig'                  => 'IkeConfig',
+        'ipsecConfig'                => 'IpsecConfig',
+        'localSubnet'                => 'LocalSubnet',
+        'name'                       => 'Name',
+        'remoteSubnet'               => 'RemoteSubnet',
+        'requestId'                  => 'RequestId',
+        'tunnelOptionsSpecification' => 'TunnelOptionsSpecification',
+        'vcoHealthCheck'             => 'VcoHealthCheck',
+        'vpnBgpConfig'               => 'VpnBgpConfig',
+        'vpnConnectionId'            => 'VpnConnectionId',
+        'vpnGatewayId'               => 'VpnGatewayId',
     ];
 
     public function validate()
@@ -159,6 +214,9 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
         if (null !== $this->enableNatTraversal) {
             $res['EnableNatTraversal'] = $this->enableNatTraversal;
         }
+        if (null !== $this->enableTunnelsBgp) {
+            $res['EnableTunnelsBgp'] = $this->enableTunnelsBgp;
+        }
         if (null !== $this->ikeConfig) {
             $res['IkeConfig'] = null !== $this->ikeConfig ? $this->ikeConfig->toMap() : null;
         }
@@ -176,6 +234,9 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->tunnelOptionsSpecification) {
+            $res['TunnelOptionsSpecification'] = null !== $this->tunnelOptionsSpecification ? $this->tunnelOptionsSpecification->toMap() : null;
         }
         if (null !== $this->vcoHealthCheck) {
             $res['VcoHealthCheck'] = null !== $this->vcoHealthCheck ? $this->vcoHealthCheck->toMap() : null;
@@ -219,6 +280,9 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
         if (isset($map['EnableNatTraversal'])) {
             $model->enableNatTraversal = $map['EnableNatTraversal'];
         }
+        if (isset($map['EnableTunnelsBgp'])) {
+            $model->enableTunnelsBgp = $map['EnableTunnelsBgp'];
+        }
         if (isset($map['IkeConfig'])) {
             $model->ikeConfig = ikeConfig::fromMap($map['IkeConfig']);
         }
@@ -236,6 +300,9 @@ class ModifyVpnConnectionAttributeResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TunnelOptionsSpecification'])) {
+            $model->tunnelOptionsSpecification = tunnelOptionsSpecification::fromMap($map['TunnelOptionsSpecification']);
         }
         if (isset($map['VcoHealthCheck'])) {
             $model->vcoHealthCheck = vcoHealthCheck::fromMap($map['VcoHealthCheck']);

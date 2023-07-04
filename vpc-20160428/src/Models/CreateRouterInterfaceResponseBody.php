@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRouterInterfaceResponseBody extends Model
 {
     /**
+     * @description The order number. This parameter is returned if InstanceChargeType is set to PrePaid.
+     *
      * @example 202008594930117
      *
      * @var int
@@ -16,6 +18,8 @@ class CreateRouterInterfaceResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 079874CD-AEC1-43E6-AC03-ADD96B6E4907
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateRouterInterfaceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the router interface.
+     *
      * @example ri-2ze7fbuohm****
      *
      * @var string

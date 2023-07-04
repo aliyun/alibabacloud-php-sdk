@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListTrafficMirrorSessionsResponseBody extends Model
 {
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If no value is returned for **NextToken**, no next queries are sent.
+     *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -17,6 +22,8 @@ class ListTrafficMirrorSessionsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 739CA01C-92EB-4C69-BCC0-280149C6F41E
      *
      * @var string
@@ -24,6 +31,8 @@ class ListTrafficMirrorSessionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var string
@@ -31,6 +40,8 @@ class ListTrafficMirrorSessionsResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The details about the traffic mirror session.
+     *
      * @var trafficMirrorSessions[]
      */
     public $trafficMirrorSessions;

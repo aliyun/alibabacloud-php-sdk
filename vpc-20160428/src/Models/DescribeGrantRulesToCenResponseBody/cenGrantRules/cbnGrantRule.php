@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cbnGrantRule extends Model
 {
     /**
+     * @description The UID of the Alibaba Cloud account to which the authorized CEN instance belongs.
+     *
      * @example cen-9gsm1q2yh1prpt****
      *
      * @var string
@@ -16,7 +18,9 @@ class cbnGrantRule extends Model
     public $cenInstanceId;
 
     /**
-     * @example 1000000000
+     * @description The time when the instance was created.
+     *
+     * @example 132193271328****
      *
      * @var int
      */

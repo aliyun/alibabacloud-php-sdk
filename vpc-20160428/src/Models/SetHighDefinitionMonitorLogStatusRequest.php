@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetHighDefinitionMonitorLogStatusRequest extends Model
 {
     /**
+     * @description The ID of the instance for which you want to configure fine-grained monitoring.
+     *
      * @example eip-wz9fi6qboho9fwgx7****
      *
      * @var string
@@ -16,6 +18,8 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     public $instanceId;
 
     /**
+     * @description The type of the instance. Set the value to **EIP**.
+     *
      * @example EIP
      *
      * @var string
@@ -23,6 +27,8 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     public $instanceType;
 
     /**
+     * @description The name of the project of Log Service.
+     *
      * @example hdmonitor-cn-shenzhen
      *
      * @var string
@@ -30,6 +36,8 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     public $logProject;
 
     /**
+     * @description The name of the Logstore of Log Service.
+     *
      * @example hdmonitor
      *
      * @var string
@@ -47,6 +55,9 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the instance is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -64,6 +75,11 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The status of fine-grained monitoring. Valid values:
+     *
+     *   **ON**: enables fine-grained monitoring.
+     *   **OFF**: disables fine-grained monitoring.
+     *
      * @example ON
      *
      * @var string

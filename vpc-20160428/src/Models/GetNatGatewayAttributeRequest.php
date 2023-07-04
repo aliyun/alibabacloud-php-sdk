@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetNatGatewayAttributeRequest extends Model
 {
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example ngw-bp1b0lic8uz4r6vf2****
      *
      * @var string
@@ -26,6 +28,9 @@ class GetNatGatewayAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the NAT gateway is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-qingdao
      *
      * @var string

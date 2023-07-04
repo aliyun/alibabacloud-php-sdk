@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ipv6EgressOnlyRule extends Model
 {
     /**
+     * @description The description of the egress-only rule.
+     *
      * @example ruledescription
      *
      * @var string
@@ -16,13 +18,17 @@ class ipv6EgressOnlyRule extends Model
     public $description;
 
     /**
-     * @example i-123456xxxxxxxx
+     * @description The ID of the instance to which the egress-only rule applies.
+     *
+     * @example ipv6gw-bp1rhhs9zjlxukc5e****
      *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the instance to which the egress-only rule applies.
+     *
      * @example Ipv6Address
      *
      * @var string
@@ -30,13 +36,17 @@ class ipv6EgressOnlyRule extends Model
     public $instanceType;
 
     /**
-     * @example ipv6gwpy-123456xxxxxxxx
+     * @description The ID of the egress-only rule.
+     *
+     * @example ipv6py-bp1rr7fq1md8pbb3k****
      *
      * @var string
      */
     public $ipv6EgressOnlyRuleId;
 
     /**
+     * @description The name of the egress-only rule.
+     *
      * @example rulename
      *
      * @var string
@@ -44,6 +54,8 @@ class ipv6EgressOnlyRule extends Model
     public $name;
 
     /**
+     * @description The status of the egress-only rule.
+     *
      * @example Available
      *
      * @var string

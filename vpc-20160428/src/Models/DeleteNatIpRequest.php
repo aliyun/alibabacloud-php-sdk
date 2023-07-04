@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteNatIpRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteNatIpRequest extends Model
     public $clientToken;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DeleteNatIp**.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,11 @@ class DeleteNatIpRequest extends Model
     public $dryRun;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. **RequestId** of each API request may be different.
      * @example vpcnatip-gw8y7q3cpk3fggs87****
      *
      * @var string
@@ -40,6 +49,11 @@ class DeleteNatIpRequest extends Model
     public $ownerId;
 
     /**
+     * @description Specifies whether to check the request without performing the operation. Valid values:
+     *
+     *   **true**: checks the request without performing the operation. The system checks your AccessKey pair, the RAM user permissions, and the required parameters If the request fails to pass the check, the corresponding error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *   **false**: sends the request. This is the default value. After the request passes the precheck, a 2XX HTTP status code is returned and the NAT IP address is deleted.
+     *
      * @example cn-qingdao
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnCrossAccountAuthorizationsResponseBody extends Model
 {
     /**
+     * @description The cross-account authorization information about the IPsec-VPN connection.
+     *
      * @var crossAccountAuthorizations[]
      */
     public $crossAccountAuthorizations;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeVpnCrossAccountAuthorizationsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeVpnCrossAccountAuthorizationsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DB04E39A-6F0C-36AC-BCA0-B6D371B90062
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeVpnCrossAccountAuthorizationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
      * @example 1
      *
      * @var int

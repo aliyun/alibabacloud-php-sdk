@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateDefaultVSwitchRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
      * @var string
@@ -16,6 +21,8 @@ class CreateDefaultVSwitchRequest extends Model
     public $clientToken;
 
     /**
+     * @description The last eight bits of the IPv6 CIDR block of the vSwitch. Valid values: **0** to **255**.
+     *
      * @example 12
      *
      * @var int
@@ -33,6 +40,9 @@ class CreateDefaultVSwitchRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the default vSwitch.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +60,9 @@ class CreateDefaultVSwitchRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The zone ID of the default vSwitch.
+     *
+     * You can call the [DescribeZones](~~36064~~) operation to query the most recent zone list.
      * @example cn-hangzhou-b
      *
      * @var string

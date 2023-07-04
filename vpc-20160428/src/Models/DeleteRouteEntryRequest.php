@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRouteEntryRequest extends Model
 {
     /**
+     * @description The destination CIDR block of the route entry. IPv4 and IPv6 CIDR blocks are supported.
+     *
      * @example 47.100.XX.XX/16
      *
      * @var string
@@ -17,6 +19,11 @@ class DeleteRouteEntryRequest extends Model
     public $destinationCidrBlock;
 
     /**
+     * @description The ID of the next hop.
+     *
+     *   To delete a route other than an equal-cost multi-path (ECMP) route, set the **NextHopId** parameter and ignore the **NextHopList** parameter.
+     *   To delete an ECMP route, set the **NextHopList** parameter and ignore the **NextHopId** parameter.
+     *
      * @example ri-2zeo3xzyf38r4urzd****
      *
      * @var string
@@ -39,6 +46,9 @@ class DeleteRouteEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the route table.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -56,6 +66,8 @@ class DeleteRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the route that you want to delete.
+     *
      * @example rte-bp1mnnr2al0naomnpv****
      *
      * @var string
@@ -63,6 +75,8 @@ class DeleteRouteEntryRequest extends Model
     public $routeEntryId;
 
     /**
+     * @description The ID of the route table to which the route belongs.
+     *
      * @example vtb-2ze3jgygk9bmsj23s****
      *
      * @var string

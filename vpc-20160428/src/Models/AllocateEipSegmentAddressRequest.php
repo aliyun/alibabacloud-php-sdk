@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AllocateEipSegmentAddressRequest extends Model
 {
     /**
+     * @description The subnet mask length of the contiguous EIPs. Valid values:
+     *
+     * - **28**: applies for 16 contiguous EIPs in each call.
+     * - **27**: applies for 32 contiguous EIPs in each call.
+     * - **26**: applies for 64 contiguous EIPs each call.
+     * - **25**: applies for 128 contiguous EIPs in each call.
+     * - **24**: applies for 256 contiguous EIPs in each call.
+     *
+     * >  The number of contiguous EIPs allocated by the system may be less than the requested number because one, three, or four EIPs may be reserved.
      * @example 5
      *
      * @var string
@@ -16,6 +25,13 @@ class AllocateEipSegmentAddressRequest extends Model
     public $bandwidth;
 
     /**
+     * @description The maximum bandwidth of the EIP. Unit: Mbit/s.
+     *
+     *   When **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByBandwidth**, the valid values for **Bandwidth** are **1** to **500**.
+     *   When **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByTraffic**, the valid values for **Bandwidth** are **1** to **200**.
+     *   When **InstanceChargeType** is set to **PrePaid**, the valid values for **Bandwidth** are **1** to **1000**.
+     *
+     * Default value: **5**. Unit: Mbit/s.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -23,6 +39,11 @@ class AllocateEipSegmentAddressRequest extends Model
     public $clientToken;
 
     /**
+     * @description The metering method of the contiguous EIPs. Valid values:
+     *
+     *   **PayByBandwidth** (default): pay-by-bandwidth
+     *   **PayByTraffic**: pay-by-data-transfer
+     *
      * @example 28
      *
      * @var string
@@ -30,6 +51,21 @@ class AllocateEipSegmentAddressRequest extends Model
     public $eipMask;
 
     /**
+     * @description The line type. Valid values:
+     *
+     *   **BGP** (default): BGP (Multi-ISP) lines All regions support BGP (Multi-ISP) EIPs.
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines. Only the following regions support BGP (Multi-ISP) Pro lines: China (Hong Kong), Singapore, Malaysia (Kuala Lumpur), Philippines (Manila), Indonesia (Jakarta), and Thailand (Bangkok).
+     *
+     * If you are allowed to use single-ISP bandwidth, you can also choose one of the following values:
+     *
+     *   **ChinaTelecom**: China Telecom
+     *   **ChinaUnicom**: China Unicom
+     *   **ChinaMobile**: China Mobile
+     *   **ChinaTelecom_L2**: China Telecom L2
+     *   **ChinaUnicom_L2**: China Unicom L2
+     *   **ChinaMobile_L2**: China Mobile L2
+     *
+     * If your services are deployed in China East 1 Finance, this parameter is required and you must set the value to **BGP_FinanceCloud**.
      * @example PayByBandwidth
      *
      * @var string
@@ -37,6 +73,8 @@ class AllocateEipSegmentAddressRequest extends Model
     public $internetChargeType;
 
     /**
+     * @description The ID of the contiguous EIP group.
+     *
      * @example BGP
      *
      * @var string
@@ -44,6 +82,8 @@ class AllocateEipSegmentAddressRequest extends Model
     public $isp;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example public
      *
      * @var string
@@ -61,6 +101,8 @@ class AllocateEipSegmentAddressRequest extends Model
     public $ownerId;
 
     /**
+     * @description Set the value to **public**, which specifies the Internet.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -68,6 +110,8 @@ class AllocateEipSegmentAddressRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example rg-bp67acfmxazb4ph****
      *
      * @var string
@@ -83,6 +127,11 @@ class AllocateEipSegmentAddressRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $zone;
     protected $_name = [
         'bandwidth'            => 'Bandwidth',
         'clientToken'          => 'ClientToken',
@@ -96,6 +145,7 @@ class AllocateEipSegmentAddressRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'zone'                 => 'Zone',
     ];
 
     public function validate()
@@ -140,6 +190,9 @@ class AllocateEipSegmentAddressRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->zone) {
+            $res['Zone'] = $this->zone;
         }
 
         return $res;
@@ -188,6 +241,9 @@ class AllocateEipSegmentAddressRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Zone'])) {
+            $model->zone = $map['Zone'];
         }
 
         return $model;

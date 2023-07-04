@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelCommonBandwidthPackageIpBandwidthRequest extends Model
 {
     /**
+     * @description The ID of the EIP bandwidth plan.
+     *
      * @example cbwp-bp13d0m4e2qv8xxxxxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class CancelCommonBandwidthPackageIpBandwidthRequest extends Model
     public $bandwidthPackageId;
 
     /**
+     * @description The ID of the EIP that is associated with the EIP bandwidth plan.
+     *
      * @example eip-2zewysoansu0sxxxxxxxx
      *
      * @var string
@@ -33,6 +37,8 @@ class CancelCommonBandwidthPackageIpBandwidthRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the EIP bandwidth plan. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

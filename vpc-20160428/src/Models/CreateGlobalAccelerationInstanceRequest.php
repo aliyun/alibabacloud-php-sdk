@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateGlobalAccelerationInstanceRequest extends Model
 {
     /**
+     * @description The maximum bandwidth of the GA instance. Set the value to **10**. Unit: Mbit/s.
+     *
      * @example 10
      *
      * @var string
@@ -16,6 +18,11 @@ class CreateGlobalAccelerationInstanceRequest extends Model
     public $bandwidth;
 
     /**
+     * @description The bandwidth type. Valid values:
+     *
+     *   **Sharing**
+     *   **Exclusive**
+     *
      * @example Exclusive
      *
      * @var string
@@ -23,6 +30,9 @@ class CreateGlobalAccelerationInstanceRequest extends Model
     public $bandwidthType;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      * @example 02fb3da4-130e-11e9-8e44-0016e04115b
      *
      * @var string
@@ -30,6 +40,9 @@ class CreateGlobalAccelerationInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the GA instance.
+     *
+     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      * @example My GA
      *
      * @var string
@@ -37,6 +50,9 @@ class CreateGlobalAccelerationInstanceRequest extends Model
     public $description;
 
     /**
+     * @description The name of the GA instance.
+     *
+     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`.
      * @example GA-1
      *
      * @var string
@@ -54,6 +70,9 @@ class CreateGlobalAccelerationInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the GA instance.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -71,6 +90,13 @@ class CreateGlobalAccelerationInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The acceleration area. Valid values:
+     *
+     *   **china-mainland**
+     *   **north-america**
+     *   **asia-pacific**
+     *   **europe**
+     *
      * @example china-mainland
      *
      * @var string

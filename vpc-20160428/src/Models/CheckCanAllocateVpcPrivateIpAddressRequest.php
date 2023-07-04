@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
 {
     /**
+     * @description Indicates whether the private IP address is available. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example ipv4
      *
      * @var string
@@ -26,6 +31,8 @@ class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
     public $ownerId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **CheckCanAllocateVpcPrivateIpAddress**.
+     *
      * @example 10.0.0.7
      *
      * @var string
@@ -33,6 +40,8 @@ class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
     public $privateIpAddress;
 
     /**
+     * @description To query whether a private IP address is available, the private IP address must belong to the vSwitch specified by the **VSwitchId** parameter.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -50,6 +59,11 @@ class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The version of the private IP address. Valid values:
+     *
+     *   **ipv4**: IPv4 If you want to query an IPv4 address, this parameter is optional.
+     *   **ipv6**: IPv6 If you want to query an IPv6 address, this parameter is required.
+     *
      * @example vsw-m5ew3t46z2drmifnt****
      *
      * @var string

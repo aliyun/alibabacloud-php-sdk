@@ -6,11 +6,14 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeCommonBandwidthPackagesR
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeCommonBandwidthPackagesResponseBody\commonBandwidthPackages\commonBandwidthPackage\publicIpAddresses;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeCommonBandwidthPackagesResponseBody\commonBandwidthPackages\commonBandwidthPackage\securityProtectionTypes;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeCommonBandwidthPackagesResponseBody\commonBandwidthPackages\commonBandwidthPackage\tags;
 use AlibabaCloud\Tea\Model;
 
 class commonBandwidthPackage extends Model
 {
     /**
+     * @description The new maximum bandwidth. Unit: Mbit/s.
+     *
      * @example 20
      *
      * @var string
@@ -18,6 +21,8 @@ class commonBandwidthPackage extends Model
     public $bandwidth;
 
     /**
+     * @description The description of the EIP bandwidth plan.
+     *
      * @example cbwp-bp1t3sm1ffzmshdki****
      *
      * @var string
@@ -25,6 +30,11 @@ class commonBandwidthPackage extends Model
     public $bandwidthPackageId;
 
     /**
+     * @description Indicates whether the information about pending orders was returned.
+     *
+     *   **false**: The information about pending orders was not returned.
+     *   **true**: The information about pending orders was returned.
+     *
      * @example Normal
      *
      * @var string
@@ -32,6 +42,10 @@ class commonBandwidthPackage extends Model
     public $businessStatus;
 
     /**
+     * @description The new metering method.
+     *
+     **PayByTraffic**: the pay-by-data-transfer metering method
+     *
      * @example 2017-06-28T06:39:20Z
      *
      * @var string
@@ -39,6 +53,10 @@ class commonBandwidthPackage extends Model
     public $creationTime;
 
     /**
+     * @description The billing method of the EIP bandwidth plan.
+     *
+     **PostPaid**: the pay-as-you-go billing method
+     *
      * @example true
      *
      * @var bool
@@ -46,6 +64,8 @@ class commonBandwidthPackage extends Model
     public $deletionProtection;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example none
      *
      * @var string
@@ -53,6 +73,10 @@ class commonBandwidthPackage extends Model
     public $description;
 
     /**
+     * @description The metering method of the EIP bandwidth plan.
+     *
+     **PayByTraffic**: the pay-by-data-transfer metering method.
+     *
      * @example 2019-01-15T03:08:37Z
      *
      * @var string
@@ -60,6 +84,8 @@ class commonBandwidthPackage extends Model
     public $expiredTime;
 
     /**
+     * @description The ID of the EIP.
+     *
      * @example false
      *
      * @var string
@@ -67,6 +93,8 @@ class commonBandwidthPackage extends Model
     public $hasReservationData;
 
     /**
+     * @description The public IP address.
+     *
      * @example BGP
      *
      * @var string
@@ -74,6 +102,11 @@ class commonBandwidthPackage extends Model
     public $ISP;
 
     /**
+     * @description Indicates whether the EIP bandwidth plan was created by the service account.
+     *
+     *   **0**: The EIP bandwidth plan was not created by the service account.
+     *   **1**: The EIP bandwidth plan was created by the service account.
+     *
      * @example PostPaid
      *
      * @var string
@@ -81,6 +114,21 @@ class commonBandwidthPackage extends Model
     public $instanceChargeType;
 
     /**
+     * @description The line type.
+     *
+     *   **BGP**: BGP (Multi-ISP) lines. BGP (Multi-ISP) lines are available in all regions.
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines. BGP (Multi-ISP) Pro lines are available only in the China (Hong Kong), Singapore, Philippines (Manila), Malaysia (Kuala Lumpur), Indonesia (Jakarta), and Thailand (Bangkok) regions.
+     *
+     * If you are allowed to use single-ISP bandwidth, one of the following values is returned:
+     *
+     *   **ChinaTelecom**: China Telecom
+     *   **ChinaUnicom**: China Unicom
+     *   **ChinaMobile**: China Mobile
+     *   **ChinaTelecom_L2**: China Telecom L2
+     *   **ChinaUnicom_L2**: China Unicom L2
+     *   **ChinaMobile_L2**: China Mobile L2
+     *
+     * If your services are deployed in China East 1 Finance, **BGP_FinanceCloud** is returned.
      * @example PayByBandwidth
      *
      * @var string
@@ -88,6 +136,8 @@ class commonBandwidthPackage extends Model
     public $internetChargeType;
 
     /**
+     * @description The elastic IP addresses (EIPs) associated with the EIP bandwidth plan.
+     *
      * @example abc
      *
      * @var string
@@ -95,11 +145,18 @@ class commonBandwidthPackage extends Model
     public $name;
 
     /**
+     * @description Indicates whether the EIP is associated with the EIP bandwidth plan.
+     *
+     *   **BINDED**: The EIP is associated with the EIP bandwidth plan.
+     *   **BINDING**: The EIP is being associated with the EIP bandwidth plan.
+     *
      * @var publicIpAddresses
      */
     public $publicIpAddresses;
 
     /**
+     * @description The ID of the EIP bandwidth plan.
+     *
      * @example 20
      *
      * @var int
@@ -107,6 +164,8 @@ class commonBandwidthPackage extends Model
     public $ratio;
 
     /**
+     * @description The maximum bandwidth of the EIP bandwidth plan. Unit: Mbit/s.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -114,6 +173,12 @@ class commonBandwidthPackage extends Model
     public $regionId;
 
     /**
+     * @description The renewal method.
+     *
+     *   **RENEWCHANGE**: renewal with an upgrade or a downgrade
+     *   **TEMP_UPGRADE**: temporary upgrade
+     *   **UPGRADE**: upgrade
+     *
      * @example 2018-08-30T16:00:00Z
      *
      * @var string
@@ -121,6 +186,12 @@ class commonBandwidthPackage extends Model
     public $reservationActiveTime;
 
     /**
+     * @description The service state of the EIP bandwidth plan.
+     *
+     *   **Normal**: The EIP bandwidth plan works as expected.
+     *   **FinancialLocked**: The EIP bandwidth plan has an overdue payment.
+     *   **Unactivated**: The EIP bandwidth plan is not activated.
+     *
      * @example 1000
      *
      * @var string
@@ -128,6 +199,8 @@ class commonBandwidthPackage extends Model
     public $reservationBandwidth;
 
     /**
+     * @description The region ID of the EIP bandwidth plan.
+     *
      * @example PayByBandwidth
      *
      * @var string
@@ -135,6 +208,9 @@ class commonBandwidthPackage extends Model
     public $reservationInternetChargeType;
 
     /**
+     * @description The percentage of the minimum bandwidth commitment. **20** is returned.
+     *
+     * >  This parameter is available only on the Alibaba Cloud China site.
      * @example RENEWCHANGE
      *
      * @var string
@@ -142,6 +218,8 @@ class commonBandwidthPackage extends Model
     public $reservationOrderType;
 
     /**
+     * @description The name of the EIP bandwidth plan.
+     *
      * @example rg-acfmxazb4ph****
      *
      * @var string
@@ -154,6 +232,8 @@ class commonBandwidthPackage extends Model
     public $securityProtectionTypes;
 
     /**
+     * @description The time when the EIP bandwidth plan expired. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
+     *
      * @example 1
      *
      * @var int
@@ -161,11 +241,21 @@ class commonBandwidthPackage extends Model
     public $serviceManaged;
 
     /**
+     * @description Indicates whether deletion protection was enabled.
+     *
+     *   **true**: Deletion protection was enabled.
+     *   **false**: Deletion protection was disabled.
+     *
      * @example Available
      *
      * @var string
      */
     public $status;
+
+    /**
+     * @var tags
+     */
+    public $tags;
     protected $_name = [
         'bandwidth'                     => 'Bandwidth',
         'bandwidthPackageId'            => 'BandwidthPackageId',
@@ -190,6 +280,7 @@ class commonBandwidthPackage extends Model
         'securityProtectionTypes'       => 'SecurityProtectionTypes',
         'serviceManaged'                => 'ServiceManaged',
         'status'                        => 'Status',
+        'tags'                          => 'Tags',
     ];
 
     public function validate()
@@ -267,6 +358,9 @@ class commonBandwidthPackage extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
 
         return $res;
@@ -348,6 +442,9 @@ class commonBandwidthPackage extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
 
         return $model;

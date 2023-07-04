@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnPbrRouteEntryPriorityRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system sets **ClientToken** to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example d7d24a21-f4ba-4454-9173-b3****
      *
      * @var string
@@ -16,6 +21,9 @@ class ModifyVpnPbrRouteEntryPriorityRequest extends Model
     public $clientToken;
 
     /**
+     * @description The new priority of the policy-based route. Valid values: **1** to **100**.
+     *
+     * A smaller value indicates a higher priority.
      * @example 10
      *
      * @var int
@@ -23,6 +31,8 @@ class ModifyVpnPbrRouteEntryPriorityRequest extends Model
     public $newPriority;
 
     /**
+     * @description The next hop of the policy-based route.
+     *
      * @example vco-bp15oes1py4i66rmd****
      *
      * @var string
@@ -40,6 +50,9 @@ class ModifyVpnPbrRouteEntryPriorityRequest extends Model
     public $ownerId;
 
     /**
+     * @description The original priority of the policy-based route. Valid values: **1** to **100**.
+     *
+     * A smaller value indicates a higher priority.
      * @example 5
      *
      * @var int
@@ -47,6 +60,9 @@ class ModifyVpnPbrRouteEntryPriorityRequest extends Model
     public $priority;
 
     /**
+     * @description The ID of the region where the VPN gateway is created.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-henyuan
      *
      * @var string
@@ -64,6 +80,8 @@ class ModifyVpnPbrRouteEntryPriorityRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The destination CIDR block of the policy-based route.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -71,6 +89,8 @@ class ModifyVpnPbrRouteEntryPriorityRequest extends Model
     public $routeDest;
 
     /**
+     * @description The source CIDR block of the policy-based route.
+     *
      * @example 192.168.1.0/24
      *
      * @var string
@@ -78,6 +98,8 @@ class ModifyVpnPbrRouteEntryPriorityRequest extends Model
     public $routeSource;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1a3kqjiiq9legfx****
      *
      * @var string
@@ -85,6 +107,8 @@ class ModifyVpnPbrRouteEntryPriorityRequest extends Model
     public $vpnGatewayId;
 
     /**
+     * @description The weight of the policy-based route.
+     *
      * @example 100
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class forwardTable extends Model
 {
     /**
+     * @description The number of DNAT entries.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class forwardTable extends Model
     public $forwardEntryCount;
 
     /**
+     * @description The ID of the DNAT table.
+     *
      * @example ftb-uf6gj3mhsg94qsqst****
      *
      * @var string

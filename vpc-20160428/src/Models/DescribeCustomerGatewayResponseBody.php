@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomerGatewayResponseBody extends Model
 {
     /**
+     * @description The autonomous system number (ASN) of the gateway device in the data center.
+     *
      * @example 65535
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeCustomerGatewayResponseBody extends Model
     public $asn;
 
     /**
+     * @description The authentication key of the BGP routing protocol for the gateway device in the data center.
+     *
      * @example AuthKey****
      *
      * @var string
@@ -24,6 +28,9 @@ class DescribeCustomerGatewayResponseBody extends Model
     public $authKey;
 
     /**
+     * @description The timestamp generated when the customer gateway was created. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1492747187000
      *
      * @var int
@@ -31,6 +38,8 @@ class DescribeCustomerGatewayResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The ID of the customer gateway.
+     *
      * @example cgw-bp1pvpl9r9adju6l5****
      *
      * @var string
@@ -38,6 +47,8 @@ class DescribeCustomerGatewayResponseBody extends Model
     public $customerGatewayId;
 
     /**
+     * @description The description of the customer gateway.
+     *
      * @example desctest
      *
      * @var string
@@ -45,6 +56,8 @@ class DescribeCustomerGatewayResponseBody extends Model
     public $description;
 
     /**
+     * @description The public IP address of the gateway device in the data center.
+     *
      * @example 139.32.XX.XX
      *
      * @var string
@@ -52,6 +65,8 @@ class DescribeCustomerGatewayResponseBody extends Model
     public $ipAddress;
 
     /**
+     * @description The name of the customer gateway.
+     *
      * @example nametest
      *
      * @var string
@@ -59,6 +74,8 @@ class DescribeCustomerGatewayResponseBody extends Model
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A0457BC9-6C0F-4437-AB9D-FB2EABC1D6A2
      *
      * @var string
@@ -66,6 +83,8 @@ class DescribeCustomerGatewayResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of tags added to the customer gateway.
+     *
      * @var tags
      */
     public $tags;

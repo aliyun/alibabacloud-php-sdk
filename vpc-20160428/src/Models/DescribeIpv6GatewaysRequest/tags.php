@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The key of the tag. The tag key cannot be an empty string.
+     *
+     * You can specify at most 20 tag keys in each call.
+     * @example FinanceDept
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag.
+     *
+     * Each tag key corresponds to one tag value. You can specify at most 20 tag values in each call.
+     * @example FinanceJoshua
+     *
      * @var string
      */
     public $value;

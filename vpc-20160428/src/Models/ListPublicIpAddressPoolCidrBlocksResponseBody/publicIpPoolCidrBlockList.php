@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class publicIpPoolCidrBlockList extends Model
 {
     /**
+     * @description The ID of the IP address pool.
+     *
      * @example 47.0.XX.XX/24
      *
      * @var string
@@ -16,6 +18,8 @@ class publicIpPoolCidrBlockList extends Model
     public $cidrBlock;
 
     /**
+     * @description The CIDR blocks.
+     *
      * @example 2022-05-10T01:37:38Z
      *
      * @var string
@@ -23,6 +27,8 @@ class publicIpPoolCidrBlockList extends Model
     public $creationTime;
 
     /**
+     * @description The information about the CIDR blocks.
+     *
      * @example pippool-6wetvn6fumkgycssx****
      *
      * @var string
@@ -30,6 +36,8 @@ class publicIpPoolCidrBlockList extends Model
     public $publicIpAddressPoolId;
 
     /**
+     * @description The time when the CIDR block was created. The time is displayed in `YYYY-MM-DDThh:mm:ssZ` format.
+     *
      * @example Created
      *
      * @var string
@@ -37,6 +45,8 @@ class publicIpPoolCidrBlockList extends Model
     public $status;
 
     /**
+     * @description The total number of available IP addresses in the CIDR block.
+     *
      * @example 20
      *
      * @var int
@@ -44,6 +54,12 @@ class publicIpPoolCidrBlockList extends Model
     public $totalIpNum;
 
     /**
+     * @description The status of the CIDR block in the IP address pool. Valid values:
+     *
+     *   **Created**: available
+     *   **Deleting**: being deleted
+     *   **Modifying**: being modified
+     *
      * @example 20
      *
      * @var int

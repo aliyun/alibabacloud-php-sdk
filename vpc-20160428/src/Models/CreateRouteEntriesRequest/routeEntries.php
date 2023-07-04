@@ -13,9 +13,21 @@ class routeEntries extends Model
      *
      * @var string
      */
-    public $describption;
+    public $description;
 
     /**
+     * @description The type of next hop. You can specify up to 50 next hop types. Valid values:
+     *
+     *   **Instance**: Elastic Compute Service (ECS) instance. This is the default value.
+     *   **HaVip**: high-availability virtual IP address (HAVIP).
+     *   **RouterInterface**: router interface.
+     *   **NetworkInterface**: elastic network interface (ENI).
+     *   **VpnGateway**: VPN gateway.
+     *   **IPv6Gateway**: IPv6 gateway.
+     *   **NatGateway**: NAT gateway.
+     *   **Attachment**: transit router.
+     *   **VpcPeer**: VPC peering connection.
+     *
      * @example 192.168.0.0/24
      *
      * @var string
@@ -23,6 +35,9 @@ class routeEntries extends Model
     public $dstCidrBlock;
 
     /**
+     * @description The description of the custom route entry. You can specify up to 50 descriptions.
+     *
+     * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
      * @example IPv4
      *
      * @var int
@@ -30,6 +45,8 @@ class routeEntries extends Model
     public $ipVersion;
 
     /**
+     * @description The ID of the request.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +54,8 @@ class routeEntries extends Model
     public $name;
 
     /**
+     * @description The number of custom route entries that were successfully added.
+     *
      * @example i-j6c2fp57q8rr4jlu****
      *
      * @var string
@@ -44,6 +63,8 @@ class routeEntries extends Model
     public $nextHop;
 
     /**
+     * @description The number of custom route entries that failed to be added.
+     *
      * @example RouterInterface
      *
      * @var string
@@ -51,13 +72,16 @@ class routeEntries extends Model
     public $nextHopType;
 
     /**
+     * @description The name of the custom route entry that you want to add. You can specify up to 50 names.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example vtb-bp145q7glnuzd****
      *
      * @var string
      */
     public $routeTableId;
     protected $_name = [
-        'describption' => 'Describption',
+        'description'  => 'Description',
         'dstCidrBlock' => 'DstCidrBlock',
         'ipVersion'    => 'IpVersion',
         'name'         => 'Name',
@@ -73,8 +97,8 @@ class routeEntries extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->describption) {
-            $res['Describption'] = $this->describption;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->dstCidrBlock) {
             $res['DstCidrBlock'] = $this->dstCidrBlock;
@@ -106,8 +130,8 @@ class routeEntries extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Describption'])) {
-            $model->describption = $map['Describption'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['DstCidrBlock'])) {
             $model->dstCidrBlock = $map['DstCidrBlock'];

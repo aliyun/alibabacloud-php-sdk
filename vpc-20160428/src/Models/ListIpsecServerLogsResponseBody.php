@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListIpsecServerLogsResponseBody extends Model
 {
     /**
+     * @description The number of entries on the current page.
+     *
      * @example 10
      *
      * @var int
@@ -16,11 +18,19 @@ class ListIpsecServerLogsResponseBody extends Model
     public $count;
 
     /**
+     * @description An array of strings.
+     *
+     * Each item in the array is a log entry.
      * @var string[]
      */
     public $data;
 
     /**
+     * @description Indicates whether the log is accurate. Valid values:
+     *
+     *   **true**: accurate
+     *   **false**: inaccurate
+     *
      * @example true
      *
      * @var bool
@@ -28,6 +38,8 @@ class ListIpsecServerLogsResponseBody extends Model
     public $isCompleted;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +47,8 @@ class ListIpsecServerLogsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -42,6 +56,8 @@ class ListIpsecServerLogsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DEDAC5B1-9292-5BF7-BDDF-61BA58CFB2FB
      *
      * @var string

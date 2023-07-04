@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpv6EgressOnlyRuleRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate a value, but you must make sure that the value is unique among all requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** might be different for each API request.
      * @example 123456
      *
      * @var string
@@ -16,6 +21,8 @@ class DeleteIpv6EgressOnlyRuleRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the egress-only rule that you want to delete.
+     *
      * @example ipv6py-hp3w98rmlbqp0xxxxxxxx
      *
      * @var string
@@ -33,6 +40,8 @@ class DeleteIpv6EgressOnlyRuleRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the IPv6 gateway.
+     *
      * @example cn-huhehaote
      *
      * @var string

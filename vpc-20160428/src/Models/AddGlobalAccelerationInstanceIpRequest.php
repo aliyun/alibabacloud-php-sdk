@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddGlobalAccelerationInstanceIpRequest extends Model
 {
     /**
+     * @description The ID of the shared-bandwidth GA instance.
+     *
      * @example ga-Ldefrgbttnyyf****
      *
      * @var string
@@ -16,6 +18,9 @@ class AddGlobalAccelerationInstanceIpRequest extends Model
     public $globalAccelerationInstanceId;
 
     /**
+     * @description The EIP ID. You can call the [DescribeEipAddresses](~~36018~~) operation to query EIP IDs.
+     *
+     * >  Make sure that the billing method of the EIP is pay-as-you-go, and the EIP and the shared-bandwidth GA instance belong to the same region.
      * @example eip-rw434rwfdeaf****
      *
      * @var string
@@ -33,6 +38,9 @@ class AddGlobalAccelerationInstanceIpRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region of the shared-bandwidth GA instance.
+     *
+     * You can call the **DescribeRegions** operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

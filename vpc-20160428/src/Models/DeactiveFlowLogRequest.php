@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeactiveFlowLogRequest extends Model
 {
     /**
+     * @description The ID of the flow log.
+     *
      * @example fl-m5e8vhz2t21sel1nq****
      *
      * @var string
@@ -26,6 +28,8 @@ class DeactiveFlowLogRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where you want to create the flow log. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-qingdao
      *
      * @var string

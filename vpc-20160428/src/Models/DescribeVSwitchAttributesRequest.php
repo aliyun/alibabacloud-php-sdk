@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchAttributesRequest extends Model
 {
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends a request and performs a dry run. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -26,6 +31,9 @@ class DescribeVSwitchAttributesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the virtual private cloud (VPC) to which the route table belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +51,8 @@ class DescribeVSwitchAttributesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-25naue4g****
      *
      * @var string

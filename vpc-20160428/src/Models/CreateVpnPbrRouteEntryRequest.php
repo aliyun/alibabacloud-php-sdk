@@ -9,20 +9,30 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnPbrRouteEntryRequest extends Model
 {
     /**
-     * @example d7d24a21-f4ba-4454-9173-b3828dae492b
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * @example d7d24a21-f4ba-4454-9173-b3****
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @example 111
+     * @description The description of the policy-based route.
+     *
+     * The description must be 1 to 100 characters in length, and cannot start with http:// or https://.
+     * @example desctest
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The next hop of the policy-based route.
+     *
      * @example vco-bp15oes1py4i66rmd****
      *
      * @var string
@@ -30,6 +40,8 @@ class CreateVpnPbrRouteEntryRequest extends Model
     public $nextHop;
 
     /**
+     * @description The tunneling protocol. Set the value to **Ipsec**.
+     *
      * @example Ipsec
      *
      * @var string
@@ -47,11 +59,21 @@ class CreateVpnPbrRouteEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The priority of the policy-based route. Valid values: **1** to **100**. Default value: **10**.
+     *
+     * >  Only some VPN gateways in specific regions allow you to configure priorities for policy-based routes. For more information about the regions, see [Match rules of policy-based routes](~~110777~~).
+     * @example 10
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description Specifies whether to advertise the policy-based route to a virtual private cloud (VPC) route table. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -59,6 +81,8 @@ class CreateVpnPbrRouteEntryRequest extends Model
     public $publishVpc;
 
     /**
+     * @description The ID of the region where the VPN gateway is created. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -76,6 +100,8 @@ class CreateVpnPbrRouteEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The destination CIDR block of the policy-based route.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -83,6 +109,8 @@ class CreateVpnPbrRouteEntryRequest extends Model
     public $routeDest;
 
     /**
+     * @description The source CIDR block of the policy-based route.
+     *
      * @example 192.168.1.0/24
      *
      * @var string
@@ -90,6 +118,8 @@ class CreateVpnPbrRouteEntryRequest extends Model
     public $routeSource;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1a3kqjiiq9legfx****
      *
      * @var string
@@ -97,6 +127,14 @@ class CreateVpnPbrRouteEntryRequest extends Model
     public $vpnGatewayId;
 
     /**
+     * @description The weight of the policy-based route.
+     *
+     * You can configure health checks to automatically check the connection connectivity. If the active connection is down, the standby connection automatically takes over. For more information, see [CreateVpnConnection](~~120391~~).
+     *
+     *   **100**: The IPsec-VPN connection associated with the policy-based route serves as an active connection.
+     *   **0**: The IPsec-VPN connection associated with the policy-based route serves as a standby connection.
+     *
+     * >  When you specify the active or standby connection, the primary route and secondary route must use the same source CIDR block and destination CIDR block.
      * @example 0
      *
      * @var int

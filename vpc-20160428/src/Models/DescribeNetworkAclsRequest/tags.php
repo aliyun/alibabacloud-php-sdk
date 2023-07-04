@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the network ACL belongs.
+     *
+     * @example FinanceDept
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The region ID of the network ACL.
+     *
+     * @example FinanceJoshua
+     *
      * @var string
      */
     public $value;

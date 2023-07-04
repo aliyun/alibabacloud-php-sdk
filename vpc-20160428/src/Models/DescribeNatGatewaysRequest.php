@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeNatGatewaysRequest extends Model
 {
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     * - **true**: performs a dry run. The system prechecks whether your AccessKey pair is valid, whether the RAM user is authorized, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      * @example false
      *
      * @var bool
@@ -17,6 +21,8 @@ class DescribeNatGatewaysRequest extends Model
     public $dryRun;
 
     /**
+     * @description The billing method of the NAT gateway. Set the value to **PostPaid**, which specifies the pay-as-you-go billing method.
+     *
      * @example PostPaid
      *
      * @var string
@@ -24,6 +30,9 @@ class DescribeNatGatewaysRequest extends Model
     public $instanceChargeType;
 
     /**
+     * @description The name of the NAT gateway.
+     *
+     * If this parameter is not set, the system automatically assigns a name to the NAT gateway.
      * @example test
      *
      * @var string
@@ -31,6 +40,8 @@ class DescribeNatGatewaysRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example ngw-bp1uewa15k4iy5770****
      *
      * @var string
@@ -38,6 +49,8 @@ class DescribeNatGatewaysRequest extends Model
     public $natGatewayId;
 
     /**
+     * @description The type of NAT gateway. Set the value to **Enhanced** (enhanced NAT gateway).
+     *
      * @example Enhanced
      *
      * @var string
@@ -45,6 +58,11 @@ class DescribeNatGatewaysRequest extends Model
     public $natType;
 
     /**
+     * @description The type of the NAT gateway. Valid values:
+     *
+     *   **internet**: an Internet NAT gateway
+     *   **intranet**: a VPC NAT gateway
+     *
      * @example internet
      *
      * @var string
@@ -62,6 +80,8 @@ class DescribeNatGatewaysRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 10
      *
      * @var int
@@ -69,6 +89,8 @@ class DescribeNatGatewaysRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 1
      *
      * @var int
@@ -76,6 +98,9 @@ class DescribeNatGatewaysRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the NAT gateways that you want to query.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -83,6 +108,8 @@ class DescribeNatGatewaysRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the NAT gateway belongs.
+     *
      * @example rg-bp67acfmxazb4ph****
      *
      * @var string
@@ -100,11 +127,23 @@ class DescribeNatGatewaysRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The size of the NAT gateway. Ignore this parameter.
+     *
+     * @example Invalid parameter.
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @description The status of the NAT gateway. Valid values:
+     *
+     *   **Creating**: After you send a request to create a NAT gateway, the system creates the NAT gateway in the background. The NAT gateway remains in the **Creating** state until the operation is completed.
+     *   **Available**: The NAT gateway remains in a stable state after the NAT gateway is created.
+     *   **Modifying**: After you send a request to modify a NAT gateway, the system modifies the NAT gateway in the background. The NAT gateway remains in the **Modifying** state until the operation is completed.
+     *   **Deleting**: After you send a request to delete a NAT gateway, the system deletes the NAT gateway in the background. The NAT gateway remains in the **Deleting** state until the operation is completed.
+     *   **Converting**: After you send a request to upgrade a standard NAT gateway to an enhanced NAT gateway, the system upgrades the NAT gateway in the background. The NAT gateway remains in the **Converting** state until the operation is completed.
+     *
      * @example Available
      *
      * @var string
@@ -112,11 +151,15 @@ class DescribeNatGatewaysRequest extends Model
     public $status;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the VPC to which the NAT gateway belongs.
+     *
      * @example vpc-bp15zckdt37pq72z****
      *
      * @var string
@@ -124,6 +167,8 @@ class DescribeNatGatewaysRequest extends Model
     public $vpcId;
 
     /**
+     * @description The ID of the zone to which the NAT gateway belongs.
+     *
      * @example cn-hangzhou-b
      *
      * @var string

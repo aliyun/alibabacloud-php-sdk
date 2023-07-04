@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateIpv4GatewayResponseBody extends Model
 {
     /**
+     * @description The ID of the IPv4 gateway.
+     *
      * @example ipv4gw-5tsnc6s4ogsedtp3k****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateIpv4GatewayResponseBody extends Model
     public $ipv4GatewayId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F282742B-1BBB-5F63-A3AF-E92EC575A1A6
      *
      * @var string
@@ -23,6 +27,10 @@ class CreateIpv4GatewayResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;

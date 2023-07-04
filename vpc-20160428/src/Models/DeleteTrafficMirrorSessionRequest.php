@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTrafficMirrorSessionRequest extends Model
 {
     /**
+     * @description The ID of the traffic mirror session.
+     *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteTrafficMirrorSessionRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the region to which the traffic mirror session belongs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
+     *
      * @example false
      *
      * @var bool
@@ -50,6 +54,8 @@ class DeleteTrafficMirrorSessionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example tms-j6cla50buc44ap8tu****
      *
      * @var string

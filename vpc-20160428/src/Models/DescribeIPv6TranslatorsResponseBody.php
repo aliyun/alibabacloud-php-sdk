@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeIPv6TranslatorsResponseBody extends Model
 {
     /**
+     * @description The list of IPv6 Translation Service instances.
+     *
      * @var ipv6Translators
      */
     public $ipv6Translators;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeIPv6TranslatorsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,13 +35,17 @@ class DescribeIPv6TranslatorsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @example 3109D437-5D6D-4A28-B5F5-EF936DExxxx
+     * @description The request ID.
+     *
+     * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of returned entries.
+     *
      * @example 1
      *
      * @var int

@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class globalAccelerationInstance extends Model
 {
     /**
+     * @description The acceleration area of the GA instance.
+     *
      * @example china-mainland
      *
      * @var string
@@ -18,11 +20,15 @@ class globalAccelerationInstance extends Model
     public $accelerationLocation;
 
     /**
+     * @description The details about the backend servers of the GA instance.
+     *
      * @var backendServers
      */
     public $backendServers;
 
     /**
+     * @description The maximum bandwidth of the GA instance.
+     *
      * @example 10
      *
      * @var string
@@ -30,6 +36,11 @@ class globalAccelerationInstance extends Model
     public $bandwidth;
 
     /**
+     * @description The bandwidth type of the GA instance.
+     *
+     *   **Sharing**
+     *   **Exclusive** (default)
+     *
      * @example Exclusive
      *
      * @var string
@@ -37,6 +48,8 @@ class globalAccelerationInstance extends Model
     public $bandwidthType;
 
     /**
+     * @description The billing method of the GA instance.
+     *
      * @example PrePaid
      *
      * @var string
@@ -44,6 +57,8 @@ class globalAccelerationInstance extends Model
     public $chargeType;
 
     /**
+     * @description The time when the GA instance was created. The time is displayed in UTC.
+     *
      * @example 2018-07-05T03:39:31Z
      *
      * @var string
@@ -51,6 +66,8 @@ class globalAccelerationInstance extends Model
     public $creationTime;
 
     /**
+     * @description The description of the GA instance.
+     *
      * @example apiDescription
      *
      * @var string
@@ -58,6 +75,8 @@ class globalAccelerationInstance extends Model
     public $description;
 
     /**
+     * @description The time when the instance expires.
+     *
      * @example 2018-08-05T16:00Z
      *
      * @var string
@@ -65,6 +84,8 @@ class globalAccelerationInstance extends Model
     public $expiredTime;
 
     /**
+     * @description The ID of the GA instance.
+     *
      * @example ga-bp1x99kj7kl1ziw5x****
      *
      * @var string
@@ -72,6 +93,8 @@ class globalAccelerationInstance extends Model
     public $globalAccelerationInstanceId;
 
     /**
+     * @description The billing method of the GA instance.
+     *
      * @example PayByBandwidth
      *
      * @var string
@@ -79,6 +102,8 @@ class globalAccelerationInstance extends Model
     public $internetChargeType;
 
     /**
+     * @description The public IP address of the dedicated GA instance.
+     *
      * @example 47.xx.xx.99
      *
      * @var string
@@ -86,6 +111,8 @@ class globalAccelerationInstance extends Model
     public $ipAddress;
 
     /**
+     * @description The name of the GA instance.
+     *
      * @example instanceName
      *
      * @var string
@@ -93,11 +120,15 @@ class globalAccelerationInstance extends Model
     public $name;
 
     /**
+     * @description The public IP address.
+     *
      * @var publicIpAddresses
      */
     public $publicIpAddresses;
 
     /**
+     * @description The region ID of the GA instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -105,6 +136,8 @@ class globalAccelerationInstance extends Model
     public $regionId;
 
     /**
+     * @description The service area of the GA instance.
+     *
      * @example china-mainland
      *
      * @var string
@@ -112,6 +145,13 @@ class globalAccelerationInstance extends Model
     public $serviceLocation;
 
     /**
+     * @description The status of the GA instance.
+     *
+     *   **Available**
+     *   **Inuse**
+     *   **Associating**
+     *   **Unassociating**
+     *
      * @example InUse
      *
      * @var string

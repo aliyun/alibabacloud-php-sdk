@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ingressRules extends Model
 {
     /**
+     * @description The protocol that is used by the inbound traffic to be mirrored. Valid values:
+     *
+     *   **ALL**: all protocols
+     *   **ICMP**: Internet Control Message Protocol (ICMP)
+     *   **TCP**: TCP
+     *   **UDP**: User Datagram Protocol (UDP)
+     *
      * @example accept
      *
      * @var string
@@ -16,6 +23,11 @@ class ingressRules extends Model
     public $action;
 
     /**
+     * @description The action of the outbound rule. Valid values:
+     *
+     *   **accept**: accepts network traffic.
+     *   **drop**: drops network traffic.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -23,6 +35,8 @@ class ingressRules extends Model
     public $destinationCidrBlock;
 
     /**
+     * @description The destination CIDR block of the inbound traffic.
+     *
      * @example 80/120
      *
      * @var string
@@ -30,6 +44,9 @@ class ingressRules extends Model
     public $destinationPortRange;
 
     /**
+     * @description The source port range of the inbound traffic. Valid values for a port: **1** to **65535**. Separate the first port and the last port with a forward slash (/). Examples: **1/200** and **80/80**. You cannot set this parameter to only **-1/-1**, which specifies all ports.
+     *
+     * >  If you set **IngressRules.N.Protocol** to **ALL** or **ICMP**, you do not need to set this parameter. In this case, all ports are available.
      * @example 1
      *
      * @var int
@@ -37,6 +54,8 @@ class ingressRules extends Model
     public $priority;
 
     /**
+     * @description The priority of the inbound rule. A smaller value indicates a higher priority. The maximum value of **N** is **10**. You can configure up to 10 inbound rules for a filter.
+     *
      * @example TCP
      *
      * @var string
@@ -44,6 +63,9 @@ class ingressRules extends Model
     public $protocol;
 
     /**
+     * @description The destination port range of the inbound traffic. Valid values for a port: **1** to **65535**. Separate the first port and the last port with a forward slash (/). Examples: **1/200** and **80/80**.
+     *
+     * >  If you set **IngressRules.N.Protocol** to **ALL** or **ICMP**, you do not need to set this parameter. In this case, all ports are available.
      * @example 10.0.0.0/24
      *
      * @var string
@@ -51,6 +73,8 @@ class ingressRules extends Model
     public $sourceCidrBlock;
 
     /**
+     * @description The source CIDR block of the outbound traffic.
+     *
      * @example 80/120
      *
      * @var string

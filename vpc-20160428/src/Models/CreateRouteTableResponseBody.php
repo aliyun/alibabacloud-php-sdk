@@ -9,13 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRouteTableResponseBody extends Model
 {
     /**
-     * @example VSwitch
+     * @description The ID of the request.
      *
-     * @var string
-     */
-    public $associateType;
-
-    /**
      * @example 62172DD5-6BAC-45DF-8D44-E11ED28DCAC0
      *
      * @var string
@@ -23,15 +18,16 @@ class CreateRouteTableResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The IDs of the route tables.
+     *
      * @example vtb-bp145q7glnuzdvzu2****
      *
      * @var string
      */
     public $routeTableId;
     protected $_name = [
-        'associateType' => 'AssociateType',
-        'requestId'     => 'RequestId',
-        'routeTableId'  => 'RouteTableId',
+        'requestId'    => 'RequestId',
+        'routeTableId' => 'RouteTableId',
     ];
 
     public function validate()
@@ -41,9 +37,6 @@ class CreateRouteTableResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->associateType) {
-            $res['AssociateType'] = $this->associateType;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -62,9 +55,6 @@ class CreateRouteTableResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AssociateType'])) {
-            $model->associateType = $map['AssociateType'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

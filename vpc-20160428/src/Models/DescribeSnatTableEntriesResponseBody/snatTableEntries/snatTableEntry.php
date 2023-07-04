@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class snatTableEntry extends Model
 {
     /**
+     * @description The ID of the SNAT entry.
+     *
      * @example snat-kmd6nv8fy****
      *
      * @var string
@@ -16,6 +18,8 @@ class snatTableEntry extends Model
     public $snatEntryId;
 
     /**
+     * @description The name of the SNAT entry.
+     *
      * @example SnatEntry-1
      *
      * @var string
@@ -23,6 +27,9 @@ class snatTableEntry extends Model
     public $snatEntryName;
 
     /**
+     * @description *   When you query SNAT entries of Internet NAT gateways, this parameter indicates the EIP in an SNAT entry.
+     *   When you query SNAT entries of VPC NAT gateways, this parameter indicates the NAT IP address in an SNAT entry.
+     *
      * @example 116.22.XX.XX
      *
      * @var string
@@ -30,6 +37,8 @@ class snatTableEntry extends Model
     public $snatIp;
 
     /**
+     * @description The ID of the SNAT table to which the SNAT entry belongs.
+     *
      * @example stb-gz3r3odawdgffde****
      *
      * @var string
@@ -37,6 +46,8 @@ class snatTableEntry extends Model
     public $snatTableId;
 
     /**
+     * @description The source CIDR block specified in the SNAT entry.
+     *
      * @example 116.22.XX.XX/24
      *
      * @var string
@@ -44,6 +55,9 @@ class snatTableEntry extends Model
     public $sourceCIDR;
 
     /**
+     * @description *   When you query SNAT entries of Internet NAT gateways, this parameter indicates the ID of the vSwitch that uses SNAT to access the Internet.
+     *   When you query SNAT entries of VPC NAT gateways, this parameter indicates the ID of the vSwitch that uses SNAT to access external networks.
+     *
      * @example vsw-3xbdsffvfgdfds****
      *
      * @var string
@@ -51,6 +65,12 @@ class snatTableEntry extends Model
     public $sourceVSwitchId;
 
     /**
+     * @description The status of the SNAT entry. Valid values:
+     *
+     *   **Pending**: being created or modified
+     *   **Available**: available
+     *   **Deleting**: being deleted
+     *
      * @example Pending
      *
      * @var string

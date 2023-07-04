@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnAttachmentAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the Cloud Enterprise Network (CEN) instance to which the transit router associated with the IPsec-VPN connection belongs.
+     *
      * @example cen-c2r3m3zxkumoqz****
      *
      * @var string
@@ -20,6 +22,12 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $attachInstanceId;
 
     /**
+     * @description The type of resource that is associated with the IPsec-VPN connection.
+     *
+     *   **CEN:** indicates that the IPsec-VPN connection is associated with a transit router.
+     *   **VPNGW:** indicates that the IPsec-VPN connection is associated with a VPN gateway.
+     *   **NO_ASSOCIATED:** indicates that the IPsec-VPN connection is not associated with any resource.
+     *
      * @example CEN
      *
      * @var string
@@ -27,6 +35,9 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $attachType;
 
     /**
+     * @description The timestamp generated when the IPsec-VPN connection was established. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1658201810000
      *
      * @var int
@@ -34,6 +45,8 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The ID of the customer gateway associated with the IPsec-VPN connection.
+     *
      * @example cgw-p0w2jemrcj5u61un8****
      *
      * @var string
@@ -41,6 +54,8 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $customerGatewayId;
 
     /**
+     * @description The description of the IPsec-VPN connection.
+     *
      * @example desctest
      *
      * @var string
@@ -48,6 +63,11 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $description;
 
     /**
+     * @description Indicates whether IPsec negotiations immediately start after the configuration is complete. Valid values:
+     *
+     *   **true:** IPsec negotiations immediately start after the configuration is complete.
+     *   **false:** IPsec negotiations start when inbound traffic is detected.
+     *
      * @example false
      *
      * @var bool
@@ -55,6 +75,11 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $effectImmediately;
 
     /**
+     * @description Indicates whether the DPD feature is enabled for the IPsec-VPN connection.
+     *
+     *   **true:** The DPD feature is enabled.
+     *   **false:** The DPD feature is disabled.
+     *
      * @example true
      *
      * @var bool
@@ -62,6 +87,11 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $enableDpd;
 
     /**
+     * @description Indicates whether NAT traversal is enabled for the IPsec-VPN connection.
+     *
+     *   **true:** NAT traversal is enabled.
+     *   **false:** NAT traversal is disabled.
+     *
      * @example true
      *
      * @var bool
@@ -69,16 +99,22 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $enableNatTraversal;
 
     /**
+     * @description The configurations of Phase 1 negotiations.
+     *
      * @var ikeConfig
      */
     public $ikeConfig;
 
     /**
+     * @description The configurations of Phase 2 negotiations.
+     *
      * @var ipsecConfig
      */
     public $ipsecConfig;
 
     /**
+     * @description The CIDR block on the VPC side.
+     *
      * @example 10.1.1.0/24,10.1.2.0/24
      *
      * @var string
@@ -86,6 +122,8 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $localSubnet;
 
     /**
+     * @description The name of the IPsec-VPN connection.
+     *
      * @example nametest
      *
      * @var string
@@ -93,6 +131,11 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $name;
 
     /**
+     * @description The network type of the IPsec-VPN connection.
+     *
+     *   **public:** Internet.
+     *   **private:** private networks.
+     *
      * @example public
      *
      * @var string
@@ -100,6 +143,8 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $networkType;
 
     /**
+     * @description The CIDR block on the data center side.
+     *
      * @example 10.1.3.0/24,10.1.4.0/24
      *
      * @var string
@@ -107,6 +152,8 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $remoteSubnet;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 35822A84-867F-3936-A2E6-A4C4E3ED11C0
      *
      * @var string
@@ -114,6 +161,10 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The bandwidth specification of the IPsec-VPN connection.
+     *
+     **M** in the response indicates **Mbit/s**.
+     *
      * @example 1000M
      *
      * @var string
@@ -121,6 +172,13 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $spec;
 
     /**
+     * @description The status of the IPsec-VPN connection.
+     *
+     *   **ike_sa_not_established:** Phase 1 negotiations failed.
+     *   **ike_sa_established:** Phase 1 negotiations were successful.
+     *   **ipsec_sa_not_established:** Phase 2 negotiations failed.
+     *   **ipsec_sa_established:** Phase 2 negotiations were successful.
+     *
      * @example ike_sa_not_established
      *
      * @var string
@@ -128,16 +186,22 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $status;
 
     /**
+     * @description The health check configurations of the IPsec-VPN connection.
+     *
      * @var vcoHealthCheck
      */
     public $vcoHealthCheck;
 
     /**
+     * @description The BGP configurations of the IPsec-VPN connection.
+     *
      * @var vpnBgpConfig
      */
     public $vpnBgpConfig;
 
     /**
+     * @description The ID of the IPsec-VPN connection.
+     *
      * @example vco-p0w5112fgnl2ihlmf****
      *
      * @var string
@@ -145,6 +209,8 @@ class ModifyVpnAttachmentAttributeResponseBody extends Model
     public $vpnConnectionId;
 
     /**
+     * @description The ID of the VPN gateway associated with the IPsec-VPN connection.
+     *
      * @example vpn-p0wa1c1018pmeb6cu****
      *
      * @var string

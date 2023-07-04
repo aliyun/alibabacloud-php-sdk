@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class ListIpv4GatewaysResponseBody extends Model
 {
     /**
+     * @description The list of IPv4 gateways.
+     *
      * @var ipv4GatewayModels[]
      */
     public $ipv4GatewayModels;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If no value is returned for **NextToken**, no next queries are sent.
+     *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -22,6 +29,8 @@ class ListIpv4GatewaysResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 2D265800-E306-529C-8418-84B0A1D201DB
      *
      * @var string
@@ -29,6 +38,8 @@ class ListIpv4GatewaysResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var string

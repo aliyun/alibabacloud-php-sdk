@@ -16,11 +16,18 @@ use AlibabaCloud\Tea\Model;
 class GetNatGatewayAttributeResponseBody extends Model
 {
     /**
+     * @description The billing information.
+     *
      * @var billingConfig
      */
     public $billingConfig;
 
     /**
+     * @description The service status of the NAT gateway. Valid values:
+     *
+     *   **Normal**: normal
+     *   **FinancialLocked**: locked due to overdue payments
+     *
      * @example Normal
      *
      * @var string
@@ -28,6 +35,8 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $businessStatus;
 
     /**
+     * @description The time when the NAT gateway was created. Format: YYYY-MM-DDThh:mm:ssZ.
+     *
      * @example 2021-12-08T12:20:20Z
      *
      * @var string
@@ -35,11 +44,15 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $creationTime;
 
     /**
+     * @description The information about the deletion protection feature.
+     *
      * @var deletionProtectionInfo
      */
     public $deletionProtectionInfo;
 
     /**
+     * @description The description of the NAT gateway.
+     *
      * @example NAT
      *
      * @var string
@@ -47,6 +60,11 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $description;
 
     /**
+     * @description Indicates whether the traffic monitoring feature is enabled. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -54,6 +72,8 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $ecsMetricEnabled;
 
     /**
+     * @description The time when the NAT gateway expires.
+     *
      * @example 2021-12-26T12:20:20Z
      *
      * @var string
@@ -61,21 +81,29 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $expiredTime;
 
     /**
+     * @description The information about the DNAT table.
+     *
      * @var forwardTable
      */
     public $forwardTable;
 
     /**
+     * @description The information about the FULLNAT table.
+     *
      * @var fullNatTable
      */
     public $fullNatTable;
 
     /**
+     * @description The elastic IP addresses (EIPs) that are associated with the Internet NAT gateway.
+     *
      * @var ipList[]
      */
     public $ipList;
 
     /**
+     * @description The name of the NAT gateway.
+     *
      * @example abc
      *
      * @var string
@@ -83,6 +111,8 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $name;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example ngw-bp1047e2d4z7kf2ki****
      *
      * @var string
@@ -90,6 +120,8 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $natGatewayId;
 
     /**
+     * @description The type of the Internet NAT gateway. Only **Enhanced** is returned, which indicates an enhanced Internet NAT gateway.
+     *
      * @example Enhanced
      *
      * @var string
@@ -97,6 +129,11 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $natType;
 
     /**
+     * @description The type of the NAT gateway. Valid values:
+     *
+     *   **internet**: an Internet NAT gateway
+     *   **intranet**: a VPC NAT gateway
+     *
      * @example internet
      *
      * @var string
@@ -104,11 +141,18 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $networkType;
 
     /**
+     * @description The private network information about the NAT gateway.
+     *
      * @var privateInfo
      */
     public $privateInfo;
 
     /**
+     * @description Indicates whether the NAT gateway supports PrivateLink. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -116,6 +160,11 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $privateLinkEnabled;
 
     /**
+     * @description The mode that is used by PrivateLink. Valid values:
+     *
+     *   **FullNat**: the FULLNAT mode
+     *   **Geneve**: the GENEVE mode
+     *
      * @example FullNat
      *
      * @var string
@@ -123,6 +172,8 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $privateLinkMode;
 
     /**
+     * @description The ID of the region where the NAT gateway is deployed.
+     *
      * @example cn-qingdao
      *
      * @var string
@@ -130,6 +181,8 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *
      * @var string
@@ -137,6 +190,8 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-bp67acfmxazb4ph****
      *
      * @var string
@@ -144,11 +199,21 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description The information about the SNAT table.
+     *
      * @var snatTable
      */
     public $snatTable;
 
     /**
+     * @description The status of the NAT gateway. Valid values:
+     *
+     *   **Creating**: being created. The operation to create a NAT gateway is asynchronous. The NAT gateway remains in the **Creating** state until it is created.
+     *   **Available**: available. After a NAT gateway is created, it remains in a stable state.
+     *   **Modifying**: being modified. The operation to upgrade or downgrade a NAT gateway is asynchronous. The NAT gateway remains in the **Modifying** state until it is upgraded or downgraded.
+     *   **Deleting**: being deleted. The operation to delete a NAT gateway is asynchronous. The NAT gateway remains in the **Deleting** state until it is deleted.
+     *   **Converting**: being converted. The operation to convert a standard NAT gateway to an enhanced NAT gateway is asynchronous. The NAT gateway remains in the **Converting** state until it is converted.
+     *
      * @example Available
      *
      * @var string
@@ -156,6 +221,8 @@ class GetNatGatewayAttributeResponseBody extends Model
     public $status;
 
     /**
+     * @description The ID of the VPC to which the NAT gateway belongs.
+     *
      * @example vpc-bp15zckdt37pq72z****
      *
      * @var string

@@ -9,6 +9,17 @@ use AlibabaCloud\Tea\Model;
 class convertSteps extends Model
 {
     /**
+     * @description Valid values:
+     *
+     *   **init**: initializing
+     *   **check**: checking configurations
+     *   **configure**: pushing configurations
+     *   **activate**: switching
+     *   **conf_delete**: deleting configurations
+     *   **rollback**: rolling back
+     *   **end_success**: switched
+     *   **end_fail**: failed
+     *
      * @example init
      *
      * @var string
@@ -16,6 +27,8 @@ class convertSteps extends Model
     public $stepName;
 
     /**
+     * @description The time when the switch started.
+     *
      * @example 2020-08-26T08:27:19Z
      *
      * @var string
@@ -23,6 +36,12 @@ class convertSteps extends Model
     public $stepStartTime;
 
     /**
+     * @description The switch status. Valid values:
+     *
+     *   **processing**: switching
+     *   **successful**: switched
+     *   **failed**: failed
+     *
      * @example successful
      *
      * @var string

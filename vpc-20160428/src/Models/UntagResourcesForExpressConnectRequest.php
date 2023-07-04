@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesForExpressConnectRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags from the specified resource. Valid values:
+     *
+     *   **true**: removes all tags from the specified resource.
+     *   **false**: does not remove all tags from the specified resource. This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -26,6 +31,9 @@ class UntagResourcesForExpressConnectRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the resource.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -48,6 +56,8 @@ class UntagResourcesForExpressConnectRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Set the value to **PHYSICALCONNECTION**, which indicates the Express Connect circuit.
+     *
      * @example PHYSICALCONNECTION
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSslVpnServersRequest extends Model
 {
     /**
+     * @description The name of the SSL-VPN server.
+     *
+     * The name must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -26,6 +29,8 @@ class DescribeSslVpnServersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the returned page. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +38,8 @@ class DescribeSslVpnServersRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -40,6 +47,9 @@ class DescribeSslVpnServersRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region where the SSL servers are created.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +67,8 @@ class DescribeSslVpnServersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the SSL-VPN server.
+     *
      * @example vss-bp15j3du13gq1dgey****
      *
      * @var string
@@ -64,6 +76,8 @@ class DescribeSslVpnServersRequest extends Model
     public $sslVpnServerId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1on0xae9d771ggi****
      *
      * @var string

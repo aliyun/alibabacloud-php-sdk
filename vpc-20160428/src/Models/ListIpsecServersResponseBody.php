@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListIpsecServersResponseBody extends Model
 {
     /**
+     * @description The list of IPsec servers.
+     *
      * @var ipsecServers[]
      */
     public $ipsecServers;
 
     /**
+     * @description The number of entries returned on each page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,11 @@ class ListIpsecServersResponseBody extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If a value of **NextToken** is not returned, it indicates that no subsequent query is to be sent.
+     *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
      * @var string
@@ -29,6 +38,8 @@ class ListIpsecServersResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 54B48E3D-DF70-471B-AA93-08E683A1B457
      *
      * @var string
@@ -36,6 +47,8 @@ class ListIpsecServersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
      * @example 10
      *
      * @var int

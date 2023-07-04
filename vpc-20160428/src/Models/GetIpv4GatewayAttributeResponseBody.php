@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetIpv4GatewayAttributeResponseBody extends Model
 {
     /**
+     * @description The tag list.
+     *
      * @example 2022-02-24T09:02:36Z
      *
      * @var string
@@ -17,6 +19,8 @@ class GetIpv4GatewayAttributeResponseBody extends Model
     public $createTime;
 
     /**
+     * @description The name of the IPv4 gateway.
+     *
      * @example true
      *
      * @var bool
@@ -24,6 +28,8 @@ class GetIpv4GatewayAttributeResponseBody extends Model
     public $enabled;
 
     /**
+     * @description The ID of the route table associated with the IPv4 gateway.
+     *
      * @example new
      *
      * @var string
@@ -31,6 +37,8 @@ class GetIpv4GatewayAttributeResponseBody extends Model
     public $ipv4GatewayDescription;
 
     /**
+     * @description The description of the IPv4 gateway.
+     *
      * @example ipv4gw-5tsnc6s4ogsedtp3k****
      *
      * @var string
@@ -38,6 +46,8 @@ class GetIpv4GatewayAttributeResponseBody extends Model
     public $ipv4GatewayId;
 
     /**
+     * @description The ID of the resource group to which the IPv4 gateway belongs.
+     *
      * @example name
      *
      * @var string
@@ -45,6 +55,8 @@ class GetIpv4GatewayAttributeResponseBody extends Model
     public $ipv4GatewayName;
 
     /**
+     * @description The time when the IPv4 gateway was created.
+     *
      * @example vtb-5ts0ohchwkp3dydt2****
      *
      * @var string
@@ -52,6 +64,11 @@ class GetIpv4GatewayAttributeResponseBody extends Model
     public $ipv4GatewayRouteTableId;
 
     /**
+     * @description Indicates whether the IPv4 gateway is activated. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example 7F79A919-6FE9-50C4-967B-45705E1F9C38
      *
      * @var string
@@ -59,11 +76,17 @@ class GetIpv4GatewayAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The tag key.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example Created
      *
      * @var string
@@ -71,11 +94,15 @@ class GetIpv4GatewayAttributeResponseBody extends Model
     public $status;
 
     /**
+     * @description The tag value.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The ID of the IPv4 gateway.
+     *
      * @example vpc-5tsrxlw7dv074gci4****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVpconnFromVbrRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +18,9 @@ class CreateVpconnFromVbrRequest extends Model
     public $dryRun;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      * @example PayByVirtualPhysicalConnectionOwner
      *
      * @var string
@@ -23,6 +28,8 @@ class CreateVpconnFromVbrRequest extends Model
     public $orderMode;
 
     /**
+     * @description The ID of the shared Express Connect circuit.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +37,9 @@ class CreateVpconnFromVbrRequest extends Model
     public $regionId;
 
     /**
+     * @description The region ID of the shared Express Connect circuit.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example CBCE910E-D396-4944-8****
      *
      * @var string
@@ -37,6 +47,11 @@ class CreateVpconnFromVbrRequest extends Model
     public $token;
 
     /**
+     * @description Specifies whether to only precheck the request. Valid values:
+     *
+     *   **true**: checks the API request. If the request passes the precheck, the operation is not performed. Check items include the request format, instance status, and whether the required parameters are specified. If the request fails the precheck, the system returns an error. If the request passes the precheck, the system returns the ID of the request.
+     *   **false** (default): sends the API request. If the request passes the precheck, the operation is performed.
+     *
      * @example vbr-bp136flp1mf8mlq6r****
      *
      * @var string

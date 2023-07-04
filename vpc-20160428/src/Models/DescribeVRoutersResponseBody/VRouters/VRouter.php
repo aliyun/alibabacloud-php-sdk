@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class VRouter extends Model
 {
     /**
+     * @description The time when the vRouter was created.
+     *
      * @example 2018-03-22T07:46:20Z
      *
      * @var string
@@ -17,6 +19,8 @@ class VRouter extends Model
     public $creationTime;
 
     /**
+     * @description The description of the vRouter.
+     *
      * @example abc
      *
      * @var string
@@ -24,6 +28,8 @@ class VRouter extends Model
     public $description;
 
     /**
+     * @description The region to which the vRouter belongs.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -31,11 +37,15 @@ class VRouter extends Model
     public $regionId;
 
     /**
+     * @description The ID of the route table in the vRouter.
+     *
      * @var routeTableIds
      */
     public $routeTableIds;
 
     /**
+     * @description The ID of the vRouter.
+     *
      * @example vrt-rj98khsezfqpjrxmv****
      *
      * @var string
@@ -43,6 +53,8 @@ class VRouter extends Model
     public $VRouterId;
 
     /**
+     * @description The name of the vRouter.
+     *
      * @example doctest
      *
      * @var string
@@ -50,6 +62,8 @@ class VRouter extends Model
     public $VRouterName;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the vRouter belongs.
+     *
      * @example vpc-rj905wotv6y030t1****
      *
      * @var string

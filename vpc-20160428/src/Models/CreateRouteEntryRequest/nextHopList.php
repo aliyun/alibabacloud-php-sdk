@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nextHopList extends Model
 {
     /**
+     * @description The ID of the custom route entry.
+     *
      * @example ri-2zeo3xzyf3cd8r4****
      *
      * @var string
@@ -23,6 +25,8 @@ class nextHopList extends Model
     public $nextHopType;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 10
      *
      * @var int

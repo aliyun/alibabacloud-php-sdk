@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyFlowLogAttributeRequest extends Model
 {
     /**
+     * @description The new sampling interval of the flow log. Unit: seconds. Valid values: **1**, **5**, and **10**.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,9 @@ class ModifyFlowLogAttributeRequest extends Model
     public $aggregationInterval;
 
     /**
+     * @description The new description of the flow log.
+     *
+     * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
      * @example This is my Flowlog.
      *
      * @var string
@@ -23,6 +28,8 @@ class ModifyFlowLogAttributeRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the flow log.
+     *
      * @example fl-m5e8vhz2t21sel1nq****
      *
      * @var string
@@ -30,6 +37,9 @@ class ModifyFlowLogAttributeRequest extends Model
     public $flowLogId;
 
     /**
+     * @description The new name of the flow log.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example myFlowlog
      *
      * @var string
@@ -47,6 +57,9 @@ class ModifyFlowLogAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the flow log is created.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-qingdao
      *
      * @var string

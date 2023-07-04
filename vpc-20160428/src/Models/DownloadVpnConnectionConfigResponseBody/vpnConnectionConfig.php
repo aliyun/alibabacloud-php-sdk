@@ -6,21 +6,28 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigRespo
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigResponseBody\vpnConnectionConfig\ikeConfig;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigResponseBody\vpnConnectionConfig\ipsecConfig;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DownloadVpnConnectionConfigResponseBody\vpnConnectionConfig\tunnelsConfig;
 use AlibabaCloud\Tea\Model;
 
 class vpnConnectionConfig extends Model
 {
     /**
+     * @description The IKE configuration.
+     *
      * @var ikeConfig
      */
     public $ikeConfig;
 
     /**
+     * @description The configuration of the IPsec-VPN connection.
+     *
      * @var ipsecConfig
      */
     public $ipsecConfig;
 
     /**
+     * @description The identifier of the VPN gateway.
+     *
      * @example 139.196.XX.XX
      *
      * @var string
@@ -28,6 +35,8 @@ class vpnConnectionConfig extends Model
     public $local;
 
     /**
+     * @description The CIDR block on the virtual private cloud (VPC) side.
+     *
      * @example 10.0.0.0/8
      *
      * @var string
@@ -35,6 +44,8 @@ class vpnConnectionConfig extends Model
     public $localSubnet;
 
     /**
+     * @description The identifier of the customer gateway.
+     *
      * @example 116.62.XX.XX
      *
      * @var string
@@ -42,18 +53,26 @@ class vpnConnectionConfig extends Model
     public $remote;
 
     /**
+     * @description The CIDR block on the data center side.
+     *
      * @example 192.168.0.0/16
      *
      * @var string
      */
     public $remoteSubnet;
+
+    /**
+     * @var tunnelsConfig
+     */
+    public $tunnelsConfig;
     protected $_name = [
-        'ikeConfig'    => 'IkeConfig',
-        'ipsecConfig'  => 'IpsecConfig',
-        'local'        => 'Local',
-        'localSubnet'  => 'LocalSubnet',
-        'remote'       => 'Remote',
-        'remoteSubnet' => 'RemoteSubnet',
+        'ikeConfig'     => 'IkeConfig',
+        'ipsecConfig'   => 'IpsecConfig',
+        'local'         => 'Local',
+        'localSubnet'   => 'LocalSubnet',
+        'remote'        => 'Remote',
+        'remoteSubnet'  => 'RemoteSubnet',
+        'tunnelsConfig' => 'TunnelsConfig',
     ];
 
     public function validate()
@@ -80,6 +99,9 @@ class vpnConnectionConfig extends Model
         }
         if (null !== $this->remoteSubnet) {
             $res['RemoteSubnet'] = $this->remoteSubnet;
+        }
+        if (null !== $this->tunnelsConfig) {
+            $res['TunnelsConfig'] = null !== $this->tunnelsConfig ? $this->tunnelsConfig->toMap() : null;
         }
 
         return $res;
@@ -110,6 +132,9 @@ class vpnConnectionConfig extends Model
         }
         if (isset($map['RemoteSubnet'])) {
             $model->remoteSubnet = $map['RemoteSubnet'];
+        }
+        if (isset($map['TunnelsConfig'])) {
+            $model->tunnelsConfig = tunnelsConfig::fromMap($map['TunnelsConfig']);
         }
 
         return $model;

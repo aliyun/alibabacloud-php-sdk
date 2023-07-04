@@ -19,6 +19,9 @@ class DeleteVSwitchRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the vSwitch.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +39,8 @@ class DeleteVSwitchRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the vSwitch that you want to delete.
+     *
      * @example vsw-asdfjlna****
      *
      * @var string

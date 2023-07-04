@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The name of the EIP.
+     *
+     * The name must be 1 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example CreationStartTime
      *
      * @var string
@@ -16,7 +19,9 @@ class filter extends Model
     public $key;
 
     /**
-     * @example 2021-05-22T09:12:00Z
+     * @description The IP address pool to which the EIP that you want to query belongs.
+     *
+     * @example 2023-01-01T01:00Z
      *
      * @var string
      */

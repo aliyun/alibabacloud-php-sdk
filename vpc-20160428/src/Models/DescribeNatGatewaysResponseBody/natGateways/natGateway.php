@@ -15,6 +15,11 @@ use AlibabaCloud\Tea\Model;
 class natGateway extends Model
 {
     /**
+     * @description Indicates whether automatic payment is enabled. Valid values:
+     *
+     *   **false**: no
+     *   **true**: yes
+     *
      * @example false
      *
      * @var bool
@@ -22,6 +27,11 @@ class natGateway extends Model
     public $autoPay;
 
     /**
+     * @description The status of the NAT gateway. Valid values:
+     *
+     *   **Normal**: normal
+     *   **FinancialLocked**: locked due to overdue payments
+     *
      * @example Normal
      *
      * @var string
@@ -29,6 +39,8 @@ class natGateway extends Model
     public $businessStatus;
 
     /**
+     * @description The time when the NAT gateway was created.
+     *
      * @example 2021-06-08T12:20:20Z
      *
      * @var string
@@ -36,6 +48,11 @@ class natGateway extends Model
     public $creationTime;
 
     /**
+     * @description Indicates whether the deletion protection feature is enabled. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -43,6 +60,8 @@ class natGateway extends Model
     public $deletionProtection;
 
     /**
+     * @description The description of the NAT gateway.
+     *
      * @example NAT
      *
      * @var string
@@ -50,6 +69,11 @@ class natGateway extends Model
     public $description;
 
     /**
+     * @description Indicates whether the traffic monitoring feature is enabled. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -57,6 +81,12 @@ class natGateway extends Model
     public $ecsMetricEnabled;
 
     /**
+     * @description The mode in which the NAT gateway is associated with an elastic IP address (EIP). Valid values:
+     *
+     *   **MULTI_BINDED**: multi-EIP-to-ENI mode
+     *   **NAT**: NAT mode, which is compatible with IPv4 addresses.
+     *
+     * >  Note: If you use the NAT mode, the EIP occupies one private IP address on the vSwitch of the NAT gateway. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, the NAT gateway fails to be associated with the EIP. In NAT mode, you can associate a NAT gateway with up to 50 EIPs.
      * @example MULTI_BINDED
      *
      * @var string
@@ -64,6 +94,8 @@ class natGateway extends Model
     public $eipBindMode;
 
     /**
+     * @description The time when the NAT gateway expires.
+     *
      * @example 2021-08-26T16:00Z
      *
      * @var string
@@ -71,16 +103,25 @@ class natGateway extends Model
     public $expiredTime;
 
     /**
+     * @description The ID of the DNAT table.
+     *
      * @var forwardTableIds
      */
     public $forwardTableIds;
 
     /**
+     * @description The ID of the FULLNAT table.
+     *
      * @var fullNatTableIds
      */
     public $fullNatTableIds;
 
     /**
+     * @description Indicates whether the ICMP non-retrieval feature is enabled. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example false
      *
      * @var bool
@@ -88,6 +129,8 @@ class natGateway extends Model
     public $icmpReplyEnabled;
 
     /**
+     * @description The billing method of the NAT gateway. The value is set to **PostPaid**, which indicates the pay-as-you-go billing method.
+     *
      * @example PostPaid
      *
      * @var string
@@ -95,6 +138,11 @@ class natGateway extends Model
     public $instanceChargeType;
 
     /**
+     * @description The metering method of the NAT gateway. Valid values:
+     *
+     *   **PayBySpec**: pay-by-specification
+     *   **PayByLcu**: pay-by-CU
+     *
      * @example PayByLcu
      *
      * @var string
@@ -102,11 +150,15 @@ class natGateway extends Model
     public $internetChargeType;
 
     /**
+     * @description The list of elastic IP addresses (EIPs) that are associated with the Internet NAT gateway.
+     *
      * @var ipLists
      */
     public $ipLists;
 
     /**
+     * @description The name of the NAT gateway.
+     *
      * @example abc
      *
      * @var string
@@ -114,6 +166,8 @@ class natGateway extends Model
     public $name;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example ngw-bp1047e2d4z7kf2ki****
      *
      * @var string
@@ -121,11 +175,16 @@ class natGateway extends Model
     public $natGatewayId;
 
     /**
+     * @description The private network information about the enhanced Internet NAT gateway.
+     *
+     * >  If **NatType** is set to **Normal**, all parameters returned in this list are empty.
      * @var natGatewayPrivateInfo
      */
     public $natGatewayPrivateInfo;
 
     /**
+     * @description The type of the NAT gateway. The value is set to **Enhanced** (enhanced NAT gateway).
+     *
      * @example Enhanced
      *
      * @var string
@@ -133,6 +192,11 @@ class natGateway extends Model
     public $natType;
 
     /**
+     * @description The type of NAT gateway. Valid values:
+     *
+     *   **internet**: an Internet NAT gateway
+     *   **intranet**: a VPC NAT gateway
+     *
      * @example internet
      *
      * @var string
@@ -140,6 +204,11 @@ class natGateway extends Model
     public $networkType;
 
     /**
+     * @description Indicates whether the NAT gateway supports PrivateLink. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -147,6 +216,11 @@ class natGateway extends Model
     public $privateLinkEnabled;
 
     /**
+     * @description The mode that is used by PrivateLink. Valid values:
+     *
+     *   **FullNat**: the FULLNAT mode
+     *   **Geneve**: the GENEVE mode
+     *
      * @example FullNat
      *
      * @var string
@@ -154,6 +228,8 @@ class natGateway extends Model
     public $privateLinkMode;
 
     /**
+     * @description The ID of the region where the NAT gateway is deployed.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -161,6 +237,8 @@ class natGateway extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the contiguous EIP group belongs.
+     *
      * @example rg-bp67acfmxazb4ph****
      *
      * @var string
@@ -168,6 +246,11 @@ class natGateway extends Model
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the firewall feature is enabled. Valid values:
+     *
+     *   **false**: no
+     *   **true**: yes
+     *
      * @example false
      *
      * @var bool
@@ -175,11 +258,16 @@ class natGateway extends Model
     public $securityProtectionEnabled;
 
     /**
+     * @description The ID of the SNAT table of the NAT gateway.
+     *
      * @var snatTableIds
      */
     public $snatTableIds;
 
     /**
+     * @description The size of the NAT gateway. An empty value is returned for the parameter.
+     *
+     * If **InternetChargeType** is set to **PayByLcu**, an empty value is returned.
      * @example Small
      *
      * @var string
@@ -187,6 +275,14 @@ class natGateway extends Model
     public $spec;
 
     /**
+     * @description The status of the NAT gateway. Valid values:
+     *
+     *   **Creating**: After you send a request to create a NAT gateway, the system creates the NAT gateway in the background. The NAT gateway remains in the Creating state until the operation is completed.
+     *   **Available**: The NAT gateway remains in a stable state after the NAT gateway is created.
+     *   **Modifying**: After you send a request to modify a NAT gateway, the system modifies the NAT gateway in the background. The NAT gateway remains in the Modifying state until the operation is completed.
+     *   **Deleting**: After you send a request to delete a NAT gateway, the system deletes the NAT gateway in the background. The NAT gateway remains in the Deleting state until the operation is completed.
+     *   **Converting**: After you send a request to upgrade a standard NAT gateway to an enhanced NAT gateway, the system upgrades the NAT gateway in the background. The NAT gateway remains in the Converting state until the operation is completed.
+     *
      * @example Creating
      *
      * @var string
@@ -194,11 +290,15 @@ class natGateway extends Model
     public $status;
 
     /**
+     * @description The tags that are added to the resource group.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The ID of the VPC where the NAT gateway is deployed.
+     *
      * @example vpc-bp15zckdt37pq72z****
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class TerminateVirtualBorderRouterRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -26,6 +31,9 @@ class TerminateVirtualBorderRouterRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the VBR.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string
@@ -43,6 +51,8 @@ class TerminateVirtualBorderRouterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the VBR.
+     *
      * @example vbr-bp15zckdt37pq72****
      *
      * @var string

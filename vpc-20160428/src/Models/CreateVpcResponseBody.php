@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateVpcResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateVpcResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the route table that is automatically created by the system after the VPC is created.
+     *
      * @example vtb-bp145q7glnuzdv****
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateVpcResponseBody extends Model
     public $routeTableId;
 
     /**
+     * @description The ID of the vRouter that is automatically created by the system after the VPC is created.
+     *
      * @example vrt-bp1lhl0taikrteen8****
      *
      * @var string
@@ -37,6 +45,8 @@ class CreateVpcResponseBody extends Model
     public $VRouterId;
 
     /**
+     * @description The ID of the created VPC.
+     *
      * @example vpc-bp15zckdt37pq72zv****
      *
      * @var string

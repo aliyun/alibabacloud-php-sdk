@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The filter conditions. You can specify at most five filter conditions. The following filter conditions are supported:
+     *
+     *   **PhysicalConnectionId**: Filter by Express Connect circuit ID.
+     *   **VbrId**: Filter by VBR ID.
+     *   **Status**: Filter by VBR status.
+     *   **Name**: Filter by VBR name.
+     *   **AccessPointId**: Filter by access point ID.
+     *   **eccId**: Filter by Express Cloud Connect (ECC) instance ID.
+     *   **type**: Filter by VBR type.
+     *
      * @example Status
      *
      * @var string

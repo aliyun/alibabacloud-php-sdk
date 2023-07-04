@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class CreateNatGatewayRequest extends Model
 {
     /**
+     * @description Subscription Internet NAT gateways are no longer available for purchase. Ignore this parameter.
+     *
+     * @example Invalid parameter.
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests.
+     *
+     * >  If you do not specify this parameter, the system automatically sets **ClientToken** to the value of **RequestId**. **RequestId** might be different for each API request.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -22,6 +31,9 @@ class CreateNatGatewayRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the NAT gateway.
+     *
+     * You can leave this parameter empty or enter a description. If you enter a description, the description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example testnat
      *
      * @var string
@@ -29,11 +41,22 @@ class CreateNatGatewayRequest extends Model
     public $description;
 
     /**
+     * @description Subscription Internet NAT gateways are no longer available for purchase. Ignore this parameter.
+     *
+     * @example Invalid parameter.
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @description The mode in which the EIP is associated with the NAT gateway. Valid values:
+     *
+     *   **MULTI_BINDED** (default): Multi-EIP-to-ENI mode.
+     *
+     *   **NAT**: NAT mode. IPv4 gateways are supported.
+     *
+     * > If you use the NAT mode, the EIP occupies one private IP address on the vSwitch of the NAT gateway. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, the NAT gateway fails to be associated with the EIP. In NAT mode, you can associate a NAT gateway with at most 50 EIPs.
      * @example MULTI_BINDED
      *
      * @var string
@@ -41,6 +64,11 @@ class CreateNatGatewayRequest extends Model
     public $eipBindMode;
 
     /**
+     * @description Specifies whether to enable the ICMP non-retrieval feature. Valid values:
+     *
+     *   **false** (default): no
+     *   **true**: yes
+     *
      * @example false
      *
      * @var bool
@@ -48,6 +76,11 @@ class CreateNatGatewayRequest extends Model
     public $icmpReplyEnabled;
 
     /**
+     * @description The billing method of the NAT gateway.
+     *
+     * Set the value to **PostPaid** (pay-as-you-go), which is the default value.
+     *
+     * For more information, see [Internet NAT gateway billing](~~48126~~) and [VPC NAT gateway billing](~~270913~~).
      * @example PostPaid
      *
      * @var string
@@ -55,6 +88,8 @@ class CreateNatGatewayRequest extends Model
     public $instanceChargeType;
 
     /**
+     * @description The metering method of the NAT gateway. Set the value to **PayByLcu**, which specifies the pay-by-CU metering method.
+     *
      * @example PayByLcu
      *
      * @var string
@@ -62,6 +97,9 @@ class CreateNatGatewayRequest extends Model
     public $internetChargeType;
 
     /**
+     * @description The name of the NAT gateway.
+     *
+     * If this parameter is not set, the system assigns a default name to the NAT gateway.
      * @example fortest
      *
      * @var string
@@ -69,6 +107,8 @@ class CreateNatGatewayRequest extends Model
     public $name;
 
     /**
+     * @description The type of NAT gateway. Set the value to **Enhanced** (enhanced NAT gateway).
+     *
      * @example Enhanced
      *
      * @var string
@@ -76,6 +116,11 @@ class CreateNatGatewayRequest extends Model
     public $natType;
 
     /**
+     * @description The network type of the NAT gateway. Valid values:
+     *
+     *   **internet**: an Internet NAT gateway
+     *   **intranet**: a VPC NAT gateway
+     *
      * @example internet
      *
      * @var string
@@ -93,11 +138,18 @@ class CreateNatGatewayRequest extends Model
     public $ownerId;
 
     /**
+     * @description Subscription Internet NAT gateways are no longer available for purchase. Ignore this parameter.
+     *
+     * @example Invalid parameter.
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @description The ID of the region where you want to create the NAT gateway.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -115,6 +167,11 @@ class CreateNatGatewayRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to enable the firewall feature. Valid values:
+     *
+     *   **false** (default): no
+     *   **true**: yes
+     *
      * @example false
      *
      * @var bool
@@ -122,16 +179,30 @@ class CreateNatGatewayRequest extends Model
     public $securityProtectionEnabled;
 
     /**
+     * @description Subscription Internet NAT gateways are no longer available for purchase. Ignore this parameter.
+     *
+     * @example Invalid parameter.
+     *
      * @var string
      */
     public $spec;
 
     /**
+     * @description The list of Tag entries.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the vSwitch to which the NAT gateway is attached.
+     *
+     * When you create a NAT gateway, you must specify a vSwitch for the NAT gateway. Then, the system assigns an idle private IP address from the vSwitch to the NAT gateway.
+     *
+     *   To attach the NAT gateway to an existing vSwitch, make sure that the zone to which the vSwitch belongs supports NAT gateways. In addition, the vSwitch must have idle IP addresses.
+     *   If no vSwitch exists in the VPC, create a vSwitch in a zone that supports NAT gateways. Then, specify the vSwitch for the NAT gateway.
+     *
+     * >  You can query the zones that support NAT gateways by calling the [ListEnhanhcedNatGatewayAvailableZones](~~182292~~) operation. You can query the number of available IP addresses in a vSwitch by calling the [DescribeVSwitches](~~35748~~) operation.
      * @example vsw-bp1e3se98n9fq8hle****
      *
      * @var string
@@ -139,6 +210,8 @@ class CreateNatGatewayRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC where you want to create the NAT gateway.
+     *
      * @example vpc-bp1di7uewzmtvfuq8****
      *
      * @var string

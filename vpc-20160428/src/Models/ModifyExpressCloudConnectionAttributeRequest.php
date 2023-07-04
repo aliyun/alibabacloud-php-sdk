@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyExpressCloudConnectionAttributeRequest extends Model
 {
     /**
+     * @description The BGP autonomous system number (ASN) to be configured for the Smart Access Gateway (SAG) device.
+     *
      * @example sag-ejfge***
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyExpressCloudConnectionAttributeRequest extends Model
     public $bgpAs;
 
     /**
+     * @description The peer IP address when the SAG device is connected to the cloud.
+     *
      * @example 172.16.**.**
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyExpressCloudConnectionAttributeRequest extends Model
     public $ceIp;
 
     /**
+     * @description Descriptions of ECC.
+     *
      * @example ECC
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyExpressCloudConnectionAttributeRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the ECC instance.
+     *
      * @example ecc-bp1t9osmuln*******
      *
      * @var string
@@ -37,6 +45,8 @@ class ModifyExpressCloudConnectionAttributeRequest extends Model
     public $eccId;
 
     /**
+     * @description The name of the ECC instance.
+     *
      * @example doctest
      *
      * @var string
@@ -54,6 +64,8 @@ class ModifyExpressCloudConnectionAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The on-premises IP address when the SAG device is connected to the cloud.
+     *
      * @example 10.10.**.**
      *
      * @var string
@@ -61,6 +73,8 @@ class ModifyExpressCloudConnectionAttributeRequest extends Model
     public $peIp;
 
     /**
+     * @description The region ID of the ECC instance.
+     *
      * @example cn-hangzhou
      *
      * @var string

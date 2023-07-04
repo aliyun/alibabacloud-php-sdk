@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyEipAddressAttributeRequest extends Model
 {
     /**
+     * @description The region ID of the EIP.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example eip-2zeerraiwb7uj6i0d****
      *
      * @var string
@@ -16,6 +19,9 @@ class ModifyEipAddressAttributeRequest extends Model
     public $allocationId;
 
     /**
+     * @description The new name of the EIP.
+     *
+     * The name must be 1 to 128 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-).
      * @example 100
      *
      * @var string
@@ -30,6 +36,8 @@ class ModifyEipAddressAttributeRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the request.
+     *
      * @example Test123
      *
      * @var string
@@ -47,6 +55,9 @@ class ModifyEipAddressAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The new description of the EIP.
+     *
+     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      * @example cn-hangzhou
      *
      * @var string

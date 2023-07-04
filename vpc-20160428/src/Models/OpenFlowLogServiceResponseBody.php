@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OpenFlowLogServiceResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class OpenFlowLogServiceResponseBody extends Model
     public $code;
 
     /**
+     * @description The information returned after the flow log feature is enabled.
+     *
      * @example successful
      *
      * @var string
@@ -23,6 +27,8 @@ class OpenFlowLogServiceResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 28CF47AB-B6C0-5FA2-80C7-2B28826A92CB
      *
      * @var string

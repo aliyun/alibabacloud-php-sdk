@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetVpnGatewayDiagnoseResultRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * >  If you do not set this parameter, ClientToken is set to the value of RequestId. The ID of each request may be different.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -16,6 +19,9 @@ class GetVpnGatewayDiagnoseResultRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the diagnostic.
+     *
+     * When you call the [DiagnoseVpnGateway](~~469751~~) operation, the system returns a corresponding ID.
      * @example vpndgn-uf6kuxbe3iv028k3s****
      *
      * @var string
@@ -23,6 +29,9 @@ class GetVpnGatewayDiagnoseResultRequest extends Model
     public $diagnoseId;
 
     /**
+     * @description The region ID of the VPN gateway.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-qingdao
      *
      * @var string
@@ -30,6 +39,8 @@ class GetVpnGatewayDiagnoseResultRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-uf6fzwp0ck3frwtbk****
      *
      * @var string

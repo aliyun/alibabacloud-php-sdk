@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpv6GatewayRequest extends Model
 {
     /**
+     * @description The ID of the IPv6 gateway that you want to delete.
+     *
      * @example ipv6gw-hp3y0l3ln89j8****
      *
      * @var string
@@ -26,6 +28,8 @@ class DeleteIpv6GatewayRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the IPv6 gateway. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-huhehaote
      *
      * @var string

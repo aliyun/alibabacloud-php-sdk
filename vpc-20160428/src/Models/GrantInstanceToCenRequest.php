@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GrantInstanceToCenRequest extends Model
 {
     /**
+     * @description The ID of the CEN instance to which you want to grant permissions.
+     *
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string
@@ -16,6 +18,8 @@ class GrantInstanceToCenRequest extends Model
     public $cenId;
 
     /**
+     * @description The user ID (UID) of the Alibaba Cloud account to which the CEN instance belongs.
+     *
      * @example 123456789
      *
      * @var int
@@ -23,6 +27,11 @@ class GrantInstanceToCenRequest extends Model
     public $cenOwnerId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that the value is unique among all requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -30,6 +39,8 @@ class GrantInstanceToCenRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the network instance.
+     *
      * @example vpc-uf6o8d1dj8sjwxi6o****
      *
      * @var string
@@ -37,6 +48,11 @@ class GrantInstanceToCenRequest extends Model
     public $instanceId;
 
     /**
+     * @description The type of the network instance. Valid values:
+     *
+     *   **VPC**: a VPC
+     *   **VBR**: a VBR
+     *
      * @example VPC
      *
      * @var string
@@ -54,6 +70,9 @@ class GrantInstanceToCenRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the network instance is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

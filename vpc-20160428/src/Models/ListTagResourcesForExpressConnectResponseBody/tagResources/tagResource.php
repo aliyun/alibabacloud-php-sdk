@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
+     * @description The ID of the resource.
+     *
      * @example pc-bp16qjewdsunr41m1****
      *
      * @var string
@@ -16,6 +18,8 @@ class tagResource extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource. The value is set to **PHYSICALCONNECTION**, which indicates the Express Connect circuit.
+     *
      * @example PHYSICALCONNECTION
      *
      * @var string
@@ -23,6 +27,8 @@ class tagResource extends Model
     public $resourceType;
 
     /**
+     * @description The key of the tag that is added to the resource.
+     *
      * @example FinanceDept
      *
      * @var string
@@ -30,6 +36,8 @@ class tagResource extends Model
     public $tagKey;
 
     /**
+     * @description The value of the tag that is added to the resource.
+     *
      * @example FinanceJoshua
      *
      * @var string

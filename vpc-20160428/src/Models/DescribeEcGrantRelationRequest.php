@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEcGrantRelationRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example vbr-bp12mw1f8k3jgygk9****
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeEcGrantRelationRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the instance.
+     *
+     *   If you set **InstanceType** to **VBR**, specify a VBR ID.
+     *   If you set **InstanceType** to **VPC**, specify a VPC ID.
+     *
      * @example VBR
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeEcGrantRelationRequest extends Model
     public $instanceType;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +39,11 @@ class DescribeEcGrantRelationRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The ID of the region where the instance is deployed.
+     *
+     *   If **InstanceType** is set to **VBR**, this parameter is required.
+     *   If **InstanceType** is set to **VPC**, you can ignore this parameter.
+     *
      * @example 10
      *
      * @var int
@@ -37,6 +51,8 @@ class DescribeEcGrantRelationRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example cn-hangzhou
      *
      * @var string

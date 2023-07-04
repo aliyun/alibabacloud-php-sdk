@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class routeEntry extends Model
 {
     /**
+     * @description The description of the route.
+     *
      * @example RouteEntryDescription
      *
      * @var string
@@ -17,6 +19,8 @@ class routeEntry extends Model
     public $description;
 
     /**
+     * @description The destination CIDR blocks of the route.
+     *
      * @example 192.168.2.0/24
      *
      * @var string
@@ -24,6 +28,8 @@ class routeEntry extends Model
     public $destinationCidrBlock;
 
     /**
+     * @description The time when the route was modified. The time is displayed in `YYYY-MM-DDThh:mm:ssZ` format in UTC.
+     *
      * @example 2022-05-09T03:00:07Z
      *
      * @var string
@@ -31,6 +37,11 @@ class routeEntry extends Model
     public $gmtModified;
 
     /**
+     * @description The IP version. Valid values:
+     *
+     *   **IPv4**
+     *   **IPv6**
+     *
      * @example IPv4
      *
      * @var string
@@ -38,11 +49,15 @@ class routeEntry extends Model
     public $ipVersion;
 
     /**
+     * @description The information about the next hops.
+     *
      * @var nextHops
      */
     public $nextHops;
 
     /**
+     * @description The ID of the route.
+     *
      * @example rte-bp1mnnr2al0naomnp****
      *
      * @var string
@@ -50,6 +65,8 @@ class routeEntry extends Model
     public $routeEntryId;
 
     /**
+     * @description The name of the route.
+     *
      * @example aaa
      *
      * @var string
@@ -57,6 +74,8 @@ class routeEntry extends Model
     public $routeEntryName;
 
     /**
+     * @description The ID of the route table.
+     *
      * @example vtb-bp15w5q90d2rk3bww****
      *
      * @var string
@@ -64,6 +83,9 @@ class routeEntry extends Model
     public $routeTableId;
 
     /**
+     * @description Indicates whether the route is hosted. If the parameter is empty, the route is not hosted.
+     *
+     * If the value is set to **TR**, the route is hosted by a transit router.
      * @example TR
      *
      * @var string
@@ -71,6 +93,12 @@ class routeEntry extends Model
     public $serviceType;
 
     /**
+     * @description The status of the route. Valid values:
+     *
+     *   **Pending**: The route is being configured.
+     *   **Available**: The route is available.
+     *   **Modifying**: The route is being modified.
+     *
      * @example Available
      *
      * @var string
@@ -78,6 +106,13 @@ class routeEntry extends Model
     public $status;
 
     /**
+     * @description The type of the route. Valid values:
+     *
+     *   **Custom**: a custom route
+     *   **System**: a system route
+     *   **BGP**: a BGP route
+     *   **CEN**: a CEN route
+     *
      * @example Custom
      *
      * @var string

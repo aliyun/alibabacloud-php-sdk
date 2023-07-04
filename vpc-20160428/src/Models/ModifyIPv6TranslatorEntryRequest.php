@@ -9,13 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ModifyIPv6TranslatorEntryRequest extends Model
 {
     /**
-     * @example ipv6transacl-bp1de27sou71g0lfxxxx
+     * @description The ID of the associated ACL.
+     *
+     * @example ipv6transacl-bp1de27sou71g0lf****
      *
      * @var string
      */
     public $aclId;
 
     /**
+     * @description Specifies whether to enable access control lists (ACLs). Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
      * @example off
      *
      * @var string
@@ -23,6 +30,11 @@ class ModifyIPv6TranslatorEntryRequest extends Model
     public $aclStatus;
 
     /**
+     * @description The ACL type. Valid values:
+     *
+     *   **white**: a whitelist. IPv6 addresses in the ACL are allowed to access backend services.
+     *   **black**: a blacklist. IPv6 addresses in the ACL are not allowed to access backend services.
+     *
      * @example white
      *
      * @var string
@@ -30,6 +42,8 @@ class ModifyIPv6TranslatorEntryRequest extends Model
     public $aclType;
 
     /**
+     * @description The port that is used by the IPv6 address allocated to the IPv6 Translation Service instance.
+     *
      * @example 80
      *
      * @var int
@@ -37,13 +51,17 @@ class ModifyIPv6TranslatorEntryRequest extends Model
     public $allocateIpv6Port;
 
     /**
-     * @example 47.11.xx.xxx
+     * @description The public IPv4 address that needs to provide IPv6 services.
+     *
+     * @example 47.11.XX.XX
      *
      * @var string
      */
     public $backendIpv4Addr;
 
     /**
+     * @description The port of the public IPv4 address that needs to provide IPv6 services.
+     *
      * @example 80
      *
      * @var int
@@ -51,6 +69,12 @@ class ModifyIPv6TranslatorEntryRequest extends Model
     public $backendIpv4Port;
 
     /**
+     * @description The maximum bandwidth specified in the IPv6 mapping entry. Unit: Mbit/s. Valid values:
+     *
+     *   **-1** (default): does not limit the maximum bandwidth specified in the IPv6 mapping entry.
+     *   **1** to **200**: changes the maximum bandwidth specified in the IPv6 mapping entry.
+     *
+     * > The sum of maximum bandwidth values specified in all IPv6 entries cannot exceed the maximum bandwidth supported by the instance.
      * @example 10
      *
      * @var int
@@ -58,6 +82,8 @@ class ModifyIPv6TranslatorEntryRequest extends Model
     public $entryBandwidth;
 
     /**
+     * @description The description of the IPv6 mapping entry. It must be 2 to 100 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter. It cannot start with http:// or [https://](https://。).
+     *
      * @example entrydescription
      *
      * @var string
@@ -65,6 +91,8 @@ class ModifyIPv6TranslatorEntryRequest extends Model
     public $entryDescription;
 
     /**
+     * @description The name of the IPv6 mapping entry. It must be 2 to 100 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter. It cannot start with http:// or [https://](https://。).
+     *
      * @example entry1
      *
      * @var string
@@ -72,7 +100,9 @@ class ModifyIPv6TranslatorEntryRequest extends Model
     public $entryName;
 
     /**
-     * @example ipv6trans-bp1858ysxxxxxx
+     * @description The ID of the IPv6 mapping entry.
+     *
+     * @example ipv6trans-bp1858ys****
      *
      * @var string
      */
@@ -89,6 +119,8 @@ class ModifyIPv6TranslatorEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region of the IPv6 Translation Service instance. You can call the DescribeRegions operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -106,6 +138,11 @@ class ModifyIPv6TranslatorEntryRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The protocol. Valid values:
+     *
+     *   **tcp**
+     *   **udp**
+     *
      * @example tcp
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListEnhanhcedNatGatewayAvailableZonesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 8AE6F367-52EA-535D-9A3D-EF23D70527C8
      *
      * @var string
@@ -17,6 +19,8 @@ class ListEnhanhcedNatGatewayAvailableZonesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of zones.
+     *
      * @var zones[]
      */
     public $zones;

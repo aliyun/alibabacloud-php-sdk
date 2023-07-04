@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AssociateHaVipRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** in each API request may be different.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
      * @var string
@@ -16,6 +21,8 @@ class AssociateHaVipRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the HAVIP.
+     *
      * @example havip-2zeo05qre24nhrqpy****
      *
      * @var string
@@ -23,6 +30,8 @@ class AssociateHaVipRequest extends Model
     public $haVipId;
 
     /**
+     * @description The ID of the ECS instance to be associated with the HAVIP.
+     *
      * @example i-faf344422ffsfad****
      *
      * @var string
@@ -30,6 +39,11 @@ class AssociateHaVipRequest extends Model
     public $instanceId;
 
     /**
+     * @description The type of the instance to be associated with the HAVIP. Valid values:
+     *
+     *   **EcsInstance**: an ECS instance
+     *   **NetworkInterface**: an ENI. If you want to associate the HAVIP with an ENI, this parameter is required.
+     *
      * @example EcsInstance
      *
      * @var string
@@ -47,6 +61,9 @@ class AssociateHaVipRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the HAVIP belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string

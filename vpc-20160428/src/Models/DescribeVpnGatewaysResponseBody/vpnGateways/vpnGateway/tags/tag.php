@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The maximum number of concurrent SSL-VPN connections of the pending order.
+     *
      * @example FinanceDept
      *
      * @var string
@@ -16,6 +18,9 @@ class tag extends Model
     public $key;
 
     /**
+     * @description If the order type is **TEMP_UPGRADE** (temporary upgrade), this parameter specifies the time when the temporary upgrade expires.
+     *
+     * If the order type is **RENEWCHANGE** (renewal with an upgrade or a downgrade) or **RENEW** (renewal), this parameter indicates the time when the renewal or renewal with an upgrade or a downgrade takes effect.
      * @example FinanceJoshua
      *
      * @var string

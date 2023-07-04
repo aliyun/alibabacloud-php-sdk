@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteNatIpCidrResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 7021BEB1-210F-48A9-AB82-BE9A9110BB89
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnConnectionLogsResponseBody extends Model
 {
     /**
+     * @description The number of entries on the current page.
+     *
      * @example 10
      *
      * @var int
@@ -17,11 +19,19 @@ class DescribeVpnConnectionLogsResponseBody extends Model
     public $count;
 
     /**
+     * @description An array of strings.
+     *
+     * Each item in the array is a log entry.
      * @var data
      */
     public $data;
 
     /**
+     * @description Indicates whether the log is accurate. Valid values:
+     *
+     *   **true**: accurate
+     *   **false**: inaccurate
+     *
      * @example true
      *
      * @var bool
@@ -29,6 +39,8 @@ class DescribeVpnConnectionLogsResponseBody extends Model
     public $isCompleted;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -36,6 +48,8 @@ class DescribeVpnConnectionLogsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -43,6 +57,8 @@ class DescribeVpnConnectionLogsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CF161502-4959-5C3B-B499-09B87BA931D9
      *
      * @var string

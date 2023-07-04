@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagKeysResponseBody extends Model
 {
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If the value of **NextToken** is not returned, it indicates that no next query is to be sent.
+     *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -17,6 +22,8 @@ class DescribeTagKeysResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DE65F6B7-7566-4802-9007-96F2494AC512
      *
      * @var string
@@ -24,6 +31,8 @@ class DescribeTagKeysResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The list of tag keys.
+     *
      * @var tagKeys
      */
     public $tagKeys;

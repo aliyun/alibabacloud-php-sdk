@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnSslServerLogsRequest extends Model
 {
     /**
+     * @description The beginning of the time range to query. The value must be a unix timestamp. For example, 1600738962 specifies 09:42:42 (UTC+8) on September 22, 2020.
+     *
+     * >  If you specify **From**, you must also specify **To** or **MinutePeriod**.
      * @example 1600738962
      *
      * @var int
@@ -16,6 +19,9 @@ class DescribeVpnSslServerLogsRequest extends Model
     public $from;
 
     /**
+     * @description The interval at which log data is queried. Unit: minutes.
+     *
+     * >  If both **From** and **To** are not specified, you must specify **MinutePeriod**.
      * @example 10
      *
      * @var int
@@ -33,6 +39,8 @@ class DescribeVpnSslServerLogsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -40,6 +48,8 @@ class DescribeVpnSslServerLogsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -47,6 +57,8 @@ class DescribeVpnSslServerLogsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region where the SSL server is created. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -64,6 +76,8 @@ class DescribeVpnSslServerLogsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the SSL client certificate.
+     *
      * @example vsc-m5euof6s5jy8vs5kd****
      *
      * @var string
@@ -71,6 +85,9 @@ class DescribeVpnSslServerLogsRequest extends Model
     public $sslVpnClientCertId;
 
     /**
+     * @description The end of the time range to query. The value must be a unix timestamp. For example, 1600738962 specifies 09:42:42 (UTC+8) on September 22, 2020.
+     *
+     * >  If you specify **To**, you must also specify **From** or **MinutePeriod**.
      * @example 1600738962
      *
      * @var int
@@ -78,6 +95,8 @@ class DescribeVpnSslServerLogsRequest extends Model
     public $to;
 
     /**
+     * @description The ID of the SSL server.
+     *
      * @example vss-bp155e9yclsg1xgq4****
      *
      * @var string

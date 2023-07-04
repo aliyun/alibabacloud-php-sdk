@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVSwitchRequest extends Model
 {
     /**
+     * @description The ID of the VPC where you want to create the vSwitch.
+     *
      * @example 172.16.0.0/24
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateVSwitchRequest extends Model
     public $cidrBlock;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateVSwitchRequest extends Model
     public $clientToken;
 
     /**
+     * @description The IPv6 CIDR block of the VPC.
+     *
      * @example vSwitch
      *
      * @var string
@@ -30,6 +36,9 @@ class CreateVSwitchRequest extends Model
     public $description;
 
     /**
+     * @description The name of the vSwitch.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example 12
      *
      * @var int
@@ -47,6 +56,8 @@ class CreateVSwitchRequest extends Model
     public $ownerId;
 
     /**
+     * @description The last eight bits of the IPv6 CIDR block of the vSwitch. Valid values: **0** to **255**.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -64,6 +75,11 @@ class CreateVSwitchRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example vSwitch-1
      *
      * @var string
@@ -71,6 +87,9 @@ class CreateVSwitchRequest extends Model
     public $vSwitchName;
 
     /**
+     * @description The description of the vSwitch.
+     *
+     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example vpc-257gqcdfvx6n****
      *
      * @var string
@@ -78,6 +97,8 @@ class CreateVSwitchRequest extends Model
     public $vpcId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 2408:XXXX:0:6a::/56
      *
      * @var string
@@ -85,6 +106,12 @@ class CreateVSwitchRequest extends Model
     public $vpcIpv6CidrBlock;
 
     /**
+     * @description The CIDR block of the vSwitch. Take note of the following limits:
+     *
+     *   The subnet mask of the CIDR block must be 16 to 29 bits in length.
+     *   The CIDR block of the vSwitch must fall within the CIDR block of the VPC to which the vSwitch belongs.
+     *   The CIDR block of a vSwitch cannot be the same as the destination CIDR block in a route entry of the VPC. However, it can be a subset of the destination CIDR block.
+     *
      * @example cn-hangzhou-b
      *
      * @var string

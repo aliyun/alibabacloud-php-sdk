@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyNatGatewayAttributeRequest extends Model
 {
     /**
+     * @description The description of the NAT gateway.
+     *
+     * The description must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example Description
      *
      * @var string
@@ -16,6 +19,13 @@ class ModifyNatGatewayAttributeRequest extends Model
     public $description;
 
     /**
+     * @description The mode in which the NAT gateway is associated with an elastic IP address (EIP). You can leave this parameter empty. If you want to specify a value for this parameter, set the value to **NAT**, which indicates that the NAT gateway is associated with the EIP in NAT mode.
+     *
+     * >
+     *   If the EipBindMode parameter is set to MULTI_BINDED when the NAT gateway is created, you can change the value of this parameter from **MULTI_BINDED** to **NAT**. If the EipBindMode parameter is set to NAT when the NAT gateway is created, you cannot change the value of this parameter from **NAT** to **MULTI_BINDED**. For more information about **MULTI_BINDED**, see [CreateNatGateway](~~120219~~).
+     *   When the mode in which the NAT gateway is associated with an EIP is being changed, a transient connection that lasts a few seconds may occur. If the number of EIPs with which the NAT gateway is associated increases, the transient connection lasts longer. You can change the mode only for a NAT gateway that is associated with up to five EIPs. We recommend that you change the mode during off-peak hours.
+     *   After the mode is changed to **NAT**, the Internet NAT gateway is compatible with the IPv4 gateway. However, if you associate an EIP with the NAT gateway, the EIP occupies one private IP address on the vSwitch of the NAT gateway. Make sure that the vSwitch has sufficient private IP addresses. Otherwise, the EIP fails to be associated with the NAT gateway.
+     *
      * @example NAT
      *
      * @var string
@@ -23,6 +33,11 @@ class ModifyNatGatewayAttributeRequest extends Model
     public $eipBindMode;
 
     /**
+     * @description Specifies whether to enable the Internet control message protocol (ICMP) non-retrieval feature. Valid values:
+     *
+     *   **false**: disables the ICMP non-retrieval feature. This is the default value.
+     *   **true**: enables the ICMP non-retrieval feature.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +45,9 @@ class ModifyNatGatewayAttributeRequest extends Model
     public $icmpReplyEnabled;
 
     /**
+     * @description The name of the NAT gateway.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example nat123
      *
      * @var string
@@ -37,6 +55,8 @@ class ModifyNatGatewayAttributeRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
      * @example ngw-2ze0dcn4mq31qx2jc****
      *
      * @var string
@@ -54,6 +74,9 @@ class ModifyNatGatewayAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the NAT gateway.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListVpcGatewayEndpointsRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class ListVpcGatewayEndpointsRequest extends Model
 {
     /**
+     * @description The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
+     *
      * @example vpce-bp1i1212ss2whuwyw****
      *
      * @var string
@@ -16,6 +19,9 @@ class ListVpcGatewayEndpointsRequest extends Model
     public $endpointId;
 
     /**
+     * @description The region ID of the gateway endpoint.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example test
      *
      * @var string
@@ -23,6 +29,8 @@ class ListVpcGatewayEndpointsRequest extends Model
     public $endpointName;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 20
      *
      * @var int
@@ -30,6 +38,11 @@ class ListVpcGatewayEndpointsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If no value is returned for **NextToken**, no next queries are sent.
+     *   If **NextToken** is not empty, the value indicates the token that is used for the next query.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -47,11 +60,20 @@ class ListVpcGatewayEndpointsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The list of gateway endpoints.
+     *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @example rg-acfmxvfvazb4p****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -64,11 +86,18 @@ class ListVpcGatewayEndpointsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example com.aliyun.cn-hangzhou.oss
      *
      * @var string
      */
     public $serviceName;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'endpointId'           => 'EndpointId',
         'endpointName'         => 'EndpointName',
@@ -77,9 +106,11 @@ class ListVpcGatewayEndpointsRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'serviceName'          => 'ServiceName',
+        'tags'                 => 'Tags',
     ];
 
     public function validate()
@@ -110,6 +141,9 @@ class ListVpcGatewayEndpointsRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -118,6 +152,15 @@ class ListVpcGatewayEndpointsRequest extends Model
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -152,6 +195,9 @@ class ListVpcGatewayEndpointsRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
@@ -160,6 +206,15 @@ class ListVpcGatewayEndpointsRequest extends Model
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

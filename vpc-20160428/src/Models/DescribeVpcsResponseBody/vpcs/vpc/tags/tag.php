@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The IDs of the route tables.
+     *
      * @example env
      *
      * @var string

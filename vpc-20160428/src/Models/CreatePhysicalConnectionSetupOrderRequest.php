@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePhysicalConnectionSetupOrderRequest extends Model
 {
     /**
+     * @description The ID of the access point.
+     *
      * @example ap-cn-beijing-ft-A
      *
      * @var string
@@ -16,6 +18,11 @@ class CreatePhysicalConnectionSetupOrderRequest extends Model
     public $accessPointId;
 
     /**
+     * @description Specifies whether to enable automatic payment. Valid values:
+     *
+     *   **false** (default): disables automatic payment.
+     *   **true**: enables automatic payment.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +30,11 @@ class CreatePhysicalConnectionSetupOrderRequest extends Model
     public $autoPay;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** of each API request may be different.
      * @example 318BB676-0A2B-43A0-9AD8-F1D34E93750F
      *
      * @var string
@@ -30,6 +42,15 @@ class CreatePhysicalConnectionSetupOrderRequest extends Model
     public $clientToken;
 
     /**
+     * @description The connectivity provider of the Express Connect circuit. Valid values:
+     *
+     *   **CT**: China Telecom
+     *   **CU**: China Unicom
+     *   **CM**: China Mobile
+     *   **CO**: other connectivity providers in the Chinese mainland
+     *   **Equinix**: Equinix
+     *   **Other**: other connectivity providers outside the Chinese mainland
+     *
      * @example CT
      *
      * @var string
@@ -47,6 +68,17 @@ class CreatePhysicalConnectionSetupOrderRequest extends Model
     public $ownerId;
 
     /**
+     * @description The port type. Valid values:
+     *
+     *   **100Base-T**: 100 Mbit/s copper Ethernet port
+     *   **1000Base-T** (default): 1,000 Mbit/s copper Ethernet port
+     *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 km)
+     *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
+     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 km)
+     *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
+     *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
+     *
+     * >  Whether 40GBase-LR and 100GBase-LR ports can be created is based on resource supplies. For more information, contact your business manager.
      * @example 100Base-T
      *
      * @var string
@@ -54,6 +86,8 @@ class CreatePhysicalConnectionSetupOrderRequest extends Model
     public $portType;
 
     /**
+     * @description The ID of the redundant Express Connect circuit. The redundant Express Connect circuit must be in the **Allocated**, **Confirmed**, or **Enabled** state.
+     *
      * @example pc-bp10zsv5ntp****
      *
      * @var string
@@ -61,6 +95,9 @@ class CreatePhysicalConnectionSetupOrderRequest extends Model
     public $redundantPhysicalConnectionId;
 
     /**
+     * @description The region ID of the Express Connect circuit.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-beijing
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The ID of the route table that is associated with the vSwitch.
+     *
      * @example department
      *
      * @var string
@@ -16,6 +18,10 @@ class tag extends Model
     public $key;
 
     /**
+     * @description The type of the route table that is associated with the vSwitch. Valid values:
+     *
+     * - **System**: system route table
+     * - **Custom**: custom route table
      * @example dev
      *
      * @var string

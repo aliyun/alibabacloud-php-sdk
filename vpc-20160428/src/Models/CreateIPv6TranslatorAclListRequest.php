@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateIPv6TranslatorAclListRequest extends Model
 {
     /**
+     * @description The ACL name.
+     *
      * @example test
      *
      * @var string
@@ -33,6 +35,8 @@ class CreateIPv6TranslatorAclListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region of the IPv6 Translation Service instance. You can call the DescribeRegions operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class egressRules extends Model
 {
     /**
+     * @description The action of the outbound rule. Valid values:
+     *
+     *   **accept**: collects network traffic.
+     *   **drop**: does not collect network traffic.
+     *
      * @example accept
      *
      * @var string
@@ -16,6 +21,8 @@ class egressRules extends Model
     public $action;
 
     /**
+     * @description The destination CIDR block of the outbound traffic.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -23,6 +30,8 @@ class egressRules extends Model
     public $destinationCidrBlock;
 
     /**
+     * @description The destination port range of the outbound traffic.
+     *
      * @example 22/40
      *
      * @var string
@@ -30,6 +39,8 @@ class egressRules extends Model
     public $destinationPortRange;
 
     /**
+     * @description The priority of the outbound rule. A smaller value indicates a higher priority.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +48,13 @@ class egressRules extends Model
     public $priority;
 
     /**
+     * @description The protocol that is used by the outbound traffic to be mirrored. Valid values:
+     *
+     *   **ALL**: all protocols
+     *   **ICMP**: ICMP
+     *   **TCP**: TCP
+     *   **UDP**: UDP
+     *
      * @example TCP
      *
      * @var string
@@ -44,6 +62,8 @@ class egressRules extends Model
     public $protocol;
 
     /**
+     * @description The source CIDR block of the outbound traffic.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -51,6 +71,8 @@ class egressRules extends Model
     public $sourceCidrBlock;
 
     /**
+     * @description The source port range of the outbound traffic.
+     *
      * @example 22/40
      *
      * @var string
@@ -58,6 +80,11 @@ class egressRules extends Model
     public $sourcePortRange;
 
     /**
+     * @description The direction of the network traffic. Valid values:
+     *
+     *   **egress**: outbound
+     *   **ingress**: inbound
+     *
      * @example egress
      *
      * @var string
@@ -65,6 +92,8 @@ class egressRules extends Model
     public $trafficDirection;
 
     /**
+     * @description The ID of the filter associated with the outbound rule.
+     *
      * @example tmf-j6cmls82xnc86vtpe****
      *
      * @var string
@@ -72,6 +101,8 @@ class egressRules extends Model
     public $trafficMirrorFilterId;
 
     /**
+     * @description The ID of the outbound rule.
+     *
      * @example tmr-j6c89rzmtd3hhdugq****
      *
      * @var string
@@ -79,6 +110,13 @@ class egressRules extends Model
     public $trafficMirrorFilterRuleId;
 
     /**
+     * @description The status of the outbound rule. Valid values:
+     *
+     *   **Creating**
+     *   **Created**
+     *   **Modifying**
+     *   **Deleting**
+     *
      * @example Created
      *
      * @var string

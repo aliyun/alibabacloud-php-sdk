@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class bgpNetwork extends Model
 {
     /**
+     * @description The CIDR block of the advertised BGP network.
+     *
      * @example 10.1.XX.XX/24
      *
      * @var string
@@ -16,6 +18,8 @@ class bgpNetwork extends Model
     public $dstCidrBlock;
 
     /**
+     * @description The ID of the VBR.
+     *
      * @example vrt-bp1lhl0taikrteen8****
      *
      * @var string
@@ -23,6 +27,8 @@ class bgpNetwork extends Model
     public $routerId;
 
     /**
+     * @description The status of the advertised BGP network.
+     *
      * @example Enabled
      *
      * @var string
@@ -30,6 +36,8 @@ class bgpNetwork extends Model
     public $status;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
      * @example vpc-bp1qpo0kug3a2*****
      *
      * @var string

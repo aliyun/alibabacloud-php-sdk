@@ -16,6 +16,9 @@ class ModifyVpcPrefixListRequest extends Model
     public $addPrefixListEntry;
 
     /**
+     * @description The CIDR block to be added to the prefix list.
+     *
+     * >  If the CIDR block already exists in the prefix list, you can only modify the description of the CIDR block by setting the **AddPrefixListEntry.N.Description** parameter.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -23,6 +26,9 @@ class ModifyVpcPrefixListRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the CIDR block to be added to the prefix list.
+     *
+     * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
      * @example false
      *
      * @var bool
@@ -30,6 +36,8 @@ class ModifyVpcPrefixListRequest extends Model
     public $dryRun;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 20
      *
      * @var int
@@ -47,6 +55,8 @@ class ModifyVpcPrefixListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the prefix list.
+     *
      * @example newdescription
      *
      * @var string
@@ -54,6 +64,11 @@ class ModifyVpcPrefixListRequest extends Model
     public $prefixListDescription;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example pl-0b7hwu67****
      *
      * @var string
@@ -61,6 +76,11 @@ class ModifyVpcPrefixListRequest extends Model
     public $prefixListId;
 
     /**
+     * @description Specifies whether to only precheck the request. Valid values:
+     *
+     *   **true**: checks the request without performing the operation. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. If the request passes the check, a 2xx HTTP status code is returned and the operation is performed.
+     *
      * @example newname
      *
      * @var string
@@ -68,6 +88,8 @@ class ModifyVpcPrefixListRequest extends Model
     public $prefixListName;
 
     /**
+     * @description The maximum number of CIDR blocks supported by the prefix list after the configuration of the prefix list is modified.
+     *
      * @example cn-hangzhou
      *
      * @var string

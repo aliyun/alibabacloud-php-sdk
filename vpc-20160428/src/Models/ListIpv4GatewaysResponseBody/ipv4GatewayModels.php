@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ipv4GatewayModels extends Model
 {
     /**
+     * @description Indicates whether the IPv4 gateway is activated. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -17,6 +22,8 @@ class ipv4GatewayModels extends Model
     public $enabled;
 
     /**
+     * @description The time when the IPv4 gateway was created.
+     *
      * @example 2021-12-02T07:07:35Z
      *
      * @var string
@@ -24,6 +31,8 @@ class ipv4GatewayModels extends Model
     public $gmtCreate;
 
     /**
+     * @description The description of the IPv4 gateway.
+     *
      * @example test
      *
      * @var string
@@ -31,6 +40,8 @@ class ipv4GatewayModels extends Model
     public $ipv4GatewayDescription;
 
     /**
+     * @description The ID of the IPv4 gateway.
+     *
      * @example ipv4gw-5tsnc6s4ogsedtp3k****
      *
      * @var string
@@ -38,6 +49,8 @@ class ipv4GatewayModels extends Model
     public $ipv4GatewayId;
 
     /**
+     * @description The name of the IPv4 gateway.
+     *
      * @example name
      *
      * @var string
@@ -45,6 +58,8 @@ class ipv4GatewayModels extends Model
     public $ipv4GatewayName;
 
     /**
+     * @description The ID of the route table associated with the IPv4 gateway.
+     *
      * @example vtb-5ts0ohchwkp3dydt2****
      *
      * @var string
@@ -52,11 +67,23 @@ class ipv4GatewayModels extends Model
     public $ipv4GatewayRouteTableId;
 
     /**
+     * @description The ID of the resource group to which the IPv4 gateway belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The status of the IPv4 gateway. Valid values:
+     *
+     *   **Creating**
+     *   **Created**
+     *   **Modifying**
+     *   **Deleting**
+     *   **Deleted**
+     *
      * @example Created
      *
      * @var string
@@ -64,11 +91,15 @@ class ipv4GatewayModels extends Model
     public $status;
 
     /**
+     * @description The list of tags that are added to the resource group.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The ID of the VPC with which the IPv4 gateways are associated.
+     *
      * @example vpc-5tsrxlw7dv074gci4****
      *
      * @var string

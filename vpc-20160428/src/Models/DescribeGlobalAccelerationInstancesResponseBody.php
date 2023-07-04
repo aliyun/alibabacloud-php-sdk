@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalAccelerationInstancesResponseBody extends Model
 {
     /**
+     * @description The details of the GA instances.
+     *
      * @var globalAccelerationInstances
      */
     public $globalAccelerationInstances;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeGlobalAccelerationInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeGlobalAccelerationInstancesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 6B4EE38D-C75B-4E1F-844E-863A94430676
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeGlobalAccelerationInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

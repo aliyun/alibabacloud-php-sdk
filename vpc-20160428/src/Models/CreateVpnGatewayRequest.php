@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnGatewayRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the IPsec-VPN feature. Valid values:
+     *
+     *   **true** (default): yes
+     *   **false**: no
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,11 @@ class CreateVpnGatewayRequest extends Model
     public $autoPay;
 
     /**
+     * @description Specifies whether to enable the SSL-VPN feature for the VPN gateway. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
      * @example 5
      *
      * @var int
@@ -23,6 +33,8 @@ class CreateVpnGatewayRequest extends Model
     public $bandwidth;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example 02fb3da4****
      *
      * @var string
@@ -30,6 +42,13 @@ class CreateVpnGatewayRequest extends Model
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $disasterRecoveryVSwitchId;
+
+    /**
+     * @description The maximum number of clients that can be connected at the same time. Valid values: **5** (default), **10**, **20**, **50**, **100**, **200**, **500**, and **1000**.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +56,8 @@ class CreateVpnGatewayRequest extends Model
     public $enableIpsec;
 
     /**
+     * @description The ID of the vSwitch to which the VPN gateway belongs.
+     *
      * @example false
      *
      * @var bool
@@ -44,11 +65,18 @@ class CreateVpnGatewayRequest extends Model
     public $enableSsl;
 
     /**
+     * @description Specifies whether to enable automatic payment for the VPN gateway. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The billing method of the VPN gateway. Set the value to **POSTPAY**, which specifies the pay-as-you-go billing method.
+     *
      * @example MYVPN
      *
      * @var string
@@ -56,6 +84,8 @@ class CreateVpnGatewayRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
      * @example public
      *
      * @var string
@@ -73,6 +103,12 @@ class CreateVpnGatewayRequest extends Model
     public $ownerId;
 
     /**
+     * @description The maximum bandwidth of the VPN gateway. Unit: Mbit/s.
+     *
+     *   If you want to create a public VPN gateway, valid values are **10**, **100**, **200**, **500**, and **1000**.
+     *   If you want to create a private VPN gateway, valid values are **200** and **1000**.
+     *
+     * >  In some regions, the maximum bandwidth supported by a VPN gateway is 200 Mbit/s. For more information, see [Limits on VPN gateways](~~65290~~).
      * @example 1
      *
      * @var int
@@ -80,6 +116,8 @@ class CreateVpnGatewayRequest extends Model
     public $period;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) where you want to create the VPN gateway.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -97,6 +135,10 @@ class CreateVpnGatewayRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the VPN gateway. Valid values:
+     *
+     *   **Normal** (default): standard
+     *
      * @example 5
      *
      * @var int
@@ -104,6 +146,11 @@ class CreateVpnGatewayRequest extends Model
     public $sslConnections;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system sets **ClientToken** to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example vsw-bp1j5miw2bae9s2vt****
      *
      * @var string
@@ -111,6 +158,8 @@ class CreateVpnGatewayRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The subscription duration. Unit: months. Valid values: **1** to **9**, **12**, **24**, and **36**.
+     *
      * @example vpc-bp1ub1yt9cvakoelj****
      *
      * @var string
@@ -118,30 +167,36 @@ class CreateVpnGatewayRequest extends Model
     public $vpcId;
 
     /**
+     * @description The network type of the VPN gateway. Valid values:
+     *
+     *   **public** (default): public VPN gateway
+     *   **private**: private VPN gateway
+     *
      * @example Normal
      *
      * @var string
      */
     public $vpnType;
     protected $_name = [
-        'autoPay'              => 'AutoPay',
-        'bandwidth'            => 'Bandwidth',
-        'clientToken'          => 'ClientToken',
-        'enableIpsec'          => 'EnableIpsec',
-        'enableSsl'            => 'EnableSsl',
-        'instanceChargeType'   => 'InstanceChargeType',
-        'name'                 => 'Name',
-        'networkType'          => 'NetworkType',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'period'               => 'Period',
-        'regionId'             => 'RegionId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'sslConnections'       => 'SslConnections',
-        'vSwitchId'            => 'VSwitchId',
-        'vpcId'                => 'VpcId',
-        'vpnType'              => 'VpnType',
+        'autoPay'                   => 'AutoPay',
+        'bandwidth'                 => 'Bandwidth',
+        'clientToken'               => 'ClientToken',
+        'disasterRecoveryVSwitchId' => 'DisasterRecoveryVSwitchId',
+        'enableIpsec'               => 'EnableIpsec',
+        'enableSsl'                 => 'EnableSsl',
+        'instanceChargeType'        => 'InstanceChargeType',
+        'name'                      => 'Name',
+        'networkType'               => 'NetworkType',
+        'ownerAccount'              => 'OwnerAccount',
+        'ownerId'                   => 'OwnerId',
+        'period'                    => 'Period',
+        'regionId'                  => 'RegionId',
+        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
+        'resourceOwnerId'           => 'ResourceOwnerId',
+        'sslConnections'            => 'SslConnections',
+        'vSwitchId'                 => 'VSwitchId',
+        'vpcId'                     => 'VpcId',
+        'vpnType'                   => 'VpnType',
     ];
 
     public function validate()
@@ -159,6 +214,9 @@ class CreateVpnGatewayRequest extends Model
         }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->disasterRecoveryVSwitchId) {
+            $res['DisasterRecoveryVSwitchId'] = $this->disasterRecoveryVSwitchId;
         }
         if (null !== $this->enableIpsec) {
             $res['EnableIpsec'] = $this->enableIpsec;
@@ -225,6 +283,9 @@ class CreateVpnGatewayRequest extends Model
         }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['DisasterRecoveryVSwitchId'])) {
+            $model->disasterRecoveryVSwitchId = $map['DisasterRecoveryVSwitchId'];
         }
         if (isset($map['EnableIpsec'])) {
             $model->enableIpsec = $map['EnableIpsec'];

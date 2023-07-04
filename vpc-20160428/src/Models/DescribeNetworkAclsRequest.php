@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAclsRequest extends Model
 {
     /**
+     * @description The ID of the inbound rule.
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeNetworkAclsRequest extends Model
     public $clientToken;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example nacl-bp1lhl0taikrbgnh****
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeNetworkAclsRequest extends Model
     public $networkAclId;
 
     /**
+     * @description The details about the network ACL.
+     *
      * @example acl-1
      *
      * @var string
@@ -36,6 +42,8 @@ class DescribeNetworkAclsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The description of the network ACL.
+     *
      * @example 1
      *
      * @var int
@@ -43,6 +51,8 @@ class DescribeNetworkAclsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The name of the network ACL.
+     *
      * @example 10
      *
      * @var int
@@ -50,6 +60,8 @@ class DescribeNetworkAclsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the network ACL.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +69,8 @@ class DescribeNetworkAclsRequest extends Model
     public $regionId;
 
     /**
+     * @description The time when the network ACL was created.
+     *
      * @example vsw-bp1de348lntdwnhbg****
      *
      * @var string
@@ -74,6 +88,8 @@ class DescribeNetworkAclsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the associated VPC.
+     *
      * @example VSwitch
      *
      * @var string
@@ -86,6 +102,11 @@ class DescribeNetworkAclsRequest extends Model
     public $tags;
 
     /**
+     * @description The status of the network ACL. Valid values:
+     *
+     *   **Available**
+     *   **Modifying**
+     *
      * @example vpc-m5ebpc2xh64mqm27e****
      *
      * @var string

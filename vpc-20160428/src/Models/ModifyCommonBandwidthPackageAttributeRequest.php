@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCommonBandwidthPackageAttributeRequest extends Model
 {
     /**
+     * @description The ID of the EIP bandwidth plan.
+     *
      * @example cbwp-2ze2ic1xd2qeqk145****
      *
      * @var string
@@ -16,11 +18,15 @@ class ModifyCommonBandwidthPackageAttributeRequest extends Model
     public $bandwidthPackageId;
 
     /**
+     * @description The description of the EIP bandwidth plan. The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the EIP bandwidth plan. The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter. It cannot start with `http://` or `https://`.
+     *
      * @example test123
      *
      * @var string
@@ -38,6 +44,9 @@ class ModifyCommonBandwidthPackageAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the EIP bandwidth plan is created.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

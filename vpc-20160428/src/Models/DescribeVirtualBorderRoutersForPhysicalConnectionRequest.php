@@ -22,6 +22,8 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +31,8 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -36,6 +40,8 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the Express Connect circuit.
+     *
      * @example pc-119mfj****
      *
      * @var string
@@ -43,6 +49,8 @@ class DescribeVirtualBorderRoutersForPhysicalConnectionRequest extends Model
     public $physicalConnectionId;
 
     /**
+     * @description The region where the Express Connect circuit is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-shanghai
      *
      * @var string

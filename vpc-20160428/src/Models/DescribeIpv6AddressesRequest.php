@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6AddressesRequest extends Model
 {
     /**
+     * @description The ID of the instance that is assigned the IPv6 address.
+     *
      * @example i-2ze72wuqj4y3jl4f****
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeIpv6AddressesRequest extends Model
     public $associatedInstanceId;
 
     /**
+     * @description The type of the instance that is assigned the IPv6 address.
+     *
+     * Set the value to **EcsInstance**, which specifies an Elastic Compute Service (ECS) instance in a virtual private cloud (VPC). This is the default value.
      * @example EcsInstance
      *
      * @var string
@@ -23,6 +28,13 @@ class DescribeIpv6AddressesRequest extends Model
     public $associatedInstanceType;
 
     /**
+     * @var bool
+     */
+    public $includeReservationData;
+
+    /**
+     * @description The IPv6 address that you want to query.
+     *
      * @example 2408:XXXX:153:3921:851c:c435:7b12:1c5f
      *
      * @var string
@@ -30,6 +42,8 @@ class DescribeIpv6AddressesRequest extends Model
     public $ipv6Address;
 
     /**
+     * @description The ID of the IPv6 address that you want to query. You can enter at most 20 IPv6 IDs in each API request. Separate IPv6 IDs with commas (,).
+     *
      * @example ipv6-2zen5j4axcp5l5qyy****
      *
      * @var string
@@ -37,6 +51,8 @@ class DescribeIpv6AddressesRequest extends Model
     public $ipv6AddressId;
 
     /**
+     * @description The ID of the Internet bandwidth that you purchased for the IPv6 address.
+     *
      * @example ipv6bw-uf6hcyzu65v98v3du****
      *
      * @var string
@@ -44,6 +60,9 @@ class DescribeIpv6AddressesRequest extends Model
     public $ipv6InternetBandwidthId;
 
     /**
+     * @description The name of the IPv6 address that you want to query.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -51,6 +70,11 @@ class DescribeIpv6AddressesRequest extends Model
     public $name;
 
     /**
+     * @description The type of communication supported by the IPv6 address. Valid values:
+     *
+     *   **Private**: communication within private networks
+     *   **Public**: communication over the Internet
+     *
      * @example Private
      *
      * @var string
@@ -68,6 +92,8 @@ class DescribeIpv6AddressesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -75,6 +101,8 @@ class DescribeIpv6AddressesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return per page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -82,6 +110,8 @@ class DescribeIpv6AddressesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region in which you want to query IPv6 addresses. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-huhehaote
      *
      * @var string
@@ -99,6 +129,8 @@ class DescribeIpv6AddressesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the vSwitch to which the IPv6 address belongs.
+     *
      * @example vsw-25navfgbue4g****
      *
      * @var string
@@ -106,6 +138,8 @@ class DescribeIpv6AddressesRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC to which the IPv6 address belongs.
+     *
      * @example vpc-bp15zckdt37pq72zv****
      *
      * @var string
@@ -114,6 +148,7 @@ class DescribeIpv6AddressesRequest extends Model
     protected $_name = [
         'associatedInstanceId'    => 'AssociatedInstanceId',
         'associatedInstanceType'  => 'AssociatedInstanceType',
+        'includeReservationData'  => 'IncludeReservationData',
         'ipv6Address'             => 'Ipv6Address',
         'ipv6AddressId'           => 'Ipv6AddressId',
         'ipv6InternetBandwidthId' => 'Ipv6InternetBandwidthId',
@@ -142,6 +177,9 @@ class DescribeIpv6AddressesRequest extends Model
         }
         if (null !== $this->associatedInstanceType) {
             $res['AssociatedInstanceType'] = $this->associatedInstanceType;
+        }
+        if (null !== $this->includeReservationData) {
+            $res['IncludeReservationData'] = $this->includeReservationData;
         }
         if (null !== $this->ipv6Address) {
             $res['Ipv6Address'] = $this->ipv6Address;
@@ -202,6 +240,9 @@ class DescribeIpv6AddressesRequest extends Model
         }
         if (isset($map['AssociatedInstanceType'])) {
             $model->associatedInstanceType = $map['AssociatedInstanceType'];
+        }
+        if (isset($map['IncludeReservationData'])) {
+            $model->includeReservationData = $map['IncludeReservationData'];
         }
         if (isset($map['Ipv6Address'])) {
             $model->ipv6Address = $map['Ipv6Address'];

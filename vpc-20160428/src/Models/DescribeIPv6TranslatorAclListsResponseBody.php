@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeIPv6TranslatorAclListsResponseBody extends Model
 {
     /**
+     * @description The list of network ACLs.
+     *
      * @var ipv6TranslatorAcls
      */
     public $ipv6TranslatorAcls;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,21 +26,27 @@ class DescribeIPv6TranslatorAclListsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @example 1
+     * @description The number of entries per page.
+     *
+     * @example 10
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 8B2F5262-6B57-43F2-xxxxx
+     * @description The request ID.
+     *
+     * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 1
+     * @description The total number of entries returned.
+     *
+     * @example 20
      *
      * @var int
      */

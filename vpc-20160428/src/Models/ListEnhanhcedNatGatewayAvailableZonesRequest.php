@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListEnhanhcedNatGatewayAvailableZonesRequest extends Model
 {
     /**
+     * @description The language to display the results. Valid values:
+     *
+     *   **zh-CN** (default): Chinese
+     *   **en-US**: English
+     *
      * @example zh-CN
      *
      * @var string
@@ -26,6 +31,9 @@ class ListEnhanhcedNatGatewayAvailableZonesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region that you want to query.
+     *
+     * In this example, zones that support NAT gateways in the UAE (Dubai) region are queried.
      * @example me-east-1
      *
      * @var string

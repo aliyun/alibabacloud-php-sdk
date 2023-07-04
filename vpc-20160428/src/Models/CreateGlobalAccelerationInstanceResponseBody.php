@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateGlobalAccelerationInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
      * @example ga-bp1fi6sq7npnicmjj****
      *
      * @var string
@@ -16,6 +18,9 @@ class CreateGlobalAccelerationInstanceResponseBody extends Model
     public $globalAccelerationInstanceId;
 
     /**
+     * @description The public IP address of the GA instance.
+     *
+     * If **BandwidthType** is set to **Sharing**, this parameter is not returned.
      * @example 12.xx.xx.78
      *
      * @var string
@@ -23,6 +28,8 @@ class CreateGlobalAccelerationInstanceResponseBody extends Model
     public $ipAddress;
 
     /**
+     * @description The request ID.
+     *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeGrantRulesToCenRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,6 +21,8 @@ class DescribeGrantRulesToCenRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the network instance that you want to query.
+     *
      * @example vpc-bp18sth14qii3pnvc****
      *
      * @var string
@@ -23,6 +30,12 @@ class DescribeGrantRulesToCenRequest extends Model
     public $instanceId;
 
     /**
+     * @description The type of the network instance. Valid values:
+     *
+     *   **VPC**
+     *   **VBR**
+     *   **CCN**
+     *
      * @example VPC
      *
      * @var string
@@ -40,16 +53,26 @@ class DescribeGrantRulesToCenRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the network instance that you want to query.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +80,8 @@ class DescribeGrantRulesToCenRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the network instance belongs.
+     *
      * @example rg-acfmxazb4p****
      *
      * @var string

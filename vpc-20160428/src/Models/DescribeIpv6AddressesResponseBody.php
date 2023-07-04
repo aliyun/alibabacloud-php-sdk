@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6AddressesResponseBody extends Model
 {
     /**
+     * @description The details about the IPv6 addresses.
+     *
      * @var ipv6Addresses
      */
     public $ipv6Addresses;
 
     /**
+     * @description The number of the returned page. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeIpv6AddressesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeIpv6AddressesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example AA4486A8-B6AE-469E-AB09-820EF8ECFA2B
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeIpv6AddressesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

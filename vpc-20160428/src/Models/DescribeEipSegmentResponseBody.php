@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEipSegmentResponseBody extends Model
 {
     /**
+     * @description The details of the contiguous EIP group.
+     *
      * @var eipSegments
      */
     public $eipSegments;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeEipSegmentResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeEipSegmentResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F7A6301A-64BA-41EC-8284-8F4838C15D1F
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeEipSegmentResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
      * @example 10
      *
      * @var int

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouteTableListResponseBody extends Model
 {
     /**
+     * @description The number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeRouteTableListResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeRouteTableListResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example DC668356-BCB4-42FD-9BC3-FA2B2E04B634
      *
      * @var string
@@ -31,11 +37,15 @@ class DescribeRouteTableListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the VPC to which the route table belongs.
+     *
      * @var routerTableList
      */
     public $routerTableList;
 
     /**
+     * @description The detailed information about the route tables.
+     *
      * @example 1
      *
      * @var int

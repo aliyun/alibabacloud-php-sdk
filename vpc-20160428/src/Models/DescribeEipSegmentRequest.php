@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeEipSegmentRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 02fb3da4-130e-11e9-8e44-001sdfg
      *
      * @var string
@@ -26,6 +31,8 @@ class DescribeEipSegmentRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +40,8 @@ class DescribeEipSegmentRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -40,6 +49,8 @@ class DescribeEipSegmentRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region to which the contiguous EIP group belongs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +68,8 @@ class DescribeEipSegmentRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the contiguous EIP group that you want to query.
+     *
      * @example eipsg-2zett8ba055tbsxme****
      *
      * @var string

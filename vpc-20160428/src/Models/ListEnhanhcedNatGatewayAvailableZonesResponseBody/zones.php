@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class zones extends Model
 {
     /**
+     * @description The name of the zone.
+     *
+     * @example Dubai Zone A
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The ID of the zone where the instance is deployed.
+     *
      * @example me-east-1a
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkAclRequest extends Model
 {
     /**
+     * @description The details about the inbound rule.
+     *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateNetworkAclRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the network ACL.
+     *
      * @example This is my NetworkAcl.
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateNetworkAclRequest extends Model
     public $description;
 
     /**
+     * @description The name of the network ACL.
+     *
      * @example acl-1
      *
      * @var string
@@ -35,6 +41,8 @@ class CreateNetworkAclRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the network ACL.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -52,6 +60,8 @@ class CreateNetworkAclRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The description of the network ACL.
+     *
      * @example vpc-dsfd34356vdf****
      *
      * @var string

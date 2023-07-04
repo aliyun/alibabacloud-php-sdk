@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetIpv4GatewayAttributeRequest extends Model
 {
     /**
+     * @description The ID of the virtual private cloud (VPC) with which the IPv4 gateway is associated.
+     *
      * @example ipv4gw-5tsnc6s4ogsedtp3k****
      *
      * @var string
@@ -26,6 +28,8 @@ class GetIpv4GatewayAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **GetIpv4GatewayAttribute**.
+     *
      * @example ap-southeast-6
      *
      * @var string

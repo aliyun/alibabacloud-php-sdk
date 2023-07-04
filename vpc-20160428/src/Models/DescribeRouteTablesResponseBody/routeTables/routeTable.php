@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class routeTable extends Model
 {
     /**
+     * @description The time when the route table was created.
+     *
      * @example 2017-08-22T10:40:25Z
      *
      * @var string
@@ -18,6 +20,8 @@ class routeTable extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the resource group to which the elastic IP address (EIP) belongs.
+     *
      * @example rg-acfmxazb4ph****
      *
      * @var string
@@ -25,11 +29,15 @@ class routeTable extends Model
     public $resourceGroupId;
 
     /**
+     * @description Detailed information about the route entry.
+     *
      * @var routeEntrys
      */
     public $routeEntrys;
 
     /**
+     * @description The ID of the route table to which the route entry belongs.
+     *
      * @example vtb-bp145q7glnuzdvzu2****
      *
      * @var string
@@ -44,6 +52,11 @@ class routeTable extends Model
     public $routeTableType;
 
     /**
+     * @description The state of the route table.
+     *
+     *   **Pending**: The route table is being configured.
+     *   **Available**: The route table is available.
+     *
      * @example Available
      *
      * @var string
@@ -51,6 +64,8 @@ class routeTable extends Model
     public $status;
 
     /**
+     * @description The ID of the vRouter.
+     *
      * @example vrt-bp1lhl0taikrteen8****
      *
      * @var string
@@ -58,6 +73,8 @@ class routeTable extends Model
     public $VRouterId;
 
     /**
+     * @description The list of vSwitches that belong to the VPC.
+     *
      * @var vSwitchIds
      */
     public $vSwitchIds;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class virtualBorderRouterForPhysicalConnectionType extends Model
 {
     /**
+     * @description The first time when the VBR was activated.
+     *
      * @example 2021-06-08T12:20:55
      *
      * @var string
@@ -16,6 +18,8 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $activationTime;
 
     /**
+     * @description The bandwidth of the VBR associated with the Express Connect circuit. Unit: Mbit/s.
+     *
      * @example 10
      *
      * @var string
@@ -23,6 +27,11 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $bandwidth;
 
     /**
+     * @description The status of the bandwidth. Valid values:
+     *
+     *   **Active**: normal
+     *   **Inactive**: abnormal
+     *
      * @example Active
      *
      * @var string
@@ -30,6 +39,8 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $bandwidthStatus;
 
     /**
+     * @description The circuit code of the Express Connect circuit. The circuit code is predefined by the connectivity provider.
+     *
      * @example longtel0**
      *
      * @var string
@@ -37,6 +48,8 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $circuitCode;
 
     /**
+     * @description The time when the VBR was created.
+     *
      * @example 2021-06-08T12:20:55
      *
      * @var string
@@ -44,6 +57,8 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the ECC instance.
+     *
      * @example ecc-sjghe****
      *
      * @var string
@@ -51,6 +66,11 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $eccId;
 
     /**
+     * @description Indicates whether IPv6 is enabled. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -58,6 +78,8 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $enableIpv6;
 
     /**
+     * @description The IPv4 address of the VBR.
+     *
      * @example 192.168.XX.X
      *
      * @var string
@@ -65,6 +87,8 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $localGatewayIp;
 
     /**
+     * @description The IPv6 address of the VBR.
+     *
      * @example ipv6bw-uf6hcyzu65v98v3du****
      *
      * @var string
@@ -72,6 +96,11 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $localIpv6GatewayIp;
 
     /**
+     * @description The status of the VBR associated with the Express Connect circuit. Valid values:
+     *
+     *   **Normal**: normal
+     *   **FinancialLocked**: locked due to overdue payments
+     *
      * @example Normal
      *
      * @var string
@@ -79,6 +108,11 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $PConnVbrBussinessStatus;
 
     /**
+     * @description The billing method of the VBR that is associated with the Express Connect circuit. Valid values:
+     *
+     *   **PrePaid**: subscription If you choose this billing method, make sure that your Alibaba Cloud account supports balance payments or credit payments.
+     *   **PostPaid**: pay-as-you-go
+     *
      * @example PrePaid
      *
      * @var string
@@ -86,6 +120,8 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $PConnVbrChargeType;
 
     /**
+     * @description The time when the VBR associated with the Express Connect circuit expires.
+     *
      * @example 2021-06-10T12:20:55
      *
      * @var string
@@ -93,6 +129,8 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $PConnVbrExpireTime;
 
     /**
+     * @description The IPv4 address of the gateway device in the data center.
+     *
      * @example 162.62.XX.XX
      *
      * @var string
@@ -100,6 +138,9 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $peerGatewayIp;
 
     /**
+     * @description The IPv6 address of the gateway device in the data center.
+     *
+     * This parameter is required when you create a VBR for the owner of the Express Connect circuit. You can ignore this parameter when you create a VBR for another Alibaba Cloud account.
      * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
      *
      * @var string
@@ -107,6 +148,9 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $peerIpv6GatewayIp;
 
     /**
+     * @description The subnet mask for the IPv6 addresses of the gateway devices in the data center and the VBRs.
+     *
+     * The two IPv6 addresses must fall within the same subnet.
      * @example 2408:4004:cc:400::/56
      *
      * @var string
@@ -114,6 +158,9 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $peeringIpv6SubnetMask;
 
     /**
+     * @description The subnet mask for the IPv4 addresses of the gateway device in the data center and the VBR.
+     *
+     * The two IPv4 addresses must fall within the same subnet.
      * @example 255.255.255.0
      *
      * @var string
@@ -121,6 +168,8 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $peeringSubnetMask;
 
     /**
+     * @description The last time when the status of the VBR changed from Terminated to Active.
+     *
      * @example 2021-06-08T12:20:55
      *
      * @var string
@@ -128,6 +177,15 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $recoveryTime;
 
     /**
+     * @description The status of the VBR. Valid values: Valid values:
+     *
+     *   **Unconfirmed**: pending confirmation from other users
+     *   **Active**: normal
+     *   **Terminating**: being disabled
+     *   **Terminated**: disabled
+     *   **Recovering**: being enabled
+     *   **Deleting**: being deleted
+     *
      * @example Active
      *
      * @var string
@@ -135,6 +193,8 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $status;
 
     /**
+     * @description The last time when the VBR was disabled.
+     *
      * @example 2021-06-07T12:20:55
      *
      * @var string
@@ -142,6 +202,8 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $terminationTime;
 
     /**
+     * @description The type of the VBR.
+     *
      * @example pconnVBR
      *
      * @var string
@@ -149,6 +211,8 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $type;
 
     /**
+     * @description The ID of the VBR.
+     *
      * @example vbr-bp16ksp61j7e0tk****
      *
      * @var string
@@ -156,6 +220,9 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $vbrId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the VBR belongs.
+     *
+     * If the owner of the VBR is the same as that of the Express Connect circuit, this parameter is empty.
      * @example 253460731706911258
      *
      * @var int
@@ -163,6 +230,8 @@ class virtualBorderRouterForPhysicalConnectionType extends Model
     public $vbrOwnerUid;
 
     /**
+     * @description The VLAN ID of the VBR.
+     *
      * @example 1678
      *
      * @var int

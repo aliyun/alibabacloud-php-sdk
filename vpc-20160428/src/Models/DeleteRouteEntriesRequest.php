@@ -20,6 +20,9 @@ class DeleteRouteEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the route table.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

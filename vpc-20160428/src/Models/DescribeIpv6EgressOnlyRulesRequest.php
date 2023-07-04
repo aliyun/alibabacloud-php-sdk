@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpv6EgressOnlyRulesRequest extends Model
 {
     /**
-     * @example i-123456xxxxxxxx
+     * @description The ID of the instance that is associated with the IPv6 address to which the egress-only rule is applied.
+     *
+     * @example ipv6gw-bp1rhhs9zjlxukc5e****
      *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the instance to which you want to apply the egress-only rule. Set the value to
+     *
+     **Ipv6Address**, which specifies that the egress-only rule applies to an IPv6 address.
+     *
      * @example Ipv6Address
      *
      * @var string
@@ -23,20 +29,26 @@ class DescribeIpv6EgressOnlyRulesRequest extends Model
     public $instanceType;
 
     /**
-     * @example ipv6gwpy-123456xxxxxxxx
+     * @description The ID of the egress-only rule that you want to query.
+     *
+     * @example ipv6py-bp1rr7fq1md8pbb3k****
      *
      * @var string
      */
     public $ipv6EgressOnlyRuleId;
 
     /**
-     * @example ipv6gw-123456xxxxxxxx
+     * @description The ID of the IPv6 gateway.
+     *
+     * @example ipv6gw-bp1rhhs9zjlxukc5e****
      *
      * @var string
      */
     public $ipv6GatewayId;
 
     /**
+     * @description The name of the rule.
+     *
      * @example rulename
      *
      * @var string
@@ -54,6 +66,8 @@ class DescribeIpv6EgressOnlyRulesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -61,6 +75,8 @@ class DescribeIpv6EgressOnlyRulesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -68,6 +84,8 @@ class DescribeIpv6EgressOnlyRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region where the IPv6 gateway is deployed. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-huhehaote
      *
      * @var string

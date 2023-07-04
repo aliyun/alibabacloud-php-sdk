@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateVirtualBorderBandwidthResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example OK
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateVirtualBorderBandwidthResponseBody extends Model
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -23,6 +27,8 @@ class UpdateVirtualBorderBandwidthResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The response message.
+     *
      * @example none
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateVirtualBorderBandwidthResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example AA4486A8-B6AE-469E-AB09-820EF8ECFA2B
      *
      * @var string
@@ -37,6 +45,11 @@ class UpdateVirtualBorderBandwidthResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the maximum bandwidth is updated. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

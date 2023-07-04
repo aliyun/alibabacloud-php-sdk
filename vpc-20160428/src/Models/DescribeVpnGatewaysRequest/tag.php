@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The status of the pending order.
+     *
+     *   **1**: indicates that the order for renewal or the order for renewal with a specification change has not taken effect.
+     *   **2**: indicates that the order for a temporary upgrade has taken effect. After the temporary upgrade expires, the system restores the VPN gateway to its previous specifications. In this case, **ReservationIpsec**, **ReservationMaxConnections**, **ReservationSpec**, and **ReservationSsl** indicate the previous specification.
+     *
      * @example FinanceDept
      *
      * @var string
@@ -16,6 +21,8 @@ class tag extends Model
     public $key;
 
     /**
+     * @description The ID of the VPC to which the VPN gateway belongs.
+     *
      * @example FinanceJoshua
      *
      * @var string

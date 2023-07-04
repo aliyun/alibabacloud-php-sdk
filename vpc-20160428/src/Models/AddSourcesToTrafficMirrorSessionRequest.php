@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddSourcesToTrafficMirrorSessionRequest extends Model
 {
     /**
+     * @description The ID of the traffic mirror session.
+     *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
      * @var string
@@ -16,6 +18,8 @@ class AddSourcesToTrafficMirrorSessionRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the traffic mirror source. You can specify only an elastic network interface (ENI) as the traffic mirror source. The default value of **N** is **1**, which indicates that you can add only one traffic mirror source to a traffic mirror session.
+     *
      * @example false
      *
      * @var bool
@@ -50,6 +54,9 @@ class AddSourcesToTrafficMirrorSessionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the region to which the traffic mirror session belongs.
+     *
+     * For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
      * @example tms-j6cla50buc44ap8tu****
      *
      * @var string

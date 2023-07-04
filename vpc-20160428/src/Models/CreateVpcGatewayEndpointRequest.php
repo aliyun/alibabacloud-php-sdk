@@ -61,6 +61,13 @@ class CreateVpcGatewayEndpointRequest extends Model
     public $regionId;
 
     /**
+     * @example rg-acfmxazb4ph****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -71,6 +78,8 @@ class CreateVpcGatewayEndpointRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The time when the gateway endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+     *
      * @example com.aliyun.cn-hangzhou.oss
      *
      * @var string
@@ -78,6 +87,8 @@ class CreateVpcGatewayEndpointRequest extends Model
     public $serviceName;
 
     /**
+     * @description The name of the gateway endpoint.
+     *
      * @example vpc-bp1gsk7h12ew7oegk****
      *
      * @var string
@@ -92,6 +103,7 @@ class CreateVpcGatewayEndpointRequest extends Model
         'ownerId'              => 'OwnerId',
         'policyDocument'       => 'PolicyDocument',
         'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'serviceName'          => 'ServiceName',
@@ -128,6 +140,9 @@ class CreateVpcGatewayEndpointRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -176,6 +191,9 @@ class CreateVpcGatewayEndpointRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

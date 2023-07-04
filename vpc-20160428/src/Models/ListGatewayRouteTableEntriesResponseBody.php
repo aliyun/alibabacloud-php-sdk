@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayRouteTableEntriesResponseBody extends Model
 {
     /**
+     * @description The ID of the next hop.
+     *
      * @var gatewayRouteEntryModels[]
      */
     public $gatewayRouteEntryModels;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -22,6 +26,8 @@ class ListGatewayRouteTableEntriesResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The details of the routes in the gateway route table.
+     *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
      * @var string
@@ -29,6 +35,12 @@ class ListGatewayRouteTableEntriesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the route. Valid values:
+     *
+     *   **Pending**
+     *   **Available**
+     *   **Modifying**
+     *
      * @example 1
      *
      * @var string

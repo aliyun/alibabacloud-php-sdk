@@ -16,11 +16,15 @@ class CreateTrafficMirrorFilterRulesResponseBody extends Model
     public $egressRules;
 
     /**
+     * @description The list of outbound rules.
+     *
      * @var ingressRules[]
      */
     public $ingressRules;
 
     /**
+     * @description The ID of the inbound rule.
+     *
      * @example 07F272E2-6AD5-433A-8207-A607C76F1676
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ikeConfig extends Model
 {
     /**
+     * @description The authentication algorithm that was used in Phase 1 negotiations.
+     *
      * @example sha1
      *
      * @var string
@@ -16,6 +18,8 @@ class ikeConfig extends Model
     public $ikeAuthAlg;
 
     /**
+     * @description The encryption algorithm that was used in Phase 1 negotiations.
+     *
      * @example aes
      *
      * @var string
@@ -23,6 +27,8 @@ class ikeConfig extends Model
     public $ikeEncAlg;
 
     /**
+     * @description The SA lifetime that was determined by Phase 1 negotiations. Unit: seconds.
+     *
      * @example 86400
      *
      * @var int
@@ -30,6 +36,8 @@ class ikeConfig extends Model
     public $ikeLifetime;
 
     /**
+     * @description The negotiation mode.
+     *
      * @example main
      *
      * @var string
@@ -37,6 +45,8 @@ class ikeConfig extends Model
     public $ikeMode;
 
     /**
+     * @description The Diffie-Hellman key exchange algorithm that was used in Phase 1 negotiations.
+     *
      * @example group2
      *
      * @var string
@@ -44,6 +54,8 @@ class ikeConfig extends Model
     public $ikePfs;
 
     /**
+     * @description The version of the IKE protocol.
+     *
      * @example ikev1
      *
      * @var string
@@ -51,6 +63,8 @@ class ikeConfig extends Model
     public $ikeVersion;
 
     /**
+     * @description The identifier on the Alibaba Cloud side.
+     *
      * @example 47.XX.XX.1
      *
      * @var string
@@ -58,6 +72,9 @@ class ikeConfig extends Model
     public $localId;
 
     /**
+     * @description The pre-shared key that was used for identity authentication between the VPN gateway and the data center.
+     *
+     * >  The pre-shared key of the IPsec-VPN connection must be the same as the authentication key of the data center. Otherwise, you cannot establish a connection between the data center and the VPN gateway.
      * @example 1234***
      *
      * @var string
@@ -65,6 +82,8 @@ class ikeConfig extends Model
     public $psk;
 
     /**
+     * @description The identifier on the data center side.
+     *
      * @example 47.XX.XX.2
      *
      * @var string

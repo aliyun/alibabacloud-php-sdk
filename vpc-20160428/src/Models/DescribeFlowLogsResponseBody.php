@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowLogsResponseBody extends Model
 {
     /**
+     * @description The information about the flow logs.
+     *
      * @var flowLogs
      */
     public $flowLogs;
 
     /**
+     * @description The number of the returned page.
+     *
      * @example 1
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeFlowLogsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 20
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeFlowLogsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1
      *
      * @var string
@@ -36,6 +44,11 @@ class DescribeFlowLogsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the operation is successful. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var string
@@ -43,6 +56,8 @@ class DescribeFlowLogsResponseBody extends Model
     public $success;
 
     /**
+     * @description The number of flow logs that are queried.
+     *
      * @example 1
      *
      * @var string

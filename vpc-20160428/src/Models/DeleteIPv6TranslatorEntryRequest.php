@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteIPv6TranslatorEntryRequest extends Model
 {
     /**
-     * @example sha11112222
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @example ipv6transentry-bp1g8bhrdexxxxx
+     * @description The ID of the IPv6 mapping entry to be deleted.
+     *
+     * @example ipv6transentry-bp1g8bhrde****
      *
      * @var string
      */
     public $ipv6TranslatorEntryId;
 
     /**
-     * @example ipv6trans-bp1858ysxxxxxx
+     * @description The ID of the IPv6 Translation Service instance.
+     *
+     * > If you do not specify **Ipv6TranslatorEntryId**, all mapping entries in the specified instance are deleted.
+     * @example ipv6trans-bp1858ys****
      *
      * @var string
      */
@@ -40,6 +48,8 @@ class DeleteIPv6TranslatorEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region of the IPv6 Translation Service instance. You can call the **DescribeRegions** operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

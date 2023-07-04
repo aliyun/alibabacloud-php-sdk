@@ -14,6 +14,9 @@ class DeactivateRouterInterfaceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the router interface is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -31,6 +34,8 @@ class DeactivateRouterInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the router interface.
+     *
      * @example ri-2zeo3xzyf38r4urz****
      *
      * @var string

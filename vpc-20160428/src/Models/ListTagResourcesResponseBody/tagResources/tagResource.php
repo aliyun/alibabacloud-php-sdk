@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
+     * @description The ID of the resource.
+     *
      * @example vpc-bp16qjewdsunr41m1****
      *
      * @var string
@@ -16,6 +18,16 @@ class tagResource extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   **VPC**: virtual private cloud (VPC)
+     *   **VSWITCH**: vSwitch
+     *   **ROUTETABLE**: route table
+     *   **EIP**: EIP
+     *   **VpnGateWay**: VPN gateway
+     *   **NATGATEWAY**: NAT gateway
+     *   **COMMONBANDWIDTHPACKAGE**: EIP bandwidth plan
+     *
      * @example VPC
      *
      * @var string
@@ -23,6 +35,8 @@ class tagResource extends Model
     public $resourceType;
 
     /**
+     * @description The tag key.
+     *
      * @example FinanceDept
      *
      * @var string
@@ -30,6 +44,8 @@ class tagResource extends Model
     public $tagKey;
 
     /**
+     * @description The tag value.
+     *
      * @example FinanceJoshua
      *
      * @var string

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnConnectionLogsRequest extends Model
 {
     /**
+     * @description The beginning of the time range to query. The value must be a UNIX timestamp. For example, 1671003744 specifies 15:42:24 (UTC+8) on December 14, 2022.
+     *
+     * >  If you specify **From**, you must also specify **To** or **MinutePeriod**.
      * @example 1671003744
      *
      * @var int
@@ -16,6 +19,9 @@ class DescribeVpnConnectionLogsRequest extends Model
     public $from;
 
     /**
+     * @description The interval at which log data is queried. Valid values: **1** to **10**. Unit: minutes.
+     *
+     * >  If both **From** and **To** are not specified, you must specify **MinutePeriod**.
      * @example 10
      *
      * @var int
@@ -33,6 +39,8 @@ class DescribeVpnConnectionLogsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -40,6 +48,8 @@ class DescribeVpnConnectionLogsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -47,6 +57,9 @@ class DescribeVpnConnectionLogsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region to which the IPsec-VPN connection belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -64,6 +77,9 @@ class DescribeVpnConnectionLogsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The end of the time range to query. The value must be a UNIX timestamp. For example, 1671004344 specifies 15:52:24 (UTC+8) on December 14, 2022.
+     *
+     * >  If you specify **To**, you must also specify **From** or **MinutePeriod**.
      * @example 1671004344
      *
      * @var int
@@ -71,6 +87,13 @@ class DescribeVpnConnectionLogsRequest extends Model
     public $to;
 
     /**
+     * @var string
+     */
+    public $tunnelId;
+
+    /**
+     * @description The ID of the IPsec-VPN connection.
+     *
      * @example vco-m5evqnds4y459flt3****
      *
      * @var string
@@ -87,6 +110,7 @@ class DescribeVpnConnectionLogsRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'to'                   => 'To',
+        'tunnelId'             => 'TunnelId',
         'vpnConnectionId'      => 'VpnConnectionId',
     ];
 
@@ -126,6 +150,9 @@ class DescribeVpnConnectionLogsRequest extends Model
         }
         if (null !== $this->to) {
             $res['To'] = $this->to;
+        }
+        if (null !== $this->tunnelId) {
+            $res['TunnelId'] = $this->tunnelId;
         }
         if (null !== $this->vpnConnectionId) {
             $res['VpnConnectionId'] = $this->vpnConnectionId;
@@ -171,6 +198,9 @@ class DescribeVpnConnectionLogsRequest extends Model
         }
         if (isset($map['To'])) {
             $model->to = $map['To'];
+        }
+        if (isset($map['TunnelId'])) {
+            $model->tunnelId = $map['TunnelId'];
         }
         if (isset($map['VpnConnectionId'])) {
             $model->vpnConnectionId = $map['VpnConnectionId'];

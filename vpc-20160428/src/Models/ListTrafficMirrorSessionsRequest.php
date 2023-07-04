@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListTrafficMirrorSessionsRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the traffic mirror session. Valid values:
+     *
+     *   **false** (default): does not enable the traffic mirror session.
+     *   **true**: enables the traffic mirror session.
+     *
      * @example false
      *
      * @var bool
@@ -17,6 +22,8 @@ class ListTrafficMirrorSessionsRequest extends Model
     public $enabled;
 
     /**
+     * @description The maximum number of entries to return. Valid values: **1** to **100**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +31,11 @@ class ListTrafficMirrorSessionsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If this is your first query and no next queries are to be sent, ignore this parameter.
+     *   If a next query is to be sent, set the value to the value of NextToken that is returned from the last call.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -41,6 +53,9 @@ class ListTrafficMirrorSessionsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The priority of the traffic mirror session. Valid values: **1** to **32766**.
+     *
+     * A smaller value indicates a higher priority. You cannot specify identical priorities for traffic mirror sessions that are created in the same region by using the same account.
      * @example 1
      *
      * @var int
@@ -48,6 +63,8 @@ class ListTrafficMirrorSessionsRequest extends Model
     public $priority;
 
     /**
+     * @description The ID of the region to which the traffic mirror session belongs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
+     *
      * @example cn-hongkong
      *
      * @var string
@@ -55,6 +72,10 @@ class ListTrafficMirrorSessionsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the mirrored traffic belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -75,6 +96,8 @@ class ListTrafficMirrorSessionsRequest extends Model
     public $tags;
 
     /**
+     * @description The ID of the traffic mirror filter.
+     *
      * @example tmf-j6cmls82xnc86vtpe****
      *
      * @var string
@@ -89,6 +112,9 @@ class ListTrafficMirrorSessionsRequest extends Model
     public $trafficMirrorSessionIds;
 
     /**
+     * @description The name of the traffic mirror session.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example abc
      *
      * @var string
@@ -96,6 +122,8 @@ class ListTrafficMirrorSessionsRequest extends Model
     public $trafficMirrorSessionName;
 
     /**
+     * @description The ID of the traffic mirror source. You can specify only an elastic network interface (ENI) as the mirror source.
+     *
      * @example eni-j6c8znm5l1yt4sox*****
      *
      * @var string
@@ -103,6 +131,8 @@ class ListTrafficMirrorSessionsRequest extends Model
     public $trafficMirrorSourceId;
 
     /**
+     * @description The ID of the traffic mirror destination. You can specify only an ENI or a Server Load Balancer (SLB) instance as a traffic mirror destination.
+     *
      * @example eni-j6c2fp57q8rr47rp****
      *
      * @var string
@@ -110,6 +140,8 @@ class ListTrafficMirrorSessionsRequest extends Model
     public $trafficMirrorTargetId;
 
     /**
+     * @description The VXLAN network identifier (VNI) that is used to distinguish different mirrored traffic. Valid values: **0** to **16777215**. You can use VNIs to identify mirrored traffic from different sessions at the traffic mirror destination. You can specify a custom VNI or use a random VNI that is allocated by the system. If you want the system to randomly allocate a VNI, ignore this parameter.
+     *
      * @example 10
      *
      * @var int

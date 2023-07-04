@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class ListNatIpsResponseBody extends Model
 {
     /**
+     * @description The list of IP addresses of the NAT gateway.
+     *
      * @var natIps[]
      */
     public $natIps;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If the value of **NextToken** is not returned, it indicates that no next query is to be sent.
+     *   If the value of **NextToken** is returned, the value indicates the token that is used for the next query.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -22,6 +29,8 @@ class ListNatIpsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7E78CEEA-BF8F-44D1-9DCD-D9141135B71E
      *
      * @var string
@@ -29,6 +38,8 @@ class ListNatIpsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of IP addresses that are returned.
+     *
      * @example 1
      *
      * @var string

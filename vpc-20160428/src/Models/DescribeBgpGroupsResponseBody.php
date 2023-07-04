@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeBgpGroupsResponseBody extends Model
 {
     /**
+     * @description The detailed information about the BGP group.
+     *
      * @var bgpGroups
      */
     public $bgpGroups;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeBgpGroupsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeBgpGroupsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1D0971B2-A35A-42C1-A44C-E91360C36C0B
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeBgpGroupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
      * @example 1
      *
      * @var int

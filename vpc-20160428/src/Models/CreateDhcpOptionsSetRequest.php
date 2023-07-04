@@ -16,14 +16,14 @@ class CreateDhcpOptionsSetRequest extends Model
     public $clientToken;
 
     /**
-     * @example test
+     * @example description
      *
      * @var string
      */
     public $dhcpOptionsSetDescription;
 
     /**
-     * @example test
+     * @example name
      *
      * @var string
      */
@@ -37,7 +37,7 @@ class CreateDhcpOptionsSetRequest extends Model
     public $domainName;
 
     /**
-     * @example 192.xx.xx.123
+     * @example 192.XX.XX.123
      *
      * @var string
      */
@@ -51,11 +51,15 @@ class CreateDhcpOptionsSetRequest extends Model
     public $dryRun;
 
     /**
+     * @example 3650d
+     *
      * @var string
      */
     public $ipv6LeaseTime;
 
     /**
+     * @example 3650d
+     *
      * @var string
      */
     public $leaseTime;
@@ -78,6 +82,13 @@ class CreateDhcpOptionsSetRequest extends Model
     public $regionId;
 
     /**
+     * @example rg-acfmxazb4ph****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -98,6 +109,7 @@ class CreateDhcpOptionsSetRequest extends Model
         'ownerAccount'              => 'OwnerAccount',
         'ownerId'                   => 'OwnerId',
         'regionId'                  => 'RegionId',
+        'resourceGroupId'           => 'ResourceGroupId',
         'resourceOwnerAccount'      => 'ResourceOwnerAccount',
         'resourceOwnerId'           => 'ResourceOwnerId',
     ];
@@ -141,6 +153,9 @@ class CreateDhcpOptionsSetRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -192,6 +207,9 @@ class CreateDhcpOptionsSetRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

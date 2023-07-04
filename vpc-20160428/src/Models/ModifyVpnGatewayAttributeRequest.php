@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpnGatewayAttributeRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically advertise BGP routes to the virtual private cloud (VPC). Valid values:
+     *
+     *   **true:** yes.
+     *   **false:** no.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,9 @@ class ModifyVpnGatewayAttributeRequest extends Model
     public $autoPropagate;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * >  If you do not specify this parameter, the system automatically uses the request ID as the client token. The value of RequestId may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-4266****
      *
      * @var string
@@ -23,6 +31,9 @@ class ModifyVpnGatewayAttributeRequest extends Model
     public $clientToken;
 
     /**
+     * @description The new description of the VPN gateway.
+     *
+     * The description must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -30,6 +41,9 @@ class ModifyVpnGatewayAttributeRequest extends Model
     public $description;
 
     /**
+     * @description The new name of the VPN gateway.
+     *
+     * The name must be 1 to 100 characters in length, and cannot start with `http://` or `https://`.
      * @example myvpn
      *
      * @var string
@@ -47,6 +61,8 @@ class ModifyVpnGatewayAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the VPN gateway is created. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -64,6 +80,8 @@ class ModifyVpnGatewayAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1q8bgx4xnkm2ogj****
      *
      * @var string

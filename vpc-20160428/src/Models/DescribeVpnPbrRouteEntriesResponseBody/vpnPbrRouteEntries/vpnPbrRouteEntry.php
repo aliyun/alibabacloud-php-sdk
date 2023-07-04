@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class vpnPbrRouteEntry extends Model
 {
     /**
+     * @description The timestamp generated when the policy-based route was created. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1492747187000
      *
      * @var int
@@ -16,6 +19,8 @@ class vpnPbrRouteEntry extends Model
     public $createTime;
 
     /**
+     * @description The next hop of the policy-based route.
+     *
      * @example vco-bp15oes1py4i66rmd****
      *
      * @var string
@@ -23,6 +28,14 @@ class vpnPbrRouteEntry extends Model
     public $nextHop;
 
     /**
+     * @var string
+     */
+    public $nextHopTunnelId;
+
+    /**
+     * @description The priority of the policy-based route.
+     *
+     * A smaller value indicates a higher priority.
      * @example 10
      *
      * @var int
@@ -30,6 +43,8 @@ class vpnPbrRouteEntry extends Model
     public $priority;
 
     /**
+     * @description The destination CIDR block of the policy-based route.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -37,6 +52,8 @@ class vpnPbrRouteEntry extends Model
     public $routeDest;
 
     /**
+     * @description The source CIDR block of the policy-based route.
+     *
      * @example 192.168.0.0/24
      *
      * @var string
@@ -44,6 +61,11 @@ class vpnPbrRouteEntry extends Model
     public $routeSource;
 
     /**
+     * @description The status of the policy-based route. Valid values:
+     *
+     *   **published**: advertised to the VPC route table.
+     *   **normal**: not advertised to the VPC route table.
+     *
      * @example published
      *
      * @var string
@@ -51,6 +73,8 @@ class vpnPbrRouteEntry extends Model
     public $state;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-bp1a3kqjiiq9legfx****
      *
      * @var string
@@ -58,20 +82,26 @@ class vpnPbrRouteEntry extends Model
     public $vpnInstanceId;
 
     /**
+     * @description The weight of the policy-based route. Valid values:
+     *
+     *   **100**: The IPsec-VPN connection associated with the policy-based route serves as an active connection.
+     *   **0**: The IPsec-VPN connection associated with the policy-based route serves as a standby connection.
+     *
      * @example 0
      *
      * @var int
      */
     public $weight;
     protected $_name = [
-        'createTime'    => 'CreateTime',
-        'nextHop'       => 'NextHop',
-        'priority'      => 'Priority',
-        'routeDest'     => 'RouteDest',
-        'routeSource'   => 'RouteSource',
-        'state'         => 'State',
-        'vpnInstanceId' => 'VpnInstanceId',
-        'weight'        => 'Weight',
+        'createTime'      => 'CreateTime',
+        'nextHop'         => 'NextHop',
+        'nextHopTunnelId' => 'NextHopTunnelId',
+        'priority'        => 'Priority',
+        'routeDest'       => 'RouteDest',
+        'routeSource'     => 'RouteSource',
+        'state'           => 'State',
+        'vpnInstanceId'   => 'VpnInstanceId',
+        'weight'          => 'Weight',
     ];
 
     public function validate()
@@ -86,6 +116,9 @@ class vpnPbrRouteEntry extends Model
         }
         if (null !== $this->nextHop) {
             $res['NextHop'] = $this->nextHop;
+        }
+        if (null !== $this->nextHopTunnelId) {
+            $res['NextHopTunnelId'] = $this->nextHopTunnelId;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -122,6 +155,9 @@ class vpnPbrRouteEntry extends Model
         }
         if (isset($map['NextHop'])) {
             $model->nextHop = $map['NextHop'];
+        }
+        if (isset($map['NextHopTunnelId'])) {
+            $model->nextHopTunnelId = $map['NextHopTunnelId'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];

@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class CreateTrafficMirrorFilterRulesRequest extends Model
 {
     /**
+     * @description The action of the inbound rule. Valid values:
+     *
+     *   **accept**: accepts network traffic.
+     *   **drop**: drops network traffic.
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -18,6 +23,8 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
     public $clientToken;
 
     /**
+     * @description The source CIDR block of the inbound traffic.
+     *
      * @example false
      *
      * @var bool
@@ -45,6 +52,8 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The list of inbound rules.
+     *
      * @example cn-hongkong
      *
      * @var string
@@ -62,6 +71,11 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to check the request without performing the operation. Valid values:
+     *
+     *   **true**: checks the request without performing the operation. The system checks the required parameters, request format, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. After the request passes the check, the operation is performed.
+     *
      * @example tmf-j6cmls82xnc86vtpe****
      *
      * @var string

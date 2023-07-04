@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vcoHealthCheck extends Model
 {
     /**
+     * @description The destination IP address.
+     *
      * @example 192.168.0.1
      *
      * @var string
@@ -16,6 +18,11 @@ class vcoHealthCheck extends Model
     public $dip;
 
     /**
+     * @description Indicates whether health checks are enabled.
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var string
@@ -23,6 +30,8 @@ class vcoHealthCheck extends Model
     public $enable;
 
     /**
+     * @description The interval between two consecutive health checks. Unit: seconds.
+     *
      * @example 2
      *
      * @var int
@@ -30,6 +39,11 @@ class vcoHealthCheck extends Model
     public $interval;
 
     /**
+     * @description Indicates whether advertised routes are withdrawn when the health check fails.
+     *
+     *   **revoke_route**: yes
+     *   **reserve_route**: no
+     *
      * @example revoke_route
      *
      * @var string
@@ -37,6 +51,8 @@ class vcoHealthCheck extends Model
     public $policy;
 
     /**
+     * @description The maximum number of health check retries.
+     *
      * @example 3
      *
      * @var int
@@ -44,6 +60,8 @@ class vcoHealthCheck extends Model
     public $retry;
 
     /**
+     * @description The source IP address.
+     *
      * @example 192.168.0.50
      *
      * @var string
@@ -51,6 +69,11 @@ class vcoHealthCheck extends Model
     public $sip;
 
     /**
+     * @description The status of the health check.
+     *
+     *   **success**: normal
+     *   **failed**: abnormal
+     *
      * @example success
      *
      * @var string

@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class vpnGateway extends Model
 {
     /**
+     * @description The BGP status of the VPN gateway.
+     *
+     *   **true**: enabled
+     *   **false**: disabled
+     *
      * @example true
      *
      * @var bool
@@ -18,6 +23,10 @@ class vpnGateway extends Model
     public $autoPropagate;
 
     /**
+     * @description The status of the pending order.
+     *
+     * - **1**: indicates that the order for renewal or the order for renewal with a specification change has not taken effect.
+     * - **2**: indicates that the order for a temporary upgrade has taken effect. After the temporary upgrade expires, the system restores the VPN gateway to its previous specifications. In this case, **ReservationIpsec**, **ReservationMaxConnections**, **ReservationSpec**, and **ReservationSsl** indicate the previous specification.
      * @example Normal
      *
      * @var string
@@ -25,11 +34,18 @@ class vpnGateway extends Model
     public $businessStatus;
 
     /**
+     * @description The payment status of the VPN gateway.
+     *
+     *   **Normal:** The VPN gateway is running as expected.
+     *   **FinancialLocked**: The VPN gateway is locked due to overdue payments.
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The description of the VPN gateway.
+     *
      * @example 1515383700000
      *
      * @var int
@@ -37,6 +53,8 @@ class vpnGateway extends Model
     public $createTime;
 
     /**
+     * @description The tag value.
+     *
      * @example test
      *
      * @var string
@@ -44,6 +62,19 @@ class vpnGateway extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $disasterRecoveryInternetIp;
+
+    /**
+     * @var string
+     */
+    public $disasterRecoveryVSwitchId;
+
+    /**
+     * @description The information about the pending orders.
+     *
+     * >  This parameter is returned only when **IncludeReservationData** is set to **true**.
      * @example true
      *
      * @var bool
@@ -51,6 +82,8 @@ class vpnGateway extends Model
     public $enableBgp;
 
     /**
+     * @description The list of tags added to the VPN gateway.
+     *
      * @example 1518105600000
      *
      * @var int
@@ -58,6 +91,8 @@ class vpnGateway extends Model
     public $endTime;
 
     /**
+     * @description The ID of the vSwitch to which the VPN gateway belongs.
+     *
      * @example 47.12.XX.XX
      *
      * @var string
@@ -65,6 +100,11 @@ class vpnGateway extends Model
     public $internetIp;
 
     /**
+     * @description The network type of the VPN gateway.
+     *
+     *   **public**: public VPN gateway
+     *   **private**: private VPN gateway
+     *
      * @example enable
      *
      * @var string
@@ -72,6 +112,10 @@ class vpnGateway extends Model
     public $ipsecVpn;
 
     /**
+     * @description The IPsec-VPN status of the order that has not taken effect. Valid values:
+     *
+     * - **enable**: enabled
+     * - **disable**: disabled
      * @example test
      *
      * @var string
@@ -79,6 +123,8 @@ class vpnGateway extends Model
     public $name;
 
     /**
+     * @description The bandwidth specification of the order that has not taken effect. Unit: Mbit/s.
+     *
      * @example public
      *
      * @var string
@@ -91,6 +137,9 @@ class vpnGateway extends Model
     public $reservationData;
 
     /**
+     * @description The timestamp when the VPN gateway expires. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 5M
      *
      * @var string
@@ -98,6 +147,11 @@ class vpnGateway extends Model
     public $spec;
 
     /**
+     * @description Indicates whether IPsec-VPN is enabled for the VPN gateway.
+     *
+     *   **enable**: enabled
+     *   **disable**: disabled
+     *
      * @example 5
      *
      * @var int
@@ -105,6 +159,11 @@ class vpnGateway extends Model
     public $sslMaxConnections;
 
     /**
+     * @description The type of the order that has not taken effect. Valid values:
+     *
+     * - **RENEWCHANGE**: renewal with a specification change
+     * - **TEMP_UPGRADE**: temporary upgrade
+     * - **RENEW**: renewal
      * @example enable
      *
      * @var string
@@ -112,25 +171,38 @@ class vpnGateway extends Model
     public $sslVpn;
 
     /**
-     * @example Active
+     * @var string
+     */
+    public $sslVpnInternetIp;
+
+    /**
+     * @description The ID of the VPN gateway.
+     *
+     * @example active
      *
      * @var string
      */
     public $status;
 
     /**
-     * @example {\"VpnNewImage\":\"true\",\"VpnVersion\":\"v1.2.2\"}
+     * @description The name of the VPN gateway.
      *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The SSL-VPN status of the order that has not taken effect. Valid values:
+     *
+     * - **enable**: enabled
+     * - **disable**: disabled
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The tag key.
+     *
      * @example vsw-bp15lbk8sgtr6r5b0****
      *
      * @var string
@@ -138,6 +210,32 @@ class vpnGateway extends Model
     public $vSwitchId;
 
     /**
+     * @description The automatically generated tag of the VPN gateway.
+     *
+     *   **VpnEnableBgp**: indicates whether the VPN gateway supports BGP. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     *   **VisuallySsl**: indicates whether the VPN gateway allows you to view information about connected SSL clients.
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     *   **PbrPriority**: indicates whether the VPN gateway allows you to configure priorities for policy-based routes.
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     *   **VpnNewImage**: indicates whether the VPN gateway is upgraded.
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     *   **description**: the description of the VPN gateway. This parameter is for internal system use only.
+     *
+     *   **VpnVersion**: the version of the VPN gateway.
+     *
      * @example vpc-bp1m3i0kn1nd4wiw9****
      *
      * @var string
@@ -145,6 +243,11 @@ class vpnGateway extends Model
     public $vpcId;
 
     /**
+     * @description Indicates whether SSL-VPN is enabled for the VPN gateway.
+     *
+     *   **enable**: enabled
+     *   **disable**: disabled
+     *
      * @example vpn-bp17lofy9fd0dnvzv****
      *
      * @var string
@@ -152,34 +255,40 @@ class vpnGateway extends Model
     public $vpnGatewayId;
 
     /**
+     * @description The billing method of the VPN gateway.
+     *
+     * The value is set to **POSTPAY**, which indicates the pay-as-you-go billing method.
      * @example Normal
      *
      * @var string
      */
     public $vpnType;
     protected $_name = [
-        'autoPropagate'     => 'AutoPropagate',
-        'businessStatus'    => 'BusinessStatus',
-        'chargeType'        => 'ChargeType',
-        'createTime'        => 'CreateTime',
-        'description'       => 'Description',
-        'enableBgp'         => 'EnableBgp',
-        'endTime'           => 'EndTime',
-        'internetIp'        => 'InternetIp',
-        'ipsecVpn'          => 'IpsecVpn',
-        'name'              => 'Name',
-        'networkType'       => 'NetworkType',
-        'reservationData'   => 'ReservationData',
-        'spec'              => 'Spec',
-        'sslMaxConnections' => 'SslMaxConnections',
-        'sslVpn'            => 'SslVpn',
-        'status'            => 'Status',
-        'tag'               => 'Tag',
-        'tags'              => 'Tags',
-        'vSwitchId'         => 'VSwitchId',
-        'vpcId'             => 'VpcId',
-        'vpnGatewayId'      => 'VpnGatewayId',
-        'vpnType'           => 'VpnType',
+        'autoPropagate'              => 'AutoPropagate',
+        'businessStatus'             => 'BusinessStatus',
+        'chargeType'                 => 'ChargeType',
+        'createTime'                 => 'CreateTime',
+        'description'                => 'Description',
+        'disasterRecoveryInternetIp' => 'DisasterRecoveryInternetIp',
+        'disasterRecoveryVSwitchId'  => 'DisasterRecoveryVSwitchId',
+        'enableBgp'                  => 'EnableBgp',
+        'endTime'                    => 'EndTime',
+        'internetIp'                 => 'InternetIp',
+        'ipsecVpn'                   => 'IpsecVpn',
+        'name'                       => 'Name',
+        'networkType'                => 'NetworkType',
+        'reservationData'            => 'ReservationData',
+        'spec'                       => 'Spec',
+        'sslMaxConnections'          => 'SslMaxConnections',
+        'sslVpn'                     => 'SslVpn',
+        'sslVpnInternetIp'           => 'SslVpnInternetIp',
+        'status'                     => 'Status',
+        'tag'                        => 'Tag',
+        'tags'                       => 'Tags',
+        'vSwitchId'                  => 'VSwitchId',
+        'vpcId'                      => 'VpcId',
+        'vpnGatewayId'               => 'VpnGatewayId',
+        'vpnType'                    => 'VpnType',
     ];
 
     public function validate()
@@ -203,6 +312,12 @@ class vpnGateway extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->disasterRecoveryInternetIp) {
+            $res['DisasterRecoveryInternetIp'] = $this->disasterRecoveryInternetIp;
+        }
+        if (null !== $this->disasterRecoveryVSwitchId) {
+            $res['DisasterRecoveryVSwitchId'] = $this->disasterRecoveryVSwitchId;
         }
         if (null !== $this->enableBgp) {
             $res['EnableBgp'] = $this->enableBgp;
@@ -233,6 +348,9 @@ class vpnGateway extends Model
         }
         if (null !== $this->sslVpn) {
             $res['SslVpn'] = $this->sslVpn;
+        }
+        if (null !== $this->sslVpnInternetIp) {
+            $res['SslVpnInternetIp'] = $this->sslVpnInternetIp;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -282,6 +400,12 @@ class vpnGateway extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['DisasterRecoveryInternetIp'])) {
+            $model->disasterRecoveryInternetIp = $map['DisasterRecoveryInternetIp'];
+        }
+        if (isset($map['DisasterRecoveryVSwitchId'])) {
+            $model->disasterRecoveryVSwitchId = $map['DisasterRecoveryVSwitchId'];
+        }
         if (isset($map['EnableBgp'])) {
             $model->enableBgp = $map['EnableBgp'];
         }
@@ -311,6 +435,9 @@ class vpnGateway extends Model
         }
         if (isset($map['SslVpn'])) {
             $model->sslVpn = $map['SslVpn'];
+        }
+        if (isset($map['SslVpnInternetIp'])) {
+            $model->sslVpnInternetIp = $map['SslVpnInternetIp'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

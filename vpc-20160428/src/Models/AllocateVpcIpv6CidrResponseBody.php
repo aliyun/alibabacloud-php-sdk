@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AllocateVpcIpv6CidrResponseBody extends Model
 {
     /**
+     * @description The IPv6 CIDR block that is reserved.
+     *
      * @example 2408:XXXX:0:a600::/56
      *
      * @var string
@@ -16,6 +18,8 @@ class AllocateVpcIpv6CidrResponseBody extends Model
     public $ipv6CidrBlock;
 
     /**
+     * @description The ID of the request.
+     *
      * @example D20C13EA-2584-53BC-8393-69DE6D98EFF1
      *
      * @var string

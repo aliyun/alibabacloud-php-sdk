@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnAttachmentsRequest extends Model
 {
     /**
+     * @description The type of resource that is associated with the IPsec-VPN connection. Default value: **CEN**.
+     *
+     * Set the value to **CEN**, which specifies to query IPsec-VPN connections associated with the transit router.
      * @example CEN
      *
      * @var string
@@ -26,6 +29,8 @@ class DescribeVpnAttachmentsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +38,8 @@ class DescribeVpnAttachmentsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
+     *
      * @example 10
      *
      * @var int
@@ -40,6 +47,9 @@ class DescribeVpnAttachmentsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region to which the IPsec-VPN connection belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example ap-southeast-2
      *
      * @var string
@@ -57,6 +67,9 @@ class DescribeVpnAttachmentsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the IPsec-VPN connection.
+     *
+     * >  If you do not specify an ID, the system queries all IPsec-VPN connections associated with the transit router in the region.
      * @example vco-p0w2jpkhi2eeop6q6****
      *
      * @var string

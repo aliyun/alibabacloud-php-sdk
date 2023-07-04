@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomerGatewaysRequest extends Model
 {
     /**
+     * @description The ID of the customer gateway.
+     *
+     * >  If you do not specify a customer gateway ID, the system queries all customer gateways in the current region by default.
      * @example cgw-bp1pvpl9r9adju6l5****
      *
      * @var string
@@ -27,6 +30,8 @@ class DescribeCustomerGatewaysRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -34,6 +39,8 @@ class DescribeCustomerGatewaysRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -41,6 +48,9 @@ class DescribeCustomerGatewaysRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the customer gateway.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string

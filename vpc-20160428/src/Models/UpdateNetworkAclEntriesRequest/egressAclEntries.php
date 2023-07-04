@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class egressAclEntries extends Model
 {
     /**
+     * @description The description of the outbound rule.
+     *
+     * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
      * @example This is EgressAclEntries.
      *
      * @var string
@@ -16,6 +19,8 @@ class egressAclEntries extends Model
     public $description;
 
     /**
+     * @description The destination CIDR block.
+     *
      * @example 10.0.0.0/24
      *
      * @var string
@@ -23,6 +28,8 @@ class egressAclEntries extends Model
     public $destinationCidrIp;
 
     /**
+     * @description The type of the rule. Set the value to **custom**, which specifies custom rules.
+     *
      * @example custom
      *
      * @var string
@@ -30,6 +37,9 @@ class egressAclEntries extends Model
     public $entryType;
 
     /**
+     * @description The ID of the outbound rule.
+     *
+     * Valid values of **N**: **0** to **29**. You can update at most 30 outbound rules.
      * @example nae-2zecs97e0brcge46****
      *
      * @var string
@@ -37,6 +47,9 @@ class egressAclEntries extends Model
     public $networkAclEntryId;
 
     /**
+     * @description The name of the outbound rule.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example acl-2
      *
      * @var string
@@ -44,6 +57,11 @@ class egressAclEntries extends Model
     public $networkAclEntryName;
 
     /**
+     * @description The action to be performed on network traffic that matches the rule. Valid values:
+     *
+     *   **accept**: allows the network traffic.
+     *   **drop**: blocks the network traffic.
+     *
      * @example accept
      *
      * @var string
@@ -51,6 +69,11 @@ class egressAclEntries extends Model
     public $policy;
 
     /**
+     * @description The destination port range of the outbound rule.
+     *
+     *   If **Protocol** of the outbound rule is set to **all**, **icmp**, or **gre**, the port range is **-1/-1**, which specifies all ports.
+     *   If **Protocol** of the outbound rule is set to **tcp** or **udp**, set the port range in the following format: **1/200** or **80/80**, which specifies port 1 to port 200 or port 80. Valid values for a port: **1** to **65535**.
+     *
      * @example -1/-1
      *
      * @var string
@@ -58,6 +81,14 @@ class egressAclEntries extends Model
     public $port;
 
     /**
+     * @description The protocol type. Valid values:
+     *
+     *   **icmp**: ICMP
+     *   **gre**: GRE
+     *   **tcp**: TCP
+     *   **udp**: UDP
+     *   **all**: all protocols
+     *
      * @example all
      *
      * @var string

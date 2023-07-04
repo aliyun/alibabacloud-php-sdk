@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateBgpGroupRequest extends Model
 {
     /**
+     * @description The authentication key of the BGP group.
+     *
      * @example !PWZ2****
      *
      * @var string
@@ -16,6 +18,11 @@ class CreateBgpGroupRequest extends Model
     public $authKey;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -23,6 +30,9 @@ class CreateBgpGroupRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the BGP group.
+     *
+     * The description must be 2 to 256 characters in length. It must start with a letter and cannot start with `http://` or `https://`.
      * @example BGP
      *
      * @var string
@@ -30,6 +40,11 @@ class CreateBgpGroupRequest extends Model
     public $description;
 
     /**
+     * @description The IP version. Valid values:
+     *
+     *   **IPv4**: This is the default value.
+     *   **IPv6**: IPv6 is supported only if the VBR for which you want to create the BGP group has IPv6 enabled.
+     *
      * @example IPv4
      *
      * @var string
@@ -37,6 +52,12 @@ class CreateBgpGroupRequest extends Model
     public $ipVersion;
 
     /**
+     * @description Specifies whether to use a fake ASN. Valid values:
+     *
+     *   **false** (default): no
+     *   **true**: yes
+     *
+     * >  In most cases, a router that runs BGP belongs to only one AS. If you want to use a different ASN to communicate with the peer but you cannot modify the BGP configuration because it may cause service downtime, you can use a fake ASN. For example, you can use a fake ASN to communicate with the peer when you migrate or merge ASs. This prevents service interruptions.
      * @example true
      *
      * @var bool
@@ -44,11 +65,23 @@ class CreateBgpGroupRequest extends Model
     public $isFakeAsn;
 
     /**
+     * @description The custom ASN on the Alibaba Cloud side. Valid values:
+     *
+     *   **45104**
+     *   **64512~65534**
+     *   **4200000000~4294967294**
+     *
+     * >  **65025** is reserved by Alibaba Cloud. By default, Alibaba Cloud uses **45104** as **LocalAsn**. If you use a custom **LocalAsn** in scenarios where multiple connections are used, BGP loops may occur. Proceed with caution.
+     * @example 45104
+     *
      * @var int
      */
     public $localAsn;
 
     /**
+     * @description The name of the BGP group.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
      * @example test
      *
      * @var string
@@ -66,6 +99,8 @@ class CreateBgpGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ASN of the gateway device in the data center.
+     *
      * @example 1****
      *
      * @var int
@@ -73,6 +108,9 @@ class CreateBgpGroupRequest extends Model
     public $peerAsn;
 
     /**
+     * @description The region ID of the VBR.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string
@@ -90,11 +128,17 @@ class CreateBgpGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The maximum number of routes supported by a BGP peer. Default value: **110**.
+     *
+     * @example 110
+     *
      * @var int
      */
     public $routeQuota;
 
     /**
+     * @description The ID of the VBR.
+     *
      * @example vbr-bp1ctxy813985gkuk****
      *
      * @var string

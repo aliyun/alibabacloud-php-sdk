@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyRouterInterfaceAttributeRequest extends Model
 {
     /**
+     * @description Specifies whether to delete the health check IP addresses configured on the router interface. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
      * @example false
      *
      * @var bool
@@ -16,18 +21,26 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     public $deleteHealthCheckIp;
 
     /**
+     * @description The description of the router interface.
+     *
+     * The value must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      * @var string
      */
     public $description;
 
     /**
-     * @example 2
+     * @description The rate of the heath check. Unit: milliseconds. The recommended value is **2000**. This value specifies the interval at which probe packets are sent during a health check.
+     *
+     * In this example, **HcThreshold** is set to **8** and **HcRate** is set to **2000**. In this example, probe packets are sent from **HealthCheckSourceIp** (source address) to **HealthCheckTargetIp** (destination address) every 2,000 seconds. If no response is returned for eight consecutive times, the health check fails.
+     * @example 2000
      *
      * @var int
      */
     public $hcRate;
 
     /**
+     * @description The health check threshold. Unit: packets. We recommend that you set the value to **8**. This value specifies the number of probe packets that are sent during a health check.
+     *
      * @example 8
      *
      * @var int
@@ -35,6 +48,9 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     public $hcThreshold;
 
     /**
+     * @description The source IP address that is used to perform health checks. The source IP address must be an idle IP address of the local virtual private cloud (VPC).
+     *
+     * >  You can set this parameter if an Express Connect circuit is used.
      * @example 116.62.XX.XX
      *
      * @var string
@@ -42,6 +58,9 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     public $healthCheckSourceIp;
 
     /**
+     * @description The destination IP address that is used to perform health checks.
+     *
+     * >  This parameter is required when the **HealthCheckSourceIp** parameter is set.
      * @example 116.62.XX.XX
      *
      * @var string
@@ -49,6 +68,9 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     public $healthCheckTargetIp;
 
     /**
+     * @description The name of the router interface.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example TEST
      *
      * @var string
@@ -56,6 +78,8 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the peer router interface.
+     *
      * @example ri-2zeo3xzyf38r4urz****
      *
      * @var string
@@ -63,6 +87,8 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     public $oppositeInterfaceId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the peer router interface belongs.
+     *
      * @example 28768383240243****
      *
      * @var int
@@ -70,6 +96,8 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     public $oppositeInterfaceOwnerId;
 
     /**
+     * @description The ID of the peer router.
+     *
      * @example vrt-bp1jcg5cmxjbl9xgc****
      *
      * @var string
@@ -77,6 +105,11 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     public $oppositeRouterId;
 
     /**
+     * @description The type of router to which the peer router interface belongs. Valid values:
+     *
+     *   **VRouter**: vRouter
+     *   **VBR** (default): virtual border router (VBR)
+     *
      * @example VBR
      *
      * @var string
@@ -89,6 +122,9 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the router interface belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string
@@ -106,6 +142,8 @@ class ModifyRouterInterfaceAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the router interface.
+     *
      * @example ri-2zeo3xzyf38r4urz****
      *
      * @var string

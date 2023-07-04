@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyBgpPeerAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example D4B7649A-61BB-4C64-A586-1DFF1EDA6A42
      *
      * @var string

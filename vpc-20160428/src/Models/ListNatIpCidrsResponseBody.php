@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class ListNatIpCidrsResponseBody extends Model
 {
     /**
+     * @description The CIDR blocks of the NAT gateway.
+     *
      * @var natIpCidrs[]
      */
     public $natIpCidrs;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If the value of **NextToken** is not returned, it indicates that no next query is to be sent.
+     *   If the value of **NextToken** is returned, the value indicates the token that is used for the next query.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
      * @var string
@@ -22,6 +29,8 @@ class ListNatIpCidrsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7479A224-4A28-4895-9604-11F48BCE6A88
      *
      * @var string
@@ -29,6 +38,8 @@ class ListNatIpCidrsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of CIDR blocks that are returned.
+     *
      * @example 1
      *
      * @var string

@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeEipAddressesResponseBody extends Model
 {
     /**
+     * @description The metering method that is used after the renewal takes effect. Valid values:
+     *
+     *   **PayByBandwidth**: pay-by-bandwidth
+     *   **PayByTraffic**: pay-by-data-transfer
+     *
      * @var eipAddresses
      */
     public $eipAddresses;
 
     /**
+     * @description The description of the EIP.
+     *
      * @example 10
      *
      * @var int
@@ -22,6 +29,8 @@ class DescribeEipAddressesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The network type. The value is set to **public**, which indicates the Internet.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +38,11 @@ class DescribeEipAddressesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The billing method of the EIP. Valid values:
+     *
+     *   **PostPaid**: pay-as-you-go
+     *   **PrePaid**: subscription
+     *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *
      * @var string
@@ -36,6 +50,9 @@ class DescribeEipAddressesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The IDs of contiguous EIPs.
+     *
+     * This value is returned only when you query contiguous EIP groups.
      * @example 1
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ikeConfig extends Model
 {
     /**
+     * @description The IKE authentication algorithm.
+     *
      * @example sha1
      *
      * @var string
@@ -16,6 +18,8 @@ class ikeConfig extends Model
     public $ikeAuthAlg;
 
     /**
+     * @description The IKE encryption algorithm.
+     *
      * @example aes
      *
      * @var string
@@ -23,6 +27,8 @@ class ikeConfig extends Model
     public $ikeEncAlg;
 
     /**
+     * @description The IKE lifetime. Unit: seconds.
+     *
      * @example 86400
      *
      * @var int
@@ -30,6 +36,10 @@ class ikeConfig extends Model
     public $ikeLifetime;
 
     /**
+     * @description The IKE negotiation mode. Valid values:
+     *
+     **main**: This mode offers higher security during negotiations.
+     *
      * @example main
      *
      * @var string
@@ -37,6 +47,8 @@ class ikeConfig extends Model
     public $ikeMode;
 
     /**
+     * @description The Diffie-Hellman key exchange algorithm.
+     *
      * @example group2
      *
      * @var string
@@ -44,6 +56,8 @@ class ikeConfig extends Model
     public $ikePfs;
 
     /**
+     * @description The IKE version.
+     *
      * @example ikev2
      *
      * @var string
@@ -51,6 +65,8 @@ class ikeConfig extends Model
     public $ikeVersion;
 
     /**
+     * @description The ID of the IPsec server. The default value is the public IP address of the VPN gateway. Both FQDNs and IP addresses are supported.
+     *
      * @example 116.64.XX.XX
      *
      * @var string
@@ -58,6 +74,8 @@ class ikeConfig extends Model
     public $localId;
 
     /**
+     * @description The identifier of the customer gateway. Both fully qualified domain names (FQDNs) and IP addresses are supported. By default, this parameter is empty.
+     *
      * @example 139.67.XX.XX
      *
      * @var string

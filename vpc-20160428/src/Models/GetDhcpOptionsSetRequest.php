@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDhcpOptionsSetRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example dopt-o6w0df4epg9zo8isy****
      *
      * @var string
@@ -26,6 +28,13 @@ class GetDhcpOptionsSetRequest extends Model
     public $ownerId;
 
     /**
+     * @description The status of the DHCP options set. Valid values:
+     *
+     *   **Available**: available
+     *   **InUse**: in use
+     *   **Deleted**: deleted
+     *   **Pending**: being configured
+     *
      * @example cn-hangzhou
      *
      * @var string

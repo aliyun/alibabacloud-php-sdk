@@ -19,6 +19,8 @@ class DescribeSslVpnClientCertRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the SSL client certificate. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +38,8 @@ class DescribeSslVpnClientCertRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the SSL client certificate that you want to query.
+     *
      * @example vsc-bp17r58rjf5r1gjyr****
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyHaVipAttributeRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 02fb3da4-130e-11e9-8e44-0016e0****
      *
      * @var string
@@ -16,6 +21,9 @@ class ModifyHaVipAttributeRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the HAVIP.
+     *
+     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example This is my HaVip.
      *
      * @var string
@@ -23,6 +31,8 @@ class ModifyHaVipAttributeRequest extends Model
     public $description;
 
     /**
+     * @description The ID of the HAVIP.
+     *
      * @example havip-2zeo05qre24nhrqp****
      *
      * @var string
@@ -30,6 +40,9 @@ class ModifyHaVipAttributeRequest extends Model
     public $haVipId;
 
     /**
+     * @description The name of the HAVIP.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -47,6 +60,9 @@ class ModifyHaVipAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the HAVIP belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string

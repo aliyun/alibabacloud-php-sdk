@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSslVpnClientCertResponseBody extends Model
 {
     /**
+     * @description The name of the SSL client certificate.
+     *
      * @example SslVpnClientCert
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateSslVpnClientCertResponseBody extends Model
     public $name;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 079874CD-AEC1-43E6-AC03-ADD96B6E4907
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateSslVpnClientCertResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the SSL client certificate.
+     *
      * @example vsc-m5euof6s5jy8vs5kd****
      *
      * @var string

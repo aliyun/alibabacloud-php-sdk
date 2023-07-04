@@ -14,6 +14,8 @@ class DescribeRouteEntryListRequest extends Model
     public $destCidrBlockList;
 
     /**
+     * @description The destination CIDR block of the route. IPv4 and IPv6 CIDR blocks are supported.
+     *
      * @example 192.168.2.0/24
      *
      * @var string
@@ -21,6 +23,11 @@ class DescribeRouteEntryListRequest extends Model
     public $destinationCidrBlock;
 
     /**
+     * @description The IP version. Valid values:
+     *
+     *   **IPv4**
+     *   **IPv6**
+     *
      * @example IPv4
      *
      * @var string
@@ -28,6 +35,8 @@ class DescribeRouteEntryListRequest extends Model
     public $ipVersion;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -35,6 +44,8 @@ class DescribeRouteEntryListRequest extends Model
     public $maxResult;
 
     /**
+     * @description The ID of the next hop.
+     *
      * @example vpn-bp10zyaph5cc8b7c7****
      *
      * @var string
@@ -42,6 +53,17 @@ class DescribeRouteEntryListRequest extends Model
     public $nextHopId;
 
     /**
+     * @description The type of the next hop. Valid values:
+     *
+     *   **Instance** (default): an Elastic Compute Service (ECS) instance
+     *   **HaVip**: a high-availability virtual IP address (HAVIP)
+     *   **VpnGateway**: a VPN gateway
+     *   **NatGateway**: a NAT gateway
+     *   **NetworkInterface**: a secondary elastic network interface (ENI)
+     *   **RouterInterface**: a router interface
+     *   **IPv6Gateway**: an IPv6 gateway
+     *   **Attachment**: a transit router
+     *
      * @example Instance
      *
      * @var string
@@ -49,6 +71,11 @@ class DescribeRouteEntryListRequest extends Model
     public $nextHopType;
 
     /**
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If this is your first query and no next queries are to be sent, ignore this parameter.
+     *   If a next query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+     *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
@@ -66,6 +93,9 @@ class DescribeRouteEntryListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the route table.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -83,6 +113,8 @@ class DescribeRouteEntryListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the route that you want to query.
+     *
      * @example rte-bp1mnnr2al0naomnp****
      *
      * @var string
@@ -90,6 +122,9 @@ class DescribeRouteEntryListRequest extends Model
     public $routeEntryId;
 
     /**
+     * @description The name of the route.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example abc
      *
      * @var string
@@ -97,6 +132,13 @@ class DescribeRouteEntryListRequest extends Model
     public $routeEntryName;
 
     /**
+     * @description The type of the route. Valid values:
+     *
+     *   **Custom**: a custom route
+     *   **System**: a system route
+     *   **BGP**: a BGP route
+     *   **CEN**: a Cloud Enterprise Network (CEN) route
+     *
      * @example System
      *
      * @var string
@@ -104,6 +146,8 @@ class DescribeRouteEntryListRequest extends Model
     public $routeEntryType;
 
     /**
+     * @description The ID of the route table.
+     *
      * @example vtb-bp1r9pvl4xen8s9ju****
      *
      * @var string
@@ -111,6 +155,9 @@ class DescribeRouteEntryListRequest extends Model
     public $routeTableId;
 
     /**
+     * @description Specifies whether to host the route. If the parameter is empty, the route is not hosted.
+     *
+     * If you set the value to **TR**, the route is hosted by a transit router.
      * @example TR
      *
      * @var string

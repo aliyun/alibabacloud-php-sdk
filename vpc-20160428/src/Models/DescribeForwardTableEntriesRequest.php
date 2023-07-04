@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeForwardTableEntriesRequest extends Model
 {
     /**
+     * @description *   The elastic IP addresses (EIPs) that can be accessed over the Internet when you query DNAT entries of Internet NAT gateways.
+     *   The NAT IP addresses that can be accessed by external networks when you query DNAT entries of Virtual Private Cloud (VPC) NAT gateways.
+     *
      * @example 116.28.XX.XX
      *
      * @var string
@@ -16,6 +19,14 @@ class DescribeForwardTableEntriesRequest extends Model
     public $externalIp;
 
     /**
+     * @description *   The external port or port range that is used for port forwarding when you query DNAT entries of Internet NAT gateways.
+     *
+     *   Valid values: **1** to **65535**.
+     *   If you want to query a port range, separate the first port and last port with a forward slash (/), such as `10/20`.
+     *   If you set **ExternalPort** to a port range, you must also set **InternalPort** to a port range, and the number of ports specified by these parameters must be the same. For example, if you set **ExternalPort** to `10/20`, you can set **InternalPort** to `80/90`.
+     *
+     *   The port that is used when the NAT IP address can be accessed by external networks when you query DNAT entries of VPC NAT gateways. Valid values: **1** to **65535**.
+     *
      * @example 8080
      *
      * @var string
@@ -23,6 +34,8 @@ class DescribeForwardTableEntriesRequest extends Model
     public $externalPort;
 
     /**
+     * @description The ID of the DNAT entry.
+     *
      * @example fwd-8vbn3bc8roygjp0gy****
      *
      * @var string
@@ -30,6 +43,9 @@ class DescribeForwardTableEntriesRequest extends Model
     public $forwardEntryId;
 
     /**
+     * @description The name of the DNAT entry.
+     *
+     * The name must be 2 to 128 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
      * @example ForwardEntry-1
      *
      * @var string
@@ -37,6 +53,9 @@ class DescribeForwardTableEntriesRequest extends Model
     public $forwardEntryName;
 
     /**
+     * @description The ID of the DNAT table.
+     *
+     * >  You must set at least one of the **ForwardTableId** and **NatGatewayId** parameters.
      * @example ftb-bp1mbjubq34hlcqpa****
      *
      * @var string
@@ -44,6 +63,11 @@ class DescribeForwardTableEntriesRequest extends Model
     public $forwardTableId;
 
     /**
+     * @description The private IP address.
+     *
+     *   The private IP address of the ECS instance that uses DNAT entries to communicate with the Internet when you query DNAT entries of Internet NAT gateways.
+     *   The private IP address that uses DNAT entries for communication when you query DNAT entries of VPC NAT gateways.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -51,6 +75,9 @@ class DescribeForwardTableEntriesRequest extends Model
     public $internalIp;
 
     /**
+     * @description *   The internal port or port range that is used for port forwarding when you query DNAT entries of Internet NAT gateways. Valid values: **1** to **65535**.
+     *   The port of the destination ECS instance to be mapped when you query DNAT entries of VPC NAT gateways. Valid values: **1** to **65535**.
+     *
      * @example 80
      *
      * @var string
@@ -58,6 +85,12 @@ class DescribeForwardTableEntriesRequest extends Model
     public $internalPort;
 
     /**
+     * @description The protocol. Valid values:
+     *
+     *   **TCP**: The NAT gateway forwards TCP packets.
+     *   **UDP**: The NAT gateway forwards UDP packets.
+     *   **Any**: The NAT gateway forwards packets of all protocols.
+     *
      * @example TCP
      *
      * @var string
@@ -65,6 +98,9 @@ class DescribeForwardTableEntriesRequest extends Model
     public $ipProtocol;
 
     /**
+     * @description The ID of the NAT gateway.
+     *
+     * >  You must set at least one of the **ForwardTableId** and **NatGatewayId** parameters.
      * @example ngw-bp1uewa15k4iy5770****
      *
      * @var string
@@ -82,6 +118,8 @@ class DescribeForwardTableEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -89,6 +127,8 @@ class DescribeForwardTableEntriesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -96,6 +136,9 @@ class DescribeForwardTableEntriesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the NAT gateway.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

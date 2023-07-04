@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateIpv4GatewayRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system sets **ClientToken** to the value of **RequestId**. The value of **RequestId** for each API request is different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,6 +21,11 @@ class CreateIpv4GatewayRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +33,9 @@ class CreateIpv4GatewayRequest extends Model
     public $dryRun;
 
     /**
+     * @description The description of the IPv4 gateway.
+     *
+     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -30,6 +43,9 @@ class CreateIpv4GatewayRequest extends Model
     public $ipv4GatewayDescription;
 
     /**
+     * @description The name of the IPv4 gateway.
+     *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example ipv4
      *
      * @var string
@@ -47,6 +63,9 @@ class CreateIpv4GatewayRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where you want to create the IPv4 gateway.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example ap-southeast-6
      *
      * @var string
@@ -54,6 +73,10 @@ class CreateIpv4GatewayRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxazb4ph6aiy****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -69,6 +92,9 @@ class CreateIpv4GatewayRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the VPC where you want to create the IPv4 gateway.
+     *
+     * You can create only one IPv4 gateway in a VPC.
      * @example vpc-5tss06uvoyps5xoya****
      *
      * @var string

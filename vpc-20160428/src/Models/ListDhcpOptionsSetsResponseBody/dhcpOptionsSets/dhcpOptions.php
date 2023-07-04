@@ -23,11 +23,15 @@ class dhcpOptions extends Model
     public $domainNameServers;
 
     /**
+     * @example 3650d
+     *
      * @var string
      */
     public $ipv6LeaseTime;
 
     /**
+     * @example 3650d
+     *
      * @var string
      */
     public $leaseTime;

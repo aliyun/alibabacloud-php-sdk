@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListBusinessAccessPointsRequest extends Model
 {
     /**
+     * @description The region ID of the Express Connect circuit.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

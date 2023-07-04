@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFullNatEntryRequest extends Model
 {
     /**
+     * @description The ID of the FULLNAT table to which the FULLNAT entry to be deleted belongs.
+     *
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteFullNatEntryRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,9 @@ class DeleteFullNatEntryRequest extends Model
     public $dryRun;
 
     /**
+     * @description The region ID of the VPC NAT gateway to which the FULLNAT entry to be deleted belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example fullnat-gw8fz23jezpbblf1j****
      *
      * @var string
@@ -30,6 +37,11 @@ class DeleteFullNatEntryRequest extends Model
     public $fullNatEntryId;
 
     /**
+     * @description Specifies whether to to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks your AccessKey pair, the RAM user permissions, and the required parameters. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
      * @example fulltb-gw88z7hhlv43rmb26****
      *
      * @var string

@@ -9,13 +9,20 @@ use AlibabaCloud\Tea\Model;
 class GrantInstanceToVbrRequest extends Model
 {
     /**
-     * @example ALL
+     * @description The VBRs that need to acquire permissions on the VPC. Valid values:
+     *
+     *   **All**: Permissions on the VPC are granted to all VBRs that belong to the specified region and Alibaba Cloud account. In this case, you can leave **VbrInstanceIds** empty.
+     *   **Specify**: Permissions on the VPC are granted to the specified VBRs. **VbrInstanceIds** must be assigned a value.
+     *
+     * @example All
      *
      * @var string
      */
     public $grantType;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-bp1lqhq93q8evjpky****
      *
      * @var string
@@ -23,6 +30,9 @@ class GrantInstanceToVbrRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the region where the VPC is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -30,11 +40,15 @@ class GrantInstanceToVbrRequest extends Model
     public $regionId;
 
     /**
+     * @description The information about the VBRs.
+     *
      * @var string[]
      */
     public $vbrInstanceIds;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the VBR belongs.
+     *
      * @example 1210123456123456
      *
      * @var int
@@ -42,6 +56,8 @@ class GrantInstanceToVbrRequest extends Model
     public $vbrOwnerUid;
 
     /**
+     * @description The ID of the region where the VBR is deployed.
+     *
      * @example cn-hangzhou
      *
      * @var string

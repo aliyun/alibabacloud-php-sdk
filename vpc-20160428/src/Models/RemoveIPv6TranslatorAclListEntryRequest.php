@@ -9,21 +9,28 @@ use AlibabaCloud\Tea\Model;
 class RemoveIPv6TranslatorAclListEntryRequest extends Model
 {
     /**
-     * @example ipv6transaclentry-bp105jrsxxxx
+     * @description The ID of the ACL entry to be deleted.
+     *
+     * @example ipv6transaclentry-bp105jrs****
      *
      * @var string
      */
     public $aclEntryId;
 
     /**
-     * @example ipv6transacl-bp1de2xxxx
+     * @description The ID of the ACL to which the ACL entry belongs.
+     *
+     * @example ipv6transacl-bp1de2****
      *
      * @var string
      */
     public $aclId;
 
     /**
-     * @example sha123456
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
      */
@@ -40,6 +47,8 @@ class RemoveIPv6TranslatorAclListEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region of the ACL.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,20 +9,26 @@ use AlibabaCloud\Tea\Model;
 class eipInfo extends Model
 {
     /**
-     * @example 47.xx.xx.236
+     * @description The IP address of the EIP.
+     *
+     * @example 47.XX.XX.236
      *
      * @var string
      */
     public $ip;
 
     /**
-     * @example 47.xx.xx.1
+     * @description The IP address of the gateway that is associated with the EIP.
+     *
+     * @example 47.XX.XX.1
      *
      * @var string
      */
     public $ipGw;
 
     /**
+     * @description The subnet mask of the EIP.
+     *
      * @example 255.255.255.0
      *
      * @var string

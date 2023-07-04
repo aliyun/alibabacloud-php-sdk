@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class failedRouteEntries extends Model
 {
     /**
+     * @description The error message.
+     *
      * @example 192.168.0.0/24
      *
      * @var string
@@ -30,6 +32,8 @@ class failedRouteEntries extends Model
     public $failedMessage;
 
     /**
+     * @description The ID of the custom route entry that was successfully added.
+     *
      * @example i-j6c2fp57q8rr4jlu****
      *
      * @var string

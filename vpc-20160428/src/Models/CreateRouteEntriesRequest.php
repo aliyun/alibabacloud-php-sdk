@@ -20,6 +20,8 @@ class CreateRouteEntriesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the next hop of the custom route entry. You can specify up to 50 next hop IDs.
+     *
      * @example cn-hangzhou
      *
      * @var string

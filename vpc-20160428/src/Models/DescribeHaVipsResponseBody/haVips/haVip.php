@@ -12,11 +12,18 @@ use AlibabaCloud\Tea\Model;
 class haVip extends Model
 {
     /**
+     * @description The elastic IP address (EIP) associated with the HAVIP.
+     *
      * @var associatedEipAddresses
      */
     public $associatedEipAddresses;
 
     /**
+     * @description The type of the instance with which the HAVIP is associated. Valid values:
+     *
+     *   **EcsInstance**: an ECS instance
+     *   **NetworkInterface**: an ENI
+     *
      * @example EcsInstance
      *
      * @var string
@@ -24,11 +31,15 @@ class haVip extends Model
     public $associatedInstanceType;
 
     /**
+     * @description The ID of the instance with which the HAVIP is associated.
+     *
      * @var associatedInstances
      */
     public $associatedInstances;
 
     /**
+     * @description The parameter is invalid. No value is returned.
+     *
      * @example none
      *
      * @var string
@@ -36,6 +47,8 @@ class haVip extends Model
     public $chargeType;
 
     /**
+     * @description The time when the HAVIP was created.
+     *
      * @example 2021-07-03T14:25:26Z
      *
      * @var string
@@ -43,6 +56,8 @@ class haVip extends Model
     public $createTime;
 
     /**
+     * @description The description of the HAVIP.
+     *
      * @example My HaVip
      *
      * @var string
@@ -50,6 +65,8 @@ class haVip extends Model
     public $description;
 
     /**
+     * @description The ID of the HAVIP.
+     *
      * @example havip-bp149uyvut73dpld****
      *
      * @var string
@@ -57,6 +74,8 @@ class haVip extends Model
     public $haVipId;
 
     /**
+     * @description The private IP address of the HAVIP.
+     *
      * @example 192.168.24.5
      *
      * @var string
@@ -64,6 +83,8 @@ class haVip extends Model
     public $ipAddress;
 
     /**
+     * @description The ID of the active instance that is associated with the HAVIP.
+     *
      * @example i-bp145q7glnuzdvz****
      *
      * @var string
@@ -71,6 +92,8 @@ class haVip extends Model
     public $masterInstanceId;
 
     /**
+     * @description The name of the HAVIP.
+     *
      * @example test
      *
      * @var string
@@ -78,6 +101,8 @@ class haVip extends Model
     public $name;
 
     /**
+     * @description The ID of the region to which the HAVIP belongs.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -85,11 +110,21 @@ class haVip extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the HAVIP belongs.
+     *
+     * @example rg-bp67acfmxazb4ph****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The status of the HAVIP. Valid values:
+     *
+     *   **Creating**
+     *   **Available**
+     *   **Deleting**
+     *
      * @example Available
      *
      * @var string
@@ -97,11 +132,15 @@ class haVip extends Model
     public $status;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The ID of the vSwitch to which the HAVIP belongs.
+     *
      * @example vsw-bp1pkt1fba8e824ez****
      *
      * @var string
@@ -109,6 +148,8 @@ class haVip extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC to which the HAVIP belongs.
+     *
      * @example vpc-bp1kcm36tevkpms97****
      *
      * @var string

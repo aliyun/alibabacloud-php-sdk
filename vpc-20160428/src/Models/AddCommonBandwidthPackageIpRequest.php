@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddCommonBandwidthPackageIpRequest extends Model
 {
     /**
+     * @description The ID of the EIP bandwidth plan.
+     *
      * @example cbwp-2ze2ic1xd2qeqasdf****
      *
      * @var string
@@ -16,6 +18,11 @@ class AddCommonBandwidthPackageIpRequest extends Model
     public $bandwidthPackageId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** for each API request may be different.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -23,6 +30,9 @@ class AddCommonBandwidthPackageIpRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the EIP.
+     *
+     * You can call the [DescribeEipAddresses](~~36018~~) operation to query the most recent region list.
      * @example eip-2zeerraiwb7uqwed****
      *
      * @var string
@@ -30,6 +40,8 @@ class AddCommonBandwidthPackageIpRequest extends Model
     public $ipInstanceId;
 
     /**
+     * @description The type of IP address. Set the value to **EIP** to associate an EIP with the EIP bandwidth plan.
+     *
      * @example EIP
      *
      * @var string
@@ -47,6 +59,9 @@ class AddCommonBandwidthPackageIpRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the EIP bandwidth plan.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

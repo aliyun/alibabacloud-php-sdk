@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class fullNatTable extends Model
 {
     /**
+     * @description The number of FULLNAT entries.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class fullNatTable extends Model
     public $fullNatEntryCount;
 
     /**
+     * @description The ID of the FULLNAT table.
+     *
      * @example fulltb-gw88z7hhlv43rmb26****
      *
      * @var string

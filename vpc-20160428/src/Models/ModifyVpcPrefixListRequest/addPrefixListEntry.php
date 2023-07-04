@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class addPrefixListEntry extends Model
 {
     /**
+     * @description The CIDR block that you want to delete from the prefix list.
+     *
      * @example 172.16.0.0/12
      *
      * @var string
@@ -16,6 +18,8 @@ class addPrefixListEntry extends Model
     public $cidr;
 
     /**
+     * @description The description of the CIDR block that you want to delete.
+     *
      * @example newcidr
      *
      * @var string

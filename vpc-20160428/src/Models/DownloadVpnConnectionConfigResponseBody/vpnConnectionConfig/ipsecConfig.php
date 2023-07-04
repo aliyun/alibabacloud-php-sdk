@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ipsecConfig extends Model
 {
     /**
+     * @description The IPsec authentication algorithm. Valid values: **sha1** and **md5**.
+     *
      * @example sha1
      *
      * @var string
@@ -16,6 +18,8 @@ class ipsecConfig extends Model
     public $ipsecAuthAlg;
 
     /**
+     * @description The IPsec encryption algorithm.
+     *
      * @example aes
      *
      * @var string
@@ -23,6 +27,8 @@ class ipsecConfig extends Model
     public $ipsecEncAlg;
 
     /**
+     * @description The IPsec lifetime. Unit: seconds.
+     *
      * @example 86400
      *
      * @var int
@@ -30,6 +36,8 @@ class ipsecConfig extends Model
     public $ipsecLifetime;
 
     /**
+     * @description The DH group.
+     *
      * @example group2
      *
      * @var string
