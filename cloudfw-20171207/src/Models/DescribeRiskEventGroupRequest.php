@@ -115,6 +115,10 @@ class DescribeRiskEventGroupRequest extends Model
     public $endTime;
 
     /**
+     * @description 入侵防御事件的名称。
+     *
+     * @example 木马后门通信
+     *
      * @var string
      */
     public $eventName;
@@ -156,7 +160,7 @@ class DescribeRiskEventGroupRequest extends Model
     public $noLocation;
 
     /**
-     * @description The order in which you want to sort the query results. Valid values:
+     * @description The order in which you want to sort the results. Valid values:
      *
      *   **asc**: the ascending order.
      *   **desc**: the descending order. This is the default value.

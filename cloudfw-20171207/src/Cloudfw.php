@@ -47,6 +47,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeAssetListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDefaultIPSConfigRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDefaultIPSConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDomainResolveRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeDomainResolveResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInstanceMembersRequest;
@@ -77,6 +79,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallV2RoutePolicyLis
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallV2RoutePolicyListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserAssetIPTrafficInfoRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserAssetIPTrafficInfoResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserIPSWhitelistRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeUserIPSWhitelistResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallAclGroupListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallAclGroupListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeVpcFirewallCenDetailRequest;
@@ -101,6 +105,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPositionRequest
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyPositionResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyDefaultIPSConfigRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyDefaultIPSConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyFirewallV2RoutePolicySwitchRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyFirewallV2RoutePolicySwitchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyInstanceMemberAttributesRequest;
@@ -112,6 +118,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyTrFirewallV2ConfigurationRes
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyTrFirewallV2RoutePolicyScopeRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyTrFirewallV2RoutePolicyScopeResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyTrFirewallV2RoutePolicyScopeShrinkRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyUserIPSWhitelistRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyUserIPSWhitelistResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallCenConfigureRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallCenConfigureResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyVpcFirewallCenSwitchStatusRequest;
@@ -1551,6 +1559,52 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param DescribeDefaultIPSConfigRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDefaultIPSConfigResponse
+     */
+    public function describeDefaultIPSConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDefaultIPSConfig',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDefaultIPSConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDefaultIPSConfigRequest $request
+     *
+     * @return DescribeDefaultIPSConfigResponse
+     */
+    public function describeDefaultIPSConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDefaultIPSConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * You can call the DescribeDomainResolve operation to query the DNS record of a domain name. This operation can retrieve DNS records only from Alibaba Cloud DNS. Before you can call this operation, make sure that your domain name is hosted on Alibaba Cloud DNS.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -2542,6 +2596,55 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param DescribeUserIPSWhitelistRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeUserIPSWhitelistResponse
+     */
+    public function describeUserIPSWhitelistWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserIPSWhitelist',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserIPSWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUserIPSWhitelistRequest $request
+     *
+     * @return DescribeUserIPSWhitelistResponse
+     */
+    public function describeUserIPSWhitelist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserIPSWhitelistWithOptions($request, $runtime);
+    }
+
+    /**
      * You can call the DescribeVpcFirewallAclGroupList operation to query the information about all policy groups of access control policies that are created for VPC firewalls.
      *   * ## Limits
      *   * You can call this operation up to 10 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
@@ -3424,6 +3527,76 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param ModifyDefaultIPSConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyDefaultIPSConfigResponse
+     */
+    public function modifyDefaultIPSConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aiRules)) {
+            $query['AiRules'] = $request->aiRules;
+        }
+        if (!Utils::isUnset($request->basicRules)) {
+            $query['BasicRules'] = $request->basicRules;
+        }
+        if (!Utils::isUnset($request->ctiRules)) {
+            $query['CtiRules'] = $request->ctiRules;
+        }
+        if (!Utils::isUnset($request->enableAllPatch)) {
+            $query['EnableAllPatch'] = $request->enableAllPatch;
+        }
+        if (!Utils::isUnset($request->enableDefault)) {
+            $query['EnableDefault'] = $request->enableDefault;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->patchRules)) {
+            $query['PatchRules'] = $request->patchRules;
+        }
+        if (!Utils::isUnset($request->ruleClass)) {
+            $query['RuleClass'] = $request->ruleClass;
+        }
+        if (!Utils::isUnset($request->runMode)) {
+            $query['RunMode'] = $request->runMode;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDefaultIPSConfig',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDefaultIPSConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDefaultIPSConfigRequest $request
+     *
+     * @return ModifyDefaultIPSConfigResponse
+     */
+    public function modifyDefaultIPSConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDefaultIPSConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyFirewallV2RoutePolicySwitchRequest $request
      * @param RuntimeOptions                           $runtime
      *
@@ -3696,6 +3869,70 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyTrFirewallV2RoutePolicyScopeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyUserIPSWhitelistRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyUserIPSWhitelistResponse
+     */
+    public function modifyUserIPSWhitelistWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->listType)) {
+            $query['ListType'] = $request->listType;
+        }
+        if (!Utils::isUnset($request->listValue)) {
+            $query['ListValue'] = $request->listValue;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        if (!Utils::isUnset($request->whiteType)) {
+            $query['WhiteType'] = $request->whiteType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyUserIPSWhitelist',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyUserIPSWhitelistResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyUserIPSWhitelistRequest $request
+     *
+     * @return ModifyUserIPSWhitelistResponse
+     */
+    public function modifyUserIPSWhitelist($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyUserIPSWhitelistWithOptions($request, $runtime);
     }
 
     /**

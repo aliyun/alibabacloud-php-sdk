@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class vpcDstInfo extends Model
 {
     /**
-     * @description The ID of instance N on which you want to run the command.
+     * @description The ID of the ECS instance.
      *
      * @example i-wz92jf4scg2zb74p****
      *

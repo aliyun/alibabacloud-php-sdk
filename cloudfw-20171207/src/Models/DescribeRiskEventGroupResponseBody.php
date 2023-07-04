@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRiskEventGroupResponseBody extends Model
 {
     /**
-     * @description The data returned.
+     * @description An array that consists of the details of the intrusion events.
      *
      * @var dataList[]
      */
