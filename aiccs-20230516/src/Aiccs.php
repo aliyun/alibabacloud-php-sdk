@@ -623,6 +623,9 @@ class Aiccs extends OpenApiClient
         if (!Utils::isUnset($request->failReturn)) {
             $query['FailReturn'] = $request->failReturn;
         }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }

@@ -22,6 +22,13 @@ class ImportNumberRequest extends Model
     public $failReturn;
 
     /**
+     * @example 示例值示例值
+     *
+     * @var string
+     */
+    public $outId;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -45,6 +52,7 @@ class ImportNumberRequest extends Model
     protected $_name = [
         'customers'            => 'Customers',
         'failReturn'           => 'FailReturn',
+        'outId'                => 'OutId',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
@@ -69,6 +77,9 @@ class ImportNumberRequest extends Model
         }
         if (null !== $this->failReturn) {
             $res['FailReturn'] = $this->failReturn;
+        }
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -105,6 +116,9 @@ class ImportNumberRequest extends Model
         }
         if (isset($map['FailReturn'])) {
             $model->failReturn = $map['FailReturn'];
+        }
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
