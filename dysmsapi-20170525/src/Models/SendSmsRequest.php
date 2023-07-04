@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SendSmsRequest extends Model
 {
     /**
+     * @example abcdefgh
+     *
      * @var string
      */
     public $outId;
@@ -19,6 +21,8 @@ class SendSmsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $phoneNumbers;
@@ -39,16 +43,22 @@ class SendSmsRequest extends Model
     public $signName;
 
     /**
+     * @example 90999
+     *
      * @var string
      */
     public $smsUpExtendCode;
 
     /**
+     * @example SMS_15305****
+     *
      * @var string
      */
     public $templateCode;
 
     /**
+     * @example {"code":"1111"}
+     *
      * @var string
      */
     public $templateParam;

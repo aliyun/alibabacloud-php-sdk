@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCardSmsTemplateRequest extends Model
 {
     /**
+     * @example XiaoMi
+     *
      * @var string
      */
     public $factorys;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCardSmsTemplateShrinkRequest extends Model
 {
     /**
+     * @example XiaoMi
+     *
      * @var string
      */
     public $factorys;

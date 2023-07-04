@@ -24,6 +24,8 @@ class QueryShortUrlRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example http://****.cn/6y8uy7
+     *
      * @var string
      */
     public $shortUrl;

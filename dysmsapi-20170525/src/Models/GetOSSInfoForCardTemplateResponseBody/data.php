@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example LTAIxetqt1Dg****
+     *
      * @var string
      */
     public $accessKeyId;
 
     /**
+     * @example 599333677478****
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @example alicom-cardsms-resources
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @example 1634209418
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example https://alicom-cardsms-resources.oss-cn-zhangjiakou.aliyuncs.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example eyJxxx0=
+     *
      * @var string
      */
     public $policy;
@@ -44,6 +56,8 @@ class data extends Model
     public $signature;
 
     /**
+     * @example 1631792777
+     *
      * @var string
      */
     public $startPath;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $all;
@@ -19,16 +21,22 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @example dysms
+     *
      * @var string
      */
     public $prodCode;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example SMS_23423423
+     *
      * @var string[]
      */
     public $resourceId;
@@ -44,11 +52,15 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example TEMPLATE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example TestKey
+     *
      * @var string[]
      */
     public $tagKey;

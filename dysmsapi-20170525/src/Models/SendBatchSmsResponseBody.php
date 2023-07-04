@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SendBatchSmsResponseBody extends Model
 {
     /**
+     * @example 9006197469364984400
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example F655A8D5-B967-440B-8683-DAD6FF8D230E
+     *
      * @var string
      */
     public $requestId;

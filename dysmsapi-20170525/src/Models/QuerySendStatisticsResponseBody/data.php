@@ -15,6 +15,8 @@ class data extends Model
     public $targetList;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $totalSize;

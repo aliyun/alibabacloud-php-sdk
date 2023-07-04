@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifySmsTemplateResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example F655A8D5-B967-440B-8683-DAD6FF8DE990
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SMS_15255****
+     *
      * @var string
      */
     public $templateCode;

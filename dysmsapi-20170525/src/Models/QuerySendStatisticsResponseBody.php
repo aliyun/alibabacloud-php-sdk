@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySendStatisticsResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class QuerySendStatisticsResponseBody extends Model
     public $data;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 819BE656-D2E0-4858-8B21-B2E47708****
+     *
      * @var string
      */
     public $requestId;

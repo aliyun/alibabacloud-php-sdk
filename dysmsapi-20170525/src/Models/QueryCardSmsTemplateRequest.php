@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryCardSmsTemplateRequest extends Model
 {
     /**
+     * @example CARD_SMS_4139
+     *
      * @var string
      */
     public $templateCode;

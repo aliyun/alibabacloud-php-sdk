@@ -40,11 +40,15 @@ class AddSmsSignRequest extends Model
     public $signName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $signSource;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $signType;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetMediaResourceIdRequest extends Model
 {
     /**
+     * @example {\"img_rate\":\"oneToOne\"}
+     *
      * @var string
      */
     public $extendInfo;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $fileSize;
@@ -24,11 +28,15 @@ class GetMediaResourceIdRequest extends Model
     public $memo;
 
     /**
+     * @example oss://alicom-fc-media/1947741454322274/alicom-fc-media/pic/202205191526575398603697152.png
+     *
      * @var string
      */
     public $ossKey;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $resourceType;

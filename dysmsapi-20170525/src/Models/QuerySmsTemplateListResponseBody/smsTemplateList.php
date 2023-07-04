@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class smsTemplateList extends Model
 {
     /**
+     * @example AUDIT_STATE_PASS
+     *
      * @var string
      */
     public $auditStatus;
 
     /**
+     * @example 2020-06-04 11:42:17
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example 2361****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $outerTemplateType;
@@ -35,11 +43,15 @@ class smsTemplateList extends Model
     public $reason;
 
     /**
+     * @example SMS_1525***
+     *
      * @var string
      */
     public $templateCode;
 
     /**
+     * @example 123456789
+     *
      * @var string
      */
     public $templateContent;
@@ -50,6 +62,8 @@ class smsTemplateList extends Model
     public $templateName;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $templateType;

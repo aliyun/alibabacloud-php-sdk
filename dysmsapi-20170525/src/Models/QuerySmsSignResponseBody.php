@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QuerySmsSignResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2019-01-08 16:44:13
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
@@ -29,6 +35,8 @@ class QuerySmsSignResponseBody extends Model
     public $reason;
 
     /**
+     * @example CC89A90C-978F-46AC-B80D-54738371E7CA
+     *
      * @var string
      */
     public $requestId;
@@ -39,6 +47,8 @@ class QuerySmsSignResponseBody extends Model
     public $signName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $signStatus;

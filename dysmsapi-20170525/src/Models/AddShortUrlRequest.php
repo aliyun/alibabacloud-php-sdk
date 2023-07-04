@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddShortUrlRequest extends Model
 {
     /**
+     * @example 7
+     *
      * @var string
      */
     public $effectiveDays;
@@ -34,6 +36,8 @@ class AddShortUrlRequest extends Model
     public $shortUrlName;
 
     /**
+     * @example https://www.****.com/product/sms
+     *
      * @var string
      */
     public $sourceUrl;

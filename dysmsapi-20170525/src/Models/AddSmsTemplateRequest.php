@@ -39,6 +39,8 @@ class AddSmsTemplateRequest extends Model
     public $templateName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $templateType;

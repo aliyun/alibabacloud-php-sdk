@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example http://test-example.com/download.jpg
+     *
      * @var string
      */
     public $resUrlDownload;
 
     /**
+     * @example SMS_14571****
+     *
      * @var int
      */
     public $resourceId;

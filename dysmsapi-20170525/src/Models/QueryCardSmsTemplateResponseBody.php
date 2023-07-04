@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryCardSmsTemplateResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class QueryCardSmsTemplateResponseBody extends Model
     public $data;
 
     /**
+     * @example F655A8D5-B967-440B-8683-DAD6FF8DE990
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

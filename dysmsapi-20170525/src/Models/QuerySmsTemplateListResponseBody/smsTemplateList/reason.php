@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class reason extends Model
 {
     /**
+     * @example 2020-06-04 16:01:17
+     *
      * @var string
      */
     public $rejectDate;

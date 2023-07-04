@@ -14,36 +14,50 @@ class smsSendDetailDTO extends Model
     public $content;
 
     /**
+     * @example DELIVERED
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $outId;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $phoneNum;
 
     /**
+     * @example 2019-01-08 16:44:13
+     *
      * @var string
      */
     public $receiveDate;
 
     /**
+     * @example 2019-01-08 16:44:10
+     *
      * @var string
      */
     public $sendDate;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $sendStatus;
 
     /**
+     * @example SMS_12231****
+     *
      * @var string
      */
     public $templateCode;

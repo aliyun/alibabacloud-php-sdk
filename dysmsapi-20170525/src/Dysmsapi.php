@@ -14,9 +14,13 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\AddSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CheckMobilesCardSupportRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CheckMobilesCardSupportResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ConversionDataIntlRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\ConversionDataIntlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateCardSmsTemplateShrinkRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmartShortUrlRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\CreateSmartShortUrlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteShortUrlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\DeleteSmsSignRequest;
@@ -41,6 +45,8 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryCardSmsTemplateResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryMobilesCardSupportRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryMobilesCardSupportResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryMobilesCardSupportShrinkRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryPageSmartShortUrlLogRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QueryPageSmartShortUrlLogResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendDetailsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\QuerySendStatisticsRequest;
@@ -63,6 +69,8 @@ use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendCardSmsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendCardSmsResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SendSmsResponse;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SmsConversionIntlRequest;
+use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\SmsConversionIntlResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Dysmsapi\V20170525\Models\UntagResourcesRequest;
@@ -81,9 +89,11 @@ class Dysmsapi extends OpenApiClient
         $this->_endpointRule = 'central';
         $this->_endpointMap  = [
             'ap-southeast-1' => 'dysmsapi.ap-southeast-1.aliyuncs.com',
-            'ap-southeast-5' => 'dysmsapi-xman.ap-southeast-5.aliyuncs.com',
+            'ap-southeast-5' => 'dysmsapi.ap-southeast-5.aliyuncs.com',
             'cn-beijing'     => 'dysmsapi-proxy.cn-beijing.aliyuncs.com',
             'cn-hongkong'    => 'dysmsapi-xman.cn-hongkong.aliyuncs.com',
+            'eu-central-1'   => 'dysmsapi.eu-central-1.aliyuncs.com',
+            'us-east-1'      => 'dysmsapi.us-east-1.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('dysmsapi', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -346,6 +356,61 @@ class Dysmsapi extends OpenApiClient
     }
 
     /**
+     * @param ConversionDataIntlRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ConversionDataIntlResponse
+     */
+    public function conversionDataIntlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->conversionRate)) {
+            $query['ConversionRate'] = $request->conversionRate;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->reportTime)) {
+            $query['ReportTime'] = $request->reportTime;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConversionDataIntl',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConversionDataIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ConversionDataIntlRequest $request
+     *
+     * @return ConversionDataIntlResponse
+     */
+    public function conversionDataIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->conversionDataIntlWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateCardSmsTemplateRequest $tmpReq
      * @param RuntimeOptions               $runtime
      *
@@ -400,6 +465,67 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCardSmsTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSmartShortUrlRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return CreateSmartShortUrlResponse
+     */
+    public function createSmartShortUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->expiration)) {
+            $query['Expiration'] = $request->expiration;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNumbers)) {
+            $query['PhoneNumbers'] = $request->phoneNumbers;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceName)) {
+            $query['SourceName'] = $request->sourceName;
+        }
+        if (!Utils::isUnset($request->sourceUrl)) {
+            $query['SourceUrl'] = $request->sourceUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSmartShortUrl',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSmartShortUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSmartShortUrlRequest $request
+     *
+     * @return CreateSmartShortUrlResponse
+     */
+    public function createSmartShortUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSmartShortUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -1056,6 +1182,85 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryMobilesCardSupportWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryPageSmartShortUrlLogRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return QueryPageSmartShortUrlLogResponse
+     */
+    public function queryPageSmartShortUrlLogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clickState)) {
+            $query['ClickState'] = $request->clickState;
+        }
+        if (!Utils::isUnset($request->createDateEnd)) {
+            $query['CreateDateEnd'] = $request->createDateEnd;
+        }
+        if (!Utils::isUnset($request->createDateStart)) {
+            $query['CreateDateStart'] = $request->createDateStart;
+        }
+        if (!Utils::isUnset($request->endId)) {
+            $query['EndId'] = $request->endId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->shortName)) {
+            $query['ShortName'] = $request->shortName;
+        }
+        if (!Utils::isUnset($request->shortUrl)) {
+            $query['ShortUrl'] = $request->shortUrl;
+        }
+        if (!Utils::isUnset($request->startId)) {
+            $query['StartId'] = $request->startId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryPageSmartShortUrlLog',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryPageSmartShortUrlLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryPageSmartShortUrlLogRequest $request
+     *
+     * @return QueryPageSmartShortUrlLogResponse
+     */
+    public function queryPageSmartShortUrlLog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryPageSmartShortUrlLogWithOptions($request, $runtime);
     }
 
     /**
@@ -1749,6 +1954,64 @@ class Dysmsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendSmsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SmsConversionIntlRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SmsConversionIntlResponse
+     */
+    public function smsConversionIntlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->conversionTime)) {
+            $query['ConversionTime'] = $request->conversionTime;
+        }
+        if (!Utils::isUnset($request->delivered)) {
+            $query['Delivered'] = $request->delivered;
+        }
+        if (!Utils::isUnset($request->messageId)) {
+            $query['MessageId'] = $request->messageId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SmsConversionIntl',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SmsConversionIntlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SmsConversionIntlRequest $request
+     *
+     * @return SmsConversionIntlResponse
+     */
+    public function smsConversionIntl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->smsConversionIntlWithOptions($request, $runtime);
     }
 
     /**

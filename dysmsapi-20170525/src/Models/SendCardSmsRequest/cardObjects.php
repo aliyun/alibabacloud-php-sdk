@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cardObjects extends Model
 {
     /**
+     * @example https://alibaba.com
+     *
      * @var string
      */
     public $customUrl;
@@ -19,6 +21,8 @@ class cardObjects extends Model
     public $dyncParams;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $mobile;

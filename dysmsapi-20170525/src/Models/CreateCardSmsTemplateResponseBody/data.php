@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example CARD_SMS_60000****
+     *
      * @var string
      */
     public $templateCode;

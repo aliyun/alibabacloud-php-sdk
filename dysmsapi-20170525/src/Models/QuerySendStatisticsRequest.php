@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QuerySendStatisticsRequest extends Model
 {
     /**
+     * @example 20201003
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isGlobe;
@@ -24,11 +28,15 @@ class QuerySendStatisticsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageIndex;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -49,11 +57,15 @@ class QuerySendStatisticsRequest extends Model
     public $signName;
 
     /**
+     * @example 20201002
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $templateType;

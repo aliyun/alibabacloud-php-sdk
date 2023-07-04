@@ -19,16 +19,22 @@ class data extends Model
     public $cardSignNames;
 
     /**
+     * @example [\"mw2m.cn/LAaGGa\",\"mw2m.cn/LAAaes\"]
+     *
      * @var string
      */
     public $cardSmsLinks;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $cardTmpState;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $notMediaMobiles;

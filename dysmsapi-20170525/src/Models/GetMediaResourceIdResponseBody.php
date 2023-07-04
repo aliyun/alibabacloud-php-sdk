@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetMediaResourceIdResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class GetMediaResourceIdResponseBody extends Model
     public $data;
 
     /**
+     * @example F07CF237-F6E3-5F77-B91B-F9B7C5DE84AB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

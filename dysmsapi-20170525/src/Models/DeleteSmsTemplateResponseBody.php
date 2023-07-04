@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteSmsTemplateResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example CCA2BCFF-2BA7-427C-90EE-AC6994748607
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SMS_20375****
+     *
      * @var string
      */
     public $templateCode;

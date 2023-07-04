@@ -24,6 +24,8 @@ class DeleteShortUrlRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example https://www.****.com/product/sms
+     *
      * @var string
      */
     public $sourceUrl;

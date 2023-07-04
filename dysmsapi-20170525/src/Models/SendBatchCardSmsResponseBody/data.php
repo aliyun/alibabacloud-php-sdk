@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 123
+     *
      * @var string
      */
     public $bizCardId;
 
     /**
+     * @example 3214
+     *
      * @var string
      */
     public $bizDigitalId;
 
     /**
+     * @example 3256
+     *
      * @var string
      */
     public $bizSmsId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $cardTmpState;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $mediaMobiles;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $notMediaMobiles;

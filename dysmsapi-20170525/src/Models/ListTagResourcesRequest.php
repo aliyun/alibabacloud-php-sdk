@@ -20,21 +20,29 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example dysms
+     *
      * @var string
      */
     public $prodCode;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example SMS_23423423
+     *
      * @var string[]
      */
     public $resourceId;
@@ -50,6 +58,8 @@ class ListTagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example TEMPLATE
+     *
      * @var string
      */
     public $resourceType;

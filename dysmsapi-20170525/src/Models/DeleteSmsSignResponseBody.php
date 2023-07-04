@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteSmsSignResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example F655A8D5-B967-440B-8683-DAD6FF8D****
+     *
      * @var string
      */
     public $requestId;

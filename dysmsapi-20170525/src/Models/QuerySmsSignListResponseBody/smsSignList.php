@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class smsSignList extends Model
 {
     /**
+     * @example AUDIT_STATE_NOT_PASS
+     *
      * @var string
      */
     public $auditStatus;
@@ -20,11 +22,15 @@ class smsSignList extends Model
     public $businessType;
 
     /**
+     * @example 2020-01-08 16:44:13
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example 236****5
+     *
      * @var string
      */
     public $orderId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QuerySmsTemplateResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2019-06-04 11:42:17
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
@@ -29,11 +35,15 @@ class QuerySmsTemplateResponseBody extends Model
     public $reason;
 
     /**
+     * @example 0A974B78-02BF-4C79-ADF3-90CFBA1B55B1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example SMS_16703****
+     *
      * @var string
      */
     public $templateCode;
@@ -49,11 +59,15 @@ class QuerySmsTemplateResponseBody extends Model
     public $templateName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $templateStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $templateType;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetCardSmsLinkRequest extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $cardCodeType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cardLinkType;
 
     /**
+     * @example CARD_SMS_****
+     *
      * @var string
      */
     public $cardTemplateCode;
@@ -29,6 +35,8 @@ class GetCardSmsLinkRequest extends Model
     public $cardTemplateParamJson;
 
     /**
+     * @example abCde
+     *
      * @var string
      */
     public $customShortCodeJson;
@@ -39,11 +47,16 @@ class GetCardSmsLinkRequest extends Model
     public $domain;
 
     /**
+     * @example BC20220608102511660860762****
+     *
      * @var string
      */
     public $outId;
 
     /**
+     * @example [\"1390000****
+     * \",\"1370000****
+     * \"]
      * @var string
      */
     public $phoneNumberJson;

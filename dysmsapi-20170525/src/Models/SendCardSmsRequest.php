@@ -15,11 +15,15 @@ class SendCardSmsRequest extends Model
     public $cardObjects;
 
     /**
+     * @example CARD_SMS_70
+     *
      * @var string
      */
     public $cardTemplateCode;
 
     /**
+     * @example SMS_003
+     *
      * @var string
      */
     public $digitalTemplateCode;
@@ -30,11 +34,15 @@ class SendCardSmsRequest extends Model
     public $digitalTemplateParam;
 
     /**
+     * @example SMS
+     *
      * @var string
      */
     public $fallbackType;
 
     /**
+     * @example 38d76c9b-4a9a-4c89-afae-61fd8e0e****
+     *
      * @var string
      */
     public $outId;
@@ -45,6 +53,8 @@ class SendCardSmsRequest extends Model
     public $signName;
 
     /**
+     * @example SIER_TEST_01
+     *
      * @var string
      */
     public $smsTemplateCode;
@@ -55,11 +65,15 @@ class SendCardSmsRequest extends Model
     public $smsTemplateParam;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $smsUpExtendCode;
 
     /**
+     * @example SMS_2322****
+     *
      * @var string
      */
     public $templateCode;

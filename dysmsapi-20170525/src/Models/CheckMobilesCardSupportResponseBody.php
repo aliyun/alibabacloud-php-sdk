@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CheckMobilesCardSupportResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class CheckMobilesCardSupportResponseBody extends Model
     public $data;
 
     /**
+     * @example 819BE656-D2E0-4858-8B21-B2E477085AAF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

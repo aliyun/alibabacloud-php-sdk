@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetOSSInfoForCardTemplateResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class GetOSSInfoForCardTemplateResponseBody extends Model
     public $data;
 
     /**
+     * @example A90E4451-FED7-49D2-87C8-00700A8C4D0D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

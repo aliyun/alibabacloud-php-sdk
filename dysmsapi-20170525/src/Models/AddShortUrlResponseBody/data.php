@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 2021-09-19 00:00:00
+     *
      * @var string
      */
     public $expireDate;
 
     /**
+     * @example http://****.cn/6y8uy7
+     *
      * @var string
      */
     public $shortUrl;
 
     /**
+     * @example https://www.****.com/product/sms
+     *
      * @var string
      */
     public $sourceUrl;

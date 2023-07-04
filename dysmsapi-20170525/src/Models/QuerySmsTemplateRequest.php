@@ -24,6 +24,8 @@ class QuerySmsTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example SMS_1525***
+     *
      * @var string
      */
     public $templateCode;

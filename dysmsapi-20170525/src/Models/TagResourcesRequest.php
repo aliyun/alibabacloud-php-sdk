@@ -15,16 +15,22 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @example dysms
+     *
      * @var string
      */
     public $prodCode;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example SMS_23423423
+     *
      * @var string[]
      */
     public $resourceId;
@@ -40,6 +46,8 @@ class TagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example TEMPLATE
+     *
      * @var string
      */
     public $resourceType;

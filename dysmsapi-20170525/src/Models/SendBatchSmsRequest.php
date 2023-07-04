@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SendBatchSmsRequest extends Model
 {
     /**
+     * @example abcdefg
+     *
      * @var string
      */
     public $outId;
@@ -19,6 +21,8 @@ class SendBatchSmsRequest extends Model
     public $ownerId;
 
     /**
+     * @example ["1590000****","1350000****"]
+     *
      * @var string
      */
     public $phoneNumberJson;
@@ -39,16 +43,22 @@ class SendBatchSmsRequest extends Model
     public $signNameJson;
 
     /**
+     * @example ["90999","90998"]
+     *
      * @var string
      */
     public $smsUpExtendCodeJson;
 
     /**
+     * @example SMS_15255****
+     *
      * @var string
      */
     public $templateCode;
 
     /**
+     * @example [{"name":"TemplateParamJson"},{"name":"TemplateParamJson"}]
+     *
      * @var string
      */
     public $templateParamJson;

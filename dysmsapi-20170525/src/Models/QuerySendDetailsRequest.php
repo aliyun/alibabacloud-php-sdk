@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QuerySendDetailsRequest extends Model
 {
     /**
+     * @example 134523^435****
+     *
      * @var string
      */
     public $bizId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -24,11 +28,15 @@ class QuerySendDetailsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $phoneNumber;
@@ -44,6 +52,8 @@ class QuerySendDetailsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 20181228
+     *
      * @var string
      */
     public $sendDate;

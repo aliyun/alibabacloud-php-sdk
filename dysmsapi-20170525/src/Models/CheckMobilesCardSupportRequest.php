@@ -14,6 +14,8 @@ class CheckMobilesCardSupportRequest extends Model
     public $mobiles;
 
     /**
+     * @example CARD_SMS_****
+     *
      * @var string
      */
     public $templateCode;

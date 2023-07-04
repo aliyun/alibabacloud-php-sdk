@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class signFileList extends Model
 {
     /**
+     * @example R0lGODlhHAAmAKIHAKqqqsvLy0hISObm5vf394uL****
+     *
      * @var string
      */
     public $fileContents;
 
     /**
+     * @example jpg
+     *
      * @var string
      */
     public $fileSuffix;

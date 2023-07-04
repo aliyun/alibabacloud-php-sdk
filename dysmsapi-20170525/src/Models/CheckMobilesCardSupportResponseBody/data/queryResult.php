@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class queryResult extends Model
 {
     /**
+     * @example 1390000****
+     *
      * @var string
      */
     public $mobile;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $support;

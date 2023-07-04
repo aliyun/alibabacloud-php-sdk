@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class targetList extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $noRespondedCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $respondedFailCount;
 
     /**
+     * @example 17
+     *
      * @var int
      */
     public $respondedSuccessCount;
 
     /**
+     * @example 20201010
+     *
      * @var string
      */
     public $sendDate;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;

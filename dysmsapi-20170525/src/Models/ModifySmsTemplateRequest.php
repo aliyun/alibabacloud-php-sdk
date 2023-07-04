@@ -29,6 +29,8 @@ class ModifySmsTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example SMS_15255****
+     *
      * @var string
      */
     public $templateCode;
@@ -44,6 +46,8 @@ class ModifySmsTemplateRequest extends Model
     public $templateName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $templateType;

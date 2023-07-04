@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class QuerySmsTemplateListResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 819BE656-D2E0-4858-8B21-B2E47708****
+     *
      * @var string
      */
     public $requestId;
@@ -40,6 +50,8 @@ class QuerySmsTemplateListResponseBody extends Model
     public $smsTemplateList;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

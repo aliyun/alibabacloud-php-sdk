@@ -24,6 +24,8 @@ class DeleteSmsTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example SMS_152550****
+     *
      * @var string
      */
     public $templateCode;
