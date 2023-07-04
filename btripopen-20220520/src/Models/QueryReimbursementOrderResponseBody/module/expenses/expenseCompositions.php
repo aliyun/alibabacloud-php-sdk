@@ -16,6 +16,11 @@ class expenseCompositions extends Model
     /**
      * @var string
      */
+    public $capitalDirection;
+
+    /**
+     * @var string
+     */
     public $feeType;
 
     /**
@@ -44,6 +49,7 @@ class expenseCompositions extends Model
     public $voucherType;
     protected $_name = [
         'billSettlementId' => 'bill_settlement_id',
+        'capitalDirection' => 'capital_direction',
         'feeType'          => 'fee_type',
         'remark'           => 'remark',
         'remindTagList'    => 'remind_tag_list',
@@ -61,6 +67,9 @@ class expenseCompositions extends Model
         $res = [];
         if (null !== $this->billSettlementId) {
             $res['bill_settlement_id'] = $this->billSettlementId;
+        }
+        if (null !== $this->capitalDirection) {
+            $res['capital_direction'] = $this->capitalDirection;
         }
         if (null !== $this->feeType) {
             $res['fee_type'] = $this->feeType;
@@ -94,6 +103,9 @@ class expenseCompositions extends Model
         $model = new self();
         if (isset($map['bill_settlement_id'])) {
             $model->billSettlementId = $map['bill_settlement_id'];
+        }
+        if (isset($map['capital_direction'])) {
+            $model->capitalDirection = $map['capital_direction'];
         }
         if (isset($map['fee_type'])) {
             $model->feeType = $map['fee_type'];
