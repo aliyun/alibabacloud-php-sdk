@@ -23,15 +23,21 @@ class avatarInfo extends Model
     public $code;
 
     /**
+     * @var string
+     */
+    public $industryCode;
+
+    /**
      * @example 0
      *
      * @var int
      */
     public $locate;
     protected $_name = [
-        'angle'  => 'Angle',
-        'code'   => 'Code',
-        'locate' => 'Locate',
+        'angle'        => 'Angle',
+        'code'         => 'Code',
+        'industryCode' => 'IndustryCode',
+        'locate'       => 'Locate',
     ];
 
     public function validate()
@@ -46,6 +52,9 @@ class avatarInfo extends Model
         }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->industryCode) {
+            $res['IndustryCode'] = $this->industryCode;
         }
         if (null !== $this->locate) {
             $res['Locate'] = $this->locate;
@@ -67,6 +76,9 @@ class avatarInfo extends Model
         }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['IndustryCode'])) {
+            $model->industryCode = $map['IndustryCode'];
         }
         if (isset($map['Locate'])) {
             $model->locate = $map['Locate'];

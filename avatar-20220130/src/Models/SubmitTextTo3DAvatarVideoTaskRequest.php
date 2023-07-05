@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Avatar\V20220130\Models;
 
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo3DAvatarVideoTaskRequest\app;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo3DAvatarVideoTaskRequest\audioInfo;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo3DAvatarVideoTaskRequest\avatarInfo;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo3DAvatarVideoTaskRequest\videoInfo;
 use AlibabaCloud\Tea\Model;
@@ -17,9 +18,29 @@ class SubmitTextTo3DAvatarVideoTaskRequest extends Model
     public $app;
 
     /**
+     * @var audioInfo
+     */
+    public $audioInfo;
+
+    /**
      * @var avatarInfo
      */
     public $avatarInfo;
+
+    /**
+     * @var bool
+     */
+    public $callback;
+
+    /**
+     * @var string
+     */
+    public $callbackParams;
+
+    /**
+     * @var string
+     */
+    public $extParams;
 
     /**
      * @example xxxx
@@ -43,12 +64,16 @@ class SubmitTextTo3DAvatarVideoTaskRequest extends Model
      */
     public $videoInfo;
     protected $_name = [
-        'app'        => 'App',
-        'avatarInfo' => 'AvatarInfo',
-        'tenantId'   => 'TenantId',
-        'text'       => 'Text',
-        'title'      => 'Title',
-        'videoInfo'  => 'VideoInfo',
+        'app'            => 'App',
+        'audioInfo'      => 'AudioInfo',
+        'avatarInfo'     => 'AvatarInfo',
+        'callback'       => 'Callback',
+        'callbackParams' => 'CallbackParams',
+        'extParams'      => 'ExtParams',
+        'tenantId'       => 'TenantId',
+        'text'           => 'Text',
+        'title'          => 'Title',
+        'videoInfo'      => 'VideoInfo',
     ];
 
     public function validate()
@@ -61,8 +86,20 @@ class SubmitTextTo3DAvatarVideoTaskRequest extends Model
         if (null !== $this->app) {
             $res['App'] = null !== $this->app ? $this->app->toMap() : null;
         }
+        if (null !== $this->audioInfo) {
+            $res['AudioInfo'] = null !== $this->audioInfo ? $this->audioInfo->toMap() : null;
+        }
         if (null !== $this->avatarInfo) {
             $res['AvatarInfo'] = null !== $this->avatarInfo ? $this->avatarInfo->toMap() : null;
+        }
+        if (null !== $this->callback) {
+            $res['Callback'] = $this->callback;
+        }
+        if (null !== $this->callbackParams) {
+            $res['CallbackParams'] = $this->callbackParams;
+        }
+        if (null !== $this->extParams) {
+            $res['ExtParams'] = $this->extParams;
         }
         if (null !== $this->tenantId) {
             $res['TenantId'] = $this->tenantId;
@@ -91,8 +128,20 @@ class SubmitTextTo3DAvatarVideoTaskRequest extends Model
         if (isset($map['App'])) {
             $model->app = app::fromMap($map['App']);
         }
+        if (isset($map['AudioInfo'])) {
+            $model->audioInfo = audioInfo::fromMap($map['AudioInfo']);
+        }
         if (isset($map['AvatarInfo'])) {
             $model->avatarInfo = avatarInfo::fromMap($map['AvatarInfo']);
+        }
+        if (isset($map['Callback'])) {
+            $model->callback = $map['Callback'];
+        }
+        if (isset($map['CallbackParams'])) {
+            $model->callbackParams = $map['CallbackParams'];
+        }
+        if (isset($map['ExtParams'])) {
+            $model->extParams = $map['ExtParams'];
         }
         if (isset($map['TenantId'])) {
             $model->tenantId = $map['TenantId'];
