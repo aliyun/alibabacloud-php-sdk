@@ -8738,10 +8738,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > This operation is no longer maintained. You can use the [DescribeDiagnosticReportList](~~443006~~) operation of Database Autonomy Service (DAS) to query a list of diagnostic reports.
+     * @deprecated
+     *   * > This operation is no longer maintained. You can use the [DescribeDiagnosticReportList](~~443006~~) operation of Database Autonomy Service (DAS) to query a list of diagnostic reports.
      *   * *   The returned diagnosis reports include data collection time, data generation time, and download URLs. The system retains the reports for 15 days.
      *   * *   This operation is not suitable for instances that run SQL Server 2017 on RDS Cluster Edition.
      *   *
+     * Deprecated
+     *
      * @param DescribeDiagnosticReportListRequest $request DescribeDiagnosticReportListRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
@@ -8776,10 +8779,13 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * > This operation is no longer maintained. You can use the [DescribeDiagnosticReportList](~~443006~~) operation of Database Autonomy Service (DAS) to query a list of diagnostic reports.
+     * @deprecated
+     *   * > This operation is no longer maintained. You can use the [DescribeDiagnosticReportList](~~443006~~) operation of Database Autonomy Service (DAS) to query a list of diagnostic reports.
      *   * *   The returned diagnosis reports include data collection time, data generation time, and download URLs. The system retains the reports for 15 days.
      *   * *   This operation is not suitable for instances that run SQL Server 2017 on RDS Cluster Edition.
      *   *
+     * Deprecated
+     *
      * @param DescribeDiagnosticReportListRequest $request DescribeDiagnosticReportListRequest
      *
      * @return DescribeDiagnosticReportListResponse DescribeDiagnosticReportListResponse
@@ -14874,6 +14880,9 @@ class Rds extends OpenApiClient
             $request->serverlessConfigurationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->serverlessConfiguration, 'ServerlessConfiguration', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->autoUseCoupon)) {
+            $query['AutoUseCoupon'] = $request->autoUseCoupon;
+        }
         if (!Utils::isUnset($request->burstingEnabled)) {
             $query['BurstingEnabled'] = $request->burstingEnabled;
         }

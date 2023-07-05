@@ -12,6 +12,11 @@ class ModifyDBInstanceSpecRequest extends Model
     /**
      * @var bool
      */
+    public $autoUseCoupon;
+
+    /**
+     * @var bool
+     */
     public $burstingEnabled;
 
     /**
@@ -187,6 +192,7 @@ class ModifyDBInstanceSpecRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'autoUseCoupon'           => 'AutoUseCoupon',
         'burstingEnabled'         => 'BurstingEnabled',
         'category'                => 'Category',
         'DBInstanceClass'         => 'DBInstanceClass',
@@ -217,6 +223,9 @@ class ModifyDBInstanceSpecRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoUseCoupon) {
+            $res['AutoUseCoupon'] = $this->autoUseCoupon;
+        }
         if (null !== $this->burstingEnabled) {
             $res['BurstingEnabled'] = $this->burstingEnabled;
         }
@@ -292,6 +301,9 @@ class ModifyDBInstanceSpecRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoUseCoupon'])) {
+            $model->autoUseCoupon = $map['AutoUseCoupon'];
+        }
         if (isset($map['BurstingEnabled'])) {
             $model->burstingEnabled = $map['BurstingEnabled'];
         }
