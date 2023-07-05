@@ -11,9 +11,9 @@ class CreateCustomDomainRequest extends Model
     /**
      * @var CreateCustomDomainInput
      */
-    public $request;
+    public $body;
     protected $_name = [
-        'request' => 'request',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class CreateCustomDomainRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->request) {
-            $res['request'] = null !== $this->request ? $this->request->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -38,8 +38,8 @@ class CreateCustomDomainRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['request'])) {
-            $model->request = CreateCustomDomainInput::fromMap($map['request']);
+        if (isset($map['body'])) {
+            $model->body = CreateCustomDomainInput::fromMap($map['body']);
         }
 
         return $model;

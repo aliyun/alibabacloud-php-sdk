@@ -11,9 +11,9 @@ class CreateAliasRequest extends Model
     /**
      * @var CreateAliasInput
      */
-    public $request;
+    public $body;
     protected $_name = [
-        'request' => 'request',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class CreateAliasRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->request) {
-            $res['request'] = null !== $this->request ? $this->request->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -38,8 +38,8 @@ class CreateAliasRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['request'])) {
-            $model->request = CreateAliasInput::fromMap($map['request']);
+        if (isset($map['body'])) {
+            $model->body = CreateAliasInput::fromMap($map['body']);
         }
 
         return $model;

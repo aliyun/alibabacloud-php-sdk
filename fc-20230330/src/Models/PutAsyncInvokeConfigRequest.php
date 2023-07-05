@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class PutAsyncInvokeConfigRequest extends Model
 {
     /**
+     * @var PutAsyncInvokeConfigInput
+     */
+    public $body;
+
+    /**
      * @var string
      */
     public $qualifier;
-
-    /**
-     * @var PutAsyncInvokeConfigInput
-     */
-    public $request;
     protected $_name = [
+        'body'      => 'body',
         'qualifier' => 'qualifier',
-        'request'   => 'request',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class PutAsyncInvokeConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        }
         if (null !== $this->qualifier) {
             $res['qualifier'] = $this->qualifier;
-        }
-        if (null !== $this->request) {
-            $res['request'] = null !== $this->request ? $this->request->toMap() : null;
         }
 
         return $res;
@@ -47,11 +47,11 @@ class PutAsyncInvokeConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = PutAsyncInvokeConfigInput::fromMap($map['body']);
+        }
         if (isset($map['qualifier'])) {
             $model->qualifier = $map['qualifier'];
-        }
-        if (isset($map['request'])) {
-            $model->request = PutAsyncInvokeConfigInput::fromMap($map['request']);
         }
 
         return $model;
