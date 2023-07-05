@@ -10,6 +10,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CardOcrRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CardOcrResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeletePictureRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeletePictureResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeAddressLabelsRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeAddressLabelsResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeAddressOverviewRequest;
@@ -195,6 +197,52 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeletePictureRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeletePictureResponse
+     */
+    public function deletePictureWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deletePicAfterQuery)) {
+            $query['DeletePicAfterQuery'] = $request->deletePicAfterQuery;
+        }
+        if (!Utils::isUnset($request->transactionId)) {
+            $query['TransactionId'] = $request->transactionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePicture',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePictureResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeletePictureRequest $request
+     *
+     * @return DeletePictureResponse
+     */
+    public function deletePicture($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePictureWithOptions($request, $runtime);
     }
 
     /**
@@ -653,6 +701,9 @@ class Cloudauthintl extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->authorize)) {
+            $query['Authorize'] = $request->authorize;
+        }
         if (!Utils::isUnset($request->crop)) {
             $query['Crop'] = $request->crop;
         }

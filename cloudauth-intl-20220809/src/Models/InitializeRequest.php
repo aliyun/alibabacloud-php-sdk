@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class InitializeRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $authorize;
+
+    /**
      * @example *
      *
      * @var string
@@ -136,6 +141,7 @@ class InitializeRequest extends Model
      */
     public $serviceLevel;
     protected $_name = [
+        'authorize'         => 'Authorize',
         'crop'              => 'Crop',
         'docType'           => 'DocType',
         'facePictureBase64' => 'FacePictureBase64',
@@ -163,6 +169,9 @@ class InitializeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authorize) {
+            $res['Authorize'] = $this->authorize;
+        }
         if (null !== $this->crop) {
             $res['Crop'] = $this->crop;
         }
@@ -229,6 +238,9 @@ class InitializeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Authorize'])) {
+            $model->authorize = $map['Authorize'];
+        }
         if (isset($map['Crop'])) {
             $model->crop = $map['Crop'];
         }
