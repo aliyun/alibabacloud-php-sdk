@@ -30,6 +30,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateOAuthTokenRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateOAuthTokenResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreatePipelineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProjectResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateProtectdBranchRequest;
@@ -272,6 +274,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineBaseInfoRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineBaseInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineGroupResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesRequest;
@@ -1005,6 +1009,57 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->createOAuthTokenWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $organizationId
+     * @param CreatePipelineRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreatePipelineResponse
+     */
+    public function createPipelineWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePipeline',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $organizationId
+     * @param CreatePipelineRequest $request
+     *
+     * @return CreatePipelineResponse
+     */
+    public function createPipeline($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createPipelineWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -8602,6 +8657,60 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->updateHostGroupWithOptions($organizationId, $id, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $organizationId
+     * @param UpdatePipelineRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdatePipelineResponse
+     */
+    public function updatePipelineWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pipelineId)) {
+            $body['pipelineId'] = $request->pipelineId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePipeline',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/pipelines/update',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePipelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $organizationId
+     * @param UpdatePipelineRequest $request
+     *
+     * @return UpdatePipelineResponse
+     */
+    public function updatePipeline($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updatePipelineWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
