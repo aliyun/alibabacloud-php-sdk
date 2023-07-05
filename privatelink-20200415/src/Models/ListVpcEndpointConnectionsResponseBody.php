@@ -10,29 +10,52 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointConnectionsResponseBody extends Model
 {
     /**
+     * @description The endpoint connections.
+     *
      * @var connections[]
      */
     public $connections;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If no value is returned for **NextToken**, no next requests are performed.
+     *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+     *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $totalCount;
     protected $_name = [
         'connections' => 'Connections',
         'maxResults'  => 'MaxResults',
         'nextToken'   => 'NextToken',
         'requestId'   => 'RequestId',
+        'totalCount'  => 'TotalCount',
     ];
 
     public function validate()
@@ -59,6 +82,9 @@ class ListVpcEndpointConnectionsResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -89,6 +115,9 @@ class ListVpcEndpointConnectionsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

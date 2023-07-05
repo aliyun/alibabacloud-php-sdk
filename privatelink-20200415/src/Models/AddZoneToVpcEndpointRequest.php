@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class AddZoneToVpcEndpointRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example ep-hp33b2e43fays7s8****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vsw-hjkshjvdkdvd****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @example 192.XX.XX.32
+     *
      * @var string
      */
     public $ip;

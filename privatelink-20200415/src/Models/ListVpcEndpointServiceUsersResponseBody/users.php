@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account in the whitelist of the endpoint service.
+     *
+     * @example 12345678
+     *
      * @var int
      */
     public $userId;

@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointServiceResourcesRequest extends Model
 {
     /**
+     * @description The virtual private cloud (VPC) to which the service resource belongs.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **50**.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the service resource.
+     *
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Indicates whether the endpoint service supports IPv6. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example epsrv-hp3vpx8yqxblby3i****
+     *
      * @var string
      */
     public $serviceId;

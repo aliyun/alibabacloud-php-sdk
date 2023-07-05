@@ -5,31 +5,42 @@
 namespace AlibabaCloud\SDK\Privatelink\V20200415\Models;
 
 use AlibabaCloud\SDK\Privatelink\V20200415\Models\CreateVpcEndpointServiceRequest\resource;
+use AlibabaCloud\SDK\Privatelink\V20200415\Models\CreateVpcEndpointServiceRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateVpcEndpointServiceRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoAcceptEnabled;
 
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example Endpoint
+     *
      * @var string
      */
     public $payer;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;
@@ -40,16 +51,41 @@ class CreateVpcEndpointServiceRequest extends Model
     public $resource;
 
     /**
+     * @example rg-acfmy*****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example This is my EndpointService.
+     *
      * @var string
      */
     public $serviceDescription;
 
     /**
+     * @example slb
+     *
      * @var string
      */
     public $serviceResourceType;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $serviceSupportIPv6;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @example false
+     *
      * @var bool
      */
     public $zoneAffinityEnabled;
@@ -60,8 +96,11 @@ class CreateVpcEndpointServiceRequest extends Model
         'payer'               => 'Payer',
         'regionId'            => 'RegionId',
         'resource'            => 'Resource',
+        'resourceGroupId'     => 'ResourceGroupId',
         'serviceDescription'  => 'ServiceDescription',
         'serviceResourceType' => 'ServiceResourceType',
+        'serviceSupportIPv6'  => 'ServiceSupportIPv6',
+        'tag'                 => 'Tag',
         'zoneAffinityEnabled' => 'ZoneAffinityEnabled',
     ];
 
@@ -96,11 +135,26 @@ class CreateVpcEndpointServiceRequest extends Model
                 }
             }
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->serviceDescription) {
             $res['ServiceDescription'] = $this->serviceDescription;
         }
         if (null !== $this->serviceResourceType) {
             $res['ServiceResourceType'] = $this->serviceResourceType;
+        }
+        if (null !== $this->serviceSupportIPv6) {
+            $res['ServiceSupportIPv6'] = $this->serviceSupportIPv6;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->zoneAffinityEnabled) {
             $res['ZoneAffinityEnabled'] = $this->zoneAffinityEnabled;
@@ -141,11 +195,26 @@ class CreateVpcEndpointServiceRequest extends Model
                 }
             }
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ServiceDescription'])) {
             $model->serviceDescription = $map['ServiceDescription'];
         }
         if (isset($map['ServiceResourceType'])) {
             $model->serviceResourceType = $map['ServiceResourceType'];
+        }
+        if (isset($map['ServiceSupportIPv6'])) {
+            $model->serviceSupportIPv6 = $map['ServiceSupportIPv6'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ZoneAffinityEnabled'])) {
             $model->zoneAffinityEnabled = $map['ZoneAffinityEnabled'];

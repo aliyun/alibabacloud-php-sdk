@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class GetVpcEndpointServiceAttributeRequest extends Model
 {
     /**
+     * @description The region ID of the endpoint service.
+     *
+     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The endpoint service ID.
+     *
+     * @example epsrv-hp3vpx8yqxblby3i****
+     *
      * @var string
      */
     public $serviceId;

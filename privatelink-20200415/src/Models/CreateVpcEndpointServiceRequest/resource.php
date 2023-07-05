@@ -9,17 +9,29 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @example lb-hp32z1wp5peaoox2q****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example slb
+     *
      * @var string
      */
     public $resourceType;
+
+    /**
+     * @example cn-huhehaote-a
+     *
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'resourceId'   => 'ResourceId',
         'resourceType' => 'ResourceType',
+        'zoneId'       => 'ZoneId',
     ];
 
     public function validate()
@@ -34,6 +46,9 @@ class resource extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -52,6 +67,9 @@ class resource extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

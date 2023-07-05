@@ -9,51 +9,93 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoAllocatedEnabled;
 
     /**
+     * @description The ID of the endpoint service.
+     *
+     * @example 192.168.10.23
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $relatedDeprecatedEndpointCount;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $relatedEndpointCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example lb-hp32z1wp5peaoox2q****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $resourceSupportIPv6;
+
+    /**
+     * @description The number of replaced connections to the endpoint associated with the endpoint service in smooth migration scenarios.
+     *
+     * @example slb
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description Indicates whether automatic resource allocation is allowed. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example vsw-hp3uf6045ljdhd5zr****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the region where the service resource is deployed.
+     *
+     * @example vpc-hp356stwkxg3fn2xe****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the zone where the service resource is deployed.
+     *
+     * @example cn-huhehaote-b
+     *
      * @var string
      */
     public $zoneId;
@@ -64,6 +106,7 @@ class resources extends Model
         'relatedDeprecatedEndpointCount' => 'RelatedDeprecatedEndpointCount',
         'relatedEndpointCount'           => 'RelatedEndpointCount',
         'resourceId'                     => 'ResourceId',
+        'resourceSupportIPv6'            => 'ResourceSupportIPv6',
         'resourceType'                   => 'ResourceType',
         'vSwitchId'                      => 'VSwitchId',
         'vpcId'                          => 'VpcId',
@@ -94,6 +137,9 @@ class resources extends Model
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceSupportIPv6) {
+            $res['ResourceSupportIPv6'] = $this->resourceSupportIPv6;
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
@@ -136,6 +182,9 @@ class resources extends Model
         }
         if (isset($map['ResourceId'])) {
             $model->resourceId = $map['ResourceId'];
+        }
+        if (isset($map['ResourceSupportIPv6'])) {
+            $model->resourceSupportIPv6 = $map['ResourceSupportIPv6'];
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];

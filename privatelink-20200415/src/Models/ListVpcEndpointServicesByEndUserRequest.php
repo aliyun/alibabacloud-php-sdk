@@ -4,46 +4,73 @@
 
 namespace AlibabaCloud\SDK\Privatelink\V20200415\Models;
 
+use AlibabaCloud\SDK\Privatelink\V20200415\Models\ListVpcEndpointServicesByEndUserRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListVpcEndpointServicesByEndUserRequest extends Model
 {
     /**
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmy*****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example epsrv-hp3vpx8yqxblby3i****
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @example com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3xdsq46ael67lo****
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example Interface
+     *
      * @var string
      */
     public $serviceType;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
-        'regionId'    => 'RegionId',
-        'serviceId'   => 'ServiceId',
-        'serviceName' => 'ServiceName',
-        'serviceType' => 'ServiceType',
+        'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'serviceId'       => 'ServiceId',
+        'serviceName'     => 'ServiceName',
+        'serviceType'     => 'ServiceType',
+        'tag'             => 'Tag',
     ];
 
     public function validate()
@@ -62,6 +89,9 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
         }
@@ -70,6 +100,15 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
         }
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -92,6 +131,9 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
         }
@@ -100,6 +142,15 @@ class ListVpcEndpointServicesByEndUserRequest extends Model
         }
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

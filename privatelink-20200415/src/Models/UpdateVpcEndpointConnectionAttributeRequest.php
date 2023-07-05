@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class UpdateVpcEndpointConnectionAttributeRequest extends Model
 {
     /**
+     * @description WB01218782
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The operation that you want to perform. Set the value to **UpdateVpcEndpointConnectionAttribute**.
+     *
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the endpoint.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description UpdateVpcEndpointConnectionAttribute
+     *
+     * @example ep-hp33b2e43fays7s8****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example eu-west-1
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Modifies the maximum bandwidth of an endpoint connection.
+     *
+     * @example epsrv-hp3vpx8yqxblby3i****
+     *
      * @var string
      */
     public $serviceId;

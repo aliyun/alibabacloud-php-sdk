@@ -10,21 +10,36 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointServiceResourcesResponseBody extends Model
 {
     /**
+     * @description The vSwitch to which the service resource belongs.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The type of the service resource.
+     *
+     * The value is set to **slb**, which indicates Classic Load Balancer (CLB).
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The operation that you want to perform. Set the value to **ListVpcEndpointServiceResources**.
+     *
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of service resources.
+     *
      * @var resources[]
      */
     public $resources;

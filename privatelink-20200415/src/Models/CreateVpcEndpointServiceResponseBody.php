@@ -9,51 +9,85 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcEndpointServiceResponseBody extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoAcceptEnabled;
 
     /**
+     * @example 2022-01-02T19:11:12Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 8D8992C1-6712-423C-BAC5-E5E817484C6B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-acfmy*****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example Normal
+     *
      * @var string
      */
     public $serviceBusinessStatus;
 
     /**
+     * @example This is my EndpointService.
+     *
      * @var string
      */
     public $serviceDescription;
 
     /**
+     * @example epsrv-hp3vpx8yqxblby3i****.cn-huhehaote.privatelink.aliyuncs.com
+     *
      * @var string
      */
     public $serviceDomain;
 
     /**
+     * @example epsrv-hp3vpx8yqxblby3i****
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @example com.aliyuncs.privatelink.cn-huhehaote.epsrv-hp3vpx8yqxblby3i****
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $serviceStatus;
 
     /**
+     * @example false
+     *
+     * @var bool
+     */
+    public $serviceSupportIPv6;
+
+    /**
+     * @example false
+     *
      * @var bool
      */
     public $zoneAffinityEnabled;
@@ -61,12 +95,14 @@ class CreateVpcEndpointServiceResponseBody extends Model
         'autoAcceptEnabled'     => 'AutoAcceptEnabled',
         'createTime'            => 'CreateTime',
         'requestId'             => 'RequestId',
+        'resourceGroupId'       => 'ResourceGroupId',
         'serviceBusinessStatus' => 'ServiceBusinessStatus',
         'serviceDescription'    => 'ServiceDescription',
         'serviceDomain'         => 'ServiceDomain',
         'serviceId'             => 'ServiceId',
         'serviceName'           => 'ServiceName',
         'serviceStatus'         => 'ServiceStatus',
+        'serviceSupportIPv6'    => 'ServiceSupportIPv6',
         'zoneAffinityEnabled'   => 'ZoneAffinityEnabled',
     ];
 
@@ -86,6 +122,9 @@ class CreateVpcEndpointServiceResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->serviceBusinessStatus) {
             $res['ServiceBusinessStatus'] = $this->serviceBusinessStatus;
         }
@@ -103,6 +142,9 @@ class CreateVpcEndpointServiceResponseBody extends Model
         }
         if (null !== $this->serviceStatus) {
             $res['ServiceStatus'] = $this->serviceStatus;
+        }
+        if (null !== $this->serviceSupportIPv6) {
+            $res['ServiceSupportIPv6'] = $this->serviceSupportIPv6;
         }
         if (null !== $this->zoneAffinityEnabled) {
             $res['ZoneAffinityEnabled'] = $this->zoneAffinityEnabled;
@@ -128,6 +170,9 @@ class CreateVpcEndpointServiceResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ServiceBusinessStatus'])) {
             $model->serviceBusinessStatus = $map['ServiceBusinessStatus'];
         }
@@ -145,6 +190,9 @@ class CreateVpcEndpointServiceResponseBody extends Model
         }
         if (isset($map['ServiceStatus'])) {
             $model->serviceStatus = $map['ServiceStatus'];
+        }
+        if (isset($map['ServiceSupportIPv6'])) {
+            $model->serviceSupportIPv6 = $map['ServiceSupportIPv6'];
         }
         if (isset($map['ZoneAffinityEnabled'])) {
             $model->zoneAffinityEnabled = $map['ZoneAffinityEnabled'];

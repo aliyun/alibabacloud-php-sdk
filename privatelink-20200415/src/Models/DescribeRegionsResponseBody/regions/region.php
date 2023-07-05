@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeRegions**.
+     *
+     * @example Queries regions.
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @example privatelink.cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $regionEndpoint;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

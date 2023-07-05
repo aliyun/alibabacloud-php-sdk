@@ -10,46 +10,100 @@ use AlibabaCloud\Tea\Model;
 class connections extends Model
 {
     /**
+     * @description The bandwidth of the endpoint connection. Valid values: **1024 to 10240**. Unit: Mbit/s.
+     *
+     * @example 1024
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The state of the endpoint connection. Valid values:
+     *
+     *   **Pending**: The connection is being modified.
+     *   **Connecting**: The connection is being established.
+     *   **Connected**: The connection is established.
+     *   **Disconnecting**: The endpoint is being disconnected from the endpoint service.
+     *   **Disconnected**: The endpoint is disconnected from the endpoint service.
+     *   **Deleting**: The connection is being deleted.
+     *   **ServiceDeleted**: The corresponding endpoint service has been deleted.
+     *
+     * @example Disconnected
+     *
      * @var string
      */
     public $connectionStatus;
 
     /**
+     * @description The endpoint ID.
+     *
+     * @example ep-hp33b2e43fays7s8****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the endpoint belongs.
+     *
+     * @example 25346073170691****
+     *
      * @var int
      */
     public $endpointOwnerId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the endpoint belongs.
+     *
+     * @example vpc-hp356stwkxg3fn2xe****
+     *
      * @var string
      */
     public $endpointVpcId;
 
     /**
+     * @description The time when the endpoint connection was modified.
+     *
+     * @example 2021-09-28T10:34:46Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The ID of the resource group to which the endpoint belongs.
+     *
+     * @example rg-acfmw353z35v***
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description Indicates whether the endpoint and the endpoint service belong to the same Alibaba Cloud account. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $resourceOwner;
 
     /**
+     * @description The endpoint service ID.
+     *
+     * @example epsrv-hp3vpx8yqxblby3i****
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @description The zones.
+     *
      * @var zones[]
      */
     public $zones;
@@ -60,6 +114,7 @@ class connections extends Model
         'endpointOwnerId'  => 'EndpointOwnerId',
         'endpointVpcId'    => 'EndpointVpcId',
         'modifiedTime'     => 'ModifiedTime',
+        'resourceGroupId'  => 'ResourceGroupId',
         'resourceOwner'    => 'ResourceOwner',
         'serviceId'        => 'ServiceId',
         'zones'            => 'Zones',
@@ -89,6 +144,9 @@ class connections extends Model
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwner) {
             $res['ResourceOwner'] = $this->resourceOwner;
@@ -134,6 +192,9 @@ class connections extends Model
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwner'])) {
             $model->resourceOwner = $map['ResourceOwner'];

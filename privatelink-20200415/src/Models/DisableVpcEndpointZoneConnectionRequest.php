@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DisableVpcEndpointZoneConnectionRequest extends Model
 {
     /**
+     * @description The ID of the endpoint service.
+     *
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description The ID of the endpoint.
+     *
+     * @example ep-hp33b2e43fays7s8****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description Specifies whether to disconnect the endpoint from previous connections after migration. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
+     * >  Set the value to true if you want to disconnect the endpoint from the previous connections in the zone after migration.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $replacedResource;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DisableVpcEndpointZoneConnection**.
+     *
+     * @example epsrv-hp3vpx8yqxblby3i****
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

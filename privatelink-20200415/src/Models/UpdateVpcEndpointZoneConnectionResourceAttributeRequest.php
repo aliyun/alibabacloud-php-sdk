@@ -9,51 +9,108 @@ use AlibabaCloud\Tea\Model;
 class UpdateVpcEndpointZoneConnectionResourceAttributeRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description The endpoint ID.
+     *
+     * @example ep-hp33b2e43fays7s8****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The region ID of the endpoint connection whose bandwidth you want to modify.
+     *
+     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The resource allocation mode. You can change the resource allocation mode only if the endpoint connection is in the **Disconnected** state. Valid values:
+     *
+     *   **Auto**: automatically and randomly allocates the service resource. In this mode, the service resource is deleted.
+     *   **Mannual**: manually allocates the service resource. If you set the value to Mannual, you must also specify the **ResourceId** and **ResourceType** parameters.
+     *
+     * @example Auto
+     *
      * @var string
      */
     public $resourceAllocateMode;
 
     /**
+     * @description The ID of the service resource that you want to manually allocate or migrate in the zone where the endpoint connection is deployed.
+     *
+     * > If **ResourceAllocateMode** is set to **Mannual**, or **ResourceReplaceMode** is set, this parameter is required.
+     * @example lb-hp32z1wp5peaoox2q****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The migration mode of the service resource. Valid values:
+     *
+     *   **Graceful**: smoothly migrates the service resource in the zone.
+     *   **Force**: forcefully migrates the service resource in the zone.
+     *
+     * > If you want to migrate the service resource, you need to set this parameter. This parameter is available only if the endpoint connection is in the **Connected** state. If you set this parameter, you must also specify the **ResourceId** and **ResourceType** parameters.
+     * @example Graceful
+     *
      * @var string
      */
     public $resourceReplaceMode;
 
     /**
+     * @description The type of the service resource. Valid values:
+     *
+     *   **slb**: a CLB instance that supports PrivateLink. In addition, the CLB instance is deployed in a VPC.
+     *   **alb**: an Application Load Balancer (ALB) instance that supports PrivateLink. In addition, the ALB instance is deployed in a VPC.
+     *
+     * > If **ResourceAllocateMode** is set to **Mannual**, or **ResourceReplaceMode** is set, this parameter is required.
+     * @example slb
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The endpoint service ID.
+     *
+     * @example epsrv-hp3vpx8yqxblby3i****
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @description The zone ID.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

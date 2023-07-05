@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointZonesResponseBody extends Model
 {
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If no value is returned for **NextToken**, no next requests are performed.
+     *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The zones.
+     *
      * @var zones[]
      */
     public $zones;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeZonesRequest extends Model
 {
     /**
+     * @description The region ID of the zone. You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

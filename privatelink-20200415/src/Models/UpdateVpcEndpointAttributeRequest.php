@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class UpdateVpcEndpointAttributeRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description The description of the endpoint.
+     *
+     * The description must be 2 to 256 characters in length. It cannot start with `http://` or `https://`.
+     * @example This is my Endpoint.
+     *
      * @var string
      */
     public $endpointDescription;
 
     /**
+     * @description The endpoint ID whose attributes you want to modify.
+     *
+     * @example ep-hp33b2e43fays7s8****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The name of the endpoint.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * @example test
+     *
      * @var string
      */
     public $endpointName;
 
     /**
+     * @description The region ID of the endpoint whose attributes you want to modify. You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     *
+     * @example eu-west-1
+     *
      * @var string
      */
     public $regionId;

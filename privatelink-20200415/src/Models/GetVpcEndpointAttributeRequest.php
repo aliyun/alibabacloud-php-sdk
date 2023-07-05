@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class GetVpcEndpointAttributeRequest extends Model
 {
     /**
+     * @description The ID of the endpoint that you want to query.
+     *
+     * @example ep-hp33b2e43fays7s8****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The status of the endpoint. Valid values:
+     *
+     *   **Creating**: being created
+     *   **Active**: available
+     *   **Pending**: being modified
+     *   **Deleting**: being deleted
+     *
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;

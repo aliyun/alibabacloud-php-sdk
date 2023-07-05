@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class CheckProductOpenResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 8D8992C1-6712-423C-BAC5-E5E817484C6B
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether PrivateLink is activated.
+     *
+     * Only **true** is returned. The value indicates that PrivateLink is activated.
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,34 +9,53 @@ use AlibabaCloud\Tea\Model;
 class AttachResourceToVpcEndpointServiceRequest extends Model
 {
     /**
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example lb-hp32z1wp5peaoox2q****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example slb
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example epsrv-hp3vpx8yqxblby3i****
+     *
      * @var string
      */
     public $serviceId;
+
+    /**
+     * @example cn-hangzhou-j
+     *
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'clientToken'  => 'ClientToken',
         'dryRun'       => 'DryRun',
@@ -44,6 +63,7 @@ class AttachResourceToVpcEndpointServiceRequest extends Model
         'resourceId'   => 'ResourceId',
         'resourceType' => 'ResourceType',
         'serviceId'    => 'ServiceId',
+        'zoneId'       => 'ZoneId',
     ];
 
     public function validate()
@@ -70,6 +90,9 @@ class AttachResourceToVpcEndpointServiceRequest extends Model
         }
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -100,6 +123,9 @@ class AttachResourceToVpcEndpointServiceRequest extends Model
         }
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

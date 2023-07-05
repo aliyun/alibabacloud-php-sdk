@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointServicesResponseBody extends Model
 {
     /**
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
+     *
      * @var string
      */
     public $requestId;
@@ -28,11 +34,19 @@ class ListVpcEndpointServicesResponseBody extends Model
      * @var services[]
      */
     public $services;
+
+    /**
+     * @example 12
+     *
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
         'requestId'  => 'RequestId',
         'services'   => 'Services',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -59,6 +73,9 @@ class ListVpcEndpointServicesResponseBody extends Model
                     $res['Services'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -89,6 +106,9 @@ class ListVpcEndpointServicesResponseBody extends Model
                     $model->services[$n++] = null !== $item ? services::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

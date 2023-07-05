@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointSecurityGroupsRequest extends Model
 {
     /**
+     * @description The ID of the endpoint that you want to query.
+     *
+     * @example ep-hp33b2e43fays7s8****
+     *
      * @var string
      */
     public $endpointId;
 
     /**
+     * @description The number of entries to return on each page. Valid values:**1** to **50**. Default value: **50**.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
+     *   If a next request is to be performed, set the parameter to the value of **NextToken** that is returned from the last call.
+     *
+     * @example caeba0bbb2be03f84eb48b699f0a4883
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The region ID of the endpoint that you want to query.
+     *
+     * You can call the [DescribeRegions](~~120468~~) operation to query the most recent region list.
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;
