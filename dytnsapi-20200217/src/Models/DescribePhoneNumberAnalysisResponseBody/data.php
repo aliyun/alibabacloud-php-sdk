@@ -4,26 +4,17 @@
 
 namespace AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisResponseBody;
 
+use AlibabaCloud\SDK\Dytnsapi\V20200217\Models\DescribePhoneNumberAnalysisResponseBody\data\list_;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
     /**
-     * @example YES
-     *
-     * @var string
+     * @var list_[]
      */
-    public $code;
-
-    /**
-     * @example 1310000****
-     *
-     * @var string
-     */
-    public $number;
+    public $list;
     protected $_name = [
-        'code'   => 'Code',
-        'number' => 'Number',
+        'list' => 'List',
     ];
 
     public function validate()
@@ -33,11 +24,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->number) {
-            $res['Number'] = $this->number;
+        if (null !== $this->list) {
+            $res['List'] = [];
+            if (null !== $this->list && \is_array($this->list)) {
+                $n = 0;
+                foreach ($this->list as $item) {
+                    $res['List'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -51,11 +45,14 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Number'])) {
-            $model->number = $map['Number'];
+        if (isset($map['List'])) {
+            if (!empty($map['List'])) {
+                $model->list = [];
+                $n           = 0;
+                foreach ($map['List'] as $item) {
+                    $model->list[$n++] = null !== $item ? list_::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;
