@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetDataCronClearConfigResponseBody extends Model
 {
     /**
+     * @description Data configuration.
+     *
      * @var dataCronClearConfig
      */
     public $dataCronClearConfig;
 
     /**
+     * @description The error code.
+     *
      * @example UnknownError
      *
      * @var string

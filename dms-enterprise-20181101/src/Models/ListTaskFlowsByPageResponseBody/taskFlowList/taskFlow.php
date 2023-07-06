@@ -27,26 +27,49 @@ class taskFlow extends Model
     public $creatorNickName;
 
     /**
+     * @description The start time of scheduled scheduling. The task flow is not scheduled before this point in time.
+     *
+     * @example 1970-01-01
+     *
      * @var string
      */
     public $cronBeginDate;
 
     /**
+     * @description The end time of scheduled scheduling. The task flow is not scheduled after this point in time.
+     *
+     * @example 2023-01-01
+     *
      * @var string
      */
     public $cronEndDate;
 
     /**
+     * @description Scheduled Cron.
+     *
+     * @example 0 0 1 * * ? *
+     *
      * @var string
      */
     public $cronStr;
 
     /**
+     * @description Whether to enable scheduled scheduling.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $cronSwitch;
 
     /**
+     * @description Scheduling cycle type. Valid values:
+     * - **2**: Hourly scheduling
+     * - **3**: Daily scheduling
+     * - **4**: Weekly scheduling
+     * - **5**: Monthly scheduling
+     * @example 2
+     *
      * @var int
      */
     public $cronType;
@@ -61,6 +84,10 @@ class taskFlow extends Model
     public $dagName;
 
     /**
+     * @description The user ID of the task flow owner.
+     *
+     * @example 12***89
+     *
      * @var string
      */
     public $dagOwnerId;
@@ -124,11 +151,19 @@ class taskFlow extends Model
     public $latestInstanceTime;
 
     /**
+     * @description The ID of the application scenario.
+     *
+     * @example 1245
+     *
      * @var string
      */
     public $scenarioId;
 
     /**
+     * @description Event scheduling configuration, JSON string format.
+     *
+     * @example {\"triggerType\":\"1\",\"specificTime\":\"2022-11-15 11:59\"}
+     *
      * @var string
      */
     public $scheduleParam;
@@ -147,11 +182,20 @@ class taskFlow extends Model
     public $status;
 
     /**
+     * @description Time zone setting. Default value: East 8(Asia/Shanghai).
+     *
+     * @example Asia/Shanghai
+     *
      * @var string
      */
     public $timeZoneId;
 
     /**
+     * @description The trigger type. Valid values:
+     * - **0**: Periodic scheduling
+     * - **1**: Run manually
+     * @example 0
+     *
      * @var int
      */
     public $triggerType;

@@ -57,6 +57,8 @@ class BackFillRequest extends Model
     public $dagId;
 
     /**
+     * @description Filter condition, which specifies the list of node IDs in the task flow that do not need to supplement data.
+     *
      * @var int[]
      */
     public $filterNodeIds;

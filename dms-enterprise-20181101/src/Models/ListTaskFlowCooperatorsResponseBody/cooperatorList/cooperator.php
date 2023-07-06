@@ -36,7 +36,7 @@ class cooperator extends Model
     public $nickName;
 
     /**
-     * @description 用户ID。
+     * @description userId.
      *
      * @example 123
      *

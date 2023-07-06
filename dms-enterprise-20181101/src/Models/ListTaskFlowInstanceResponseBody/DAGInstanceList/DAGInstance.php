@@ -36,6 +36,8 @@ class DAGInstance extends Model
     public $dagName;
 
     /**
+     * @description The version of the task flow.
+     *
      * @example []
      *
      * @var string
@@ -116,6 +118,10 @@ class DAGInstance extends Model
     public $triggerType;
 
     /**
+     * @description The time when the execution of the task flow was start. The time is displayed in the yyyy-MM-DD HH:mm:ss format.
+     *
+     * @example 2021-11-11 14:35:57
+     *
      * @var string
      */
     public $startTime;

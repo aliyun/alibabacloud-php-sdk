@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetOpLogRequest extends Model
 {
     /**
-     * @example dmstest@rm-bp1qb97d4b****.mysql.rds.aliyuncs.com:3306【poc_dev】
+     * @description DatabaseName.
+     *
+     * @example dmstest@rm-bp1qb97d4b****.mysql.rds.aliyuncs.com:3306[poc_dev]
      *
      * @var string
      */
@@ -99,6 +101,8 @@ class GetOpLogRequest extends Model
     public $tid;
 
     /**
+     * @description UserNick.
+     *
      * @example test_name
      *
      * @var string

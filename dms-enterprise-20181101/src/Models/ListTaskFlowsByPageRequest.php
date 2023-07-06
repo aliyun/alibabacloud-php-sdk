@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTaskFlowsByPageRequest extends Model
 {
     /**
+     * @description Filter condition, task flow ID list.
+     *
      * @var int[]
      */
     public $dagIdList;
@@ -32,6 +34,10 @@ class ListTaskFlowsByPageRequest extends Model
     public $pageSize;
 
     /**
+     * @description Filter condition, application scenario ID.
+     *
+     * @example 12***
+     *
      * @var int
      */
     public $scenarioId;

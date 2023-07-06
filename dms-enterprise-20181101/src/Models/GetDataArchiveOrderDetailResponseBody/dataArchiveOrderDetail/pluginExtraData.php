@@ -52,6 +52,11 @@ class pluginExtraData extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var mixed[]
+     */
+    public $tempTableNameMap;
     protected $_name = [
         'dagInfo'            => 'DagInfo',
         'dbBaseInfo'         => 'DbBaseInfo',
@@ -60,6 +65,7 @@ class pluginExtraData extends Model
         'nextFireTimeResult' => 'NextFireTimeResult',
         'pageIndex'          => 'PageIndex',
         'pageSize'           => 'PageSize',
+        'tempTableNameMap'   => 'TempTableNameMap',
     ];
 
     public function validate()
@@ -95,6 +101,9 @@ class pluginExtraData extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->tempTableNameMap) {
+            $res['TempTableNameMap'] = $this->tempTableNameMap;
         }
 
         return $res;
@@ -134,6 +143,9 @@ class pluginExtraData extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['TempTableNameMap'])) {
+            $model->tempTableNameMap = $map['TempTableNameMap'];
         }
 
         return $model;

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ApproveOrderRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $approvalNodeId;
+
+    /**
+     * @var string
+     */
+    public $approvalNodePos;
+
+    /**
      * @description The action that you want to perform on the ticket. Valid values:
      *
      *   AGREE: approve
@@ -31,6 +41,16 @@ class ApproveOrderRequest extends Model
     public $comment;
 
     /**
+     * @var int
+     */
+    public $newApprover;
+
+    /**
+     * @var int
+     */
+    public $oldApprover;
+
+    /**
      * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) operation to obtain the tenant ID.
      *
      * @example -1
@@ -48,8 +68,12 @@ class ApproveOrderRequest extends Model
      */
     public $workflowInstanceId;
     protected $_name = [
+        'approvalNodeId'     => 'ApprovalNodeId',
+        'approvalNodePos'    => 'ApprovalNodePos',
         'approvalType'       => 'ApprovalType',
         'comment'            => 'Comment',
+        'newApprover'        => 'NewApprover',
+        'oldApprover'        => 'OldApprover',
         'tid'                => 'Tid',
         'workflowInstanceId' => 'WorkflowInstanceId',
     ];
@@ -61,11 +85,23 @@ class ApproveOrderRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->approvalNodeId) {
+            $res['ApprovalNodeId'] = $this->approvalNodeId;
+        }
+        if (null !== $this->approvalNodePos) {
+            $res['ApprovalNodePos'] = $this->approvalNodePos;
+        }
         if (null !== $this->approvalType) {
             $res['ApprovalType'] = $this->approvalType;
         }
         if (null !== $this->comment) {
             $res['Comment'] = $this->comment;
+        }
+        if (null !== $this->newApprover) {
+            $res['NewApprover'] = $this->newApprover;
+        }
+        if (null !== $this->oldApprover) {
+            $res['OldApprover'] = $this->oldApprover;
         }
         if (null !== $this->tid) {
             $res['Tid'] = $this->tid;
@@ -85,11 +121,23 @@ class ApproveOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApprovalNodeId'])) {
+            $model->approvalNodeId = $map['ApprovalNodeId'];
+        }
+        if (isset($map['ApprovalNodePos'])) {
+            $model->approvalNodePos = $map['ApprovalNodePos'];
+        }
         if (isset($map['ApprovalType'])) {
             $model->approvalType = $map['ApprovalType'];
         }
         if (isset($map['Comment'])) {
             $model->comment = $map['Comment'];
+        }
+        if (isset($map['NewApprover'])) {
+            $model->newApprover = $map['NewApprover'];
+        }
+        if (isset($map['OldApprover'])) {
+            $model->oldApprover = $map['OldApprover'];
         }
         if (isset($map['Tid'])) {
             $model->tid = $map['Tid'];

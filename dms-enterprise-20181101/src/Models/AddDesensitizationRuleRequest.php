@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddDesensitizationRuleRequest extends Model
 {
     /**
+     * @description Algorithm parameters.
+     *
      * @var string[][]
      */
     public $functionParams;

@@ -54,6 +54,21 @@ class ListTaskFlowInstanceRequest extends Model
     public $startTimeEnd;
 
     /**
+     * @description The running status of the task node. Valid values:
+     *
+     * - **0**: Waiting for scheduling
+     *
+     * - **1**: Running
+     *
+     * - **2**: Suspend
+     *
+     * - **3**: Failed to run
+     *
+     * - **4**: Run successfully
+     *
+     * - **5**: Completed
+     * @example 3
+     *
      * @var int
      */
     public $status;
@@ -80,6 +95,11 @@ class ListTaskFlowInstanceRequest extends Model
     public $triggerType;
 
     /**
+     * @description Adjust filter conditions:
+     *
+     * - false: StartTimeBegin and StartTimeEnd are the time range for the task to run.
+     * @example true
+     *
      * @var bool
      */
     public $useBizDate;

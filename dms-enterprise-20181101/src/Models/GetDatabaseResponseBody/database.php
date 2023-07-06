@@ -92,6 +92,8 @@ class database extends Model
     public $host;
 
     /**
+     * @description The alias of the instance.
+     *
      * @example test
      *
      * @var string

@@ -86,6 +86,8 @@ class originSQLList extends Model
     public $SQLId;
 
     /**
+     * @description SQLName.
+     *
      * @example getByPk
      *
      * @var string

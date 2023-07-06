@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BackFillResponseBody extends Model
 {
     /**
+     * @example 47****
+     *
      * @var int
      */
     public $dagInstanceId;

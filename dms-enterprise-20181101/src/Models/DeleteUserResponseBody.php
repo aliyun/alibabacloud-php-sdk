@@ -27,7 +27,7 @@ class DeleteUserResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example 34E01EDD-6A16-4CF0-9541-C644D1BE01AA
      *
@@ -36,8 +36,10 @@ class DeleteUserResponseBody extends Model
     public $requestId;
 
     /**
-     * @description *   **true**: The account was deleted.
-     *   **false**: The account failed to be deleted.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example true
      *

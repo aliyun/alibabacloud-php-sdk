@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class edges extends Model
 {
     /**
-     * @description The error code returned if the request failed.
+     * @description The ID of the node where the end node of the edge is located.
      *
      * @example 44***
      *
@@ -18,7 +18,7 @@ class edges extends Model
     public $nodeEnd;
 
     /**
-     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
+     * @description The ID of the node where the start node of the edge is located.
      *
      * @example 44***
      *

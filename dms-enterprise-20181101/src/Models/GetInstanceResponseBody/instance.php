@@ -195,6 +195,11 @@ class instance extends Model
     public $safeRuleId;
 
     /**
+     * @description Whether sensitive data protection is enabled.  Valid values:
+     *
+     * - **true**: Enable.
+     *
+     * - **false**: Close.
      * @example false
      *
      * @var string
