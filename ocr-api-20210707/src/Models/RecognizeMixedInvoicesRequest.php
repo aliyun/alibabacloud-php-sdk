@@ -10,6 +10,11 @@ use GuzzleHttp\Psr7\Stream;
 class RecognizeMixedInvoicesRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $pageNo;
+
+    /**
      * @example https://img.alicdn.com/tfs/TB1.bnGbRWD3KVjSZFsXXcqkpXa-1654-2341.jpg
      *
      * @var string
@@ -21,8 +26,9 @@ class RecognizeMixedInvoicesRequest extends Model
      */
     public $body;
     protected $_name = [
-        'url'  => 'Url',
-        'body' => 'body',
+        'pageNo' => 'PageNo',
+        'url'    => 'Url',
+        'body'   => 'body',
     ];
 
     public function validate()
@@ -32,6 +38,9 @@ class RecognizeMixedInvoicesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
         }
@@ -50,6 +59,9 @@ class RecognizeMixedInvoicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];
         }
