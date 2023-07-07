@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeCategoryTemplateRuleListReque
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeCategoryTemplateRuleListResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeColumnsRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeColumnsResponse;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeColumnsV2Request;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeColumnsV2Response;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeConfigsRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeConfigsResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataAssetsRequest;
@@ -42,6 +44,8 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataMaskingTasksRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataMaskingTasksResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataObjectColumnDetailRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataObjectColumnDetailResponse;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataObjectColumnDetailV2Request;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataObjectColumnDetailV2Response;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataObjectsRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataObjectsResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventDetailRequest;
@@ -56,6 +60,8 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeInstancesRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeInstancesResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeOssObjectDetailRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeOssObjectDetailResponse;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeOssObjectDetailV2Request;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeOssObjectDetailV2Response;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeOssObjectsRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeOssObjectsResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribePackagesRequest;
@@ -811,6 +817,85 @@ class Sddp extends OpenApiClient
     }
 
     /**
+     * @param DescribeColumnsV2Request $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeColumnsV2Response
+     */
+    public function describeColumnsV2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $query['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->riskLevelId)) {
+            $query['RiskLevelId'] = $request->riskLevelId;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->ruleName)) {
+            $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->sensLevelName)) {
+            $query['SensLevelName'] = $request->sensLevelName;
+        }
+        if (!Utils::isUnset($request->tableId)) {
+            $query['TableId'] = $request->tableId;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeColumnsV2',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeColumnsV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeColumnsV2Request $request
+     *
+     * @return DescribeColumnsV2Response
+     */
+    public function describeColumnsV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeColumnsV2WithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeConfigsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -1308,6 +1393,64 @@ class Sddp extends OpenApiClient
     }
 
     /**
+     * @param DescribeDataObjectColumnDetailV2Request $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeDataObjectColumnDetailV2Response
+     */
+    public function describeDataObjectColumnDetailV2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->productId)) {
+            $query['ProductId'] = $request->productId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataObjectColumnDetailV2',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDataObjectColumnDetailV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDataObjectColumnDetailV2Request $request
+     *
+     * @return DescribeDataObjectColumnDetailV2Response
+     */
+    public function describeDataObjectColumnDetailV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataObjectColumnDetailV2WithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDataObjectsRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -1785,6 +1928,52 @@ class Sddp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeOssObjectDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeOssObjectDetailV2Request $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeOssObjectDetailV2Response
+     */
+    public function describeOssObjectDetailV2WithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeOssObjectDetailV2',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeOssObjectDetailV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeOssObjectDetailV2Request $request
+     *
+     * @return DescribeOssObjectDetailV2Response
+     */
+    public function describeOssObjectDetailV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeOssObjectDetailV2WithOptions($request, $runtime);
     }
 
     /**
