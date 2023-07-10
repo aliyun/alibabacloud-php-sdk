@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The tag key of the GA instance.
+     * @description The ID of the listener.
      *
      * @example test-key
      *
@@ -18,7 +18,11 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The tag value of the GA instance.
+     * @description The type of the endpoint group. Valid values:
+     *
+     *   **default**: a default endpoint group
+     *   **virtual**: a virtual endpoint group
+     *   If you leave this parameter empty, all default and virtual endpoint groups are queried.
      *
      * @example test-value
      *

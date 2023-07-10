@@ -19,10 +19,7 @@ class ListEndpointGroupsRequest extends Model
     public $acceleratorId;
 
     /**
-     * @description Specifies whether the access logging feature is enabled. Default value: off. Valid values:
-     *
-     *   **on:** enables the access logging feature.
-     *   **off:** disables the access logging feature.
+     * @description The total number of entries returned.
      *
      * @example on
      *
@@ -31,7 +28,10 @@ class ListEndpointGroupsRequest extends Model
     public $accessLogSwitch;
 
     /**
-     * @description The ID of the endpoint group.
+     * @description The protocol that is used to monitor latency. Valid values:
+     *
+     *   **icmp**: ICMP
+     *   **tcp**: TCP
      *
      * @example epg-bp16jdc00bhe97sr5****
      *
@@ -42,8 +42,8 @@ class ListEndpointGroupsRequest extends Model
     /**
      * @description The type of the endpoint group. Valid values:
      *
-     *   **default:** a default endpoint group.
-     *   **virtual:** a virtual endpoint group.
+     *   **default**
+     *   **virtual**
      *   If you leave this parameter empty, all default and virtual endpoint groups are queried.
      *
      * @example virtual
@@ -53,7 +53,7 @@ class ListEndpointGroupsRequest extends Model
     public $endpointGroupType;
 
     /**
-     * @description The ID of the listener.
+     * @description The number of entries returned per page.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -62,7 +62,7 @@ class ListEndpointGroupsRequest extends Model
     public $listenerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The endpoint group IP addresses to be confirmed after the GA instance is upgraded.
      *
      * @example 1
      *
@@ -71,7 +71,10 @@ class ListEndpointGroupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The protocol that is used by the backend service. Valid values:
+     *
+     *   **HTTP**: HTTP
+     *   **HTTPS**: HTTPS
      *
      * @example 10
      *
@@ -80,7 +83,7 @@ class ListEndpointGroupsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The endpoint port.
      *
      * @example cn-hangzhou
      *
@@ -89,7 +92,7 @@ class ListEndpointGroupsRequest extends Model
     public $regionId;
 
     /**
-     * @description Tags of GA instances.
+     * @description The name of the endpoint group.
      *
      * @var tag[]
      */

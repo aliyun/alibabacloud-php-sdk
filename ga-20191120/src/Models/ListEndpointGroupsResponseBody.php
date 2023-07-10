@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListEndpointGroupsResponseBody extends Model
 {
     /**
-     * @description Configurations of endpoint groups.
+     * @description The ID of the endpoint group.
      *
      * @var endpointGroups[]
      */
     public $endpointGroups;
 
     /**
-     * @description The page number of the returned page.
+     * @description Indicates whether the client IP address preservation feature is enabled. Valid values:
+     *
+     *   **true**: The client IP address preservation feature is enabled.
+     *   **false**: The client IP address preservation feature is disabled.
      *
      * @example 1
      *
@@ -26,7 +29,7 @@ class ListEndpointGroupsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of consecutive failed health checks that must occur before an endpoint is considered unhealthy.
      *
      * @example 10
      *
@@ -35,7 +38,7 @@ class ListEndpointGroupsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The weight of the endpoint.
      *
      * @example A052D49E-CCC2-41DB-816C-DC3381503194
      *
@@ -44,7 +47,7 @@ class ListEndpointGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of returned entries.
+     * @description The ID of the endpoint.
      *
      * @example 1
      *

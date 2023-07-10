@@ -1,3 +1,6 @@
+2023-07-10 Version: 1.0.22
+- Update region api.
+
 2023-06-28 Version: 1.0.21
 - Update EndPointGroup api.
 

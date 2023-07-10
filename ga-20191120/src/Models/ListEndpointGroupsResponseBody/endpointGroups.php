@@ -12,8 +12,6 @@ use AlibabaCloud\Tea\Model;
 class endpointGroups extends Model
 {
     /**
-     * @description The ID of the GA instance.
-     *
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -21,8 +19,6 @@ class endpointGroups extends Model
     public $acceleratorId;
 
     /**
-     * @description The description of the endpoint group.
-     *
      * @example group1
      *
      * @var string
@@ -30,14 +26,12 @@ class endpointGroups extends Model
     public $description;
 
     /**
-     * @description Configurations of Endpoints.
-     *
      * @var endpointConfigurations[]
      */
     public $endpointConfigurations;
 
     /**
-     * @description The ID of the endpoint group.
+     * @description The ID of an endpoint group.
      *
      * @example epg-bp16jdc00bhe97sr5****
      *
@@ -46,14 +40,17 @@ class endpointGroups extends Model
     public $endpointGroupId;
 
     /**
-     * @description The list of endpoint group IP addresses.
+     * @description The mappings between ports.
      *
      * @var string[]
      */
     public $endpointGroupIpList;
 
     /**
-     * @description The ID of the region where the endpoint group is deployed.
+     * @description Indicates whether the health check feature is enabled. Valid values:
+     *
+     *   **true**: The health check feature is enabled.
+     *   **false**: The health check feature is disabled.
      *
      * @example cn-hangzhou
      *
@@ -62,11 +59,6 @@ class endpointGroups extends Model
     public $endpointGroupRegion;
 
     /**
-     * @description The type of the endpoint group. Valid values:
-     *
-     *   **default:** a default endpoint group.
-     *   **virtual:** a virtual endpoint group.
-     *
      * @example default
      *
      * @var string
@@ -74,18 +66,13 @@ class endpointGroups extends Model
     public $endpointGroupType;
 
     /**
-     * @description The list of endpoint group IP addresses to be confirmed after the GA instance is upgraded.
+     * @description The interval at which health checks are performed. Unit: seconds.
      *
      * @var string[]
      */
     public $endpointGroupUnconfirmedIpList;
 
     /**
-     * @description The protocol that is used by the backend service. Valid values:
-     *
-     *   **HTTP:** HTTP.
-     *   **HTTPS:** HTTPS.
-     *
      * @example HTTP
      *
      * @var string
@@ -93,18 +80,11 @@ class endpointGroups extends Model
     public $endpointRequestProtocol;
 
     /**
-     * @description IDs of forwarding rules that are associated with endpoint groups.
-     *
      * @var string[]
      */
     public $forwardingRuleIds;
 
     /**
-     * @description Indicates whether the health check feature is enabled. Valid values:
-     *
-     *   **true:** The health check feature is enabled.
-     *   **false:** The health check feature is disabled.
-     *
      * @example true
      *
      * @var bool
@@ -112,8 +92,6 @@ class endpointGroups extends Model
     public $healthCheckEnabled;
 
     /**
-     * @description The interval at which health checks are performed. Unit: seconds.
-     *
      * @example 3
      *
      * @var int
@@ -121,7 +99,7 @@ class endpointGroups extends Model
     public $healthCheckIntervalSeconds;
 
     /**
-     * @description The path to which health check probes are sent.
+     * @description The ID of the request.
      *
      * @example /healthcheck
      *
@@ -130,8 +108,6 @@ class endpointGroups extends Model
     public $healthCheckPath;
 
     /**
-     * @description The port that is used for health checks.
-     *
      * @example 10
      *
      * @var int
@@ -139,12 +115,6 @@ class endpointGroups extends Model
     public $healthCheckPort;
 
     /**
-     * @description The protocol over which health check probes are sent. Valid values:
-     *
-     *   **tcp:** TCP.
-     *   **http:** HTTP.
-     *   **https:** HTTPS.
-     *
      * @example tcp
      *
      * @var string
@@ -152,8 +122,6 @@ class endpointGroups extends Model
     public $healthCheckProtocol;
 
     /**
-     * @description The ID of the listener.
-     *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
@@ -161,8 +129,6 @@ class endpointGroups extends Model
     public $listenerId;
 
     /**
-     * @description The name of the endpoint group.
-     *
      * @example group1
      *
      * @var string
@@ -170,19 +136,16 @@ class endpointGroups extends Model
     public $name;
 
     /**
-     * @description Mappings between ports.
-     *
      * @var portOverrides[]
      */
     public $portOverrides;
 
     /**
-     * @description The state of the endpoint group. Valid values:
+     * @description The protocol over which health check requests are sent. Valid values:
      *
-     *   **init:** The endpoint group is being initialized.
-     *   **active:** The endpoint group is running as expected.
-     *   **updating:**The endpoint group is being updated.
-     *   **deleteing:** The endpoint group is being deleted.
+     *   **tcp**: TCP
+     *   **http**: HTTP
+     *   **https**: HTTPS
      *
      * @example active
      *
@@ -191,15 +154,11 @@ class endpointGroups extends Model
     public $state;
 
     /**
-     * @description Tags of GA instances.
-     *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The number of consecutive failed health checks that must occur before an endpoint is considered unhealthy.
-     *
      * @example 3
      *
      * @var int
@@ -207,8 +166,6 @@ class endpointGroups extends Model
     public $thresholdCount;
 
     /**
-     * @description The weight of the endpoint group when the listener is associated with multiple endpoint groups.
-     *
      * @example 20
      *
      * @var int

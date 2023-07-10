@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class regions extends Model
 {
     /**
+     * @var bool
+     */
+    public $chinaMainland;
+
+    /**
      * @description The name of the region.
      *
      * @example China (Qingdao)
@@ -38,9 +43,10 @@ class regions extends Model
      */
     public $regionId;
     protected $_name = [
-        'localName' => 'LocalName',
-        'pop'       => 'Pop',
-        'regionId'  => 'RegionId',
+        'chinaMainland' => 'ChinaMainland',
+        'localName'     => 'LocalName',
+        'pop'           => 'Pop',
+        'regionId'      => 'RegionId',
     ];
 
     public function validate()
@@ -50,6 +56,9 @@ class regions extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->chinaMainland) {
+            $res['ChinaMainland'] = $this->chinaMainland;
+        }
         if (null !== $this->localName) {
             $res['LocalName'] = $this->localName;
         }
@@ -71,6 +80,9 @@ class regions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ChinaMainland'])) {
+            $model->chinaMainland = $map['ChinaMainland'];
+        }
         if (isset($map['LocalName'])) {
             $model->localName = $map['LocalName'];
         }

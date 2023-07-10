@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class portOverrides extends Model
 {
     /**
-     * @description The endpoint port.
-     *
      * @example 80
      *
      * @var int
@@ -18,8 +16,6 @@ class portOverrides extends Model
     public $endpointPort;
 
     /**
-     * @description The listening port.
-     *
      * @example 443
      *
      * @var int
