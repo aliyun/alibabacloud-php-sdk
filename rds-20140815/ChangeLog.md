@@ -1,3 +1,6 @@
+2023-07-10 Version: 2.2.8
+- Add DescribeClassDetails Api.
+
 2023-07-09 Version: 2.2.7
 - Add AutoUseCoupon field.
 - Api Offline.

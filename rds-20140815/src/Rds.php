@@ -154,6 +154,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeBinlogFilesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeBinlogFilesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCharacterSetNameRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCharacterSetNameResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeClassDetailsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeClassDetailsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCloudMigrationPrecheckResultRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCloudMigrationPrecheckResultResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeCloudMigrationResultRequest;
@@ -5939,6 +5941,73 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCharacterSetNameWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeClassDetailsRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeClassDetailsResponse
+     */
+    public function describeClassDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->classCode)) {
+            $query['ClassCode'] = $request->classCode;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->commodityCode)) {
+            $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->engine)) {
+            $query['Engine'] = $request->engine;
+        }
+        if (!Utils::isUnset($request->engineVersion)) {
+            $query['EngineVersion'] = $request->engineVersion;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClassDetails',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClassDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClassDetailsRequest $request
+     *
+     * @return DescribeClassDetailsResponse
+     */
+    public function describeClassDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClassDetailsWithOptions($request, $runtime);
     }
 
     /**
