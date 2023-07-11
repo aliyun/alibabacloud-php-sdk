@@ -28,9 +28,17 @@ use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryRunningInstanceResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryRunningInstanceShrinkRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryTimedResetOperateStatusRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryTimedResetOperateStatusResponse;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SendCommandRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SendCommandResponse;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SendCommandShrinkRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SendMessageRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SendMessageResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SendMessageShrinkRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SendTextRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SendTextResponse;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SendTextShrinkRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SendVamlRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\SendVamlResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\StartInstanceRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\StartInstanceResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\StartInstanceShrinkRequest;
@@ -554,6 +562,69 @@ class Avatar extends OpenApiClient
     }
 
     /**
+     * @param SendCommandRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SendCommandResponse
+     */
+    public function sendCommandWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SendCommandShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->content)) {
+            $request->contentShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->content, 'Content', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->code)) {
+            $query['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->contentShrink)) {
+            $query['Content'] = $request->contentShrink;
+        }
+        if (!Utils::isUnset($request->feedback)) {
+            $query['Feedback'] = $request->feedback;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->uniqueCode)) {
+            $query['UniqueCode'] = $request->uniqueCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendCommand',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendCommandRequest $request
+     *
+     * @return SendCommandResponse
+     */
+    public function sendCommand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendCommandWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SendMessageRequest $tmpReq
      * @param RuntimeOptions     $runtime
      *
@@ -620,6 +691,121 @@ class Avatar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->sendMessageWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendTextRequest $tmpReq
+     * @param RuntimeOptions  $runtime
+     *
+     * @return SendTextResponse
+     */
+    public function sendTextWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SendTextShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->streamExtension)) {
+            $request->streamExtensionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->streamExtension, 'StreamExtension', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->feedback)) {
+            $query['Feedback'] = $request->feedback;
+        }
+        if (!Utils::isUnset($request->interrupt)) {
+            $query['Interrupt'] = $request->interrupt;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->streamExtensionShrink)) {
+            $query['StreamExtension'] = $request->streamExtensionShrink;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->text)) {
+            $query['Text'] = $request->text;
+        }
+        if (!Utils::isUnset($request->uniqueCode)) {
+            $query['UniqueCode'] = $request->uniqueCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendText',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendTextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendTextRequest $request
+     *
+     * @return SendTextResponse
+     */
+    public function sendText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendTextWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendVamlRequest $request
+     * @param RuntimeOptions  $runtime
+     *
+     * @return SendVamlResponse
+     */
+    public function sendVamlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->vaml)) {
+            $query['Vaml'] = $request->vaml;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendVaml',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendVamlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendVamlRequest $request
+     *
+     * @return SendVamlResponse
+     */
+    public function sendVaml($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendVamlWithOptions($request, $runtime);
     }
 
     /**
