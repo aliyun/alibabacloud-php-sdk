@@ -53,6 +53,11 @@ class HandleSimilarSecurityEventsRequest extends Model
     public $operationParams;
 
     /**
+     * @var string
+     */
+    public $remark;
+
+    /**
      * @var int
      */
     public $resourceOwnerId;
@@ -79,6 +84,7 @@ class HandleSimilarSecurityEventsRequest extends Model
         'markMissParam'   => 'MarkMissParam',
         'operationCode'   => 'OperationCode',
         'operationParams' => 'OperationParams',
+        'remark'          => 'Remark',
         'resourceOwnerId' => 'ResourceOwnerId',
         'sourceIp'        => 'SourceIp',
         'taskId'          => 'TaskId',
@@ -99,6 +105,9 @@ class HandleSimilarSecurityEventsRequest extends Model
         }
         if (null !== $this->operationParams) {
             $res['OperationParams'] = $this->operationParams;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
@@ -129,6 +138,9 @@ class HandleSimilarSecurityEventsRequest extends Model
         }
         if (isset($map['OperationParams'])) {
             $model->operationParams = $map['OperationParams'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ChangeCheckConfigRequest extends Model
 {
     /**
+     * @var int[]
+     */
+    public $cycleDays;
+
+    /**
      * @description The end time of the check. The value specifies a point in time in a day. The time period that is specified by the start time and end time must be one of the following time periods:
      *
      *   **00:00 to 06:00:** If you set the StartTime parameter to 0, you must set the EndTime parameter to 6.
@@ -48,6 +53,7 @@ class ChangeCheckConfigRequest extends Model
      */
     public $startTime;
     protected $_name = [
+        'cycleDays'   => 'CycleDays',
         'endTime'     => 'EndTime',
         'regionId'    => 'RegionId',
         'standardIds' => 'StandardIds',
@@ -61,6 +67,9 @@ class ChangeCheckConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cycleDays) {
+            $res['CycleDays'] = $this->cycleDays;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
@@ -85,6 +94,11 @@ class ChangeCheckConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CycleDays'])) {
+            if (!empty($map['CycleDays'])) {
+                $model->cycleDays = $map['CycleDays'];
+            }
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }

@@ -34,7 +34,7 @@ class DeleteBackupPolicyMachineRequest extends Model
      * @description The UUID of the server to which the anti-ransomware policy is applied.
      *
      * >  You must specify at least one of the `UuidList` and `Uuid` parameters.
-     * @example D0D6E6E4-CB8C-4897-B852-46AEFDA0****
+     * @example 083036e9-8411-4a9d-83af-9acbd****
      *
      * @var string
      */

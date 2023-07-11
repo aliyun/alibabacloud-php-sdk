@@ -51,7 +51,7 @@ class ModifyStrategyRequest extends Model
 
     /**
      * @description The time when the baseline check based on the baseline check policy ends.
-     *
+     * Format is hh:mm:ss.
      * @example 05:00:00
      *
      * @var string
@@ -119,7 +119,7 @@ class ModifyStrategyRequest extends Model
     public $sourceIp;
 
     /**
-     * @description The time when the baseline check based on the baseline check policy starts.
+     * @description The time when the baseline check based on the baseline check policy starts. Format is hh:mm:ss.
      *
      * @example 00:01:00
      *

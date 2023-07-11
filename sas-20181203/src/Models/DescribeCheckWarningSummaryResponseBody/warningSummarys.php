@@ -30,6 +30,11 @@ class warningSummarys extends Model
     public $checkExploit;
 
     /**
+     * @description Indicates  whether the risk item is a container runtime risk item. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example false
      *
      * @var bool

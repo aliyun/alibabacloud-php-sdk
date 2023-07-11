@@ -78,6 +78,11 @@ class HandleSecurityEventsRequest extends Model
     public $operationParams;
 
     /**
+     * @var string
+     */
+    public $remark;
+
+    /**
      * @description The IDs of the alert events.
      *
      * @example ["909361"]
@@ -99,6 +104,7 @@ class HandleSecurityEventsRequest extends Model
         'markMissParam'    => 'MarkMissParam',
         'operationCode'    => 'OperationCode',
         'operationParams'  => 'OperationParams',
+        'remark'           => 'Remark',
         'securityEventIds' => 'SecurityEventIds',
         'sourceIp'         => 'SourceIp',
     ];
@@ -121,6 +127,9 @@ class HandleSecurityEventsRequest extends Model
         }
         if (null !== $this->operationParams) {
             $res['OperationParams'] = $this->operationParams;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
         if (null !== $this->securityEventIds) {
             $res['SecurityEventIds'] = $this->securityEventIds;
@@ -151,6 +160,9 @@ class HandleSecurityEventsRequest extends Model
         }
         if (isset($map['OperationParams'])) {
             $model->operationParams = $map['OperationParams'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
         if (isset($map['SecurityEventIds'])) {
             if (!empty($map['SecurityEventIds'])) {

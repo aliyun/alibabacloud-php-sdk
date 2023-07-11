@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVersionConfigResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $agentlessCapacity;
+
+    /**
      * @description Indicates whether the pay-as-you-go billing method is supported.
      *
      *   **0**: no
@@ -35,7 +40,7 @@ class DescribeVersionConfigResponseBody extends Model
     /**
      * @description The quota for the application whitelist feature.
      *
-     * > The quantity of servers that are allowed by the quota is deducted by one each time you apply an application whitelist to a server. After you enable the application whitelist feature, the quota is 20 by default.
+     * >  The quantity of servers that are allowed by the quota is deducted by one each time you apply an application whitelist to a server. After you enable the application whitelist feature, the quota is 20 by default.
      * @example 20
      *
      * @var int
@@ -52,6 +57,11 @@ class DescribeVersionConfigResponseBody extends Model
     public $assetLevel;
 
     /**
+     * @var int
+     */
+    public $cspmCapacity;
+
+    /**
      * @description The most advanced edition that is used. Valid values:
      *
      *   **1**: Basic edition
@@ -61,7 +71,7 @@ class DescribeVersionConfigResponseBody extends Model
      *   **7**: Ultimate edition
      *   **10**: Value-added Plan edition
      *
-     * > If you purchase the Multi-version edition of Security Center, the value indicates the most advanced edition that is used in the Multi-version edition. If you do not purchase the Multi-version edition of Security Center, the value indicates the edition of Security Center.
+     * >  If you purchase the Multi-version edition of Security Center, the value indicates the most advanced edition that is used in the Multi-version edition. If you do not purchase the Multi-version edition of Security Center, the value indicates the edition of Security Center.
      * @example 1
      *
      * @var int
@@ -108,10 +118,10 @@ class DescribeVersionConfigResponseBody extends Model
     public $isNewContainerVersion;
 
     /**
-     * @description Indicates whether Security Center runs the latest version of the Multi-version edition.
+     * @description Indicates whether Security Center runs the latest version of the Multi-version edition. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -180,9 +190,14 @@ class DescribeVersionConfigResponseBody extends Model
     public $openTime;
 
     /**
+     * @var int
+     */
+    public $raspCapacity;
+
+    /**
      * @description The timestamp when Security Center is released. Unit: milliseconds. The value of this parameter is seven days after Security Center expires.
      *
-     * > If you do not renew the subscription within seven days after the expiration date, the Value-added Plan, Anti-virus, Advanced, or Enterprise edition is downgraded to the Basic edition. In this case, you can no longer view the existing configurations or statistics such as DDoS alerts. You must purchase the Anti-virus, Advanced, or Enterprise edition to continue using relevant features. For more information, see [Purchase Security Center](~~42308~~).
+     * > If you do not renew the subscription within seven days after the expiration date, the Value-added Plan, Basic Anti-Virus, Advanced, or Enterprise edition is downgraded to the Basic edition. In this case, you can no longer view the existing configurations or statistics such as DDoS alerts. You must purchase the Anti-virus, Advanced, or Enterprise edition to continue using relevant features. For more information, see [Purchase Security Center](~~42308~~).
      * @example 1625846400000
      *
      * @var int
@@ -190,7 +205,7 @@ class DescribeVersionConfigResponseBody extends Model
     public $releaseTime;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example C2DC96D2-DD2E-49D9-A28E-85590475DF55
      *
@@ -199,7 +214,7 @@ class DescribeVersionConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the log analysis feature is purchased. Valid values:
+     * @description Indicates whether log analysis is purchased. Valid values:
      *
      *   **0**: no
      *   **1**: yes
@@ -241,7 +256,7 @@ class DescribeVersionConfigResponseBody extends Model
     public $threatAnalysisCapacity;
 
     /**
-     * @description Indicates whether the custom alerting feature is enabled. Valid values:
+     * @description Indicates whether the custom alert feature is enabled. Valid values:
      *
      *   **0**: no
      *   **2**: yes
@@ -279,6 +294,11 @@ class DescribeVersionConfigResponseBody extends Model
     public $vmCores;
 
     /**
+     * @var int
+     */
+    public $vulFixCapacity;
+
+    /**
      * @description Indicates whether the web tamper proofing feature is enabled. Valid values:
      *
      *   **0**: no
@@ -291,19 +311,21 @@ class DescribeVersionConfigResponseBody extends Model
     public $webLock;
 
     /**
-     * @description The quota for the web tamper proofing feature. The quantity of servers that are allowed by the quota is deducted by one each time you enable the web tamper proofing feature for a server. Valid values: 0 to N.
+     * @description The quota for the web tamper proofing feature. The quantity of servers that are allowed by the quota is deducted by one each time a server is protected by the web tamper proofing feature. Valid values: 0 to N.
      *
-     * > N indicates the number of servers that you own.
+     * >  N indicates the number of servers that you own.
      * @example 0
      *
      * @var int
      */
     public $webLockAuthCount;
     protected $_name = [
+        'agentlessCapacity'      => 'AgentlessCapacity',
         'allowPartialBuy'        => 'AllowPartialBuy',
         'appWhiteList'           => 'AppWhiteList',
         'appWhiteListAuthCount'  => 'AppWhiteListAuthCount',
         'assetLevel'             => 'AssetLevel',
+        'cspmCapacity'           => 'CspmCapacity',
         'highestVersion'         => 'HighestVersion',
         'honeypotCapacity'       => 'HoneypotCapacity',
         'imageScanCapacity'      => 'ImageScanCapacity',
@@ -316,6 +338,7 @@ class DescribeVersionConfigResponseBody extends Model
         'MVAuthCount'            => 'MVAuthCount',
         'MVUnusedAuthCount'      => 'MVUnusedAuthCount',
         'openTime'               => 'OpenTime',
+        'raspCapacity'           => 'RaspCapacity',
         'releaseTime'            => 'ReleaseTime',
         'requestId'              => 'RequestId',
         'sasLog'                 => 'SasLog',
@@ -325,6 +348,7 @@ class DescribeVersionConfigResponseBody extends Model
         'userDefinedAlarms'      => 'UserDefinedAlarms',
         'version'                => 'Version',
         'vmCores'                => 'VmCores',
+        'vulFixCapacity'         => 'VulFixCapacity',
         'webLock'                => 'WebLock',
         'webLockAuthCount'       => 'WebLockAuthCount',
     ];
@@ -336,6 +360,9 @@ class DescribeVersionConfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->agentlessCapacity) {
+            $res['AgentlessCapacity'] = $this->agentlessCapacity;
+        }
         if (null !== $this->allowPartialBuy) {
             $res['AllowPartialBuy'] = $this->allowPartialBuy;
         }
@@ -347,6 +374,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (null !== $this->assetLevel) {
             $res['AssetLevel'] = $this->assetLevel;
+        }
+        if (null !== $this->cspmCapacity) {
+            $res['CspmCapacity'] = $this->cspmCapacity;
         }
         if (null !== $this->highestVersion) {
             $res['HighestVersion'] = $this->highestVersion;
@@ -384,6 +414,9 @@ class DescribeVersionConfigResponseBody extends Model
         if (null !== $this->openTime) {
             $res['OpenTime'] = $this->openTime;
         }
+        if (null !== $this->raspCapacity) {
+            $res['RaspCapacity'] = $this->raspCapacity;
+        }
         if (null !== $this->releaseTime) {
             $res['ReleaseTime'] = $this->releaseTime;
         }
@@ -411,6 +444,9 @@ class DescribeVersionConfigResponseBody extends Model
         if (null !== $this->vmCores) {
             $res['VmCores'] = $this->vmCores;
         }
+        if (null !== $this->vulFixCapacity) {
+            $res['VulFixCapacity'] = $this->vulFixCapacity;
+        }
         if (null !== $this->webLock) {
             $res['WebLock'] = $this->webLock;
         }
@@ -429,6 +465,9 @@ class DescribeVersionConfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AgentlessCapacity'])) {
+            $model->agentlessCapacity = $map['AgentlessCapacity'];
+        }
         if (isset($map['AllowPartialBuy'])) {
             $model->allowPartialBuy = $map['AllowPartialBuy'];
         }
@@ -440,6 +479,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (isset($map['AssetLevel'])) {
             $model->assetLevel = $map['AssetLevel'];
+        }
+        if (isset($map['CspmCapacity'])) {
+            $model->cspmCapacity = $map['CspmCapacity'];
         }
         if (isset($map['HighestVersion'])) {
             $model->highestVersion = $map['HighestVersion'];
@@ -477,6 +519,9 @@ class DescribeVersionConfigResponseBody extends Model
         if (isset($map['OpenTime'])) {
             $model->openTime = $map['OpenTime'];
         }
+        if (isset($map['RaspCapacity'])) {
+            $model->raspCapacity = $map['RaspCapacity'];
+        }
         if (isset($map['ReleaseTime'])) {
             $model->releaseTime = $map['ReleaseTime'];
         }
@@ -503,6 +548,9 @@ class DescribeVersionConfigResponseBody extends Model
         }
         if (isset($map['VmCores'])) {
             $model->vmCores = $map['VmCores'];
+        }
+        if (isset($map['VulFixCapacity'])) {
+            $model->vulFixCapacity = $map['VulFixCapacity'];
         }
         if (isset($map['WebLock'])) {
             $model->webLock = $map['WebLock'];

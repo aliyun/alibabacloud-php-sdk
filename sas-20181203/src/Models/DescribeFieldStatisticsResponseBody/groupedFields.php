@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class groupedFields extends Model
 {
     /**
-     * @description The number of assets that are deployed on Alibaba Cloud.
-     *
      * @example 100
      *
      * @var int
@@ -27,12 +25,16 @@ class groupedFields extends Model
     public $awsInstanceCount;
 
     /**
+     * @description The number of third-party cloud servers.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $azureInstanceCount;
 
     /**
-     * @description The number of exposed servers.
+     * @description The data returned.
      *
      * @example 1
      *
@@ -41,7 +43,7 @@ class groupedFields extends Model
     public $exposedInstanceCount;
 
     /**
-     * @description The number of assets whose importance is common.
+     * @description The number of server groups.
      *
      * @example 10
      *
@@ -50,7 +52,10 @@ class groupedFields extends Model
     public $generalAssetCount;
 
     /**
-     * @description The number of server groups.
+     * @description The type of the asset to query. If no asset types are specified, all types of assets are returned. Valid values:
+     *
+     *   **ecs**: server
+     *   **cloud_product**: Alibaba Cloud service
      *
      * @example 20
      *
@@ -68,7 +73,7 @@ class groupedFields extends Model
     public $huaweiInstanceCount;
 
     /**
-     * @description The number of assets that can be protected by Security Center.
+     * @description DescribeFieldStatistics
      *
      * @example 100
      *
@@ -77,7 +82,7 @@ class groupedFields extends Model
     public $idcInstanceCount;
 
     /**
-     * @description The number of assets whose importance is important.
+     * @description The number of assets that are at risk.
      *
      * @example 10
      *
@@ -86,7 +91,7 @@ class groupedFields extends Model
     public $importantAssetCount;
 
     /**
-     * @description The total number of assets of the specified type. If no asset types are specified, this parameter indicates the total number of all servers and Alibaba Cloud services within your account.
+     * @description The number of assets that are deployed on Alibaba Cloud.
      *
      * @example 100
      *
@@ -95,7 +100,7 @@ class groupedFields extends Model
     public $instanceCount;
 
     /**
-     * @description The total number of tasks for the specified type of assets. If no asset types are specified, this parameter indicates the total number of all servers and Alibaba Cloud services within your account.
+     * @description The number of assets whose importance is common.
      *
      * @example 10
      *
@@ -104,7 +109,7 @@ class groupedFields extends Model
     public $instanceSyncTaskCount;
 
     /**
-     * @description The number of newly added servers.
+     * @description The number of assets whose statuses are unknown.
      *
      * @example 10
      *
@@ -122,7 +127,7 @@ class groupedFields extends Model
     public $noRiskInstanceCount;
 
     /**
-     * @description The number of servers that are shut down.
+     * @description WB01224678
      *
      * @example 10
      *
@@ -131,7 +136,7 @@ class groupedFields extends Model
     public $notRunningStatusCount;
 
     /**
-     * @description The number of servers whose Security Center agent status is Offline.
+     * @description The number of unprotected assets.
      *
      * @example 21
      *
@@ -140,8 +145,6 @@ class groupedFields extends Model
     public $offlineInstanceCount;
 
     /**
-     * @description The number of servers outside the cloud.
-     *
      * @example 20
      *
      * @var int
@@ -149,7 +152,7 @@ class groupedFields extends Model
     public $outMachineInstanceCount;
 
     /**
-     * @description The number of servers for which the Security Center agent suspends protection.
+     * @description Queries the statistics of assets that belong to your account.
      *
      * @example 10
      *
@@ -158,7 +161,7 @@ class groupedFields extends Model
     public $pauseInstanceCount;
 
     /**
-     * @description The number of regions to which the servers belong.
+     * @description The number of virtual private clouds (VPCs).
      *
      * @example 11
      *
@@ -167,8 +170,6 @@ class groupedFields extends Model
     public $regionCount;
 
     /**
-     * @description The number of assets that are at risk.
-     *
      * @example 90
      *
      * @var int
@@ -185,7 +186,7 @@ class groupedFields extends Model
     public $tencentInstanceCount;
 
     /**
-     * @description The number of assets whose importance is test.
+     * @description The number of servers outside the cloud.
      *
      * @example 10
      *
@@ -212,7 +213,7 @@ class groupedFields extends Model
     public $unKnowStatusInstanceCount;
 
     /**
-     * @description The number of unprotected assets.
+     * @description The number of servers whose Security Center agent status is Offline.
      *
      * @example 10
      *
@@ -221,7 +222,7 @@ class groupedFields extends Model
     public $unprotectedInstanceCount;
 
     /**
-     * @description The number of virtual private clouds (VPCs).
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
      *
      * @example 5
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateDingTalkResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 76975B7A-34DC-5CB6-9538-91700D4F112E
      *
      * @var string

@@ -75,6 +75,16 @@ class containerInstanceList extends Model
     public $createTimestamp;
 
     /**
+     * @var int
+     */
+    public $exposed;
+
+    /**
+     * @var string
+     */
+    public $exposedDetail;
+
+    /**
      * @description The number of baseline risks.
      *
      * @example 1
@@ -288,6 +298,8 @@ class containerInstanceList extends Model
         'clusterName'        => 'ClusterName',
         'containerId'        => 'ContainerId',
         'createTimestamp'    => 'CreateTimestamp',
+        'exposed'            => 'Exposed',
+        'exposedDetail'      => 'ExposedDetail',
         'hcCount'            => 'HcCount',
         'hcStatus'           => 'HcStatus',
         'hostIp'             => 'HostIp',
@@ -339,6 +351,12 @@ class containerInstanceList extends Model
         }
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
+        }
+        if (null !== $this->exposed) {
+            $res['Exposed'] = $this->exposed;
+        }
+        if (null !== $this->exposedDetail) {
+            $res['ExposedDetail'] = $this->exposedDetail;
         }
         if (null !== $this->hcCount) {
             $res['HcCount'] = $this->hcCount;
@@ -438,6 +456,12 @@ class containerInstanceList extends Model
         }
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
+        }
+        if (isset($map['Exposed'])) {
+            $model->exposed = $map['Exposed'];
+        }
+        if (isset($map['ExposedDetail'])) {
+            $model->exposedDetail = $map['ExposedDetail'];
         }
         if (isset($map['HcCount'])) {
             $model->hcCount = $map['HcCount'];

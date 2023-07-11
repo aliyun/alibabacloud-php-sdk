@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulDetailsRequest extends Model
 {
     /**
-     * @description The name in the **vulnerability introduction**.
+     * @description The vulnerability announcement.
      *
      * @example RHSA-2019:3197-Important: sudo security update
      *
@@ -32,6 +32,7 @@ class DescribeVulDetailsRequest extends Model
     /**
      * @description The name of the vulnerability.
      *
+     * > You can call the [DescribeGroupedVul](~~DescribeGroupedVul~~) or [DescribeVulList](~~DescribeVulList~~) operation to query the names of vulnerabilities.
      * @example SCA:ACSV-2020-052801
      *
      * @var string

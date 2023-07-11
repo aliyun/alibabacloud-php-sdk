@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeFieldStatisticsRequest extends Model
 {
     /**
-     * @description The type of the asset to query. If no asset types are specified, all types of assets are returned. Valid values:
-     *
-     *   **ecs**: server
-     *   **cloud_product**: Alibaba Cloud service
+     * @description The total number of cloud services that are protected by Security Center.
      *
      * @example ecs
      *
@@ -21,7 +18,7 @@ class DescribeFieldStatisticsRequest extends Model
     public $machineTypes;
 
     /**
-     * @description The ID of the region in which the asset resides.
+     * @description The number of regions to which the servers belong.
      *
      * @example cn-hangzhou
      *

@@ -56,6 +56,11 @@ class instances extends Model
     public $instanceCount;
 
     /**
+     * @var string
+     */
+    public $os;
+
+    /**
      * @description The number of assets that are at risk.
      *
      * @example 172
@@ -78,6 +83,7 @@ class instances extends Model
         'fieldAliasName'           => 'FieldAliasName',
         'groupFlag'                => 'GroupFlag',
         'instanceCount'            => 'InstanceCount',
+        'os'                       => 'Os',
         'riskInstanceCount'        => 'RiskInstanceCount',
         'unProtectedInstanceCount' => 'UnProtectedInstanceCount',
     ];
@@ -103,6 +109,9 @@ class instances extends Model
         }
         if (null !== $this->instanceCount) {
             $res['InstanceCount'] = $this->instanceCount;
+        }
+        if (null !== $this->os) {
+            $res['Os'] = $this->os;
         }
         if (null !== $this->riskInstanceCount) {
             $res['RiskInstanceCount'] = $this->riskInstanceCount;
@@ -136,6 +145,9 @@ class instances extends Model
         }
         if (isset($map['InstanceCount'])) {
             $model->instanceCount = $map['InstanceCount'];
+        }
+        if (isset($map['Os'])) {
+            $model->os = $map['Os'];
         }
         if (isset($map['RiskInstanceCount'])) {
             $model->riskInstanceCount = $map['RiskInstanceCount'];

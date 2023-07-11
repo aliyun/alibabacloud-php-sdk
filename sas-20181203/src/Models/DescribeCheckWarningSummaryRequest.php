@@ -51,6 +51,9 @@ class DescribeCheckWarningSummaryRequest extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the asset group.
+     *
+     * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of asset groups.
      * @example 123
      *
      * @var int

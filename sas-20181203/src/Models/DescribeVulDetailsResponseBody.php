@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVulDetailsResponseBody extends Model
 {
     /**
-     * @description An array that consists of the details about the vulnerability.
+     * @description The details of the vulnerability.
      *
      * @var cves[]
      */

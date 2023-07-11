@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupedMaliciousFilesRequest extends Model
 {
     /**
+     * @description The cluster ID of the container on which the malicious image sample is detected.
+     *
      * @example c556c8133b5ad4378b7fc533ddbda****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public $clusterId;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,9 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public $currentPage;
 
     /**
+     * @description The name of the malicious image sample that you want to query.
+     *
+     * >  Fuzzy match is supported.
      * @example Mining
      *
      * @var string
@@ -30,6 +37,8 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public $fuzzyMaliciousName;
 
     /**
+     * @description The image digest.
+     *
      * @example 6a5e103187b31a94592a47a5858617f7****
      *
      * @var string
@@ -37,6 +46,8 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public $imageDigest;
 
     /**
+     * @description The image layer.
+     *
      * @example 27213ad375b53628dd152a5ca****
      *
      * @var string
@@ -44,6 +55,8 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public $imageLayer;
 
     /**
+     * @description The image tag.
+     *
      * @example 0.2
      *
      * @var string
@@ -51,6 +64,11 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public $imageTag;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -58,6 +76,12 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public $lang;
 
     /**
+     * @description The severity of the malicious image sample that you want to query. You can enter multiple severities. Separate the severities with commas (,). Valid values:
+     *
+     *   **serious**
+     *   **suspicious**
+     *   **remind**
+     *
      * @example serious
      *
      * @var string
@@ -65,6 +89,8 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public $levels;
 
     /**
+     * @description The MD5 hash value of the malicious image sample.
+     *
      * @example d836968041f7683b5459****
      *
      * @var string
@@ -72,6 +98,8 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public $maliciousMd5;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
      * @example 20
      *
      * @var string
@@ -79,6 +107,9 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * >  You can call the [ListRepository](~~145293~~) operation to query the IDs of image repositories from the value of the **RepoId** response parameter.
      * @example crr-vridcl4****
      *
      * @var string
@@ -86,6 +117,9 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public $repoId;
 
     /**
+     * @description The ID of the container image.
+     *
+     * >  You can call the [ListRepository](~~145293~~) operation to query the IDs of container images from the value of the **InstanceId** response parameter.
      * @example cri-datvailb****
      *
      * @var string
@@ -93,6 +127,9 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public $repoInstanceId;
 
     /**
+     * @description The name of the image repository.
+     *
+     * >  Fuzzy match is supported.
      * @example centos
      *
      * @var string
@@ -100,6 +137,9 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public $repoName;
 
     /**
+     * @description The namespace to which the image repository belongs.
+     *
+     * >  Fuzzy match is supported.
      * @example hanghai-namespace
      *
      * @var string
@@ -107,6 +147,22 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public $repoNamespace;
 
     /**
+     * @description The region ID of the image repository. Valid values:
+     *
+     *   **cn-beijing**: China (Beijing)
+     *   **cn-zhangjiakou**: China (Zhangjiakou)
+     *   **cn-hangzhou**: China (Hangzhou)
+     *   **cn-shanghai**: China (Shanghai)
+     *   **cn-shenzhen**: China (Shenzhen)
+     *   **cn-hongkong**: China (Hong Kong)
+     *   **ap-southeast-1**: Singapore
+     *   **ap-southeast-5**: Indonesia (Jakarta)
+     *   **us-east-1**: US (Virginia)
+     *   **us-west-1**: US (Silicon Valley)
+     *   **eu-central-1**: Germany (Frankfurt)
+     *   **eu-west-1**: UK (London)
+     *   **ap-south-1**: India (Mumbai)
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -114,6 +170,8 @@ class DescribeGroupedMaliciousFilesRequest extends Model
     public $repoRegionId;
 
     /**
+     * @description The types of the assets that you want to scan.
+     *
      * @var string[]
      */
     public $scanRange;

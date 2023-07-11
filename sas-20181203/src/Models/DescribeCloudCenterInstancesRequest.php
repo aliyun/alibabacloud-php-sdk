@@ -77,6 +77,11 @@ class DescribeCloudCenterInstancesRequest extends Model
     public $machineTypes;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description Specifies whether to internationalize the name of the **default** group. Default value: **false**. Valid values:
      *
      *   **true**: The system returns the Chinese name of the default group for the **GroupTrace** response parameter.********
@@ -105,6 +110,11 @@ class DescribeCloudCenterInstancesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var bool
+     */
+    public $useNextToken;
     protected $_name = [
         'criteria'     => 'Criteria',
         'currentPage'  => 'CurrentPage',
@@ -112,9 +122,11 @@ class DescribeCloudCenterInstancesRequest extends Model
         'lang'         => 'Lang',
         'logicalExp'   => 'LogicalExp',
         'machineTypes' => 'MachineTypes',
+        'nextToken'    => 'NextToken',
         'noGroupTrace' => 'NoGroupTrace',
         'pageSize'     => 'PageSize',
         'regionId'     => 'RegionId',
+        'useNextToken' => 'UseNextToken',
     ];
 
     public function validate()
@@ -142,6 +154,9 @@ class DescribeCloudCenterInstancesRequest extends Model
         if (null !== $this->machineTypes) {
             $res['MachineTypes'] = $this->machineTypes;
         }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
         if (null !== $this->noGroupTrace) {
             $res['NoGroupTrace'] = $this->noGroupTrace;
         }
@@ -150,6 +165,9 @@ class DescribeCloudCenterInstancesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->useNextToken) {
+            $res['UseNextToken'] = $this->useNextToken;
         }
 
         return $res;
@@ -181,6 +199,9 @@ class DescribeCloudCenterInstancesRequest extends Model
         if (isset($map['MachineTypes'])) {
             $model->machineTypes = $map['MachineTypes'];
         }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['NoGroupTrace'])) {
             $model->noGroupTrace = $map['NoGroupTrace'];
         }
@@ -189,6 +210,9 @@ class DescribeCloudCenterInstancesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['UseNextToken'])) {
+            $model->useNextToken = $map['UseNextToken'];
         }
 
         return $model;

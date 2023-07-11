@@ -19,7 +19,7 @@ class cves extends Model
     public $classify;
 
     /**
-     * @description An array that consists of vulnerability types.
+     * @description The vulnerability types.
      *
      * @var classifys[]
      */
@@ -84,8 +84,9 @@ class cves extends Model
     public $cvssVector;
 
     /**
-     * @description The name of the server.
+     * @description The instance name of the server.
      *
+     * > This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instances that are affected by vulnerabilities.
      * @example sql-test-001
      *
      * @var string
@@ -95,6 +96,7 @@ class cves extends Model
     /**
      * @description The public IP address of the server.
      *
+     * > This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instances that are affected by vulnerabilities.
      * @example 47.114.XX.XX
      *
      * @var string
@@ -104,6 +106,7 @@ class cves extends Model
     /**
      * @description The private IP address of the server.
      *
+     * > This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instances that are affected by vulnerabilities.
      * @example 172.19.XX.XX
      *
      * @var string

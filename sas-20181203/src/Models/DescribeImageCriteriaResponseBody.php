@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageCriteriaResponseBody extends Model
 {
     /**
+     * @description The list of the search conditions.
+     *
      * @var criteriaList[]
      */
     public $criteriaList;
 
     /**
+     * @description The request ID.
+     *
      * @example 24A20733-10A0-4AF6-BE6B-E3322413BB68
      *
      * @var string

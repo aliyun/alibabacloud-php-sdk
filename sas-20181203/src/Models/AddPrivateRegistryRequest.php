@@ -74,7 +74,7 @@ class AddPrivateRegistryRequest extends Model
     /**
      * @description The ID of the region.
      *
-     * > You can call the [ListImageRegistryRegions](~~ListImageRegistryRegions~~) operation to query the IDs of supported regions.
+     * > You can call the [ListImageRegistryRegion](~~ListImageRegistryRegion~~) operation to query the IDs of supported regions.
      * @example cn-hangzhou
      *
      * @var string

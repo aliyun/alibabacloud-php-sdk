@@ -44,6 +44,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CheckUserHasEcsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckUserHasEcsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ConfirmVirusEventsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ConfirmVirusEventsResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAgentlessScanTaskRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAgentlessScanTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAntiBruteForceRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateAssetSelectionConfigRequest;
@@ -84,6 +86,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\CreateRestoreJobRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateRestoreJobResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceLinkedRoleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceTrailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\CreateServiceTrailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSimilarSecurityEventsQueryTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CreateSuspEventNoteRequest;
@@ -129,6 +133,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DeletePrivateRegistryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeletePrivateRegistryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteSecurityEventMarkMissListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteSecurityEventMarkMissListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteServiceTrailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteServiceTrailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteStrategyRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteStrategyResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DeleteSuspEventNodeRequest;
@@ -440,6 +446,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecureSuggestionRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecureSuggestionResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityCheckScheduleConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityCheckScheduleConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityEventMarkMissListRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityEventMarkMissListResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityEventOperationsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityEventOperationsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeSecurityEventOperationStatusRequest;
@@ -583,6 +591,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\FixCheckWarningsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GenerateOnceTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GenerateOnceTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetAgentlessTaskCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAlarmMachineCountRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAlarmMachineCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetAppNetworkRequest;
@@ -605,6 +614,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckRiskStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckRiskStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientRatioStatisticRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientRatioStatisticResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientUserDefineRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientUserDefineRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCloudAssetCriteriaRequest;
@@ -644,6 +655,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetOnceTaskResultInfoResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetPropertyScheduleConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetPropertyScheduleConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetRulesCountResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetServiceTrailRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetServiceTrailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetSuspiciousStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetVulStatisticsRequest;
@@ -668,6 +681,13 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\InstallUniBackupAgentRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallUniBackupAgentResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\JoinWebLockProcessWhiteListRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\JoinWebLockProcessWhiteListResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessRegionResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessRelateMaliciousRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessRelateMaliciousResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessRiskUuidRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessRiskUuidResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessTaskRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionSelectedTargetRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionSelectedTargetResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionTargetRequest;
@@ -1777,6 +1797,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->cycleDays)) {
+            $query['CycleDays'] = $request->cycleDays;
+        }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
         }
@@ -2050,6 +2073,55 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->confirmVirusEventsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAgentlessScanTaskRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAgentlessScanTaskResponse
+     */
+    public function createAgentlessScanTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoDeleteDays)) {
+            $query['AutoDeleteDays'] = $request->autoDeleteDays;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        if (!Utils::isUnset($request->uuidList)) {
+            $query['UuidList'] = $request->uuidList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAgentlessScanTask',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAgentlessScanTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAgentlessScanTaskRequest $request
+     *
+     * @return CreateAgentlessScanTaskResponse
+     */
+    public function createAgentlessScanTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAgentlessScanTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -3204,6 +3276,49 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param CreateServiceTrailRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateServiceTrailResponse
+     */
+    public function createServiceTrailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceTrail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateServiceTrailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateServiceTrailRequest $request
+     *
+     * @return CreateServiceTrailResponse
+     */
+    public function createServiceTrail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServiceTrailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateSimilarSecurityEventsQueryTaskRequest $request
      * @param RuntimeOptions                              $runtime
      *
@@ -4270,6 +4385,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSecurityEventMarkMissListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteServiceTrailRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteServiceTrailResponse
+     */
+    public function deleteServiceTrailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteServiceTrail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteServiceTrailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteServiceTrailRequest $request
+     *
+     * @return DeleteServiceTrailResponse
+     */
+    public function deleteServiceTrail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteServiceTrailWithOptions($request, $runtime);
     }
 
     /**
@@ -6351,6 +6509,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->machineTypes)) {
             $query['MachineTypes'] = $request->machineTypes;
         }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
         if (!Utils::isUnset($request->noGroupTrace)) {
             $query['NoGroupTrace'] = $request->noGroupTrace;
         }
@@ -6359,6 +6520,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->useNextToken)) {
+            $query['UseNextToken'] = $request->useNextToken;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -12808,6 +12972,64 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param DescribeSecurityEventMarkMissListRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeSecurityEventMarkMissListResponse
+     */
+    public function describeSecurityEventMarkMissListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->eventName)) {
+            $query['EventName'] = $request->eventName;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSecurityEventMarkMissList',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSecurityEventMarkMissListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeSecurityEventMarkMissListRequest $request
+     *
+     * @return DescribeSecurityEventMarkMissListResponse
+     */
+    public function describeSecurityEventMarkMissList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeSecurityEventMarkMissListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeSecurityEventOperationStatusRequest $request
      * @param RuntimeOptions                              $runtime
      *
@@ -16781,6 +17003,39 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAgentlessTaskCountResponse
+     */
+    public function getAgentlessTaskCountWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetAgentlessTaskCount',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAgentlessTaskCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetAgentlessTaskCountResponse
+     */
+    public function getAgentlessTaskCount()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgentlessTaskCountWithOptions($runtime);
+    }
+
+    /**
      * @param GetAlarmMachineCountRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -17331,6 +17586,55 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getCheckSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetClientRatioStatisticRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetClientRatioStatisticResponse
+     */
+    public function getClientRatioStatisticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->statisticTypes)) {
+            $query['StatisticTypes'] = $request->statisticTypes;
+        }
+        if (!Utils::isUnset($request->timeEnd)) {
+            $query['TimeEnd'] = $request->timeEnd;
+        }
+        if (!Utils::isUnset($request->timeStart)) {
+            $query['TimeStart'] = $request->timeStart;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetClientRatioStatistic',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClientRatioStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetClientRatioStatisticRequest $request
+     *
+     * @return GetClientRatioStatisticResponse
+     */
+    public function getClientRatioStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClientRatioStatisticWithOptions($request, $runtime);
     }
 
     /**
@@ -18262,6 +18566,49 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param GetServiceTrailRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetServiceTrailResponse
+     */
+    public function getServiceTrailWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceTrail',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetServiceTrailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetServiceTrailRequest $request
+     *
+     * @return GetServiceTrailResponse
+     */
+    public function getServiceTrail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceTrailWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetSuspiciousStatisticsRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -18421,6 +18768,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->operationParams)) {
             $query['OperationParams'] = $request->operationParams;
         }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
         if (!Utils::isUnset($request->securityEventIds)) {
             $query['SecurityEventIds'] = $request->securityEventIds;
         }
@@ -18475,6 +18825,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->operationParams)) {
             $query['OperationParams'] = $request->operationParams;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
@@ -18875,6 +19228,234 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->joinWebLockProcessWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAgentlessRegionResponse
+     */
+    public function listAgentlessRegionWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListAgentlessRegion',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAgentlessRegionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListAgentlessRegionResponse
+     */
+    public function listAgentlessRegion()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgentlessRegionWithOptions($runtime);
+    }
+
+    /**
+     * @param ListAgentlessRelateMaliciousRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListAgentlessRelateMaliciousResponse
+     */
+    public function listAgentlessRelateMaliciousWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->eventId)) {
+            $query['EventId'] = $request->eventId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAgentlessRelateMalicious',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAgentlessRelateMaliciousResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAgentlessRelateMaliciousRequest $request
+     *
+     * @return ListAgentlessRelateMaliciousResponse
+     */
+    public function listAgentlessRelateMalicious($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgentlessRelateMaliciousWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAgentlessRiskUuidRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListAgentlessRiskUuidResponse
+     */
+    public function listAgentlessRiskUuidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->internetIp)) {
+            $query['InternetIp'] = $request->internetIp;
+        }
+        if (!Utils::isUnset($request->intranetIp)) {
+            $query['IntranetIp'] = $request->intranetIp;
+        }
+        if (!Utils::isUnset($request->machineName)) {
+            $query['MachineName'] = $request->machineName;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->risk)) {
+            $query['Risk'] = $request->risk;
+        }
+        if (!Utils::isUnset($request->targetName)) {
+            $query['TargetName'] = $request->targetName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAgentlessRiskUuid',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAgentlessRiskUuidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAgentlessRiskUuidRequest $request
+     *
+     * @return ListAgentlessRiskUuidResponse
+     */
+    public function listAgentlessRiskUuid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgentlessRiskUuidWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAgentlessTaskRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListAgentlessTaskResponse
+     */
+    public function listAgentlessTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->internetIp)) {
+            $query['InternetIp'] = $request->internetIp;
+        }
+        if (!Utils::isUnset($request->intranetIp)) {
+            $query['IntranetIp'] = $request->intranetIp;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->machineName)) {
+            $query['MachineName'] = $request->machineName;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->rootTask)) {
+            $query['RootTask'] = $request->rootTask;
+        }
+        if (!Utils::isUnset($request->rootTaskId)) {
+            $query['RootTaskId'] = $request->rootTaskId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->targetName)) {
+            $query['TargetName'] = $request->targetName;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->uuid)) {
+            $query['Uuid'] = $request->uuid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAgentlessTask',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAgentlessTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAgentlessTaskRequest $request
+     *
+     * @return ListAgentlessTaskResponse
+     */
+    public function listAgentlessTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAgentlessTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -23870,6 +24451,12 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
+        if (!Utils::isUnset($request->os)) {
+            $query['Os'] = $request->os;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
         if (!Utils::isUnset($request->uuids)) {
             $query['Uuids'] = $request->uuids;
         }
@@ -24384,6 +24971,9 @@ class Sas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
+        }
         if (!Utils::isUnset($request->securityEventIds)) {
             $query['SecurityEventIds'] = $request->securityEventIds;
         }

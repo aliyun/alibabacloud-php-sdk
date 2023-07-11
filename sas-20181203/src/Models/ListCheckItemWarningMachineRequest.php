@@ -95,9 +95,7 @@ class ListCheckItemWarningMachineRequest extends Model
     public $riskType;
 
     /**
-     * @description The status of the check item.
-     *
-     * > Valid values:
+     * @description The status of the check item. Valid values:
      *
      *   1: failed
      *

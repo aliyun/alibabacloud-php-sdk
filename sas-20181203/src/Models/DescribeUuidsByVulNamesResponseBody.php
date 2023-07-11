@@ -24,9 +24,15 @@ class DescribeUuidsByVulNamesResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $vulCount;
     protected $_name = [
         'machineInfoStatistics' => 'MachineInfoStatistics',
         'requestId'             => 'RequestId',
+        'vulCount'              => 'VulCount',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class DescribeUuidsByVulNamesResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->vulCount) {
+            $res['VulCount'] = $this->vulCount;
         }
 
         return $res;
@@ -71,6 +80,9 @@ class DescribeUuidsByVulNamesResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['VulCount'])) {
+            $model->vulCount = $map['VulCount'];
         }
 
         return $model;

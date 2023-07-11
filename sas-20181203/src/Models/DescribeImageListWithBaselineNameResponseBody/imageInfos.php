@@ -108,21 +108,37 @@ class imageInfos extends Model
     public $instanceId;
 
     /**
+     * @description The instance name of the server.
+     *
+     * @example pre.mongo-196
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
+     * @example 47.96.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
+     * @example 172.16.XX.XX
+     *
      * @var string
      */
     public $intranetIp;
 
     /**
+     * @description The timestamp when the last baseline check was performed. Unit: milliseconds.
+     *
+     * @example 1649814050000
+     *
      * @var int
      */
     public $lastScanTime;
@@ -239,16 +255,29 @@ class imageInfos extends Model
     public $tag;
 
     /**
+     * @description The ID of the asset on which the baseline check is performed.
+     *
+     * @example m-bp17m0pc0xprzbwo****
+     *
      * @var string
      */
     public $targetId;
 
     /**
+     * @description The name of the asset on which the baseline check is performed.
+     *
+     * @example spod
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @description The type of the asset on which the baseline check is performed. Valid values:
+     *
+     * - ECS_SNAPSHOT: snapshot
+     * @example ECS_IMAGE
+     *
      * @var string
      */
     public $targetType;

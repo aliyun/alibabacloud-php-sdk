@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetHoneypotNodeRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
+     * @example zh
+     *
      * @var string
      */
     public $lang;

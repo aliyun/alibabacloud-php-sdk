@@ -50,7 +50,7 @@ class DescribeImageListBySensitiveFileRequest extends Model
     /**
      * @description The ID of the container image.
      *
-     * > You can call the [ListRepository](~~ListRepository~~) operation to query the IDs of container images from the value of the InstanceId response parameter.
+     * > You can call the [ListRepository](~~451339~~) operation to query the IDs of container images from the value of the InstanceId response parameter.
      * @example i-qewqrqcsadf****
      *
      * @var string

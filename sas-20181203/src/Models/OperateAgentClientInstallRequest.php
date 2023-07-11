@@ -31,6 +31,16 @@ class OperateAgentClientInstallRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $os;
+
+    /**
+     * @var string
+     */
+    public $region;
+
+    /**
      * @description The UUIDs of the servers on which you want to install the Security Center agent. Separate multiple UUIDs with commas (,).
      *
      * > You must specify at least one of the **InstanceIds** and **Uuids** parameters before you can call this operation.
@@ -42,6 +52,8 @@ class OperateAgentClientInstallRequest extends Model
     protected $_name = [
         'instanceIds' => 'InstanceIds',
         'lang'        => 'Lang',
+        'os'          => 'Os',
+        'region'      => 'Region',
         'uuids'       => 'Uuids',
     ];
 
@@ -57,6 +69,12 @@ class OperateAgentClientInstallRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->os) {
+            $res['Os'] = $this->os;
+        }
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
         if (null !== $this->uuids) {
             $res['Uuids'] = $this->uuids;
@@ -78,6 +96,12 @@ class OperateAgentClientInstallRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['Os'])) {
+            $model->os = $map['Os'];
+        }
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
         if (isset($map['Uuids'])) {
             $model->uuids = $map['Uuids'];

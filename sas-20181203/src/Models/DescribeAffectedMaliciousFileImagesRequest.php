@@ -142,7 +142,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     /**
      * @description The ID of the image repository.
      *
-     * >  You can call the [ListRepository](~~ListRepository~~) operation to query the IDs of image repositories from the value of the **RepoId** response parameter.
+     * >  You can call the [ListRepository](~~451339~~) operation to query the IDs of image repositories from the value of the **RepoId** response parameter.
      * @example crr-vridcl4****
      *
      * @var string
@@ -152,7 +152,7 @@ class DescribeAffectedMaliciousFileImagesRequest extends Model
     /**
      * @description The ID of the container image.
      *
-     * >  You can call the [ListRepository](~~ListRepository~~) operation to query the IDs of container images from the value of the **InstanceId** response parameter.
+     * >  You can call the [ListRepository](~~451339~~) operation to query the IDs of container images from the value of the **InstanceId** response parameter.
      * @example cri-datvailb****
      *
      * @var string

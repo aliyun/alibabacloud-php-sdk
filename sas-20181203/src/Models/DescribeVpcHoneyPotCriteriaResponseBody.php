@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcHoneyPotCriteriaResponseBody extends Model
 {
     /**
+     * @description An array that consists of the search conditions.
+     *
      * @var criteriaList[]
      */
     public $criteriaList;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example FCE38ADB-7361-4212-AD87-A4514E4DF925
      *
      * @var string

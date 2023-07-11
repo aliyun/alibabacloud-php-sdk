@@ -9,12 +9,18 @@ use AlibabaCloud\Tea\Model;
 class OperationCancelIgnoreSuspEventRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $remark;
+
+    /**
      * @description The IDs of alert events.
      *
      * @var int[]
      */
     public $securityEventIds;
     protected $_name = [
+        'remark'           => 'Remark',
         'securityEventIds' => 'SecurityEventIds',
     ];
 
@@ -25,6 +31,9 @@ class OperationCancelIgnoreSuspEventRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
         if (null !== $this->securityEventIds) {
             $res['SecurityEventIds'] = $this->securityEventIds;
         }
@@ -40,6 +49,9 @@ class OperationCancelIgnoreSuspEventRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
         if (isset($map['SecurityEventIds'])) {
             if (!empty($map['SecurityEventIds'])) {
                 $model->securityEventIds = $map['SecurityEventIds'];

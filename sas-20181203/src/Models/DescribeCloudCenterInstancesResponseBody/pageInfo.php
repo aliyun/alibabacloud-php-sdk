@@ -27,6 +27,11 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The number of entries returned per page. Default value: **20**.
      *
      * @example 20
@@ -46,6 +51,7 @@ class pageInfo extends Model
     protected $_name = [
         'count'       => 'Count',
         'currentPage' => 'CurrentPage',
+        'nextToken'   => 'NextToken',
         'pageSize'    => 'PageSize',
         'totalCount'  => 'TotalCount',
     ];
@@ -62,6 +68,9 @@ class pageInfo extends Model
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -86,6 +95,9 @@ class pageInfo extends Model
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
-     * @var string
+     * @var int
      */
-    public $createTime;
+    public $createTimestamp;
 
     /**
      * @description Indicates whether the defense rule is the default rule. Valid values:
@@ -96,7 +96,7 @@ class rules extends Model
      */
     public $uuidList;
     protected $_name = [
-        'createTime'      => 'CreateTime',
+        'createTimestamp' => 'CreateTimestamp',
         'defaultRule'     => 'DefaultRule',
         'enableSmartRule' => 'EnableSmartRule',
         'failCount'       => 'FailCount',
@@ -115,8 +115,8 @@ class rules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->createTime) {
-            $res['CreateTime'] = $this->createTime;
+        if (null !== $this->createTimestamp) {
+            $res['CreateTimestamp'] = $this->createTimestamp;
         }
         if (null !== $this->defaultRule) {
             $res['DefaultRule'] = $this->defaultRule;
@@ -157,8 +157,8 @@ class rules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CreateTime'])) {
-            $model->createTime = $map['CreateTime'];
+        if (isset($map['CreateTimestamp'])) {
+            $model->createTimestamp = $map['CreateTimestamp'];
         }
         if (isset($map['DefaultRule'])) {
             $model->defaultRule = $map['DefaultRule'];

@@ -39,6 +39,8 @@ class list_ extends Model
     public $bind;
 
     /**
+     * @description The ID of the container.
+     *
      * @example 48a6d9a92435a13ad573372c3f3c63b7e04d106458141df9f9215570********
      *
      * @var string
@@ -46,6 +48,8 @@ class list_ extends Model
     public $containerId;
 
     /**
+     * @description The name of the container.
+     *
      * @example step-build-ui-build
      *
      * @var string
@@ -126,9 +130,7 @@ class list_ extends Model
     public $regionId;
 
     /**
-     * @description The status of the check item.
-     *
-     * > Valid values:
+     * @description The status of the check item. Valid values:
      *
      *   1: failed
      *
