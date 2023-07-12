@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetPrivateIpResponse extends Model
+class StopEaisEiResponse extends Model
 {
     /**
      * @var string[]
@@ -14,17 +14,24 @@ class GetPrivateIpResponse extends Model
     public $headers;
 
     /**
-     * @var GetPrivateIpResponseBody
+     * @var int
+     */
+    public $statusCode;
+
+    /**
+     * @var StopEaisEiResponseBody
      */
     public $body;
     protected $_name = [
-        'headers' => 'headers',
-        'body'    => 'body',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
         Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
         Model::validateRequired('body', $this->body, true);
     }
 
@@ -33,6 +40,9 @@ class GetPrivateIpResponse extends Model
         $res = [];
         if (null !== $this->headers) {
             $res['headers'] = $this->headers;
+        }
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
         if (null !== $this->body) {
             $res['body'] = null !== $this->body ? $this->body->toMap() : null;
@@ -44,7 +54,7 @@ class GetPrivateIpResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetPrivateIpResponse
+     * @return StopEaisEiResponse
      */
     public static function fromMap($map = [])
     {
@@ -52,8 +62,11 @@ class GetPrivateIpResponse extends Model
         if (isset($map['headers'])) {
             $model->headers = $map['headers'];
         }
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
         if (isset($map['body'])) {
-            $model->body = GetPrivateIpResponseBody::fromMap($map['body']);
+            $model->body = StopEaisEiResponseBody::fromMap($map['body']);
         }
 
         return $model;

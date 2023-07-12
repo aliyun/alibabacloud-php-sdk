@@ -6,20 +6,20 @@ namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetPrivateIpRequest extends Model
+class DetachEaisEiRequest extends Model
 {
     /**
      * @var string
      */
-    public $regionId;
+    public $eiInstanceId;
 
     /**
      * @var string
      */
-    public $clientInstanceId;
+    public $regionId;
     protected $_name = [
-        'regionId'         => 'RegionId',
-        'clientInstanceId' => 'ClientInstanceId',
+        'eiInstanceId' => 'EiInstanceId',
+        'regionId'     => 'RegionId',
     ];
 
     public function validate()
@@ -29,11 +29,11 @@ class GetPrivateIpRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->eiInstanceId) {
+            $res['EiInstanceId'] = $this->eiInstanceId;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->clientInstanceId) {
-            $res['ClientInstanceId'] = $this->clientInstanceId;
         }
 
         return $res;
@@ -42,16 +42,16 @@ class GetPrivateIpRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetPrivateIpRequest
+     * @return DetachEaisEiRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EiInstanceId'])) {
+            $model->eiInstanceId = $map['EiInstanceId'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ClientInstanceId'])) {
-            $model->clientInstanceId = $map['ClientInstanceId'];
         }
 
         return $model;

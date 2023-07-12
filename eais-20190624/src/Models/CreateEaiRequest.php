@@ -16,6 +16,11 @@ class CreateEaiRequest extends Model
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $image;
+
+    /**
      * @example eais-test01
      *
      * @var string
@@ -56,6 +61,7 @@ class CreateEaiRequest extends Model
     public $vSwitchId;
     protected $_name = [
         'clientToken'     => 'ClientToken',
+        'image'           => 'Image',
         'instanceName'    => 'InstanceName',
         'instanceType'    => 'InstanceType',
         'regionId'        => 'RegionId',
@@ -73,6 +79,9 @@ class CreateEaiRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->image) {
+            $res['Image'] = $this->image;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -106,6 +115,9 @@ class CreateEaiRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Image'])) {
+            $model->image = $map['Image'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];

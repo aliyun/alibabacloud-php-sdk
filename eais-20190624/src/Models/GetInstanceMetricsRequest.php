@@ -30,6 +30,11 @@ class GetInstanceMetricsRequest extends Model
     public $metricType;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @example 2022-11-22T16:00:00Z
      *
      * @var string
@@ -46,6 +51,7 @@ class GetInstanceMetricsRequest extends Model
         'endTime'    => 'EndTime',
         'instanceId' => 'InstanceId',
         'metricType' => 'MetricType',
+        'regionId'   => 'RegionId',
         'startTime'  => 'StartTime',
         'timeStep'   => 'TimeStep',
     ];
@@ -65,6 +71,9 @@ class GetInstanceMetricsRequest extends Model
         }
         if (null !== $this->metricType) {
             $res['MetricType'] = $this->metricType;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -92,6 +101,9 @@ class GetInstanceMetricsRequest extends Model
         }
         if (isset($map['MetricType'])) {
             $model->metricType = $map['MetricType'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

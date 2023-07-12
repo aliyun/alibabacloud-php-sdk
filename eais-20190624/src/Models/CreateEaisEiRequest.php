@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateEaiJupyterShrinkRequest extends Model
+class CreateEaisEiRequest extends Model
 {
     /**
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
@@ -18,23 +16,14 @@ class CreateEaiJupyterShrinkRequest extends Model
     /**
      * @var string
      */
-    public $eaisName;
-
-    /**
-     * @example eais.ei-a6.2xlarge
-     *
-     * @var string
-     */
-    public $eaisType;
+    public $instanceName;
 
     /**
      * @var string
      */
-    public $environmentVarShrink;
+    public $instanceType;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -45,27 +34,22 @@ class CreateEaiJupyterShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @example sg-uf66jeqopgqa9hdn****
-     *
      * @var string
      */
     public $securityGroupId;
 
     /**
-     * @example vsw-uf6h3rbwbm90urjwa****
-     *
      * @var string
      */
     public $vSwitchId;
     protected $_name = [
-        'clientToken'          => 'ClientToken',
-        'eaisName'             => 'EaisName',
-        'eaisType'             => 'EaisType',
-        'environmentVarShrink' => 'EnvironmentVar',
-        'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
-        'securityGroupId'      => 'SecurityGroupId',
-        'vSwitchId'            => 'VSwitchId',
+        'clientToken'     => 'ClientToken',
+        'instanceName'    => 'InstanceName',
+        'instanceType'    => 'InstanceType',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'securityGroupId' => 'SecurityGroupId',
+        'vSwitchId'       => 'VSwitchId',
     ];
 
     public function validate()
@@ -78,14 +62,11 @@ class CreateEaiJupyterShrinkRequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
-        if (null !== $this->eaisName) {
-            $res['EaisName'] = $this->eaisName;
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
-        if (null !== $this->eaisType) {
-            $res['EaisType'] = $this->eaisType;
-        }
-        if (null !== $this->environmentVarShrink) {
-            $res['EnvironmentVar'] = $this->environmentVarShrink;
+        if (null !== $this->instanceType) {
+            $res['InstanceType'] = $this->instanceType;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -106,7 +87,7 @@ class CreateEaiJupyterShrinkRequest extends Model
     /**
      * @param array $map
      *
-     * @return CreateEaiJupyterShrinkRequest
+     * @return CreateEaisEiRequest
      */
     public static function fromMap($map = [])
     {
@@ -114,14 +95,11 @@ class CreateEaiJupyterShrinkRequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
-        if (isset($map['EaisName'])) {
-            $model->eaisName = $map['EaisName'];
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
-        if (isset($map['EaisType'])) {
-            $model->eaisType = $map['EaisType'];
-        }
-        if (isset($map['EnvironmentVar'])) {
-            $model->environmentVarShrink = $map['EnvironmentVar'];
+        if (isset($map['InstanceType'])) {
+            $model->instanceType = $map['InstanceType'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -17,6 +17,11 @@ class CreateEaiJupyterRequest extends Model
     public $clientToken;
 
     /**
+     * @var string
+     */
+    public $eaisName;
+
+    /**
      * @example eais.ei-a6.2xlarge
      *
      * @var string
@@ -55,6 +60,7 @@ class CreateEaiJupyterRequest extends Model
     public $vSwitchId;
     protected $_name = [
         'clientToken'     => 'ClientToken',
+        'eaisName'        => 'EaisName',
         'eaisType'        => 'EaisType',
         'environmentVar'  => 'EnvironmentVar',
         'regionId'        => 'RegionId',
@@ -72,6 +78,9 @@ class CreateEaiJupyterRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->eaisName) {
+            $res['EaisName'] = $this->eaisName;
         }
         if (null !== $this->eaisType) {
             $res['EaisType'] = $this->eaisType;
@@ -111,6 +120,9 @@ class CreateEaiJupyterRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['EaisName'])) {
+            $model->eaisName = $map['EaisName'];
         }
         if (isset($map['EaisType'])) {
             $model->eaisType = $map['EaisType'];
