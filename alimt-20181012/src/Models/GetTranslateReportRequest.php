@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetTranslateReportRequest extends Model
 {
     /**
-     * @example TranslateGeneral
-     *
      * @var string
      */
     public $apiName;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $detectedLanguage;
+
+    /**
      * @example Hello
      *
      * @var string
@@ -22,8 +27,9 @@ class data extends Model
      */
     public $wordCount;
     protected $_name = [
-        'translated' => 'Translated',
-        'wordCount'  => 'WordCount',
+        'detectedLanguage' => 'DetectedLanguage',
+        'translated'       => 'Translated',
+        'wordCount'        => 'WordCount',
     ];
 
     public function validate()
@@ -33,6 +39,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->detectedLanguage) {
+            $res['DetectedLanguage'] = $this->detectedLanguage;
+        }
         if (null !== $this->translated) {
             $res['Translated'] = $this->translated;
         }
@@ -51,6 +60,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DetectedLanguage'])) {
+            $model->detectedLanguage = $map['DetectedLanguage'];
+        }
         if (isset($map['Translated'])) {
             $model->translated = $map['Translated'];
         }

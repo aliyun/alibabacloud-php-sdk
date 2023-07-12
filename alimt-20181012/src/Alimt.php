@@ -1131,10 +1131,14 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param TranslateECommerceRequest $request
-     * @param RuntimeOptions            $runtime
+     * @deprecated : TranslateECommerce is deprecated, please use alimt::2018-10-12::Translate instead.
+     *   *
+     * Deprecated
      *
-     * @return TranslateECommerceResponse
+     * @param TranslateECommerceRequest $request TranslateECommerceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return TranslateECommerceResponse TranslateECommerceResponse
      */
     public function translateECommerceWithOptions($request, $runtime)
     {
@@ -1179,9 +1183,13 @@ class Alimt extends OpenApiClient
     }
 
     /**
-     * @param TranslateECommerceRequest $request
+     * @deprecated : TranslateECommerce is deprecated, please use alimt::2018-10-12::Translate instead.
+     *   *
+     * Deprecated
      *
-     * @return TranslateECommerceResponse
+     * @param TranslateECommerceRequest $request TranslateECommerceRequest
+     *
+     * @return TranslateECommerceResponse TranslateECommerceResponse
      */
     public function translateECommerce($request)
     {
