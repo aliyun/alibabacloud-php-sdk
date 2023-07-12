@@ -33,6 +33,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAuthorityTemplateRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateAuthorityTemplateResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataArchiveOrderRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataArchiveOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDataArchiveOrderShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDatabaseExportOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDatabaseExportOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateDatabaseExportOrderShrinkRequest;
@@ -138,6 +141,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemRequ
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataArchiveCountRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataArchiveCountResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataArchiveOrderDetailRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataArchiveOrderDetailResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDatabaseExportOrderDetailRequest;
@@ -1200,6 +1205,72 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAuthorityTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDataArchiveOrderRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDataArchiveOrderResponse
+     */
+    public function createDataArchiveOrderWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateDataArchiveOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->param)) {
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->relatedUserList)) {
+            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->paramShrink)) {
+            $query['Param'] = $request->paramShrink;
+        }
+        if (!Utils::isUnset($request->parentId)) {
+            $query['ParentId'] = $request->parentId;
+        }
+        if (!Utils::isUnset($request->pluginType)) {
+            $query['PluginType'] = $request->pluginType;
+        }
+        if (!Utils::isUnset($request->relatedUserListShrink)) {
+            $query['RelatedUserList'] = $request->relatedUserListShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDataArchiveOrder',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDataArchiveOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDataArchiveOrderRequest $request
+     *
+     * @return CreateDataArchiveOrderResponse
+     */
+    public function createDataArchiveOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDataArchiveOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -3806,6 +3877,58 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDBTopologyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDataArchiveCountRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetDataArchiveCountResponse
+     */
+    public function getDataArchiveCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderResultType)) {
+            $query['OrderResultType'] = $request->orderResultType;
+        }
+        if (!Utils::isUnset($request->pluginType)) {
+            $query['PluginType'] = $request->pluginType;
+        }
+        if (!Utils::isUnset($request->searchDateType)) {
+            $query['SearchDateType'] = $request->searchDateType;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDataArchiveCount',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDataArchiveCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDataArchiveCountRequest $request
+     *
+     * @return GetDataArchiveCountResponse
+     */
+    public function getDataArchiveCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDataArchiveCountWithOptions($request, $runtime);
     }
 
     /**
