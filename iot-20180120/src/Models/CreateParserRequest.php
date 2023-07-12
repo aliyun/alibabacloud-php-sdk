@@ -14,15 +14,11 @@ class CreateParserRequest extends Model
     public $description;
 
     /**
-     * @example iot-n8t***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example DataParser
-     *
      * @var string
      */
     public $name;
@@ -34,6 +30,7 @@ class CreateParserRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()

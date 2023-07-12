@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DisableDeviceTunnelShareRequest extends Model
 {
     /**
-     * @example LEGatewayAuto_B3XM******
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example a1Wmy******
-     *
      * @var string
      */
     public $productKey;
@@ -36,6 +30,8 @@ class DisableDeviceTunnelShareRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceName', $this->deviceName, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

@@ -14,8 +14,6 @@ class GetSoundCodeScheduleRequest extends Model
     public $iotInstanceId;
 
     /**
-     * @example Md3ZiTL888K9llXDy7890***********
-     *
      * @var string
      */
     public $scheduleCode;
@@ -26,6 +24,7 @@ class GetSoundCodeScheduleRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('scheduleCode', $this->scheduleCode, true);
     }
 
     public function toMap()

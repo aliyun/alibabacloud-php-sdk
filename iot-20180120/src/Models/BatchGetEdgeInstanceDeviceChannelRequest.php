@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class BatchGetEdgeInstanceDeviceChannelRequest extends Model
 {
     /**
-     * @example 9c1ae7bd59f1469abbdccc9592******
-     *
      * @var string
      */
     public $driverId;
 
     /**
-     * @example 6GaTtvTj7vJhiS******
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example Hathoyxglj9jpYPyw3WN******
-     *
      * @var string[]
      */
     public $iotIds;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -44,6 +36,9 @@ class BatchGetEdgeInstanceDeviceChannelRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('driverId', $this->driverId, true);
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('iotIds', $this->iotIds, true);
     }
 
     public function toMap()

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class QuerySpeechPushJobSpeechRequest extends Model
 {
     /**
-     * @example iot-060*****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 0Ykj************************Av0I
-     *
      * @var string
      */
     public $jobCode;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageId;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
@@ -44,6 +36,7 @@ class QuerySpeechPushJobSpeechRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('jobCode', $this->jobCode, true);
     }
 
     public function toMap()

@@ -9,21 +9,17 @@ use AlibabaCloud\Tea\Model;
 class thingList extends Model
 {
     /**
-     * @example mock_device_name
-     *
-     * @var string
-     */
-    public $deviceName;
-
-    /**
-     * @example g3r****Vjta
-     *
      * @var string
      */
     public $productKey;
+
+    /**
+     * @var string
+     */
+    public $deviceName;
     protected $_name = [
-        'deviceName' => 'DeviceName',
         'productKey' => 'ProductKey',
+        'deviceName' => 'DeviceName',
     ];
 
     public function validate()
@@ -33,11 +29,11 @@ class thingList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->deviceName) {
-            $res['DeviceName'] = $this->deviceName;
-        }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->deviceName) {
+            $res['DeviceName'] = $this->deviceName;
         }
 
         return $res;
@@ -51,11 +47,11 @@ class thingList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DeviceName'])) {
-            $model->deviceName = $map['DeviceName'];
-        }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['DeviceName'])) {
+            $model->deviceName = $map['DeviceName'];
         }
 
         return $model;

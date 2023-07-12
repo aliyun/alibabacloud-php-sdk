@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListJobRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example iot-cn-0pp1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example IN_PROGRESS
-     *
      * @var string
      */
     public $status;
@@ -44,6 +36,8 @@ class ListJobRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('currentPage', $this->currentPage, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class BindRoleToEdgeInstanceRequest extends Model
 {
     /**
-     * @example F3APY0tPLhmgGtx0****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example acs:ram::176********:role/iotedgerole
-     *
      * @var string
      */
     public $roleArn;
 
     /**
-     * @example IoTEdgeRole
-     *
      * @var string
      */
     public $roleName;
@@ -44,6 +36,9 @@ class BindRoleToEdgeInstanceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('roleArn', $this->roleArn, true);
+        Model::validateRequired('roleName', $this->roleName, true);
     }
 
     public function toMap()

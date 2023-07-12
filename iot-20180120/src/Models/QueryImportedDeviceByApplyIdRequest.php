@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class QueryImportedDeviceByApplyIdRequest extends Model
 {
     /**
-     * @example 1295006
-     *
      * @var int
      */
     public $applyId;
 
     /**
-     * @example iot-1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -44,6 +36,9 @@ class QueryImportedDeviceByApplyIdRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('applyId', $this->applyId, true);
+        Model::validateRequired('pageNo', $this->pageNo, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

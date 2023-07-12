@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class UpdateSoundCodeRequest extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $duration;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example Md3ZiTL888K9llXDy7890***********
-     *
      * @var string
      */
     public $soundCode;
 
     /**
-     * @example www.taobao.com
-     *
      * @var string
      */
     public $soundCodeContent;
@@ -52,6 +42,7 @@ class UpdateSoundCodeRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('soundCode', $this->soundCode, true);
     }
 
     public function toMap()

@@ -48,6 +48,9 @@ class AsyncRRpcRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceName', $this->deviceName, true);
+        Model::validateRequired('messageContent', $this->messageContent, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

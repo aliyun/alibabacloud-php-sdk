@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ImportDeviceRequest extends Model
 {
     /**
-     * @example light
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example b4d43f7******10ba5e5
-     *
      * @var string
      */
     public $deviceSecret;
 
     /**
-     * @example iot-1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -35,15 +29,11 @@ class ImportDeviceRequest extends Model
     public $nickname;
 
     /**
-     * @example a1BwAGV****
-     *
      * @var string
      */
     public $productKey;
 
     /**
-     * @example QC4******001
-     *
      * @var string
      */
     public $sn;
@@ -58,6 +48,9 @@ class ImportDeviceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceName', $this->deviceName, true);
+        Model::validateRequired('deviceSecret', $this->deviceSecret, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

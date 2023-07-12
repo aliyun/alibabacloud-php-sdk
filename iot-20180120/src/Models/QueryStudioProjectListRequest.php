@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class QueryStudioProjectListRequest extends Model
 {
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example test1
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageNo;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;

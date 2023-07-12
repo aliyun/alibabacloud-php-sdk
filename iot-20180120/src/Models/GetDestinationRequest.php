@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetDestinationRequest extends Model
 {
     /**
-     * @example 1004
-     *
      * @var int
      */
     public $destinationId;
 
     /**
-     * @example iot-2w****
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -28,6 +24,7 @@ class GetDestinationRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('destinationId', $this->destinationId, true);
     }
 
     public function toMap()

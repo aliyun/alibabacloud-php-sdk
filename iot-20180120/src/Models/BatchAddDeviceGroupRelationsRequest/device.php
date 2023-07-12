@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class device extends Model
 {
     /**
-     * @description The error message returned if the call fails.
-     *
-     * @example ZHuPo6sZzv7pOzYh****
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @description The names of the devices to be added. You can specify a maximum of 200 devices.
-     *
-     * @example a1kORrK****
-     *
      * @var string
      */
     public $productKey;
@@ -32,6 +24,8 @@ class device extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceName', $this->deviceName, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

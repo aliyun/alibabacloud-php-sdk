@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateSchedulePeriodRequest extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example 01:00
-     *
      * @var string
      */
     public $endTime;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example Md3ZiTL888K9llXDy7890***********
-     *
      * @var string
      */
     public $scheduleCode;
 
     /**
-     * @example www.taobao.com
-     *
      * @var string
      */
     public $soundCodeContent;
 
     /**
-     * @example 00:00
-     *
      * @var string
      */
     public $startTime;
@@ -60,6 +48,11 @@ class CreateSchedulePeriodRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('description', $this->description, true);
+        Model::validateRequired('endTime', $this->endTime, true);
+        Model::validateRequired('scheduleCode', $this->scheduleCode, true);
+        Model::validateRequired('soundCodeContent', $this->soundCodeContent, true);
+        Model::validateRequired('startTime', $this->startTime, true);
     }
 
     public function toMap()

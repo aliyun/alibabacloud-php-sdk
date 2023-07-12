@@ -9,74 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeDriverRequest extends Model
 {
     /**
-     * @description The CPU architecture that the driver supports. Valid values:
-     *
-     *   ARMv7
-     *   ARMv7-HF
-     *   AArch64
-     *   x86-64
-     *   x86
-     *
-     * @example x86-64
-     *
      * @var string
      */
     public $cpuArch;
 
     /**
-     * @description The name of the driver to create. The name cannot exceed 20 characters in length and can contain only uppercase letters, lowercase letters, digits, and underscores (\_). It must start with a letter.
-     *
-     * @example MyLedDriver
-     *
      * @var string
      */
     public $driverName;
 
     /**
-     * @description The communications protocol that the driver uses. Valid values:
-     *
-     *   modbus: Modbus protocol
-     *   opc-ua: OPC UA protocol
-     *   customize: custom protocol
-     *
-     * @example customize
-     *
      * @var string
      */
     public $driverProtocol;
 
     /**
-     * @description The ID of the Internet of Things (IoT) service instance. This parameter is not required for public instances. However, this parameter is required for the instances that you have purchased.
-     *
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @description Specifies whether the driver is a built-in driver.
-     *
-     *   true: indicates that the driver is a built-in driver, that is, the driver code is pre-configured on the gateway device.
-     *
-     *   false: indicates that the driver is not a built-in driver and you must upload the driver code. Default value: false.
-     *
-     * > If the driver is not a built-in driver, you must upload the driver code.
-     * @example false
-     *
      * @var bool
      */
     public $isBuiltIn;
 
     /**
-     * @description The language in which the driver is programmed. Valid values:
-     *
-     *   nodejs8: Node.js v8
-     *   python3: Python v3.5
-     *   c: C
-     *
-     * @example c
-     *
      * @var string
      */
     public $runtime;
@@ -91,6 +48,9 @@ class CreateEdgeDriverRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('driverName', $this->driverName, true);
+        Model::validateRequired('driverProtocol', $this->driverProtocol, true);
+        Model::validateRequired('runtime', $this->runtime, true);
     }
 
     public function toMap()

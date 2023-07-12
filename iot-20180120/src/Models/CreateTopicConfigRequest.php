@@ -60,6 +60,9 @@ class CreateTopicConfigRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('operation', $this->operation, true);
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('topicFullName', $this->topicFullName, true);
     }
 
     public function toMap()

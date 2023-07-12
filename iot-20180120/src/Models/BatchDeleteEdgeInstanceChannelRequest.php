@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteEdgeInstanceChannelRequest extends Model
 {
     /**
-     * @example BE0BD49EF5EF4D119D09CC1B25******
-     *
      * @var string[]
      */
     public $channelIds;
 
     /**
-     * @example 9c1ae7bd59f1469abbdccc9592******
-     *
      * @var string
      */
     public $driverId;
 
     /**
-     * @example 6GaTtvTj7vJhiS******
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -44,6 +36,9 @@ class BatchDeleteEdgeInstanceChannelRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('channelIds', $this->channelIds, true);
+        Model::validateRequired('driverId', $this->driverId, true);
+        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

@@ -9,29 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteEdgeDriverVersionRequest extends Model
 {
     /**
-     * @description The ID of the driver. To obtain the driver ID, perform the following steps: Log on to the [Link IoT Edge console](https://iot.console.aliyun.com/le/instance/list). On the **Drivers** page, move the pointer over the name of the driver for which you want to delete a driver version and obtain the driver ID.
-     *
-     * You can also call the [QueryEdgeDriver](~~155776~~) operation to query the driver ID.
-     * @example fec565038d7544978d9aed5c1a******
-     *
      * @var string
      */
     public $driverId;
 
     /**
-     * @description The version number of the driver.
-     *
-     * @example 1.2.0
-     *
      * @var string
      */
     public $driverVersion;
 
     /**
-     * @description The ID of the Internet of Things (IoT) service instance. This parameter is not required for the public instance but required for Enterprise Edition instances.
-     *
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -43,6 +30,8 @@ class DeleteEdgeDriverVersionRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('driverId', $this->driverId, true);
+        Model::validateRequired('driverVersion', $this->driverVersion, true);
     }
 
     public function toMap()

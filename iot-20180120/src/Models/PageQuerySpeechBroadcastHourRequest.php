@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class PageQuerySpeechBroadcastHourRequest extends Model
 {
     /**
-     * @example iot-2w****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example TGlzdFJlc291cm****
-     *
      * @var string
      */
     public $pageToken;
 
     /**
-     * @example 2020090919
-     *
      * @var string
      */
     public $queryDateTimeHour;
 
     /**
-     * @example ebed9280_ba25_48df_80c2_****
-     *
      * @var string
      */
     public $shareTaskCode;
@@ -52,6 +42,8 @@ class PageQuerySpeechBroadcastHourRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('queryDateTimeHour', $this->queryDateTimeHour, true);
+        Model::validateRequired('shareTaskCode', $this->shareTaskCode, true);
     }
 
     public function toMap()

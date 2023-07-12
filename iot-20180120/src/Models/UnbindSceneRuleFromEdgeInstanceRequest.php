@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class UnbindSceneRuleFromEdgeInstanceRequest extends Model
 {
     /**
-     * @example llL44UVXUqb9m5******
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example f041397879ad4d89822811d741******
-     *
      * @var string
      */
     public $ruleId;
@@ -36,6 +30,8 @@ class UnbindSceneRuleFromEdgeInstanceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('ruleId', $this->ruleId, true);
     }
 
     public function toMap()

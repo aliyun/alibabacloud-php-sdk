@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateSoundCodeScheduleRequest extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example 2022-03-31
-     *
      * @var string
      */
     public $endDate;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example INNER
-     *
      * @var string
      */
     public $openType;
 
     /**
-     * @example 2022-03-31
-     *
      * @var string
      */
     public $startDate;
@@ -60,6 +48,9 @@ class CreateSoundCodeScheduleRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('endDate', $this->endDate, true);
+        Model::validateRequired('name', $this->name, true);
+        Model::validateRequired('startDate', $this->startDate, true);
     }
 
     public function toMap()

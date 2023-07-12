@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class UpdateDestinationRequest extends Model
 {
     /**
-     * @example {"topic":"/a1POX0c****\/device1/user/get","topicType":1}
-     *
      * @var string
      */
     public $configuration;
@@ -21,29 +19,21 @@ class UpdateDestinationRequest extends Model
     public $description;
 
     /**
-     * @example 1002
-     *
      * @var int
      */
     public $destinationId;
 
     /**
-     * @example iot-2w****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example DataPurpose
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example REPUBLISH
-     *
      * @var string
      */
     public $type;
@@ -58,6 +48,10 @@ class UpdateDestinationRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('configuration', $this->configuration, true);
+        Model::validateRequired('destinationId', $this->destinationId, true);
+        Model::validateRequired('name', $this->name, true);
+        Model::validateRequired('type', $this->type, true);
     }
 
     public function toMap()

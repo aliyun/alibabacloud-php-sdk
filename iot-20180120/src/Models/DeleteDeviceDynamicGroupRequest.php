@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteDeviceDynamicGroupRequest extends Model
 {
     /**
-     * @example tDQvBJqbUyHs***
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @example iot-***-v6***
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -28,6 +24,8 @@ class DeleteDeviceDynamicGroupRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('groupId', $this->groupId, true);
+        Model::validateRequired('iotInstanceId', $this->iotInstanceId, true);
     }
 
     public function toMap()

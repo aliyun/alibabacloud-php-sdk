@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class devices extends Model
 {
     /**
-     * @example Ee2******
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example a1BwAGV****
-     *
      * @var string
      */
     public $productKey;
@@ -28,6 +24,8 @@ class devices extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceName', $this->deviceName, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RecognizePictureGeneralRequest extends Model
 {
     /**
-     * @example https://img.alicdn.com/***\/i4/O1***f_***-582.png
-     *
      * @var string
      */
     public $url;
@@ -20,6 +18,7 @@ class RecognizePictureGeneralRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('url', $this->url, true);
     }
 
     public function toMap()

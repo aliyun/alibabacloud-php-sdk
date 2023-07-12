@@ -9,32 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteConsumerGroupSubscribeRelationRequest extends Model
 {
     /**
-     * @description The ID of the consumer group. You can call the [QuerySubscribeRelation](~~170352~~) operation to query the consumer group ID in an AMQP subscription. You can also go to the IoT Platform console,and choose **Rules** > **Server-side Subscription** to view the consumer group ID.
-     *
-     * @example nJRaJPn5U1JITGfjBO9l00****
-     *
      * @var string
      */
     public $consumerGroupId;
 
     /**
-     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
-     *
-     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
-     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
-     *
-     * For more information, see [Overview](~~356505~~).
-     * @example iot-cn-0pp1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @description The **ProductKey** of the product that is specified for the subscription.
-     *
-     * @example a1fyXVF****
-     *
      * @var string
      */
     public $productKey;
@@ -46,6 +30,8 @@ class DeleteConsumerGroupSubscribeRelationRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('consumerGroupId', $this->consumerGroupId, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

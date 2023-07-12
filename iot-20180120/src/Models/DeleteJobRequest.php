@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteJobRequest extends Model
 {
     /**
-     * @example iot-cn-0pp1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example XUbmsMHmkqv0PiAG****010001
-     *
      * @var string
      */
     public $jobId;
@@ -28,6 +24,7 @@ class DeleteJobRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('jobId', $this->jobId, true);
     }
 
     public function toMap()

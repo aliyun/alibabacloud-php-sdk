@@ -15,15 +15,11 @@ class DeleteDeviceSpeechRequest extends Model
     public $deviceSpeechList;
 
     /**
-     * @example 4de2c367****8c585e5992**
-     *
      * @var string
      */
     public $iotId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -35,6 +31,8 @@ class DeleteDeviceSpeechRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceSpeechList', $this->deviceSpeechList, true);
+        Model::validateRequired('iotId', $this->iotId, true);
     }
 
     public function toMap()

@@ -30,6 +30,8 @@ class deviceList extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceName', $this->deviceName, true);
+        Model::validateRequired('deviceSecret', $this->deviceSecret, true);
     }
 
     public function toMap()

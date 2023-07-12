@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class BatchUnbindProjectProductsRequest extends Model
 {
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example a1BwAGV****
-     *
      * @var string[]
      */
     public $productKeys;
 
     /**
-     * @example a123********
-     *
      * @var string
      */
     public $projectId;
@@ -36,6 +30,8 @@ class BatchUnbindProjectProductsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('productKeys', $this->productKeys, true);
+        Model::validateRequired('projectId', $this->projectId, true);
     }
 
     public function toMap()

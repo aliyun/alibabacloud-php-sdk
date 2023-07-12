@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class RecognizeCarNumRequest extends Model
 {
     /**
-     * @example https://img.alicdn.com/***\/i4/O1***f_***-582.png
-     *
      * @var string
      */
     public $url;

@@ -9,24 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryOTAJobRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
-     *
-     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
-     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
-     *
-     * For more information, see [Overview](~~356505~~).
-     * @example iot-cn-0pp1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @description The ID of the update batch.
-     *
-     * After you call the [CreateOTAVerifyJob](~~147480~~), [CreateOTAStaticUpgradeJob](~~147496~~), or [CreateOTADynamicUpgradeJob](~~147887~~) API operation to create the update batch, you can obtain the **JobId** parameter. You can also view the batch ID on the **Update Package Details** page of the IoT Platform console.
-     * @example wahVIzGkCMuAUE2gDERM02****
-     *
      * @var string
      */
     public $jobId;
@@ -37,6 +24,7 @@ class QueryOTAJobRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('jobId', $this->jobId, true);
     }
 
     public function toMap()

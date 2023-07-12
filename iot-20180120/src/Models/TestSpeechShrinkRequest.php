@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class TestSpeechShrinkRequest extends Model
 {
     /**
-     * @example wav
-     *
      * @var string
      */
     public $audioFormat;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enableSoundCode;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 4de2c367****8c585e5992**
-     *
      * @var string
      */
     public $projectCode;
 
     /**
-     * @example {"SoundCodeContent": "www.taobao.com", "AdditionalDuration": 3}
-     *
      * @var string
      */
     public $soundCodeConfigShrink;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $speechRate;
 
     /**
-     * @example custom
-     *
      * @var string
      */
     public $speechType;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $text;
 
     /**
-     * @example Siyue
-     *
      * @var string
      */
     public $voice;
 
     /**
-     * @example 50
-     *
      * @var int
      */
     public $volume;
@@ -92,6 +72,8 @@ class TestSpeechShrinkRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectCode', $this->projectCode, true);
+        Model::validateRequired('voice', $this->voice, true);
     }
 
     public function toMap()

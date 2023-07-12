@@ -9,43 +9,83 @@ use AlibabaCloud\Tea\Model;
 class BatchDeleteDeviceGroupRelationsResponse extends Model
 {
     /**
-     * @var string[]
+     * @var int
      */
-    public $headers;
+    public $alreadyRelatedGroupDeviceCount;
+
+    /**
+     * @var string
+     */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $errorMessage;
+
+    /**
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @var bool
+     */
+    public $success;
 
     /**
      * @var int
      */
-    public $statusCode;
+    public $successDeviceCount;
 
     /**
-     * @var BatchDeleteDeviceGroupRelationsResponseBody
+     * @var int
      */
-    public $body;
+    public $validDeviceCount;
     protected $_name = [
-        'headers'    => 'headers',
-        'statusCode' => 'statusCode',
-        'body'       => 'body',
+        'alreadyRelatedGroupDeviceCount' => 'AlreadyRelatedGroupDeviceCount',
+        'code'                           => 'Code',
+        'errorMessage'                   => 'ErrorMessage',
+        'requestId'                      => 'RequestId',
+        'success'                        => 'Success',
+        'successDeviceCount'             => 'SuccessDeviceCount',
+        'validDeviceCount'               => 'ValidDeviceCount',
     ];
 
     public function validate()
     {
-        Model::validateRequired('headers', $this->headers, true);
-        Model::validateRequired('statusCode', $this->statusCode, true);
-        Model::validateRequired('body', $this->body, true);
+        Model::validateRequired('alreadyRelatedGroupDeviceCount', $this->alreadyRelatedGroupDeviceCount, true);
+        Model::validateRequired('code', $this->code, true);
+        Model::validateRequired('errorMessage', $this->errorMessage, true);
+        Model::validateRequired('requestId', $this->requestId, true);
+        Model::validateRequired('success', $this->success, true);
+        Model::validateRequired('successDeviceCount', $this->successDeviceCount, true);
+        Model::validateRequired('validDeviceCount', $this->validDeviceCount, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->headers) {
-            $res['headers'] = $this->headers;
+        if (null !== $this->alreadyRelatedGroupDeviceCount) {
+            $res['AlreadyRelatedGroupDeviceCount'] = $this->alreadyRelatedGroupDeviceCount;
         }
-        if (null !== $this->statusCode) {
-            $res['statusCode'] = $this->statusCode;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
-        if (null !== $this->body) {
-            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        if (null !== $this->errorMessage) {
+            $res['ErrorMessage'] = $this->errorMessage;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
+        if (null !== $this->successDeviceCount) {
+            $res['SuccessDeviceCount'] = $this->successDeviceCount;
+        }
+        if (null !== $this->validDeviceCount) {
+            $res['ValidDeviceCount'] = $this->validDeviceCount;
         }
 
         return $res;
@@ -59,14 +99,26 @@ class BatchDeleteDeviceGroupRelationsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['headers'])) {
-            $model->headers = $map['headers'];
+        if (isset($map['AlreadyRelatedGroupDeviceCount'])) {
+            $model->alreadyRelatedGroupDeviceCount = $map['AlreadyRelatedGroupDeviceCount'];
         }
-        if (isset($map['statusCode'])) {
-            $model->statusCode = $map['statusCode'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
-        if (isset($map['body'])) {
-            $model->body = BatchDeleteDeviceGroupRelationsResponseBody::fromMap($map['body']);
+        if (isset($map['ErrorMessage'])) {
+            $model->errorMessage = $map['ErrorMessage'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
+        }
+        if (isset($map['SuccessDeviceCount'])) {
+            $model->successDeviceCount = $map['SuccessDeviceCount'];
+        }
+        if (isset($map['ValidDeviceCount'])) {
+            $model->validDeviceCount = $map['ValidDeviceCount'];
         }
 
         return $model;

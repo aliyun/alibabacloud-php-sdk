@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class BatchAddDataForApiSourceShrinkRequest extends Model
 {
     /**
-     * @example cxatswiniekxw***
-     *
      * @var string
      */
     public $apiId;
 
     /**
-     * @example [{"key":"value1","ts":1637658286000},{"key":"value2","ts":1637658287000}]
-     *
      * @var string
      */
     public $contentListShrink;
 
     /**
-     * @example iot-0pp1n*****
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -36,6 +30,9 @@ class BatchAddDataForApiSourceShrinkRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('apiId', $this->apiId, true);
+        Model::validateRequired('contentListShrink', $this->contentListShrink, true);
+        Model::validateRequired('iotInstanceId', $this->iotInstanceId, true);
     }
 
     public function toMap()

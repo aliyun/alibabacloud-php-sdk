@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class PublishStudioAppRequest extends Model
 {
     /**
-     * @example a12*******
-     *
      * @var string
      */
     public $appId;
@@ -21,15 +19,11 @@ class PublishStudioAppRequest extends Model
     public $description;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example a123******
-     *
      * @var string
      */
     public $projectId;
@@ -42,6 +36,8 @@ class PublishStudioAppRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('appId', $this->appId, true);
+        Model::validateRequired('projectId', $this->projectId, true);
     }
 
     public function toMap()

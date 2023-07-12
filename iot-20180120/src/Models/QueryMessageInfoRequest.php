@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryMessageInfoRequest extends Model
 {
     /**
-     * @example iot-cn-0pp1n8t***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 323455***
-     *
      * @var string
      */
     public $uniMsgId;
@@ -28,6 +24,7 @@ class QueryMessageInfoRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('uniMsgId', $this->uniMsgId, true);
     }
 
     public function toMap()

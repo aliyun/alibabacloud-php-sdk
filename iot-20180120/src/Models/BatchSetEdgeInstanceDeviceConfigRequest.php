@@ -15,15 +15,11 @@ class BatchSetEdgeInstanceDeviceConfigRequest extends Model
     public $deviceConfigs;
 
     /**
-     * @example F3APY0tPLhmgGtx0****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -35,6 +31,8 @@ class BatchSetEdgeInstanceDeviceConfigRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceConfigs', $this->deviceConfigs, true);
+        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

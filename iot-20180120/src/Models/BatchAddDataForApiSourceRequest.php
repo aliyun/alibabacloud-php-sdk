@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class BatchAddDataForApiSourceRequest extends Model
 {
     /**
-     * @example cxatswiniekxw***
-     *
      * @var string
      */
     public $apiId;
 
     /**
-     * @example [{"key":"value1","ts":1637658286000},{"key":"value2","ts":1637658287000}]
-     *
      * @var mixed[]
      */
     public $contentList;
 
     /**
-     * @example iot-0pp1n*****
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -36,6 +30,9 @@ class BatchAddDataForApiSourceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('apiId', $this->apiId, true);
+        Model::validateRequired('contentList', $this->contentList, true);
+        Model::validateRequired('iotInstanceId', $this->iotInstanceId, true);
     }
 
     public function toMap()

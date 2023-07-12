@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class SetProductCertInfoRequest extends Model
 {
     /**
-     * @example iot-cn-0pp1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $issueModel;
 
     /**
-     * @example aS2dewS****
-     *
      * @var string
      */
     public $productKey;
@@ -36,6 +30,8 @@ class SetProductCertInfoRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('issueModel', $this->issueModel, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

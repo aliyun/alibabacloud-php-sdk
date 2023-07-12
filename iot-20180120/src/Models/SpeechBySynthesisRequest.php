@@ -9,71 +9,51 @@ use AlibabaCloud\Tea\Model;
 class SpeechBySynthesisRequest extends Model
 {
     /**
-     * @example wav
-     *
      * @var string
      */
     public $audioFormat;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example Q7uOhVRdZRRlDnTLv****00100
-     *
      * @var string
      */
     public $iotId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example a1BwAGV****
-     *
      * @var string
      */
     public $productKey;
 
     /**
-     * @example 42000011392021112380********
-     *
      * @var string
      */
     public $speechId;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $speechRate;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $text;
 
     /**
-     * @example Siyue
-     *
      * @var string
      */
     public $voice;
 
     /**
-     * @example 50
-     *
      * @var int
      */
     public $volume;
@@ -92,6 +72,9 @@ class SpeechBySynthesisRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('audioFormat', $this->audioFormat, true);
+        Model::validateRequired('text', $this->text, true);
+        Model::validateRequired('voice', $this->voice, true);
     }
 
     public function toMap()

@@ -5,9 +5,10 @@
 namespace AlibabaCloud\SDK\Iot\V20180120;
 
 use AlibabaCloud\Endpoint\Endpoint;
-use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddDataForApiSourceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddDataForApiSourceResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\AddDeviceToSharePromotionRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\AddDeviceToSharePromotionResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddShareTaskDeviceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AddShareTaskDeviceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AsyncRRpcRequest;
@@ -197,6 +198,10 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSceneRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSchedulePeriodRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSchedulePeriodResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSharePromotionActivityRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSharePromotionActivityResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSharePromotionSpeechModelRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSharePromotionSpeechModelResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSoundCodeLabelRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSoundCodeLabelResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\CreateSoundCodeRequest;
@@ -371,6 +376,7 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\GetSpeechDeviceDetailRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetSpeechDeviceDetailResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetSpeechLicenseDeviceStatisticsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetSpeechLicenseDeviceStatisticsResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\GetSpeechVoiceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetSpeechVoiceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetStudioAppTokenOpenRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\GetStudioAppTokenOpenResponse;
@@ -449,6 +455,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\ListThingModelVersionRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListThingModelVersionResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListThingTemplatesRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ListThingTemplatesResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ModifyOTAFirmwareRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ModifyOTAFirmwareResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\NotifyAddThingTopoRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\NotifyAddThingTopoResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\OpenIotServiceRequest;
@@ -613,6 +621,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySceneRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySchedulePeriodListRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySchedulePeriodListResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySharePromotionActivityAuditResultRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySharePromotionActivityAuditResultResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryShareTaskDeviceListRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryShareTaskDeviceListResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySolutionDeviceGroupPageRequest;
@@ -824,13 +834,13 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateTopicConfigRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\UpdateTopicConfigResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\WriteDevicesHotStorageDataRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\WriteDevicesHotStorageDataResponse;
+use AlibabaCloud\Tea\Rpc\Rpc;
+use AlibabaCloud\Tea\RpcUtils\RpcUtils;
+use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
-use Darabonba\OpenApi\Models\OpenApiRequest;
-use Darabonba\OpenApi\Models\Params;
-use Darabonba\OpenApi\OpenApiClient;
 
-class Iot extends OpenApiClient
+class Iot extends Rpc
 {
     public function __construct($config)
     {
@@ -890,29 +900,6 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param string   $productId
-     * @param string   $regionId
-     * @param string   $endpointRule
-     * @param string   $network
-     * @param string   $suffix
-     * @param string[] $endpointMap
-     * @param string   $endpoint
-     *
-     * @return string
-     */
-    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
-    {
-        if (!Utils::empty_($endpoint)) {
-            return $endpoint;
-        }
-        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
-            return @$endpointMap[$regionId];
-        }
-
-        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
-    }
-
-    /**
      * @param AddDataForApiSourceRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -921,32 +908,8 @@ class Iot extends OpenApiClient
     public function addDataForApiSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->apiId)) {
-            $query['ApiId'] = $request->apiId;
-        }
-        if (!Utils::isUnset($request->content)) {
-            $query['Content'] = $request->content;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AddDataForApiSource',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return AddDataForApiSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddDataForApiSourceResponse::fromMap($this->doRequest('AddDataForApiSource', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -962,6 +925,31 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param AddDeviceToSharePromotionRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AddDeviceToSharePromotionResponse
+     */
+    public function addDeviceToSharePromotionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return AddDeviceToSharePromotionResponse::fromMap($this->doRequest('AddDeviceToSharePromotion', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param AddDeviceToSharePromotionRequest $request
+     *
+     * @return AddDeviceToSharePromotionResponse
+     */
+    public function addDeviceToSharePromotion($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addDeviceToSharePromotionWithOptions($request, $runtime);
+    }
+
+    /**
      * @param AddShareTaskDeviceRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -970,35 +958,8 @@ class Iot extends OpenApiClient
     public function addShareTaskDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotIdList)) {
-            $body['IotIdList'] = $request->iotIdList;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $body['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->shareTaskId)) {
-            $body['ShareTaskId'] = $request->shareTaskId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'AddShareTaskDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return AddShareTaskDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AddShareTaskDeviceResponse::fromMap($this->doRequest('AddShareTaskDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1022,43 +983,8 @@ class Iot extends OpenApiClient
     public function asyncRRpcWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->extInfo)) {
-            $query['ExtInfo'] = $request->extInfo;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->topicFullName)) {
-            $query['TopicFullName'] = $request->topicFullName;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->messageContent)) {
-            $body['MessageContent'] = $request->messageContent;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'AsyncRRpc',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return AsyncRRpcResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AsyncRRpcResponse::fromMap($this->doRequest('AsyncRRpc', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1082,35 +1008,8 @@ class Iot extends OpenApiClient
     public function attachDestinationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->destinationId)) {
-            $query['DestinationId'] = $request->destinationId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->isFailover)) {
-            $query['IsFailover'] = $request->isFailover;
-        }
-        if (!Utils::isUnset($request->parserId)) {
-            $query['ParserId'] = $request->parserId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AttachDestination',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return AttachDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachDestinationResponse::fromMap($this->doRequest('AttachDestination', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1134,32 +1033,8 @@ class Iot extends OpenApiClient
     public function attachParserDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['DataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->parserId)) {
-            $query['ParserId'] = $request->parserId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AttachParserDataSource',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return AttachParserDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return AttachParserDataSourceResponse::fromMap($this->doRequest('AttachParserDataSource', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1175,45 +1050,21 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchAddDataForApiSourceRequest $tmpReq
+     * @param BatchAddDataForApiSourceRequest $tmp
      * @param RuntimeOptions                  $runtime
      *
      * @return BatchAddDataForApiSourceResponse
      */
-    public function batchAddDataForApiSourceWithOptions($tmpReq, $runtime)
+    public function batchAddDataForApiSourceWithOptions($tmp, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        Utils::validateModel($tmp);
         $request = new BatchAddDataForApiSourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->contentList)) {
-            $request->contentListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contentList, 'ContentList', 'json');
+        RpcUtils::convert($tmp, $request);
+        if (!Utils::isUnset($tmp->contentList)) {
+            $request->contentListShrink = Utils::toJSONString($tmp->contentList);
         }
-        $query = [];
-        if (!Utils::isUnset($request->apiId)) {
-            $query['ApiId'] = $request->apiId;
-        }
-        if (!Utils::isUnset($request->contentListShrink)) {
-            $query['ContentList'] = $request->contentListShrink;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchAddDataForApiSource',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchAddDataForApiSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchAddDataForApiSourceResponse::fromMap($this->doRequest('BatchAddDataForApiSource', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1229,50 +1080,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
-     *   *
-     * @param BatchAddDeviceGroupRelationsRequest $request BatchAddDeviceGroupRelationsRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param BatchAddDeviceGroupRelationsRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return BatchAddDeviceGroupRelationsResponse BatchAddDeviceGroupRelationsResponse
+     * @return BatchAddDeviceGroupRelationsResponse
      */
     public function batchAddDeviceGroupRelationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->device)) {
-            $query['Device'] = $request->device;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchAddDeviceGroupRelations',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchAddDeviceGroupRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchAddDeviceGroupRelationsResponse::fromMap($this->doRequest('BatchAddDeviceGroupRelations', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
-     *   *
-     * @param BatchAddDeviceGroupRelationsRequest $request BatchAddDeviceGroupRelationsRequest
+     * @param BatchAddDeviceGroupRelationsRequest $request
      *
-     * @return BatchAddDeviceGroupRelationsResponse BatchAddDeviceGroupRelationsResponse
+     * @return BatchAddDeviceGroupRelationsResponse
      */
     public function batchAddDeviceGroupRelations($request)
     {
@@ -1282,67 +1105,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   You can attach up to 10 sub-devices to a gateway in a single call.
-     *   * *   The API operation caller must be the gateway owner.
-     *   * *   If you specify a sub-device that is already attached to a gateway, the original gateway is replaced with the specified gateway.
-     *   * *   If one of the specified sub-devices fails to establish a topological relationship with the gateway, the system rolls back, and all specified sub-devices fail to establish topological relationships with the gateway.
-     *   * *   After you call this operation to establish topological relationships between sub-devices and the gateway, IoT Platform uses the `/sys/${productKey}/${deviceName}/thing/topo/change` topic to push information that includes the result of this operation to the gateway. For more information, see [Notify gateways of changes of topological relationships](~~89299~~).
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per second per Alibaba Cloud account.
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchAddThingTopoRequest $request BatchAddThingTopoRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param BatchAddThingTopoRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return BatchAddThingTopoResponse BatchAddThingTopoResponse
+     * @return BatchAddThingTopoResponse
      */
     public function batchAddThingTopoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->gwDeviceName)) {
-            $query['GwDeviceName'] = $request->gwDeviceName;
-        }
-        if (!Utils::isUnset($request->gwProductKey)) {
-            $query['GwProductKey'] = $request->gwProductKey;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->topoAddItem)) {
-            $query['TopoAddItem'] = $request->topoAddItem;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchAddThingTopo',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchAddThingTopoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchAddThingTopoResponse::fromMap($this->doRequest('BatchAddThingTopo', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   You can attach up to 10 sub-devices to a gateway in a single call.
-     *   * *   The API operation caller must be the gateway owner.
-     *   * *   If you specify a sub-device that is already attached to a gateway, the original gateway is replaced with the specified gateway.
-     *   * *   If one of the specified sub-devices fails to establish a topological relationship with the gateway, the system rolls back, and all specified sub-devices fail to establish topological relationships with the gateway.
-     *   * *   After you call this operation to establish topological relationships between sub-devices and the gateway, IoT Platform uses the `/sys/${productKey}/${deviceName}/thing/topo/change` topic to push information that includes the result of this operation to the gateway. For more information, see [Notify gateways of changes of topological relationships](~~89299~~).
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per second per Alibaba Cloud account.
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchAddThingTopoRequest $request BatchAddThingTopoRequest
+     * @param BatchAddThingTopoRequest $request
      *
-     * @return BatchAddThingTopoResponse BatchAddThingTopoResponse
+     * @return BatchAddThingTopoResponse
      */
     public function batchAddThingTopo($request)
     {
@@ -1352,53 +1130,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information about common request parameters, see [Common parameters](~~30561~~).
-     *   *
-     * @param BatchBindDeviceToEdgeInstanceWithDriverRequest $request BatchBindDeviceToEdgeInstanceWithDriverRequest
-     * @param RuntimeOptions                                 $runtime runtime options for this request RuntimeOptions
+     * @param BatchBindDeviceToEdgeInstanceWithDriverRequest $request
+     * @param RuntimeOptions                                 $runtime
      *
-     * @return BatchBindDeviceToEdgeInstanceWithDriverResponse BatchBindDeviceToEdgeInstanceWithDriverResponse
+     * @return BatchBindDeviceToEdgeInstanceWithDriverResponse
      */
     public function batchBindDeviceToEdgeInstanceWithDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotIds)) {
-            $query['IotIds'] = $request->iotIds;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchBindDeviceToEdgeInstanceWithDriver',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchBindDeviceToEdgeInstanceWithDriverResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchBindDeviceToEdgeInstanceWithDriverResponse::fromMap($this->doRequest('BatchBindDeviceToEdgeInstanceWithDriver', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information about common request parameters, see [Common parameters](~~30561~~).
-     *   *
-     * @param BatchBindDeviceToEdgeInstanceWithDriverRequest $request BatchBindDeviceToEdgeInstanceWithDriverRequest
+     * @param BatchBindDeviceToEdgeInstanceWithDriverRequest $request
      *
-     * @return BatchBindDeviceToEdgeInstanceWithDriverResponse BatchBindDeviceToEdgeInstanceWithDriverResponse
+     * @return BatchBindDeviceToEdgeInstanceWithDriverResponse
      */
     public function batchBindDeviceToEdgeInstanceWithDriver($request)
     {
@@ -1416,32 +1163,8 @@ class Iot extends OpenApiClient
     public function batchBindDevicesIntoProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->devices)) {
-            $body['Devices'] = $request->devices;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchBindDevicesIntoProject',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchBindDevicesIntoProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchBindDevicesIntoProjectResponse::fromMap($this->doRequest('BatchBindDevicesIntoProject', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1465,32 +1188,8 @@ class Iot extends OpenApiClient
     public function batchBindProductsIntoProjectWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKeys)) {
-            $body['ProductKeys'] = $request->productKeys;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchBindProductsIntoProject',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchBindProductsIntoProjectResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchBindProductsIntoProjectResponse::fromMap($this->doRequest('BatchBindProductsIntoProject', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1506,73 +1205,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * You can call this operation with the **BatchRegisterDeviceWithApplyId** operation to register multiple devices under a product. Each device carries a unique DeviceName.
-     *   * Procedure:
-     *   * 1\\. Call this operation to specify the DeviceNames of the devices to be registered. IoT Platform returns an application ID (**ApplyId**). A successful response indicates that the request to verify the DeviceNames is submitted. The actual registration process is asynchronously implemented and takes some minutes.
-     *   * 2\\. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the name setting result.
-     *   * 3\\. Call the [BatchRegisterDeviceWithApplyId](~~69514~~) operation to register multiple devices.
-     *   * 4\\. Optional. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to view the registration result.
-     *   * 5\\. Call the [QueryPageByApplyId](~~69518~~) operation to query the information about the registered devices.
-     *   * ## Limits
-     *   * - You can specify a maximum of 10,000 DeviceNames in a single call.
-     *   * - Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchCheckDeviceNamesRequest $request BatchCheckDeviceNamesRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param BatchCheckDeviceNamesRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return BatchCheckDeviceNamesResponse BatchCheckDeviceNamesResponse
+     * @return BatchCheckDeviceNamesResponse
      */
     public function batchCheckDeviceNamesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->deviceNameList)) {
-            $body['DeviceNameList'] = $request->deviceNameList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchCheckDeviceNames',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchCheckDeviceNamesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchCheckDeviceNamesResponse::fromMap($this->doRequest('BatchCheckDeviceNames', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * You can call this operation with the **BatchRegisterDeviceWithApplyId** operation to register multiple devices under a product. Each device carries a unique DeviceName.
-     *   * Procedure:
-     *   * 1\\. Call this operation to specify the DeviceNames of the devices to be registered. IoT Platform returns an application ID (**ApplyId**). A successful response indicates that the request to verify the DeviceNames is submitted. The actual registration process is asynchronously implemented and takes some minutes.
-     *   * 2\\. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the name setting result.
-     *   * 3\\. Call the [BatchRegisterDeviceWithApplyId](~~69514~~) operation to register multiple devices.
-     *   * 4\\. Optional. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to view the registration result.
-     *   * 5\\. Call the [QueryPageByApplyId](~~69518~~) operation to query the information about the registered devices.
-     *   * ## Limits
-     *   * - You can specify a maximum of 10,000 DeviceNames in a single call.
-     *   * - Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchCheckDeviceNamesRequest $request BatchCheckDeviceNamesRequest
+     * @param BatchCheckDeviceNamesRequest $request
      *
-     * @return BatchCheckDeviceNamesResponse BatchCheckDeviceNamesResponse
+     * @return BatchCheckDeviceNamesResponse
      */
     public function batchCheckDeviceNames($request)
     {
@@ -1590,34 +1238,8 @@ class Iot extends OpenApiClient
     public function batchCheckImportDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->deviceList)) {
-            $body['DeviceList'] = $request->deviceList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchCheckImportDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchCheckImportDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchCheckImportDeviceResponse::fromMap($this->doRequest('BatchCheckImportDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1633,52 +1255,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * The invalid device models returned if the call fails.
-     *   *
-     * @param BatchCheckVehicleDeviceRequest $request BatchCheckVehicleDeviceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param BatchCheckVehicleDeviceRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return BatchCheckVehicleDeviceResponse BatchCheckVehicleDeviceResponse
+     * @return BatchCheckVehicleDeviceResponse
      */
     public function batchCheckVehicleDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->deviceList)) {
-            $body['DeviceList'] = $request->deviceList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchCheckVehicleDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchCheckVehicleDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchCheckVehicleDeviceResponse::fromMap($this->doRequest('BatchCheckVehicleDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * The invalid device models returned if the call fails.
-     *   *
-     * @param BatchCheckVehicleDeviceRequest $request BatchCheckVehicleDeviceRequest
+     * @param BatchCheckVehicleDeviceRequest $request
      *
-     * @return BatchCheckVehicleDeviceResponse BatchCheckVehicleDeviceResponse
+     * @return BatchCheckVehicleDeviceResponse
      */
     public function batchCheckVehicleDevice($request)
     {
@@ -1688,54 +1280,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchClearEdgeInstanceDeviceConfigRequest $request BatchClearEdgeInstanceDeviceConfigRequest
-     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
+     * @param BatchClearEdgeInstanceDeviceConfigRequest $request
+     * @param RuntimeOptions                            $runtime
      *
-     * @return BatchClearEdgeInstanceDeviceConfigResponse BatchClearEdgeInstanceDeviceConfigResponse
+     * @return BatchClearEdgeInstanceDeviceConfigResponse
      */
     public function batchClearEdgeInstanceDeviceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotIds)) {
-            $query['IotIds'] = $request->iotIds;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchClearEdgeInstanceDeviceConfig',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchClearEdgeInstanceDeviceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchClearEdgeInstanceDeviceConfigResponse::fromMap($this->doRequest('BatchClearEdgeInstanceDeviceConfig', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchClearEdgeInstanceDeviceConfigRequest $request BatchClearEdgeInstanceDeviceConfigRequest
+     * @param BatchClearEdgeInstanceDeviceConfigRequest $request
      *
-     * @return BatchClearEdgeInstanceDeviceConfigResponse BatchClearEdgeInstanceDeviceConfigResponse
+     * @return BatchClearEdgeInstanceDeviceConfigResponse
      */
     public function batchClearEdgeInstanceDeviceConfig($request)
     {
@@ -1753,35 +1313,8 @@ class Iot extends OpenApiClient
     public function batchCreateSoundCodeLabelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->scheduleCode)) {
-            $body['ScheduleCode'] = $request->scheduleCode;
-        }
-        if (!Utils::isUnset($request->total)) {
-            $body['Total'] = $request->total;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchCreateSoundCodeLabel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchCreateSoundCodeLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchCreateSoundCodeLabelResponse::fromMap($this->doRequest('BatchCreateSoundCodeLabel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1805,35 +1338,8 @@ class Iot extends OpenApiClient
     public function batchCreateSoundCodeLabelWithLabelsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->labels)) {
-            $body['Labels'] = $request->labels;
-        }
-        if (!Utils::isUnset($request->scheduleCode)) {
-            $body['ScheduleCode'] = $request->scheduleCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchCreateSoundCodeLabelWithLabels',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchCreateSoundCodeLabelWithLabelsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchCreateSoundCodeLabelWithLabelsResponse::fromMap($this->doRequest('BatchCreateSoundCodeLabelWithLabels', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1849,54 +1355,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchDeleteDeviceGroupRelationsRequest $request BatchDeleteDeviceGroupRelationsRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * @param BatchDeleteDeviceGroupRelationsRequest $request
+     * @param RuntimeOptions                         $runtime
      *
-     * @return BatchDeleteDeviceGroupRelationsResponse BatchDeleteDeviceGroupRelationsResponse
+     * @return BatchDeleteDeviceGroupRelationsResponse
      */
     public function batchDeleteDeviceGroupRelationsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->device)) {
-            $query['Device'] = $request->device;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchDeleteDeviceGroupRelations',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchDeleteDeviceGroupRelationsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchDeleteDeviceGroupRelationsResponse::fromMap($this->doRequest('BatchDeleteDeviceGroupRelations', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchDeleteDeviceGroupRelationsRequest $request BatchDeleteDeviceGroupRelationsRequest
+     * @param BatchDeleteDeviceGroupRelationsRequest $request
      *
-     * @return BatchDeleteDeviceGroupRelationsResponse BatchDeleteDeviceGroupRelationsResponse
+     * @return BatchDeleteDeviceGroupRelationsResponse
      */
     public function batchDeleteDeviceGroupRelations($request)
     {
@@ -1914,35 +1388,8 @@ class Iot extends OpenApiClient
     public function batchDeleteEdgeInstanceChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->channelIds)) {
-            $query['ChannelIds'] = $request->channelIds;
-        }
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchDeleteEdgeInstanceChannel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchDeleteEdgeInstanceChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchDeleteEdgeInstanceChannelResponse::fromMap($this->doRequest('BatchDeleteEdgeInstanceChannel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -1966,29 +1413,8 @@ class Iot extends OpenApiClient
     public function batchGetDeviceBindStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotIds)) {
-            $query['IotIds'] = $request->iotIds;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchGetDeviceBindStatus',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchGetDeviceBindStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchGetDeviceBindStatusResponse::fromMap($this->doRequest('BatchGetDeviceBindStatus', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2004,65 +1430,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * When you call this operation, you can perform the following operations:
-     *   * *   You can specify a value for the **ProductKey** parameter and multiple values for the **DeviceName** parameter to query the status of devices that belong to a product.
-     *   * *   You can specify multiple values for the **IotId** parameter to query the status of devices that belong to different products.****
-     *   * >You can query the status of up to 50 devices in a call.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchGetDeviceStateRequest $request BatchGetDeviceStateRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param BatchGetDeviceStateRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return BatchGetDeviceStateResponse BatchGetDeviceStateResponse
+     * @return BatchGetDeviceStateResponse
      */
     public function batchGetDeviceStateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchGetDeviceState',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchGetDeviceStateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchGetDeviceStateResponse::fromMap($this->doRequest('BatchGetDeviceState', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * When you call this operation, you can perform the following operations:
-     *   * *   You can specify a value for the **ProductKey** parameter and multiple values for the **DeviceName** parameter to query the status of devices that belong to a product.
-     *   * *   You can specify multiple values for the **IotId** parameter to query the status of devices that belong to different products.****
-     *   * >You can query the status of up to 50 devices in a call.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchGetDeviceStateRequest $request BatchGetDeviceStateRequest
+     * @param BatchGetDeviceStateRequest $request
      *
-     * @return BatchGetDeviceStateResponse BatchGetDeviceStateResponse
+     * @return BatchGetDeviceStateResponse
      */
     public function batchGetDeviceState($request)
     {
@@ -2072,51 +1455,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * A single Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users share the quota of the Alibaba Cloud account.
-     *   *
-     * @param BatchGetEdgeDriverRequest $request BatchGetEdgeDriverRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param BatchGetEdgeDriverRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return BatchGetEdgeDriverResponse BatchGetEdgeDriverResponse
+     * @return BatchGetEdgeDriverResponse
      */
     public function batchGetEdgeDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->driverIds)) {
-            $query['DriverIds'] = $request->driverIds;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchGetEdgeDriver',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchGetEdgeDriverResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchGetEdgeDriverResponse::fromMap($this->doRequest('BatchGetEdgeDriver', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * A single Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users share the quota of the Alibaba Cloud account.
-     *   *
-     * @param BatchGetEdgeDriverRequest $request BatchGetEdgeDriverRequest
+     * @param BatchGetEdgeDriverRequest $request
      *
-     * @return BatchGetEdgeDriverResponse BatchGetEdgeDriverResponse
+     * @return BatchGetEdgeDriverResponse
      */
     public function batchGetEdgeDriver($request)
     {
@@ -2134,35 +1488,8 @@ class Iot extends OpenApiClient
     public function batchGetEdgeInstanceChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->channelIds)) {
-            $query['ChannelIds'] = $request->channelIds;
-        }
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchGetEdgeInstanceChannel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchGetEdgeInstanceChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchGetEdgeInstanceChannelResponse::fromMap($this->doRequest('BatchGetEdgeInstanceChannel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2186,35 +1513,8 @@ class Iot extends OpenApiClient
     public function batchGetEdgeInstanceDeviceChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotIds)) {
-            $query['IotIds'] = $request->iotIds;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchGetEdgeInstanceDeviceChannel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchGetEdgeInstanceDeviceChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchGetEdgeInstanceDeviceChannelResponse::fromMap($this->doRequest('BatchGetEdgeInstanceDeviceChannel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2230,54 +1530,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchGetEdgeInstanceDeviceConfigRequest $request BatchGetEdgeInstanceDeviceConfigRequest
-     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
+     * @param BatchGetEdgeInstanceDeviceConfigRequest $request
+     * @param RuntimeOptions                          $runtime
      *
-     * @return BatchGetEdgeInstanceDeviceConfigResponse BatchGetEdgeInstanceDeviceConfigResponse
+     * @return BatchGetEdgeInstanceDeviceConfigResponse
      */
     public function batchGetEdgeInstanceDeviceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotIds)) {
-            $query['IotIds'] = $request->iotIds;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchGetEdgeInstanceDeviceConfig',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchGetEdgeInstanceDeviceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchGetEdgeInstanceDeviceConfigResponse::fromMap($this->doRequest('BatchGetEdgeInstanceDeviceConfig', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchGetEdgeInstanceDeviceConfigRequest $request BatchGetEdgeInstanceDeviceConfigRequest
+     * @param BatchGetEdgeInstanceDeviceConfigRequest $request
      *
-     * @return BatchGetEdgeInstanceDeviceConfigResponse BatchGetEdgeInstanceDeviceConfigResponse
+     * @return BatchGetEdgeInstanceDeviceConfigResponse
      */
     public function batchGetEdgeInstanceDeviceConfig($request)
     {
@@ -2295,32 +1563,8 @@ class Iot extends OpenApiClient
     public function batchGetEdgeInstanceDeviceDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotIds)) {
-            $query['IotIds'] = $request->iotIds;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchGetEdgeInstanceDeviceDriver',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchGetEdgeInstanceDeviceDriverResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchGetEdgeInstanceDeviceDriverResponse::fromMap($this->doRequest('BatchGetEdgeInstanceDeviceDriver', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2336,54 +1580,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchGetEdgeInstanceDriverConfigsRequest $request BatchGetEdgeInstanceDriverConfigsRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * @param BatchGetEdgeInstanceDriverConfigsRequest $request
+     * @param RuntimeOptions                           $runtime
      *
-     * @return BatchGetEdgeInstanceDriverConfigsResponse BatchGetEdgeInstanceDriverConfigsResponse
+     * @return BatchGetEdgeInstanceDriverConfigsResponse
      */
     public function batchGetEdgeInstanceDriverConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->driverIds)) {
-            $query['DriverIds'] = $request->driverIds;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchGetEdgeInstanceDriverConfigs',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchGetEdgeInstanceDriverConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchGetEdgeInstanceDriverConfigsResponse::fromMap($this->doRequest('BatchGetEdgeInstanceDriverConfigs', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchGetEdgeInstanceDriverConfigsRequest $request BatchGetEdgeInstanceDriverConfigsRequest
+     * @param BatchGetEdgeInstanceDriverConfigsRequest $request
      *
-     * @return BatchGetEdgeInstanceDriverConfigsResponse BatchGetEdgeInstanceDriverConfigsResponse
+     * @return BatchGetEdgeInstanceDriverConfigsResponse
      */
     public function batchGetEdgeInstanceDriverConfigs($request)
     {
@@ -2401,31 +1613,8 @@ class Iot extends OpenApiClient
     public function batchGrayMigrationDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->deviceNames)) {
-            $body['DeviceNames'] = $request->deviceNames;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchGrayMigrationDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchGrayMigrationDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchGrayMigrationDeviceResponse::fromMap($this->doRequest('BatchGrayMigrationDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2449,34 +1638,8 @@ class Iot extends OpenApiClient
     public function batchImportDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->deviceList)) {
-            $body['DeviceList'] = $request->deviceList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchImportDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchImportDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchImportDeviceResponse::fromMap($this->doRequest('BatchImportDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2492,56 +1655,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * Indicates whether the call was successful. Valid values:
-     *   * - **true**: The call was successful.
-     *   * - **false**: The call failed.
-     *   *
-     * @param BatchImportVehicleDeviceRequest $request BatchImportVehicleDeviceRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param BatchImportVehicleDeviceRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return BatchImportVehicleDeviceResponse BatchImportVehicleDeviceResponse
+     * @return BatchImportVehicleDeviceResponse
      */
     public function batchImportVehicleDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->deviceList)) {
-            $body['DeviceList'] = $request->deviceList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchImportVehicleDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchImportVehicleDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchImportVehicleDeviceResponse::fromMap($this->doRequest('BatchImportVehicleDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * Indicates whether the call was successful. Valid values:
-     *   * - **true**: The call was successful.
-     *   * - **false**: The call failed.
-     *   *
-     * @param BatchImportVehicleDeviceRequest $request BatchImportVehicleDeviceRequest
+     * @param BatchImportVehicleDeviceRequest $request
      *
-     * @return BatchImportVehicleDeviceResponse BatchImportVehicleDeviceResponse
+     * @return BatchImportVehicleDeviceResponse
      */
     public function batchImportVehicleDevice($request)
     {
@@ -2551,65 +1680,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to publish a message to a maximum of 100 devices of a product at a time.
-     *   * *   The BatchPub operation cannot be used to send commands of setting properties or calling services. If you need to set properties, use the [SetDeviceProperty](~~69579~~) or [SetDevicesProperty](~~96243~~) operation. If you need to call services, use the [InvokeThingService](~~69584~~) or [InvokeThingsService](~~96242~~) operation.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchPubRequest $request BatchPubRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * @param BatchPubRequest $request
+     * @param RuntimeOptions  $runtime
      *
-     * @return BatchPubResponse BatchPubResponse
+     * @return BatchPubResponse
      */
     public function batchPubWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->messageContent)) {
-            $query['MessageContent'] = $request->messageContent;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->qos)) {
-            $query['Qos'] = $request->qos;
-        }
-        if (!Utils::isUnset($request->topicShortName)) {
-            $query['TopicShortName'] = $request->topicShortName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchPub',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchPubResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchPubResponse::fromMap($this->doRequest('BatchPub', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   You can call this operation to publish a message to a maximum of 100 devices of a product at a time.
-     *   * *   The BatchPub operation cannot be used to send commands of setting properties or calling services. If you need to set properties, use the [SetDeviceProperty](~~69579~~) or [SetDevicesProperty](~~96243~~) operation. If you need to call services, use the [InvokeThingService](~~69584~~) or [InvokeThingsService](~~96242~~) operation.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchPubRequest $request BatchPubRequest
+     * @param BatchPubRequest $request
      *
-     * @return BatchPubResponse BatchPubResponse
+     * @return BatchPubResponse
      */
     public function batchPub($request)
     {
@@ -2619,60 +1705,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   You can query a maximum of 100 devices in a single call.
-     *   * *   You can query the details of devices that belong only to the current Alibaba Cloud account. If you specify a device that does not belong to the current account, an error message is returned.
-     *   * *   If you specify multiple devices and some devices do not exist, only the details of existing devices are returned.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchQueryDeviceDetailRequest $request BatchQueryDeviceDetailRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param BatchQueryDeviceDetailRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return BatchQueryDeviceDetailResponse BatchQueryDeviceDetailResponse
+     * @return BatchQueryDeviceDetailResponse
      */
     public function batchQueryDeviceDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchQueryDeviceDetail',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchQueryDeviceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchQueryDeviceDetailResponse::fromMap($this->doRequest('BatchQueryDeviceDetail', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   You can query a maximum of 100 devices in a single call.
-     *   * *   You can query the details of devices that belong only to the current Alibaba Cloud account. If you specify a device that does not belong to the current account, an error message is returned.
-     *   * *   If you specify multiple devices and some devices do not exist, only the details of existing devices are returned.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchQueryDeviceDetailRequest $request BatchQueryDeviceDetailRequest
+     * @param BatchQueryDeviceDetailRequest $request
      *
-     * @return BatchQueryDeviceDetailResponse BatchQueryDeviceDetailResponse
+     * @return BatchQueryDeviceDetailResponse
      */
     public function batchQueryDeviceDetail($request)
     {
@@ -2682,68 +1730,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * You can use one of the following methods to register multiple devices:
-     *   * *   If you want to generate random DeviceNames, call the BatchRegisterDevice operation.
-     *   *     Perform the following steps to register devices and view the result:
-     *   *     1\\. Call the BatchRegisterDevice operation to register multiple devices. A successful response indicates that the registration request is submitted. The actual registration process is asynchronously implemented and takes some minutes.
-     *   *     2\\. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the device registration result.
-     *   *     3\\. Call the [QueryPageByApplyId](~~69518~~) operation to view the details of registered devices. The details include the DeviceName, DeviceSecret, and IotId parameters.
-     *   * *   If you want to specify custom DeviceNames, call the BatchRegisterDeviceWithApplyId operation. For more information, see [BatchRegisterDeviceWithApplyId](~~69514~~).
-     *   * ## Limits
-     *   * - You can create a maximum of 10,000 devices in a single call.
-     *   * - Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchRegisterDeviceRequest $request BatchRegisterDeviceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param BatchRegisterDeviceRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return BatchRegisterDeviceResponse BatchRegisterDeviceResponse
+     * @return BatchRegisterDeviceResponse
      */
     public function batchRegisterDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->count)) {
-            $query['Count'] = $request->count;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchRegisterDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchRegisterDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchRegisterDeviceResponse::fromMap($this->doRequest('BatchRegisterDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * You can use one of the following methods to register multiple devices:
-     *   * *   If you want to generate random DeviceNames, call the BatchRegisterDevice operation.
-     *   *     Perform the following steps to register devices and view the result:
-     *   *     1\\. Call the BatchRegisterDevice operation to register multiple devices. A successful response indicates that the registration request is submitted. The actual registration process is asynchronously implemented and takes some minutes.
-     *   *     2\\. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the device registration result.
-     *   *     3\\. Call the [QueryPageByApplyId](~~69518~~) operation to view the details of registered devices. The details include the DeviceName, DeviceSecret, and IotId parameters.
-     *   * *   If you want to specify custom DeviceNames, call the BatchRegisterDeviceWithApplyId operation. For more information, see [BatchRegisterDeviceWithApplyId](~~69514~~).
-     *   * ## Limits
-     *   * - You can create a maximum of 10,000 devices in a single call.
-     *   * - Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchRegisterDeviceRequest $request BatchRegisterDeviceRequest
+     * @param BatchRegisterDeviceRequest $request
      *
-     * @return BatchRegisterDeviceResponse BatchRegisterDeviceResponse
+     * @return BatchRegisterDeviceResponse
      */
     public function batchRegisterDevice($request)
     {
@@ -2753,70 +1755,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * You can use one of the following methods to register multiple devices at a time:
-     *   * *   Call the [BatchRegisterDevice](~~69473~~) operation to generate random DeviceNames.
-     *   * *   Call the BatchRegisterDeviceWithApplyId and **BatchCheckDeviceNames** operations to specify custom DeviceNames. Procedure:
-     *   *     Call the [BatchCheckDeviceNames](~~69482~~) operation and specify the names of devices that you want to register. If the DeviceNames are valid, IoT Platform returns an application ID that is specified by the **ApplyId** parameter. You can query the DeviceName setting results, device registration results, and device details by **ApplyId**.
-     *   *     Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the name setting result.
-     *   *     Call the BatchRegisterDeviceWithApplyId operation to register multiple devices. The successful result that is returned by this operation indicates that only the batch registration request is submitted. In actual scenarios, the registration process takes a few minutes.
-     *   *     Optional. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the device registration result.
-     *   *     Call the [QueryPageByApplyId](~~69518~~) operation to view the details of devices that are registered in batches.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param BatchRegisterDeviceWithApplyIdRequest $request BatchRegisterDeviceWithApplyIdRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * @param BatchRegisterDeviceWithApplyIdRequest $request
+     * @param RuntimeOptions                        $runtime
      *
-     * @return BatchRegisterDeviceWithApplyIdResponse BatchRegisterDeviceWithApplyIdResponse
+     * @return BatchRegisterDeviceWithApplyIdResponse
      */
     public function batchRegisterDeviceWithApplyIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->applyId)) {
-            $query['ApplyId'] = $request->applyId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchRegisterDeviceWithApplyId',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchRegisterDeviceWithApplyIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchRegisterDeviceWithApplyIdResponse::fromMap($this->doRequest('BatchRegisterDeviceWithApplyId', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * You can use one of the following methods to register multiple devices at a time:
-     *   * *   Call the [BatchRegisterDevice](~~69473~~) operation to generate random DeviceNames.
-     *   * *   Call the BatchRegisterDeviceWithApplyId and **BatchCheckDeviceNames** operations to specify custom DeviceNames. Procedure:
-     *   *     Call the [BatchCheckDeviceNames](~~69482~~) operation and specify the names of devices that you want to register. If the DeviceNames are valid, IoT Platform returns an application ID that is specified by the **ApplyId** parameter. You can query the DeviceName setting results, device registration results, and device details by **ApplyId**.
-     *   *     Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the name setting result.
-     *   *     Call the BatchRegisterDeviceWithApplyId operation to register multiple devices. The successful result that is returned by this operation indicates that only the batch registration request is submitted. In actual scenarios, the registration process takes a few minutes.
-     *   *     Optional. Call the [QueryBatchRegisterDeviceStatus](~~69483~~) operation to query the device registration result.
-     *   *     Call the [QueryPageByApplyId](~~69518~~) operation to view the details of devices that are registered in batches.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param BatchRegisterDeviceWithApplyIdRequest $request BatchRegisterDeviceWithApplyIdRequest
+     * @param BatchRegisterDeviceWithApplyIdRequest $request
      *
-     * @return BatchRegisterDeviceWithApplyIdResponse BatchRegisterDeviceWithApplyIdResponse
+     * @return BatchRegisterDeviceWithApplyIdResponse
      */
     public function batchRegisterDeviceWithApplyId($request)
     {
@@ -2834,38 +1788,8 @@ class Iot extends OpenApiClient
     public function batchSetEdgeInstanceDeviceChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->channelId)) {
-            $query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotIds)) {
-            $query['IotIds'] = $request->iotIds;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchSetEdgeInstanceDeviceChannel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchSetEdgeInstanceDeviceChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchSetEdgeInstanceDeviceChannelResponse::fromMap($this->doRequest('BatchSetEdgeInstanceDeviceChannel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2889,32 +1813,8 @@ class Iot extends OpenApiClient
     public function batchSetEdgeInstanceDeviceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceConfigs)) {
-            $query['DeviceConfigs'] = $request->deviceConfigs;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchSetEdgeInstanceDeviceConfig',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchSetEdgeInstanceDeviceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchSetEdgeInstanceDeviceConfigResponse::fromMap($this->doRequest('BatchSetEdgeInstanceDeviceConfig', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -2930,54 +1830,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchUnbindDeviceFromEdgeInstanceRequest $request BatchUnbindDeviceFromEdgeInstanceRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * @param BatchUnbindDeviceFromEdgeInstanceRequest $request
+     * @param RuntimeOptions                           $runtime
      *
-     * @return BatchUnbindDeviceFromEdgeInstanceResponse BatchUnbindDeviceFromEdgeInstanceResponse
+     * @return BatchUnbindDeviceFromEdgeInstanceResponse
      */
     public function batchUnbindDeviceFromEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotIds)) {
-            $query['IotIds'] = $request->iotIds;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchUnbindDeviceFromEdgeInstance',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchUnbindDeviceFromEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchUnbindDeviceFromEdgeInstanceResponse::fromMap($this->doRequest('BatchUnbindDeviceFromEdgeInstance', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchUnbindDeviceFromEdgeInstanceRequest $request BatchUnbindDeviceFromEdgeInstanceRequest
+     * @param BatchUnbindDeviceFromEdgeInstanceRequest $request
      *
-     * @return BatchUnbindDeviceFromEdgeInstanceResponse BatchUnbindDeviceFromEdgeInstanceResponse
+     * @return BatchUnbindDeviceFromEdgeInstanceResponse
      */
     public function batchUnbindDeviceFromEdgeInstance($request)
     {
@@ -2995,32 +1863,8 @@ class Iot extends OpenApiClient
     public function batchUnbindProjectDevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->devices)) {
-            $body['Devices'] = $request->devices;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchUnbindProjectDevices',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchUnbindProjectDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchUnbindProjectDevicesResponse::fromMap($this->doRequest('BatchUnbindProjectDevices', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3044,32 +1888,8 @@ class Iot extends OpenApiClient
     public function batchUnbindProjectProductsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKeys)) {
-            $body['ProductKeys'] = $request->productKeys;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchUnbindProjectProducts',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchUnbindProjectProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchUnbindProjectProductsResponse::fromMap($this->doRequest('BatchUnbindProjectProducts', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3085,51 +1905,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchUpdateDeviceNicknameRequest $request BatchUpdateDeviceNicknameRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param BatchUpdateDeviceNicknameRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return BatchUpdateDeviceNicknameResponse BatchUpdateDeviceNicknameResponse
+     * @return BatchUpdateDeviceNicknameResponse
      */
     public function batchUpdateDeviceNicknameWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceNicknameInfo)) {
-            $query['DeviceNicknameInfo'] = $request->deviceNicknameInfo;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BatchUpdateDeviceNickname',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BatchUpdateDeviceNicknameResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BatchUpdateDeviceNicknameResponse::fromMap($this->doRequest('BatchUpdateDeviceNickname', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BatchUpdateDeviceNicknameRequest $request BatchUpdateDeviceNicknameRequest
+     * @param BatchUpdateDeviceNicknameRequest $request
      *
-     * @return BatchUpdateDeviceNicknameResponse BatchUpdateDeviceNicknameResponse
+     * @return BatchUpdateDeviceNicknameResponse
      */
     public function batchUpdateDeviceNickname($request)
     {
@@ -3147,35 +1938,8 @@ class Iot extends OpenApiClient
     public function bindApplicationToEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
-        }
-        if (!Utils::isUnset($request->applicationVersion)) {
-            $query['ApplicationVersion'] = $request->applicationVersion;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BindApplicationToEdgeInstance',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BindApplicationToEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindApplicationToEdgeInstanceResponse::fromMap($this->doRequest('BindApplicationToEdgeInstance', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3191,60 +1955,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BindDriverToEdgeInstanceRequest $request BindDriverToEdgeInstanceRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param BindDriverToEdgeInstanceRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return BindDriverToEdgeInstanceResponse BindDriverToEdgeInstanceResponse
+     * @return BindDriverToEdgeInstanceResponse
      */
     public function bindDriverToEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->driverVersion)) {
-            $query['DriverVersion'] = $request->driverVersion;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->orderId)) {
-            $query['OrderId'] = $request->orderId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BindDriverToEdgeInstance',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BindDriverToEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindDriverToEdgeInstanceResponse::fromMap($this->doRequest('BindDriverToEdgeInstance', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BindDriverToEdgeInstanceRequest $request BindDriverToEdgeInstanceRequest
+     * @param BindDriverToEdgeInstanceRequest $request
      *
-     * @return BindDriverToEdgeInstanceResponse BindDriverToEdgeInstanceResponse
+     * @return BindDriverToEdgeInstanceResponse
      */
     public function bindDriverToEdgeInstance($request)
     {
@@ -3254,60 +1980,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BindGatewayToEdgeInstanceRequest $request BindGatewayToEdgeInstanceRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param BindGatewayToEdgeInstanceRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return BindGatewayToEdgeInstanceResponse BindGatewayToEdgeInstanceResponse
+     * @return BindGatewayToEdgeInstanceResponse
      */
     public function bindGatewayToEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BindGatewayToEdgeInstance',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BindGatewayToEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindGatewayToEdgeInstanceResponse::fromMap($this->doRequest('BindGatewayToEdgeInstance', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param BindGatewayToEdgeInstanceRequest $request BindGatewayToEdgeInstanceRequest
+     * @param BindGatewayToEdgeInstanceRequest $request
      *
-     * @return BindGatewayToEdgeInstanceResponse BindGatewayToEdgeInstanceResponse
+     * @return BindGatewayToEdgeInstanceResponse
      */
     public function bindGatewayToEdgeInstance($request)
     {
@@ -3325,40 +2013,8 @@ class Iot extends OpenApiClient
     public function bindLicenseDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->licenseCode)) {
-            $query['LicenseCode'] = $request->licenseCode;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->deviceNameList)) {
-            $body['DeviceNameList'] = $request->deviceNameList;
-        }
-        if (!Utils::isUnset($request->iotIdList)) {
-            $body['IotIdList'] = $request->iotIdList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'BindLicenseDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BindLicenseDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindLicenseDeviceResponse::fromMap($this->doRequest('BindLicenseDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3382,32 +2038,8 @@ class Iot extends OpenApiClient
     public function bindLicenseProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->licenseCode)) {
-            $query['LicenseCode'] = $request->licenseCode;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BindLicenseProduct',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BindLicenseProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindLicenseProductResponse::fromMap($this->doRequest('BindLicenseProduct', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3431,35 +2063,8 @@ class Iot extends OpenApiClient
     public function bindRoleToEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->roleArn)) {
-            $query['RoleArn'] = $request->roleArn;
-        }
-        if (!Utils::isUnset($request->roleName)) {
-            $query['RoleName'] = $request->roleName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BindRoleToEdgeInstance',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BindRoleToEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindRoleToEdgeInstanceResponse::fromMap($this->doRequest('BindRoleToEdgeInstance', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3483,32 +2088,8 @@ class Iot extends OpenApiClient
     public function bindSceneRuleToEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'BindSceneRuleToEdgeInstance',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return BindSceneRuleToEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return BindSceneRuleToEdgeInstanceResponse::fromMap($this->doRequest('BindSceneRuleToEdgeInstance', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3532,29 +2113,8 @@ class Iot extends OpenApiClient
     public function cancelJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CancelJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CancelJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelJobResponse::fromMap($this->doRequest('CancelJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3570,55 +2130,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   You can cancel only the dynamic update policy that is attached to a dynamic update batch. This operation is not applicable to static update batches.
-     *   *     After the operation is successful, the **JobStatus** parameter is set to CANCELED.
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CancelOTAStrategyByJobRequest $request CancelOTAStrategyByJobRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param CancelOTAStrategyByJobRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return CancelOTAStrategyByJobResponse CancelOTAStrategyByJobResponse
+     * @return CancelOTAStrategyByJobResponse
      */
     public function cancelOTAStrategyByJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CancelOTAStrategyByJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CancelOTAStrategyByJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelOTAStrategyByJobResponse::fromMap($this->doRequest('CancelOTAStrategyByJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   You can cancel only the dynamic update policy that is attached to a dynamic update batch. This operation is not applicable to static update batches.
-     *   *     After the operation is successful, the **JobStatus** parameter is set to CANCELED.
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CancelOTAStrategyByJobRequest $request CancelOTAStrategyByJobRequest
+     * @param CancelOTAStrategyByJobRequest $request
      *
-     * @return CancelOTAStrategyByJobResponse CancelOTAStrategyByJobResponse
+     * @return CancelOTAStrategyByJobResponse
      */
     public function cancelOTAStrategyByJob($request)
     {
@@ -3628,62 +2155,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * This operation can cancel device update tasks only when the tasks are in the to be pushed, pushed, or in upgrade state.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param CancelOTATaskByDeviceRequest $request CancelOTATaskByDeviceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param CancelOTATaskByDeviceRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return CancelOTATaskByDeviceResponse CancelOTATaskByDeviceResponse
+     * @return CancelOTATaskByDeviceResponse
      */
     public function cancelOTATaskByDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->firmwareId)) {
-            $query['FirmwareId'] = $request->firmwareId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CancelOTATaskByDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CancelOTATaskByDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelOTATaskByDeviceResponse::fromMap($this->doRequest('CancelOTATaskByDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * This operation can cancel device update tasks only when the tasks are in the to be pushed, pushed, or in upgrade state.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param CancelOTATaskByDeviceRequest $request CancelOTATaskByDeviceRequest
+     * @param CancelOTATaskByDeviceRequest $request
      *
-     * @return CancelOTATaskByDeviceResponse CancelOTATaskByDeviceResponse
+     * @return CancelOTATaskByDeviceResponse
      */
     public function cancelOTATaskByDevice($request)
     {
@@ -3693,68 +2180,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * When you call this operation, make sure that you specify at least one of the CancelScheduledTask, CancelQueuedTask, CancelInProgressTask, CancelNotifiedTask, and CancelUnconfirmedTask parameters. Otherwise, the request will fail.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CancelOTATaskByJobRequest $request CancelOTATaskByJobRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param CancelOTATaskByJobRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return CancelOTATaskByJobResponse CancelOTATaskByJobResponse
+     * @return CancelOTATaskByJobResponse
      */
     public function cancelOTATaskByJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->cancelInProgressTask)) {
-            $query['CancelInProgressTask'] = $request->cancelInProgressTask;
-        }
-        if (!Utils::isUnset($request->cancelNotifiedTask)) {
-            $query['CancelNotifiedTask'] = $request->cancelNotifiedTask;
-        }
-        if (!Utils::isUnset($request->cancelQueuedTask)) {
-            $query['CancelQueuedTask'] = $request->cancelQueuedTask;
-        }
-        if (!Utils::isUnset($request->cancelScheduledTask)) {
-            $query['CancelScheduledTask'] = $request->cancelScheduledTask;
-        }
-        if (!Utils::isUnset($request->cancelUnconfirmedTask)) {
-            $query['CancelUnconfirmedTask'] = $request->cancelUnconfirmedTask;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CancelOTATaskByJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CancelOTATaskByJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelOTATaskByJobResponse::fromMap($this->doRequest('CancelOTATaskByJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * When you call this operation, make sure that you specify at least one of the CancelScheduledTask, CancelQueuedTask, CancelInProgressTask, CancelNotifiedTask, and CancelUnconfirmedTask parameters. Otherwise, the request will fail.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CancelOTATaskByJobRequest $request CancelOTATaskByJobRequest
+     * @param CancelOTATaskByJobRequest $request
      *
-     * @return CancelOTATaskByJobResponse CancelOTATaskByJobResponse
+     * @return CancelOTATaskByJobResponse
      */
     public function cancelOTATaskByJob($request)
     {
@@ -3764,49 +2205,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CancelReleaseProductRequest $request CancelReleaseProductRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param CancelReleaseProductRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return CancelReleaseProductResponse CancelReleaseProductResponse
+     * @return CancelReleaseProductResponse
      */
     public function cancelReleaseProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CancelReleaseProduct',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CancelReleaseProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CancelReleaseProductResponse::fromMap($this->doRequest('CancelReleaseProduct', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CancelReleaseProductRequest $request CancelReleaseProductRequest
+     * @param CancelReleaseProductRequest $request
      *
-     * @return CancelReleaseProductResponse CancelReleaseProductResponse
+     * @return CancelReleaseProductResponse
      */
     public function cancelReleaseProduct($request)
     {
@@ -3824,35 +2238,8 @@ class Iot extends OpenApiClient
     public function checkBindLicenseDeviceProgressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->checkProgressId)) {
-            $query['CheckProgressId'] = $request->checkProgressId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->licenseCode)) {
-            $query['LicenseCode'] = $request->licenseCode;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CheckBindLicenseDeviceProgress',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CheckBindLicenseDeviceProgressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CheckBindLicenseDeviceProgressResponse::fromMap($this->doRequest('CheckBindLicenseDeviceProgress', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -3868,68 +2255,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   Each time you call this operation, you must specify the identifiers of properties whose desired values you want to delete for the **Identifies** parameter. If you do not configure the **Identifies** parameter, the call fails.
-     *   * *   You can specify up to 10 property identifiers for the **Identifies** parameter in a single call.
-     *   * *   After you call this operation to deletes the desired values of properties of a device, you can call the [QueryDeviceDesiredProperty](~~107566~~) operation to query the desired values of properties of the device. In this case, the QueryDeviceDesiredProperty operation returns the **Identifier** parameter instead of the **Value** parameter.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 50 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ClearDeviceDesiredPropertyRequest $request ClearDeviceDesiredPropertyRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param ClearDeviceDesiredPropertyRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return ClearDeviceDesiredPropertyResponse ClearDeviceDesiredPropertyResponse
+     * @return ClearDeviceDesiredPropertyResponse
      */
     public function clearDeviceDesiredPropertyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->identifies)) {
-            $body['Identifies'] = $request->identifies;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ClearDeviceDesiredProperty',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ClearDeviceDesiredPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ClearDeviceDesiredPropertyResponse::fromMap($this->doRequest('ClearDeviceDesiredProperty', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   Each time you call this operation, you must specify the identifiers of properties whose desired values you want to delete for the **Identifies** parameter. If you do not configure the **Identifies** parameter, the call fails.
-     *   * *   You can specify up to 10 property identifiers for the **Identifies** parameter in a single call.
-     *   * *   After you call this operation to deletes the desired values of properties of a device, you can call the [QueryDeviceDesiredProperty](~~107566~~) operation to query the desired values of properties of the device. In this case, the QueryDeviceDesiredProperty operation returns the **Identifier** parameter instead of the **Value** parameter.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 50 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ClearDeviceDesiredPropertyRequest $request ClearDeviceDesiredPropertyRequest
+     * @param ClearDeviceDesiredPropertyRequest $request
      *
-     * @return ClearDeviceDesiredPropertyResponse ClearDeviceDesiredPropertyResponse
+     * @return ClearDeviceDesiredPropertyResponse
      */
     public function clearDeviceDesiredProperty($request)
     {
@@ -3939,54 +2280,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ClearEdgeInstanceDriverConfigsRequest $request ClearEdgeInstanceDriverConfigsRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * @param ClearEdgeInstanceDriverConfigsRequest $request
+     * @param RuntimeOptions                        $runtime
      *
-     * @return ClearEdgeInstanceDriverConfigsResponse ClearEdgeInstanceDriverConfigsResponse
+     * @return ClearEdgeInstanceDriverConfigsResponse
      */
     public function clearEdgeInstanceDriverConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ClearEdgeInstanceDriverConfigs',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ClearEdgeInstanceDriverConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ClearEdgeInstanceDriverConfigsResponse::fromMap($this->doRequest('ClearEdgeInstanceDriverConfigs', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ClearEdgeInstanceDriverConfigsRequest $request ClearEdgeInstanceDriverConfigsRequest
+     * @param ClearEdgeInstanceDriverConfigsRequest $request
      *
-     * @return ClearEdgeInstanceDriverConfigsResponse ClearEdgeInstanceDriverConfigsResponse
+     * @return ClearEdgeInstanceDriverConfigsResponse
      */
     public function clearEdgeInstanceDriverConfigs($request)
     {
@@ -4004,29 +2313,8 @@ class Iot extends OpenApiClient
     public function closeDeviceTunnelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->tunnelId)) {
-            $query['TunnelId'] = $request->tunnelId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CloseDeviceTunnel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CloseDeviceTunnelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CloseDeviceTunnelResponse::fromMap($this->doRequest('CloseDeviceTunnel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -4042,51 +2330,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CloseEdgeInstanceDeploymentRequest $request CloseEdgeInstanceDeploymentRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param CloseEdgeInstanceDeploymentRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return CloseEdgeInstanceDeploymentResponse CloseEdgeInstanceDeploymentResponse
+     * @return CloseEdgeInstanceDeploymentResponse
      */
     public function closeEdgeInstanceDeploymentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CloseEdgeInstanceDeployment',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CloseEdgeInstanceDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CloseEdgeInstanceDeploymentResponse::fromMap($this->doRequest('CloseEdgeInstanceDeployment', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CloseEdgeInstanceDeploymentRequest $request CloseEdgeInstanceDeploymentRequest
+     * @param CloseEdgeInstanceDeploymentRequest $request
      *
-     * @return CloseEdgeInstanceDeploymentResponse CloseEdgeInstanceDeploymentResponse
+     * @return CloseEdgeInstanceDeploymentResponse
      */
     public function closeEdgeInstanceDeployment($request)
     {
@@ -4096,53 +2355,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * To confirm update tasks in a scheduled update batch, you must call this operation within the specified time range.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ConfirmOTATaskRequest $request ConfirmOTATaskRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param ConfirmOTATaskRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return ConfirmOTATaskResponse ConfirmOTATaskResponse
+     * @return ConfirmOTATaskResponse
      */
     public function confirmOTATaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ConfirmOTATask',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ConfirmOTATaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ConfirmOTATaskResponse::fromMap($this->doRequest('ConfirmOTATask', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * To confirm update tasks in a scheduled update batch, you must call this operation within the specified time range.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ConfirmOTATaskRequest $request ConfirmOTATaskRequest
+     * @param ConfirmOTATaskRequest $request
      *
-     * @return ConfirmOTATaskResponse ConfirmOTATaskResponse
+     * @return ConfirmOTATaskResponse
      */
     public function confirmOTATask($request)
     {
@@ -4152,66 +2380,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   If a destination product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you can copy a TSL model.
-     *   * *   The categories of the source product and destination product must be the same. The product category is indicated by the **CategoryKey** parameter. You can call the [QueryProduct](~~69272~~) operation and view the **CategoryKey** parameter of a product in the returned result.
-     *   * *   You must specify the version of the TSL model that you want to copy by using the **SourceModelVersion** parameter in the request. Otherwise, the CopyThingModel operation fails.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to five queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CopyThingModelRequest $request CopyThingModelRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param CopyThingModelRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return CopyThingModelResponse CopyThingModelResponse
+     * @return CopyThingModelResponse
      */
     public function copyThingModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->sourceModelVersion)) {
-            $query['SourceModelVersion'] = $request->sourceModelVersion;
-        }
-        if (!Utils::isUnset($request->sourceProductKey)) {
-            $query['SourceProductKey'] = $request->sourceProductKey;
-        }
-        if (!Utils::isUnset($request->targetProductKey)) {
-            $query['TargetProductKey'] = $request->targetProductKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CopyThingModel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CopyThingModelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CopyThingModelResponse::fromMap($this->doRequest('CopyThingModel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   If a destination product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you can copy a TSL model.
-     *   * *   The categories of the source product and destination product must be the same. The product category is indicated by the **CategoryKey** parameter. You can call the [QueryProduct](~~69272~~) operation and view the **CategoryKey** parameter of a product in the returned result.
-     *   * *   You must specify the version of the TSL model that you want to copy by using the **SourceModelVersion** parameter in the request. Otherwise, the CopyThingModel operation fails.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to five queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CopyThingModelRequest $request CopyThingModelRequest
+     * @param CopyThingModelRequest $request
      *
-     * @return CopyThingModelResponse CopyThingModelResponse
+     * @return CopyThingModelResponse
      */
     public function copyThingModel($request)
     {
@@ -4229,34 +2413,8 @@ class Iot extends OpenApiClient
     public function countSpeechBroadcastHourWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->queryDateTimeHour)) {
-            $query['QueryDateTimeHour'] = $request->queryDateTimeHour;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->shareTaskCode)) {
-            $body['ShareTaskCode'] = $request->shareTaskCode;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CountSpeechBroadcastHour',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CountSpeechBroadcastHourResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CountSpeechBroadcastHourResponse::fromMap($this->doRequest('CountSpeechBroadcastHour', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -4272,57 +2430,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateConsumerGroupRequest $request CreateConsumerGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param CreateConsumerGroupRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return CreateConsumerGroupResponse CreateConsumerGroupResponse
+     * @return CreateConsumerGroupResponse
      */
     public function createConsumerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->subBizCode)) {
-            $query['SubBizCode'] = $request->subBizCode;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateConsumerGroup',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateConsumerGroupResponse::fromMap($this->doRequest('CreateConsumerGroup', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateConsumerGroupRequest $request CreateConsumerGroupRequest
+     * @param CreateConsumerGroupRequest $request
      *
-     * @return CreateConsumerGroupResponse CreateConsumerGroupResponse
+     * @return CreateConsumerGroupResponse
      */
     public function createConsumerGroup($request)
     {
@@ -4332,54 +2455,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateConsumerGroupSubscribeRelationRequest $request CreateConsumerGroupSubscribeRelationRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * @param CreateConsumerGroupSubscribeRelationRequest $request
+     * @param RuntimeOptions                              $runtime
      *
-     * @return CreateConsumerGroupSubscribeRelationResponse CreateConsumerGroupSubscribeRelationResponse
+     * @return CreateConsumerGroupSubscribeRelationResponse
      */
     public function createConsumerGroupSubscribeRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->consumerGroupId)) {
-            $query['ConsumerGroupId'] = $request->consumerGroupId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateConsumerGroupSubscribeRelation',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateConsumerGroupSubscribeRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateConsumerGroupSubscribeRelationResponse::fromMap($this->doRequest('CreateConsumerGroupSubscribeRelation', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateConsumerGroupSubscribeRelationRequest $request CreateConsumerGroupSubscribeRelationRequest
+     * @param CreateConsumerGroupSubscribeRelationRequest $request
      *
-     * @return CreateConsumerGroupSubscribeRelationResponse CreateConsumerGroupSubscribeRelationResponse
+     * @return CreateConsumerGroupSubscribeRelationResponse
      */
     public function createConsumerGroupSubscribeRelation($request)
     {
@@ -4397,47 +2488,8 @@ class Iot extends OpenApiClient
     public function createDataAPIServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->apiPath)) {
-            $body['ApiPath'] = $request->apiPath;
-        }
-        if (!Utils::isUnset($request->desc)) {
-            $body['Desc'] = $request->desc;
-        }
-        if (!Utils::isUnset($request->displayName)) {
-            $body['DisplayName'] = $request->displayName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->originSql)) {
-            $body['OriginSql'] = $request->originSql;
-        }
-        if (!Utils::isUnset($request->requestParam)) {
-            $body['RequestParam'] = $request->requestParam;
-        }
-        if (!Utils::isUnset($request->responseParam)) {
-            $body['ResponseParam'] = $request->responseParam;
-        }
-        if (!Utils::isUnset($request->templateSql)) {
-            $body['TemplateSql'] = $request->templateSql;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDataAPIService',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateDataAPIServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataAPIServiceResponse::fromMap($this->doRequest('CreateDataAPIService', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -4461,41 +2513,8 @@ class Iot extends OpenApiClient
     public function createDataSourceItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['DataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->scopeType)) {
-            $query['ScopeType'] = $request->scopeType;
-        }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDataSourceItem',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateDataSourceItemResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDataSourceItemResponse::fromMap($this->doRequest('CreateDataSourceItem', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -4519,38 +2538,8 @@ class Iot extends OpenApiClient
     public function createDestinationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $query['Configuration'] = $request->configuration;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDestination',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDestinationResponse::fromMap($this->doRequest('CreateDestination', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -4566,92 +2555,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * To distribute devices, perform the following steps:
-     *   * 1\\. Asynchronously call this operation to create a device distribution task and obtain the **JobId** parameter.
-     *   * 2\\. Use **JobId** as a request parameter and repeatedly call the [QueryDeviceDistributeJob](~~199536~~) operation to obtain the **Status** parameter.
-     *   * >  You must control the frequency of calls based on the QPS limit of the QueryDeviceDistributeJob operation.
-     *   * If either of the following values is returned for the **Status** parameter, the distribution task ends:
-     *   * *   **2**: The device distribution task is completed. This return value does not indicate that the devices are distributed. To obtain the distribution result of each device, perform the next step.
-     *   * *   **3**: The distribution is unexpectedly interrupted. After you process the error, you can initiate a device distribution task again.
-     *   * 3\\. Use **JobId** that is returned in Step 1 as a request parameter and call the [QueryDeviceDistributeDetail](~~199533~~) operation to obtain the **File** parameter. The File parameter indicates the file URL of the distribution result.
-     *   * >  The file URL is valid for 10 minutes.
-     *   * 4\\. Obtain the distribution result by using the file URL. The **Code** parameter indicates whether a device is distributed. If the value of the **Code** parameter is 200, the device is distributed.
-     *   * If the distribution fails, you can perform the preceding steps to distribute devices again.
-     *   * ## Limits
-     *   * - This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
-     *   * - You cannot call this operation to distribute devices across accounts.
-     *   * - Each Alibaba Cloud account can create a maximum of 10 tasks to distribute products or devices. For more information about how to create a product distribution task, see [CreateProductDistributeJob](/help/en/iot-platform/latest/createproductdistributejob).
-     *   * - Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateDeviceDistributeJobRequest $request CreateDeviceDistributeJobRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param CreateDeviceDistributeJobRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return CreateDeviceDistributeJobResponse CreateDeviceDistributeJobResponse
+     * @return CreateDeviceDistributeJobResponse
      */
     public function createDeviceDistributeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $body['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->sourceInstanceId)) {
-            $body['SourceInstanceId'] = $request->sourceInstanceId;
-        }
-        if (!Utils::isUnset($request->strategy)) {
-            $body['Strategy'] = $request->strategy;
-        }
-        if (!Utils::isUnset($request->targetAliyunId)) {
-            $body['TargetAliyunId'] = $request->targetAliyunId;
-        }
-        if (!Utils::isUnset($request->targetInstanceConfig)) {
-            $body['TargetInstanceConfig'] = $request->targetInstanceConfig;
-        }
-        if (!Utils::isUnset($request->targetUid)) {
-            $body['TargetUid'] = $request->targetUid;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDeviceDistributeJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateDeviceDistributeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDeviceDistributeJobResponse::fromMap($this->doRequest('CreateDeviceDistributeJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * To distribute devices, perform the following steps:
-     *   * 1\\. Asynchronously call this operation to create a device distribution task and obtain the **JobId** parameter.
-     *   * 2\\. Use **JobId** as a request parameter and repeatedly call the [QueryDeviceDistributeJob](~~199536~~) operation to obtain the **Status** parameter.
-     *   * >  You must control the frequency of calls based on the QPS limit of the QueryDeviceDistributeJob operation.
-     *   * If either of the following values is returned for the **Status** parameter, the distribution task ends:
-     *   * *   **2**: The device distribution task is completed. This return value does not indicate that the devices are distributed. To obtain the distribution result of each device, perform the next step.
-     *   * *   **3**: The distribution is unexpectedly interrupted. After you process the error, you can initiate a device distribution task again.
-     *   * 3\\. Use **JobId** that is returned in Step 1 as a request parameter and call the [QueryDeviceDistributeDetail](~~199533~~) operation to obtain the **File** parameter. The File parameter indicates the file URL of the distribution result.
-     *   * >  The file URL is valid for 10 minutes.
-     *   * 4\\. Obtain the distribution result by using the file URL. The **Code** parameter indicates whether a device is distributed. If the value of the **Code** parameter is 200, the device is distributed.
-     *   * If the distribution fails, you can perform the preceding steps to distribute devices again.
-     *   * ## Limits
-     *   * - This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
-     *   * - You cannot call this operation to distribute devices across accounts.
-     *   * - Each Alibaba Cloud account can create a maximum of 10 tasks to distribute products or devices. For more information about how to create a product distribution task, see [CreateProductDistributeJob](/help/en/iot-platform/latest/createproductdistributejob).
-     *   * - Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).  >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateDeviceDistributeJobRequest $request CreateDeviceDistributeJobRequest
+     * @param CreateDeviceDistributeJobRequest $request
      *
-     * @return CreateDeviceDistributeJobResponse CreateDeviceDistributeJobResponse
+     * @return CreateDeviceDistributeJobResponse
      */
     public function createDeviceDistributeJob($request)
     {
@@ -4669,35 +2588,8 @@ class Iot extends OpenApiClient
     public function createDeviceDynamicGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dynamicGroupExpression)) {
-            $query['DynamicGroupExpression'] = $request->dynamicGroupExpression;
-        }
-        if (!Utils::isUnset($request->groupDesc)) {
-            $query['GroupDesc'] = $request->groupDesc;
-        }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDeviceDynamicGroup',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateDeviceDynamicGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDeviceDynamicGroupResponse::fromMap($this->doRequest('CreateDeviceDynamicGroup', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -4713,57 +2605,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateDeviceGroupRequest $request CreateDeviceGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param CreateDeviceGroupRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return CreateDeviceGroupResponse CreateDeviceGroupResponse
+     * @return CreateDeviceGroupResponse
      */
     public function createDeviceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupDesc)) {
-            $query['GroupDesc'] = $request->groupDesc;
-        }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->superGroupId)) {
-            $query['SuperGroupId'] = $request->superGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDeviceGroup',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateDeviceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDeviceGroupResponse::fromMap($this->doRequest('CreateDeviceGroup', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateDeviceGroupRequest $request CreateDeviceGroupRequest
+     * @param CreateDeviceGroupRequest $request
      *
-     * @return CreateDeviceGroupResponse CreateDeviceGroupResponse
+     * @return CreateDeviceGroupResponse
      */
     public function createDeviceGroup($request)
     {
@@ -4781,41 +2638,8 @@ class Iot extends OpenApiClient
     public function createDeviceTunnelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->udi)) {
-            $query['Udi'] = $request->udi;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDeviceTunnel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateDeviceTunnelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDeviceTunnelResponse::fromMap($this->doRequest('CreateDeviceTunnel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -4831,56 +2655,21 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateDownloadDataJobRequest $tmpReq
+     * @param CreateDownloadDataJobRequest $tmp
      * @param RuntimeOptions               $runtime
      *
      * @return CreateDownloadDataJobResponse
      */
-    public function createDownloadDataJobWithOptions($tmpReq, $runtime)
+    public function createDownloadDataJobWithOptions($tmp, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        Utils::validateModel($tmp);
         $request = new CreateDownloadDataJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->fileConfig)) {
-            $request->fileConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->fileConfig, 'FileConfig', 'json');
+        RpcUtils::convert($tmp, $request);
+        if (!Utils::isUnset($tmp->fileConfig)) {
+            $request->fileConfigShrink = Utils::toJSONString($tmp->fileConfig);
         }
-        $query = [];
-        if (!Utils::isUnset($request->downloadDataType)) {
-            $query['DownloadDataType'] = $request->downloadDataType;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->fileConfigShrink)) {
-            $query['FileConfig'] = $request->fileConfigShrink;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->tableName)) {
-            $query['TableName'] = $request->tableName;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateDownloadDataJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateDownloadDataJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateDownloadDataJobResponse::fromMap($this->doRequest('CreateDownloadDataJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -4896,63 +2685,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * A single Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users share the quota of the Alibaba Cloud account.
-     *   *
-     * @param CreateEdgeDriverRequest $request CreateEdgeDriverRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param CreateEdgeDriverRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return CreateEdgeDriverResponse CreateEdgeDriverResponse
+     * @return CreateEdgeDriverResponse
      */
     public function createEdgeDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->cpuArch)) {
-            $query['CpuArch'] = $request->cpuArch;
-        }
-        if (!Utils::isUnset($request->driverName)) {
-            $query['DriverName'] = $request->driverName;
-        }
-        if (!Utils::isUnset($request->driverProtocol)) {
-            $query['DriverProtocol'] = $request->driverProtocol;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->isBuiltIn)) {
-            $query['IsBuiltIn'] = $request->isBuiltIn;
-        }
-        if (!Utils::isUnset($request->runtime)) {
-            $query['Runtime'] = $request->runtime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateEdgeDriver',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateEdgeDriverResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEdgeDriverResponse::fromMap($this->doRequest('CreateEdgeDriver', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * A single Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users share the quota of the Alibaba Cloud account.
-     *   *
-     * @param CreateEdgeDriverRequest $request CreateEdgeDriverRequest
+     * @param CreateEdgeDriverRequest $request
      *
-     * @return CreateEdgeDriverResponse CreateEdgeDriverResponse
+     * @return CreateEdgeDriverResponse
      */
     public function createEdgeDriver($request)
     {
@@ -4962,75 +2710,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateEdgeDriverVersionRequest $request CreateEdgeDriverVersionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param CreateEdgeDriverVersionRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return CreateEdgeDriverVersionResponse CreateEdgeDriverVersionResponse
+     * @return CreateEdgeDriverVersionResponse
      */
     public function createEdgeDriverVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->argument)) {
-            $query['Argument'] = $request->argument;
-        }
-        if (!Utils::isUnset($request->configCheckRule)) {
-            $query['ConfigCheckRule'] = $request->configCheckRule;
-        }
-        if (!Utils::isUnset($request->containerConfig)) {
-            $query['ContainerConfig'] = $request->containerConfig;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->driverConfig)) {
-            $query['DriverConfig'] = $request->driverConfig;
-        }
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->driverVersion)) {
-            $query['DriverVersion'] = $request->driverVersion;
-        }
-        if (!Utils::isUnset($request->edgeVersion)) {
-            $query['EdgeVersion'] = $request->edgeVersion;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->sourceConfig)) {
-            $query['SourceConfig'] = $request->sourceConfig;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateEdgeDriverVersion',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateEdgeDriverVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEdgeDriverVersionResponse::fromMap($this->doRequest('CreateEdgeDriverVersion', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateEdgeDriverVersionRequest $request CreateEdgeDriverVersionRequest
+     * @param CreateEdgeDriverVersionRequest $request
      *
-     * @return CreateEdgeDriverVersionResponse CreateEdgeDriverVersionResponse
+     * @return CreateEdgeDriverVersionResponse
      */
     public function createEdgeDriverVersion($request)
     {
@@ -5040,57 +2735,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * A single Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users share the quota of the Alibaba Cloud account.
-     *   *
-     * @param CreateEdgeInstanceRequest $request CreateEdgeInstanceRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param CreateEdgeInstanceRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return CreateEdgeInstanceResponse CreateEdgeInstanceResponse
+     * @return CreateEdgeInstanceResponse
      */
     public function createEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->spec)) {
-            $query['Spec'] = $request->spec;
-        }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateEdgeInstance',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEdgeInstanceResponse::fromMap($this->doRequest('CreateEdgeInstance', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * A single Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users share the quota of the Alibaba Cloud account.
-     *   *
-     * @param CreateEdgeInstanceRequest $request CreateEdgeInstanceRequest
+     * @param CreateEdgeInstanceRequest $request
      *
-     * @return CreateEdgeInstanceResponse CreateEdgeInstanceResponse
+     * @return CreateEdgeInstanceResponse
      */
     public function createEdgeInstance($request)
     {
@@ -5108,38 +2768,8 @@ class Iot extends OpenApiClient
     public function createEdgeInstanceChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->channelName)) {
-            $query['ChannelName'] = $request->channelName;
-        }
-        if (!Utils::isUnset($request->configs)) {
-            $query['Configs'] = $request->configs;
-        }
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateEdgeInstanceChannel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateEdgeInstanceChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEdgeInstanceChannelResponse::fromMap($this->doRequest('CreateEdgeInstanceChannel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -5155,54 +2785,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateEdgeInstanceDeploymentRequest $request CreateEdgeInstanceDeploymentRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param CreateEdgeInstanceDeploymentRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return CreateEdgeInstanceDeploymentResponse CreateEdgeInstanceDeploymentResponse
+     * @return CreateEdgeInstanceDeploymentResponse
      */
     public function createEdgeInstanceDeploymentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateEdgeInstanceDeployment',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateEdgeInstanceDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEdgeInstanceDeploymentResponse::fromMap($this->doRequest('CreateEdgeInstanceDeployment', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateEdgeInstanceDeploymentRequest $request CreateEdgeInstanceDeploymentRequest
+     * @param CreateEdgeInstanceDeploymentRequest $request
      *
-     * @return CreateEdgeInstanceDeploymentResponse CreateEdgeInstanceDeploymentResponse
+     * @return CreateEdgeInstanceDeploymentResponse
      */
     public function createEdgeInstanceDeployment($request)
     {
@@ -5220,50 +2818,8 @@ class Iot extends OpenApiClient
     public function createEdgeInstanceMessageRoutingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->sourceData)) {
-            $query['SourceData'] = $request->sourceData;
-        }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
-        }
-        if (!Utils::isUnset($request->targetData)) {
-            $query['TargetData'] = $request->targetData;
-        }
-        if (!Utils::isUnset($request->targetIotHubQos)) {
-            $query['TargetIotHubQos'] = $request->targetIotHubQos;
-        }
-        if (!Utils::isUnset($request->targetType)) {
-            $query['TargetType'] = $request->targetType;
-        }
-        if (!Utils::isUnset($request->topicFilter)) {
-            $query['TopicFilter'] = $request->topicFilter;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateEdgeInstanceMessageRouting',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateEdgeInstanceMessageRoutingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEdgeInstanceMessageRoutingResponse::fromMap($this->doRequest('CreateEdgeInstanceMessageRouting', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -5279,63 +2835,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateEdgeOssPreSignedAddressRequest $request CreateEdgeOssPreSignedAddressRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param CreateEdgeOssPreSignedAddressRequest $request
+     * @param RuntimeOptions                       $runtime
      *
-     * @return CreateEdgeOssPreSignedAddressResponse CreateEdgeOssPreSignedAddressResponse
+     * @return CreateEdgeOssPreSignedAddressResponse
      */
     public function createEdgeOssPreSignedAddressWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->resourceId)) {
-            $query['ResourceId'] = $request->resourceId;
-        }
-        if (!Utils::isUnset($request->resourceVersion)) {
-            $query['ResourceVersion'] = $request->resourceVersion;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateEdgeOssPreSignedAddress',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateEdgeOssPreSignedAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateEdgeOssPreSignedAddressResponse::fromMap($this->doRequest('CreateEdgeOssPreSignedAddress', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateEdgeOssPreSignedAddressRequest $request CreateEdgeOssPreSignedAddressRequest
+     * @param CreateEdgeOssPreSignedAddressRequest $request
      *
-     * @return CreateEdgeOssPreSignedAddressResponse CreateEdgeOssPreSignedAddressResponse
+     * @return CreateEdgeOssPreSignedAddressResponse
      */
     public function createEdgeOssPreSignedAddress($request)
     {
@@ -5345,75 +2860,30 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateJobRequest $tmpReq
+     * @param CreateJobRequest $tmp
      * @param RuntimeOptions   $runtime
      *
      * @return CreateJobResponse
      */
-    public function createJobWithOptions($tmpReq, $runtime)
+    public function createJobWithOptions($tmp, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        Utils::validateModel($tmp);
         $request = new CreateJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->jobFile)) {
-            $request->jobFileShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->jobFile, 'JobFile', 'json');
+        RpcUtils::convert($tmp, $request);
+        if (!Utils::isUnset($tmp->jobFile)) {
+            $request->jobFileShrink = Utils::toJSONString($tmp->jobFile);
         }
-        if (!Utils::isUnset($tmpReq->rolloutConfig)) {
-            $request->rolloutConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rolloutConfig, 'RolloutConfig', 'json');
+        if (!Utils::isUnset($tmp->rolloutConfig)) {
+            $request->rolloutConfigShrink = Utils::toJSONString($tmp->rolloutConfig);
         }
-        if (!Utils::isUnset($tmpReq->targetConfig)) {
-            $request->targetConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->targetConfig, 'TargetConfig', 'json');
+        if (!Utils::isUnset($tmp->targetConfig)) {
+            $request->targetConfigShrink = Utils::toJSONString($tmp->targetConfig);
         }
-        if (!Utils::isUnset($tmpReq->timeoutConfig)) {
-            $request->timeoutConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->timeoutConfig, 'TimeoutConfig', 'json');
+        if (!Utils::isUnset($tmp->timeoutConfig)) {
+            $request->timeoutConfigShrink = Utils::toJSONString($tmp->timeoutConfig);
         }
-        $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobDocument)) {
-            $query['JobDocument'] = $request->jobDocument;
-        }
-        if (!Utils::isUnset($request->jobFileShrink)) {
-            $query['JobFile'] = $request->jobFileShrink;
-        }
-        if (!Utils::isUnset($request->jobName)) {
-            $query['JobName'] = $request->jobName;
-        }
-        if (!Utils::isUnset($request->rolloutConfigShrink)) {
-            $query['RolloutConfig'] = $request->rolloutConfigShrink;
-        }
-        if (!Utils::isUnset($request->scheduledTime)) {
-            $query['ScheduledTime'] = $request->scheduledTime;
-        }
-        if (!Utils::isUnset($request->targetConfigShrink)) {
-            $query['TargetConfig'] = $request->targetConfigShrink;
-        }
-        if (!Utils::isUnset($request->timeoutConfigShrink)) {
-            $query['TimeoutConfig'] = $request->timeoutConfigShrink;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateJobResponse::fromMap($this->doRequest('CreateJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -5437,32 +2907,8 @@ class Iot extends OpenApiClient
     public function createLoRaNodesTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceInfo)) {
-            $query['DeviceInfo'] = $request->deviceInfo;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateLoRaNodesTask',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateLoRaNodesTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateLoRaNodesTaskResponse::fromMap($this->doRequest('CreateLoRaNodesTask', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -5478,92 +2924,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common parameters](~~30561~~).
-     *   *
-     * @param CreateOTADynamicUpgradeJobRequest $request CreateOTADynamicUpgradeJobRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param CreateOTADynamicUpgradeJobRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return CreateOTADynamicUpgradeJobResponse CreateOTADynamicUpgradeJobResponse
+     * @return CreateOTADynamicUpgradeJobResponse
      */
     public function createOTADynamicUpgradeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->downloadProtocol)) {
-            $query['DownloadProtocol'] = $request->downloadProtocol;
-        }
-        if (!Utils::isUnset($request->dynamicMode)) {
-            $query['DynamicMode'] = $request->dynamicMode;
-        }
-        if (!Utils::isUnset($request->firmwareId)) {
-            $query['FirmwareId'] = $request->firmwareId;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->groupType)) {
-            $query['GroupType'] = $request->groupType;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->maximumPerMinute)) {
-            $query['MaximumPerMinute'] = $request->maximumPerMinute;
-        }
-        if (!Utils::isUnset($request->multiModuleMode)) {
-            $query['MultiModuleMode'] = $request->multiModuleMode;
-        }
-        if (!Utils::isUnset($request->needConfirm)) {
-            $query['NeedConfirm'] = $request->needConfirm;
-        }
-        if (!Utils::isUnset($request->needPush)) {
-            $query['NeedPush'] = $request->needPush;
-        }
-        if (!Utils::isUnset($request->overwriteMode)) {
-            $query['OverwriteMode'] = $request->overwriteMode;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->retryCount)) {
-            $query['RetryCount'] = $request->retryCount;
-        }
-        if (!Utils::isUnset($request->retryInterval)) {
-            $query['RetryInterval'] = $request->retryInterval;
-        }
-        if (!Utils::isUnset($request->srcVersion)) {
-            $query['SrcVersion'] = $request->srcVersion;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        if (!Utils::isUnset($request->timeoutInMinutes)) {
-            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateOTADynamicUpgradeJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateOTADynamicUpgradeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOTADynamicUpgradeJobResponse::fromMap($this->doRequest('CreateOTADynamicUpgradeJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common parameters](~~30561~~).
-     *   *
-     * @param CreateOTADynamicUpgradeJobRequest $request CreateOTADynamicUpgradeJobRequest
+     * @param CreateOTADynamicUpgradeJobRequest $request
      *
-     * @return CreateOTADynamicUpgradeJobResponse CreateOTADynamicUpgradeJobResponse
+     * @return CreateOTADynamicUpgradeJobResponse
      */
     public function createOTADynamicUpgradeJob($request)
     {
@@ -5573,96 +2949,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * Before you call this operation to create an OTA update package, you must call the [GenerateOTAUploadURL](~~147310~~) operation to generate the information about the files that you want to add to the OTA update package and call the Object Storage Service (OSS) [PostObject](~~31988~~) operation to upload the files.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can have up to 500 update packages.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateOTAFirmwareRequest $request CreateOTAFirmwareRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param CreateOTAFirmwareRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return CreateOTAFirmwareResponse CreateOTAFirmwareResponse
+     * @return CreateOTAFirmwareResponse
      */
     public function createOTAFirmwareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->destVersion)) {
-            $query['DestVersion'] = $request->destVersion;
-        }
-        if (!Utils::isUnset($request->firmwareDesc)) {
-            $query['FirmwareDesc'] = $request->firmwareDesc;
-        }
-        if (!Utils::isUnset($request->firmwareName)) {
-            $query['FirmwareName'] = $request->firmwareName;
-        }
-        if (!Utils::isUnset($request->firmwareSign)) {
-            $query['FirmwareSign'] = $request->firmwareSign;
-        }
-        if (!Utils::isUnset($request->firmwareSize)) {
-            $query['FirmwareSize'] = $request->firmwareSize;
-        }
-        if (!Utils::isUnset($request->firmwareUrl)) {
-            $query['FirmwareUrl'] = $request->firmwareUrl;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->moduleName)) {
-            $query['ModuleName'] = $request->moduleName;
-        }
-        if (!Utils::isUnset($request->multiFiles)) {
-            $query['MultiFiles'] = $request->multiFiles;
-        }
-        if (!Utils::isUnset($request->needToVerify)) {
-            $query['NeedToVerify'] = $request->needToVerify;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->signMethod)) {
-            $query['SignMethod'] = $request->signMethod;
-        }
-        if (!Utils::isUnset($request->srcVersion)) {
-            $query['SrcVersion'] = $request->srcVersion;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        if (!Utils::isUnset($request->udi)) {
-            $query['Udi'] = $request->udi;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateOTAFirmware',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateOTAFirmwareResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOTAFirmwareResponse::fromMap($this->doRequest('CreateOTAFirmware', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * Before you call this operation to create an OTA update package, you must call the [GenerateOTAUploadURL](~~147310~~) operation to generate the information about the files that you want to add to the OTA update package and call the Object Storage Service (OSS) [PostObject](~~31988~~) operation to upload the files.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can have up to 500 update packages.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateOTAFirmwareRequest $request CreateOTAFirmwareRequest
+     * @param CreateOTAFirmwareRequest $request
      *
-     * @return CreateOTAFirmwareResponse CreateOTAFirmwareResponse
+     * @return CreateOTAFirmwareResponse
      */
     public function createOTAFirmware($request)
     {
@@ -5672,66 +2974,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * OTA modules are the updatable units of the devices that belong to the same product. The default module indicates the entire firmware of a device. You can call this operation to create a custom OTA module.
-     *   * *   You can create a maximum of 10 custom OTA modules for each product.
-     *   * *   After an OTA module is created, you cannot modify its name. You can call the [UpdateOTAModule](~~186061~~) operation to modify the module alias and description.
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateOTAModuleRequest $request CreateOTAModuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param CreateOTAModuleRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return CreateOTAModuleResponse CreateOTAModuleResponse
+     * @return CreateOTAModuleResponse
      */
     public function createOTAModuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->aliasName)) {
-            $query['AliasName'] = $request->aliasName;
-        }
-        if (!Utils::isUnset($request->desc)) {
-            $query['Desc'] = $request->desc;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->moduleName)) {
-            $query['ModuleName'] = $request->moduleName;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateOTAModule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateOTAModuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOTAModuleResponse::fromMap($this->doRequest('CreateOTAModule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * OTA modules are the updatable units of the devices that belong to the same product. The default module indicates the entire firmware of a device. You can call this operation to create a custom OTA module.
-     *   * *   You can create a maximum of 10 custom OTA modules for each product.
-     *   * *   After an OTA module is created, you cannot modify its name. You can call the [UpdateOTAModule](~~186061~~) operation to modify the module alias and description.
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateOTAModuleRequest $request CreateOTAModuleRequest
+     * @param CreateOTAModuleRequest $request
      *
-     * @return CreateOTAModuleResponse CreateOTAModuleResponse
+     * @return CreateOTAModuleResponse
      */
     public function createOTAModule($request)
     {
@@ -5741,123 +2999,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   If you specify that an update package does not need to be verified when you call the [CreateOTAFirmware](~~147311~~) operation, you must make sure that the update package is verified before you call the CreateOTAStaticUpgradeJob operation to create an update batch. For more information about how to create a task to verify an update package, see [CreateOTAVerifyJob](~~147480~~).
-     *   * *   You can initiate update tasks for a maximum of 200 devices in each call. If you use a device list file, you can initiate update tasks for a maximum of 1,000,000 devices. However, you must call the [GenerateDeviceNameListURL](~~186062~~) operation to generate a URL for the device list file. Then, you can perform the operations as prompted to upload the device list file.
-     *   * *   When you initiate update tasks for multiple devices, the devices that already have the destination firmware versions are skipped.
-     *   * *   Each device can be in the pending or updating status only in one update task. If you initiate another update task for a device that is in the pending or updating status, the update task fails.
-     *   * *   You can create multiple static update batches by using a single update package.
-     *   * *   Downloading update packages through the MQTT protocol is supported only in the China (Shanghai) region.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateOTAStaticUpgradeJobRequest $request CreateOTAStaticUpgradeJobRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param CreateOTAStaticUpgradeJobRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return CreateOTAStaticUpgradeJobResponse CreateOTAStaticUpgradeJobResponse
+     * @return CreateOTAStaticUpgradeJobResponse
      */
     public function createOTAStaticUpgradeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dnListFileUrl)) {
-            $query['DnListFileUrl'] = $request->dnListFileUrl;
-        }
-        if (!Utils::isUnset($request->downloadProtocol)) {
-            $query['DownloadProtocol'] = $request->downloadProtocol;
-        }
-        if (!Utils::isUnset($request->firmwareId)) {
-            $query['FirmwareId'] = $request->firmwareId;
-        }
-        if (!Utils::isUnset($request->grayPercent)) {
-            $query['GrayPercent'] = $request->grayPercent;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->groupType)) {
-            $query['GroupType'] = $request->groupType;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->maximumPerMinute)) {
-            $query['MaximumPerMinute'] = $request->maximumPerMinute;
-        }
-        if (!Utils::isUnset($request->multiModuleMode)) {
-            $query['MultiModuleMode'] = $request->multiModuleMode;
-        }
-        if (!Utils::isUnset($request->needConfirm)) {
-            $query['NeedConfirm'] = $request->needConfirm;
-        }
-        if (!Utils::isUnset($request->needPush)) {
-            $query['NeedPush'] = $request->needPush;
-        }
-        if (!Utils::isUnset($request->overwriteMode)) {
-            $query['OverwriteMode'] = $request->overwriteMode;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->retryCount)) {
-            $query['RetryCount'] = $request->retryCount;
-        }
-        if (!Utils::isUnset($request->retryInterval)) {
-            $query['RetryInterval'] = $request->retryInterval;
-        }
-        if (!Utils::isUnset($request->scheduleFinishTime)) {
-            $query['ScheduleFinishTime'] = $request->scheduleFinishTime;
-        }
-        if (!Utils::isUnset($request->scheduleTime)) {
-            $query['ScheduleTime'] = $request->scheduleTime;
-        }
-        if (!Utils::isUnset($request->srcVersion)) {
-            $query['SrcVersion'] = $request->srcVersion;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        if (!Utils::isUnset($request->targetDeviceName)) {
-            $query['TargetDeviceName'] = $request->targetDeviceName;
-        }
-        if (!Utils::isUnset($request->targetSelection)) {
-            $query['TargetSelection'] = $request->targetSelection;
-        }
-        if (!Utils::isUnset($request->timeoutInMinutes)) {
-            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateOTAStaticUpgradeJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateOTAStaticUpgradeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOTAStaticUpgradeJobResponse::fromMap($this->doRequest('CreateOTAStaticUpgradeJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   If you specify that an update package does not need to be verified when you call the [CreateOTAFirmware](~~147311~~) operation, you must make sure that the update package is verified before you call the CreateOTAStaticUpgradeJob operation to create an update batch. For more information about how to create a task to verify an update package, see [CreateOTAVerifyJob](~~147480~~).
-     *   * *   You can initiate update tasks for a maximum of 200 devices in each call. If you use a device list file, you can initiate update tasks for a maximum of 1,000,000 devices. However, you must call the [GenerateDeviceNameListURL](~~186062~~) operation to generate a URL for the device list file. Then, you can perform the operations as prompted to upload the device list file.
-     *   * *   When you initiate update tasks for multiple devices, the devices that already have the destination firmware versions are skipped.
-     *   * *   Each device can be in the pending or updating status only in one update task. If you initiate another update task for a device that is in the pending or updating status, the update task fails.
-     *   * *   You can create multiple static update batches by using a single update package.
-     *   * *   Downloading update packages through the MQTT protocol is supported only in the China (Shanghai) region.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateOTAStaticUpgradeJobRequest $request CreateOTAStaticUpgradeJobRequest
+     * @param CreateOTAStaticUpgradeJobRequest $request
      *
-     * @return CreateOTAStaticUpgradeJobResponse CreateOTAStaticUpgradeJobResponse
+     * @return CreateOTAStaticUpgradeJobResponse
      */
     public function createOTAStaticUpgradeJob($request)
     {
@@ -5867,78 +3024,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   You must verify an update package before you push the package to devices for a batch update. Only verified update packages can be used to update devices in batches. You can call the [QueryOTAFirmware](~~147461~~) operation to view the status of a verification task.
-     *   * *   You cannot initiate a verification task for an update package that is being verified or has been verified.
-     *   * *   You can specify a maximum of 10 devices for a verification task.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateOTAVerifyJobRequest $request CreateOTAVerifyJobRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param CreateOTAVerifyJobRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return CreateOTAVerifyJobResponse CreateOTAVerifyJobResponse
+     * @return CreateOTAVerifyJobResponse
      */
     public function createOTAVerifyJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->downloadProtocol)) {
-            $query['DownloadProtocol'] = $request->downloadProtocol;
-        }
-        if (!Utils::isUnset($request->firmwareId)) {
-            $query['FirmwareId'] = $request->firmwareId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->needConfirm)) {
-            $query['NeedConfirm'] = $request->needConfirm;
-        }
-        if (!Utils::isUnset($request->needPush)) {
-            $query['NeedPush'] = $request->needPush;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        if (!Utils::isUnset($request->targetDeviceName)) {
-            $query['TargetDeviceName'] = $request->targetDeviceName;
-        }
-        if (!Utils::isUnset($request->timeoutInMinutes)) {
-            $query['TimeoutInMinutes'] = $request->timeoutInMinutes;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateOTAVerifyJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateOTAVerifyJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateOTAVerifyJobResponse::fromMap($this->doRequest('CreateOTAVerifyJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   You must verify an update package before you push the package to devices for a batch update. Only verified update packages can be used to update devices in batches. You can call the [QueryOTAFirmware](~~147461~~) operation to view the status of a verification task.
-     *   * *   You cannot initiate a verification task for an update package that is being verified or has been verified.
-     *   * *   You can specify a maximum of 10 devices for a verification task.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateOTAVerifyJobRequest $request CreateOTAVerifyJobRequest
+     * @param CreateOTAVerifyJobRequest $request
      *
-     * @return CreateOTAVerifyJobResponse CreateOTAVerifyJobResponse
+     * @return CreateOTAVerifyJobResponse
      */
     public function createOTAVerifyJob($request)
     {
@@ -5956,32 +3057,8 @@ class Iot extends OpenApiClient
     public function createParserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateParser',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateParserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateParserResponse::fromMap($this->doRequest('CreateParser', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -6005,32 +3082,8 @@ class Iot extends OpenApiClient
     public function createParserDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateParserDataSource',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateParserDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateParserDataSourceResponse::fromMap($this->doRequest('CreateParserDataSource', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -6046,92 +3099,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * If a Thing Specification Language (TSL) model is required to create a product, you must set the **AliyunCommodityCode** parameter to iothub_senior and configure the **DataFormat** parameter.******** For more information, see the "**Request parameters**" section of this topic.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateProductRequest $request CreateProductRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param CreateProductRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return CreateProductResponse CreateProductResponse
+     * @return CreateProductResponse
      */
     public function createProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->aliyunCommodityCode)) {
-            $query['AliyunCommodityCode'] = $request->aliyunCommodityCode;
-        }
-        if (!Utils::isUnset($request->authType)) {
-            $query['AuthType'] = $request->authType;
-        }
-        if (!Utils::isUnset($request->categoryKey)) {
-            $query['CategoryKey'] = $request->categoryKey;
-        }
-        if (!Utils::isUnset($request->dataFormat)) {
-            $query['DataFormat'] = $request->dataFormat;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->id2)) {
-            $query['Id2'] = $request->id2;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->joinPermissionId)) {
-            $query['JoinPermissionId'] = $request->joinPermissionId;
-        }
-        if (!Utils::isUnset($request->netType)) {
-            $query['NetType'] = $request->netType;
-        }
-        if (!Utils::isUnset($request->nodeType)) {
-            $query['NodeType'] = $request->nodeType;
-        }
-        if (!Utils::isUnset($request->productName)) {
-            $query['ProductName'] = $request->productName;
-        }
-        if (!Utils::isUnset($request->protocolType)) {
-            $query['ProtocolType'] = $request->protocolType;
-        }
-        if (!Utils::isUnset($request->publishAuto)) {
-            $query['PublishAuto'] = $request->publishAuto;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->validateType)) {
-            $query['ValidateType'] = $request->validateType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateProduct',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateProductResponse::fromMap($this->doRequest('CreateProduct', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * If a Thing Specification Language (TSL) model is required to create a product, you must set the **AliyunCommodityCode** parameter to iothub_senior and configure the **DataFormat** parameter.******** For more information, see the "**Request parameters**" section of this topic.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateProductRequest $request CreateProductRequest
+     * @param CreateProductRequest $request
      *
-     * @return CreateProductResponse CreateProductResponse
+     * @return CreateProductResponse
      */
     public function createProduct($request)
     {
@@ -6141,70 +3124,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
-     *   * *   You cannot call this operation to distribute a product across accounts.
-     *   * *   A product distribution task does not distribute the devices under the product.
-     *   * *   After a product is distributed, you cannot modify its TSL model and scripts.
-     *   * *   Each Alibaba Cloud account can create a maximum of 10 tasks to distribute products or devices. For more information about how to create a device distribution task, see [CreateDeviceDistributeJob](~~199390~~).
-     *   * *   Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
-     *   *     **
-     *   *     **Note** RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateProductDistributeJobRequest $request CreateProductDistributeJobRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param CreateProductDistributeJobRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return CreateProductDistributeJobResponse CreateProductDistributeJobResponse
+     * @return CreateProductDistributeJobResponse
      */
     public function createProductDistributeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->sourceInstanceId)) {
-            $query['SourceInstanceId'] = $request->sourceInstanceId;
-        }
-        if (!Utils::isUnset($request->targetAliyunId)) {
-            $query['TargetAliyunId'] = $request->targetAliyunId;
-        }
-        if (!Utils::isUnset($request->targetInstanceId)) {
-            $query['TargetInstanceId'] = $request->targetInstanceId;
-        }
-        if (!Utils::isUnset($request->targetUid)) {
-            $query['TargetUid'] = $request->targetUid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateProductDistributeJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateProductDistributeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateProductDistributeJobResponse::fromMap($this->doRequest('CreateProductDistributeJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
-     *   * *   You cannot call this operation to distribute a product across accounts.
-     *   * *   A product distribution task does not distribute the devices under the product.
-     *   * *   After a product is distributed, you cannot modify its TSL model and scripts.
-     *   * *   Each Alibaba Cloud account can create a maximum of 10 tasks to distribute products or devices. For more information about how to create a device distribution task, see [CreateDeviceDistributeJob](~~199390~~).
-     *   * *   Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
-     *   *     **
-     *   *     **Note** RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateProductDistributeJobRequest $request CreateProductDistributeJobRequest
+     * @param CreateProductDistributeJobRequest $request
      *
-     * @return CreateProductDistributeJobResponse CreateProductDistributeJobResponse
+     * @return CreateProductDistributeJobResponse
      */
     public function createProductDistributeJob($request)
     {
@@ -6214,60 +3149,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   You can create a maximum of 10 tags for a product in a single call.
-     *   * *   Each product can have a maximum of 100 tags.
-     *   * > You must specify the tag keys and tag values. Otherwise, the call fails. For description about the tag values, see the "**Request parameters**" section of this topic.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateProductTagsRequest $request CreateProductTagsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param CreateProductTagsRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return CreateProductTagsResponse CreateProductTagsResponse
+     * @return CreateProductTagsResponse
      */
     public function createProductTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->productTag)) {
-            $query['ProductTag'] = $request->productTag;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateProductTags',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateProductTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateProductTagsResponse::fromMap($this->doRequest('CreateProductTags', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   You can create a maximum of 10 tags for a product in a single call.
-     *   * *   Each product can have a maximum of 100 tags.
-     *   * > You must specify the tag keys and tag values. Otherwise, the call fails. For description about the tag values, see the "**Request parameters**" section of this topic.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateProductTagsRequest $request CreateProductTagsRequest
+     * @param CreateProductTagsRequest $request
      *
-     * @return CreateProductTagsResponse CreateProductTagsResponse
+     * @return CreateProductTagsResponse
      */
     public function createProductTags($request)
     {
@@ -6277,66 +3174,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 1 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateProductTopicRequest $request CreateProductTopicRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param CreateProductTopicRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return CreateProductTopicResponse CreateProductTopicResponse
+     * @return CreateProductTopicResponse
      */
     public function createProductTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->codec)) {
-            $query['Codec'] = $request->codec;
-        }
-        if (!Utils::isUnset($request->desc)) {
-            $query['Desc'] = $request->desc;
-        }
-        if (!Utils::isUnset($request->enableProxySubscribe)) {
-            $query['EnableProxySubscribe'] = $request->enableProxySubscribe;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->operation)) {
-            $query['Operation'] = $request->operation;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->topicShortName)) {
-            $query['TopicShortName'] = $request->topicShortName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateProductTopic',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateProductTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateProductTopicResponse::fromMap($this->doRequest('CreateProductTopic', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 1 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateProductTopicRequest $request CreateProductTopicRequest
+     * @param CreateProductTopicRequest $request
      *
-     * @return CreateProductTopicResponse CreateProductTopicResponse
+     * @return CreateProductTopicResponse
      */
     public function createProductTopic($request)
     {
@@ -6346,80 +3199,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * When you call this operation, you must specify the **ProductKey** parameter in the request.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateRuleRequest $request CreateRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param CreateRuleRequest $request
+     * @param RuntimeOptions    $runtime
      *
-     * @return CreateRuleResponse CreateRuleResponse
+     * @return CreateRuleResponse
      */
     public function createRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dataType)) {
-            $query['DataType'] = $request->dataType;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->ruleDesc)) {
-            $query['RuleDesc'] = $request->ruleDesc;
-        }
-        if (!Utils::isUnset($request->select)) {
-            $query['Select'] = $request->select;
-        }
-        if (!Utils::isUnset($request->shortTopic)) {
-            $query['ShortTopic'] = $request->shortTopic;
-        }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
-        }
-        if (!Utils::isUnset($request->topicType)) {
-            $query['TopicType'] = $request->topicType;
-        }
-        if (!Utils::isUnset($request->where)) {
-            $query['Where'] = $request->where;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRuleResponse::fromMap($this->doRequest('CreateRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * When you call this operation, you must specify the **ProductKey** parameter in the request.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateRuleRequest $request CreateRuleRequest
+     * @param CreateRuleRequest $request
      *
-     * @return CreateRuleResponse CreateRuleResponse
+     * @return CreateRuleResponse
      */
     public function createRule($request)
     {
@@ -6429,66 +3224,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   Destination Alibaba Cloud services that are supported by the rules engine vary based on regions. For more information about the regions and destination cloud services that are supported by the rules engine, see [Regions and zones](~~85669~~).
-     *   * *   You can create a maximum of 10 rule actions for each rule.
-     *   * *   You can call this API operation to define rule actions to forward data to an IoT Platform topic, AMQP consumer group, or Alibaba Cloud service. The supported Alibaba Cloud services include Message Service (MNS), Function Compute, and Tablestore. If you need to forward data to ApsaraDB RDS, you must use the [IoT Platform console](https://iot.console.aliyun.com).
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateRuleActionRequest $request CreateRuleActionRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param CreateRuleActionRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return CreateRuleActionResponse CreateRuleActionResponse
+     * @return CreateRuleActionResponse
      */
     public function createRuleActionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $query['Configuration'] = $request->configuration;
-        }
-        if (!Utils::isUnset($request->errorActionFlag)) {
-            $query['ErrorActionFlag'] = $request->errorActionFlag;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateRuleAction',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateRuleActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateRuleActionResponse::fromMap($this->doRequest('CreateRuleAction', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   Destination Alibaba Cloud services that are supported by the rules engine vary based on regions. For more information about the regions and destination cloud services that are supported by the rules engine, see [Regions and zones](~~85669~~).
-     *   * *   You can create a maximum of 10 rule actions for each rule.
-     *   * *   You can call this API operation to define rule actions to forward data to an IoT Platform topic, AMQP consumer group, or Alibaba Cloud service. The supported Alibaba Cloud services include Message Service (MNS), Function Compute, and Tablestore. If you need to forward data to ApsaraDB RDS, you must use the [IoT Platform console](https://iot.console.aliyun.com).
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateRuleActionRequest $request CreateRuleActionRequest
+     * @param CreateRuleActionRequest $request
      *
-     * @return CreateRuleActionResponse CreateRuleActionResponse
+     * @return CreateRuleActionResponse
      */
     public function createRuleAction($request)
     {
@@ -6506,35 +3257,8 @@ class Iot extends OpenApiClient
     public function createSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->ruleContent)) {
-            $query['RuleContent'] = $request->ruleContent;
-        }
-        if (!Utils::isUnset($request->ruleDescription)) {
-            $query['RuleDescription'] = $request->ruleDescription;
-        }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateSceneRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSceneRuleResponse::fromMap($this->doRequest('CreateSceneRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -6558,41 +3282,8 @@ class Iot extends OpenApiClient
     public function createSchedulePeriodWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->scheduleCode)) {
-            $body['ScheduleCode'] = $request->scheduleCode;
-        }
-        if (!Utils::isUnset($request->soundCodeContent)) {
-            $body['SoundCodeContent'] = $request->soundCodeContent;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateSchedulePeriod',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateSchedulePeriodResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSchedulePeriodResponse::fromMap($this->doRequest('CreateSchedulePeriod', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -6608,6 +3299,56 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param CreateSharePromotionActivityRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateSharePromotionActivityResponse
+     */
+    public function createSharePromotionActivityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateSharePromotionActivityResponse::fromMap($this->doRequest('CreateSharePromotionActivity', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateSharePromotionActivityRequest $request
+     *
+     * @return CreateSharePromotionActivityResponse
+     */
+    public function createSharePromotionActivity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSharePromotionActivityWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSharePromotionSpeechModelRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return CreateSharePromotionSpeechModelResponse
+     */
+    public function createSharePromotionSpeechModelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return CreateSharePromotionSpeechModelResponse::fromMap($this->doRequest('CreateSharePromotionSpeechModel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param CreateSharePromotionSpeechModelRequest $request
+     *
+     * @return CreateSharePromotionSpeechModelResponse
+     */
+    public function createSharePromotionSpeechModel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSharePromotionSpeechModelWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateSoundCodeRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -6616,38 +3357,8 @@ class Iot extends OpenApiClient
     public function createSoundCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->duration)) {
-            $body['Duration'] = $request->duration;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->openType)) {
-            $body['OpenType'] = $request->openType;
-        }
-        if (!Utils::isUnset($request->soundCodeContent)) {
-            $body['SoundCodeContent'] = $request->soundCodeContent;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateSoundCode',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateSoundCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSoundCodeResponse::fromMap($this->doRequest('CreateSoundCode', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -6671,32 +3382,8 @@ class Iot extends OpenApiClient
     public function createSoundCodeLabelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->label)) {
-            $body['Label'] = $request->label;
-        }
-        if (!Utils::isUnset($request->scheduleCode)) {
-            $body['ScheduleCode'] = $request->scheduleCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateSoundCodeLabel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateSoundCodeLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSoundCodeLabelResponse::fromMap($this->doRequest('CreateSoundCodeLabel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -6720,41 +3407,8 @@ class Iot extends OpenApiClient
     public function createSoundCodeScheduleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            $body['EndDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->openType)) {
-            $body['OpenType'] = $request->openType;
-        }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['StartDate'] = $request->startDate;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateSoundCodeSchedule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateSoundCodeScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSoundCodeScheduleResponse::fromMap($this->doRequest('CreateSoundCodeSchedule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -6770,69 +3424,21 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param CreateSpeechRequest $tmpReq
+     * @param CreateSpeechRequest $tmp
      * @param RuntimeOptions      $runtime
      *
      * @return CreateSpeechResponse
      */
-    public function createSpeechWithOptions($tmpReq, $runtime)
+    public function createSpeechWithOptions($tmp, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        Utils::validateModel($tmp);
         $request = new CreateSpeechShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->soundCodeConfig)) {
-            $request->soundCodeConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->soundCodeConfig, 'SoundCodeConfig', 'json');
+        RpcUtils::convert($tmp, $request);
+        if (!Utils::isUnset($tmp->soundCodeConfig)) {
+            $request->soundCodeConfigShrink = Utils::toJSONString($tmp->soundCodeConfig);
         }
-        $body = [];
-        if (!Utils::isUnset($request->audioFormat)) {
-            $body['AudioFormat'] = $request->audioFormat;
-        }
-        if (!Utils::isUnset($request->bizCode)) {
-            $body['BizCode'] = $request->bizCode;
-        }
-        if (!Utils::isUnset($request->enableSoundCode)) {
-            $body['EnableSoundCode'] = $request->enableSoundCode;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->projectCode)) {
-            $body['ProjectCode'] = $request->projectCode;
-        }
-        if (!Utils::isUnset($request->soundCodeConfigShrink)) {
-            $body['SoundCodeConfig'] = $request->soundCodeConfigShrink;
-        }
-        if (!Utils::isUnset($request->speechRate)) {
-            $body['SpeechRate'] = $request->speechRate;
-        }
-        if (!Utils::isUnset($request->speechType)) {
-            $body['SpeechType'] = $request->speechType;
-        }
-        if (!Utils::isUnset($request->text)) {
-            $body['Text'] = $request->text;
-        }
-        if (!Utils::isUnset($request->voice)) {
-            $body['Voice'] = $request->voice;
-        }
-        if (!Utils::isUnset($request->volume)) {
-            $body['Volume'] = $request->volume;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateSpeech',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSpeechResponse::fromMap($this->doRequest('CreateSpeech', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -6856,38 +3462,8 @@ class Iot extends OpenApiClient
     public function createStudioAppDomainOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->host)) {
-            $body['Host'] = $request->host;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->protocol)) {
-            $body['Protocol'] = $request->protocol;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateStudioAppDomainOpen',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateStudioAppDomainOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateStudioAppDomainOpenResponse::fromMap($this->doRequest('CreateStudioAppDomainOpen', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -6903,107 +3479,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * Server-side subscriptions are categorized into the following two types:
-     *   * *   MNS subscription: pushes subscribed messages to MNS queues. Your server applications listen to MNS queues to receive device messages. For more information, see [Configure MNS server-side subscriptions](~~68948~~). You can call this operation to create an MNS subscription.
-     *   * *   AMQP subscription: pushes subscribed messages to your server by using the AMQP channel. For more information, see [Configure AMQP server-side subscriptions](~~142376~~). To configure an AMQP subscription, perform the following steps:
-     *   *     1\\. Call the [CreateConsumerGroup](~~170388~~) operation to create a consumer group and obtain the returned consumer group ID. Messages are pushed to the consumer group. The AMQP client carries the consumer group ID when the client connected to IoT Platform. For more information, see [Connect an AMQP client to IoT Platform](~~142489~~).
-     *   *     2\\. Call the CreateSubscribeRelation operation to create an AMQP subscription.
-     *   *     3\\. Optional. Call the [CreateConsumerGroupSubscribeRelation](~~170354~~) operation to add a consumer group to the AMQP subscription. You can also call the [DeleteConsumerGroupSubscribeRelation](~~170357~~) operation to remove a consumer group from an AMQP subscription.
-     *   *     4\\. Optional. Call the [QueryConsumerGroupStatus](~~170358~~) operation to query the status of a consumer group, including online client information, message consumption rate, number of accumulated messages, and last message consumption time. You can also call the [ResetConsumerGroupPosition](~~170355~~) operation to clear the accumulated messages of the consumer group.
-     *   * ## QPS limits
-     *   * You can call this API operation up to five times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateSubscribeRelationRequest $request CreateSubscribeRelationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param CreateSubscribeRelationRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return CreateSubscribeRelationResponse CreateSubscribeRelationResponse
+     * @return CreateSubscribeRelationResponse
      */
     public function createSubscribeRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->consumerGroupIds)) {
-            $query['ConsumerGroupIds'] = $request->consumerGroupIds;
-        }
-        if (!Utils::isUnset($request->deviceDataFlag)) {
-            $query['DeviceDataFlag'] = $request->deviceDataFlag;
-        }
-        if (!Utils::isUnset($request->deviceLifeCycleFlag)) {
-            $query['DeviceLifeCycleFlag'] = $request->deviceLifeCycleFlag;
-        }
-        if (!Utils::isUnset($request->deviceStatusChangeFlag)) {
-            $query['DeviceStatusChangeFlag'] = $request->deviceStatusChangeFlag;
-        }
-        if (!Utils::isUnset($request->deviceTagFlag)) {
-            $query['DeviceTagFlag'] = $request->deviceTagFlag;
-        }
-        if (!Utils::isUnset($request->deviceTopoLifeCycleFlag)) {
-            $query['DeviceTopoLifeCycleFlag'] = $request->deviceTopoLifeCycleFlag;
-        }
-        if (!Utils::isUnset($request->foundDeviceListFlag)) {
-            $query['FoundDeviceListFlag'] = $request->foundDeviceListFlag;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->mnsConfiguration)) {
-            $query['MnsConfiguration'] = $request->mnsConfiguration;
-        }
-        if (!Utils::isUnset($request->otaEventFlag)) {
-            $query['OtaEventFlag'] = $request->otaEventFlag;
-        }
-        if (!Utils::isUnset($request->otaJobFlag)) {
-            $query['OtaJobFlag'] = $request->otaJobFlag;
-        }
-        if (!Utils::isUnset($request->otaVersionFlag)) {
-            $query['OtaVersionFlag'] = $request->otaVersionFlag;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->subscribeFlags)) {
-            $query['SubscribeFlags'] = $request->subscribeFlags;
-        }
-        if (!Utils::isUnset($request->thingHistoryFlag)) {
-            $query['ThingHistoryFlag'] = $request->thingHistoryFlag;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateSubscribeRelation',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateSubscribeRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateSubscribeRelationResponse::fromMap($this->doRequest('CreateSubscribeRelation', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * Server-side subscriptions are categorized into the following two types:
-     *   * *   MNS subscription: pushes subscribed messages to MNS queues. Your server applications listen to MNS queues to receive device messages. For more information, see [Configure MNS server-side subscriptions](~~68948~~). You can call this operation to create an MNS subscription.
-     *   * *   AMQP subscription: pushes subscribed messages to your server by using the AMQP channel. For more information, see [Configure AMQP server-side subscriptions](~~142376~~). To configure an AMQP subscription, perform the following steps:
-     *   *     1\\. Call the [CreateConsumerGroup](~~170388~~) operation to create a consumer group and obtain the returned consumer group ID. Messages are pushed to the consumer group. The AMQP client carries the consumer group ID when the client connected to IoT Platform. For more information, see [Connect an AMQP client to IoT Platform](~~142489~~).
-     *   *     2\\. Call the CreateSubscribeRelation operation to create an AMQP subscription.
-     *   *     3\\. Optional. Call the [CreateConsumerGroupSubscribeRelation](~~170354~~) operation to add a consumer group to the AMQP subscription. You can also call the [DeleteConsumerGroupSubscribeRelation](~~170357~~) operation to remove a consumer group from an AMQP subscription.
-     *   *     4\\. Optional. Call the [QueryConsumerGroupStatus](~~170358~~) operation to query the status of a consumer group, including online client information, message consumption rate, number of accumulated messages, and last message consumption time. You can also call the [ResetConsumerGroupPosition](~~170355~~) operation to clear the accumulated messages of the consumer group.
-     *   * ## QPS limits
-     *   * You can call this API operation up to five times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateSubscribeRelationRequest $request CreateSubscribeRelationRequest
+     * @param CreateSubscribeRelationRequest $request
      *
-     * @return CreateSubscribeRelationResponse CreateSubscribeRelationResponse
+     * @return CreateSubscribeRelationResponse
      */
     public function createSubscribeRelation($request)
     {
@@ -7013,66 +3504,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
-     *   * *   Before you call the operation, you can use the [json-schema](https://github.com/everit-org/json-schema?spm=a2c4g.11186623.2.23.575832d9zD7fZb) library to verify the input parameters in **ThingModelJson**. For more information, see [Data structure of ThingModelJson](~~150457~~).
-     *   * *   You can call this operation to add a maximum of 10 TSL features. TSL features include properties, services, and events.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateThingModelRequest $request CreateThingModelRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param CreateThingModelRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return CreateThingModelResponse CreateThingModelResponse
+     * @return CreateThingModelResponse
      */
     public function createThingModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->functionBlockId)) {
-            $query['FunctionBlockId'] = $request->functionBlockId;
-        }
-        if (!Utils::isUnset($request->functionBlockName)) {
-            $query['FunctionBlockName'] = $request->functionBlockName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->thingModelJson)) {
-            $query['ThingModelJson'] = $request->thingModelJson;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateThingModel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateThingModelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateThingModelResponse::fromMap($this->doRequest('CreateThingModel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
-     *   * *   Before you call the operation, you can use the [json-schema](https://github.com/everit-org/json-schema?spm=a2c4g.11186623.2.23.575832d9zD7fZb) library to verify the input parameters in **ThingModelJson**. For more information, see [Data structure of ThingModelJson](~~150457~~).
-     *   * *   You can call this operation to add a maximum of 10 TSL features. TSL features include properties, services, and events.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateThingModelRequest $request CreateThingModelRequest
+     * @param CreateThingModelRequest $request
      *
-     * @return CreateThingModelResponse CreateThingModelResponse
+     * @return CreateThingModelResponse
      */
     public function createThingModel($request)
     {
@@ -7082,61 +3529,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * A data parsing script is used to convert data submitted by devices into the JSON format. The data submitted by devices is in a custom format. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
-     *   * > If the data format is **Alink JSON**, the CreateThingScript operation is not supported. Alink JSON is a standard data format that is defined by IoT Connectivity Alliance (ICA).
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateThingScriptRequest $request CreateThingScriptRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param CreateThingScriptRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return CreateThingScriptResponse CreateThingScriptResponse
+     * @return CreateThingScriptResponse
      */
     public function createThingScriptWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->scriptContent)) {
-            $query['ScriptContent'] = $request->scriptContent;
-        }
-        if (!Utils::isUnset($request->scriptType)) {
-            $query['ScriptType'] = $request->scriptType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateThingScript',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateThingScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateThingScriptResponse::fromMap($this->doRequest('CreateThingScript', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * A data parsing script is used to convert data submitted by devices into the JSON format. The data submitted by devices is in a custom format. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
-     *   * > If the data format is **Alink JSON**, the CreateThingScript operation is not supported. Alink JSON is a standard data format that is defined by IoT Connectivity Alliance (ICA).
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateThingScriptRequest $request CreateThingScriptRequest
+     * @param CreateThingScriptRequest $request
      *
-     * @return CreateThingScriptResponse CreateThingScriptResponse
+     * @return CreateThingScriptResponse
      */
     public function createThingScript($request)
     {
@@ -7154,47 +3562,8 @@ class Iot extends OpenApiClient
     public function createTopicConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->codec)) {
-            $query['Codec'] = $request->codec;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->enableBroadcast)) {
-            $query['EnableBroadcast'] = $request->enableBroadcast;
-        }
-        if (!Utils::isUnset($request->enableProxySubscribe)) {
-            $query['EnableProxySubscribe'] = $request->enableProxySubscribe;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->operation)) {
-            $query['Operation'] = $request->operation;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->topicFullName)) {
-            $query['TopicFullName'] = $request->topicFullName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateTopicConfig',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateTopicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTopicConfigResponse::fromMap($this->doRequest('CreateTopicConfig', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -7210,60 +3579,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   You can specify a maximum of 100 destination topics for a source topic.
-     *   * *   The device to which the source topic belongs must be activated.
-     *   * *   The source and destination topics support only custom topics.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateTopicRouteTableRequest $request CreateTopicRouteTableRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param CreateTopicRouteTableRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return CreateTopicRouteTableResponse CreateTopicRouteTableResponse
+     * @return CreateTopicRouteTableResponse
      */
     public function createTopicRouteTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dstTopic)) {
-            $query['DstTopic'] = $request->dstTopic;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->srcTopic)) {
-            $query['SrcTopic'] = $request->srcTopic;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'CreateTopicRouteTable',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return CreateTopicRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateTopicRouteTableResponse::fromMap($this->doRequest('CreateTopicRouteTable', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   You can specify a maximum of 100 destination topics for a source topic.
-     *   * *   The device to which the source topic belongs must be activated.
-     *   * *   The source and destination topics support only custom topics.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param CreateTopicRouteTableRequest $request CreateTopicRouteTableRequest
+     * @param CreateTopicRouteTableRequest $request
      *
-     * @return CreateTopicRouteTableResponse CreateTopicRouteTableResponse
+     * @return CreateTopicRouteTableResponse
      */
     public function createTopicRouteTable($request)
     {
@@ -7273,55 +3604,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   You can call the [QueryClientIds](~~371985~~) operation to view the ClientIDs of a device and obtain the number of ClientIDs.
-     *   * *   After you call the DeleteClientIds operation, all ClientIDs of the device are deleted and cannot be resumed. To obtain a new ClientID, you can register the device again.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteClientIdsRequest $request DeleteClientIdsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param DeleteClientIdsRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return DeleteClientIdsResponse DeleteClientIdsResponse
+     * @return DeleteClientIdsResponse
      */
     public function deleteClientIdsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteClientIds',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteClientIdsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteClientIdsResponse::fromMap($this->doRequest('DeleteClientIds', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   You can call the [QueryClientIds](~~371985~~) operation to view the ClientIDs of a device and obtain the number of ClientIDs.
-     *   * *   After you call the DeleteClientIds operation, all ClientIDs of the device are deleted and cannot be resumed. To obtain a new ClientID, you can register the device again.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteClientIdsRequest $request DeleteClientIdsRequest
+     * @param DeleteClientIdsRequest $request
      *
-     * @return DeleteClientIdsResponse DeleteClientIdsResponse
+     * @return DeleteClientIdsResponse
      */
     public function deleteClientIds($request)
     {
@@ -7331,55 +3629,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   You cannot delete the default consumer group provided by IoT Platform.
-     *   * *   If the consumer group is associated with an AMQP subscription, you must disassociate the consumer group from the subscription. If the subscription has multiple consumer groups, you can call the [DeleteConsumerGroupSubscribeRelation](~~170357~~) operation to remove the consumer group from the subscription. If the subscription has only one consumer group, you can call the [UpdateSubscribeRelation](~~170351~~) operation to change the consumer group or call the [DeleteSubscribeRelation](~~170353~~) operation to delete the subscription.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteConsumerGroupRequest $request DeleteConsumerGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param DeleteConsumerGroupRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return DeleteConsumerGroupResponse DeleteConsumerGroupResponse
+     * @return DeleteConsumerGroupResponse
      */
     public function deleteConsumerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteConsumerGroup',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteConsumerGroupResponse::fromMap($this->doRequest('DeleteConsumerGroup', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   You cannot delete the default consumer group provided by IoT Platform.
-     *   * *   If the consumer group is associated with an AMQP subscription, you must disassociate the consumer group from the subscription. If the subscription has multiple consumer groups, you can call the [DeleteConsumerGroupSubscribeRelation](~~170357~~) operation to remove the consumer group from the subscription. If the subscription has only one consumer group, you can call the [UpdateSubscribeRelation](~~170351~~) operation to change the consumer group or call the [DeleteSubscribeRelation](~~170353~~) operation to delete the subscription.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteConsumerGroupRequest $request DeleteConsumerGroupRequest
+     * @param DeleteConsumerGroupRequest $request
      *
-     * @return DeleteConsumerGroupResponse DeleteConsumerGroupResponse
+     * @return DeleteConsumerGroupResponse
      */
     public function deleteConsumerGroup($request)
     {
@@ -7389,56 +3654,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   If the AMQP subscription has only one consumer group, you cannot call this operation to remove the consumer group.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteConsumerGroupSubscribeRelationRequest $request DeleteConsumerGroupSubscribeRelationRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * @param DeleteConsumerGroupSubscribeRelationRequest $request
+     * @param RuntimeOptions                              $runtime
      *
-     * @return DeleteConsumerGroupSubscribeRelationResponse DeleteConsumerGroupSubscribeRelationResponse
+     * @return DeleteConsumerGroupSubscribeRelationResponse
      */
     public function deleteConsumerGroupSubscribeRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->consumerGroupId)) {
-            $query['ConsumerGroupId'] = $request->consumerGroupId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteConsumerGroupSubscribeRelation',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteConsumerGroupSubscribeRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteConsumerGroupSubscribeRelationResponse::fromMap($this->doRequest('DeleteConsumerGroupSubscribeRelation', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   If the AMQP subscription has only one consumer group, you cannot call this operation to remove the consumer group.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteConsumerGroupSubscribeRelationRequest $request DeleteConsumerGroupSubscribeRelationRequest
+     * @param DeleteConsumerGroupSubscribeRelationRequest $request
      *
-     * @return DeleteConsumerGroupSubscribeRelationResponse DeleteConsumerGroupSubscribeRelationResponse
+     * @return DeleteConsumerGroupSubscribeRelationResponse
      */
     public function deleteConsumerGroupSubscribeRelation($request)
     {
@@ -7456,32 +3687,8 @@ class Iot extends OpenApiClient
     public function deleteDataSourceItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['DataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->dataSourceItemId)) {
-            $query['DataSourceItemId'] = $request->dataSourceItemId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDataSourceItem',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteDataSourceItemResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDataSourceItemResponse::fromMap($this->doRequest('DeleteDataSourceItem', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -7505,29 +3712,8 @@ class Iot extends OpenApiClient
     public function deleteDestinationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->destinationId)) {
-            $query['DestinationId'] = $request->destinationId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDestination',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDestinationResponse::fromMap($this->doRequest('DeleteDestination', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -7543,75 +3729,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   When you call this operation with an Alibaba Cloud account, IoT Platform sends a verification code by text message to confirm your identity.
-     *   * *   When you call this operation with a RAM user, IoT Platform does not send a verification code. To ensure device security, you can create custom permission policies to perform fine-grained permission management. For more information, see [Mapping of IoT Platform operations and RAM policies](~~47485~~) and [Custom permissions](~~47495~~).
-     *   * **Warning**
-     *   * *   After a device is deleted, the device ID (**IotId**) becomes invalid, and all other information associated with the device is deleted. In addition, you can no longer perform an operation on the device.
-     *   * *   Before you delete a device in the IoT Platform console, make sure that the corresponding actual device is offline. Otherwise, after the device is deleted from IoT Platform, the actual device continues to initiate connection requests to IoT Platform. If the number of requests exceeds the upper limit, IoT Platform starts request throttling. In this case, access of other devices within your Alibaba Cloud account is affected.
-     *   * *   After you delete a device, the certificate of the device becomes invalid and cannot be restored. Proceed with caution.
-     *   * ****
-     *   * *   You must specify a value for the **IotId** parameter or values for the **ProductKey** and **DeviceName** parameters to identify a device.
-     *   * *   If you specify a gateway and the number of sub-devices that belong to the gateway exceeds 2,000, you can call this operation to create a device job to delete the topological relationships in an asynchronous manner. The operation returns the **JobId** parameter.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 50 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteDeviceRequest $request DeleteDeviceRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param DeleteDeviceRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return DeleteDeviceResponse DeleteDeviceResponse
+     * @return DeleteDeviceResponse
      */
     public function deleteDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDeviceResponse::fromMap($this->doRequest('DeleteDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   When you call this operation with an Alibaba Cloud account, IoT Platform sends a verification code by text message to confirm your identity.
-     *   * *   When you call this operation with a RAM user, IoT Platform does not send a verification code. To ensure device security, you can create custom permission policies to perform fine-grained permission management. For more information, see [Mapping of IoT Platform operations and RAM policies](~~47485~~) and [Custom permissions](~~47495~~).
-     *   * **Warning**
-     *   * *   After a device is deleted, the device ID (**IotId**) becomes invalid, and all other information associated with the device is deleted. In addition, you can no longer perform an operation on the device.
-     *   * *   Before you delete a device in the IoT Platform console, make sure that the corresponding actual device is offline. Otherwise, after the device is deleted from IoT Platform, the actual device continues to initiate connection requests to IoT Platform. If the number of requests exceeds the upper limit, IoT Platform starts request throttling. In this case, access of other devices within your Alibaba Cloud account is affected.
-     *   * *   After you delete a device, the certificate of the device becomes invalid and cannot be restored. Proceed with caution.
-     *   * ****
-     *   * *   You must specify a value for the **IotId** parameter or values for the **ProductKey** and **DeviceName** parameters to identify a device.
-     *   * *   If you specify a gateway and the number of sub-devices that belong to the gateway exceeds 2,000, you can call this operation to create a device job to delete the topological relationships in an asynchronous manner. The operation returns the **JobId** parameter.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 50 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteDeviceRequest $request DeleteDeviceRequest
+     * @param DeleteDeviceRequest $request
      *
-     * @return DeleteDeviceResponse DeleteDeviceResponse
+     * @return DeleteDeviceResponse
      */
     public function deleteDevice($request)
     {
@@ -7621,48 +3754,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
-     *   * *   Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteDeviceDistributeJobRequest $request DeleteDeviceDistributeJobRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param DeleteDeviceDistributeJobRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return DeleteDeviceDistributeJobResponse DeleteDeviceDistributeJobResponse
+     * @return DeleteDeviceDistributeJobResponse
      */
     public function deleteDeviceDistributeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDeviceDistributeJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteDeviceDistributeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDeviceDistributeJobResponse::fromMap($this->doRequest('DeleteDeviceDistributeJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
-     *   * *   Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteDeviceDistributeJobRequest $request DeleteDeviceDistributeJobRequest
+     * @param DeleteDeviceDistributeJobRequest $request
      *
-     * @return DeleteDeviceDistributeJobResponse DeleteDeviceDistributeJobResponse
+     * @return DeleteDeviceDistributeJobResponse
      */
     public function deleteDeviceDistributeJob($request)
     {
@@ -7680,29 +3787,8 @@ class Iot extends OpenApiClient
     public function deleteDeviceDynamicGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDeviceDynamicGroup',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteDeviceDynamicGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDeviceDynamicGroupResponse::fromMap($this->doRequest('DeleteDeviceDynamicGroup', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -7718,60 +3804,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteDeviceFileRequest $request DeleteDeviceFileRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param DeleteDeviceFileRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return DeleteDeviceFileResponse DeleteDeviceFileResponse
+     * @return DeleteDeviceFileResponse
      */
     public function deleteDeviceFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDeviceFile',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteDeviceFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDeviceFileResponse::fromMap($this->doRequest('DeleteDeviceFile', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteDeviceFileRequest $request DeleteDeviceFileRequest
+     * @param DeleteDeviceFileRequest $request
      *
-     * @return DeleteDeviceFileResponse DeleteDeviceFileResponse
+     * @return DeleteDeviceFileResponse
      */
     public function deleteDeviceFile($request)
     {
@@ -7781,51 +3829,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteDeviceGroupRequest $request DeleteDeviceGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param DeleteDeviceGroupRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return DeleteDeviceGroupResponse DeleteDeviceGroupResponse
+     * @return DeleteDeviceGroupResponse
      */
     public function deleteDeviceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDeviceGroup',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteDeviceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDeviceGroupResponse::fromMap($this->doRequest('DeleteDeviceGroup', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteDeviceGroupRequest $request DeleteDeviceGroupRequest
+     * @param DeleteDeviceGroupRequest $request
      *
-     * @return DeleteDeviceGroupResponse DeleteDeviceGroupResponse
+     * @return DeleteDeviceGroupResponse
      */
     public function deleteDeviceGroup($request)
     {
@@ -7835,60 +3854,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteDevicePropRequest $request DeleteDevicePropRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param DeleteDevicePropRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return DeleteDevicePropResponse DeleteDevicePropResponse
+     * @return DeleteDevicePropResponse
      */
     public function deleteDevicePropWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->propKey)) {
-            $query['PropKey'] = $request->propKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDeviceProp',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteDevicePropResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDevicePropResponse::fromMap($this->doRequest('DeleteDeviceProp', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteDevicePropRequest $request DeleteDevicePropRequest
+     * @param DeleteDevicePropRequest $request
      *
-     * @return DeleteDevicePropResponse DeleteDevicePropResponse
+     * @return DeleteDevicePropResponse
      */
     public function deleteDeviceProp($request)
     {
@@ -7906,32 +3887,8 @@ class Iot extends OpenApiClient
     public function deleteDeviceSpeechWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->deviceSpeechList)) {
-            $body['DeviceSpeechList'] = $request->deviceSpeechList;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $body['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDeviceSpeech',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteDeviceSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDeviceSpeechResponse::fromMap($this->doRequest('DeleteDeviceSpeech', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -7955,29 +3912,8 @@ class Iot extends OpenApiClient
     public function deleteDeviceTunnelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->tunnelId)) {
-            $query['TunnelId'] = $request->tunnelId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteDeviceTunnel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteDeviceTunnelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteDeviceTunnelResponse::fromMap($this->doRequest('DeleteDeviceTunnel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -7993,53 +3929,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   You are not allowed to delete a driver that has a published version.
-     *   * *   Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteEdgeDriverRequest $request DeleteEdgeDriverRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param DeleteEdgeDriverRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return DeleteEdgeDriverResponse DeleteEdgeDriverResponse
+     * @return DeleteEdgeDriverResponse
      */
     public function deleteEdgeDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteEdgeDriver',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteEdgeDriverResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEdgeDriverResponse::fromMap($this->doRequest('DeleteEdgeDriver', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   You are not allowed to delete a driver that has a published version.
-     *   * *   Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteEdgeDriverRequest $request DeleteEdgeDriverRequest
+     * @param DeleteEdgeDriverRequest $request
      *
-     * @return DeleteEdgeDriverResponse DeleteEdgeDriverResponse
+     * @return DeleteEdgeDriverResponse
      */
     public function deleteEdgeDriver($request)
     {
@@ -8049,56 +3954,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   You are not allowed to delete a published driver version.
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteEdgeDriverVersionRequest $request DeleteEdgeDriverVersionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param DeleteEdgeDriverVersionRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DeleteEdgeDriverVersionResponse DeleteEdgeDriverVersionResponse
+     * @return DeleteEdgeDriverVersionResponse
      */
     public function deleteEdgeDriverVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->driverVersion)) {
-            $query['DriverVersion'] = $request->driverVersion;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteEdgeDriverVersion',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteEdgeDriverVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEdgeDriverVersionResponse::fromMap($this->doRequest('DeleteEdgeDriverVersion', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   You are not allowed to delete a published driver version.
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteEdgeDriverVersionRequest $request DeleteEdgeDriverVersionRequest
+     * @param DeleteEdgeDriverVersionRequest $request
      *
-     * @return DeleteEdgeDriverVersionResponse DeleteEdgeDriverVersionResponse
+     * @return DeleteEdgeDriverVersionResponse
      */
     public function deleteEdgeDriverVersion($request)
     {
@@ -8108,49 +3979,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteEdgeInstanceRequest $request DeleteEdgeInstanceRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param DeleteEdgeInstanceRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return DeleteEdgeInstanceResponse DeleteEdgeInstanceResponse
+     * @return DeleteEdgeInstanceResponse
      */
     public function deleteEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteEdgeInstance',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEdgeInstanceResponse::fromMap($this->doRequest('DeleteEdgeInstance', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteEdgeInstanceRequest $request DeleteEdgeInstanceRequest
+     * @param DeleteEdgeInstanceRequest $request
      *
-     * @return DeleteEdgeInstanceResponse DeleteEdgeInstanceResponse
+     * @return DeleteEdgeInstanceResponse
      */
     public function deleteEdgeInstance($request)
     {
@@ -8168,32 +4012,8 @@ class Iot extends OpenApiClient
     public function deleteEdgeInstanceMessageRoutingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->routeId)) {
-            $query['RouteId'] = $request->routeId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteEdgeInstanceMessageRouting',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteEdgeInstanceMessageRoutingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteEdgeInstanceMessageRoutingResponse::fromMap($this->doRequest('DeleteEdgeInstanceMessageRouting', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -8217,29 +4037,8 @@ class Iot extends OpenApiClient
     public function deleteJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteJobResponse::fromMap($this->doRequest('DeleteJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -8255,51 +4054,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteOTAFirmwareRequest $request DeleteOTAFirmwareRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param DeleteOTAFirmwareRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return DeleteOTAFirmwareResponse DeleteOTAFirmwareResponse
+     * @return DeleteOTAFirmwareResponse
      */
     public function deleteOTAFirmwareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->firmwareId)) {
-            $query['FirmwareId'] = $request->firmwareId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteOTAFirmware',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteOTAFirmwareResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteOTAFirmwareResponse::fromMap($this->doRequest('DeleteOTAFirmware', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteOTAFirmwareRequest $request DeleteOTAFirmwareRequest
+     * @param DeleteOTAFirmwareRequest $request
      *
-     * @return DeleteOTAFirmwareResponse DeleteOTAFirmwareResponse
+     * @return DeleteOTAFirmwareResponse
      */
     public function deleteOTAFirmware($request)
     {
@@ -8309,58 +4079,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   The default module cannot be deleted.
-     *   * *   If an update package exists in an OTA module, you cannot delete the OTA module.
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteOTAModuleRequest $request DeleteOTAModuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param DeleteOTAModuleRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return DeleteOTAModuleResponse DeleteOTAModuleResponse
+     * @return DeleteOTAModuleResponse
      */
     public function deleteOTAModuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->moduleName)) {
-            $query['ModuleName'] = $request->moduleName;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteOTAModule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteOTAModuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteOTAModuleResponse::fromMap($this->doRequest('DeleteOTAModule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   The default module cannot be deleted.
-     *   * *   If an update package exists in an OTA module, you cannot delete the OTA module.
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteOTAModuleRequest $request DeleteOTAModuleRequest
+     * @param DeleteOTAModuleRequest $request
      *
-     * @return DeleteOTAModuleResponse DeleteOTAModuleResponse
+     * @return DeleteOTAModuleResponse
      */
     public function deleteOTAModule($request)
     {
@@ -8378,29 +4112,8 @@ class Iot extends OpenApiClient
     public function deleteParserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->parserId)) {
-            $query['ParserId'] = $request->parserId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteParser',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteParserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteParserResponse::fromMap($this->doRequest('DeleteParser', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -8424,29 +4137,8 @@ class Iot extends OpenApiClient
     public function deleteParserDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['DataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteParserDataSource',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteParserDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteParserDataSourceResponse::fromMap($this->doRequest('DeleteParserDataSource', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -8462,53 +4154,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   After a product is deleted, the ProductKey of the product is invalid. The related information about the product is also deleted. You cannot perform the required operations on the product.
-     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteProductRequest $request DeleteProductRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param DeleteProductRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return DeleteProductResponse DeleteProductResponse
+     * @return DeleteProductResponse
      */
     public function deleteProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteProduct',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteProductResponse::fromMap($this->doRequest('DeleteProduct', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   After a product is deleted, the ProductKey of the product is invalid. The related information about the product is also deleted. You cannot perform the required operations on the product.
-     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteProductRequest $request DeleteProductRequest
+     * @param DeleteProductRequest $request
      *
-     * @return DeleteProductResponse DeleteProductResponse
+     * @return DeleteProductResponse
      */
     public function deleteProduct($request)
     {
@@ -8518,56 +4179,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   You can delete a maximum of 10 tags in a single call.
-     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteProductTagsRequest $request DeleteProductTagsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param DeleteProductTagsRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return DeleteProductTagsResponse DeleteProductTagsResponse
+     * @return DeleteProductTagsResponse
      */
     public function deleteProductTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->productTagKey)) {
-            $query['ProductTagKey'] = $request->productTagKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteProductTags',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteProductTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteProductTagsResponse::fromMap($this->doRequest('DeleteProductTags', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   You can delete a maximum of 10 tags in a single call.
-     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteProductTagsRequest $request DeleteProductTagsRequest
+     * @param DeleteProductTagsRequest $request
      *
-     * @return DeleteProductTagsResponse DeleteProductTagsResponse
+     * @return DeleteProductTagsResponse
      */
     public function deleteProductTags($request)
     {
@@ -8577,51 +4204,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteProductTopicRequest $request DeleteProductTopicRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param DeleteProductTopicRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return DeleteProductTopicResponse DeleteProductTopicResponse
+     * @return DeleteProductTopicResponse
      */
     public function deleteProductTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->topicId)) {
-            $query['TopicId'] = $request->topicId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteProductTopic',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteProductTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteProductTopicResponse::fromMap($this->doRequest('DeleteProductTopic', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteProductTopicRequest $request DeleteProductTopicRequest
+     * @param DeleteProductTopicRequest $request
      *
-     * @return DeleteProductTopicResponse DeleteProductTopicResponse
+     * @return DeleteProductTopicResponse
      */
     public function deleteProductTopic($request)
     {
@@ -8631,51 +4229,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteRuleRequest $request DeleteRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param DeleteRuleRequest $request
+     * @param RuntimeOptions    $runtime
      *
-     * @return DeleteRuleResponse DeleteRuleResponse
+     * @return DeleteRuleResponse
      */
     public function deleteRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRuleResponse::fromMap($this->doRequest('DeleteRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteRuleRequest $request DeleteRuleRequest
+     * @param DeleteRuleRequest $request
      *
-     * @return DeleteRuleResponse DeleteRuleResponse
+     * @return DeleteRuleResponse
      */
     public function deleteRule($request)
     {
@@ -8685,51 +4254,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteRuleActionRequest $request DeleteRuleActionRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param DeleteRuleActionRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return DeleteRuleActionResponse DeleteRuleActionResponse
+     * @return DeleteRuleActionResponse
      */
     public function deleteRuleActionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->actionId)) {
-            $query['ActionId'] = $request->actionId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteRuleAction',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteRuleActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteRuleActionResponse::fromMap($this->doRequest('DeleteRuleAction', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteRuleActionRequest $request DeleteRuleActionRequest
+     * @param DeleteRuleActionRequest $request
      *
-     * @return DeleteRuleActionResponse DeleteRuleActionResponse
+     * @return DeleteRuleActionResponse
      */
     public function deleteRuleAction($request)
     {
@@ -8747,29 +4287,8 @@ class Iot extends OpenApiClient
     public function deleteSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteSceneRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSceneRuleResponse::fromMap($this->doRequest('DeleteSceneRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -8793,29 +4312,8 @@ class Iot extends OpenApiClient
     public function deleteSchedulePeriodWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->periodCode)) {
-            $body['PeriodCode'] = $request->periodCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteSchedulePeriod',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteSchedulePeriodResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSchedulePeriodResponse::fromMap($this->doRequest('DeleteSchedulePeriod', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -8839,32 +4337,8 @@ class Iot extends OpenApiClient
     public function deleteShareTaskDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotIdList)) {
-            $body['IotIdList'] = $request->iotIdList;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->shareTaskId)) {
-            $body['ShareTaskId'] = $request->shareTaskId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteShareTaskDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteShareTaskDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteShareTaskDeviceResponse::fromMap($this->doRequest('DeleteShareTaskDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -8888,29 +4362,8 @@ class Iot extends OpenApiClient
     public function deleteSoundCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->soundCode)) {
-            $body['SoundCode'] = $request->soundCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteSoundCode',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteSoundCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSoundCodeResponse::fromMap($this->doRequest('DeleteSoundCode', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -8934,29 +4387,8 @@ class Iot extends OpenApiClient
     public function deleteSoundCodeLabelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->soundCode)) {
-            $body['SoundCode'] = $request->soundCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteSoundCodeLabel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteSoundCodeLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSoundCodeLabelResponse::fromMap($this->doRequest('DeleteSoundCodeLabel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -8980,29 +4412,8 @@ class Iot extends OpenApiClient
     public function deleteSoundCodeScheduleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->scheduleCode)) {
-            $body['ScheduleCode'] = $request->scheduleCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteSoundCodeSchedule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteSoundCodeScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSoundCodeScheduleResponse::fromMap($this->doRequest('DeleteSoundCodeSchedule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -9026,29 +4437,8 @@ class Iot extends OpenApiClient
     public function deleteSpeechWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->speechCodeList)) {
-            $body['SpeechCodeList'] = $request->speechCodeList;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteSpeech',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSpeechResponse::fromMap($this->doRequest('DeleteSpeech', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -9072,35 +4462,8 @@ class Iot extends OpenApiClient
     public function deleteStudioAppDomainOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->domainId)) {
-            $body['DomainId'] = $request->domainId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteStudioAppDomainOpen',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteStudioAppDomainOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteStudioAppDomainOpenResponse::fromMap($this->doRequest('DeleteStudioAppDomainOpen', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -9116,54 +4479,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteSubscribeRelationRequest $request DeleteSubscribeRelationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param DeleteSubscribeRelationRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DeleteSubscribeRelationResponse DeleteSubscribeRelationResponse
+     * @return DeleteSubscribeRelationResponse
      */
     public function deleteSubscribeRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteSubscribeRelation',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteSubscribeRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteSubscribeRelationResponse::fromMap($this->doRequest('DeleteSubscribeRelation', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteSubscribeRelationRequest $request DeleteSubscribeRelationRequest
+     * @param DeleteSubscribeRelationRequest $request
      *
-     * @return DeleteSubscribeRelationResponse DeleteSubscribeRelationResponse
+     * @return DeleteSubscribeRelationResponse
      */
     public function deleteSubscribeRelation($request)
     {
@@ -9173,84 +4504,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call the DeleteThingModel operation.
-     *   * *   If an existing feature or custom TSL module in a product is not published, you can call the DeleteThingModel operation to remove the feature or delete the custom TSL module.
-     *   * *   When you call the DeleteThingModel operation, you must specify a value for the **ProductKey** parameter. The following list describes how the DeleteThingModel operation works:
-     *   *     *   If you specify a value only for the **ProductKey** parameter, the operation deletes all custom TSL modules and removes all features in the default TSL module from the specified product.
-     *   *     *   If you specify values only for the **ProductKey** and **FunctionBlockId** parameters, the operation deletes the specified custom TSL module from the specified product.
-     *   *     *   If you specify a value for the **ProductKey** parameter and a value for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter, the operation removes one or more specified features from the default TSL module of the specified product. The operation removes the specified features only if the features exist. If the value that you specified for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter does not exist in the default TSL module, the operation returns the same result as when you specify a value only for the **ProductKey** parameter.
-     *   *     *   If you specify values for the **ProductKey** and **FunctionBlockId** parameters and a value for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter, the operation removes one or more specified features from a specified custom TSL module in a specified product. The operation removes the specified features only if the features exist. If the value that you specified for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter does not exist, the operation returns the same result as when you specify values only for the **ProductKey** and **FunctionBlockId** parameters.
-     *   * > You must specify up to 10 identifiers for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter.
-     *   * *   After you call the DeleteThingModel operation to remove one or more features from a product, you must call the [PublishThingModel](~~150311~~) operation to re-publish the TSL model of the product. This way, the change takes effect.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 5 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param DeleteThingModelRequest $request DeleteThingModelRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param DeleteThingModelRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return DeleteThingModelResponse DeleteThingModelResponse
+     * @return DeleteThingModelResponse
      */
     public function deleteThingModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->eventIdentifier)) {
-            $query['EventIdentifier'] = $request->eventIdentifier;
-        }
-        if (!Utils::isUnset($request->functionBlockId)) {
-            $query['FunctionBlockId'] = $request->functionBlockId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->propertyIdentifier)) {
-            $query['PropertyIdentifier'] = $request->propertyIdentifier;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->serviceIdentifier)) {
-            $query['ServiceIdentifier'] = $request->serviceIdentifier;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteThingModel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteThingModelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteThingModelResponse::fromMap($this->doRequest('DeleteThingModel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call the DeleteThingModel operation.
-     *   * *   If an existing feature or custom TSL module in a product is not published, you can call the DeleteThingModel operation to remove the feature or delete the custom TSL module.
-     *   * *   When you call the DeleteThingModel operation, you must specify a value for the **ProductKey** parameter. The following list describes how the DeleteThingModel operation works:
-     *   *     *   If you specify a value only for the **ProductKey** parameter, the operation deletes all custom TSL modules and removes all features in the default TSL module from the specified product.
-     *   *     *   If you specify values only for the **ProductKey** and **FunctionBlockId** parameters, the operation deletes the specified custom TSL module from the specified product.
-     *   *     *   If you specify a value for the **ProductKey** parameter and a value for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter, the operation removes one or more specified features from the default TSL module of the specified product. The operation removes the specified features only if the features exist. If the value that you specified for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter does not exist in the default TSL module, the operation returns the same result as when you specify a value only for the **ProductKey** parameter.
-     *   *     *   If you specify values for the **ProductKey** and **FunctionBlockId** parameters and a value for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter, the operation removes one or more specified features from a specified custom TSL module in a specified product. The operation removes the specified features only if the features exist. If the value that you specified for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter does not exist, the operation returns the same result as when you specify values only for the **ProductKey** and **FunctionBlockId** parameters.
-     *   * > You must specify up to 10 identifiers for the **PropertyIdentifier.N**, **ServiceIdentifier.N**, or **EventIdentifier.N** parameter.
-     *   * *   After you call the DeleteThingModel operation to remove one or more features from a product, you must call the [PublishThingModel](~~150311~~) operation to re-publish the TSL model of the product. This way, the change takes effect.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 5 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param DeleteThingModelRequest $request DeleteThingModelRequest
+     * @param DeleteThingModelRequest $request
      *
-     * @return DeleteThingModelResponse DeleteThingModelResponse
+     * @return DeleteThingModelResponse
      */
     public function deleteThingModel($request)
     {
@@ -9268,32 +4537,8 @@ class Iot extends OpenApiClient
     public function deleteTopicConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->topicFullName)) {
-            $query['TopicFullName'] = $request->topicFullName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteTopicConfig',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteTopicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTopicConfigResponse::fromMap($this->doRequest('DeleteTopicConfig', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -9309,54 +4554,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteTopicRouteTableRequest $request DeleteTopicRouteTableRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param DeleteTopicRouteTableRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return DeleteTopicRouteTableResponse DeleteTopicRouteTableResponse
+     * @return DeleteTopicRouteTableResponse
      */
     public function deleteTopicRouteTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dstTopic)) {
-            $query['DstTopic'] = $request->dstTopic;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->srcTopic)) {
-            $query['SrcTopic'] = $request->srcTopic;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteTopicRouteTable',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DeleteTopicRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteTopicRouteTableResponse::fromMap($this->doRequest('DeleteTopicRouteTable', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DeleteTopicRouteTableRequest $request DeleteTopicRouteTableRequest
+     * @param DeleteTopicRouteTableRequest $request
      *
-     * @return DeleteTopicRouteTableResponse DeleteTopicRouteTableResponse
+     * @return DeleteTopicRouteTableResponse
      */
     public function deleteTopicRouteTable($request)
     {
@@ -9366,54 +4579,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param DetachDestinationRequest $request DetachDestinationRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param DetachDestinationRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return DetachDestinationResponse DetachDestinationResponse
+     * @return DetachDestinationResponse
      */
     public function detachDestinationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->destinationId)) {
-            $query['DestinationId'] = $request->destinationId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->parserId)) {
-            $query['ParserId'] = $request->parserId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DetachDestination',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DetachDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachDestinationResponse::fromMap($this->doRequest('DetachDestination', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param DetachDestinationRequest $request DetachDestinationRequest
+     * @param DetachDestinationRequest $request
      *
-     * @return DetachDestinationResponse DetachDestinationResponse
+     * @return DetachDestinationResponse
      */
     public function detachDestination($request)
     {
@@ -9431,32 +4612,8 @@ class Iot extends OpenApiClient
     public function detachParserDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['DataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->parserId)) {
-            $query['ParserId'] = $request->parserId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DetachParserDataSource',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DetachParserDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DetachParserDataSourceResponse::fromMap($this->doRequest('DetachParserDataSource', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -9480,32 +4637,8 @@ class Iot extends OpenApiClient
     public function disableDeviceTunnelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DisableDeviceTunnel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DisableDeviceTunnelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableDeviceTunnelResponse::fromMap($this->doRequest('DisableDeviceTunnel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -9529,32 +4662,8 @@ class Iot extends OpenApiClient
     public function disableDeviceTunnelShareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DisableDeviceTunnelShare',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DisableDeviceTunnelShareResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableDeviceTunnelShareResponse::fromMap($this->doRequest('DisableDeviceTunnelShare', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -9578,29 +4687,8 @@ class Iot extends OpenApiClient
     public function disableSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DisableSceneRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DisableSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableSceneRuleResponse::fromMap($this->doRequest('DisableSceneRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -9616,59 +4704,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   After a device is disabled, you cannot connect the device to IoT Platform. You can perform device-specific operations on the device. However, the information about the device is still retained in IoT Platform. You can use the [EnableThing](~~69603~~) API operation to connect the disabled device to IoT Platform again.
-     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DisableThingRequest $request DisableThingRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param DisableThingRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return DisableThingResponse DisableThingResponse
+     * @return DisableThingResponse
      */
     public function disableThingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DisableThing',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return DisableThingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DisableThingResponse::fromMap($this->doRequest('DisableThing', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   After a device is disabled, you cannot connect the device to IoT Platform. You can perform device-specific operations on the device. However, the information about the device is still retained in IoT Platform. You can use the [EnableThing](~~69603~~) API operation to connect the disabled device to IoT Platform again.
-     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param DisableThingRequest $request DisableThingRequest
+     * @param DisableThingRequest $request
      *
-     * @return DisableThingResponse DisableThingResponse
+     * @return DisableThingResponse
      */
     public function disableThing($request)
     {
@@ -9686,32 +4737,8 @@ class Iot extends OpenApiClient
     public function enableDeviceTunnelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EnableDeviceTunnel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return EnableDeviceTunnelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableDeviceTunnelResponse::fromMap($this->doRequest('EnableDeviceTunnel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -9735,32 +4762,8 @@ class Iot extends OpenApiClient
     public function enableDeviceTunnelShareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EnableDeviceTunnelShare',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return EnableDeviceTunnelShareResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableDeviceTunnelShareResponse::fromMap($this->doRequest('EnableDeviceTunnelShare', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -9784,29 +4787,8 @@ class Iot extends OpenApiClient
     public function enableSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EnableSceneRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return EnableSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableSceneRuleResponse::fromMap($this->doRequest('EnableSceneRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -9822,57 +4804,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param EnableThingRequest $request EnableThingRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param EnableThingRequest $request
+     * @param RuntimeOptions     $runtime
      *
-     * @return EnableThingResponse EnableThingResponse
+     * @return EnableThingResponse
      */
     public function enableThingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'EnableThing',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return EnableThingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return EnableThingResponse::fromMap($this->doRequest('EnableThing', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param EnableThingRequest $request EnableThingRequest
+     * @param EnableThingRequest $request
      *
-     * @return EnableThingResponse EnableThingResponse
+     * @return EnableThingResponse
      */
     public function enableThing($request)
     {
@@ -9882,68 +4829,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * This operation can be used with other operations to upload a device list file. Procedure:
-     *   * 1. Call this operation to generate the information of a device list file that you want to upload to OSS.
-     *   * The response parameters of this API operation include:
-     *   * The following request parameters of the OSS [PostObject](/help/en/object-storage-service/latest/postobject) operation that is used to upload the device list file: **Key**, **AccessKeyId**, **Signature**, and **Policy**.
-     *   * 2. Use an [OSS SDK](/help/en/object-storage-service/latest/sdk-code-samples-overview) to call the [PostObject](/help/en/object-storage-service/latest/postobject) operation to upload the device list file within 1 minute after a response is returned. For more information about sample code, see the "Usage of response parameters" section in this topic.
-     *   * >  The parameter information that is returned by this operation is valid for 1 minute. You must upload the device list file within 1 minute.  3. After you upload the device list file, call the [CreateOTAStaticUpgradeJob](/help/en/iot-platform/latest/e1qtmo) operation of IoT Platform to create a static update batch within 60 minutes.
-     *   * If you upload device list files but you do not call the CreateOTAStaticUpgradeJob operation to create a static update batch, the system automatically deletes the uploaded files. The system deletes files on a regular basis.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   * ## Requirements
-     *   * *   A device list file contains the names of devices. Separate multiple device names with line feeds. Each line contains only one device name. A device list file must be in the CSV format. The maximum size of a device list file is 5 MB.
-     *   * *   Each device list file can contain up to 10,000 names for the devices in a product that is related to an update package. If the number of device names in a device list file exceeds the limit, an error occurs when you use the file to create a static update batch.
-     *   *
-     * @param GenerateDeviceNameListURLRequest $request GenerateDeviceNameListURLRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param GenerateDeviceNameListURLRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return GenerateDeviceNameListURLResponse GenerateDeviceNameListURLResponse
+     * @return GenerateDeviceNameListURLResponse
      */
     public function generateDeviceNameListURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GenerateDeviceNameListURL',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GenerateDeviceNameListURLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateDeviceNameListURLResponse::fromMap($this->doRequest('GenerateDeviceNameListURL', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * This operation can be used with other operations to upload a device list file. Procedure:
-     *   * 1. Call this operation to generate the information of a device list file that you want to upload to OSS.
-     *   * The response parameters of this API operation include:
-     *   * The following request parameters of the OSS [PostObject](/help/en/object-storage-service/latest/postobject) operation that is used to upload the device list file: **Key**, **AccessKeyId**, **Signature**, and **Policy**.
-     *   * 2. Use an [OSS SDK](/help/en/object-storage-service/latest/sdk-code-samples-overview) to call the [PostObject](/help/en/object-storage-service/latest/postobject) operation to upload the device list file within 1 minute after a response is returned. For more information about sample code, see the "Usage of response parameters" section in this topic.
-     *   * >  The parameter information that is returned by this operation is valid for 1 minute. You must upload the device list file within 1 minute.  3. After you upload the device list file, call the [CreateOTAStaticUpgradeJob](/help/en/iot-platform/latest/e1qtmo) operation of IoT Platform to create a static update batch within 60 minutes.
-     *   * If you upload device list files but you do not call the CreateOTAStaticUpgradeJob operation to create a static update batch, the system automatically deletes the uploaded files. The system deletes files on a regular basis.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   * ## Requirements
-     *   * *   A device list file contains the names of devices. Separate multiple device names with line feeds. Each line contains only one device name. A device list file must be in the CSV format. The maximum size of a device list file is 5 MB.
-     *   * *   Each device list file can contain up to 10,000 names for the devices in a product that is related to an update package. If the number of device names in a device list file exceeds the limit, an error occurs when you use the file to create a static update batch.
-     *   *
-     * @param GenerateDeviceNameListURLRequest $request GenerateDeviceNameListURLRequest
+     * @param GenerateDeviceNameListURLRequest $request
      *
-     * @return GenerateDeviceNameListURLResponse GenerateDeviceNameListURLResponse
+     * @return GenerateDeviceNameListURLResponse
      */
     public function generateDeviceNameListURL($request)
     {
@@ -9961,35 +4862,8 @@ class Iot extends OpenApiClient
     public function generateFileUploadURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->bizCode)) {
-            $query['BizCode'] = $request->bizCode;
-        }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
-        }
-        if (!Utils::isUnset($request->fileSuffix)) {
-            $query['FileSuffix'] = $request->fileSuffix;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GenerateFileUploadURL',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GenerateFileUploadURLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateFileUploadURLResponse::fromMap($this->doRequest('GenerateFileUploadURL', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -10005,69 +4879,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * This operation can be used together with other operations to create an update package. Procedure:
-     *   * 1\\. Call this API operation to generate the details of an update package file that you want to upload to OSS.
-     *   * The following section describes the response parameters of this API operation:
-     *   * *   The following request parameters of the OSS [PostObject](~~31988~~) operation that is used to upload the update package file: **Key**, **OSSAccessKeyId**, **Signature**, and **Policy**.
-     *   * *   The following request parameter of the [CreateOTAFirmware](~~147311~~) operation that is used to create the update package: **FirmwareUrl**.
-     *   * 2\\. Use an [OSS SDK](~~52834~~) to call the [PostObject](~~31988~~) operation to upload the update package file. For more information about sample code, see the "Usage of response parameters" section.
-     *   * > The parameter information that is returned by this operation is valid for 1 minute. You must upload the update package file within 1 minute. The maximum size of the uploaded update package file is 1,000 MB.
-     *   * 3\\. After the update package file is uploaded, call the [CreateOTAFirmware](~~147311~~) operation to create an update package within 60 minutes.
-     *   * If update package files are uploaded but you do not call the CreateOTAFirmware operation to create update packages for the files, the uploaded files are automatically deleted by the system on a regular basis.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param GenerateOTAUploadURLRequest $request GenerateOTAUploadURLRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param GenerateOTAUploadURLRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return GenerateOTAUploadURLResponse GenerateOTAUploadURLResponse
+     * @return GenerateOTAUploadURLResponse
      */
     public function generateOTAUploadURLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->fileSuffix)) {
-            $query['FileSuffix'] = $request->fileSuffix;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GenerateOTAUploadURL',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GenerateOTAUploadURLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GenerateOTAUploadURLResponse::fromMap($this->doRequest('GenerateOTAUploadURL', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * This operation can be used together with other operations to create an update package. Procedure:
-     *   * 1\\. Call this API operation to generate the details of an update package file that you want to upload to OSS.
-     *   * The following section describes the response parameters of this API operation:
-     *   * *   The following request parameters of the OSS [PostObject](~~31988~~) operation that is used to upload the update package file: **Key**, **OSSAccessKeyId**, **Signature**, and **Policy**.
-     *   * *   The following request parameter of the [CreateOTAFirmware](~~147311~~) operation that is used to create the update package: **FirmwareUrl**.
-     *   * 2\\. Use an [OSS SDK](~~52834~~) to call the [PostObject](~~31988~~) operation to upload the update package file. For more information about sample code, see the "Usage of response parameters" section.
-     *   * > The parameter information that is returned by this operation is valid for 1 minute. You must upload the update package file within 1 minute. The maximum size of the uploaded update package file is 1,000 MB.
-     *   * 3\\. After the update package file is uploaded, call the [CreateOTAFirmware](~~147311~~) operation to create an update package within 60 minutes.
-     *   * If update package files are uploaded but you do not call the CreateOTAFirmware operation to create update packages for the files, the uploaded files are automatically deleted by the system on a regular basis.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param GenerateOTAUploadURLRequest $request GenerateOTAUploadURLRequest
+     * @param GenerateOTAUploadURLRequest $request
      *
-     * @return GenerateOTAUploadURLResponse GenerateOTAUploadURLResponse
+     * @return GenerateOTAUploadURLResponse
      */
     public function generateOTAUploadURL($request)
     {
@@ -10085,29 +4912,8 @@ class Iot extends OpenApiClient
     public function getDataAPIServiceDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->apiSrn)) {
-            $body['ApiSrn'] = $request->apiSrn;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDataAPIServiceDetail',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetDataAPIServiceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDataAPIServiceDetailResponse::fromMap($this->doRequest('GetDataAPIServiceDetail', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -10131,29 +4937,8 @@ class Iot extends OpenApiClient
     public function getDestinationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->destinationId)) {
-            $query['DestinationId'] = $request->destinationId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDestination',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDestinationResponse::fromMap($this->doRequest('GetDestination', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -10169,54 +4954,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## QPS limits
-     *   * You can call this API operation up to 500 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetDeviceShadowRequest $request GetDeviceShadowRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param GetDeviceShadowRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return GetDeviceShadowResponse GetDeviceShadowResponse
+     * @return GetDeviceShadowResponse
      */
     public function getDeviceShadowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDeviceShadow',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetDeviceShadowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeviceShadowResponse::fromMap($this->doRequest('GetDeviceShadow', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## QPS limits
-     *   * You can call this API operation up to 500 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetDeviceShadowRequest $request GetDeviceShadowRequest
+     * @param GetDeviceShadowRequest $request
      *
-     * @return GetDeviceShadowResponse GetDeviceShadowResponse
+     * @return GetDeviceShadowResponse
      */
     public function getDeviceShadow($request)
     {
@@ -10226,57 +4979,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetDeviceStatusRequest $request GetDeviceStatusRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param GetDeviceStatusRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return GetDeviceStatusResponse GetDeviceStatusResponse
+     * @return GetDeviceStatusResponse
      */
     public function getDeviceStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDeviceStatus',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetDeviceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeviceStatusResponse::fromMap($this->doRequest('GetDeviceStatus', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetDeviceStatusRequest $request GetDeviceStatusRequest
+     * @param GetDeviceStatusRequest $request
      *
-     * @return GetDeviceStatusResponse GetDeviceStatusResponse
+     * @return GetDeviceStatusResponse
      */
     public function getDeviceStatus($request)
     {
@@ -10294,32 +5012,8 @@ class Iot extends OpenApiClient
     public function getDeviceTunnelShareStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDeviceTunnelShareStatus',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetDeviceTunnelShareStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeviceTunnelShareStatusResponse::fromMap($this->doRequest('GetDeviceTunnelShareStatus', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -10343,32 +5037,8 @@ class Iot extends OpenApiClient
     public function getDeviceTunnelStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDeviceTunnelStatus',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetDeviceTunnelStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDeviceTunnelStatusResponse::fromMap($this->doRequest('GetDeviceTunnelStatus', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -10384,47 +5054,21 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param GetDownloadFileRequest $tmpReq
+     * @param GetDownloadFileRequest $tmp
      * @param RuntimeOptions         $runtime
      *
      * @return GetDownloadFileResponse
      */
-    public function getDownloadFileWithOptions($tmpReq, $runtime)
+    public function getDownloadFileWithOptions($tmp, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        Utils::validateModel($tmp);
         $request = new GetDownloadFileShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->context)) {
-            $request->contextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->context, 'Context', 'json');
+        RpcUtils::convert($tmp, $request);
+        if (!Utils::isUnset($tmp->context)) {
+            $request->contextShrink = Utils::toJSONString($tmp->context);
         }
-        $query = [];
-        if (!Utils::isUnset($request->longJobId)) {
-            $query['LongJobId'] = $request->longJobId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->contextShrink)) {
-            $body['Context'] = $request->contextShrink;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetDownloadFile',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetDownloadFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetDownloadFileResponse::fromMap($this->doRequest('GetDownloadFile', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -10440,54 +5084,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetEdgeDriverVersionRequest $request GetEdgeDriverVersionRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param GetEdgeDriverVersionRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return GetEdgeDriverVersionResponse GetEdgeDriverVersionResponse
+     * @return GetEdgeDriverVersionResponse
      */
     public function getEdgeDriverVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->driverVersion)) {
-            $query['DriverVersion'] = $request->driverVersion;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetEdgeDriverVersion',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetEdgeDriverVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEdgeDriverVersionResponse::fromMap($this->doRequest('GetEdgeDriverVersion', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetEdgeDriverVersionRequest $request GetEdgeDriverVersionRequest
+     * @param GetEdgeDriverVersionRequest $request
      *
-     * @return GetEdgeDriverVersionResponse GetEdgeDriverVersionResponse
+     * @return GetEdgeDriverVersionResponse
      */
     public function getEdgeDriverVersion($request)
     {
@@ -10497,51 +5109,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetEdgeInstanceRequest $request GetEdgeInstanceRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param GetEdgeInstanceRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return GetEdgeInstanceResponse GetEdgeInstanceResponse
+     * @return GetEdgeInstanceResponse
      */
     public function getEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetEdgeInstance',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEdgeInstanceResponse::fromMap($this->doRequest('GetEdgeInstance', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetEdgeInstanceRequest $request GetEdgeInstanceRequest
+     * @param GetEdgeInstanceRequest $request
      *
-     * @return GetEdgeInstanceResponse GetEdgeInstanceResponse
+     * @return GetEdgeInstanceResponse
      */
     public function getEdgeInstance($request)
     {
@@ -10551,54 +5134,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetEdgeInstanceDeploymentRequest $request GetEdgeInstanceDeploymentRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param GetEdgeInstanceDeploymentRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return GetEdgeInstanceDeploymentResponse GetEdgeInstanceDeploymentResponse
+     * @return GetEdgeInstanceDeploymentResponse
      */
     public function getEdgeInstanceDeploymentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deploymentId)) {
-            $query['DeploymentId'] = $request->deploymentId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetEdgeInstanceDeployment',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetEdgeInstanceDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEdgeInstanceDeploymentResponse::fromMap($this->doRequest('GetEdgeInstanceDeployment', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetEdgeInstanceDeploymentRequest $request GetEdgeInstanceDeploymentRequest
+     * @param GetEdgeInstanceDeploymentRequest $request
      *
-     * @return GetEdgeInstanceDeploymentResponse GetEdgeInstanceDeploymentResponse
+     * @return GetEdgeInstanceDeploymentResponse
      */
     public function getEdgeInstanceDeployment($request)
     {
@@ -10616,32 +5167,8 @@ class Iot extends OpenApiClient
     public function getEdgeInstanceMessageRoutingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->routeId)) {
-            $query['RouteId'] = $request->routeId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetEdgeInstanceMessageRouting',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetEdgeInstanceMessageRoutingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetEdgeInstanceMessageRoutingResponse::fromMap($this->doRequest('GetEdgeInstanceMessageRouting', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -10657,57 +5184,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetGatewayBySubDeviceRequest $request GetGatewayBySubDeviceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param GetGatewayBySubDeviceRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return GetGatewayBySubDeviceResponse GetGatewayBySubDeviceResponse
+     * @return GetGatewayBySubDeviceResponse
      */
     public function getGatewayBySubDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetGatewayBySubDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetGatewayBySubDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetGatewayBySubDeviceResponse::fromMap($this->doRequest('GetGatewayBySubDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetGatewayBySubDeviceRequest $request GetGatewayBySubDeviceRequest
+     * @param GetGatewayBySubDeviceRequest $request
      *
-     * @return GetGatewayBySubDeviceResponse GetGatewayBySubDeviceResponse
+     * @return GetGatewayBySubDeviceResponse
      */
     public function getGatewayBySubDevice($request)
     {
@@ -10725,29 +5217,8 @@ class Iot extends OpenApiClient
     public function getLoraNodesTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetLoraNodesTask',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetLoraNodesTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLoraNodesTaskResponse::fromMap($this->doRequest('GetLoraNodesTask', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -10771,29 +5242,8 @@ class Iot extends OpenApiClient
     public function getParserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->parserId)) {
-            $query['ParserId'] = $request->parserId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetParser',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetParserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetParserResponse::fromMap($this->doRequest('GetParser', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -10817,29 +5267,8 @@ class Iot extends OpenApiClient
     public function getParserDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['DataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetParserDataSource',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetParserDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetParserDataSourceResponse::fromMap($this->doRequest('GetParserDataSource', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -10855,51 +5284,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetRuleRequest $request GetRuleRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param GetRuleRequest $request
+     * @param RuntimeOptions $runtime
      *
-     * @return GetRuleResponse GetRuleResponse
+     * @return GetRuleResponse
      */
     public function getRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRuleResponse::fromMap($this->doRequest('GetRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetRuleRequest $request GetRuleRequest
+     * @param GetRuleRequest $request
      *
-     * @return GetRuleResponse GetRuleResponse
+     * @return GetRuleResponse
      */
     public function getRule($request)
     {
@@ -10909,47 +5309,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
-     *   *
-     * @param GetRuleActionRequest $request GetRuleActionRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param GetRuleActionRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return GetRuleActionResponse GetRuleActionResponse
+     * @return GetRuleActionResponse
      */
     public function getRuleActionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->actionId)) {
-            $query['ActionId'] = $request->actionId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetRuleAction',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetRuleActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetRuleActionResponse::fromMap($this->doRequest('GetRuleAction', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
-     *   *
-     * @param GetRuleActionRequest $request GetRuleActionRequest
+     * @param GetRuleActionRequest $request
      *
-     * @return GetRuleActionResponse GetRuleActionResponse
+     * @return GetRuleActionResponse
      */
     public function getRuleAction($request)
     {
@@ -10967,29 +5342,8 @@ class Iot extends OpenApiClient
     public function getSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetSceneRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSceneRuleResponse::fromMap($this->doRequest('GetSceneRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -11013,32 +5367,8 @@ class Iot extends OpenApiClient
     public function getShareSpeechModelAudioWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->shareTaskId)) {
-            $body['ShareTaskId'] = $request->shareTaskId;
-        }
-        if (!Utils::isUnset($request->speechModelCodeList)) {
-            $body['SpeechModelCodeList'] = $request->speechModelCodeList;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetShareSpeechModelAudio',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetShareSpeechModelAudioResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetShareSpeechModelAudioResponse::fromMap($this->doRequest('GetShareSpeechModelAudio', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -11062,35 +5392,8 @@ class Iot extends OpenApiClient
     public function getShareTaskByDeviceOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $body['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $body['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetShareTaskByDeviceOpen',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetShareTaskByDeviceOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetShareTaskByDeviceOpenResponse::fromMap($this->doRequest('GetShareTaskByDeviceOpen', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -11114,29 +5417,8 @@ class Iot extends OpenApiClient
     public function getSoundCodeAudioWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->soundCodeList)) {
-            $body['SoundCodeList'] = $request->soundCodeList;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetSoundCodeAudio',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetSoundCodeAudioResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSoundCodeAudioResponse::fromMap($this->doRequest('GetSoundCodeAudio', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -11160,29 +5442,8 @@ class Iot extends OpenApiClient
     public function getSoundCodeScheduleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->scheduleCode)) {
-            $body['ScheduleCode'] = $request->scheduleCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetSoundCodeSchedule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetSoundCodeScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSoundCodeScheduleResponse::fromMap($this->doRequest('GetSoundCodeSchedule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -11206,29 +5467,8 @@ class Iot extends OpenApiClient
     public function getSpeechDeviceDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotId)) {
-            $body['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetSpeechDeviceDetail',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetSpeechDeviceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSpeechDeviceDetailResponse::fromMap($this->doRequest('GetSpeechDeviceDetail', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -11252,26 +5492,8 @@ class Iot extends OpenApiClient
     public function getSpeechLicenseDeviceStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetSpeechLicenseDeviceStatistics',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetSpeechLicenseDeviceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSpeechLicenseDeviceStatisticsResponse::fromMap($this->doRequest('GetSpeechLicenseDeviceStatistics', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -11287,36 +5509,28 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param GetSpeechVoiceRequest $request
+     * @param RuntimeOptions        $runtime
      *
      * @return GetSpeechVoiceResponse
      */
-    public function getSpeechVoiceWithOptions($runtime)
+    public function getSpeechVoiceWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
-        $params = new Params([
-            'action'      => 'GetSpeechVoice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
+        Utils::validateModel($request);
 
-        return GetSpeechVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSpeechVoiceResponse::fromMap($this->doRequest('GetSpeechVoice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
+     * @param GetSpeechVoiceRequest $request
+     *
      * @return GetSpeechVoiceResponse
      */
-    public function getSpeechVoice()
+    public function getSpeechVoice($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getSpeechVoiceWithOptions($runtime);
+        return $this->getSpeechVoiceWithOptions($request, $runtime);
     }
 
     /**
@@ -11328,32 +5542,8 @@ class Iot extends OpenApiClient
     public function getStudioAppTokenOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetStudioAppTokenOpen',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetStudioAppTokenOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetStudioAppTokenOpenResponse::fromMap($this->doRequest('GetStudioAppTokenOpen', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -11369,56 +5559,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
-     *   *
-     * @param GetThingModelTslRequest $request GetThingModelTslRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param GetThingModelTslRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return GetThingModelTslResponse GetThingModelTslResponse
+     * @return GetThingModelTslResponse
      */
     public function getThingModelTslWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->functionBlockId)) {
-            $query['FunctionBlockId'] = $request->functionBlockId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->modelVersion)) {
-            $query['ModelVersion'] = $request->modelVersion;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->simple)) {
-            $query['Simple'] = $request->simple;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetThingModelTsl',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetThingModelTslResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetThingModelTslResponse::fromMap($this->doRequest('GetThingModelTsl', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
-     *   *
-     * @param GetThingModelTslRequest $request GetThingModelTslRequest
+     * @param GetThingModelTslRequest $request
      *
-     * @return GetThingModelTslResponse GetThingModelTslResponse
+     * @return GetThingModelTslResponse
      */
     public function getThingModelTsl($request)
     {
@@ -11428,63 +5584,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetThingModelTslPublishedRequest $request GetThingModelTslPublishedRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param GetThingModelTslPublishedRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return GetThingModelTslPublishedResponse GetThingModelTslPublishedResponse
+     * @return GetThingModelTslPublishedResponse
      */
     public function getThingModelTslPublishedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->functionBlockId)) {
-            $query['FunctionBlockId'] = $request->functionBlockId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->modelVersion)) {
-            $query['ModelVersion'] = $request->modelVersion;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->simple)) {
-            $query['Simple'] = $request->simple;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetThingModelTslPublished',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetThingModelTslPublishedResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetThingModelTslPublishedResponse::fromMap($this->doRequest('GetThingModelTslPublished', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetThingModelTslPublishedRequest $request GetThingModelTslPublishedRequest
+     * @param GetThingModelTslPublishedRequest $request
      *
-     * @return GetThingModelTslPublishedResponse GetThingModelTslPublishedResponse
+     * @return GetThingModelTslPublishedResponse
      */
     public function getThingModelTslPublished($request)
     {
@@ -11494,51 +5609,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   A data parsing script is used to convert the custom-formatted data to JSON data after the data is submitted by a device. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetThingScriptRequest $request GetThingScriptRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param GetThingScriptRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return GetThingScriptResponse GetThingScriptResponse
+     * @return GetThingScriptResponse
      */
     public function getThingScriptWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetThingScript',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetThingScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetThingScriptResponse::fromMap($this->doRequest('GetThingScript', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   A data parsing script is used to convert the custom-formatted data to JSON data after the data is submitted by a device. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetThingScriptRequest $request GetThingScriptRequest
+     * @param GetThingScriptRequest $request
      *
-     * @return GetThingScriptResponse GetThingScriptResponse
+     * @return GetThingScriptResponse
      */
     public function getThingScript($request)
     {
@@ -11548,54 +5634,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetThingTemplateRequest $request GetThingTemplateRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param GetThingTemplateRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return GetThingTemplateResponse GetThingTemplateResponse
+     * @return GetThingTemplateResponse
      */
     public function getThingTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->categoryKey)) {
-            $query['CategoryKey'] = $request->categoryKey;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetThingTemplate',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetThingTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetThingTemplateResponse::fromMap($this->doRequest('GetThingTemplate', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 2 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetThingTemplateRequest $request GetThingTemplateRequest
+     * @param GetThingTemplateRequest $request
      *
-     * @return GetThingTemplateResponse GetThingTemplateResponse
+     * @return GetThingTemplateResponse
      */
     public function getThingTemplate($request)
     {
@@ -11605,63 +5659,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can initiate a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetThingTopoRequest $request GetThingTopoRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param GetThingTopoRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return GetThingTopoResponse GetThingTopoResponse
+     * @return GetThingTopoResponse
      */
     public function getThingTopoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetThingTopo',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GetThingTopoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetThingTopoResponse::fromMap($this->doRequest('GetThingTopo', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can initiate a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param GetThingTopoRequest $request GetThingTopoRequest
+     * @param GetThingTopoRequest $request
      *
-     * @return GetThingTopoResponse GetThingTopoResponse
+     * @return GetThingTopoResponse
      */
     public function getThingTopo($request)
     {
@@ -11679,29 +5692,8 @@ class Iot extends OpenApiClient
     public function gisQueryDeviceLocationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->thingList)) {
-            $query['ThingList'] = $request->thingList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GisQueryDeviceLocation',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GisQueryDeviceLocationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GisQueryDeviceLocationResponse::fromMap($this->doRequest('GisQueryDeviceLocation', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -11725,41 +5717,8 @@ class Iot extends OpenApiClient
     public function gisSearchDeviceTraceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->mapMatch)) {
-            $query['MapMatch'] = $request->mapMatch;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GisSearchDeviceTrace',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return GisSearchDeviceTraceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GisSearchDeviceTraceResponse::fromMap($this->doRequest('GisSearchDeviceTrace', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -11783,37 +5742,8 @@ class Iot extends OpenApiClient
     public function importDTDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DTInstanceId)) {
-            $query['DTInstanceId'] = $request->DTInstanceId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->items)) {
-            $body['Items'] = $request->items;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $body['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ImportDTData',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ImportDTDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImportDTDataResponse::fromMap($this->doRequest('ImportDTData', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -11837,41 +5767,8 @@ class Iot extends OpenApiClient
     public function importDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->deviceSecret)) {
-            $query['DeviceSecret'] = $request->deviceSecret;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->nickname)) {
-            $query['Nickname'] = $request->nickname;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->sn)) {
-            $query['Sn'] = $request->sn;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ImportDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ImportDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImportDeviceResponse::fromMap($this->doRequest('ImportDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -11887,68 +5784,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ImportThingModelTslRequest $request ImportThingModelTslRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param ImportThingModelTslRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return ImportThingModelTslResponse ImportThingModelTslResponse
+     * @return ImportThingModelTslResponse
      */
     public function importThingModelTslWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->functionBlockId)) {
-            $query['FunctionBlockId'] = $request->functionBlockId;
-        }
-        if (!Utils::isUnset($request->functionBlockName)) {
-            $query['FunctionBlockName'] = $request->functionBlockName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->tslStr)) {
-            $query['TslStr'] = $request->tslStr;
-        }
-        if (!Utils::isUnset($request->tslUrl)) {
-            $query['TslUrl'] = $request->tslUrl;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ImportThingModelTsl',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ImportThingModelTslResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ImportThingModelTslResponse::fromMap($this->doRequest('ImportThingModelTsl', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ImportThingModelTslRequest $request ImportThingModelTslRequest
+     * @param ImportThingModelTslRequest $request
      *
-     * @return ImportThingModelTslResponse ImportThingModelTslResponse
+     * @return ImportThingModelTslResponse
      */
     public function importThingModelTsl($request)
     {
@@ -11966,32 +5817,8 @@ class Iot extends OpenApiClient
     public function invokeDataAPIServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->apiSrn)) {
-            $body['ApiSrn'] = $request->apiSrn;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->param)) {
-            $body['Param'] = $request->param;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'InvokeDataAPIService',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return InvokeDataAPIServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InvokeDataAPIServiceResponse::fromMap($this->doRequest('InvokeDataAPIService', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -12007,105 +5834,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * When you define a service in a Thing Specification Language (TSL) model, the mode in which the service is called is specified. When you call a service by using this operation, IoT Platform uses a call mode based on the value of the **Identifier** parameter.
-     *   * *   Synchronous mode: IoT Platform sends a revert-remote procedure call (RRPC) request to a device. Then, the device synchronously returns an RRPC response. For more information about how to use an RRPC, see [What is RRPC?](~~90567~~)
-     *   * *   Asynchronous mode: IoT Platform sends an RRPC request to a device. Then, the device asynchronously returns an RRPC response. For more information about topics, see [Device properties, events, and services](~~89301~~).
-     *   * > If you set the Checksum Type parameter to **Verification-free** when you create a product, the asynchronous mode is used.
-     *   * When the device receives the service call, the device returns a response to the service caller. When you configure the device, you must specify the response logic and response parameters. The data formats of response parameters must comply with the Alink protocol. Example:
-     *   * ```
-     *   * {
-     *   * 	"id": "58***89",
-     *   * 	"code": 200,
-     *   * 	"data": {},
-     *   * 	"message": "success",
-     *   * 	"localizedMsg": "localizedMsg"
-     *   * }
-     *   * ```
-     *   * > *   The **id** parameter specifies the unique identifier of the request. The ID is generated by IoT Platform. The device can obtain the ID from the request parameters and then return the ID.
-     *   * >*   The **code** parameter specifies the result of the service call. The value of the parameter is an integer.
-     *   * >*   The **data** parameter specifies the result of the service call. This parameter is returned to the service caller. You can configure the parameters that you want to include in the returned result. The data must be in the JSON format.
-     *   * >*   The **message** and **localizedMsg** parameters are optional.
-     *   * >*   Link SDK for C of IoT Platform provides an example on how to use a TSL model. For more information, see [Call device services](~~258239~~).
-     *   * ## Limits
-     *   * If you synchronously call a service, the timeout period is 8 seconds. If a server does not receive a response within 8 seconds, a timeout error occurs. No limit is imposed on the timeout period of asynchronous calls.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param InvokeThingServiceRequest $request InvokeThingServiceRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param InvokeThingServiceRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return InvokeThingServiceResponse InvokeThingServiceResponse
+     * @return InvokeThingServiceResponse
      */
     public function invokeThingServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->args)) {
-            $query['Args'] = $request->args;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'InvokeThingService',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return InvokeThingServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InvokeThingServiceResponse::fromMap($this->doRequest('InvokeThingService', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * When you define a service in a Thing Specification Language (TSL) model, the mode in which the service is called is specified. When you call a service by using this operation, IoT Platform uses a call mode based on the value of the **Identifier** parameter.
-     *   * *   Synchronous mode: IoT Platform sends a revert-remote procedure call (RRPC) request to a device. Then, the device synchronously returns an RRPC response. For more information about how to use an RRPC, see [What is RRPC?](~~90567~~)
-     *   * *   Asynchronous mode: IoT Platform sends an RRPC request to a device. Then, the device asynchronously returns an RRPC response. For more information about topics, see [Device properties, events, and services](~~89301~~).
-     *   * > If you set the Checksum Type parameter to **Verification-free** when you create a product, the asynchronous mode is used.
-     *   * When the device receives the service call, the device returns a response to the service caller. When you configure the device, you must specify the response logic and response parameters. The data formats of response parameters must comply with the Alink protocol. Example:
-     *   * ```
-     *   * {
-     *   * 	"id": "58***89",
-     *   * 	"code": 200,
-     *   * 	"data": {},
-     *   * 	"message": "success",
-     *   * 	"localizedMsg": "localizedMsg"
-     *   * }
-     *   * ```
-     *   * > *   The **id** parameter specifies the unique identifier of the request. The ID is generated by IoT Platform. The device can obtain the ID from the request parameters and then return the ID.
-     *   * >*   The **code** parameter specifies the result of the service call. The value of the parameter is an integer.
-     *   * >*   The **data** parameter specifies the result of the service call. This parameter is returned to the service caller. You can configure the parameters that you want to include in the returned result. The data must be in the JSON format.
-     *   * >*   The **message** and **localizedMsg** parameters are optional.
-     *   * >*   Link SDK for C of IoT Platform provides an example on how to use a TSL model. For more information, see [Call device services](~~258239~~).
-     *   * ## Limits
-     *   * If you synchronously call a service, the timeout period is 8 seconds. If a server does not receive a response within 8 seconds, a timeout error occurs. No limit is imposed on the timeout period of asynchronous calls.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param InvokeThingServiceRequest $request InvokeThingServiceRequest
+     * @param InvokeThingServiceRequest $request
      *
-     * @return InvokeThingServiceResponse InvokeThingServiceResponse
+     * @return InvokeThingServiceResponse
      */
     public function invokeThingService($request)
     {
@@ -12115,92 +5859,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * You can only asynchronously call this operation.
-     *   * When the device receives the service call, the device returns a response to the service caller. When you configure the device, you must specify the response logic and response parameters. The data formats of response parameters must comply with the Alink protocol. Example:
-     *   * ```
-     *   * {
-     *   * 	"id": "58***89",
-     *   * 	"code": 200,
-     *   * 	"data": {},
-     *   * 	"message": "success",
-     *   * 	"localizedMsg": "localizedMsg"
-     *   * }
-     *   * ```
-     *   * > *   The **id** parameter specifies the unique identifier of the request. The ID is generated by IoT Platform. The device can obtain the ID from the request parameters and return the ID.
-     *   * >*   The **code** parameter specifies the result of the service call. The value of the parameter is an integer.
-     *   * >*   The **data** parameter specifies the result of the service call. This parameter is returned to the service caller. You can specify the parameters included in the returned result. The data must be in JSON format.
-     *   * >*   The **message** and **localizedMsg** parameters are optional.
-     *   * >*    Link SDK for C of IoT Platform provides an example on how to use a TSL model. For more information, see [Call device services](~~258239~~).
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param InvokeThingsServiceRequest $request InvokeThingsServiceRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param InvokeThingsServiceRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return InvokeThingsServiceResponse InvokeThingsServiceResponse
+     * @return InvokeThingsServiceResponse
      */
     public function invokeThingsServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->args)) {
-            $query['Args'] = $request->args;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'InvokeThingsService',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return InvokeThingsServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return InvokeThingsServiceResponse::fromMap($this->doRequest('InvokeThingsService', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * You can only asynchronously call this operation.
-     *   * When the device receives the service call, the device returns a response to the service caller. When you configure the device, you must specify the response logic and response parameters. The data formats of response parameters must comply with the Alink protocol. Example:
-     *   * ```
-     *   * {
-     *   * 	"id": "58***89",
-     *   * 	"code": 200,
-     *   * 	"data": {},
-     *   * 	"message": "success",
-     *   * 	"localizedMsg": "localizedMsg"
-     *   * }
-     *   * ```
-     *   * > *   The **id** parameter specifies the unique identifier of the request. The ID is generated by IoT Platform. The device can obtain the ID from the request parameters and return the ID.
-     *   * >*   The **code** parameter specifies the result of the service call. The value of the parameter is an integer.
-     *   * >*   The **data** parameter specifies the result of the service call. This parameter is returned to the service caller. You can specify the parameters included in the returned result. The data must be in JSON format.
-     *   * >*   The **message** and **localizedMsg** parameters are optional.
-     *   * >*    Link SDK for C of IoT Platform provides an example on how to use a TSL model. For more information, see [Call device services](~~258239~~).
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param InvokeThingsServiceRequest $request InvokeThingsServiceRequest
+     * @param InvokeThingsServiceRequest $request
      *
-     * @return InvokeThingsServiceResponse InvokeThingsServiceResponse
+     * @return InvokeThingsServiceResponse
      */
     public function invokeThingsService($request)
     {
@@ -12218,41 +5892,8 @@ class Iot extends OpenApiClient
     public function listAnalyticsDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->apiPath)) {
-            $query['ApiPath'] = $request->apiPath;
-        }
-        if (!Utils::isUnset($request->condition)) {
-            $query['Condition'] = $request->condition;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->isoId)) {
-            $query['IsoId'] = $request->isoId;
-        }
-        if (!Utils::isUnset($request->pageNum)) {
-            $query['PageNum'] = $request->pageNum;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListAnalyticsData',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListAnalyticsDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListAnalyticsDataResponse::fromMap($this->doRequest('ListAnalyticsData', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -12276,38 +5917,8 @@ class Iot extends OpenApiClient
     public function listDataSourceItemWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['DataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->searchName)) {
-            $query['SearchName'] = $request->searchName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDataSourceItem',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListDataSourceItemResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDataSourceItemResponse::fromMap($this->doRequest('ListDataSourceItem', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -12331,38 +5942,8 @@ class Iot extends OpenApiClient
     public function listDestinationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->searchName)) {
-            $query['SearchName'] = $request->searchName;
-        }
-        if (!Utils::isUnset($request->types)) {
-            $query['Types'] = $request->types;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDestination',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDestinationResponse::fromMap($this->doRequest('ListDestination', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -12378,70 +5959,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * If you use an Enterprise Edition instance, you must specify the **IotInstanceId** parameter when you call this operation. Otherwise, the call fails.
-     *   * ## QPS limits
-     *   * You can call this API operation up to five times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListDeviceDistributeJobRequest $request ListDeviceDistributeJobRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param ListDeviceDistributeJobRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return ListDeviceDistributeJobResponse ListDeviceDistributeJobResponse
+     * @return ListDeviceDistributeJobResponse
      */
     public function listDeviceDistributeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->targetUid)) {
-            $query['TargetUid'] = $request->targetUid;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $body['JobId'] = $request->jobId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDeviceDistributeJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListDeviceDistributeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDeviceDistributeJobResponse::fromMap($this->doRequest('ListDeviceDistributeJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * If you use an Enterprise Edition instance, you must specify the **IotInstanceId** parameter when you call this operation. Otherwise, the call fails.
-     *   * ## QPS limits
-     *   * You can call this API operation up to five times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListDeviceDistributeJobRequest $request ListDeviceDistributeJobRequest
+     * @param ListDeviceDistributeJobRequest $request
      *
-     * @return ListDeviceDistributeJobResponse ListDeviceDistributeJobResponse
+     * @return ListDeviceDistributeJobResponse
      */
     public function listDeviceDistributeJob($request)
     {
@@ -12451,65 +5984,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   * *   Multiple Alibaba Cloud accounts can run a maximum of 200 QPS at the same time.
-     *   *
-     * @param ListDistributedDeviceRequest $request ListDistributedDeviceRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param ListDistributedDeviceRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return ListDistributedDeviceResponse ListDistributedDeviceResponse
+     * @return ListDistributedDeviceResponse
      */
     public function listDistributedDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->sourceInstanceId)) {
-            $query['SourceInstanceId'] = $request->sourceInstanceId;
-        }
-        if (!Utils::isUnset($request->targetUid)) {
-            $query['TargetUid'] = $request->targetUid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDistributedDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListDistributedDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDistributedDeviceResponse::fromMap($this->doRequest('ListDistributedDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   * *   Multiple Alibaba Cloud accounts can run a maximum of 200 QPS at the same time.
-     *   *
-     * @param ListDistributedDeviceRequest $request ListDistributedDeviceRequest
+     * @param ListDistributedDeviceRequest $request
      *
-     * @return ListDistributedDeviceResponse ListDistributedDeviceResponse
+     * @return ListDistributedDeviceResponse
      */
     public function listDistributedDevice($request)
     {
@@ -12519,65 +6009,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * You can call this operation only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
-     *   * ## QPS limits
-     *   * You can call this API operation up to five times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListDistributedProductRequest $request ListDistributedProductRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param ListDistributedProductRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return ListDistributedProductResponse ListDistributedProductResponse
+     * @return ListDistributedProductResponse
      */
     public function listDistributedProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->sourceInstanceId)) {
-            $query['SourceInstanceId'] = $request->sourceInstanceId;
-        }
-        if (!Utils::isUnset($request->targetInstanceId)) {
-            $query['TargetInstanceId'] = $request->targetInstanceId;
-        }
-        if (!Utils::isUnset($request->targetUid)) {
-            $query['TargetUid'] = $request->targetUid;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDistributedProduct',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListDistributedProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListDistributedProductResponse::fromMap($this->doRequest('ListDistributedProduct', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * You can call this operation only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
-     *   * ## QPS limits
-     *   * You can call this API operation up to five times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListDistributedProductRequest $request ListDistributedProductRequest
+     * @param ListDistributedProductRequest $request
      *
-     * @return ListDistributedProductResponse ListDistributedProductResponse
+     * @return ListDistributedProductResponse
      */
     public function listDistributedProduct($request)
     {
@@ -12595,35 +6042,8 @@ class Iot extends OpenApiClient
     public function listJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListJobResponse::fromMap($this->doRequest('ListJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -12639,60 +6059,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListOTAFirmwareRequest $request ListOTAFirmwareRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param ListOTAFirmwareRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return ListOTAFirmwareResponse ListOTAFirmwareResponse
+     * @return ListOTAFirmwareResponse
      */
     public function listOTAFirmwareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->destVersion)) {
-            $query['DestVersion'] = $request->destVersion;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListOTAFirmware',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListOTAFirmwareResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOTAFirmwareResponse::fromMap($this->doRequest('ListOTAFirmware', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListOTAFirmwareRequest $request ListOTAFirmwareRequest
+     * @param ListOTAFirmwareRequest $request
      *
-     * @return ListOTAFirmwareResponse ListOTAFirmwareResponse
+     * @return ListOTAFirmwareResponse
      */
     public function listOTAFirmware($request)
     {
@@ -12702,63 +6084,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListOTAJobByDeviceRequest $request ListOTAJobByDeviceRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param ListOTAJobByDeviceRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return ListOTAJobByDeviceResponse ListOTAJobByDeviceResponse
+     * @return ListOTAJobByDeviceResponse
      */
     public function listOTAJobByDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->firmwareId)) {
-            $query['FirmwareId'] = $request->firmwareId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListOTAJobByDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListOTAJobByDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOTAJobByDeviceResponse::fromMap($this->doRequest('ListOTAJobByDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListOTAJobByDeviceRequest $request ListOTAJobByDeviceRequest
+     * @param ListOTAJobByDeviceRequest $request
      *
-     * @return ListOTAJobByDeviceResponse ListOTAJobByDeviceResponse
+     * @return ListOTAJobByDeviceResponse
      */
     public function listOTAJobByDevice($request)
     {
@@ -12768,57 +6109,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListOTAJobByFirmwareRequest $request ListOTAJobByFirmwareRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param ListOTAJobByFirmwareRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return ListOTAJobByFirmwareResponse ListOTAJobByFirmwareResponse
+     * @return ListOTAJobByFirmwareResponse
      */
     public function listOTAJobByFirmwareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->firmwareId)) {
-            $query['FirmwareId'] = $request->firmwareId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListOTAJobByFirmware',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListOTAJobByFirmwareResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOTAJobByFirmwareResponse::fromMap($this->doRequest('ListOTAJobByFirmware', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListOTAJobByFirmwareRequest $request ListOTAJobByFirmwareRequest
+     * @param ListOTAJobByFirmwareRequest $request
      *
-     * @return ListOTAJobByFirmwareResponse ListOTAJobByFirmwareResponse
+     * @return ListOTAJobByFirmwareResponse
      */
     public function listOTAJobByFirmware($request)
     {
@@ -12828,45 +6134,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListOTAModuleByProductRequest $request ListOTAModuleByProductRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param ListOTAModuleByProductRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return ListOTAModuleByProductResponse ListOTAModuleByProductResponse
+     * @return ListOTAModuleByProductResponse
      */
     public function listOTAModuleByProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListOTAModuleByProduct',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListOTAModuleByProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOTAModuleByProductResponse::fromMap($this->doRequest('ListOTAModuleByProduct', 'HTTPS', 'GET', '2018-01-20', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListOTAModuleByProductRequest $request ListOTAModuleByProductRequest
+     * @param ListOTAModuleByProductRequest $request
      *
-     * @return ListOTAModuleByProductResponse ListOTAModuleByProductResponse
+     * @return ListOTAModuleByProductResponse
      */
     public function listOTAModuleByProduct($request)
     {
@@ -12876,63 +6159,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListOTAModuleVersionsByDeviceRequest $request ListOTAModuleVersionsByDeviceRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param ListOTAModuleVersionsByDeviceRequest $request
+     * @param RuntimeOptions                       $runtime
      *
-     * @return ListOTAModuleVersionsByDeviceResponse ListOTAModuleVersionsByDeviceResponse
+     * @return ListOTAModuleVersionsByDeviceResponse
      */
     public function listOTAModuleVersionsByDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListOTAModuleVersionsByDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListOTAModuleVersionsByDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOTAModuleVersionsByDeviceResponse::fromMap($this->doRequest('ListOTAModuleVersionsByDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListOTAModuleVersionsByDeviceRequest $request ListOTAModuleVersionsByDeviceRequest
+     * @param ListOTAModuleVersionsByDeviceRequest $request
      *
-     * @return ListOTAModuleVersionsByDeviceResponse ListOTAModuleVersionsByDeviceResponse
+     * @return ListOTAModuleVersionsByDeviceResponse
      */
     public function listOTAModuleVersionsByDevice($request)
     {
@@ -12942,63 +6184,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param ListOTATaskByJobRequest $request ListOTATaskByJobRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param ListOTATaskByJobRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return ListOTATaskByJobResponse ListOTATaskByJobResponse
+     * @return ListOTATaskByJobResponse
      */
     public function listOTATaskByJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->deviceNames)) {
-            $query['DeviceNames'] = $request->deviceNames;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->taskStatus)) {
-            $query['TaskStatus'] = $request->taskStatus;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListOTATaskByJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListOTATaskByJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOTATaskByJobResponse::fromMap($this->doRequest('ListOTATaskByJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param ListOTATaskByJobRequest $request ListOTATaskByJobRequest
+     * @param ListOTATaskByJobRequest $request
      *
-     * @return ListOTATaskByJobResponse ListOTATaskByJobResponse
+     * @return ListOTATaskByJobResponse
      */
     public function listOTATaskByJob($request)
     {
@@ -13008,63 +6209,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListOTAUnfinishedTaskByDeviceRequest $request ListOTAUnfinishedTaskByDeviceRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     * @param ListOTAUnfinishedTaskByDeviceRequest $request
+     * @param RuntimeOptions                       $runtime
      *
-     * @return ListOTAUnfinishedTaskByDeviceResponse ListOTAUnfinishedTaskByDeviceResponse
+     * @return ListOTAUnfinishedTaskByDeviceResponse
      */
     public function listOTAUnfinishedTaskByDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->moduleName)) {
-            $query['ModuleName'] = $request->moduleName;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->taskStatus)) {
-            $query['TaskStatus'] = $request->taskStatus;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListOTAUnfinishedTaskByDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListOTAUnfinishedTaskByDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListOTAUnfinishedTaskByDeviceResponse::fromMap($this->doRequest('ListOTAUnfinishedTaskByDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListOTAUnfinishedTaskByDeviceRequest $request ListOTAUnfinishedTaskByDeviceRequest
+     * @param ListOTAUnfinishedTaskByDeviceRequest $request
      *
-     * @return ListOTAUnfinishedTaskByDeviceResponse ListOTAUnfinishedTaskByDeviceResponse
+     * @return ListOTAUnfinishedTaskByDeviceResponse
      */
     public function listOTAUnfinishedTaskByDevice($request)
     {
@@ -13082,35 +6242,8 @@ class Iot extends OpenApiClient
     public function listParserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->searchName)) {
-            $query['SearchName'] = $request->searchName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListParser',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListParserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListParserResponse::fromMap($this->doRequest('ListParser', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -13134,35 +6267,8 @@ class Iot extends OpenApiClient
     public function listParserDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->page)) {
-            $query['Page'] = $request->page;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->searchName)) {
-            $query['SearchName'] = $request->searchName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListParserDataSource',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListParserDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListParserDataSourceResponse::fromMap($this->doRequest('ListParserDataSource', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -13186,32 +6292,8 @@ class Iot extends OpenApiClient
     public function listParserDestinationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->isFailover)) {
-            $query['IsFailover'] = $request->isFailover;
-        }
-        if (!Utils::isUnset($request->parserId)) {
-            $query['ParserId'] = $request->parserId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListParserDestination',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListParserDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListParserDestinationResponse::fromMap($this->doRequest('ListParserDestination', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -13227,61 +6309,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   * *   You can specify a tag key or a tag key-value pair for search.
-     *   * *   If you specify multiple tags, the logical relationship among these tags is **OR**.
-     *   *
-     * @param ListProductByTagsRequest $request ListProductByTagsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param ListProductByTagsRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return ListProductByTagsResponse ListProductByTagsResponse
+     * @return ListProductByTagsResponse
      */
     public function listProductByTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productTag)) {
-            $query['ProductTag'] = $request->productTag;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListProductByTags',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListProductByTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProductByTagsResponse::fromMap($this->doRequest('ListProductByTags', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   * *   You can specify a tag key or a tag key-value pair for search.
-     *   * *   If you specify multiple tags, the logical relationship among these tags is **OR**.
-     *   *
-     * @param ListProductByTagsRequest $request ListProductByTagsRequest
+     * @param ListProductByTagsRequest $request
      *
-     * @return ListProductByTagsResponse ListProductByTagsResponse
+     * @return ListProductByTagsResponse
      */
     public function listProductByTags($request)
     {
@@ -13291,51 +6334,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListProductTagsRequest $request ListProductTagsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param ListProductTagsRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return ListProductTagsResponse ListProductTagsResponse
+     * @return ListProductTagsResponse
      */
     public function listProductTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListProductTags',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListProductTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListProductTagsResponse::fromMap($this->doRequest('ListProductTags', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListProductTagsRequest $request ListProductTagsRequest
+     * @param ListProductTagsRequest $request
      *
-     * @return ListProductTagsResponse ListProductTagsResponse
+     * @return ListProductTagsResponse
      */
     public function listProductTags($request)
     {
@@ -13345,57 +6359,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## QPS limits
-     *   * You can call this API operation up to 20 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListRuleRequest $request ListRuleRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * @param ListRuleRequest $request
+     * @param RuntimeOptions  $runtime
      *
-     * @return ListRuleResponse ListRuleResponse
+     * @return ListRuleResponse
      */
     public function listRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRuleResponse::fromMap($this->doRequest('ListRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## QPS limits
-     *   * You can call this API operation up to 20 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListRuleRequest $request ListRuleRequest
+     * @param ListRuleRequest $request
      *
-     * @return ListRuleResponse ListRuleResponse
+     * @return ListRuleResponse
      */
     public function listRule($request)
     {
@@ -13405,51 +6384,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListRuleActionsRequest $request ListRuleActionsRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param ListRuleActionsRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return ListRuleActionsResponse ListRuleActionsResponse
+     * @return ListRuleActionsResponse
      */
     public function listRuleActionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListRuleActions',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListRuleActionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListRuleActionsResponse::fromMap($this->doRequest('ListRuleActions', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListRuleActionsRequest $request ListRuleActionsRequest
+     * @param ListRuleActionsRequest $request
      *
-     * @return ListRuleActionsResponse ListRuleActionsResponse
+     * @return ListRuleActionsResponse
      */
     public function listRuleActions($request)
     {
@@ -13459,54 +6409,21 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param ListTaskRequest $tmpReq
+     * @param ListTaskRequest $tmp
      * @param RuntimeOptions  $runtime
      *
      * @return ListTaskResponse
      */
-    public function listTaskWithOptions($tmpReq, $runtime)
+    public function listTaskWithOptions($tmp, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        Utils::validateModel($tmp);
         $request = new ListTaskShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->device)) {
-            $request->deviceShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->device, 'Device', 'json');
+        RpcUtils::convert($tmp, $request);
+        if (!Utils::isUnset($tmp->device)) {
+            $request->deviceShrink = Utils::toJSONString($tmp->device);
         }
-        $query = [];
-        if (!Utils::isUnset($request->deviceShrink)) {
-            $query['Device'] = $request->deviceShrink;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->limit)) {
-            $query['Limit'] = $request->limit;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListTask',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListTaskResponse::fromMap($this->doRequest('ListTask', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -13522,53 +6439,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * You can manage TSL models by version. After you import a TSL model by calling the [ImportThingModelTsl](~~150320~~) operation, copy a TSL model by calling the [CopyThingModel](~~150322~~) operation, or edit a TSL model, you must publish the TSL model by calling the [PublishThingModel](~~150311~~) operation. Then, the TSL model can be used. Each time a TSL model of a product is published, a new version is generated.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListThingModelVersionRequest $request ListThingModelVersionRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param ListThingModelVersionRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return ListThingModelVersionResponse ListThingModelVersionResponse
+     * @return ListThingModelVersionResponse
      */
     public function listThingModelVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListThingModelVersion',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListThingModelVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListThingModelVersionResponse::fromMap($this->doRequest('ListThingModelVersion', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * You can manage TSL models by version. After you import a TSL model by calling the [ImportThingModelTsl](~~150320~~) operation, copy a TSL model by calling the [CopyThingModel](~~150322~~) operation, or edit a TSL model, you must publish the TSL model by calling the [PublishThingModel](~~150311~~) operation. Then, the TSL model can be used. Each time a TSL model of a product is published, a new version is generated.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListThingModelVersionRequest $request ListThingModelVersionRequest
+     * @param ListThingModelVersionRequest $request
      *
-     * @return ListThingModelVersionResponse ListThingModelVersionResponse
+     * @return ListThingModelVersionResponse
      */
     public function listThingModelVersion($request)
     {
@@ -13578,52 +6464,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * IoT Platform provides product categories that have defined TSL models, such as street lamps, vehicle location cards, and water immersion detectors.
-     *   * When you call the [CreateProduct](~~69123~~) operation to create a product, you can set the CategoryKey parameter to specify a product category. The product that you create references the standardized TSL model of the specified category.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListThingTemplatesRequest $request ListThingTemplatesRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param ListThingTemplatesRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return ListThingTemplatesResponse ListThingTemplatesResponse
+     * @return ListThingTemplatesResponse
      */
     public function listThingTemplatesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListThingTemplates',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ListThingTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListThingTemplatesResponse::fromMap($this->doRequest('ListThingTemplates', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * IoT Platform provides product categories that have defined TSL models, such as street lamps, vehicle location cards, and water immersion detectors.
-     *   * When you call the [CreateProduct](~~69123~~) operation to create a product, you can set the CategoryKey parameter to specify a product category. The product that you create references the standardized TSL model of the specified category.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ListThingTemplatesRequest $request ListThingTemplatesRequest
+     * @param ListThingTemplatesRequest $request
      *
-     * @return ListThingTemplatesResponse ListThingTemplatesResponse
+     * @return ListThingTemplatesResponse
      */
     public function listThingTemplates($request)
     {
@@ -13633,64 +6489,47 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * A successful response indicates that the command to add topological relationships is sent to the gateway. It does not indicate that the topological relationships are added.
-     *   * When you develop the gateway, you must subscribe to the topic that is used to send notifications when you add topological relationships. For more information about the topic and message format, see [Manage topological relationships](~~89299~~).
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param NotifyAddThingTopoRequest $request NotifyAddThingTopoRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param ModifyOTAFirmwareRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return NotifyAddThingTopoResponse NotifyAddThingTopoResponse
+     * @return ModifyOTAFirmwareResponse
+     */
+    public function modifyOTAFirmwareWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return ModifyOTAFirmwareResponse::fromMap($this->doRequest('ModifyOTAFirmware', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param ModifyOTAFirmwareRequest $request
+     *
+     * @return ModifyOTAFirmwareResponse
+     */
+    public function modifyOTAFirmware($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyOTAFirmwareWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param NotifyAddThingTopoRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return NotifyAddThingTopoResponse
      */
     public function notifyAddThingTopoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceListStr)) {
-            $query['DeviceListStr'] = $request->deviceListStr;
-        }
-        if (!Utils::isUnset($request->gwDeviceName)) {
-            $query['GwDeviceName'] = $request->gwDeviceName;
-        }
-        if (!Utils::isUnset($request->gwIotId)) {
-            $query['GwIotId'] = $request->gwIotId;
-        }
-        if (!Utils::isUnset($request->gwProductKey)) {
-            $query['GwProductKey'] = $request->gwProductKey;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'NotifyAddThingTopo',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return NotifyAddThingTopoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return NotifyAddThingTopoResponse::fromMap($this->doRequest('NotifyAddThingTopo', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * A successful response indicates that the command to add topological relationships is sent to the gateway. It does not indicate that the topological relationships are added.
-     *   * When you develop the gateway, you must subscribe to the topic that is used to send notifications when you add topological relationships. For more information about the topic and message format, see [Manage topological relationships](~~89299~~).
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param NotifyAddThingTopoRequest $request NotifyAddThingTopoRequest
+     * @param NotifyAddThingTopoRequest $request
      *
-     * @return NotifyAddThingTopoResponse NotifyAddThingTopoResponse
+     * @return NotifyAddThingTopoResponse
      */
     public function notifyAddThingTopo($request)
     {
@@ -13708,26 +6547,8 @@ class Iot extends OpenApiClient
     public function openIotServiceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'OpenIotService',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return OpenIotServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return OpenIotServiceResponse::fromMap($this->doRequest('OpenIotService', 'HTTPS', 'POST', '2018-01-20', 'AK,APP,PrivateKey,BearerToken', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -13751,29 +6572,8 @@ class Iot extends OpenApiClient
     public function packageSoundCodeLabelBatchAudioWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->batchCode)) {
-            $body['BatchCode'] = $request->batchCode;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'PackageSoundCodeLabelBatchAudio',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return PackageSoundCodeLabelBatchAudioResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PackageSoundCodeLabelBatchAudioResponse::fromMap($this->doRequest('PackageSoundCodeLabelBatchAudio', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -13797,47 +6597,8 @@ class Iot extends OpenApiClient
     public function pageQuerySharedSpeechOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $body['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $body['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $body['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->shareTaskCode)) {
-            $body['ShareTaskCode'] = $request->shareTaskCode;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'PageQuerySharedSpeechOpen',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return PageQuerySharedSpeechOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PageQuerySharedSpeechOpenResponse::fromMap($this->doRequest('PageQuerySharedSpeechOpen', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -13861,40 +6622,8 @@ class Iot extends OpenApiClient
     public function pageQuerySpeechBroadcastHourWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->queryDateTimeHour)) {
-            $query['QueryDateTimeHour'] = $request->queryDateTimeHour;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->pageToken)) {
-            $body['PageToken'] = $request->pageToken;
-        }
-        if (!Utils::isUnset($request->shareTaskCode)) {
-            $body['ShareTaskCode'] = $request->shareTaskCode;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'PageQuerySpeechBroadcastHour',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return PageQuerySpeechBroadcastHourResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PageQuerySpeechBroadcastHourResponse::fromMap($this->doRequest('PageQuerySpeechBroadcastHour', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -13918,44 +6647,8 @@ class Iot extends OpenApiClient
     public function printByTemplateWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->historyPrintTopic)) {
-            $body['HistoryPrintTopic'] = $request->historyPrintTopic;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $body['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->paramsJsonString)) {
-            $body['ParamsJsonString'] = $request->paramsJsonString;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $body['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->templateBizCode)) {
-            $body['TemplateBizCode'] = $request->templateBizCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'PrintByTemplate',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return PrintByTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PrintByTemplateResponse::fromMap($this->doRequest('PrintByTemplate', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -13971,92 +6664,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * This operation does not support device property settings and service invocations.
-     *   * *   To set properties, call the [SetDeviceProperty](~~69579~~) or [SetDevicesProperty](~~96243~~) operation.
-     *   * *   To invoke a service, call the [InvokeThingService](~~69584~~) or [InvokeThingsService](~~96242~~) operation.
-     *   * ## QPS limit
-     *   * You can call this API operation up to 1,600 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param PubRequest     $request PubRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param PubRequest     $request
+     * @param RuntimeOptions $runtime
      *
-     * @return PubResponse PubResponse
+     * @return PubResponse
      */
     public function pubWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->contentType)) {
-            $query['ContentType'] = $request->contentType;
-        }
-        if (!Utils::isUnset($request->correlationData)) {
-            $query['CorrelationData'] = $request->correlationData;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->messageExpiryInterval)) {
-            $query['MessageExpiryInterval'] = $request->messageExpiryInterval;
-        }
-        if (!Utils::isUnset($request->payloadFormatIndicator)) {
-            $query['PayloadFormatIndicator'] = $request->payloadFormatIndicator;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->qos)) {
-            $query['Qos'] = $request->qos;
-        }
-        if (!Utils::isUnset($request->responseTopic)) {
-            $query['ResponseTopic'] = $request->responseTopic;
-        }
-        if (!Utils::isUnset($request->retained)) {
-            $query['Retained'] = $request->retained;
-        }
-        if (!Utils::isUnset($request->topicFullName)) {
-            $query['TopicFullName'] = $request->topicFullName;
-        }
-        if (!Utils::isUnset($request->userProp)) {
-            $query['UserProp'] = $request->userProp;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->messageContent)) {
-            $body['MessageContent'] = $request->messageContent;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'Pub',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return PubResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PubResponse::fromMap($this->doRequest('Pub', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * This operation does not support device property settings and service invocations.
-     *   * *   To set properties, call the [SetDeviceProperty](~~69579~~) or [SetDevicesProperty](~~96243~~) operation.
-     *   * *   To invoke a service, call the [InvokeThingService](~~69584~~) or [InvokeThingsService](~~96242~~) operation.
-     *   * ## QPS limit
-     *   * You can call this API operation up to 1,600 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param PubRequest $request PubRequest
+     * @param PubRequest $request
      *
-     * @return PubResponse PubResponse
+     * @return PubResponse
      */
     public function pub($request)
     {
@@ -14066,59 +6689,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * You can use the **TopicFullName** parameter in the **request** to specify the devices to which you want to broadcast messages. For more information, see the description about the **TopicFullName** parameter in this topic.
-     *   * ## QPS limits
-     *   * - Each Alibaba Cloud account can run only one query per second (QPS) to broadcast a message to devices that subscribe to a topic.
-     *   * - Each Alibaba Cloud account can run only one query per minute (QPM) to broadcast a message to all online devices of a product.      >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param PubBroadcastRequest $request PubBroadcastRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param PubBroadcastRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return PubBroadcastResponse PubBroadcastResponse
+     * @return PubBroadcastResponse
      */
     public function pubBroadcastWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->messageContent)) {
-            $query['MessageContent'] = $request->messageContent;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->topicFullName)) {
-            $query['TopicFullName'] = $request->topicFullName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'PubBroadcast',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return PubBroadcastResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PubBroadcastResponse::fromMap($this->doRequest('PubBroadcast', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * You can use the **TopicFullName** parameter in the **request** to specify the devices to which you want to broadcast messages. For more information, see the description about the **TopicFullName** parameter in this topic.
-     *   * ## QPS limits
-     *   * - Each Alibaba Cloud account can run only one query per second (QPS) to broadcast a message to devices that subscribe to a topic.
-     *   * - Each Alibaba Cloud account can run only one query per minute (QPM) to broadcast a message to all online devices of a product.      >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param PubBroadcastRequest $request PubBroadcastRequest
+     * @param PubBroadcastRequest $request
      *
-     * @return PubBroadcastResponse PubBroadcastResponse
+     * @return PubBroadcastResponse
      */
     public function pubBroadcast($request)
     {
@@ -14136,29 +6722,8 @@ class Iot extends OpenApiClient
     public function publishScriptWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->parserId)) {
-            $query['ParserId'] = $request->parserId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'PublishScript',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return PublishScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PublishScriptResponse::fromMap($this->doRequest('PublishScript', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -14182,35 +6747,8 @@ class Iot extends OpenApiClient
     public function publishStudioAppWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'PublishStudioApp',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return PublishStudioAppResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PublishStudioAppResponse::fromMap($this->doRequest('PublishStudioApp', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -14226,62 +6764,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param PublishThingModelRequest $request PublishThingModelRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param PublishThingModelRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return PublishThingModelResponse PublishThingModelResponse
+     * @return PublishThingModelResponse
      */
     public function publishThingModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->modelVersion)) {
-            $query['ModelVersion'] = $request->modelVersion;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'PublishThingModel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return PublishThingModelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PublishThingModelResponse::fromMap($this->doRequest('PublishThingModel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param PublishThingModelRequest $request PublishThingModelRequest
+     * @param PublishThingModelRequest $request
      *
-     * @return PublishThingModelResponse PublishThingModelResponse
+     * @return PublishThingModelResponse
      */
     public function publishThingModel($request)
     {
@@ -14299,49 +6797,8 @@ class Iot extends OpenApiClient
     public function pushSpeechWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $body['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $body['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->projectCode)) {
-            $body['ProjectCode'] = $request->projectCode;
-        }
-        if (!Utils::isUnset($request->pushMode)) {
-            $body['PushMode'] = $request->pushMode;
-        }
-        if (!Utils::isUnset($request->speechCodeList)) {
-            $body['SpeechCodeList'] = $request->speechCodeList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'PushSpeech',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return PushSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+        return PushSpeechResponse::fromMap($this->doRequest('PushSpeech', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -14357,54 +6814,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## QPS limits
-     *   * You can call this API operation up to 30 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryBatchRegisterDeviceStatusRequest $request QueryBatchRegisterDeviceStatusRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * @param QueryBatchRegisterDeviceStatusRequest $request
+     * @param RuntimeOptions                        $runtime
      *
-     * @return QueryBatchRegisterDeviceStatusResponse QueryBatchRegisterDeviceStatusResponse
+     * @return QueryBatchRegisterDeviceStatusResponse
      */
     public function queryBatchRegisterDeviceStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->applyId)) {
-            $query['ApplyId'] = $request->applyId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryBatchRegisterDeviceStatus',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryBatchRegisterDeviceStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryBatchRegisterDeviceStatusResponse::fromMap($this->doRequest('QueryBatchRegisterDeviceStatus', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## QPS limits
-     *   * You can call this API operation up to 30 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryBatchRegisterDeviceStatusRequest $request QueryBatchRegisterDeviceStatusRequest
+     * @param QueryBatchRegisterDeviceStatusRequest $request
      *
-     * @return QueryBatchRegisterDeviceStatusResponse QueryBatchRegisterDeviceStatusResponse
+     * @return QueryBatchRegisterDeviceStatusResponse
      */
     public function queryBatchRegisterDeviceStatus($request)
     {
@@ -14422,29 +6847,8 @@ class Iot extends OpenApiClient
     public function queryCertUrlByApplyIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->applyId)) {
-            $query['ApplyId'] = $request->applyId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryCertUrlByApplyId',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryCertUrlByApplyIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryCertUrlByApplyIdResponse::fromMap($this->doRequest('QueryCertUrlByApplyId', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -14460,51 +6864,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryClientIdsRequest $request QueryClientIdsRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param QueryClientIdsRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return QueryClientIdsResponse QueryClientIdsResponse
+     * @return QueryClientIdsResponse
      */
     public function queryClientIdsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryClientIds',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryClientIdsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryClientIdsResponse::fromMap($this->doRequest('QueryClientIds', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryClientIdsRequest $request QueryClientIdsRequest
+     * @param QueryClientIdsRequest $request
      *
-     * @return QueryClientIdsResponse QueryClientIdsResponse
+     * @return QueryClientIdsResponse
      */
     public function queryClientIds($request)
     {
@@ -14514,51 +6889,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryConsumerGroupByGroupIdRequest $request QueryConsumerGroupByGroupIdRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param QueryConsumerGroupByGroupIdRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return QueryConsumerGroupByGroupIdResponse QueryConsumerGroupByGroupIdResponse
+     * @return QueryConsumerGroupByGroupIdResponse
      */
     public function queryConsumerGroupByGroupIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryConsumerGroupByGroupId',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryConsumerGroupByGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryConsumerGroupByGroupIdResponse::fromMap($this->doRequest('QueryConsumerGroupByGroupId', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryConsumerGroupByGroupIdRequest $request QueryConsumerGroupByGroupIdRequest
+     * @param QueryConsumerGroupByGroupIdRequest $request
      *
-     * @return QueryConsumerGroupByGroupIdResponse QueryConsumerGroupByGroupIdResponse
+     * @return QueryConsumerGroupByGroupIdResponse
      */
     public function queryConsumerGroupByGroupId($request)
     {
@@ -14568,66 +6914,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryConsumerGroupListRequest $request QueryConsumerGroupListRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param QueryConsumerGroupListRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return QueryConsumerGroupListResponse QueryConsumerGroupListResponse
+     * @return QueryConsumerGroupListResponse
      */
     public function queryConsumerGroupListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->fuzzy)) {
-            $query['Fuzzy'] = $request->fuzzy;
-        }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->subBizCode)) {
-            $query['SubBizCode'] = $request->subBizCode;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryConsumerGroupList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryConsumerGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryConsumerGroupListResponse::fromMap($this->doRequest('QueryConsumerGroupList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryConsumerGroupListRequest $request QueryConsumerGroupListRequest
+     * @param QueryConsumerGroupListRequest $request
      *
-     * @return QueryConsumerGroupListResponse QueryConsumerGroupListResponse
+     * @return QueryConsumerGroupListResponse
      */
     public function queryConsumerGroupList($request)
     {
@@ -14637,51 +6939,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryConsumerGroupStatusRequest $request QueryConsumerGroupStatusRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param QueryConsumerGroupStatusRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return QueryConsumerGroupStatusResponse QueryConsumerGroupStatusResponse
+     * @return QueryConsumerGroupStatusResponse
      */
     public function queryConsumerGroupStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryConsumerGroupStatus',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryConsumerGroupStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryConsumerGroupStatusResponse::fromMap($this->doRequest('QueryConsumerGroupStatus', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryConsumerGroupStatusRequest $request QueryConsumerGroupStatusRequest
+     * @param QueryConsumerGroupStatusRequest $request
      *
-     * @return QueryConsumerGroupStatusResponse QueryConsumerGroupStatusResponse
+     * @return QueryConsumerGroupStatusResponse
      */
     public function queryConsumerGroupStatus($request)
     {
@@ -14699,44 +6972,8 @@ class Iot extends OpenApiClient
     public function queryDetailSceneRuleLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->traceId)) {
-            $query['TraceId'] = $request->traceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDetailSceneRuleLog',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDetailSceneRuleLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDetailSceneRuleLogResponse::fromMap($this->doRequest('QueryDetailSceneRuleLog', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -14752,64 +6989,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * The QueryDevice operation can return up to one million devices each time you call the operation.
-     *   * ## QPS limits
-     *   * - You can call this API operation up to 50 times per second per account. >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   * - If the product of the value of the **CurrentPage** parameter and the value of the **PageSize** parameter is greater than or equal to 100,000, the queries per second (QPS) of this operation decreases.
-     *   * In this case, you can call this API operation up to two times per second per account.
-     *   *
-     * @param QueryDeviceRequest $request QueryDeviceRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceRequest $request
+     * @param RuntimeOptions     $runtime
      *
-     * @return QueryDeviceResponse QueryDeviceResponse
+     * @return QueryDeviceResponse
      */
     public function queryDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceResponse::fromMap($this->doRequest('QueryDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * The QueryDevice operation can return up to one million devices each time you call the operation.
-     *   * ## QPS limits
-     *   * - You can call this API operation up to 50 times per second per account. >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   * - If the product of the value of the **CurrentPage** parameter and the value of the **PageSize** parameter is greater than or equal to 100,000, the queries per second (QPS) of this operation decreases.
-     *   * In this case, you can call this API operation up to two times per second per account.
-     *   *
-     * @param QueryDeviceRequest $request QueryDeviceRequest
+     * @param QueryDeviceRequest $request
      *
-     * @return QueryDeviceResponse QueryDeviceResponse
+     * @return QueryDeviceResponse
      */
     public function queryDevice($request)
     {
@@ -14819,55 +7014,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   You can query devices on Enterprise Edition instances only in the China (Shanghai) and Japan (Tokyo) regions.
-     *   * *   The QueryDeviceBySQL operation can return up to 10,000 devices each time you call the operation. For more information, see the "`Syntax of LIMIT clauses`" section of this topic.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceBySQLRequest $request QueryDeviceBySQLRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceBySQLRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return QueryDeviceBySQLResponse QueryDeviceBySQLResponse
+     * @return QueryDeviceBySQLResponse
      */
     public function queryDeviceBySQLWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->SQL)) {
-            $query['SQL'] = $request->SQL;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceBySQL',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceBySQLResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceBySQLResponse::fromMap($this->doRequest('QueryDeviceBySQL', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   You can query devices on Enterprise Edition instances only in the China (Shanghai) and Japan (Tokyo) regions.
-     *   * *   The QueryDeviceBySQL operation can return up to 10,000 devices each time you call the operation. For more information, see the "`Syntax of LIMIT clauses`" section of this topic.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceBySQLRequest $request QueryDeviceBySQLRequest
+     * @param QueryDeviceBySQLRequest $request
      *
-     * @return QueryDeviceBySQLResponse QueryDeviceBySQLResponse
+     * @return QueryDeviceBySQLResponse
      */
     public function queryDeviceBySQL($request)
     {
@@ -14877,65 +7039,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   After the status of a device changes, the new status is applied within 10 seconds. After the new status is applied, you can search for the device by using the new status. Before the new status is applied, you can search for the device by using the previous status.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceByStatusRequest $request QueryDeviceByStatusRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceByStatusRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return QueryDeviceByStatusResponse QueryDeviceByStatusResponse
+     * @return QueryDeviceByStatusResponse
      */
     public function queryDeviceByStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceByStatus',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceByStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceByStatusResponse::fromMap($this->doRequest('QueryDeviceByStatus', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   After the status of a device changes, the new status is applied within 10 seconds. After the new status is applied, you can search for the device by using the new status. Before the new status is applied, you can search for the device by using the previous status.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceByStatusRequest $request QueryDeviceByStatusRequest
+     * @param QueryDeviceByStatusRequest $request
      *
-     * @return QueryDeviceByStatusResponse QueryDeviceByStatusResponse
+     * @return QueryDeviceByStatusResponse
      */
     public function queryDeviceByStatus($request)
     {
@@ -14945,59 +7064,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   You can specify a maximum of 10 tags in a single call.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceByTagsRequest $request QueryDeviceByTagsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceByTagsRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return QueryDeviceByTagsResponse QueryDeviceByTagsResponse
+     * @return QueryDeviceByTagsResponse
      */
     public function queryDeviceByTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceByTags',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceByTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceByTagsResponse::fromMap($this->doRequest('QueryDeviceByTags', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   You can specify a maximum of 10 tags in a single call.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceByTagsRequest $request QueryDeviceByTagsRequest
+     * @param QueryDeviceByTagsRequest $request
      *
-     * @return QueryDeviceByTagsResponse QueryDeviceByTagsResponse
+     * @return QueryDeviceByTagsResponse
      */
     public function queryDeviceByTags($request)
     {
@@ -15015,32 +7097,8 @@ class Iot extends OpenApiClient
     public function queryDeviceCertWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceCert',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceCertResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceCertResponse::fromMap($this->doRequest('QueryDeviceCert', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -15056,67 +7114,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   The desired values of read-only properties cannot be queried.
-     *   * *   You can query the desired values of up to 10 properties in a single call.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 50 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceDesiredPropertyRequest $request QueryDeviceDesiredPropertyRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceDesiredPropertyRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return QueryDeviceDesiredPropertyResponse QueryDeviceDesiredPropertyResponse
+     * @return QueryDeviceDesiredPropertyResponse
      */
     public function queryDeviceDesiredPropertyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->functionBlockId)) {
-            $query['FunctionBlockId'] = $request->functionBlockId;
-        }
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceDesiredProperty',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceDesiredPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceDesiredPropertyResponse::fromMap($this->doRequest('QueryDeviceDesiredProperty', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   The desired values of read-only properties cannot be queried.
-     *   * *   You can query the desired values of up to 10 properties in a single call.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 50 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceDesiredPropertyRequest $request QueryDeviceDesiredPropertyRequest
+     * @param QueryDeviceDesiredPropertyRequest $request
      *
-     * @return QueryDeviceDesiredPropertyResponse QueryDeviceDesiredPropertyResponse
+     * @return QueryDeviceDesiredPropertyResponse
      */
     public function queryDeviceDesiredProperty($request)
     {
@@ -15126,57 +7139,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceDetailRequest $request QueryDeviceDetailRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceDetailRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return QueryDeviceDetailResponse QueryDeviceDetailResponse
+     * @return QueryDeviceDetailResponse
      */
     public function queryDeviceDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceDetail',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceDetailResponse::fromMap($this->doRequest('QueryDeviceDetail', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceDetailRequest $request QueryDeviceDetailRequest
+     * @param QueryDeviceDetailRequest $request
      *
-     * @return QueryDeviceDetailResponse QueryDeviceDetailResponse
+     * @return QueryDeviceDetailResponse
      */
     public function queryDeviceDetail($request)
     {
@@ -15186,48 +7164,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceDistributeDetailRequest $request QueryDeviceDistributeDetailRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceDistributeDetailRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return QueryDeviceDistributeDetailResponse QueryDeviceDistributeDetailResponse
+     * @return QueryDeviceDistributeDetailResponse
      */
     public function queryDeviceDistributeDetailWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceDistributeDetail',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceDistributeDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceDistributeDetailResponse::fromMap($this->doRequest('QueryDeviceDistributeDetail', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceDistributeDetailRequest $request QueryDeviceDistributeDetailRequest
+     * @param QueryDeviceDistributeDetailRequest $request
      *
-     * @return QueryDeviceDistributeDetailResponse QueryDeviceDistributeDetailResponse
+     * @return QueryDeviceDistributeDetailResponse
      */
     public function queryDeviceDistributeDetail($request)
     {
@@ -15237,48 +7189,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceDistributeJobRequest $request QueryDeviceDistributeJobRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceDistributeJobRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return QueryDeviceDistributeJobResponse QueryDeviceDistributeJobResponse
+     * @return QueryDeviceDistributeJobResponse
      */
     public function queryDeviceDistributeJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceDistributeJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceDistributeJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceDistributeJobResponse::fromMap($this->doRequest('QueryDeviceDistributeJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   This operation can be called only by using the following **endpoint**: `iot.cn-shanghai.aliyuncs.com`.
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceDistributeJobRequest $request QueryDeviceDistributeJobRequest
+     * @param QueryDeviceDistributeJobRequest $request
      *
-     * @return QueryDeviceDistributeJobResponse QueryDeviceDistributeJobResponse
+     * @return QueryDeviceDistributeJobResponse
      */
     public function queryDeviceDistributeJob($request)
     {
@@ -15288,79 +7214,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * You can query only the event records that are generated in the previous 30 days.
-     *   * >  The storage period of an event record is calculated from the day when the record is generated.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param QueryDeviceEventDataRequest $request QueryDeviceEventDataRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceEventDataRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return QueryDeviceEventDataResponse QueryDeviceEventDataResponse
+     * @return QueryDeviceEventDataResponse
      */
     public function queryDeviceEventDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->asc)) {
-            $query['Asc'] = $request->asc;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->eventType)) {
-            $query['EventType'] = $request->eventType;
-        }
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceEventData',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceEventDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceEventDataResponse::fromMap($this->doRequest('QueryDeviceEventData', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * You can query only the event records that are generated in the previous 30 days.
-     *   * >  The storage period of an event record is calculated from the day when the record is generated.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param QueryDeviceEventDataRequest $request QueryDeviceEventDataRequest
+     * @param QueryDeviceEventDataRequest $request
      *
-     * @return QueryDeviceEventDataResponse QueryDeviceEventDataResponse
+     * @return QueryDeviceEventDataResponse
      */
     public function queryDeviceEventData($request)
     {
@@ -15370,60 +7239,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceFileRequest $request QueryDeviceFileRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceFileRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return QueryDeviceFileResponse QueryDeviceFileResponse
+     * @return QueryDeviceFileResponse
      */
     public function queryDeviceFileWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->fileId)) {
-            $query['FileId'] = $request->fileId;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceFile',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceFileResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceFileResponse::fromMap($this->doRequest('QueryDeviceFile', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceFileRequest $request QueryDeviceFileRequest
+     * @param QueryDeviceFileRequest $request
      *
-     * @return QueryDeviceFileResponse QueryDeviceFileResponse
+     * @return QueryDeviceFileResponse
      */
     public function queryDeviceFile($request)
     {
@@ -15433,65 +7264,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   The returned file information for this operation call does not contain download URLs. To obtain the download URL of a file, call [QueryDeviceFile](~~112002~~).
-     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceFileListRequest $request QueryDeviceFileListRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceFileListRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return QueryDeviceFileListResponse QueryDeviceFileListResponse
+     * @return QueryDeviceFileListResponse
      */
     public function queryDeviceFileListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceFileList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceFileListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceFileListResponse::fromMap($this->doRequest('QueryDeviceFileList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   The returned file information for this operation call does not contain download URLs. To obtain the download URL of a file, call [QueryDeviceFile](~~112002~~).
-     *   * *   Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceFileListRequest $request QueryDeviceFileListRequest
+     * @param QueryDeviceFileListRequest $request
      *
-     * @return QueryDeviceFileListResponse QueryDeviceFileListResponse
+     * @return QueryDeviceFileListResponse
      */
     public function queryDeviceFileList($request)
     {
@@ -15501,56 +7289,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   You can add a device to a maximum of 10 groups.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceGroupByDeviceRequest $request QueryDeviceGroupByDeviceRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceGroupByDeviceRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return QueryDeviceGroupByDeviceResponse QueryDeviceGroupByDeviceResponse
+     * @return QueryDeviceGroupByDeviceResponse
      */
     public function queryDeviceGroupByDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceGroupByDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceGroupByDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceGroupByDeviceResponse::fromMap($this->doRequest('QueryDeviceGroupByDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   You can add a device to a maximum of 10 groups.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceGroupByDeviceRequest $request QueryDeviceGroupByDeviceRequest
+     * @param QueryDeviceGroupByDeviceRequest $request
      *
-     * @return QueryDeviceGroupByDeviceResponse QueryDeviceGroupByDeviceResponse
+     * @return QueryDeviceGroupByDeviceResponse
      */
     public function queryDeviceGroupByDevice($request)
     {
@@ -15560,57 +7314,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceGroupByTagsRequest $request QueryDeviceGroupByTagsRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceGroupByTagsRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return QueryDeviceGroupByTagsResponse QueryDeviceGroupByTagsResponse
+     * @return QueryDeviceGroupByTagsResponse
      */
     public function queryDeviceGroupByTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceGroupByTags',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceGroupByTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceGroupByTagsResponse::fromMap($this->doRequest('QueryDeviceGroupByTags', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceGroupByTagsRequest $request QueryDeviceGroupByTagsRequest
+     * @param QueryDeviceGroupByTagsRequest $request
      *
-     * @return QueryDeviceGroupByTagsResponse QueryDeviceGroupByTagsResponse
+     * @return QueryDeviceGroupByTagsResponse
      */
     public function queryDeviceGroupByTags($request)
     {
@@ -15620,54 +7339,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 30 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceGroupInfoRequest $request QueryDeviceGroupInfoRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceGroupInfoRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return QueryDeviceGroupInfoResponse QueryDeviceGroupInfoResponse
+     * @return QueryDeviceGroupInfoResponse
      */
     public function queryDeviceGroupInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->groupType)) {
-            $query['GroupType'] = $request->groupType;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceGroupInfo',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceGroupInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceGroupInfoResponse::fromMap($this->doRequest('QueryDeviceGroupInfo', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 30 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceGroupInfoRequest $request QueryDeviceGroupInfoRequest
+     * @param QueryDeviceGroupInfoRequest $request
      *
-     * @return QueryDeviceGroupInfoResponse QueryDeviceGroupInfoResponse
+     * @return QueryDeviceGroupInfoResponse
      */
     public function queryDeviceGroupInfo($request)
     {
@@ -15677,63 +7364,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 100 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceGroupListRequest $request QueryDeviceGroupListRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceGroupListRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return QueryDeviceGroupListResponse QueryDeviceGroupListResponse
+     * @return QueryDeviceGroupListResponse
      */
     public function queryDeviceGroupListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->groupName)) {
-            $query['GroupName'] = $request->groupName;
-        }
-        if (!Utils::isUnset($request->groupTypes)) {
-            $query['GroupTypes'] = $request->groupTypes;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->superGroupId)) {
-            $query['SuperGroupId'] = $request->superGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceGroupList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceGroupListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceGroupListResponse::fromMap($this->doRequest('QueryDeviceGroupList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 100 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceGroupListRequest $request QueryDeviceGroupListRequest
+     * @param QueryDeviceGroupListRequest $request
      *
-     * @return QueryDeviceGroupListResponse QueryDeviceGroupListResponse
+     * @return QueryDeviceGroupListResponse
      */
     public function queryDeviceGroupList($request)
     {
@@ -15743,54 +7389,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceGroupTagListRequest $request QueryDeviceGroupTagListRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceGroupTagListRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return QueryDeviceGroupTagListResponse QueryDeviceGroupTagListResponse
+     * @return QueryDeviceGroupTagListResponse
      */
     public function queryDeviceGroupTagListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->groupType)) {
-            $query['GroupType'] = $request->groupType;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceGroupTagList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceGroupTagListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceGroupTagListResponse::fromMap($this->doRequest('QueryDeviceGroupTagList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceGroupTagListRequest $request QueryDeviceGroupTagListRequest
+     * @param QueryDeviceGroupTagListRequest $request
      *
-     * @return QueryDeviceGroupTagListResponse QueryDeviceGroupTagListResponse
+     * @return QueryDeviceGroupTagListResponse
      */
     public function queryDeviceGroupTagList($request)
     {
@@ -15800,53 +7414,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
-     *   *
-     * @param QueryDeviceInfoRequest $request QueryDeviceInfoRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceInfoRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return QueryDeviceInfoResponse QueryDeviceInfoResponse
+     * @return QueryDeviceInfoResponse
      */
     public function queryDeviceInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceInfo',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceInfoResponse::fromMap($this->doRequest('QueryDeviceInfo', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
-     *   *
-     * @param QueryDeviceInfoRequest $request QueryDeviceInfoRequest
+     * @param QueryDeviceInfoRequest $request
      *
-     * @return QueryDeviceInfoResponse QueryDeviceInfoResponse
+     * @return QueryDeviceInfoResponse
      */
     public function queryDeviceInfo($request)
     {
@@ -15856,57 +7439,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceListByDeviceGroupRequest $request QueryDeviceListByDeviceGroupRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceListByDeviceGroupRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return QueryDeviceListByDeviceGroupResponse QueryDeviceListByDeviceGroupResponse
+     * @return QueryDeviceListByDeviceGroupResponse
      */
     public function queryDeviceListByDeviceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceListByDeviceGroup',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceListByDeviceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceListByDeviceGroupResponse::fromMap($this->doRequest('QueryDeviceListByDeviceGroup', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceListByDeviceGroupRequest $request QueryDeviceListByDeviceGroupRequest
+     * @param QueryDeviceListByDeviceGroupRequest $request
      *
-     * @return QueryDeviceListByDeviceGroupResponse QueryDeviceListByDeviceGroupResponse
+     * @return QueryDeviceListByDeviceGroupResponse
      */
     public function queryDeviceListByDeviceGroup($request)
     {
@@ -15916,79 +7464,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   You can query only the event records that are generated in the last 30 days.
-     *   * >  The storage period of an event record is calculated from the day when the record is generated.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceOriginalEventDataRequest $request QueryDeviceOriginalEventDataRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceOriginalEventDataRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return QueryDeviceOriginalEventDataResponse QueryDeviceOriginalEventDataResponse
+     * @return QueryDeviceOriginalEventDataResponse
      */
     public function queryDeviceOriginalEventDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->asc)) {
-            $query['Asc'] = $request->asc;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->nextPageToken)) {
-            $query['NextPageToken'] = $request->nextPageToken;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceOriginalEventData',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceOriginalEventDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceOriginalEventDataResponse::fromMap($this->doRequest('QueryDeviceOriginalEventData', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   You can query only the event records that are generated in the last 30 days.
-     *   * >  The storage period of an event record is calculated from the day when the record is generated.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceOriginalEventDataRequest $request QueryDeviceOriginalEventDataRequest
+     * @param QueryDeviceOriginalEventDataRequest $request
      *
-     * @return QueryDeviceOriginalEventDataResponse QueryDeviceOriginalEventDataResponse
+     * @return QueryDeviceOriginalEventDataResponse
      */
     public function queryDeviceOriginalEventData($request)
     {
@@ -15998,79 +7489,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * You can query only the property records that are generated within the previous 30 days.
-     *   * >  The data of a property is stored from the day when the data is generated.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 50 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceOriginalPropertyDataRequest $request QueryDeviceOriginalPropertyDataRequest
-     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceOriginalPropertyDataRequest $request
+     * @param RuntimeOptions                         $runtime
      *
-     * @return QueryDeviceOriginalPropertyDataResponse QueryDeviceOriginalPropertyDataResponse
+     * @return QueryDeviceOriginalPropertyDataResponse
      */
     public function queryDeviceOriginalPropertyDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->asc)) {
-            $query['Asc'] = $request->asc;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->nextPageToken)) {
-            $query['NextPageToken'] = $request->nextPageToken;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceOriginalPropertyData',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceOriginalPropertyDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceOriginalPropertyDataResponse::fromMap($this->doRequest('QueryDeviceOriginalPropertyData', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * You can query only the property records that are generated within the previous 30 days.
-     *   * >  The data of a property is stored from the day when the data is generated.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 50 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceOriginalPropertyDataRequest $request QueryDeviceOriginalPropertyDataRequest
+     * @param QueryDeviceOriginalPropertyDataRequest $request
      *
-     * @return QueryDeviceOriginalPropertyDataResponse QueryDeviceOriginalPropertyDataResponse
+     * @return QueryDeviceOriginalPropertyDataResponse
      */
     public function queryDeviceOriginalPropertyData($request)
     {
@@ -16080,66 +7514,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceOriginalPropertyStatusRequest $request QueryDeviceOriginalPropertyStatusRequest
-     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceOriginalPropertyStatusRequest $request
+     * @param RuntimeOptions                           $runtime
      *
-     * @return QueryDeviceOriginalPropertyStatusResponse QueryDeviceOriginalPropertyStatusResponse
+     * @return QueryDeviceOriginalPropertyStatusResponse
      */
     public function queryDeviceOriginalPropertyStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->asc)) {
-            $query['Asc'] = $request->asc;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->nextPageToken)) {
-            $query['NextPageToken'] = $request->nextPageToken;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceOriginalPropertyStatus',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceOriginalPropertyStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceOriginalPropertyStatusResponse::fromMap($this->doRequest('QueryDeviceOriginalPropertyStatus', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceOriginalPropertyStatusRequest $request QueryDeviceOriginalPropertyStatusRequest
+     * @param QueryDeviceOriginalPropertyStatusRequest $request
      *
-     * @return QueryDeviceOriginalPropertyStatusResponse QueryDeviceOriginalPropertyStatusResponse
+     * @return QueryDeviceOriginalPropertyStatusResponse
      */
     public function queryDeviceOriginalPropertyStatus($request)
     {
@@ -16149,79 +7539,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   You can query only the service call records that are generated in the last 30 days.
-     *   * >  The storage period of a service call record is calculated from the day when the service is called.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * > Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceOriginalServiceDataRequest $request QueryDeviceOriginalServiceDataRequest
-     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceOriginalServiceDataRequest $request
+     * @param RuntimeOptions                        $runtime
      *
-     * @return QueryDeviceOriginalServiceDataResponse QueryDeviceOriginalServiceDataResponse
+     * @return QueryDeviceOriginalServiceDataResponse
      */
     public function queryDeviceOriginalServiceDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->asc)) {
-            $query['Asc'] = $request->asc;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->nextPageToken)) {
-            $query['NextPageToken'] = $request->nextPageToken;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceOriginalServiceData',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceOriginalServiceDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceOriginalServiceDataResponse::fromMap($this->doRequest('QueryDeviceOriginalServiceData', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   You can query only the service call records that are generated in the last 30 days.
-     *   * >  The storage period of a service call record is calculated from the day when the service is called.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * > Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceOriginalServiceDataRequest $request QueryDeviceOriginalServiceDataRequest
+     * @param QueryDeviceOriginalServiceDataRequest $request
      *
-     * @return QueryDeviceOriginalServiceDataResponse QueryDeviceOriginalServiceDataResponse
+     * @return QueryDeviceOriginalServiceDataResponse
      */
     public function queryDeviceOriginalServiceData($request)
     {
@@ -16231,57 +7564,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDevicePropRequest $request QueryDevicePropRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param QueryDevicePropRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return QueryDevicePropResponse QueryDevicePropResponse
+     * @return QueryDevicePropResponse
      */
     public function queryDevicePropWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceProp',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDevicePropResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDevicePropResponse::fromMap($this->doRequest('QueryDeviceProp', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDevicePropRequest $request QueryDevicePropRequest
+     * @param QueryDevicePropRequest $request
      *
-     * @return QueryDevicePropResponse QueryDevicePropResponse
+     * @return QueryDevicePropResponse
      */
     public function queryDeviceProp($request)
     {
@@ -16291,86 +7589,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * When you call this operation to query property records within a specified period, the number of records for a property at a point in time may reach the limit.**** The limit is specified by the **PageSize** parameter. In this case, the query stops. Some records of other properties may be not returned.**** You can check whether all records of a property are returned based on the NextValid repsonse parameter:
-     *   * - If the value of the **NextValid** parameter is true, unretrieved records exist in the period that is indicated by the **NextTime** and **EndTime** parameter.
-     *   * You can use the value of the **NextTime** response parameter as the value of the StartTime request parameter and call this operation again to query the rest records. You can call this operation multiple times until the value of the **NextValid** parameter is false.  >  To retrieve all property records within a specified period, you can set the **PageSize** parameter to the maximum value. Then, call this operation multiple times until the value of the **NextValid** parameter is false.
-     *   * - If the value of the **NextValid** parameter is false, all property records are returned.
-     *   * ## Limits
-     *   * *   A maximum of 10 properties can be queried at a time. A maximum of 100 records can be queried for each property.
-     *   * *   You can query property data that is generated within the last 30 days.
-     *   * > The storage period of a property record is calculated from the day when the property record was generated.
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDevicePropertiesDataRequest $request QueryDevicePropertiesDataRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param QueryDevicePropertiesDataRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return QueryDevicePropertiesDataResponse QueryDevicePropertiesDataResponse
+     * @return QueryDevicePropertiesDataResponse
      */
     public function queryDevicePropertiesDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->asc)) {
-            $query['Asc'] = $request->asc;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDevicePropertiesData',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDevicePropertiesDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDevicePropertiesDataResponse::fromMap($this->doRequest('QueryDevicePropertiesData', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * When you call this operation to query property records within a specified period, the number of records for a property at a point in time may reach the limit.**** The limit is specified by the **PageSize** parameter. In this case, the query stops. Some records of other properties may be not returned.**** You can check whether all records of a property are returned based on the NextValid repsonse parameter:
-     *   * - If the value of the **NextValid** parameter is true, unretrieved records exist in the period that is indicated by the **NextTime** and **EndTime** parameter.
-     *   * You can use the value of the **NextTime** response parameter as the value of the StartTime request parameter and call this operation again to query the rest records. You can call this operation multiple times until the value of the **NextValid** parameter is false.  >  To retrieve all property records within a specified period, you can set the **PageSize** parameter to the maximum value. Then, call this operation multiple times until the value of the **NextValid** parameter is false.
-     *   * - If the value of the **NextValid** parameter is false, all property records are returned.
-     *   * ## Limits
-     *   * *   A maximum of 10 properties can be queried at a time. A maximum of 100 records can be queried for each property.
-     *   * *   You can query property data that is generated within the last 30 days.
-     *   * > The storage period of a property record is calculated from the day when the property record was generated.
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDevicePropertiesDataRequest $request QueryDevicePropertiesDataRequest
+     * @param QueryDevicePropertiesDataRequest $request
      *
-     * @return QueryDevicePropertiesDataResponse QueryDevicePropertiesDataResponse
+     * @return QueryDevicePropertiesDataResponse
      */
     public function queryDevicePropertiesData($request)
     {
@@ -16380,82 +7614,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * If a device or a digital twin node has multiple properties, you can call this operation to query the data of the properties multiple times. You must specify a value for the **Identifier** parameter each time you call the operation. You can also call the [QueryDevicePropertiesData](~~99237~~) operation and specify multiple values for the **Identifier** parameter to query the data of the properties.
-     *   * ## Limits
-     *   * You can query only property data that is generated within the previous 30 days.
-     *   * >  The data of a property is stored from the day when the data is generated.
-     *   *
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param QueryDevicePropertyDataRequest $request QueryDevicePropertyDataRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param QueryDevicePropertyDataRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return QueryDevicePropertyDataResponse QueryDevicePropertyDataResponse
+     * @return QueryDevicePropertyDataResponse
      */
     public function queryDevicePropertyDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->asc)) {
-            $query['Asc'] = $request->asc;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDevicePropertyData',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDevicePropertyDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDevicePropertyDataResponse::fromMap($this->doRequest('QueryDevicePropertyData', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * If a device or a digital twin node has multiple properties, you can call this operation to query the data of the properties multiple times. You must specify a value for the **Identifier** parameter each time you call the operation. You can also call the [QueryDevicePropertiesData](~~99237~~) operation and specify multiple values for the **Identifier** parameter to query the data of the properties.
-     *   * ## Limits
-     *   * You can query only property data that is generated within the previous 30 days.
-     *   * >  The data of a property is stored from the day when the data is generated.
-     *   *
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param QueryDevicePropertyDataRequest $request QueryDevicePropertyDataRequest
+     * @param QueryDevicePropertyDataRequest $request
      *
-     * @return QueryDevicePropertyDataResponse QueryDevicePropertyDataResponse
+     * @return QueryDevicePropertyDataResponse
      */
     public function queryDevicePropertyData($request)
     {
@@ -16465,62 +7639,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * To query the property data of a digital twin node, you must set the **IotId** parameter to the ID of the digital twin node.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 200 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param QueryDevicePropertyStatusRequest $request QueryDevicePropertyStatusRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param QueryDevicePropertyStatusRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return QueryDevicePropertyStatusResponse QueryDevicePropertyStatusResponse
+     * @return QueryDevicePropertyStatusResponse
      */
     public function queryDevicePropertyStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->functionBlockId)) {
-            $query['FunctionBlockId'] = $request->functionBlockId;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDevicePropertyStatus',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDevicePropertyStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDevicePropertyStatusResponse::fromMap($this->doRequest('QueryDevicePropertyStatus', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * To query the property data of a digital twin node, you must set the **IotId** parameter to the ID of the digital twin node.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 200 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param QueryDevicePropertyStatusRequest $request QueryDevicePropertyStatusRequest
+     * @param QueryDevicePropertyStatusRequest $request
      *
-     * @return QueryDevicePropertyStatusResponse QueryDevicePropertyStatusResponse
+     * @return QueryDevicePropertyStatusResponse
      */
     public function queryDevicePropertyStatus($request)
     {
@@ -16538,31 +7672,8 @@ class Iot extends OpenApiClient
     public function queryDeviceProvisioningWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->productKey)) {
-            $body['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceProvisioning',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceProvisioningResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceProvisioningResponse::fromMap($this->doRequest('QueryDeviceProvisioning', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -16578,76 +7689,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * You can query only the service call records of the previous 30 days.
-     *   * >  The storage period of a service call record is calculated from the day when the service is called.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 50 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceServiceDataRequest $request QueryDeviceServiceDataRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceServiceDataRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return QueryDeviceServiceDataResponse QueryDeviceServiceDataResponse
+     * @return QueryDeviceServiceDataResponse
      */
     public function queryDeviceServiceDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->asc)) {
-            $query['Asc'] = $request->asc;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceServiceData',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceServiceDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceServiceDataResponse::fromMap($this->doRequest('QueryDeviceServiceData', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * You can query only the service call records of the previous 30 days.
-     *   * >  The storage period of a service call record is calculated from the day when the service is called.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 50 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceServiceDataRequest $request QueryDeviceServiceDataRequest
+     * @param QueryDeviceServiceDataRequest $request
      *
-     * @return QueryDeviceServiceDataResponse QueryDeviceServiceDataResponse
+     * @return QueryDeviceServiceDataResponse
      */
     public function queryDeviceServiceData($request)
     {
@@ -16665,35 +7722,8 @@ class Iot extends OpenApiClient
     public function queryDeviceSpeechWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotId)) {
-            $body['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $body['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceSpeech',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceSpeechResponse::fromMap($this->doRequest('QueryDeviceSpeech', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -16709,54 +7739,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceStatisticsRequest $request QueryDeviceStatisticsRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceStatisticsRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return QueryDeviceStatisticsResponse QueryDeviceStatisticsResponse
+     * @return QueryDeviceStatisticsResponse
      */
     public function queryDeviceStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceStatistics',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceStatisticsResponse::fromMap($this->doRequest('QueryDeviceStatistics', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceStatisticsRequest $request QueryDeviceStatisticsRequest
+     * @param QueryDeviceStatisticsRequest $request
      *
-     * @return QueryDeviceStatisticsResponse QueryDeviceStatisticsResponse
+     * @return QueryDeviceStatisticsResponse
      */
     public function queryDeviceStatistics($request)
     {
@@ -16766,54 +7764,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceSubTopicRequest $request QueryDeviceSubTopicRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param QueryDeviceSubTopicRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return QueryDeviceSubTopicResponse QueryDeviceSubTopicResponse
+     * @return QueryDeviceSubTopicResponse
      */
     public function queryDeviceSubTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceSubTopic',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceSubTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceSubTopicResponse::fromMap($this->doRequest('QueryDeviceSubTopic', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## QPS limits
-     *   * You can call this operation up to 100 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryDeviceSubTopicRequest $request QueryDeviceSubTopicRequest
+     * @param QueryDeviceSubTopicRequest $request
      *
-     * @return QueryDeviceSubTopicResponse QueryDeviceSubTopicResponse
+     * @return QueryDeviceSubTopicResponse
      */
     public function queryDeviceSubTopic($request)
     {
@@ -16831,29 +7797,8 @@ class Iot extends OpenApiClient
     public function queryDeviceTunnelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->tunnelId)) {
-            $query['TunnelId'] = $request->tunnelId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDeviceTunnel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDeviceTunnelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDeviceTunnelResponse::fromMap($this->doRequest('QueryDeviceTunnel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -16877,56 +7822,8 @@ class Iot extends OpenApiClient
     public function queryDevicesHotStorageDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->asc)) {
-            $query['Asc'] = $request->asc;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->nextPageToken)) {
-            $query['NextPageToken'] = $request->nextPageToken;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->userTopic)) {
-            $query['UserTopic'] = $request->userTopic;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDevicesHotStorageData',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDevicesHotStorageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDevicesHotStorageDataResponse::fromMap($this->doRequest('QueryDevicesHotStorageData', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -16950,47 +7847,8 @@ class Iot extends OpenApiClient
     public function queryDevicesHotStorageDataStatusWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->asc)) {
-            $query['Asc'] = $request->asc;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->nextPageToken)) {
-            $query['NextPageToken'] = $request->nextPageToken;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->userTopic)) {
-            $query['UserTopic'] = $request->userTopic;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDevicesHotStorageDataStatus',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDevicesHotStorageDataStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDevicesHotStorageDataStatusResponse::fromMap($this->doRequest('QueryDevicesHotStorageDataStatus', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -17014,50 +7872,8 @@ class Iot extends OpenApiClient
     public function queryDynamicGroupDevicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->fuzzyName)) {
-            $query['FuzzyName'] = $request->fuzzyName;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->nextToken)) {
-            $query['NextToken'] = $request->nextToken;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryDynamicGroupDevices',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryDynamicGroupDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryDynamicGroupDevicesResponse::fromMap($this->doRequest('QueryDynamicGroupDevices', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -17073,60 +7889,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * A single Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users share the quota of the Alibaba Cloud account.
-     *   *
-     * @param QueryEdgeDriverRequest $request QueryEdgeDriverRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param QueryEdgeDriverRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return QueryEdgeDriverResponse QueryEdgeDriverResponse
+     * @return QueryEdgeDriverResponse
      */
     public function queryEdgeDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->driverName)) {
-            $query['DriverName'] = $request->driverName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryEdgeDriver',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryEdgeDriverResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryEdgeDriverResponse::fromMap($this->doRequest('QueryEdgeDriver', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * A single Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users share the quota of the Alibaba Cloud account.
-     *   *
-     * @param QueryEdgeDriverRequest $request QueryEdgeDriverRequest
+     * @param QueryEdgeDriverRequest $request
      *
-     * @return QueryEdgeDriverResponse QueryEdgeDriverResponse
+     * @return QueryEdgeDriverResponse
      */
     public function queryEdgeDriver($request)
     {
@@ -17136,63 +7914,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryEdgeDriverVersionRequest $request QueryEdgeDriverVersionRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param QueryEdgeDriverVersionRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return QueryEdgeDriverVersionResponse QueryEdgeDriverVersionResponse
+     * @return QueryEdgeDriverVersionResponse
      */
     public function queryEdgeDriverVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->driverVersion)) {
-            $query['DriverVersion'] = $request->driverVersion;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->versionState)) {
-            $query['VersionState'] = $request->versionState;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryEdgeDriverVersion',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryEdgeDriverVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryEdgeDriverVersionResponse::fromMap($this->doRequest('QueryEdgeDriverVersion', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryEdgeDriverVersionRequest $request QueryEdgeDriverVersionRequest
+     * @param QueryEdgeDriverVersionRequest $request
      *
-     * @return QueryEdgeDriverVersionResponse QueryEdgeDriverVersionResponse
+     * @return QueryEdgeDriverVersionResponse
      */
     public function queryEdgeDriverVersion($request)
     {
@@ -17202,53 +7939,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * In addition to the preceding exclusive request parameters, you must specify common request parameters when calling this API operation. For more information about common request parameters, see [Common parameters](~~30561~~).
-     *   *
-     * @param QueryEdgeInstanceRequest $request QueryEdgeInstanceRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param QueryEdgeInstanceRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return QueryEdgeInstanceResponse QueryEdgeInstanceResponse
+     * @return QueryEdgeInstanceResponse
      */
     public function queryEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryEdgeInstance',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryEdgeInstanceResponse::fromMap($this->doRequest('QueryEdgeInstance', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * In addition to the preceding exclusive request parameters, you must specify common request parameters when calling this API operation. For more information about common request parameters, see [Common parameters](~~30561~~).
-     *   *
-     * @param QueryEdgeInstanceRequest $request QueryEdgeInstanceRequest
+     * @param QueryEdgeInstanceRequest $request
      *
-     * @return QueryEdgeInstanceResponse QueryEdgeInstanceResponse
+     * @return QueryEdgeInstanceResponse
      */
     public function queryEdgeInstance($request)
     {
@@ -17266,41 +7972,8 @@ class Iot extends OpenApiClient
     public function queryEdgeInstanceChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->channelName)) {
-            $query['ChannelName'] = $request->channelName;
-        }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryEdgeInstanceChannel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryEdgeInstanceChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryEdgeInstanceChannelResponse::fromMap($this->doRequest('QueryEdgeInstanceChannel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -17316,57 +7989,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryEdgeInstanceDeviceRequest $request QueryEdgeInstanceDeviceRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param QueryEdgeInstanceDeviceRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return QueryEdgeInstanceDeviceResponse QueryEdgeInstanceDeviceResponse
+     * @return QueryEdgeInstanceDeviceResponse
      */
     public function queryEdgeInstanceDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryEdgeInstanceDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryEdgeInstanceDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryEdgeInstanceDeviceResponse::fromMap($this->doRequest('QueryEdgeInstanceDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryEdgeInstanceDeviceRequest $request QueryEdgeInstanceDeviceRequest
+     * @param QueryEdgeInstanceDeviceRequest $request
      *
-     * @return QueryEdgeInstanceDeviceResponse QueryEdgeInstanceDeviceResponse
+     * @return QueryEdgeInstanceDeviceResponse
      */
     public function queryEdgeInstanceDevice($request)
     {
@@ -17384,41 +8022,8 @@ class Iot extends OpenApiClient
     public function queryEdgeInstanceDeviceByDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->channelId)) {
-            $query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryEdgeInstanceDeviceByDriver',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryEdgeInstanceDeviceByDriverResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryEdgeInstanceDeviceByDriverResponse::fromMap($this->doRequest('QueryEdgeInstanceDeviceByDriver', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -17434,57 +8039,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryEdgeInstanceDriverRequest $request QueryEdgeInstanceDriverRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param QueryEdgeInstanceDriverRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return QueryEdgeInstanceDriverResponse QueryEdgeInstanceDriverResponse
+     * @return QueryEdgeInstanceDriverResponse
      */
     public function queryEdgeInstanceDriverWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryEdgeInstanceDriver',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryEdgeInstanceDriverResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryEdgeInstanceDriverResponse::fromMap($this->doRequest('QueryEdgeInstanceDriver', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryEdgeInstanceDriverRequest $request QueryEdgeInstanceDriverRequest
+     * @param QueryEdgeInstanceDriverRequest $request
      *
-     * @return QueryEdgeInstanceDriverResponse QueryEdgeInstanceDriverResponse
+     * @return QueryEdgeInstanceDriverResponse
      */
     public function queryEdgeInstanceDriver($request)
     {
@@ -17494,51 +8064,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryEdgeInstanceGatewayRequest $request QueryEdgeInstanceGatewayRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param QueryEdgeInstanceGatewayRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return QueryEdgeInstanceGatewayResponse QueryEdgeInstanceGatewayResponse
+     * @return QueryEdgeInstanceGatewayResponse
      */
     public function queryEdgeInstanceGatewayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryEdgeInstanceGateway',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryEdgeInstanceGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryEdgeInstanceGatewayResponse::fromMap($this->doRequest('QueryEdgeInstanceGateway', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryEdgeInstanceGatewayRequest $request QueryEdgeInstanceGatewayRequest
+     * @param QueryEdgeInstanceGatewayRequest $request
      *
-     * @return QueryEdgeInstanceGatewayResponse QueryEdgeInstanceGatewayResponse
+     * @return QueryEdgeInstanceGatewayResponse
      */
     public function queryEdgeInstanceGateway($request)
     {
@@ -17548,63 +8089,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryEdgeInstanceHistoricDeploymentRequest $request QueryEdgeInstanceHistoricDeploymentRequest
-     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
+     * @param QueryEdgeInstanceHistoricDeploymentRequest $request
+     * @param RuntimeOptions                             $runtime
      *
-     * @return QueryEdgeInstanceHistoricDeploymentResponse QueryEdgeInstanceHistoricDeploymentResponse
+     * @return QueryEdgeInstanceHistoricDeploymentResponse
      */
     public function queryEdgeInstanceHistoricDeploymentWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryEdgeInstanceHistoricDeployment',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryEdgeInstanceHistoricDeploymentResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryEdgeInstanceHistoricDeploymentResponse::fromMap($this->doRequest('QueryEdgeInstanceHistoricDeployment', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryEdgeInstanceHistoricDeploymentRequest $request QueryEdgeInstanceHistoricDeploymentRequest
+     * @param QueryEdgeInstanceHistoricDeploymentRequest $request
      *
-     * @return QueryEdgeInstanceHistoricDeploymentResponse QueryEdgeInstanceHistoricDeploymentResponse
+     * @return QueryEdgeInstanceHistoricDeploymentResponse
      */
     public function queryEdgeInstanceHistoricDeployment($request)
     {
@@ -17622,35 +8122,8 @@ class Iot extends OpenApiClient
     public function queryEdgeInstanceMessageRoutingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryEdgeInstanceMessageRouting',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryEdgeInstanceMessageRoutingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryEdgeInstanceMessageRoutingResponse::fromMap($this->doRequest('QueryEdgeInstanceMessageRouting', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -17674,35 +8147,8 @@ class Iot extends OpenApiClient
     public function queryEdgeInstanceSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryEdgeInstanceSceneRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryEdgeInstanceSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryEdgeInstanceSceneRuleResponse::fromMap($this->doRequest('QueryEdgeInstanceSceneRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -17726,35 +8172,8 @@ class Iot extends OpenApiClient
     public function queryImportedDeviceByApplyIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->applyId)) {
-            $query['ApplyId'] = $request->applyId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            $query['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryImportedDeviceByApplyId',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryImportedDeviceByApplyIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryImportedDeviceByApplyIdResponse::fromMap($this->doRequest('QueryImportedDeviceByApplyId', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -17778,29 +8197,8 @@ class Iot extends OpenApiClient
     public function queryJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryJobResponse::fromMap($this->doRequest('QueryJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -17824,23 +8222,8 @@ class Iot extends OpenApiClient
     public function queryJobStatisticsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryJobStatistics',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryJobStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryJobStatisticsResponse::fromMap($this->doRequest('QueryJobStatistics', 'HTTPS', 'GET', '2018-01-20', 'AK', Tea::merge($request), null, $runtime));
     }
 
     /**
@@ -17864,47 +8247,8 @@ class Iot extends OpenApiClient
     public function queryLicenseDeviceListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->licenseCode)) {
-            $query['LicenseCode'] = $request->licenseCode;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $query['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryLicenseDeviceList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryLicenseDeviceListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryLicenseDeviceListResponse::fromMap($this->doRequest('QueryLicenseDeviceList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -17928,26 +8272,8 @@ class Iot extends OpenApiClient
     public function queryLoRaJoinPermissionsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryLoRaJoinPermissions',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryLoRaJoinPermissionsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryLoRaJoinPermissionsResponse::fromMap($this->doRequest('QueryLoRaJoinPermissions', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -17971,29 +8297,8 @@ class Iot extends OpenApiClient
     public function queryMessageInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->uniMsgId)) {
-            $query['UniMsgId'] = $request->uniMsgId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryMessageInfo',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryMessageInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryMessageInfoResponse::fromMap($this->doRequest('QueryMessageInfo', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -18009,51 +8314,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryOTAFirmwareRequest $request QueryOTAFirmwareRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param QueryOTAFirmwareRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return QueryOTAFirmwareResponse QueryOTAFirmwareResponse
+     * @return QueryOTAFirmwareResponse
      */
     public function queryOTAFirmwareWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->firmwareId)) {
-            $query['FirmwareId'] = $request->firmwareId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryOTAFirmware',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryOTAFirmwareResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryOTAFirmwareResponse::fromMap($this->doRequest('QueryOTAFirmware', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryOTAFirmwareRequest $request QueryOTAFirmwareRequest
+     * @param QueryOTAFirmwareRequest $request
      *
-     * @return QueryOTAFirmwareResponse QueryOTAFirmwareResponse
+     * @return QueryOTAFirmwareResponse
      */
     public function queryOTAFirmware($request)
     {
@@ -18063,53 +8339,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * After you call the [CreateOTAVerifyJob](~~147480~~), [CreateOTAStaticUpgradeJob](~~147496~~), or [CreateOTADynamicUpgradeJob](~~147887~~) API operation to create an update batch, the **JobId** parameter is returned. You can use this parameter to query the details of the update batch.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryOTAJobRequest $request QueryOTAJobRequest
-     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
+     * @param QueryOTAJobRequest $request
+     * @param RuntimeOptions     $runtime
      *
-     * @return QueryOTAJobResponse QueryOTAJobResponse
+     * @return QueryOTAJobResponse
      */
     public function queryOTAJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryOTAJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryOTAJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryOTAJobResponse::fromMap($this->doRequest('QueryOTAJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * After you call the [CreateOTAVerifyJob](~~147480~~), [CreateOTAStaticUpgradeJob](~~147496~~), or [CreateOTADynamicUpgradeJob](~~147887~~) API operation to create an update batch, the **JobId** parameter is returned. You can use this parameter to query the details of the update batch.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryOTAJobRequest $request QueryOTAJobRequest
+     * @param QueryOTAJobRequest $request
      *
-     * @return QueryOTAJobResponse QueryOTAJobResponse
+     * @return QueryOTAJobResponse
      */
     public function queryOTAJob($request)
     {
@@ -18119,57 +8364,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryPageByApplyIdRequest $request QueryPageByApplyIdRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param QueryPageByApplyIdRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return QueryPageByApplyIdResponse QueryPageByApplyIdResponse
+     * @return QueryPageByApplyIdResponse
      */
     public function queryPageByApplyIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->applyId)) {
-            $query['ApplyId'] = $request->applyId;
-        }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryPageByApplyId',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryPageByApplyIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryPageByApplyIdResponse::fromMap($this->doRequest('QueryPageByApplyId', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryPageByApplyIdRequest $request QueryPageByApplyIdRequest
+     * @param QueryPageByApplyIdRequest $request
      *
-     * @return QueryPageByApplyIdResponse QueryPageByApplyIdResponse
+     * @return QueryPageByApplyIdResponse
      */
     public function queryPageByApplyId($request)
     {
@@ -18179,51 +8389,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryProductRequest $request QueryProductRequest
-     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
+     * @param QueryProductRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return QueryProductResponse QueryProductResponse
+     * @return QueryProductResponse
      */
     public function queryProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryProduct',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryProductResponse::fromMap($this->doRequest('QueryProduct', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryProductRequest $request QueryProductRequest
+     * @param QueryProductRequest $request
      *
-     * @return QueryProductResponse QueryProductResponse
+     * @return QueryProductResponse
      */
     public function queryProduct($request)
     {
@@ -18241,29 +8422,8 @@ class Iot extends OpenApiClient
     public function queryProductCertInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryProductCertInfo',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryProductCertInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryProductCertInfoResponse::fromMap($this->doRequest('QueryProductCertInfo', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -18279,64 +8439,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## QPS limits
-     *   * *   Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * > The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   * *   If the product of the value of the **CurrentPage** parameter and the value of the **PageSize** parameter is greater than or equal to 100,000, the QPS of this operation decreases.
-     *   *     In this case, each Alibaba Cloud account can run up to 2 QPS.
-     *   *
-     * @param QueryProductListRequest $request QueryProductListRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param QueryProductListRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return QueryProductListResponse QueryProductListResponse
+     * @return QueryProductListResponse
      */
     public function queryProductListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->aliyunCommodityCode)) {
-            $query['AliyunCommodityCode'] = $request->aliyunCommodityCode;
-        }
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryProductList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryProductListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryProductListResponse::fromMap($this->doRequest('QueryProductList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## QPS limits
-     *   * *   Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * > The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   * *   If the product of the value of the **CurrentPage** parameter and the value of the **PageSize** parameter is greater than or equal to 100,000, the QPS of this operation decreases.
-     *   *     In this case, each Alibaba Cloud account can run up to 2 QPS.
-     *   *
-     * @param QueryProductListRequest $request QueryProductListRequest
+     * @param QueryProductListRequest $request
      *
-     * @return QueryProductListResponse QueryProductListResponse
+     * @return QueryProductListResponse
      */
     public function queryProductList($request)
     {
@@ -18346,51 +8464,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 3 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryProductTopicRequest $request QueryProductTopicRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param QueryProductTopicRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return QueryProductTopicResponse QueryProductTopicResponse
+     * @return QueryProductTopicResponse
      */
     public function queryProductTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryProductTopic',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryProductTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryProductTopicResponse::fromMap($this->doRequest('QueryProductTopic', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 3 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryProductTopicRequest $request QueryProductTopicRequest
+     * @param QueryProductTopicRequest $request
      *
-     * @return QueryProductTopicResponse QueryProductTopicResponse
+     * @return QueryProductTopicResponse
      */
     public function queryProductTopic($request)
     {
@@ -18408,38 +8497,8 @@ class Iot extends OpenApiClient
     public function queryProjectShareDeviceListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $body['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $body['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryProjectShareDeviceList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryProjectShareDeviceListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryProjectShareDeviceListResponse::fromMap($this->doRequest('QueryProjectShareDeviceList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -18463,35 +8522,8 @@ class Iot extends OpenApiClient
     public function querySceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySceneRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySceneRuleResponse::fromMap($this->doRequest('QuerySceneRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -18515,35 +8547,8 @@ class Iot extends OpenApiClient
     public function querySchedulePeriodListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $body['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->scheduleCode)) {
-            $body['ScheduleCode'] = $request->scheduleCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySchedulePeriodList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySchedulePeriodListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySchedulePeriodListResponse::fromMap($this->doRequest('QuerySchedulePeriodList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -18559,6 +8564,31 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param QuerySharePromotionActivityAuditResultRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return QuerySharePromotionActivityAuditResultResponse
+     */
+    public function querySharePromotionActivityAuditResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+
+        return QuerySharePromotionActivityAuditResultResponse::fromMap($this->doRequest('QuerySharePromotionActivityAuditResult', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
+    }
+
+    /**
+     * @param QuerySharePromotionActivityAuditResultRequest $request
+     *
+     * @return QuerySharePromotionActivityAuditResultResponse
+     */
+    public function querySharePromotionActivityAuditResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySharePromotionActivityAuditResultWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryShareTaskDeviceListRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -18567,38 +8597,8 @@ class Iot extends OpenApiClient
     public function queryShareTaskDeviceListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $body['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->shareTaskId)) {
-            $body['ShareTaskId'] = $request->shareTaskId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryShareTaskDeviceList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryShareTaskDeviceListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryShareTaskDeviceListResponse::fromMap($this->doRequest('QueryShareTaskDeviceList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -18622,38 +8622,8 @@ class Iot extends OpenApiClient
     public function querySolutionDeviceGroupPageWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->fuzzyGroupName)) {
-            $query['FuzzyGroupName'] = $request->fuzzyGroupName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $query['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->projectCode)) {
-            $query['ProjectCode'] = $request->projectCode;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySolutionDeviceGroupPage',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySolutionDeviceGroupPageResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySolutionDeviceGroupPageResponse::fromMap($this->doRequest('QuerySolutionDeviceGroupPage', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -18677,29 +8647,8 @@ class Iot extends OpenApiClient
     public function querySoundCodeLabelBatchFailedResultWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->batchCode)) {
-            $body['BatchCode'] = $request->batchCode;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySoundCodeLabelBatchFailedResult',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySoundCodeLabelBatchFailedResultResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySoundCodeLabelBatchFailedResultResponse::fromMap($this->doRequest('QuerySoundCodeLabelBatchFailedResult', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -18723,35 +8672,8 @@ class Iot extends OpenApiClient
     public function querySoundCodeLabelBatchListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $body['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->scheduleCode)) {
-            $body['ScheduleCode'] = $request->scheduleCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySoundCodeLabelBatchList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySoundCodeLabelBatchListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySoundCodeLabelBatchListResponse::fromMap($this->doRequest('QuerySoundCodeLabelBatchList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -18775,35 +8697,8 @@ class Iot extends OpenApiClient
     public function querySoundCodeLabelListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $body['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->scheduleCode)) {
-            $body['ScheduleCode'] = $request->scheduleCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySoundCodeLabelList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySoundCodeLabelListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySoundCodeLabelListResponse::fromMap($this->doRequest('QuerySoundCodeLabelList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -18827,32 +8722,8 @@ class Iot extends OpenApiClient
     public function querySoundCodeListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $body['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySoundCodeList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySoundCodeListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySoundCodeListResponse::fromMap($this->doRequest('QuerySoundCodeList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -18876,32 +8747,8 @@ class Iot extends OpenApiClient
     public function querySoundCodeScheduleListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $body['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySoundCodeScheduleList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySoundCodeScheduleListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySoundCodeScheduleListResponse::fromMap($this->doRequest('QuerySoundCodeScheduleList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -18925,29 +8772,8 @@ class Iot extends OpenApiClient
     public function querySpeechWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->speechCode)) {
-            $body['SpeechCode'] = $request->speechCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySpeech',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySpeechResponse::fromMap($this->doRequest('QuerySpeech', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -18971,44 +8797,8 @@ class Iot extends OpenApiClient
     public function querySpeechDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->availableSpace)) {
-            $body['AvailableSpace'] = $request->availableSpace;
-        }
-        if (!Utils::isUnset($request->availableSpaceScope)) {
-            $body['AvailableSpaceScope'] = $request->availableSpaceScope;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $body['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->projectCode)) {
-            $body['ProjectCode'] = $request->projectCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySpeechDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySpeechDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySpeechDeviceResponse::fromMap($this->doRequest('QuerySpeechDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -19032,26 +8822,8 @@ class Iot extends OpenApiClient
     public function querySpeechLicenseAvailableQuotaWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySpeechLicenseAvailableQuota',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySpeechLicenseAvailableQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySpeechLicenseAvailableQuotaResponse::fromMap($this->doRequest('QuerySpeechLicenseAvailableQuota', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -19075,46 +8847,8 @@ class Iot extends OpenApiClient
     public function querySpeechLicenseDeviceListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $query['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->checkGroupId)) {
-            $body['CheckGroupId'] = $request->checkGroupId;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->licenseStatusList)) {
-            $body['LicenseStatusList'] = $request->licenseStatusList;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $body['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySpeechLicenseDeviceList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySpeechLicenseDeviceListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySpeechLicenseDeviceListResponse::fromMap($this->doRequest('QuerySpeechLicenseDeviceList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -19138,38 +8872,8 @@ class Iot extends OpenApiClient
     public function querySpeechListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->audioFormat)) {
-            $body['AudioFormat'] = $request->audioFormat;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $body['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->projectCode)) {
-            $body['ProjectCode'] = $request->projectCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySpeechList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySpeechListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySpeechListResponse::fromMap($this->doRequest('QuerySpeechList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -19193,46 +8897,8 @@ class Iot extends OpenApiClient
     public function querySpeechPushJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->jobCode)) {
-            $query['JobCode'] = $request->jobCode;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $body['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->projectCode)) {
-            $body['ProjectCode'] = $request->projectCode;
-        }
-        if (!Utils::isUnset($request->pushMode)) {
-            $body['PushMode'] = $request->pushMode;
-        }
-        if (!Utils::isUnset($request->statusList)) {
-            $body['StatusList'] = $request->statusList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySpeechPushJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySpeechPushJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySpeechPushJobResponse::fromMap($this->doRequest('QuerySpeechPushJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -19256,41 +8922,8 @@ class Iot extends OpenApiClient
     public function querySpeechPushJobDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobCode)) {
-            $body['JobCode'] = $request->jobCode;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $body['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySpeechPushJobDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySpeechPushJobDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySpeechPushJobDeviceResponse::fromMap($this->doRequest('QuerySpeechPushJobDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -19314,35 +8947,8 @@ class Iot extends OpenApiClient
     public function querySpeechPushJobSpeechWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobCode)) {
-            $body['JobCode'] = $request->jobCode;
-        }
-        if (!Utils::isUnset($request->pageId)) {
-            $body['PageId'] = $request->pageId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySpeechPushJobSpeech',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySpeechPushJobSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySpeechPushJobSpeechResponse::fromMap($this->doRequest('QuerySpeechPushJobSpeech', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -19366,32 +8972,8 @@ class Iot extends OpenApiClient
     public function queryStudioAppDomainListOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryStudioAppDomainListOpen',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryStudioAppDomainListOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryStudioAppDomainListOpenResponse::fromMap($this->doRequest('QueryStudioAppDomainListOpen', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -19415,41 +8997,8 @@ class Iot extends OpenApiClient
     public function queryStudioAppListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->fuzzyName)) {
-            $body['FuzzyName'] = $request->fuzzyName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            $body['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        if (!Utils::isUnset($request->types)) {
-            $body['Types'] = $request->types;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryStudioAppList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryStudioAppListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryStudioAppListResponse::fromMap($this->doRequest('QueryStudioAppList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -19473,41 +9022,8 @@ class Iot extends OpenApiClient
     public function queryStudioAppPageListOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->isRelease)) {
-            $body['IsRelease'] = $request->isRelease;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            $body['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryStudioAppPageListOpen',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryStudioAppPageListOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryStudioAppPageListOpenResponse::fromMap($this->doRequest('QueryStudioAppPageListOpen', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -19531,35 +9047,8 @@ class Iot extends OpenApiClient
     public function queryStudioProjectListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->pageNo)) {
-            $body['PageNo'] = $request->pageNo;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $body['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryStudioProjectList',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryStudioProjectListResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryStudioProjectListResponse::fromMap($this->doRequest('QueryStudioProjectList', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -19575,54 +9064,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QuerySubscribeRelationRequest $request QuerySubscribeRelationRequest
-     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     * @param QuerySubscribeRelationRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return QuerySubscribeRelationResponse QuerySubscribeRelationResponse
+     * @return QuerySubscribeRelationResponse
      */
     public function querySubscribeRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySubscribeRelation',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySubscribeRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySubscribeRelationResponse::fromMap($this->doRequest('QuerySubscribeRelation', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QuerySubscribeRelationRequest $request QuerySubscribeRelationRequest
+     * @param QuerySubscribeRelationRequest $request
      *
-     * @return QuerySubscribeRelationResponse QuerySubscribeRelationResponse
+     * @return QuerySubscribeRelationResponse
      */
     public function querySubscribeRelation($request)
     {
@@ -19640,44 +9097,8 @@ class Iot extends OpenApiClient
     public function querySummarySceneRuleLogWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentPage)) {
-            $query['CurrentPage'] = $request->currentPage;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySummarySceneRuleLog',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySummarySceneRuleLogResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySummarySceneRuleLogResponse::fromMap($this->doRequest('QuerySummarySceneRuleLog', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -19693,51 +9114,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QuerySuperDeviceGroupRequest $request QuerySuperDeviceGroupRequest
-     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     * @param QuerySuperDeviceGroupRequest $request
+     * @param RuntimeOptions               $runtime
      *
-     * @return QuerySuperDeviceGroupResponse QuerySuperDeviceGroupResponse
+     * @return QuerySuperDeviceGroupResponse
      */
     public function querySuperDeviceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QuerySuperDeviceGroup',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QuerySuperDeviceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QuerySuperDeviceGroupResponse::fromMap($this->doRequest('QuerySuperDeviceGroup', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QuerySuperDeviceGroupRequest $request QuerySuperDeviceGroupRequest
+     * @param QuerySuperDeviceGroupRequest $request
      *
-     * @return QuerySuperDeviceGroupResponse QuerySuperDeviceGroupResponse
+     * @return QuerySuperDeviceGroupResponse
      */
     public function querySuperDeviceGroup($request)
     {
@@ -19755,29 +9147,8 @@ class Iot extends OpenApiClient
     public function queryTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryTask',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryTaskResponse::fromMap($this->doRequest('QueryTask', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -19793,66 +9164,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * TSL features include properties, services, and events.
-     *   * If you add custom modules to a TSL model and the value of the **FunctionBlockId** parameter is empty, you can obtain the TSL features of each custom module. If the value of the FunctionBlockId parameter is not empty, you can obtain the TSL features of a specified custom module.
-     *   * For more information about the data format of the **ThingModelJson** parameter, see [Data structure of ThingModelJson](~~150457~~).
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryThingModelRequest $request QueryThingModelRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param QueryThingModelRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return QueryThingModelResponse QueryThingModelResponse
+     * @return QueryThingModelResponse
      */
     public function queryThingModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->functionBlockId)) {
-            $query['FunctionBlockId'] = $request->functionBlockId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->modelVersion)) {
-            $query['ModelVersion'] = $request->modelVersion;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryThingModel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryThingModelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryThingModelResponse::fromMap($this->doRequest('QueryThingModel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * TSL features include properties, services, and events.
-     *   * If you add custom modules to a TSL model and the value of the **FunctionBlockId** parameter is empty, you can obtain the TSL features of each custom module. If the value of the FunctionBlockId parameter is not empty, you can obtain the TSL features of a specified custom module.
-     *   * For more information about the data format of the **ThingModelJson** parameter, see [Data structure of ThingModelJson](~~150457~~).
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryThingModelRequest $request QueryThingModelRequest
+     * @param QueryThingModelRequest $request
      *
-     * @return QueryThingModelResponse QueryThingModelResponse
+     * @return QueryThingModelResponse
      */
     public function queryThingModel($request)
     {
@@ -19862,60 +9189,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryThingModelExtendConfigRequest $request QueryThingModelExtendConfigRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param QueryThingModelExtendConfigRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return QueryThingModelExtendConfigResponse QueryThingModelExtendConfigResponse
+     * @return QueryThingModelExtendConfigResponse
      */
     public function queryThingModelExtendConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->functionBlockId)) {
-            $query['FunctionBlockId'] = $request->functionBlockId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->modelVersion)) {
-            $query['ModelVersion'] = $request->modelVersion;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryThingModelExtendConfig',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryThingModelExtendConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryThingModelExtendConfigResponse::fromMap($this->doRequest('QueryThingModelExtendConfig', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryThingModelExtendConfigRequest $request QueryThingModelExtendConfigRequest
+     * @param QueryThingModelExtendConfigRequest $request
      *
-     * @return QueryThingModelExtendConfigResponse QueryThingModelExtendConfigResponse
+     * @return QueryThingModelExtendConfigResponse
      */
     public function queryThingModelExtendConfig($request)
     {
@@ -19925,57 +9214,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryThingModelExtendConfigPublishedRequest $request QueryThingModelExtendConfigPublishedRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     * @param QueryThingModelExtendConfigPublishedRequest $request
+     * @param RuntimeOptions                              $runtime
      *
-     * @return QueryThingModelExtendConfigPublishedResponse QueryThingModelExtendConfigPublishedResponse
+     * @return QueryThingModelExtendConfigPublishedResponse
      */
     public function queryThingModelExtendConfigPublishedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->functionBlockId)) {
-            $query['FunctionBlockId'] = $request->functionBlockId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->modelVersion)) {
-            $query['ModelVersion'] = $request->modelVersion;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryThingModelExtendConfigPublished',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryThingModelExtendConfigPublishedResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryThingModelExtendConfigPublishedResponse::fromMap($this->doRequest('QueryThingModelExtendConfigPublished', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryThingModelExtendConfigPublishedRequest $request QueryThingModelExtendConfigPublishedRequest
+     * @param QueryThingModelExtendConfigPublishedRequest $request
      *
-     * @return QueryThingModelExtendConfigPublishedResponse QueryThingModelExtendConfigPublishedResponse
+     * @return QueryThingModelExtendConfigPublishedResponse
      */
     public function queryThingModelExtendConfigPublished($request)
     {
@@ -19985,60 +9239,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryThingModelPublishedRequest $request QueryThingModelPublishedRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param QueryThingModelPublishedRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return QueryThingModelPublishedResponse QueryThingModelPublishedResponse
+     * @return QueryThingModelPublishedResponse
      */
     public function queryThingModelPublishedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->functionBlockId)) {
-            $query['FunctionBlockId'] = $request->functionBlockId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->modelVersion)) {
-            $query['ModelVersion'] = $request->modelVersion;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryThingModelPublished',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryThingModelPublishedResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryThingModelPublishedResponse::fromMap($this->doRequest('QueryThingModelPublished', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryThingModelPublishedRequest $request QueryThingModelPublishedRequest
+     * @param QueryThingModelPublishedRequest $request
      *
-     * @return QueryThingModelPublishedResponse QueryThingModelPublishedResponse
+     * @return QueryThingModelPublishedResponse
      */
     public function queryThingModelPublished($request)
     {
@@ -20056,29 +9272,8 @@ class Iot extends OpenApiClient
     public function queryTopicConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryTopicConfig',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryTopicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryTopicConfigResponse::fromMap($this->doRequest('QueryTopicConfig', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -20094,50 +9289,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
-     *   *
-     * @param QueryTopicReverseRouteTableRequest $request QueryTopicReverseRouteTableRequest
-     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
+     * @param QueryTopicReverseRouteTableRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return QueryTopicReverseRouteTableResponse QueryTopicReverseRouteTableResponse
+     * @return QueryTopicReverseRouteTableResponse
      */
     public function queryTopicReverseRouteTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryTopicReverseRouteTable',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryTopicReverseRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryTopicReverseRouteTableResponse::fromMap($this->doRequest('QueryTopicReverseRouteTable', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * In addition to the preceding operation-specific request parameters, you must specify common request parameters when you call this operation. For more information, see [Common request parameters](~~30561~~).
-     *   *
-     * @param QueryTopicReverseRouteTableRequest $request QueryTopicReverseRouteTableRequest
+     * @param QueryTopicReverseRouteTableRequest $request
      *
-     * @return QueryTopicReverseRouteTableResponse QueryTopicReverseRouteTableResponse
+     * @return QueryTopicReverseRouteTableResponse
      */
     public function queryTopicReverseRouteTable($request)
     {
@@ -20147,51 +9314,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryTopicRouteTableRequest $request QueryTopicRouteTableRequest
-     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     * @param QueryTopicRouteTableRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return QueryTopicRouteTableResponse QueryTopicRouteTableResponse
+     * @return QueryTopicRouteTableResponse
      */
     public function queryTopicRouteTableWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryTopicRouteTable',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryTopicRouteTableResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryTopicRouteTableResponse::fromMap($this->doRequest('QueryTopicRouteTable', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param QueryTopicRouteTableRequest $request QueryTopicRouteTableRequest
+     * @param QueryTopicRouteTableRequest $request
      *
-     * @return QueryTopicRouteTableResponse QueryTopicRouteTableResponse
+     * @return QueryTopicRouteTableResponse
      */
     public function queryTopicRouteTable($request)
     {
@@ -20201,58 +9339,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to query the information about a device of a JT/T 808 gateway product.
-     *   * *   When you call this operation, you must specify a **ProductKey** and a **DeviceName**. Otherwise, the call fails.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 50 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param QueryVehicleDeviceRequest $request QueryVehicleDeviceRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param QueryVehicleDeviceRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return QueryVehicleDeviceResponse QueryVehicleDeviceResponse
+     * @return QueryVehicleDeviceResponse
      */
     public function queryVehicleDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'QueryVehicleDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return QueryVehicleDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return QueryVehicleDeviceResponse::fromMap($this->doRequest('QueryVehicleDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   You can call this operation to query the information about a device of a JT/T 808 gateway product.
-     *   * *   When you call this operation, you must specify a **ProductKey** and a **DeviceName**. Otherwise, the call fails.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 50 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param QueryVehicleDeviceRequest $request QueryVehicleDeviceRequest
+     * @param QueryVehicleDeviceRequest $request
      *
-     * @return QueryVehicleDeviceResponse QueryVehicleDeviceResponse
+     * @return QueryVehicleDeviceResponse
      */
     public function queryVehicleDevice($request)
     {
@@ -20262,74 +9364,28 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * If the device fails to send a response within the timeout period after you call the operation, IoT Platform considers that the call fails even if the device receives the message. The timeout period is specified by the **Timeout** parameter.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 1000 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param RRpcRequest    $request RRpcRequest
-     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     * @param RRpcRequest    $request
+     * @param RuntimeOptions $runtime
      *
-     * @return RRpcResponse RRpcResponse
+     * @return RRpcResponse
      */
-    public function rRpcWithOptions($request, $runtime)
+    public function RRpcWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->contentType)) {
-            $query['ContentType'] = $request->contentType;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->requestBase64Byte)) {
-            $query['RequestBase64Byte'] = $request->requestBase64Byte;
-        }
-        if (!Utils::isUnset($request->timeout)) {
-            $query['Timeout'] = $request->timeout;
-        }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RRpc',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return RRpcResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RRpcResponse::fromMap($this->doRequest('RRpc', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * If the device fails to send a response within the timeout period after you call the operation, IoT Platform considers that the call fails even if the device receives the message. The timeout period is specified by the **Timeout** parameter.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 1000 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param RRpcRequest $request RRpcRequest
+     * @param RRpcRequest $request
      *
-     * @return RRpcResponse RRpcResponse
+     * @return RRpcResponse
      */
-    public function rRpc($request)
+    public function RRpc($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->rRpcWithOptions($request, $runtime);
+        return $this->RRpcWithOptions($request, $runtime);
     }
 
     /**
@@ -20341,37 +9397,8 @@ class Iot extends OpenApiClient
     public function reBindLicenseDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->licenseCode)) {
-            $query['LicenseCode'] = $request->licenseCode;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $body = [];
-        if (!Utils::isUnset($request->deviceNameList)) {
-            $body['DeviceNameList'] = $request->deviceNameList;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-            'body'  => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ReBindLicenseDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ReBindLicenseDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReBindLicenseDeviceResponse::fromMap($this->doRequest('ReBindLicenseDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -20395,26 +9422,8 @@ class Iot extends OpenApiClient
     public function recognizeCarNumWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RecognizeCarNum',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return RecognizeCarNumResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RecognizeCarNumResponse::fromMap($this->doRequest('RecognizeCarNum', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -20438,26 +9447,8 @@ class Iot extends OpenApiClient
     public function recognizePictureGeneralWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->url)) {
-            $query['Url'] = $request->url;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RecognizePictureGeneral',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return RecognizePictureGeneralResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RecognizePictureGeneralResponse::fromMap($this->doRequest('RecognizePictureGeneral', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -20481,32 +9472,8 @@ class Iot extends OpenApiClient
     public function refreshDeviceTunnelSharePasswordWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RefreshDeviceTunnelSharePassword',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return RefreshDeviceTunnelSharePasswordResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RefreshDeviceTunnelSharePasswordResponse::fromMap($this->doRequest('RefreshDeviceTunnelSharePassword', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -20530,32 +9497,8 @@ class Iot extends OpenApiClient
     public function refreshStudioAppTokenOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'RefreshStudioAppTokenOpen',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return RefreshStudioAppTokenOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RefreshStudioAppTokenOpenResponse::fromMap($this->doRequest('RefreshStudioAppTokenOpen', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -20571,78 +9514,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * If you call this operation to register a device under a product, the device is added to the product in the IoT Platform console. After the device is registered, IoT Platform issues the IotId parameter to the device. This parameter is a globally unique identifier (GUID) of the device. To perform operations on a device, you must use the IotId parameter to identify the device.
-     *   * You can also use a combination of the ProductKey and DeviceName parameters to identify a device. A ProductKey is issued by IoT Platform to a product when you create the product. A DeviceName is specified or randomly generated when you create a device. The IotId parameter has a higher priority than a combination of the ProductKey and DeviceName parameters.
-     *   * For information about how to register multiple devices under a product at the same time, see [BatchRegisterDeviceWithApplyId](~~69514~~).
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 30 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param RegisterDeviceRequest $request RegisterDeviceRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param RegisterDeviceRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return RegisterDeviceResponse RegisterDeviceResponse
+     * @return RegisterDeviceResponse
      */
     public function registerDeviceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->appKey)) {
-            $query['AppKey'] = $request->appKey;
-        }
-        if (!Utils::isUnset($request->devEui)) {
-            $query['DevEui'] = $request->devEui;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->joinEui)) {
-            $query['JoinEui'] = $request->joinEui;
-        }
-        if (!Utils::isUnset($request->loraNodeType)) {
-            $query['LoraNodeType'] = $request->loraNodeType;
-        }
-        if (!Utils::isUnset($request->nickname)) {
-            $query['Nickname'] = $request->nickname;
-        }
-        if (!Utils::isUnset($request->pinCode)) {
-            $query['PinCode'] = $request->pinCode;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RegisterDevice',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return RegisterDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RegisterDeviceResponse::fromMap($this->doRequest('RegisterDevice', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * If you call this operation to register a device under a product, the device is added to the product in the IoT Platform console. After the device is registered, IoT Platform issues the IotId parameter to the device. This parameter is a globally unique identifier (GUID) of the device. To perform operations on a device, you must use the IotId parameter to identify the device.
-     *   * You can also use a combination of the ProductKey and DeviceName parameters to identify a device. A ProductKey is issued by IoT Platform to a product when you create the product. A DeviceName is specified or randomly generated when you create a device. The IotId parameter has a higher priority than a combination of the ProductKey and DeviceName parameters.
-     *   * For information about how to register multiple devices under a product at the same time, see [BatchRegisterDeviceWithApplyId](~~69514~~).
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 30 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param RegisterDeviceRequest $request RegisterDeviceRequest
+     * @param RegisterDeviceRequest $request
      *
-     * @return RegisterDeviceResponse RegisterDeviceResponse
+     * @return RegisterDeviceResponse
      */
     public function registerDevice($request)
     {
@@ -20660,32 +9547,8 @@ class Iot extends OpenApiClient
     public function releaseEdgeDriverVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->driverVersion)) {
-            $query['DriverVersion'] = $request->driverVersion;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ReleaseEdgeDriverVersion',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ReleaseEdgeDriverVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleaseEdgeDriverVersionResponse::fromMap($this->doRequest('ReleaseEdgeDriverVersion', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -20701,51 +9564,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   After a product is published, you cannot call the [CreateThingModel](~~150323~~), [UpdateThingModel](~~151240~~), [ImportThingModelTSL](~~150320~~), [PublishThingModel](~~150311~~), [DeleteThingModel](~~150312~~), or [CopyThingModel](~~150322~~) operation to edit the Thing Specification Language (TSL) model of the product. To edit the TSL model, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ReleaseProductRequest $request ReleaseProductRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param ReleaseProductRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return ReleaseProductResponse ReleaseProductResponse
+     * @return ReleaseProductResponse
      */
     public function releaseProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ReleaseProduct',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ReleaseProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReleaseProductResponse::fromMap($this->doRequest('ReleaseProduct', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   After a product is published, you cannot call the [CreateThingModel](~~150323~~), [UpdateThingModel](~~151240~~), [ImportThingModelTSL](~~150320~~), [PublishThingModel](~~150311~~), [DeleteThingModel](~~150312~~), or [CopyThingModel](~~150322~~) operation to edit the Thing Specification Language (TSL) model of the product. To edit the TSL model, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ReleaseProductRequest $request ReleaseProductRequest
+     * @param ReleaseProductRequest $request
      *
-     * @return ReleaseProductResponse ReleaseProductResponse
+     * @return ReleaseProductResponse
      */
     public function releaseProduct($request)
     {
@@ -20755,61 +9589,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   If you specify a gateway, this operation removes the topological relationships between the gateway and all attached sub-devices.
-     *   * *   If you specify a sub-device, this operation removes the topological relationship between the sub-device and the gateway to which the sub-device is attached.
-     *   * # QPS limits
-     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param RemoveThingTopoRequest $request RemoveThingTopoRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param RemoveThingTopoRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return RemoveThingTopoResponse RemoveThingTopoResponse
+     * @return RemoveThingTopoResponse
      */
     public function removeThingTopoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RemoveThingTopo',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return RemoveThingTopoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RemoveThingTopoResponse::fromMap($this->doRequest('RemoveThingTopo', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   If you specify a gateway, this operation removes the topological relationships between the gateway and all attached sub-devices.
-     *   * *   If you specify a sub-device, this operation removes the topological relationship between the sub-device and the gateway to which the sub-device is attached.
-     *   * # QPS limits
-     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param RemoveThingTopoRequest $request RemoveThingTopoRequest
+     * @param RemoveThingTopoRequest $request
      *
-     * @return RemoveThingTopoResponse RemoveThingTopoResponse
+     * @return RemoveThingTopoResponse
      */
     public function removeThingTopo($request)
     {
@@ -20827,35 +9622,8 @@ class Iot extends OpenApiClient
     public function replaceEdgeInstanceGatewayWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->currentGatewayId)) {
-            $query['CurrentGatewayId'] = $request->currentGatewayId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->newGatewayId)) {
-            $query['NewGatewayId'] = $request->newGatewayId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ReplaceEdgeInstanceGateway',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ReplaceEdgeInstanceGatewayResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReplaceEdgeInstanceGatewayResponse::fromMap($this->doRequest('ReplaceEdgeInstanceGateway', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -20879,29 +9647,8 @@ class Iot extends OpenApiClient
     public function rerunJobWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'RerunJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return RerunJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RerunJobResponse::fromMap($this->doRequest('RerunJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -20917,51 +9664,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ResetConsumerGroupPositionRequest $request ResetConsumerGroupPositionRequest
-     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     * @param ResetConsumerGroupPositionRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return ResetConsumerGroupPositionResponse ResetConsumerGroupPositionResponse
+     * @return ResetConsumerGroupPositionResponse
      */
     public function resetConsumerGroupPositionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ResetConsumerGroupPosition',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ResetConsumerGroupPositionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetConsumerGroupPositionResponse::fromMap($this->doRequest('ResetConsumerGroupPosition', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ResetConsumerGroupPositionRequest $request ResetConsumerGroupPositionRequest
+     * @param ResetConsumerGroupPositionRequest $request
      *
-     * @return ResetConsumerGroupPositionResponse ResetConsumerGroupPositionResponse
+     * @return ResetConsumerGroupPositionResponse
      */
     public function resetConsumerGroupPosition($request)
     {
@@ -20971,63 +9689,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   After you use dynamic registration to obtain the device certificate information of a directly connected device and activate the device, you can call this operation to reset the dynamic registration status of the status to unregistered in the IoT Platform console. Then, you can use dynamic registration again to obtain the device certificate information. The device certificate information includes ProductKey, DeviceName, and DeviceSecret.
-     *   * > This operation is called to reset the dynamic registration status instead of activation status of a device. After you call the operation to reset the dynamic registration status of a device, the status of the device in the IoT Platform console is not reset to inactive.
-     *   * *   If you specify a gateway and the number of sub-devices that belong to the gateway exceeds 2,000, you can call this operation to create a device job to delete the topological relationships in an asynchronous manner. The operation returns the **JobId** parameter.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param ResetThingRequest $request ResetThingRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param ResetThingRequest $request
+     * @param RuntimeOptions    $runtime
      *
-     * @return ResetThingResponse ResetThingResponse
+     * @return ResetThingResponse
      */
     public function resetThingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ResetThing',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ResetThingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ResetThingResponse::fromMap($this->doRequest('ResetThing', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   After you use dynamic registration to obtain the device certificate information of a directly connected device and activate the device, you can call this operation to reset the dynamic registration status of the status to unregistered in the IoT Platform console. Then, you can use dynamic registration again to obtain the device certificate information. The device certificate information includes ProductKey, DeviceName, and DeviceSecret.
-     *   * > This operation is called to reset the dynamic registration status instead of activation status of a device. After you call the operation to reset the dynamic registration status of a device, the status of the device in the IoT Platform console is not reset to inactive.
-     *   * *   If you specify a gateway and the number of sub-devices that belong to the gateway exceeds 2,000, you can call this operation to create a device job to delete the topological relationships in an asynchronous manner. The operation returns the **JobId** parameter.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param ResetThingRequest $request ResetThingRequest
+     * @param ResetThingRequest $request
      *
-     * @return ResetThingResponse ResetThingResponse
+     * @return ResetThingResponse
      */
     public function resetThing($request)
     {
@@ -21045,29 +9722,8 @@ class Iot extends OpenApiClient
     public function retrySoundCodeLabelBatchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->batchCode)) {
-            $body['BatchCode'] = $request->batchCode;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'RetrySoundCodeLabelBatch',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return RetrySoundCodeLabelBatchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return RetrySoundCodeLabelBatchResponse::fromMap($this->doRequest('RetrySoundCodeLabelBatch', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -21083,56 +9739,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * If the update task requires confirmation, you must make sure that it has been confirmed before you call this operation. You can call the [ConfirmOTATask](~~254666~~) operation to confirm update tasks.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ReupgradeOTATaskRequest $request ReupgradeOTATaskRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param ReupgradeOTATaskRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return ReupgradeOTATaskResponse ReupgradeOTATaskResponse
+     * @return ReupgradeOTATaskResponse
      */
     public function reupgradeOTATaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->taskId)) {
-            $query['TaskId'] = $request->taskId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ReupgradeOTATask',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ReupgradeOTATaskResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ReupgradeOTATaskResponse::fromMap($this->doRequest('ReupgradeOTATask', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * If the update task requires confirmation, you must make sure that it has been confirmed before you call this operation. You can call the [ConfirmOTATask](~~254666~~) operation to confirm update tasks.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run a maximum of 20 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param ReupgradeOTATaskRequest $request ReupgradeOTATaskRequest
+     * @param ReupgradeOTATaskRequest $request
      *
-     * @return ReupgradeOTATaskResponse ReupgradeOTATaskResponse
+     * @return ReupgradeOTATaskResponse
      */
     public function reupgradeOTATask($request)
     {
@@ -21142,64 +9764,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   A device can have a maximum of 100 tags.
-     *   * *   You can modify or add a maximum of 100 tags at a time.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param SaveDevicePropRequest $request SaveDevicePropRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param SaveDevicePropRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return SaveDevicePropResponse SaveDevicePropResponse
+     * @return SaveDevicePropResponse
      */
     public function saveDevicePropWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->props)) {
-            $query['Props'] = $request->props;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SaveDeviceProp',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return SaveDevicePropResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SaveDevicePropResponse::fromMap($this->doRequest('SaveDeviceProp', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   A device can have a maximum of 100 tags.
-     *   * *   You can modify or add a maximum of 100 tags at a time.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param SaveDevicePropRequest $request SaveDevicePropRequest
+     * @param SaveDevicePropRequest $request
      *
-     * @return SaveDevicePropResponse SaveDevicePropResponse
+     * @return SaveDevicePropResponse
      */
     public function saveDeviceProp($request)
     {
@@ -21217,32 +9797,8 @@ class Iot extends OpenApiClient
     public function saveScriptWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->parserId)) {
-            $query['ParserId'] = $request->parserId;
-        }
-        if (!Utils::isUnset($request->scriptDraft)) {
-            $query['ScriptDraft'] = $request->scriptDraft;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SaveScript',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return SaveScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SaveScriptResponse::fromMap($this->doRequest('SaveScript', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -21258,71 +9814,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   You cannot query the desired values of read-only properties.
-     *   * *   You can specify up to 10 desired property values in a call.
-     *   * *   After a device is created, the value of the **Version** parameter is 0. If you want to configure the **Version** parameter the first time you specify a desired property value, set the **Version** parameter to 0.
-     *   * > If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param SetDeviceDesiredPropertyRequest $request SetDeviceDesiredPropertyRequest
-     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     * @param SetDeviceDesiredPropertyRequest $request
+     * @param RuntimeOptions                  $runtime
      *
-     * @return SetDeviceDesiredPropertyResponse SetDeviceDesiredPropertyResponse
+     * @return SetDeviceDesiredPropertyResponse
      */
     public function setDeviceDesiredPropertyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->items)) {
-            $query['Items'] = $request->items;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->versions)) {
-            $query['Versions'] = $request->versions;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetDeviceDesiredProperty',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return SetDeviceDesiredPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDeviceDesiredPropertyResponse::fromMap($this->doRequest('SetDeviceDesiredProperty', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   You cannot query the desired values of read-only properties.
-     *   * *   You can specify up to 10 desired property values in a call.
-     *   * *   After a device is created, the value of the **Version** parameter is 0. If you want to configure the **Version** parameter the first time you specify a desired property value, set the **Version** parameter to 0.
-     *   * > If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param SetDeviceDesiredPropertyRequest $request SetDeviceDesiredPropertyRequest
+     * @param SetDeviceDesiredPropertyRequest $request
      *
-     * @return SetDeviceDesiredPropertyResponse SetDeviceDesiredPropertyResponse
+     * @return SetDeviceDesiredPropertyResponse
      */
     public function setDeviceDesiredProperty($request)
     {
@@ -21332,59 +9839,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * A device group can have a maximum of 100 tags.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param SetDeviceGroupTagsRequest $request SetDeviceGroupTagsRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param SetDeviceGroupTagsRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return SetDeviceGroupTagsResponse SetDeviceGroupTagsResponse
+     * @return SetDeviceGroupTagsResponse
      */
     public function setDeviceGroupTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->groupType)) {
-            $query['GroupType'] = $request->groupType;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->tagString)) {
-            $query['TagString'] = $request->tagString;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetDeviceGroupTags',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return SetDeviceGroupTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDeviceGroupTagsResponse::fromMap($this->doRequest('SetDeviceGroupTags', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * A device group can have a maximum of 100 tags.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 50 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param SetDeviceGroupTagsRequest $request SetDeviceGroupTagsRequest
+     * @param SetDeviceGroupTagsRequest $request
      *
-     * @return SetDeviceGroupTagsResponse SetDeviceGroupTagsResponse
+     * @return SetDeviceGroupTagsResponse
      */
     public function setDeviceGroupTags($request)
     {
@@ -21394,64 +9864,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * After IoT Platform sends a request to configure device properties, the device receives and processes the request in an asynchronous manner. When you call this operation, a successful response indicates that IoT Platform sent a request. The response does not indicate that the device received and processed the request. After the device SDK responds to the request, the device properties are configured.
-     *   * > If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param SetDevicePropertyRequest $request SetDevicePropertyRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param SetDevicePropertyRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return SetDevicePropertyResponse SetDevicePropertyResponse
+     * @return SetDevicePropertyResponse
      */
     public function setDevicePropertyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->items)) {
-            $query['Items'] = $request->items;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetDeviceProperty',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return SetDevicePropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDevicePropertyResponse::fromMap($this->doRequest('SetDeviceProperty', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * After IoT Platform sends a request to configure device properties, the device receives and processes the request in an asynchronous manner. When you call this operation, a successful response indicates that IoT Platform sent a request. The response does not indicate that the device received and processed the request. After the device SDK responds to the request, the device properties are configured.
-     *   * > If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 500 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param SetDevicePropertyRequest $request SetDevicePropertyRequest
+     * @param SetDevicePropertyRequest $request
      *
-     * @return SetDevicePropertyResponse SetDevicePropertyResponse
+     * @return SetDevicePropertyResponse
      */
     public function setDeviceProperty($request)
     {
@@ -21461,59 +9889,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param SetDevicesPropertyRequest $request SetDevicesPropertyRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param SetDevicesPropertyRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return SetDevicesPropertyResponse SetDevicesPropertyResponse
+     * @return SetDevicesPropertyResponse
      */
     public function setDevicesPropertyWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->items)) {
-            $query['Items'] = $request->items;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetDevicesProperty',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return SetDevicesPropertyResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetDevicesPropertyResponse::fromMap($this->doRequest('SetDevicesProperty', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * If the Thing Specification Language (TSL) data is of the float or double type, the parameter values that correspond to the TSL data contain at least one decimal place. Examples: 10.0 and 11.1.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param SetDevicesPropertyRequest $request SetDevicesPropertyRequest
+     * @param SetDevicesPropertyRequest $request
      *
-     * @return SetDevicesPropertyResponse SetDevicesPropertyResponse
+     * @return SetDevicesPropertyResponse
      */
     public function setDevicesProperty($request)
     {
@@ -21531,35 +9922,8 @@ class Iot extends OpenApiClient
     public function setEdgeInstanceDriverConfigsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->configs)) {
-            $query['Configs'] = $request->configs;
-        }
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetEdgeInstanceDriverConfigs',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return SetEdgeInstanceDriverConfigsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetEdgeInstanceDriverConfigsResponse::fromMap($this->doRequest('SetEdgeInstanceDriverConfigs', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -21583,32 +9947,8 @@ class Iot extends OpenApiClient
     public function setProductCertInfoWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->issueModel)) {
-            $query['IssueModel'] = $request->issueModel;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SetProductCertInfo',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return SetProductCertInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetProductCertInfoResponse::fromMap($this->doRequest('SetProductCertInfo', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -21632,29 +9972,8 @@ class Iot extends OpenApiClient
     public function setStudioProjectCooperationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'SetStudioProjectCooperation',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return SetStudioProjectCooperationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetStudioProjectCooperationResponse::fromMap($this->doRequest('SetStudioProjectCooperation', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -21678,35 +9997,8 @@ class Iot extends OpenApiClient
     public function setupStudioAppAuthModeOpenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->appId)) {
-            $body['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->authMode)) {
-            $body['AuthMode'] = $request->authMode;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->projectId)) {
-            $body['ProjectId'] = $request->projectId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'SetupStudioAppAuthModeOpen',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return SetupStudioAppAuthModeOpenResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SetupStudioAppAuthModeOpenResponse::fromMap($this->doRequest('SetupStudioAppAuthModeOpen', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -21730,44 +10022,8 @@ class Iot extends OpenApiClient
     public function shareSpeechByCombinationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->audioFormat)) {
-            $body['AudioFormat'] = $request->audioFormat;
-        }
-        if (!Utils::isUnset($request->combinationList)) {
-            $body['CombinationList'] = $request->combinationList;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $body['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $body['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->speechId)) {
-            $body['SpeechId'] = $request->speechId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ShareSpeechByCombination',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return ShareSpeechByCombinationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ShareSpeechByCombinationResponse::fromMap($this->doRequest('ShareSpeechByCombination', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -21791,47 +10047,8 @@ class Iot extends OpenApiClient
     public function speechByCombinationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->audioFormat)) {
-            $body['AudioFormat'] = $request->audioFormat;
-        }
-        if (!Utils::isUnset($request->combinationList)) {
-            $body['CombinationList'] = $request->combinationList;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->enforceFlag)) {
-            $body['EnforceFlag'] = $request->enforceFlag;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $body['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $body['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->speechId)) {
-            $body['SpeechId'] = $request->speechId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'SpeechByCombination',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return SpeechByCombinationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SpeechByCombinationResponse::fromMap($this->doRequest('SpeechByCombination', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -21855,53 +10072,8 @@ class Iot extends OpenApiClient
     public function speechBySynthesisWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->audioFormat)) {
-            $body['AudioFormat'] = $request->audioFormat;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $body['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $body['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->speechId)) {
-            $body['SpeechId'] = $request->speechId;
-        }
-        if (!Utils::isUnset($request->speechRate)) {
-            $body['SpeechRate'] = $request->speechRate;
-        }
-        if (!Utils::isUnset($request->text)) {
-            $body['Text'] = $request->text;
-        }
-        if (!Utils::isUnset($request->voice)) {
-            $body['Voice'] = $request->voice;
-        }
-        if (!Utils::isUnset($request->volume)) {
-            $body['Volume'] = $request->volume;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'SpeechBySynthesis',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return SpeechBySynthesisResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SpeechBySynthesisResponse::fromMap($this->doRequest('SpeechBySynthesis', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -21925,29 +10097,8 @@ class Iot extends OpenApiClient
     public function startParserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->parserId)) {
-            $query['ParserId'] = $request->parserId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'StartParser',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return StartParserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartParserResponse::fromMap($this->doRequest('StartParser', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -21963,53 +10114,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   You must verify that the rule has SQL statements configured before you start the rule. If you do not set an SQL statement when you create the rule, call the [UpdateRule](~~69513~~) operation to add an SQL statement and update the rule.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param StartRuleRequest $request StartRuleRequest
-     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     * @param StartRuleRequest $request
+     * @param RuntimeOptions   $runtime
      *
-     * @return StartRuleResponse StartRuleResponse
+     * @return StartRuleResponse
      */
     public function startRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'StartRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return StartRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StartRuleResponse::fromMap($this->doRequest('StartRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   You must verify that the rule has SQL statements configured before you start the rule. If you do not set an SQL statement when you create the rule, call the [UpdateRule](~~69513~~) operation to add an SQL statement and update the rule.
-     *   * *   Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param StartRuleRequest $request StartRuleRequest
+     * @param StartRuleRequest $request
      *
-     * @return StartRuleResponse StartRuleResponse
+     * @return StartRuleResponse
      */
     public function startRule($request)
     {
@@ -22027,29 +10147,8 @@ class Iot extends OpenApiClient
     public function stopParserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->parserId)) {
-            $query['ParserId'] = $request->parserId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'StopParser',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return StopParserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopParserResponse::fromMap($this->doRequest('StopParser', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -22065,51 +10164,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param StopRuleRequest $request StopRuleRequest
-     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
+     * @param StopRuleRequest $request
+     * @param RuntimeOptions  $runtime
      *
-     * @return StopRuleResponse StopRuleResponse
+     * @return StopRuleResponse
      */
     public function stopRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'StopRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return StopRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopRuleResponse::fromMap($this->doRequest('StopRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param StopRuleRequest $request StopRuleRequest
+     * @param StopRuleRequest $request
      *
-     * @return StopRuleResponse StopRuleResponse
+     * @return StopRuleResponse
      */
     public function stopRule($request)
     {
@@ -22119,61 +10189,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   The device that needs to subscribe to topics must be connected to IoT Platform and online.
-     *   * *   You can call this operation to subscribe to the topics of a specified device. You can specify a maximum of 10 topics in a single call.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param SubscribeTopicRequest $request SubscribeTopicRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param SubscribeTopicRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return SubscribeTopicResponse SubscribeTopicResponse
+     * @return SubscribeTopicResponse
      */
     public function subscribeTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'SubscribeTopic',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return SubscribeTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SubscribeTopicResponse::fromMap($this->doRequest('SubscribeTopic', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   The device that needs to subscribe to topics must be connected to IoT Platform and online.
-     *   * *   You can call this operation to subscribe to the topics of a specified device. You can specify a maximum of 10 topics in a single call.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run up to 10 queries per second (QPS).
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the Alibaba Cloud account.
-     *   *
-     * @param SubscribeTopicRequest $request SubscribeTopicRequest
+     * @param SubscribeTopicRequest $request
      *
-     * @return SubscribeTopicResponse SubscribeTopicResponse
+     * @return SubscribeTopicResponse
      */
     public function subscribeTopic($request)
     {
@@ -22191,47 +10222,8 @@ class Iot extends OpenApiClient
     public function syncSpeechByCombinationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->audioFormat)) {
-            $body['AudioFormat'] = $request->audioFormat;
-        }
-        if (!Utils::isUnset($request->combinationList)) {
-            $body['CombinationList'] = $request->combinationList;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $body['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->enforceFlag)) {
-            $body['EnforceFlag'] = $request->enforceFlag;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $body['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $body['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->speechId)) {
-            $body['SpeechId'] = $request->speechId;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'SyncSpeechByCombination',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return SyncSpeechByCombinationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return SyncSpeechByCombinationResponse::fromMap($this->doRequest('SyncSpeechByCombination', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -22247,66 +10239,21 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param TestSpeechRequest $tmpReq
+     * @param TestSpeechRequest $tmp
      * @param RuntimeOptions    $runtime
      *
      * @return TestSpeechResponse
      */
-    public function testSpeechWithOptions($tmpReq, $runtime)
+    public function testSpeechWithOptions($tmp, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        Utils::validateModel($tmp);
         $request = new TestSpeechShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->soundCodeConfig)) {
-            $request->soundCodeConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->soundCodeConfig, 'SoundCodeConfig', 'json');
+        RpcUtils::convert($tmp, $request);
+        if (!Utils::isUnset($tmp->soundCodeConfig)) {
+            $request->soundCodeConfigShrink = Utils::toJSONString($tmp->soundCodeConfig);
         }
-        $body = [];
-        if (!Utils::isUnset($request->audioFormat)) {
-            $body['AudioFormat'] = $request->audioFormat;
-        }
-        if (!Utils::isUnset($request->enableSoundCode)) {
-            $body['EnableSoundCode'] = $request->enableSoundCode;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->projectCode)) {
-            $body['ProjectCode'] = $request->projectCode;
-        }
-        if (!Utils::isUnset($request->soundCodeConfigShrink)) {
-            $body['SoundCodeConfig'] = $request->soundCodeConfigShrink;
-        }
-        if (!Utils::isUnset($request->speechRate)) {
-            $body['SpeechRate'] = $request->speechRate;
-        }
-        if (!Utils::isUnset($request->speechType)) {
-            $body['SpeechType'] = $request->speechType;
-        }
-        if (!Utils::isUnset($request->text)) {
-            $body['Text'] = $request->text;
-        }
-        if (!Utils::isUnset($request->voice)) {
-            $body['Voice'] = $request->voice;
-        }
-        if (!Utils::isUnset($request->volume)) {
-            $body['Volume'] = $request->volume;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'TestSpeech',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return TestSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TestSpeechResponse::fromMap($this->doRequest('TestSpeech', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -22330,32 +10277,8 @@ class Iot extends OpenApiClient
     public function testSwitchWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'TestSwitch',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return TestSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TestSwitchResponse::fromMap($this->doRequest('TestSwitch', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -22371,56 +10294,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * You can call the [QueryClientIds](~~371985~~) operation to view the ClientIDs of a device.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param TransformClientIdRequest $request TransformClientIdRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param TransformClientIdRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return TransformClientIdResponse TransformClientIdResponse
+     * @return TransformClientIdResponse
      */
     public function transformClientIdWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->clientId)) {
-            $query['ClientId'] = $request->clientId;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'TransformClientId',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return TransformClientIdResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TransformClientIdResponse::fromMap($this->doRequest('TransformClientId', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * You can call the [QueryClientIds](~~371985~~) operation to view the ClientIDs of a device.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param TransformClientIdRequest $request TransformClientIdRequest
+     * @param TransformClientIdRequest $request
      *
-     * @return TransformClientIdResponse TransformClientIdResponse
+     * @return TransformClientIdResponse
      */
     public function transformClientId($request)
     {
@@ -22438,32 +10327,8 @@ class Iot extends OpenApiClient
     public function triggerSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'TriggerSceneRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return TriggerSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TriggerSceneRuleResponse::fromMap($this->doRequest('TriggerSceneRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -22487,32 +10352,8 @@ class Iot extends OpenApiClient
     public function unbindApplicationFromEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->applicationId)) {
-            $query['ApplicationId'] = $request->applicationId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UnbindApplicationFromEdgeInstance',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UnbindApplicationFromEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnbindApplicationFromEdgeInstanceResponse::fromMap($this->doRequest('UnbindApplicationFromEdgeInstance', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -22528,54 +10369,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UnbindDriverFromEdgeInstanceRequest $request UnbindDriverFromEdgeInstanceRequest
-     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     * @param UnbindDriverFromEdgeInstanceRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return UnbindDriverFromEdgeInstanceResponse UnbindDriverFromEdgeInstanceResponse
+     * @return UnbindDriverFromEdgeInstanceResponse
      */
     public function unbindDriverFromEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UnbindDriverFromEdgeInstance',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UnbindDriverFromEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnbindDriverFromEdgeInstanceResponse::fromMap($this->doRequest('UnbindDriverFromEdgeInstance', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UnbindDriverFromEdgeInstanceRequest $request UnbindDriverFromEdgeInstanceRequest
+     * @param UnbindDriverFromEdgeInstanceRequest $request
      *
-     * @return UnbindDriverFromEdgeInstanceResponse UnbindDriverFromEdgeInstanceResponse
+     * @return UnbindDriverFromEdgeInstanceResponse
      */
     public function unbindDriverFromEdgeInstance($request)
     {
@@ -22593,32 +10402,8 @@ class Iot extends OpenApiClient
     public function unbindLicenseProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->licenseCode)) {
-            $query['LicenseCode'] = $request->licenseCode;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UnbindLicenseProduct',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UnbindLicenseProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnbindLicenseProductResponse::fromMap($this->doRequest('UnbindLicenseProduct', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -22642,29 +10427,8 @@ class Iot extends OpenApiClient
     public function unbindRoleFromEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UnbindRoleFromEdgeInstance',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UnbindRoleFromEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnbindRoleFromEdgeInstanceResponse::fromMap($this->doRequest('UnbindRoleFromEdgeInstance', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -22688,32 +10452,8 @@ class Iot extends OpenApiClient
     public function unbindSceneRuleFromEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UnbindSceneRuleFromEdgeInstance',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UnbindSceneRuleFromEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UnbindSceneRuleFromEdgeInstanceResponse::fromMap($this->doRequest('UnbindSceneRuleFromEdgeInstance', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -22729,56 +10469,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   You cannot modify the default consumer group provided by IoT Platform.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateConsumerGroupRequest $request UpdateConsumerGroupRequest
-     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     * @param UpdateConsumerGroupRequest $request
+     * @param RuntimeOptions             $runtime
      *
-     * @return UpdateConsumerGroupResponse UpdateConsumerGroupResponse
+     * @return UpdateConsumerGroupResponse
      */
     public function updateConsumerGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->newGroupName)) {
-            $query['NewGroupName'] = $request->newGroupName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateConsumerGroup',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateConsumerGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateConsumerGroupResponse::fromMap($this->doRequest('UpdateConsumerGroup', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   You cannot modify the default consumer group provided by IoT Platform.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateConsumerGroupRequest $request UpdateConsumerGroupRequest
+     * @param UpdateConsumerGroupRequest $request
      *
-     * @return UpdateConsumerGroupResponse UpdateConsumerGroupResponse
+     * @return UpdateConsumerGroupResponse
      */
     public function updateConsumerGroup($request)
     {
@@ -22796,41 +10502,8 @@ class Iot extends OpenApiClient
     public function updateDestinationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->configuration)) {
-            $query['Configuration'] = $request->configuration;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->destinationId)) {
-            $query['DestinationId'] = $request->destinationId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateDestination',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateDestinationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDestinationResponse::fromMap($this->doRequest('UpdateDestination', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -22846,57 +10519,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateDeviceGroupRequest $request UpdateDeviceGroupRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param UpdateDeviceGroupRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return UpdateDeviceGroupResponse UpdateDeviceGroupResponse
+     * @return UpdateDeviceGroupResponse
      */
     public function updateDeviceGroupWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->groupDesc)) {
-            $query['GroupDesc'] = $request->groupDesc;
-        }
-        if (!Utils::isUnset($request->groupId)) {
-            $query['GroupId'] = $request->groupId;
-        }
-        if (!Utils::isUnset($request->groupType)) {
-            $query['GroupType'] = $request->groupType;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateDeviceGroup',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateDeviceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDeviceGroupResponse::fromMap($this->doRequest('UpdateDeviceGroup', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateDeviceGroupRequest $request UpdateDeviceGroupRequest
+     * @param UpdateDeviceGroupRequest $request
      *
-     * @return UpdateDeviceGroupResponse UpdateDeviceGroupResponse
+     * @return UpdateDeviceGroupResponse
      */
     public function updateDeviceGroup($request)
     {
@@ -22906,60 +10544,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## QPS limits
-     *   * You can call this API operation up to 500 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateDeviceShadowRequest $request UpdateDeviceShadowRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param UpdateDeviceShadowRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return UpdateDeviceShadowResponse UpdateDeviceShadowResponse
+     * @return UpdateDeviceShadowResponse
      */
     public function updateDeviceShadowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deltaUpdate)) {
-            $query['DeltaUpdate'] = $request->deltaUpdate;
-        }
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->shadowMessage)) {
-            $query['ShadowMessage'] = $request->shadowMessage;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateDeviceShadow',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateDeviceShadowResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateDeviceShadowResponse::fromMap($this->doRequest('UpdateDeviceShadow', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## QPS limits
-     *   * You can call this API operation up to 500 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateDeviceShadowRequest $request UpdateDeviceShadowRequest
+     * @param UpdateDeviceShadowRequest $request
      *
-     * @return UpdateDeviceShadowResponse UpdateDeviceShadowResponse
+     * @return UpdateDeviceShadowResponse
      */
     public function updateDeviceShadow($request)
     {
@@ -22969,79 +10569,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   If a request parameter is not specified, the original value of the parameter will be cleared for the driver version.
-     *   * *   You are not allowed to update a published driver version.
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateEdgeDriverVersionRequest $request UpdateEdgeDriverVersionRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param UpdateEdgeDriverVersionRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return UpdateEdgeDriverVersionResponse UpdateEdgeDriverVersionResponse
+     * @return UpdateEdgeDriverVersionResponse
      */
     public function updateEdgeDriverVersionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->argument)) {
-            $query['Argument'] = $request->argument;
-        }
-        if (!Utils::isUnset($request->configCheckRule)) {
-            $query['ConfigCheckRule'] = $request->configCheckRule;
-        }
-        if (!Utils::isUnset($request->containerConfig)) {
-            $query['ContainerConfig'] = $request->containerConfig;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->driverConfig)) {
-            $query['DriverConfig'] = $request->driverConfig;
-        }
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->driverVersion)) {
-            $query['DriverVersion'] = $request->driverVersion;
-        }
-        if (!Utils::isUnset($request->edgeVersion)) {
-            $query['EdgeVersion'] = $request->edgeVersion;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->sourceConfig)) {
-            $query['SourceConfig'] = $request->sourceConfig;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateEdgeDriverVersion',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateEdgeDriverVersionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateEdgeDriverVersionResponse::fromMap($this->doRequest('UpdateEdgeDriverVersion', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   If a request parameter is not specified, the original value of the parameter will be cleared for the driver version.
-     *   * *   You are not allowed to update a published driver version.
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateEdgeDriverVersionRequest $request UpdateEdgeDriverVersionRequest
+     * @param UpdateEdgeDriverVersionRequest $request
      *
-     * @return UpdateEdgeDriverVersionResponse UpdateEdgeDriverVersionResponse
+     * @return UpdateEdgeDriverVersionResponse
      */
     public function updateEdgeDriverVersion($request)
     {
@@ -23051,63 +10594,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateEdgeInstanceRequest $request UpdateEdgeInstanceRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param UpdateEdgeInstanceRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return UpdateEdgeInstanceResponse UpdateEdgeInstanceResponse
+     * @return UpdateEdgeInstanceResponse
      */
     public function updateEdgeInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->bizEnable)) {
-            $query['BizEnable'] = $request->bizEnable;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->spec)) {
-            $query['Spec'] = $request->spec;
-        }
-        if (!Utils::isUnset($request->tags)) {
-            $query['Tags'] = $request->tags;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateEdgeInstance',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateEdgeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateEdgeInstanceResponse::fromMap($this->doRequest('UpdateEdgeInstance', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of five queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateEdgeInstanceRequest $request UpdateEdgeInstanceRequest
+     * @param UpdateEdgeInstanceRequest $request
      *
-     * @return UpdateEdgeInstanceResponse UpdateEdgeInstanceResponse
+     * @return UpdateEdgeInstanceResponse
      */
     public function updateEdgeInstance($request)
     {
@@ -23125,41 +10627,8 @@ class Iot extends OpenApiClient
     public function updateEdgeInstanceChannelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->channelId)) {
-            $query['ChannelId'] = $request->channelId;
-        }
-        if (!Utils::isUnset($request->channelName)) {
-            $query['ChannelName'] = $request->channelName;
-        }
-        if (!Utils::isUnset($request->configs)) {
-            $query['Configs'] = $request->configs;
-        }
-        if (!Utils::isUnset($request->driverId)) {
-            $query['DriverId'] = $request->driverId;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateEdgeInstanceChannel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateEdgeInstanceChannelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateEdgeInstanceChannelResponse::fromMap($this->doRequest('UpdateEdgeInstanceChannel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -23183,53 +10652,8 @@ class Iot extends OpenApiClient
     public function updateEdgeInstanceMessageRoutingWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->routeId)) {
-            $query['RouteId'] = $request->routeId;
-        }
-        if (!Utils::isUnset($request->sourceData)) {
-            $query['SourceData'] = $request->sourceData;
-        }
-        if (!Utils::isUnset($request->sourceType)) {
-            $query['SourceType'] = $request->sourceType;
-        }
-        if (!Utils::isUnset($request->targetData)) {
-            $query['TargetData'] = $request->targetData;
-        }
-        if (!Utils::isUnset($request->targetIotHubQos)) {
-            $query['TargetIotHubQos'] = $request->targetIotHubQos;
-        }
-        if (!Utils::isUnset($request->targetType)) {
-            $query['TargetType'] = $request->targetType;
-        }
-        if (!Utils::isUnset($request->topicFilter)) {
-            $query['TopicFilter'] = $request->topicFilter;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateEdgeInstanceMessageRouting',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateEdgeInstanceMessageRoutingResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateEdgeInstanceMessageRoutingResponse::fromMap($this->doRequest('UpdateEdgeInstanceMessageRouting', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -23245,54 +10669,24 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateJobRequest $tmpReq
+     * @param UpdateJobRequest $tmp
      * @param RuntimeOptions   $runtime
      *
      * @return UpdateJobResponse
      */
-    public function updateJobWithOptions($tmpReq, $runtime)
+    public function updateJobWithOptions($tmp, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        Utils::validateModel($tmp);
         $request = new UpdateJobShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->rolloutConfig)) {
-            $request->rolloutConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rolloutConfig, 'RolloutConfig', 'json');
+        RpcUtils::convert($tmp, $request);
+        if (!Utils::isUnset($tmp->rolloutConfig)) {
+            $request->rolloutConfigShrink = Utils::toJSONString($tmp->rolloutConfig);
         }
-        if (!Utils::isUnset($tmpReq->timeoutConfig)) {
-            $request->timeoutConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->timeoutConfig, 'TimeoutConfig', 'json');
+        if (!Utils::isUnset($tmp->timeoutConfig)) {
+            $request->timeoutConfigShrink = Utils::toJSONString($tmp->timeoutConfig);
         }
-        $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->jobId)) {
-            $query['JobId'] = $request->jobId;
-        }
-        if (!Utils::isUnset($request->rolloutConfigShrink)) {
-            $query['RolloutConfig'] = $request->rolloutConfigShrink;
-        }
-        if (!Utils::isUnset($request->timeoutConfigShrink)) {
-            $query['TimeoutConfig'] = $request->timeoutConfigShrink;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateJob',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateJobResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateJobResponse::fromMap($this->doRequest('UpdateJob', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -23308,60 +10702,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateOTAModuleRequest $request UpdateOTAModuleRequest
-     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     * @param UpdateOTAModuleRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return UpdateOTAModuleResponse UpdateOTAModuleResponse
+     * @return UpdateOTAModuleResponse
      */
     public function updateOTAModuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->aliasName)) {
-            $query['AliasName'] = $request->aliasName;
-        }
-        if (!Utils::isUnset($request->desc)) {
-            $query['Desc'] = $request->desc;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->moduleName)) {
-            $query['ModuleName'] = $request->moduleName;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateOTAModule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateOTAModuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateOTAModuleResponse::fromMap($this->doRequest('UpdateOTAModule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateOTAModuleRequest $request UpdateOTAModuleRequest
+     * @param UpdateOTAModuleRequest $request
      *
-     * @return UpdateOTAModuleResponse UpdateOTAModuleResponse
+     * @return UpdateOTAModuleResponse
      */
     public function updateOTAModule($request)
     {
@@ -23379,35 +10735,8 @@ class Iot extends OpenApiClient
     public function updateParserWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->parserId)) {
-            $query['ParserId'] = $request->parserId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateParser',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateParserResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateParserResponse::fromMap($this->doRequest('UpdateParser', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -23431,35 +10760,8 @@ class Iot extends OpenApiClient
     public function updateParserDataSourceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->dataSourceId)) {
-            $query['DataSourceId'] = $request->dataSourceId;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateParserDataSource',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateParserDataSourceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateParserDataSourceResponse::fromMap($this->doRequest('UpdateParserDataSource', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -23475,57 +10777,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## QPS limits
-     *   * You can call this API operation up to 10 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateProductRequest $request UpdateProductRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param UpdateProductRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return UpdateProductResponse UpdateProductResponse
+     * @return UpdateProductResponse
      */
     public function updateProductWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->productName)) {
-            $query['ProductName'] = $request->productName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateProduct',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateProductResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateProductResponse::fromMap($this->doRequest('UpdateProduct', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## QPS limits
-     *   * You can call this API operation up to 10 times per second per account.
-     *   * >  The RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateProductRequest $request UpdateProductRequest
+     * @param UpdateProductRequest $request
      *
-     * @return UpdateProductResponse UpdateProductResponse
+     * @return UpdateProductResponse
      */
     public function updateProduct($request)
     {
@@ -23535,63 +10802,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Message deduplication rules
-     *   * Based on the rules that you set, IoT Platform determines whether to use the rules engine or server-side subscriptions to forward property data that is submitted by devices to a specified destination.
-     *   * The triggering conditions of rules are related by the logic AND relation. For example, if you set the PropertyValueFilter=true and PropertyTimestampFilter=true conditions, the rule to remove duplicate messages is triggered only when both of the conditions are met.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateProductFilterConfigRequest $request UpdateProductFilterConfigRequest
-     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     * @param UpdateProductFilterConfigRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return UpdateProductFilterConfigResponse UpdateProductFilterConfigResponse
+     * @return UpdateProductFilterConfigResponse
      */
     public function updateProductFilterConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->propertyTimestampFilter)) {
-            $query['PropertyTimestampFilter'] = $request->propertyTimestampFilter;
-        }
-        if (!Utils::isUnset($request->propertyValueFilter)) {
-            $query['PropertyValueFilter'] = $request->propertyValueFilter;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateProductFilterConfig',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateProductFilterConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateProductFilterConfigResponse::fromMap($this->doRequest('UpdateProductFilterConfig', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Message deduplication rules
-     *   * Based on the rules that you set, IoT Platform determines whether to use the rules engine or server-side subscriptions to forward property data that is submitted by devices to a specified destination.
-     *   * The triggering conditions of rules are related by the logic AND relation. For example, if you set the PropertyValueFilter=true and PropertyTimestampFilter=true conditions, the rule to remove duplicate messages is triggered only when both of the conditions are met.
-     *   * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateProductFilterConfigRequest $request UpdateProductFilterConfigRequest
+     * @param UpdateProductFilterConfigRequest $request
      *
-     * @return UpdateProductFilterConfigResponse UpdateProductFilterConfigResponse
+     * @return UpdateProductFilterConfigResponse
      */
     public function updateProductFilterConfig($request)
     {
@@ -23601,58 +10827,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * You can update a maximum of 10 tags in a single call.
-     *   * > You must specify the tag keys and tag values. Otherwise, the call fails. For description about the tag values, see the "**Request parameters**" section of this topic.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateProductTagsRequest $request UpdateProductTagsRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param UpdateProductTagsRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return UpdateProductTagsResponse UpdateProductTagsResponse
+     * @return UpdateProductTagsResponse
      */
     public function updateProductTagsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->productTag)) {
-            $query['ProductTag'] = $request->productTag;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateProductTags',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateProductTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateProductTagsResponse::fromMap($this->doRequest('UpdateProductTags', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * You can update a maximum of 10 tags in a single call.
-     *   * > You must specify the tag keys and tag values. Otherwise, the call fails. For description about the tag values, see the "**Request parameters**" section of this topic.
-     *   * ## QPS limits
-     *   * Each Alibaba Cloud account can run a maximum of 500 queries per second (QPS).
-     *   * >  The Resource Access Management (RAM) users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateProductTagsRequest $request UpdateProductTagsRequest
+     * @param UpdateProductTagsRequest $request
      *
-     * @return UpdateProductTagsResponse UpdateProductTagsResponse
+     * @return UpdateProductTagsResponse
      */
     public function updateProductTags($request)
     {
@@ -23662,66 +10852,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateProductTopicRequest $request UpdateProductTopicRequest
-     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     * @param UpdateProductTopicRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return UpdateProductTopicResponse UpdateProductTopicResponse
+     * @return UpdateProductTopicResponse
      */
     public function updateProductTopicWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->codec)) {
-            $query['Codec'] = $request->codec;
-        }
-        if (!Utils::isUnset($request->desc)) {
-            $query['Desc'] = $request->desc;
-        }
-        if (!Utils::isUnset($request->enableProxySubscribe)) {
-            $query['EnableProxySubscribe'] = $request->enableProxySubscribe;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->operation)) {
-            $query['Operation'] = $request->operation;
-        }
-        if (!Utils::isUnset($request->topicId)) {
-            $query['TopicId'] = $request->topicId;
-        }
-        if (!Utils::isUnset($request->topicShortName)) {
-            $query['TopicShortName'] = $request->topicShortName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateProductTopic',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateProductTopicResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateProductTopicResponse::fromMap($this->doRequest('UpdateProductTopic', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateProductTopicRequest $request UpdateProductTopicRequest
+     * @param UpdateProductTopicRequest $request
      *
-     * @return UpdateProductTopicResponse UpdateProductTopicResponse
+     * @return UpdateProductTopicResponse
      */
     public function updateProductTopic($request)
     {
@@ -23731,75 +10877,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateRuleRequest $request UpdateRuleRequest
-     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
+     * @param UpdateRuleRequest $request
+     * @param RuntimeOptions    $runtime
      *
-     * @return UpdateRuleResponse UpdateRuleResponse
+     * @return UpdateRuleResponse
      */
     public function updateRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->ruleDesc)) {
-            $query['RuleDesc'] = $request->ruleDesc;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        if (!Utils::isUnset($request->select)) {
-            $query['Select'] = $request->select;
-        }
-        if (!Utils::isUnset($request->shortTopic)) {
-            $query['ShortTopic'] = $request->shortTopic;
-        }
-        if (!Utils::isUnset($request->topic)) {
-            $query['Topic'] = $request->topic;
-        }
-        if (!Utils::isUnset($request->topicType)) {
-            $query['TopicType'] = $request->topicType;
-        }
-        if (!Utils::isUnset($request->where)) {
-            $query['Where'] = $request->where;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRuleResponse::fromMap($this->doRequest('UpdateRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateRuleRequest $request UpdateRuleRequest
+     * @param UpdateRuleRequest $request
      *
-     * @return UpdateRuleResponse UpdateRuleResponse
+     * @return UpdateRuleResponse
      */
     public function updateRule($request)
     {
@@ -23809,57 +10902,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateRuleActionRequest $request UpdateRuleActionRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param UpdateRuleActionRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return UpdateRuleActionResponse UpdateRuleActionResponse
+     * @return UpdateRuleActionResponse
      */
     public function updateRuleActionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->actionId)) {
-            $query['ActionId'] = $request->actionId;
-        }
-        if (!Utils::isUnset($request->configuration)) {
-            $query['Configuration'] = $request->configuration;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateRuleAction',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateRuleActionResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateRuleActionResponse::fromMap($this->doRequest('UpdateRuleAction', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 50 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateRuleActionRequest $request UpdateRuleActionRequest
+     * @param UpdateRuleActionRequest $request
      *
-     * @return UpdateRuleActionResponse UpdateRuleActionResponse
+     * @return UpdateRuleActionResponse
      */
     public function updateRuleAction($request)
     {
@@ -23877,38 +10935,8 @@ class Iot extends OpenApiClient
     public function updateSceneRuleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->ruleContent)) {
-            $query['RuleContent'] = $request->ruleContent;
-        }
-        if (!Utils::isUnset($request->ruleDescription)) {
-            $query['RuleDescription'] = $request->ruleDescription;
-        }
-        if (!Utils::isUnset($request->ruleId)) {
-            $query['RuleId'] = $request->ruleId;
-        }
-        if (!Utils::isUnset($request->ruleName)) {
-            $query['RuleName'] = $request->ruleName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateSceneRule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateSceneRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSceneRuleResponse::fromMap($this->doRequest('UpdateSceneRule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -23932,41 +10960,8 @@ class Iot extends OpenApiClient
     public function updateSchedulePeriodWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->periodCode)) {
-            $body['PeriodCode'] = $request->periodCode;
-        }
-        if (!Utils::isUnset($request->soundCodeContent)) {
-            $body['SoundCodeContent'] = $request->soundCodeContent;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateSchedulePeriod',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateSchedulePeriodResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSchedulePeriodResponse::fromMap($this->doRequest('UpdateSchedulePeriod', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -23990,38 +10985,8 @@ class Iot extends OpenApiClient
     public function updateSoundCodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->duration)) {
-            $body['Duration'] = $request->duration;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->soundCode)) {
-            $body['SoundCode'] = $request->soundCode;
-        }
-        if (!Utils::isUnset($request->soundCodeContent)) {
-            $body['SoundCodeContent'] = $request->soundCodeContent;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateSoundCode',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateSoundCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSoundCodeResponse::fromMap($this->doRequest('UpdateSoundCode', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -24045,32 +11010,8 @@ class Iot extends OpenApiClient
     public function updateSoundCodeLabelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->label)) {
-            $body['Label'] = $request->label;
-        }
-        if (!Utils::isUnset($request->soundCode)) {
-            $body['SoundCode'] = $request->soundCode;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateSoundCodeLabel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateSoundCodeLabelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSoundCodeLabelResponse::fromMap($this->doRequest('UpdateSoundCodeLabel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -24094,50 +11035,8 @@ class Iot extends OpenApiClient
     public function updateSoundCodeScheduleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->description)) {
-            $body['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            $body['EndDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $body['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $body['Name'] = $request->name;
-        }
-        if (!Utils::isUnset($request->scheduleCode)) {
-            $body['ScheduleCode'] = $request->scheduleCode;
-        }
-        if (!Utils::isUnset($request->startDate)) {
-            $body['StartDate'] = $request->startDate;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $body['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $body['Status'] = $request->status;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateSoundCodeSchedule',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateSoundCodeScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSoundCodeScheduleResponse::fromMap($this->doRequest('UpdateSoundCodeSchedule', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -24153,60 +11052,21 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param UpdateSpeechRequest $tmpReq
+     * @param UpdateSpeechRequest $tmp
      * @param RuntimeOptions      $runtime
      *
      * @return UpdateSpeechResponse
      */
-    public function updateSpeechWithOptions($tmpReq, $runtime)
+    public function updateSpeechWithOptions($tmp, $runtime)
     {
-        Utils::validateModel($tmpReq);
+        Utils::validateModel($tmp);
         $request = new UpdateSpeechShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->soundCodeConfig)) {
-            $request->soundCodeConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->soundCodeConfig, 'SoundCodeConfig', 'json');
+        RpcUtils::convert($tmp, $request);
+        if (!Utils::isUnset($tmp->soundCodeConfig)) {
+            $request->soundCodeConfigShrink = Utils::toJSONString($tmp->soundCodeConfig);
         }
-        $body = [];
-        if (!Utils::isUnset($request->enableSoundCode)) {
-            $body['EnableSoundCode'] = $request->enableSoundCode;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $body['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->projectCode)) {
-            $body['ProjectCode'] = $request->projectCode;
-        }
-        if (!Utils::isUnset($request->soundCodeConfigShrink)) {
-            $body['SoundCodeConfig'] = $request->soundCodeConfigShrink;
-        }
-        if (!Utils::isUnset($request->speechCode)) {
-            $body['SpeechCode'] = $request->speechCode;
-        }
-        if (!Utils::isUnset($request->speechRate)) {
-            $body['SpeechRate'] = $request->speechRate;
-        }
-        if (!Utils::isUnset($request->voice)) {
-            $body['Voice'] = $request->voice;
-        }
-        if (!Utils::isUnset($request->volume)) {
-            $body['Volume'] = $request->volume;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateSpeech',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateSpeechResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSpeechResponse::fromMap($this->doRequest('UpdateSpeech', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -24222,93 +11082,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateSubscribeRelationRequest $request UpdateSubscribeRelationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     * @param UpdateSubscribeRelationRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return UpdateSubscribeRelationResponse UpdateSubscribeRelationResponse
+     * @return UpdateSubscribeRelationResponse
      */
     public function updateSubscribeRelationWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->consumerGroupIds)) {
-            $query['ConsumerGroupIds'] = $request->consumerGroupIds;
-        }
-        if (!Utils::isUnset($request->deviceDataFlag)) {
-            $query['DeviceDataFlag'] = $request->deviceDataFlag;
-        }
-        if (!Utils::isUnset($request->deviceLifeCycleFlag)) {
-            $query['DeviceLifeCycleFlag'] = $request->deviceLifeCycleFlag;
-        }
-        if (!Utils::isUnset($request->deviceStatusChangeFlag)) {
-            $query['DeviceStatusChangeFlag'] = $request->deviceStatusChangeFlag;
-        }
-        if (!Utils::isUnset($request->deviceTagFlag)) {
-            $query['DeviceTagFlag'] = $request->deviceTagFlag;
-        }
-        if (!Utils::isUnset($request->deviceTopoLifeCycleFlag)) {
-            $query['DeviceTopoLifeCycleFlag'] = $request->deviceTopoLifeCycleFlag;
-        }
-        if (!Utils::isUnset($request->foundDeviceListFlag)) {
-            $query['FoundDeviceListFlag'] = $request->foundDeviceListFlag;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->mnsConfiguration)) {
-            $query['MnsConfiguration'] = $request->mnsConfiguration;
-        }
-        if (!Utils::isUnset($request->otaEventFlag)) {
-            $query['OtaEventFlag'] = $request->otaEventFlag;
-        }
-        if (!Utils::isUnset($request->otaJobFlag)) {
-            $query['OtaJobFlag'] = $request->otaJobFlag;
-        }
-        if (!Utils::isUnset($request->otaVersionFlag)) {
-            $query['OtaVersionFlag'] = $request->otaVersionFlag;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->subscribeFlags)) {
-            $query['SubscribeFlags'] = $request->subscribeFlags;
-        }
-        if (!Utils::isUnset($request->thingHistoryFlag)) {
-            $query['ThingHistoryFlag'] = $request->thingHistoryFlag;
-        }
-        if (!Utils::isUnset($request->type)) {
-            $query['Type'] = $request->type;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateSubscribeRelation',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateSubscribeRelationResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateSubscribeRelationResponse::fromMap($this->doRequest('UpdateSubscribeRelation', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * >  RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateSubscribeRelationRequest $request UpdateSubscribeRelationRequest
+     * @param UpdateSubscribeRelationRequest $request
      *
-     * @return UpdateSubscribeRelationResponse UpdateSubscribeRelationResponse
+     * @return UpdateSubscribeRelationResponse
      */
     public function updateSubscribeRelation($request)
     {
@@ -24318,69 +11107,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * ## Limits
-     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
-     *   * *   When you call this operation, you can use the [json-schema](https://github.com/everit-org/json-schema?spm=a2c4g.11186623.2.23.575832d9zD7fZb) library to verify the input parameters in **ThingModelJson**. For more information, see [Data structure of ThingModelJson](~~150457~~).
-     *   * *   You can call this operation to update only one feature. TSL features include properties, services, and events.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateThingModelRequest $request UpdateThingModelRequest
-     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     * @param UpdateThingModelRequest $request
+     * @param RuntimeOptions          $runtime
      *
-     * @return UpdateThingModelResponse UpdateThingModelResponse
+     * @return UpdateThingModelResponse
      */
     public function updateThingModelWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->functionBlockId)) {
-            $query['FunctionBlockId'] = $request->functionBlockId;
-        }
-        if (!Utils::isUnset($request->functionBlockName)) {
-            $query['FunctionBlockName'] = $request->functionBlockName;
-        }
-        if (!Utils::isUnset($request->identifier)) {
-            $query['Identifier'] = $request->identifier;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->thingModelJson)) {
-            $query['ThingModelJson'] = $request->thingModelJson;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateThingModel',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateThingModelResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateThingModelResponse::fromMap($this->doRequest('UpdateThingModel', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * ## Limits
-     *   * *   If a product is published, you must call the [CancelReleaseProduct](~~213875~~) operation to unpublish the product before you call this operation.
-     *   * *   When you call this operation, you can use the [json-schema](https://github.com/everit-org/json-schema?spm=a2c4g.11186623.2.23.575832d9zD7fZb) library to verify the input parameters in **ThingModelJson**. For more information, see [Data structure of ThingModelJson](~~150457~~).
-     *   * *   You can call this operation to update only one feature. TSL features include properties, services, and events.
-     *   * *   Each Alibaba Cloud account can run a maximum of 5 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateThingModelRequest $request UpdateThingModelRequest
+     * @param UpdateThingModelRequest $request
      *
-     * @return UpdateThingModelResponse UpdateThingModelResponse
+     * @return UpdateThingModelResponse
      */
     public function updateThingModel($request)
     {
@@ -24390,57 +11132,22 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * *   A data parsing script is used to convert the custom-formatted data to JSON data after the data is submitted by a device. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateThingScriptRequest $request UpdateThingScriptRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param UpdateThingScriptRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return UpdateThingScriptResponse UpdateThingScriptResponse
+     * @return UpdateThingScriptResponse
      */
     public function updateThingScriptWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->scriptContent)) {
-            $query['ScriptContent'] = $request->scriptContent;
-        }
-        if (!Utils::isUnset($request->scriptType)) {
-            $query['ScriptType'] = $request->scriptType;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateThingScript',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateThingScriptResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateThingScriptResponse::fromMap($this->doRequest('UpdateThingScript', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
-     * *   A data parsing script is used to convert the custom-formatted data to JSON data after the data is submitted by a device. You can write a script in JavaScript, Python 2.7, and PHP 7.2. For more information, see [Submit scripts for data parsing](~~149963~~).
-     *   * *   Each Alibaba Cloud account can run a maximum of 10 queries per second (QPS).
-     *   * > RAM users of an Alibaba Cloud account share the quota of the account.
-     *   *
-     * @param UpdateThingScriptRequest $request UpdateThingScriptRequest
+     * @param UpdateThingScriptRequest $request
      *
-     * @return UpdateThingScriptResponse UpdateThingScriptResponse
+     * @return UpdateThingScriptResponse
      */
     public function updateThingScript($request)
     {
@@ -24458,47 +11165,8 @@ class Iot extends OpenApiClient
     public function updateTopicConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->codec)) {
-            $query['Codec'] = $request->codec;
-        }
-        if (!Utils::isUnset($request->description)) {
-            $query['Description'] = $request->description;
-        }
-        if (!Utils::isUnset($request->enableBroadcast)) {
-            $query['EnableBroadcast'] = $request->enableBroadcast;
-        }
-        if (!Utils::isUnset($request->enableProxySubscribe)) {
-            $query['EnableProxySubscribe'] = $request->enableProxySubscribe;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->operation)) {
-            $query['Operation'] = $request->operation;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->topicFullName)) {
-            $query['TopicFullName'] = $request->topicFullName;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateTopicConfig',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return UpdateTopicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateTopicConfigResponse::fromMap($this->doRequest('UpdateTopicConfig', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -24522,41 +11190,8 @@ class Iot extends OpenApiClient
     public function writeDevicesHotStorageDataWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->deviceName)) {
-            $query['DeviceName'] = $request->deviceName;
-        }
-        if (!Utils::isUnset($request->iotId)) {
-            $query['IotId'] = $request->iotId;
-        }
-        if (!Utils::isUnset($request->iotInstanceId)) {
-            $query['IotInstanceId'] = $request->iotInstanceId;
-        }
-        if (!Utils::isUnset($request->items)) {
-            $query['Items'] = $request->items;
-        }
-        if (!Utils::isUnset($request->productKey)) {
-            $query['ProductKey'] = $request->productKey;
-        }
-        if (!Utils::isUnset($request->userTopic)) {
-            $query['UserTopic'] = $request->userTopic;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'WriteDevicesHotStorageData',
-            'version'     => '2018-01-20',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
 
-        return WriteDevicesHotStorageDataResponse::fromMap($this->callApi($params, $req, $runtime));
+        return WriteDevicesHotStorageDataResponse::fromMap($this->doRequest('WriteDevicesHotStorageData', 'HTTPS', 'POST', '2018-01-20', 'AK', null, Tea::merge($request), $runtime));
     }
 
     /**
@@ -24569,5 +11204,28 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->writeDevicesHotStorageDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param string   $productId
+     * @param string   $regionId
+     * @param string   $endpointRule
+     * @param string   $network
+     * @param string   $suffix
+     * @param string[] $endpointMap
+     * @param string   $endpoint
+     *
+     * @return string
+     */
+    public function getEndpoint($productId, $regionId, $endpointRule, $network, $suffix, $endpointMap, $endpoint)
+    {
+        if (!Utils::empty_($endpoint)) {
+            return $endpoint;
+        }
+        if (!Utils::isUnset($endpointMap) && !Utils::empty_(@$endpointMap[$regionId])) {
+            return @$endpointMap[$regionId];
+        }
+
+        return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
     }
 }

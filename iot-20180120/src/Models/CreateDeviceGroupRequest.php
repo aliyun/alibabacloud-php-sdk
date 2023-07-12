@@ -9,44 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CreateDeviceGroupRequest extends Model
 {
     /**
-     * @description The description of the group. The description must be 1 to 100 characters in length.
-     *
-     * @example Group test
-     *
      * @var string
      */
     public $groupDesc;
 
     /**
-     * @description The name of the group. The alias must be 4 to 30 characters in length, and can contain letters, digits, and underscores (\_).
-     *
-     * @example grouptest
-     *
      * @var string
      */
     public $groupName;
 
     /**
-     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
-     *
-     *
-     *
-     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
-     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
-     *
-     * For more information, see [Overview](~~356505~~).
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @description The ID of the parent group.
-     *
-     * If you need to create a first-level group, do not specify this parameter.
-     * @example SuperGroupId1
-     *
      * @var string
      */
     public $superGroupId;
@@ -59,6 +36,7 @@ class CreateDeviceGroupRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('groupName', $this->groupName, true);
     }
 
     public function toMap()

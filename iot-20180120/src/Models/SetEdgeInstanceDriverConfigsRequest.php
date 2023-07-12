@@ -15,22 +15,16 @@ class SetEdgeInstanceDriverConfigsRequest extends Model
     public $configs;
 
     /**
-     * @example 021d154d2a2f4dd7a489773d9e04****
-     *
      * @var string
      */
     public $driverId;
 
     /**
-     * @example F3APY0tPLhmgGtx0****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -43,6 +37,9 @@ class SetEdgeInstanceDriverConfigsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('configs', $this->configs, true);
+        Model::validateRequired('driverId', $this->driverId, true);
+        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

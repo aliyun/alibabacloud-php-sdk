@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListParserRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example iot-n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example DataParser
-     *
      * @var string
      */
     public $searchName;
@@ -44,6 +36,8 @@ class ListParserRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('currentPage', $this->currentPage, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

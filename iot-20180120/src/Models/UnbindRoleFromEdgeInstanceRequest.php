@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UnbindRoleFromEdgeInstanceRequest extends Model
 {
     /**
-     * @example BlYJyXZpLBtkmR******
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -28,6 +24,7 @@ class UnbindRoleFromEdgeInstanceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

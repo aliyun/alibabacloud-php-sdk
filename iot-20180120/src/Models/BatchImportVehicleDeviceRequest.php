@@ -15,17 +15,11 @@ class BatchImportVehicleDeviceRequest extends Model
     public $deviceList;
 
     /**
-     * @description BatchImportVehicleDevice
-     *
-     * @example iot-1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example a1Bw****
-     *
      * @var string
      */
     public $productKey;
@@ -37,6 +31,8 @@ class BatchImportVehicleDeviceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceList', $this->deviceList, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

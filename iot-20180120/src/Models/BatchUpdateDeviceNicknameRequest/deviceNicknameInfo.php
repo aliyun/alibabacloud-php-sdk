@@ -9,41 +9,21 @@ use AlibabaCloud\Tea\Model;
 class deviceNicknameInfo extends Model
 {
     /**
-     * @description The DeviceName of the device.
-     *
-     * >  If you specify this parameter, you must also specify the **ProductKey** parameter.
-     * @example light
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @description The ID of the device.
-     *
-     * >  If you specify this parameter, you do not need to specify **ProductKey** or **DeviceName**. The **IotId** parameter specifies a globally unique identifier (GUID) of the device, which corresponds to a combination of **ProductKey** and **DeviceName**. If you specify both **IotId** and the combination of **ProductKey** and **DeviceName**, **IotId** takes precedence.
-     * @example Q7uOhVRdZRRlDnTLv****00100
-     *
      * @var string
      */
     public $iotId;
 
     /**
-     * @description The new alias of the device. The alias must be 4 to 32 characters in length, and can contain letters, digits, and underscores (\_). Each Chinese character is counted as two characters.
-     *
-     * >  If you do not specify this parameter, the original alias of the device will be deleted.
-     * @example AliyunDataCenter
-     *
      * @var string
      */
     public $nickname;
 
     /**
-     * @description The ProductKey of the product to which the device belongs.
-     *
-     * >  If you specify this parameter, you must also specify the **DeviceName** parameter.
-     * @example a1BwAGV****
-     *
      * @var string
      */
     public $productKey;

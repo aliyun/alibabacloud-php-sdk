@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QuerySpeechDeviceRequest extends Model
 {
     /**
-     * @example 500
-     *
      * @var string
      */
     public $availableSpace;
 
     /**
-     * @example smaller
-     *
      * @var string
      */
     public $availableSpaceScope;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageId;
 
     /**
-     * @example 20
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example 4de2c367****8c585e5992**
-     *
      * @var string
      */
     public $projectCode;
@@ -68,6 +54,7 @@ class QuerySpeechDeviceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('projectCode', $this->projectCode, true);
     }
 
     public function toMap()

@@ -19,8 +19,6 @@ class UpdateTopicConfigRequest extends Model
     public $description;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $enableBroadcast;
@@ -31,8 +29,6 @@ class UpdateTopicConfigRequest extends Model
     public $enableProxySubscribe;
 
     /**
-     * @example iot-0pp1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -43,15 +39,11 @@ class UpdateTopicConfigRequest extends Model
     public $operation;
 
     /**
-     * @example a1Q5XoY****
-     *
      * @var string
      */
     public $productKey;
 
     /**
-     * @example /broadcast/a1Q5XoY****\/test
-     *
      * @var string
      */
     public $topicFullName;
@@ -68,6 +60,8 @@ class UpdateTopicConfigRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('topicFullName', $this->topicFullName, true);
     }
 
     public function toMap()

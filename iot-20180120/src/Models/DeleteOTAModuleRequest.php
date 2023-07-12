@@ -9,32 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteOTAModuleRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
-     *
-     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
-     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
-     *
-     * For more information, see [Overview](~~356505~~).
-     * @example iot-cn-0pp1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @description The name of the OTA module.
-     *
-     * @example barcodeScanner
-     *
      * @var string
      */
     public $moduleName;
 
     /**
-     * @description The **ProductKey** of the product to which the OTA module belongs.
-     *
-     * @example a1uctKe****
-     *
      * @var string
      */
     public $productKey;
@@ -46,6 +30,8 @@ class DeleteOTAModuleRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('moduleName', $this->moduleName, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

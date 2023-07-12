@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class BatchCreateSoundCodeLabelWithLabelsRequest extends Model
 {
     /**
-     * @example test
-     *
      * @var string
      */
     public $description;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example test
-     *
      * @var string[]
      */
     public $labels;
 
     /**
-     * @example Md3ZiTL888K9llXDy7890***********
-     *
      * @var string
      */
     public $scheduleCode;
@@ -44,6 +36,8 @@ class BatchCreateSoundCodeLabelWithLabelsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('labels', $this->labels, true);
+        Model::validateRequired('scheduleCode', $this->scheduleCode, true);
     }
 
     public function toMap()

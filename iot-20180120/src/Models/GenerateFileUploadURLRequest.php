@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class GenerateFileUploadURLRequest extends Model
 {
     /**
-     * @example DEVICE_JOB_FILE
-     *
      * @var string
      */
     public $bizCode;
 
     /**
-     * @example file1
-     *
      * @var string
      */
     public $fileName;
 
     /**
-     * @example bin
-     *
      * @var string
      */
     public $fileSuffix;
 
     /**
-     * @example iot-cn-0pp1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -44,6 +36,8 @@ class GenerateFileUploadURLRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('bizCode', $this->bizCode, true);
+        Model::validateRequired('fileSuffix', $this->fileSuffix, true);
     }
 
     public function toMap()

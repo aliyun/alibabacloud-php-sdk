@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceDistributeDetailRequest extends Model
 {
     /**
-     * @description The ID of the distribution task. The ID globally identifies the task.
-     *
-     * @example UbmsMHmkqv0PiAG****010001
-     *
      * @var string
      */
     public $jobId;
@@ -22,6 +18,7 @@ class QueryDeviceDistributeDetailRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('jobId', $this->jobId, true);
     }
 
     public function toMap()

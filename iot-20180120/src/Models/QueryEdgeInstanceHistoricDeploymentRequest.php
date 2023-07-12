@@ -9,56 +9,31 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeInstanceHistoricDeploymentRequest extends Model
 {
     /**
-     * @description The number of the page to return. Pages start from Page 1.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The end of the time range to query. If you do not specify the start time and end time, all the deployment task records of the edge instance are queried.
-     *
-     * @example 1561543998639
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description The ID of the edge instance. To obtain the instance ID, perform the following steps: Log on to the [Link IoT Edge console](https://iot.console.aliyun.com/le/instance/list). On the **Edge Instances** page, move the pointer over the name of the edge instance that you want to manage and obtain the instance ID.
-     *
-     * You can also call the [QueryEdgeInstance](~~135214~~) operation to query the instance ID.
-     * @example PgEfYupSn6Pvhfkx****
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @description The ID of the Internet of Things (IoT) service instance. This parameter is not required for the public instance but required for Enterprise Edition instances.
-     *
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 30. Default value: 10.
-     *
-     * @example 15
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The beginning of the time range to query. If you do not specify the start time and end time, all the deployment task records of the edge instance are queried.
-     *
-     * @example 1558951998639
-     *
      * @var int
      */
     public $startTime;
@@ -73,6 +48,9 @@ class QueryEdgeInstanceHistoricDeploymentRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('currentPage', $this->currentPage, true);
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

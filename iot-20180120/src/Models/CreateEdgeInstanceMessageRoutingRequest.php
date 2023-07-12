@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeInstanceMessageRoutingRequest extends Model
 {
     /**
-     * @example nF9oXo7kLRWQ********
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example le_lite2
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @example #
-     *
      * @var string
      */
     public $sourceData;
 
     /**
-     * @example device
-     *
      * @var string
      */
     public $sourceType;
 
     /**
-     * @example 58c46749ac934db3925fe5********
-     *
      * @var string
      */
     public $targetData;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $targetIotHubQos;
 
     /**
-     * @example function
-     *
      * @var string
      */
     public $targetType;
 
     /**
-     * @example all
-     *
      * @var string
      */
     public $topicFilter;
@@ -84,6 +66,9 @@ class CreateEdgeInstanceMessageRoutingRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('sourceType', $this->sourceType, true);
+        Model::validateRequired('targetType', $this->targetType, true);
     }
 
     public function toMap()

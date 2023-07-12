@@ -15,19 +15,11 @@ class BatchAddDeviceGroupRelationsRequest extends Model
     public $device;
 
     /**
-     * @description The ProductKeys of the products to which the devices belong. You can specify a maximum of 200 ProductKeys.
-     *
-     * @example 6VfhebLg5iUe****
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The ID of the group. The ID is the globally unique identifier (GUID) for the group.
-     *
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -39,6 +31,7 @@ class BatchAddDeviceGroupRelationsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('groupId', $this->groupId, true);
     }
 
     public function toMap()

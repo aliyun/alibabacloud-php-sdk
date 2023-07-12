@@ -9,64 +9,46 @@ use AlibabaCloud\Tea\Model;
 class QueryDynamicGroupDevicesRequest extends Model
 {
     /**
-     * @example 2
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example light
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example true
-     *
      * @var bool
      */
     public $fuzzyName;
 
     /**
-     * @example tDQvBJqbUyHs***
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @example iot-***-v6***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example TGlzdFJlc291***
-     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example a1BwAGV***
-     *
      * @var string
      */
     public $productKey;
 
     /**
-     * @example OFFLINE
-     *
      * @var string
      */
     public $status;
@@ -84,6 +66,8 @@ class QueryDynamicGroupDevicesRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('groupId', $this->groupId, true);
+        Model::validateRequired('iotInstanceId', $this->iotInstanceId, true);
     }
 
     public function toMap()

@@ -9,41 +9,21 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceListByDeviceGroupRequest extends Model
 {
     /**
-     * @description The number of the page to return.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @description The ID of the group. The ID is the globally unique identifier (GUID) for the group.
-     *
-     * @example 7DIgqIl1Ijnh****
-     *
      * @var string
      */
     public $groupId;
 
     /**
-     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
-     *
-     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
-     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
-     *
-     * For more information, see [Overview](~~356505~~).
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @description The number of entries to return on each page.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $pageSize;
@@ -56,6 +36,7 @@ class QueryDeviceListByDeviceGroupRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('groupId', $this->groupId, true);
     }
 
     public function toMap()

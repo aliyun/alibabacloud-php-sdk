@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QuerySpeechRequest extends Model
 {
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 4de2c367****8c585e5992**
-     *
      * @var string
      */
     public $speechCode;
@@ -28,6 +24,7 @@ class QuerySpeechRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('speechCode', $this->speechCode, true);
     }
 
     public function toMap()

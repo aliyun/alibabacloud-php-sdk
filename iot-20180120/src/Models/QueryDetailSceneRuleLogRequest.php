@@ -9,50 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QueryDetailSceneRuleLogRequest extends Model
 {
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example 1581918482
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 15
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example e5dd1c7aa3994ecdbc88235979******
-     *
      * @var string
      */
     public $ruleId;
 
     /**
-     * @example 1581917582
-     *
      * @var int
      */
     public $startTime;
 
     /**
-     * @example b662a9671581918480168107******
-     *
      * @var string
      */
     public $traceId;
@@ -68,6 +54,12 @@ class QueryDetailSceneRuleLogRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('currentPage', $this->currentPage, true);
+        Model::validateRequired('endTime', $this->endTime, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
+        Model::validateRequired('ruleId', $this->ruleId, true);
+        Model::validateRequired('startTime', $this->startTime, true);
+        Model::validateRequired('traceId', $this->traceId, true);
     }
 
     public function toMap()

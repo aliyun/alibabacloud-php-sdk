@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateDataSourceItemRequest extends Model
 {
     /**
-     * @example 1002
-     *
      * @var int
      */
     public $dataSourceId;
 
     /**
-     * @example device1
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @example iot-0pp1n8t***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example gy***z
-     *
      * @var string
      */
     public $productKey;
 
     /**
-     * @example PRODUCT
-     *
      * @var string
      */
     public $scopeType;
 
     /**
-     * @example /as/mqtt/status/gy***z/+
-     *
      * @var string
      */
     public $topic;
@@ -60,6 +48,8 @@ class CreateDataSourceItemRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('dataSourceId', $this->dataSourceId, true);
+        Model::validateRequired('topic', $this->topic, true);
     }
 
     public function toMap()

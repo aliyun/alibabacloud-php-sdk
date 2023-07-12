@@ -9,43 +9,31 @@ use AlibabaCloud\Tea\Model;
 class QueryEdgeInstanceChannelRequest extends Model
 {
     /**
-     * @example le_name0
-     *
      * @var string
      */
     public $channelName;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $currentPage;
 
     /**
-     * @example 9c1ae7bd59f1469abbdccc9592******
-     *
      * @var string
      */
     public $driverId;
 
     /**
-     * @example 6GaTtvTj7vJhiS******
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 15
-     *
      * @var int
      */
     public $pageSize;
@@ -60,6 +48,10 @@ class QueryEdgeInstanceChannelRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('currentPage', $this->currentPage, true);
+        Model::validateRequired('driverId', $this->driverId, true);
+        Model::validateRequired('instanceId', $this->instanceId, true);
+        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

@@ -9,67 +9,36 @@ use AlibabaCloud\Tea\Model;
 class RRpcRequest extends Model
 {
     /**
-     * @example 240
-     *
      * @var string
      */
     public $contentType;
 
     /**
-     * @description The name of the device that receives the request.
-     *
-     * @example device1
-     *
      * @var string
      */
     public $deviceName;
 
     /**
-     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
-     *
-     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
-     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
-     *
-     * For more information, see [Overview](~~356505~~).
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @description The ProductKey of the product to which the device belongs.
-     *
-     * @example aldfeSe****
-     *
      * @var string
      */
     public $productKey;
 
     /**
-     * @description The string that is obtained by performing Base64 encoding on the message. Example: `dGhpcyBpcyBhbiBleGFtcGxl`.
-     *
-     * @example dGhpcyBpcyBhbiBleGFtcGxl
-     *
      * @var string
      */
     public $requestBase64Byte;
 
     /**
-     * @description The timeout period of a response. Unit: milliseconds. Valid values: 1000 to 8000.
-     *
-     * @example 1000
-     *
      * @var int
      */
     public $timeout;
 
     /**
-     * @description The custom revert-RPC (RRPC) topic. Before you can use a custom RRPC topic, you must configure the device. For more information, see [Use custom topics](~~90570~~).
-     *
-     * If you do not configure this parameter, the default RRPC topic is used.
-     * @example /a1uZfYb****\/A_Vol****\/user/update
-     *
      * @var string
      */
     public $topic;
@@ -85,6 +54,10 @@ class RRpcRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceName', $this->deviceName, true);
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('requestBase64Byte', $this->requestBase64Byte, true);
+        Model::validateRequired('timeout', $this->timeout, true);
     }
 
     public function toMap()

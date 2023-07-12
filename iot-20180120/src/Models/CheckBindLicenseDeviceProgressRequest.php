@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class CheckBindLicenseDeviceProgressRequest extends Model
 {
     /**
-     * @example 23****
-     *
      * @var string
      */
     public $checkProgressId;
 
     /**
-     * @example iot-2ws****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 720P
-     *
      * @var string
      */
     public $licenseCode;
 
     /**
-     * @example uhf5****
-     *
      * @var string
      */
     public $productKey;
@@ -44,6 +36,9 @@ class CheckBindLicenseDeviceProgressRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('checkProgressId', $this->checkProgressId, true);
+        Model::validateRequired('licenseCode', $this->licenseCode, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

@@ -9,57 +9,41 @@ use AlibabaCloud\Tea\Model;
 class QueryLicenseDeviceListRequest extends Model
 {
     /**
-     * @example 1620934297000
-     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @example Q7uOhVRdZRRlDnTLv****00100
-     *
      * @var string
      */
     public $iotId;
 
     /**
-     * @example iot-ws4***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example 720P
-     *
      * @var string
      */
     public $licenseCode;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $pageId;
 
     /**
-     * @example 50
-     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @example es****
-     *
      * @var string
      */
     public $productKey;
 
     /**
-     * @example 1620634297000
-     *
      * @var int
      */
     public $startTime;

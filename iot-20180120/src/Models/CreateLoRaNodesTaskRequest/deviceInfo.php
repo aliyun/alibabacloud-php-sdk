@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class deviceInfo extends Model
 {
     /**
-     * @example d896e0efff00****
-     *
      * @var string
      */
     public $devEui;
 
     /**
-     * @example 123***
-     *
      * @var string
      */
     public $pinCode;

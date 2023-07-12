@@ -10,75 +10,31 @@ use AlibabaCloud\Tea\Model;
 class CreateOTAVerifyJobRequest extends Model
 {
     /**
-     * @description The download protocol of the update package. Valid values: **HTTPS** and **MQTT**. Default value: HTTPS. After the device receives the update package information pushed by IoT Platform, this protocol is used to download the update package.
-     *
-     * > If you want to download the update package over MQTT, take note of the following items:
-     * >*   The following regions are supported: China (Shanghai), China (Beijing), and China (Shenzhen).
-     * >*   The OTA update package can contain only one file and the size of the file cannot exceed 16 MB.
-     * >*   You must use the latest version of Link SDK for C to develop the device features to perform OTA updates and download files over MQTT. For more information, see [Sample code](~~330985~~).
-     * @example HTTPS
-     *
      * @var string
      */
     public $downloadProtocol;
 
     /**
-     * @description The ID of the update package.
-     *
-     * The **FirmwareId** parameter is returned when you call the [CreateOTAFirmware](~~147311~~) operation to create an OTA update package.
-     *
-     * You can also call the [ListOTAFirmware](~~147450~~) operation to obtain the ID.
-     * @example nx3xxVvFdwvn6dim50PY03****
-     *
      * @var string
      */
     public $firmwareId;
 
     /**
-     * @description The ID of the instance. You can view the ID of an instance on the **Overview** page in the IoT Platform console.
-     *
-     * >*   If your instance has an ID, you must specify the ID for this parameter. Otherwise, the call fails.****
-     * >*   If no **Overview** page or **ID** is generated for your instance, you do not need to configure this parameter.
-     *
-     * For more information, see [Overview](~~356505~~).
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @description Specifies whether to control the update by using a mobile app. You must develop the mobile app as needed.
-     *
-     *   **false** (default): no. A device obtains the information about the OTA update task based on the **NeedPush** parameter.
-     *   **true**: yes To perform an OTA update on a device, you must confirm the update by using your mobile app. Then, the device can obtain the information about the OTA update task based on the **NeedPush** parameter.
-     *
-     * @example false
-     *
      * @var bool
      */
     public $needConfirm;
 
     /**
-     * @description Specifies whether to automatically push update tasks from IoT Platform to devices.
-     *
-     *   **true** (default): yes. After an update batch is created, IoT Platform automatically pushes update tasks to the specified online devices.
-     *
-     * In this case, a device can still initiate a request to obtain the information about the over-the-air (OTA) update task from IoT Platform.
-     *
-     *   **false**: no. A device must initiate a request to obtain the information about the OTA update task from IoT Platform.
-     *
-     * @example true
-     *
      * @var bool
      */
     public $needPush;
 
     /**
-     * @description The ProductKey of the product to which the OTA update package belongs.
-     *
-     * @example a1VJwBw****
-     *
      * @var string
      */
     public $productKey;
@@ -89,17 +45,11 @@ class CreateOTAVerifyJobRequest extends Model
     public $tag;
 
     /**
-     * @example testdevice
-     *
      * @var string[]
      */
     public $targetDeviceName;
 
     /**
-     * @description The timeout period for a device to update the firmware. Unit: minutes. Valid values: 1 to 1440.
-     *
-     * @example 1440
-     *
      * @var int
      */
     public $timeoutInMinutes;
@@ -117,6 +67,9 @@ class CreateOTAVerifyJobRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('firmwareId', $this->firmwareId, true);
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('targetDeviceName', $this->targetDeviceName, true);
     }
 
     public function toMap()

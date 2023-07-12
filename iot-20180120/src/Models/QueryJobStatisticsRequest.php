@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryJobStatisticsRequest extends Model
 {
     /**
-     * @example iot-cn-0pp1n8t****
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example sGWotgRkut***10001
-     *
      * @var string
      */
     public $jobId;
@@ -28,6 +24,7 @@ class QueryJobStatisticsRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('jobId', $this->jobId, true);
     }
 
     public function toMap()

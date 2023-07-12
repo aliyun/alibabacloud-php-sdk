@@ -14,10 +14,6 @@ class CreateProductTopicRequest extends Model
     public $codec;
 
     /**
-     * @description The description of the topic category. The description must be 1 to 100 characters in length.
-     *
-     * @example submit a test topic
-     *
      * @var string
      */
     public $desc;
@@ -28,46 +24,21 @@ class CreateProductTopicRequest extends Model
     public $enableProxySubscribe;
 
     /**
-     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
-     *
-     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
-     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
-     *
-     * For more information, see [Overview](~~356505~~).
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @description The operation permissions of the device on the topic category. Valid values:
-     *
-     *   **SUB**: Subscribe.
-     *   **PUB**: Publish.
-     *   **ALL**: Publish and Subscribe.
-     *
-     * @example PUB
-     *
      * @var string
      */
     public $operation;
 
     /**
-     * @description The ProductKey of the product for which you want to create a topic category.
-     *
-     * @example aldDEin****
-     *
      * @var string
      */
     public $productKey;
 
     /**
-     * @description The name of the user-defined category level that you want to set. By default, a topic category includes the following levels: \_productkey\_ and \_devicename\_. Separate the two levels with slashes (/). Format of a topic category: `productKey/deviceName/topicShortName` .
-     *
-     * >  Each level can contain letters, digits, and underscores (\_), and cannot be empty.
-     * @example submit
-     *
      * @var string
      */
     public $topicShortName;
@@ -83,6 +54,9 @@ class CreateProductTopicRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('operation', $this->operation, true);
+        Model::validateRequired('productKey', $this->productKey, true);
+        Model::validateRequired('topicShortName', $this->topicShortName, true);
     }
 
     public function toMap()

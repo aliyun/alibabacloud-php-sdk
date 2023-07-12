@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateSceneRuleRequest extends Model
 {
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -26,8 +24,6 @@ class CreateSceneRuleRequest extends Model
     public $ruleDescription;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $ruleName;
@@ -40,6 +36,7 @@ class CreateSceneRuleRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('ruleName', $this->ruleName, true);
     }
 
     public function toMap()

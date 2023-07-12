@@ -9,29 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ReBindLicenseDeviceRequest extends Model
 {
     /**
-     * @example test
-     *
      * @var string[]
      */
     public $deviceNameList;
 
     /**
-     * @example iot-e3***
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example LINK_SPEECH_COMMON_LICENSE
-     *
      * @var string
      */
     public $licenseCode;
 
     /**
-     * @example a2YwD23***
-     *
      * @var string
      */
     public $productKey;
@@ -44,6 +36,9 @@ class ReBindLicenseDeviceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('deviceNameList', $this->deviceNameList, true);
+        Model::validateRequired('licenseCode', $this->licenseCode, true);
+        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

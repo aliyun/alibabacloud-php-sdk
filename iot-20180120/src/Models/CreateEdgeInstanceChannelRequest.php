@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CreateEdgeInstanceChannelRequest extends Model
 {
     /**
-     * @example le_name0
-     *
      * @var string
      */
     public $channelName;
@@ -22,22 +20,16 @@ class CreateEdgeInstanceChannelRequest extends Model
     public $configs;
 
     /**
-     * @example 9c1ae7bd59f1469abbdccc9592******
-     *
      * @var string
      */
     public $driverId;
 
     /**
-     * @example 6GaTtvTj7vJhiS******
-     *
      * @var string
      */
     public $instanceId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -51,6 +43,10 @@ class CreateEdgeInstanceChannelRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('channelName', $this->channelName, true);
+        Model::validateRequired('configs', $this->configs, true);
+        Model::validateRequired('driverId', $this->driverId, true);
+        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

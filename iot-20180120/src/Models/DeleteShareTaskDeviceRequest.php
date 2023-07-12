@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeleteShareTaskDeviceRequest extends Model
 {
     /**
-     * @example Q7uOhVRdZRRlDnTLv****00100
-     *
      * @var string[]
      */
     public $iotIdList;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
-     * @example Md3ZiTL888K9llXDy7890***********
-     *
      * @var string
      */
     public $shareTaskId;
@@ -36,6 +30,7 @@ class DeleteShareTaskDeviceRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('shareTaskId', $this->shareTaskId, true);
     }
 
     public function toMap()

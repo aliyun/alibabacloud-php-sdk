@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetSpeechDeviceDetailRequest extends Model
 {
     /**
-     * @example 4de2c367****8c585e5992**
-     *
      * @var string
      */
     public $iotId;
 
     /**
-     * @example iot_instc_pu****_c*-v64********
-     *
      * @var string
      */
     public $iotInstanceId;
@@ -28,6 +24,7 @@ class GetSpeechDeviceDetailRequest extends Model
 
     public function validate()
     {
+        Model::validateRequired('iotId', $this->iotId, true);
     }
 
     public function toMap()
