@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchGrayMigrationDeviceRequest extends Model
 {
     /**
+     * @example light
+     *
      * @var string[]
      */
     public $deviceNames;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -24,8 +28,6 @@ class BatchGrayMigrationDeviceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceNames', $this->deviceNames, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

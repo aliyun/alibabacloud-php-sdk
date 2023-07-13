@@ -19,16 +19,29 @@ class BindLicenseDeviceRequest extends Model
     public $iotIdList;
 
     /**
+     * @description The ID of the Enterprise Edition instance. You can view the **ID** of the instance on the **Overview** page in the IoT Platform console.
+     *
+     * @example iot-e3***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The license type that specifies the audio and video specifications. Valid values: **480P** and **720P**.
+     *
+     * @example 720P
+     *
      * @var string
      */
     public $licenseCode;
 
     /**
+     * @description The **ProductKey** of the product to which the devices belong.
+     *
+     * You can go to the IoT Platform console or call the [QueryProductList](~~69271~~) operation to view the information about all products of the instance.
+     * @example a2YwD23***
+     *
      * @var string
      */
     public $productKey;
@@ -42,8 +55,6 @@ class BindLicenseDeviceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('licenseCode', $this->licenseCode, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

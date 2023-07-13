@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteSceneRuleRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example f041397879ad4d89822811d741******
+     *
      * @var string
      */
     public $ruleId;
@@ -24,7 +28,6 @@ class DeleteSceneRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('ruleId', $this->ruleId, true);
     }
 
     public function toMap()

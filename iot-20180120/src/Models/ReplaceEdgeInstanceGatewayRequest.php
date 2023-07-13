@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ReplaceEdgeInstanceGatewayRequest extends Model
 {
     /**
+     * @example oTCJomvT95WPyPPQ5sje******
+     *
      * @var string
      */
     public $currentGatewayId;
 
     /**
+     * @example G4TGWGYwpo8zwr******
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 65SkFyhZcU5d3PO2Ri13******
+     *
      * @var string
      */
     public $newGatewayId;
@@ -36,9 +44,6 @@ class ReplaceEdgeInstanceGatewayRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentGatewayId', $this->currentGatewayId, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('newGatewayId', $this->newGatewayId, true);
     }
 
     public function toMap()

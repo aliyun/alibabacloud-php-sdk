@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class QueryClientIdsRequest extends Model
 {
     /**
+     * @description The ID of the device. You can call the [QueryDeviceInfo](~~257184~~) operation to query the **IotId** parameter.
+     *
+     * @example y4u2weAIrpp****WHMle1234
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
+     * @example iot-a****13l
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -24,7 +37,6 @@ class QueryClientIdsRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('iotId', $this->iotId, true);
     }
 
     public function toMap()

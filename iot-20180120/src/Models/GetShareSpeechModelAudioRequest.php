@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetShareSpeechModelAudioRequest extends Model
 {
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example Md3ZiTL888K9llXDy7890***********
+     *
      * @var string
      */
     public $shareTaskId;
 
     /**
+     * @example WSD****
+     *
      * @var string[]
      */
     public $speechModelCodeList;
@@ -30,8 +36,6 @@ class GetShareSpeechModelAudioRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('shareTaskId', $this->shareTaskId, true);
-        Model::validateRequired('speechModelCodeList', $this->speechModelCodeList, true);
     }
 
     public function toMap()

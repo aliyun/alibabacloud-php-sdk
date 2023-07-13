@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetSpeechLicenseDeviceStatisticsRequest extends Model
 {
     /**
+     * @description The instance ID. You can view the **ID** of the instance on the **Overview** page in the IoT Platform console.
+     *
+     * For more information, see the [Overview](~~356505~~) topic of IoT instances.
+     * @example iot-e3***
+     *
      * @var string
      */
     public $iotInstanceId;

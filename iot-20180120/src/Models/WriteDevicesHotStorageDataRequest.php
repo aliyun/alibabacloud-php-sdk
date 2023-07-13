@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class WriteDevicesHotStorageDataRequest extends Model
 {
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example y4u2weAI********HMle1234
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example { "Power": { "value": "on", "time": 1524448722000 }, "WF": { "value": 23.6, "time": 1524448722000 } }
+     *
      * @var string
      */
     public $items;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example user/a***\/b***
+     *
      * @var string
      */
     public $userTopic;
@@ -48,9 +60,6 @@ class WriteDevicesHotStorageDataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('iotInstanceId', $this->iotInstanceId, true);
-        Model::validateRequired('items', $this->items, true);
-        Model::validateRequired('userTopic', $this->userTopic, true);
     }
 
     public function toMap()

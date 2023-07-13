@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateDownloadDataJobShrinkRequest extends Model
 {
     /**
+     * @example TABLE
+     *
      * @var string
      */
     public $downloadDataType;
 
     /**
+     * @example 1658406464534
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example {"fileName":"fileName01"}
+     *
      * @var string
      */
     public $fileConfigShrink;
 
     /**
+     * @example iot-cn-npk1u******
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1658332800000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @example product_info
+     *
      * @var string
      */
     public $tableName;
@@ -48,8 +60,6 @@ class CreateDownloadDataJobShrinkRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('downloadDataType', $this->downloadDataType, true);
-        Model::validateRequired('tableName', $this->tableName, true);
     }
 
     public function toMap()

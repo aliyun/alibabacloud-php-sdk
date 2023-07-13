@@ -9,31 +9,68 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceByStatusRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     *
+     **Important**
+     *
+     *   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     *   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 50.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ProductKey of the product to which the device belongs.
+     *
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @description The ID of the resource group to which the product belongs. You can view the resource group ID in the IoT Platform console.
+     *
+     * >  If you specify this parameter, the system returns devices of the specified status in the resource group. If you do not specify this parameter, the system returns all devices of the specified status in the current account.
+     * @example rg-acfm4l5tcwd***
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The status of the devices. Valid values:
+     *
+     *   **0**: inactive
+     *   **1**: online
+     *   **3**: offline
+     *   **8**: disabled
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;
@@ -48,7 +85,6 @@ class QueryDeviceByStatusRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('status', $this->status, true);
     }
 
     public function toMap()

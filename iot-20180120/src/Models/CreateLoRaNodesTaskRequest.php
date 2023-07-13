@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class CreateLoRaNodesTaskRequest extends Model
 {
     /**
+     * @description The LoRaWAN devices.
+     *
      * @var deviceInfo[]
      */
     public $deviceInfo;
 
     /**
+     * @description The instance ID. You can view the **ID** of the instance on the **Overview** page in the IoT Platform console.
+     *
+     * For more information, see the [Overview](~~356505~~) topic of IoT instances.
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The ProductKey of the product to which the devices belong.
+     *
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -31,8 +42,6 @@ class CreateLoRaNodesTaskRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceInfo', $this->deviceInfo, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

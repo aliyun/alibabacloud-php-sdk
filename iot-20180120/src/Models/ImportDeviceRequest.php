@@ -9,31 +9,60 @@ use AlibabaCloud\Tea\Model;
 class ImportDeviceRequest extends Model
 {
     /**
+     * @description The DeviceName of the device.
+     *
+     * The DeviceName must be unique in the product.
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @description The DeviceSecret of the device.
+     *
+     * The DeviceSecret must be 1 to 32 characters in length, and can contain letters, digits, hyphens (-), underscores (\_), at signs (@), periods (.), and colons (:).
+     * @example b4d43f7******10ba5e5
+     *
      * @var string
      */
     public $deviceSecret;
 
     /**
+     * @description The instance ID. You can view the **ID** of the instance on the **Overview** page in the IoT Platform console.
+     *
+     * For more information, see [Overview](~~356505~~) of IoT instances.
+     * @example iot-1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The alias of the device.
+     *
+     * > If you do not specify this parameter, IoT Platform does not generate an alias for the device.
+     * @example Campus light
+     *
      * @var string
      */
     public $nickname;
 
     /**
+     * @description The **ProductKey** of the gateway product to which the device belongs.
+     *
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @description The serial number (SN) of the device.
+     *
+     * > If you do not specify this parameter, IoT Platform does not generate an SN for the device.
+     * @example QC4******001
+     *
      * @var string
      */
     public $sn;
@@ -48,9 +77,6 @@ class ImportDeviceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('deviceSecret', $this->deviceSecret, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

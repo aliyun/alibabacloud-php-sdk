@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The value of the update batch tag. The value must be 1 to 1,024 characters in length. You can add up to 10 tags for each update batch. The total length of the tag keys and tag values of all update batches cannot exceed 4,096 characters in length.
+     *
+     * >  Update batch tags are optional. If you want to specify a tag, you must specify the Tag.N.Value and Tag.N.Key parameters in pair.
+     * @example key1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
+     * @example value1
+     *
      * @var string
      */
     public $value;
@@ -24,8 +33,6 @@ class tag extends Model
 
     public function validate()
     {
-        Model::validateRequired('key', $this->key, true);
-        Model::validateRequired('value', $this->value, true);
     }
 
     public function toMap()

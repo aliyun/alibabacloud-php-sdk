@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ListDestinationRequest extends Model
 {
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example DataPurpose
+     *
      * @var string
      */
     public $searchName;
 
     /**
+     * @description The actions of forwarding data to data destinations. Data is processed by using a parser script before the data is forwarded. Valid values:
+     *
+     *   **REPUBLISH**: forwards topic data to an IoT Platform communication topic.
+     *   **AMQP**: forwards topic data to an Advanced Message Queuing Protocol (AMQP) consumer group.
+     *   **DATAHUB**: forwards topic data to Alibaba Cloud DataHub for stream data processing.
+     *   **ONS**: forwards topic data to Message Queue for Apache RocketMQ for message distribution.
+     *   **MNS**: forwards topic data to Message Service (MNS) for message transmission.
+     *   **FC**: forwards topic data to Function Compute for event computing.
+     *   **OTS**: forwards topic data to Tablestore for NoSQL data storage.
+     *
+     * @example ["REPUBLISH", "OTS"]
+     *
      * @var string[]
      */
     public $types;
@@ -42,8 +62,6 @@ class ListDestinationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('page', $this->page, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

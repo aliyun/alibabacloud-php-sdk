@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class AsyncRRpcRequest extends Model
 {
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example {"commandType": 128}
+     *
      * @var string
      */
     public $extInfo;
 
     /**
+     * @example iot-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example eyJ0ZXN0IjoidGFzayBwdWIgYnJvYWRjYXN0In0=
+     *
      * @var string
      */
     public $messageContent;
 
     /**
+     * @example aldfeSe****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example /a1uZfYb****\/A_Vol****\/user/update
+     *
      * @var string
      */
     public $topicFullName;
@@ -48,9 +60,6 @@ class AsyncRRpcRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('messageContent', $this->messageContent, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

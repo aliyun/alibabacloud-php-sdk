@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceProvisioningRequest extends Model
 {
     /**
+     * @example testDevcieBwT3Un
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example a1ji*****
+     *
      * @var string
      */
     public $productKey;
@@ -24,8 +28,6 @@ class QueryDeviceProvisioningRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

@@ -37,9 +37,6 @@ class AddDeviceToSharePromotionRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceSimpleInfoList', $this->deviceSimpleInfoList, true);
-        Model::validateRequired('sharePromotionActivityId', $this->sharePromotionActivityId, true);
-        Model::validateRequired('shareTaskCode', $this->shareTaskCode, true);
     }
 
     public function toMap()

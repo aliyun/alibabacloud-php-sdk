@@ -15,11 +15,20 @@ class BatchImportDeviceRequest extends Model
     public $deviceList;
 
     /**
+     * @description The instance ID. You can view the **ID** of the instance on the **Overview** page in the IoT Platform console.
+     *
+     * For more information, see the [Overview](~~356505~~) topic of IoT instances.
+     * @example iot-1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The **ProductKey** of the gateway product to which the devices belong.
+     *
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -31,8 +40,6 @@ class BatchImportDeviceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceList', $this->deviceList, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

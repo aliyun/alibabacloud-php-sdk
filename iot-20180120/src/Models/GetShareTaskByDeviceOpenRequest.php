@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetShareTaskByDeviceOpenRequest extends Model
 {
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example y4u2weAIrpp****WHMle1234
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a2Yw*****
+     *
      * @var string
      */
     public $productKey;

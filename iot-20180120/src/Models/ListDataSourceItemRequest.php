@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourceItemRequest extends Model
 {
     /**
+     * @description The data source ID.
+     *
+     * You can call the [ListParserDataSource](~~432676~~) operation to obtain the IDs of all data sources of the instance.
+     * @example 1001
+     *
      * @var int
      */
     public $dataSourceId;
 
     /**
+     * @description The instance ID. You can view the **ID** of the instance on the **Overview** page in the IoT Platform console.
+     *
+     * For more information, see the [Overview](~~356505~~) topic of IoT instances.
+     * @example iot-0pp1n8t***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example thing
+     *
      * @var string
      */
     public $searchName;
@@ -42,9 +58,6 @@ class ListDataSourceItemRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('dataSourceId', $this->dataSourceId, true);
-        Model::validateRequired('page', $this->page, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

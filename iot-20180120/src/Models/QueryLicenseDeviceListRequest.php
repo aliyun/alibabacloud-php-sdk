@@ -9,41 +9,76 @@ use AlibabaCloud\Tea\Model;
 class QueryLicenseDeviceListRequest extends Model
 {
     /**
+     * @description The end time of the time range in which the license is bound to the devices.The timestamp follows the UNIX time format. It is the number of seconds that have elapsed since 00:00:00 Thursday, January 1, 1970.
+     *
+     * @example 1620934297000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The ID of the device.
+     *
+     * You can call the [QueryDevice](~~69905~~) operation to query the **IotId** values of all devices that belong to a specific product.
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @description The instance ID. You can view the **ID** of the instance on the **Overview** page in the IoT Platform console.
+     *
+     * For more information, see the [Overview](~~356505~~) topic of IoT instances.
+     * @example iot-ws4***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The license type that specifies the audio and video specifications. Valid values: **480P** and **720P**.
+     *
+     * @example 720P
+     *
      * @var string
      */
     public $licenseCode;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageId;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 20.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The **ProductKey** of the product to which the devices belong.
+     *
+     * You can go to the IoT Platform console or call the [QueryProductList](~~69271~~) operation to view the information about all products of the instance.
+     * @example es****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @description The start time of the time range in which the license is bound to the devices. The timestamp follows the UNIX time format. It is the number of seconds that have elapsed since 00:00:00 Thursday, January 1, 1970.
+     *
+     * @example 1620634297000
+     *
      * @var int
      */
     public $startTime;

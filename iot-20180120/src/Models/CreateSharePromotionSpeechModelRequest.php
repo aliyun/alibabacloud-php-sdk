@@ -72,13 +72,6 @@ class CreateSharePromotionSpeechModelRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('audioFormat', $this->audioFormat, true);
-        Model::validateRequired('bizCode', $this->bizCode, true);
-        Model::validateRequired('sharePromotionActivityId', $this->sharePromotionActivityId, true);
-        Model::validateRequired('shareTaskCode', $this->shareTaskCode, true);
-        Model::validateRequired('speechModelType', $this->speechModelType, true);
-        Model::validateRequired('text', $this->text, true);
-        Model::validateRequired('voice', $this->voice, true);
     }
 
     public function toMap()

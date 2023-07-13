@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class BatchQueryDeviceDetailRequest extends Model
 {
     /**
+     * @example light
+     *
      * @var string[]
      */
     public $deviceName;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
+     * @example iot-v64***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The **ProductKey** of the product to which the devices specified by the **DeviceName.N** parameter belong.
+     *
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -30,8 +44,6 @@ class BatchQueryDeviceDetailRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

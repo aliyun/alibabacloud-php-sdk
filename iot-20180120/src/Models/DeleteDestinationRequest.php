@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDestinationRequest extends Model
 {
     /**
+     * @example 1003
+     *
      * @var int
      */
     public $destinationId;
 
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -24,7 +28,6 @@ class DeleteDestinationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('destinationId', $this->destinationId, true);
     }
 
     public function toMap()

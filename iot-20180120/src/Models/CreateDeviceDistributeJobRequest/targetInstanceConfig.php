@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class targetInstanceConfig extends Model
 {
     /**
+     * @description The configurations of the destination instance to which the device is distributed. For more information about instance IDs, see the description of the **SourceInstanceId** parameter.
+     *
+     *   If the value of the **Strategy** parameter is **1**, you can specify multiple instance IDs.
+     *   If the value of the **Strategy** parameter is **0**, you can specify only one instance ID.
+     *
+     * @example iot-cn-6ja***
+     *
      * @var string
      */
     public $targetInstanceId;
@@ -18,7 +25,6 @@ class targetInstanceConfig extends Model
 
     public function validate()
     {
-        Model::validateRequired('targetInstanceId', $this->targetInstanceId, true);
     }
 
     public function toMap()

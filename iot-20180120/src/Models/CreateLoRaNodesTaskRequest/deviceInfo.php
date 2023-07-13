@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class deviceInfo extends Model
 {
     /**
+     * @description The DevEUI of the LoRaWAN device.
+     *
+     * @example d896e0efff00****
+     *
      * @var string
      */
     public $devEui;
 
     /**
+     * @description The PIN code of the LoRaWAN device. The value of the parameter is used to verify the DevEUI.
+     *
+     * @example 123***
+     *
      * @var string
      */
     public $pinCode;

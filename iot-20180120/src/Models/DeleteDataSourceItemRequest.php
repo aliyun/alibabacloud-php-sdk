@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteDataSourceItemRequest extends Model
 {
     /**
+     * @example 1001
+     *
      * @var int
      */
     public $dataSourceId;
 
     /**
+     * @example 129322
+     *
      * @var int
      */
     public $dataSourceItemId;
 
     /**
+     * @example iot-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -30,8 +36,6 @@ class DeleteDataSourceItemRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('dataSourceId', $this->dataSourceId, true);
-        Model::validateRequired('dataSourceItemId', $this->dataSourceItemId, true);
     }
 
     public function toMap()

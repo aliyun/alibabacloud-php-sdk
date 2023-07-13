@@ -36,7 +36,6 @@ class CreateSharePromotionActivityRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('sharePromotionActivityName', $this->sharePromotionActivityName, true);
     }
 
     public function toMap()

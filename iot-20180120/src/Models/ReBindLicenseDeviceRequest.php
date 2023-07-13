@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class ReBindLicenseDeviceRequest extends Model
 {
     /**
+     * @description The **DeviceNames** of all devices to which you want to rebind a license.
+     *
+     * You can call the [QueryDevice](~~69905~~) operation to query the **DeviceNames** of all devices that belong to a specific product.
+     * @example test
+     *
      * @var string[]
      */
     public $deviceNameList;
 
     /**
+     * @description The instance ID. You can view the **ID** of the instance on the **Overview** page in the IoT Platform console.
+     *
+     * For more information, see [Overview](~~356505~~) of IoT instances.
+     * @example iot-e3***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The license type. Set the value to **LINK_SPEECH_COMMON_LICENSE**.
+     *
+     * @example LINK_SPEECH_COMMON_LICENSE
+     *
      * @var string
      */
     public $licenseCode;
 
     /**
+     * @description The **ProductKey** of the product to which the devices belong.
+     *
+     * You can go to the IoT Platform console or call the [QueryProductList](~~69271~~) operation to view the information about all products of the instance.
+     * @example a2YwD23***
+     *
      * @var string
      */
     public $productKey;
@@ -36,9 +55,6 @@ class ReBindLicenseDeviceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceNameList', $this->deviceNameList, true);
-        Model::validateRequired('licenseCode', $this->licenseCode, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

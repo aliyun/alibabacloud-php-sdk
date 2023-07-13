@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyOTAFirmwareRequest extends Model
 {
     /**
+     * @example OTA function updated
+     *
      * @var string
      */
     public $firmwareDesc;
 
     /**
+     * @example s8SSHiKjpBfrM3BSN0z803****
+     *
      * @var string
      */
     public $firmwareId;
 
     /**
+     * @example Firmwaretest
+     *
      * @var string
      */
     public $firmwareName;
@@ -29,11 +35,15 @@ class ModifyOTAFirmwareRequest extends Model
     public $firmwareUdi;
 
     /**
+     * @example iot-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example a1uctKe****
+     *
      * @var string
      */
     public $productKey;
@@ -48,8 +58,6 @@ class ModifyOTAFirmwareRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('firmwareId', $this->firmwareId, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class configs extends Model
 {
     /**
+     * @example {"test":123}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @example JSON
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @example key1
+     *
      * @var string
      */
     public $key;
@@ -30,8 +36,6 @@ class configs extends Model
 
     public function validate()
     {
-        Model::validateRequired('content', $this->content, true);
-        Model::validateRequired('format', $this->format, true);
     }
 
     public function toMap()

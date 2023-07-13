@@ -9,32 +9,35 @@ use AlibabaCloud\Tea\Model;
 class DeleteDeviceTunnelRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $tunnelId;
-
-    /**
+     * @example iot-***-v6***
+     *
      * @var string
      */
     public $iotInstanceId;
+
+    /**
+     * @example d4098041-a560-***
+     *
+     * @var string
+     */
+    public $tunnelId;
     protected $_name = [
-        'tunnelId'      => 'TunnelId',
         'iotInstanceId' => 'IotInstanceId',
+        'tunnelId'      => 'TunnelId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('tunnelId', $this->tunnelId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->tunnelId) {
-            $res['TunnelId'] = $this->tunnelId;
-        }
         if (null !== $this->iotInstanceId) {
             $res['IotInstanceId'] = $this->iotInstanceId;
+        }
+        if (null !== $this->tunnelId) {
+            $res['TunnelId'] = $this->tunnelId;
         }
 
         return $res;
@@ -48,11 +51,11 @@ class DeleteDeviceTunnelRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['TunnelId'])) {
-            $model->tunnelId = $map['TunnelId'];
-        }
         if (isset($map['IotInstanceId'])) {
             $model->iotInstanceId = $map['IotInstanceId'];
+        }
+        if (isset($map['TunnelId'])) {
+            $model->tunnelId = $map['TunnelId'];
         }
 
         return $model;

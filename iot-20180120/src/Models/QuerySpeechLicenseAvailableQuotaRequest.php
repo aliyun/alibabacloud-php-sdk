@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QuerySpeechLicenseAvailableQuotaRequest extends Model
 {
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;

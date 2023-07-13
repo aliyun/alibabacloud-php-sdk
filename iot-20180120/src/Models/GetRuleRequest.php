@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class GetRuleRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The ID of the rule that you want to query. You can log on to the IoT Platform console and choose **Rules** > **Data Forwarding** to view the rule ID. You can also call the [ListRule](~~69486~~) operation and view the rule ID in the response.
+     *
+     * @example 100000
+     *
      * @var int
      */
     public $ruleId;
@@ -24,7 +36,6 @@ class GetRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('ruleId', $this->ruleId, true);
     }
 
     public function toMap()

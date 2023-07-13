@@ -14,11 +14,15 @@ class CreateParserDataSourceRequest extends Model
     public $description;
 
     /**
+     * @example iot-w2****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example DataSource
+     *
      * @var string
      */
     public $name;
@@ -30,7 +34,6 @@ class CreateParserDataSourceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('name', $this->name, true);
     }
 
     public function toMap()

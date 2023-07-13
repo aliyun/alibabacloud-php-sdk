@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class CountSpeechBroadcastHourRequest extends Model
 {
     /**
+     * @description The instance ID. You can view the **ID** of the instance on the **Overview** page in the IoT Platform console.
+     *
+     * For more information, see the [Overview](~~356505~~) topic of IoT instances.
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The end time of the hour in which you want to query the number of broadcasted speeches. Example: 2020090919, which indicates 19:00 on September 9, 2020.
+     *
+     * @example 2020090919
+     *
      * @var string
      */
     public $queryDateTimeHour;
 
     /**
+     * @description The code that is used to share the speeches.
+     *
+     * You can obtain the **code** on the **Shared Corpus Management** page of **Speech Sending Voice Broadcasting Service**.
+     * @example ebed9280_ba25_48df_80c2_****
+     *
      * @var string
      */
     public $shareTaskCode;
@@ -30,8 +44,6 @@ class CountSpeechBroadcastHourRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('queryDateTimeHour', $this->queryDateTimeHour, true);
-        Model::validateRequired('shareTaskCode', $this->shareTaskCode, true);
     }
 
     public function toMap()

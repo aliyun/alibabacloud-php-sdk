@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceInfoRequest extends Model
 {
     /**
+     * @description The ID of the device.
+     *
+     * > If you specify this parameter, you do not need to specify **ProductKey** or **DeviceName**. The **IotId** parameter specifies a globally unique identifier (GUID) of the device, which corresponds to a combination of **ProductKey** and **DeviceName**. If you specify both **IotId** and the combination of **ProductKey** and **DeviceName**, **IotId** takes precedence.
+     * @example light
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @description The ProductKey of the product to which the device belongs.
+     *
+     * > If you specify this parameter, you must also specify the **DeviceName** parameter.
+     * @example iot-v64***
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The DeviceName of the device.
+     *
+     * > If you specify this parameter, you must also specify the **ProductKey** parameter.
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;

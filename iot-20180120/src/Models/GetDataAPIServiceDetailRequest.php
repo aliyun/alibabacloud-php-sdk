@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetDataAPIServiceDetailRequest extends Model
 {
     /**
+     * @example acs:iot:*:127103983461****:serveapi/device/getDeviceCountByStatus2
+     *
      * @var string
      */
     public $apiSrn;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -24,7 +28,6 @@ class GetDataAPIServiceDetailRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('apiSrn', $this->apiSrn, true);
     }
 
     public function toMap()

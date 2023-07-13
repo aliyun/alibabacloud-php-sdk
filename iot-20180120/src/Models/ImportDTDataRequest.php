@@ -15,6 +15,8 @@ class ImportDTDataRequest extends Model
     public $DTInstanceId;
 
     /**
+     * @example iot-****001
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -25,6 +27,8 @@ class ImportDTDataRequest extends Model
     public $items;
 
     /**
+     * @example dgb9****
+     *
      * @var string
      */
     public $productKey;
@@ -37,9 +41,6 @@ class ImportDTDataRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('DTInstanceId', $this->DTInstanceId, true);
-        Model::validateRequired('items', $this->items, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

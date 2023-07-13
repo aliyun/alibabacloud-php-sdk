@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchGetDeviceBindStatusRequest extends Model
 {
     /**
+     * @example sjI0Sd124XFYyjBYMiYO******
+     *
      * @var string[]
      */
     public $iotIds;
@@ -24,7 +26,6 @@ class BatchGetDeviceBindStatusRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('iotIds', $this->iotIds, true);
     }
 
     public function toMap()

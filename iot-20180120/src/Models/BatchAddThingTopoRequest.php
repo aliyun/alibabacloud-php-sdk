@@ -10,16 +10,32 @@ use AlibabaCloud\Tea\Model;
 class BatchAddThingTopoRequest extends Model
 {
     /**
+     * @description The name of the gateway.
+     *
+     * @example gateway
+     *
      * @var string
      */
     public $gwDeviceName;
 
     /**
+     * @description The key of the product to which the gateway belongs.
+     *
+     * @example a1vL7cp****
+     *
      * @var string
      */
     public $gwProductKey;
 
     /**
+     * @description The ID of the instance. On the **Overview** page in the IoT Platform console, you can view the ID of the instance.
+     *
+     * >*   If your instance has an ID, you must specify this parameter. Otherwise, the call fails.
+     * >*   If no **Overview** page or instance ID appears in the IoT Platform console, ignore this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -37,9 +53,6 @@ class BatchAddThingTopoRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('gwDeviceName', $this->gwDeviceName, true);
-        Model::validateRequired('gwProductKey', $this->gwProductKey, true);
-        Model::validateRequired('topoAddItem', $this->topoAddItem, true);
     }
 
     public function toMap()

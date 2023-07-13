@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class QueryImportedDeviceByApplyIdRequest extends Model
 {
     /**
+     * @description The application ID. You can call the [BatchImportDevice](~~433878~~) operation to obtain the application ID.
+     *
+     * @example 1295006
+     *
      * @var int
      */
     public $applyId;
 
     /**
+     * @description The instance ID. You can view the **ID** of the instance on the **Overview** page in the IoT Platform console.
+     *
+     * For more information, see the [Overview](~~356505~~) topic of IoT instances.
+     * @example iot-1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The page number. Valid values: 1 to 10000.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries per page. Default value: 10. Valid values: 1 to 50.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -36,9 +53,6 @@ class QueryImportedDeviceByApplyIdRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('applyId', $this->applyId, true);
-        Model::validateRequired('pageNo', $this->pageNo, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

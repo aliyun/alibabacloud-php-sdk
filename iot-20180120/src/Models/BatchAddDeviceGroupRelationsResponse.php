@@ -9,93 +9,43 @@ use AlibabaCloud\Tea\Model;
 class BatchAddDeviceGroupRelationsResponse extends Model
 {
     /**
-     * @var int
+     * @var string[]
      */
-    public $alreadyRelatedGroupDeviceCount;
-
-    /**
-     * @var string
-     */
-    public $code;
-
-    /**
-     * @var string
-     */
-    public $errorMessage;
+    public $headers;
 
     /**
      * @var int
      */
-    public $exceedTenGroupDeviceCount;
+    public $statusCode;
 
     /**
-     * @var string
+     * @var BatchAddDeviceGroupRelationsResponseBody
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var int
-     */
-    public $successAddedDeviceCount;
-
-    /**
-     * @var int
-     */
-    public $validDeviceCount;
+    public $body;
     protected $_name = [
-        'alreadyRelatedGroupDeviceCount' => 'AlreadyRelatedGroupDeviceCount',
-        'code'                           => 'Code',
-        'errorMessage'                   => 'ErrorMessage',
-        'exceedTenGroupDeviceCount'      => 'ExceedTenGroupDeviceCount',
-        'requestId'                      => 'RequestId',
-        'success'                        => 'Success',
-        'successAddedDeviceCount'        => 'SuccessAddedDeviceCount',
-        'validDeviceCount'               => 'ValidDeviceCount',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('alreadyRelatedGroupDeviceCount', $this->alreadyRelatedGroupDeviceCount, true);
-        Model::validateRequired('code', $this->code, true);
-        Model::validateRequired('errorMessage', $this->errorMessage, true);
-        Model::validateRequired('exceedTenGroupDeviceCount', $this->exceedTenGroupDeviceCount, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('success', $this->success, true);
-        Model::validateRequired('successAddedDeviceCount', $this->successAddedDeviceCount, true);
-        Model::validateRequired('validDeviceCount', $this->validDeviceCount, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->alreadyRelatedGroupDeviceCount) {
-            $res['AlreadyRelatedGroupDeviceCount'] = $this->alreadyRelatedGroupDeviceCount;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->exceedTenGroupDeviceCount) {
-            $res['ExceedTenGroupDeviceCount'] = $this->exceedTenGroupDeviceCount;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->successAddedDeviceCount) {
-            $res['SuccessAddedDeviceCount'] = $this->successAddedDeviceCount;
-        }
-        if (null !== $this->validDeviceCount) {
-            $res['ValidDeviceCount'] = $this->validDeviceCount;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -109,29 +59,14 @@ class BatchAddDeviceGroupRelationsResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AlreadyRelatedGroupDeviceCount'])) {
-            $model->alreadyRelatedGroupDeviceCount = $map['AlreadyRelatedGroupDeviceCount'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['ExceedTenGroupDeviceCount'])) {
-            $model->exceedTenGroupDeviceCount = $map['ExceedTenGroupDeviceCount'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['SuccessAddedDeviceCount'])) {
-            $model->successAddedDeviceCount = $map['SuccessAddedDeviceCount'];
-        }
-        if (isset($map['ValidDeviceCount'])) {
-            $model->validDeviceCount = $map['ValidDeviceCount'];
+        if (isset($map['body'])) {
+            $model->body = BatchAddDeviceGroupRelationsResponseBody::fromMap($map['body']);
         }
 
         return $model;

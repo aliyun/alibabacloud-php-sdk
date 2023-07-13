@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class CancelReleaseProductRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The ProductKey of the product to be unpublished.
+     *
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
@@ -24,7 +36,6 @@ class CancelReleaseProductRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

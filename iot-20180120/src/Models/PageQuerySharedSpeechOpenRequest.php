@@ -9,41 +9,80 @@ use AlibabaCloud\Tea\Model;
 class PageQuerySharedSpeechOpenRequest extends Model
 {
     /**
+     * @description The DeviceName of the device.
+     *
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @description The ID of the device.
+     *
+     * > If you specify this parameter, you do not need to specify **ProductKey** and **DeviceName**. **IotId** specifies the GUID of the device. The value of the IotId parameter is a combination of the values of the **ProductKey** and **DeviceName** parameters. If you specify the **IotId**, **ProductKey**, and **DeviceName** parameters, the value of the **IotId** parameter takes precedence.
+     * @example Q7uOhVRdZRRlDnTLv****00100
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @description The instance ID. You can view the **ID** of the instance on the **Overview** page in the IoT Platform console.
+     *
+     * For more information, see the [Overview](~~356505~~) topic of IoT instances.
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageId;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The **ProductKey** of the product to which the device belongs.
+     *
+     * @example sd34****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @description The code that is used to share the speeches.
+     *
+     * You can obtain the **code** on the **Shared Corpus Management** page of **Speech Sending Voice Broadcasting Service**.
+     * @example ebed9280_ba25_48df_80c2_****
+     *
      * @var string
      */
     public $shareTaskCode;
 
     /**
+     * @description The status of the speeches that you want to query. Valid values:
+     *
+     *   **1**: The speeches are pending approval.
+     *   **2**: The speeches are approved.
+     *   **3**: The speeches are rejected.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $status;

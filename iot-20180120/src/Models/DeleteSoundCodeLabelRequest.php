@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteSoundCodeLabelRequest extends Model
 {
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example Md3ZiTL888K9llXDy7890***********
+     *
      * @var string
      */
     public $soundCode;
@@ -24,7 +28,6 @@ class DeleteSoundCodeLabelRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('soundCode', $this->soundCode, true);
     }
 
     public function toMap()

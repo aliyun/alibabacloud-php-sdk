@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class AttachDestinationRequest extends Model
 {
     /**
+     * @example 1002
+     *
      * @var int
      */
     public $destinationId;
 
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isFailover;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $parserId;
@@ -36,9 +44,6 @@ class AttachDestinationRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('destinationId', $this->destinationId, true);
-        Model::validateRequired('isFailover', $this->isFailover, true);
-        Model::validateRequired('parserId', $this->parserId, true);
     }
 
     public function toMap()

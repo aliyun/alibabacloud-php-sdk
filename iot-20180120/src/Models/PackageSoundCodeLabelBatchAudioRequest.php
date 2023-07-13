@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PackageSoundCodeLabelBatchAudioRequest extends Model
 {
     /**
+     * @example Md3ZiTL888K9llXDy7890***********
+     *
      * @var string
      */
     public $batchCode;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -24,7 +28,6 @@ class PackageSoundCodeLabelBatchAudioRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('batchCode', $this->batchCode, true);
     }
 
     public function toMap()

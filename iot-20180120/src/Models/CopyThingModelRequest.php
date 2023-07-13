@@ -9,26 +9,54 @@ use AlibabaCloud\Tea\Model;
 class CopyThingModelRequest extends Model
 {
     /**
+     * @description The ID of the instance. On the **Overview** page in the IoT Platform console, you can view the ID of the instance.
+     *
+     * >*   If your instance has an ID, you must specify this parameter. Otherwise, the call fails.
+     * >*   If the **Overview** page or instance ID is not displayed in the IoT Platform console, ignore this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * >  You do not need to configure this parameter.
+     * @example rg-acfm4l5tcwd****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The version of the TSL model that you want to copy.
+     *
+     * You can call the [ListThingModelVersion](~~150318~~) operation to view the TSL model versions of a product.
+     * @example V1.0.0
+     *
      * @var string
      */
     public $sourceModelVersion;
 
     /**
+     * @description The ProductKey of the source product.
+     *
+     * You can view the ProductKey on the Product Details page of the IoT Platform console. You can also obtain the ProductKey by calling the [QueryProductList](~~69271~~) operation.
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $sourceProductKey;
 
     /**
+     * @description The ProductKey of the destination product.
+     *
+     * You can view the ProductKey on the Product Details page of the IoT Platform console. You can also obtain the ProductKey by calling the [QueryProductList](~~69271~~) operation.
+     * @example a1BwwG0****
+     *
      * @var string
      */
     public $targetProductKey;
@@ -42,8 +70,6 @@ class CopyThingModelRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('sourceProductKey', $this->sourceProductKey, true);
-        Model::validateRequired('targetProductKey', $this->targetProductKey, true);
     }
 
     public function toMap()

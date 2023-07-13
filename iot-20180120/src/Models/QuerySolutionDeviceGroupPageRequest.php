@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class QuerySolutionDeviceGroupPageRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $fuzzyGroupName;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 4de2c367****8c585e5992**
+     *
      * @var string
      */
     public $projectCode;
@@ -42,9 +52,6 @@ class QuerySolutionDeviceGroupPageRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('pageId', $this->pageId, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('projectCode', $this->projectCode, true);
     }
 
     public function toMap()

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListTaskShrinkRequest extends Model
 {
     /**
+     * @example {}
+     *
      * @var string
      */
     public $deviceShrink;
 
     /**
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example sGWotgRk***010001
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example 22dhgg***
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example QUEUED
+     *
      * @var string
      */
     public $status;
@@ -48,7 +60,6 @@ class ListTaskShrinkRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('limit', $this->limit, true);
     }
 
     public function toMap()

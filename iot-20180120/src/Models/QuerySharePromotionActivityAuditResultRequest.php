@@ -30,8 +30,6 @@ class QuerySharePromotionActivityAuditResultRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('sharePromotionActivityId', $this->sharePromotionActivityId, true);
-        Model::validateRequired('shareTaskCode', $this->shareTaskCode, true);
     }
 
     public function toMap()

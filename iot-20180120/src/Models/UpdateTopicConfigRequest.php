@@ -19,6 +19,13 @@ class UpdateTopicConfigRequest extends Model
     public $description;
 
     /**
+     * @description Specifies whether to enable the retained message broadcasting feature for a custom topic.
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableBroadcast;
@@ -29,6 +36,11 @@ class UpdateTopicConfigRequest extends Model
     public $enableProxySubscribe;
 
     /**
+     * @description The instance ID. You can view the **ID** of the instance on the **Overview** page in the IoT Platform console.
+     *
+     * For more information, see the [Overview](~~356505~~) topic of IoT instances.
+     * @example iot-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -39,11 +51,23 @@ class UpdateTopicConfigRequest extends Model
     public $operation;
 
     /**
+     * @description The **ProductKey** of the product to which the device belongs. The device receives the retained message.
+     *
+     * @example a1Q5XoY****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @description The custom topic for which you want to enable the retained message broadcasting feature.
+     *
+     *   If you use an MQTT gateway device, set this parameter to the original custom topic of the device. For more information, see [Topics](~~433806~~).
+     *   If you use a non-MQTT gateway device, set this parameter to a custom topic in the following format: `/broadcast/${productKey}/${Custom field}`. `${productKey}` is the value of the **ProductKey** request parameter. You can specify `${Custom field}` based on your business requirements.
+     *
+     * >  When you develop devices, use code to define a broadcast topic. You do not need to create a topic in the IoT Platform console. You must grant devices the Subscribe permission or the Publish and Subscribe permission on the topic.
+     * @example /broadcast/a1Q5XoY****\/test
+     *
      * @var string
      */
     public $topicFullName;
@@ -60,8 +84,6 @@ class UpdateTopicConfigRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('productKey', $this->productKey, true);
-        Model::validateRequired('topicFullName', $this->topicFullName, true);
     }
 
     public function toMap()

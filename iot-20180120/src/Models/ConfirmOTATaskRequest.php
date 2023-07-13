@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ConfirmOTATaskRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
+     * @example iot-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example y3tOmCDNgpR8F9jnVEzC01****
+     *
      * @var string[]
      */
     public $taskId;
@@ -24,7 +34,6 @@ class ConfirmOTATaskRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('taskId', $this->taskId, true);
     }
 
     public function toMap()

@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class BatchBindDeviceToEdgeInstanceWithDriverRequest extends Model
 {
     /**
+     * @description The IDs of the devices.
+     *
+     * >  You can specify a maximum of 20 device IDs when you call the BatchBindDeviceToEdgeInstanceWithDriver operation.
+     * @example 021d154d2a2f4dd7a489773d9e04****
+     *
      * @var string
      */
     public $driverId;
 
     /**
+     * @description The ID of the driver. To obtain the driver ID, perform the following steps: Log on to the [Link IoT Edge console](https://iot.console.aliyun.com/le/instance/list). On the **Drivers** page, move the pointer over the name of the driver that you want to configure and obtain the driver ID.
+     *
+     * You can also call the [QueryEdgeDriver](~~155776~~) operation to query the driver ID.
+     * @example F3APY0tPLhmgGtx0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example BXPV9Ks3bxwM9fD****0000101
+     *
      * @var string[]
      */
     public $iotIds;
 
     /**
+     * @description The ID of the edge instance. To obtain the instance ID, perform the following steps: Log on to the [Link IoT Edge console](https://iot.console.aliyun.com/le/instance/list). On the **Edge Instances** page, move the pointer over the name of the edge instance to which you want to bind multiple devices and obtain the instance ID.
+     *
+     * You can also call the [QueryEdgeInstance](~~135214~~) operation to query the instance ID.
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
@@ -36,9 +53,6 @@ class BatchBindDeviceToEdgeInstanceWithDriverRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('driverId', $this->driverId, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
-        Model::validateRequired('iotIds', $this->iotIds, true);
     }
 
     public function toMap()

@@ -4,69 +4,48 @@
 
 namespace AlibabaCloud\SDK\Iot\V20180120\Models;
 
-use AlibabaCloud\SDK\Iot\V20180120\Models\QueryMessageInfoResponse\message;
 use AlibabaCloud\Tea\Model;
 
 class QueryMessageInfoResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $code;
+    public $headers;
 
     /**
-     * @var string
+     * @var int
      */
-    public $errorMessage;
+    public $statusCode;
 
     /**
-     * @var string
+     * @var QueryMessageInfoResponseBody
      */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
-     * @var message
-     */
-    public $message;
+    public $body;
     protected $_name = [
-        'code'         => 'Code',
-        'errorMessage' => 'ErrorMessage',
-        'requestId'    => 'RequestId',
-        'success'      => 'Success',
-        'message'      => 'Message',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('code', $this->code, true);
-        Model::validateRequired('errorMessage', $this->errorMessage, true);
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('success', $this->success, true);
-        Model::validateRequired('message', $this->message, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->errorMessage) {
-            $res['ErrorMessage'] = $this->errorMessage;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
-        if (null !== $this->message) {
-            $res['Message'] = null !== $this->message ? $this->message->toMap() : null;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -80,20 +59,14 @@ class QueryMessageInfoResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['ErrorMessage'])) {
-            $model->errorMessage = $map['ErrorMessage'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
-        if (isset($map['Message'])) {
-            $model->message = message::fromMap($map['Message']);
+        if (isset($map['body'])) {
+            $model->body = QueryMessageInfoResponseBody::fromMap($map['body']);
         }
 
         return $model;

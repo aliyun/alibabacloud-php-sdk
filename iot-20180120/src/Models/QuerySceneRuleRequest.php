@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QuerySceneRuleRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $ruleName;
@@ -36,8 +44,6 @@ class QuerySceneRuleRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('currentPage', $this->currentPage, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()

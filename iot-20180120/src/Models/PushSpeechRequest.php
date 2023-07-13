@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class PushSpeechRequest extends Model
 {
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example 4de2c367****8c585e5992**
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 4de2c367****8c585e5992**
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example light
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example 4de2c367****8c585e5992**
+     *
      * @var string
      */
     public $projectCode;
 
     /**
+     * @example SINGLE_DEVICE
+     *
      * @var string
      */
     public $pushMode;
 
     /**
+     * @example 4de2c367****8c585e5992**
+     *
      * @var string[]
      */
     public $speechCodeList;
@@ -60,9 +76,6 @@ class PushSpeechRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('projectCode', $this->projectCode, true);
-        Model::validateRequired('pushMode', $this->pushMode, true);
-        Model::validateRequired('speechCodeList', $this->speechCodeList, true);
     }
 
     public function toMap()

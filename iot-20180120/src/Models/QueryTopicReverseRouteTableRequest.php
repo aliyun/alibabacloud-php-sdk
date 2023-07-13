@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryTopicReverseRouteTableRequest extends Model
 {
     /**
+     * @description The region where your devices reside. The region you specify must match the region that is specified in the console. Example: cn-shanghai.
+     *
+     * >  This parameter is no longer used as an operation-specific request parameter. It is included in common request parameters.
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The destination topic that receives messages.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The error code returned if the call fails. For more information, see [Error codes](~~87387~~).
+     *
+     * @example /x7aWKW9***\/testDataToDataHub/user/update
+     *
      * @var string
      */
     public $topic;
@@ -30,7 +43,6 @@ class QueryTopicReverseRouteTableRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('topic', $this->topic, true);
     }
 
     public function toMap()

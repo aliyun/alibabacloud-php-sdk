@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceGroupByDeviceRequest extends Model
 {
     /**
+     * @description The DeviceName of the device.
+     *
+     * @example test456
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @description The ID of the instance. You can view the instance **ID** on the **Overview** page in the IoT Platform console.
+     *
+     * >*   If your instance has an ID, you must configure this parameter. If you do not set this parameter, the call fails.
+     * >*   If your instance has no **Overview** page or ID, you do not need to set this parameter.
+     *
+     * For more information, see [Overview](~~356505~~).
+     * @example iot_instc_pu****_c*-v64********
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The ProductKey of the product to which the device belongs.
+     *
+     * @example a1SKk9K****
+     *
      * @var string
      */
     public $productKey;
@@ -30,8 +46,6 @@ class QueryDeviceGroupByDeviceRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('deviceName', $this->deviceName, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

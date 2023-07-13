@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class SetProductCertInfoRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can view the ID of the instance on the **Overview** page in the IoT Platform console.****
+     *
+     * For more information, see [Overview](~~356505~~).
+     * @example iot-cn-0pp1n8t****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @description The source from which the X.509 certificate is issued.
+     *
+     *   **1**: The X.509 certificate is issued by IoT Platform.
+     *   **3**: The X.509 certificate is issued by a third-party platform.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $issueModel;
 
     /**
+     * @description The **ProductKey** of the product.
+     *
+     * @example aS2dewS****
+     *
      * @var string
      */
     public $productKey;
@@ -30,8 +46,6 @@ class SetProductCertInfoRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('issueModel', $this->issueModel, true);
-        Model::validateRequired('productKey', $this->productKey, true);
     }
 
     public function toMap()

@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class QueryDevicesHotStorageDataStatusRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $asc;
 
     /**
+     * @example device1
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @example y4u2weAI********HMle1234
+     *
      * @var string
      */
     public $iotId;
 
     /**
+     * @example iot-2w****
+     *
      * @var string
      */
     public $iotInstanceId;
 
     /**
+     * @example Bo***x44Qx
+     *
      * @var string
      */
     public $nextPageToken;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example a1BwAGV****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @example user/a***\/b***
+     *
      * @var string
      */
     public $userTopic;
@@ -60,10 +76,6 @@ class QueryDevicesHotStorageDataStatusRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('asc', $this->asc, true);
-        Model::validateRequired('iotInstanceId', $this->iotInstanceId, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('userTopic', $this->userTopic, true);
     }
 
     public function toMap()
