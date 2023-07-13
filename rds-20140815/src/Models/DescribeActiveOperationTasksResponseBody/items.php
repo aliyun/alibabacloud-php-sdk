@@ -225,6 +225,11 @@ class items extends Model
     public $switchTime;
 
     /**
+     * @var string
+     */
+    public $taskParams;
+
+    /**
      * @description The type of the task. Valid values:
      *
      *   **rds_apsaradb_ha**: primary/secondary switchover
@@ -278,6 +283,7 @@ class items extends Model
         'status'          => 'Status',
         'subInsNames'     => 'SubInsNames',
         'switchTime'      => 'SwitchTime',
+        'taskParams'      => 'TaskParams',
         'taskType'        => 'TaskType',
         'taskTypeEn'      => 'TaskTypeEn',
         'taskTypeZh'      => 'TaskTypeZh',
@@ -361,6 +367,9 @@ class items extends Model
         }
         if (null !== $this->switchTime) {
             $res['SwitchTime'] = $this->switchTime;
+        }
+        if (null !== $this->taskParams) {
+            $res['TaskParams'] = $this->taskParams;
         }
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
@@ -456,6 +465,9 @@ class items extends Model
         }
         if (isset($map['SwitchTime'])) {
             $model->switchTime = $map['SwitchTime'];
+        }
+        if (isset($map['TaskParams'])) {
+            $model->taskParams = $map['TaskParams'];
         }
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];
