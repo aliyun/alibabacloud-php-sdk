@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class applicationInfo extends Model
 {
     /**
-     * @description The name of the software.
+     * @description The version of the software.
      *
      * @example cudnnt
      *
@@ -18,10 +18,7 @@ class applicationInfo extends Model
     public $name;
 
     /**
-     * @description Indicates whether the software is required. Valid values:
-     *
-     *   false: optional
-     *   true: required
+     * @description The tag of the software.
      *
      * @example true
      *
@@ -30,7 +27,7 @@ class applicationInfo extends Model
     public $required;
 
     /**
-     * @description The tag of the software.
+     * @description The name of the software.
      *
      * @example CUDNN_9.0
      *
@@ -39,8 +36,6 @@ class applicationInfo extends Model
     public $tag;
 
     /**
-     * @description The version of the software.
-     *
      * @example 9.0
      *
      * @var string

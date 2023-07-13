@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListUpgradeClientsRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The upgrade records of the cluster.
      *
      * @example ehpc-hz-FYUr32****
      *
@@ -18,7 +18,7 @@ class ListUpgradeClientsRequest extends Model
     public $clusterId;
 
     /**
-     * @description The ID of the region.
+     * @description The latest version of the E-HPC client.
      *
      * @example cn-hangzhou
      *

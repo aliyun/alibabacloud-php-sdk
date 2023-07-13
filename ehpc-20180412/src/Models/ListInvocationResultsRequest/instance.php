@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
-     * @description The ID of the node on which the command is run.
+     * @description The number of entries returned per page.
      *
-     * >  The Instance.N.Id parameter specifies the node on which the command is run. If it is not specified, the command is run on all nodes of the cluster.
      * @example i-uf65bh2113hlqvyr****
      *
      * @var string

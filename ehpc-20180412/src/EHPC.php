@@ -88,6 +88,8 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeNFSClientStatusRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeNFSClientStatusResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribePriceResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeServerlessJobsRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeServerlessJobsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\EditJobTemplateRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\EditJobTemplateResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\GetAccountingReportRequest;
@@ -178,6 +180,8 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\ListQueuesResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListRegionsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListSecurityGroupsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListSecurityGroupsResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListServerlessJobsRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ListServerlessJobsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListSoftwaresRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListSoftwaresResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\ListTagResourcesRequest;
@@ -247,10 +251,15 @@ use AlibabaCloud\SDK\EHPC\V20180412\Models\StopJobsRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StopJobsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StopNodesRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StopNodesResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\StopServerlessJobsRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\StopServerlessJobsResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StopVisualServiceRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\StopVisualServiceResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitJobRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitJobResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitServerlessJobRequest;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitServerlessJobResponse;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitServerlessJobShrinkRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SummaryImagesInfoRequest;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SummaryImagesInfoResponse;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\SummaryImagesRequest;
@@ -309,7 +318,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * If you select an image for a new containerized application, the image is pulled from Docker Hub by default. However, the version of the image may not be up to date. You can call the [PullImage](~~159052~~) operation to pull the latest image.
+     * The operation that you want to perform. Set the value to AddContainerApp.
      *   *
      * @param AddContainerAppRequest $request AddContainerAppRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -339,7 +348,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * If you select an image for a new containerized application, the image is pulled from Docker Hub by default. However, the version of the image may not be up to date. You can call the [PullImage](~~159052~~) operation to pull the latest image.
+     * The operation that you want to perform. Set the value to AddContainerApp.
      *   *
      * @param AddContainerAppRequest $request AddContainerAppRequest
      *
@@ -645,7 +654,8 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * After you create an Elastic High Performance Computing (E-HPC) cluster, you are charged for the cluster resources that you use. We recommend that you learn about the billing methods of E-HPC in advance. For more information, see [Billing overview](~~57844~~).
+     * The ID of the zone.
+     *   * You can call the [ListRegions](~~188593~~) and [DescribeZones](~~25610~~) operations to query IDs of the zones where E-HPC is supported.
      *   *
      * @param CreateClusterRequest $request CreateClusterRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -675,7 +685,8 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * After you create an Elastic High Performance Computing (E-HPC) cluster, you are charged for the cluster resources that you use. We recommend that you learn about the billing methods of E-HPC in advance. For more information, see [Billing overview](~~57844~~).
+     * The ID of the zone.
+     *   * You can call the [ListRegions](~~188593~~) and [DescribeZones](~~25610~~) operations to query IDs of the zones where E-HPC is supported.
      *   *
      * @param CreateClusterRequest $request CreateClusterRequest
      *
@@ -1377,7 +1388,8 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are still retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data that was retained for the deleted user is not reused.
+     * ## Description
+     *   * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data retained for the deleted user is not reused.
      *   *
      * @param DeleteUsersRequest $request DeleteUsersRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -1407,7 +1419,8 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are still retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data that was retained for the deleted user is not reused.
+     * ## Description
+     *   * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data retained for the deleted user is not reused.
      *   *
      * @param DeleteUsersRequest $request DeleteUsersRequest
      *
@@ -1950,12 +1963,10 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
-     * @param DescribePriceRequest $request DescribePriceRequest
-     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     * @param DescribePriceRequest $request
+     * @param RuntimeOptions       $runtime
      *
-     * @return DescribePriceResponse DescribePriceResponse
+     * @return DescribePriceResponse
      */
     public function describePriceWithOptions($request, $runtime)
     {
@@ -1980,17 +1991,61 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * ****
-     *   *
-     * @param DescribePriceRequest $request DescribePriceRequest
+     * @param DescribePriceRequest $request
      *
-     * @return DescribePriceResponse DescribePriceResponse
+     * @return DescribePriceResponse
      */
     public function describePrice($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->describePriceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeServerlessJobsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeServerlessJobsResponse
+     */
+    public function describeServerlessJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServerlessJobs',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeServerlessJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeServerlessJobsRequest $request
+     *
+     * @return DescribeServerlessJobsResponse
+     */
+    public function describeServerlessJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeServerlessJobsWithOptions($request, $runtime);
     }
 
     /**
@@ -3820,6 +3875,85 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param ListServerlessJobsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListServerlessJobsResponse
+     */
+    public function listServerlessJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        if (!Utils::isUnset($request->jobNames)) {
+            $query['JobNames'] = $request->jobNames;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queues)) {
+            $query['Queues'] = $request->queues;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startOrder)) {
+            $query['StartOrder'] = $request->startOrder;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->submitOrder)) {
+            $query['SubmitOrder'] = $request->submitOrder;
+        }
+        if (!Utils::isUnset($request->submitTimeEnd)) {
+            $query['SubmitTimeEnd'] = $request->submitTimeEnd;
+        }
+        if (!Utils::isUnset($request->submitTimeStart)) {
+            $query['SubmitTimeStart'] = $request->submitTimeStart;
+        }
+        if (!Utils::isUnset($request->users)) {
+            $query['Users'] = $request->users;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServerlessJobs',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListServerlessJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListServerlessJobsRequest $request
+     *
+     * @return ListServerlessJobsResponse
+     */
+    public function listServerlessJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listServerlessJobsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListSoftwaresRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -4119,7 +4253,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * Before you modify the basic information of a cluster, you can call the [DescribeCluster](~~87126~~) operation to query details of the selected cluster.
+     * The new cluster name.
      *   *
      * @param ModifyClusterAttributesRequest $request ModifyClusterAttributesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -4149,7 +4283,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * Before you modify the basic information of a cluster, you can call the [DescribeCluster](~~87126~~) operation to query details of the selected cluster.
+     * The new cluster name.
      *   *
      * @param ModifyClusterAttributesRequest $request ModifyClusterAttributesRequest
      *
@@ -4652,7 +4786,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * If you specify different auto scaling settings in the Queue Configuration section and Global Configurations section on the Auto Scale page, the settings in the Queue Configuration section prevail.
+     * Configures the auto scaling settings of a cluster.
      *   *
      * @param SetAutoScaleConfigRequest $request SetAutoScaleConfigRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -4682,7 +4816,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * If you specify different auto scaling settings in the Queue Configuration section and Global Configurations section on the Auto Scale page, the settings in the Queue Configuration section prevail.
+     * Configures the auto scaling settings of a cluster.
      *   *
      * @param SetAutoScaleConfigRequest $request SetAutoScaleConfigRequest
      *
@@ -5281,6 +5415,52 @@ class EHPC extends OpenApiClient
     }
 
     /**
+     * @param StopServerlessJobsRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return StopServerlessJobsResponse
+     */
+    public function stopServerlessJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->jobIds)) {
+            $query['JobIds'] = $request->jobIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopServerlessJobs',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopServerlessJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopServerlessJobsRequest $request
+     *
+     * @return StopServerlessJobsResponse
+     */
+    public function stopServerlessJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopServerlessJobsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StopVisualServiceRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -5364,6 +5544,108 @@ class EHPC extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitServerlessJobRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SubmitServerlessJobResponse
+     */
+    public function submitServerlessJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitServerlessJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->arrayProperties)) {
+            $request->arrayPropertiesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->arrayProperties, 'ArrayProperties', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->container)) {
+            $request->containerShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->container, 'Container', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->dependsOn)) {
+            $request->dependsOnShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dependsOn, 'DependsOn', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->instanceType)) {
+            $request->instanceTypeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceType, 'InstanceType', 'simple');
+        }
+        if (!Utils::isUnset($tmpReq->vSwitchId)) {
+            $request->vSwitchIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchId, 'VSwitchId', 'simple');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->arrayPropertiesShrink)) {
+            $query['ArrayProperties'] = $request->arrayPropertiesShrink;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->containerShrink)) {
+            $query['Container'] = $request->containerShrink;
+        }
+        if (!Utils::isUnset($request->cpu)) {
+            $query['Cpu'] = $request->cpu;
+        }
+        if (!Utils::isUnset($request->dependsOnShrink)) {
+            $query['DependsOn'] = $request->dependsOnShrink;
+        }
+        if (!Utils::isUnset($request->ephemeralStorage)) {
+            $query['EphemeralStorage'] = $request->ephemeralStorage;
+        }
+        if (!Utils::isUnset($request->instanceTypeShrink)) {
+            $query['InstanceType'] = $request->instanceTypeShrink;
+        }
+        if (!Utils::isUnset($request->jobName)) {
+            $query['JobName'] = $request->jobName;
+        }
+        if (!Utils::isUnset($request->jobPriority)) {
+            $query['JobPriority'] = $request->jobPriority;
+        }
+        if (!Utils::isUnset($request->memory)) {
+            $query['Memory'] = $request->memory;
+        }
+        if (!Utils::isUnset($request->ramRoleName)) {
+            $query['RamRoleName'] = $request->ramRoleName;
+        }
+        if (!Utils::isUnset($request->spotPriceLimit)) {
+            $query['SpotPriceLimit'] = $request->spotPriceLimit;
+        }
+        if (!Utils::isUnset($request->spotStrategy)) {
+            $query['SpotStrategy'] = $request->spotStrategy;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
+        if (!Utils::isUnset($request->vSwitchIdShrink)) {
+            $query['VSwitchId'] = $request->vSwitchIdShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitServerlessJob',
+            'version'     => '2018-04-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitServerlessJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitServerlessJobRequest $request
+     *
+     * @return SubmitServerlessJobResponse
+     */
+    public function submitServerlessJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitServerlessJobWithOptions($request, $runtime);
     }
 
     /**

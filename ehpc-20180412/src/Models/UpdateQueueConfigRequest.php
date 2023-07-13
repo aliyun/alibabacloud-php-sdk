@@ -29,6 +29,11 @@ class UpdateQueueConfigRequest extends Model
     public $computeInstanceType;
 
     /**
+     * @var string
+     */
+    public $deploymentSetId;
+
+    /**
      * @description The name of the queue.
      *
      * @example workq
@@ -49,6 +54,7 @@ class UpdateQueueConfigRequest extends Model
     protected $_name = [
         'clusterId'           => 'ClusterId',
         'computeInstanceType' => 'ComputeInstanceType',
+        'deploymentSetId'     => 'DeploymentSetId',
         'queueName'           => 'QueueName',
         'resourceGroupId'     => 'ResourceGroupId',
     ];
@@ -65,6 +71,9 @@ class UpdateQueueConfigRequest extends Model
         }
         if (null !== $this->computeInstanceType) {
             $res['ComputeInstanceType'] = $this->computeInstanceType;
+        }
+        if (null !== $this->deploymentSetId) {
+            $res['DeploymentSetId'] = $this->deploymentSetId;
         }
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
@@ -89,6 +98,9 @@ class UpdateQueueConfigRequest extends Model
         }
         if (isset($map['ComputeInstanceType'])) {
             $model->computeInstanceType = $map['ComputeInstanceType'];
+        }
+        if (isset($map['DeploymentSetId'])) {
+            $model->deploymentSetId = $map['DeploymentSetId'];
         }
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];

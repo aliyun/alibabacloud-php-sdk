@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class usedResources extends Model
 {
     /**
-     * @description The number of CPU cores. Unit: cores.
+     * @description The memory size. Unit: MiB.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class usedResources extends Model
     public $cpu;
 
     /**
-     * @description The number of GPU cards. Unit: cards.
+     * @description The number of CPU cores. Unit: cores.
      *
      * @example 0
      *
@@ -27,8 +27,12 @@ class usedResources extends Model
     public $gpu;
 
     /**
-     * @description The memory size. Unit: MiB.
+     * @description Indicates whether plug-ins were used in the cluster. Valid values:
      *
+     *   true: Plug-ins are used.
+     *   false: Plug-ins are not used.
+     *
+     * Default value: false
      * @example 1024
      *
      * @var int

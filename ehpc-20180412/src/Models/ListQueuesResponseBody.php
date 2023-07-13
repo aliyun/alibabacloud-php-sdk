@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListQueuesResponseBody extends Model
 {
     /**
+     * @description The details of the queue.
+     *
      * @var queues
      */
     public $queues;

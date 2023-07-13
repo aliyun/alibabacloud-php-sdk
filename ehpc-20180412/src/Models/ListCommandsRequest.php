@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListCommandsRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
@@ -28,7 +28,7 @@ class ListCommandsRequest extends Model
     public $commandId;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number of the page to return.
      *
      * Default value: 1.
      * @example 1
@@ -38,8 +38,7 @@ class ListCommandsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
-     *
+     * @description The number of entries to return on each page.\
      * Default value: 10.
      * @example 10
      *

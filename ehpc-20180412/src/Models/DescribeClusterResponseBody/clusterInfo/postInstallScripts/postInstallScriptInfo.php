@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class postInstallScriptInfo extends Model
 {
     /**
-     * @description The runtime parameter of the script.
-     *
      * @example bash file.sh
      *
      * @var string
@@ -18,8 +16,6 @@ class postInstallScriptInfo extends Model
     public $args;
 
     /**
-     * @description The URL that was used to download the script.
-     *
      * @example example.com
      *
      * @var string

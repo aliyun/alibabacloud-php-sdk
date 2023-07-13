@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterRequest extends Model
 {
     /**
-     * @description The ID of the cluster. You can call the [ListClusters](~~87116~~) operation to query the list of clusters in a region.
+     * @description The type of the image. Valid values:
+     *
+     *   system: public image
+     *   self: custom image
+     *   others: shared image
+     *   marketplace: Alibaba Cloud Marketplace image
      *
      * @example ehpc-hz-QKKVqO****
      *

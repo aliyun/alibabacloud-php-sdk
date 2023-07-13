@@ -64,7 +64,7 @@ class typesInfo extends Model
     public $instanceBandwidthTx;
 
     /**
-     * @description The inbound packet forwarding rate over the internal network. Unit: pps
+     * @description The inbound packet forwarding rate over the internal network. Unit: pps.
      *
      * @example 9000000
      *
@@ -73,7 +73,7 @@ class typesInfo extends Model
     public $instancePpsRx;
 
     /**
-     * @description The outbound packet forwarding rate over the internal network. Unit: pps
+     * @description The outbound packet forwarding rate over the internal network. Unit: pps.
      *
      * @example 9000000
      *
@@ -91,7 +91,7 @@ class typesInfo extends Model
     public $instanceTypeId;
 
     /**
-     * @description The memory size of the ECS instance. Unit: GiB
+     * @description The memory size of the ECS instance. Unit: GiB.
      *
      * @example 8
      *

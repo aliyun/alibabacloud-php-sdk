@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteLocalImageRequest extends Model
 {
     /**
-     * @description The ID of the cluster from which that you want to delete the image.
-     *
      * @example ehpc-hz-ibug69****
      *
      * @var string
@@ -18,8 +16,6 @@ class DeleteLocalImageRequest extends Model
     public $clusterId;
 
     /**
-     * @description The type of the image. Set the value to singularity.
-     *
      * @example singularity
      *
      * @var string
@@ -27,8 +23,6 @@ class DeleteLocalImageRequest extends Model
     public $containerType;
 
     /**
-     * @description The name of the image that you want to delete.
-     *
      * @example test.sif
      *
      * @var string

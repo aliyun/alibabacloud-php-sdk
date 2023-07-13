@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListUsersAsyncRequest extends Model
 {
     /**
+     * @example t-hz02xltxaex1q80
+     *
      * @var string
      */
     public $asyncId;
 
     /**
+     * @example ehpc-hz-vu7c2WkVGx
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

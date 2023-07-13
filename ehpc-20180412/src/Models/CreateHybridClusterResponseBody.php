@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateHybridClusterResponseBody extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The ID of cluster.
      *
      * @example ehpc-hz-FYUr32****
      *

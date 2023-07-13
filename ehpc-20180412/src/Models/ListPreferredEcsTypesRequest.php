@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListPreferredEcsTypesRequest extends Model
 {
     /**
-     * @description The billing method of the ECS instance. Valid values:
+     * @description The billing method of the ECS instances. Valid values:
      *
-     *   PostPaid: pay-as-you-go
-     *   PrePaid: subscription
+     *   PostPaid
+     *   PrePaid
      *
      * @example PostPaid
      *
@@ -23,9 +23,9 @@ class ListPreferredEcsTypesRequest extends Model
     /**
      * @description The bidding policy of the ECS instance. Valid values:
      *
-     *   NoSpot: The instance is created as a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance to be created is a preemptible instance with a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The instance is a preemptible instance whose price is based on the current market price.
+     *   NoSpot: The instance is created as a pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
      *
      * @example NoSpot
      *
@@ -34,7 +34,7 @@ class ListPreferredEcsTypesRequest extends Model
     public $spotStrategy;
 
     /**
-     * @description The ID of the zone.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-b
      *

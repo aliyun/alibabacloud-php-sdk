@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\ModifyClusterAttributesRequest\winAdPar;
 use AlibabaCloud\Tea\Model;
 
 class ModifyClusterAttributesRequest extends Model
 {
     /**
-     * @description The ID of the cluster that you want to modify.
+     * @description The ID of the image.
      *
      * @example ehpc-hz-FYUr32****
      *
@@ -18,8 +19,6 @@ class ModifyClusterAttributesRequest extends Model
     public $clusterId;
 
     /**
-     * @description The new cluster description.
-     *
      * @example test-description
      *
      * @var string
@@ -27,8 +26,6 @@ class ModifyClusterAttributesRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the image.
-     *
      * @example centos_7_06_64_20G_alibase_2019071****
      *
      * @var string
@@ -36,13 +33,6 @@ class ModifyClusterAttributesRequest extends Model
     public $imageId;
 
     /**
-     * @description The new image type of the cluster. Valid values:
-     *
-     *   system: public image
-     *   self: custom image
-     *   others: shared image
-     *   marketplace: Alibaba Cloud Marketplace image
-     *
      * @example self
      *
      * @var string
@@ -50,7 +40,7 @@ class ModifyClusterAttributesRequest extends Model
     public $imageOwnerAlias;
 
     /**
-     * @description The new cluster name.
+     * @description The ID of the request.
      *
      * @example cluster1
      *
@@ -59,16 +49,25 @@ class ModifyClusterAttributesRequest extends Model
     public $name;
 
     /**
+     * @description 授权实例配置时，要绑定RAM角色的节点类型。
+     *
      * @var string[]
      */
     public $ramNodeTypes;
 
     /**
-     * @example AliyunEHPCFullAccess
+     * @description 授权实例配置时，实例RAM角色的名称。
+     *
+     * @example testRamRoleName
      *
      * @var string
      */
     public $ramRoleName;
+
+    /**
+     * @var winAdPar
+     */
+    public $winAdPar;
     protected $_name = [
         'clusterId'       => 'ClusterId',
         'description'     => 'Description',
@@ -77,6 +76,7 @@ class ModifyClusterAttributesRequest extends Model
         'name'            => 'Name',
         'ramNodeTypes'    => 'RamNodeTypes',
         'ramRoleName'     => 'RamRoleName',
+        'winAdPar'        => 'WinAdPar',
     ];
 
     public function validate()
@@ -106,6 +106,9 @@ class ModifyClusterAttributesRequest extends Model
         }
         if (null !== $this->ramRoleName) {
             $res['RamRoleName'] = $this->ramRoleName;
+        }
+        if (null !== $this->winAdPar) {
+            $res['WinAdPar'] = null !== $this->winAdPar ? $this->winAdPar->toMap() : null;
         }
 
         return $res;
@@ -141,6 +144,9 @@ class ModifyClusterAttributesRequest extends Model
         }
         if (isset($map['RamRoleName'])) {
             $model->ramRoleName = $map['RamRoleName'];
+        }
+        if (isset($map['WinAdPar'])) {
+            $model->winAdPar = winAdPar::fromMap($map['WinAdPar']);
         }
 
         return $model;

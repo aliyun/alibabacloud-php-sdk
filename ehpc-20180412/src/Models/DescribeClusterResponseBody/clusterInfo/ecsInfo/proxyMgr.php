@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class proxyMgr extends Model
 {
     /**
-     * @description The number of proxy nodes.
-     *
      * @example 1
      *
      * @var int
@@ -18,8 +16,6 @@ class proxyMgr extends Model
     public $count;
 
     /**
-     * @description The instance type of the proxy node.
-     *
      * @example ecs.n1.tiny
      *
      * @var string

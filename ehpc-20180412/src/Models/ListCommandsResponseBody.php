@@ -26,7 +26,7 @@ class ListCommandsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *

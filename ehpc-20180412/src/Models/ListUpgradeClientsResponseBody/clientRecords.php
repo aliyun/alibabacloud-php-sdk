@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class clientRecords extends Model
 {
     /**
-     * @description The version of the E-HPC client after the upgrade.
-     *
      * @example 1.2.21
      *
      * @var string
@@ -18,8 +16,6 @@ class clientRecords extends Model
     public $newVersion;
 
     /**
-     * @description The version of the E-HPC client before the upgrade.
-     *
      * @example 1.2.16
      *
      * @var string
@@ -27,8 +23,6 @@ class clientRecords extends Model
     public $oldVersion;
 
     /**
-     * @description The ID of the user that upgraded the E-HPC client.
-     *
      * @example 129******84
      *
      * @var string
@@ -36,8 +30,6 @@ class clientRecords extends Model
     public $subUid;
 
     /**
-     * @description The time when the operation was performed.
-     *
      * @example 2022-08-26T06:26:57.000Z
      *
      * @var string

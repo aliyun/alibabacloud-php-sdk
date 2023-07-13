@@ -38,7 +38,7 @@ class command extends Model
     /**
      * @description The working directory of the command.
      *
-     * @example /root
+     * @example /home
      *
      * @var string
      */

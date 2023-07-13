@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetJobLogRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The maximum size of logs that you can read in a single request.
      *
+     * Default value: 1024
      * @example ehpc-hz-jeJki6****
      *
      * @var string
@@ -18,10 +19,7 @@ class GetJobLogRequest extends Model
     public $clusterId;
 
     /**
-     * @description The node on which the job runs.
-     *
-     *   If the job is completed, you do not need to specify the parameter.
-     *   If the job is running, you must specify the parameter.
+     * @description The ID of the task.
      *
      * @example compute000
      *
@@ -30,8 +28,9 @@ class GetJobLogRequest extends Model
     public $execHost;
 
     /**
-     * @description The ID of the job.
+     * @description The position where logs start to be read.
      *
+     * Default value: 0
      * @example 1.scheduler****
      *
      * @var string
@@ -39,9 +38,8 @@ class GetJobLogRequest extends Model
     public $jobId;
 
     /**
-     * @description The position where logs start to be read.
+     * @description The content of the output logs. The content is encoded in Base64.
      *
-     * Default value: 0
      * @example 0
      *
      * @var int
@@ -49,9 +47,8 @@ class GetJobLogRequest extends Model
     public $offset;
 
     /**
-     * @description The maximum size of logs that you can read in a single request.
+     * @description The ID of the job.
      *
-     * Default value: 1024
      * @example 1024
      *
      * @var int

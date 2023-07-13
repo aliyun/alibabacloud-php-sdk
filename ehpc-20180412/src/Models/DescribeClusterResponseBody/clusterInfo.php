@@ -4,8 +4,11 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody;
 
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\addOnsInfo;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\applications;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\ecsInfo;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\initialImage;
+use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\nodes;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\onPremiseInfo;
 use AlibabaCloud\SDK\EHPC\V20180412\Models\DescribeClusterResponseBody\clusterInfo\postInstallScripts;
 use AlibabaCloud\Tea\Model;
@@ -13,10 +16,7 @@ use AlibabaCloud\Tea\Model;
 class clusterInfo extends Model
 {
     /**
-     * @description The service type of the domain account. Valid values:
-     *
-     *   nis
-     *   ldap
+     * @description The version of the E-HPC client.
      *
      * @example nis
      *
@@ -25,14 +25,30 @@ class clusterInfo extends Model
     public $accountType;
 
     /**
-     * @description The array of the software in the cluster. The array contains the name and version of the software.
+     * @var addOnsInfo
+     */
+    public $addOnsInfo;
+
+    /**
+     * @description The list of on-premises management nodes.
      *
+     * This parameter is returned only when the cluster is deployed across hybrid environments and the hybrid-cloud proxy mode is enabled for the cluster.
      * @var applications
      */
     public $applications;
 
     /**
-     * @description The image of the cluster.
+     * @var string
+     */
+    public $autoRenew;
+
+    /**
+     * @var string
+     */
+    public $autoRenewPeriod;
+
+    /**
+     * @description The list of scripts downloaded after the cluster was created.
      *
      * @example CentOS_7.2_64
      *
@@ -41,7 +57,7 @@ class clusterInfo extends Model
     public $baseOsTag;
 
     /**
-     * @description The version of the E-HPC client.
+     * @description The number of proxy nodes.
      *
      * @example 1.0.1
      *
@@ -50,7 +66,22 @@ class clusterInfo extends Model
     public $clientVersion;
 
     /**
-     * @description The time when the cluster was created.
+     * @var string
+     */
+    public $clusterVersion;
+
+    /**
+     * @var string
+     */
+    public $computeSpotPriceLimit;
+
+    /**
+     * @var string
+     */
+    public $computeSpotStrategy;
+
+    /**
+     * @description The ID of the Elastic Compute Service (ECS) instance.
      *
      * @example 2020-12-24T03:18:23.000Z
      *
@@ -59,12 +90,7 @@ class clusterInfo extends Model
     public $createTime;
 
     /**
-     * @description The mode in which the cluster is deployed. Valid values:
-     *
-     *   Standard: An account node, a scheduling node, a logon node, and multiple compute nodes are separately deployed.
-     *   Advanced: Two high availability (HA) account nodes, two HA scheduler nodes, one logon node, and multiple compute nodes are separately deployed.
-     *   Simple: A management node, a logon node, and multiple compute nodes are deployed. The management node consists of an account node and a scheduling node. The logon node and compute nodes are separately deployed.
-     *   Tiny: A management node and multiple compute nodes are deployed. The management node consists of an account node, a scheduling node, and a logon node. The compute nodes are separately deployed.
+     * @description The list of management nodes.
      *
      * @example Simple
      *
@@ -73,7 +99,7 @@ class clusterInfo extends Model
     public $deployMode;
 
     /**
-     * @description The description of the cluster.
+     * @description The tag of the software.
      *
      * @example cluster
      *
@@ -82,10 +108,12 @@ class clusterInfo extends Model
     public $description;
 
     /**
-     * @description The billing method of the nodes in the cluster. Valid values:
-     *
-     *   PostPaid: pay-as-you-go
-     *   PrePaid: subscription
+     * @var string
+     */
+    public $domain;
+
+    /**
+     * @description The name of the image.
      *
      * @example PostPaid
      *
@@ -94,16 +122,13 @@ class clusterInfo extends Model
     public $ecsChargeType;
 
     /**
-     * @description The list of ECS instance specifications and quantity.
-     *
      * @var ecsInfo
      */
     public $ecsInfo;
 
     /**
-     * @description Indicates whether the high availability feature is enabled.
+     * @description The version of the software.
      *
-     * >  If high availability is enabled, a primary management node and a secondary management node are used.
      * @example false
      *
      * @var bool
@@ -111,7 +136,7 @@ class clusterInfo extends Model
     public $haEnable;
 
     /**
-     * @description The ID of the Elastic Compute Service (ECS) instance.
+     * @description The instance type of the proxy node.
      *
      * @example i-bp15de54eet1c43f****
      *
@@ -120,7 +145,7 @@ class clusterInfo extends Model
     public $id;
 
     /**
-     * @description The ID of the image.
+     * @description The runtime parameter of the script.
      *
      * @example centos_7_02_64_20G_alibase_20170818****
      *
@@ -129,7 +154,7 @@ class clusterInfo extends Model
     public $imageId;
 
     /**
-     * @description The name of the image.
+     * @description The instance type of the logon nodes.
      *
      * @example test_for_Image
      *
@@ -138,12 +163,7 @@ class clusterInfo extends Model
     public $imageName;
 
     /**
-     * @description The type of the image. Valid values:
-     *
-     *   system: public image
-     *   self: custom image
-     *   others: shared image
-     *   marketplace: Alibaba Cloud Marketplace image
+     * @description The instance type of the management nodes.
      *
      * @example system
      *
@@ -152,7 +172,12 @@ class clusterInfo extends Model
     public $imageOwnerAlias;
 
     /**
-     * @description The name of the AccessKey pair.
+     * @var initialImage
+     */
+    public $initialImage;
+
+    /**
+     * @description The ID of the vSwitch. E-HPC can be deployed only in VPCs.
      *
      * @example test
      *
@@ -161,11 +186,9 @@ class clusterInfo extends Model
     public $keyPairName;
 
     /**
-     * @description The location where the cluster is deployed. Valid values:
+     * @description The list of proxy nodes on the cloud.
      *
-     *   OnPremise: The cluster is deployed on a hybrid cloud.
-     *   PublicCloud: The node is deployed on a public cloud.
-     *
+     * This parameter is returned only when the cluster is deployed across hybrid environments and the hybrid-cloud proxy mode is enabled for the cluster.
      * @example PublicCloud
      *
      * @var string
@@ -173,7 +196,7 @@ class clusterInfo extends Model
     public $location;
 
     /**
-     * @description The name of the cluster.
+     * @description The URL that was used to download the script.
      *
      * @example cluster
      *
@@ -182,15 +205,22 @@ class clusterInfo extends Model
     public $name;
 
     /**
-     * @description The list of on-premises management nodes.
-     *
-     * This parameter is returned only when the cluster is deployed across hybrid environments and the hybrid-cloud proxy mode is enabled for the cluster.
+     * @var nodes
+     */
+    public $nodes;
+
+    /**
      * @var onPremiseInfo
      */
     public $onPremiseInfo;
 
     /**
-     * @description The image tag of the operating system.
+     * @var string
+     */
+    public $openldapPar;
+
+    /**
+     * @description The number of management nodes.
      *
      * @example CentOS_7.2_64
      *
@@ -199,8 +229,21 @@ class clusterInfo extends Model
     public $osTag;
 
     /**
-     * @description The list of scripts downloaded after the cluster was created.
-     *
+     * @var string
+     */
+    public $period;
+
+    /**
+     * @var string
+     */
+    public $periodUnit;
+
+    /**
+     * @var string
+     */
+    public $plugin;
+
+    /**
      * @var postInstallScripts
      */
     public $postInstallScripts;
@@ -216,7 +259,7 @@ class clusterInfo extends Model
     public $ramRoleName;
 
     /**
-     * @description The region ID of the security group.
+     * @description The number of compute nodes.
      *
      * @example cn-hangzhou
      *
@@ -225,7 +268,7 @@ class clusterInfo extends Model
     public $regionId;
 
     /**
-     * @description The remote directory on which the file system is mounted.
+     * @description The instance type of the compute nodes.
      *
      * @example NasMountpoint:/RemoteDirectory
      *
@@ -234,7 +277,15 @@ class clusterInfo extends Model
     public $remoteDirectory;
 
     /**
-     * @description The ID of the Super Computing Cluster (SCC) instance. If the cluster is not an SCC instance, a null string is returned.
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The location where the cluster is deployed. Valid values:
+     *
+     *   OnPremise: The cluster is deployed on a hybrid cloud.
+     *   PublicCloud: The node is deployed on a public cloud.
      *
      * @example 00b648b****
      *
@@ -243,12 +294,12 @@ class clusterInfo extends Model
     public $sccClusterId;
 
     /**
-     * @description The type of the scheduler. Valid values:
-     *
-     *   pbs
-     *   slurm
-     *   opengridscheduler
-     *   deadline
+     * @var int
+     */
+    public $schedulerPreInstall;
+
+    /**
+     * @description The list of ECS instance specifications and quantity.
      *
      * @example pbs
      *
@@ -257,7 +308,7 @@ class clusterInfo extends Model
     public $schedulerType;
 
     /**
-     * @description The ID of the security group.
+     * @description The type of the network shared storage. Valid value: NAS.
      *
      * @example sg-bp1asugr34gzn****
      *
@@ -266,14 +317,7 @@ class clusterInfo extends Model
     public $securityGroupId;
 
     /**
-     * @description The status of the cluster. Valid values:
-     *
-     *   uninit: The cluster is not initialized.
-     *   creating: The cluster is being created.
-     *   init: The cluster is being initialized.
-     *   running: The cluster is running.
-     *   exception: The cluster encounters an exception.
-     *   releasing: The cluster is being released.
+     * @description The remote directory on which the file system is mounted.
      *
      * @example creating
      *
@@ -282,7 +326,7 @@ class clusterInfo extends Model
     public $status;
 
     /**
-     * @description The ID of the vSwitch. E-HPC can be deployed only in VPCs.
+     * @description The list of logon nodes.
      *
      * @example vsw-bp1e47optm9g58zcu****
      *
@@ -291,7 +335,7 @@ class clusterInfo extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the Apsara File Storage NAS file system. NAS file systems cannot be automatically created.
+     * @description The name of the software.
      *
      * @example 008b64****
      *
@@ -300,7 +344,7 @@ class clusterInfo extends Model
     public $volumeId;
 
     /**
-     * @description The mount target of the file system. Mount targets cannot be automatically created for NAS file systems.
+     * @description The list of compute nodes.
      *
      * @example 008b648bcb-s****.cn-hangzhou.nas.aliyuncs.com
      *
@@ -309,10 +353,7 @@ class clusterInfo extends Model
     public $volumeMountpoint;
 
     /**
-     * @description The type of the protocol that is used by the file system. Valid values:
-     *
-     *   nfs
-     *   smb
+     * @description The array of the software in the cluster. The array contains the name and version of the software.
      *
      * @example nfs
      *
@@ -321,7 +362,7 @@ class clusterInfo extends Model
     public $volumeProtocol;
 
     /**
-     * @description The type of the network shared storage. Valid value: NAS.
+     * @description The number of logon nodes.
      *
      * @example NAS
      *
@@ -330,48 +371,81 @@ class clusterInfo extends Model
     public $volumeType;
 
     /**
-     * @description The ID of the VPC.
+     * @description The region ID of the security group.
      *
      * @example vpc-bp1pxkcvmmz53ki89****
      *
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $winAdPar;
+
+    /**
+     * @var int
+     */
+    public $withoutAgent;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'accountType'        => 'AccountType',
-        'applications'       => 'Applications',
-        'baseOsTag'          => 'BaseOsTag',
-        'clientVersion'      => 'ClientVersion',
-        'createTime'         => 'CreateTime',
-        'deployMode'         => 'DeployMode',
-        'description'        => 'Description',
-        'ecsChargeType'      => 'EcsChargeType',
-        'ecsInfo'            => 'EcsInfo',
-        'haEnable'           => 'HaEnable',
-        'id'                 => 'Id',
-        'imageId'            => 'ImageId',
-        'imageName'          => 'ImageName',
-        'imageOwnerAlias'    => 'ImageOwnerAlias',
-        'keyPairName'        => 'KeyPairName',
-        'location'           => 'Location',
-        'name'               => 'Name',
-        'onPremiseInfo'      => 'OnPremiseInfo',
-        'osTag'              => 'OsTag',
-        'postInstallScripts' => 'PostInstallScripts',
-        'ramNodeTypes'       => 'RamNodeTypes',
-        'ramRoleName'        => 'RamRoleName',
-        'regionId'           => 'RegionId',
-        'remoteDirectory'    => 'RemoteDirectory',
-        'sccClusterId'       => 'SccClusterId',
-        'schedulerType'      => 'SchedulerType',
-        'securityGroupId'    => 'SecurityGroupId',
-        'status'             => 'Status',
-        'vSwitchId'          => 'VSwitchId',
-        'volumeId'           => 'VolumeId',
-        'volumeMountpoint'   => 'VolumeMountpoint',
-        'volumeProtocol'     => 'VolumeProtocol',
-        'volumeType'         => 'VolumeType',
-        'vpcId'              => 'VpcId',
+        'accountType'           => 'AccountType',
+        'addOnsInfo'            => 'AddOnsInfo',
+        'applications'          => 'Applications',
+        'autoRenew'             => 'AutoRenew',
+        'autoRenewPeriod'       => 'AutoRenewPeriod',
+        'baseOsTag'             => 'BaseOsTag',
+        'clientVersion'         => 'ClientVersion',
+        'clusterVersion'        => 'ClusterVersion',
+        'computeSpotPriceLimit' => 'ComputeSpotPriceLimit',
+        'computeSpotStrategy'   => 'ComputeSpotStrategy',
+        'createTime'            => 'CreateTime',
+        'deployMode'            => 'DeployMode',
+        'description'           => 'Description',
+        'domain'                => 'Domain',
+        'ecsChargeType'         => 'EcsChargeType',
+        'ecsInfo'               => 'EcsInfo',
+        'haEnable'              => 'HaEnable',
+        'id'                    => 'Id',
+        'imageId'               => 'ImageId',
+        'imageName'             => 'ImageName',
+        'imageOwnerAlias'       => 'ImageOwnerAlias',
+        'initialImage'          => 'InitialImage',
+        'keyPairName'           => 'KeyPairName',
+        'location'              => 'Location',
+        'name'                  => 'Name',
+        'nodes'                 => 'Nodes',
+        'onPremiseInfo'         => 'OnPremiseInfo',
+        'openldapPar'           => 'OpenldapPar',
+        'osTag'                 => 'OsTag',
+        'period'                => 'Period',
+        'periodUnit'            => 'PeriodUnit',
+        'plugin'                => 'Plugin',
+        'postInstallScripts'    => 'PostInstallScripts',
+        'ramNodeTypes'          => 'RamNodeTypes',
+        'ramRoleName'           => 'RamRoleName',
+        'regionId'              => 'RegionId',
+        'remoteDirectory'       => 'RemoteDirectory',
+        'resourceGroupId'       => 'ResourceGroupId',
+        'sccClusterId'          => 'SccClusterId',
+        'schedulerPreInstall'   => 'SchedulerPreInstall',
+        'schedulerType'         => 'SchedulerType',
+        'securityGroupId'       => 'SecurityGroupId',
+        'status'                => 'Status',
+        'vSwitchId'             => 'VSwitchId',
+        'volumeId'              => 'VolumeId',
+        'volumeMountpoint'      => 'VolumeMountpoint',
+        'volumeProtocol'        => 'VolumeProtocol',
+        'volumeType'            => 'VolumeType',
+        'vpcId'                 => 'VpcId',
+        'winAdPar'              => 'WinAdPar',
+        'withoutAgent'          => 'WithoutAgent',
+        'zoneId'                => 'ZoneId',
     ];
 
     public function validate()
@@ -384,14 +458,32 @@ class clusterInfo extends Model
         if (null !== $this->accountType) {
             $res['AccountType'] = $this->accountType;
         }
+        if (null !== $this->addOnsInfo) {
+            $res['AddOnsInfo'] = null !== $this->addOnsInfo ? $this->addOnsInfo->toMap() : null;
+        }
         if (null !== $this->applications) {
             $res['Applications'] = null !== $this->applications ? $this->applications->toMap() : null;
+        }
+        if (null !== $this->autoRenew) {
+            $res['AutoRenew'] = $this->autoRenew;
+        }
+        if (null !== $this->autoRenewPeriod) {
+            $res['AutoRenewPeriod'] = $this->autoRenewPeriod;
         }
         if (null !== $this->baseOsTag) {
             $res['BaseOsTag'] = $this->baseOsTag;
         }
         if (null !== $this->clientVersion) {
             $res['ClientVersion'] = $this->clientVersion;
+        }
+        if (null !== $this->clusterVersion) {
+            $res['ClusterVersion'] = $this->clusterVersion;
+        }
+        if (null !== $this->computeSpotPriceLimit) {
+            $res['ComputeSpotPriceLimit'] = $this->computeSpotPriceLimit;
+        }
+        if (null !== $this->computeSpotStrategy) {
+            $res['ComputeSpotStrategy'] = $this->computeSpotStrategy;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -401,6 +493,9 @@ class clusterInfo extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
         if (null !== $this->ecsChargeType) {
             $res['EcsChargeType'] = $this->ecsChargeType;
@@ -423,6 +518,9 @@ class clusterInfo extends Model
         if (null !== $this->imageOwnerAlias) {
             $res['ImageOwnerAlias'] = $this->imageOwnerAlias;
         }
+        if (null !== $this->initialImage) {
+            $res['InitialImage'] = null !== $this->initialImage ? $this->initialImage->toMap() : null;
+        }
         if (null !== $this->keyPairName) {
             $res['KeyPairName'] = $this->keyPairName;
         }
@@ -432,11 +530,26 @@ class clusterInfo extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->nodes) {
+            $res['Nodes'] = null !== $this->nodes ? $this->nodes->toMap() : null;
+        }
         if (null !== $this->onPremiseInfo) {
             $res['OnPremiseInfo'] = null !== $this->onPremiseInfo ? $this->onPremiseInfo->toMap() : null;
         }
+        if (null !== $this->openldapPar) {
+            $res['OpenldapPar'] = $this->openldapPar;
+        }
         if (null !== $this->osTag) {
             $res['OsTag'] = $this->osTag;
+        }
+        if (null !== $this->period) {
+            $res['Period'] = $this->period;
+        }
+        if (null !== $this->periodUnit) {
+            $res['PeriodUnit'] = $this->periodUnit;
+        }
+        if (null !== $this->plugin) {
+            $res['Plugin'] = $this->plugin;
         }
         if (null !== $this->postInstallScripts) {
             $res['PostInstallScripts'] = null !== $this->postInstallScripts ? $this->postInstallScripts->toMap() : null;
@@ -453,8 +566,14 @@ class clusterInfo extends Model
         if (null !== $this->remoteDirectory) {
             $res['RemoteDirectory'] = $this->remoteDirectory;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->sccClusterId) {
             $res['SccClusterId'] = $this->sccClusterId;
+        }
+        if (null !== $this->schedulerPreInstall) {
+            $res['SchedulerPreInstall'] = $this->schedulerPreInstall;
         }
         if (null !== $this->schedulerType) {
             $res['SchedulerType'] = $this->schedulerType;
@@ -483,6 +602,15 @@ class clusterInfo extends Model
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
+        if (null !== $this->winAdPar) {
+            $res['WinAdPar'] = $this->winAdPar;
+        }
+        if (null !== $this->withoutAgent) {
+            $res['WithoutAgent'] = $this->withoutAgent;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
+        }
 
         return $res;
     }
@@ -498,14 +626,32 @@ class clusterInfo extends Model
         if (isset($map['AccountType'])) {
             $model->accountType = $map['AccountType'];
         }
+        if (isset($map['AddOnsInfo'])) {
+            $model->addOnsInfo = addOnsInfo::fromMap($map['AddOnsInfo']);
+        }
         if (isset($map['Applications'])) {
             $model->applications = applications::fromMap($map['Applications']);
+        }
+        if (isset($map['AutoRenew'])) {
+            $model->autoRenew = $map['AutoRenew'];
+        }
+        if (isset($map['AutoRenewPeriod'])) {
+            $model->autoRenewPeriod = $map['AutoRenewPeriod'];
         }
         if (isset($map['BaseOsTag'])) {
             $model->baseOsTag = $map['BaseOsTag'];
         }
         if (isset($map['ClientVersion'])) {
             $model->clientVersion = $map['ClientVersion'];
+        }
+        if (isset($map['ClusterVersion'])) {
+            $model->clusterVersion = $map['ClusterVersion'];
+        }
+        if (isset($map['ComputeSpotPriceLimit'])) {
+            $model->computeSpotPriceLimit = $map['ComputeSpotPriceLimit'];
+        }
+        if (isset($map['ComputeSpotStrategy'])) {
+            $model->computeSpotStrategy = $map['ComputeSpotStrategy'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
@@ -515,6 +661,9 @@ class clusterInfo extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Domain'])) {
+            $model->domain = $map['Domain'];
         }
         if (isset($map['EcsChargeType'])) {
             $model->ecsChargeType = $map['EcsChargeType'];
@@ -537,6 +686,9 @@ class clusterInfo extends Model
         if (isset($map['ImageOwnerAlias'])) {
             $model->imageOwnerAlias = $map['ImageOwnerAlias'];
         }
+        if (isset($map['InitialImage'])) {
+            $model->initialImage = initialImage::fromMap($map['InitialImage']);
+        }
         if (isset($map['KeyPairName'])) {
             $model->keyPairName = $map['KeyPairName'];
         }
@@ -546,11 +698,26 @@ class clusterInfo extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['Nodes'])) {
+            $model->nodes = nodes::fromMap($map['Nodes']);
+        }
         if (isset($map['OnPremiseInfo'])) {
             $model->onPremiseInfo = onPremiseInfo::fromMap($map['OnPremiseInfo']);
         }
+        if (isset($map['OpenldapPar'])) {
+            $model->openldapPar = $map['OpenldapPar'];
+        }
         if (isset($map['OsTag'])) {
             $model->osTag = $map['OsTag'];
+        }
+        if (isset($map['Period'])) {
+            $model->period = $map['Period'];
+        }
+        if (isset($map['PeriodUnit'])) {
+            $model->periodUnit = $map['PeriodUnit'];
+        }
+        if (isset($map['Plugin'])) {
+            $model->plugin = $map['Plugin'];
         }
         if (isset($map['PostInstallScripts'])) {
             $model->postInstallScripts = postInstallScripts::fromMap($map['PostInstallScripts']);
@@ -567,8 +734,14 @@ class clusterInfo extends Model
         if (isset($map['RemoteDirectory'])) {
             $model->remoteDirectory = $map['RemoteDirectory'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['SccClusterId'])) {
             $model->sccClusterId = $map['SccClusterId'];
+        }
+        if (isset($map['SchedulerPreInstall'])) {
+            $model->schedulerPreInstall = $map['SchedulerPreInstall'];
         }
         if (isset($map['SchedulerType'])) {
             $model->schedulerType = $map['SchedulerType'];
@@ -596,6 +769,15 @@ class clusterInfo extends Model
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['WinAdPar'])) {
+            $model->winAdPar = $map['WinAdPar'];
+        }
+        if (isset($map['WithoutAgent'])) {
+            $model->withoutAgent = $map['WithoutAgent'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

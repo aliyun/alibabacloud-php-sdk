@@ -20,12 +20,14 @@ class CreateHybridClusterRequest extends Model
     public $ecsOrder;
 
     /**
+     * @description An array that consists of the information about the software.
+     *
      * @var application[]
      */
     public $application;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure the idempotence of a request](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence of a request?](~~25693~~)
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -55,10 +57,10 @@ class CreateHybridClusterRequest extends Model
      * @description The preemption policy of the compute nodes. Valid values:
      *
      *   NoSpot: The compute nodes are pay-as-you-go instances.
-     *   SpotWithPriceLimit: The instances of the compute node are preemptible instances. These types of instances have a specified maximum hourly price.
-     *   SpotAsPriceGo: The instances of the compute node are preemptible instances. The price of these instances is based on the current market price.
+     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is created as a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
      *
-     * Default value: NoSpot
+     * Default value: NoSpot.
      * @example NoSpot
      *
      * @var string
@@ -66,9 +68,9 @@ class CreateHybridClusterRequest extends Model
     public $computeSpotStrategy;
 
     /**
-     * @description The description of the cluster. The description must be 2 to 256 characters in length. It cannot start with http:// or https://.
+     * @description The description of the E-HPC cluster. The description must be 2 to 256 characters in length and cannot start with [http:// or https://](http://https://。).
      *
-     * Default value: null
+     * This parameter is empty by default.
      * @example TestDescription
      *
      * @var string
@@ -81,7 +83,7 @@ class CreateHybridClusterRequest extends Model
      *   nis
      *   ldap
      *
-     * Default value: nis
+     * Default value: nis.
      * @example nis
      *
      * @var string
@@ -98,7 +100,19 @@ class CreateHybridClusterRequest extends Model
     public $ehpcVersion;
 
     /**
-     * @description The ID of the image.
+     * @description The mode in which the proxy node manages the offline nodes. Valid values:
+     *
+     *   SSH: indicates management via SSH logon.
+     *   CA: indicates management through Cloud Assistant.
+     *
+     * @example SSH
+     *
+     * @var string
+     */
+    public $hybridClusterOpMode;
+
+    /**
+     * @description The IDs of the images.
      *
      * @example wi_1607_x64_dtc_zh_40G_alibase****
      *
@@ -130,9 +144,9 @@ class CreateHybridClusterRequest extends Model
     public $jobQueue;
 
     /**
-     * @description The name of the AccessKey pair. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the key pair. The name must be 2 to 128 characters in length, and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter and cannot start with http:// or https://.[](http://https://。、（:）、（\_）（-）。)
      *
-     * >  For more information, see [Create an SSH key pair](~~51793~~).
+     * > To use an SSH key pair, see [Create an SSH key pair](~~51793~~).
      * @example test
      *
      * @var string
@@ -154,7 +168,7 @@ class CreateHybridClusterRequest extends Model
      *   true
      *   false
      *
-     * Default value: false
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -171,6 +185,8 @@ class CreateHybridClusterRequest extends Model
     public $name;
 
     /**
+     * @description The information about the nodes in the local cluster.
+     *
      * @var nodes[]
      */
     public $nodes;
@@ -212,6 +228,8 @@ class CreateHybridClusterRequest extends Model
     public $onPremiseVolumeRemotePath;
 
     /**
+     * @description The parameter that is used to connect to the OpenLDAP server.
+     *
      * @var openldapPar
      */
     public $openldapPar;
@@ -226,11 +244,9 @@ class CreateHybridClusterRequest extends Model
     public $osTag;
 
     /**
-     * @description The root password of the logon node. The password must be 8 to 30 characters in length and contain at least three of the following items: uppercase letters, lowercase letters, digits, and special characters. The password can contain the following special characters:
+     * @description The root password of the logon node. The password must be 8 to 30 characters in length and contain at least three of the following items: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported: `() ~ ! @ # $ % ^ & * - = + | { } [ ] : ; ‘ < > , . ? /`
      *
-     * `() ~ ! @ # $ % ^ & * - = + | { } [ ] : ; ‘ < > , . ? /`
-     *
-     * >  We recommend that you use HTTPS to call the API operation to prevent password leakage.
+     * > We recommend that you use HTTPS to call the API operation to prevent password leakage.
      * @example 123****
      *
      * @var string
@@ -238,6 +254,19 @@ class CreateHybridClusterRequest extends Model
     public $password;
 
     /**
+     * @description The mode configurations of the plug-in. This parameter takes effect only when the SchedulerType parameter is set to custom.
+     *
+     * The value must be a JSON string. The parameter contains the following parameters: pluginMod, pluginLocalPath, and pluginOssPath.
+     *
+     *   pluginMod: the mode of the plug-in. The following modes are supported:
+     *
+     *   oss: The plug-in is downloaded and decompressed from OSS to a local path. The local path is specified by the pluginLocalPath parameter.
+     *   image: By default, the plug-in is stored in a pre-defined local path. The local path is specified by the pluginLocalPath parameter.
+     *
+     *   pluginLocalPath: the local path where the plug-in is stored. We recommend that you select a shared directory in oss mode and a non-shared directory in image mode.
+     *
+     *   pluginOssPath: the remote path where the plug-in is stored in OSS. This parameter takes effect only when the pluginMod parameter is set to oss.
+     *
      * @example {"pluginMod": "oss","pluginLocalPath": "/opt/plugin","pluginOssPath": "https://bucket.oss-cn-hangzhou.aliyuncs.com/plugin/plugin.tgz"}
      *
      * @var string
@@ -245,6 +274,8 @@ class CreateHybridClusterRequest extends Model
     public $plugin;
 
     /**
+     * @description The list of post-installation script information.
+     *
      * @var postInstallScript[]
      */
     public $postInstallScript;
@@ -280,9 +311,12 @@ class CreateHybridClusterRequest extends Model
     public $schedulerPreInstall;
 
     /**
-     * @description You can select an existing security group.
+     * @description You can select an existing security group by its ID.
      *
-     * >  If you specify this parameter, you cannot specify the `SecurityGroupName` parameter at the same time.
+     **
+     *
+     **If you specify this parameter, you cannot specify the **SecurityGroupName`  parameter. `
+     *
      * @example sg-bp13n61xsydodfyg****
      *
      * @var string
@@ -292,7 +326,7 @@ class CreateHybridClusterRequest extends Model
     /**
      * @description If you do not use an existing security group, set the parameter to the name of a new security group. A default policy is applied to the new security group.
      *
-     * >  If you specify this parameter, you cannot specify the `SecurityGroupId` parameter at the same time.
+     * > If you specify this parameter, you cannot specify the `SecurityGroupId` parameter.
      * @example ehpc-SecurityGroup
      *
      * @var string
@@ -300,7 +334,7 @@ class CreateHybridClusterRequest extends Model
     public $securityGroupName;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The ID of the vSwitch to which the instance connects to.
      *
      * @example vsw-bp1lfcjbfb099rrjn****
      *
@@ -318,7 +352,7 @@ class CreateHybridClusterRequest extends Model
     public $volumeId;
 
     /**
-     * @description The mount target of the file system. Mount targets cannot be automatically created for NAS file systems.
+     * @description The mount target of the NAS file system. The mount target is of the VPC type. Mount targets cannot be automatically created for NAS file systems.
      *
      * @example 008b648bcb-s****.cn-hangzhou.nas.aliyuncs.com
      *
@@ -327,7 +361,7 @@ class CreateHybridClusterRequest extends Model
     public $volumeMountpoint;
 
     /**
-     * @description The type of the protocol that is used by the file system. Only NFS is supported.
+     * @description The type of the protocol that is used by the NAS file system. Only NFS is supported.
      *
      * @example NFS
      *
@@ -345,7 +379,7 @@ class CreateHybridClusterRequest extends Model
     public $volumeType;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the cluster belongs.
+     * @description The ID of the virtual private cloud (VPC) to which the E-HPC cluster belongs.
      *
      * @example vpc-b3f3edefefeep0760yju****
      *
@@ -354,6 +388,8 @@ class CreateHybridClusterRequest extends Model
     public $vpcId;
 
     /**
+     * @description The parameter that is used to connect to the Windows AD server.
+     *
      * @var winAdPar
      */
     public $winAdPar;
@@ -376,6 +412,7 @@ class CreateHybridClusterRequest extends Model
         'description'               => 'Description',
         'domain'                    => 'Domain',
         'ehpcVersion'               => 'EhpcVersion',
+        'hybridClusterOpMode'       => 'HybridClusterOpMode',
         'imageId'                   => 'ImageId',
         'imageOwnerAlias'           => 'ImageOwnerAlias',
         'jobQueue'                  => 'JobQueue',
@@ -447,6 +484,9 @@ class CreateHybridClusterRequest extends Model
         }
         if (null !== $this->ehpcVersion) {
             $res['EhpcVersion'] = $this->ehpcVersion;
+        }
+        if (null !== $this->hybridClusterOpMode) {
+            $res['HybridClusterOpMode'] = $this->hybridClusterOpMode;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -594,6 +634,9 @@ class CreateHybridClusterRequest extends Model
         }
         if (isset($map['EhpcVersion'])) {
             $model->ehpcVersion = $map['EhpcVersion'];
+        }
+        if (isset($map['HybridClusterOpMode'])) {
+            $model->hybridClusterOpMode = $map['HybridClusterOpMode'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class userInfo extends Model
 {
     /**
+     * @example 2022-09-28T09:05:26.000Z
+     *
      * @var string
      */
     public $addTime;
 
     /**
+     * @example wheel
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example testuser
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $userId;

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class SetPostScriptsRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
-     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * You can call the [ListClusters](~~87116~~) operation to obtain the cluster ID.
      * @example ehpc-sh-EnjshUxn
      *
      * @var string
@@ -20,6 +20,8 @@ class SetPostScriptsRequest extends Model
     public $clusterId;
 
     /**
+     * @description The post-processing scripts.
+     *
      * @var postInstallScripts[]
      */
     public $postInstallScripts;

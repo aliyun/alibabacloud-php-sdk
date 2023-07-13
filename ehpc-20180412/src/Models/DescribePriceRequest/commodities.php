@@ -20,6 +20,8 @@ class commodities extends Model
     public $amount;
 
     /**
+     * @description The list of data disks created with the node.
+     *
      * @var dataDisks[]
      */
     public $dataDisks;

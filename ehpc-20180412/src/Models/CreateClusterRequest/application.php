@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class application extends Model
 {
     /**
-     * @description The tag of the software.
+     * @description The ID of the additional file system.
      *
-     * You can call the [ListSoftwares](~~87216~~) operation to query the tag of the software.
+     * Valid values of N: 1 to 10
      * @example OpenMPI_11.1
      *
      * @var string

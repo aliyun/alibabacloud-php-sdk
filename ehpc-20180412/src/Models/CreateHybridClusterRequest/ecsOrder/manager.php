@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class manager extends Model
 {
     /**
-     * @description The instance type of the management node on the cloud. Only Proxy Mode is supported.
+     * @description The instance type of the management node. Only Proxy Mode is supported.
      *
      * @example ecs.n1.tiny
      *

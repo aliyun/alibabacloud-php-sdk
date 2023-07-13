@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class winAdPar extends Model
 {
     /**
+     * @description The name of the AD domain.
+     *
      * @example ad-hybrid001.ehpcad.com
      *
      * @var string
@@ -16,6 +18,8 @@ class winAdPar extends Model
     public $adDc;
 
     /**
+     * @description The IP address of the AD domain.
+     *
      * @example 192.168.1.2
      *
      * @var string
@@ -23,6 +27,8 @@ class winAdPar extends Model
     public $adIp;
 
     /**
+     * @description The AD user.
+     *
      * @example Administrator
      *
      * @var string
@@ -30,6 +36,8 @@ class winAdPar extends Model
     public $adUser;
 
     /**
+     * @description The password of the AD user.
+     *
      * @example xxxxxx
      *
      * @var string

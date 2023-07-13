@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetJobLogResponseBody extends Model
 {
     /**
-     * @description The content of the error logs. The content is encoded in Base64.
-     *
      * @example c2xlZXAgMzA=
      *
      * @var string
@@ -18,8 +16,6 @@ class GetJobLogResponseBody extends Model
     public $errorLog;
 
     /**
-     * @description The ID of the job.
-     *
      * @example 1.scheduler****
      *
      * @var string
@@ -27,8 +23,6 @@ class GetJobLogResponseBody extends Model
     public $jobId;
 
     /**
-     * @description The content of the output logs. The content is encoded in Base64.
-     *
      * @example c2xlZXAgMzA=
      *
      * @var string
@@ -36,7 +30,7 @@ class GetJobLogResponseBody extends Model
     public $outputLog;
 
     /**
-     * @description The ID of the task.
+     * @description The content of the error logs. The content is encoded in Base64.
      *
      * @example B745C159-3155-4B94-95D0-4B73D4D2****
      *

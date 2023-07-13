@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetUserImageRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example ehpc-hz-ibug69*****
      *
@@ -27,7 +27,7 @@ class GetUserImageRequest extends Model
     public $containerType;
 
     /**
-     * @description The name of the image.
+     * @description The image name.
      *
      * @example test.sif
      *
@@ -54,7 +54,7 @@ class GetUserImageRequest extends Model
     public $OSSBucket;
 
     /**
-     * @description The endpoint of OSS.
+     * @description The OSS endpoint.
      *
      * @example vpc***-oss-cn-hangzhou.aliyuncs.com
      *

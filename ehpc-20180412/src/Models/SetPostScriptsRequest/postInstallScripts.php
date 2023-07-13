@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class postInstallScripts extends Model
 {
     /**
-     * @description The parameter that is used to run the Nth post-installation script. Valid values of N: 1 to 16.
+     * @description The parameter that is used to run the post-processing script.
      *
      * @example -h
      *
@@ -18,7 +18,7 @@ class postInstallScripts extends Model
     public $args;
 
     /**
-     * @description The URL that is used to download the Nth post-installation script. Valid values of N: 1 to 16.
+     * @description The URL that is used to download the post-processing script.
      *
      * @example https://bucket.oss-cn-shanghai.aliyuncs.com/postscript_examples.sh
      *

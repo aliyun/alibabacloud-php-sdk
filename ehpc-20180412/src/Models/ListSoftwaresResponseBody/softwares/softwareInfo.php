@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class softwareInfo extends Model
 {
     /**
-     * @description The service type of the domain account. Valid values:
-     *
-     *   nis
-     *   ldap
+     * @description The version of the E-HPC client.
      *
      * @example nis
      *
@@ -22,7 +19,10 @@ class softwareInfo extends Model
     public $accountType;
 
     /**
-     * @description The version of the domain account service.
+     * @description The service type of the domain account. Valid values:
+     *
+     *   nis
+     *   ldap
      *
      * @example 2.31
      *
@@ -31,14 +31,17 @@ class softwareInfo extends Model
     public $accountVersion;
 
     /**
-     * @description The list of the software in the cluster.
+     * @description Indicates whether the software is required. Valid values:
+     *
+     *   false: optional
+     *   true: required
      *
      * @var applications
      */
     public $applications;
 
     /**
-     * @description The version of the E-HPC client.
+     * @description The list of the software in the cluster.
      *
      * @example 1.0.0
      *
@@ -47,7 +50,7 @@ class softwareInfo extends Model
     public $ehpcVersion;
 
     /**
-     * @description The image tag of the cluster.
+     * @description The version of the scheduler.
      *
      * @example CentOS_7.2_64
      *
@@ -56,18 +59,7 @@ class softwareInfo extends Model
     public $osTag;
 
     /**
-     * @description The type of the scheduler. Valid values:
-     *
-     *   pbs
-     *   pbs19
-     *   slurm
-     *   slurm19
-     *   slurm20
-     *   opengridscheduler
-     *   deadline
-     *   gridengine
-     *   cube
-     *   custom
+     * @description The image tag of the cluster.
      *
      * @example pbs
      *
@@ -76,7 +68,7 @@ class softwareInfo extends Model
     public $schedulerType;
 
     /**
-     * @description The version of the scheduler.
+     * @description The version of the domain account service.
      *
      * @example 18.1.1
      *

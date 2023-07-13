@@ -12,10 +12,10 @@ class AddNodesRequest extends Model
     /**
      * @description Specifies whether to allocate a public IP address to the compute nodes. Valid values:
      *
-     *   true: A public IP address is allocated to the compute nodes.
-     *   false: A public IP address is not allocated to the compute nodes.
+     *   true
+     *   false
      *
-     * Default value: false
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -28,7 +28,7 @@ class AddNodesRequest extends Model
      *   true: enables auto-renewal
      *   false: disables auto-renewal
      *
-     * Default value: true
+     * Default value: true.
      * @example true
      *
      * @var string
@@ -38,10 +38,10 @@ class AddNodesRequest extends Model
     /**
      * @description The auto-renewal period of the subscription compute nodes. The parameter takes effect when AutoRenew is set to true.
      *
-     *   If PeriodUnit is set to Week, the valid values of the AutoRenewPeriod parameter are 1, 2, and 3.
-     *   If PeriodUnit is set to Month, the valid values of the AutoRenewPeriod parameter are 1, 2, 3, 6, and 12.
+     *   Valid values when PeriodUnit is set to Week: 1, 2, and 3.
+     *   Valid values when PeriodUnit is set to Month: 1, 2, 3, 6, and 12.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -49,7 +49,7 @@ class AddNodesRequest extends Model
     public $autoRenewPeriod;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence of a request?](~~25693~~)
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure the idempotence of a request?](~~25693~~)
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -68,12 +68,12 @@ class AddNodesRequest extends Model
     public $clusterId;
 
     /**
-     * @description Specifies whether the compute nodes support hyper-threading. Valid values:
+     * @description Specifies whether to enable hyper-threading for the compute node. Valid values:
      *
-     *   true: Hyper-threading is supported.
-     *   false: Hyper-threading is not supported.
+     *   true
+     *   false
      *
-     * Default value: true
+     * Default value: true.
      * @example true
      *
      * @var bool
@@ -110,11 +110,11 @@ class AddNodesRequest extends Model
     /**
      * @description The preemption policy of the compute nodes. The parameter only takes effect when EcsChargeType is set to PostPaid. Valid values:
      *
-     *   NoSpot: The compute nodes are pay-as-you-go instances.
-     *   SpotWithPriceLimit: The instance is a preemptible instance that has a user-defined maximum hourly price.
+     *   NoSpot: The instance is a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The policy applies to preemptible instances for which a maximum hourly price is specified.
      *   SpotAsPriceGo: The compute nodes are preemptible instances for which the market price at the time of purchase is used as the bid price.
      *
-     * Default value: NoSpot
+     * Default value: NoSpot.
      * @example NoSpot
      *
      * @var string
@@ -140,7 +140,7 @@ class AddNodesRequest extends Model
      *   manual: The compute nodes are manually added.
      *   autoscale: The compute nodes are automatically added.
      *
-     * Default value: manual
+     * Default value: manual.
      * @example manual
      *
      * @var string
@@ -148,9 +148,16 @@ class AddNodesRequest extends Model
     public $createMode;
 
     /**
+     * @description The list of data disks.
+     *
      * @var dataDisks[]
      */
     public $dataDisks;
+
+    /**
+     * @var string
+     */
+    public $dnsConfig;
 
     /**
      * @description The billing method of the compute nodes. Valid values:
@@ -188,7 +195,7 @@ class AddNodesRequest extends Model
      *
      *   The operating system that is specified by the image must be the same as that of the existing cluster nodes. For example, if the operating system of the cluster nodes is CentOS, you can select only a CentOS image.
      *
-     * > If you add nodes to a hybrid cloud cluster that supports multiple operating systems, you can select a Windows Server image or a CentOS image when the operating system of the cluster nodes is Windows.
+     * > If you add nodes to a hybrid cloud cluster that supports multiple operating systems, you can select a Windows Server image or a CentOS image when the operating system of nodes is Windows.
      *
      *   The major version of the image specified for the compute nodes that you want to add is the same as that of the image of the cluster. For example, if the version of the cluster image is CentOS 7.x, the version of the image specified for the compute nodes must be CentOS 7.x.
      *
@@ -207,7 +214,7 @@ class AddNodesRequest extends Model
      *   others: shared image
      *   marketplace: Alibaba Cloud Marketplace image
      *
-     * Default value: system
+     * Default value: system.
      * @example system
      *
      * @var string
@@ -250,7 +257,7 @@ class AddNodesRequest extends Model
     /**
      * @description The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 0 to 100.
      *
-     * Default value: 0
+     * Default value: 0.
      * @example 10
      *
      * @var int
@@ -273,7 +280,7 @@ class AddNodesRequest extends Model
      *   If the number of available ECS instances is greater than the value of the MinCount parameter and less than that of the Count parameter, the compute nodes are added based on the value of the MinCount parameter.
      *   If the number of available ECS instances is greater than the value of the Count parameter, the compute nodes are added based on the value of the Count parameter.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -281,6 +288,11 @@ class AddNodesRequest extends Model
     public $minCount;
 
     /**
+     * @description The communication mode of the ENI. Valid values:
+     *
+     *   Standard: uses the TCP communication mode.
+     *   HighPerformance: enables the Elastic RDMA Interface (ERI) and uses the remote direct memory access (RDMA) communication mode.
+     *
      * @example Standard
      *
      * @var string
@@ -290,10 +302,10 @@ class AddNodesRequest extends Model
     /**
      * @description The duration of the subscription. The unit of the duration is specified by the PeriodUnit parameter. The parameter only takes effect when InstanceChargeType is set to PrePaid. Valid values:
      *
-     *   If PeriodUnit is set to Week, the valid values of the Period parameter are 1, 2, 3, and 4.
+     *   Valid values when PeriodUnit is set to Week: 1, 2, 3, and 4.
      *   Valid values when PeriodUnit is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -301,12 +313,12 @@ class AddNodesRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the subscription period. Valid values:
+     * @description The unit of the subscription period of the resource. Valid values:
      *
      *   Week
      *   Month
      *
-     * Default value: Month
+     * Default value: Month.
      * @example Month
      *
      * @var string
@@ -314,12 +326,12 @@ class AddNodesRequest extends Model
     public $periodUnit;
 
     /**
-     * @description Specifies whether to set the API operation as a synchronous operation. Valid values:
+     * @description Specifies whether to set this operation as a synchronous operation. Valid values:
      *
      *   true
      *   false
      *
-     * Default value: false
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -327,7 +339,7 @@ class AddNodesRequest extends Model
     public $sync;
 
     /**
-     * @description The performance level of the ESSD that is used as the system disk. Valid values:
+     * @description The performance level of the ESSD to be used as the system disk. Default value: PL1. Valid values:
      *
      *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
      *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
@@ -342,9 +354,9 @@ class AddNodesRequest extends Model
     public $systemDiskLevel;
 
     /**
-     * @description The size of the system disk. Unit: GiB
+     * @description The size of the system disk. Unit: GiB.
      *
-     * Default value: 40
+     * Default value: 40.
      * @example 40
      *
      * @var int
@@ -354,12 +366,12 @@ class AddNodesRequest extends Model
     /**
      * @description The type of the system disk. Valid values:
      *
-     *   cloud_efficiency: ultra disk.
-     *   cloud_ssd: SSD.
-     *   cloud_essd: ESSD.
+     *   cloud_efficiency: ultra disk
+     *   cloud_ssd: SSD
+     *   cloud_essd: enhanced SSD (ESSD)
      *   cloud: basic disk. Disks of this type are retired.
      *
-     * Default value: cloud_efficiency
+     * Default value: cloud_efficiency.
      * @example cloud_ssd
      *
      * @var string
@@ -397,6 +409,7 @@ class AddNodesRequest extends Model
         'count'                           => 'Count',
         'createMode'                      => 'CreateMode',
         'dataDisks'                       => 'DataDisks',
+        'dnsConfig'                       => 'DnsConfig',
         'ecsChargeType'                   => 'EcsChargeType',
         'hostNamePrefix'                  => 'HostNamePrefix',
         'hostNameSuffix'                  => 'HostNameSuffix',
@@ -470,6 +483,9 @@ class AddNodesRequest extends Model
                     $res['DataDisks'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->dnsConfig) {
+            $res['DnsConfig'] = $this->dnsConfig;
         }
         if (null !== $this->ecsChargeType) {
             $res['EcsChargeType'] = $this->ecsChargeType;
@@ -587,6 +603,9 @@ class AddNodesRequest extends Model
                     $model->dataDisks[$n++] = null !== $item ? dataDisks::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DnsConfig'])) {
+            $model->dnsConfig = $map['DnsConfig'];
         }
         if (isset($map['EcsChargeType'])) {
             $model->ecsChargeType = $map['EcsChargeType'];

@@ -10,14 +10,12 @@ use AlibabaCloud\Tea\Model;
 class AddContainerAppResponseBody extends Model
 {
     /**
-     * @description The ID of the container.
-     *
      * @var containerId
      */
     public $containerId;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the container.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE7****
      *

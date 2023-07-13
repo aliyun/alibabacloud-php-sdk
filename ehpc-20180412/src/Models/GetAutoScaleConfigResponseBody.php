@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetAutoScaleConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the cluster.
-     *
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -19,13 +17,6 @@ class GetAutoScaleConfigResponseBody extends Model
     public $clusterId;
 
     /**
-     * @description The type of the scheduler. Valid values:
-     *
-     *   slurm
-     *   pbs
-     *   opengridscheduler
-     *   deadline
-     *
      * @example pbs
      *
      * @var string
@@ -33,16 +24,18 @@ class GetAutoScaleConfigResponseBody extends Model
     public $clusterType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $computeEnableHt;
 
     /**
-     * @description Indicates whether the cluster enabled auto scale-out. Valid values:
-     *
-     *   true
-     *   false
-     *
+     * @var string
+     */
+    public $dnsConfig;
+
+    /**
      * @example true
      *
      * @var bool
@@ -50,11 +43,6 @@ class GetAutoScaleConfigResponseBody extends Model
     public $enableAutoGrow;
 
     /**
-     * @description Indicates whether the cluster enabled auto scale-in. Valid values:
-     *
-     *   true
-     *   false
-     *
      * @example true
      *
      * @var bool
@@ -62,8 +50,6 @@ class GetAutoScaleConfigResponseBody extends Model
     public $enableAutoShrink;
 
     /**
-     * @description The compute nodes that were excluded from the list of auto scaling nodes. Multiple compute nodes were separated with commas (,).
-     *
      * @example i-bp19lgqwxb4206t5****,i-bp1g4hvzs9pywrhb****
      *
      * @var string
@@ -71,9 +57,6 @@ class GetAutoScaleConfigResponseBody extends Model
     public $excludeNodes;
 
     /**
-     * @description The percentage of extra compute nodes. Valid values: 0 to 100.
-     *
-     * If you need to add 100 compute nodes and the value of the ExtraNodesGrowRatio parameter is 2, 102 compute nodes are added.
      * @example 2
      *
      * @var int
@@ -81,9 +64,6 @@ class GetAutoScaleConfigResponseBody extends Model
     public $extraNodesGrowRatio;
 
     /**
-     * @description The interval between two consecutive rounds of scale-in. Unit: minutes. Valid values: 2 to 10.
-     *
-     * >  An interval may exist during multiple rounds of a scale-out task or between two consecutive scale-out tasks.
      * @example 2
      *
      * @var int
@@ -91,9 +71,6 @@ class GetAutoScaleConfigResponseBody extends Model
     public $growIntervalInMinutes;
 
     /**
-     * @description The percentage of each round of scale-out. Valid values: 1 to 100.
-     *
-     * If you set GrowRatio to 50, the scale-out has two rounds. Each round completes half of the scale-out.
      * @example 100
      *
      * @var int
@@ -101,9 +78,6 @@ class GetAutoScaleConfigResponseBody extends Model
     public $growRatio;
 
     /**
-     * @description The timeout period before the scale-out nodes were started. Unit: minutes. Valid values: 10 to 60.
-     *
-     * If the scale-out timeout period has been reached but the scale-out nodes still do not reach the Running state, the system resets them.
      * @example 20
      *
      * @var int
@@ -111,8 +85,6 @@ class GetAutoScaleConfigResponseBody extends Model
     public $growTimeoutInMinutes;
 
     /**
-     * @description The image ID of the compute nodes in the queue.
-     *
      * @example m-bp10txryr4mhrrt1****
      *
      * @var string
@@ -120,8 +92,6 @@ class GetAutoScaleConfigResponseBody extends Model
     public $imageId;
 
     /**
-     * @description The maximum number of compute nodes that can be added in the cluster. Valid values: 0 to 500.
-     *
      * @example 300
      *
      * @var int
@@ -129,16 +99,11 @@ class GetAutoScaleConfigResponseBody extends Model
     public $maxNodesInCluster;
 
     /**
-     * @description The auto scaling configuration of the queue.
-     *
-     * >  If auto scaling is enabled for the cluster and queue at the same time, the queue settings prevail.
      * @var queues
      */
     public $queues;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string
@@ -146,9 +111,6 @@ class GetAutoScaleConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of consecutive times that a compute node is idle during the resource scale-in check. Valid values: 2 to 5.
-     *
-     * If the parameter is set to 3, a compute node is idle for more than three consecutive times. In this case, the node is released.
      * @example 3
      *
      * @var int
@@ -156,8 +118,6 @@ class GetAutoScaleConfigResponseBody extends Model
     public $shrinkIdleTimes;
 
     /**
-     * @description The interval between two consecutive rounds of scale-out. Unit: minutes. Valid values: 2 to 10.
-     *
      * @example 2
      *
      * @var int
@@ -165,8 +125,6 @@ class GetAutoScaleConfigResponseBody extends Model
     public $shrinkIntervalInMinutes;
 
     /**
-     * @description The maximum hourly price of the compute nodes. The value can be accurate to three decimal places. The parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
-     *
      * @example 0.062
      *
      * @var float
@@ -174,12 +132,6 @@ class GetAutoScaleConfigResponseBody extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The preemption policy of the compute nodes. Valid values:
-     *
-     *   NoSpot: The compute nodes are pay-as-you-go instances.
-     *   SpotWithPriceLimit: The compute nodes are preemptible instances that have a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The compute nodes are preemptible instances for which the market price at the time of purchase is used as the bid price.
-     *
      * @example SpotWithPriceLimit
      *
      * @var string
@@ -187,8 +139,6 @@ class GetAutoScaleConfigResponseBody extends Model
     public $spotStrategy;
 
     /**
-     * @description The ID of the Alibaba Cloud account.
-     *
      * @example 129845258050****
      *
      * @var string
@@ -198,6 +148,7 @@ class GetAutoScaleConfigResponseBody extends Model
         'clusterId'               => 'ClusterId',
         'clusterType'             => 'ClusterType',
         'computeEnableHt'         => 'ComputeEnableHt',
+        'dnsConfig'               => 'DnsConfig',
         'enableAutoGrow'          => 'EnableAutoGrow',
         'enableAutoShrink'        => 'EnableAutoShrink',
         'excludeNodes'            => 'ExcludeNodes',
@@ -231,6 +182,9 @@ class GetAutoScaleConfigResponseBody extends Model
         }
         if (null !== $this->computeEnableHt) {
             $res['ComputeEnableHt'] = $this->computeEnableHt;
+        }
+        if (null !== $this->dnsConfig) {
+            $res['DnsConfig'] = $this->dnsConfig;
         }
         if (null !== $this->enableAutoGrow) {
             $res['EnableAutoGrow'] = $this->enableAutoGrow;
@@ -300,6 +254,9 @@ class GetAutoScaleConfigResponseBody extends Model
         }
         if (isset($map['ComputeEnableHt'])) {
             $model->computeEnableHt = $map['ComputeEnableHt'];
+        }
+        if (isset($map['DnsConfig'])) {
+            $model->dnsConfig = $map['DnsConfig'];
         }
         if (isset($map['EnableAutoGrow'])) {
             $model->enableAutoGrow = $map['EnableAutoGrow'];

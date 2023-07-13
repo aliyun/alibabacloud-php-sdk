@@ -18,9 +18,16 @@ class queueInfo extends Model
     public $computeInstanceType;
 
     /**
+     * @var string
+     */
+    public $deploymentSetId;
+
+    /**
      * @description Indicates whether the queue enabled auto scale-out. Valid values:
      *
-     * false: The queue disabled auto scale-out.
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -28,7 +35,7 @@ class queueInfo extends Model
     public $enableAutoGrow;
 
     /**
-     * @description The prefix of the host name.
+     * @description The orefix of the host name.
      *
      * @example compute
      *
@@ -46,7 +53,7 @@ class queueInfo extends Model
     public $hostNameSuffix;
 
     /**
-     * @description The ID of the image.
+     * @description The ID of the custom image.
      *
      * @example centos_7_06_64_20G_alibase_20****.vhd
      *
@@ -73,6 +80,8 @@ class queueInfo extends Model
     public $resourceGroupId;
 
     /**
+     * @description The information about the preemptible instance.
+     *
      * @var spotInstanceTypes
      */
     public $spotInstanceTypes;
@@ -80,8 +89,11 @@ class queueInfo extends Model
     /**
      * @description The preemption policy of the compute nodes. Valid values:
      *
-     * SpotAsPriceGo: The instances of the compute node are preemptible instances. The price of these instances is based on the current market price.
-     * @example SpotWithPriceLimit
+     *   NoSpot: The instance is a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
+     *
+     * @example NoSpot
      *
      * @var string
      */
@@ -90,7 +102,9 @@ class queueInfo extends Model
     /**
      * @description The type of the queue. Valid values:
      *
-     * Router: Queues in which jobs cannot be executed but are forwarded to the bounded Execution queue for processing.
+     *   Execution: Queues in which jobs can be executed.
+     *   Router: Queues in which jobs cannot be executed but are forwarded to the bounded Execution queue for processing.
+     *
      * @example Execution
      *
      * @var string
@@ -98,6 +112,7 @@ class queueInfo extends Model
     public $type;
     protected $_name = [
         'computeInstanceType' => 'ComputeInstanceType',
+        'deploymentSetId'     => 'DeploymentSetId',
         'enableAutoGrow'      => 'EnableAutoGrow',
         'hostNamePrefix'      => 'HostNamePrefix',
         'hostNameSuffix'      => 'HostNameSuffix',
@@ -118,6 +133,9 @@ class queueInfo extends Model
         $res = [];
         if (null !== $this->computeInstanceType) {
             $res['ComputeInstanceType'] = null !== $this->computeInstanceType ? $this->computeInstanceType->toMap() : null;
+        }
+        if (null !== $this->deploymentSetId) {
+            $res['DeploymentSetId'] = $this->deploymentSetId;
         }
         if (null !== $this->enableAutoGrow) {
             $res['EnableAutoGrow'] = $this->enableAutoGrow;
@@ -160,6 +178,9 @@ class queueInfo extends Model
         $model = new self();
         if (isset($map['ComputeInstanceType'])) {
             $model->computeInstanceType = computeInstanceType::fromMap($map['ComputeInstanceType']);
+        }
+        if (isset($map['DeploymentSetId'])) {
+            $model->deploymentSetId = $map['DeploymentSetId'];
         }
         if (isset($map['EnableAutoGrow'])) {
             $model->enableAutoGrow = $map['EnableAutoGrow'];

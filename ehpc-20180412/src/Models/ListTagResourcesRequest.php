@@ -19,7 +19,7 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region to which the resource belongs.
+     * @description The region ID of the resource.
      *
      * @example cn-hangzhou
      *
@@ -28,12 +28,14 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource IDs. You can specify up to 50 IDs.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description The type of the resource. Set the value to cluster, which indicates E-HPC clusters.
+     * @description The resource type. Set the value to cluster, which indicates E-HPC clusters.
      *
      * @example cluster
      *
@@ -42,6 +44,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The resource tags. You can specify up to 20 tags.
+     *
      * @var tag[]
      */
     public $tag;

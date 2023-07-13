@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterResponseBody extends Model
 {
     /**
-     * @description The ID of the E-HPC cluster.
-     *
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -18,8 +16,6 @@ class CreateClusterResponseBody extends Model
     public $clusterId;
 
     /**
-     * @description The ID of the request.
-     *
      * @example F6757FA4-8FED-4602-B7F5-3550C084****
      *
      * @var string
@@ -27,9 +23,6 @@ class CreateClusterResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the task.
-     *
-     * >  CreateCluster is an asynchronous API operation. If a request succeeds, a response is immediately generated before nodes are created. You can call the [ListTasks](~~268225~~) operation to query the result of the task.
      * @example F6757FA4-8FED-4602-B7F5-3550C084****
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetUserImageResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C84FB8EF-5580-4B82-9BDE-6657814C****
      *

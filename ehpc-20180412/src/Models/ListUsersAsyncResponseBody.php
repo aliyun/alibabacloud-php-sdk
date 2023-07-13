@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class ListUsersAsyncResponseBody extends Model
 {
     /**
+     * @example t-sh03egi3mls****
+     *
      * @var string
      */
     public $asyncId;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $asyncStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 9A05F620-ED46-4A57-95F1-C67D6D3C5DD2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

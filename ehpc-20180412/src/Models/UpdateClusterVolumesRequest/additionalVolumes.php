@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class additionalVolumes extends Model
 {
     /**
-     * @description The queue name of the nth attached mounted filesystem.
+     * @description The ID of the cluster.
      *
      * @example work
      *
@@ -49,12 +49,14 @@ class additionalVolumes extends Model
     public $remoteDirectory;
 
     /**
+     * @description The ID of the nth additional mounted file system.
+     *
      * @var roles[]
      */
     public $roles;
 
     /**
-     * @description The ID of the nth additional mounted file system.
+     * @description The queue name of the nth attached mounted filesystem.
      *
      * @example extreme-00b88****
      *
@@ -63,6 +65,8 @@ class additionalVolumes extends Model
     public $volumeId;
 
     /**
+     * @example -t nfs -o vers=3,nolock,noresvport
+     *
      * @var string
      */
     public $volumeMountOption;

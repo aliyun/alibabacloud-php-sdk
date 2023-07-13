@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class InvokeShellCommandRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
@@ -20,7 +20,7 @@ class InvokeShellCommandRequest extends Model
     public $clusterId;
 
     /**
-     * @description The content of the command. The value must be 2 to 2,048 characters in length.
+     * @description The content of the command. The content must be 2 to 2,048 characters in length.
      *
      * @example echo "hello world"
      *
@@ -29,14 +29,16 @@ class InvokeShellCommandRequest extends Model
     public $command;
 
     /**
+     * @description The information of nodes on which the command is run.
+     *
      * @var instance[]
      */
     public $instance;
 
     /**
-     * @description The timeout period. If a command times out, the command process is terminated. Unit: seconds.
+     * @description The timeout period. If a command times out, the command process will be terminated. Unit: seconds.
      *
-     * Default value: 60
+     * Default value: 60.
      * @example 3600
      *
      * @var int
@@ -44,9 +46,9 @@ class InvokeShellCommandRequest extends Model
     public $timeout;
 
     /**
-     * @description The working directory of the command. Default value: /root.
+     * @description The working directory of the command. Default value: `/root`.
      *
-     * @example /root
+     * @example /home
      *
      * @var string
      */

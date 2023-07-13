@@ -14,7 +14,7 @@ class UnTagResourcesRequest extends Model
      *   true
      *   false
      *
-     * Default value: false
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -22,7 +22,7 @@ class UnTagResourcesRequest extends Model
     public $all;
 
     /**
-     * @description The ID of the region to which the resource belongs.
+     * @description The region ID of the resource.
      *
      * @example cn-hangzhou
      *
@@ -31,12 +31,14 @@ class UnTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource IDs. You can specify up to 50 resource IDs.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description The type of the resource. Set the value to cluster, which indicates E-HPC clusters.
+     * @description The type of the resource from which you want to remove tags. Set the value to cluster, which indicates E-HPC clusters.
      *
      * @example cluster
      *
@@ -45,6 +47,8 @@ class UnTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tag key of the resource. You can specify up to 20 tag keys.
+     *
      * @var string[]
      */
     public $tagKey;

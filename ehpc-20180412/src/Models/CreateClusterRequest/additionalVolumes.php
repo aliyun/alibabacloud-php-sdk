@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class additionalVolumes extends Model
 {
     /**
-     * @description The queue of the nodes to which the additional file system is attached.
+     * @description The mount target of the additional file system.
      *
      * Valid values of N: 1 to 10
      * @example high
@@ -20,9 +20,9 @@ class additionalVolumes extends Model
     public $jobQueue;
 
     /**
-     * @description The local directory on which the additional file system is mounted.
+     * @description The URL that is used to download the script after the E-HPC cluster is created.
      *
-     * Valid values of N: 1 to 10
+     * Valid values of N: 0 to 16
      * @example /ff
      *
      * @var string
@@ -30,9 +30,12 @@ class additionalVolumes extends Model
     public $localDirectory;
 
     /**
-     * @description The type of the E-HPC cluster. Set the value to PublicCloud.
+     * @description Specifies whether not to install the agent.
      *
-     * Valid values of N: 1 to 10
+     *   true: The agent is not installed.
+     *   false: The agent is installed.
+     *
+     * Default value: false
      * @example PublicCloud
      *
      * @var string
@@ -40,7 +43,7 @@ class additionalVolumes extends Model
     public $location;
 
     /**
-     * @description The remote directory on which the additional file system is mounted.
+     * @description The type of the E-HPC cluster. Set the value to PublicCloud.
      *
      * Valid values of N: 1 to 10
      * @example /test
@@ -50,12 +53,15 @@ class additionalVolumes extends Model
     public $remoteDirectory;
 
     /**
+     * @description The remote directory on which the additional file system is mounted.
+     *
+     * Valid values of N: 1 to 10
      * @var roles[]
      */
     public $roles;
 
     /**
-     * @description The ID of the additional file system.
+     * @description The mount options of the additional file system.
      *
      * Valid values of N: 1 to 10
      * @example extreme-00b88****
@@ -65,9 +71,12 @@ class additionalVolumes extends Model
     public $volumeId;
 
     /**
-     * @description The mount options of the additional file system.
+     * @description The type of the protocol that is used by the additional file system. Valid values:
      *
-     * Valid values of N: 1 to 10
+     *   NFS
+     *   SMB
+     *
+     * Default value: NFS
      * @example -t nfs -o vers=4.0
      *
      * @var string
@@ -75,7 +84,7 @@ class additionalVolumes extends Model
     public $volumeMountOption;
 
     /**
-     * @description The mount target of the additional file system.
+     * @description The local directory on which the additional file system is mounted.
      *
      * Valid values of N: 1 to 10
      * @example 0088****-sihc.cn-hangzhou.extreme.nas.aliyuncs.com
@@ -85,12 +94,19 @@ class additionalVolumes extends Model
     public $volumeMountpoint;
 
     /**
-     * @description The type of the protocol that is used by the additional file system. Valid values:
+     * @description The mode configurations of the plug-in. This parameter takes effect only when the SchedulerType parameter is set to custom.
      *
-     *   NFS
-     *   SMB
+     * The value must be a JSON string. The parameter contains the following parameters: pluginMod, pluginLocalPath, and pluginOssPath.
      *
-     * Default value: NFS
+     *   pluginMod: the mode of the plug-in. The following modes are supported:
+     *
+     *   oss: The plug-in is downloaded and decompressed from OSS to a local path. The local path is specified by the pluginLocalPath parameter.
+     *   image: By default, the plug-in is stored in a pre-defined local path. The local path is specified by the pluginLocalPath parameter.
+     *
+     *   pluginLocalPath: the local path where the plug-in is stored. We recommend that you select a shared directory in oss mode and a non-shared directory in image mode.
+     *
+     *   pluginOssPath: the remote path where the plug-in is stored in OSS. This parameter takes effect only when the pluginMod parameter is set to oss.
+     *
      * @example NFS
      *
      * @var string
@@ -98,9 +114,9 @@ class additionalVolumes extends Model
     public $volumeProtocol;
 
     /**
-     * @description The type of the additional shared storage. Only NAS file systems are supported.
+     * @description The parameter that is used to run the script after the E-HPC cluster is created.
      *
-     * Valid values of N: 1 to 10
+     * Valid values of N: 0 to 16
      * @example nas
      *
      * @var string

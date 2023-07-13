@@ -27,7 +27,7 @@ class ApplyNodesResponseBody extends Model
     public $instanceIds;
 
     /**
-     * @description The ID of the task.
+     * @description The ID of the request.
      *
      * @example B745C159-3155-4B94-95D0-4B73D4D2****
      *
@@ -45,7 +45,7 @@ class ApplyNodesResponseBody extends Model
     public $satisfiedAmount;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the task.
      *
      * @example B745C159-3155-4B94-95D0-4B73D4D2****
      *

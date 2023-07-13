@@ -9,9 +9,6 @@ use AlibabaCloud\Tea\Model;
 class dataDisksInfo extends Model
 {
     /**
-     * @description The type of the data disk. Valid values:
-     *
-     * - cloud: basic disk
      * @example cloud_efficiency
      *
      * @var string
@@ -19,9 +16,6 @@ class dataDisksInfo extends Model
     public $dataDiskCategory;
 
     /**
-     * @description Indicates whether the data disk is released when the node is released. Valid values:
-     *
-     * - false
      * @example true
      *
      * @var bool
@@ -29,9 +23,6 @@ class dataDisksInfo extends Model
     public $dataDiskDeleteWithInstance;
 
     /**
-     * @description Indicates whether the data disk is encrypted. Valid values:
-     *
-     * - false
      * @example false
      *
      * @var bool
@@ -39,8 +30,6 @@ class dataDisksInfo extends Model
     public $dataDiskEncrypted;
 
     /**
-     * @description The KMS key ID of the data disk.
-     *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40826X
      *
      * @var string
@@ -48,9 +37,6 @@ class dataDisksInfo extends Model
     public $dataDiskKMSKeyId;
 
     /**
-     * @description The performance level of the ESSD used as the data disk. The parameter takes effect only when the DataDisks.N.DataDiskCategory parameter is set to cloud_essd. Valid values:
-     *
-     * - PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      * @example PL1
      *
      * @var string
@@ -58,9 +44,6 @@ class dataDisksInfo extends Model
     public $dataDiskPerformanceLevel;
 
     /**
-     * @description The capacity of the data disk. Unit: GB.
-     *
-     * Valid values: 40 to 500
      * @example 40
      *
      * @var int

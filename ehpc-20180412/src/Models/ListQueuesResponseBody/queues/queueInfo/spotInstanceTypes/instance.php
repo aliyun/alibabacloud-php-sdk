@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
-     * @description The specifications of the ECS instance.
+     * @description The instance type of the preemptible instance.
      *
      * @example ecs.n1.tiny
      *

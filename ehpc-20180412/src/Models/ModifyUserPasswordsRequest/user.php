@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
-     * @description The name of the Nth user whose password you want to modify. Valid values of N: 1 to 100.
+     * @description The name of the user N whose password you want to modify. Valid values of N: 1 to 100.
      *
      * You can call the [ListUsers](~~188572~~) operation to query the users of the cluster.
      * @example user1
@@ -26,7 +26,7 @@ class user extends Model
      *   Digit
      *   Special character: `()~!@#$%^&*-_+=|{}[]:;\"/<>,.?/`
      *
-     * >  We recommend that you use HTTPS to call the AddUsers operation to ensure that the password remains confidential.
+     * >  We recommend that you use HTTPS to call API operations to avoid password leaks.
      * @example 1@a****
      *
      * @var string

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class instanceTypeInfo extends Model
 {
     /**
-     * @description The prefix of the hostname. You can query compute nodes that have a specified prefix.
-     *
      * @example compute
      *
      * @var string
@@ -18,8 +16,6 @@ class instanceTypeInfo extends Model
     public $hostNamePrefix;
 
     /**
-     * @description The instance type of the node.
-     *
      * @example ecs.sn1ne.large
      *
      * @var string
@@ -41,8 +37,6 @@ class instanceTypeInfo extends Model
     public $spotInterruptionBehavior;
 
     /**
-     * @description The maximum hourly price of the compute nodes. The value can be accurate to three decimal places. The parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
-     *
      * @example 0.062
      *
      * @var float
@@ -50,12 +44,6 @@ class instanceTypeInfo extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The bidding method of the compute nodes. Valid values:
-     *
-     *   NoSpot: The compute nodes are pay-as-you-go instances.
-     *   SpotWithPriceLimit: The compute nodes are preemptible instances that have a user-defined maximum hourly price.
-     *   SpotAsPriceGo: The compute nodes are preemptible instances for which the market price at the time of purchase is used as the bid price.
-     *
      * @example NoSpot
      *
      * @var string
@@ -63,8 +51,6 @@ class instanceTypeInfo extends Model
     public $spotStrategy;
 
     /**
-     * @description The ID of the vSwitch.
-     *
      * @example vsw-bp1lfcjbfb099rrjn****
      *
      * @var string
@@ -72,8 +58,6 @@ class instanceTypeInfo extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the zone.
-     *
      * @example cn-hangzhou-b
      *
      * @var string

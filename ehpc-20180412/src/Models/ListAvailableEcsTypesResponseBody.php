@@ -17,7 +17,7 @@ class ListAvailableEcsTypesResponseBody extends Model
     public $instanceTypeFamilies;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D9DD3AF8-1F91-4075-8669-55D10E45****
      *

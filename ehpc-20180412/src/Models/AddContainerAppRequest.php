@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddContainerAppRequest extends Model
 {
     /**
-     * @description The type of the container. Set the value to singularity.
+     * @description The ID of the request.
      *
      * @example singularity
      *
@@ -18,8 +18,9 @@ class AddContainerAppRequest extends Model
     public $containerType;
 
     /**
-     * @description The description of the container.
+     * @description The tags of the image.
      *
+     * Default value: latest
      * @example descriptionContainer
      *
      * @var string
@@ -27,9 +28,8 @@ class AddContainerAppRequest extends Model
     public $description;
 
     /**
-     * @description The tags of the image.
+     * @description The type of the container. Set the value to singularity.
      *
-     * Default value: latest
      * @example latest
      *
      * @var string
@@ -37,8 +37,9 @@ class AddContainerAppRequest extends Model
     public $imageTag;
 
     /**
-     * @description The name of the container. The name must be 2 to 64 characters in length. It must start with a letter and can contain letters, digits, hyphens (-), and underscores (\_).
+     * @description The name of the repository. The image that has the same name as the repository is pulled.
      *
+     * For information about image names, visit [Docker Hub official website](https://hub.docker.com/search?q=\&type=image).
      * @example container1
      *
      * @var string
@@ -46,9 +47,8 @@ class AddContainerAppRequest extends Model
     public $name;
 
     /**
-     * @description The name of the repository. The image that has the same name as the repository is pulled.
+     * @description The description of the container.
      *
-     * For information about image names, visit [Docker Hub official website](https://hub.docker.com/search?q=\&type=image).
      * @example repo1
      *
      * @var string

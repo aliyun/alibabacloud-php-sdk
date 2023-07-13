@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSoftwaresResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The list of the information about the software installed in the cluster.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE7****
      *
@@ -19,7 +19,18 @@ class ListSoftwaresResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of the information about the software installed in the cluster.
+     * @description The type of the scheduler. Valid values:
+     *
+     *   pbs
+     *   pbs19
+     *   slurm
+     *   slurm19
+     *   slurm20
+     *   opengridscheduler
+     *   deadline
+     *   gridengine
+     *   cube
+     *   custom
      *
      * @var softwares
      */

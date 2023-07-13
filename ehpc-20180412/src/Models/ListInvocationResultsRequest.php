@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListInvocationResultsRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the command.
      *
-     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * You can call the [ListCommands](~~87388~~) operation to query the command ID.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -20,9 +20,13 @@ class ListInvocationResultsRequest extends Model
     public $clusterId;
 
     /**
-     * @description The ID of the command.
+     * @description The status of the command that you want to query. Valid values:
      *
-     * You can call the [ListCommands](~~87388~~) operation to query the command ID.
+     *   Finished
+     *   Running
+     *   Failed
+     *   Stopped
+     *
      * @example c-hz01v8x80o3****
      *
      * @var string
@@ -35,13 +39,9 @@ class ListInvocationResultsRequest extends Model
     public $instance;
 
     /**
-     * @description The status of the command that you want to query. Valid values:
+     * @description The number of the page to return.
      *
-     *   Finished
-     *   Running
-     *   Failed
-     *   Stopped
-     *
+     * Default value: 1
      * @example Finished
      *
      * @var string
@@ -49,9 +49,9 @@ class ListInvocationResultsRequest extends Model
     public $invokeRecordStatus;
 
     /**
-     * @description The number of the page to return.
+     * @description The number of entries to return on each page. Valid values: 1 to 50.
      *
-     * Default value: 1
+     * Default value: 10
      * @example 1
      *
      * @var int
@@ -59,9 +59,9 @@ class ListInvocationResultsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 50.
+     * @description The ID of the node on which the command is run.
      *
-     * Default value: 10
+     * >  The Instance.N.Id parameter specifies the node on which the command is run. If it is not specified, the command is run on all nodes of the cluster.
      * @example 10
      *
      * @var int

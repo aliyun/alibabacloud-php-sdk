@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class jobTemplates extends Model
 {
     /**
-     * @description The job array.
+     * @description The output file path of stderr.
      *
-     * Format: X-Y:Z. X is the minimum index value. Y is the maximum index value. Z is the step size. For example, 2-7:2 indicates that three jobs need to be run and their index values are 2, 4, and 6.
      * @example 2-7:2
      *
      * @var string
@@ -19,11 +18,10 @@ class jobTemplates extends Model
     public $arrayRequest;
 
     /**
-     * @description The maximum running time of the job. Valid formats:
+     * @description Indicates whether the job can be rerun. Valid values:
      *
-     *   hh:mm:ss
-     *   mm:ss
-     *   ss
+     *   true: The job can be rerun.
+     *   false: The job cannot be rerun.
      *
      * @example 12:00:00
      *
@@ -32,7 +30,7 @@ class jobTemplates extends Model
     public $clockTime;
 
     /**
-     * @description The command that was used to run the job.
+     * @description The queue of the job.
      *
      * @example ./LammpsTest/lammps.pbs
      *
@@ -41,9 +39,8 @@ class jobTemplates extends Model
     public $commandLine;
 
     /**
-     * @description The maximum GPU usage required by a single compute node. Valid values: 1 to 8.
+     * @description The path that was used to run the job.
      *
-     * The parameter takes effect only when the cluster uses PBS and a compute node is a GPU-accelerated instance.
      * @example 1
      *
      * @var int
@@ -51,7 +48,7 @@ class jobTemplates extends Model
     public $gpu;
 
     /**
-     * @description The ID of the job template.
+     * @description The name of the user that ran the job.
      *
      * @example ehpc-job-tmpl-6RxO5y****
      *
@@ -60,7 +57,10 @@ class jobTemplates extends Model
     public $id;
 
     /**
-     * @description The URL of the job files that were uploaded to an Object Storage Service (OSS) bucket.
+     * @description Indicates whether to decompress the job files downloaded from an OSS bucket. Valid values:
+     *
+     *   true: The job files are decompressed.
+     *   false: The job files are not decompressed.
      *
      * @example https://test.oss-cn-beijing.aliyuncs.com/test.py
      *
@@ -69,7 +69,7 @@ class jobTemplates extends Model
     public $inputFileUrl;
 
     /**
-     * @description The maximum memory usage of a single compute node. The unit can be GB, MB, or KB, and is case-insensitive.
+     * @description The number of threads required by a single compute node. Valid values: 1 to 1000.
      *
      * @example 1GB
      *
@@ -78,7 +78,7 @@ class jobTemplates extends Model
     public $mem;
 
     /**
-     * @description The name of the job template.
+     * @description The ID of the job template.
      *
      * @example job1
      *
@@ -87,7 +87,7 @@ class jobTemplates extends Model
     public $name;
 
     /**
-     * @description The number of the compute nodes. Valid values: 1 to 500.
+     * @description The output file path of stdout.
      *
      * @example 2
      *
@@ -96,7 +96,11 @@ class jobTemplates extends Model
     public $node;
 
     /**
-     * @description The path that was used to run the job.
+     * @description The maximum running time of the job. Valid formats:
+     *
+     *   hh:mm:ss
+     *   mm:ss
+     *   ss
      *
      * @example ./jobfolder
      *
@@ -105,7 +109,7 @@ class jobTemplates extends Model
     public $packagePath;
 
     /**
-     * @description The priority of the job. Valid values: 0 to 9. A large value indicates a high priority.
+     * @description The maximum memory usage of a single compute node. The unit can be GB, MB, or KB, and is case-insensitive.
      *
      * @example 0
      *
@@ -114,7 +118,7 @@ class jobTemplates extends Model
     public $priority;
 
     /**
-     * @description The queue of the job.
+     * @description The priority of the job. Valid values: 0 to 9. A large value indicates a high priority.
      *
      * @example workq
      *
@@ -123,10 +127,7 @@ class jobTemplates extends Model
     public $queue;
 
     /**
-     * @description Indicates whether the job can be rerun. Valid values:
-     *
-     *   true: The job can be rerun.
-     *   false: The job cannot be rerun.
+     * @description The name of the job template.
      *
      * @example false
      *
@@ -135,7 +136,7 @@ class jobTemplates extends Model
     public $reRunable;
 
     /**
-     * @description The name of the user that ran the job.
+     * @description The URL of the job files that were uploaded to an Object Storage Service (OSS) bucket.
      *
      * @example user1
      *
@@ -144,7 +145,7 @@ class jobTemplates extends Model
     public $runasUser;
 
     /**
-     * @description The output file path of stderr.
+     * @description The number of the compute nodes. Valid values: 1 to 500.
      *
      * @example ./LammpsTest
      *
@@ -153,8 +154,9 @@ class jobTemplates extends Model
     public $stderrRedirectPath;
 
     /**
-     * @description The output file path of stdout.
+     * @description The maximum GPU usage required by a single compute node. Valid values: 1 to 8.
      *
+     * The parameter takes effect only when the cluster uses PBS and a compute node is a GPU-accelerated instance.
      * @example ./Lammps
      *
      * @var string
@@ -162,7 +164,7 @@ class jobTemplates extends Model
     public $stdoutRedirectPath;
 
     /**
-     * @description The number of tasks required by a single compute node. Valid values: 1 to 1000.
+     * @description The environment variables of the job.
      *
      * @example 2
      *
@@ -171,8 +173,9 @@ class jobTemplates extends Model
     public $task;
 
     /**
-     * @description The number of threads required by a single compute node. Valid values: 1 to 1000.
+     * @description The job array.
      *
+     * Format: X-Y:Z. X is the minimum index value. Y is the maximum index value. Z is the step size. For example, 2-7:2 indicates that three jobs need to be run and their index values are 2, 4, and 6.
      * @example 1
      *
      * @var int
@@ -180,12 +183,6 @@ class jobTemplates extends Model
     public $thread;
 
     /**
-     * @description The command that was used to decompress the job files downloaded from an OSS bucket. The parameter takes effect only when WithUnzipCmd is set to true. Valid values:
-     *
-     *   tar xzf: decompresses GZIP files.
-     *   tar xf: decompresses TAR files.
-     *   unzip: decompresses ZIP files.
-     *
      * @example tar xzf
      *
      * @var string
@@ -193,7 +190,7 @@ class jobTemplates extends Model
     public $unzipCmd;
 
     /**
-     * @description The environment variables of the job.
+     * @description The command that was used to run the job.
      *
      * @example [{Name:,Value:},{Name:,Value:}]
      *
@@ -202,10 +199,11 @@ class jobTemplates extends Model
     public $variables;
 
     /**
-     * @description Indicates whether to decompress the job files downloaded from an OSS bucket. Valid values:
+     * @description The command that was used to decompress the job files downloaded from an OSS bucket. The parameter takes effect only when WithUnzipCmd is set to true. Valid values:
      *
-     *   true: The job files are decompressed.
-     *   false: The job files are not decompressed.
+     *   tar xzf: decompresses GZIP files.
+     *   tar xf: decompresses TAR files.
+     *   unzip: decompresses ZIP files.
      *
      * @example true
      *

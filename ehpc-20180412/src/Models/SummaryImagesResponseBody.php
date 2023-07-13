@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SummaryImagesResponseBody extends Model
 {
     /**
-     * @description The names of all images in the cluster.
-     *
      * @example {"summaryImages":["gromacs.sif","linpack.sif","sccIntelMPI1.sif","test.sif","usergromac.sif.user"]}
      *
      * @var string
@@ -18,8 +16,6 @@ class SummaryImagesResponseBody extends Model
     public $imagesName;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 896D338C-E4F4-41EC-A154-D605E5DE****
      *
      * @var string

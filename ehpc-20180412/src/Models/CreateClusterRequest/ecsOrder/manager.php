@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class manager extends Model
 {
     /**
-     * @description The number of the management nodes. Valid values: 1 and 2.
+     * @description The instance type of the management nodes.
      *
+     * You can call the [ListPreferredEcsTypes](~~188592~~) operation to query the recommended instance types.
      * @example 1
      *
      * @var int
@@ -18,9 +19,8 @@ class manager extends Model
     public $count;
 
     /**
-     * @description The instance type of the management nodes.
+     * @description The number of the compute nodes. Valid values: 1 to 99.
      *
-     * You can call the [ListPreferredEcsTypes](~~188592~~) operation to query the recommended instance types.
      * @example ecs.n1.tiny
      *
      * @var string

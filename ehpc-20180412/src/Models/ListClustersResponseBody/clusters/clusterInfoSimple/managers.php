@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class managers extends Model
 {
     /**
-     * @description The number of abnormal nodes.
+     * @description The number of stopped nodes.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class managers extends Model
     public $exceptionCount;
 
     /**
-     * @description The number of normal nodes.
+     * @description The information about compute nodes.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class managers extends Model
     public $normalCount;
 
     /**
-     * @description The number of nodes that are being used in the queue. This includes those that are being initialized, installed, or released.
+     * @description The number of abnormal nodes.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class managers extends Model
     public $operatingCount;
 
     /**
-     * @description The number of stopped nodes.
+     * @description The total number of management nodes.
      *
      * @example 0
      *
@@ -45,7 +45,7 @@ class managers extends Model
     public $stoppedCount;
 
     /**
-     * @description The total number of management nodes.
+     * @description The number of normal nodes.
      *
      * @example 2
      *

@@ -10,14 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteUsersRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the asynchronous mode for this request.
+     *
+     * Default value: false.
+     * @example false
+     *
      * @var bool
      */
     public $async;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
-     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
+     * You can call the [ListClusters](~~87116~~) operation to obtain the cluster ID.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -25,6 +30,8 @@ class DeleteUsersRequest extends Model
     public $clusterId;
 
     /**
+     * @description The information about the user.
+     *
      * @var user[]
      */
     public $user;

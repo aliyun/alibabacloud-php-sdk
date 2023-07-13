@@ -39,17 +39,25 @@ class osInfo extends Model
     public $imageId;
 
     /**
+     * @description The name of the image.
+     *
+     * @example CentOS_7.2_64
+     *
      * @var string
      */
     public $OSName;
 
     /**
+     * @description The name of the image in English.
+     *
+     * @example CentOS_7.2_64
+     *
      * @var string
      */
     public $OSNameEn;
 
     /**
-     * @description The image tag of the cluster.
+     * @description The tag that is added to the image.
      *
      * @example CentOS_7.2_64
      *

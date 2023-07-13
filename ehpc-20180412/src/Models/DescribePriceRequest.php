@@ -23,6 +23,8 @@ class DescribePriceRequest extends Model
     public $chargeType;
 
     /**
+     * @description Product List
+     *
      * @var commodities[]
      */
     public $commodities;

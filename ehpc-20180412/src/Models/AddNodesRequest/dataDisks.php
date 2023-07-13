@@ -16,7 +16,7 @@ class dataDisks extends Model
      *   cloud_essd: ESSD
      *   cloud: basic disk
      *
-     * Valid values of N: 0 to 16
+     * Valid values of N: 0 to 16.
      * @example cloud_efficiency
      *
      * @var string
@@ -29,7 +29,7 @@ class dataDisks extends Model
      *   true
      *   false
      *
-     * Valid values of N: 0 to 16
+     * Valid values of N: 0 to 16.
      * @example true
      *
      * @var bool
@@ -42,7 +42,7 @@ class dataDisks extends Model
      *   true
      *   false
      *
-     * Valid values of N: 0 to 16
+     * Valid values of N: 0 to 16.
      * @example false
      *
      * @var bool
@@ -52,7 +52,7 @@ class dataDisks extends Model
     /**
      * @description The KMS key ID of the data disk.
      *
-     * Valid values of N: 0 to 16
+     * Valid values of N: 0 to 16.
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40826X
      *
      * @var string
@@ -67,7 +67,7 @@ class dataDisks extends Model
      *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
-     * Valid values of N: 0 to 16
+     * Valid values of N: 0 to 16.
      * @example PL1
      *
      * @var string
@@ -75,9 +75,9 @@ class dataDisks extends Model
     public $dataDiskPerformanceLevel;
 
     /**
-     * @description The size of the data disk. Unit: GB
+     * @description The size of the data disk. Unit: GB.
      *
-     * Valid values of N: 0 to 16
+     * Valid values of N: 0 to 16.
      * @example 40
      *
      * @var int

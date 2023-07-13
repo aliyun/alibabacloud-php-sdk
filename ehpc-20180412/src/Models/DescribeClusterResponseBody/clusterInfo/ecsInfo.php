@@ -13,30 +13,21 @@ use AlibabaCloud\Tea\Model;
 class ecsInfo extends Model
 {
     /**
-     * @description The list of compute nodes.
-     *
      * @var compute
      */
     public $compute;
 
     /**
-     * @description The list of logon nodes.
-     *
      * @var login
      */
     public $login;
 
     /**
-     * @description The list of management nodes.
-     *
      * @var manager
      */
     public $manager;
 
     /**
-     * @description The list of proxy nodes on the cloud.
-     *
-     * This parameter is returned only when the cluster is deployed across hybrid environments and the hybrid-cloud proxy mode is enabled for the cluster.
      * @var proxyMgr
      */
     public $proxyMgr;

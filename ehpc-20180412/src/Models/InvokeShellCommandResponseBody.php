@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class InvokeShellCommandResponseBody extends Model
 {
     /**
-     * @description The ID of the command. It is used to query the running status of the command.
+     * @description The ID of the command. It is used to query the execution status of the command.
      *
      * @example c-hz01v8vudql****
      *
@@ -19,8 +19,6 @@ class InvokeShellCommandResponseBody extends Model
     public $commandId;
 
     /**
-     * @description The list of IDs of the instances on which you want to run the command.
-     *
      * @var instanceIds
      */
     public $instanceIds;

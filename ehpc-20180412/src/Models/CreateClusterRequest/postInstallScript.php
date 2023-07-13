@@ -9,9 +9,14 @@ use AlibabaCloud\Tea\Model;
 class postInstallScript extends Model
 {
     /**
-     * @description The parameter that is used to run the script after the E-HPC cluster is created.
+     * @description The node of the RAM role.
      *
-     * Valid values of N: 0 to 16
+     * Valid values of N: 0 to 4
+     *
+     *   If the DeployMode parameter is set to Standard, the following values are valid: scheduler, account, login, and compute. Separate multiple values with commas (,).
+     *   If the DeployMode parameter is set to Simple, the following values are valid: manager, login, and compute. Separate multiple values with commas (,).
+     *   If the DeployMode parameter is set to Tiny, the following values are valid: manager and compute.
+     *
      * @example bashfile.sh
      *
      * @var string
@@ -19,9 +24,8 @@ class postInstallScript extends Model
     public $args;
 
     /**
-     * @description The URL that is used to download the script after the E-HPC cluster is created.
+     * @description The key of the tag.
      *
-     * Valid values of N: 0 to 16
      * @example /opt/job.sh
      *
      * @var string

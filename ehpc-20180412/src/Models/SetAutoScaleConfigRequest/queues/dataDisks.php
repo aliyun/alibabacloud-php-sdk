@@ -9,14 +9,9 @@ use AlibabaCloud\Tea\Model;
 class dataDisks extends Model
 {
     /**
-     * @description The type of the data disk. Valid values:
+     * @description The size of the data disk. Unit: GB.
      *
-     *   cloud_efficiency: ultra disk
-     *   cloud_ssd: SSD
-     *   cloud_essd: ESSD
-     *   cloud: basic disk
-     *
-     * Valid values of N: 0 to 16
+     * Valid values of N: 0 to 16.
      * @example cloud_efficiency
      *
      * @var string
@@ -24,40 +19,19 @@ class dataDisks extends Model
     public $dataDiskCategory;
 
     /**
-     * @description Specifies whether the data disk is released when the node is released. Valid values:
+     * @description The type of the data disk. Valid values:
      *
-     *   true
-     *   false
+     *   cloud_efficiency: ultra disk
+     *   cloud_ssd: SSD
+     *   cloud_essd: ESSD
+     *   cloud: basic disk
      *
-     * Valid values of N: 0 to 16
+     * Valid values of N: 0 to 16.
      * @example true
      *
      * @var bool
      */
     public $dataDiskDeleteWithInstance;
-
-    /**
-     * @description Specifies whether to encrypt the data disk. Valid values:
-     *
-     *   true
-     *   false
-     *
-     * Valid values of N: 0 to 16
-     * @example false
-     *
-     * @var bool
-     */
-    public $dataDiskEncrypted;
-
-    /**
-     * @description The KMS key ID of the data disk.
-     *
-     * Valid values of N: 0 to 16
-     * @example 0e478b7a-4262-4802-b8cb-00d3fb40826X
-     *
-     * @var string
-     */
-    public $dataDiskKMSKeyId;
 
     /**
      * @description The performance level of the ESSD used as the data disk. The parameter takes effect only when the Queues.N.DataDisks.N.DataDiskCategory parameter is set to cloud_essd. Valid values:
@@ -67,7 +41,33 @@ class dataDisks extends Model
      *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
-     * Valid values of N: 0 to 16
+     * Valid values of N: 0 to 16.
+     * @example false
+     *
+     * @var bool
+     */
+    public $dataDiskEncrypted;
+
+    /**
+     * @description Specifies whether to encrypt the data disk. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Valid values of N: 0 to 16.
+     * @example 0e478b7a-4262-4802-b8cb-00d3fb40826X
+     *
+     * @var string
+     */
+    public $dataDiskKMSKeyId;
+
+    /**
+     * @description Specifies whether the data disk is released when the node is released. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Valid values of N: 0 to 16.
      * @example PL1
      *
      * @var string
@@ -75,9 +75,8 @@ class dataDisks extends Model
     public $dataDiskPerformanceLevel;
 
     /**
-     * @description The size of the data disk. Unit: GB.
+     * @description The list of data disks.
      *
-     * Valid values of N: 0 to 16
      * @example 40
      *
      * @var int

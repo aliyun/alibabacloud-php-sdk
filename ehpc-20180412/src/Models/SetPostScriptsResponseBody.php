@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetPostScriptsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B745C159-3155-4B94-95D0-4B73D4D2****
      *

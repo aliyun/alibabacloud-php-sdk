@@ -19,6 +19,18 @@ class AddQueueRequest extends Model
     public $clusterId;
 
     /**
+     * @var string
+     */
+    public $deploymentSetId;
+
+    /**
+     * @example Standard
+     *
+     * @var string
+     */
+    public $networkInterfaceTrafficMode;
+
+    /**
      * @description The name of the queue. The name must be 1 to 63 characters in length and start with a letter. It can contain letters, digits, and underscores (\_).
      *
      * @example test1
@@ -27,8 +39,10 @@ class AddQueueRequest extends Model
      */
     public $queueName;
     protected $_name = [
-        'clusterId' => 'ClusterId',
-        'queueName' => 'QueueName',
+        'clusterId'                   => 'ClusterId',
+        'deploymentSetId'             => 'DeploymentSetId',
+        'networkInterfaceTrafficMode' => 'NetworkInterfaceTrafficMode',
+        'queueName'                   => 'QueueName',
     ];
 
     public function validate()
@@ -40,6 +54,12 @@ class AddQueueRequest extends Model
         $res = [];
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->deploymentSetId) {
+            $res['DeploymentSetId'] = $this->deploymentSetId;
+        }
+        if (null !== $this->networkInterfaceTrafficMode) {
+            $res['NetworkInterfaceTrafficMode'] = $this->networkInterfaceTrafficMode;
         }
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
@@ -58,6 +78,12 @@ class AddQueueRequest extends Model
         $model = new self();
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['DeploymentSetId'])) {
+            $model->deploymentSetId = $map['DeploymentSetId'];
+        }
+        if (isset($map['NetworkInterfaceTrafficMode'])) {
+            $model->networkInterfaceTrafficMode = $map['NetworkInterfaceTrafficMode'];
         }
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];

@@ -10,19 +10,19 @@ use AlibabaCloud\Tea\Model;
 class seriesInfo extends Model
 {
     /**
-     * @description The recommended ECS instance types for various nodes of the E-HPC cluster.
+     * @description Recommended instance types for nodes in an E-HPC cluser.
      *
      * @var roles
      */
     public $roles;
 
     /**
-     * @description The ID of the ECS instance series. Valid values:
+     * @description The ECS instance series ID. Valid values:
      *
-     *   HighCompute: high computing
-     *   HighMem: high storage
-     *   GPU
-     *   All: all options.
+     *   HighCompute: compute-optimized instance families
+     *   HighMem: memory-optimized instance families
+     *   GPU: GPU-accelerated instance families
+     *   All: all instance families
      *
      * @example All
      *
@@ -31,7 +31,7 @@ class seriesInfo extends Model
     public $seriesId;
 
     /**
-     * @description The name of the instance series. Valid values:
+     * @description The instance series name. Valid values:
      *
      *   SeriesHighCompute
      *   SeriesHighMem

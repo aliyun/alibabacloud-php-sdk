@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class onPremiseInfo extends Model
 {
     /**
-     * @description The hostname of the on-premises management nodes.
-     *
      * @example testecs
      *
      * @var string
@@ -18,8 +16,6 @@ class onPremiseInfo extends Model
     public $hostName;
 
     /**
-     * @description The IP address of the on-premises management nodes.
-     *
      * @example 192.168.*.*
      *
      * @var string
@@ -27,9 +23,6 @@ class onPremiseInfo extends Model
     public $IP;
 
     /**
-     * @description The type of on-premises management nodes. Valid values:
-     *
-     * - account, scheduler
      * @example scheduler
      *
      * @var string

@@ -14,7 +14,7 @@ class nodes extends Model
      *   nis
      *   ldap
      *
-     * Default value: nis
+     * Default value: nis.
      * @example nis
      *
      * @var string
@@ -69,7 +69,7 @@ class nodes extends Model
      *   opengridscheduler
      *   deadline
      *
-     * Default value: pbs
+     * Default value: pbs.
      * @example pbs
      *
      * @var string

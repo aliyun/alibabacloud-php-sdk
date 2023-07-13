@@ -9,38 +9,14 @@ use AlibabaCloud\Tea\Model;
 class instanceTypes extends Model
 {
     /**
-     * @description The instance type of the compute nodes that are automatically added in the queue.
+     * @description The maximum hourly price of the compute nodes that are automatically added in the queue. The value can be accurate to three decimal places. The parameter takes effect only when `Queues.N.InstanceTypes.N.SpotStrategy` is set to `SpotWithPriceLimit`.
      *
-     * The instance types of N compute nodes in the queue can be set at the same time when auto scaling is performed in the queue. Valid values of N: 0 to 500.
+     * The maximum hourly prices of N compute nodes in the queue can be set at the same time when auto scaling is performed in the queue. Valid values of N: 0 to 500.
      * @example ecs.n1.tiny
      *
      * @var string
      */
     public $instanceType;
-
-    /**
-     * @example 0
-     *
-     * @var int
-     */
-    public $spotDuration;
-
-    /**
-     * @example Terminate
-     *
-     * @var string
-     */
-    public $spotInterruptionBehavior;
-
-    /**
-     * @description The maximum hourly price of the compute nodes that are automatically added in the queue. The value can be accurate to three decimal places. The parameter takes effect only when `Queues.N.InstanceTypes.N.SpotStrategy` is set to `Queues.N.InstanceTypes.N.SpotStrategy`.
-     *
-     * The maximum hourly prices of N compute nodes in the queue can be set at the same time when auto scaling is performed in the queue. Valid values of N: 0 to 500.
-     * @example 0.660
-     *
-     * @var float
-     */
-    public $spotPriceLimit;
 
     /**
      * @description The bidding method of the compute nodes that are automatically added in the queue. Valid values:
@@ -50,6 +26,35 @@ class instanceTypes extends Model
      *   SpotAsPriceGo: The compute nodes are preemptible instances for which the market price at the time of purchase is used as the bid price.
      *
      * The bidding methods of N compute nodes in the queue can be set at the same time when auto scaling is performed in the queue. Valid values of N: 0 to 500.
+     * @example 0
+     *
+     * @var int
+     */
+    public $spotDuration;
+
+    /**
+     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0 to 1. A value of 0 means that no protection period is specified. Default value: 1.
+     *
+     * @example Terminate
+     *
+     * @var string
+     */
+    public $spotInterruptionBehavior;
+
+    /**
+     * @description The zone ID of the compute nodes that are automatically added to the queues.
+     *
+     * The zone IDs of N compute nodes in the queue can be set at the same time when auto scaling is performed in the queue. Valid values of N: 0 to 500.
+     * @example 0.660
+     *
+     * @var float
+     */
+    public $spotPriceLimit;
+
+    /**
+     * @description The instance type of the compute nodes that are automatically added in the queue.
+     *
+     * The instance types of N compute nodes in the queue can be set at the same time when auto scaling is performed in the queue. Valid values of N: 0 to 500.
      * @example SpotWithPriceLimit
      *
      * @var string
@@ -57,9 +62,8 @@ class instanceTypes extends Model
     public $spotStrategy;
 
     /**
-     * @description The vSwitch ID of the compute nodes that are automatically added in the queue.
+     * @description The array of node information.
      *
-     * The vSwitch IDs of N compute nodes in the queue can be set at the same time when auto scaling is performed in the queue. Valid values of N: 0 to 500.
      * @example vsw-bp1lfcjbfb099rrjn****
      *
      * @var string
@@ -67,9 +71,9 @@ class instanceTypes extends Model
     public $vSwitchId;
 
     /**
-     * @description The zone ID of the compute nodes that are automatically added in the queue belongs.
+     * @description The vSwitch ID of the compute nodes that are automatically added to the queues.
      *
-     * The zone IDs of N compute nodes in the queue can be set at the same time when auto scaling is performed in the queue. Valid values of N: 0 to 500.
+     * The vSwitch IDs of N compute nodes in the queue can be set at the same time when auto scaling is performed in the queue. Valid values of N: 0 to 500.
      * @example cn-hangzhou-b
      *
      * @var string
