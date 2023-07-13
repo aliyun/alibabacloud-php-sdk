@@ -34,6 +34,11 @@ class ratePlanInfo extends Model
     public $latestCheckOutTime;
 
     /**
+     * @var int
+     */
+    public $maxBookingNum;
+
+    /**
      * @example 1
      *
      * @var int
@@ -79,6 +84,7 @@ class ratePlanInfo extends Model
         'btripHotelCancelPolicyDTO' => 'btrip_hotel_cancel_policy_d_t_o',
         'earliestCheckInTime'       => 'earliest_check_in_time',
         'latestCheckOutTime'        => 'latest_check_out_time',
+        'maxBookingNum'             => 'max_booking_num',
         'maxOccupancyNum'           => 'max_occupancy_num',
         'needCertificate'           => 'need_certificate',
         'needEmail'                 => 'need_email',
@@ -105,6 +111,9 @@ class ratePlanInfo extends Model
         }
         if (null !== $this->latestCheckOutTime) {
             $res['latest_check_out_time'] = $this->latestCheckOutTime;
+        }
+        if (null !== $this->maxBookingNum) {
+            $res['max_booking_num'] = $this->maxBookingNum;
         }
         if (null !== $this->maxOccupancyNum) {
             $res['max_occupancy_num'] = $this->maxOccupancyNum;
@@ -147,6 +156,9 @@ class ratePlanInfo extends Model
         }
         if (isset($map['latest_check_out_time'])) {
             $model->latestCheckOutTime = $map['latest_check_out_time'];
+        }
+        if (isset($map['max_booking_num'])) {
+            $model->maxBookingNum = $map['max_booking_num'];
         }
         if (isset($map['max_occupancy_num'])) {
             $model->maxOccupancyNum = $map['max_occupancy_num'];
