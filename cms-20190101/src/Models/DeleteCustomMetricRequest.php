@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomMetricRequest extends Model
 {
     /**
+     * @description The ID of the application group.
+     *
+     * @example 3607****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The MD5 value of the HTTP request body. The MD5 value is a 128-bit hash value used to verify the uniqueness of the reported monitoring data.
+     *
+     * >  `Md5` is returned when you query the reported monitoring data of a metric.
+     * @example 38796C8CFFEB8F89BB2A626C7BD7****
+     *
      * @var string
      */
     public $md5;
 
     /**
+     * @description The name of the metric.
+     *
+     * @example AdvanceCredit
+     *
      * @var string
      */
     public $metricName;
@@ -29,6 +42,11 @@ class DeleteCustomMetricRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request for reporting monitoring data.
+     *
+     * >  `UUID` is returned when you query the reported monitoring data of a metric. We recommend that you specify the `Md5` parameter.
+     * @example 5497633c-66c5-4eae-abaa-89db5adb****
+     *
      * @var string
      */
     public $UUID;

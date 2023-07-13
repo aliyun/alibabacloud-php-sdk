@@ -9,56 +9,110 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertLogListRequest extends Model
 {
     /**
+     * @description The start timestamp of the alert logs to be queried. Unit: milliseconds.
+     *
+     * @example ECS_Group
+     *
      * @var string
      */
     public $contactGroup;
 
     /**
+     * @description The alert contact group.
+     *
+     * @example 1610074409694
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The alert information in a JSON string.
+     *
+     * @example product
+     *
      * @var string
      */
     public $groupBy;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeAlertLogList**.
+     *
+     * @example 7301****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the blacklist policy.
+     *
+     * @example 360
+     *
      * @var string
      */
     public $lastMin;
 
     /**
+     * @description The webhook URLs of alert contacts.
+     *
+     * @example P4
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The message returned for the alert callback.
+     *
+     * @example IntranetInRate
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example acs_ecs_dashboard
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The severity level and notification methods of the alert. Valid values:
+     *
+     *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
+     *
+     * <!---->
+     *
+     *   OK: No alert is generated.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The email addresses of alert contacts.
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $product;
@@ -69,26 +123,53 @@ class DescribeAlertLogListRequest extends Model
     public $regionId;
 
     /**
+     * @description The phone numbers of alert contacts that can receive alert text messages.
+     *
+     * >  This parameter can be returned only on the China site (aliyun.com).
+     * @example bc369e8_30f87e517ed2fc****
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @description The identifier of the cloud service. Valid values:
+     *
+     *   If the cloud service is provided by Alibaba Cloud, the abbreviation of the service name is returned. Example: ECS.
+     *   If the cloud service is not provided by Alibaba Cloud, a value in the `acs_Service keyword` format is returned. Example: acs_networkmonitor.
+     *
+     * @example test123
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The ID of the log.
+     *
+     * @example alert
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @description The sending results of alert notifications.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $sendStatus;
 
     /**
+     * @description Indicates whether the alert level was changed. Valid values:
+     *
+     *   `P4->OK`: The alert level was changed from P4 to OK.
+     *   `P4->P4`: The alert level was still P4.
+     *
+     * @example 1609988009694
+     *
      * @var int
      */
     public $startTime;

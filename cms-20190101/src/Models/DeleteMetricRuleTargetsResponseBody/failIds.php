@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class failIds extends Model
 {
     /**
+     * @description Deletes the message resources of an alert rule. This operation supports only Message Service (MNS) resources.
+     *
      * @var targetIds
      */
     public $targetIds;

@@ -15,11 +15,19 @@ class ModifyMetricRuleTemplateRequest extends Model
     public $alertTemplates;
 
     /**
+     * @description The description of the alert template.
+     *
+     * @example ECS_template1
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the alert rule. Valid values of N: 1 to 200.
+     *
+     * @example test123
+     *
      * @var string
      */
     public $name;
@@ -30,11 +38,21 @@ class ModifyMetricRuleTemplateRequest extends Model
     public $regionId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 0
+     *
      * @var int
      */
     public $restVersion;
 
     /**
+     * @description The callback URL. Valid values of N: 1 to 200.
+     *
+     * The callback URL must be accessible over the Internet. CloudMonitor sends a POST request to push an alert notification to the callback URL that you specify. Only HTTP requests are supported.
+     * @example 123456
+     *
      * @var int
      */
     public $templateId;

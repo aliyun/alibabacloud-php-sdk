@@ -16,21 +16,29 @@ class groupMetricRules extends Model
     public $escalations;
 
     /**
+     * @example ECS
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example ECS_Group
+     *
      * @var string
      */
     public $contactGroups;
 
     /**
+     * @example [{"instanceId":"i-m5e1qg6uo38rztr4****"}]
+     *
      * @var string
      */
     public $dimensions;
 
     /**
+     * @example 05:31-23:59
+     *
      * @var string
      */
     public $effectiveInterval;
@@ -41,6 +49,8 @@ class groupMetricRules extends Model
     public $emailSubject;
 
     /**
+     * @example 60
+     *
      * @var string
      */
     public $interval;
@@ -51,46 +61,64 @@ class groupMetricRules extends Model
     public $labels;
 
     /**
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @example acs_ecs_dashboard
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example KEEP_LAST_STATE
+     *
      * @var string
      */
     public $noDataPolicy;
 
     /**
+     * @example 00:00-05:30
+     *
      * @var string
      */
     public $noEffectiveInterval;
 
     /**
+     * @example 60
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example 456789
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @example ECS_Rule1
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @example 86400
+     *
      * @var int
      */
     public $silenceTime;
 
     /**
+     * @example https://www.aliyun.com
+     *
      * @var string
      */
     public $webhook;
@@ -116,7 +144,6 @@ class groupMetricRules extends Model
 
     public function validate()
     {
-        Model::validateRequired('escalations', $this->escalations, true);
     }
 
     public function toMap()

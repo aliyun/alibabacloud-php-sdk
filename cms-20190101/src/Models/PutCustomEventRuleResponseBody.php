@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class PutCustomEventRuleResponseBody extends Model
 {
     /**
+     * @description The error message.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example The request has failed due to a temporary failure of the server.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example AD5DCD82-BD1C-405F-BAED-32302DE9F498
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Before you call this operation, call the PutCustomEvent operation to report the monitoring data of the custom event. For more information, see [PutCustomEvent](~~115012~~).
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

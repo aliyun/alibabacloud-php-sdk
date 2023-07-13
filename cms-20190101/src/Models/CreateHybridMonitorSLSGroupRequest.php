@@ -20,11 +20,18 @@ class CreateHybridMonitorSLSGroupRequest extends Model
     public $SLSGroupConfig;
 
     /**
+     * @description The operation that you want to perform. Set the value to **CreateHybridMonitorSLSGroup**.
+     *
      * @var string
      */
     public $SLSGroupDescription;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call is successful.
+     * @example Logstore_test
+     *
      * @var string
      */
     public $SLSGroupName;

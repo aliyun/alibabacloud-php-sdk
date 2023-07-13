@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class express extends Model
 {
     /**
+     * @description The interval at which metrics are collected. Valid values:
+     *
+     *   15
+     *   60
+     *
+     * Unit: seconds.
+     * @example SuccRate
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description The name of the key that is used to filter logs imported from Log Service.
+     *
+     * @example success_count
+     *
      * @var string
      */
     public $express;

@@ -10,31 +10,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
 {
     /**
+     * @description The ID of the application group.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The policies that were returned.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The type of the policy.
+     *
+     * Valid value: PauseNotify.
      * @var notifyPolicyList
      */
     public $notifyPolicyList;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeMonitorGroupNotifyPolicyList**.
+     *
+     * @example 6072F026-C441-41A6-B114-35A1E8F8FDD3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The error message.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;
 
     /**
+     * @description The timestamp that specifies the beginning of the time range to query.
+     *
+     * Unit: milliseconds.
+     * @example 11
+     *
      * @var int
      */
     public $total;

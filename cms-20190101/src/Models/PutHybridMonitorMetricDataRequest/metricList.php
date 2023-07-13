@@ -10,28 +10,36 @@ use AlibabaCloud\Tea\Model;
 class metricList extends Model
 {
     /**
-     * @description 标签，Key只能是英文字母、数字、下划线
+     * @example app、ip、hostName等标识信息
      *
      * @var labels[]
      */
     public $labels;
 
     /**
-     * @description 指标名，只能是英文字母、数字、下划线
+     * @description The operation that you want to perform. Set the value to **PutHybridMonitorMetricData**.
+     *
+     * @example CPU_Usage
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description 时间戳，unix毫秒数，如果不传会使用服务器时间
+     * @description The value of the metric.
+     *
+     * The value is an integer or a floating-point number.
+     * @example 1640776119473
      *
      * @var int
      */
     public $TS;
 
     /**
-     * @description 监控值，浮点或整型
+     * @description The tag key of the metric.
+     *
+     * >  You must specify a key and a value for a tag at the same time.
+     * @example 90
      *
      * @var string
      */

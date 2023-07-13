@@ -11,26 +11,48 @@ use AlibabaCloud\Tea\Model;
 class CreateGroupMonitoringAgentProcessRequest extends Model
 {
     /**
+     * @description The alert rule configurations.
+     *
+     * Valid values of N: 1 to 3.
      * @var alertConfig[]
      */
     public $alertConfig;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The expressions used to match instances.
+     *
+     * Valid values of N: 1 to 3.
      * @var matchExpress[]
      */
     public $matchExpress;
 
     /**
+     * @description The logical operator used between conditional expressions that are used to match instances. Valid values:
+     *
+     *   all
+     *   and
+     *   or
+     *
+     * @example and
+     *
      * @var string
      */
     public $matchExpressFilterRelation;
 
     /**
+     * @description The name of the process.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $processName;

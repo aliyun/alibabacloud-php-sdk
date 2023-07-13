@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class systemEventHistogram extends Model
 {
     /**
+     * @description The number of times that the system event occurred.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The end of an interval.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @example 1552225753000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The beginning of an interval.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @example 1552225770000
+     *
      * @var int
      */
     public $startTime;

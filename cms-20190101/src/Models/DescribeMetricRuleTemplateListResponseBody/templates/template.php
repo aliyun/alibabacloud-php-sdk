@@ -10,36 +10,64 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @var applyHistories
      */
     public $applyHistories;
 
     /**
+     * @description The order in which you want to sort alert templates. Default value: true. Valid values:
+     *
+     *   true: ascending order
+     *   false: descending order
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example 1646018798000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1
+     * @example 1646054798000
+     *
      * @var int
      */
     public $gmtModified;
 
     /**
+     * @description The application history of the alert template.
+     *
+     * @example ECS_Template1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the alert template.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $restVersion;
 
     /**
+     * @description The description of the alert template.
+     *
+     * @example 70****
+     *
      * @var int
      */
     public $templateId;

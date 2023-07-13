@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class InstallMonitoringAgentResponseBody extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **InstallMonitoringAgent**.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 0BDAF8A8-04DC-5F0C-90E4-724D42C41945
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

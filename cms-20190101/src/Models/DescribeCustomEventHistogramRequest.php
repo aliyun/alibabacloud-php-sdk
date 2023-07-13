@@ -9,26 +9,54 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomEventHistogramRequest extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 1552220485596
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @description The keywords that are contained in the content of the custom event to query. You can use a logical operator between keywords.
+     *
+     *   If you need to query the custom event whose content contains a and b, set the value to a and b.
+     *   If you need to query the custom event whose content contains a or b, set the value to a or b.
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the custom event.
+     *
+     * @example CRITICAL
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The level of the custom event. Valid values:
+     *
+     *   CRITICAL
+     *   WARN
+     *   INFO
+     *
+     * @example BucketIngressBandwidth
+     *
      * @var string
      */
     public $name;
@@ -39,11 +67,21 @@ class DescribeCustomEventHistogramRequest extends Model
     public $regionId;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @example cms
+     *
      * @var string
      */
     public $searchKeywords;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @example 1552209685596
+     *
      * @var string
      */
     public $startTime;

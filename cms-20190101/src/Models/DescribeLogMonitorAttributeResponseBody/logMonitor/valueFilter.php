@@ -9,16 +9,35 @@ use AlibabaCloud\Tea\Model;
 class valueFilter extends Model
 {
     /**
+     * @description The field value to be matched in the filter condition.
+     *
+     * @example hostName
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The size of the tumbling window for calculation. Unit: seconds. The system performs an aggregation for each tumbling window.
+     *
+     * @example contain
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description The method that is used to match the field value. Valid values:
+     *
+     *   `contain`
+     *   `notContain`
+     *   `>`: greater than
+     *   `<`: less than
+     *   `>=`: greater than or equal to
+     *   `<=`: less than or equal to
+     *
+     * @example portal
+     *
      * @var string
      */
     public $value;

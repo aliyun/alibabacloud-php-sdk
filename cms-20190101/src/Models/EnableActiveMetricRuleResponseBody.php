@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class EnableActiveMetricRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The operation that you want to perform. Set the value to **EnableActiveMetricRule**.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example F82E6667-7811-4BA0-842F-5B2DC42BBAAD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

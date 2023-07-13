@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AddTagsRequest extends Model
 {
     /**
+     * @example 7301****
+     *
      * @var string[]
      */
     public $groupIds;

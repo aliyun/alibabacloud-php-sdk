@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example key1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example value1
+     *
      * @var string
      */
     public $value;

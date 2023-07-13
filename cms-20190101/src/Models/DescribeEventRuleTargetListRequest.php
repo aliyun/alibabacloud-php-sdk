@@ -14,6 +14,10 @@ class DescribeEventRuleTargetListRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the alert group.
+     *
+     * @example testRule
+     *
      * @var string
      */
     public $ruleName;

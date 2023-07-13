@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class openApiParameters extends Model
 {
     /**
+     * @description The ID of the recipient that receives alert notifications sent by an API callback.
+     *
+     * @example PutLogs
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @description The error message.
+     *
+     * @example acs:log:cn-hangzhou::project/cms-log-mon***\/logstore/cxxxx***
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @description The region where Function Compute is deployed. Valid values of N: 1 to 5.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The region where Message Service (MNS) is deployed. Valid values of N: 1 to 5.
+     *
+     * @example {"customField1":"value1","customField2":"$.name"}
+     *
      * @var string
      */
     public $jsonParams;
 
     /**
+     * @description The name of the Log Service project. Valid values of N: 1 to 5.
+     *
+     * @example log
+     *
      * @var string
      */
     public $product;
 
     /**
+     * @description The callback URL. Valid values of N: 1 to 5.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description This parameter is returned if the specified alert contact groups in the request failed to be created or modified.
+     *
+     * @example MyRole
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The name of the alert contact group.
+     *
+     * @example 2019-01-01
+     *
      * @var string
      */
     public $version;

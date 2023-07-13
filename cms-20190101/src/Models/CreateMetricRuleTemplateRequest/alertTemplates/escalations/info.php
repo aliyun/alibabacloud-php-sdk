@@ -14,6 +14,11 @@ class info extends Model
     public $comparisonOperator;
 
     /**
+     * @var int
+     */
+    public $n;
+
+    /**
      * @var string
      */
     public $statistics;
@@ -29,6 +34,7 @@ class info extends Model
     public $times;
     protected $_name = [
         'comparisonOperator' => 'ComparisonOperator',
+        'n'                  => 'N',
         'statistics'         => 'Statistics',
         'threshold'          => 'Threshold',
         'times'              => 'Times',
@@ -43,6 +49,9 @@ class info extends Model
         $res = [];
         if (null !== $this->comparisonOperator) {
             $res['ComparisonOperator'] = $this->comparisonOperator;
+        }
+        if (null !== $this->n) {
+            $res['N'] = $this->n;
         }
         if (null !== $this->statistics) {
             $res['Statistics'] = $this->statistics;
@@ -67,6 +76,9 @@ class info extends Model
         $model = new self();
         if (isset($map['ComparisonOperator'])) {
             $model->comparisonOperator = $map['ComparisonOperator'];
+        }
+        if (isset($map['N'])) {
+            $model->n = $map['N'];
         }
         if (isset($map['Statistics'])) {
             $model->statistics = $map['Statistics'];

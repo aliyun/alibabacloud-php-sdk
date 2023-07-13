@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorListRequest extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example site
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The number of hops for the PING protocol.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeSiteMonitorList**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -29,21 +42,42 @@ class DescribeSiteMonitorListRequest extends Model
     public $regionId;
 
     /**
+     * @description The parsing path of the assertion.
+     *
+     *   If the assertion type is `body_json`, the path is `json path`.
+     *   If the assertion type is `body_xml`, the path is `xml path`.
+     *
+     * @example a1ecd34a-8157-44d9-b060-14950837****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The ID of the site monitoring task.
+     *
+     * @example 1
+     *
+     * @var string
+     */
+    public $taskState;
+
+    /**
+     * @description The time when the site monitoring task was updated.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'keyword'  => 'Keyword',
-        'page'     => 'Page',
-        'pageSize' => 'PageSize',
-        'regionId' => 'RegionId',
-        'taskId'   => 'TaskId',
-        'taskType' => 'TaskType',
+        'keyword'   => 'Keyword',
+        'page'      => 'Page',
+        'pageSize'  => 'PageSize',
+        'regionId'  => 'RegionId',
+        'taskId'    => 'TaskId',
+        'taskState' => 'TaskState',
+        'taskType'  => 'TaskType',
     ];
 
     public function validate()
@@ -67,6 +101,9 @@ class DescribeSiteMonitorListRequest extends Model
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
+        }
+        if (null !== $this->taskState) {
+            $res['TaskState'] = $this->taskState;
         }
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
@@ -97,6 +134,9 @@ class DescribeSiteMonitorListRequest extends Model
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];
+        }
+        if (isset($map['TaskState'])) {
+            $model->taskState = $map['TaskState'];
         }
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];

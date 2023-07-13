@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class siteMonitor extends Model
 {
     /**
+     * @description The site monitoring tasks that are returned.
+     *
+     * @example https://aliyun.com
+     *
      * @var string
      */
     public $address;
@@ -17,44 +21,91 @@ class siteMonitor extends Model
     /**
      * @var string
      */
+    public $agentGroup;
+
+    /**
+     * @description The keyword to be matched.
+     *
+     * >  You can search for tasks by name or address. Fuzzy search is supported.
+     * @example 2021-11-01 11:05:18
+     *
+     * @var string
+     */
     public $createTime;
 
     /**
+     * @description The protocol type of DNS detection. Valid values:
+     *
+     *   udp (default value)
+     *   tcp
+     *   tcp-tls
+     *
+     * @example 1
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @var optionsJson
      */
     public $optionsJson;
 
     /**
+     * @description The HTTP request method. Valid values:
+     *
+     *   get
+     *   post
+     *   head
+     *
+     * @example f5783760-1b39-4b6b-80e8-453d962a****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The number of times a failed detection request is retried.
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description Indicates whether MTR is automatically used to diagnose network issues if a task fails. Valid values:
+     *
+     *   false (default value): MTR is not automatically used to diagnose network issues if a task fails.
+     *   true: MTR is automatically used to diagnose network issues if a task fails.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $taskState;
 
     /**
+     * @description The protocol that is used by the site monitoring task. Valid values: HTTP, PING, TCP, UDP, DNS, SMTP, POP3, and FTP.
+     *
+     * @example TCP
+     *
      * @var string
      */
     public $taskType;
 
     /**
+     * @description The packet loss rate.
+     *
+     * >  This parameter is returned only if the TaskType parameter is set to PING.
+     * @example 2022-03-08 17:14:31
+     *
      * @var string
      */
     public $updateTime;
     protected $_name = [
         'address'     => 'Address',
+        'agentGroup'  => 'AgentGroup',
         'createTime'  => 'CreateTime',
         'interval'    => 'Interval',
         'optionsJson' => 'OptionsJson',
@@ -74,6 +125,9 @@ class siteMonitor extends Model
         $res = [];
         if (null !== $this->address) {
             $res['Address'] = $this->address;
+        }
+        if (null !== $this->agentGroup) {
+            $res['AgentGroup'] = $this->agentGroup;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -113,6 +167,9 @@ class siteMonitor extends Model
         $model = new self();
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
+        }
+        if (isset($map['AgentGroup'])) {
+            $model->agentGroup = $map['AgentGroup'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];

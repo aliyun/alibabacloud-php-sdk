@@ -10,31 +10,61 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactListResponseBody extends Model
 {
     /**
+     * @description The description of the alert contact.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The status of the phone number. Valid values:
+     *
+     *   PENDING: The phone number is not activated. Alert notifications can be sent to the phone number by using text messages only after the phone number is activated.
+     *   OK: The phone number is activated and can receive alert notifications.
+     *
+     * >  This parameter can be returned only on the China site (aliyun.com).
      * @var contacts
      */
     public $contacts;
 
     /**
+     * @description The language in which the alert information is displayed. Valid values:
+     *
+     *   zh-cn: simplified Chinese
+     *   en: English
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 100.
+     * @example 06D5ECC2-B9BE-42A4-8FA3-1A610FB08B83
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The TradeManager ID of the alert contact.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $total;

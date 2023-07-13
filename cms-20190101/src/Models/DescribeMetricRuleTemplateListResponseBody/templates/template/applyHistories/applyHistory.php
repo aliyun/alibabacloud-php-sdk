@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class applyHistory extends Model
 {
     /**
+     * @example 1646055898000
+     *
      * @var int
      */
     public $applyTime;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example 3607****
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example ECS_Group
+     *
      * @var string
      */
     public $groupName;

@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class alertInitConfig extends Model
 {
     /**
+     * @description The consecutive number of times for which the metric value is measured before an alert is triggered.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $evaluationCount;
 
     /**
+     * @description The name of the metric. For more information, see [Appendix 1: Metrics](~~163515~~).
+     *
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The namespace of the service. For more information, see [Appendix 1: Metrics](~~163515~~).
+     *
+     * @example acs_rds_dashboard
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The aggregation period of the monitoring data. Unit: minutes. For more information, see [Appendix 1: Metrics](~~163515~~).
+     *
+     * @example 1m
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @description The statistical aggregation method that is used to calculate metric values that trigger alerts. For more information, see [Appendix 1: Metrics](~~163515~~).
+     *
+     * @example Average
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @description The threshold of the metric value.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $threshold;

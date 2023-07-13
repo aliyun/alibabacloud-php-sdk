@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleCountResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The number of alert rules without active alerts.
+     *
      * @var metricRuleCount
      */
     public $metricRuleCount;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example FF38D33A-67C1-40EB-AB65-FAEE51EDB644
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of alert rules in each state.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

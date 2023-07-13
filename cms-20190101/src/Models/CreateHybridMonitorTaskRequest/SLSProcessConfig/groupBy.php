@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class groupBy extends Model
 {
     /**
+     * @description The ID of the member account.
+     *
+     * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_fc`.
+     * @example ApiResult
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description The IDs of the member accounts. Separate multiple member account IDs with commas (,).
+     *
+     * >  This parameter is required only if you call this operation by using the management account.
+     * @example code
+     *
      * @var string
      */
     public $SLSKeyName;

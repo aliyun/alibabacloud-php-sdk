@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class contactParameter extends Model
 {
     /**
+     * @description Queries the details of an event-triggered alert rule.
+     *
      * @var string
      */
     public $contactGroupName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $level;

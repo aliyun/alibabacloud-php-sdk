@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example ecs
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example i-2ze26xj5wwy12****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example test-instance-ecs
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The operation that you want to perform. Set the value to **CreateMonitorGroupInstances**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -10,26 +10,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventRuleAttributeResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The details of the event-triggered alert rule.
+     *
+     * @example The alert does not exist.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The type of the event. Valid values:
+     *
+     *   SYSTEM: system event
+     *   CUSTOM: custom event
+     *
+     * @example 9AA3F210-C03D-4C86-8DB6-21C84FF692A1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the event-triggered alert rule.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description The description of the event-triggered alert rule.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

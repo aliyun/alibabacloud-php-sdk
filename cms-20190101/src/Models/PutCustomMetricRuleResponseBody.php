@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class PutCustomMetricRuleResponseBody extends Model
 {
     /**
+     * @description The returned message. If the call was successful, the return value is null. If the call failed, an error message is returned.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ComparisonOperator is mandatory for this action.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example 65D50468-ECEF-48F1-A6E1-D952E89D9432
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Before you call this operation, call the PutCustomMetric operation to report custom monitoring data. For more information, see [PutCustomMetric](~~115004~~).
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

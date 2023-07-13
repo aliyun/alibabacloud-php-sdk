@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertingMetricRuleResourcesRequest extends Model
 {
     /**
+     * @description The namespace of the cloud service.
+     *
+     * For more information about the namespaces of cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * @example {\"userId\":\"120886317861****\",\"region\":\"cn-huhehaote\",\"queue\":\"test-0128\"}
+     *
      * @var string
      */
     public $dimensions;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 7671****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The resources that are monitored.
+     *
+     * @example acs_mns_new
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The timestamp when the last alert was triggered for the resource based on the alert rule.
+     *
+     * Unit: milliseconds.
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeAlertingMetricRuleResources**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -39,6 +62,17 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The operator that is used to compare the metric value with the threshold. Valid values:
+     *
+     *   `>=`
+     *   `=`
+     *   `<=`
+     *   `>`
+     *   `<`
+     *   `!=`
+     *
+     * @example putNewAlarm_user_7e78d765-0e3e-4671-ba6d-7ce39108****
+     *
      * @var string
      */
     public $ruleId;

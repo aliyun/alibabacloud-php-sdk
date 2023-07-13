@@ -10,16 +10,33 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @description The type of the cloud service to which the dynamic rule belongs. Valid values:
+     *
+     *   ecs: Elastic Compute Service (ECS)
+     *   rds: ApsaraDB RDS
+     *   slb: Server Load Balancer (SLB)
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The filtering condition. Valid values:
+     *
+     *   and: queries the instances that meet all alert rules
+     *   or: queries the instances that meet any alert rule
+     *
+     * @example and
+     *
      * @var string
      */
     public $filterRelation;
 
     /**
+     * @description The dynamic rules of the application group.
+     *
      * @var filters
      */
     public $filters;

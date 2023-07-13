@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class groupBy extends Model
 {
     /**
+     * @description The relationship between multiple filter conditions. Valid values:
+     *
+     *   and (default value): Logs are processed only if all filter conditions are met.
+     *   or: Logs are processed if one of the filter conditions is met.
+     *
+     * @example ApiResult
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description The tag key of the metric.
+     *
+     * @example code
+     *
      * @var string
      */
     public $SLSKeyName;

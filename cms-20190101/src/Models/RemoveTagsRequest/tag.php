@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example Key1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag.
+     *
+     * >  The `Tag.N.Key` and `Tag.N.Value` parameters must be used in pairs.
+     * @example Value1
+     *
      * @var string
      */
     public $value;

@@ -9,36 +9,61 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricLastResponseBody extends Model
 {
     /**
+     * @description Queries the latest monitoring data of a metric.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example [{"timestamp":1548777660000,"userId":"123456789876****","instanceId":"i-abcdefgh12****","Minimum":93.1,"Average":99.52,"Maximum":100}]
+     *
      * @var string
      */
     public $datapoints;
 
     /**
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The interval at which the monitoring data is queried.
+     *
+     * Unit: seconds.
+     * @example xxxxxx
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 60
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 021472A6-25E3-4094-8D00-BA4B6A5486C3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The monitoring data.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

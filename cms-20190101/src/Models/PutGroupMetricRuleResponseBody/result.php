@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $ruleId;

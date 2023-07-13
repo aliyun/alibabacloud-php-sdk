@@ -14,11 +14,19 @@ class DescribeEventRuleAttributeRequest extends Model
     public $regionId;
 
     /**
+     * @description The error message.
+     *
+     * @example testRule
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 86400
+     *
      * @var string
      */
     public $silenceTime;

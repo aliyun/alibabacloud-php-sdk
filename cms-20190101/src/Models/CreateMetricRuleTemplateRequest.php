@@ -15,11 +15,19 @@ class CreateMetricRuleTemplateRequest extends Model
     public $alertTemplates;
 
     /**
+     * @description The description of the alert template.
+     *
+     * @example ECS_Template1
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the alert template.
+     *
+     * @example Template1
+     *
      * @var string
      */
     public $name;

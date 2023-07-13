@@ -9,16 +9,27 @@ use AlibabaCloud\Tea\Model;
 class InstallMonitoringAgentRequest extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example true
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example onlyInstallNotHasAgent
+     *
      * @var string
      */
     public $installCommand;
 
     /**
+     * @example i-m5e0k0bexac8tykr****
+     *
      * @var string[]
      */
     public $instanceIds;

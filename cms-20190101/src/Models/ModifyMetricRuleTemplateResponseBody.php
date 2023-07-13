@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ModifyMetricRuleTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 9E07117F-F6AE-4F1C-81E8-36FBB4892235
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class phone extends Model
 {
     /**
+     * @description The quota of processed log data in log monitoring in your purchased plan. Unit: MB/min.
+     *
+     * @example 550
+     *
      * @var int
      */
     public $quotaLimit;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $quotaPackage;
 
     /**
+     * @description The quota of API operation calls in your purchased plan. Unit: 10,000 calls.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $quotaUsed;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DeleteMonitorGroupResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The name of the application group.
+     *
      * @var group
      */
     public $group;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     *
+     * @example CA35B3AE-4FFD-4A33-AE67-67EF68711EFA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The deleted application group.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

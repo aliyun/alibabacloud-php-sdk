@@ -9,13 +9,20 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
-     * @description 只能是英文字母、数字、下划线
+     * @description The position of the error message in the array.
+     *
+     * @example IP
      *
      * @var string
      */
     public $key;
 
     /**
+     * @description The name of the namespace.
+     *
+     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $value;

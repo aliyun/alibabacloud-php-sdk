@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteHybridMonitorTaskRequest extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example aliyun
+     *
      * @var string
      */
     public $namespace;
@@ -19,11 +24,20 @@ class DeleteHybridMonitorTaskRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 120886317861****
+     *
      * @var string
      */
     public $targetUserId;
 
     /**
+     * @description The ID of the member account.
+     *
+     * >  This parameter is required only if you call this operation to delete metric import tasks that belong to a member in a resource directory. In this case, the `TaskType` parameter is set to `aliyun_fc`.
+     * @example 36****
+     *
      * @var string
      */
     public $taskId;

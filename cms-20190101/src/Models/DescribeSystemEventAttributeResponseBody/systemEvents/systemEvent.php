@@ -9,51 +9,96 @@ use AlibabaCloud\Tea\Model;
 class systemEvent extends Model
 {
     /**
+     * @description The details of the system event.
+     *
+     * @example [{"product":"CloudMonitor","content":"{\"ipGroup\":\"112.126.XX.XX,10.163.XX.XX\",\"tianjimonVersion\":\"1.2.22\"}","groupId":"176,177,178,179,180,692,120812,1663836,96,2028302","time":"1552209568000","resourceId":"acs:ecs:cn-beijing:173651113438****:instance/i-25k35****","level":"CRITICAL","status":"stopped","instanceName":"cmssiteprobebj-6","name":"Agent_Status_Stopped","regionId":"cn-beijing"}]
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example instanceId1
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The level of the system event. Valid values:
+     *
+     *   CRITICAL: critical
+     *   WARN: warning
+     *   INFO: information
+     *
+     * @example WARN
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The name of the system event.
+     *
+     * @example Agent_Status_Stopped
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The abbreviation of the service name.
+     *
+     * @example CloudMonitor
+     *
      * @var string
      */
     public $product;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example xxxxx-1
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The status of the system event.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The timestamp when the system event occurred.
+     *
+     * Unit: milliseconds.
+     * @example 1552199984000
+     *
      * @var int
      */
     public $time;

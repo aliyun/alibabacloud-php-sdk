@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class DeleteMonitoringAgentProcessRequest extends Model
 {
     /**
+     * @description The ID of the process.
+     *
+     * >  You must specify either the `ProcessId` or the `ProcessName` parameter.
+     * @example i-KpVny6l****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 123****
+     *
      * @var string
      */
     public $processId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example http
+     *
      * @var string
      */
     public $processName;

@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class webhookParameters extends Model
 {
     /**
+     * @description The alert notification methods. Valid values of N: 1 to 5. Valid values:
+     *
+     * 4: Alert notifications are sent by using DingTalk chatbots and emails.
+     * @example 4
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The region where the resource resides.
+     *
+     * @example GET
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @description The ID of the recipient.
+     *
+     * @example http
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @description The name of the function. Valid values of N: 1 to 5.
+     *
+     * @example http://www.aliyun.com
+     *
      * @var string
      */
     public $url;

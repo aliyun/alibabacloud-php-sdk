@@ -9,56 +9,119 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertLogHistogramRequest extends Model
 {
     /**
+     * @description The name of the metric.
+     *
+     * >  For more information about the metrics of different cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * @example ECS_Group
+     *
      * @var string
      */
     public $contactGroup;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10.
+     *
+     * @example 1609989009694
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The error message.
+     *
+     * @example product
+     *
      * @var string
      */
     public $groupBy;
 
     /**
+     * @description The namespace of the cloud service.
+     *
+     * >  For more information about the namespaces of cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * @example 7301****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The HTTP status code 200 indicates a success.
+     * @example 360
+     *
      * @var string
      */
     public $lastMin;
 
     /**
+     * @description The alert group.
+     *
+     * @example P4
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The dimension based on which data is aggregated. This parameter is similar to the Group By clause of SQL statements. Valid values:
+     *
+     *   `product`: aggregates data by cloud service.
+     *   `level`: aggregates data by alert level.
+     *   `groupId`: aggregates data by application group.
+     *   `contactGroup`: aggregates data by alert group.
+     *   `product,metricName`: aggregates data both by cloud service and by metric.
+     *
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The status of the alert. Valid values:
+     *
+     *   0: The alert is triggered or cleared.
+     *   1: The alert is generated not during the effective period.
+     *   2: The alert is muted and not triggered in a specified period.
+     *   3: The host is restarting.
+     *   4: Notifications are not sent for the alert.
+     *
+     * When the value of the SendStatus parameter is 0, the value P4 of the Level parameter indicates a triggered alert and the value OK indicates a cleared alert.
+     * @example acs_ecs_dashboard
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The keyword based on which the alert logs to be queried are searched.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The level and notification method of the alert. Valid values:
+     *
+     *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
+     *   OK: No alert is generated.
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $product;
@@ -69,21 +132,37 @@ class DescribeAlertLogHistogramRequest extends Model
     public $regionId;
 
     /**
+     * @description The statistical period of alert logs. Unit: minutes.
+     *
+     * @example test123
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The abbreviation of the service name.
+     *
+     * @example alert
+     *
      * @var string
      */
     public $searchKey;
 
     /**
+     * @description The name of the alert rule.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $sendStatus;
 
     /**
+     * @description The number of the page to return. Default value: 1
+     *
+     * @example 1609988009694
+     *
      * @var int
      */
     public $startTime;

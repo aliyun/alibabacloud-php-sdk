@@ -9,81 +9,155 @@ use AlibabaCloud\Tea\Model;
 class alarm extends Model
 {
     /**
+     * @description The beginning of the time period during which the alert rule is effective. Unit: hours. For example, the value 23 indicates `23:59:59`.
+     *
+     * @example >
+     *
      * @var string
      */
     public $comparisonOperator;
 
     /**
+     * @description The namespace of the service. For more information, see [Appendix 1: Metrics](~~163515~~).
+     *
+     * @example ECS_Group
+     *
      * @var string
      */
     public $contactGroups;
 
     /**
+     * @description The details of the alert rules.
+     *
+     * @example true
+     *
      * @var string
      */
     public $enable;
 
     /**
+     * @description The end of the time period during which the alert rule is effective. Unit: hours. For example, the value 00 indicates `00:00:00`.
+     *
+     * @example 24
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The callback URL.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $evaluationCount;
 
     /**
+     * @description The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
+     *
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The name of the alert rule.
+     *
+     * @example acs_ecs_dashboard
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The comparison operator that is used in the alert rule. Valid values:
+     *
+     *   `>`
+     *   `<`
+     *   `>=`
+     *   `<=`
+     *   `=`
+     *   `=`
+     *
+     * @example 60
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @description The aggregation period of the monitoring data. Unit: seconds. The default value is the minimum aggregation period, indicating that the metric is polled at the highest frequency. Typically, you do not need to specify the minimum aggregation period.
+     *
+     * @example a151cd6023eacee2f0978e03863cc1697c89508****
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @description The ID of the alert rule.
+     *
+     * @example SystemDefault_acs_rds_dashboard_CpuUsage
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The name of the metric.
+     *
+     * @example 86400
+     *
      * @var string
      */
     public $silenceTime;
 
     /**
+     * @description The threshold of the metric value.
+     *
+     * @example 00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The alert group that receives alert notifications.
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description Indicates whether the alert rule is enabled. Valid values:
+     *
+     *   true: The alert rule is enabled.
+     *   false: The alert rule is disabled.
+     *
+     * @example Average
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @description The statistical aggregation method.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $threshold;
 
     /**
+     * @description Indicates whether the alert rule is enabled.
+     *
+     * @example http://www.aliyun.com
+     *
      * @var string
      */
     public $webhook;

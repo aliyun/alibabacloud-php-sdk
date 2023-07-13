@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorISPCityListResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
+     * > The status code 200 indicates that the request was successful.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The queried detection points.
+     *
      * @var ispCityList
      */
     public $ispCityList;
 
     /**
+     * @description The returned message.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example B35D7D84-547B-4E61-B909-48A1F8A0C756
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricTopResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example [{\"order\":1,\"timestamp\":1620287520000,\"userId\":\"120886317861****\",\"instanceId\":\"i-j6ccf7d5fn335qpo****\",\"Average\":99.92,\"Minimum\":99.5,\"Maximum\":100.0,\"_count\":1.0},{\"order\":2,\"timestamp\":1620287520000,\"userId\":\"120886317861****\",\"instanceId\":\"i-0xii2bvf42iqvxbp****\",\"Average\":99.91,\"Minimum\":99.0,\"Maximum\":100.0,\"_count\":1.0}]
+     *
      * @var string
      */
     public $datapoints;
 
     /**
+     * @description The monitoring data.
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 60
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example 3121AE7D-4AFF-4C25-8F1D-C8226EBB1F42
+     *
      * @var string
      */
     public $requestId;

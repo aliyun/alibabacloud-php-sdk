@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleTemplateAttributeRequest extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call is successful.
+     * @example ECS_Template1
+     *
      * @var string
      */
     public $name;
@@ -19,6 +24,10 @@ class DescribeMetricRuleTemplateAttributeRequest extends Model
     public $regionId;
 
     /**
+     * @description The error message.
+     *
+     * @example 70****
+     *
      * @var string
      */
     public $templateId;

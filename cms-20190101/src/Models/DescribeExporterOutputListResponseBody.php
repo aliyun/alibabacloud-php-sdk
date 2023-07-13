@@ -10,36 +10,66 @@ use AlibabaCloud\Tea\Model;
 class DescribeExporterOutputListResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * > The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The configuration sets for exporting monitoring data.
+     *
      * @var datapoints
      */
     public $datapoints;
 
     /**
+     * @description The returned message.
+     *
+     * @example sucess
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The request ID.
+     *
+     * @example 0E657631-CD6C-4C24-9637-98D000B9272C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 25
+     *
      * @var int
      */
     public $total;

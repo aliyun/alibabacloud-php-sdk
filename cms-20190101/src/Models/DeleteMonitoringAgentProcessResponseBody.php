@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DeleteMonitoringAgentProcessResponseBody extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **DeleteMonitoringAgentProcess**.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 971CC023-5A96-452A-BB7C-2483F948BCFD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

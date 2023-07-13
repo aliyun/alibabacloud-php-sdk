@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class configJson extends Model
 {
     /**
+     * @description The AccessKey ID.
+     *
+     * @example LTAIpY33********
+     *
      * @var string
      */
     public $ak;
 
     /**
+     * @description The Log Service endpoint to which the monitoring data is exported.
+     *
+     * @example http://cn-qingdao-share.log.aliyuncs.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description The Logstore.
+     *
+     * @example monitorlogstore
+     *
      * @var string
      */
     public $logstore;
 
     /**
+     * @description The Log Service project to which the monitoring data is exported.
+     *
+     * @example exporter
+     *
      * @var string
      */
     public $project;

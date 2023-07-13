@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class group extends Model
 {
     /**
+     * @description The name of the alert group.
+     *
      * @var contactGroups
      */
     public $contactGroups;
 
     /**
+     * @description The alert groups that receive alert notifications for the application group.
+     *
+     * @example ECS_test
+     *
      * @var string
      */
     public $groupName;

@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class target extends Model
 {
     /**
+     * @description Queries the resources that are associated with a specified alert rule.
+     *
+     * @example acs:mns:cn-hangzhou:120886317861****:/queues/test/message
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example 1
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example {"customField1":"value1","customField2":"$.name"}
+     *
      * @var string
      */
     public $jsonParams;
 
     /**
+     * @example ["INFO", "WARN", "CRITICAL"]
+     *
      * @var string
      */
     public $level;

@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorDataRequest extends Model
 {
     /**
+     * @description The interval at which monitoring data is returned. The value is an integral multiple of 60. Unit: seconds.
+     *
+     * >  The default value equals the minimum interval at which detection requests are sent to the monitored address.
+     * @example 1551581437000
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The returned monitoring data.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $length;
 
     /**
+     * @description The beginning of the time range for the query. Supported formats:
+     *
+     *   UNIX timestamp: The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *   Time format: The value is in the YYYY-MM-DDThh:mm:ssZ format.
+     *
+     * @example Availability
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The number of data points to return.
+     *
+     * @example 49f7b317-7645-4cc9-94fd-ea42e5220930ea42e5220930ea42e522****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The pagination cursor.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $period;
@@ -39,16 +63,37 @@ class DescribeSiteMonitorDataRequest extends Model
     public $regionId;
 
     /**
+     * @description The end of the time range for the query. Supported formats:
+     *
+     *   UNIX timestamp: The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *   Time format: The value is in the YYYY-MM-DDThh:mm:ssZ format.
+     *
+     * @example 1551579637000
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The type of the monitored object whose monitoring data is to be queried. Valid values:
+     *
+     *   metric
+     *   event
+     *
+     * @example 49f7b317-7645-4cc9-94fd-ea42e522****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The name of the metric. Valid values:
+     *
+     *   Availability
+     *   ResponseTime
+     *
+     * @example metric
+     *
      * @var string
      */
     public $type;

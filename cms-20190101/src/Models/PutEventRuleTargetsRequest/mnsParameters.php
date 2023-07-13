@@ -9,21 +9,45 @@ use AlibabaCloud\Tea\Model;
 class mnsParameters extends Model
 {
     /**
+     * @description The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The version of the API.
+     *
+     * @example queue1
+     *
      * @var string
      */
     public $queue;
 
     /**
+     * @description The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the resource. Valid values of N: 1 to 5.
+     *
+     * Format: `arn:acs:${Service}:${Region}:${Account}:${ResourceType}/${ResourceId}`. Fields:
+     *
+     *   Service: the code of a cloud service
+     *   Region: the region ID
+     *   Account: the ID of an Alibaba Cloud account
+     *   ResourceType: the resource type
+     *   ResourceId: the resource ID
+     *
+     * @example topic_sample
+     *
      * @var string
      */
     public $topic;

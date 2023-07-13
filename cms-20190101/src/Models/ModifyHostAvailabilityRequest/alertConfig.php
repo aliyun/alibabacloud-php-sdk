@@ -9,26 +9,54 @@ use AlibabaCloud\Tea\Model;
 class alertConfig extends Model
 {
     /**
+     * @description The ID of the availability monitoring task.
+     *
+     * @example 22
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The content of the HTTP POST request.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $notifyType;
 
     /**
+     * @description The interval at which detection requests are sent. Unit: seconds. Valid values: 15, 30, 60, 120, 300, 900, 1800, and 3600.
+     *
+     * >  This parameter is available only for the CloudMonitor agent V3.5.1 or later.
+     * @example 86400
+     *
      * @var int
      */
     public $silenceTime;
 
     /**
+     * @description The method used to calculate metric values that trigger alerts. Valid values of N: 1 to 21. The value of this parameter varies based on the metric. The following points describe the correspondence between metrics and calculation methods:
+     *
+     *   HttpStatus: Value
+     *   HttpLatency: Average
+     *   TelnetStatus: Value
+     *   TelnetLatency: Average
+     *   PingLostRate: Average
+     *
+     * >  The value Value indicates the original value and is used for metrics such as status codes. The value Average indicates the average value and is used for metrics, such as the latency and packet loss rate.
+     * @example 0
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The name of the availability monitoring task.
+     *
+     * @example https://www.aliyun.com/webhook.json
+     *
      * @var string
      */
     public $webHook;

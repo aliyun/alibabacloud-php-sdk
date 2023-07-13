@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomEventAttributeRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1552227965971
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example 123****
+     *
      * @var string
      */
     public $eventId;
 
     /**
+     * @description The keywords that are contained in the content of the custom event to query. You can use a logical operator between keywords.
+     *
+     *   If you need to query the custom event whose content contains a and b, set the value to a and b.
+     *   If you need to query the custom event whose content contains a or b, set the value to a or b.
+     *
+     * @example 123****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the custom event.
+     *
+     * @example test123
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
@@ -44,11 +72,21 @@ class DescribeCustomEventAttributeRequest extends Model
     public $regionId;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @example cms
+     *
      * @var string
      */
     public $searchKeywords;
 
     /**
+     * @description The end of the time range to query.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @example 1552224365971
+     *
      * @var string
      */
     public $startTime;

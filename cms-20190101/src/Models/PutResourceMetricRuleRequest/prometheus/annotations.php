@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class annotations extends Model
 {
     /**
+     * @description The level of the alert. Valid values:
+     *
+     *   Critical
+     *   Warn
+     *   Info
+     *
+     * @example summary
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The consecutive number of times for which the metric value meets the trigger condition before an Info-level alert is triggered.
+     *
+     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+     * @example {{ $labels.instance }} CPU usage above 10% {current value: {{ humanizePercentage $value }} }
+     *
      * @var string
      */
     public $value;

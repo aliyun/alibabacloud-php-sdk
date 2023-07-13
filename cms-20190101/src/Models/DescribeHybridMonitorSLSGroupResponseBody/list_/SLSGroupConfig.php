@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class SLSGroupConfig extends Model
 {
     /**
+     * @description The name of the Logstore group.
+     *
+     * @example Logstore-aliyun-all
+     *
      * @var string
      */
     public $SLSLogstore;
 
     /**
+     * @description The ID of the member account.
+     *
+     * >  This parameter is returned only when you call API operations by using a management account.
+     * @example aliyun-project
+     *
      * @var string
      */
     public $SLSProject;
 
     /**
+     * @description The Logstore.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $SLSRegion;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 120886317861****
+     *
      * @var string
      */
     public $SLSUserId;

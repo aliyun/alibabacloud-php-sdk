@@ -10,21 +10,26 @@ use AlibabaCloud\Tea\Model;
 class PutHybridMonitorMetricDataResponseBody extends Model
 {
     /**
-     * @description 返回code
+     * @description The details of the invalid parameters.
+     *
+     * If the request parameters that you set are invalid, the details of the invalid parameters are displayed.
+     * @example 200
      *
      * @var string
      */
     public $code;
 
     /**
-     * @description 不合法的指标信息
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
      *
      * @var errorDetail[]
      */
     public $errorDetail;
 
     /**
-     * @description 请求的requestId
+     * @description The ID of the request.
+     *
+     * @example 5DB1CBCA-D14A-55FA-814F-B4DBD9735F68
      *
      * @var string
      */

@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DeleteMonitorGroupDynamicRuleRequest extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example ecs
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The service to which the rule applies. Valid values: ecs, rds, and slb.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $groupId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableHostAvailabilityRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var int[]
      */
     public $id;

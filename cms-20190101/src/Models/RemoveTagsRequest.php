@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveTagsRequest extends Model
 {
     /**
+     * @example 12345
+     *
      * @var string[]
      */
     public $groupIds;

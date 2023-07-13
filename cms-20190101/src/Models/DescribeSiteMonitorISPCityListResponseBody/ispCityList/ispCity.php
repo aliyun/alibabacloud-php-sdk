@@ -20,6 +20,10 @@ class ispCity extends Model
     public $area_zh_cN;
 
     /**
+     * @description The city ID.
+     *
+     * @example 4
+     *
      * @var string
      */
     public $city;
@@ -35,6 +39,11 @@ class ispCity extends Model
     public $cityName_zh_cN;
 
     /**
+     * @description The country name.
+     *
+     * > This parameter is valid only on the China site (aliyun.com).
+     * @example 629
+     *
      * @var string
      */
     public $country;
@@ -50,21 +59,35 @@ class ispCity extends Model
     public $country_zh_cN;
 
     /**
+     * @description The IP address pool.
+     *
      * @var IPPool
      */
     public $IPPool;
 
     /**
+     * @description The number of IPv4 probes.
+     *
+     * @example 4
+     *
      * @var string
      */
     public $IPV4ProbeCount;
 
     /**
+     * @description The number of IPv6 probes.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $IPV6ProbeCount;
 
     /**
+     * @description The carrier ID.
+     *
+     * @example 232
+     *
      * @var string
      */
     public $isp;
@@ -80,6 +103,10 @@ class ispCity extends Model
     public $ispName_zh_cN;
 
     /**
+     * @description The province name.
+     *
+     * @example 264
+     *
      * @var string
      */
     public $region;

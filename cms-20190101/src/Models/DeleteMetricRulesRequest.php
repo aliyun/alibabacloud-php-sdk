@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetricRulesRequest extends Model
 {
     /**
+     * @example ab05733c97b7ce239fb1b53393dc1697c7e12****
+     *
      * @var string[]
      */
     public $id;

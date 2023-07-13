@@ -5,36 +5,78 @@
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHostAvailabilityListResponseBody\taskList\nodeTaskConfig;
 
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHostAvailabilityListResponseBody\taskList\nodeTaskConfig\alertConfig\escalationList;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeHostAvailabilityListResponseBody\taskList\nodeTaskConfig\alertConfig\targetList;
 use AlibabaCloud\Tea\Model;
 
 class alertConfig extends Model
 {
     /**
+     * @description The alert notification methods. Valid values:
+     *
+     * 0: Alert notifications are sent by using emails and DingTalk chatbots.
+     * @example 22
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The comparison operator that is used in the alert rule. Valid values:
+     *
+     *   `>`
+     *   `>=`
+     *   `<`
+     *   `<=`
+     *   `=`
+     *
      * @var escalationList
      */
     public $escalationList;
 
     /**
+     * @description The name of the metric. Valid values:
+     *
+     *   HttpStatus: HTTP status code
+     *   HttpLatency: HTTP response time
+     *   TelnetStatus: Telnet status code
+     *   TelnetLatency: Telnet response time
+     *   PingLostRate: Ping packet loss rate
+     *
+     * @example 1
+     *
      * @var int
      */
     public $notifyType;
 
     /**
+     * @description The callback URL.
+     *
+     * CloudMonitor pushes an alert notification to the specified callback URL by sending an HTTP POST request. Only the HTTP protocol is supported.
+     * @example 86400
+     *
      * @var int
      */
     public $silenceTime;
 
     /**
+     * @description The trigger conditions of the alert rule.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @var targetList
+     */
+    public $targetList;
+
+    /**
+     * @description The alert threshold.
+     *
+     * @example https://www.aliyun.com
+     *
      * @var string
      */
     public $webHook;
@@ -44,6 +86,7 @@ class alertConfig extends Model
         'notifyType'     => 'NotifyType',
         'silenceTime'    => 'SilenceTime',
         'startTime'      => 'StartTime',
+        'targetList'     => 'TargetList',
         'webHook'        => 'WebHook',
     ];
 
@@ -68,6 +111,9 @@ class alertConfig extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->targetList) {
+            $res['TargetList'] = null !== $this->targetList ? $this->targetList->toMap() : null;
         }
         if (null !== $this->webHook) {
             $res['WebHook'] = $this->webHook;
@@ -98,6 +144,9 @@ class alertConfig extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['TargetList'])) {
+            $model->targetList = targetList::fromMap($map['TargetList']);
         }
         if (isset($map['WebHook'])) {
             $model->webHook = $map['WebHook'];

@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricMetaListResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The total number of returned records.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the request was successful. The value true indicates success. The value false indicates failure.
+     *
+     * @example 0CCE0AF0-053C-4B13-A583-DC9A85785D49
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The description of the metric.
+     *
      * @var resources
      */
     public $resources;
 
     /**
+     * @description The name of the metric.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The configuration of the metric.
+     *
+     * @example 12
+     *
      * @var string
      */
     public $totalCount;

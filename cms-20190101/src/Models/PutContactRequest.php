@@ -15,16 +15,32 @@ class PutContactRequest extends Model
     public $channels;
 
     /**
+     * @description The name of the alert contact.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $contactName;
 
     /**
+     * @description The description of the alert contact.
+     *
+     * @example ECS_Instance
+     *
      * @var string
      */
     public $describe;
 
     /**
+     * @description The language in which the alert information is displayed. Valid values:
+     *
+     *   zh-cn: simplified Chinese
+     *   en: English
+     *
+     * >  If you do not specify a value for this parameter, Cloud Monitor identifies the language of the alert information based on the region of your Alibaba Cloud account.
+     * @example zh-cn
+     *
      * @var string
      */
     public $lang;

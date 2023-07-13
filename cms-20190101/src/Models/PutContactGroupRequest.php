@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class PutContactGroupRequest extends Model
 {
     /**
+     * @description The description of the alert contact group.
+     *
+     * @example ECS_Group
+     *
      * @var string
      */
     public $contactGroupName;
 
     /**
+     * @example Alice
+     *
      * @var string[]
      */
     public $contactNames;
 
     /**
+     * @description Specifies whether to enable the weekly report subscription feature. Valid values:
+     *
+     *   true: The weekly report subscription feature is enabled.
+     *   false: The weekly report subscription feature is disabled.
+     *
+     * >  You can enable the weekly report subscription only for an Alibaba Cloud account that has at least five Elastic Compute Service (ECS) instances.
+     * @example ECS_Alert_Group
+     *
      * @var string
      */
     public $describe;
 
     /**
+     * @description The name of the alert contact. Valid values of N: 1 to 100.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableSubscribed;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteHybridMonitorNamespaceRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example aliyun
+     *
      * @var string
      */
     public $namespace;

@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class filters extends Model
 {
     /**
+     * @description The error message.
+     *
+     * @example contains
+     *
      * @var string
      */
     public $function;
 
     /**
+     * @description The operation that you want to perform. Set the value to **PutMonitorGroupDynamicRule**.
+     *
+     * @example hostName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example nginx
+     *
      * @var string
      */
     public $value;

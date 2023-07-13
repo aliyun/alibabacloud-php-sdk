@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DisableHostAvailabilityResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
+     * >  The status code 200 indicates a success.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error message.
+     *
+     * @example User not authorized to operate on the specified resource.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ACBDBB40-DFB6-4F4C-8957-51FFB233969C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the operation was successful. Valid values:
+     *
+     *   true: successful.
+     *   false: failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
+     * @description The tag key of the alert rule.
+     *
+     * @example cmsRuleKey
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The tag value of the alert rule.
+     *
+     * @example cmsRuleValue
+     *
      * @var string
      */
     public $value;

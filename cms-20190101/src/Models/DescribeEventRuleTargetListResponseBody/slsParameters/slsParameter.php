@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class slsParameter extends Model
 {
     /**
+     * @example acs:log:cn-hangzhou::project/cms-log-mo****\/logstore/c***
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example logstore_test
+     *
      * @var string
      */
     public $logStore;
 
     /**
+     * @example project_test
+     *
      * @var string
      */
     public $project;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;

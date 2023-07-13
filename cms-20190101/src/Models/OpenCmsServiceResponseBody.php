@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class OpenCmsServiceResponseBody extends Model
 {
     /**
+     * @description The ID of the order.
+     *
+     * @example 211206750270***
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E5A72B5B-4F44-438C-B68A-147FD5DC53A8
+     *
      * @var string
      */
     public $requestId;

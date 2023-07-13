@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class channels extends Model
 {
     /**
+     * @description The alert notification method. Valid values:
+     *
+     *   Mail: emails
+     *   DingWebHook: DingTalk chatbots
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $aliIM;
 
     /**
+     * @description The timestamp when the alert contact was updated.
+     *
+     * Unit: milliseconds.
+     * @example https://oapi.dingtalk.com/robot/send?access_token=9bf44f8189597d07dfdd7a123455ffc112****
+     *
      * @var string
      */
     public $dingWebHook;
 
     /**
+     * @description The alert contact groups.
+     *
+     * @example Alice@example.com
+     *
      * @var string
      */
     public $mail;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1333333****
+     *
      * @var string
      */
     public $SMS;

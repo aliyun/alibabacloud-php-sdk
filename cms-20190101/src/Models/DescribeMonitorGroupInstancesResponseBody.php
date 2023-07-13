@@ -10,41 +10,70 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupInstancesResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The returned message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 97F2A410-9412-499C-9AD1-76EF7EC02DF2
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the resources in the application group.
+     *
      * @var resources
      */
     public $resources;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $total;

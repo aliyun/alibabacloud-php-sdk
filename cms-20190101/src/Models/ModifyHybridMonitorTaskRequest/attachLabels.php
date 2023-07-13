@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class attachLabels extends Model
 {
     /**
+     * @description The alias of the aggregation result.
+     *
+     * @example app_service
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The error message.
+     *
+     * @example testValue
+     *
      * @var string
      */
     public $value;

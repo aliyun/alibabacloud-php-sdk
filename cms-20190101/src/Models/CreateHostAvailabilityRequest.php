@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHostAvailabilityRequest\alertConfig;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHostAvailabilityRequest\alertConfigEscalationList;
+use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHostAvailabilityRequest\alertConfigTargetList;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHostAvailabilityRequest\taskOption;
 use AlibabaCloud\Tea\Model;
 
@@ -27,11 +28,28 @@ class CreateHostAvailabilityRequest extends Model
     public $alertConfigEscalationList;
 
     /**
+     * @var alertConfigTargetList[]
+     */
+    public $alertConfigTargetList;
+
+    /**
+     * @description The metric for which the alert feature is enabled. Valid values of N: 1 to 21. Valid values:
+     *
+     *   HttpStatus: HTTP status code
+     *   HttpLatency: HTTP response time
+     *   TelnetStatus: Telnet status code
+     *   TelnetLatency: Telnet response time
+     *   PingLostRate: Ping packet loss rate
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @example i-absdfkwl321****
+     *
      * @var string[]
      */
     public $instanceList;
@@ -42,16 +60,35 @@ class CreateHostAvailabilityRequest extends Model
     public $regionId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example task1
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The comparison operator that is used in the alert rule. Valid values of N: 1 to 21. Valid values:
+     *
+     *   `>`
+     *   `>=`
+     *   `<`
+     *   `<=`
+     *   `=`
+     *
+     * @example GROUP
+     *
      * @var string
      */
     public $taskScope;
 
     /**
+     * @description The operation that you want to perform. Set the value to **CreateHostAvailability**.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $taskType;
@@ -59,6 +96,7 @@ class CreateHostAvailabilityRequest extends Model
         'alertConfig'               => 'AlertConfig',
         'taskOption'                => 'TaskOption',
         'alertConfigEscalationList' => 'AlertConfigEscalationList',
+        'alertConfigTargetList'     => 'AlertConfigTargetList',
         'groupId'                   => 'GroupId',
         'instanceList'              => 'InstanceList',
         'regionId'                  => 'RegionId',
@@ -86,6 +124,15 @@ class CreateHostAvailabilityRequest extends Model
                 $n = 0;
                 foreach ($this->alertConfigEscalationList as $item) {
                     $res['AlertConfigEscalationList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->alertConfigTargetList) {
+            $res['AlertConfigTargetList'] = [];
+            if (null !== $this->alertConfigTargetList && \is_array($this->alertConfigTargetList)) {
+                $n = 0;
+                foreach ($this->alertConfigTargetList as $item) {
+                    $res['AlertConfigTargetList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -131,6 +178,15 @@ class CreateHostAvailabilityRequest extends Model
                 $n                                = 0;
                 foreach ($map['AlertConfigEscalationList'] as $item) {
                     $model->alertConfigEscalationList[$n++] = null !== $item ? alertConfigEscalationList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['AlertConfigTargetList'])) {
+            if (!empty($map['AlertConfigTargetList'])) {
+                $model->alertConfigTargetList = [];
+                $n                            = 0;
+                foreach ($map['AlertConfigTargetList'] as $item) {
+                    $model->alertConfigTargetList[$n++] = null !== $item ? alertConfigTargetList::fromMap($item) : $item;
                 }
             }
         }

@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class EnableSiteMonitorsResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
+     * >  The status code 200 indicates a success.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The number of detection points that are affected by the site monitoring tasks.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3fcd12e7-d387-42ee-b77e-661c775bb17f
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the operation was successful. Valid values:
+     *
+     *   true: successful.
+     *   false: failed.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

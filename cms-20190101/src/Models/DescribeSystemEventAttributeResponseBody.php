@@ -10,26 +10,45 @@ use AlibabaCloud\Tea\Model;
 class DescribeSystemEventAttributeResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call is successful.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The message that is returned. If the call is successful, `success` is returned. If the call fails, an error message is returned.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 60912C8D-B340-4253-ADE7-61ACDFD25CFC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful. Valid values: True: The call is successful. false: The call fails.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;
 
     /**
+     * @description The details of the system event.
+     *
      * @var systemEvents
      */
     public $systemEvents;

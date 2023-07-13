@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class channelResultList extends Model
 {
     /**
+     * @description The queried resources.
+     *
+     * @example MAIL
+     *
      * @var string
      */
     public $channel;
 
     /**
+     * @description The details about the sending results of alert notifications.
+     *
      * @var resultList[]
      */
     public $resultList;

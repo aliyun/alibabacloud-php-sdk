@@ -9,16 +9,38 @@ use AlibabaCloud\Tea\Model;
 class matchExpress extends Model
 {
     /**
+     * @description The matching condition. Valid values:
+     *
+     *   all (default value): matches all
+     *   startWith: starts with a prefix
+     *   endWith: ends with a suffix
+     *   contains: contains
+     *   notContains: does not contain
+     *   equals: equals
+     *
+     * Valid values of N: 1 to 3.
+     * @example startWith
+     *
      * @var string
      */
     public $function;
 
     /**
+     * @description The criteria based on which the instances are matched.
+     *
+     * > Set the value to name. The value name indicates that the instances are matched based on the instance name.
+     * @example name1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The keyword used to match the instance name.
+     *
+     * Valid values of N: 1 to 3.
+     * @example portalHost
+     *
      * @var string
      */
     public $value;

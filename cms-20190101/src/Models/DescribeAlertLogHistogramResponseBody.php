@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertLogHistogramResponseBody extends Model
 {
     /**
+     * @description The end timestamp of queried alert logs in an interval. Unit: seconds.
+     *
      * @var alertLogHistogramList[]
      */
     public $alertLogHistogramList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The details about the number of alert logs that were generated during each interval of a time period.
+     *
+     * @example 1C4A3709-BF52-42EE-87B5-7435F0929585
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The start timestamp of queried alert logs in an interval. Unit: seconds.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

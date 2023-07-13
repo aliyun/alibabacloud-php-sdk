@@ -9,26 +9,59 @@ use AlibabaCloud\Tea\Model;
 class critical extends Model
 {
     /**
+     * @description The comparison operator that is used to compare the metric value with the threshold. Valid values:
+     *
+     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+     *   GreaterThanThreshold: greater than the threshold
+     *   LessThanOrEqualToThreshold: less than or equal to the threshold
+     *   LessThanThreshold: less than the threshold
+     *   NotEqualToThreshold: not equal to the threshold
+     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+     *   LessThanYesterday: less than the metric value at the same time yesterday
+     *   GreaterThanLastWeek: greater than the metric value at the same time last week
+     *   LessThanLastWeek: less than the metric value at the same time last week
+     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+     *
+     * @example GreaterThanOrEqualToThreshold
+     *
      * @var string
      */
     public $comparisonOperator;
 
     /**
+     * @description The additional conditions for triggering Critical-level alerts. The additional conditions take effect when the value of the ComparisonOperator parameter is GreaterThanYesterday, LessThanYesterday, GreaterThanLastWeek, LessThanLastWeek, GreaterThanLastPeriod, or LessThanLastPeriod.
+     *
+     * >  $Average is a placeholder that consists of `a dollar sign ($) and the statistical method`. CloudMonitor replaces the placeholder with the aggregated value or original value before value comparison.
+     * @example $Average>80
+     *
      * @var string
      */
     public $preCondition;
 
     /**
+     * @description The statistical methods for Critical-level alerts.
+     *
+     * @example Average
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @description The threshold for Critical-level alerts.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $threshold;
 
     /**
+     * @description The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $times;

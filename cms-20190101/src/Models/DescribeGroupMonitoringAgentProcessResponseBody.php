@@ -10,41 +10,72 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupMonitoringAgentProcessResponseBody extends Model
 {
     /**
+     * @description The number of the returned page. Default value: 1.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The number of entries returned on each page. Default value: 10.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The process monitoring tasks created for the application group.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The ID of the process monitoring task.
+     *
      * @var processes
      */
     public $processes;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 7985D471-3FA8-4EE9-8F4B-45C19DF3D36F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The returned message.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The name of the process monitoring task.
+     *
+     * @example 28
+     *
      * @var string
      */
     public $total;

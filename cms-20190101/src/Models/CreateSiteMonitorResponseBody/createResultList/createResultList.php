@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class createResultList extends Model
 {
     /**
+     * @example 2c8dbdf9-a3ab-46a1-85a4-f094965e****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example HanZhou_ECS1
+     *
      * @var string
      */
     public $taskName;

@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupNotifyPolicyListRequest extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 6780****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The timestamp that specifies the end of the time range to query.
+     *
+     * Unit: milliseconds.
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
+     * @example PauseNotify
+     *
      * @var string
      */
     public $policyType;

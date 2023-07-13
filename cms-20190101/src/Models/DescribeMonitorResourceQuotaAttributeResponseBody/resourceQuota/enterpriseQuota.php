@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class enterpriseQuota extends Model
 {
     /**
+     * @example cms_enterprise_public_cn-7mz27pd****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ENTERPRISE
+     *
      * @var string
      */
     public $suitInfo;

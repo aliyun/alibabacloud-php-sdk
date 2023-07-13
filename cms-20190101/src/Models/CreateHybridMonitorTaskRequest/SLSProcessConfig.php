@@ -13,16 +13,23 @@ use AlibabaCloud\Tea\Model;
 class SLSProcessConfig extends Model
 {
     /**
+     * @description The name of the key that is used to aggregate logs imported from Log Service.
+     *
      * @var express[]
      */
     public $express;
 
     /**
+     * @description The extended fields that specify the results of basic operations that are performed on aggregation results.
+     *
      * @var filter
      */
     public $filter;
 
     /**
+     * @description The ID of the application group.
+     *
+     * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
      * @var groupBy[]
      */
     public $groupBy;

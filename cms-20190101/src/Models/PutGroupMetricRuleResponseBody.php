@@ -10,16 +10,32 @@ use AlibabaCloud\Tea\Model;
 class PutGroupMetricRuleResponseBody extends Model
 {
     /**
+     * @description The statistical methods for Info-level alerts. Separate multiple statistical methods with commas (,). Valid values:
+     *
+     *   Average: the average value
+     *   Minimum: the minimum value
+     *   Maximum: the maximum value
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example 461CF2CD-2FC3-4B26-8645-7BD27E7D0F1D
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +46,8 @@ class PutGroupMetricRuleResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

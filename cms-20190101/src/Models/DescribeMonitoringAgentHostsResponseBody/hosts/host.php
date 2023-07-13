@@ -9,71 +9,132 @@ use AlibabaCloud\Tea\Model;
 class host extends Model
 {
     /**
+     * @description The version of the CloudMonitor agent.
+     *
+     * @example 3.4.6
+     *
      * @var string
      */
     public $agentVersion;
 
     /**
+     * @description The ID of the Alibaba Cloud account.
+     *
+     * @example 103201326074****
+     *
      * @var int
      */
     public $aliUid;
 
     /**
+     * @description The elastic IP address (EIP) of the host.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $eipAddress;
 
     /**
+     * @description The ID of the EIP.
+     *
+     * @example eip-bp16i16k9gcezyfrp****
+     *
      * @var string
      */
     public $eipId;
 
     /**
+     * @description The name of the host.
+     *
+     * @example hostIP
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-a2d5q7pm3f9yr212****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the ECS instance.
+     *
+     * @example ecs.n4
+     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
+     * @description The IP address of the host.
+     *
+     * > Multiple IP addresses are separated with commas (,).
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $ipGroup;
 
     /**
+     * @description The IP address of the Network Address Translation (NAT) gateway.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $natIp;
 
     /**
+     * @description The network type.
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The operating system.
+     *
+     * @example Linux
+     *
      * @var string
      */
     public $operatingSystem;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The serial number of the host. A host that is not provided by Alibaba Cloud has a serial number instead of an instance ID.
+     *
+     * > This parameter can be used to accurately search for a monitored host.
+     * @example x12335-6cc8-4a22-9f21-1a00a719****
+     *
      * @var string
      */
     public $serialNumber;
 
     /**
+     * @description Indicates whether the host is provided by Alibaba Cloud. Valid values:
+     *
+     *   true: The host is provided by Alibaba Cloud.
+     *   false: The host is not provided by Alibaba Cloud.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isAliyunHost;

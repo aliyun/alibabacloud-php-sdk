@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class api extends Model
 {
     /**
+     * @description The current edition of CloudMonitor. Valid values:
+     *
+     *   free: free edition
+     *   pro: Professional Edition
+     *   cms_post: pay-as-you-go
+     *
+     * @example 500
+     *
      * @var int
      */
     public $quotaLimit;
 
     /**
+     * @description The used quota of API operation calls in your purchased plan. Unit: calls.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $quotaPackage;
 
     /**
+     * @description The quota of alert text messages in your purchased resource plan.
+     *
+     * @example 9987
+     *
      * @var int
      */
     public $quotaUsed;

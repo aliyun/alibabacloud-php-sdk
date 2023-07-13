@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupInstancesResponseBody extends Model
 {
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1BC69FEB-56CD-4555-A0E2-02536A24A946
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

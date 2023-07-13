@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogMonitorListRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The keyword that is used to search for log monitoring metrics. Fuzzy match is supported.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -29,6 +41,10 @@ class DescribeLogMonitorListRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example test
+     *
      * @var string
      */
     public $searchValue;

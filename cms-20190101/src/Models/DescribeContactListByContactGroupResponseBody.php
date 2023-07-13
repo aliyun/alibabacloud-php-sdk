@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactListByContactGroupResponseBody extends Model
 {
     /**
+     * @description The error message.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The time when the alert contact was modified.
+     *
      * @var contacts
      */
     public $contacts;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example The group is not exists.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example 06D5ECC2-B9BE-42A4-8FA3-1A610FB08B83
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The alert group.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

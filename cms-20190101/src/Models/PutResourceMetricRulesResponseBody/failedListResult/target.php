@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class target extends Model
 {
     /**
+     * @description The alert rules that failed to be created for the resource.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description The statistical period of the metric.
+     *
+     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](~~163515~~).
+     * @example a151cd6023eacee2f0978e03863cc1697c89508****
+     *
      * @var string
      */
     public $ruleId;

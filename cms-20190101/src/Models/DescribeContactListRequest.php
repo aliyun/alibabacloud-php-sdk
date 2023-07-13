@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactListRequest extends Model
 {
     /**
+     * @description The status of the TradeManager ID.
+     *
+     * >  This parameter can be returned only on the China site (aliyun.com).
+     * @example Mail
+     *
      * @var string
      */
     public $chanelType;
 
     /**
+     * @description The error message.
+     *
+     * @example Alice@example.com
+     *
      * @var string
      */
     public $chanelValue;
 
     /**
+     * @description The value specified for the alert notification method.
+     *
+     * >  This parameter is required only if you set the `ChanelType` parameter to `Mail`.
+     * @example Alice
+     *
      * @var string
      */
     public $contactName;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeContactList**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

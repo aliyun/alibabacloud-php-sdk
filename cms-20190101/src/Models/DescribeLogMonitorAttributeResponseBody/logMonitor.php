@@ -11,16 +11,26 @@ use AlibabaCloud\Tea\Model;
 class logMonitor extends Model
 {
     /**
+     * @description The maximum value.
+     *
      * @var aggregates[]
      */
     public $aggregates;
 
     /**
+     * @description The name of the Log Service project.
+     *
+     * @example 1547431398000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @description The ID returned by Log Service.
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $groupId;
@@ -31,46 +41,80 @@ class logMonitor extends Model
     public $groupbys;
 
     /**
+     * @description The extended field. The extended field allows you to perform basic operations on the aggregation results.
+     *
+     * Assume that you have calculated TotalNumber and 5XXNumber by aggregating the data. TotalNumber indicates the total number of HTTP requests, and 5XXNumber indicates the number of HTTP requests whose status code is greater than 499. You can calculate the server error rate by adding the following formula to the extended field: 5XXNumber/TotalNumber\*100.
+     * @example 1234
+     *
      * @var int
      */
     public $logId;
 
     /**
+     * @description The ID of the region where the Log Service Logstore resides.
+     *
+     * @example {"extend":{"errorPercent":"5XXNumber/TotalNumber*100"}}
+     *
      * @var string
      */
     public $metricExpress;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The name of the log monitoring metric. For more information, see [Appendix 1: Metrics](~~163515~~).
+     *
+     * @example test-logstore
+     *
      * @var string
      */
     public $slsLogstore;
 
     /**
+     * @description The aggregate functions.
+     *
+     * @example test-project
+     *
      * @var string
      */
     public $slsProject;
 
     /**
+     * @description The time when the log monitoring metric was created.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $slsRegionId;
 
     /**
+     * @description The dimension based on which the data is grouped. This parameter is equivalent to the GROUP BY clause in SQL statements. If no dimension is specified, all data is aggregated based on the aggregate function.
+     *
      * @var string[]
      */
     public $tumblingwindows;
 
     /**
+     * @description The name of the log field used for matching in the filter condition.
+     *
      * @var valueFilter[]
      */
     public $valueFilter;
 
     /**
+     * @description The name of the Log Service Logstore.
+     *
+     * @example and
+     *
      * @var string
      */
     public $valueFilterRelation;

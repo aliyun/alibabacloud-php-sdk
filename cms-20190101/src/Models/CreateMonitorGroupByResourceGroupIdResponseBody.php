@@ -9,26 +9,40 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupByResourceGroupIdResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 3607****
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 784CAB3C-F613-5BCE-8469-6DCB29B18A20
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

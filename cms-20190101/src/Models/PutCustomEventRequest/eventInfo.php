@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class eventInfo extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example IOException
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The time when the custom event occurred.
+     *
+     * >  You can also specify a UNIX timestamp. Example: 1552199984000. Unit: milliseconds.
+     * @example myEvent
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 123456
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The content of the custom event. Valid values of N: 1 to 50.
+     *
+     * @example 20171013T170923.456+0800
+     *
      * @var string
      */
     public $time;

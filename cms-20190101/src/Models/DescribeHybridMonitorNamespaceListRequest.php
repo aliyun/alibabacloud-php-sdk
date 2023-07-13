@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorNamespaceListRequest extends Model
 {
     /**
+     * @description Specifies whether to return the configuration details of metric import tasks for Alibaba Cloud services and the number of metric import tasks for third-party services. Valid values:
+     *
+     *   true
+     *   false (default value)
+     *
+     * @example aliyun
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The error message.
+     *
+     * @example aliyun-test
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeHybridMonitorNamespaceList**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The returned message.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -34,6 +53,10 @@ class DescribeHybridMonitorNamespaceListRequest extends Model
     public $regionId;
 
     /**
+     * @description The details of the namespaces.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $showTaskStatistic;

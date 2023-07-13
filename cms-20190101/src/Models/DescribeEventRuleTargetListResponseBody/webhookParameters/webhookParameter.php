@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class webhookParameter extends Model
 {
     /**
+     * @example 5
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example GET
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @example HTTP
+     *
      * @var string
      */
     public $protocol;
 
     /**
+     * @example http://www.aliyun.com
+     *
      * @var string
      */
     public $url;

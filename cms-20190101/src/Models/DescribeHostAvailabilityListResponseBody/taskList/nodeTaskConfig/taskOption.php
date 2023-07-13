@@ -9,41 +9,77 @@ use AlibabaCloud\Tea\Model;
 class taskOption extends Model
 {
     /**
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $httpKeyword;
 
     /**
+     * @description The domain name or IP address that you want to monitor.
+     *
+     * @example GET
+     *
      * @var string
      */
     public $httpMethod;
 
     /**
+     * @description The end of the time period during which the alert rule is effective. Valid values: 0 to 23.
+     *
+     * >  Alert notifications are sent based on the specified threshold only if the alert rule is effective.
+     * @example true
+     *
      * @var bool
      */
     public $httpNegative;
 
     /**
+     * @description The configurations of the alert rule.
+     *
+     * @example params1=paramsValue1
+     *
      * @var string
      */
     public $httpPostContent;
 
     /**
+     * @description The response to the HTTP request.
+     *
+     * @example UTF-8
+     *
      * @var string
      */
     public $httpResponseCharset;
 
     /**
+     * @description The content of the HTTP POST request.
+     *
+     * @example https://www.aliyun.com
+     *
      * @var string
      */
     public $httpURI;
 
     /**
+     * @description The character set that is used in the HTTP response.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description The method to trigger an alert. The alert can be triggered based on whether the specified alert rule is included in the response body. Valid values:
+     *
+     *   true: If the HTTP response body includes the alert rule, an alert is triggered.
+     *   false: If the HTTP response does not include the alert rule, an alert is triggered.
+     *
+     * @example ssh.aliyun.com
+     *
      * @var string
      */
     public $telnetOrPingHost;

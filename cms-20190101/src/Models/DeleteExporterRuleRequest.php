@@ -14,6 +14,10 @@ class DeleteExporterRuleRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the data export rule.
+     *
+     * @example myRuleName
+     *
      * @var string
      */
     public $ruleName;

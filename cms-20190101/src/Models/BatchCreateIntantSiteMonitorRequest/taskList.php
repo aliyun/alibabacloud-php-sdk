@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class taskList extends Model
 {
     /**
+     * @example https://www.aliyun.com
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @example [{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]
+     *
      * @var string
      */
     public $ispCities;
 
     /**
+     * @example {"time_out":5000}
+     *
      * @var string
      */
     public $optionsJson;
 
     /**
+     * @example HangZhou_ECS1
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @example HTTP
+     *
      * @var string
      */
     public $taskType;

@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class escalations extends Model
 {
     /**
+     * @description The conditions for triggering Critical-level alerts.
+     *
      * @var critical
      */
     public $critical;
 
     /**
+     * @description The conditions for triggering Info-level alerts.
+     *
      * @var info
      */
     public $info;
 
     /**
+     * @description The conditions for triggering Warn-level alerts.
+     *
      * @var warn
      */
     public $warn;

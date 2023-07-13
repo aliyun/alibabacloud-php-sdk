@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagValueListResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The tag values returned.
+     *
+     * @example B04B8CF3-4489-432D-83BA-6F128E4F2295
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description This topic provides an example of how to query the tag values corresponding to `tagKey1`. The return results are `tagValue1` and `tagValue2`.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
      * @var tagValues
      */
     public $tagValues;

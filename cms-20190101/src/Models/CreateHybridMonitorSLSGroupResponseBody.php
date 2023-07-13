@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class CreateHybridMonitorSLSGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example Duplicate.SLSGroup
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 66683237-7126-50F8-BBF8-D67ACC919A17
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

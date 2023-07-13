@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
+     * @description The interval at which the alert rule is executed.
+     *
+     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](~~163515~~).
+     * @example tagKey1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The subject of the alert notification email.
+     *
+     * Valid values of N: 1 to 500.
+     * @example ECS
+     *
      * @var string
      */
     public $value;

@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class notifyPolicy extends Model
 {
     /**
+     * @description The ID of the policy.
+     *
+     * @example 1551761781273
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 6780****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @example 123****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1551761781273
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example PauseNotify
+     *
      * @var string
      */
     public $type;

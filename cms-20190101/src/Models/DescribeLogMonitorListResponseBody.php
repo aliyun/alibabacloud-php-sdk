@@ -10,41 +10,78 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogMonitorListResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The logical operator that is used between log filter conditions. The ValueFilter and ValueFilterRelation parameters are used in pair. Valid values:
+     *
+     *   and
+     *   or
+     *
      * @var logMonitorList[]
      */
     public $logMonitorList;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The total number of the returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of the returned page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example 01E90080-4300-4FAA-B9AE-161956BC350D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The log monitoring metrics.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $total;

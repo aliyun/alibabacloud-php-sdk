@@ -15,11 +15,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventRuleTargetListResponseBody extends Model
 {
     /**
+     * @description The alert notification methods. Valid values:
+     *
+     * 4: Alert notifications are sent by using DingTalk chatbots and emails.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
      * @var contactParameters
      */
     public $contactParameters;
@@ -30,6 +37,10 @@ class DescribeEventRuleTargetListResponseBody extends Model
     public $fcParameters;
 
     /**
+     * @description The information about the recipients if alert notifications are sent to the alert contacts of an alert contact group.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
@@ -45,6 +56,10 @@ class DescribeEventRuleTargetListResponseBody extends Model
     public $openApiParameters;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 87170bc7-e28a-4c93-b9bf-90a1dbe84736
+     *
      * @var string
      */
     public $requestId;

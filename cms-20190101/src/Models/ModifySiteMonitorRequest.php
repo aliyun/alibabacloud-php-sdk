@@ -9,31 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ModifySiteMonitorRequest extends Model
 {
     /**
+     * @description The ID of the site monitoring task.
+     *
+     * @example http://www.aliyun.com
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The returned message.
+     *
+     * @example 49f7c317-7645-4cc9-94fd-ea42e122****
+     *
      * @var string
      */
     public $alertIds;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 1
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @description The extended options of the protocol that is used by the site monitoring task. The options vary based on the protocol.
+     *
+     * @example ms
+     *
      * @var string
      */
     public $intervalUnit;
 
     /**
+     * @description The operation that you want to perform. Set the value to ModifySiteMonitor.
+     *
+     * @example [{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]
+     *
      * @var string
      */
     public $ispCities;
 
     /**
+     * @description The detection points. The value is a JSON array. Example: `[{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]`. The values of the `city` field indicate Beijing, Hangzhou, and Qingdao.
+     *
+     * >  You can call the DescribeSiteMonitorISPCityList operation to query the detection points. For more information, see [DescribeSiteMonitorISPCityList](~~115045~~). If you leave this parameter empty, the system randomly selects three detection points.
+     * @example {"time_out":5000}
+     *
      * @var string
      */
     public $optionsJson;
@@ -44,11 +70,19 @@ class ModifySiteMonitorRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the site monitoring task. The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (\_).
+     *
+     * @example 2c8dbdf9-a3ab-46a1-85a4-f094965e****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The ID of the alert rule. You can call the DescribeMetricRuleList operation to query the IDs of existing alert rules in CloudMonitor. For more information, see [DescribeMetricRuleList](~~114941~~).
+     *
+     * @example HanZhou_ECS2
+     *
      * @var string
      */
     public $taskName;

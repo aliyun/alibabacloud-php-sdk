@@ -14,6 +14,11 @@ class DeleteMetricRuleTemplateRequest extends Model
     public $regionId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 123****
+     *
      * @var string
      */
     public $templateId;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class info extends Model
 {
     /**
+     * @description The consecutive number of times for which the metric value meets the alert condition before an info-level alert is triggered.
+     *
+     * @example GreaterThanThreshold
+     *
      * @var string
      */
     public $comparisonOperator;
 
     /**
+     * @description The condition for triggering warn-level alerts.
+     *
+     * @example Average
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @description The statistical aggregation method for info-level alerts.
+     *
+     * @example 95
+     *
      * @var string
      */
     public $threshold;
 
     /**
+     * @description The threshold for info-level alerts.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $times;

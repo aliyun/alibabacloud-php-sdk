@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DeleteDynamicTagGroupResponseBody extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **DeleteDynamicTagGroup**.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 08AAE67E-77B5-485B-9C79-D7C8C059150A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

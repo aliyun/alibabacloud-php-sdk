@@ -9,21 +9,53 @@ use AlibabaCloud\Tea\Model;
 class warn extends Model
 {
     /**
+     * @description The tag value of the alert rule.
+     *
+     * @example GreaterThanOrEqualToThreshold
+     *
      * @var string
      */
     public $comparisonOperator;
 
     /**
+     * @description The comparison operator that is used to compare the metric value with the threshold. Valid values:
+     *
+     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+     *   GreaterThanThreshold: greater than the threshold
+     *   LessThanOrEqualToThreshold: less than or equal to the threshold
+     *   LessThanThreshold: less than the threshold
+     *   NotEqualToThreshold: not equal to the threshold
+     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+     *   LessThanYesterday: less than the metric value at the same time yesterday
+     *   GreaterThanLastWeek: greater than the metric value at the same time last week
+     *   LessThanLastWeek: less than the metric value at the same time last week
+     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+     *
+     * @example Average
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @description The method that is used to handle alerts when no monitoring data is found. Valid values:
+     *
+     *   KEEP_LAST_STATE (default value): No operation is performed.
+     *   INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
+     *   OK: The status is considered normal.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $threshold;
 
     /**
+     * @description The tag key of the alert rule.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $times;

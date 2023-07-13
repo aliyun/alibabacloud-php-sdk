@@ -9,31 +9,60 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorTaskListRequest extends Model
 {
     /**
+     * @description The additional information of the instance.
+     *
+     * @example 3607****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The timestamp when the metric import task was created.
+     *
+     * Unit: milliseconds.
+     * @example true
+     *
      * @var bool
      */
     public $includeAliyunTask;
 
     /**
+     * @description The conditions that are used to filter logs imported from Log Service.
+     *
+     * @example task
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The configuration file of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring.
+     *
+     *   namespace: the namespace of the Alibaba Cloud service.
+     *   metric_list: the metrics of the Alibaba Cloud service.
+     *
+     * @example aliyun
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeHybridMonitorTaskList**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -44,11 +73,36 @@ class DescribeHybridMonitorTaskListRequest extends Model
     public $regionId;
 
     /**
+     * @description The keyword that is used to search for metric import tasks.
+     *
+     * @example 120886317861****
+     *
+     * @var int
+     */
+    public $targetUserId;
+
+    /**
+     * @description The type of the metric import task. Valid values:
+     *
+     *   aliyun_fc: metric import tasks for Alibaba Cloud services
+     *   aliyun_sls: metrics for logs imported from Log Service
+     *
+     * @example 36****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The interval at which the CloudMonitor agent collects host monitoring data. Valid values:
+     *
+     *   15
+     *   30
+     *   60
+     *
+     * Unit: seconds.
+     * @example aliyun_fc
+     *
      * @var string
      */
     public $taskType;
@@ -60,6 +114,7 @@ class DescribeHybridMonitorTaskListRequest extends Model
         'pageNumber'        => 'PageNumber',
         'pageSize'          => 'PageSize',
         'regionId'          => 'RegionId',
+        'targetUserId'      => 'TargetUserId',
         'taskId'            => 'TaskId',
         'taskType'          => 'TaskType',
     ];
@@ -91,6 +146,9 @@ class DescribeHybridMonitorTaskListRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->targetUserId) {
+            $res['TargetUserId'] = $this->targetUserId;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -130,6 +188,9 @@ class DescribeHybridMonitorTaskListRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['TargetUserId'])) {
+            $model->targetUserId = $map['TargetUserId'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

@@ -14,6 +14,11 @@ class warn extends Model
     public $comparisonOperator;
 
     /**
+     * @var int
+     */
+    public $n;
+
+    /**
      * @var string
      */
     public $preCondition;
@@ -34,6 +39,7 @@ class warn extends Model
     public $times;
     protected $_name = [
         'comparisonOperator' => 'ComparisonOperator',
+        'n'                  => 'N',
         'preCondition'       => 'PreCondition',
         'statistics'         => 'Statistics',
         'threshold'          => 'Threshold',
@@ -49,6 +55,9 @@ class warn extends Model
         $res = [];
         if (null !== $this->comparisonOperator) {
             $res['ComparisonOperator'] = $this->comparisonOperator;
+        }
+        if (null !== $this->n) {
+            $res['N'] = $this->n;
         }
         if (null !== $this->preCondition) {
             $res['PreCondition'] = $this->preCondition;
@@ -76,6 +85,9 @@ class warn extends Model
         $model = new self();
         if (isset($map['ComparisonOperator'])) {
             $model->comparisonOperator = $map['ComparisonOperator'];
+        }
+        if (isset($map['N'])) {
+            $model->n = $map['N'];
         }
         if (isset($map['PreCondition'])) {
             $model->preCondition = $map['PreCondition'];

@@ -9,56 +9,102 @@ use AlibabaCloud\Tea\Model;
 class systemEventCount extends Model
 {
     /**
+     * @description The ID of the region.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example 17285****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example ECS-test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description This topic provides an example on how to query the number of times that a system event occurred for Elastic Compute Service (`ECS`). The returned result indicates that the number of times that the specified system event occurred is 3.
+     *
+     * @example Info
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The level of the system event. Valid values:
+     *
+     *   Critical
+     *   Warn
+     *   Info
+     *
+     * @example Instance:StateChange
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The name of the system event.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $num;
 
     /**
+     * @description The number of times that the system event occurred.
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $product;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The description of the system event.
+     *
+     * @example i-rj99xc6cptkk64ml****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The name of the cloud service in which the system event occurred.
+     *
+     * @example 1635993751000
+     *
      * @var int
      */
     public $time;

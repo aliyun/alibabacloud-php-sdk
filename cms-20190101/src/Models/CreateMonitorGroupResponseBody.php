@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the application group.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example 1234567
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description In this example, the application group named `ECS_Group` is created.
+     *
+     * @example 83C89BA6-ABD4-4398-A175-83E86C47A001
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

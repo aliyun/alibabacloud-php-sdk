@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class EnableEventRulesResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 20F2896A-6684-4A04-8255-4155B1593C70
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -12,41 +12,71 @@ use AlibabaCloud\Tea\Model;
 class contact extends Model
 {
     /**
+     * @description The status of the email address. Valid values:
+     *
+     *   PENDING: The email address is not activated. Alert notifications can be sent to the email address only after the email address is activated.
+     *   OK: The email address is activated and can receive alert notifications.
+     *
      * @var channels
      */
     public $channels;
 
     /**
+     * @description The status of the alert notification method. Valid values: PENDING and OK.
+     *
+     * The email address must be activated after it is added as the value specified for the alert notification method. The value PENDING indicates that the email address is not activated. The value OK indicates that the email address is activated.
      * @var channelsState
      */
     public $channelsState;
 
     /**
+     * @description The alert notification method.
+     *
      * @var contactGroups
      */
     public $contactGroups;
 
     /**
+     * @description The name of the alert contact.
+     *
+     * @example 1552356159000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The alert contacts.
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description The timestamp when the alert contact was created.
+     *
+     * Unit: milliseconds.
+     * @example zh-cn
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example Alice
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The email address of the alert contact.
+     *
+     * @example 1552356159000
+     *
      * @var int
      */
     public $updateTime;

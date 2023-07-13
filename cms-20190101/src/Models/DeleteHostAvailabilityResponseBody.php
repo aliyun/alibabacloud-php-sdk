@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DeleteHostAvailabilityResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     *
+     * @example 57C782E6-B235-4842-AD2B-DB94961761EB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Deletes one or more availability monitoring tasks.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

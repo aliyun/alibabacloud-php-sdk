@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class aliyunProductMetricList extends Model
 {
     /**
+     * @description The list of namespaces.
+     *
      * @var namespaceList[]
      */
     public $namespaceList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 120886317861****
+     *
      * @var int
      */
     public $userId;
 
     /**
+     * @example products:- namespace: acs_ecs_dashboard metric_info: - metric_list: - cpu_total dimension: \"\"
+     *
      * @var string
      */
     public $YAMLConfig;

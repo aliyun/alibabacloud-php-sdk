@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class EnableMetricRulesResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * > The status code 200 indicates that the request was successful.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example FF38D33A-67C1-40EB-AB65-FAEE51EDB644
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class errorDetail extends Model
 {
     /**
-     * @description 错误信息
+     * @example label name :123 not match [a-zA-Z_][a-zA-Z0-9_]*
      *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description 错误数据在上报列表中的序号，从0开始
+     * @example 0
      *
      * @var int
      */

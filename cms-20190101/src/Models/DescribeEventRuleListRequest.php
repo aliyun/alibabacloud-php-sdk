@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventRuleListRequest extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to DescribeEventRuleList.
+     *
+     * @example 7378****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example test
+     *
      * @var string
      */
     public $namePrefix;
 
     /**
+     * @description The description of the event-triggered alert rule.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The status of the event-triggered alert rule. Valid values:
+     *
+     *   ENABLED: enabled
+     *   DISABLED: disabled
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;

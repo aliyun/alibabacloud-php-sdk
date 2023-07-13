@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class ModifyMonitorGroupResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The error message.
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C85A2870-5DF4-4269-BC50-ECB5E4591A80
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class PutEventRuleRequest extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **PutEventRule**.
+     *
      * @var string
      */
     public $description;
@@ -20,11 +22,25 @@ class PutEventRuleRequest extends Model
     public $eventPattern;
 
     /**
+     * @description The type of the cloud service. Valid values of N: 1 to 50.
+     *
+     * >  You can call the DescribeSystemEventMetaList operation to query the cloud services that support event-triggered alerts. For more information, see [DescribeSystemEventMetaList](~~114972~~).
+     * @example SYSTEM
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The type of the event-triggered alert rule. Valid values of N: 1 to 50. Valid values:
+     *
+     *   StatusNotification: fault notifications
+     *   Exception: exceptions
+     *   Maintenance: O\&M
+     *   \*: all types
+     *
+     * @example 7378****
+     *
      * @var string
      */
     public $groupId;
@@ -35,16 +51,32 @@ class PutEventRuleRequest extends Model
     public $regionId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example myRuleName
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The number of event-triggered alert rules that were created or modified.
+     *
+     * @example 86400
+     *
      * @var int
      */
     public $silenceTime;
 
     /**
+     * @description The status of the event-triggered alert rule. Valid values:
+     *
+     *   ENABLED: enabled
+     *   DISABLED: disabled
+     *
+     * @example ENABLED
+     *
      * @var string
      */
     public $state;

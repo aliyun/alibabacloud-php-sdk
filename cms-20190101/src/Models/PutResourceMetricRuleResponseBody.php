@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class PutResourceMetricRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 65D50468-ECEF-48F1-A6E1-D952E89D9436
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

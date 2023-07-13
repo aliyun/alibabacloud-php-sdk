@@ -10,8 +10,13 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\AddTagsRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\AddTagsResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ApplyMetricRuleTemplateRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ApplyMetricRuleTemplateResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateInstantSiteMonitorRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateInstantSiteMonitorResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateIntantSiteMonitorRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\BatchCreateIntantSiteMonitorResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\BatchExportRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\BatchExportResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\BatchExportShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsCallNumOrderRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsCallNumOrderResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateCmsOrderRequest;
@@ -34,6 +39,8 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHybridMonitorTaskRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateHybridMonitorTaskResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateInstantSiteMonitorRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateInstantSiteMonitorResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\CreateMetricRuleBlackListRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\CreateMetricRuleBlackListResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateMetricRuleResourcesRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateMetricRuleResourcesResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateMetricRuleTemplateRequest;
@@ -52,6 +59,9 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\CreateMonitoringAgentProcessRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateMonitoringAgentProcessResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateSiteMonitorRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\CreateSiteMonitorResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\CursorRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\CursorResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\CursorShrinkRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteContactGroupRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteContactGroupResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteContactRequest;
@@ -80,6 +90,8 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteHybridMonitorTaskRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteHybridMonitorTaskResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteLogMonitorRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteLogMonitorResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteMetricRuleBlackListRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteMetricRuleBlackListResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteMetricRuleResourcesRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteMetricRuleResourcesResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DeleteMetricRulesRequest;
@@ -162,6 +174,8 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricListRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricListResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricMetaListRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricMetaListResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleBlackListRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleBlackListResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleCountRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleCountResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeMetricRuleListRequest;
@@ -250,6 +264,8 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\EnableEventRulesRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\EnableEventRulesResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\EnableHostAvailabilityRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\EnableHostAvailabilityResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\EnableMetricRuleBlackListRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\EnableMetricRuleBlackListResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\EnableMetricRulesRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\EnableMetricRulesResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\EnableSiteMonitorsRequest;
@@ -268,6 +284,8 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHybridMonitorSLSGroupRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHybridMonitorSLSGroupResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHybridMonitorTaskRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHybridMonitorTaskResponse;
+use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyMetricRuleBlackListRequest;
+use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyMetricRuleBlackListResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyMetricRuleTemplateRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyMetricRuleTemplateResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyMonitorGroupInstancesRequest;
@@ -320,7 +338,6 @@ use AlibabaCloud\SDK\Cms\V20190101\Models\SendDryRunSystemEventRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\SendDryRunSystemEventResponse;
 use AlibabaCloud\SDK\Cms\V20190101\Models\UninstallMonitoringAgentRequest;
 use AlibabaCloud\SDK\Cms\V20190101\Models\UninstallMonitoringAgentResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -361,10 +378,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param AddTagsRequest $request
-     * @param RuntimeOptions $runtime
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param AddTagsRequest $request AddTagsRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddTagsResponse
+     * @return AddTagsResponse AddTagsResponse
      */
     public function addTagsWithOptions($request, $runtime)
     {
@@ -395,9 +416,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param AddTagsRequest $request
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param AddTagsRequest $request AddTagsRequest
      *
-     * @return AddTagsResponse
+     * @return AddTagsResponse AddTagsResponse
      */
     public function addTags($request)
     {
@@ -407,10 +432,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ApplyMetricRuleTemplateRequest $request
-     * @param RuntimeOptions                 $runtime
+     * The ID of the application group to which the alert template is applied.
+     *   * For more information about how to query the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     *   *
+     * @param ApplyMetricRuleTemplateRequest $request ApplyMetricRuleTemplateRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ApplyMetricRuleTemplateResponse
+     * @return ApplyMetricRuleTemplateResponse ApplyMetricRuleTemplateResponse
      */
     public function applyMetricRuleTemplateWithOptions($request, $runtime)
     {
@@ -459,9 +487,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ApplyMetricRuleTemplateRequest $request
+     * The ID of the application group to which the alert template is applied.
+     *   * For more information about how to query the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     *   *
+     * @param ApplyMetricRuleTemplateRequest $request ApplyMetricRuleTemplateRequest
      *
-     * @return ApplyMetricRuleTemplateResponse
+     * @return ApplyMetricRuleTemplateResponse ApplyMetricRuleTemplateResponse
      */
     public function applyMetricRuleTemplate($request)
     {
@@ -471,10 +502,61 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param BatchCreateIntantSiteMonitorRequest $request
-     * @param RuntimeOptions                      $runtime
+     * The extended options of the protocol that is used by the site monitoring task. The options vary based on the protocol.
+     *   *
+     * @param BatchCreateInstantSiteMonitorRequest $request BatchCreateInstantSiteMonitorRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return BatchCreateIntantSiteMonitorResponse
+     * @return BatchCreateInstantSiteMonitorResponse BatchCreateInstantSiteMonitorResponse
+     */
+    public function batchCreateInstantSiteMonitorWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->taskList)) {
+            $query['TaskList'] = $request->taskList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchCreateInstantSiteMonitor',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchCreateInstantSiteMonitorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * The extended options of the protocol that is used by the site monitoring task. The options vary based on the protocol.
+     *   *
+     * @param BatchCreateInstantSiteMonitorRequest $request BatchCreateInstantSiteMonitorRequest
+     *
+     * @return BatchCreateInstantSiteMonitorResponse BatchCreateInstantSiteMonitorResponse
+     */
+    public function batchCreateInstantSiteMonitor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchCreateInstantSiteMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @deprecated : BatchCreateIntantSiteMonitor is deprecated, please use Cms::2019-01-01::BatchCreateInstantSiteMonitor instead.
+     *   *
+     * Deprecated
+     *
+     * @param BatchCreateIntantSiteMonitorRequest $request BatchCreateIntantSiteMonitorRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchCreateIntantSiteMonitorResponse BatchCreateIntantSiteMonitorResponse
      */
     public function batchCreateIntantSiteMonitorWithOptions($request, $runtime)
     {
@@ -502,15 +584,79 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param BatchCreateIntantSiteMonitorRequest $request
+     * @deprecated : BatchCreateIntantSiteMonitor is deprecated, please use Cms::2019-01-01::BatchCreateInstantSiteMonitor instead.
+     *   *
+     * Deprecated
      *
-     * @return BatchCreateIntantSiteMonitorResponse
+     * @param BatchCreateIntantSiteMonitorRequest $request BatchCreateIntantSiteMonitorRequest
+     *
+     * @return BatchCreateIntantSiteMonitorResponse BatchCreateIntantSiteMonitorResponse
      */
     public function batchCreateIntantSiteMonitor($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->batchCreateIntantSiteMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param BatchExportRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return BatchExportResponse
+     */
+    public function batchExportWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new BatchExportShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->measurements)) {
+            $request->measurementsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->measurements, 'Measurements', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->cursor)) {
+            $body['Cursor'] = $request->cursor;
+        }
+        if (!Utils::isUnset($request->length)) {
+            $body['Length'] = $request->length;
+        }
+        if (!Utils::isUnset($request->measurementsShrink)) {
+            $body['Measurements'] = $request->measurementsShrink;
+        }
+        if (!Utils::isUnset($request->metric)) {
+            $body['Metric'] = $request->metric;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchExport',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchExportResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BatchExportRequest $request
+     *
+     * @return BatchExportResponse
+     */
+    public function batchExport($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchExportWithOptions($request, $runtime);
     }
 
     /**
@@ -721,10 +867,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateDynamicTagGroupRequest $request
-     * @param RuntimeOptions               $runtime
+     * Specifies whether the application group automatically subscribes to event notifications. If events whose severity level is critical or warning occur on resources in an application group, CloudMonitor sends alert notifications. Valid values:
+     *   * *   true: The application group automatically subscribes to event notifications.
+     *   * *   false (default value): The application group does not automatically subscribe to event notifications.
+     *   *
+     * @param CreateDynamicTagGroupRequest $request CreateDynamicTagGroupRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDynamicTagGroupResponse
+     * @return CreateDynamicTagGroupResponse CreateDynamicTagGroupResponse
      */
     public function createDynamicTagGroupWithOptions($request, $runtime)
     {
@@ -773,9 +923,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateDynamicTagGroupRequest $request
+     * Specifies whether the application group automatically subscribes to event notifications. If events whose severity level is critical or warning occur on resources in an application group, CloudMonitor sends alert notifications. Valid values:
+     *   * *   true: The application group automatically subscribes to event notifications.
+     *   * *   false (default value): The application group does not automatically subscribe to event notifications.
+     *   *
+     * @param CreateDynamicTagGroupRequest $request CreateDynamicTagGroupRequest
      *
-     * @return CreateDynamicTagGroupResponse
+     * @return CreateDynamicTagGroupResponse CreateDynamicTagGroupResponse
      */
     public function createDynamicTagGroup($request)
     {
@@ -785,10 +939,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupMetricRulesRequest $request
-     * @param RuntimeOptions                $runtime
+     * The details of the alert rules.
+     *   *
+     * @param CreateGroupMetricRulesRequest $request CreateGroupMetricRulesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGroupMetricRulesResponse
+     * @return CreateGroupMetricRulesResponse CreateGroupMetricRulesResponse
      */
     public function createGroupMetricRulesWithOptions($request, $runtime)
     {
@@ -819,9 +975,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupMetricRulesRequest $request
+     * The details of the alert rules.
+     *   *
+     * @param CreateGroupMetricRulesRequest $request CreateGroupMetricRulesRequest
      *
-     * @return CreateGroupMetricRulesResponse
+     * @return CreateGroupMetricRulesResponse CreateGroupMetricRulesResponse
      */
     public function createGroupMetricRules($request)
     {
@@ -886,10 +1044,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateHostAvailabilityRequest $request
-     * @param RuntimeOptions                $runtime
+     * The ID of the resource for which alerts are triggered.
+     *   *
+     * @param CreateHostAvailabilityRequest $request CreateHostAvailabilityRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHostAvailabilityResponse
+     * @return CreateHostAvailabilityResponse CreateHostAvailabilityResponse
      */
     public function createHostAvailabilityWithOptions($request, $runtime)
     {
@@ -897,6 +1057,9 @@ class Cms extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->alertConfigEscalationList)) {
             $query['AlertConfigEscalationList'] = $request->alertConfigEscalationList;
+        }
+        if (!Utils::isUnset($request->alertConfigTargetList)) {
+            $query['AlertConfigTargetList'] = $request->alertConfigTargetList;
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
@@ -938,9 +1101,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateHostAvailabilityRequest $request
+     * The ID of the resource for which alerts are triggered.
+     *   *
+     * @param CreateHostAvailabilityRequest $request CreateHostAvailabilityRequest
      *
-     * @return CreateHostAvailabilityResponse
+     * @return CreateHostAvailabilityResponse CreateHostAvailabilityResponse
      */
     public function createHostAvailability($request)
     {
@@ -950,10 +1115,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateHybridMonitorNamespaceRequest $request
-     * @param RuntimeOptions                      $runtime
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param CreateHybridMonitorNamespaceRequest $request CreateHybridMonitorNamespaceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHybridMonitorNamespaceResponse
+     * @return CreateHybridMonitorNamespaceResponse CreateHybridMonitorNamespaceResponse
      */
     public function createHybridMonitorNamespaceWithOptions($request, $runtime)
     {
@@ -987,9 +1156,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateHybridMonitorNamespaceRequest $request
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param CreateHybridMonitorNamespaceRequest $request CreateHybridMonitorNamespaceRequest
      *
-     * @return CreateHybridMonitorNamespaceResponse
+     * @return CreateHybridMonitorNamespaceResponse CreateHybridMonitorNamespaceResponse
      */
     public function createHybridMonitorNamespace($request)
     {
@@ -999,10 +1172,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateHybridMonitorSLSGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * The Log Service projects.
+     *   * Valid values of N: 1 to 25.
+     *   *
+     * @param CreateHybridMonitorSLSGroupRequest $request CreateHybridMonitorSLSGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHybridMonitorSLSGroupResponse
+     * @return CreateHybridMonitorSLSGroupResponse CreateHybridMonitorSLSGroupResponse
      */
     public function createHybridMonitorSLSGroupWithOptions($request, $runtime)
     {
@@ -1036,9 +1212,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateHybridMonitorSLSGroupRequest $request
+     * The Log Service projects.
+     *   * Valid values of N: 1 to 25.
+     *   *
+     * @param CreateHybridMonitorSLSGroupRequest $request CreateHybridMonitorSLSGroupRequest
      *
-     * @return CreateHybridMonitorSLSGroupResponse
+     * @return CreateHybridMonitorSLSGroupResponse CreateHybridMonitorSLSGroupResponse
      */
     public function createHybridMonitorSLSGroup($request)
     {
@@ -1048,10 +1227,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateHybridMonitorTaskRequest $request
-     * @param RuntimeOptions                 $runtime
+     * The dimension based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL.
+     *   *
+     * @param CreateHybridMonitorTaskRequest $request CreateHybridMonitorTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateHybridMonitorTaskResponse
+     * @return CreateHybridMonitorTaskResponse CreateHybridMonitorTaskResponse
      */
     public function createHybridMonitorTaskWithOptions($request, $runtime)
     {
@@ -1112,9 +1293,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateHybridMonitorTaskRequest $request
+     * The dimension based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL.
+     *   *
+     * @param CreateHybridMonitorTaskRequest $request CreateHybridMonitorTaskRequest
      *
-     * @return CreateHybridMonitorTaskResponse
+     * @return CreateHybridMonitorTaskResponse CreateHybridMonitorTaskResponse
      */
     public function createHybridMonitorTask($request)
     {
@@ -1124,10 +1307,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateInstantSiteMonitorRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. For more information, see [Billing of Network Analysis and Monitoring](~~341649~~).
+     *   * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
+     *   *
+     * @param CreateInstantSiteMonitorRequest $request CreateInstantSiteMonitorRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstantSiteMonitorResponse
+     * @return CreateInstantSiteMonitorResponse CreateInstantSiteMonitorResponse
      */
     public function createInstantSiteMonitorWithOptions($request, $runtime)
     {
@@ -1170,15 +1356,94 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateInstantSiteMonitorRequest $request
+     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. For more information, see [Billing of Network Analysis and Monitoring](~~341649~~).
+     *   * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
+     *   *
+     * @param CreateInstantSiteMonitorRequest $request CreateInstantSiteMonitorRequest
      *
-     * @return CreateInstantSiteMonitorResponse
+     * @return CreateInstantSiteMonitorResponse CreateInstantSiteMonitorResponse
      */
     public function createInstantSiteMonitor($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->createInstantSiteMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * The name of the metric.
+     *   * Valid values of N: 1 to 10.
+     *   *
+     * @param CreateMetricRuleBlackListRequest $request CreateMetricRuleBlackListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateMetricRuleBlackListResponse CreateMetricRuleBlackListResponse
+     */
+    public function createMetricRuleBlackListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
+        }
+        if (!Utils::isUnset($request->enableEndTime)) {
+            $query['EnableEndTime'] = $request->enableEndTime;
+        }
+        if (!Utils::isUnset($request->enableStartTime)) {
+            $query['EnableStartTime'] = $request->enableStartTime;
+        }
+        if (!Utils::isUnset($request->instances)) {
+            $query['Instances'] = $request->instances;
+        }
+        if (!Utils::isUnset($request->metrics)) {
+            $query['Metrics'] = $request->metrics;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->scopeType)) {
+            $query['ScopeType'] = $request->scopeType;
+        }
+        if (!Utils::isUnset($request->scopeValue)) {
+            $query['ScopeValue'] = $request->scopeValue;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateMetricRuleBlackList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateMetricRuleBlackListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * The name of the metric.
+     *   * Valid values of N: 1 to 10.
+     *   *
+     * @param CreateMetricRuleBlackListRequest $request CreateMetricRuleBlackListRequest
+     *
+     * @return CreateMetricRuleBlackListResponse CreateMetricRuleBlackListResponse
+     */
+    public function createMetricRuleBlackList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createMetricRuleBlackListWithOptions($request, $runtime);
     }
 
     /**
@@ -1329,10 +1594,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMonitorGroupRequest $request
-     * @param RuntimeOptions            $runtime
+     * The name of the application group.
+     *   *
+     * @param CreateMonitorGroupRequest $request CreateMonitorGroupRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMonitorGroupResponse
+     * @return CreateMonitorGroupResponse CreateMonitorGroupResponse
      */
     public function createMonitorGroupWithOptions($request, $runtime)
     {
@@ -1363,9 +1630,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMonitorGroupRequest $request
+     * The name of the application group.
+     *   *
+     * @param CreateMonitorGroupRequest $request CreateMonitorGroupRequest
      *
-     * @return CreateMonitorGroupResponse
+     * @return CreateMonitorGroupResponse CreateMonitorGroupResponse
      */
     public function createMonitorGroup($request)
     {
@@ -1375,10 +1644,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMonitorGroupByResourceGroupIdRequest $request
-     * @param RuntimeOptions                             $runtime
+     * The ID of the region where the resource group resides.
+     *   * For information about how to obtain the ID of the region where a resource group resides, see [GetResourceGroup](~~158866~~).
+     *   *
+     * @param CreateMonitorGroupByResourceGroupIdRequest $request CreateMonitorGroupByResourceGroupIdRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMonitorGroupByResourceGroupIdResponse
+     * @return CreateMonitorGroupByResourceGroupIdResponse CreateMonitorGroupByResourceGroupIdResponse
      */
     public function createMonitorGroupByResourceGroupIdWithOptions($request, $runtime)
     {
@@ -1421,9 +1693,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMonitorGroupByResourceGroupIdRequest $request
+     * The ID of the region where the resource group resides.
+     *   * For information about how to obtain the ID of the region where a resource group resides, see [GetResourceGroup](~~158866~~).
+     *   *
+     * @param CreateMonitorGroupByResourceGroupIdRequest $request CreateMonitorGroupByResourceGroupIdRequest
      *
-     * @return CreateMonitorGroupByResourceGroupIdResponse
+     * @return CreateMonitorGroupByResourceGroupIdResponse CreateMonitorGroupByResourceGroupIdResponse
      */
     public function createMonitorGroupByResourceGroupId($request)
     {
@@ -1433,10 +1708,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMonitorGroupInstancesRequest $request
-     * @param RuntimeOptions                     $runtime
+     * The abbreviation of the Alibaba Cloud service name.
+     *   * To obtain the abbreviation of an Alibaba Cloud service name, call the [DescribeProjectMeta](~~114916~~) operation. The `metricCategory` tag in the `Labels` response parameter indicates the abbreviation of the Alibaba Cloud service name.
+     *   *
+     * @param CreateMonitorGroupInstancesRequest $request CreateMonitorGroupInstancesRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMonitorGroupInstancesResponse
+     * @return CreateMonitorGroupInstancesResponse CreateMonitorGroupInstancesResponse
      */
     public function createMonitorGroupInstancesWithOptions($request, $runtime)
     {
@@ -1467,9 +1745,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMonitorGroupInstancesRequest $request
+     * The abbreviation of the Alibaba Cloud service name.
+     *   * To obtain the abbreviation of an Alibaba Cloud service name, call the [DescribeProjectMeta](~~114916~~) operation. The `metricCategory` tag in the `Labels` response parameter indicates the abbreviation of the Alibaba Cloud service name.
+     *   *
+     * @param CreateMonitorGroupInstancesRequest $request CreateMonitorGroupInstancesRequest
      *
-     * @return CreateMonitorGroupInstancesResponse
+     * @return CreateMonitorGroupInstancesResponse CreateMonitorGroupInstancesResponse
      */
     public function createMonitorGroupInstances($request)
     {
@@ -1479,10 +1760,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMonitorGroupNotifyPolicyRequest $request
-     * @param RuntimeOptions                        $runtime
+     * The type of the policy. Valid value: PauseNotify.
+     *   *
+     * @param CreateMonitorGroupNotifyPolicyRequest $request CreateMonitorGroupNotifyPolicyRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMonitorGroupNotifyPolicyResponse
+     * @return CreateMonitorGroupNotifyPolicyResponse CreateMonitorGroupNotifyPolicyResponse
      */
     public function createMonitorGroupNotifyPolicyWithOptions($request, $runtime)
     {
@@ -1519,9 +1802,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateMonitorGroupNotifyPolicyRequest $request
+     * The type of the policy. Valid value: PauseNotify.
+     *   *
+     * @param CreateMonitorGroupNotifyPolicyRequest $request CreateMonitorGroupNotifyPolicyRequest
      *
-     * @return CreateMonitorGroupNotifyPolicyResponse
+     * @return CreateMonitorGroupNotifyPolicyResponse CreateMonitorGroupNotifyPolicyResponse
      */
     public function createMonitorGroupNotifyPolicy($request)
     {
@@ -1580,10 +1865,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateSiteMonitorRequest $request
-     * @param RuntimeOptions           $runtime
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param CreateSiteMonitorRequest $request CreateSiteMonitorRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSiteMonitorResponse
+     * @return CreateSiteMonitorResponse CreateSiteMonitorResponse
      */
     public function createSiteMonitorWithOptions($request, $runtime)
     {
@@ -1629,15 +1918,82 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param CreateSiteMonitorRequest $request
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param CreateSiteMonitorRequest $request CreateSiteMonitorRequest
      *
-     * @return CreateSiteMonitorResponse
+     * @return CreateSiteMonitorResponse CreateSiteMonitorResponse
      */
     public function createSiteMonitor($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->createSiteMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CursorRequest  $tmpReq
+     * @param RuntimeOptions $runtime
+     *
+     * @return CursorResponse
+     */
+    public function cursorWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CursorShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->matchers)) {
+            $request->matchersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->matchers, 'Matchers', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->matchersShrink)) {
+            $body['Matchers'] = $request->matchersShrink;
+        }
+        if (!Utils::isUnset($request->metric)) {
+            $body['Metric'] = $request->metric;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $body['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'Cursor',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CursorResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CursorRequest $request
+     *
+     * @return CursorResponse
+     */
+    public function cursor($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cursorWithOptions($request, $runtime);
     }
 
     /**
@@ -2086,10 +2442,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteHybridMonitorNamespaceRequest $request
-     * @param RuntimeOptions                      $runtime
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param DeleteHybridMonitorNamespaceRequest $request DeleteHybridMonitorNamespaceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHybridMonitorNamespaceResponse
+     * @return DeleteHybridMonitorNamespaceResponse DeleteHybridMonitorNamespaceResponse
      */
     public function deleteHybridMonitorNamespaceWithOptions($request, $runtime)
     {
@@ -2117,9 +2477,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteHybridMonitorNamespaceRequest $request
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param DeleteHybridMonitorNamespaceRequest $request DeleteHybridMonitorNamespaceRequest
      *
-     * @return DeleteHybridMonitorNamespaceResponse
+     * @return DeleteHybridMonitorNamespaceResponse DeleteHybridMonitorNamespaceResponse
      */
     public function deleteHybridMonitorNamespace($request)
     {
@@ -2129,10 +2493,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteHybridMonitorSLSGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * Indicates whether the call is successful. Valid values:
+     *   * *   true: The call is successful.
+     *   * *   false: The call fails.
+     *   *
+     * @param DeleteHybridMonitorSLSGroupRequest $request DeleteHybridMonitorSLSGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHybridMonitorSLSGroupResponse
+     * @return DeleteHybridMonitorSLSGroupResponse DeleteHybridMonitorSLSGroupResponse
      */
     public function deleteHybridMonitorSLSGroupWithOptions($request, $runtime)
     {
@@ -2160,9 +2528,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteHybridMonitorSLSGroupRequest $request
+     * Indicates whether the call is successful. Valid values:
+     *   * *   true: The call is successful.
+     *   * *   false: The call fails.
+     *   *
+     * @param DeleteHybridMonitorSLSGroupRequest $request DeleteHybridMonitorSLSGroupRequest
      *
-     * @return DeleteHybridMonitorSLSGroupResponse
+     * @return DeleteHybridMonitorSLSGroupResponse DeleteHybridMonitorSLSGroupResponse
      */
     public function deleteHybridMonitorSLSGroup($request)
     {
@@ -2172,10 +2544,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteHybridMonitorTaskRequest $request
-     * @param RuntimeOptions                 $runtime
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param DeleteHybridMonitorTaskRequest $request DeleteHybridMonitorTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteHybridMonitorTaskResponse
+     * @return DeleteHybridMonitorTaskResponse DeleteHybridMonitorTaskResponse
      */
     public function deleteHybridMonitorTaskWithOptions($request, $runtime)
     {
@@ -2209,9 +2585,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DeleteHybridMonitorTaskRequest $request
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param DeleteHybridMonitorTaskRequest $request DeleteHybridMonitorTaskRequest
      *
-     * @return DeleteHybridMonitorTaskResponse
+     * @return DeleteHybridMonitorTaskResponse DeleteHybridMonitorTaskResponse
      */
     public function deleteHybridMonitorTask($request)
     {
@@ -2261,6 +2641,49 @@ class Cms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteLogMonitorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteMetricRuleBlackListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteMetricRuleBlackListResponse
+     */
+    public function deleteMetricRuleBlackListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteMetricRuleBlackList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteMetricRuleBlackListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteMetricRuleBlackListRequest $request
+     *
+     * @return DeleteMetricRuleBlackListResponse
+     */
+    public function deleteMetricRuleBlackList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteMetricRuleBlackListWithOptions($request, $runtime);
     }
 
     /**
@@ -2729,8 +3152,11 @@ class Cms extends OpenApiClient
     public function describeActiveMetricRuleListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->product)) {
+            $query['Product'] = $request->product;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -2738,7 +3164,7 @@ class Cms extends OpenApiClient
             'version'     => '2019-01-01',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -2761,10 +3187,15 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertHistoryListRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @deprecated : DescribeAlertHistoryList is deprecated, please use Cms::2019-01-01::DescribeAlertLogList instead.
+     *   * This API operation is no longer maintained. We recommend that you call the [DescribeAlertLogList](~~201087~~) operation.
+     *   *
+     * Deprecated
      *
-     * @return DescribeAlertHistoryListResponse
+     * @param DescribeAlertHistoryListRequest $request DescribeAlertHistoryListRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAlertHistoryListResponse DescribeAlertHistoryListResponse
      */
     public function describeAlertHistoryListWithOptions($request, $runtime)
     {
@@ -2825,9 +3256,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertHistoryListRequest $request
+     * @deprecated : DescribeAlertHistoryList is deprecated, please use Cms::2019-01-01::DescribeAlertLogList instead.
+     *   * This API operation is no longer maintained. We recommend that you call the [DescribeAlertLogList](~~201087~~) operation.
+     *   *
+     * Deprecated
      *
-     * @return DescribeAlertHistoryListResponse
+     * @param DescribeAlertHistoryListRequest $request DescribeAlertHistoryListRequest
+     *
+     * @return DescribeAlertHistoryListResponse DescribeAlertHistoryListResponse
      */
     public function describeAlertHistoryList($request)
     {
@@ -2837,10 +3273,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertLogCountRequest $request
-     * @param RuntimeOptions               $runtime
+     * This topic provides an example to show how to query the statistics of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
+     *   *
+     * @param DescribeAlertLogCountRequest $request DescribeAlertLogCountRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlertLogCountResponse
+     * @return DescribeAlertLogCountResponse DescribeAlertLogCountResponse
      */
     public function describeAlertLogCountWithOptions($request, $runtime)
     {
@@ -2910,9 +3348,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertLogCountRequest $request
+     * This topic provides an example to show how to query the statistics of alert logs for Elastic Compute Service (ECS) based on the `product` dimension.
+     *   *
+     * @param DescribeAlertLogCountRequest $request DescribeAlertLogCountRequest
      *
-     * @return DescribeAlertLogCountResponse
+     * @return DescribeAlertLogCountResponse DescribeAlertLogCountResponse
      */
     public function describeAlertLogCount($request)
     {
@@ -2922,10 +3362,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertLogHistogramRequest $request
-     * @param RuntimeOptions                   $runtime
+     * The operation that you want to perform. Set the value to DescribeAlertLogHistogram.
+     *   *
+     * @param DescribeAlertLogHistogramRequest $request DescribeAlertLogHistogramRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlertLogHistogramResponse
+     * @return DescribeAlertLogHistogramResponse DescribeAlertLogHistogramResponse
      */
     public function describeAlertLogHistogramWithOptions($request, $runtime)
     {
@@ -2995,9 +3437,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertLogHistogramRequest $request
+     * The operation that you want to perform. Set the value to DescribeAlertLogHistogram.
+     *   *
+     * @param DescribeAlertLogHistogramRequest $request DescribeAlertLogHistogramRequest
      *
-     * @return DescribeAlertLogHistogramResponse
+     * @return DescribeAlertLogHistogramResponse DescribeAlertLogHistogramResponse
      */
     public function describeAlertLogHistogram($request)
     {
@@ -3007,10 +3451,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertLogListRequest $request
-     * @param RuntimeOptions              $runtime
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param DescribeAlertLogListRequest $request DescribeAlertLogListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAlertLogListResponse
+     * @return DescribeAlertLogListResponse DescribeAlertLogListResponse
      */
     public function describeAlertLogListWithOptions($request, $runtime)
     {
@@ -3083,9 +3531,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeAlertLogListRequest $request
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param DescribeAlertLogListRequest $request DescribeAlertLogListRequest
      *
-     * @return DescribeAlertLogListResponse
+     * @return DescribeAlertLogListResponse DescribeAlertLogListResponse
      */
     public function describeAlertLogList($request)
     {
@@ -3343,10 +3795,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomEventCountRequest $request
-     * @param RuntimeOptions                  $runtime
+     * The name of the custom event.
+     *   *
+     * @param DescribeCustomEventCountRequest $request DescribeCustomEventCountRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCustomEventCountResponse
+     * @return DescribeCustomEventCountResponse DescribeCustomEventCountResponse
      */
     public function describeCustomEventCountWithOptions($request, $runtime)
     {
@@ -3389,9 +3843,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomEventCountRequest $request
+     * The name of the custom event.
+     *   *
+     * @param DescribeCustomEventCountRequest $request DescribeCustomEventCountRequest
      *
-     * @return DescribeCustomEventCountResponse
+     * @return DescribeCustomEventCountResponse DescribeCustomEventCountResponse
      */
     public function describeCustomEventCount($request)
     {
@@ -3462,10 +3918,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomMetricListRequest $request
-     * @param RuntimeOptions                  $runtime
+     * The ID of the application group.
+     *   * For more information, see [DescribeMonitorGroups](~~115032~~).
+     *   *
+     * @param DescribeCustomMetricListRequest $request DescribeCustomMetricListRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCustomMetricListResponse
+     * @return DescribeCustomMetricListResponse DescribeCustomMetricListResponse
      */
     public function describeCustomMetricListWithOptions($request, $runtime)
     {
@@ -3508,9 +3967,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeCustomMetricListRequest $request
+     * The ID of the application group.
+     *   * For more information, see [DescribeMonitorGroups](~~115032~~).
+     *   *
+     * @param DescribeCustomMetricListRequest $request DescribeCustomMetricListRequest
      *
-     * @return DescribeCustomMetricListResponse
+     * @return DescribeCustomMetricListResponse DescribeCustomMetricListResponse
      */
     public function describeCustomMetricList($request)
     {
@@ -3520,15 +3982,21 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeDynamicTagRuleListRequest $request
-     * @param RuntimeOptions                    $runtime
+     * The HTTP status code.
+     *   * >  The status code 200 indicates that the call was successful.
+     *   *
+     * @param DescribeDynamicTagRuleListRequest $request DescribeDynamicTagRuleListRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDynamicTagRuleListResponse
+     * @return DescribeDynamicTagRuleListResponse DescribeDynamicTagRuleListResponse
      */
     public function describeDynamicTagRuleListWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->dynamicTagRuleId)) {
+            $query['DynamicTagRuleId'] = $request->dynamicTagRuleId;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
         }
@@ -3563,9 +4031,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeDynamicTagRuleListRequest $request
+     * The HTTP status code.
+     *   * >  The status code 200 indicates that the call was successful.
+     *   *
+     * @param DescribeDynamicTagRuleListRequest $request DescribeDynamicTagRuleListRequest
      *
-     * @return DescribeDynamicTagRuleListResponse
+     * @return DescribeDynamicTagRuleListResponse DescribeDynamicTagRuleListResponse
      */
     public function describeDynamicTagRuleList($request)
     {
@@ -3575,10 +4046,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventRuleAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * The name of the event-triggered alert rule.
+     *   * For information about how to obtain the name of an event-triggered alert rule, see [DescribeEventRuleList](~~114996~~).
+     *   *
+     * @param DescribeEventRuleAttributeRequest $request DescribeEventRuleAttributeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEventRuleAttributeResponse
+     * @return DescribeEventRuleAttributeResponse DescribeEventRuleAttributeResponse
      */
     public function describeEventRuleAttributeWithOptions($request, $runtime)
     {
@@ -3609,9 +4083,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventRuleAttributeRequest $request
+     * The name of the event-triggered alert rule.
+     *   * For information about how to obtain the name of an event-triggered alert rule, see [DescribeEventRuleList](~~114996~~).
+     *   *
+     * @param DescribeEventRuleAttributeRequest $request DescribeEventRuleAttributeRequest
      *
-     * @return DescribeEventRuleAttributeResponse
+     * @return DescribeEventRuleAttributeResponse DescribeEventRuleAttributeResponse
      */
     public function describeEventRuleAttribute($request)
     {
@@ -3673,10 +4150,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventRuleTargetListRequest $request
-     * @param RuntimeOptions                     $runtime
+     * The error message.
+     *   *
+     * @param DescribeEventRuleTargetListRequest $request DescribeEventRuleTargetListRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEventRuleTargetListResponse
+     * @return DescribeEventRuleTargetListResponse DescribeEventRuleTargetListResponse
      */
     public function describeEventRuleTargetListWithOptions($request, $runtime)
     {
@@ -3704,9 +4183,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventRuleTargetListRequest $request
+     * The error message.
+     *   *
+     * @param DescribeEventRuleTargetListRequest $request DescribeEventRuleTargetListRequest
      *
-     * @return DescribeEventRuleTargetListResponse
+     * @return DescribeEventRuleTargetListResponse DescribeEventRuleTargetListResponse
      */
     public function describeEventRuleTargetList($request)
     {
@@ -3808,10 +4289,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupMonitoringAgentProcessRequest $request
-     * @param RuntimeOptions                             $runtime
+     * The ID of the application group.
+     *   *
+     * @param DescribeGroupMonitoringAgentProcessRequest $request DescribeGroupMonitoringAgentProcessRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeGroupMonitoringAgentProcessResponse
+     * @return DescribeGroupMonitoringAgentProcessResponse DescribeGroupMonitoringAgentProcessResponse
      */
     public function describeGroupMonitoringAgentProcessWithOptions($request, $runtime)
     {
@@ -3848,9 +4331,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeGroupMonitoringAgentProcessRequest $request
+     * The ID of the application group.
+     *   *
+     * @param DescribeGroupMonitoringAgentProcessRequest $request DescribeGroupMonitoringAgentProcessRequest
      *
-     * @return DescribeGroupMonitoringAgentProcessResponse
+     * @return DescribeGroupMonitoringAgentProcessResponse DescribeGroupMonitoringAgentProcessResponse
      */
     public function describeGroupMonitoringAgentProcess($request)
     {
@@ -3860,10 +4345,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeHostAvailabilityListRequest $request
-     * @param RuntimeOptions                      $runtime
+     * The ID of the availability monitoring task.
+     *   *
+     * @param DescribeHostAvailabilityListRequest $request DescribeHostAvailabilityListRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHostAvailabilityListResponse
+     * @return DescribeHostAvailabilityListResponse DescribeHostAvailabilityListResponse
      */
     public function describeHostAvailabilityListWithOptions($request, $runtime)
     {
@@ -3906,9 +4393,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeHostAvailabilityListRequest $request
+     * The ID of the availability monitoring task.
+     *   *
+     * @param DescribeHostAvailabilityListRequest $request DescribeHostAvailabilityListRequest
      *
-     * @return DescribeHostAvailabilityListResponse
+     * @return DescribeHostAvailabilityListResponse DescribeHostAvailabilityListResponse
      */
     public function describeHostAvailabilityList($request)
     {
@@ -3918,10 +4407,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeHybridMonitorDataListRequest $request
-     * @param RuntimeOptions                       $runtime
+     * The tag key.
+     *   *
+     * @param DescribeHybridMonitorDataListRequest $request DescribeHybridMonitorDataListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHybridMonitorDataListResponse
+     * @return DescribeHybridMonitorDataListResponse DescribeHybridMonitorDataListResponse
      */
     public function describeHybridMonitorDataListWithOptions($request, $runtime)
     {
@@ -3961,9 +4452,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeHybridMonitorDataListRequest $request
+     * The tag key.
+     *   *
+     * @param DescribeHybridMonitorDataListRequest $request DescribeHybridMonitorDataListRequest
      *
-     * @return DescribeHybridMonitorDataListResponse
+     * @return DescribeHybridMonitorDataListResponse DescribeHybridMonitorDataListResponse
      */
     public function describeHybridMonitorDataList($request)
     {
@@ -3973,10 +4466,18 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeHybridMonitorNamespaceListRequest $request
-     * @param RuntimeOptions                            $runtime
+     * The data retention period. Valid values:
+     *   * *   cms.s1.large: Data is stored for 15 days.
+     *   * *   cms.s1.xlarge: Data is stored for 32 days.
+     *   * *   cms.s1.2xlarge: Data is stored for 63 days.
+     *   * *   cms.s1.3xlarge: Data is stored for 93 days.
+     *   * *   cms.s1.6xlarge: Data is stored for 185 days.
+     *   * *   cms.s1.12xlarge: Data is stored for 376 days.
+     *   *
+     * @param DescribeHybridMonitorNamespaceListRequest $request DescribeHybridMonitorNamespaceListRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHybridMonitorNamespaceListResponse
+     * @return DescribeHybridMonitorNamespaceListResponse DescribeHybridMonitorNamespaceListResponse
      */
     public function describeHybridMonitorNamespaceListWithOptions($request, $runtime)
     {
@@ -4016,9 +4517,17 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeHybridMonitorNamespaceListRequest $request
+     * The data retention period. Valid values:
+     *   * *   cms.s1.large: Data is stored for 15 days.
+     *   * *   cms.s1.xlarge: Data is stored for 32 days.
+     *   * *   cms.s1.2xlarge: Data is stored for 63 days.
+     *   * *   cms.s1.3xlarge: Data is stored for 93 days.
+     *   * *   cms.s1.6xlarge: Data is stored for 185 days.
+     *   * *   cms.s1.12xlarge: Data is stored for 376 days.
+     *   *
+     * @param DescribeHybridMonitorNamespaceListRequest $request DescribeHybridMonitorNamespaceListRequest
      *
-     * @return DescribeHybridMonitorNamespaceListResponse
+     * @return DescribeHybridMonitorNamespaceListResponse DescribeHybridMonitorNamespaceListResponse
      */
     public function describeHybridMonitorNamespaceList($request)
     {
@@ -4028,10 +4537,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeHybridMonitorSLSGroupRequest $request
-     * @param RuntimeOptions                       $runtime
+     * Indicates whether the call is successful. Valid values:
+     *   * *   true: The call is successful.
+     *   * *   false: The call fails.
+     *   *
+     * @param DescribeHybridMonitorSLSGroupRequest $request DescribeHybridMonitorSLSGroupRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHybridMonitorSLSGroupResponse
+     * @return DescribeHybridMonitorSLSGroupResponse DescribeHybridMonitorSLSGroupResponse
      */
     public function describeHybridMonitorSLSGroupWithOptions($request, $runtime)
     {
@@ -4068,9 +4581,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeHybridMonitorSLSGroupRequest $request
+     * Indicates whether the call is successful. Valid values:
+     *   * *   true: The call is successful.
+     *   * *   false: The call fails.
+     *   *
+     * @param DescribeHybridMonitorSLSGroupRequest $request DescribeHybridMonitorSLSGroupRequest
      *
-     * @return DescribeHybridMonitorSLSGroupResponse
+     * @return DescribeHybridMonitorSLSGroupResponse DescribeHybridMonitorSLSGroupResponse
      */
     public function describeHybridMonitorSLSGroup($request)
     {
@@ -4080,10 +4597,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeHybridMonitorTaskListRequest $request
-     * @param RuntimeOptions                       $runtime
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param DescribeHybridMonitorTaskListRequest $request DescribeHybridMonitorTaskListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHybridMonitorTaskListResponse
+     * @return DescribeHybridMonitorTaskListResponse DescribeHybridMonitorTaskListResponse
      */
     public function describeHybridMonitorTaskListWithOptions($request, $runtime)
     {
@@ -4106,6 +4627,9 @@ class Cms extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->targetUserId)) {
+            $query['TargetUserId'] = $request->targetUserId;
         }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;
@@ -4132,9 +4656,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeHybridMonitorTaskListRequest $request
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param DescribeHybridMonitorTaskListRequest $request DescribeHybridMonitorTaskListRequest
      *
-     * @return DescribeHybridMonitorTaskListResponse
+     * @return DescribeHybridMonitorTaskListResponse DescribeHybridMonitorTaskListResponse
      */
     public function describeHybridMonitorTaskList($request)
     {
@@ -4236,10 +4764,17 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricDataRequest $request
-     * @param RuntimeOptions            $runtime
+     * The statistical period of the metric.
+     *   * Valid values: 15, 60, 900, and 3600.
+     *   * Unit: seconds.
+     *   * >
+     *   * *   If this parameter is not specified, monitoring data is queried based on the period in which metric values are reported.
+     *   * *   For more information about the statistical period of a metric that is specified by the `MetricName` parameter, see [Appendix 1: Metrics](~~163515~~).
+     *   *
+     * @param DescribeMetricDataRequest $request DescribeMetricDataRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricDataResponse
+     * @return DescribeMetricDataResponse DescribeMetricDataResponse
      */
     public function describeMetricDataWithOptions($request, $runtime)
     {
@@ -4288,9 +4823,16 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricDataRequest $request
+     * The statistical period of the metric.
+     *   * Valid values: 15, 60, 900, and 3600.
+     *   * Unit: seconds.
+     *   * >
+     *   * *   If this parameter is not specified, monitoring data is queried based on the period in which metric values are reported.
+     *   * *   For more information about the statistical period of a metric that is specified by the `MetricName` parameter, see [Appendix 1: Metrics](~~163515~~).
+     *   *
+     * @param DescribeMetricDataRequest $request DescribeMetricDataRequest
      *
-     * @return DescribeMetricDataResponse
+     * @return DescribeMetricDataResponse DescribeMetricDataResponse
      */
     public function describeMetricData($request)
     {
@@ -4300,10 +4842,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricLastRequest $request
-     * @param RuntimeOptions            $runtime
+     * The number of entries to return on each page.
+     *   * Default value: 1000. This value indicates that a maximum of 1,000 entries of monitoring data can be returned on each page.
+     *   * >  The maximum value of the Length parameter in a request is 1440.
+     *   *
+     * @param DescribeMetricLastRequest $request DescribeMetricLastRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricLastResponse
+     * @return DescribeMetricLastResponse DescribeMetricLastResponse
      */
     public function describeMetricLastWithOptions($request, $runtime)
     {
@@ -4355,9 +4901,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricLastRequest $request
+     * The number of entries to return on each page.
+     *   * Default value: 1000. This value indicates that a maximum of 1,000 entries of monitoring data can be returned on each page.
+     *   * >  The maximum value of the Length parameter in a request is 1440.
+     *   *
+     * @param DescribeMetricLastRequest $request DescribeMetricLastRequest
      *
-     * @return DescribeMetricLastResponse
+     * @return DescribeMetricLastResponse DescribeMetricLastResponse
      */
     public function describeMetricLast($request)
     {
@@ -4367,10 +4917,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricListRequest $request
-     * @param RuntimeOptions            $runtime
+     * The name of the metric.
+     *   * For more information about metric names, see [Appendix 1: Metrics](~~163515~~).
+     *   *
+     * @param DescribeMetricListRequest $request DescribeMetricListRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricListResponse
+     * @return DescribeMetricListResponse DescribeMetricListResponse
      */
     public function describeMetricListWithOptions($request, $runtime)
     {
@@ -4422,9 +4975,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricListRequest $request
+     * The name of the metric.
+     *   * For more information about metric names, see [Appendix 1: Metrics](~~163515~~).
+     *   *
+     * @param DescribeMetricListRequest $request DescribeMetricListRequest
      *
-     * @return DescribeMetricListResponse
+     * @return DescribeMetricListResponse DescribeMetricListResponse
      */
     public function describeMetricList($request)
     {
@@ -4434,10 +4990,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricMetaListRequest $request
-     * @param RuntimeOptions                $runtime
+     * The namespace of the service.
+     *   * For more information, see [Appendix 1: Metrics](~~163515~~).
+     *   *
+     * @param DescribeMetricMetaListRequest $request DescribeMetricMetaListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricMetaListResponse
+     * @return DescribeMetricMetaListResponse DescribeMetricMetaListResponse
      */
     public function describeMetricMetaListWithOptions($request, $runtime)
     {
@@ -4477,15 +5036,88 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricMetaListRequest $request
+     * The namespace of the service.
+     *   * For more information, see [Appendix 1: Metrics](~~163515~~).
+     *   *
+     * @param DescribeMetricMetaListRequest $request DescribeMetricMetaListRequest
      *
-     * @return DescribeMetricMetaListResponse
+     * @return DescribeMetricMetaListResponse DescribeMetricMetaListResponse
      */
     public function describeMetricMetaList($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->describeMetricMetaListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeMetricRuleBlackListRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeMetricRuleBlackListResponse
+     */
+    public function describeMetricRuleBlackListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->isEnable)) {
+            $query['IsEnable'] = $request->isEnable;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->scopeType)) {
+            $query['ScopeType'] = $request->scopeType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMetricRuleBlackList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMetricRuleBlackListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMetricRuleBlackListRequest $request
+     *
+     * @return DescribeMetricRuleBlackListResponse
+     */
+    public function describeMetricRuleBlackList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMetricRuleBlackListWithOptions($request, $runtime);
     }
 
     /**
@@ -4529,10 +5161,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricRuleListRequest $request
-     * @param RuntimeOptions                $runtime
+     * This topic provides an example on how to query all alert rules within your Alibaba Cloud account. The returned result shows that only one alert rule is found. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
+     *   *
+     * @param DescribeMetricRuleListRequest $request DescribeMetricRuleListRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricRuleListResponse
+     * @return DescribeMetricRuleListResponse DescribeMetricRuleListResponse
      */
     public function describeMetricRuleListWithOptions($request, $runtime)
     {
@@ -4587,9 +5221,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricRuleListRequest $request
+     * This topic provides an example on how to query all alert rules within your Alibaba Cloud account. The returned result shows that only one alert rule is found. The name of the alert rule is `Rule_01` and the ID is `applyTemplate344cfd42-0f32-4fd6-805a-88d7908a****`.
+     *   *
+     * @param DescribeMetricRuleListRequest $request DescribeMetricRuleListRequest
      *
-     * @return DescribeMetricRuleListResponse
+     * @return DescribeMetricRuleListResponse DescribeMetricRuleListResponse
      */
     public function describeMetricRuleList($request)
     {
@@ -4599,10 +5235,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricRuleTargetsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * The parameters of the alert callback. The parameters are in the JSON format.
+     *   *
+     * @param DescribeMetricRuleTargetsRequest $request DescribeMetricRuleTargetsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricRuleTargetsResponse
+     * @return DescribeMetricRuleTargetsResponse DescribeMetricRuleTargetsResponse
      */
     public function describeMetricRuleTargetsWithOptions($request, $runtime)
     {
@@ -4630,9 +5268,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricRuleTargetsRequest $request
+     * The parameters of the alert callback. The parameters are in the JSON format.
+     *   *
+     * @param DescribeMetricRuleTargetsRequest $request DescribeMetricRuleTargetsRequest
      *
-     * @return DescribeMetricRuleTargetsResponse
+     * @return DescribeMetricRuleTargetsResponse DescribeMetricRuleTargetsResponse
      */
     public function describeMetricRuleTargets($request)
     {
@@ -4642,10 +5282,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricRuleTemplateAttributeRequest $request
-     * @param RuntimeOptions                             $runtime
+     * The operation that you want to perform. Set the value to DescribeMetricRuleTemplateAttribute.
+     *   *
+     * @param DescribeMetricRuleTemplateAttributeRequest $request DescribeMetricRuleTemplateAttributeRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricRuleTemplateAttributeResponse
+     * @return DescribeMetricRuleTemplateAttributeResponse DescribeMetricRuleTemplateAttributeResponse
      */
     public function describeMetricRuleTemplateAttributeWithOptions($request, $runtime)
     {
@@ -4676,9 +5318,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricRuleTemplateAttributeRequest $request
+     * The operation that you want to perform. Set the value to DescribeMetricRuleTemplateAttribute.
+     *   *
+     * @param DescribeMetricRuleTemplateAttributeRequest $request DescribeMetricRuleTemplateAttributeRequest
      *
-     * @return DescribeMetricRuleTemplateAttributeResponse
+     * @return DescribeMetricRuleTemplateAttributeResponse DescribeMetricRuleTemplateAttributeResponse
      */
     public function describeMetricRuleTemplateAttribute($request)
     {
@@ -4688,10 +5332,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricRuleTemplateListRequest $request
-     * @param RuntimeOptions                        $runtime
+     * The HTTP status code.
+     *   * >  The status code 200 indicates that the call was successful.
+     *   *
+     * @param DescribeMetricRuleTemplateListRequest $request DescribeMetricRuleTemplateListRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricRuleTemplateListResponse
+     * @return DescribeMetricRuleTemplateListResponse DescribeMetricRuleTemplateListResponse
      */
     public function describeMetricRuleTemplateListWithOptions($request, $runtime)
     {
@@ -4740,9 +5387,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricRuleTemplateListRequest $request
+     * The HTTP status code.
+     *   * >  The status code 200 indicates that the call was successful.
+     *   *
+     * @param DescribeMetricRuleTemplateListRequest $request DescribeMetricRuleTemplateListRequest
      *
-     * @return DescribeMetricRuleTemplateListResponse
+     * @return DescribeMetricRuleTemplateListResponse DescribeMetricRuleTemplateListResponse
      */
     public function describeMetricRuleTemplateList($request)
     {
@@ -4752,10 +5402,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricTopRequest $request
-     * @param RuntimeOptions           $runtime
+     * The order in which data is sorted. Valid values:
+     *   * *   True: sorts data in ascending order.
+     *   * *   False (default value): sorts data in descending order.
+     *   *
+     * @param DescribeMetricTopRequest $request DescribeMetricTopRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMetricTopResponse
+     * @return DescribeMetricTopResponse DescribeMetricTopResponse
      */
     public function describeMetricTopWithOptions($request, $runtime)
     {
@@ -4810,9 +5464,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMetricTopRequest $request
+     * The order in which data is sorted. Valid values:
+     *   * *   True: sorts data in ascending order.
+     *   * *   False (default value): sorts data in descending order.
+     *   *
+     * @param DescribeMetricTopRequest $request DescribeMetricTopRequest
      *
-     * @return DescribeMetricTopResponse
+     * @return DescribeMetricTopResponse DescribeMetricTopResponse
      */
     public function describeMetricTop($request)
     {
@@ -5079,10 +5737,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorGroupsRequest $request
-     * @param RuntimeOptions               $runtime
+     * This topic provides an example of how to query the application groups of the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
+     *   *
+     * @param DescribeMonitorGroupsRequest $request DescribeMonitorGroupsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitorGroupsResponse
+     * @return DescribeMonitorGroupsResponse DescribeMonitorGroupsResponse
      */
     public function describeMonitorGroupsWithOptions($request, $runtime)
     {
@@ -5127,6 +5787,9 @@ class Cms extends OpenApiClient
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
+        if (!Utils::isUnset($request->types)) {
+            $query['Types'] = $request->types;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5146,9 +5809,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorGroupsRequest $request
+     * This topic provides an example of how to query the application groups of the current account. The response shows that the current account has two application groups: `testGroup124` and `test123`.
+     *   *
+     * @param DescribeMonitorGroupsRequest $request DescribeMonitorGroupsRequest
      *
-     * @return DescribeMonitorGroupsResponse
+     * @return DescribeMonitorGroupsResponse DescribeMonitorGroupsResponse
      */
     public function describeMonitorGroups($request)
     {
@@ -5311,6 +5976,9 @@ class Cms extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
+        if (!Utils::isUnset($request->sysomStatus)) {
+            $query['SysomStatus'] = $request->sysomStatus;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5342,10 +6010,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitoringAgentProcessesRequest $request
-     * @param RuntimeOptions                          $runtime
+     * The operation that you want to perform. Set the value to DescribeMonitoringAgentProcesses.
+     *   *
+     * @param DescribeMonitoringAgentProcessesRequest $request DescribeMonitoringAgentProcessesRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitoringAgentProcessesResponse
+     * @return DescribeMonitoringAgentProcessesResponse DescribeMonitoringAgentProcessesResponse
      */
     public function describeMonitoringAgentProcessesWithOptions($request, $runtime)
     {
@@ -5373,9 +6043,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitoringAgentProcessesRequest $request
+     * The operation that you want to perform. Set the value to DescribeMonitoringAgentProcesses.
+     *   *
+     * @param DescribeMonitoringAgentProcessesRequest $request DescribeMonitoringAgentProcessesRequest
      *
-     * @return DescribeMonitoringAgentProcessesResponse
+     * @return DescribeMonitoringAgentProcessesResponse DescribeMonitoringAgentProcessesResponse
      */
     public function describeMonitoringAgentProcesses($request)
     {
@@ -5385,15 +6057,25 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitoringAgentStatusesRequest $request
-     * @param RuntimeOptions                         $runtime
+     * The details of the execution error. Valid values:
+     *   * *   `Command.ErrorCode.Fail.Downlaod.REGIN_ID`: Failed to obtain the region ID.
+     *   * *   `Command.ErrorCode.Fail.Downlaod.SYSAK`: Failed to download the .rpm package of System Analyse Kit (SysAK).
+     *   * *   `Command.ErrorCode.Fail.Downlaod.CMON_FILE`: Failed to download the CMON file.
+     *   * *   `Command.ErrorCode.Fail.Downlaod.BTF`: Failed to start SysAK because the BTF file is not found.
+     *   * *   `Command.ErrorCode.Fail.Start.SYSAK`: Failed to start SysAK due to an unknown error.
+     *   *
+     * @param DescribeMonitoringAgentStatusesRequest $request DescribeMonitoringAgentStatusesRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitoringAgentStatusesResponse
+     * @return DescribeMonitoringAgentStatusesResponse DescribeMonitoringAgentStatusesResponse
      */
     public function describeMonitoringAgentStatusesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->hostAvailabilityTaskId)) {
+            $query['HostAvailabilityTaskId'] = $request->hostAvailabilityTaskId;
+        }
         if (!Utils::isUnset($request->instanceIds)) {
             $query['InstanceIds'] = $request->instanceIds;
         }
@@ -5416,9 +6098,16 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitoringAgentStatusesRequest $request
+     * The details of the execution error. Valid values:
+     *   * *   `Command.ErrorCode.Fail.Downlaod.REGIN_ID`: Failed to obtain the region ID.
+     *   * *   `Command.ErrorCode.Fail.Downlaod.SYSAK`: Failed to download the .rpm package of System Analyse Kit (SysAK).
+     *   * *   `Command.ErrorCode.Fail.Downlaod.CMON_FILE`: Failed to download the CMON file.
+     *   * *   `Command.ErrorCode.Fail.Downlaod.BTF`: Failed to start SysAK because the BTF file is not found.
+     *   * *   `Command.ErrorCode.Fail.Start.SYSAK`: Failed to start SysAK due to an unknown error.
+     *   *
+     * @param DescribeMonitoringAgentStatusesRequest $request DescribeMonitoringAgentStatusesRequest
      *
-     * @return DescribeMonitoringAgentStatusesResponse
+     * @return DescribeMonitoringAgentStatusesResponse DescribeMonitoringAgentStatusesResponse
      */
     public function describeMonitoringAgentStatuses($request)
     {
@@ -5465,10 +6154,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeProductResourceTagKeyListRequest $request
-     * @param RuntimeOptions                           $runtime
+     * The operation that you want to perform. Set the value to DescribeProductResourceTagKeyList.
+     *   *
+     * @param DescribeProductResourceTagKeyListRequest $request DescribeProductResourceTagKeyListRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProductResourceTagKeyListResponse
+     * @return DescribeProductResourceTagKeyListResponse DescribeProductResourceTagKeyListResponse
      */
     public function describeProductResourceTagKeyListWithOptions($request, $runtime)
     {
@@ -5496,9 +6187,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeProductResourceTagKeyListRequest $request
+     * The operation that you want to perform. Set the value to DescribeProductResourceTagKeyList.
+     *   *
+     * @param DescribeProductResourceTagKeyListRequest $request DescribeProductResourceTagKeyListRequest
      *
-     * @return DescribeProductResourceTagKeyListResponse
+     * @return DescribeProductResourceTagKeyListResponse DescribeProductResourceTagKeyListResponse
      */
     public function describeProductResourceTagKeyList($request)
     {
@@ -5545,10 +6238,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectMetaRequest $request
-     * @param RuntimeOptions             $runtime
+     * The information obtained by this operation includes the service description, namespace, and tags.
+     *   *
+     * @param DescribeProjectMetaRequest $request DescribeProjectMetaRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeProjectMetaResponse
+     * @return DescribeProjectMetaResponse DescribeProjectMetaResponse
      */
     public function describeProjectMetaWithOptions($request, $runtime)
     {
@@ -5582,9 +6277,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeProjectMetaRequest $request
+     * The information obtained by this operation includes the service description, namespace, and tags.
+     *   *
+     * @param DescribeProjectMetaRequest $request DescribeProjectMetaRequest
      *
-     * @return DescribeProjectMetaResponse
+     * @return DescribeProjectMetaResponse DescribeProjectMetaResponse
      */
     public function describeProjectMeta($request)
     {
@@ -5594,10 +6291,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSiteMonitorAttributeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * The operation that you want to perform. Set the value to DescribeSiteMonitorAttribute.
+     *   *
+     * @param DescribeSiteMonitorAttributeRequest $request DescribeSiteMonitorAttributeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSiteMonitorAttributeResponse
+     * @return DescribeSiteMonitorAttributeResponse DescribeSiteMonitorAttributeResponse
      */
     public function describeSiteMonitorAttributeWithOptions($request, $runtime)
     {
@@ -5628,9 +6327,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSiteMonitorAttributeRequest $request
+     * The operation that you want to perform. Set the value to DescribeSiteMonitorAttribute.
+     *   *
+     * @param DescribeSiteMonitorAttributeRequest $request DescribeSiteMonitorAttributeRequest
      *
-     * @return DescribeSiteMonitorAttributeResponse
+     * @return DescribeSiteMonitorAttributeResponse DescribeSiteMonitorAttributeResponse
      */
     public function describeSiteMonitorAttribute($request)
     {
@@ -5704,10 +6405,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSiteMonitorISPCityListRequest $request
-     * @param RuntimeOptions                        $runtime
+     * This topic provides an example on how to query the detection points that are provided by China Unicom in Guiyang.
+     *   *
+     * @param DescribeSiteMonitorISPCityListRequest $request DescribeSiteMonitorISPCityListRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSiteMonitorISPCityListResponse
+     * @return DescribeSiteMonitorISPCityListResponse DescribeSiteMonitorISPCityListResponse
      */
     public function describeSiteMonitorISPCityListWithOptions($request, $runtime)
     {
@@ -5724,6 +6427,9 @@ class Cms extends OpenApiClient
         }
         if (!Utils::isUnset($request->isp)) {
             $query['Isp'] = $request->isp;
+        }
+        if (!Utils::isUnset($request->viewAll)) {
+            $query['ViewAll'] = $request->viewAll;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5744,9 +6450,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSiteMonitorISPCityListRequest $request
+     * This topic provides an example on how to query the detection points that are provided by China Unicom in Guiyang.
+     *   *
+     * @param DescribeSiteMonitorISPCityListRequest $request DescribeSiteMonitorISPCityListRequest
      *
-     * @return DescribeSiteMonitorISPCityListResponse
+     * @return DescribeSiteMonitorISPCityListResponse DescribeSiteMonitorISPCityListResponse
      */
     public function describeSiteMonitorISPCityList($request)
     {
@@ -5756,10 +6464,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSiteMonitorListRequest $request
-     * @param RuntimeOptions                 $runtime
+     * The content of the HTTP request.
+     *   *
+     * @param DescribeSiteMonitorListRequest $request DescribeSiteMonitorListRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSiteMonitorListResponse
+     * @return DescribeSiteMonitorListResponse DescribeSiteMonitorListResponse
      */
     public function describeSiteMonitorListWithOptions($request, $runtime)
     {
@@ -5776,6 +6486,9 @@ class Cms extends OpenApiClient
         }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskState)) {
+            $query['TaskState'] = $request->taskState;
         }
         if (!Utils::isUnset($request->taskType)) {
             $query['TaskType'] = $request->taskType;
@@ -5799,9 +6512,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSiteMonitorListRequest $request
+     * The content of the HTTP request.
+     *   *
+     * @param DescribeSiteMonitorListRequest $request DescribeSiteMonitorListRequest
      *
-     * @return DescribeSiteMonitorListResponse
+     * @return DescribeSiteMonitorListResponse DescribeSiteMonitorListResponse
      */
     public function describeSiteMonitorList($request)
     {
@@ -5811,10 +6526,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSiteMonitorLogRequest $request
-     * @param RuntimeOptions                $runtime
+     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. For more information, see [Billing of Network Analysis and Monitoring](~~341649~~).
+     *   * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
+     *   *
+     * @param DescribeSiteMonitorLogRequest $request DescribeSiteMonitorLogRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSiteMonitorLogResponse
+     * @return DescribeSiteMonitorLogResponse DescribeSiteMonitorLogResponse
      */
     public function describeSiteMonitorLogWithOptions($request, $runtime)
     {
@@ -5866,9 +6584,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSiteMonitorLogRequest $request
+     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. For more information, see [Billing of Network Analysis and Monitoring](~~341649~~).
+     *   * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
+     *   *
+     * @param DescribeSiteMonitorLogRequest $request DescribeSiteMonitorLogRequest
      *
-     * @return DescribeSiteMonitorLogResponse
+     * @return DescribeSiteMonitorLogResponse DescribeSiteMonitorLogResponse
      */
     public function describeSiteMonitorLog($request)
     {
@@ -6040,10 +6761,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSystemEventCountRequest $request
-     * @param RuntimeOptions                  $runtime
+     * The operation that you want to perform. Set the value to DescribeSystemEventCount.
+     *   *
+     * @param DescribeSystemEventCountRequest $request DescribeSystemEventCountRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSystemEventCountResponse
+     * @return DescribeSystemEventCountResponse DescribeSystemEventCountResponse
      */
     public function describeSystemEventCountWithOptions($request, $runtime)
     {
@@ -6095,9 +6818,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeSystemEventCountRequest $request
+     * The operation that you want to perform. Set the value to DescribeSystemEventCount.
+     *   *
+     * @param DescribeSystemEventCountRequest $request DescribeSystemEventCountRequest
      *
-     * @return DescribeSystemEventCountResponse
+     * @return DescribeSystemEventCountResponse DescribeSystemEventCountResponse
      */
     public function describeSystemEventCount($request)
     {
@@ -6257,10 +6982,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagValueListRequest $request
-     * @param RuntimeOptions              $runtime
+     * The operation that you want to perform. Set the value to DescribeTagValueList.
+     *   *
+     * @param DescribeTagValueListRequest $request DescribeTagValueListRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTagValueListResponse
+     * @return DescribeTagValueListResponse DescribeTagValueListResponse
      */
     public function describeTagValueListWithOptions($request, $runtime)
     {
@@ -6294,9 +7021,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param DescribeTagValueListRequest $request
+     * The operation that you want to perform. Set the value to DescribeTagValueList.
+     *   *
+     * @param DescribeTagValueListRequest $request DescribeTagValueListRequest
      *
-     * @return DescribeTagValueListResponse
+     * @return DescribeTagValueListResponse DescribeTagValueListResponse
      */
     public function describeTagValueList($request)
     {
@@ -6693,6 +7422,52 @@ class Cms extends OpenApiClient
     }
 
     /**
+     * @param EnableMetricRuleBlackListRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return EnableMetricRuleBlackListResponse
+     */
+    public function enableMetricRuleBlackListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->isEnable)) {
+            $query['IsEnable'] = $request->isEnable;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableMetricRuleBlackList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableMetricRuleBlackListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableMetricRuleBlackListRequest $request
+     *
+     * @return EnableMetricRuleBlackListResponse
+     */
+    public function enableMetricRuleBlackList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableMetricRuleBlackListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param EnableMetricRulesRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -6779,10 +7554,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param InstallMonitoringAgentRequest $request
-     * @param RuntimeOptions                $runtime
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param InstallMonitoringAgentRequest $request InstallMonitoringAgentRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallMonitoringAgentResponse
+     * @return InstallMonitoringAgentResponse InstallMonitoringAgentResponse
      */
     public function installMonitoringAgentWithOptions($request, $runtime)
     {
@@ -6816,9 +7595,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param InstallMonitoringAgentRequest $request
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param InstallMonitoringAgentRequest $request InstallMonitoringAgentRequest
      *
-     * @return InstallMonitoringAgentResponse
+     * @return InstallMonitoringAgentResponse InstallMonitoringAgentResponse
      */
     public function installMonitoringAgent($request)
     {
@@ -6880,10 +7663,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostAvailabilityRequest $request
-     * @param RuntimeOptions                $runtime
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param ModifyHostAvailabilityRequest $request ModifyHostAvailabilityRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHostAvailabilityResponse
+     * @return ModifyHostAvailabilityResponse ModifyHostAvailabilityResponse
      */
     public function modifyHostAvailabilityWithOptions($request, $runtime)
     {
@@ -6891,6 +7678,9 @@ class Cms extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->alertConfigEscalationList)) {
             $query['AlertConfigEscalationList'] = $request->alertConfigEscalationList;
+        }
+        if (!Utils::isUnset($request->alertConfigTargetList)) {
+            $query['AlertConfigTargetList'] = $request->alertConfigTargetList;
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
@@ -6932,9 +7722,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostAvailabilityRequest $request
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param ModifyHostAvailabilityRequest $request ModifyHostAvailabilityRequest
      *
-     * @return ModifyHostAvailabilityResponse
+     * @return ModifyHostAvailabilityResponse ModifyHostAvailabilityResponse
      */
     public function modifyHostAvailability($request)
     {
@@ -6944,10 +7738,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostInfoRequest $request
-     * @param RuntimeOptions        $runtime
+     * ****
+     *   *
+     * @param ModifyHostInfoRequest $request ModifyHostInfoRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHostInfoResponse
+     * @return ModifyHostInfoResponse ModifyHostInfoResponse
      */
     public function modifyHostInfoWithOptions($request, $runtime)
     {
@@ -6978,9 +7774,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyHostInfoRequest $request
+     * ****
+     *   *
+     * @param ModifyHostInfoRequest $request ModifyHostInfoRequest
      *
-     * @return ModifyHostInfoResponse
+     * @return ModifyHostInfoResponse ModifyHostInfoResponse
      */
     public function modifyHostInfo($request)
     {
@@ -6990,10 +7788,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyHybridMonitorNamespaceRequest $request
-     * @param RuntimeOptions                      $runtime
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param ModifyHybridMonitorNamespaceRequest $request ModifyHybridMonitorNamespaceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHybridMonitorNamespaceResponse
+     * @return ModifyHybridMonitorNamespaceResponse ModifyHybridMonitorNamespaceResponse
      */
     public function modifyHybridMonitorNamespaceWithOptions($request, $runtime)
     {
@@ -7027,9 +7829,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyHybridMonitorNamespaceRequest $request
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param ModifyHybridMonitorNamespaceRequest $request ModifyHybridMonitorNamespaceRequest
      *
-     * @return ModifyHybridMonitorNamespaceResponse
+     * @return ModifyHybridMonitorNamespaceResponse ModifyHybridMonitorNamespaceResponse
      */
     public function modifyHybridMonitorNamespace($request)
     {
@@ -7039,10 +7845,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyHybridMonitorSLSGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * The Log Service projects.
+     *   * Valid values of N: 1 to 25.
+     *   *
+     * @param ModifyHybridMonitorSLSGroupRequest $request ModifyHybridMonitorSLSGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHybridMonitorSLSGroupResponse
+     * @return ModifyHybridMonitorSLSGroupResponse ModifyHybridMonitorSLSGroupResponse
      */
     public function modifyHybridMonitorSLSGroupWithOptions($request, $runtime)
     {
@@ -7076,9 +7885,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyHybridMonitorSLSGroupRequest $request
+     * The Log Service projects.
+     *   * Valid values of N: 1 to 25.
+     *   *
+     * @param ModifyHybridMonitorSLSGroupRequest $request ModifyHybridMonitorSLSGroupRequest
      *
-     * @return ModifyHybridMonitorSLSGroupResponse
+     * @return ModifyHybridMonitorSLSGroupResponse ModifyHybridMonitorSLSGroupResponse
      */
     public function modifyHybridMonitorSLSGroup($request)
     {
@@ -7088,10 +7900,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyHybridMonitorTaskRequest $request
-     * @param RuntimeOptions                 $runtime
+     * The alias of the extended field that specifies the result of basic operations performed on aggregation results.
+     *   *
+     * @param ModifyHybridMonitorTaskRequest $request ModifyHybridMonitorTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyHybridMonitorTaskResponse
+     * @return ModifyHybridMonitorTaskResponse ModifyHybridMonitorTaskResponse
      */
     public function modifyHybridMonitorTaskWithOptions($request, $runtime)
     {
@@ -7134,9 +7948,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyHybridMonitorTaskRequest $request
+     * The alias of the extended field that specifies the result of basic operations performed on aggregation results.
+     *   *
+     * @param ModifyHybridMonitorTaskRequest $request ModifyHybridMonitorTaskRequest
      *
-     * @return ModifyHybridMonitorTaskResponse
+     * @return ModifyHybridMonitorTaskResponse ModifyHybridMonitorTaskResponse
      */
     public function modifyHybridMonitorTask($request)
     {
@@ -7146,10 +7962,87 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyMetricRuleTemplateRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @param ModifyMetricRuleBlackListRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return ModifyMetricRuleTemplateResponse
+     * @return ModifyMetricRuleBlackListResponse
+     */
+    public function modifyMetricRuleBlackListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->category)) {
+            $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->effectiveTime)) {
+            $query['EffectiveTime'] = $request->effectiveTime;
+        }
+        if (!Utils::isUnset($request->enableEndTime)) {
+            $query['EnableEndTime'] = $request->enableEndTime;
+        }
+        if (!Utils::isUnset($request->enableStartTime)) {
+            $query['EnableStartTime'] = $request->enableStartTime;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->instances)) {
+            $query['Instances'] = $request->instances;
+        }
+        if (!Utils::isUnset($request->metrics)) {
+            $query['Metrics'] = $request->metrics;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->scopeType)) {
+            $query['ScopeType'] = $request->scopeType;
+        }
+        if (!Utils::isUnset($request->scopeValue)) {
+            $query['ScopeValue'] = $request->scopeValue;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyMetricRuleBlackList',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyMetricRuleBlackListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyMetricRuleBlackListRequest $request
+     *
+     * @return ModifyMetricRuleBlackListResponse
+     */
+    public function modifyMetricRuleBlackList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyMetricRuleBlackListWithOptions($request, $runtime);
+    }
+
+    /**
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param ModifyMetricRuleTemplateRequest $request ModifyMetricRuleTemplateRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyMetricRuleTemplateResponse ModifyMetricRuleTemplateResponse
      */
     public function modifyMetricRuleTemplateWithOptions($request, $runtime)
     {
@@ -7189,9 +8082,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifyMetricRuleTemplateRequest $request
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param ModifyMetricRuleTemplateRequest $request ModifyMetricRuleTemplateRequest
      *
-     * @return ModifyMetricRuleTemplateResponse
+     * @return ModifyMetricRuleTemplateResponse ModifyMetricRuleTemplateResponse
      */
     public function modifyMetricRuleTemplate($request)
     {
@@ -7296,10 +8193,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifySiteMonitorRequest $request
-     * @param RuntimeOptions           $runtime
+     * The number of site monitoring tasks.
+     *   *
+     * @param ModifySiteMonitorRequest $request ModifySiteMonitorRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySiteMonitorResponse
+     * @return ModifySiteMonitorResponse ModifySiteMonitorResponse
      */
     public function modifySiteMonitorWithOptions($request, $runtime)
     {
@@ -7348,9 +8247,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param ModifySiteMonitorRequest $request
+     * The number of site monitoring tasks.
+     *   *
+     * @param ModifySiteMonitorRequest $request ModifySiteMonitorRequest
      *
-     * @return ModifySiteMonitorResponse
+     * @return ModifySiteMonitorResponse ModifySiteMonitorResponse
      */
     public function modifySiteMonitor($request)
     {
@@ -7445,10 +8346,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutContactGroupRequest $request
-     * @param RuntimeOptions         $runtime
+     * The operation that you want to perform. Set the value to PutContactGroup.
+     *   *
+     * @param PutContactGroupRequest $request PutContactGroupRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutContactGroupResponse
+     * @return PutContactGroupResponse PutContactGroupResponse
      */
     public function putContactGroupWithOptions($request, $runtime)
     {
@@ -7485,9 +8388,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutContactGroupRequest $request
+     * The operation that you want to perform. Set the value to PutContactGroup.
+     *   *
+     * @param PutContactGroupRequest $request PutContactGroupRequest
      *
-     * @return PutContactGroupResponse
+     * @return PutContactGroupResponse PutContactGroupResponse
      */
     public function putContactGroup($request)
     {
@@ -7540,10 +8445,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutCustomEventRuleRequest $request
-     * @param RuntimeOptions            $runtime
+     * The operation that you want to perform. Set the value to PutCustomEventRule.
+     *   *
+     * @param PutCustomEventRuleRequest $request PutCustomEventRuleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutCustomEventRuleResponse
+     * @return PutCustomEventRuleResponse PutCustomEventRuleResponse
      */
     public function putCustomEventRuleWithOptions($request, $runtime)
     {
@@ -7601,9 +8508,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutCustomEventRuleRequest $request
+     * The operation that you want to perform. Set the value to PutCustomEventRule.
+     *   *
+     * @param PutCustomEventRuleRequest $request PutCustomEventRuleRequest
      *
-     * @return PutCustomEventRuleResponse
+     * @return PutCustomEventRuleResponse PutCustomEventRuleResponse
      */
     public function putCustomEventRule($request)
     {
@@ -7613,10 +8522,16 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutCustomMetricRequest $request
-     * @param RuntimeOptions         $runtime
+     * The dimensions that specify the resources whose monitoring data you want to query. Valid values of N: 1 to 21.
+     *   * Set the value to a collection of key-value pairs. Format:`{"Key":"Value"}`.
+     *   * The key or value must be 1 to 64 bytes in length. Excessive characters are truncated.
+     *   * The key or value can contain letters, digits, periods (.), hyphens (-), underscores (\\_), forward slashes (/), and backslashes (\\\\).
+     *   * >  Dimensions must be formatted as a JSON string in a specified order.
+     *   *
+     * @param PutCustomMetricRequest $request PutCustomMetricRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutCustomMetricResponse
+     * @return PutCustomMetricResponse PutCustomMetricResponse
      */
     public function putCustomMetricWithOptions($request, $runtime)
     {
@@ -7644,9 +8559,15 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutCustomMetricRequest $request
+     * The dimensions that specify the resources whose monitoring data you want to query. Valid values of N: 1 to 21.
+     *   * Set the value to a collection of key-value pairs. Format:`{"Key":"Value"}`.
+     *   * The key or value must be 1 to 64 bytes in length. Excessive characters are truncated.
+     *   * The key or value can contain letters, digits, periods (.), hyphens (-), underscores (\\_), forward slashes (/), and backslashes (\\\\).
+     *   * >  Dimensions must be formatted as a JSON string in a specified order.
+     *   *
+     * @param PutCustomMetricRequest $request PutCustomMetricRequest
      *
-     * @return PutCustomMetricResponse
+     * @return PutCustomMetricResponse PutCustomMetricResponse
      */
     public function putCustomMetric($request)
     {
@@ -7656,10 +8577,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutCustomMetricRuleRequest $request
-     * @param RuntimeOptions             $runtime
+     * The operation that you want to perform. Set the value to PutCustomMetricRule.
+     *   *
+     * @param PutCustomMetricRuleRequest $request PutCustomMetricRuleRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutCustomMetricRuleResponse
+     * @return PutCustomMetricRuleResponse PutCustomMetricRuleResponse
      */
     public function putCustomMetricRuleWithOptions($request, $runtime)
     {
@@ -7732,9 +8655,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutCustomMetricRuleRequest $request
+     * The operation that you want to perform. Set the value to PutCustomMetricRule.
+     *   *
+     * @param PutCustomMetricRuleRequest $request PutCustomMetricRuleRequest
      *
-     * @return PutCustomMetricRuleResponse
+     * @return PutCustomMetricRuleResponse PutCustomMetricRuleResponse
      */
     public function putCustomMetricRule($request)
     {
@@ -7744,10 +8669,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutEventRuleRequest $request
-     * @param RuntimeOptions      $runtime
+     * The ID of the application group to which the event-triggered alert rule belongs.
+     *   *
+     * @param PutEventRuleRequest $request PutEventRuleRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutEventRuleResponse
+     * @return PutEventRuleResponse PutEventRuleResponse
      */
     public function putEventRuleWithOptions($request, $runtime)
     {
@@ -7793,9 +8720,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutEventRuleRequest $request
+     * The ID of the application group to which the event-triggered alert rule belongs.
+     *   *
+     * @param PutEventRuleRequest $request PutEventRuleRequest
      *
-     * @return PutEventRuleResponse
+     * @return PutEventRuleResponse PutEventRuleResponse
      */
     public function putEventRule($request)
     {
@@ -7866,10 +8795,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutExporterOutputRequest $request
-     * @param RuntimeOptions           $runtime
+     * > The monitoring data can be exported only to Log Service. More services will be supported in the future.
+     *   *
+     * @param PutExporterOutputRequest $request PutExporterOutputRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutExporterOutputResponse
+     * @return PutExporterOutputResponse PutExporterOutputResponse
      */
     public function putExporterOutputWithOptions($request, $runtime)
     {
@@ -7906,9 +8837,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutExporterOutputRequest $request
+     * > The monitoring data can be exported only to Log Service. More services will be supported in the future.
+     *   *
+     * @param PutExporterOutputRequest $request PutExporterOutputRequest
      *
-     * @return PutExporterOutputResponse
+     * @return PutExporterOutputResponse PutExporterOutputResponse
      */
     public function putExporterOutput($request)
     {
@@ -7976,10 +8909,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutGroupMetricRuleRequest $request
-     * @param RuntimeOptions            $runtime
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param PutGroupMetricRuleRequest $request PutGroupMetricRuleRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutGroupMetricRuleResponse
+     * @return PutGroupMetricRuleResponse PutGroupMetricRuleResponse
      */
     public function putGroupMetricRuleWithOptions($request, $runtime)
     {
@@ -8061,9 +8998,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutGroupMetricRuleRequest $request
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param PutGroupMetricRuleRequest $request PutGroupMetricRuleRequest
      *
-     * @return PutGroupMetricRuleResponse
+     * @return PutGroupMetricRuleResponse PutGroupMetricRuleResponse
      */
     public function putGroupMetricRule($request)
     {
@@ -8073,10 +9014,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutHybridMonitorMetricDataRequest $request
-     * @param RuntimeOptions                    $runtime
+     * The tag value of the metric.
+     *   * Valid values of N: 1 to 100.
+     *   * >  You must specify a key and a value for a tag at the same time.
+     *   *
+     * @param PutHybridMonitorMetricDataRequest $request PutHybridMonitorMetricDataRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutHybridMonitorMetricDataResponse
+     * @return PutHybridMonitorMetricDataResponse PutHybridMonitorMetricDataResponse
      */
     public function putHybridMonitorMetricDataWithOptions($request, $runtime)
     {
@@ -8107,9 +9052,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutHybridMonitorMetricDataRequest $request
+     * The tag value of the metric.
+     *   * Valid values of N: 1 to 100.
+     *   * >  You must specify a key and a value for a tag at the same time.
+     *   *
+     * @param PutHybridMonitorMetricDataRequest $request PutHybridMonitorMetricDataRequest
      *
-     * @return PutHybridMonitorMetricDataResponse
+     * @return PutHybridMonitorMetricDataResponse PutHybridMonitorMetricDataResponse
      */
     public function putHybridMonitorMetricData($request)
     {
@@ -8119,10 +9068,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutLogMonitorRequest $request
-     * @param RuntimeOptions       $runtime
+     * The name of the log field that is used for matching in the filter condition. Valid values of N: 1 to 10.
+     *   *
+     * @param PutLogMonitorRequest $request PutLogMonitorRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutLogMonitorResponse
+     * @return PutLogMonitorResponse PutLogMonitorResponse
      */
     public function putLogMonitorWithOptions($request, $runtime)
     {
@@ -8186,9 +9137,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutLogMonitorRequest $request
+     * The name of the log field that is used for matching in the filter condition. Valid values of N: 1 to 10.
+     *   *
+     * @param PutLogMonitorRequest $request PutLogMonitorRequest
      *
-     * @return PutLogMonitorResponse
+     * @return PutLogMonitorResponse PutLogMonitorResponse
      */
     public function putLogMonitor($request)
     {
@@ -8198,10 +9151,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutMetricRuleTargetsRequest $request
-     * @param RuntimeOptions              $runtime
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param PutMetricRuleTargetsRequest $request PutMetricRuleTargetsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutMetricRuleTargetsResponse
+     * @return PutMetricRuleTargetsResponse PutMetricRuleTargetsResponse
      */
     public function putMetricRuleTargetsWithOptions($request, $runtime)
     {
@@ -8232,9 +9189,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutMetricRuleTargetsRequest $request
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param PutMetricRuleTargetsRequest $request PutMetricRuleTargetsRequest
      *
-     * @return PutMetricRuleTargetsResponse
+     * @return PutMetricRuleTargetsResponse PutMetricRuleTargetsResponse
      */
     public function putMetricRuleTargets($request)
     {
@@ -8339,10 +9300,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutResourceMetricRuleRequest $tmpReq
-     * @param RuntimeOptions               $runtime
+     * The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
+     *   * >  If an alert is not cleared within the mute period, a new alert notification is sent when the mute period ends.
+     *   *
+     * @param PutResourceMetricRuleRequest $tmpReq  PutResourceMetricRuleRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutResourceMetricRuleResponse
+     * @return PutResourceMetricRuleResponse PutResourceMetricRuleResponse
      */
     public function putResourceMetricRuleWithOptions($tmpReq, $runtime)
     {
@@ -8350,10 +9314,10 @@ class Cms extends OpenApiClient
         $request = new PutResourceMetricRuleShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->compositeExpression)) {
-            $request->compositeExpressionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->compositeExpression), 'CompositeExpression', 'json');
+            $request->compositeExpressionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->compositeExpression, 'CompositeExpression', 'json');
         }
         if (!Utils::isUnset($tmpReq->prometheus)) {
-            $request->prometheusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->prometheus), 'Prometheus', 'json');
+            $request->prometheusShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->prometheus, 'Prometheus', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->compositeExpressionShrink)) {
@@ -8429,9 +9393,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutResourceMetricRuleRequest $request
+     * The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
+     *   * >  If an alert is not cleared within the mute period, a new alert notification is sent when the mute period ends.
+     *   *
+     * @param PutResourceMetricRuleRequest $request PutResourceMetricRuleRequest
      *
-     * @return PutResourceMetricRuleResponse
+     * @return PutResourceMetricRuleResponse PutResourceMetricRuleResponse
      */
     public function putResourceMetricRule($request)
     {
@@ -8441,10 +9408,14 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutResourceMetricRulesRequest $request
-     * @param RuntimeOptions                $runtime
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param PutResourceMetricRulesRequest $request PutResourceMetricRulesRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return PutResourceMetricRulesResponse
+     * @return PutResourceMetricRulesResponse PutResourceMetricRulesResponse
      */
     public function putResourceMetricRulesWithOptions($request, $runtime)
     {
@@ -8472,9 +9443,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param PutResourceMetricRulesRequest $request
+     * Indicates whether the call was successful. Valid values:
+     *   * *   true: The call was successful.
+     *   * *   false: The call failed.
+     *   *
+     * @param PutResourceMetricRulesRequest $request PutResourceMetricRulesRequest
      *
-     * @return PutResourceMetricRulesResponse
+     * @return PutResourceMetricRulesResponse PutResourceMetricRulesResponse
      */
     public function putResourceMetricRules($request)
     {
@@ -8530,10 +9505,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param SendDryRunSystemEventRequest $request
-     * @param RuntimeOptions               $runtime
+     * The name of the cloud service.
+     *   * >  For information about the system events supported by Cloud Monitor for Alibaba Cloud services, see [System events](~~167388~~).
+     *   *
+     * @param SendDryRunSystemEventRequest $request SendDryRunSystemEventRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendDryRunSystemEventResponse
+     * @return SendDryRunSystemEventResponse SendDryRunSystemEventResponse
      */
     public function sendDryRunSystemEventWithOptions($request, $runtime)
     {
@@ -8570,9 +9548,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param SendDryRunSystemEventRequest $request
+     * The name of the cloud service.
+     *   * >  For information about the system events supported by Cloud Monitor for Alibaba Cloud services, see [System events](~~167388~~).
+     *   *
+     * @param SendDryRunSystemEventRequest $request SendDryRunSystemEventRequest
      *
-     * @return SendDryRunSystemEventResponse
+     * @return SendDryRunSystemEventResponse SendDryRunSystemEventResponse
      */
     public function sendDryRunSystemEvent($request)
     {
@@ -8582,10 +9563,12 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param UninstallMonitoringAgentRequest $request
-     * @param RuntimeOptions                  $runtime
+     * The operation that you want to perform. Set the value to UninstallMonitoringAgent.
+     *   *
+     * @param UninstallMonitoringAgentRequest $request UninstallMonitoringAgentRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UninstallMonitoringAgentResponse
+     * @return UninstallMonitoringAgentResponse UninstallMonitoringAgentResponse
      */
     public function uninstallMonitoringAgentWithOptions($request, $runtime)
     {
@@ -8613,9 +9596,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param UninstallMonitoringAgentRequest $request
+     * The operation that you want to perform. Set the value to UninstallMonitoringAgent.
+     *   *
+     * @param UninstallMonitoringAgentRequest $request UninstallMonitoringAgentRequest
      *
-     * @return UninstallMonitoringAgentResponse
+     * @return UninstallMonitoringAgentResponse UninstallMonitoringAgentResponse
      */
     public function uninstallMonitoringAgent($request)
     {

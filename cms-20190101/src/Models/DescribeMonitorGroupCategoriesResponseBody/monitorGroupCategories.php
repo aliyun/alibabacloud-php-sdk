@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class monitorGroupCategories extends Model
 {
     /**
+     * @description The ID of the application group.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description One of the cloud services to which the resources in the application group belong and the number of resources that belong to the cloud service.
+     *
      * @var monitorGroupCategory
      */
     public $monitorGroupCategory;

@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetricRuleResourcesResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example The alert does not exist.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example D8A35882-90C6-4F03-BBEB-153C180398EA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

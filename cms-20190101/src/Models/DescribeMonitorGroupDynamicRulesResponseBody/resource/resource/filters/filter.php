@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The method that is used to filter the instances. Valid values:
+     *
+     *   contains: includes a specified element
+     *   startWith: specifies a prefix
+     *   endWith: specifies a suffix
+     *
+     * @example contains
+     *
      * @var string
      */
     public $function;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example hostName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The value of the dynamic rule.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $value;

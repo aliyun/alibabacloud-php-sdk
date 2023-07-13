@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeExporterRuleListRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 1000.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $pageSize;

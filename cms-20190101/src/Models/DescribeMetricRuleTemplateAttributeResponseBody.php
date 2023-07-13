@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleTemplateAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   true: The call is successful.
+     *   false: The call fails.
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The details of the alert template.
+     *
+     * @example 8F3A82AD-DA92-52B0-8EC6-C059D1C3839F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The version of the alert template.
+     *
      * @var resource
      */
     public $resource;
 
     /**
+     * @description The name of the alert template.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

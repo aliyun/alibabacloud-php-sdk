@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
+     * @description The timestamp that specifies the end of the time range to query.
+     *
+     * Unit: seconds.
+     * @example instanceId
+     *
      * @var string
      */
     public $k;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example i-rj99xc6cptkk64ml****
+     *
      * @var string
      */
     public $v;

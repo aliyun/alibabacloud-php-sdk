@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class contactParameter extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @var string
      */
     public $contactGroupName;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $level;

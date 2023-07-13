@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleCountRequest extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The name of the metric. For more information, see [Appendix 1: Metrics](~~163515~~).
+     *
+     * @example acs_ecs_dashboard
+     *
      * @var string
      */
     public $namespace;

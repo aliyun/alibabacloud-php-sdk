@@ -10,26 +10,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorQuotaResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The quotas and version of site monitoring.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 26860260-76C6-404E-AB7A-EB98D36A6885
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

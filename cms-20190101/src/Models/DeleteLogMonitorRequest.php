@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteLogMonitorRequest extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 12345
+     *
      * @var int
      */
     public $logId;

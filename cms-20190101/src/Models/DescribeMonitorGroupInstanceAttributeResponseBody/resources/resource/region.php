@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $availabilityZone;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

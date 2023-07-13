@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class express extends Model
 {
     /**
+     * @description The value of the key that is used to filter logs imported from Log Service.
+     *
+     * @example SuccRate
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description Specifies whether to create a metric import task for an Alibaba Cloud service or create a metric for logs imported from Log Service. Valid values:
+     *
+     *   aliyun_fc: creates a metric import task for an Alibaba Cloud service
+     *   aliyun_sls: creates a metric for logs imported from Log Service
+     *
+     * @example success_count
+     *
      * @var string
      */
     public $express;

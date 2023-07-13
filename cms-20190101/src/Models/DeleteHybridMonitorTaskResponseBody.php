@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DeleteHybridMonitorTaskResponseBody extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **DeleteHybridMonitorTask**.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example null
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example D6B8103F-7BAD-5FEB-945F-71D991AB8834
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

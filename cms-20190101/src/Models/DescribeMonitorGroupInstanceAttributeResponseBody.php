@@ -10,41 +10,73 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupInstanceAttributeResponseBody extends Model
 {
     /**
+     * @description The information about the virtual private cloud (VPC).
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The dimensions of the resource that is associated with the application group.
+     *
+     * @example 9FB8EA79-7279-4482-8D6D-3D28EEDD871A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the instance.
+     *
      * @var resources
      */
     public $resources;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The ID of the resource. Separate multiple resource IDs with commas (,). You can query the details about a maximum of 20 resources in each request.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $total;

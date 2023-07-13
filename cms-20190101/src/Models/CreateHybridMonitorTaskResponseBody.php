@@ -9,29 +9,51 @@ use AlibabaCloud\Tea\Model;
 class CreateHybridMonitorTaskResponseBody extends Model
 {
     /**
+     * @description The alias of the aggregation result.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example yamlConfigFail
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example 28CEA2E0-3E90-51B2-A7E8-B1ED75534E49
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;
+
+    /**
+     * @example 36****
+     *
+     * @var int
+     */
+    public $taskId;
     protected $_name = [
         'code'      => 'Code',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
+        'taskId'    => 'TaskId',
     ];
 
     public function validate()
@@ -52,6 +74,9 @@ class CreateHybridMonitorTaskResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->taskId) {
+            $res['TaskId'] = $this->taskId;
         }
 
         return $res;
@@ -76,6 +101,9 @@ class CreateHybridMonitorTaskResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['TaskId'])) {
+            $model->taskId = $map['TaskId'];
         }
 
         return $model;

@@ -9,26 +9,52 @@ use AlibabaCloud\Tea\Model;
 class alertConfigEscalationList extends Model
 {
     /**
+     * @description The ECS instances that are monitored. Valid values of N: 1 to 21.
+     *
+     * >  If the `TaskScope` parameter is set to `GROUP_SPEC_INSTANCE`, this parameter is required.
+     * @example Value
+     *
      * @var string
      */
     public $aggregate;
 
     /**
+     * @description The character set that is used in the HTTP response.
+     *
+     * >  Valid value: UTF-8.
+     * @example HttpStatus
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The method to trigger an alert. The alert can be triggered based on whether the specified alert rule is included in the response body. Valid values:
+     *
+     *   true: If the HTTP response body includes the alert rule, an alert is triggered.
+     *   false: If the HTTP response does not include the alert rule, an alert is triggered.
+     *
+     * >  If the TaskType parameter is set to HTTP, this parameter takes effect.
+     * @example >
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description The parameters of the alert callback. The parameters are in the JSON format.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $times;
 
     /**
+     * @description The callback URL.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $value;

@@ -10,31 +10,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleListResponseBody extends Model
 {
     /**
+     * @description The details of the alert rules.
+     *
      * @var alarms
      */
     public $alarms;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call is successful.
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The error message.
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 386C6712-335F-5054-930A-CC92B851ECBA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   true: The call is successful.
+     *   false: The call fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $total;

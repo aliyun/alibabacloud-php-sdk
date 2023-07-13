@@ -10,26 +10,46 @@ use AlibabaCloud\Tea\Model;
 class PutResourceMetricRulesResponseBody extends Model
 {
     /**
+     * @description The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
+     *
+     * Valid values of N: 1 to 500.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
      * @var failedListResult
      */
     public $failedListResult;
 
     /**
+     * @description The ID of the alert rule.
+     *
+     * >  If you specify a new ID, you create a threshold-triggered alert rule.
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The alert rule that failed to be created.
+     *
+     * @example 15D1440E-BF24-5A41-93E4-36864635179E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The key of the tag.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

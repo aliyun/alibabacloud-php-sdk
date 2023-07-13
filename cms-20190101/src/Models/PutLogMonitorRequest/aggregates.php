@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class aggregates extends Model
 {
     /**
+     * @description The name of the Log Service project.
+     *
+     * @example Count
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description The alias of the aggregate function. Valid values of N: 1 to 10.
+     *
+     * @example sourceCount
+     *
      * @var string
      */
     public $fieldName;
 
     /**
+     * @description The ID of the log monitoring metric.
+     *
+     * @example count
+     *
      * @var string
      */
     public $function;

@@ -10,26 +10,42 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1652845630000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The Log Service project.
+     *
      * @var SLSGroupConfig[]
      */
     public $SLSGroupConfig;
 
     /**
+     * @description The configurations of the Logstore group.
+     *
      * @var string
      */
     public $SLSGroupDescription;
 
     /**
-     * @var int
+     * @description The region ID.
+     *
+     * @example Logstore_test
+     *
+     * @var string
      */
     public $SLSGroupName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1652845630000
+     *
      * @var string
      */
     public $updateTime;

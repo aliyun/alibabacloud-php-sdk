@@ -15,36 +15,66 @@ class alertTemplates extends Model
     public $escalations;
 
     /**
+     * @description The abbreviation of the Alibaba Cloud service name.
+     *
+     * To obtain the abbreviation of an Alibaba Cloud service name, call the [DescribeProjectMeta](~~114916~~) operation. The `metricCategory` tag in the `Labels` response parameter indicates the abbreviation of the Alibaba Cloud service name.
+     * @example ecs
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The name of the metric. Valid values of N: 1 to 200.
+     *
+     * >  For more information, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~28619~~).
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The namespace of the cloud service. Valid values of N: 1 to 200.
+     *
+     * >  For more information, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~28619~~).
+     * @example acs_ecs_dashboard
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The aggregation period of monitoring data. Unit: seconds.
+     *
+     * Valid values of N: 1 to 200.
+     * @example 60
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The name of the alert rule. Valid values of N: 1 to 200.
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The extended field selectors. Valid values of N: 1 to 200.
+     *
+     * @example {"disk":"/"}
+     *
      * @var string
      */
     public $selector;
 
     /**
+     * @description The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
+     *
+     * @example http://ww.aliyun.com
+     *
      * @var string
      */
     public $webhook;
@@ -61,7 +91,6 @@ class alertTemplates extends Model
 
     public function validate()
     {
-        Model::validateRequired('escalations', $this->escalations, true);
     }
 
     public function toMap()

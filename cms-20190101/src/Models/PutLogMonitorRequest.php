@@ -17,6 +17,10 @@ class PutLogMonitorRequest extends Model
     public $aggregates;
 
     /**
+     * @description The ID of the log monitoring metric.
+     *
+     * @example 7301****
+     *
      * @var string
      */
     public $groupId;
@@ -27,16 +31,40 @@ class PutLogMonitorRequest extends Model
     public $groupbys;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call is successful.
+     * @example 16****
+     *
      * @var string
      */
     public $logId;
 
     /**
+     * @description The extended field. The extended field allows you to perform basic operations on the aggregation results.
+     *
+     * For example, if you have calculated TotalNumber and 5XXNumber by aggregating the data. TotalNumber indicates the total number of HTTP requests, and 5XXNumber indicates the number of HTTP requests whose status code is greater than 499. You can calculate the server error rate by adding the following formula to the extended field: 5XXNumber/TotalNumber\*100.
+     *
+     * JSON format: {"extend":{"errorPercent":"5XXNumber/TotalNumber\*100"}}. Description:
+     *
+     *   extend: required.
+     *   errorPercent: the alias of the field generated in the calculation result. You can specify the alias as needed.
+     *   5XXNumber/TotalNumber\*100: the calculation expression.
+     *
+     * @example {"extend":{"errorPercent":"5XXNumber/TotalNumber*100"}}
+     *
      * @var string
      */
     public $metricExpress;
 
     /**
+     * @description The returned message.
+     *
+     *   If the call is successful, the value `successful` is returned.
+     *   If the call fails, an error message is returned. Example: `alias of aggreate must be set value.`
+     *
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
@@ -47,26 +75,50 @@ class PutLogMonitorRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the metric. For more information about the metrics for cloud services, see [Appendix 1: Metrics](~~163515~~).
+     *
+     * @example test-logstore
+     *
      * @var string
      */
     public $slsLogstore;
 
     /**
+     * @description The name of the field that is specified as the dimension. Valid values of N: 1 to 10.
+     *
+     * @example test-project
+     *
      * @var string
      */
     public $slsProject;
 
     /**
+     * @description The operation that you want to perform. Set the value to PutLogMonitor.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $slsRegionId;
 
     /**
+     * @description The logical operator that is used between log filter conditions. Valid values:
+     *
+     *   and
+     *   or
+     *
+     * >  The ValueFilterRelation and `ValueFilter.N.Key` parameters must be used in pair.
+     * @example 60,300
+     *
      * @var string
      */
     public $tumblingwindows;
 
     /**
+     * @description The region in which the Log Service project resides.
+     *
+     * @example Percent
+     *
      * @var string
      */
     public $unit;
@@ -77,6 +129,10 @@ class PutLogMonitorRequest extends Model
     public $valueFilter;
 
     /**
+     * @description The field value to be matched in the filter condition. Valid values of N: 1 to 10.
+     *
+     * @example and
+     *
      * @var string
      */
     public $valueFilterRelation;

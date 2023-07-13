@@ -9,31 +9,57 @@ use AlibabaCloud\Tea\Model;
 class nodeProcess extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example number
+     *
      * @var string
      */
     public $command;
 
     /**
+     * @description The user who launched the process.
+     *
+     * @example 3619****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example i-hp3hl3cx1pbahzy8****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The command used to obtain the number of processes. Valid value: `number`.
+     *
+     * >  The `number` command obtains the number of processes that match the condition.
+     * @example 234567
+     *
      * @var int
      */
     public $processId;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example Nginx
+     *
      * @var string
      */
     public $processName;
 
     /**
+     * @description >  Before you call this operation, call the CreateMonitoringAgentProcess operation to create processes. For more information, see [CreateMonitoringAgentProcess](~~114951~~~).
+     *
+     * This topic provides an example of how to query the processes of the `i-hp3hl3cx1pbahzy8****` instance. The response indicates the details of the `NGINX` and `HTTP` processes.
+     * @example alice
+     *
      * @var string
      */
     public $processUser;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class customEvent extends Model
 {
     /**
+     * @description The ID of the custom event.
+     *
+     * @example requestId:4975A6F3-19AC-4C01-BAD2-034DA07FEBB5, info:{"autoPay":false,"autoUseCoupon":false,"bid":"26842","buyerId":118935342242****,"commodities":[{"aliyunProduceCode":"cms","chargeType":"PREPAY","commodityCode":"cms_call_num","components":[{"componentCode":"phone_count","instanceProperty":[{"code":"phone_count","value":"500"}],"moduleAttrStatus":1}],"duration":6,"free":false,"orderParams":{"aliyunProduceCode":"cms"},"orderType":"BUY","prePayPostCharge":false,"pricingCycle":"Month","quantity":1,"refundSpecCode":"","renewChange":false,"specCode":"cms_call_num","specUpdate":false,"syncToSubscription":false,"upgradeInquireFinancialValue":true}],"fromApp":"commonbuy","orderParams":{"priceCheck":"true"},"payerId":118935342242****,"requestId":"ade3ad32-f58b-45d7-add4-ac542be3d8ec","skipChannel":false,"userId":118935342242****}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The content of the custom event.
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description Queries the details of a custom event occurred in a specified time period.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example BABEL_CHECK
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The name of the custom event.
+     *
+     * @example 1552199984000
+     *
      * @var string
      */
     public $time;

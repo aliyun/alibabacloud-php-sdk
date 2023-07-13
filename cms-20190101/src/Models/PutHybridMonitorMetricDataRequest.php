@@ -10,13 +10,16 @@ use AlibabaCloud\Tea\Model;
 class PutHybridMonitorMetricDataRequest extends Model
 {
     /**
-     * @description 上报的监控数据
-     *
      * @var metricList[]
      */
     public $metricList;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example default-aliyun
+     *
      * @var string
      */
     public $namespace;

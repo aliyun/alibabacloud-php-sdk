@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class timeSeries extends Model
 {
     /**
+     * @description The tags of the time dimension.
+     *
      * @var labels[]
      */
     public $labels;
 
     /**
+     * @description The tag value.
+     *
+     * @example AliyunEcs_cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
      * @var values[]
      */
     public $values;

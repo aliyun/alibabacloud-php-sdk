@@ -9,16 +9,35 @@ use AlibabaCloud\Tea\Model;
 class valueFilter extends Model
 {
     /**
+     * @description The method that is used to match the field value. Valid values of N: 1 to 10. Valid values:
+     *
+     *   `contain`: contains
+     *   `notContain`: does not contain
+     *   `>`: be greater than
+     *   `<`: be less than
+     *   `>=`: be greater than or equal to
+     *   `<=`: be less than or equal to
+     *
+     * @example lh_source
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The size of the tumbling window for calculation. Unit: seconds. CloudMonitor performs aggregation for each tumbling window.
+     *
+     * @example Operator
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description The alias of the dimension based on which the data is grouped. Valid values of N: 1 to 10.
+     *
+     * @example test
+     *
      * @var string
      */
     public $value;

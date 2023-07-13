@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagKeyListResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error message.
+     *
+     * @example Specified parameter PageSize is not valid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B04B8CF3-4489-432D-83BA-6F128E5F2293
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The tag keys returned.
+     *
      * @var tagKeys
      */
     public $tagKeys;

@@ -9,16 +9,48 @@ use AlibabaCloud\Tea\Model;
 class matchExpress extends Model
 {
     /**
+     * @description The comparison operator of the threshold for critical-level alerts. Valid values:
+     *
+     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+     *   GreaterThanThreshold: greater than the threshold
+     *   LessThanOrEqualToThreshold: less than or equal to the threshold
+     *   LessThanThreshold: less than the threshold
+     *   NotEqualToThreshold: not equal to the threshold
+     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+     *   LessThanYesterday: less than the metric value at the same time yesterday
+     *   GreaterThanLastWeek: greater than the metric value at the same time last week
+     *   LessThanLastWeek: less than the metric value at the same time last week
+     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+     *
+     * @example all
+     *
      * @var string
      */
     public $function;
 
     /**
+     * @description The configurations of the alert rule.
+     *
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The method used to match the instances. Default value: all. Valid values:
+     *
+     *   all
+     *   startWith
+     *   endWith
+     *   contains
+     *   notContains
+     *   equals
+     *
+     * >  The matched instances are monitored by the process monitoring task.
+     * @example portalHost
+     *
      * @var string
      */
     public $value;

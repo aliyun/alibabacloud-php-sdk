@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyHostInfoRequest extends Model
 {
     /**
+     * @description The name of the host.
+     *
+     * @example portalHost
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The ID of the instance. Only hosts not on Alibaba Cloud are supported.
+     *
+     * @example host-R_NSWNV****
+     *
      * @var string
      */
     public $instanceId;

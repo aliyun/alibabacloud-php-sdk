@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class escalations extends Model
 {
     /**
+     * @description The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
+     *
      * @var critical
      */
     public $critical;
 
     /**
+     * @description The consecutive number of times for which the metric value meets the alert condition before an Info-level alert is triggered.
+     *
      * @var info
      */
     public $info;
 
     /**
+     * @description The consecutive number of times for which the metric value meets the alert condition before a Warn-level alert is triggered.
+     *
      * @var warn
      */
     public $warn;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class webhookList extends Model
 {
     /**
+     * @description The search keyword that is used to query alert logs.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID returned when CloudMonitor calls another cloud service.
+     *
+     * @example https://www.aliyun.com/webhook.html
+     *
      * @var string
      */
     public $url;

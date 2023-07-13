@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the second-level monitoring is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $secondMonitor;
 
     /**
+     * @description The quota of detection points that are provided by Alibaba Cloud. Five detection points are provided for free.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $siteMonitorIdcQuota;
 
     /**
+     * @description The quota of detection points that are not provided by Alibaba Cloud. Default value: 0.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $siteMonitorOperatorQuotaQuota;
 
     /**
+     * @description The used quota of site monitoring tasks.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $siteMonitorQuotaTaskUsed;
 
     /**
+     * @description The quota of site monitoring tasks.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $siteMonitorTaskQuota;
 
     /**
+     * @description The version of site monitoring. Valid values:
+     *
+     *   V1
+     *   V2
+     *
+     * @example V1
+     *
      * @var string
      */
     public $siteMonitorVersion;

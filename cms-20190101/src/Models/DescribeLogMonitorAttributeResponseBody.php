@@ -10,26 +10,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogMonitorAttributeResponseBody extends Model
 {
     /**
+     * @description The returned message. If the call was successful, the value success is returned. If the call failed, an error message is returned.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The logical operator that is used between log filter conditions. The ValueFilter and ValueFilterRelation parameters are used in pair. Valid values:
+     *
+     *   and
+     *   or
+     *
      * @var logMonitor
      */
     public $logMonitor;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example C6718537-E673-4A58-8EE1-24B8B38C7AAE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the log monitoring metric.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ModifyHostAvailabilityResponseBody extends Model
 {
     /**
+     * @description The alert threshold. Valid values of N: 1 to 21.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 16E815A3-47E1-4290-87F9-D5C99471FF45
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

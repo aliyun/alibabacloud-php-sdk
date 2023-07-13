@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @description The abbreviation of the service name.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-2ze3w55tr2r****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example hostIP
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The ID of the region where the instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

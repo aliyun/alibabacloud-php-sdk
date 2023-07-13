@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class DescribeSystemEventCountRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1635993921000
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The level of the system event. Valid values:
+     *
+     *   Critical
+     *   Warn
+     *   Info
+     *
+     * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Level`. The value of the Level parameter indicates the levels of system events that occurred for all cloud services in your Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](~~114972~~).
+     * @example StatusNotification
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The timestamp that specifies the start of the time range to query. Unit: milliseconds.
+     *
+     * @example 17285****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example Info
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The status of the system event.
+     *
+     * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Status`. The value of the Status parameter indicates the status of system events that occurred for all cloud services in your Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](~~114972~~).
+     * @example Instance:StateChange
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The name of the system event.
+     *
+     * You can call the DescribeSystemEventMetaList operation to obtain the value of the response parameter `Name`. The value of the Name parameter indicates the names of system events that occurred for all cloud services in your Alibaba Cloud account. For more information, see [DescribeSystemEventMetaList](~~114972~~).
+     * @example ECS
+     *
      * @var string
      */
     public $product;
@@ -44,16 +75,32 @@ class DescribeSystemEventCountRequest extends Model
     public $regionId;
 
     /**
+     * @description The timestamp that specifies the end of the time range to query. Unit: milliseconds.
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $searchKeywords;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 1635993541000
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The keywords that are used to search for the system event. You can use a logical operator to connect keywords. Valid values:
+     *
+     *   If you want to search for the system event whose content contains a and b, set the value to `a and b`.
+     *   If you want to search for the system event whose content contains a or b, set the value to `a or b`.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $status;

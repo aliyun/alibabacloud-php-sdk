@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class siteMonitorTask extends Model
 {
     /**
+     * @description The total quota of the time series in custom monitoring.
+     *
+     * @example 25
+     *
      * @var int
      */
     public $quotaLimit;
 
     /**
+     * @description The details about the quota.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $quotaPackage;
 
     /**
+     * @description The ID of the purchased subscription plan.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $quotaUsed;

@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertLogCountResponseBody extends Model
 {
     /**
+     * @description The statistics of alert logs.
+     *
      * @var alertLogCount[]
      */
     public $alertLogCount;
 
     /**
+     * @description The HTTP status code.
+     *
+     * > The status code 200 indicates that the request was successful.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error message.
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 1C4A3709-BF52-42EE-87B5-7435F0929585
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

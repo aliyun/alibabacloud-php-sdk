@@ -11,6 +11,10 @@ use AlibabaCloud\Tea\Model;
 class CreateSiteMonitorResponseBody extends Model
 {
     /**
+     * @description The extended options of the protocol that is used by the site monitoring task. The options vary based on the protocol.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -21,21 +25,36 @@ class CreateSiteMonitorResponseBody extends Model
     public $createResultList;
 
     /**
+     * @description The result of the site monitoring task.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The URL or IP address that is monitored by the task.
+     *
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the alert rule.
+     *
+     * @example 68192f5d-0d45-4b98-9724-892813f86c71
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The interval at which detection requests are sent.
+     *
+     * Default value: 1.
+     * @example true
+     *
      * @var string
      */
     public $success;

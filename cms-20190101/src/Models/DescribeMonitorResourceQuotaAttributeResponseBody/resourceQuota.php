@@ -19,66 +19,100 @@ use AlibabaCloud\Tea\Model;
 class resourceQuota extends Model
 {
     /**
+     * @description The details about the quota of API operation calls.
+     *
      * @var api
      */
     public $api;
 
     /**
+     * @description The quota of detection points that are provided by other carriers in site monitoring in your purchased plan.
+     *
      * @var customMonitor
      */
     public $customMonitor;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
      * @var enterpriseQuota
      */
     public $enterpriseQuota;
 
     /**
+     * @description The details about the quota of alert phone calls.
+     *
      * @var eventMonitor
      */
     public $eventMonitor;
 
     /**
+     * @description The total quota of detection points that are provided by Alibaba Cloud in site monitoring.
+     *
+     * >  The value indicates the maximum number of detection points provided by Alibaba Cloud that you can select for a site monitoring task.
+     * @example 2021-02-28
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The operation that you want to perform. Set the value to DescribeMonitorResourceQuotaAttribute.
+     *
+     * @example cms_edition-cn-n6w20rn****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The total quota of site monitoring tasks.
+     *
      * @var logMonitor
      */
     public $logMonitor;
 
     /**
+     * @description The details about the quota of alert text messages.
+     *
      * @var phone
      */
     public $phone;
 
     /**
+     * @description The used quota of detection points that are provided by other carriers in site monitoring in your purchased plan.
+     *
      * @var SMS
      */
     public $SMS;
 
     /**
+     * @description The error message.
+     *
      * @var siteMonitorEcsProbe
      */
     public $siteMonitorEcsProbe;
 
     /**
+     * @description The total quota of API operation calls. Unit: 10,000 calls.
+     *
      * @var siteMonitorOperatorProbe
      */
     public $siteMonitorOperatorProbe;
 
     /**
+     * @description The quota of site monitoring tasks in your purchased plan.
+     *
      * @var siteMonitorTask
      */
     public $siteMonitorTask;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The HTTP status code 200 indicates that the call succeeds.
+     * @example pro
+     *
      * @var string
      */
     public $suitInfo;

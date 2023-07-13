@@ -40,6 +40,14 @@ class PutEventRuleTargetsRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the protocol. Valid values of N: 1 to 5. Valid values:
+     *
+     *   http
+     *   telnet
+     *   ping
+     *
+     * @example testEventRule
+     *
      * @var string
      */
     public $ruleName;

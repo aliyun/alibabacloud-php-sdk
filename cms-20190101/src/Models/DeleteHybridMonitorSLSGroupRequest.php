@@ -14,6 +14,10 @@ class DeleteHybridMonitorSLSGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example Logstore_test
+     *
      * @var string
      */
     public $SLSGroupName;

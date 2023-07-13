@@ -9,16 +9,35 @@ use AlibabaCloud\Tea\Model;
 class filters extends Model
 {
     /**
+     * @description The description of the metric import task.
+     *
+     * @example =
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description The configuration file of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring.
+     *
+     *   namespace: the namespace of the Alibaba Cloud service. For information about how to query the namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](~~98846~~).
+     *   metric_list: the metrics of the Alibaba Cloud service. For information about how to query the metrics of an Alibaba Cloud service, see [DescribeMetricMetaList](~~98846~~).
+     *
+     * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_fc`.
+     * @example code
+     *
      * @var string
      */
     public $SLSKeyName;
 
     /**
+     * @description The name of the metric import task.
+     *
+     *   If the `TaskType` parameter is set to `aliyun_fc`, enter the name of the metric import task.
+     *   If the `TaskType` parameter is set to `aliyun_sls`, enter the name of the metric for logs imported from Log Service.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $value;

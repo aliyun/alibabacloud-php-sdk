@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteCustomMetricResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call is successful.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 05B36C2C-5F6E-48D5-8B41-CE36DD7EE8E0
+     *
      * @var string
      */
     public $requestId;

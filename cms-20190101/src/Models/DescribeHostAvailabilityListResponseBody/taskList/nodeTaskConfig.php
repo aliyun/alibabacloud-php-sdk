@@ -12,51 +12,96 @@ use AlibabaCloud\Tea\Model;
 class nodeTaskConfig extends Model
 {
     /**
+     * @description The beginning of the time period during which the alert rule is effective. Valid values: 0 to 23.
+     *
+     * >  Alert notifications are sent based on the specified threshold only if the alert rule is effective.
      * @var alertConfig
      */
     public $alertConfig;
 
     /**
+     * @description The ECS instances that are monitored.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $disabled;
 
     /**
+     * @description The range of instances that are monitored by the availability monitoring task. Valid values:
+     *
+     *   GROUP: All ECS instances in the application group are monitored.
+     *   GROUP_SPEC_INSTANCE: Specified ECS instances in the application group are monitored.
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description Indicates whether the availability monitoring task is disabled. Valid values:
+     *
+     *   true: The availability monitoring task is disabled.
+     *   false: The availability monitoring task is enabled.
+     *
+     * @example Group_ECS
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The HTTP request method. Valid values:
+     *
+     *   GET
+     *   POST
+     *   HEAD
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The interval at which detection requests are sent. Unit: seconds.
+     *
      * @var instances
      */
     public $instances;
 
     /**
+     * @description The ID of the availability monitoring task.
+     *
+     * @example ecs_instance
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The URI that you want to monitor. If the TaskType parameter is set to HTTP, this parameter is required.
+     *
      * @var taskOption
      */
     public $taskOption;
 
     /**
+     * @description The optional parameters of the availability monitoring task.
+     *
+     * @example GROUP
+     *
      * @var string
      */
     public $taskScope;
 
     /**
+     * @description The name of the availability monitoring task.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $taskType;

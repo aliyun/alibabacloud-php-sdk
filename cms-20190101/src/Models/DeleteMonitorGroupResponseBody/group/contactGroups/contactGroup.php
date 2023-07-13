@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class contactGroup extends Model
 {
     /**
+     * @description Deletes an application group.
+     *
+     * @example ECS_Group
+     *
      * @var string
      */
     public $name;

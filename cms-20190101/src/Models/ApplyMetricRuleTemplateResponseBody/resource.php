@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @description Indicates whether the call succeeds. Valid values:
+     *
+     *   true: The call succeeds.
+     *   false: The call fails.
+     *
      * @var alertResults[]
      */
     public $alertResults;
 
     /**
+     * @description The returned information.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $groupId;

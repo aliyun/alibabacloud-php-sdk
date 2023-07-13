@@ -10,6 +10,15 @@ use AlibabaCloud\Tea\Model;
 class PutMonitorGroupDynamicRuleRequest extends Model
 {
     /**
+     * @description The method that is used to filter instances. Valid values of N: 1 to 3. Valid values:
+     *
+     *   contains: contains
+     *   notContains: excludes
+     *   startWith: starts with a prefix
+     *   endWith: ends with a suffix
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $groupId;
@@ -20,6 +29,10 @@ class PutMonitorGroupDynamicRuleRequest extends Model
     public $groupRules;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isAsync;

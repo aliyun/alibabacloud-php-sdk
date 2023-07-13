@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class sendResultList extends Model
 {
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example Mail
+     *
      * @var string
      */
     public $key;

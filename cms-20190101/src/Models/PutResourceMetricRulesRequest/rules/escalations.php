@@ -33,9 +33,6 @@ class escalations extends Model
 
     public function validate()
     {
-        Model::validateRequired('critical', $this->critical, true);
-        Model::validateRequired('info', $this->info, true);
-        Model::validateRequired('warn', $this->warn, true);
     }
 
     public function toMap()

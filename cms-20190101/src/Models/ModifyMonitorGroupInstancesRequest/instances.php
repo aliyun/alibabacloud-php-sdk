@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description The ID of the instance. Valid values of N: 1 to 2000.
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The name of the instance. Valid values of N: 1 to 2000.
+     *
+     * @example i-a2d5q7pm12****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example HostName
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -12,11 +12,17 @@ use AlibabaCloud\Tea\Model;
 class PutEventRuleTargetsResponseBody extends Model
 {
     /**
+     * @description The name of the API operation.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The name of the queue. Valid values of N: 1 to 5.
+     *
      * @var failedContactParameters
      */
     public $failedContactParameters;
@@ -32,21 +38,38 @@ class PutEventRuleTargetsResponseBody extends Model
     public $failedMnsParameters;
 
     /**
+     * @description The name of the Function Compute service. Valid values of N: 1 to 5.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $failedParameterCount;
 
     /**
+     * @description The ID of the recipient that receives alert notifications. Valid values of N: 1 to 5.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The alert notification methods. Valid values:
+     *
+     * 4: Alert notifications are sent by using DingTalk chatbots and emails.
+     * @example 409C64DA-CF14-45DF-B463-471C790DD15A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the role.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

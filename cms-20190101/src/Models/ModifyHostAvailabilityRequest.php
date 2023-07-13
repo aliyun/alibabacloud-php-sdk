@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Cms\V20190101\Models;
 
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHostAvailabilityRequest\alertConfig;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHostAvailabilityRequest\alertConfigEscalationList;
+use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHostAvailabilityRequest\alertConfigTargetList;
 use AlibabaCloud\SDK\Cms\V20190101\Models\ModifyHostAvailabilityRequest\taskOption;
 use AlibabaCloud\Tea\Model;
 
@@ -27,16 +28,44 @@ class ModifyHostAvailabilityRequest extends Model
     public $alertConfigEscalationList;
 
     /**
+     * @var alertConfigTargetList[]
+     */
+    public $alertConfigTargetList;
+
+    /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the resource.
+     *
+     * Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
+     *
+     *   {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
+     *   {userId}: the ID of the Alibaba Cloud account.
+     *   {regionId}: the region ID of the message queue or topic.
+     *   {Resource type}`: the type of the resource for which alerts are triggered. Valid values: - **queues** - **topics** {Resource name}: the name of the resource. - If the resource type is set to **queues**, the resource name is the name of the message queue. - If the resource type is set to **topics**, the resource name is the name of the topic.`
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description The metric for which the alert feature is enabled. Valid values of N: 1 to 21. Valid values:
+     *
+     *   HttpStatus: HTTP status code
+     *   HttpLatency: HTTP response time
+     *   TelnetStatus: Telnet status code
+     *   TelnetLatency: Telnet response time
+     *   PingLostRate: Ping packet loss rate
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example i-absdfkwl321****
+     *
      * @var string[]
      */
     public $instanceList;
@@ -47,11 +76,26 @@ class ModifyHostAvailabilityRequest extends Model
     public $regionId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example task2
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The comparison operator that is used in the alert rule. Valid values of N: 1 to 21. Valid values:
+     *
+     *   `>`
+     *   `>=`
+     *   `<`
+     *   `<=`
+     *   `=`
+     *
+     * @example GROUP
+     *
      * @var string
      */
     public $taskScope;
@@ -59,6 +103,7 @@ class ModifyHostAvailabilityRequest extends Model
         'alertConfig'               => 'AlertConfig',
         'taskOption'                => 'TaskOption',
         'alertConfigEscalationList' => 'AlertConfigEscalationList',
+        'alertConfigTargetList'     => 'AlertConfigTargetList',
         'groupId'                   => 'GroupId',
         'id'                        => 'Id',
         'instanceList'              => 'InstanceList',
@@ -86,6 +131,15 @@ class ModifyHostAvailabilityRequest extends Model
                 $n = 0;
                 foreach ($this->alertConfigEscalationList as $item) {
                     $res['AlertConfigEscalationList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->alertConfigTargetList) {
+            $res['AlertConfigTargetList'] = [];
+            if (null !== $this->alertConfigTargetList && \is_array($this->alertConfigTargetList)) {
+                $n = 0;
+                foreach ($this->alertConfigTargetList as $item) {
+                    $res['AlertConfigTargetList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -131,6 +185,15 @@ class ModifyHostAvailabilityRequest extends Model
                 $n                                = 0;
                 foreach ($map['AlertConfigEscalationList'] as $item) {
                     $model->alertConfigEscalationList[$n++] = null !== $item ? alertConfigEscalationList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['AlertConfigTargetList'])) {
+            if (!empty($map['AlertConfigTargetList'])) {
+                $model->alertConfigTargetList = [];
+                $n                            = 0;
+                foreach ($map['AlertConfigTargetList'] as $item) {
+                    $model->alertConfigTargetList[$n++] = null !== $item ? alertConfigTargetList::fromMap($item) : $item;
                 }
             }
         }

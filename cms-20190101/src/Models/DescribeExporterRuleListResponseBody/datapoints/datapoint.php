@@ -10,16 +10,28 @@ use AlibabaCloud\Tea\Model;
 class datapoint extends Model
 {
     /**
+     * @description The time when the rule was created. The value is a UNIX timestamp.
+     *
+     * @example 1584024616228
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The description of the rule.
+     *
+     * @example Export monitoring data
+     *
      * @var string
      */
     public $describe;
 
     /**
+     * @description The associated dimensions.
+     *
+     * @example {"instanceId":"xxxxx"}
+     *
      * @var string
      */
     public $dimension;
@@ -30,26 +42,48 @@ class datapoint extends Model
     public $dstName;
 
     /**
+     * @description Indicates whether the rule is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabled;
 
     /**
+     * @description The name of the metric.
+     *
+     * > For more information, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~28619~~).
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The namespace of the service.
+     *
+     * > For more information, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~28619~~).
+     * @example acs_ecs_dashboard
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The name of the data export rule.
+     *
+     * @example myRuleName
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The time window of the exported data.\
+     * > Data in a time window of less than 60 seconds cannot be exported.
+     * @example 60,300
+     *
      * @var string
      */
     public $targetWindows;

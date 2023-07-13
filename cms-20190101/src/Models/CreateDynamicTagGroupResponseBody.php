@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateDynamicTagGroupResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2534dc0a-e3e5-4ae1-a2fc-75ef166c****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 84AC6F0B-7945-466A-AA44-99BB5A561F86
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

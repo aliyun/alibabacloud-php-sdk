@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class createResultList extends Model
 {
     /**
+     * @description The ID of the instant test task.
+     *
+     * @example 2c8dbdf9-a3ab-46a1-85a4-f094965e****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The name of the instant test task.
+     *
+     * @example task1
+     *
      * @var string
      */
     public $taskName;

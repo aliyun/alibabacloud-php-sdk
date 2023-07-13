@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class statistics extends Model
 {
     /**
+     * @example level_count
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @example count
+     *
      * @var string
      */
     public $function;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $parameter1;
 
     /**
+     * @example 299
+     *
      * @var string
      */
     public $parameter2;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $SLSKeyName;

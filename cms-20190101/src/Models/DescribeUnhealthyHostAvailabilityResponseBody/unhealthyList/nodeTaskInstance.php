@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class nodeTaskInstance extends Model
 {
     /**
+     * @description The ID of the availability monitoring task.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The unhealthy instances that are detected by the availability monitoring task.
+     *
      * @var instanceList
      */
     public $instanceList;

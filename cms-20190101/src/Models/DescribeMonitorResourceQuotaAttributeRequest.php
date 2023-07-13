@@ -14,6 +14,10 @@ class DescribeMonitorResourceQuotaAttributeRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the instance to be monitored.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $showUsed;

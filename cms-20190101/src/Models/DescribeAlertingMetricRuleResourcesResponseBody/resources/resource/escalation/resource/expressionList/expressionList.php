@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class expressionList extends Model
 {
     /**
+     * @description The statistical method of the alert level. Valid values:
+     *
+     *   Maximum: the maximum value
+     *   Minimum: the minimum value
+     *   Average: the average value
+     *
+     * @example GreaterThanOrEqualToThreshold
+     *
      * @var string
      */
     public $comparisonOperator;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description Queries the resources for which active alerts are triggered based on an alert rule.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example Average
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @example 90
+     *
      * @var string
      */
     public $threshold;

@@ -9,11 +9,27 @@ use AlibabaCloud\Tea\Model;
 class extendedInfo extends Model
 {
     /**
+     * @description The name of the event.
+     *
+     * @example userId
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The method that is used to send alert notifications. Valid values:
+     *
+     *   MAIL: email
+     *   SMS: text message
+     *   WEBHOOK: alert callback
+     *   SLS: Log Service
+     *   ONCALL: phone call
+     *   FC: Function Compute
+     *   MNS: Message Service queue
+     *
+     * @example 120886317861****
+     *
      * @var string
      */
     public $value;

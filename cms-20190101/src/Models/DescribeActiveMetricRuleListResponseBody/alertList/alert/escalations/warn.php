@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class warn extends Model
 {
     /**
+     * @description The consecutive number of times for which the metric value meets the alert condition before a warn-level alert is triggered.
+     *
+     * @example GreaterThanThreshold
+     *
      * @var string
      */
     public $comparisonOperator;
 
     /**
+     * @description The condition for triggering critical-level alerts.
+     *
+     * @example Average
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @description The statistical aggregation method for warn-level alerts.
+     *
+     * @example 80
+     *
      * @var string
      */
     public $threshold;
 
     /**
+     * @description The threshold of warn-level alerts.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $times;

@@ -9,26 +9,44 @@ use AlibabaCloud\Tea\Model;
 class alertResults extends Model
 {
     /**
+     * @description The name of the alert rule.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the alert rule.
+     *
+     * @example alert rule is creating, please wait a few minutes.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example test123
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description In this example, the `700****` alert template is applied to the `123456` application group. For the generated alert rule, the ID is `applyTemplate8ab74c6b-9f27-47ab-8841-de01dc08****`, and the name is `test123`.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

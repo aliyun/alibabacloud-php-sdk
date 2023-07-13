@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class critical extends Model
 {
     /**
+     * @description The threshold for Critical-level alerts.
+     *
+     * @example GreaterThanOrEqualToThreshold
+     *
      * @var string
      */
     public $comparisonOperator;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example Average
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @description This topic provides an example to show how to query the details of an alert template whose ID is `70****`.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $threshold;
 
     /**
+     * @description The statistical method for Critical-level alerts.
+     *
+     * The value of the `Statistics` parameter varies with the cloud service. For more information, see [Appendix 1: Metrics](~~163515~~).
+     * @example 5
+     *
      * @var int
      */
     public $times;

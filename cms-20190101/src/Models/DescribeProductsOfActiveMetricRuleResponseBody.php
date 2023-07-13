@@ -10,31 +10,52 @@ use AlibabaCloud\Tea\Model;
 class DescribeProductsOfActiveMetricRuleResponseBody extends Model
 {
     /**
+     * @description The information about the services for which one-click alert is enabled.
+     *
      * @var allProductInitMetricRuleList
      */
     public $allProductInitMetricRuleList;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example ecs,rds
+     *
      * @var string
      */
     public $datapoints;
 
     /**
+     * @description The returned message.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F82E6667-7811-4BA0-842F-5B2DC42BBAAD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

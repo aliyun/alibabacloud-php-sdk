@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class UninstallMonitoringAgentResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example Successfully
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example 466902B9-2842-40B0-B796-00FE772B6EF3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description >  This API operation is not applicable to ECS instances. To uninstall the agent from an ECS instance, see [Install and uninstall the Cloud Monitor agent](~~183482~~).
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

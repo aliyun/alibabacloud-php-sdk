@@ -9,26 +9,51 @@ use AlibabaCloud\Tea\Model;
 class CreateSiteMonitorRequest extends Model
 {
     /**
+     * @description The name of the site monitoring task.
+     *
+     * The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (\_).
+     * @example https://www.aliyun.com
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description Indicates whether the existing alert rule was associated with the site monitoring task. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example SystemDefault_acs_ecs_dashboard_InternetOutRate_Percent
+     *
      * @var string
      */
     public $alertIds;
 
     /**
+     * @description The operation that you want to perform. Set the value to **CreateSiteMonitor**.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $interval;
 
     /**
+     * @description The information of the detection points. If you leave this parameter empty, the system randomly selects three detection points.
+     *
+     * For information about how to obtain detection points, see [DescribeSiteMonitorISPCityList](~~115045~~).
+     * @example [{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]
+     *
      * @var string
      */
     public $ispCities;
 
     /**
+     * @description The returned message.
+     *
+     * @example {"time_out":5000}
+     *
      * @var string
      */
     public $optionsJson;
@@ -39,11 +64,21 @@ class CreateSiteMonitorRequest extends Model
     public $regionId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example HanZhou_ECS1
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The ID of the alert rule.
+     *
+     * For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * @example HTTPS
+     *
      * @var string
      */
     public $taskType;

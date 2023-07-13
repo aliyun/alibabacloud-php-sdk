@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomMetricListRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Pages start from page 1. Default value: 10.
+     * @example {sampleName1=value1&amp;sampleName2=value2}
+     *
      * @var string
      */
     public $dimension;
 
     /**
+     * @description The MD5 value of the HTTP request body. The MD5 value is a 128-bit hash value used to verify the uniqueness of the reported custom metrics.
+     *
+     * @example 7378****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The value 200 indicates that the call is successful.
+     * @example 97c25982d9745a231276bff27469****
+     *
      * @var string
      */
     public $md5;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The returned message.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;

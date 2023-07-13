@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorAgentProcessResponseBody extends Model
 {
     /**
+     * @description The error message.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 123456
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example User not authorized to operate on the specified resource.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example 971CC023-5A96-452A-BB7C-2483F948BCFD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the process.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

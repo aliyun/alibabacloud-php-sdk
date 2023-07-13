@@ -10,26 +10,45 @@ use AlibabaCloud\Tea\Model;
 class DescribeSystemEventCountResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The details of the system event.
+     *
+     * @example C7A7B776-0ACE-5A93-9B07-DE8008D9CCDF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the system event.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;
 
     /**
+     * @description The timestamp when the system event occurred. Unit: milliseconds.
+     *
      * @var systemEventCounts
      */
     public $systemEventCounts;

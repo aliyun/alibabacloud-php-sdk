@@ -10,26 +10,45 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomEventCountResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The number of times that the custom event occurred in the specified time period.
+     *
      * @var customEventCounts
      */
     public $customEventCounts;
 
     /**
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The details of the custom event.
+     *
+     * @example 60912C8D-B340-4253-ADE7-61ACDFD25CFC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The time when the custom event occurred.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @example true
+     *
      * @var bool
      */
     public $success;

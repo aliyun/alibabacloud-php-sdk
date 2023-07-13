@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorAttributeRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $includeAlert;
@@ -19,6 +23,11 @@ class DescribeSiteMonitorAttributeRequest extends Model
     public $regionId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example cc641dff-c19d-45f3-ad0a-818a0c4f****
+     *
      * @var string
      */
     public $taskId;

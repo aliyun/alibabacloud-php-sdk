@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class ModifyHybridMonitorNamespaceRequest extends Model
 {
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The data retention period of the namespace. Valid values:
+     *
+     *   cms.s1.large: 15 days
+     *   cms.s1.xlarge: 32 days
+     *   cms.s1.2xlarge: 63 days
+     *   cms.s1.3xlarge: 93 days
+     *   cms.s1.6xlarge: 185 days
+     *   cms.s1.12xlarge: 376 days
+     *
+     * For information about the pricing for different retention periods, see the **Pricing** section in [Billing of the dashboard feature](~~223532~~).
+     * @example aliyun
+     *
      * @var string
      */
     public $namespace;
@@ -24,6 +38,10 @@ class ModifyHybridMonitorNamespaceRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example cms.s1.2xlarge
+     *
      * @var string
      */
     public $spec;

@@ -14,6 +14,8 @@ class DisableMetricRulesRequest extends Model
     public $regionId;
 
     /**
+     * @example detect_87****_HTTP_HttpLatency
+     *
      * @var string[]
      */
     public $ruleId;

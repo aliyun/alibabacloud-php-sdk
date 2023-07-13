@@ -15,6 +15,8 @@ class keywordFilter extends Model
     public $keywords;
 
     /**
+     * @example OR
+     *
      * @var string
      */
     public $relation;

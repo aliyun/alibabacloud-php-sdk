@@ -10,51 +10,96 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupsRequest extends Model
 {
     /**
+     * @description The ID of the tag rule.
+     *
+     * @example 6b882d9a-5117-42e2-9d0c-4749a0c6****
+     *
      * @var string
      */
     public $dynamicTagRuleId;
 
     /**
+     * @description The tag key that is created for the application group by using the tag rule.
+     *
+     * @example GroupKey1
+     *
      * @var string
      */
     public $groupFounderTagKey;
 
     /**
+     * @description The tag value that is created for the application group by using the tag rule.
+     *
+     * @example GroupValue1
+     *
      * @var string
      */
     public $groupFounderTagValue;
 
     /**
+     * @description The ID of the application group. Separate multiple application group IDs with commas (,).
+     *
+     * @example 92****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the application group.
+     *
+     * @example testGroup124
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description Specifies whether to include the historical alert templates that are applied to the application group in the response. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $includeTemplateHistory;
 
     /**
+     * @description The instance ID. This parameter is used to query the application group to which the specified instance belongs.
+     *
+     * @example i-abcdefgh12****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The keyword that is used for the search.
+     *
+     * @example test
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Pages start from page 1. Default value: 30.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -65,19 +110,41 @@ class DescribeMonitorGroupsRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether to include the alert contact groups in the response. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $selectContactGroups;
 
     /**
+     * @description The tags of the application group.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The type of the application group. Valid values:
+     *
+     *   custom: a self-managed application group
+     *   ehpc_cluster: an application group that is synchronized from an Elastic High Performance Computing (E-HPC) cluster
+     *   kubernetes: an application group that is synchronized from a Container Service for Kubernetes (ACK) cluster
+     *
+     * @example custom
+     *
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $types;
     protected $_name = [
         'dynamicTagRuleId'       => 'DynamicTagRuleId',
         'groupFounderTagKey'     => 'GroupFounderTagKey',
@@ -93,6 +160,7 @@ class DescribeMonitorGroupsRequest extends Model
         'selectContactGroups'    => 'SelectContactGroups',
         'tag'                    => 'Tag',
         'type'                   => 'Type',
+        'types'                  => 'Types',
     ];
 
     public function validate()
@@ -149,6 +217,9 @@ class DescribeMonitorGroupsRequest extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->types) {
+            $res['Types'] = $this->types;
         }
 
         return $res;
@@ -209,6 +280,9 @@ class DescribeMonitorGroupsRequest extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['Types'])) {
+            $model->types = $map['Types'];
         }
 
         return $model;

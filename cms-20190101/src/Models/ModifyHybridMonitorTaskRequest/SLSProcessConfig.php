@@ -13,16 +13,22 @@ use AlibabaCloud\Tea\Model;
 class SLSProcessConfig extends Model
 {
     /**
+     * @description The name of the key that is used to aggregate logs imported from Log Service.
+     *
      * @var express[]
      */
     public $express;
 
     /**
+     * @description The configurations of the logs that are imported from Log Service.
+     *
      * @var filter
      */
     public $filter;
 
     /**
+     * @description The description of the metric import task.
+     *
      * @var groupBy[]
      */
     public $groupBy;

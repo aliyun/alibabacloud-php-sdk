@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteMonitorGroupRequest extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 123456
+     *
      * @var int
      */
     public $groupId;

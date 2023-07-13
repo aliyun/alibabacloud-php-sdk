@@ -9,36 +9,74 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitoringAgentConfigResponseBody extends Model
 {
     /**
+     * @description Indicates whether the Cloud Monitor agent is automatically installed on existing Elastic Compute Service (ECS) instances. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoInstall;
 
     /**
+     * @description The status code.
+     *
+     * >  The status code 200 indicates a success.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The service for which one-click alert is enabled.
+     *
+     * @example redis,rds,ecs
+     *
      * @var string
      */
     public $enableActiveAlert;
 
     /**
+     * @description Indicates whether the Cloud Monitor agent is automatically installed on new ECS instances. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableInstallAgentNewECS;
 
     /**
+     * @description The error message.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E9F4FA2A-54BE-4EF9-9D1D-1A0B1DC86B8D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the operation was successful. Valid values:
+     *
+     *   true: successful.
+     *   false: failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

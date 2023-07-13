@@ -10,41 +10,66 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorSLSGroupResponseBody extends Model
 {
     /**
+     * @description The error message.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The description of the Logstore group.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The timestamp that was generated when the Logstore group was modified.
+     *
+     * Unit: milliseconds.
+     * @example NotFound.SLSGroup
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the Logstore group.
+     *
+     * @example 66683237-7126-50F8-BBF8-D67ACC919A17
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The keyword that is used to search for Logstore groups.
+     *
      * @var string
      */
     public $success;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $total;

@@ -17,31 +17,54 @@ class tagGroup extends Model
     public $contactGroupList;
 
     /**
+     * @description The tag key.
+     *
+     * @example 1536df65-a719-429d-8813-73cc40d7****
+     *
      * @var string
      */
     public $dynamicTagRuleId;
 
     /**
+     * @description The ID of the request.
+     *
      * @var matchExpress
      */
     public $matchExpress;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
+     * @example or
+     *
      * @var string
      */
     public $matchExpressFilterRelation;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The alert contact group.
+     *
+     * @example FINISH
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example tagkey1
+     *
      * @var string
      */
     public $tagKey;

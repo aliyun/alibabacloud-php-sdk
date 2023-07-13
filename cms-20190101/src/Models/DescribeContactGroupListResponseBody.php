@@ -11,36 +11,63 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactGroupListResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The description of the alert group.
+     *
      * @var contactGroupList
      */
     public $contactGroupList;
 
     /**
+     * @description The information about alert groups that were queried.
+     *
      * @var contactGroups
      */
     public $contactGroups;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The total number of the returned entries.
+     *
+     * @example 916EE694-03C2-47B6-85EE-5054E3C168D3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The names of alert groups.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example 22
+     *
      * @var int
      */
     public $total;

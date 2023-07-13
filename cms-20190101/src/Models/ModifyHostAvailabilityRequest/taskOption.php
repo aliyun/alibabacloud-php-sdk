@@ -9,46 +9,89 @@ use AlibabaCloud\Tea\Model;
 class taskOption extends Model
 {
     /**
+     * @description The alert notification methods. Valid values:
+     *
+     * 0: Alert notifications are sent by using emails and DingTalk chatbots.
+     * @example params1:value1
+     *
      * @var string
      */
     public $httpHeader;
 
     /**
+     * @description The consecutive number of times for which the metric value meets the alert condition before an alert is triggered. Valid values of N: 1 to 21.
+     *
+     * @example GET
+     *
      * @var string
      */
     public $httpMethod;
 
     /**
+     * @description The level of the alert. Valid values:
+     *
+     *   INFO: information
+     *   WARN: warning
+     *   CRITICAL: critical
+     *
+     * @example true
+     *
      * @var bool
      */
     public $httpNegative;
 
     /**
+     * @description The domain name or IP address that you want to monitor.
+     *
+     * >  If the TaskType parameter is set to PING or TELNET, this parameter is required. For more information about how to set the TaskType parameter, see [CreateHostAvailability](~~115317~~).
+     * @example params1=value1
+     *
      * @var string
      */
     public $httpPostContent;
 
     /**
+     * @description The error message.
+     *
+     * @example UTF-8
+     *
      * @var string
      */
     public $httpResponseCharset;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example ok
+     *
      * @var string
      */
     public $httpResponseMatchContent;
 
     /**
+     * @description The operation that you want to perform. Set the value to **ModifyHostAvailability**.
+     *
+     * @example https://www.aliyun.com
+     *
      * @var string
      */
     public $httpURI;
 
     /**
+     * @description The header of the HTTP request. Format: `Parameter name:Parameter value`. Separate multiple parameters with carriage return characters. Example:
+     *
+     * ```
+     * @example 60
+     *
      * @var int
      */
     public $interval;
 
     /**
+     * @description The URI that you want to monitor. If the TaskType parameter is set to HTTP, this parameter is required.
+     *
+     * @example www.aliyun.com
+     *
      * @var string
      */
     public $telnetOrPingHost;

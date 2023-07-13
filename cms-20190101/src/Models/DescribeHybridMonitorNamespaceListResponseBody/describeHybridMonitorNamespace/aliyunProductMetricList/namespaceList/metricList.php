@@ -14,6 +14,8 @@ class metricList extends Model
     public $list;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $period;

@@ -10,36 +10,63 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertLogListResponseBody extends Model
 {
     /**
+     * @description The status code of the alert callback.
+     *
      * @var alertLogList[]
      */
     public $alertLogList;
 
     /**
+     * @description The extended fields.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The end timestamp of the alert logs to be queried. Unit: milliseconds.
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The DingTalk chatbots of alert contacts.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The name of the metric.
+     *
+     * >  For more information about the metrics of different cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the alert rule.
+     *
+     * @example 1C4A3709-BF52-42EE-87B5-7435F0929585
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The timestamp that was generated when the alert was triggered. Unit: milliseconds.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

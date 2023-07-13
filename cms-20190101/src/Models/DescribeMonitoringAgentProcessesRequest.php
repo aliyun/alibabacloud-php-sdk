@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitoringAgentProcessesRequest extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example i-hp3hl3cx1pbahzy8****
+     *
      * @var string
      */
     public $instanceId;

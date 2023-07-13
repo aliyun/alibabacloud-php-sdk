@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class PutCustomEventResponseBody extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **PutCustomEvent**.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 131DD9C8-9A32-4428-AD2E-4E3013B6E3A7
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class vpc extends Model
 {
     /**
+     * @example vpc-2zew7etgiceg21****
+     *
      * @var string
      */
     public $vpcInstanceId;
 
     /**
+     * @example vsw-2ze36seq79n992****
+     *
      * @var string
      */
     public $vswitchInstanceId;

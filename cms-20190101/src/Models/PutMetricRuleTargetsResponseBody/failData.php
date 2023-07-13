@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class failData extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @var targets
      */
     public $targets;

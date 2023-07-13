@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class info extends Model
 {
     /**
+     * @description The time period during which the alert rule is effective.
+     *
+     * @example GreaterThanOrEqualToThreshold
+     *
      * @var string
      */
     public $comparisonOperator;
 
     /**
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met.
+     *
+     * Unit: seconds. Default value: 86400.
+     * @example Average
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @description The alert contact group.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $threshold;
 
     /**
+     * @description The statistical methods for Critical-level alerts. Separate multiple statistical methods with commas (,). Valid values:
+     *
+     *   Average: the average value
+     *   Minimum: the minimum value
+     *   Maximum: the maximum value
+     *
+     * @example 3
+     *
      * @var int
      */
     public $times;

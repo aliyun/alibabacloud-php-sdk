@@ -9,36 +9,73 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertHistoryListRequest extends Model
 {
     /**
+     * @description The order of alerts. Valid values:
+     *
+     *   true (default value): reverse chronological order
+     *   false: chronological order
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ascending;
 
     /**
+     * @description The end timestamp of the historical alerts that you want to query.
+     *
+     * Unit: milliseconds.
+     * @example 1640608200000
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the application group.
+     *
+     * For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     * @example 7671****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The metric that is used to monitor the cloud service.
+     *
+     * For information about how to query the name of a metric, see [Appendix 1: Metrics](~~163515~~).
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The namespace of the cloud service.
+     *
+     * For information about how to query the namespace of a cloud service, see [Appendix 1: Metrics](~~163515~~).
+     * @example acs_ecs_dashboard
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -49,26 +86,56 @@ class DescribeAlertHistoryListRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the alert rule.
+     *
+     * For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * @example applyTemplate61dc81b5-d357-4cf6-a9b7-9f83c1d5****
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @description The name of the alert rule.
+     *
+     * For information about how to query the name of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * @example ECS_Rule
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The start timestamp of the historical alerts that you want to query.
+     *
+     * Unit: milliseconds.
+     * @example 1640237400000
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the alert. Valid values:
+     *
+     *   ALARM (default value): Alerts are triggered.
+     *   OK: No alerts are triggered.
+     *
+     * @example ALARM
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description Specifies whether alerts are muted. Valid values:
+     *
+     *   2 (default value): Alerts are muted and are not triggered within the mute period, even if the condition specified in the alert rule is met.
+     *   0: Alerts are triggered or cleared.
+     *   1: The alert rule is ineffective.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $status;

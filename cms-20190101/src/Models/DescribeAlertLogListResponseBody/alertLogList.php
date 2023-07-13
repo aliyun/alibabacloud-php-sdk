@@ -15,61 +15,113 @@ use AlibabaCloud\Tea\Model;
 class alertLogList extends Model
 {
     /**
+     * @description The details of the blacklist policy.
+     *
+     * @example 1610043776621
+     *
      * @var string
      */
     public $alertTime;
 
     /**
+     * @description The dimension based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL. Valid values:
+     *
+     *   `product`: aggregates data by cloud service.
+     *   `level`: aggregates data by alert level.
+     *   `groupId`: aggregates data by application group.
+     *   `contactGroup`: aggregates data by alert contact group.
+     *   `product,metricName`: aggregates data both by cloud service and by metric.
+     *
+     * @example BlackListDetail
+     *
      * @var string
      */
     public $blackListDetail;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10.
+     *
+     * @example {"id":123,"metricProject":"acs_ecs_dashboard","userId":1736511134389110,"uuid":"8410dbbd-7d30-41c5-94cb-***","name":"alert-***","productCategory":"ecs","instances":[{"instanceId":"host-***"}],"metrics":null,"scopeType":"USER","scopeValue":"","startTime":"0001-01-01T00:00:00Z","endTime":"9999-12-31T23:59:59.999999999+08:00","effectiveTime":null,"isEnable":true,"status":1,"gmtCreate":"2021-11-02T16:35:59+08:00","gmtModified":"2021-11-02T16:35:59+08:00","loadTime":"2021-11-02T16:36:15.213072177+08:00"}
+     *
      * @var string
      */
     public $blackListName;
 
     /**
+     * @description The category of the alert notification method. Valid values:
+     *
+     *   Mail: email
+     *   ALIIM: TradeManager
+     *   SMS: text message
+     *   CALL: phone call
+     *   DING: DingTalk chatbot
+     *   Merged: alert merging
+     *
+     * @example 8410dbbd-7d30-41c5-94cb-*****
+     *
      * @var string
      */
     public $blackListUUID;
 
     /**
+     * @description The name of the extended field.
+     *
      * @var string[]
      */
     public $contactALIIWWList;
 
     /**
+     * @description The abbreviation of the Alibaba Cloud service name.
+     *
      * @var string[]
      */
     public $contactDingList;
 
     /**
+     * @description The alert notification method.
+     *
      * @var string[]
      */
     public $contactGroups;
 
     /**
+     * @description The callback URL.
+     *
      * @var string[]
      */
     public $contactMailList;
 
     /**
+     * @description The name of the resource.
+     *
      * @var string[]
      */
     public $contactOnCallList;
 
     /**
+     * @description The statistical period of alert logs. Unit: minutes.
+     *
      * @var string[]
      */
     public $contactSMSList;
 
     /**
+     * @description The status of the alert. Valid values:
+     *
+     *   0: The alert is triggered or cleared.
+     *   1: The alert is ineffective.
+     *   2: The alert is muted and not triggered in a specified period.
+     *   3: The host is restarting.
+     *   4: No alert notification is sent.
+     *
+     * If the value of the SendStatus parameter is 0, the value P4 of the Level parameter indicates a triggered alert and the value OK indicates a cleared alert.
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
+     * @description The ID of the application group.
+     *
      * @var string[]
      */
     public $dingdingWebhookList;
@@ -80,91 +132,168 @@ class alertLogList extends Model
     public $escalation;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
+     * @example IOHang
+     *
      * @var string
      */
     public $eventName;
 
     /**
+     * @description The sending results of alert notifications.
+     *
      * @var extendedInfo[]
      */
     public $extendedInfo;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 7301****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the alert rule.
+     *
+     * @example ECS_Instances
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The alert contact group.
+     *
+     * @example i-m5e1qg6uo38rztr4****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The list of callback URLs.
+     *
+     * @example portalHost
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The HTTP status code.
+     *
+     *   If the value of the `Channel` parameter is `WEBHOOK`, the status code is 200 or 500.
+     *   If the value of the `Channel` parameter is `MAIL`, `SMS`, `SLS`, `ONCALL`, `FC`, or `MNS`, this parameter is empty or not returned.
+     *
+     * @example P4
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The key of the dimension.
+     *
+     * @example P4->OK
+     *
      * @var string
      */
     public $levelChange;
 
     /**
+     * @example 7818361[1523]@1671593992[1]
+     *
+     * @var string
+     */
+    public $logId;
+
+    /**
+     * @description The name of the alert rule.
+     *
+     * @example {"alertName":"e47aa0ac-4076-44db-a47d-d1083968****_Availability"}
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The name of the metric.
+     *
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The dimensions of the resource that triggered alerts.
+     *
+     * @example acs_ecs_dashboard
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description Indicates whether the alert notifications are sent.
+     *
+     *   If the alert notifications are sent, the value "success" is returned.
+     *   If the configuration is invalid, no alert notification is sent and an error code is returned.
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $product;
 
     /**
+     * @description The phone numbers of alert contacts that can receive alert phone calls.
+     *
+     * >  This parameter can be returned only on the China site (aliyun.com).
+     * @example d582b9e9-b1c1-4f17-9279-0fe7333a****_ResponseTime
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @description The ID of the resource.
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The namespace of the cloud service.
+     *
+     * >  For more information about the namespaces of different cloud services, see [Appendix 1: Metrics](~~163515~~).
      * @var sendDetail
      */
     public $sendDetail;
 
     /**
+     * @description The details of the returned results.
+     *
      * @var sendResultList[]
      */
     public $sendResultList;
 
     /**
+     * @description The value of the dimension.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $sendStatus;
 
     /**
+     * @description The value of the extended field.
+     *
      * @var webhookList[]
      */
     public $webhookList;
@@ -190,6 +319,7 @@ class alertLogList extends Model
         'instanceName'        => 'InstanceName',
         'level'               => 'Level',
         'levelChange'         => 'LevelChange',
+        'logId'               => 'LogId',
         'message'             => 'Message',
         'metricName'          => 'MetricName',
         'namespace'           => 'Namespace',
@@ -283,6 +413,9 @@ class alertLogList extends Model
         }
         if (null !== $this->levelChange) {
             $res['LevelChange'] = $this->levelChange;
+        }
+        if (null !== $this->logId) {
+            $res['LogId'] = $this->logId;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -426,6 +559,9 @@ class alertLogList extends Model
         }
         if (isset($map['LevelChange'])) {
             $model->levelChange = $map['LevelChange'];
+        }
+        if (isset($map['LogId'])) {
+            $model->logId = $map['LogId'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

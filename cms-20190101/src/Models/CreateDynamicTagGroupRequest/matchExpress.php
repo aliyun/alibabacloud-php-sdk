@@ -9,15 +9,27 @@ use AlibabaCloud\Tea\Model;
 class matchExpress extends Model
 {
     /**
+     * @example appname
+     *
+     * @var string
+     */
+    public $tagName;
+
+    /**
+     * @example instance
+     *
      * @var string
      */
     public $tagValue;
 
     /**
+     * @example contains
+     *
      * @var string
      */
     public $tagValueMatchFunction;
     protected $_name = [
+        'tagName'               => 'TagName',
         'tagValue'              => 'TagValue',
         'tagValueMatchFunction' => 'TagValueMatchFunction',
     ];
@@ -29,6 +41,9 @@ class matchExpress extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->tagName) {
+            $res['TagName'] = $this->tagName;
+        }
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -47,6 +62,9 @@ class matchExpress extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TagName'])) {
+            $model->tagName = $map['TagName'];
+        }
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

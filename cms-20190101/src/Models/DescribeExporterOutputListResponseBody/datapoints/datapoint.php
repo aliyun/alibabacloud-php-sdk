@@ -10,21 +10,36 @@ use AlibabaCloud\Tea\Model;
 class datapoint extends Model
 {
     /**
+     * @description The JSON object that contains the details about the destination to which the monitoring data is exported.
+     *
      * @var configJson
      */
     public $configJson;
 
     /**
+     * @description The time when the configuration set was created. The value is a UNIX timestamp.
+     *
+     * @example 1584016495498
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The name of the configuration set.
+     *
+     * @example exporterOut
+     *
      * @var string
      */
     public $destName;
 
     /**
+     * @description The service to which the monitoring data is exported.
+     *
+     * > Only Log Service is supported. More services will be supported in the future.
+     * @example SLS
+     *
      * @var string
      */
     public $destType;

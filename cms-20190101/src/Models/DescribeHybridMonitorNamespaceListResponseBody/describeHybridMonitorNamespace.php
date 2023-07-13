@@ -11,46 +11,82 @@ use AlibabaCloud\Tea\Model;
 class describeHybridMonitorNamespace extends Model
 {
     /**
+     * @description Indicates whether the namespace is deleted. Valid values:
+     *
+     *   0: The namespace is not deleted.
+     *   1: The namespace is deleted.
+     *
      * @var aliyunProductMetricList[]
      */
     public $aliyunProductMetricList;
 
     /**
+     * @description The keyword that is used to search for namespaces.
+     *
+     * @example 1652682744000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The number of metric import tasks for third-party services.
+     *
+     * @example aliyun-test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the namespace.
+     *
+     * The name can contain uppercase letters, lowercase letters, digits, and hyphens (-).
      * @var detail
      */
     public $detail;
 
     /**
+     * @description The list of metrics for the Alibaba Cloud service.
+     *
+     * @example 3****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The details of the data retention period.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $isDelete;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example 1652682744000
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The configuration details of metric import tasks for Alibaba Cloud services.
+     *
+     * @example aliyun-test
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $notAliyunTaskNumber;

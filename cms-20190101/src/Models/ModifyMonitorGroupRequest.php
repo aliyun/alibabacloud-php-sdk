@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyMonitorGroupRequest extends Model
 {
     /**
+     * @description The alert groups that can receive alert notifications for the application group.
+     *
+     * @example alarm_ecs_group
+     *
      * @var string
      */
     public $contactGroups;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The name of the application group.
+     *
+     * @example ecs_group
+     *
      * @var string
      */
     public $groupName;

@@ -10,26 +10,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupDynamicRulesResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The value 200 indicates that the call was successful.
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The error message.
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2170B94A-1576-4D65-900E-2093037CDAF3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The resources that is associated with the application group.
+     *
      * @var resource
      */
     public $resource;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

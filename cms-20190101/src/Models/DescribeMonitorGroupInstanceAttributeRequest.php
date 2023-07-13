@@ -9,31 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupInstanceAttributeRequest extends Model
 {
     /**
+     * @description The keyword that is used to search for resources.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 123456
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example i-m5e0k0bexac8tykr****
+     *
      * @var string
      */
     public $instanceIds;
 
     /**
+     * @description The ID of the vSwitch to which the instance belongs.
+     *
+     * @example portal
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeMonitorGroupInstanceAttribute**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The abbreviation of the Alibaba Cloud service name.
+     *
+     * To obtain the abbreviation of an Alibaba Cloud service name, call the [DescribeProjectMeta](~~114916~~) operation. The `metricCategory` tag in the `Labels` response parameter indicates the abbreviation of the Alibaba Cloud service name.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -44,6 +70,10 @@ class DescribeMonitorGroupInstanceAttributeRequest extends Model
     public $regionId;
 
     /**
+     * @description The error message.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $total;

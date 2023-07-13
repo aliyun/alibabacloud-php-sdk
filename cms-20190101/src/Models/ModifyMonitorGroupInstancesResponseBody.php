@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ModifyMonitorGroupInstancesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The operation that you want to perform. Set the value to ModifyMonitorGroupInstances.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example FEC7EDB3-9B08-4AC0-A42A-329F5D14B95A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

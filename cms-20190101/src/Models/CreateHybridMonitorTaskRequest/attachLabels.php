@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class attachLabels extends Model
 {
     /**
+     * @description The conditions that are used to filter logs imported from Log Service.
+     *
+     * @example app_service
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The name of the namespace.
+     *
+     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
+     * @example testValue
+     *
      * @var string
      */
     public $value;

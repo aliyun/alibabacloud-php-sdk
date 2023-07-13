@@ -14,6 +14,8 @@ class EnableEventRulesRequest extends Model
     public $regionId;
 
     /**
+     * @example ruleName1
+     *
      * @var string[]
      */
     public $ruleNames;

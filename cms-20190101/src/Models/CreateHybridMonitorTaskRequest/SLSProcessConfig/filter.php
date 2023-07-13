@@ -10,11 +10,21 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The relationship between multiple filter conditions. Valid values:
+     *
+     *   and (default value): Logs are processed only if all filter conditions are met.
+     *   or: Logs are processed if one of the filter conditions is met.
+     *
      * @var filters[]
      */
     public $filters;
 
     /**
+     * @description The configurations of the logs that are imported from Log Service.
+     *
+     * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
+     * @example and
+     *
      * @var string
      */
     public $relation;

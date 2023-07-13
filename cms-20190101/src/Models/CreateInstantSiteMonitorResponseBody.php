@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class CreateInstantSiteMonitorResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * > The status code 200 indicates that the call was successful.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The results for creating the instant test task.
+     *
      * @var createResultList[]
      */
     public $createResultList;
 
     /**
+     * @description The returned message.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 68192f5d-0d45-4b98-9724-892813f86c71
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

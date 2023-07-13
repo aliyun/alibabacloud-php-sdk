@@ -16,41 +16,84 @@ class PutGroupMetricRuleRequest extends Model
     public $escalations;
 
     /**
+     * @description The operation that you want to perform. Set the value to **PutGroupMetricRule**.
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The ID of the alert rule.
+     *
+     *   When you create an alert rule for the application group, enter the ID of the alert rule.
+     *   When you modify a specified alert rule in the application group, you must obtain the ID of the alert rule. For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     *
+     * @example ECS_Group
+     *
      * @var string
      */
     public $contactGroups;
 
     /**
+     * @description The error message.
+     *
+     * @example [{"instanceId":"i-m5e1qg6uo38rztr4****"}]
+     *
      * @var string
      */
     public $dimensions;
 
     /**
+     * @description The ID of the application group.
+     *
+     * For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     * @example 05:31-23:59
+     *
      * @var string
      */
     public $effectiveInterval;
 
     /**
+     * @description The second-level or third-level dimension of the alert rule in the application group.
+     *
+     * Set the value to a set of key-value pairs, for example, `port:80` or `/dev/xvda:d-m5e6yphgzn3aprwu****`.
+     *
+     * If the first-level dimension of the alert rule is `instanceId:i-m5e1qg6uo38rztr4****`, its second-level dimension is the `/dev/xvda:d-m5e6yphgzn3aprwu****` disk in the instance.
      * @var string
      */
     public $emailSubject;
 
     /**
+     * @description The name of the metric.
+     *
+     * For information about how to obtain the name of a metric, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~163515~~).
+     * @example {"/dev/xvda":"d-m5e6yphgzn3aprwu****"}
+     *
      * @var string
      */
     public $extraDimensionJson;
 
     /**
+     * @description The statistical methods for Warn-level alerts. Separate multiple statistical methods with commas (,). Valid values:
+     *
+     *   Average: the average value
+     *   Minimum: the minimum value
+     *   Maximum: the maximum value
+     *
+     * @example 17285****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The callback URL.
+     *
+     * The callback URL must be accessible over the Internet. CloudMonitor sends a POST request to push an alert notification to the callback URL that you specify. Only HTTP requests are supported.
+     * @example 60
+     *
      * @var string
      */
     public $interval;
@@ -61,46 +104,97 @@ class PutGroupMetricRuleRequest extends Model
     public $labels;
 
     /**
+     * @description The comparison operator that is used to compare the metric value with the threshold. Valid values:
+     *
+     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+     *   GreaterThanThreshold: greater than the threshold
+     *   LessThanOrEqualToThreshold: less than or equal to the threshold
+     *   LessThanThreshold: less than the threshold
+     *   NotEqualToThreshold: not equal to the threshold
+     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+     *   LessThanYesterday: less than the metric value at the same time yesterday
+     *   GreaterThanLastWeek: greater than the metric value at the same time last week
+     *   LessThanLastWeek: less than the metric value at the same time last week
+     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+     *
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The threshold for Critical-level alerts.
+     *
+     * @example acs_ecs_dashboard
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
+     *
+     * @example KEEP_LAST_STATE
+     *
      * @var string
      */
     public $noDataPolicy;
 
     /**
+     * @description The threshold for Info-level alerts.
+     *
+     * @example 00:00-05:30
+     *
      * @var string
      */
     public $noEffectiveInterval;
 
     /**
+     * @description The threshold for Warn-level alerts.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 123456
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @description The namespace of the cloud service.
+     *
+     * For information about how to obtain the namespace of a cloud service, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~163515~~).
+     * @example Rule_01
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description The consecutive number of times for which the metric value meets the alert condition before an Info-level alert is triggered.
+     *
+     * @example 86400
+     *
      * @var int
      */
     public $silenceTime;
 
     /**
+     * @description The aggregation period of the metric data.
+     *
+     * Set the `Period` parameter to an integral multiple of 60. Unit: seconds. Default value: 300.
+     * @example https://www.aliyun.com
+     *
      * @var string
      */
     public $webhook;

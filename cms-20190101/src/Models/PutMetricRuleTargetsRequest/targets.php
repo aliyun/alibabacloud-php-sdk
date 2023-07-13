@@ -9,21 +9,46 @@ use AlibabaCloud\Tea\Model;
 class targets extends Model
 {
     /**
+     * @description The ARN of the resource.
+     *
+     * Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
+     *
+     *   {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
+     *   {userId}: the ID of the Alibaba Cloud account.
+     *   {regionId}: the region ID of the message queue or topic.
+     *   {Resource type}`: the type of the resource for which alerts are triggered. Valid values: - **queues** - **topics** {Resource name}: the name of the resource. - If the resource type is set to **queues**, the resource name is the name of the message queue. - If the resource type is set to **topics**, the resource name is the name of the topic.`
+     *
+     * @example acs:mns:cn-hangzhou:120886317861****:/queues/test/message
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @description The ID of the resource for which alerts are triggered.
+     *
+     * For information about how to obtain the ID of a resource for which alerts are triggered, see [DescribeMetricRuleTargets](~~121592~~).
+     * @example 1
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The ID of the resource for which alerts are triggered.
+     *
+     * @example {"customField1":"value1","customField2":"$.name"}
+     *
      * @var string
      */
     public $jsonParams;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example ["INFO", "WARN", "CRITICAL"]
+     *
      * @var string
      */
     public $level;

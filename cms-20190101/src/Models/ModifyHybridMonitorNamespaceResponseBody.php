@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ModifyHybridMonitorNamespaceResponseBody extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **ModifyHybridMonitorNamespace**.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example %s
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example E190AB2E-7BF9-59B7-9DDC-7CB1782C5ECD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

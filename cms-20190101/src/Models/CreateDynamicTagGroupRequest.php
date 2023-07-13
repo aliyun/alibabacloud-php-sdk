@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateDynamicTagGroupRequest extends Model
 {
     /**
+     * @example ECS_Group
+     *
      * @var string[]
      */
     public $contactGroupList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableInstallAgent;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableSubscribeEvent;
@@ -30,6 +36,8 @@ class CreateDynamicTagGroupRequest extends Model
     public $matchExpress;
 
     /**
+     * @example and
+     *
      * @var string
      */
     public $matchExpressFilterRelation;
@@ -40,16 +48,22 @@ class CreateDynamicTagGroupRequest extends Model
     public $regionId;
 
     /**
+     * @example ecs_instance
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $tagRegionId;
 
     /**
+     * @example 85****
+     *
      * @var string[]
      */
     public $templateIdList;

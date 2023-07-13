@@ -15,6 +15,10 @@ class PutMetricRuleTargetsRequest extends Model
     public $regionId;
 
     /**
+     * @description The list of resources that failed to be created or modified.
+     *
+     * @example ae06917_75a8c43178ab66****
+     *
      * @var string
      */
     public $ruleId;

@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class PutEventRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example 1
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The level of the event-triggered alert rule. Valid values of N: 1 to 50. Valid values:
+     *
+     *   CRITICAL: critical
+     *   WARN: warning
+     *   INFO: information
+     *   \*: all levels
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 0B47C47B-E68A-4429-BB23-370E91889C7D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

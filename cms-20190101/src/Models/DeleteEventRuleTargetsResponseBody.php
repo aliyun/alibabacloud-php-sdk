@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DeleteEventRuleTargetsResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     *
+     * @example 7ADD7EFB-7555-4EC1-A3D9-F9955C189CCF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Deletes the targets to which alert notifications are sent based on an event-triggered alert rule.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

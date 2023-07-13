@@ -10,11 +10,25 @@ use AlibabaCloud\Tea\Model;
 class groupRules extends Model
 {
     /**
+     * @description The logical operator used between conditional expressions in the alert rule. Valid values of N: 1 to 3. Valid values:
+     *
+     *   and: The instances that meet all the conditional expressions are automatically added to the application group.
+     *   or: The instances that meet one of the conditional expressions are automatically added to the application group.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The mode for creating the alert rule. Valid values:
+     *
+     *   true: creates asynchronously
+     *   false (default value): creates synchronously
+     *
+     * @example and
+     *
      * @var string
      */
     public $filterRelation;

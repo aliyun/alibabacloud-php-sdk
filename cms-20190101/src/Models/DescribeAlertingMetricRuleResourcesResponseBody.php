@@ -10,31 +10,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertingMetricRuleResourcesResponseBody extends Model
 {
     /**
+     * @description The ID of the application group.
+     *
+     * >  If the alert rule is associated with an application group, the ID of the application group is returned in this parameter.
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The relationship between multiple metrics. Valid values:
+     *
+     *   &&: If all metrics meet the alert conditions, CloudMonitor sends alert notifications.
+     *   ||: If one of the metrics meets the alert conditions, CloudMonitor sends alert notifications.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The error message.
+     *
+     * @example 0724011B-D9E0-4B2F-8C51-F17A894CC42C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The dimensions that specify the resources whose monitoring data you want to query.
+     *
      * @var resources
      */
     public $resources;
 
     /**
+     * @description The tags of the instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The name of the metric.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $total;

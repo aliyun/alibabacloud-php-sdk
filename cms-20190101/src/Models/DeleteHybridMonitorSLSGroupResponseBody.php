@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DeleteHybridMonitorSLSGroupResponseBody extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **DeleteHybridMonitorSLSGroup**.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example RESOURCE_NOT_FOUND
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 85198BFF-1DE6-556E-B6A4-C77C51C62B8D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

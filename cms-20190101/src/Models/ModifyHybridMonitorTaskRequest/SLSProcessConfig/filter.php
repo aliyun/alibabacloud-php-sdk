@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The conditions that are used to filter logs imported from Log Service.
+     *
      * @var filters[]
      */
     public $filters;
 
     /**
+     * @description The ID of the metric import task.
+     *
+     * For information about how to obtain the ID of a metric import task, see [DescribeHybridMonitorTaskList](~~428624~~).
+     * @example and
+     *
      * @var string
      */
     public $relation;

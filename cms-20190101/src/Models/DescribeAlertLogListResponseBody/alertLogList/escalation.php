@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class escalation extends Model
 {
     /**
+     * @example $Average<90
+     *
      * @var string
      */
     public $expression;
 
     /**
+     * @example P4
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $times;

@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
+     * @example tagKey1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The relationship between the trigger conditions for multiple metrics. Valid values:
+     *
+     *   `&&`: An alert is triggered only if all metrics meet the trigger conditions. An alert is triggered only if the results of all expressions specified in the ExpressionList parameter are `true`.
+     *   `||`: If one of the metrics meets the trigger conditions, an alert is triggered.
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $value;

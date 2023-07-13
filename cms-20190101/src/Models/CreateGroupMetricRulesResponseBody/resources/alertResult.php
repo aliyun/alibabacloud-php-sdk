@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class alertResult extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example Metric not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 456789
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @example ECS_Rule1
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

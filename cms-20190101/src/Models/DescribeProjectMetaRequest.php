@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeProjectMetaRequest extends Model
 {
     /**
+     * @description The tags. Tags are used to filter services.
+     *
+     * > We recommend that you do not use the special tags in the CloudMonitor console.
+     * @example [{"name":"product","value":"ECS"}]
+     *
      * @var string
      */
     public $labels;
 
     /**
+     * @description The page number.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * > The value of this parameter is not limited. You can view a large number of entries per page.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;

@@ -10,31 +10,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleTemplateListResponseBody extends Model
 {
     /**
+     * @description The timestamp when the alert template was applied to the application group.
+     *
+     * Unit: milliseconds.
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The list of alert templates.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 659401C0-6214-5C02-972A-CFA929D717B7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The keyword of the alert template name.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The ID of the alert template.
+     *
      * @var templates
      */
     public $templates;
 
     /**
+     * @description The sorting basis. Default value: gmtCreate. Valid values:
+     *
+     *   gmtMotified: Sorts alert templates by modification time.
+     *   gmtCreate: Sorts alert templates by creation time.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $total;

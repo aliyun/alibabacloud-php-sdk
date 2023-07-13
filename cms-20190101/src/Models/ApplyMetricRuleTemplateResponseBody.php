@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class ApplyMetricRuleTemplateResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call succeeds. Valid values:
+     *
+     *   true: The call succeeds.
+     *   false: The call fails.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The resources that are affected by the alert rule.
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the application group to which the alert template is applied.
+     *
+     * @example 3F897F3C-020A-4993-95B4-63ABB84F83E6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The response code.
+     *
+     * >  The HTTP status code 200 indicates that the call succeeds.
      * @var resource
      */
     public $resource;
 
     /**
+     * @description The details of the generated alert rule.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

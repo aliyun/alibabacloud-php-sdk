@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomEventAttributeResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The time when the custom event occurred.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @var customEvents
      */
     public $customEvents;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example userId:173651113438**** and name:"BABEL_CHECK"
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example 60912C8D-B340-4253-ADE7-61ACDFD25CFC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the custom event.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

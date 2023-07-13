@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class CreateInstantSiteMonitorRequest extends Model
 {
     /**
+     * @description The URL or IP address that you want to test.
+     *
+     * @example http://www.aliyun.com
+     *
      * @var string
      */
     public $address;
 
     /**
+     * @description The detection points. If you leave this parameter empty, the system randomly selects three detection points.
+     *
+     * > You must specify one of the `IspCities` and `RandomIspCity` parameters.
+     * @example [{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]
+     *
      * @var string
      */
     public $ispCities;
 
     /**
+     * @description The extended options of the protocol that is used by the instant test task. The options vary based on the protocol.
+     *
+     * @example {"time_out":5000}
+     *
      * @var string
      */
     public $optionsJson;
 
     /**
+     * @description The number of detection points.
+     *
+     * >
+     *
+     *   You must specify one of the `IspCities` and `RandomIspCity` parameters. If you specify the `RandomIspCity` parameter, the `IspCities` parameter automatically becomes invalid.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $randomIspCity;
@@ -34,11 +55,20 @@ class CreateInstantSiteMonitorRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the instant test task.
+     *
+     * The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (\_).
+     * @example task1
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The type of the instant test task. Valid values: HTTP, PING, TCP, UDP, and DNS.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $taskType;

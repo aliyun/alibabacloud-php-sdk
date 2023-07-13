@@ -9,26 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DeleteMonitorGroupNotifyPolicyResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DeleteMonitorGroupNotifyPolicy**.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example B7AF834D-D38B-4A46-920B-FE974EB7E135
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $result;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

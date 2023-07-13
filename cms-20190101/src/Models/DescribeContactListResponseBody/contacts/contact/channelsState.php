@@ -9,21 +9,34 @@ use AlibabaCloud\Tea\Model;
 class channelsState extends Model
 {
     /**
+     * @description Queries alert contacts.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $aliIM;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $dingWebHook;
 
     /**
+     * @description The status of the DingTalk chatbot.
+     *
+     * Valid value: OK. The value OK indicates that the DingTalk chatbot is normal and alert notifications can be received in a DingTalk group.
+     * @example PENDING
+     *
      * @var string
      */
     public $mail;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $SMS;

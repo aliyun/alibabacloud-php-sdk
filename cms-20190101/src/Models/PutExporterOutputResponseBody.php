@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class PutExporterOutputResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * > The status code 200 indicates that the request was successful.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned message.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 6A5F022D-AC7C-460E-94AE-B9E75083D027
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. true: The request was successful. false: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

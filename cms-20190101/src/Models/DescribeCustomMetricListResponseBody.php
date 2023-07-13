@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomMetricListResponseBody extends Model
 {
     /**
+     * @description The reported custom metrics that are found in the query.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description >  You can call the DescribeMetricList operation to query the metrics of a cloud service. For more information, see [DescribeMetricList](~~51936~~).
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example 1AF425E4-1DEA-54F2-910A-8117C9686140
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example {\"all\":0,\"size\":10,\"param\":{\"metric\":\"{\\\"metricName\\\":\\\"cpu_total\\\",\\\"groupId\\\":7378****,\\\"project\\\":\\\"acs_customMetric_120886317861****\\\",\\\"dimension\\\":\\\"sampleName1=value1&sampleName2=value2\\\",\\\"status\\\":1}\",\"service\":\"metric-center.aliyun-inc.com\"},\"page\":1,\"list\":[]}
+     *
      * @var string
      */
     public $result;

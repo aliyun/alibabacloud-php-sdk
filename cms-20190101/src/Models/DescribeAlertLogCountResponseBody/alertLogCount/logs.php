@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class logs extends Model
 {
     /**
+     * @description The name of the dimension field based on which alert logs are aggregated.
+     *
+     * @example product
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The value of the dimension field based on which alert logs are aggregated.
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $value;

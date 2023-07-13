@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ModifyHybridMonitorTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example Invalid.SLSConfig
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 11145B76-566A-5D80-A8A3-FAD98D310079
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

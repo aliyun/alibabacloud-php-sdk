@@ -10,46 +10,84 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitoringAgentHostsResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * > The status code 200 indicates that the call is successful.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The information about the hosts.
+     *
      * @var hosts
      */
     public $hosts;
 
     /**
+     * @description The error message.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of returned pages.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $pageTotal;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 63EEBB2A-9E51-41E4-9E83-5DE7F3B292E0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   true: The call is successful.
+     *   false: The call fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $total;

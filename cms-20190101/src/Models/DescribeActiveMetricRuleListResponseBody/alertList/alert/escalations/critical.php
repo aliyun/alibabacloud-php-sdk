@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class critical extends Model
 {
     /**
+     * @description The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
+     *
+     * @example GreaterThanThreshold
+     *
      * @var string
      */
     public $comparisonOperator;
 
     /**
+     * @description Queries details about one-click alert rules.
+     *
+     * @example Average
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @description The statistical aggregation method for critical-level alerts.
+     *
+     * @example 99
+     *
      * @var string
      */
     public $threshold;
 
     /**
+     * @description The threshold for critical-level alerts.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $times;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CreateGroupMetricRulesResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 461CF2CD-2FC3-4B26-8645-7BD27E7D0F1D
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class CreateGroupMetricRulesResponseBody extends Model
     public $resources;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorAgentProcessRequest extends Model
 {
     /**
+     * @description The user who launches the process.
+     *
+     * @example i-2ze2d6j5uhg20x47****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example AliYunDun
+     *
      * @var string
      */
     public $processName;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example admin
+     *
      * @var string
      */
     public $processUser;

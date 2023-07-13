@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class critical extends Model
 {
     /**
+     * @description The statistical period of the metric. Unit: seconds. The default value is the interval at which the monitoring data of the metric is collected.
+     *
+     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](~~163515~~).
+     * @example GreaterThanOrEqualToThreshold
+     *
      * @var string
      */
     public $comparisonOperator;
 
     /**
+     * @description The Prometheus alert rule.
+     *
+     * >  This parameter is required only when you create a Prometheus alert rule for Hybrid Cloud Monitoring.
+     * @example Average
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @description The aggregation period of the metric.
+     *
+     * Unit: seconds.
+     * @example 90
+     *
      * @var string
      */
     public $threshold;
 
     /**
+     * @description The threshold for Warn-level alerts.
+     *
+     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+     * @example 3
+     *
      * @var int
      */
     public $times;

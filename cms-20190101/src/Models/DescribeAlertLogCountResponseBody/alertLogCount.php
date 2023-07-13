@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class alertLogCount extends Model
 {
     /**
+     * @description The number of alert logs.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The details about alert logs.
+     *
      * @var logs[]
      */
     public $logs;

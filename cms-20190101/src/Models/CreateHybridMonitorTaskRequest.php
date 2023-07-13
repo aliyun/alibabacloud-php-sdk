@@ -16,26 +16,47 @@ class CreateHybridMonitorTaskRequest extends Model
     public $attachLabels;
 
     /**
+     * @description The error message.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $collectInterval;
 
     /**
+     * @description The type of the collection target.
+     *
+     *   If the `TaskType` parameter is set to `aliyun_fc`, enter `aliyun_fc`.
+     *   If the `TaskType` parameter is set to `aliyun_sls`, enter the name of the Logstore group.
+     *
+     * @example aliyun_fc
+     *
      * @var string
      */
     public $collectTargetType;
 
     /**
+     * @description The tag value of the metric.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The conditions that are used to filter logs imported from Log Service.
+     *
+     * @example 3607****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The extended field that specifies the result of basic operations that are performed on aggregation results.
+     *
+     * @example aliyun
+     *
      * @var string
      */
     public $namespace;
@@ -46,31 +67,67 @@ class CreateHybridMonitorTaskRequest extends Model
     public $regionId;
 
     /**
+     * @description The tag key of the metric.
+     *
      * @var SLSProcessConfig
      */
     public $SLSProcessConfig;
 
     /**
+     * @description The method that is used to filter logs imported from Log Service. Valid values:
+     *
+     *   `contain`: contains
+     *   `notContain`: does not contain
+     *   `>`: greater than
+     *   `<`: less than
+     *   `=`: equal to
+     *   `! =`: not equal to
+     *   `>=`: greater than or equal to
+     *   `<=`: less than or equal to
+     *
+     * @example 120886317861****
+     *
      * @var string
      */
     public $targetUserId;
 
     /**
+     * @description The ID of the metric import task.
+     *
+     * @example 120886317861****
+     *
      * @var string
      */
     public $targetUserIdList;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example aliyun_task
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The operation that you want to perform. Set the value to **CreateHybridMonitorTask**.
+     *
+     * @example aliyun_fc
+     *
      * @var string
      */
     public $taskType;
 
     /**
+     * @description The interval at which metrics are collected. Valid values:
+     *
+     *   15
+     *   60 (default value)
+     *
+     * >  This parameter is required only if the `TaskType` parameter is set to `aliyun_sls`.
+     * @example products:- namespace: acs_ecs_dashboard  metric_info:  - metric_list:    - cpu_total
+     *
      * @var string
      */
     public $YARMConfig;

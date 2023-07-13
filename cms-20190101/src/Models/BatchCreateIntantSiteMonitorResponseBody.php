@@ -9,28 +9,36 @@ use AlibabaCloud\Tea\Model;
 class BatchCreateIntantSiteMonitorResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example [{"taskName": "HangZhou_ECS1", "taskId": "679fbe4f-b80b-4706-91b2-5427b43e****"}]
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
-     * @description Id of the request
+     * @example 7AE72720-2C96-5446-9F2B-308C7CEDFF1A
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

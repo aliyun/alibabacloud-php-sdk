@@ -9,15 +9,31 @@ use AlibabaCloud\Tea\Model;
 class matchExpress extends Model
 {
     /**
+     * @example azone-version
+     *
+     * @var string
+     */
+    public $tagKey;
+
+    /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example *
+     *
      * @var string
      */
     public $tagValue;
 
     /**
+     * @description Queries tag rules.
+     *
+     * @example all
+     *
      * @var string
      */
     public $tagValueMatchFunction;
     protected $_name = [
+        'tagKey'                => 'TagKey',
         'tagValue'              => 'TagValue',
         'tagValueMatchFunction' => 'TagValueMatchFunction',
     ];
@@ -29,6 +45,9 @@ class matchExpress extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->tagKey) {
+            $res['TagKey'] = $this->tagKey;
+        }
         if (null !== $this->tagValue) {
             $res['TagValue'] = $this->tagValue;
         }
@@ -47,6 +66,9 @@ class matchExpress extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['TagKey'])) {
+            $model->tagKey = $map['TagKey'];
+        }
         if (isset($map['TagValue'])) {
             $model->tagValue = $map['TagValue'];
         }

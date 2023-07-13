@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class PutMonitoringConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The operation that you want to perform. Set the value to **PutMonitoringConfig**.
+     *
+     * @example Specified parameter EnableInstallAgentNewECS is not valid.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 109C8095-6FAD-4DBB-B013-6ED18CE4C0B1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

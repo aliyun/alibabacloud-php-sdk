@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveMetricRuleListRequest extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example ecs
+     *
      * @var string
      */
     public $product;

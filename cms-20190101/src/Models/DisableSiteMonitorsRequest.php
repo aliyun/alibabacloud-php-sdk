@@ -14,6 +14,10 @@ class DisableSiteMonitorsRequest extends Model
     public $regionId;
 
     /**
+     * @description The IDs of the site monitoring tasks. Separate multiple IDs with commas (,).
+     *
+     * @example 49f7b317-7645-4cc9-94fd-ea42e522****,49f7b317-7645-4cc9-94fd-ea42e522****
+     *
      * @var string
      */
     public $taskIds;

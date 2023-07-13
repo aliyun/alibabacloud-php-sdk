@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteSiteMonitorsResponseBody extends Model
 {
     /**
+     * @description The information about the site monitoring tasks that were deleted.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,16 +24,26 @@ class DeleteSiteMonitorsResponseBody extends Model
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example The operation that you want to perform. Set the value to **DeleteSiteMonitors**.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Deletes one or more site monitoring tasks.
+     *
+     * @example 123BCC5D-8B63-48EA-B747-9A8995BE7AA6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

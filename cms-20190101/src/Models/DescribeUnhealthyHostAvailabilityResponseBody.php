@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class DescribeUnhealthyHostAvailabilityResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned message.
+     *
+     * @example User not authorized to operate on the specified resource.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ACBDBB40-DFB6-4F4C-8957-51FFB233969C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The unhealthy instances that are detected by the specified availability monitoring tasks.
+     *
      * @var unhealthyList
      */
     public $unhealthyList;

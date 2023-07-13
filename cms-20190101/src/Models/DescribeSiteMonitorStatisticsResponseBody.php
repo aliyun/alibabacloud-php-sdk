@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorStatisticsResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $data;
@@ -24,11 +28,15 @@ class DescribeSiteMonitorStatisticsResponseBody extends Model
     public $message;
 
     /**
+     * @example 3AD2724D-E317-4BFB-B422-D6691D071BE1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

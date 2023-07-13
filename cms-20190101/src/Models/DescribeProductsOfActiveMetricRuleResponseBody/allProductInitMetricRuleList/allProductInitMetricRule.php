@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class allProductInitMetricRule extends Model
 {
     /**
+     * @description The initial alert rules that are generated after one-click alert is enabled for a service.
+     *
      * @var alertInitConfigList
      */
     public $alertInitConfigList;
 
     /**
+     * @example ecs
+     *
      * @var string
      */
     public $product;

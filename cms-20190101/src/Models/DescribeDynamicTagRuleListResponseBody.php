@@ -10,41 +10,81 @@ use AlibabaCloud\Tea\Model;
 class DescribeDynamicTagRuleListResponseBody extends Model
 {
     /**
+     * @description The tag value.
+     *
+     * The `TagValue` and `TagValueMatchFunction` parameters must be used in pairs.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The tag value.
+     *
+     * For more information about how to obtain a tag value, see [DescribeTagKeyList](~~145557~~).
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The status of adding instances that meet the tag rule to the application group. Valid values:
+     *
+     *   `RUNNING`
+     *   `FINISH`
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The ID of the region to which the tags belong.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The logical operator that is used between conditional expressions. Valid values:
+     *
+     *   `and`
+     *   `or`
+     *
+     * >  Only one logical operator can be used in a request.
+     * @example 0D50523D-8D59-4A61-B58E-E2286ECFB3A9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The tag key.
+     *
+     * For more information about how to obtain a tag key, see [DescribeTagKeyList](~~145558~~).
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The ID of the tag rule.
+     *
      * @var tagGroupList
      */
     public $tagGroupList;
 
     /**
+     * @description The tag rules of application groups.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $total;

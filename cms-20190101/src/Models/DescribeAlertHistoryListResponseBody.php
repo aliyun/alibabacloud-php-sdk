@@ -10,31 +10,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertHistoryListResponseBody extends Model
 {
     /**
+     * @description The details of historical alerts.
+     *
      * @var alarmHistoryList
      */
     public $alarmHistoryList;
 
     /**
+     * @description The status code.
+     *
+     * > The status code 200 indicates that the request was successful.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error message.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example C3C69FBE-2262-541F-A409-C52F380BAE63
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $total;

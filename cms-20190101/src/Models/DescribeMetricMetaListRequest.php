@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricMetaListRequest extends Model
 {
     /**
+     * @description The page to return. Default value: 1
+     *
+     * @example [{"name":"productCategory","value":"kvstore_old"}]
+     *
      * @var string
      */
     public $labels;
 
     /**
+     * @description The number of entries to return on each page. Default value: 30.
+     *
+     * @example CPUUtilization
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The name of the metric. For more information, see [Appendix 1: Metrics](~~163515~~).
+     *
+     * @example acs_kvstore
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The response code.
+     *
+     * >  The HTTP 200 code indicates that the request was successful.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The error message.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;

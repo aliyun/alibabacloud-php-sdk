@@ -11,6 +11,10 @@ use AlibabaCloud\Tea\Model;
 class siteMonitors extends Model
 {
     /**
+     * @description The information of detection points. The information includes the carriers that provide the detection points and the cities where the detection points reside.
+     *
+     * @example https://aliyun.com
+     *
      * @var string
      */
     public $address;
@@ -18,9 +22,20 @@ class siteMonitors extends Model
     /**
      * @var string
      */
+    public $agentGroup;
+
+    /**
+     * @description The name of the site monitoring task.
+     *
+     * @example 1
+     *
+     * @var string
+     */
     public $interval;
 
     /**
+     * @description The name of the carrier.
+     *
      * @var ispCities
      */
     public $ispCities;
@@ -31,26 +46,46 @@ class siteMonitors extends Model
     public $optionJson;
 
     /**
+     * @description The ID of the city.
+     *
+     * @example cc641dff-c19d-45f3-ad0a-818a0c4f****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The ID of the site monitoring task.
+     *
+     * @example test123
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The address that is monitored by the site monitoring task.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $taskState;
 
     /**
+     * @description The status of the site monitoring task. Valid values:
+     *
+     *   1: The task is enabled.
+     *   2: The task is disabled.
+     *
+     * @example HTTP
+     *
      * @var string
      */
     public $taskType;
     protected $_name = [
         'address'    => 'Address',
+        'agentGroup' => 'AgentGroup',
         'interval'   => 'Interval',
         'ispCities'  => 'IspCities',
         'optionJson' => 'OptionJson',
@@ -69,6 +104,9 @@ class siteMonitors extends Model
         $res = [];
         if (null !== $this->address) {
             $res['Address'] = $this->address;
+        }
+        if (null !== $this->agentGroup) {
+            $res['AgentGroup'] = $this->agentGroup;
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
@@ -105,6 +143,9 @@ class siteMonitors extends Model
         $model = new self();
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
+        }
+        if (isset($map['AgentGroup'])) {
+            $model->agentGroup = $map['AgentGroup'];
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];

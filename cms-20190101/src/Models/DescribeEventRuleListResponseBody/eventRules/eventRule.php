@@ -10,36 +10,68 @@ use AlibabaCloud\Tea\Model;
 class eventRule extends Model
 {
     /**
+     * @description The filter keyword.
+     *
+     * @example Default group event rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the application group.
+     *
      * @var eventPattern
      */
     public $eventPattern;
 
     /**
+     * @description The mode of the event-triggered alert rule.
+     *
+     * @example SYSTEM
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * A minimum of one entry can be returned on each page. Default value: 10.
+     * @example 7378****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The relationship between multiple keywords in a condition. Valid values:
+     *
+     *   OR: The relationship between keywords is OR.
+     *   NOT: The keyword is excluded. The value NOT indicates that all events that do not contain the keywords are matched.
+     *
+     * @example test_DefaultEventRule_7378****
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 86400
+     *
      * @var int
      */
     public $silenceTime;
 
     /**
+     * @description The level of the event. Valid values:
+     *
+     *   CRITICAL: critical
+     *   WARN: warning
+     *   INFO: information
+     *
+     * @example ENABLED
+     *
      * @var string
      */
     public $state;

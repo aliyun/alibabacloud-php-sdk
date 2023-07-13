@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class AddTagsResponseBody extends Model
 {
     /**
+     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example DAE4B115-3847-5438-8709-423627F0A3A3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

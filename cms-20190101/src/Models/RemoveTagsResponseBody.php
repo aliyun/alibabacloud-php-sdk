@@ -10,21 +10,36 @@ use AlibabaCloud\Tea\Model;
 class RemoveTagsResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example Illegal parameters.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The operation that you want to perform. Set the value to RemoveTags.
+     *
+     * @example 195390D2-69D0-4D9E-81AA-A7F5BC1B91EB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

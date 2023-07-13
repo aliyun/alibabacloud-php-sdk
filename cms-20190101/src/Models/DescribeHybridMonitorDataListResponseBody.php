@@ -10,26 +10,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorDataListResponseBody extends Model
 {
     /**
+     * @description The name of the metric.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned monitoring data.
+     *
+     * @example end timestamp must not be before start time.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The name of the namespace.
+     *
+     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
+     * @example C240412F-3F5F-50E2-ACEC-DE808EF9C4BE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The timestamp that indicates the time when the metric value is collected.
+     *
+     * Unit: seconds.
+     * @example true
+     *
      * @var string
      */
     public $success;
 
     /**
+     * @description The metric value.
+     *
      * @var timeSeries[]
      */
     public $timeSeries;

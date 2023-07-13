@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetricRuleResourcesRequest extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example [{"instanceId":"i-uf6hm9lnlzsarrc7****"}]
+     *
      * @var string
      */
     public $resources;
 
     /**
+     * @description The resources to be disassociated from the alert rule.
+     *
+     * @example rr-bp18017n6iolv****
+     *
      * @var string
      */
     public $ruleId;

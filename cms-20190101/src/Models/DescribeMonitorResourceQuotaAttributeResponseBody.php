@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorResourceQuotaAttributeResponseBody extends Model
 {
     /**
+     * @description The quota of alert phone calls in your purchased resource plan. Unit: calls.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The used quota of the time series in custom monitoring in your purchased plan.
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The details about the quota of detection points that are provided by other carriers in site monitoring.
+     *
+     * @example 31BC7201-00F2-47B2-B7B9-6A173076ACE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total quota of alert text messages.
+     *
      * @var resourceQuota
      */
     public $resourceQuota;

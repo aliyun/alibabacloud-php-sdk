@@ -9,26 +9,65 @@ use AlibabaCloud\Tea\Model;
 class expressionList extends Model
 {
     /**
+     * @description The operator that is used to compare the metric value with the threshold. Valid values:
+     *
+     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+     *   GreaterThanThreshold: greater than the threshold
+     *   LessThanOrEqualToThreshold: less than or equal to the threshold
+     *   LessThanThreshold: less than the threshold
+     *   NotEqualToThreshold: not equal to the threshold
+     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+     *   LessThanYesterday: less than the metric value at the same time yesterday
+     *   GreaterThanLastWeek: greater than the metric value at the same time last week
+     *   LessThanLastWeek: less than the metric value at the same time last week
+     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+     *
+     * @example GreaterThanOrEqualToThreshold
+     *
      * @var string
      */
     public $comparisonOperator;
 
     /**
+     * @description The metric that is used to monitor the cloud service.
+     *
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The aggregation period of the metric.
+     *
+     * Unit: seconds.
+     * @example 60
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The statistical method of the metric. Valid values:
+     *
+     *   $Maximum: the maximum value
+     *   $Minimum: the minimum value
+     *   $Average: the average value
+     *   $Availability: the availability rate (usually used for site monitoring)
+     *
+     * >  `$` is the prefix of the metric. For information about the Alibaba Cloud services that are supported by CloudMonitor, see [Appendix 1: Metrics](~~163515~~).
+     * @example $Maximum
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @description The alert threshold.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $threshold;

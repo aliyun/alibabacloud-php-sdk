@@ -10,36 +10,67 @@ use AlibabaCloud\Tea\Model;
 class contactGroup extends Model
 {
     /**
+     * @description Queries alert groups.
+     *
      * @var contacts
      */
     public $contacts;
 
     /**
+     * @description Indicates whether the alert group can subscribe to weekly reports. Valid values:
+     *
+     *   true: The alert group can subscribe to weekly reports.
+     *   false: The alert group cannot subscribe to weekly reports.
+     *
+     * >  The weekly report subscription feature is only available for Alibaba Cloud accounts with more than five Elastic Compute Service (ECS) instances.
+     * @example 1507070598000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The time when the alert group was modified. This value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @var string
      */
     public $describe;
 
     /**
+     * @description The alert contacts in the alert group.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableSubscribed;
 
     /**
+     * @description The name of the alert group.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enabledWeeklyReport;
 
     /**
+     * @description Indicates whether the alert group subscribes to weekly reports. Valid values:
+     *
+     *   true: The alert group subscribes to weekly reports.
+     *   false: The alert group does not subscribe to weekly reports.
+     *
+     * @example Contact1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The time when the alert group was created. This value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1589447759000
+     *
      * @var int
      */
     public $updateTime;

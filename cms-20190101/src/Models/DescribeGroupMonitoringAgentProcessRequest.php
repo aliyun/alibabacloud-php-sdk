@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeGroupMonitoringAgentProcessRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10.
+     *
+     * @example sshd
+     *
      * @var string
      */
     public $processName;

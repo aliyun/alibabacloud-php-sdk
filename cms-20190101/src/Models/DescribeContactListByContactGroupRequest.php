@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactListByContactGroupRequest extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example CloudMonitor
+     *
      * @var string
      */
     public $contactGroupName;

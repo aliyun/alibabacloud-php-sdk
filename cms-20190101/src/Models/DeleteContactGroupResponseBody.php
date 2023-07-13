@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class DeleteContactGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example F722BE59-2400-4A64-9C1A-AD886AED9A69
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

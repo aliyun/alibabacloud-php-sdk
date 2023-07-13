@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class mnsParameter extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example testQueue
+     *
      * @var string
      */
     public $queue;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;

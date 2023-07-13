@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DeleteGroupMonitoringAgentProcessRequest extends Model
 {
     /**
+     * @description The ID of the process monitoring task.
+     *
+     * @example 123456
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 48F83746-C817-478C-9B06-7158F56B****
+     *
      * @var string
      */
     public $id;

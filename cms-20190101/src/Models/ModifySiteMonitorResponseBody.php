@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ModifySiteMonitorResponseBody extends Model
 {
     /**
+     * @description The URL or IP address that is monitored by the task.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -20,16 +24,28 @@ class ModifySiteMonitorResponseBody extends Model
     public $data;
 
     /**
+     * @description The monitoring frequency. Valid values: 1, 5, 15, and 15000. Unit: milliseconds. Default value: 1.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The result of modifying the task.
+     *
+     * @example 68192f5d-0d45-4b98-9724-892813f86c71
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

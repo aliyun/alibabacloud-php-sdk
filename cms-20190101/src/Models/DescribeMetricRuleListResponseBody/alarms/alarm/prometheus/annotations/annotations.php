@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class annotations extends Model
 {
     /**
+     * @description The key of the annotation.
+     *
+     * @example summary
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the annotation.
+     *
+     * @example {{ $labels.instance }} CPU usage above 10% {current value: {{ humanizePercentage $value }} }
+     *
      * @var string
      */
     public $value;

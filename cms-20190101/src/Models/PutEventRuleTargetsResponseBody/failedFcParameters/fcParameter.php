@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class fcParameter extends Model
 {
     /**
+     * @example functionTest1
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example serviceTest1
+     *
      * @var string
      */
     public $serviceName;

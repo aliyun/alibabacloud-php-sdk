@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteExporterOutputRequest extends Model
 {
     /**
+     * @description The name of the configuration set.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $destName;

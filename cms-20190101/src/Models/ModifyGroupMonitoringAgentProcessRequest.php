@@ -15,16 +15,41 @@ class ModifyGroupMonitoringAgentProcessRequest extends Model
     public $alertConfig;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example 6780****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The statistical aggregation method that is used to calculate the metric values. Valid values of N: 1 to 200.
+     *
+     * >  Set the value to Average.
+     * @example 92E3065F-0980-4E31-9AA0-BA6****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The comparison operator that is used to compare the metric value with the threshold. Valid values of N: 1 to 200. Valid values:
+     *
+     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+     *   GreaterThanThreshold: greater than the threshold
+     *   LessThanOrEqualToThreshold: less than or equal to the threshold
+     *   LessThanThreshold: less than the threshold.
+     *   NotEqualToThreshold: not equal to the threshold
+     *   GreaterThanYesterday: greater than the metric value at the same time yesterday.
+     *   LessThanYesterday: less than the metric value at the same time yesterday
+     *   GreaterThanLastWeek: greater than the metric value at the same time last week
+     *   LessThanLastWeek: less than the metric value at the same time last week
+     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+     *
+     * @example and
+     *
      * @var string
      */
     public $matchExpressFilterRelation;

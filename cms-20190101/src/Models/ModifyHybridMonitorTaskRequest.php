@@ -16,11 +16,17 @@ class ModifyHybridMonitorTaskRequest extends Model
     public $attachLabels;
 
     /**
+     * @description The value of the key that is used to filter logs imported from Log Service.
+     *
+     * @example 15
+     *
      * @var string
      */
     public $collectInterval;
 
     /**
+     * @description The operation that you want to perform. Set the value to **ModifyHybridMonitorTask**.
+     *
      * @var string
      */
     public $description;
@@ -31,16 +37,27 @@ class ModifyHybridMonitorTaskRequest extends Model
     public $regionId;
 
     /**
+     * @description None.
+     *
      * @var SLSProcessConfig
      */
     public $SLSProcessConfig;
 
     /**
+     * @description The tag value of the metric.
+     *
+     * @example 36****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example SLS_task
+     *
      * @var string
      */
     public $taskName;

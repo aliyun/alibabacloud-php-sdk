@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class siteMonitorEcsProbe extends Model
 {
     /**
+     * @description The used quota of site monitoring tasks in your purchased plan.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $quotaLimit;
 
     /**
+     * @description The quota of the time series in custom monitoring in your purchased plan.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $quotaPackage;
 
     /**
+     * @description Specifies whether to return information about used quotas. Valid values:
+     *
+     *   true: to include information about used quotas. Default value: true.
+     *   false: to exclude information about used quotas.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $quotaUsed;

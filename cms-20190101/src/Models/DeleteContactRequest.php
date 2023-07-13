@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteContactRequest extends Model
 {
     /**
+     * @description test-01
+     *
+     * @example The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
      * @var string
      */
     public $contactName;

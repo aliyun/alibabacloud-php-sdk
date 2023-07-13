@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetricRuleTargetsResponseBody extends Model
 {
     /**
+     * @description The returned message.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the message resource that failed to be deleted.
+     *
      * @var failIds
      */
     public $failIds;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example 786E92D2-AC66-4250-B76F-F1E2FCDDBA1C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The message resources that failed to be deleted.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

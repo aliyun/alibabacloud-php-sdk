@@ -9,31 +9,63 @@ use AlibabaCloud\Tea\Model;
 class DescribeSystemEventHistogramRequest extends Model
 {
     /**
+     * @description The end of the time range to query.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @example 1552220485596
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The type of the system event.
+     *
+     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to view the types of system events.
+     * @example Exception
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The level of the system event. Valid values:
+     *
+     *   CRITICAL
+     *   WARN
+     *   INFO
+     *
+     * @example CRITICAL
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The name of the system event.
+     *
+     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to view the names of system events.
+     * @example BucketIngressBandwidth
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The abbreviation of the service name.
+     *
+     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to view the abbreviations of service names.
+     * @example OSS
+     *
      * @var string
      */
     public $product;
@@ -44,16 +76,33 @@ class DescribeSystemEventHistogramRequest extends Model
     public $regionId;
 
     /**
+     * @description The keywords contained in the content of the system event to query. You can use a logical operator between keywords. Examples:
+     *
+     *   If you need to query the system event whose content contains a and b, set the value to `a and b`.
+     *   If you need to query the system event whose content contains a or b, set the value to `a or b`.
+     *
+     * @example cms
+     *
      * @var string
      */
     public $searchKeywords;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @example 1552209685596
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the system event.
+     *
+     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to view the statuses of system events.
+     * @example normal
+     *
      * @var string
      */
     public $status;

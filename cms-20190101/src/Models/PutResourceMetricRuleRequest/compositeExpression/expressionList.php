@@ -9,26 +9,59 @@ use AlibabaCloud\Tea\Model;
 class expressionList extends Model
 {
     /**
+     * @description The statistical method of the metric. Valid values:
+     *
+     *   $Maximum: the maximum value
+     *   $Minimum: the minimum value
+     *   $Average: the average value
+     *   $Availability: the availability rate (usually used for site monitoring)
+     *
+     * >  `$` is the prefix of the metric. For information about the Alibaba Cloud services that are supported by CloudMonitor, see [Appendix 1: Metrics](~~163515~~).
+     * @example GreaterThanOrEqualToThreshold
+     *
      * @var string
      */
     public $comparisonOperator;
 
     /**
+     * @description The trigger conditions for multiple metrics.
+     *
+     * >  The trigger conditions for a single metric and multiple metrics are mutually exclusive. You cannot specify trigger conditions for a single metric and multiple metrics at the same time.
+     * @example cpu_total
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The statistical methods for Critical-level alerts. Valid values:
+     *
+     *   Maximum: the maximum value
+     *   Minimum: the minimum value
+     *   Average: the average value
+     *   Availability: the availability rate
+     *
+     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+     * @example 60
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The time period during which the alert rule is effective.
+     *
+     * @example $Maximum
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @description The number of consecutive triggers. If the number of times that the metric values meet the trigger conditions reaches the value of this parameter, CloudMonitor sends alert notifications.
+     *
+     * @example 90
+     *
      * @var string
      */
     public $threshold;

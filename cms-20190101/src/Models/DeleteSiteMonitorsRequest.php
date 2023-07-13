@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteSiteMonitorsRequest extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example true
+     *
      * @var bool
      */
     public $isDeleteAlarms;
@@ -19,6 +24,13 @@ class DeleteSiteMonitorsRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether to delete the alert rules configured for the site monitoring tasks. Valid values:
+     *
+     *   true (default value)
+     *   false
+     *
+     * @example 01adacc2-ece5-41b6-afa2-3143ab5d****,43bd1ead-514f-4524-813e-228ce091****
+     *
      * @var string
      */
     public $taskIds;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorStatisticsRequest extends Model
 {
     /**
+     * @example Availability
+     *
      * @var string
      */
     public $metricName;
@@ -19,16 +21,22 @@ class DescribeSiteMonitorStatisticsRequest extends Model
     public $regionId;
 
     /**
+     * @example 1576142850527
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example ef4cdc8b-9dc7-43e7-810e-f950e56c****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 1440
+     *
      * @var string
      */
     public $timeRange;

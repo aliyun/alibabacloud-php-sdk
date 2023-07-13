@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ECS_Alert_Group
+     *
      * @var string
      */
     public $contactGroups;
 
     /**
+     * @description The error message.
+     *
+     * @example ECS_Group
+     *
      * @var string
      */
     public $groupName;

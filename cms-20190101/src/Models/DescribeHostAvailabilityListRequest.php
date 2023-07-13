@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class DescribeHostAvailabilityListRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 12345
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
+     * @example 123456
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10.
+     * @example 123456,345678
+     *
      * @var string
      */
     public $ids;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The value 200 indicates that the call was successful.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The error message.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -39,6 +62,10 @@ class DescribeHostAvailabilityListRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example ecs_instance
+     *
      * @var string
      */
     public $taskName;

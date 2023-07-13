@@ -9,41 +9,83 @@ use AlibabaCloud\Tea\Model;
 class DescribeSystemEventAttributeRequest extends Model
 {
     /**
+     * @description The end of the time range to query.
+     *
+     * The value must be a UNIX timestamp. It is the number of seconds that have elapsed since 00:00:00 UTC, January 1, 1970.
+     * @example 1552221584949
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The type of the system event.
+     *
+     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to query the types of system events.
+     * @example Exception
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example 12346
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The level of the system event. Valid values:
+     *
+     *   CRITICAL: critical
+     *   WARN: warning
+     *   INFO: information
+     *
+     * @example CRITICAL
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The name of the system event.
+     *
+     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to query the names of system events.
+     * @example BucketIngressBandwidth
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of the page to return.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Default value: 10
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The abbreviation of the service name.
+     *
+     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to query the abbreviations of service names.
+     * @example oss
+     *
      * @var string
      */
     public $product;
@@ -54,16 +96,33 @@ class DescribeSystemEventAttributeRequest extends Model
     public $regionId;
 
     /**
+     * @description The keywords that are used to search for the system event. Valid values:
+     *
+     *   If you want to search for the system event whose content contains a and b, set the value to `a and b`.
+     *   If you want to search for the system event whose content contains a or b, set the value to `a or b`.
+     *
+     * @example cms
+     *
      * @var string
      */
     public $searchKeywords;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * The value must be a UNIX timestamp. It is the number of seconds that have elapsed since 00:00:00 UTC, January 1, 1970.
+     * @example 1552199984949
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the system event.
+     *
+     * >  You can call the [DescribeSystemEventMetaList](~~114972~~) operation to query the statuses of system events.
+     * @example normal
+     *
      * @var string
      */
     public $status;

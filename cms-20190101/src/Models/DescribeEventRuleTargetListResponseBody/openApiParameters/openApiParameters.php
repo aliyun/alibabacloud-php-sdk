@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class openApiParameters extends Model
 {
     /**
+     * @example PutLogs
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example acs:log:cn-hangzhou::project/cms-log-mon***\/logstore/cxxxx***
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example log
+     *
      * @var string
      */
     public $product;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example MyRole
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example 2019-01-01
+     *
      * @var string
      */
     public $version;

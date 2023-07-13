@@ -9,36 +9,57 @@ use AlibabaCloud\Tea\Model;
 class eventPattern extends Model
 {
     /**
+     * @description The SQL condition that is used to filter events. If the content of an event meets the specified SQL condition, an alert is automatically triggered.
+     *
+     * >  The syntax of SQL event filtering is consistent with the query syntax of Log Service.
+     * @example Stopping
+     *
      * @var string
      */
     public $customFilters;
 
     /**
+     * @example Exception
+     *
      * @var string[]
      */
     public $eventTypeList;
 
     /**
+     * @example CRITICAL
+     *
      * @var string[]
      */
     public $levelList;
 
     /**
+     * @example Agent_Status_Stopped
+     *
      * @var string[]
      */
     public $nameList;
 
     /**
+     * @description The name of the event-triggered alert rule.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $product;
 
     /**
+     * @description The description of the event-triggered alert rule.
+     *
+     * @example 192.168.XX.XX and Executed
+     *
      * @var string
      */
     public $SQLFilter;
 
     /**
+     * @example Failed
+     *
      * @var string[]
      */
     public $statusList;

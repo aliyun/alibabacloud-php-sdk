@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorDataListRequest extends Model
 {
     /**
+     * @description The interval at which monitoring data is collected.
+     *
+     * Unit: seconds.
+     * @example 1653805225
+     *
      * @var int
      */
     public $end;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call is successful.
+     * @example default-aliyun
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @description The error message.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeHybridMonitorDataList**.
+     *
+     * @example AliyunEcs_cpu_total
+     *
      * @var string
      */
     public $promSQL;
@@ -34,6 +52,10 @@ class DescribeHybridMonitorDataListRequest extends Model
     public $regionId;
 
     /**
+     * @description The metric values that are collected at different timestamps.
+     *
+     * @example 1653804865
+     *
      * @var int
      */
     public $start;

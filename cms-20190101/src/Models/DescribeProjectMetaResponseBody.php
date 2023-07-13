@@ -10,41 +10,72 @@ use AlibabaCloud\Tea\Model;
 class DescribeProjectMetaResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
+     * > The status code 200 indicates that the request was successful.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The error message.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example 4C2061B2-3B1B-43BF-A4A4-C53426F479C0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the cloud service.
+     *
      * @var resources
      */
     public $resources;
 
     /**
+     * @description Indicates whether the request was successful. Valid values: true: The request was successful. false: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 12
+     *
      * @var string
      */
     public $total;

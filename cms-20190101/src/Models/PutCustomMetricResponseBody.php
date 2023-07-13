@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class PutCustomMetricResponseBody extends Model
 {
     /**
+     * @description The name of the metric. Valid values of N: 1 to 21. For more information, see [Appendix 1: Metrics](~~163515~~).
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example The request has failed due to a temporary failure of the server.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 05B36C2C-5F6E-48D5-8B41-CE36DD7EE8E0
+     *
      * @var string
      */
     public $requestId;

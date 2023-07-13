@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The number of detection points.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $count;

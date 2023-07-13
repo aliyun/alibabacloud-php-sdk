@@ -9,21 +9,34 @@ use AlibabaCloud\Tea\Model;
 class ModifyGroupMonitoringAgentProcessResponseBody extends Model
 {
     /**
+     * @description The number of times for which the threshold can be consecutively exceeded. Valid values of N: 1 to 200. Default value: 3.
+     *
+     * >  A metric triggers an alert only after the metric value reaches the threshold consecutively for the specified times.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 7985D471-3FA8-4EE9-8F4B-45C19DF3D36F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

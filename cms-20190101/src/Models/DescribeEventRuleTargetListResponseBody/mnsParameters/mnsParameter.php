@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class mnsParameter extends Model
 {
     /**
+     * @example acs:log:cn-hangzhou::project/cms-log-mon***\/logstore/cxxxx***
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example testQueue
+     *
      * @var string
      */
     public $queue;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example topic_sample
+     *
      * @var string
      */
     public $topic;

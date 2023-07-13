@@ -10,31 +10,54 @@ use AlibabaCloud\Tea\Model;
 class DescribeProductResourceTagKeyListResponseBody extends Model
 {
     /**
+     * @description The error message.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The pagination cursor. If more entries are to be returned on the next page, a pagination cursor is returned.
+     *
+     * >  If the value of this parameter is not null, more entries are to be returned on the next page. You can use the returned pagination cursor as a request parameter to obtain entries on the next page. If the value of this parameter is null, all the entries have been returned.
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example dbc2826f237e****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description Indicates whether the call was successful. The value true indicates a success. The value false indicates a failure.
+     *
+     * @example 945ACAA9-89F2-4A62-8913-076FDEDAA8DB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The keys of tags.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description >  If a tag is attached to multiple cloud resources in the region, the key of the tag is returned only once.
+     *
      * @var tagKeys
      */
     public $tagKeys;

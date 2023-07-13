@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class siteMonitorOperatorProbe extends Model
 {
     /**
+     * @description The total quota of processed log data in log monitoring. Unit: MB/min.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $quotaLimit;
 
     /**
+     * @description The time when the plan expires.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $quotaPackage;
 
     /**
+     * @description The details about the quota of event monitoring.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $quotaUsed;

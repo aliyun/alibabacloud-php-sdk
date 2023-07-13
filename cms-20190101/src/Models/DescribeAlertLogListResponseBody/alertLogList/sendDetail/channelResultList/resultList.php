@@ -9,26 +9,51 @@ use AlibabaCloud\Tea\Model;
 class resultList extends Model
 {
     /**
+     * @description The severity level and notification methods of the alert. Valid values:
+     *
+     *   P4: Alert notifications are sent by using emails and DingTalk chatbots.
+     *
+     * <!---->
+     *
+     *   OK: No alert is generated.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The name of the application group.
+     *
+     * @example { }
+     *
      * @var string
      */
     public $detail;
 
     /**
+     * @description The ID of the alert rule.
+     *
+     * For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * @example 0BDAF8A8-04DC-5F0C-90E4-724D42C4****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The ID of the request.
+     *
      * @var string[]
      */
     public $notifyTargetList;

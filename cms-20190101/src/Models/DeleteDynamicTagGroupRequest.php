@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteDynamicTagGroupRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 6b882d9a-5117-42e2-9d0c-4749a0c6****
+     *
      * @var string
      */
     public $dynamicTagRuleId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example cms.s1.3xlarge
+     *
      * @var string
      */
     public $spec;

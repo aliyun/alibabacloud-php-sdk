@@ -10,26 +10,41 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupCategoriesResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the call was successful.
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The error message.
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The cloud services to which the resources in the application group belong and the number of resources that belong to the cloud service.
+     *
      * @var monitorGroupCategories
      */
     public $monitorGroupCategories;
 
     /**
+     * @example 9E0347B0-EBC3-4769-A78D-D96F21C6BB52
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

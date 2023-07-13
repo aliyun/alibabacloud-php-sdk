@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class eventMonitor extends Model
 {
     /**
+     * @description The used quota of detection points that are provided by Alibaba Cloud in site monitoring in your purchased plan.
+     *
+     * >  The value indicates the total number of detection points provided by Alibaba Cloud that are used by existing site monitoring tasks.
+     * @example 55
+     *
      * @var int
      */
     public $quotaLimit;
 
     /**
+     * @description The details about the quota of custom monitoring.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $quotaPackage;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $quotaUsed;

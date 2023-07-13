@@ -11,31 +11,54 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveMetricRuleListResponseBody extends Model
 {
     /**
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
+     *
      * @var alertList
      */
     public $alertList;
 
     /**
+     * @description The returned message.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
+     *
      * @var datapoints
      */
     public $datapoints;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example The Request is not authorization.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example F82E6667-7811-4BA0-842F-5B2DC42BBAAD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the alert rules.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

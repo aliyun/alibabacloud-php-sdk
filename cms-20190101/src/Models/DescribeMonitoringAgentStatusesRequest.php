@@ -9,6 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitoringAgentStatusesRequest extends Model
 {
     /**
+     * @description The error message.
+     *
+     * @example 126****
+     *
+     * @var string
+     */
+    public $hostAvailabilityTaskId;
+
+    /**
+     * @description The operation that you want to perform. Set the value to **DescribeMonitoringAgentStatuses**.
+     *
+     * @example i-hp3dunahluwajv6f****
+     *
      * @var string
      */
     public $instanceIds;
@@ -18,8 +31,9 @@ class DescribeMonitoringAgentStatusesRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'instanceIds' => 'InstanceIds',
-        'regionId'    => 'RegionId',
+        'hostAvailabilityTaskId' => 'HostAvailabilityTaskId',
+        'instanceIds'            => 'InstanceIds',
+        'regionId'               => 'RegionId',
     ];
 
     public function validate()
@@ -29,6 +43,9 @@ class DescribeMonitoringAgentStatusesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hostAvailabilityTaskId) {
+            $res['HostAvailabilityTaskId'] = $this->hostAvailabilityTaskId;
+        }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
@@ -47,6 +64,9 @@ class DescribeMonitoringAgentStatusesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HostAvailabilityTaskId'])) {
+            $model->hostAvailabilityTaskId = $map['HostAvailabilityTaskId'];
+        }
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }

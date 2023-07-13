@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteEventRuleTargetsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var string[]
      */
     public $ids;
@@ -19,6 +21,10 @@ class DeleteEventRuleTargetsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the target. Valid values of N: 1 to 20.
+     *
+     * @example testRule
+     *
      * @var string
      */
     public $ruleName;

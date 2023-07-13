@@ -10,26 +10,45 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitoringAgentProcessesResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The information about the processes.
+     *
+     * @example The specified resource is not found.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the process.
+     *
      * @var nodeProcesses
      */
     public $nodeProcesses;
 
     /**
+     * @example C11C0E85-6862-4F25-8D66-D6A5E0882984
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the process.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagKeyListRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * Pages start from page 1. Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * Maximum value: 100. Default value: 50.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

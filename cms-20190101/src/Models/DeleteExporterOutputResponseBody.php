@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class DeleteExporterOutputResponseBody extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * > The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The returned message.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 2DECF751-7AFA-43BB-8C63-2B6B07E51AE1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

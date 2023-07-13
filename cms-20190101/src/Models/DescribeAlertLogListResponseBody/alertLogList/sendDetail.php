@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class sendDetail extends Model
 {
     /**
+     * @description The namespace of the cloud service.
+     *
      * @var channelResultList[]
      */
     public $channelResultList;
 
     /**
+     * @description The alert logs.
+     *
+     * @example success
+     *
      * @var string
      */
     public $resultCode;

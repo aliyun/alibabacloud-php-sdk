@@ -10,31 +10,60 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The status of the event-triggered alert rule. Valid values:
+     *
+     *   ENABLED: enabled
+     *   DISABLED: disabled
+     *
+     * @example Default group event rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The status of the event.
+     *
      * @var eventPattern
      */
     public $eventPattern;
 
     /**
+     * @description The ID of the application group.
+     *
+     * @example SYSTEM
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The name of the cloud service.
+     *
+     * @example 3607****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The event pattern. This parameter specifies the trigger conditions of an event.
+     *
+     * @example test_DefaultEventRule_7378****
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The level of the event-triggered alert rule. Valid values:
+     *
+     *   CRITICAL: critical
+     *   WARN: warning
+     *   INFO: information
+     *
+     * @example ENABLED
+     *
      * @var string
      */
     public $state;

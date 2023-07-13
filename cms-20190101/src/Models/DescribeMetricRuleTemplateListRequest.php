@@ -9,36 +9,69 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleTemplateListRequest extends Model
 {
     /**
+     * @description The name of the alert template.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $history;
 
     /**
+     * @description The name of the application group.
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example ECS_Template1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The version of the alert template.
+     *
+     * Default value: 0.
+     * @example true
+     *
      * @var bool
      */
     public $order;
 
     /**
+     * @description The timestamp when the alert template was created.
+     *
+     * Unit: milliseconds.
+     * @example gmtCreate
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @description The error message.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description Specifies whether to display the application history of the alert templates. Default value: false. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -49,6 +82,10 @@ class DescribeMetricRuleTemplateListRequest extends Model
     public $regionId;
 
     /**
+     * @description The name of the alert template.
+     *
+     * @example 70****
+     *
      * @var int
      */
     public $templateId;

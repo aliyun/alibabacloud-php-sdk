@@ -14,6 +14,11 @@ class DescribeMetricRuleTargetsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the alert rule.
+     *
+     * For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * @example ae06917_75a8c43178ab66****
+     *
      * @var string
      */
     public $ruleId;
