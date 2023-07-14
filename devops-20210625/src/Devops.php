@@ -61,6 +61,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemRecordRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemRecordResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemV2Request;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkitemV2Response;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\DeleteBranchRequest;
@@ -150,6 +152,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\GetUserInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVariableGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetVMDeployOrderResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemActivityResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemAttachmentCreatemetaRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemAttachmentCreatemetaResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemCommentListResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkItemInfoResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\GetWorkitemRelationsRequest;
@@ -300,6 +304,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkitemFieldRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkitemFieldResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkItemRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateWorkItemResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\WorkitemAttachmentCreateRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\WorkitemAttachmentCreateResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -2095,6 +2101,93 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->createWorkitemRecordWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                  $organizationId
+     * @param CreateWorkitemV2Request $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CreateWorkitemV2Response
+     */
+    public function createWorkitemV2WithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->assignedTo)) {
+            $body['assignedTo'] = $request->assignedTo;
+        }
+        if (!Utils::isUnset($request->category)) {
+            $body['category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->fieldValueList)) {
+            $body['fieldValueList'] = $request->fieldValueList;
+        }
+        if (!Utils::isUnset($request->parentIdentifier)) {
+            $body['parentIdentifier'] = $request->parentIdentifier;
+        }
+        if (!Utils::isUnset($request->participants)) {
+            $body['participants'] = $request->participants;
+        }
+        if (!Utils::isUnset($request->spaceIdentifier)) {
+            $body['spaceIdentifier'] = $request->spaceIdentifier;
+        }
+        if (!Utils::isUnset($request->sprintIdentifier)) {
+            $body['sprintIdentifier'] = $request->sprintIdentifier;
+        }
+        if (!Utils::isUnset($request->subject)) {
+            $body['subject'] = $request->subject;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $body['tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->trackers)) {
+            $body['trackers'] = $request->trackers;
+        }
+        if (!Utils::isUnset($request->verifier)) {
+            $body['verifier'] = $request->verifier;
+        }
+        if (!Utils::isUnset($request->versions)) {
+            $body['versions'] = $request->versions;
+        }
+        if (!Utils::isUnset($request->workitemTypeIdentifier)) {
+            $body['workitemTypeIdentifier'] = $request->workitemTypeIdentifier;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateWorkitemV2',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitem',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateWorkitemV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $organizationId
+     * @param CreateWorkitemV2Request $request
+     *
+     * @return CreateWorkitemV2Response
+     */
+    public function createWorkitemV2($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createWorkitemV2WithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -4893,6 +4986,56 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->getWorkItemWorkFlowInfoWithOptions($organizationId, $workitemId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                                 $organizationId
+     * @param string                                 $workitemIdentifier
+     * @param GetWorkitemAttachmentCreatemetaRequest $request
+     * @param string[]                               $headers
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return GetWorkitemAttachmentCreatemetaResponse
+     */
+    public function getWorkitemAttachmentCreatemetaWithOptions($organizationId, $workitemIdentifier, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['fileName'] = $request->fileName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWorkitemAttachmentCreatemeta',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitem/' . OpenApiUtilClient::getEncodeParam($workitemIdentifier) . '/attachment/createmeta',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWorkitemAttachmentCreatemetaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                                 $organizationId
+     * @param string                                 $workitemIdentifier
+     * @param GetWorkitemAttachmentCreatemetaRequest $request
+     *
+     * @return GetWorkitemAttachmentCreatemetaResponse
+     */
+    public function getWorkitemAttachmentCreatemeta($organizationId, $workitemIdentifier, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWorkitemAttachmentCreatemetaWithOptions($organizationId, $workitemIdentifier, $request, $headers, $runtime);
     }
 
     /**
@@ -9563,5 +9706,58 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->updateWorkitemFieldWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                          $organizationId
+     * @param string                          $workitemIdentifier
+     * @param WorkitemAttachmentCreateRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return WorkitemAttachmentCreateResponse
+     */
+    public function workitemAttachmentCreateWithOptions($organizationId, $workitemIdentifier, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->fileKey)) {
+            $body['fileKey'] = $request->fileKey;
+        }
+        if (!Utils::isUnset($request->originalFilename)) {
+            $body['originalFilename'] = $request->originalFilename;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'WorkitemAttachmentCreate',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitem/' . OpenApiUtilClient::getEncodeParam($workitemIdentifier) . '/attachment',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return WorkitemAttachmentCreateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                          $organizationId
+     * @param string                          $workitemIdentifier
+     * @param WorkitemAttachmentCreateRequest $request
+     *
+     * @return WorkitemAttachmentCreateResponse
+     */
+    public function workitemAttachmentCreate($organizationId, $workitemIdentifier, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->workitemAttachmentCreateWithOptions($organizationId, $workitemIdentifier, $request, $headers, $runtime);
     }
 }
