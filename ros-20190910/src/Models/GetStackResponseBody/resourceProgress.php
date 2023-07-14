@@ -44,6 +44,16 @@ class resourceProgress extends Model
     public $pendingResourceCount;
 
     /**
+     * @var float
+     */
+    public $stackActionProgress;
+
+    /**
+     * @var float
+     */
+    public $stackOperationProgress;
+
+    /**
      * @description The number of resources that are created.
      *
      * @example 1
@@ -65,6 +75,8 @@ class resourceProgress extends Model
         'inProgressResourceCount'   => 'InProgressResourceCount',
         'inProgressResourceDetails' => 'InProgressResourceDetails',
         'pendingResourceCount'      => 'PendingResourceCount',
+        'stackActionProgress'       => 'StackActionProgress',
+        'stackOperationProgress'    => 'StackOperationProgress',
         'successResourceCount'      => 'SuccessResourceCount',
         'totalResourceCount'        => 'TotalResourceCount',
     ];
@@ -93,6 +105,12 @@ class resourceProgress extends Model
         }
         if (null !== $this->pendingResourceCount) {
             $res['PendingResourceCount'] = $this->pendingResourceCount;
+        }
+        if (null !== $this->stackActionProgress) {
+            $res['StackActionProgress'] = $this->stackActionProgress;
+        }
+        if (null !== $this->stackOperationProgress) {
+            $res['StackOperationProgress'] = $this->stackOperationProgress;
         }
         if (null !== $this->successResourceCount) {
             $res['SuccessResourceCount'] = $this->successResourceCount;
@@ -129,6 +147,12 @@ class resourceProgress extends Model
         }
         if (isset($map['PendingResourceCount'])) {
             $model->pendingResourceCount = $map['PendingResourceCount'];
+        }
+        if (isset($map['StackActionProgress'])) {
+            $model->stackActionProgress = $map['StackActionProgress'];
+        }
+        if (isset($map['StackOperationProgress'])) {
+            $model->stackOperationProgress = $map['StackOperationProgress'];
         }
         if (isset($map['SuccessResourceCount'])) {
             $model->successResourceCount = $map['SuccessResourceCount'];
