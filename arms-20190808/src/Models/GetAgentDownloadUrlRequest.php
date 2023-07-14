@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetAgentDownloadUrlRequest extends Model
 {
     /**
+     * @description The download URL of the ARMS agent.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

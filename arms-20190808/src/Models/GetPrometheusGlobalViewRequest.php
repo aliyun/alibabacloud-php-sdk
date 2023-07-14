@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetPrometheusGlobalViewRequest extends Model
 {
     /**
+     * @description The ID of the global aggregation instance.
+     *
+     * @example global-v2-cn-1478326682034601-vss8pd0i
+     *
      * @var string
      */
     public $globalViewClusterId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

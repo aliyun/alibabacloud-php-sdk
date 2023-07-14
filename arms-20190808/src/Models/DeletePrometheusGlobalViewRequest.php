@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeletePrometheusGlobalViewRequest extends Model
 {
     /**
+     * @description The ID of the global aggregation instance.
+     *
+     * @example global-v2-cn-1670100631025794-amaykca4
+     *
      * @var string
      */
     public $globalViewClusterId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

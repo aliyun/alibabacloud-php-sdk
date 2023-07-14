@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class uploadResult extends Model
 {
     /**
+     * @description The ID of the SourceMap file.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $fid;
 
     /**
+     * @description The name of the SourceMap file.
+     *
+     * @example test.js.map
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description The time when the file was uploaded.
+     *
+     * @example 1650272251
+     *
      * @var string
      */
     public $uploadTime;

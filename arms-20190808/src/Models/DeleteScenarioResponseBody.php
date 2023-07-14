@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteScenarioResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example EA24D522-AD35-47B8-8CB2-ADBC382B****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     *   `true`: successful
+     *   `false`: failed
+     *
+     * @example true
+     *
      * @var bool
      */
     public $result;

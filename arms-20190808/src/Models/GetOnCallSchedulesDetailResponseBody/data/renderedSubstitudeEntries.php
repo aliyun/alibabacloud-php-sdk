@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class renderedSubstitudeEntries extends Model
 {
     /**
+     * @description The date on which the substitute was supposed to complete shift work.
+     *
+     * @example 2022-10-30
+     *
      * @var string
      */
     public $end;
 
     /**
+     * @description The information about the substitute.
+     *
      * @var simpleContact
      */
     public $simpleContact;
 
     /**
+     * @description The date from which the substitute was supposed to start shift work.
+     *
+     * @example 2022-10-01
+     *
      * @var string
      */
     public $start;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     * true: The call was successful. false: The call fails.
+     * @example true
+     *
      * @var bool
      */
     public $isControllerInstalled;

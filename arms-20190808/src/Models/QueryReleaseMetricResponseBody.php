@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryReleaseMetricResponseBody extends Model
 {
     /**
+     * @example {"data":{"SystemCpuUser":{"all":[{"date":1632798718000,"val":4.3277,"dim":"SystemCpuUser"},{"date":1632798733000,"val":8.1091,"dim":"SystemCpuUser"}]},"SystemMemUtil":{"all":[{"date":1632798718000,"val":73.4227,"dim":"SystemMemUtil"},{"date":1632798733000,"val":93.0977,"dim":"SystemMemUtil"}]}},"success":true}
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example 46355DD8-FC56-40C5-BFC6-269DE4F9****
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListClusterFromGrafanaRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

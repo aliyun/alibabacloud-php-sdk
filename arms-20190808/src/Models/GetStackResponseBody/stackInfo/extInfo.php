@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class extInfo extends Model
 {
     /**
+     * @description The content of the custom parameter.
+     *
+     * @example input=254275&amp;
+     *
      * @var string
      */
     public $info;
 
     /**
+     * @description The type of the custom parameter.
+     *
+     * @example 41
+     *
      * @var string
      */
     public $type;

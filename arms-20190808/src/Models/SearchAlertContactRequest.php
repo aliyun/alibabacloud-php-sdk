@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class SearchAlertContactRequest extends Model
 {
     /**
+     * @example [12345]
+     *
      * @var string
      */
     public $contactIds;
 
     /**
+     * @example John Doe
+     *
      * @var string
      */
     public $contactName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $currentPage;
 
     /**
+     * @example someone@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example 1381111*****
+     *
      * @var string
      */
     public $phone;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

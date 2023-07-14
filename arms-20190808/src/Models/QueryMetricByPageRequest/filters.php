@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class filters extends Model
 {
     /**
+     * @description The key of the filter condition. You must set the key to `pid` or `regionId`.
+     *
+     * @example pid
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the filter condition. You must set the value of the `pid` or `regionId` condition. For information about how to obtain the `pid`, see the "Obtain the PID of an application" section.
+     *
+     * @example xxx@74xxx
+     *
      * @var string
      */
     public $value;

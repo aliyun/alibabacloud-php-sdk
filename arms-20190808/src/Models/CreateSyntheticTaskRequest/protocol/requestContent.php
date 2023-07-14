@@ -21,6 +21,8 @@ class requestContent extends Model
     public $header;
 
     /**
+     * @example POST
+     *
      * @var string
      */
     public $method;

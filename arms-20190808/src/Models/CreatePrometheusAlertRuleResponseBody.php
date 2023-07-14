@@ -15,6 +15,8 @@ class CreatePrometheusAlertRuleResponseBody extends Model
     public $prometheusAlertRule;
 
     /**
+     * @example 9FEA6D00-317F-45E3-9004-7FB8B0B7****
+     *
      * @var string
      */
     public $requestId;

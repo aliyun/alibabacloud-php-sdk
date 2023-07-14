@@ -16,16 +16,22 @@ class body extends Model
     public $formData;
 
     /**
+     * @example json
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @example form-data
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @example content
+     *
      * @var string
      */
     public $raw;

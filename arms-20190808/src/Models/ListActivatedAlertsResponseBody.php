@@ -15,6 +15,8 @@ class ListActivatedAlertsResponseBody extends Model
     public $page;
 
     /**
+     * @example BDB74B8F-4123-482A-ABB7-7F440349****
+     *
      * @var string
      */
     public $requestId;

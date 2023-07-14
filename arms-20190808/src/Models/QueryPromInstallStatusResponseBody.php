@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class QueryPromInstallStatusResponseBody extends Model
 {
     /**
+     * @description The returned struct.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
+     * @example 27E653FA-5958-45BE-8AA9-14D884DC****
+     *
      * @var string
      */
     public $requestId;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListRetcodeAppsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 99A663CB-8D7B-4B0D-A006-03C8EE38E7BB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of applications monitored by Browser Monitoring.
+     *
      * @var retcodeApps[]
      */
     public $retcodeApps;

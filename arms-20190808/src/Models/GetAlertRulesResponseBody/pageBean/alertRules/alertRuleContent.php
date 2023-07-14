@@ -15,6 +15,8 @@ class alertRuleContent extends Model
     public $alertRuleItems;
 
     /**
+     * @example OR
+     *
      * @var string
      */
     public $condition;

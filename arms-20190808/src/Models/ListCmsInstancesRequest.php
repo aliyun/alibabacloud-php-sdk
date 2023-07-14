@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListCmsInstancesRequest extends Model
 {
     /**
+     * @example n9p9o9o3se
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example direct
+     *
      * @var string
      */
     public $typeFilter;

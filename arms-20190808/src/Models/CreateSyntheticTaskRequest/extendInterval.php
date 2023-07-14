@@ -14,31 +14,43 @@ class extendInterval extends Model
     public $days;
 
     /**
+     * @example 23
+     *
      * @var int
      */
     public $endHour;
 
     /**
+     * @example 00
+     *
      * @var int
      */
     public $endMinute;
 
     /**
+     * @example 2022-08-20 10
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 00
+     *
      * @var int
      */
     public $startHour;
 
     /**
+     * @example 00
+     *
      * @var int
      */
     public $startMinute;
 
     /**
+     * @example 2022-07-20 10
+     *
      * @var string
      */
     public $startTime;

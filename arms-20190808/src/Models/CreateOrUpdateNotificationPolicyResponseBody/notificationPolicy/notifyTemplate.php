@@ -9,46 +9,83 @@ use AlibabaCloud\Tea\Model;
 class notifyTemplate extends Model
 {
     /**
+     * @description The content of the alert notification sent through email.
+     *
+     * @example Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
+     * {{ end }} {{ end }}
      * @var string
      */
     public $emailContent;
 
     /**
+     * @description The content of the alert resolution notification sent through email.
+     *
+     * @example Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
+     * {{ end }} {{ end }}
      * @var string
      */
     public $emailRecoverContent;
 
     /**
+     * @description The title of the alert resolution notification sent through email.
+     *
+     * @example {{ .commonLabels.alertname }}
+     *
      * @var string
      */
     public $emailRecoverTitle;
 
     /**
+     * @description The title of the alert notification sent through email.
+     *
+     * @example {{ .commonLabels.alertname }}
+     *
      * @var string
      */
     public $emailTitle;
 
     /**
+     * @description The content of the alert notification sent by the IM robot.
+     *
+     * @example {{if .commonLabels.clustername }}
+     *
+     * {{end}}
      * @var string
      */
     public $robotContent;
 
     /**
+     * @description The content of the alert notification sent through text message.
+     *
+     * @example {{ .level }}Alert Occurs
+     * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
      * @var string
      */
     public $smsContent;
 
     /**
+     * @description The content of the alert resolution notification sent through text message.
+     *
+     * @example Alert Recovery Notification
+     * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
      * @var string
      */
     public $smsRecoverContent;
 
     /**
+     * @description The content of the alert notification by phone.
+     *
+     * @example Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
+     * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
      * @var string
      */
     public $ttsContent;
 
     /**
+     * @description The content of the alert resolution notification by phone.
+     *
+     * @example Alert Name: {{ .commonLabels.alertname }}{{if .commonLabels.clustername }}
+     * Description: {{ for .alerts }} {{ .annotations.message }} {{ end }}
      * @var string
      */
     public $ttsRecoverContent;

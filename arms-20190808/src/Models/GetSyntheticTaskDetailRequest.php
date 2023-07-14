@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetSyntheticTaskDetailRequest extends Model
 {
     /**
+     * @description 地域ID。默认为cn-hangzhou。
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description 云拨测任务ID。
+     *
+     * @example 123
+     *
      * @var string
      */
     public $taskId;

@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class download extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $connectionTimeout;
 
     /**
+     * @example char
+     *
      * @var string
      */
     public $downloadCustomHeaderContent;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $downloadCustomHost;
 
     /**
+     * @example 168.23.45.1
+     *
      * @var string
      */
     public $downloadCustomHostIp;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $downloadKernel;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $downloadRedirect;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $downloadTransmissionSize;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $monitorTimeout;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $quickProtocol;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $validateKeywords;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $verifyWay;
 
     /**
+     * @example [{\"src\":\"211.154.166.174\"}]
+     *
      * @var string
      */
     public $whiteList;

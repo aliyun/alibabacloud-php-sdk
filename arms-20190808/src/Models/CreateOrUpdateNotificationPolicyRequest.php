@@ -9,61 +9,126 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateNotificationPolicyRequest extends Model
 {
     /**
+     * @description The ID of the escalation policy.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $escalationPolicyId;
 
     /**
+     * @description An array of alert event group objects.
+     *
+     *   If you do not specify the groupingFields field, all alerts will be sent to contacts based on `alertname`.
+     *
+     *   If you specify the groupingFields field, alerts with the same field will be sent to contacts in one notification.
+     *
+     * ```
+     * @example { 	"groupWait":5, 	"groupInterval":30, 	"groupingFields":["alertname"] }
+     *
      * @var string
      */
     public $groupRule;
 
     /**
+     * @description The ID of the notification policy.
+     *
+     *   If you do not specify this parameter, a new notification policy is created.
+     *   If you specify this parameter, the specified notification policy is modified.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The integration ID of the ticket system to which alerts are pushed.
+     *
+     * @example 34
+     *
      * @var int
      */
     public $integrationId;
 
     /**
+     * @description The matching rules. Sample statement:
+     *
+     * ```
+     * @example [ 		 { 		 "matchingConditions": [          { 		 "value": "test", 		 "key": "alertname", 		 "operator": "eq"         }       ]     }   ]
+     *
      * @var string
      */
     public $matchingRules;
 
     /**
+     * @description The name of the notification policy.
+     *
+     * @example notificationpolicy_test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description An array of notification rule objects. Format:
+     *
+     * }]
+     * @example {     "notifyStartTime":"00:00",     "notifyEndTime":"23:59",     "notifyChannels":[         "dingTalk",         "email",         "sms",         "tts",         "webhook"     ],     "notifyObjects":[         {             "notifyObjectType":"CONTACT",             "notifyObjectId":123,             "notifyObjectName":"test"         }     ] }
+     *
      * @var string
      */
     public $notifyRule;
 
     /**
+     * @description The notification template. The default notification template is provided below the table.
+     *
+     * @example {{if .commonLabels.clustername }}
+     *
+     * {{end}}
      * @var string
      */
     public $notifyTemplate;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to resend a notification for a long-lasting unresolved alert. Default value: true. Valid values:
+     *
+     *   `true`: If you set this parameter to `true`, you must set **RepeatInterval**.
+     *   `false`: If you set this parameter to `false`, you must set **EscalationPolicyId**.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $repeat;
 
     /**
+     * @description The time interval at which a notification is resent for a long-lasting unresolved alert. Unit: seconds.
+     *
+     * @example 600
+     *
      * @var int
      */
     public $repeatInterval;
 
     /**
+     * @description Indicates whether the system sends a notification to the contacts when the status of an alert changes to Resolved. Default value: true. Valid values:
+     *
+     *   `true`: The system sends a notification.
+     *   `false`: The system does not send a notification.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $sendRecoverMessage;

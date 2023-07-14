@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class alerts extends Model
 {
     /**
+     * @example 3888704
+     *
      * @var string
      */
     public $alertId;
@@ -25,11 +27,15 @@ class alerts extends Model
     public $alertType;
 
     /**
+     * @example 598
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 1616466300000
+     *
      * @var int
      */
     public $createTime;
@@ -40,6 +46,8 @@ class alerts extends Model
     public $dispatchRules;
 
     /**
+     * @example 1616502540000
+     *
      * @var int
      */
     public $endsAt;
@@ -50,16 +58,22 @@ class alerts extends Model
     public $expandFields;
 
     /**
+     * @example testphp2
+     *
      * @var string
      */
     public $integrationName;
 
     /**
+     * @example PROMETHEUS
+     *
      * @var string
      */
     public $integrationType;
 
     /**
+     * @example cluster
+     *
      * @var string
      */
     public $involvedObjectKind;
@@ -75,16 +89,22 @@ class alerts extends Model
     public $message;
 
     /**
+     * @example critical
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @example 1616466300000
+     *
      * @var int
      */
     public $startsAt;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $status;

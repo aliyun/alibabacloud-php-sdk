@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ListEscalationPoliciesRequest extends Model
 {
     /**
+     * @description The name of the escalation policy.
+     *
+     * @example prod escalation policy
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;

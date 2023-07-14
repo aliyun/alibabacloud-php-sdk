@@ -15,16 +15,22 @@ class pageBean extends Model
     public $alertRules;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 23
+     *
      * @var int
      */
     public $totalCount;

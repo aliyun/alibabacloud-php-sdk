@@ -9,29 +9,45 @@ use AlibabaCloud\Tea\Model;
 class contacts extends Model
 {
     /**
+     * @example 100117
+     *
+     * @var int
+     */
+    public $armsContactId;
+
+    /**
+     * @example 456
+     *
      * @var float
      */
     public $contactId;
 
     /**
+     * @example John Doe
+     *
      * @var string
      */
     public $contactName;
 
     /**
+     * @example someone@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 1381111****
+     *
      * @var string
      */
     public $phone;
     protected $_name = [
-        'contactId'   => 'ContactId',
-        'contactName' => 'ContactName',
-        'email'       => 'Email',
-        'phone'       => 'Phone',
+        'armsContactId' => 'ArmsContactId',
+        'contactId'     => 'ContactId',
+        'contactName'   => 'ContactName',
+        'email'         => 'Email',
+        'phone'         => 'Phone',
     ];
 
     public function validate()
@@ -41,6 +57,9 @@ class contacts extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->armsContactId) {
+            $res['ArmsContactId'] = $this->armsContactId;
+        }
         if (null !== $this->contactId) {
             $res['ContactId'] = $this->contactId;
         }
@@ -65,6 +84,9 @@ class contacts extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArmsContactId'])) {
+            $model->armsContactId = $map['ArmsContactId'];
+        }
         if (isset($map['ContactId'])) {
             $model->contactId = $map['ContactId'];
         }

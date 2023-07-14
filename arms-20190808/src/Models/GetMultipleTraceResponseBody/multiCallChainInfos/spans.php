@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class spans extends Model
 {
     /**
+     * @example 11
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $haveStack;
@@ -26,41 +30,57 @@ class spans extends Model
     public $logEventList;
 
     /**
+     * @example /demo/queryNotExistDB/11
+     *
      * @var string
      */
     public $operationName;
 
     /**
+     * @example 18
+     *
      * @var string
      */
     public $parentSpanId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $resultCode;
 
     /**
+     * @example 0.1
+     *
      * @var string
      */
     public $rpcId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $rpcType;
 
     /**
+     * @example 172.20.XX.XX
+     *
      * @var string
      */
     public $serviceIp;
 
     /**
+     * @example arms-k8s-demo-subcomponent
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $spanId;
@@ -71,11 +91,15 @@ class spans extends Model
     public $tagEntryList;
 
     /**
+     * @example 1595174501747
+     *
      * @var int
      */
     public $timestamp;
 
     /**
+     * @example ac1400a115951745017447033d****
+     *
      * @var string
      */
     public $traceID;

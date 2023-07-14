@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class pageInfo extends Model
 {
     /**
+     * @example false
+     *
      * @var string
      */
     public $hasNextPage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasPreviousPage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isFirstPage;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isLastPage;
@@ -35,41 +43,57 @@ class pageInfo extends Model
     public $list;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $navigateFirstPage;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $navigateLastPage;
 
     /**
+     * @example 1,2,3
+     *
      * @var string
      */
     public $navigatePageNums;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $nextPage;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pages;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $prepage;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $total;

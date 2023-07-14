@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribePrometheusAlertRuleRequest extends Model
 {
     /**
+     * @example 3888704
+     *
      * @var int
      */
     public $alertId;
+
+    /**
+     * @var string
+     */
+    public $clusterId;
     protected $_name = [
-        'alertId' => 'AlertId',
+        'alertId'   => 'AlertId',
+        'clusterId' => 'ClusterId',
     ];
 
     public function validate()
@@ -25,6 +33,9 @@ class DescribePrometheusAlertRuleRequest extends Model
         $res = [];
         if (null !== $this->alertId) {
             $res['AlertId'] = $this->alertId;
+        }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
         }
 
         return $res;
@@ -40,6 +51,9 @@ class DescribePrometheusAlertRuleRequest extends Model
         $model = new self();
         if (isset($map['AlertId'])) {
             $model->alertId = $map['AlertId'];
+        }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
         }
 
         return $model;

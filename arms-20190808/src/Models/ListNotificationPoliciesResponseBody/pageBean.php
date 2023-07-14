@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
+     * @description The information about the notification policies.
+     *
      * @var notificationPolicies[]
      */
     public $notificationPolicies;
 
     /**
+     * @description The number of the page returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The number of entries that are returned on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The number of notification policies that are returned.
+     *
+     * @example 24
+     *
      * @var int
      */
     public $total;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SearchAlertContactGroupRequest extends Model
 {
     /**
+     * @example 746
+     *
      * @var string
      */
     public $contactGroupIds;
 
     /**
+     * @example TestGroup
+     *
      * @var string
      */
     public $contactGroupName;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $contactId;
 
     /**
+     * @example John Doe
+     *
      * @var string
      */
     public $contactName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDetail;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -15,6 +15,8 @@ class DescribeContactGroupsResponseBody extends Model
     public $pageBean;
 
     /**
+     * @example 4D6C358A-A58B-4F4B-94CE-F5AAF023****
+     *
      * @var string
      */
     public $requestId;

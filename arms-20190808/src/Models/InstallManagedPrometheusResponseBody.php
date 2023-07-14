@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class InstallManagedPrometheusResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example vpcId is blank
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example String	2A0CEDF1-06FE-44AC-8E21-21A5BE65****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

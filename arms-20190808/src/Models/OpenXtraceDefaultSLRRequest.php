@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class OpenXtraceDefaultSLRRequest extends Model
 {
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

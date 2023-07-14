@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class InstallCmsExporterRequest extends Model
 {
     /**
+     * @example cc7a37ee31aea4ed1a059eff8034b****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example hologres#cen
+     *
      * @var string
      */
     public $cmsArgs;
 
     /**
+     * @example hologres#cen
+     *
      * @var string
      */
     public $directArgs;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableTag;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;

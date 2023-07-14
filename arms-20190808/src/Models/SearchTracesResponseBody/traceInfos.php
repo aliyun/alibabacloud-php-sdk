@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class traceInfos extends Model
 {
     /**
+     * @description The amount of time consumed by the trace. Unit: milliseconds.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @description The name of the traced span.
+     *
+     * @example get***
+     *
      * @var string
      */
     public $operationName;
 
     /**
+     * @description The IP address of the host where the application resides.
+     *
+     * @example 172.20.**.**
+     *
      * @var string
      */
     public $serviceIp;
 
     /**
+     * @description The name of the application.
+     *
+     * @example arms-k8s-demo-subcomponent
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The timestamp.
+     *
+     * @example 1595174436993
+     *
      * @var int
      */
     public $timestamp;
 
     /**
+     * @description The trace ID.
+     *
+     * @example ac1400a115951744369937024d****
+     *
      * @var string
      */
     public $traceID;

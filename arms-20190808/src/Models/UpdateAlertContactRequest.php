@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlertContactRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $contactId;
 
     /**
+     * @example John Doe
+     *
      * @var string
      */
     public $contactName;
 
     /**
+     * @example https://oapi.dingtalk.com/robot/send?access_token=91f2f6****
+     *
      * @var string
      */
     public $dingRobotWebhookUrl;
 
     /**
+     * @example someone@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 1381111****
+     *
      * @var string
      */
     public $phoneNum;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $systemNoc;

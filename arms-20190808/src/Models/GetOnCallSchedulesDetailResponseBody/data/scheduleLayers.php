@@ -10,26 +10,46 @@ use AlibabaCloud\Tea\Model;
 class scheduleLayers extends Model
 {
     /**
+     * @description The ID list of users on duty.
+     *
      * @var int[]
      */
     public $contactIds;
 
     /**
+     * @description The limit on the time of the shift.
+     *
      * @var restrictions[]
      */
     public $restrictions;
 
     /**
+     * @description The type of the shift. Valid values:
+     *
+     *   DAY
+     *   WEEK
+     *   CUSTOM
+     *
+     * @example DAY
+     *
      * @var string
      */
     public $rotationType;
 
     /**
+     * @description The shift cycle. Unit: hours.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $shiftLength;
 
     /**
+     * @description The date on which the shift change took effect.
+     *
+     * @example 2022-10-01
+     *
      * @var string
      */
     public $startTime;

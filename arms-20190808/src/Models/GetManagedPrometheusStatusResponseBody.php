@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetManagedPrometheusStatusResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example Installing
+     *
      * @var string
      */
     public $data;
@@ -24,11 +28,15 @@ class GetManagedPrometheusStatusResponseBody extends Model
     public $message;
 
     /**
+     * @example F7781D4A-2818-41E7-B7BB-79D809E9****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

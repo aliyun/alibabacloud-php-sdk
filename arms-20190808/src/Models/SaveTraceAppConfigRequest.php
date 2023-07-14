@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SaveTraceAppConfigRequest extends Model
 {
     /**
+     * @example a2n80plglh@745eddxxx
+     *
      * @var string
      */
     public $pid;

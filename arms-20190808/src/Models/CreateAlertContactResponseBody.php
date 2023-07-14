@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateAlertContactResponseBody extends Model
 {
     /**
+     * @example 102**
+     *
      * @var string
      */
     public $contactId;
 
     /**
+     * @example E9C9DA3D-10FE-472E-9EEF-2D0A3E41****
+     *
      * @var string
      */
     public $requestId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSyntheticTaskResponseBody extends Model
 {
     /**
+     * @example 1001
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class CreateSyntheticTaskResponseBody extends Model
     public $data;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @example A5EC8221-08F2-4C95-9AF1-49FD998C****
+     *
      * @var string
      */
     public $requestId;

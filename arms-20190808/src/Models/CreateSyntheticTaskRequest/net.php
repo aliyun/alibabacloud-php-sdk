@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class net extends Model
 {
     /**
+     * @example 114.114.XX.XX
+     *
      * @var string
      */
     public $netDNSNs;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $netDNSQueryMethod;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $netDNSServer;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $netDNSSwitch;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $netDNSTimeout;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $netDigSwitch;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $netICMPActive;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $netICMPDataCut;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $netICMPInterval;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $netICMPNum;
 
     /**
+     * @example 32
+     *
      * @var int
      */
     public $netICMPSize;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $netICMPSwitch;
@@ -74,21 +98,29 @@ class net extends Model
     public $netICMPTimeout;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $netTraceRouteNum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $netTraceRouteSwitch;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $netTraceRouteTimeout;
 
     /**
+     * @example www.aliyun.com:202.0.3.55|203.3.44.67
+     *
      * @var string
      */
     public $whiteList;

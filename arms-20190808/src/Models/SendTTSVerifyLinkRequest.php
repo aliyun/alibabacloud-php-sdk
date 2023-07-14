@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SendTTSVerifyLinkRequest extends Model
 {
     /**
+     * @description The ID of the alert contact.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $contactId;
 
     /**
+     * @description The mobile number of the alert contact.
+     *
+     * @example 1381111****
+     *
      * @var string
      */
     public $phone;

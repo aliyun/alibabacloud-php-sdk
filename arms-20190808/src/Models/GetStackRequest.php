@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class GetStackRequest extends Model
 {
     /**
+     * @description The end time of the call method.
+     *
+     * @example 1653641800
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The process identifier (PID) of the application. For more information about how to obtain the PID, see [Obtain the PID of an application](https://www.alibabacloud.com/help/zh/doc-detail/186100.htm?spm=a2cdw.13409063.0.0.7a72281f0bkTfx#title-imy-7gj-qhr).
+     *
+     * @example eb4zdose6v@36bab313a******
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the remote procedure call (RPC) mode. You can obtain the ID by calling the **GetTrace** operation.
+     *
+     * @example 0.1
+     *
      * @var string
      */
     public $rpcID;
 
     /**
+     * @description The start time of the call method.
+     *
+     * @example 1653555396
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The trace ID. You can log on to the Application Real-Time Monitoring Service (ARMS) console and obtain the trace ID on the **Trace Query** page.
+     *
+     * @example 0a5800611641470044457853******
+     *
      * @var string
      */
     public $traceID;

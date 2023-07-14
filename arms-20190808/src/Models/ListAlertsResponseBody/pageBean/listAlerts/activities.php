@@ -24,11 +24,15 @@ class activities extends Model
     public $handlerName;
 
     /**
+     * @example 2021-12-20 19:08:57
+     *
      * @var string
      */
     public $time;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $type;

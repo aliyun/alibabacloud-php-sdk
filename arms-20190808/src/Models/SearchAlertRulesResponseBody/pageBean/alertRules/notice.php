@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class notice extends Model
 {
     /**
+     * @example 1480607940000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1480607940000
+     *
      * @var int
      */
     public $noticeEndTime;
 
     /**
+     * @example 1480521600000
+     *
      * @var int
      */
     public $noticeStartTime;
 
     /**
+     * @example 1480521600000
+     *
      * @var int
      */
     public $startTime;

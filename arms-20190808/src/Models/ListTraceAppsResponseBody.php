@@ -10,26 +10,52 @@ use AlibabaCloud\Tea\Model;
 class ListTraceAppsResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned for the request. Valid values:
+     *
+     *   `2XX`: The request is successful.
+     *   `3XX`: A redirection message is returned.
+     *   `4XX`: The request is invalid.
+     *   `5XX`: A server error occurs.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The error message returned if the request parameters are invalid.
+     *
+     * @example Internal error. Please try again. Contact the DingTalk service account if the issue persists after multiple retries.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 40B10E04-81E8-4643-970D-F1B38F2E****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   `true`: The call was successful.
+     *   `false`: The call failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The list of Application Monitoring tasks.
+     *
      * @var traceApps[]
      */
     public $traceApps;

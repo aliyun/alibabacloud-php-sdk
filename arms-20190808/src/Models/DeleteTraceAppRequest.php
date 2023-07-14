@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DeleteTraceAppRequest extends Model
 {
     /**
+     * @description The ID of the application that you want to delete. You can call the SearchTraceAppByName operation to query the application ID. For more information, see [SearchTraceAppByName](~~130676~~).
+     *
+     * @example 5406**
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The PID of the application that you want to delete. For more information about how to obtain the PID, see [Obtain the PID of an application](https://www.alibabacloud.com/help/zh/doc-detail/186100.htm?spm=a2cdw.13409063.0.0.7a72281f0bkTfx#title-imy-7gj-qhr).
+     *
+     * @example 9w0sc5gxxz@edcsd447c2f****
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the application that you want to delete. You can call the SearchTraceAppByName operation to query the application type. For more information, see [SearchTraceAppByName](~~130676~~). Valid values:
+     *
+     *   `TRACE`: application monitoring
+     *   `RETCODE`: frontend monitoring
+     *
+     * @example TRACE
+     *
      * @var string
      */
     public $type;

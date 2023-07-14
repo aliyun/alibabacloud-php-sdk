@@ -9,36 +9,56 @@ use AlibabaCloud\Tea\Model;
 class event extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $alertId;
 
     /**
+     * @example alertName
+     *
      * @var string
      */
     public $alertName;
 
     /**
+     * @description The ID of the request.
+     *
      * @var string
      */
     public $alertRule;
 
     /**
+     * @description The name of the alert rule that is associated with the event.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $alertType;
 
     /**
+     * @description The number of entries to return on each page. Default value: `10`.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $eventLevel;
 
     /**
+     * @description The struct returned.
+     *
+     * @example 1595569020000
+     *
      * @var int
      */
     public $eventTime;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $id;
@@ -49,6 +69,8 @@ class event extends Model
     public $links;
 
     /**
+     * @description The condition of the alert rule.
+     *
      * @var string
      */
     public $message;

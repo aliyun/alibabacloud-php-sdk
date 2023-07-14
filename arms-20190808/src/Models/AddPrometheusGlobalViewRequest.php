@@ -4,28 +4,57 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusGlobalViewRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class AddPrometheusGlobalViewRequest extends Model
 {
     /**
+     * @description The queried global aggregation instances. The value is a JSON string.
+     *
      * @var string
      */
     public $clusters;
 
     /**
+     * @description The name of the aggregation instance.
+     *
+     * @example zyGlobalView
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The resource group ID.
+     *
+     * @example rg-aek2eq4pecazwfy
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The list of tags.
+     *
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
-        'clusters'  => 'Clusters',
-        'groupName' => 'GroupName',
-        'regionId'  => 'RegionId',
+        'clusters'        => 'Clusters',
+        'groupName'       => 'GroupName',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tag'             => 'Tag',
     ];
 
     public function validate()
@@ -43,6 +72,18 @@ class AddPrometheusGlobalViewRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -64,6 +105,18 @@ class AddPrometheusGlobalViewRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

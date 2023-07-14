@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class escalationPolicies extends Model
 {
     /**
+     * @description The ID of the escalation policy.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the escalation policy.
+     *
+     * @example prod escalation policy
+     *
      * @var string
      */
     public $name;

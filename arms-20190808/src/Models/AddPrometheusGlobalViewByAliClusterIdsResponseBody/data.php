@@ -14,11 +14,15 @@ class data extends Model
     public $info;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDispatchRuleResponseBody extends Model
 {
     /**
+     * @description The collection of dispatch rules.
+     *
      * @var dispatchRule
      */
     public $dispatchRule;
 
     /**
+     * @description The ID of the dispatch policy.
+     *
+     * @example 34ED024E-9E31-434A-9E4E-D9D15C3****
+     *
      * @var string
      */
     public $requestId;

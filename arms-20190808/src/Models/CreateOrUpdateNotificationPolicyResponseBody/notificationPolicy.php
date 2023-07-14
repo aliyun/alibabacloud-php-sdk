@@ -13,56 +13,94 @@ use AlibabaCloud\Tea\Model;
 class notificationPolicy extends Model
 {
     /**
+     * @description The ID of the escalation policy.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $escalationPolicyId;
 
     /**
+     * @description An array of alert event group objects.
+     *
      * @var groupRule
      */
     public $groupRule;
 
     /**
+     * @description The ID of the notification policy.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The integration ID of the ticket system to which alerts are pushed.
+     *
+     * @example 34
+     *
      * @var int
      */
     public $integrationId;
 
     /**
+     * @description An array of alert event matching rule objects.
+     *
      * @var matchingRules[]
      */
     public $matchingRules;
 
     /**
+     * @description The name of the notification policy.
+     *
+     * @example notificationpolicy_test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description An array of notification rule objects.
+     *
      * @var notifyRule
      */
     public $notifyRule;
 
     /**
+     * @description An array of notification template objects.
+     *
      * @var notifyTemplate
      */
     public $notifyTemplate;
 
     /**
+     * @description Indicates whether a notification is resent for a long-lasting unresolved alert. Default value: true. Valid values:
+     *
+     * - `false`: The system sends a notification for a long-lasting unresolved alert based on an escalation policy.
+     * @example true
+     *
      * @var bool
      */
     public $repeat;
 
     /**
+     * @description The time interval at which a notification is resent for a long-lasting unresolved alert. Unit: seconds.
+     *
+     * @example 600
+     *
      * @var int
      */
     public $repeatInterval;
 
     /**
+     * @description Indicates whether the system sends a notification to the contacts when the status of an alert changes to Resolved. Default value: true. Valid values:
+     *
+     * - `false`: The system does not send a notification.
+     * @example true
+     *
      * @var bool
      */
     public $sendRecoverMessage;

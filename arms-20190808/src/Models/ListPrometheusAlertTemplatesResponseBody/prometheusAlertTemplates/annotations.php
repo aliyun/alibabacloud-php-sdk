@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class annotations extends Model
 {
     /**
+     * @example message
+     *
      * @var string
      */
     public $name;

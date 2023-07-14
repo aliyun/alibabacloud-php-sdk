@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class logEventList extends Model
 {
     /**
+     * @description The tags of the trace.
+     *
      * @var tagEntryList[]
      */
     public $tagEntryList;
 
     /**
+     * @description The timestamp when the log event was generated.
+     *
+     * @example 1590388651
+     *
      * @var int
      */
     public $timestamp;

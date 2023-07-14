@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class GetTraceRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Unit: milliseconds.
+     *
+     * > If the ID of the trace is 30 characters in length, this parameter is optional. Otherwise, this parameter is required.
+     * @example 1623827603000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The beginning of the time range to query. Unit: milliseconds.
+     *
+     * > If the ID of the trace is 30 characters in length, this parameter is optional. Otherwise, this parameter is required.
+     * @example 1623827602000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The trace ID. You can log on to the ARMS console and obtain the trace ID on the **Trace Query** page or **Interface Snapshot** tab.
+     *
+     * @example ac14001a15954493811405707d****
+     *
      * @var string
      */
     public $traceID;

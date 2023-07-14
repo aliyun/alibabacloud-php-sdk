@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CheckServiceStatusRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The service code of an Alibaba Cloud service. The service code of Prometheus Service is prometheus.
+     *
+     * @example prometheus
+     *
      * @var string
      */
     public $svcCode;

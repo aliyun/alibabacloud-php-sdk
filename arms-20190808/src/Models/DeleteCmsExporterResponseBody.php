@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteCmsExporterResponseBody extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example 27E653FA-5958-45BE-8AA9-14D884DC****
+     *
      * @var string
      */
     public $requestId;

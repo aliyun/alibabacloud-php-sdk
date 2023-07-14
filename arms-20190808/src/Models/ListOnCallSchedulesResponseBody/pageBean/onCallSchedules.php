@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class onCallSchedules extends Model
 {
     /**
+     * @description The description of the scheduling policy.
+     *
+     * @example Test scheduling policy
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the scheduling policy.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the scheduling policy.
+     *
+     * @example OnCallSchedule_test
+     *
      * @var string
      */
     public $name;

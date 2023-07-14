@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @example 1634005438000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $monitorNumber;
 
     /**
+     * @example 2118709
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example net-test
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $taskType;
@@ -44,11 +56,15 @@ class list_ extends Model
     public $taskTypeName;
 
     /**
+     * @example www.example.com
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @example 0.80
+     *
      * @var float
      */
     public $usable;

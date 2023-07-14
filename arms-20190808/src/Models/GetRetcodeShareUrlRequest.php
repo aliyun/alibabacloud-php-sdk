@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetRetcodeShareUrlRequest extends Model
 {
     /**
+     * @description The logon-free URL of the application.
+     *
+     * @example iioe7jcnuk@582846f37******
+     *
      * @var string
      */
     public $pid;

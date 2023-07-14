@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class simpleContact extends Model
 {
     /**
+     * @description The ID of the substitute.
+     *
+     * @example 234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the substitute.
+     *
+     * @example Employee 2
+     *
      * @var string
      */
     public $name;

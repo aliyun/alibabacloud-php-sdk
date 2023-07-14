@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ListEventBridgeIntegrationsRequest extends Model
 {
     /**
+     * @description The name of the EventBridge integration.
+     *
+     * @example EventBridge_Test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $size;

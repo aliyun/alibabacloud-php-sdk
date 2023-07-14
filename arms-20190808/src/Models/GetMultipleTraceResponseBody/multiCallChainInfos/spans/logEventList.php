@@ -15,6 +15,8 @@ class logEventList extends Model
     public $tagEntryList;
 
     /**
+     * @example 1595174501747
+     *
      * @var int
      */
     public $timestamp;

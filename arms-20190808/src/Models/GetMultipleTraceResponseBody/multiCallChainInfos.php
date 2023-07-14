@@ -15,6 +15,8 @@ class multiCallChainInfos extends Model
     public $spans;
 
     /**
+     * @example ac1400a115951745017447033d****
+     *
      * @var string
      */
     public $traceID;

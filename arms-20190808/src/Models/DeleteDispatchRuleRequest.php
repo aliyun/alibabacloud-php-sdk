@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDispatchRuleRequest extends Model
 {
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

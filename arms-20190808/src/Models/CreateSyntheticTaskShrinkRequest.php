@@ -24,16 +24,22 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $extendIntervalShrink;
 
     /**
+     * @example 5
+     *
      * @var string
      */
     public $intervalTime;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $intervalType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $ipType;
@@ -59,6 +65,8 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $protocolShrink;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -69,16 +77,22 @@ class CreateSyntheticTaskShrinkRequest extends Model
     public $taskName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $taskType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $updateTask;
 
     /**
+     * @example https://www.example.com
+     *
      * @var string
      */
     public $url;

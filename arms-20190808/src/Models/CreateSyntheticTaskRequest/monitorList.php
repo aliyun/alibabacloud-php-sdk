@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class monitorList extends Model
 {
     /**
+     * @example 1100101
+     *
      * @var int
      */
     public $cityCode;
 
     /**
+     * @example IDC
+     *
      * @var int
      */
     public $monitorType;
 
     /**
+     * @example 18
+     *
      * @var int
      */
     public $netServiceId;

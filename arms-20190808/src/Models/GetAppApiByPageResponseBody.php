@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class GetAppApiByPageResponseBody extends Model
 {
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -20,16 +24,28 @@ class GetAppApiByPageResponseBody extends Model
     public $data;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example message
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The struct returned.
+     *
+     * @example B6A00968-82A8-4F14-9D1B-B53827DB****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

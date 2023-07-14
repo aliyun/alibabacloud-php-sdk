@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class matchingConditions extends Model
 {
     /**
+     * @example altertname
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example eq
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $value;

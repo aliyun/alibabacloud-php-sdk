@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class AddGrafanaRequest extends Model
 {
     /**
+     * @description The ID of the Container Service for Kubernetes (ACK) cluster.
+     *
+     * @example cc7a37ee31aea4ed1a059eff8034b****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The abbreviation of the software that is supported by Application Real-Time Monitoring Service (ARMS). Valid values (case-insensitive): `ASM`, `IoT`, and `Flink`.
+     *
+     * @example asm
+     *
      * @var string
      */
     public $integration;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

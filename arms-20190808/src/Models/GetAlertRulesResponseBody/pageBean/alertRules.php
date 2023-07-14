@@ -8,26 +8,35 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAlertRulesResponseBody\pageBean\al
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAlertRulesResponseBody\pageBean\alertRules\annotations;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAlertRulesResponseBody\pageBean\alertRules\filters;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAlertRulesResponseBody\pageBean\alertRules\labels;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAlertRulesResponseBody\pageBean\alertRules\tags;
 use AlibabaCloud\Tea\Model;
 
 class alertRules extends Model
 {
     /**
+     * @example STATIC
+     *
      * @var string
      */
     public $alertCheckType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $alertGroup;
 
     /**
+     * @example 5730***
+     *
      * @var float
      */
     public $alertId;
 
     /**
+     * @example arms-test
+     *
      * @var string
      */
     public $alertName;
@@ -38,11 +47,15 @@ class alertRules extends Model
     public $alertRuleContent;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $alertStatus;
 
     /**
+     * @example APPLICATION_MONITORING_ALERT_RULE
+     *
      * @var string
      */
     public $alertType;
@@ -53,21 +66,29 @@ class alertRules extends Model
     public $annotations;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoAddNewApplication;
 
     /**
+     * @example ceba9b9ea5b924dd0b6726d2de6******
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 1640333981000
+     *
      * @var int
      */
     public $createdTime;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $duration;
@@ -88,6 +109,8 @@ class alertRules extends Model
     public $labels;
 
     /**
+     * @example P2
+     *
      * @var string
      */
     public $level;
@@ -98,11 +121,15 @@ class alertRules extends Model
     public $message;
 
     /**
+     * @example JVM
+     *
      * @var string
      */
     public $metricsType;
 
     /**
+     * @example ALERT_MANAGER
+     *
      * @var string
      */
     public $notifyStrategy;
@@ -113,21 +140,34 @@ class alertRules extends Model
     public $pids;
 
     /**
+     * @example node_memory_MemAvailable_bytes{} / node_memory_MemTotal_bytes{} * 100
+     *
      * @var string
      */
     public $promQL;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @example 1640333981000
+     *
      * @var int
      */
     public $updatedTime;
 
     /**
+     * @example 1131971649******
+     *
      * @var string
      */
     public $userId;
@@ -154,6 +194,7 @@ class alertRules extends Model
         'pids'                  => 'Pids',
         'promQL'                => 'PromQL',
         'regionId'              => 'RegionId',
+        'tags'                  => 'Tags',
         'updatedTime'           => 'UpdatedTime',
         'userId'                => 'UserId',
     ];
@@ -242,6 +283,15 @@ class alertRules extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->updatedTime) {
             $res['UpdatedTime'] = $this->updatedTime;
@@ -340,6 +390,15 @@ class alertRules extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UpdatedTime'])) {
             $model->updatedTime = $map['UpdatedTime'];

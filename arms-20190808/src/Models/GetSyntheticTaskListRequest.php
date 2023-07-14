@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class GetSyntheticTaskListRequest extends Model
 {
     /**
+     * @example asc
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @example CreateTime
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example net-test
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $taskType;
 
     /**
+     * @example https://www.example.com
+     *
      * @var string
      */
     public $url;

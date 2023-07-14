@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class webhookContacts extends Model
 {
     /**
+     * @description The details of the webhook alert contact.
+     *
      * @var webhook
      */
     public $webhook;
 
     /**
+     * @description The ID of the webhook alert contact.
+     *
+     * @example 123
+     *
      * @var float
      */
     public $webhookId;
 
     /**
+     * @description The name of the webhook alert contact.
+     *
+     * @example Webhook name
+     *
      * @var string
      */
     public $webhookName;

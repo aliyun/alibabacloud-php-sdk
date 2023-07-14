@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class renderedLayerEntries extends Model
 {
     /**
+     * @description The date from which the scheduled user was supposed to start shift work.
+     *
+     * @example 2022-10-01
+     *
      * @var string
      */
     public $start;
 
     /**
+     * @description The date on which the scheduled user was supposed to complete shift work.
+     *
+     * @example 2022-10-30
+     *
      * @var string
      */
     public $end;
 
     /**
+     * @description The information about the scheduled user.
+     *
      * @var simpleContact
      */
     public $simpleContact;

@@ -4,64 +4,139 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\SearchRetcodeAppByPageResponseBody\pageBean;
 
+use AlibabaCloud\SDK\ARMS\V20190808\Models\SearchRetcodeAppByPageResponseBody\pageBean\retcodeApps\tags;
 use AlibabaCloud\Tea\Model;
 
 class retcodeApps extends Model
 {
     /**
+     * @description The ID of the application. The parameter is an auto-increment parameter.
+     *
+     * @example 16064
+     *
      * @var int
      */
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
+     * @example a3
+     *
      * @var string
      */
     public $appName;
 
     /**
+     * @description The time when the task was created.
+     *
+     * @example 1545363321000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The alias of the application.
+     *
+     * @example c1
+     *
+     * @var string
+     */
+    public $nickName;
+
+    /**
+     * @description The PID of the application.
+     *
+     * @example eb4zdose6v@9781be0f44d****
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxyexli2****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The type of the application. Valid values:
+     *
+     *   `web`: web application
+     *   `weex`: Weex mobile app
+     *   `mini_dd`: DingTalk mini program
+     *   `mini_alipay`: Alipay mini program
+     *   `mini_wx`: WeChat mini program
+     *   `mini_common`: mini program on other platforms
+     *
+     * @example web
+     *
      * @var string
      */
     public $retcodeAppType;
 
     /**
+     * @description The tags.
+     *
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @description The type of the monitoring task. Valid values:
+     *
+     *   `TRACE`: Application Monitoring
+     *   `RETCODE`: Browser Monitoring
+     *
+     * @example RETCODE
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The time when the task was updated.
+     *
+     * @example 1545363321000
+     *
      * @var int
      */
     public $updateTime;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example 12341234
+     *
      * @var string
      */
     public $userId;
     protected $_name = [
-        'appId'          => 'AppId',
-        'appName'        => 'AppName',
-        'createTime'     => 'CreateTime',
-        'pid'            => 'Pid',
-        'regionId'       => 'RegionId',
-        'retcodeAppType' => 'RetcodeAppType',
-        'type'           => 'Type',
-        'updateTime'     => 'UpdateTime',
-        'userId'         => 'UserId',
+        'appId'           => 'AppId',
+        'appName'         => 'AppName',
+        'createTime'      => 'CreateTime',
+        'nickName'        => 'NickName',
+        'pid'             => 'Pid',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'retcodeAppType'  => 'RetcodeAppType',
+        'tags'            => 'Tags',
+        'type'            => 'Type',
+        'updateTime'      => 'UpdateTime',
+        'userId'          => 'UserId',
     ];
 
     public function validate()
@@ -80,14 +155,29 @@ class retcodeApps extends Model
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
+        if (null !== $this->nickName) {
+            $res['NickName'] = $this->nickName;
+        }
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->retcodeAppType) {
             $res['RetcodeAppType'] = $this->retcodeAppType;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -119,14 +209,29 @@ class retcodeApps extends Model
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
+        if (isset($map['NickName'])) {
+            $model->nickName = $map['NickName'];
+        }
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['RetcodeAppType'])) {
             $model->retcodeAppType = $map['RetcodeAppType'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

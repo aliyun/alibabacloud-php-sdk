@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListScenarioResponseBody extends Model
 {
     /**
+     * @description The detailed information of the business monitoring job.
+     *
      * @var armsScenarios[]
      */
     public $armsScenarios;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 98027D1F-3AEB-492C-A4AA-E9217992****
+     *
      * @var string
      */
     public $requestId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class alertRuleItems extends Model
 {
     /**
+     * @example AVG
+     *
      * @var string
      */
     public $aggregate;
 
     /**
+     * @example appstat.jvm.non_heap_used
+     *
      * @var string
      */
     public $metricKey;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $n;
 
     /**
+     * @example CURRENT_GTE
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $value;

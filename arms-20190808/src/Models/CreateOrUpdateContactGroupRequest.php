@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateContactGroupRequest extends Model
 {
     /**
+     * @description The ID of the alert contact group.
+     *
+     *   If you do not specify this parameter, an alert contact group is created.
+     *   If you specify this parameter, the specified alert contact group is modified.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $contactGroupId;
 
     /**
+     * @description The name of the alert contact group.
+     *
+     * @example TestGroup
+     *
      * @var string
      */
     public $contactGroupName;
 
     /**
+     * @description The ID of the contact that you want to add to the contact group. Separate multiple IDs with commas (,).
+     *
+     * @example [1,2,3]
+     *
      * @var string
      */
     public $contactIds;

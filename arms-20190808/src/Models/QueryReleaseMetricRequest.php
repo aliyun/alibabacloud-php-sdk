@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class QueryReleaseMetricRequest extends Model
 {
     /**
+     * @example a341a2f2-ed07-4257-aae9-dfb1be******
+     *
      * @var string
      */
     public $changeOrderId;
 
     /**
+     * @example 1634005438000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example SystemContrast
+     *
      * @var string
      */
     public $metricType;
 
     /**
+     * @example 8b46d03f-5947-449d-90fd-3a96c2******
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $proxyUserId;
 
     /**
+     * @example 1632798718632
+     *
      * @var int
      */
     public $releaseEndTime;
 
     /**
+     * @example 1632798686692
+     *
      * @var int
      */
     public $releaseStartTime;
 
     /**
+     * @example clothservice
+     *
      * @var string
      */
     public $service;

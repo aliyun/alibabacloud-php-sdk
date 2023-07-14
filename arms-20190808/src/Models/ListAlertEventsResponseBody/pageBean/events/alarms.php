@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class alarms extends Model
 {
     /**
+     * @description The ID of the alert.
+     *
+     * @example 77444
+     *
      * @var int
      */
     public $alarmId;
 
     /**
+     * @description The name of the alert.
+     *
+     * @example Test-triggered alert
+     *
      * @var string
      */
     public $alarmName;
 
     /**
+     * @description The time when the alert was created.
+     *
+     * @example 2021-12-20 07:10:18
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The status of the alert. Valid values:
+     *
+     *   0: The alert is pending.
+     *   1: The alert is being handled.
+     *   2: The alert is cleared.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $state;

@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class contacts extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $contactId;
 
     /**
+     * @example John Doe
+     *
      * @var string
      */
     public $contactName;
 
     /**
+     * @example 1572349025000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example https://oapi.dingtalk.com/robot/send?access_token=91f2f6****
+     *
      * @var string
      */
     public $dingRobot;
 
     /**
+     * @example someone@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 1381111*****
+     *
      * @var string
      */
     public $phone;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $systemNoc;
 
     /**
+     * @example 1580258717000
+     *
      * @var int
      */
     public $updateTime;
 
     /**
+     * @example 113197164949****
+     *
      * @var string
      */
     public $userId;

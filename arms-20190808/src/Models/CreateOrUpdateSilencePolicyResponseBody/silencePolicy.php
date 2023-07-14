@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class silencePolicy extends Model
 {
     /**
+     * @description The ID of the silence policy.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description A list of matching rules.
+     *
      * @var matchingRules[]
      */
     public $matchingRules;
 
     /**
+     * @description The name of the silence policy.
+     *
+     * @example silencepolicy_test
+     *
      * @var string
      */
     public $name;

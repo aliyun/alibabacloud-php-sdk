@@ -9,35 +9,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactsRequest extends Model
 {
     /**
+     * @example 123,321
+     *
+     * @var string
+     */
+    public $contactIds;
+
+    /**
+     * @description Indicates whether the email address was verified.
+     *
+     * @example John Doe
+     *
      * @var string
      */
     public $contactName;
 
     /**
+     * @example someone@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The ID of the alert contact.
+     *
+     * @example 1381111*****
+     *
      * @var string
      */
     public $phone;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @example 20
+     *
      * @var int
      */
     public $size;
+
+    /**
+     * @example true
+     *
+     * @var string
+     */
+    public $verbose;
     protected $_name = [
+        'contactIds'  => 'ContactIds',
         'contactName' => 'ContactName',
         'email'       => 'Email',
         'page'        => 'Page',
         'phone'       => 'Phone',
+        'regionId'    => 'RegionId',
         'size'        => 'Size',
+        'verbose'     => 'Verbose',
     ];
 
     public function validate()
@@ -47,6 +83,9 @@ class DescribeContactsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contactIds) {
+            $res['ContactIds'] = $this->contactIds;
+        }
         if (null !== $this->contactName) {
             $res['ContactName'] = $this->contactName;
         }
@@ -59,8 +98,14 @@ class DescribeContactsRequest extends Model
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
+        }
+        if (null !== $this->verbose) {
+            $res['Verbose'] = $this->verbose;
         }
 
         return $res;
@@ -74,6 +119,9 @@ class DescribeContactsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContactIds'])) {
+            $model->contactIds = $map['ContactIds'];
+        }
         if (isset($map['ContactName'])) {
             $model->contactName = $map['ContactName'];
         }
@@ -86,8 +134,14 @@ class DescribeContactsRequest extends Model
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];
+        }
+        if (isset($map['Verbose'])) {
+            $model->verbose = $map['Verbose'];
         }
 
         return $model;

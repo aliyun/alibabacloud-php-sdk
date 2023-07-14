@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteSilencePolicyRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $id;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteScenarioRequest extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-zhangjaikou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the business monitoring job. You can obtain the ID by calling the ListScenario operation.
+     *
+     * @example 132
+     *
      * @var int
      */
     public $scenarioId;

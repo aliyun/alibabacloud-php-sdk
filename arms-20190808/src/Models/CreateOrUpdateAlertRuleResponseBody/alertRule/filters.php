@@ -11,21 +11,29 @@ use AlibabaCloud\Tea\Model;
 class filters extends Model
 {
     /**
+     * @description The custom filter condition of the Browser Monitoring alert rule.
+     *
      * @var customSLSFilters[]
      */
     public $customSLSFilters;
 
     /**
+     * @description The information of the aggregation dimension.
+     *
      * @var string[]
      */
     public $customSLSGroupByDimensions;
 
     /**
+     * @description The details of the custom filter condition.
+     *
      * @var string[]
      */
     public $customSLSWheres;
 
     /**
+     * @description The information about each filter condition of the Application Monitoring or Browser Monitoring alert rule.
+     *
      * @var dimFilters[]
      */
     public $dimFilters;

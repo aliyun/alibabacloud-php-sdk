@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
+     * @example severity
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example critical
+     *
      * @var string
      */
     public $value;

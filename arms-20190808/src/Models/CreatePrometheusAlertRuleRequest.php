@@ -4,26 +4,35 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreatePrometheusAlertRuleRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class CreatePrometheusAlertRuleRequest extends Model
 {
     /**
+     * @example Prometheus_Alert
+     *
      * @var string
      */
     public $alertName;
 
     /**
+     * @example [{"Value": "xxx","Name": "description"}]
+     *
      * @var string
      */
     public $annotations;
 
     /**
+     * @example c0bad479465464e1d8c1e641b0afb****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 10282
+     *
      * @var int
      */
     public $dispatchRuleId;
@@ -34,11 +43,15 @@ class CreatePrometheusAlertRuleRequest extends Model
     public $duration;
 
     /**
+     * @example 100 * (sum(rate(container_cpu_usage_seconds_total[1m])) by (pod_name) / sum(label_replace(kube_pod_container_resource_limits_cpu_cores, \"pod_name\", \"$1\", \"pod\", \"(.*)\")) by (pod_name))>75
+     *
      * @var string
      */
     public $expression;
 
     /**
+     * @example [{"Value": "critical","Name": "severity"}]
+     *
      * @var string
      */
     public $labels;
@@ -49,16 +62,27 @@ class CreatePrometheusAlertRuleRequest extends Model
     public $message;
 
     /**
+     * @example ALERT_MANAGER
+     *
      * @var string
      */
     public $notifyType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @example 101
+     *
      * @var string
      */
     public $type;
@@ -73,6 +97,7 @@ class CreatePrometheusAlertRuleRequest extends Model
         'message'        => 'Message',
         'notifyType'     => 'NotifyType',
         'regionId'       => 'RegionId',
+        'tags'           => 'Tags',
         'type'           => 'Type',
     ];
 
@@ -112,6 +137,15 @@ class CreatePrometheusAlertRuleRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -157,6 +191,15 @@ class CreatePrometheusAlertRuleRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

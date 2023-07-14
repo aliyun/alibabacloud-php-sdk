@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class protocol extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $characterEncoding;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $customHost;
 
     /**
+     * @example 119.119.53.156
+     *
      * @var string
      */
     public $customHostIp;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $protocolConnectionTimeout;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $protocolMonitorTimeout;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $receivedDataSize;
@@ -45,11 +57,15 @@ class protocol extends Model
     public $requestContent;
 
     /**
+     * @example list
+     *
      * @var string
      */
     public $verifyContent;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $verifyWay;

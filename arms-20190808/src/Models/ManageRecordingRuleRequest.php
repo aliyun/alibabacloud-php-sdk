@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ManageRecordingRuleRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example cf09705f5a82f454db0d50420b6b4e904
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The user ID.
+     *
+     * @example 87348589207
+     *
      * @var string
      */
     public $queryUserId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The recording rule.
+     *
+     * @example groups:\n- interval: 60s\n  name: auto_analyzer_recording_rule_60s\n  rules:\n  - expr: sum(node_cpu_seconds_total)\n    record: sum:node_cpu_seconds_total:recording_rule_hash_f341458c0f7d\n
+     *
      * @var string
      */
     public $ruleYaml;

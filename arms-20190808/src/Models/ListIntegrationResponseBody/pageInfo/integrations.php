@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class integrations extends Model
 {
     /**
+     * @example https://alerts.aliyuncs.com/api/v1/integrations/custom/ymQBN******
+     *
      * @var string
      */
     public $apiEndpoint;
 
     /**
+     * @example 2022-06-18
+     *
      * @var string
      */
     public $createTime;
@@ -25,31 +29,43 @@ class integrations extends Model
     public $integrationDetail;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $integrationId;
 
     /**
+     * @example 云监控集成
+     *
      * @var string
      */
     public $integrationName;
 
     /**
+     * @example CLOUD_MONITOR
+     *
      * @var string
      */
     public $integrationProductType;
 
     /**
+     * @example ready
+     *
      * @var string
      */
     public $liveness;
 
     /**
+     * @example ymQBN******
+     *
      * @var string
      */
     public $shortToken;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $state;

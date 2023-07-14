@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SearchAlertHistoriesResponseBody extends Model
 {
     /**
+     * @description The returned struct.
+     *
      * @var pageBean
      */
     public $pageBean;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2FC13182-B9AF-4E6B-BE51-72669B7C****
+     *
      * @var string
      */
     public $requestId;

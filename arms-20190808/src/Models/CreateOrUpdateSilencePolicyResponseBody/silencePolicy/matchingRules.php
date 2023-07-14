@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class matchingRules extends Model
 {
     /**
+     * @description A list of matching conditions.
+     *
      * @var matchingConditions[]
      */
     public $matchingConditions;

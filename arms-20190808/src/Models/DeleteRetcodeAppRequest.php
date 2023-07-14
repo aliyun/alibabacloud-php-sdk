@@ -9,16 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DeleteRetcodeAppRequest extends Model
 {
     /**
+     * @example 1231
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example test-app
+     *
+     * @var string
+     */
+    public $appName;
+
+    /**
+     * @example aokcdqn3ly@741623b4e91****
+     *
+     * @var string
+     */
+    public $pid;
+
+    /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
     protected $_name = [
         'appId'    => 'AppId',
+        'appName'  => 'AppName',
+        'pid'      => 'Pid',
         'regionId' => 'RegionId',
     ];
 
@@ -31,6 +51,12 @@ class DeleteRetcodeAppRequest extends Model
         $res = [];
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
+        }
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->pid) {
+            $res['Pid'] = $this->pid;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -49,6 +75,12 @@ class DeleteRetcodeAppRequest extends Model
         $model = new self();
         if (isset($map['AppId'])) {
             $model->appId = $map['AppId'];
+        }
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
+        }
+        if (isset($map['Pid'])) {
+            $model->pid = $map['Pid'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

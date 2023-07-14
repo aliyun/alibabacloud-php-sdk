@@ -13,41 +13,65 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The URL of the DingTalk chatbot, which is used to receive notifications about shift changes.
+     *
+     * @example https://oapi.dingtalk.com/robot/send?access_token=69d4e009547e11069c6513309414937b7bf0482fb9284125b5******
+     *
      * @var int
      */
     public $alertRobotId;
 
     /**
+     * @description The description of the scheduling policy.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the scheduling policy.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the scheduling policy.
+     *
+     * @example Scheduling policy test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The information about the final user on duty.
+     *
      * @var renderedFinnalEntries[]
      */
     public $renderedFinnalEntries;
 
     /**
+     * @description The scheduled users on duty within a time range.
+     *
      * @var undefined[][]
      */
     public $renderedLayerEntries;
 
     /**
+     * @description The information about the substitutes within a time range.
+     *
      * @var renderedSubstitudeEntries[]
      */
     public $renderedSubstitudeEntries;
 
     /**
+     * @description The information about the shift.
+     *
      * @var scheduleLayers[]
      */
     public $scheduleLayers;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class tagEntryList extends Model
 {
     /**
+     * @example http.status.code
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $value;

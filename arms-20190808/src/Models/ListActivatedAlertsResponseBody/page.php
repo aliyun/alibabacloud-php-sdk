@@ -15,16 +15,22 @@ class page extends Model
     public $alerts;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $total;

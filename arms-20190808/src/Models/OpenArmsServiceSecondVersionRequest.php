@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class OpenArmsServiceSecondVersionRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example arms
+     *
      * @var string
      */
     public $type;

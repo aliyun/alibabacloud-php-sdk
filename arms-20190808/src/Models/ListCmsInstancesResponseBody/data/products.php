@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class products extends Model
 {
     /**
+     * @example -
+     *
      * @var string
      */
     public $descr;
 
     /**
+     * @example 20210
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example cloudserver
+     *
      * @var string
      */
     public $instance;
 
     /**
+     * @example hologres
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example face
+     *
      * @var string
      */
     public $prod;
 
     /**
+     * @example arms
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example 1647852021000
+     *
      * @var string
      */
     public $time;
 
     /**
+     * @example HOLOGRES
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example https://g.console.aliyun.com/d/1098370038733503-35894-565/cms-hologres?orgId\u003d9\u0026refresh\u003d60s
+     *
      * @var string
      */
     public $url;

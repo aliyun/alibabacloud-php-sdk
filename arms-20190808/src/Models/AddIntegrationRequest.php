@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class AddIntegrationRequest extends Model
 {
     /**
+     * @description The ID of an Alibaba Cloud Container Service for Kubernetes cluster.
+     *
+     * @example cc7a37ee31aea4ed1a059eff8034b****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The software abbreviation that is supported by ARMS. Valid values (case-insensitive): `ASM`, `IoT`, and `Flink`.
+     *
+     * @example asm
+     *
      * @var string
      */
     public $integration;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

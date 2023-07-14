@@ -10,21 +10,33 @@ use AlibabaCloud\Tea\Model;
 class notifyRule extends Model
 {
     /**
+     * @description The notification method.
+     *
      * @var string[]
      */
     public $notifyChannels;
 
     /**
+     * @description The end time of the notification window.
+     *
+     * @example 23:59
+     *
      * @var string
      */
     public $notifyEndTime;
 
     /**
+     * @description The contacts.
+     *
      * @var notifyObjects[]
      */
     public $notifyObjects;
 
     /**
+     * @description The start time of the notification window.
+     *
+     * @example 00:00
+     *
      * @var string
      */
     public $notifyStartTime;

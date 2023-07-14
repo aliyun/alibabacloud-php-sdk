@@ -9,16 +9,35 @@ use AlibabaCloud\Tea\Model;
 class matchingConditions extends Model
 {
     /**
+     * @description The key of the matching condition.
+     *
+     * @example altertname
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The logical operator of the matching condition. Valid values:
+     *
+     *   `eq`: equal to.
+     *   `neq`: not equal to.
+     *   `in`: contains.
+     *   `nin`: does not contain.
+     *   `re`: regular expression match.
+     *   `nre`: regular expression mismatch.
+     *
+     * @example eq
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description The value of the matching condition.
+     *
+     * @example test
+     *
      * @var string
      */
     public $value;

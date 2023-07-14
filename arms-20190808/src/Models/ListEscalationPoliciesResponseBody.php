@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListEscalationPoliciesResponseBody extends Model
 {
     /**
+     * @description The returned objects.
+     *
      * @var pageBean
      */
     public $pageBean;
 
     /**
+     * @description The request ID.
+     *
+     * @example 78901766-3806-4E96-8E47-CFEF59E4****
+     *
      * @var string
      */
     public $requestId;

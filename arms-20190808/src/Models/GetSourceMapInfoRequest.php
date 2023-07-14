@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GetSourceMapInfoRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ascendingSequence;
 
     /**
+     * @example 0.0.0
+     *
      * @var string
      */
     public $edition;
 
     /**
+     * @example atc889zkcf@d8deedfa9bf****\/0.0.0/test.sourcemap.js
+     *
      * @var string
      */
     public $ID;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example version
+     *
      * @var string
      */
     public $orderField;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

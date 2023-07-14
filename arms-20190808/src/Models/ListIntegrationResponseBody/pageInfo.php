@@ -15,16 +15,22 @@ class pageInfo extends Model
     public $integrations;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $total;

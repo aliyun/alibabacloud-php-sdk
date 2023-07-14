@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDispatchRuleRequest extends Model
 {
     /**
+     * @description The value of the tag.
+     *
+     * @example 12345
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The operation that you want to perform. Set the value to DescribeDispatchRule.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

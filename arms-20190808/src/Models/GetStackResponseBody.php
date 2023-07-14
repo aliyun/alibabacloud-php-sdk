@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetStackResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example B34C3A43-A901-5F94-9DAD-758CE4******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information of the method stack.
+     *
      * @var stackInfo[]
      */
     public $stackInfo;

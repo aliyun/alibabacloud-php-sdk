@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlertRuleRequest extends Model
 {
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $alertId;
 
     /**
+     * @example [123, 234]
+     *
      * @var string
      */
     public $contactGroupIds;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isAutoStart;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

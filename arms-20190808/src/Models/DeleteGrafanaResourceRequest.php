@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteGrafanaResourceRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * @example cc7a37ee31aea4ed1a059eff8034b****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The instance name.
+     *
+     * @example clusterNameOfTest
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

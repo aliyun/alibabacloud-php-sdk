@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteSilencePolicyResponseBody extends Model
 {
     /**
+     * @description Indicates whether the silence policy was deleted successfully. Valid values:
+     *
+     *   `true`: The silence policy was deleted successfully.
+     *   `false`: The silence policy failed to be deleted.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DeleteSilencePolicy**.
+     *
+     * @example A5EC8221-08F2-4C95-9AF1-49FD998C****
+     *
      * @var string
      */
     public $requestId;

@@ -9,86 +9,175 @@ use AlibabaCloud\Tea\Model;
 class i18nChild extends Model
 {
     /**
+     * @description The type of the Grafana dashboard. This parameter has the same effect as the Exporter parameter whereas provides clearer implication.
+     *
+     * @example Node
+     *
      * @var string
      */
     public $dashboardType;
 
     /**
+     * @description The type of the exporter access source. Valid values:
+     *
+     *   Prometheus
+     *   Node
+     *   GPU
+     *   Redis
+     *   MySQL
+     *   Kafka
+     *   NGINX V2
+     *   Nginx
+     *   ZooKeeper
+     *   MongoDB
+     *   RabbitMQ
+     *   PostgreSQL
+     *   Kubernetes
+     *   Client Library
+     *   Elasticsearch
+     *   RocketMQ
+     *
+     * @example Nginx
+     *
      * @var string
      */
     public $exporter;
 
     /**
+     * @description The URL of the Grafana dashboard.
+     *
+     * @example http://g.console.aliyun.com/d/1131971649496228-*****-59/ApiServer?orgId=3**&refresh=60s
+     *
      * @var string
      */
     public $httpUrl;
 
     /**
+     * @description The URL of the Grafana dashboard.
+     *
+     * @example http://g.console.aliyun.com/d/1131971649496228-*****-59/ApiServer?orgId=3**&refresh=60s
+     *
      * @var string
      */
     public $httpsUrl;
 
     /**
+     * @description The ID of the Grafana dashboard. The value is unique only when you install the Grafana dashboard.
+     *
+     * @example 1100**
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description Indicates whether the exporter was provided by ARMS. Valid values:
+     *
+     *   `true`: The exporter is provided by ARMS.
+     *   `false`: The exporter is not provided by ARMS.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isArmsExporter;
 
     /**
+     * @description The category of the Grafana dashboard. Valid values: BASIC, THIRD, LIMIT, and CUSTOM.
+     *
+     * @example BASIC
+     *
      * @var string
      */
     public $kind;
 
     /**
+     * @description The language of the Grafana dashboard.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $language;
 
     /**
+     * @description The name of the Grafana dashboard. This parameter is different from the **Title** parameter as this parameter cannot be changed.
+     *
+     * @example k8s-node-overview
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Indicates whether the Grafana dashboard has a new version that was available for upgrade.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $needUpdate;
 
     /**
+     * @description The tags of the Grafana dashboard.
+     *
      * @var string[]
      */
     public $tags;
 
     /**
+     * @description The timestamp when the Grafana dashboard was created.
+     *
+     * @example 1590136924
+     *
      * @var string
      */
     public $time;
 
     /**
+     * @description The title of the Grafana dashboard.
+     *
+     * @example ApiServer
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The type of the Grafana dashboard. Valid values:
+     *
+     *   `dash-db`: a dashboard
+     *   `dash-folder`: a folder that can include a dashboard
+     *
+     * @example dash-db
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The unique identifier of a dashboard when multiple Grafana dashboards were installed. It is a unique business ID displayed on the page.
+     *
+     * @example 1131971649496228-*****-59
+     *
      * @var string
      */
     public $uid;
 
     /**
+     * @description The complete URL of the Grafana dashboard.
+     *
+     * @example http://g.console.aliyun.com/d/1131971649496228-*****-59/ApiServer?orgId=3**&refresh=60s
+     *
      * @var string
      */
     public $url;
 
     /**
+     * @description The version of the Grafana dashboard. The combination of version and name uniquely identifies a dashboard.
+     *
+     * @example v2
+     *
      * @var string
      */
     public $version;

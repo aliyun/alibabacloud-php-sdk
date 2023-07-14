@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class OpenArmsDefaultSLRResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example 53CACA70-2CF7-490C-BD06-1A2AE4EB****
+     *
      * @var string
      */
     public $requestId;

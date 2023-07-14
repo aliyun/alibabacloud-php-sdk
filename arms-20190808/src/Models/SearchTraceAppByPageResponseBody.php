@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SearchTraceAppByPageResponseBody extends Model
 {
     /**
+     * @description The information about the array object.
+     *
      * @var pageBean
      */
     public $pageBean;
 
     /**
+     * @description The request ID.
+     *
+     * @example 4B446DF2-3DDD-4B5B-8E3F-D5225120****
+     *
      * @var string
      */
     public $requestId;

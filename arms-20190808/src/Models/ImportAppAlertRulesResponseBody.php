@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ImportAppAlertRulesResponseBody extends Model
 {
     /**
+     * @example [12174**]
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example A5EC8221-08F2-4C95-9AF1-49FD998C****
+     *
      * @var string
      */
     public $requestId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class matchingRules extends Model
 {
     /**
+     * @description An array of alert event matching condition objects.
+     *
      * @var matchingConditions[]
      */
     public $matchingConditions;

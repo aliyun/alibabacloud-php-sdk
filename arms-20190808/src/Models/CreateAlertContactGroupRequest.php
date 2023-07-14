@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateAlertContactGroupRequest extends Model
 {
     /**
+     * @example TestGroup
+     *
      * @var string
      */
     public $contactGroupName;
 
     /**
+     * @example 12* 23* 34*
+     *
      * @var string
      */
     public $contactIds;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

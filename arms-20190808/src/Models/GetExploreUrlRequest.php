@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class GetExploreUrlRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example c9cc4c5e220f8461f9d71b6ec6e******
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The query statement that corresponds to the data source.
+     *
+     * @example {app="buy2"}
+     *
      * @var string
      */
     public $expression;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the Grafana data source.
+     *
+     * @example prometheus
+     *
      * @var string
      */
     public $type;

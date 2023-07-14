@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class integrationDetail extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoRecover;
 
     /**
+     * @example 测试
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example LABEL.alertname::LABEL.severity
+     *
      * @var string
      */
     public $duplicateKey;
@@ -34,16 +40,22 @@ class integrationDetail extends Model
     public $fieldRedefineRules;
 
     /**
+     * @example $.status
+     *
      * @var string
      */
     public $initiativeRecoverField;
 
     /**
+     * @example ok
+     *
      * @var string
      */
     public $initiativeRecoverValue;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $recoverTime;

@@ -6,16 +6,21 @@ namespace AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusAlertRulesRespons
 
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusAlertRulesResponseBody\prometheusAlertRules\annotations;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusAlertRulesResponseBody\prometheusAlertRules\labels;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusAlertRulesResponseBody\prometheusAlertRules\tags;
 use AlibabaCloud\Tea\Model;
 
 class prometheusAlertRules extends Model
 {
     /**
+     * @example 3888704
+     *
      * @var int
      */
     public $alertId;
 
     /**
+     * @example Prometheus_Alert
+     *
      * @var string
      */
     public $alertName;
@@ -26,21 +31,29 @@ class prometheusAlertRules extends Model
     public $annotations;
 
     /**
+     * @example c0bad479465464e1d8c1e641b0afb****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 10282
+     *
      * @var int
      */
     public $dispatchRuleId;
 
     /**
+     * @example 1m
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 100 * (sum(rate(container_cpu_usage_seconds_total[1m])) by (pod_name) / sum(label_replace(kube_pod_container_resource_limits_cpu_cores, \"pod_name\", \"$1\", \"pod\", \"(.*)\")) by (pod_name))>75
+     *
      * @var string
      */
     public $expression;
@@ -56,14 +69,23 @@ class prometheusAlertRules extends Model
     public $message;
 
     /**
+     * @example ALERT_MANAGER
+     *
      * @var string
      */
     public $notifyType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @var string
@@ -81,6 +103,7 @@ class prometheusAlertRules extends Model
         'message'        => 'Message',
         'notifyType'     => 'NotifyType',
         'status'         => 'Status',
+        'tags'           => 'Tags',
         'type'           => 'Type',
     ];
 
@@ -135,6 +158,15 @@ class prometheusAlertRules extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -195,6 +227,15 @@ class prometheusAlertRules extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

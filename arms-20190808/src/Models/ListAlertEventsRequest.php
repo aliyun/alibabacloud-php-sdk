@@ -9,36 +9,68 @@ use AlibabaCloud\Tea\Model;
 class ListAlertEventsRequest extends Model
 {
     /**
+     * @description The name of the alert.
+     *
+     * @example Test-triggered alert
+     *
      * @var string
      */
     public $alertName;
 
     /**
+     * @description The end time of the alert events that you want to query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
+     *
+     * @example 2021-12-22 23:59:59
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The list of matching conditions.
+     *
+     * @example [         {           "value": "ARMS_NOTIFICATION",           "key": "clustername",           "operator": "eq"         }       ]     },{       "matchingConditions": [         {           "value": "test",           "key": "alertname",           "operator": "eq"         }       ]
+     *
      * @var string
      */
     public $matchingConditions;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The start time of the alert events that you want to query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
+     *
+     * @example 2021-12-19 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the alert events. Valid values:
+     *
+     *   Active
+     *   Silenced
+     *   Resolved
+     *
+     * @example Active
+     *
      * @var string
      */
     public $status;

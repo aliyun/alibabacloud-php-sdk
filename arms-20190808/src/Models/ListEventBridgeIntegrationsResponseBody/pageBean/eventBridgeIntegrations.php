@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class eventBridgeIntegrations extends Model
 {
     /**
+     * @description The description of the EventBridge integration.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the EventBridge integration.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the EventBridge integration.
+     *
+     * @example EventBridge_Test
+     *
      * @var string
      */
     public $name;

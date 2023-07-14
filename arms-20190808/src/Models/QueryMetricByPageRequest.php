@@ -10,61 +10,109 @@ use AlibabaCloud\Tea\Model;
 class QueryMetricByPageRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: `1`.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description Custom filter conditions.
+     *
      * @var string[]
      */
     public $customFilters;
 
     /**
+     * @description The dimensions of the metric that you want to query.
+     *
+     * @example ["detector_browser","detector_device"]
+     *
      * @var string[]
      */
     public $dimensions;
 
     /**
+     * @description The end of the time range to query. Unit: milliseconds.
+     *
+     * @example 1667546895000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The filter conditions.
+     *
      * @var filters[]
      */
     public $filters;
 
     /**
+     * @description The time interval at which data entries are aggregated. Unit: milliseconds. Minimum value: 60000.
+     *
+     * @example 100000
+     *
      * @var int
      */
     public $intervalInSec;
 
     /**
+     * @description The measures of the metric that you want to query.
+     *
+     * @example pv
+     *
      * @var string[]
      */
     public $measures;
 
     /**
+     * @description The metric that you want to query. You cannot specify a custom metric. For more information, see the "Application monitoring metrics that can be queried" section.
+     *
+     * @example appstat.host
+     *
      * @var string
      */
     public $metric;
 
     /**
+     * @description The order in which measures are sorted. Valid values:
+     *
+     *   `ASC`: ascending order
+     *   `DESC`: descending order
+     *
+     * > If you do not specify the parameter, data is not sorted.
+     * @example ASC
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @description The dimension from which metrics are sorted. You can set this parameter to a supported dimension.
+     *
+     * @example pid
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @description The number of entries to return on each page. This parameter is no longer supported. The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The start of the time range to query. Unit: milliseconds.
+     *
+     * @example 1667287695000
+     *
      * @var int
      */
     public $startTime;

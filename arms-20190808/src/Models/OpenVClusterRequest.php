@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class OpenVClusterRequest extends Model
 {
     /**
+     * @description The type of the cluster. For cloud services, set this parameter to `cloud-product-prometheus`.
+     *
+     * @example cloud-product-prometheus
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description The length of the cluster ID. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $length;
 
     /**
+     * @description The name of the cloud service. This parameter must be specified when ClusterType is set to `cloud-product-prometheus`. Valid values: influxdb, mongodb, and DLA. You cannot specify multiple service names.
+     *
+     * @example influxdb
+     *
      * @var string
      */
     public $product;
 
     /**
+     * @description Specifies whether to create or query a virtual cluster. This parameter provides backward compatibility.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $recreateSwitch;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

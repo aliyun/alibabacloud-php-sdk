@@ -14,6 +14,8 @@ class UpdateWebhookRequest extends Model
     public $body;
 
     /**
+     * @example 48716
+     *
      * @var int
      */
     public $contactId;
@@ -24,16 +26,22 @@ class UpdateWebhookRequest extends Model
     public $contactName;
 
     /**
+     * @example [{"Content-Type":"application/json"}]
+     *
      * @var string
      */
     public $httpHeaders;
 
     /**
+     * @example [{"name":"mike"}]
+     *
      * @var string
      */
     public $httpParams;
 
     /**
+     * @example Post
+     *
      * @var string
      */
     public $method;
@@ -44,11 +52,15 @@ class UpdateWebhookRequest extends Model
     public $recoverBody;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example https://oapi.dingtalk.com/robot/send?access_token=e1a049121ddbfce1ca963d115ef88cc7219583c4fb79fe6e398fbfb688******
+     *
      * @var string
      */
     public $url;

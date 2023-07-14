@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteRetcodeAppResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example 01FF8DD9-A09C-47A1-895A-B6E321BE77B6
+     *
      * @var string
      */
     public $requestId;

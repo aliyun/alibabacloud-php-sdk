@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class labelMatchExpressions extends Model
 {
     /**
+     * @example _aliyun_arms_involvedObject_kind
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example eq
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @example app
+     *
      * @var string
      */
     public $value;

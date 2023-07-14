@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The number of alert contacts displayed on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The total number of alert contacts.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;
 
     /**
+     * @description The list of webhook alert contacts.
+     *
      * @var webhookContacts[]
      */
     public $webhookContacts;

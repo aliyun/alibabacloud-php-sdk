@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteContactGroupRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $contactGroupId;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class contactGroups extends Model
 {
     /**
+     * @example 746
+     *
      * @var int
      */
     public $contactGroupId;
 
     /**
+     * @example TestGroup
+     *
      * @var string
      */
     public $contactGroupName;
@@ -25,16 +29,22 @@ class contactGroups extends Model
     public $contacts;
 
     /**
+     * @example 1529668855000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example 1529668855000
+     *
      * @var int
      */
     public $updateTime;
 
     /**
+     * @example 113197164949****
+     *
      * @var string
      */
     public $userId;

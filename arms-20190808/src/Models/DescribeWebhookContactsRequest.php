@@ -9,20 +9,42 @@ use AlibabaCloud\Tea\Model;
 class DescribeWebhookContactsRequest extends Model
 {
     /**
+     * @description The ID of the alert contact.
+     *
+     * @example 123
+     *
+     * @var string
+     */
+    public $contactIds;
+
+    /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The number of alert contacts displayed on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The name of the webhook alert contact.
+     *
+     * @example Webhook name
+     *
      * @var string
      */
     public $webhookName;
     protected $_name = [
+        'contactIds'  => 'ContactIds',
         'page'        => 'Page',
         'size'        => 'Size',
         'webhookName' => 'WebhookName',
@@ -35,6 +57,9 @@ class DescribeWebhookContactsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contactIds) {
+            $res['ContactIds'] = $this->contactIds;
+        }
         if (null !== $this->page) {
             $res['Page'] = $this->page;
         }
@@ -56,6 +81,9 @@ class DescribeWebhookContactsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ContactIds'])) {
+            $model->contactIds = $map['ContactIds'];
+        }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
         }

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StopAlertResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @example 27E653FA-5958-45BE-8AA9-14D884DC****
+     *
      * @var string
      */
     public $requestId;

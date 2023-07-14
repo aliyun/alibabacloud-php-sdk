@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class renderedFinnalEntries extends Model
 {
     /**
+     * @description The date on which the user completed shift work.
+     *
+     * @example 2022-10-30
+     *
      * @var string
      */
     public $end;
 
     /**
+     * @description The information about the user on duty.
+     *
      * @var simpleContact
      */
     public $simpleContact;
 
     /**
+     * @description The date from which the user started shift work.
+     *
+     * @example 2022-10-01
+     *
      * @var string
      */
     public $start;

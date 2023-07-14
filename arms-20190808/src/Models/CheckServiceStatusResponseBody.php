@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CheckServiceStatusResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
+     * @example 5710C923-AD09-4293-9E11-DCBE3D15F8D4
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateWebhookResponseBody extends Model
 {
     /**
+     * @example 48716
+     *
      * @var string
      */
     public $contactId;
 
     /**
+     * @example 16AF921B-8187-489F-9913-43C808B4****
+     *
      * @var string
      */
     public $requestId;

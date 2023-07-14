@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class OpenVClusterResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example rre59xelcx
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
+     * @example 42E58E4D-ACAD-4400-8FAF-F762340AE5B3
+     *
      * @var string
      */
     public $requestId;

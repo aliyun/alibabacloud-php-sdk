@@ -15,6 +15,8 @@ class SearchAlertContactResponseBody extends Model
     public $pageBean;
 
     /**
+     * @example 21E85B16-75A6-429A-9F65-8AAC9A54****
+     *
      * @var string
      */
     public $requestId;

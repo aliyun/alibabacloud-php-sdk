@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteNotificationPolicyRequest extends Model
 {
     /**
+     * @description Deletes a notification policy based on its ID.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $id;

@@ -26,11 +26,15 @@ class prometheusAlertTemplates extends Model
     public $description;
 
     /**
+     * @example 1m
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes * 100 < 10
+     *
      * @var string
      */
     public $expression;
@@ -46,6 +50,8 @@ class prometheusAlertTemplates extends Model
     public $type;
 
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $version;

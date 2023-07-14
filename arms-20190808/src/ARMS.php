@@ -18,6 +18,10 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusGlobalViewRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusGlobalViewResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusInstanceRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusInstanceResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusIntegrationRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusIntegrationResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusRemoteWriteRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\AddPrometheusRemoteWriteResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddRecordingRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AddRecordingRuleResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\AppendInstancesToPrometheusGlobalViewRequest;
@@ -25,6 +29,10 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\AppendInstancesToPrometheusGlobalView
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ApplyScenarioRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ApplyScenarioResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ApplyScenarioShrinkRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\BindPrometheusGrafanaInstanceRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\BindPrometheusGrafanaInstanceResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ChangeResourceGroupRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CheckServiceStatusRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CheckServiceStatusResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ConfigAppRequest;
@@ -55,6 +63,10 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateOrUpdateWebhookContactRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateOrUpdateWebhookContactResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreatePrometheusAlertRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreatePrometheusAlertRuleResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreatePrometheusInstanceRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreatePrometheusInstanceResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreatePrometheusMonitoringRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreatePrometheusMonitoringResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRetcodeAppRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRetcodeAppResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateSyntheticTaskRequest;
@@ -96,6 +108,12 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusAlertRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusAlertRuleResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusGlobalViewRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusGlobalViewResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusIntegrationRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusIntegrationResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusMonitoringRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusMonitoringResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusRemoteWriteRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeletePrometheusRemoteWriteResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteRetcodeAppRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteRetcodeAppResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteScenarioRequest;
@@ -125,6 +143,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeTraceLicenseKeyRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeTraceLicenseKeyResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeWebhookContactsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeWebhookContactsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\EnableMetricRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\EnableMetricResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAgentDownloadUrlRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAgentDownloadUrlResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAlertRulesRequest;
@@ -133,6 +153,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAppApiByPageRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAppApiByPageResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAuthTokenRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAuthTokenResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetCloudClusterAllUrlRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetCloudClusterAllUrlResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetClusterAllUrlRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetClusterAllUrlResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetExploreUrlRequest;
@@ -149,8 +171,22 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusApiTokenRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusApiTokenResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusGlobalViewRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusGlobalViewResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusInstanceRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusInstanceResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusIntegrationRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusIntegrationResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusMonitoringRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusMonitoringResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusRemoteWriteRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetPrometheusRemoteWriteResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRecordingRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRecordingRuleResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeAppByPidRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeAppByPidResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeDataByQueryRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeDataByQueryResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeLogstoreRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeLogstoreResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeShareUrlRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetRetcodeShareUrlResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSourceMapInfoRequest;
@@ -207,8 +243,16 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusAlertTemplatesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusAlertTemplatesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusGlobalViewRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusGlobalViewResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusInstanceByTagAndResourceGroupIdRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusInstanceByTagAndResourceGroupIdResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusInstancesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusInstancesResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusIntegrationRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusIntegrationResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusMonitoringRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusMonitoringResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusRemoteWritesRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListPrometheusRemoteWritesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListRetcodeAppsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListRetcodeAppsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListScenarioRequest;
@@ -273,12 +317,14 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\SwitchSyntheticTaskStatusRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SwitchSyntheticTaskStatusResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SyncRecordingRulesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SyncRecordingRulesResponse;
-use AlibabaCloud\SDK\ARMS\V20190808\Models\TurnOnSecondSwitchRequest;
-use AlibabaCloud\SDK\ARMS\V20190808\Models\TurnOnSecondSwitchResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UninstallManagedPrometheusRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UninstallManagedPrometheusResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UninstallPromClusterRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UninstallPromClusterResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateAlertContactGroupRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateAlertContactGroupResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateAlertContactRequest;
@@ -291,11 +337,20 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateIntegrationRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateIntegrationResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusAlertRuleRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusAlertRuleResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusGlobalViewRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusGlobalViewResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusIntegrationRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusIntegrationResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusMonitoringRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusMonitoringResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusMonitoringStatusRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusMonitoringStatusResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusRemoteWriteRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusRemoteWriteResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateWebhookRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateWebhookResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UploadRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UploadResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -307,8 +362,9 @@ class ARMS extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'regional';
+        $this->_endpointMap        = [
             'ap-northeast-2-pop'          => 'arms.aliyuncs.com',
             'cn-beijing-finance-1'        => 'arms.aliyuncs.com',
             'cn-beijing-finance-pop'      => 'arms.aliyuncs.com',
@@ -539,6 +595,12 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -668,6 +730,109 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->addPrometheusInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddPrometheusIntegrationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AddPrometheusIntegrationResponse
+     */
+    public function addPrometheusIntegrationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->integrationType)) {
+            $query['IntegrationType'] = $request->integrationType;
+        }
+        if (!Utils::isUnset($request->param)) {
+            $query['Param'] = $request->param;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddPrometheusIntegration',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddPrometheusIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddPrometheusIntegrationRequest $request
+     *
+     * @return AddPrometheusIntegrationResponse
+     */
+    public function addPrometheusIntegration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addPrometheusIntegrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AddPrometheusRemoteWriteRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return AddPrometheusRemoteWriteResponse
+     */
+    public function addPrometheusRemoteWriteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->remoteWriteYaml)) {
+            $body['RemoteWriteYaml'] = $request->remoteWriteYaml;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddPrometheusRemoteWrite',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddPrometheusRemoteWriteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddPrometheusRemoteWriteRequest $request
+     *
+     * @return AddPrometheusRemoteWriteResponse
+     */
+    public function addPrometheusRemoteWrite($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addPrometheusRemoteWriteWithOptions($request, $runtime);
     }
 
     /**
@@ -850,6 +1015,110 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param BindPrometheusGrafanaInstanceRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return BindPrometheusGrafanaInstanceResponse
+     */
+    public function bindPrometheusGrafanaInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->grafanaInstanceId)) {
+            $query['GrafanaInstanceId'] = $request->grafanaInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindPrometheusGrafanaInstance',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BindPrometheusGrafanaInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BindPrometheusGrafanaInstanceRequest $request
+     *
+     * @return BindPrometheusGrafanaInstanceResponse
+     */
+    public function bindPrometheusGrafanaInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindPrometheusGrafanaInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChangeResourceGroupRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->newResourceGroupId)) {
+            $query['NewResourceGroupId'] = $request->newResourceGroupId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeResourceGroup',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeResourceGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeResourceGroupRequest $request
+     *
+     * @return ChangeResourceGroupResponse
+     */
+    public function changeResourceGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeResourceGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CheckServiceStatusRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -896,10 +1165,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ConfigAppRequest $request
-     * @param RuntimeOptions   $runtime
+     * ****
+     *   *
+     * @param ConfigAppRequest $request ConfigAppRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfigAppResponse
+     * @return ConfigAppResponse ConfigAppResponse
      */
     public function configAppWithOptions($request, $runtime)
     {
@@ -913,6 +1184,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -933,9 +1207,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ConfigAppRequest $request
+     * ****
+     *   *
+     * @param ConfigAppRequest $request ConfigAppRequest
      *
-     * @return ConfigAppResponse
+     * @return ConfigAppResponse ConfigAppResponse
      */
     public function configApp($request)
     {
@@ -945,10 +1221,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateAlertContactRequest $request
-     * @param RuntimeOptions            $runtime
+     * The ID of the request.
+     *   *
+     * @param CreateAlertContactRequest $request CreateAlertContactRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAlertContactResponse
+     * @return CreateAlertContactResponse CreateAlertContactResponse
      */
     public function createAlertContactWithOptions($request, $runtime)
     {
@@ -968,6 +1246,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->systemNoc)) {
             $query['SystemNoc'] = $request->systemNoc;
@@ -991,9 +1272,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param CreateAlertContactRequest $request
+     * The ID of the request.
+     *   *
+     * @param CreateAlertContactRequest $request CreateAlertContactRequest
      *
-     * @return CreateAlertContactResponse
+     * @return CreateAlertContactResponse CreateAlertContactResponse
      */
     public function createAlertContact($request)
     {
@@ -1225,6 +1508,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $body['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -1264,6 +1550,13 @@ class ARMS extends OpenApiClient
     public function createOrUpdateContactWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dingRobotUrl)) {
+            $query['DingRobotUrl'] = $request->dingRobotUrl;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         $body = [];
         if (!Utils::isUnset($request->contactId)) {
             $body['ContactId'] = $request->contactId;
@@ -1274,6 +1567,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->email)) {
             $body['Email'] = $request->email;
         }
+        if (!Utils::isUnset($request->isEmailVerify)) {
+            $body['IsEmailVerify'] = $request->isEmailVerify;
+        }
         if (!Utils::isUnset($request->phone)) {
             $body['Phone'] = $request->phone;
         }
@@ -1281,7 +1577,8 @@ class ARMS extends OpenApiClient
             $body['ReissueSendNotice'] = $request->reissueSendNotice;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateOrUpdateContact',
@@ -1444,6 +1741,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->dailyNocTime)) {
             $body['DailyNocTime'] = $request->dailyNocTime;
+        }
+        if (!Utils::isUnset($request->dingSignKey)) {
+            $body['DingSignKey'] = $request->dingSignKey;
         }
         if (!Utils::isUnset($request->enableOutgoing)) {
             $body['EnableOutgoing'] = $request->enableOutgoing;
@@ -1725,6 +2025,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
@@ -1759,6 +2062,139 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param CreatePrometheusInstanceRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreatePrometheusInstanceResponse
+     */
+    public function createPrometheusInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allSubClustersSuccess)) {
+            $query['AllSubClustersSuccess'] = $request->allSubClustersSuccess;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['ClusterType'] = $request->clusterType;
+        }
+        if (!Utils::isUnset($request->grafanaInstanceId)) {
+            $query['GrafanaInstanceId'] = $request->grafanaInstanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->subClustersJson)) {
+            $query['SubClustersJson'] = $request->subClustersJson;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePrometheusInstance',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePrometheusInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreatePrometheusInstanceRequest $request
+     *
+     * @return CreatePrometheusInstanceResponse
+     */
+    public function createPrometheusInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPrometheusInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreatePrometheusMonitoringRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CreatePrometheusMonitoringResponse
+     */
+    public function createPrometheusMonitoringWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->configYaml)) {
+            $body['ConfigYaml'] = $request->configYaml;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePrometheusMonitoring',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePrometheusMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreatePrometheusMonitoringRequest $request
+     *
+     * @return CreatePrometheusMonitoringResponse
+     */
+    public function createPrometheusMonitoring($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPrometheusMonitoringWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateRetcodeAppRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -1771,11 +2207,17 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->retcodeAppName)) {
             $query['RetcodeAppName'] = $request->retcodeAppName;
         }
         if (!Utils::isUnset($request->retcodeAppType)) {
             $query['RetcodeAppType'] = $request->retcodeAppType;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1819,25 +2261,25 @@ class ARMS extends OpenApiClient
         $request = new CreateSyntheticTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->commonParam)) {
-            $request->commonParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->commonParam), 'CommonParam', 'json');
+            $request->commonParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commonParam, 'CommonParam', 'json');
         }
         if (!Utils::isUnset($tmpReq->download)) {
-            $request->downloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->download), 'Download', 'json');
+            $request->downloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->download, 'Download', 'json');
         }
         if (!Utils::isUnset($tmpReq->extendInterval)) {
-            $request->extendIntervalShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->extendInterval), 'ExtendInterval', 'json');
+            $request->extendIntervalShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->extendInterval, 'ExtendInterval', 'json');
         }
         if (!Utils::isUnset($tmpReq->monitorList)) {
             $request->monitorListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->monitorList, 'MonitorList', 'json');
         }
         if (!Utils::isUnset($tmpReq->navigation)) {
-            $request->navigationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->navigation), 'Navigation', 'json');
+            $request->navigationShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->navigation, 'Navigation', 'json');
         }
         if (!Utils::isUnset($tmpReq->net)) {
-            $request->netShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->net), 'Net', 'json');
+            $request->netShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->net, 'Net', 'json');
         }
         if (!Utils::isUnset($tmpReq->protocol)) {
-            $request->protocolShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->protocol), 'Protocol', 'json');
+            $request->protocolShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->protocol, 'Protocol', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->commonParamShrink)) {
@@ -2666,6 +3108,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->alertId)) {
             $query['AlertId'] = $request->alertId;
         }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2743,6 +3188,159 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param DeletePrometheusIntegrationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeletePrometheusIntegrationResponse
+     */
+    public function deletePrometheusIntegrationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->integrationType)) {
+            $query['IntegrationType'] = $request->integrationType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePrometheusIntegration',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePrometheusIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeletePrometheusIntegrationRequest $request
+     *
+     * @return DeletePrometheusIntegrationResponse
+     */
+    public function deletePrometheusIntegration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePrometheusIntegrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeletePrometheusMonitoringRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeletePrometheusMonitoringResponse
+     */
+    public function deletePrometheusMonitoringWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->monitoringName)) {
+            $query['MonitoringName'] = $request->monitoringName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePrometheusMonitoring',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePrometheusMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeletePrometheusMonitoringRequest $request
+     *
+     * @return DeletePrometheusMonitoringResponse
+     */
+    public function deletePrometheusMonitoring($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePrometheusMonitoringWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeletePrometheusRemoteWriteRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DeletePrometheusRemoteWriteResponse
+     */
+    public function deletePrometheusRemoteWriteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->remoteWriteNames)) {
+            $query['RemoteWriteNames'] = $request->remoteWriteNames;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePrometheusRemoteWrite',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePrometheusRemoteWriteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeletePrometheusRemoteWriteRequest $request
+     *
+     * @return DeletePrometheusRemoteWriteResponse
+     */
+    public function deletePrometheusRemoteWrite($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePrometheusRemoteWriteWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteRetcodeAppRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -2754,6 +3352,12 @@ class ARMS extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -3085,11 +3689,17 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->contactGroupName)) {
             $query['ContactGroupName'] = $request->contactGroupName;
         }
+        if (!Utils::isUnset($request->groupIds)) {
+            $query['GroupIds'] = $request->groupIds;
+        }
         if (!Utils::isUnset($request->isDetail)) {
             $query['IsDetail'] = $request->isDetail;
         }
         if (!Utils::isUnset($request->page)) {
             $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->size)) {
             $query['Size'] = $request->size;
@@ -3134,6 +3744,9 @@ class ARMS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->contactIds)) {
+            $query['ContactIds'] = $request->contactIds;
+        }
         if (!Utils::isUnset($request->contactName)) {
             $query['ContactName'] = $request->contactName;
         }
@@ -3146,8 +3759,14 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->phone)) {
             $query['Phone'] = $request->phone;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->size)) {
             $query['Size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->verbose)) {
+            $query['Verbose'] = $request->verbose;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3238,6 +3857,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->page)) {
             $query['Page'] = $request->page;
         }
+        if (!Utils::isUnset($request->robotIds)) {
+            $query['RobotIds'] = $request->robotIds;
+        }
         if (!Utils::isUnset($request->robotName)) {
             $query['RobotName'] = $request->robotName;
         }
@@ -3286,6 +3908,9 @@ class ARMS extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->alertId)) {
             $query['AlertId'] = $request->alertId;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3401,6 +4026,55 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param EnableMetricRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return EnableMetricResponse
+     */
+    public function enableMetricWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dropMetric)) {
+            $query['DropMetric'] = $request->dropMetric;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableMetric',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableMetricRequest $request
+     *
+     * @return EnableMetricResponse
+     */
+    public function enableMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableMetricWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAgentDownloadUrlRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -3468,11 +4142,17 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->page)) {
             $query['Page'] = $request->page;
         }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->size)) {
             $query['Size'] = $request->size;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3609,6 +4289,52 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAuthTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCloudClusterAllUrlRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetCloudClusterAllUrlResponse
+     */
+    public function getCloudClusterAllUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCloudClusterAllUrl',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCloudClusterAllUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCloudClusterAllUrlRequest $request
+     *
+     * @return GetCloudClusterAllUrlResponse
+     */
+    public function getCloudClusterAllUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCloudClusterAllUrlWithOptions($request, $runtime);
     }
 
     /**
@@ -3777,6 +4503,12 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -3817,8 +4549,14 @@ class ARMS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
         }
         if (!Utils::isUnset($request->traceIDs)) {
             $query['TraceIDs'] = $request->traceIDs;
@@ -3894,10 +4632,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetPrometheusApiTokenRequest $request
-     * @param RuntimeOptions               $runtime
+     * The ID of the request.
+     *   *
+     * @param GetPrometheusApiTokenRequest $request GetPrometheusApiTokenRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetPrometheusApiTokenResponse
+     * @return GetPrometheusApiTokenResponse GetPrometheusApiTokenResponse
      */
     public function getPrometheusApiTokenWithOptions($request, $runtime)
     {
@@ -3925,9 +4665,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetPrometheusApiTokenRequest $request
+     * The ID of the request.
+     *   *
+     * @param GetPrometheusApiTokenRequest $request GetPrometheusApiTokenRequest
      *
-     * @return GetPrometheusApiTokenResponse
+     * @return GetPrometheusApiTokenResponse GetPrometheusApiTokenResponse
      */
     public function getPrometheusApiToken($request)
     {
@@ -3983,6 +4725,205 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param GetPrometheusInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetPrometheusInstanceResponse
+     */
+    public function getPrometheusInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPrometheusInstance',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPrometheusInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPrometheusInstanceRequest $request
+     *
+     * @return GetPrometheusInstanceResponse
+     */
+    public function getPrometheusInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPrometheusInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPrometheusIntegrationRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetPrometheusIntegrationResponse
+     */
+    public function getPrometheusIntegrationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->integrationType)) {
+            $query['IntegrationType'] = $request->integrationType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPrometheusIntegration',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPrometheusIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPrometheusIntegrationRequest $request
+     *
+     * @return GetPrometheusIntegrationResponse
+     */
+    public function getPrometheusIntegration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPrometheusIntegrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPrometheusMonitoringRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetPrometheusMonitoringResponse
+     */
+    public function getPrometheusMonitoringWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->monitoringName)) {
+            $query['MonitoringName'] = $request->monitoringName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPrometheusMonitoring',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPrometheusMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPrometheusMonitoringRequest $request
+     *
+     * @return GetPrometheusMonitoringResponse
+     */
+    public function getPrometheusMonitoring($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPrometheusMonitoringWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetPrometheusRemoteWriteRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetPrometheusRemoteWriteResponse
+     */
+    public function getPrometheusRemoteWriteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->remoteWriteName)) {
+            $query['RemoteWriteName'] = $request->remoteWriteName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPrometheusRemoteWrite',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPrometheusRemoteWriteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPrometheusRemoteWriteRequest $request
+     *
+     * @return GetPrometheusRemoteWriteResponse
+     */
+    public function getPrometheusRemoteWrite($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPrometheusRemoteWriteWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetRecordingRuleRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -4026,6 +4967,147 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getRecordingRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRetcodeAppByPidRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetRetcodeAppByPidResponse
+     */
+    public function getRetcodeAppByPidWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRetcodeAppByPid',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRetcodeAppByPidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRetcodeAppByPidRequest $request
+     *
+     * @return GetRetcodeAppByPidResponse
+     */
+    public function getRetcodeAppByPid($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRetcodeAppByPidWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRetcodeDataByQueryRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetRetcodeDataByQueryResponse
+     */
+    public function getRetcodeDataByQueryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->from)) {
+            $query['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $query['Query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->to)) {
+            $query['To'] = $request->to;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRetcodeDataByQuery',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRetcodeDataByQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRetcodeDataByQueryRequest $request
+     *
+     * @return GetRetcodeDataByQueryResponse
+     */
+    public function getRetcodeDataByQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRetcodeDataByQueryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRetcodeLogstoreRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetRetcodeLogstoreResponse
+     */
+    public function getRetcodeLogstoreWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pid)) {
+            $query['Pid'] = $request->pid;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRetcodeLogstore',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRetcodeLogstoreResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRetcodeLogstoreRequest $request
+     *
+     * @return GetRetcodeLogstoreResponse
+     */
+    public function getRetcodeLogstore($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRetcodeLogstoreWithOptions($request, $runtime);
     }
 
     /**
@@ -4344,10 +5426,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetTraceRequest $request
-     * @param RuntimeOptions  $runtime
+     * > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
+     *   *
+     * @param GetTraceRequest $request GetTraceRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTraceResponse
+     * @return GetTraceResponse GetTraceResponse
      */
     public function getTraceWithOptions($request, $runtime)
     {
@@ -4384,9 +5468,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param GetTraceRequest $request
+     * > You must use Application Real-Time Monitoring Service (ARMS) SDK for Java V2.7.24.
+     *   *
+     * @param GetTraceRequest $request GetTraceRequest
      *
-     * @return GetTraceResponse
+     * @return GetTraceResponse GetTraceResponse
      */
     public function getTrace($request)
     {
@@ -4410,6 +5496,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4442,10 +5531,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ImportAppAlertRulesRequest $request
-     * @param RuntimeOptions             $runtime
+     * The ID of the region where the associated applications reside.
+     *   *
+     * @param ImportAppAlertRulesRequest $request ImportAppAlertRulesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ImportAppAlertRulesResponse
+     * @return ImportAppAlertRulesResponse ImportAppAlertRulesResponse
      */
     public function importAppAlertRulesWithOptions($request, $runtime)
     {
@@ -4462,6 +5553,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->templageAlertConfig)) {
             $query['TemplageAlertConfig'] = $request->templageAlertConfig;
@@ -4488,9 +5582,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ImportAppAlertRulesRequest $request
+     * The ID of the region where the associated applications reside.
+     *   *
+     * @param ImportAppAlertRulesRequest $request ImportAppAlertRulesRequest
      *
-     * @return ImportAppAlertRulesResponse
+     * @return ImportAppAlertRulesResponse ImportAppAlertRulesResponse
      */
     public function importAppAlertRules($request)
     {
@@ -4555,10 +5651,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param InstallManagedPrometheusRequest $request
-     * @param RuntimeOptions                  $runtime
+     * $.parameters[5].schema.example.
+     *   *
+     * @param InstallManagedPrometheusRequest $request InstallManagedPrometheusRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return InstallManagedPrometheusResponse
+     * @return InstallManagedPrometheusResponse InstallManagedPrometheusResponse
      */
     public function installManagedPrometheusWithOptions($request, $runtime)
     {
@@ -4567,14 +5665,23 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
         if (!Utils::isUnset($request->clusterType)) {
             $query['ClusterType'] = $request->clusterType;
+        }
+        if (!Utils::isUnset($request->grafanaInstanceId)) {
+            $query['GrafanaInstanceId'] = $request->grafanaInstanceId;
         }
         if (!Utils::isUnset($request->kubeConfig)) {
             $query['KubeConfig'] = $request->kubeConfig;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->securityGroupId)) {
             $query['SecurityGroupId'] = $request->securityGroupId;
@@ -4604,9 +5711,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param InstallManagedPrometheusRequest $request
+     * $.parameters[5].schema.example.
+     *   *
+     * @param InstallManagedPrometheusRequest $request InstallManagedPrometheusRequest
      *
-     * @return InstallManagedPrometheusResponse
+     * @return InstallManagedPrometheusResponse InstallManagedPrometheusResponse
      */
     public function installManagedPrometheus($request)
     {
@@ -4894,10 +6003,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListDashboardsRequest $request
-     * @param RuntimeOptions        $runtime
+     * None.
+     *   *
+     * @param ListDashboardsRequest $request ListDashboardsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDashboardsResponse
+     * @return ListDashboardsResponse ListDashboardsResponse
      */
     public function listDashboardsWithOptions($request, $runtime)
     {
@@ -4946,9 +6057,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListDashboardsRequest $request
+     * None.
+     *   *
+     * @param ListDashboardsRequest $request ListDashboardsRequest
      *
-     * @return ListDashboardsResponse
+     * @return ListDashboardsResponse ListDashboardsResponse
      */
     public function listDashboards($request)
     {
@@ -5258,6 +6371,9 @@ class ARMS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->ids)) {
+            $query['Ids'] = $request->ids;
+        }
         if (!Utils::isUnset($request->isDetail)) {
             $query['IsDetail'] = $request->isDetail;
         }
@@ -5367,6 +6483,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
@@ -5491,6 +6610,55 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param ListPrometheusInstanceByTagAndResourceGroupIdRequest $request
+     * @param RuntimeOptions                                       $runtime
+     *
+     * @return ListPrometheusInstanceByTagAndResourceGroupIdResponse
+     */
+    public function listPrometheusInstanceByTagAndResourceGroupIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPrometheusInstanceByTagAndResourceGroupId',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPrometheusInstanceByTagAndResourceGroupIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPrometheusInstanceByTagAndResourceGroupIdRequest $request
+     *
+     * @return ListPrometheusInstanceByTagAndResourceGroupIdResponse
+     */
+    public function listPrometheusInstanceByTagAndResourceGroupId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPrometheusInstanceByTagAndResourceGroupIdWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListPrometheusInstancesRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -5500,6 +6668,9 @@ class ARMS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clusterType)) {
+            $query['ClusterType'] = $request->clusterType;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -5537,10 +6708,156 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListRetcodeAppsRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param ListPrometheusIntegrationRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return ListRetcodeAppsResponse
+     * @return ListPrometheusIntegrationResponse
+     */
+    public function listPrometheusIntegrationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->integrationType)) {
+            $query['IntegrationType'] = $request->integrationType;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPrometheusIntegration',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPrometheusIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPrometheusIntegrationRequest $request
+     *
+     * @return ListPrometheusIntegrationResponse
+     */
+    public function listPrometheusIntegration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPrometheusIntegrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPrometheusMonitoringRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListPrometheusMonitoringResponse
+     */
+    public function listPrometheusMonitoringWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPrometheusMonitoring',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPrometheusMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPrometheusMonitoringRequest $request
+     *
+     * @return ListPrometheusMonitoringResponse
+     */
+    public function listPrometheusMonitoring($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPrometheusMonitoringWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPrometheusRemoteWritesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ListPrometheusRemoteWritesResponse
+     */
+    public function listPrometheusRemoteWritesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPrometheusRemoteWrites',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPrometheusRemoteWritesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPrometheusRemoteWritesRequest $request
+     *
+     * @return ListPrometheusRemoteWritesResponse
+     */
+    public function listPrometheusRemoteWrites($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPrometheusRemoteWritesWithOptions($request, $runtime);
+    }
+
+    /**
+     * ****
+     *   *
+     * @param ListRetcodeAppsRequest $request ListRetcodeAppsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListRetcodeAppsResponse ListRetcodeAppsResponse
      */
     public function listRetcodeAppsWithOptions($request, $runtime)
     {
@@ -5549,8 +6866,11 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -5571,9 +6891,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param ListRetcodeAppsRequest $request
+     * ****
+     *   *
+     * @param ListRetcodeAppsRequest $request ListRetcodeAppsRequest
      *
-     * @return ListRetcodeAppsResponse
+     * @return ListRetcodeAppsResponse ListRetcodeAppsResponse
      */
     public function listRetcodeApps($request)
     {
@@ -5704,6 +7026,12 @@ class ARMS extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6360,10 +7688,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchAlertContactRequest $request
-     * @param RuntimeOptions            $runtime
+     * The ID of the resource group.
+     *   *
+     * @param SearchAlertContactRequest $request SearchAlertContactRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchAlertContactResponse
+     * @return SearchAlertContactResponse SearchAlertContactResponse
      */
     public function searchAlertContactWithOptions($request, $runtime)
     {
@@ -6409,9 +7739,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchAlertContactRequest $request
+     * The ID of the resource group.
+     *   *
+     * @param SearchAlertContactRequest $request SearchAlertContactRequest
      *
-     * @return SearchAlertContactResponse
+     * @return SearchAlertContactResponse SearchAlertContactResponse
      */
     public function searchAlertContact($request)
     {
@@ -6421,10 +7753,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchAlertContactGroupRequest $request
-     * @param RuntimeOptions                 $runtime
+     * The mobile number of the alert contact.
+     *   *
+     * @param SearchAlertContactGroupRequest $request SearchAlertContactGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchAlertContactGroupResponse
+     * @return SearchAlertContactGroupResponse SearchAlertContactGroupResponse
      */
     public function searchAlertContactGroupWithOptions($request, $runtime)
     {
@@ -6467,9 +7801,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchAlertContactGroupRequest $request
+     * The mobile number of the alert contact.
+     *   *
+     * @param SearchAlertContactGroupRequest $request SearchAlertContactGroupRequest
      *
-     * @return SearchAlertContactGroupResponse
+     * @return SearchAlertContactGroupResponse SearchAlertContactGroupResponse
      */
     public function searchAlertContactGroup($request)
     {
@@ -6479,10 +7815,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchAlertHistoriesRequest $request
-     * @param RuntimeOptions              $runtime
+     * This operation is no longer maintained. To query alert records, call the ListAlerts operation provided by the new version of Alert Management.
+     *   *
+     * @param SearchAlertHistoriesRequest $request SearchAlertHistoriesRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchAlertHistoriesResponse
+     * @return SearchAlertHistoriesResponse SearchAlertHistoriesResponse
      */
     public function searchAlertHistoriesWithOptions($request, $runtime)
     {
@@ -6528,9 +7866,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchAlertHistoriesRequest $request
+     * This operation is no longer maintained. To query alert records, call the ListAlerts operation provided by the new version of Alert Management.
+     *   *
+     * @param SearchAlertHistoriesRequest $request SearchAlertHistoriesRequest
      *
-     * @return SearchAlertHistoriesResponse
+     * @return SearchAlertHistoriesResponse SearchAlertHistoriesResponse
      */
     public function searchAlertHistories($request)
     {
@@ -6540,15 +7880,20 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchAlertRulesRequest $request
-     * @param RuntimeOptions          $runtime
+     * Queries alert rules.
+     *   *
+     * @param SearchAlertRulesRequest $request SearchAlertRulesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchAlertRulesResponse
+     * @return SearchAlertRulesResponse SearchAlertRulesResponse
      */
     public function searchAlertRulesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->alertRuleId)) {
+            $query['AlertRuleId'] = $request->alertRuleId;
+        }
         if (!Utils::isUnset($request->appType)) {
             $query['AppType'] = $request->appType;
         }
@@ -6564,8 +7909,14 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->systemRegionId)) {
             $query['SystemRegionId'] = $request->systemRegionId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->title)) {
             $query['Title'] = $request->title;
@@ -6592,9 +7943,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchAlertRulesRequest $request
+     * Queries alert rules.
+     *   *
+     * @param SearchAlertRulesRequest $request SearchAlertRulesRequest
      *
-     * @return SearchAlertRulesResponse
+     * @return SearchAlertRulesResponse SearchAlertRulesResponse
      */
     public function searchAlertRules($request)
     {
@@ -6604,10 +7957,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchEventsRequest $request
-     * @param RuntimeOptions      $runtime
+     * The operation that you want to perform. Set the value to `SearchEvents`.
+     *   *
+     * @param SearchEventsRequest $request SearchEventsRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchEventsResponse
+     * @return SearchEventsResponse SearchEventsResponse
      */
     public function searchEventsWithOptions($request, $runtime)
     {
@@ -6662,9 +8017,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchEventsRequest $request
+     * The operation that you want to perform. Set the value to `SearchEvents`.
+     *   *
+     * @param SearchEventsRequest $request SearchEventsRequest
      *
-     * @return SearchEventsResponse
+     * @return SearchEventsResponse SearchEventsResponse
      */
     public function searchEvents($request)
     {
@@ -6692,8 +8049,17 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->retcodeAppId)) {
+            $query['RetcodeAppId'] = $request->retcodeAppId;
+        }
         if (!Utils::isUnset($request->retcodeAppName)) {
             $query['RetcodeAppName'] = $request->retcodeAppName;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -6726,10 +8092,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchTraceAppByNameRequest $request
-     * @param RuntimeOptions              $runtime
+     * ***
+     *   *
+     * @param SearchTraceAppByNameRequest $request SearchTraceAppByNameRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchTraceAppByNameResponse
+     * @return SearchTraceAppByNameResponse SearchTraceAppByNameResponse
      */
     public function searchTraceAppByNameWithOptions($request, $runtime)
     {
@@ -6737,6 +8105,9 @@ class ARMS extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->traceAppName)) {
             $query['TraceAppName'] = $request->traceAppName;
@@ -6760,9 +8131,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchTraceAppByNameRequest $request
+     * ***
+     *   *
+     * @param SearchTraceAppByNameRequest $request SearchTraceAppByNameRequest
      *
-     * @return SearchTraceAppByNameResponse
+     * @return SearchTraceAppByNameResponse SearchTraceAppByNameResponse
      */
     public function searchTraceAppByName($request)
     {
@@ -6789,6 +8162,12 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         if (!Utils::isUnset($request->traceAppName)) {
             $query['TraceAppName'] = $request->traceAppName;
@@ -6824,10 +8203,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchTracesRequest $request
-     * @param RuntimeOptions      $runtime
+     * > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](~~175866~~).
+     *   *
+     * @param SearchTracesRequest $request SearchTracesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SearchTracesResponse
+     * @return SearchTracesResponse SearchTracesResponse
      */
     public function searchTracesWithOptions($request, $runtime)
     {
@@ -6885,9 +8266,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SearchTracesRequest $request
+     * > A maximum of 100 data entries can be returned each time this operation is called. If you want to query all existing traces, we recommend that you call the SearchTracesByPage operation. For more information, see [SearchTracesByPage](~~175866~~).
+     *   *
+     * @param SearchTracesRequest $request SearchTracesRequest
      *
-     * @return SearchTracesResponse
+     * @return SearchTracesResponse SearchTracesResponse
      */
     public function searchTraces($request)
     {
@@ -6911,6 +8294,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->exclusionFilters)) {
             $query['ExclusionFilters'] = $request->exclusionFilters;
+        }
+        if (!Utils::isUnset($request->isError)) {
+            $query['IsError'] = $request->isError;
         }
         if (!Utils::isUnset($request->minDuration)) {
             $query['MinDuration'] = $request->minDuration;
@@ -6976,10 +8362,12 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SendTTSVerifyLinkRequest $request
-     * @param RuntimeOptions           $runtime
+     * After you receive the text message, verify the mobile number as prompted. Before you can specify a mobile phone number in a notification policy, you must verify the mobile phone number.
+     *   *
+     * @param SendTTSVerifyLinkRequest $request SendTTSVerifyLinkRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return SendTTSVerifyLinkResponse
+     * @return SendTTSVerifyLinkResponse SendTTSVerifyLinkResponse
      */
     public function sendTTSVerifyLinkWithOptions($request, $runtime)
     {
@@ -7010,9 +8398,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param SendTTSVerifyLinkRequest $request
+     * After you receive the text message, verify the mobile number as prompted. Before you can specify a mobile phone number in a notification policy, you must verify the mobile phone number.
+     *   *
+     * @param SendTTSVerifyLinkRequest $request SendTTSVerifyLinkRequest
      *
-     * @return SendTTSVerifyLinkResponse
+     * @return SendTTSVerifyLinkResponse SendTTSVerifyLinkResponse
      */
     public function sendTTSVerifyLink($request)
     {
@@ -7031,6 +8421,9 @@ class ARMS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
         if (!Utils::isUnset($request->pid)) {
             $query['Pid'] = $request->pid;
         }
@@ -7255,50 +8648,61 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param TurnOnSecondSwitchRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
      *
-     * @return TurnOnSecondSwitchResponse
+     * @return TagResourcesResponse
      */
-    public function turnOnSecondSwitchWithOptions($request, $runtime)
+    public function tagResourcesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'TurnOnSecondSwitch',
+            'action'      => 'TagResources',
             'version'     => '2019-08-08',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
             'bodyType'    => 'json',
         ]);
 
-        return TurnOnSecondSwitchResponse::fromMap($this->callApi($params, $req, $runtime));
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param TurnOnSecondSwitchRequest $request
+     * @param TagResourcesRequest $request
      *
-     * @return TurnOnSecondSwitchResponse
+     * @return TagResourcesResponse
      */
-    public function turnOnSecondSwitch($request)
+    public function tagResources($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->turnOnSecondSwitchWithOptions($request, $runtime);
+        return $this->tagResourcesWithOptions($request, $runtime);
     }
 
     /**
-     * @param UninstallManagedPrometheusRequest $request
-     * @param RuntimeOptions                    $runtime
+     * The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
+     *   *
+     * @param UninstallManagedPrometheusRequest $request UninstallManagedPrometheusRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UninstallManagedPrometheusResponse
+     * @return UninstallManagedPrometheusResponse UninstallManagedPrometheusResponse
      */
     public function uninstallManagedPrometheusWithOptions($request, $runtime)
     {
@@ -7312,6 +8716,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
@@ -7335,9 +8742,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UninstallManagedPrometheusRequest $request
+     * The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
+     *   *
+     * @param UninstallManagedPrometheusRequest $request UninstallManagedPrometheusRequest
      *
-     * @return UninstallManagedPrometheusResponse
+     * @return UninstallManagedPrometheusResponse UninstallManagedPrometheusResponse
      */
     public function uninstallManagedPrometheus($request)
     {
@@ -7393,10 +8802,67 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateAlertContactRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return UpdateAlertContactResponse
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * The ID of the request.
+     *   *
+     * @param UpdateAlertContactRequest $request UpdateAlertContactRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateAlertContactResponse UpdateAlertContactResponse
      */
     public function updateAlertContactWithOptions($request, $runtime)
     {
@@ -7442,9 +8908,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateAlertContactRequest $request
+     * The ID of the request.
+     *   *
+     * @param UpdateAlertContactRequest $request UpdateAlertContactRequest
      *
-     * @return UpdateAlertContactResponse
+     * @return UpdateAlertContactResponse UpdateAlertContactResponse
      */
     public function updateAlertContact($request)
     {
@@ -7616,9 +9084,6 @@ class ARMS extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
-        if (!Utils::isUnset($request->apiEndpoint)) {
-            $body['ApiEndpoint'] = $request->apiEndpoint;
-        }
         if (!Utils::isUnset($request->autoRecover)) {
             $body['AutoRecover'] = $request->autoRecover;
         }
@@ -7654,9 +9119,6 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->recoverTime)) {
             $body['RecoverTime'] = $request->recoverTime;
-        }
-        if (!Utils::isUnset($request->shortToken)) {
-            $body['ShortToken'] = $request->shortToken;
         }
         if (!Utils::isUnset($request->stat)) {
             $body['Stat'] = $request->stat;
@@ -7737,6 +9199,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
@@ -7771,10 +9236,288 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateWebhookRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param UpdatePrometheusGlobalViewRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return UpdateWebhookResponse
+     * @return UpdatePrometheusGlobalViewResponse
+     */
+    public function updatePrometheusGlobalViewWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allSubClustersSuccess)) {
+            $query['AllSubClustersSuccess'] = $request->allSubClustersSuccess;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->subClustersJson)) {
+            $query['SubClustersJson'] = $request->subClustersJson;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePrometheusGlobalView',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePrometheusGlobalViewResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdatePrometheusGlobalViewRequest $request
+     *
+     * @return UpdatePrometheusGlobalViewResponse
+     */
+    public function updatePrometheusGlobalView($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePrometheusGlobalViewWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdatePrometheusIntegrationRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdatePrometheusIntegrationResponse
+     */
+    public function updatePrometheusIntegrationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->integrationType)) {
+            $query['IntegrationType'] = $request->integrationType;
+        }
+        if (!Utils::isUnset($request->param)) {
+            $query['Param'] = $request->param;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePrometheusIntegration',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePrometheusIntegrationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdatePrometheusIntegrationRequest $request
+     *
+     * @return UpdatePrometheusIntegrationResponse
+     */
+    public function updatePrometheusIntegration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePrometheusIntegrationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdatePrometheusMonitoringRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return UpdatePrometheusMonitoringResponse
+     */
+    public function updatePrometheusMonitoringWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->monitoringName)) {
+            $query['MonitoringName'] = $request->monitoringName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->configYaml)) {
+            $body['ConfigYaml'] = $request->configYaml;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePrometheusMonitoring',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePrometheusMonitoringResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdatePrometheusMonitoringRequest $request
+     *
+     * @return UpdatePrometheusMonitoringResponse
+     */
+    public function updatePrometheusMonitoring($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePrometheusMonitoringWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdatePrometheusMonitoringStatusRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return UpdatePrometheusMonitoringStatusResponse
+     */
+    public function updatePrometheusMonitoringStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->monitoringName)) {
+            $query['MonitoringName'] = $request->monitoringName;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePrometheusMonitoringStatus',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePrometheusMonitoringStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdatePrometheusMonitoringStatusRequest $request
+     *
+     * @return UpdatePrometheusMonitoringStatusResponse
+     */
+    public function updatePrometheusMonitoringStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePrometheusMonitoringStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdatePrometheusRemoteWriteRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdatePrometheusRemoteWriteResponse
+     */
+    public function updatePrometheusRemoteWriteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->remoteWriteName)) {
+            $query['RemoteWriteName'] = $request->remoteWriteName;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->remoteWriteYaml)) {
+            $body['RemoteWriteYaml'] = $request->remoteWriteYaml;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePrometheusRemoteWrite',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePrometheusRemoteWriteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdatePrometheusRemoteWriteRequest $request
+     *
+     * @return UpdatePrometheusRemoteWriteResponse
+     */
+    public function updatePrometheusRemoteWrite($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePrometheusRemoteWriteWithOptions($request, $runtime);
+    }
+
+    /**
+     * The ID of the request.
+     *   *
+     * @param UpdateWebhookRequest $request UpdateWebhookRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateWebhookResponse UpdateWebhookResponse
      */
     public function updateWebhookWithOptions($request, $runtime)
     {
@@ -7826,9 +9569,11 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param UpdateWebhookRequest $request
+     * The ID of the request.
+     *   *
+     * @param UpdateWebhookRequest $request UpdateWebhookRequest
      *
-     * @return UpdateWebhookResponse
+     * @return UpdateWebhookResponse UpdateWebhookResponse
      */
     public function updateWebhook($request)
     {

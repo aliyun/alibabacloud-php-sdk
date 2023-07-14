@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
+     * @description The list of information about historical alert events.
+     *
      * @var events[]
      */
     public $events;
 
     /**
+     * @description The number of the page returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 24
+     *
      * @var int
      */
     public $total;

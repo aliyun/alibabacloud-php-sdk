@@ -13,56 +13,94 @@ use AlibabaCloud\Tea\Model;
 class notificationPolicies extends Model
 {
     /**
+     * @description The ID of the escalation rule.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $escalationPolicyId;
 
     /**
+     * @description The grouping rule for alert events.
+     *
      * @var groupRule
      */
     public $groupRule;
 
     /**
+     * @description The ID of the notification policy.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The integration ID of the ticket system to which alerts are pushed.
+     *
+     * @example 34
+     *
      * @var int
      */
     public $integrationId;
 
     /**
+     * @description The alert event matching rules.
+     *
      * @var matchingRules[]
      */
     public $matchingRules;
 
     /**
+     * @description The name of the notification policy.
+     *
+     * @example notificationpolicy_test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The notification rules.
+     *
      * @var notifyRule
      */
     public $notifyRule;
 
     /**
+     * @description The notification templates.
+     *
      * @var notifyTemplate
      */
     public $notifyTemplate;
 
     /**
+     * @description Indicates whether the system repeatedly sends notifications for a long-lasting unresolved alert. Default value: true. Valid values:
+     *
+     * - `false`: The system sends a notification for a long-lasting unresolved alert based on an escalation policy.
+     * @example true
+     *
      * @var bool
      */
     public $repeat;
 
     /**
+     * @description The time interval at which notifications are sent for a long-lasting unresolved alert. Unit: seconds.
+     *
+     * @example 600
+     *
      * @var int
      */
     public $repeatInterval;
 
     /**
+     * @description Specifies whether the status of an alert automatically changes to Resolved when all events related to the alert change to the Restored state. The system notifies contacts when the alert status changes to Resolved.
+     *
+     * - `false`: The system does not send a notification.
+     * @example true
+     *
      * @var bool
      */
     public $sendRecoverMessage;

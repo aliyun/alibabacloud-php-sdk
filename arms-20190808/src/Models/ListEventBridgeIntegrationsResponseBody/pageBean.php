@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
+     * @description The EventBridge integrations.
+     *
      * @var eventBridgeIntegrations[]
      */
     public $eventBridgeIntegrations;
 
     /**
+     * @description The number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The total number of EventBridge integrations that are returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;

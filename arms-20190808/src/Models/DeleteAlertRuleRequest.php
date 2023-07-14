@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DeleteAlertRuleRequest extends Model
 {
     /**
+     * @description Indicates whether the alert rule was successfully deleted.
+     *
+     *   `true`: The specified data is deleted.
+     *   `false`: The specified data fails to be deleted.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $alertId;

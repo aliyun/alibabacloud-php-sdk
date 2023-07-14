@@ -9,56 +9,109 @@ use AlibabaCloud\Tea\Model;
 class alarmHistories extends Model
 {
     /**
+     * @description The content of the alert notification.
+     *
+     * @example "Alert name: Alert1\nAlert time: 2020-07-24 12:14:00\nAlert content: A total of four alerts are triggered: \*\*\*\*"
+     *
      * @var string
      */
     public $alarmContent;
 
     /**
+     * @description The response code returned after the alert notification was sent.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $alarmResponseCode;
 
     /**
+     * @description The webhook URL, such as the webhook URL of a DingTalk chatbot.
+     *
+     * @example https://oapi.dingtalk.com/robot/send?access_token=91f2f65002fefe0ab9b71e6590c5ca504348cad742ff01e9c8ab204439ca****
+     *
      * @var string
      */
     public $alarmSources;
 
     /**
+     * @description The time when the alert notification was sent.
+     *
+     * @example 1595564179000
+     *
      * @var int
      */
     public $alarmTime;
 
     /**
+     * @description The type of the alert rule. Default value: 4. Valid values:
+     *
+     *   `1`: a custom alert rule that is used to monitor drill-down data sets
+     *   `3`: a custom alert rule that is used to monitor tiled data sets
+     *   `4`: an alert rule that is used to monitor web pages, including the default alert rule for browser monitoring
+     *   `5`: an alert rule that is used to monitor applications, including the default alert rule for application monitoring
+     *   `6`: the default alert rule for browser monitoring
+     *   `7`: the default alert rule for application monitoring
+     *   `8`: a Tracing Analysis alert rule
+     *   `101`: a Prometheus alert rule
+     *
+     * @example 4
+     *
      * @var int
      */
     public $alarmType;
 
     /**
+     * @description The email address of the alert contact.
+     *
+     * @example someone@example.com
+     *
      * @var string
      */
     public $emails;
 
     /**
+     * @description The ID of the alert notification.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The mobile phone number of the alert contact.
+     *
+     * @example 1381111****
+     *
      * @var string
      */
     public $phones;
 
     /**
+     * @description The internal fields.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $strategyId;
 
     /**
+     * @description The internal fields.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $target;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example 113197164949****
+     *
      * @var string
      */
     public $userId;

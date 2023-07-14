@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class ListScenarioRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example b590lhguqs@28f515462******
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The name of the business monitoring job.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-zhangjaikou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The scenario where the business monitoring job is used. Valid values:
+     *
+     *   `USER-DEFINED`: user-defined. This is the default value.
+     *   `EDAS-ROLLOUT`: application release in Enterprise Distributed Application Service (EDAS)
+     *   `OAM-ROLLOUT`: application release based on Open Application Model (OAM)
+     *   `MSC-CANARY`: canary release based on Microservice Engine (MSE)
+     *
+     * @example USER-DEFINED
+     *
      * @var string
      */
     public $scenario;
 
     /**
+     * @description The code of the business monitoring job. Set this parameter when you know the code of the business monitoring job you want to query.
+     *
+     * @example a9f8****
+     *
      * @var string
      */
     public $sign;

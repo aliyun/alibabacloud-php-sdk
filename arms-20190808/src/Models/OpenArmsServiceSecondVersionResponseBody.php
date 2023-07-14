@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class OpenArmsServiceSecondVersionResponseBody extends Model
 {
     /**
+     * @example 20896874992****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 9ED50893-F3C4-42DF-ABB2-C200BE******
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class AddGrafanaResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example success
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1A9C645C-C83F-4C9D-8CCB-29BEC9E1****
+     *
      * @var string
      */
     public $requestId;

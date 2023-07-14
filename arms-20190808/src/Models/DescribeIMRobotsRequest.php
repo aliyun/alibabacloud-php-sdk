@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeIMRobotsRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The chatbot IDs.
+     *
+     * @example 123
+     *
+     * @var string
+     */
+    public $robotIds;
+
+    /**
+     * @description The name of the IM chatbot.
+     *
+     * @example Chatbot name
+     *
      * @var string
      */
     public $robotName;
 
     /**
+     * @description The number of IM chatbots to return on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;
     protected $_name = [
         'page'      => 'Page',
+        'robotIds'  => 'RobotIds',
         'robotName' => 'RobotName',
         'size'      => 'Size',
     ];
@@ -37,6 +59,9 @@ class DescribeIMRobotsRequest extends Model
         $res = [];
         if (null !== $this->page) {
             $res['Page'] = $this->page;
+        }
+        if (null !== $this->robotIds) {
+            $res['RobotIds'] = $this->robotIds;
         }
         if (null !== $this->robotName) {
             $res['RobotName'] = $this->robotName;
@@ -58,6 +83,9 @@ class DescribeIMRobotsRequest extends Model
         $model = new self();
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
+        }
+        if (isset($map['RobotIds'])) {
+            $model->robotIds = $map['RobotIds'];
         }
         if (isset($map['RobotName'])) {
             $model->robotName = $map['RobotName'];

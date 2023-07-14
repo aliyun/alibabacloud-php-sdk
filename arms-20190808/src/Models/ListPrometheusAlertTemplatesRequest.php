@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListPrometheusAlertTemplatesRequest extends Model
 {
     /**
+     * @example c0bad479465464e1d8c1e641b0afb****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

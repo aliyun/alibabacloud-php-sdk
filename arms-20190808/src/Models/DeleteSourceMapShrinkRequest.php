@@ -14,11 +14,15 @@ class DeleteSourceMapShrinkRequest extends Model
     public $fidListShrink;
 
     /**
+     * @example atc889zkcf@d8deedfa9bf****
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

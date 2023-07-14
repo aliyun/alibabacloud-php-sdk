@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetOnCallSchedulesDetailRequest extends Model
 {
     /**
+     * @description The date on which the shift ends. Format: `yyyy-MM-dd`.
+     *
+     * @example 2022-10-30
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the scheduling policy.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The date from which the shift starts. Format: `yyyy-MM-dd`.
+     *
+     * @example 2022-10-01
+     *
      * @var string
      */
     public $startTime;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ConfigAppResponseBody extends Model
 {
     /**
+     * @description The result of turning on or turning off the main switch of the ARMS agent or the main switch status of the ARMS agent.
+     *
+     * @example abc@def success\nghi@jkl success\n
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
+     * @example 16AF921B-8187-489F-9913-43C808B4****
+     *
      * @var string
      */
     public $requestId;

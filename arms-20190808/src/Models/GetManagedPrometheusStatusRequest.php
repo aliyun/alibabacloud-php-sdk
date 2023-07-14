@@ -9,23 +9,49 @@ use AlibabaCloud\Tea\Model;
 class GetManagedPrometheusStatusRequest extends Model
 {
     /**
+     * @description __null__
+     *
+     * @example cc7a37ee31aea4ed1a059eff8034b****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example ask
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description code!=200
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @example rg-acfmxyexli2****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example vpc-***
+     *
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
-        'clusterId'   => 'ClusterId',
-        'clusterType' => 'ClusterType',
-        'regionId'    => 'RegionId',
+        'clusterId'       => 'ClusterId',
+        'clusterType'     => 'ClusterType',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'vpcId'           => 'VpcId',
     ];
 
     public function validate()
@@ -43,6 +69,12 @@ class GetManagedPrometheusStatusRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -64,6 +96,12 @@ class GetManagedPrometheusStatusRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

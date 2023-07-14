@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateSilencePolicyRequest extends Model
 {
     /**
+     * @description The ID of the silence policy.
+     *
+     *   If you do not configure this parameter, a new silence policy is created.
+     *   If you configure this parameter, the specified silence policy is modified.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The matching rules. The following code shows the format of matching rules:
+     *
+     * ]
+     * @example [ 	 { 	 "matchingConditions": [ 	 { 	 "value": "test", 	 "key": "altertname", 	 "operator": "eq" 	 } 	 ]      } 	 ]
+     *
      * @var string
      */
     public $matchingRules;
 
     /**
+     * @description The name of the silence policy.
+     *
+     * @example silencepolicy_test
+     *
      * @var string
      */
     public $name;

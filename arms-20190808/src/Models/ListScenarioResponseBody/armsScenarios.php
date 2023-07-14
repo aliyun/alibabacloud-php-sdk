@@ -9,46 +9,80 @@ use AlibabaCloud\Tea\Model;
 class armsScenarios extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example b590lhguqs@28f515462******
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @description The time when the business monitoring job was created.
+     *
+     * @example 1585214916000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The extended information. The value is a JSON string.
+     *
+     * @example {"_MODE": "CUSTOM-TRANSACTION","_SCENARIO": "USER-DEFINED"}
+     *
      * @var string
      */
     public $extensions;
 
     /**
+     * @description The ID of the business monitoring job.
+     *
+     * @example 132
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the business monitoring job.
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-zhangjiakou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The code of the business monitoring job.
+     *
+     * @example a9f8****
+     *
      * @var string
      */
     public $sign;
 
     /**
+     * @description The time when the business monitoring job was updated.
+     *
+     * @example 1585214916000
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example 113197164949****
+     *
      * @var string
      */
     public $userId;

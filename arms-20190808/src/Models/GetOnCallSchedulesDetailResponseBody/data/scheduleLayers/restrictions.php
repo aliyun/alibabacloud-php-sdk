@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class restrictions extends Model
 {
     /**
+     * @description The end time of the shift per day.
+     *
+     * @example 18:00
+     *
      * @var string
      */
     public $endTimeOfDay;
 
     /**
+     * @description The type of the limit. Valid values:
+     *
+     *   daily_restriction
+     *   weekly_restriction
+     *
+     * @example daily_restriction
+     *
      * @var string
      */
     public $restrictionType;
 
     /**
+     * @description The start time of the shift per day.
+     *
+     * @example 09:00
+     *
      * @var string
      */
     public $startTimeOfDay;

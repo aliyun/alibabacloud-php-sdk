@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteAlertContactGroupRequest extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $contactGroupId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

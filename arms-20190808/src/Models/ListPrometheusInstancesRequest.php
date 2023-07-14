@@ -9,15 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListPrometheusInstancesRequest extends Model
 {
     /**
+     * @description 实例类型
+     *
+     * @example cloud-product-prometheus
+     *
+     * @var string
+     */
+    public $clusterType;
+
+    /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to query global aggregation instances. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $showGlobalView;
     protected $_name = [
+        'clusterType'    => 'ClusterType',
         'regionId'       => 'RegionId',
         'showGlobalView' => 'ShowGlobalView',
     ];
@@ -29,6 +50,9 @@ class ListPrometheusInstancesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clusterType) {
+            $res['ClusterType'] = $this->clusterType;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -47,6 +71,9 @@ class ListPrometheusInstancesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClusterType'])) {
+            $model->clusterType = $map['ClusterType'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

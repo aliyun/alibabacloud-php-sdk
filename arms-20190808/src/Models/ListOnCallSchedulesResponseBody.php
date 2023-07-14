@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListOnCallSchedulesResponseBody extends Model
 {
     /**
+     * @description The objects that were returned.
+     *
      * @var pageBean
      */
     public $pageBean;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 78901766-3806-4E96-8E47-CFEF59E4****
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SendTTSVerifyLinkResponseBody extends Model
 {
     /**
+     * @description Indicates whether the text message was sent.
+     *
+     *   `true`
+     *   `false`
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The request ID.
+     *
+     * @example 21E85B16-75A6-429A-9F65-8AAC9A54****
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class AddRecordingRuleRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example cc7a37ee31aea4ed1a059eff8034b****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The custom recording rule. The value is in the YAML format.
+     *
+     * @example groups: - name: "recording_demo"   rules:   - expr: "sum(jvm_memory_max_bytes)"     record: "rate_coredns_demo"
+     *
      * @var string
      */
     public $ruleYaml;

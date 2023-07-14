@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListActivatedAlertsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
@@ -19,11 +21,15 @@ class ListActivatedAlertsRequest extends Model
     public $filter;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

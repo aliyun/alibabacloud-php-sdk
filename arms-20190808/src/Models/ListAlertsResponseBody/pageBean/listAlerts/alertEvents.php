@@ -14,6 +14,8 @@ class alertEvents extends Model
     public $alertName;
 
     /**
+     * @example { "_aliyun_arms_alert_value":"4.0" "_aliyun_arms_alert_traceId":"ac10c43116421327442277073d5461-105075299"}
+     *
      * @var string
      */
     public $annotations;
@@ -24,46 +26,64 @@ class alertEvents extends Model
     public $description;
 
     /**
+     * @example 2022-01-19 17:10:31
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example http://arms.console.aliyun.com
+     *
      * @var string
      */
     public $generatorURL;
 
     /**
+     * @example ARMS
+     *
      * @var string
      */
     public $integrationName;
 
     /**
+     * @example ARMS_APP_MON
+     *
      * @var string
      */
     public $integrationType;
 
     /**
+     * @example { "severity":"warning" "_aliyun_arms_alert_level":"ERROR" "_aliyun_arms_entropy":"0.30170457417889235"}
+     *
      * @var string
      */
     public $labels;
 
     /**
+     * @example 2022-01-19 17:05:42
+     *
      * @var string
      */
     public $receiveTime;
 
     /**
+     * @example warning
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @example 2022-01-18 00:14:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $state;

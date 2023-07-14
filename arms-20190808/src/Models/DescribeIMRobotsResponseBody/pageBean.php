@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
+     * @description The queried IM chatbots.
+     *
      * @var alertIMRobots[]
      */
     public $alertIMRobots;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The number of IM chatbots returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The total number of queried IM chatbots.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;

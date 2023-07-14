@@ -11,72 +11,133 @@ use AlibabaCloud\Tea\Model;
 class SearchTracesByPageRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Unit: milliseconds.
+     *
+     * @example 1595210400000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The filter conditions.
+     *
      * @var exclusionFilters[]
      */
     public $exclusionFilters;
 
     /**
+     * @description 是否过滤错误的调用链。
+     * - `false`（默认）：不过滤
+     * @example false
+     *
+     * @var bool
+     */
+    public $isError;
+
+    /**
+     * @description The minimum amount of time consumed by traces. Unit: milliseconds.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $minDuration;
 
     /**
+     * @description The name of the traced span.
+     *
+     * @example /demo/queryNotExistDB/11
+     *
      * @var string
      */
     public $operationName;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The application ID.
+     *
+     * @example b590lhguqs@9781be0f44dXXXX
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to sort the query results in chronological order or reverse chronological order. Default value: `false`.
+     *
+     *   `true`: sorts the query results in reverse chronological order.
+     *   `false`: sorts the query results in chronological order.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $reverse;
 
     /**
+     * @description The IP address of the host where the application resides.
+     *
+     * @example 172.20.XX.XX
+     *
      * @var string
      */
     public $serviceIp;
 
     /**
+     * @description The name of the application.
+     *
+     * @example arms-k8s-demo-subcomponent
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The beginning of the time range to query. Unit: milliseconds.
+     *
+     * @example 1595174400000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags[]
      */
     public $tags;
     protected $_name = [
         'endTime'          => 'EndTime',
         'exclusionFilters' => 'ExclusionFilters',
+        'isError'          => 'IsError',
         'minDuration'      => 'MinDuration',
         'operationName'    => 'OperationName',
         'pageNumber'       => 'PageNumber',
@@ -108,6 +169,9 @@ class SearchTracesByPageRequest extends Model
                     $res['ExclusionFilters'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->isError) {
+            $res['IsError'] = $this->isError;
         }
         if (null !== $this->minDuration) {
             $res['MinDuration'] = $this->minDuration;
@@ -171,6 +235,9 @@ class SearchTracesByPageRequest extends Model
                     $model->exclusionFilters[$n++] = null !== $item ? exclusionFilters::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['IsError'])) {
+            $model->isError = $map['IsError'];
         }
         if (isset($map['MinDuration'])) {
             $model->minDuration = $map['MinDuration'];

@@ -9,29 +9,49 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var bool
+     */
+    public $completed;
+
+    /**
+     * @description The data entries returned.
+     *
      * @var mixed[][]
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $total;
     protected $_name = [
-        'items'    => 'Items',
-        'page'     => 'Page',
-        'pageSize' => 'PageSize',
-        'total'    => 'Total',
+        'completed' => 'Completed',
+        'items'     => 'Items',
+        'page'      => 'Page',
+        'pageSize'  => 'PageSize',
+        'total'     => 'Total',
     ];
 
     public function validate()
@@ -41,6 +61,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->completed) {
+            $res['Completed'] = $this->completed;
+        }
         if (null !== $this->items) {
             $res['Items'] = $this->items;
         }
@@ -65,6 +88,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Completed'])) {
+            $model->completed = $map['Completed'];
+        }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {
                 $model->items = $map['Items'];

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class alertContactGroup extends Model
 {
     /**
+     * @description The ID of the alert contact group.
+     *
+     * @example 123
+     *
      * @var float
      */
     public $contactGroupId;
 
     /**
+     * @description The name of the alert contact group.
+     *
+     * @example TestGroup
+     *
      * @var string
      */
     public $contactGroupName;
 
     /**
+     * @description The IDs of the contacts that are included in the alert contact group.
+     *
+     * @example [1,2,3]
+     *
      * @var string
      */
     public $contactIds;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetOnCallSchedulesDetailResponseBody extends Model
 {
     /**
+     * @description The information about the scheduling policy.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
+     * @example 21E85B16-75A6-429A-9F65-8AAC9A54****
+     *
      * @var string
      */
     public $requestId;

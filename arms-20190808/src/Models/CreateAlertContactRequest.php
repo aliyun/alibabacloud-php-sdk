@@ -9,31 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateAlertContactRequest extends Model
 {
     /**
+     * @example JohnDoe
+     *
      * @var string
      */
     public $contactName;
 
     /**
+     * @example https://oapi.dingtalk.com/robot/send?access_token=91f2f6****
+     *
      * @var string
      */
     public $dingRobotWebhookUrl;
 
     /**
+     * @example someone@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 1381111****
+     *
      * @var string
      */
     public $phoneNum;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-aek2eq4peca****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example true
+     *
      * @var bool
      */
     public $systemNoc;
@@ -43,6 +62,7 @@ class CreateAlertContactRequest extends Model
         'email'               => 'Email',
         'phoneNum'            => 'PhoneNum',
         'regionId'            => 'RegionId',
+        'resourceGroupId'     => 'ResourceGroupId',
         'systemNoc'           => 'SystemNoc',
     ];
 
@@ -67,6 +87,9 @@ class CreateAlertContactRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->systemNoc) {
             $res['SystemNoc'] = $this->systemNoc;
@@ -97,6 +120,9 @@ class CreateAlertContactRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SystemNoc'])) {
             $model->systemNoc = $map['SystemNoc'];

@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The Info-level information.
+     *
+     * @example {regionId: the region where the aggregation instance resides. globalViewClusterId: the ID of the aggregation instance. failedInstances: the ID of the object that failed to be added.}
+     *
      * @var string
      */
     public $info;
 
     /**
+     * @description The additional information.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   `true`: The call was successful.
+     *   `false`: The call failed.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $success;

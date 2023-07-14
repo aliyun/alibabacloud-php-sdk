@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class dimensions extends Model
 {
     /**
+     * @example rootIp
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example DISABLE
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example "127.0.0.1"
+     *
      * @var string
      */
     public $value;

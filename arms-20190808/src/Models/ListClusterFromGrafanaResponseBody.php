@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListClusterFromGrafanaResponseBody extends Model
 {
     /**
+     * @description The cluster information.
+     *
      * @var promClusterList[]
      */
     public $promClusterList;
 
     /**
+     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     *
+     * @example 6849D41E-EED4-5C00-89F9-6047BBD9DCB4
+     *
      * @var string
      */
     public $requestId;

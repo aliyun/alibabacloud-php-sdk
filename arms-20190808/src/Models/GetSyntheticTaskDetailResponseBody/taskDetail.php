@@ -4,9 +4,10 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody;
 
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\commonParam;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\download;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\extendInterval;
-use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\minotorList;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\monitorList;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\nav;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\net;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponseBody\taskDetail\protocol;
@@ -15,34 +16,59 @@ use AlibabaCloud\Tea\Model;
 class taskDetail extends Model
 {
     /**
+     * @var commonParam
+     */
+    public $commonParam;
+
+    /**
+     * @description 文件下载任务。
+     *
      * @var download
      */
     public $download;
 
     /**
+     * @description 自定义扩展频率。
+     *
      * @var extendInterval
      */
     public $extendInterval;
 
     /**
+     * @description 拨测频率，单位为分钟。可选频率如下：
+     *
+     * - 1440
+     * @example 20
+     *
      * @var int
      */
     public $intervalTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $intervalType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $ipType;
 
     /**
-     * @var minotorList[]
+     * @var monitorList[]
      */
-    public $minotorList;
+    public $monitorList;
+
+    /**
+     * @example 12
+     *
+     * @var string
+     */
+    public $monitorListString;
 
     /**
      * @var nav
@@ -60,38 +86,54 @@ class taskDetail extends Model
     public $protocol;
 
     /**
+     * @description 云拨测任务ID。
+     *
+     * @example 19584
+     *
      * @var int
      */
     public $taskId;
 
     /**
+     * @description 任务名称。
+     *
+     * @example net-test
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $taskType;
 
     /**
+     * @description 拨测地址。
+     *
+     * @example www.example.com
+     *
      * @var string
      */
     public $url;
     protected $_name = [
-        'download'       => 'Download',
-        'extendInterval' => 'ExtendInterval',
-        'intervalTime'   => 'IntervalTime',
-        'intervalType'   => 'IntervalType',
-        'ipType'         => 'IpType',
-        'minotorList'    => 'MinotorList',
-        'nav'            => 'Nav',
-        'net'            => 'Net',
-        'protocol'       => 'Protocol',
-        'taskId'         => 'TaskId',
-        'taskName'       => 'TaskName',
-        'taskType'       => 'TaskType',
-        'url'            => 'Url',
+        'commonParam'       => 'CommonParam',
+        'download'          => 'Download',
+        'extendInterval'    => 'ExtendInterval',
+        'intervalTime'      => 'IntervalTime',
+        'intervalType'      => 'IntervalType',
+        'ipType'            => 'IpType',
+        'monitorList'       => 'MonitorList',
+        'monitorListString' => 'MonitorListString',
+        'nav'               => 'Nav',
+        'net'               => 'Net',
+        'protocol'          => 'Protocol',
+        'taskId'            => 'TaskId',
+        'taskName'          => 'TaskName',
+        'taskType'          => 'TaskType',
+        'url'               => 'Url',
     ];
 
     public function validate()
@@ -101,6 +143,9 @@ class taskDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commonParam) {
+            $res['CommonParam'] = null !== $this->commonParam ? $this->commonParam->toMap() : null;
+        }
         if (null !== $this->download) {
             $res['Download'] = null !== $this->download ? $this->download->toMap() : null;
         }
@@ -116,14 +161,17 @@ class taskDetail extends Model
         if (null !== $this->ipType) {
             $res['IpType'] = $this->ipType;
         }
-        if (null !== $this->minotorList) {
-            $res['MinotorList'] = [];
-            if (null !== $this->minotorList && \is_array($this->minotorList)) {
+        if (null !== $this->monitorList) {
+            $res['MonitorList'] = [];
+            if (null !== $this->monitorList && \is_array($this->monitorList)) {
                 $n = 0;
-                foreach ($this->minotorList as $item) {
-                    $res['MinotorList'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->monitorList as $item) {
+                    $res['MonitorList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->monitorListString) {
+            $res['MonitorListString'] = $this->monitorListString;
         }
         if (null !== $this->nav) {
             $res['Nav'] = null !== $this->nav ? $this->nav->toMap() : null;
@@ -158,6 +206,9 @@ class taskDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommonParam'])) {
+            $model->commonParam = commonParam::fromMap($map['CommonParam']);
+        }
         if (isset($map['Download'])) {
             $model->download = download::fromMap($map['Download']);
         }
@@ -173,14 +224,17 @@ class taskDetail extends Model
         if (isset($map['IpType'])) {
             $model->ipType = $map['IpType'];
         }
-        if (isset($map['MinotorList'])) {
-            if (!empty($map['MinotorList'])) {
-                $model->minotorList = [];
+        if (isset($map['MonitorList'])) {
+            if (!empty($map['MonitorList'])) {
+                $model->monitorList = [];
                 $n                  = 0;
-                foreach ($map['MinotorList'] as $item) {
-                    $model->minotorList[$n++] = null !== $item ? minotorList::fromMap($item) : $item;
+                foreach ($map['MonitorList'] as $item) {
+                    $model->monitorList[$n++] = null !== $item ? monitorList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['MonitorListString'])) {
+            $model->monitorListString = $map['MonitorListString'];
         }
         if (isset($map['Nav'])) {
             $model->nav = nav::fromMap($map['Nav']);

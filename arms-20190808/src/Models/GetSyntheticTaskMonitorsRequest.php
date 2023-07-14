@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSyntheticTaskMonitorsRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

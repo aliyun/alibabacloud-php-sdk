@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListDashboardsResponseBody extends Model
 {
     /**
+     * @description The information about the Grafana dashboard.
+     *
      * @var dashboardVos[]
      */
     public $dashboardVos;
 
     /**
+     * @description The request ID.
+     *
+     * @example 2A0CEDF1-06FE-44AC-8E21-21A5BE65****
+     *
      * @var string
      */
     public $requestId;

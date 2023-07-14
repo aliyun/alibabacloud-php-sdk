@@ -15,6 +15,8 @@ class CreateIntegrationResponseBody extends Model
     public $integration;
 
     /**
+     * @example 34ED024E-9E31-434A-9E4E-D9D15C3****
+     *
      * @var string
      */
     public $requestId;

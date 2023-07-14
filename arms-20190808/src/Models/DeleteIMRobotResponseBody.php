@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteIMRobotResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @example C21AB7CF-B7AF-410F-BD61-82D1567F****
+     *
      * @var string
      */
     public $requestId;

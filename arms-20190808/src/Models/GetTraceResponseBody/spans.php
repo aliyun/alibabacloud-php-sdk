@@ -11,76 +11,156 @@ use AlibabaCloud\Tea\Model;
 class spans extends Model
 {
     /**
+     * @description The child spans of the current span.
+     *
      * @var mixed[][]
      */
     public $children;
 
     /**
+     * @description The amount of time consumed by the trace. Unit: milliseconds.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @description Indicates whether a method stack was provided.
+     *
+     *   `true`: A method stack was provided.
+     *   `false`: No method stack was provided.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $haveStack;
 
     /**
+     * @description The log events in the trace.
+     *
      * @var logEventList[]
      */
     public $logEventList;
 
     /**
+     * @description The name of the traced span.
+     *
+     * @example /api/demo
+     *
      * @var string
      */
     public $operationName;
 
     /**
+     * @description The ID of the parent span.
+     *
+     * @example 18
+     *
      * @var string
      */
     public $parentSpanId;
 
     /**
+     * @description The status code.
+     *
+     * @example 222
+     *
      * @var string
      */
     public $resultCode;
 
     /**
+     * @description The ID of the RPC mode.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $rpcId;
 
     /**
+     * @description The type of the remote procedure call (RPC) mode.
+     *
+     *   0: HTTP entry
+     *   25: HTTP call
+     *   1: High-speed Service Framework (HSF) call
+     *   2: HSF provision
+     *   40: on-premises API call
+     *   60: MySQL call
+     *   62: Oracle call
+     *   63: PostgreSQL call
+     *   70: Redis call
+     *   4: Taobao Distributed Data Layer (TDDL) call
+     *   5: Tair call
+     *   13: MetaQ message sending
+     *   252: MetaQ message receiving
+     *   3: notification sending
+     *   254: notification receiving
+     *   7: Apache Dubbo call
+     *   8: Apache Dubbo provision
+     *   19: SOFARPC call
+     *   18: SOFARPC provision
+     *   11: Distributed Service Framework (DSF) call
+     *   12: DSF provision
+     *   \-1: unknown call
+     *
+     * @example 1
+     *
      * @var int
      */
     public $rpcType;
 
     /**
+     * @description The IP address of the host where the application resides.
+     *
+     * @example 172.20.XX.XX
+     *
      * @var string
      */
     public $serviceIp;
 
     /**
+     * @description The name of the application.
+     *
+     * @example arms-demo
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The span ID.
+     *
+     * @example 1234
+     *
      * @var string
      */
     public $spanId;
 
     /**
+     * @description The tags of the trace.
+     *
      * @var tagEntryList[]
      */
     public $tagEntryList;
 
     /**
+     * @description The timestamp generated when the span was generated.
+     *
+     * @example 1590388651
+     *
      * @var int
      */
     public $timestamp;
 
     /**
+     * @description The trace ID.
+     *
+     * @example ac14001a15954493811405707d****
+     *
      * @var string
      */
     public $traceID;

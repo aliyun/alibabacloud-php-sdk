@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class AddAliClusterIdsToPrometheusGlobalViewRequest extends Model
 {
     /**
+     * @description The IDs of clusters. Separate multiple IDs with commas (,).
+     *
+     * @example cd1d55bef19904324a20ed0ebb86caa5c,c5b48729918ab4745a24482ac29d0973a, c00a94896641449098bf24931e4166003, cd174485c09384060ba542bc1be1185a4
+     *
      * @var string
      */
     public $clusterIds;
 
     /**
+     * @description The ID of the global aggregation instance.
+     *
+     * @example global-v2-cn-1478326682034601-vss8pd0i
+     *
      * @var string
      */
     public $globalViewClusterId;
 
     /**
+     * @description The name of the global aggregation instance.
+     *
+     * @example zyGlobalView
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

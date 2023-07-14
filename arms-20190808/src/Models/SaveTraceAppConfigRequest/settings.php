@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class settings extends Model
 {
     /**
+     * @example sampling.enable
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $value;

@@ -15,6 +15,8 @@ class GetMultipleTraceResponseBody extends Model
     public $multiCallChainInfos;
 
     /**
+     * @example 2983BEF7-4A0D-47A2-94A2-8E9C5E63****
+     *
      * @var string
      */
     public $requestId;

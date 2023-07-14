@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class formdata extends Model
 {
     /**
+     * @example appId
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example 3425
+     *
      * @var string
      */
     public $value;

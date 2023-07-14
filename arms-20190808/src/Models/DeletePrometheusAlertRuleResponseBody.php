@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeletePrometheusAlertRuleResponseBody extends Model
 {
     /**
+     * @example 9FEA6D00-317F-45E3-9004-7FB8B0B7****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class alertList extends Model
 {
     /**
+     * @example true
+     *
      * @var int
      */
     public $isCritical;
 
     /**
+     * @example PING_SET
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $symbols;

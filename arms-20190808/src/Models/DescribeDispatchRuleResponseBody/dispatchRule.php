@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class dispatchRule extends Model
 {
     /**
+     * @example CREATE_ALERT
+     *
      * @var string
      */
     public $dispatchType;
 
     /**
+     * @description The ID of the region.
+     *
      * @var groupRules[]
      */
     public $groupRules;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isRecover;
@@ -32,6 +38,10 @@ class dispatchRule extends Model
     public $labelMatchExpressionGrid;
 
     /**
+     * @description The grouping interval.
+     *
+     * @example Prometheus Alert
+     *
      * @var string
      */
     public $name;
@@ -42,11 +52,19 @@ class dispatchRule extends Model
     public $notifyRules;
 
     /**
+     * @description The waiting time for grouping.
+     *
+     * @example 10282
+     *
      * @var int
      */
     public $ruleId;
 
     /**
+     * @description The grouping fields.
+     *
+     * @example true
+     *
      * @var string
      */
     public $state;

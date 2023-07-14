@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetTraceResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 6A9AEA84-7186-4D8D-B498-4585C6A2****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the trace.
+     *
      * @var spans[]
      */
     public $spans;

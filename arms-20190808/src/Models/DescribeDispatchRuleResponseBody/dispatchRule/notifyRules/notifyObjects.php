@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class notifyObjects extends Model
 {
     /**
+     * @example JohnDoe
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $notifyObjectId;
 
     /**
+     * @example CONTACT
+     *
      * @var string
      */
     public $notifyType;

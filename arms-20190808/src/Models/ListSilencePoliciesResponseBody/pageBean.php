@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
+     * @description The name of the silence policy.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The number of silence policies that were returned.
+     *
      * @var silencePolicies[]
      */
     public $silencePolicies;
 
     /**
+     * @description The number of entries that were returned on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description An array of matching rule objects.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;

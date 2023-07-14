@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class groupRule extends Model
 {
     /**
+     * @description The time interval for grouping. Unit: seconds. Default value: 30.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $groupInterval;
 
     /**
+     * @description The waiting time for grouping. Unit: seconds. Default value: 5.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $groupWait;
 
     /**
+     * @description The fields that are used to group events.
+     *
      * @var string[]
      */
     public $groupingFields;

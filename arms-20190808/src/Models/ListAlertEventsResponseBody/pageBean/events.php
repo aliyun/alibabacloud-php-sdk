@@ -10,66 +10,135 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
+     * @description The list of associated alerts.
+     *
      * @var alarms[]
      */
     public $alarms;
 
     /**
+     * @description The name of the alert.
+     *
+     * @example Test-triggered alert
+     *
      * @var string
      */
     public $alertName;
 
     /**
+     * @description The list of annotations.
+     *
+     * @example [{\"Name\":\"annotation-a\",\"Value\":\"annotation a value\"}]
+     *
      * @var string
      */
     public $annotations;
 
     /**
+     * @description The description of the alert event.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The end time of the alert event.
+     *
+     * @example 2021-12-20 17:42:16
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The URL of the alert event.
+     *
+     * @example https://xxx.xx/
+     *
      * @var string
      */
     public $generatorURL;
 
     /**
+     * @description The user who handled the alert.
+     *
+     * @example Tom
+     *
+     * @var string
+     */
+    public $handlerName;
+
+    /**
+     * @description The name of the alert integration.
+     *
+     * @example Custom integration
+     *
      * @var string
      */
     public $integrationName;
 
     /**
+     * @description The type of the alert integration.
+     *
+     * @example CUSTOM
+     *
      * @var string
      */
     public $integrationType;
 
     /**
+     * @description The list of tags.
+     *
+     * @example [{\"name\":\"severity\",\"value\":\"error\"}]
+     *
      * @var string
      */
     public $labels;
 
     /**
+     * @description The time when the alert event was received.
+     *
+     * @example 2021-12-20 17:42:16
+     *
      * @var string
      */
     public $receiveTime;
 
     /**
+     * @description The severity level of the alert. Valid value:
+     *
+     *   critical: P1
+     *   error: P2
+     *   warning: P3
+     *   page: P4
+     *   default: P6
+     *
+     * @example critical
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @description The start time of the alert event.
+     *
+     * @example 2021-12-20 17:42:16
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the alert event. Valid values:
+     *
+     *   Active
+     *   Silenced
+     *   Resolved
+     *
+     * @example Active
+     *
      * @var string
      */
     public $status;
@@ -80,6 +149,7 @@ class events extends Model
         'description'     => 'Description',
         'endTime'         => 'EndTime',
         'generatorURL'    => 'GeneratorURL',
+        'handlerName'     => 'HandlerName',
         'integrationName' => 'IntegrationName',
         'integrationType' => 'IntegrationType',
         'labels'          => 'Labels',
@@ -119,6 +189,9 @@ class events extends Model
         }
         if (null !== $this->generatorURL) {
             $res['GeneratorURL'] = $this->generatorURL;
+        }
+        if (null !== $this->handlerName) {
+            $res['HandlerName'] = $this->handlerName;
         }
         if (null !== $this->integrationName) {
             $res['IntegrationName'] = $this->integrationName;
@@ -176,6 +249,9 @@ class events extends Model
         }
         if (isset($map['GeneratorURL'])) {
             $model->generatorURL = $map['GeneratorURL'];
+        }
+        if (isset($map['HandlerName'])) {
+            $model->handlerName = $map['HandlerName'];
         }
         if (isset($map['IntegrationName'])) {
             $model->integrationName = $map['IntegrationName'];

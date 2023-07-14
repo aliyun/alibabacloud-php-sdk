@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateDispatchRuleResponseBody extends Model
 {
     /**
+     * @example A5EC8221-08F2-4C95-9AF1-49FD998C****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

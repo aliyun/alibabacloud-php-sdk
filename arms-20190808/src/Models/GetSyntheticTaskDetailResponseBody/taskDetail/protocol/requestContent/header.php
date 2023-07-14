@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class header extends Model
 {
     /**
+     * @example regionId
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $value;

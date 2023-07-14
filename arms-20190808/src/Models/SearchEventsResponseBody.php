@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class SearchEventsResponseBody extends Model
 {
     /**
+     * @description The process identifier (PID) of the application that is associated with the alert rule.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $isTrigger;
 
     /**
+     * @description The event content. The parameter value is a JSON string. Each key indicates a dimension and each value indicates the alert content in the dimension.
+     *
      * @var pageBean
      */
     public $pageBean;
 
     /**
+     * @description The severity of the event.
+     *
+     * @example 32940175-181B-4B93-966E-4BB69176****
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class contacts extends Model
 {
     /**
+     * @example 123
+     *
      * @var int
      */
     public $contactId;
 
     /**
+     * @example John Doe
+     *
      * @var string
      */
     public $contactName;
@@ -24,56 +28,80 @@ class contacts extends Model
     public $content;
 
     /**
+     * @example 1572349025000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example https://oapi.dingtalk.com/robot/send?access_token=91f2f6****
+     *
      * @var string
      */
     public $dingRobot;
 
     /**
+     * @example someone@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 1381111*****
+     *
      * @var string
      */
     public $phone;
 
     /**
+     * @example rg-acfmxyexli2****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example false
+     *
      * @var bool
      */
     public $systemNoc;
 
     /**
+     * @example 1580258717000
+     *
      * @var int
      */
     public $updateTime;
 
     /**
+     * @example 113197164949****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @example {\"body\":\"{   \\\"msg_type\\\": \\\"text\\\",   \\\"content\\\": {     \\\"text\\\": \\\"$content\\\"   } }\",\"header\":{\"Arms-Content-Type\":\"json\"},\"method\":\"post\",\"params\":{},\"url\":\"https://***",\"userId\":\"1131971649***\"}",
+     *
      * @var string
      */
     public $webhook;
     protected $_name = [
-        'contactId'   => 'ContactId',
-        'contactName' => 'ContactName',
-        'content'     => 'Content',
-        'createTime'  => 'CreateTime',
-        'dingRobot'   => 'DingRobot',
-        'email'       => 'Email',
-        'phone'       => 'Phone',
-        'systemNoc'   => 'SystemNoc',
-        'updateTime'  => 'UpdateTime',
-        'userId'      => 'UserId',
-        'webhook'     => 'Webhook',
+        'contactId'       => 'ContactId',
+        'contactName'     => 'ContactName',
+        'content'         => 'Content',
+        'createTime'      => 'CreateTime',
+        'dingRobot'       => 'DingRobot',
+        'email'           => 'Email',
+        'phone'           => 'Phone',
+        'resourceGroupId' => 'ResourceGroupId',
+        'systemNoc'       => 'SystemNoc',
+        'updateTime'      => 'UpdateTime',
+        'userId'          => 'UserId',
+        'webhook'         => 'Webhook',
     ];
 
     public function validate()
@@ -103,6 +131,9 @@ class contacts extends Model
         }
         if (null !== $this->phone) {
             $res['Phone'] = $this->phone;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->systemNoc) {
             $res['SystemNoc'] = $this->systemNoc;
@@ -148,6 +179,9 @@ class contacts extends Model
         }
         if (isset($map['Phone'])) {
             $model->phone = $map['Phone'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['SystemNoc'])) {
             $model->systemNoc = $map['SystemNoc'];

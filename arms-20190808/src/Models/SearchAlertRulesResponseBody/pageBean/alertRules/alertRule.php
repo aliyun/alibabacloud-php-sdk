@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class alertRule extends Model
 {
     /**
+     * @example |
+     *
      * @var string
      */
     public $operator;

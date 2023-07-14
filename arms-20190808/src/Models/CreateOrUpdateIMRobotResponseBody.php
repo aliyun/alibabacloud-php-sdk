@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateIMRobotResponseBody extends Model
 {
     /**
+     * @description The information about the IM chatbot.
+     *
      * @var alertRobot
      */
     public $alertRobot;
 
     /**
+     * @description The request ID.
+     *
+     * @example 16AF921B-8187-489F-9913-43C808B4****
+     *
      * @var string
      */
     public $requestId;

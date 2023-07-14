@@ -9,11 +9,30 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The key of the tag. The following system preset fields are provided:
+     *
+     *   traceId: the ID of the trace.
+     *   serverApp: the name of the server application.
+     *   clientApp: the name of the client application.
+     *   service: the name of the operation.
+     *   rpc: the type of the call.
+     *   msOfSpan: the duration exceeds a specific value.
+     *   clientIp: the IP address of the client.
+     *   serverIp: the IP address of the server.
+     *   isError: specifies whether the call is abnormal.
+     *   hasTprof: contains only thread profiling.
+     *
+     * @example http.status_code
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $value;

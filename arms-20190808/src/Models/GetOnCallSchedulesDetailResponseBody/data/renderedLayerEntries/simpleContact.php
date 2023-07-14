@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class simpleContact extends Model
 {
     /**
+     * @description The ID of the scheduled user.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the scheduled user.
+     *
+     * @example Employee 1
+     *
      * @var string
      */
     public $name;

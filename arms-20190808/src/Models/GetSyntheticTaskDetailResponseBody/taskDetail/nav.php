@@ -9,66 +9,92 @@ use AlibabaCloud\Tea\Model;
 class nav extends Model
 {
     /**
+     * @example 119.119.53.156
+     *
      * @var string
      */
     public $dnsHijackWhitelist;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $elementBlacklist;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $executeActiveX;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $executeApplet;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $executeScript;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $filterInvalidIP;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $flowHijackJumpTimes;
 
     /**
+     * @example target
+     *
      * @var string
      */
     public $flowHijackLogo;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $monitorTimeout;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $navAutomaticScrolling;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $navCustomHeader;
 
     /**
+     * @example content
+     *
      * @var string
      */
     public $navCustomHeaderContent;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $navCustomHost;
@@ -79,71 +105,99 @@ class nav extends Model
     public $navCustomHostIp;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $navDisableCache;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $navDisableCompression;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $navIgnoreCertificateError;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $navRedirect;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $navReturnElement;
 
     /**
+     * @example content
+     *
      * @var string
      */
     public $pageTampering;
 
     /**
+     * @example ssh
+     *
      * @var string
      */
     public $processName;
 
     /**
+     * @example www.example.com
+     *
      * @var string
      */
     public $quicDomain;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $quicVersion;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $requestHeader;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $slowElementThreshold;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $verifyStringBlacklist;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $verifyStringWhitelist;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $waitCompletionTime;

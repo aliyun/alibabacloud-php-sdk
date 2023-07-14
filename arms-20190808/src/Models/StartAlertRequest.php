@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StartAlertRequest extends Model
 {
     /**
+     * @example 1610***
+     *
      * @var string
      */
     public $alertId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

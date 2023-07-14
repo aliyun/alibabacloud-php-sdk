@@ -9,17 +9,38 @@ use AlibabaCloud\Tea\Model;
 class SetRetcodeShareStatusRequest extends Model
 {
     /**
+     * @description Turns on or turns off logon-free sharing for an application monitored by Browser Monitoring.
+     *
+     * @example test-app
+     *
+     * @var string
+     */
+    public $appName;
+
+    /**
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   `true`: The call is successful.
+     *   `false`: The call fails.
+     *
+     * @example atc889zkcf@d8deedfa9bf****
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @description SetRetcodeShareStatus
+     *
+     * @example true
+     *
      * @var bool
      */
     public $status;
     protected $_name = [
-        'pid'    => 'Pid',
-        'status' => 'Status',
+        'appName' => 'AppName',
+        'pid'     => 'Pid',
+        'status'  => 'Status',
     ];
 
     public function validate()
@@ -29,6 +50,9 @@ class SetRetcodeShareStatusRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appName) {
+            $res['AppName'] = $this->appName;
+        }
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
         }
@@ -47,6 +71,9 @@ class SetRetcodeShareStatusRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppName'])) {
+            $model->appName = $map['AppName'];
+        }
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
         }

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class integration extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoRecover;
 
     /**
+     * @example 测试
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1234
+     *
      * @var int
      */
     public $integrationId;
 
     /**
+     * @example 云监控集成
+     *
      * @var string
      */
     public $integrationName;
 
     /**
+     * @example CLOUD_MONITOR
+     *
      * @var string
      */
     public $integrationProductType;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $recoverTime;

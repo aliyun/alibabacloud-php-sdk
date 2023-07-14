@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ApplyScenarioResponseBody extends Model
 {
     /**
+     * @example EA24D522-AD35-47B8-8CB2-ADBC38******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2b97****
+     *
      * @var string
      */
     public $result;

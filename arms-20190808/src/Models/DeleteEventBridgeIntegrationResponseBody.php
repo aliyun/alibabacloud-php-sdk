@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteEventBridgeIntegrationResponseBody extends Model
 {
     /**
+     * @description Indicates whether the EventBridge integration is deleted.
+     *
+     *   `true`
+     *   `false`
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The request ID.
+     *
+     * @example 2B289756-E791-5842-BCBD-AD414C******
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ListSilencePoliciesRequest extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **ListSilencePolicies**.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isDetail;
 
     /**
+     * @description An array of matching condition objects.
+     *
+     * @example silencepolicy_test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
@@ -29,6 +41,10 @@ class ListSilencePoliciesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the silence policy.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;

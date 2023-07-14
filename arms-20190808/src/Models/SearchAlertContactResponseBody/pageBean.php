@@ -15,16 +15,22 @@ class pageBean extends Model
     public $contacts;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 23
+     *
      * @var int
      */
     public $totalCount;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteAlertContactResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @example 78901766-3806-4E96-8E47-CFEF59E4****
+     *
      * @var string
      */
     public $requestId;

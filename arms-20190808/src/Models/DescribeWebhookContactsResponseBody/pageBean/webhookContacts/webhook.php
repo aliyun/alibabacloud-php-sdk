@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class webhook extends Model
 {
     /**
+     * @description The header of the HTTP request.
+     *
+     * @example [{"Content-Type":"application/json"}]
+     *
      * @var mixed[]
      */
     public $bizHeaders;
 
     /**
+     * @description The parameters in the HTTP request.
+     *
+     * @example [{"content:"mike"}]
+     *
      * @var mixed[]
      */
     public $bizParams;
 
     /**
+     * @description The alert notification template.
+     *
+     * @example { "Alert name":"{{ .commonLabels.alertname }}{{if .commonLabels.clustername }}", "Cluster name":"{{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels.\_aliyun_arms_involvedObject_kind }}", "Application name":"{{ .commonLabels.\_aliyun_arms_involvedObject_name }} {{ end }}", "Notification policy":"{{ .dispatchRuleName }}", "Alert time":"{{ .startTime }}", "Alert content":"{{ for .alerts }} {{ .annotations.message }} {{ end }}" }
+     *
      * @var string
      */
     public $body;
 
     /**
+     * @description The HTTP request method.
+     *
+     *   Get
+     *   Post
+     *
+     * @example Post
+     *
      * @var string
      */
     public $method;
 
     /**
+     * @description The notification template for clearing alerts.
+     *
+     * @example { "Alert name":"{{ .commonLabels.alertname }}{{if .commonLabels.clustername }}", "Cluster name":"{{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels.\_aliyun_arms_involvedObject_kind }}", "Application name":"{{ .commonLabels.\_aliyun_arms_involvedObject_name }} {{ end }}", "Notification policy":"{{ .dispatchRuleName }}", "Recovery time":"{{ .endTime }}", "Alert content":"{{ for .alerts }} {{ .annotations.message }} {{ end }}" }
+     *
      * @var string
      */
     public $recoverBody;
 
     /**
+     * @description The URL of the request method.
+     *
+     * @example https://oapi.dingtalk.com/robot/send?access_token=91f2f6****
+     *
      * @var string
      */
     public $url;

@@ -15,6 +15,8 @@ class ListAlertsResponseBody extends Model
     public $pageBean;
 
     /**
+     * @example 2FC13182-B9AF-4E6B-BE51-72669B7C****
+     *
      * @var string
      */
     public $requestId;

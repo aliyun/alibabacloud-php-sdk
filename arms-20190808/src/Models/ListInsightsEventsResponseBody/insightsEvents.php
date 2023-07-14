@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class insightsEvents extends Model
 {
     /**
+     * @description The time at which the event occurred. The value is a timestamp.
+     *
+     * @example 1658890560
+     *
      * @var int
      */
     public $date;
 
     /**
+     * @description The ID of the application associated with the event.
+     *
+     * @example The severity of the event.
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @description Queries the abnormal Insights events within a specified period of time.
+     *
+     * @example P3
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description auditing
+     *
+     * @example dsv9zcel92@7da413b******
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @description The overall response time of the \[HTTP] service of the application \[sd] spikes at \[2022-07-27 10:57:00]
+     *
+     * @example The type of the event.
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The time at which the event occurred. The value is a timestamp.
+     *
+     * @example rtIncrease
+     *
      * @var string
      */
     public $type;

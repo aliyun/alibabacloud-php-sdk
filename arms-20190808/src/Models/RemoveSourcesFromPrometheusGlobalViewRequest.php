@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RemoveSourcesFromPrometheusGlobalViewRequest extends Model
 {
     /**
+     * @example global-v2-cn-1478326682034601-vss8pd0i
+     *
      * @var string
      */
     public $globalViewClusterId;
 
     /**
+     * @example zyGlobalView
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example localPrometheusClusterName,testCumterPrometheusName
+     *
      * @var string
      */
     public $sourceNames;

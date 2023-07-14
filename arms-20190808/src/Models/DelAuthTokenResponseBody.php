@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DelAuthTokenResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example success
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
+     * @example A5EC8221-08F2-4C95-9AF1-49FD998C647A
+     *
      * @var string
      */
     public $requestId;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRetcodeAppResponseBody extends Model
 {
     /**
+     * @example A5EC8221-08F2-4C95-9AF1-49FD998C647A
+     *
      * @var string
      */
     public $requestId;

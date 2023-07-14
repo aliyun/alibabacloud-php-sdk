@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class metricParam extends Model
 {
     /**
+     * @example DEFAULT
+     *
      * @var string
      */
     public $appGroupId;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $appId;
@@ -25,11 +29,15 @@ class metricParam extends Model
     public $dimensions;
 
     /**
+     * @example 9870ca99-8105-4da7-a3a4-d72dd1b1****
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @example DB
+     *
      * @var string
      */
     public $type;

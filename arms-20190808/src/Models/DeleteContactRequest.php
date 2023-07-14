@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteContactRequest extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **DeleteContact**.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $contactId;

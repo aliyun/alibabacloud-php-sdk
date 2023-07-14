@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The Browser Monitoring tasks that are returned.
+     *
      * @var retcodeApps[]
      */
     public $retcodeApps;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $totalCount;

@@ -9,51 +9,109 @@ use AlibabaCloud\Tea\Model;
 class SearchEventsRequest extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $alertId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $alertType;
 
     /**
+     * @description The type of the alert rule. This parameter is not returned. Valid values:
+     *
+     *   `1`: custom alert rules to monitor drill-down data sets
+     *   `3`: custom alert rules to monitor tiled data sets
+     *   `4`: alert rules to monitor the frontend, including the default frontend alert rules
+     *   `5`: alert rules to monitor applications, including the default application alert rules
+     *   `6`: the default frontend alert rules
+     *   `7`: the default application alert rules
+     *   `8`: Tracing Analysis alert rules
+     *   `101`: Prometheus alert rules
+     *
+     * @example TRACE
+     *
      * @var string
      */
     public $appType;
 
     /**
+     * @description The ID of the alert rule. You can call the SearchAlertRules operation and view the `Id` parameter in the response. For more information, see [SearchAlertRules](~~175825~~).
+     *
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @description Specifies whether the alert event is triggered. If you do not set this parameter, all alert events are queried. Valid values:
+     *
+     *   `1`: The event is triggered.
+     *   `0`: The event is not triggered.
+     *
+     * @example 1595568970000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The timestamp when the event occurred.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $isTrigger;
 
     /**
+     * @description The information about the alert events.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The type of the application that is associated with the alert rule. Valid values:
+     *
+     *   `TRACE`: application monitoring
+     *   `RETCODE`: frontend monitoring
+     *
+     * @example atc889zkcf@d8deedfa9bf****
+     *
      * @var string
      */
     public $pid;
 
     /**
+     * @description Specifies whether the alert event is triggered. If you do not set this parameter, all alert events are queried. Valid values:
+     *
+     *   `1`: The event is triggered.
+     *   `0`: The event is not triggered.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1595565300000
+     *
      * @var int
      */
     public $startTime;

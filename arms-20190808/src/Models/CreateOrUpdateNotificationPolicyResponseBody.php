@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateNotificationPolicyResponseBody extends Model
 {
     /**
+     * @description An array of notification policy objects.
+     *
      * @var notificationPolicy
      */
     public $notificationPolicy;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A5EC8221-08F2-4C95-9AF1-49FD998C****
+     *
      * @var string
      */
     public $requestId;

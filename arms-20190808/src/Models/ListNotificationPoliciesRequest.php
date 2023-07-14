@@ -9,30 +9,63 @@ use AlibabaCloud\Tea\Model;
 class ListNotificationPoliciesRequest extends Model
 {
     /**
+     * @description The ID of the notification policy.
+     *
+     * @example 12345
+     *
+     * @var string
+     */
+    public $ids;
+
+    /**
+     * @description Specifies whether to query the details about notification policies. Valid values:
+     *
+     *   `true`: Details about notification policies are queried.
+     *   `false`: Details about notification policies are not queried.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isDetail;
 
     /**
+     * @description The name of the notification policy.
+     *
+     * @example notificationpolicy_test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $size;
     protected $_name = [
+        'ids'      => 'Ids',
         'isDetail' => 'IsDetail',
         'name'     => 'Name',
         'page'     => 'Page',
@@ -47,6 +80,9 @@ class ListNotificationPoliciesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->ids) {
+            $res['Ids'] = $this->ids;
+        }
         if (null !== $this->isDetail) {
             $res['IsDetail'] = $this->isDetail;
         }
@@ -74,6 +110,9 @@ class ListNotificationPoliciesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Ids'])) {
+            $model->ids = $map['Ids'];
+        }
         if (isset($map['IsDetail'])) {
             $model->isDetail = $map['IsDetail'];
         }

@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class groupRules extends Model
 {
     /**
+     * @description The struct returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $groupId;
 
     /**
+     * @description The information about the dispatch rule.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $groupInterval;
 
     /**
+     * @description The information about groups.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $groupWaitTime;
 
     /**
+     * @description Queries the information about a dispatch policy.
+     *
      * @var string[]
      */
     public $groupingFields;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $repeatInterval;

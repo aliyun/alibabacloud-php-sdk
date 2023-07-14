@@ -10,11 +10,22 @@ use AlibabaCloud\Tea\Model;
 class alertContactGroups extends Model
 {
     /**
+     * @example 83261
+     *
+     * @var int
+     */
+    public $armsContactGroupId;
+
+    /**
+     * @example 123
+     *
      * @var float
      */
     public $contactGroupId;
 
     /**
+     * @example TestGroup
+     *
      * @var string
      */
     public $contactGroupName;
@@ -24,9 +35,10 @@ class alertContactGroups extends Model
      */
     public $contacts;
     protected $_name = [
-        'contactGroupId'   => 'ContactGroupId',
-        'contactGroupName' => 'ContactGroupName',
-        'contacts'         => 'Contacts',
+        'armsContactGroupId' => 'ArmsContactGroupId',
+        'contactGroupId'     => 'ContactGroupId',
+        'contactGroupName'   => 'ContactGroupName',
+        'contacts'           => 'Contacts',
     ];
 
     public function validate()
@@ -36,6 +48,9 @@ class alertContactGroups extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->armsContactGroupId) {
+            $res['ArmsContactGroupId'] = $this->armsContactGroupId;
+        }
         if (null !== $this->contactGroupId) {
             $res['ContactGroupId'] = $this->contactGroupId;
         }
@@ -63,6 +78,9 @@ class alertContactGroups extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ArmsContactGroupId'])) {
+            $model->armsContactGroupId = $map['ArmsContactGroupId'];
+        }
         if (isset($map['ContactGroupId'])) {
             $model->contactGroupId = $map['ContactGroupId'];
         }

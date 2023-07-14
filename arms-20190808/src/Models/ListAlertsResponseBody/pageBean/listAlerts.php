@@ -21,36 +21,55 @@ class listAlerts extends Model
     public $alertEvents;
 
     /**
+     * @example 2279
+     *
      * @var int
      */
     public $alertId;
 
     /**
+     * @example 测试触发的告警
+     *
      * @var string
      */
     public $alertName;
 
     /**
+     * @example 2022-01-18 00:21:35
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 12345
+     *
      * @var float
      */
     public $dispatchRuleId;
 
     /**
+     * @example 某某通知策略
+     *
      * @var string
      */
     public $dispatchRuleName;
 
     /**
+     * @example P6
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @var string
+     */
+    public $solution;
+
+    /**
+     * @example 0
+     *
      * @var int
      */
     public $state;
@@ -63,6 +82,7 @@ class listAlerts extends Model
         'dispatchRuleId'   => 'DispatchRuleId',
         'dispatchRuleName' => 'DispatchRuleName',
         'severity'         => 'Severity',
+        'solution'         => 'Solution',
         'state'            => 'State',
     ];
 
@@ -108,6 +128,9 @@ class listAlerts extends Model
         }
         if (null !== $this->severity) {
             $res['Severity'] = $this->severity;
+        }
+        if (null !== $this->solution) {
+            $res['Solution'] = $this->solution;
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -159,6 +182,9 @@ class listAlerts extends Model
         }
         if (isset($map['Severity'])) {
             $model->severity = $map['Severity'];
+        }
+        if (isset($map['Solution'])) {
+            $model->solution = $map['Solution'];
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

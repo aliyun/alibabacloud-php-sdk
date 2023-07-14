@@ -9,26 +9,60 @@ use AlibabaCloud\Tea\Model;
 class alertRuleItems extends Model
 {
     /**
+     * @description The aggregation method of the alert condition. Valid values:
+     *
+     *   AVG: calculates the average value
+     *   SUM: calculates the total value
+     *   MAX: selects the maximum value
+     *   MIN: selects the minimum value
+     *
+     * @example AVG
+     *
      * @var string
      */
     public $aggregate;
 
     /**
+     * @description The metric of the alert condition.
+     *
+     * @example appstat.jvm.non_heap_used
+     *
      * @var string
      */
     public $metricKey;
 
     /**
+     * @description Indicates the last N minutes.
+     *
+     * @example 1
+     *
      * @var float
      */
     public $n;
 
     /**
+     * @description The comparison operator that was used to compare the metric value with the threshold. Valid values:
+     *
+     *   CURRENT_GTE: greater than or equal to
+     *   CURRENT_LTE: less than or equal to
+     *   PREVIOUS_UP: the increase percentage compared with the last period
+     *   PREVIOUS_DOWN: the decrease percentage compared with the last period
+     *   HOH_UP: the increase percentage compared with the last hour
+     *   HOH_DOWN: the decrease percentage compared with the last hour
+     *   DOD_UP: the increase percentage compared with the last day
+     *   DOD_DOWN: the decrease percentage compared with the last day
+     *
+     * @example CURRENT_GTE
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description The threshold of the alert condition.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $value;

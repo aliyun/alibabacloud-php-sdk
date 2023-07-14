@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class customSLSFilters extends Model
 {
     /**
+     * @example username
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example =
+     *
      * @var string
      */
     public $opt;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $show;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $t;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $value;

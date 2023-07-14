@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dispatchRules extends Model
 {
     /**
+     * @example 7021
+     *
      * @var int
      */
     public $ruleId;

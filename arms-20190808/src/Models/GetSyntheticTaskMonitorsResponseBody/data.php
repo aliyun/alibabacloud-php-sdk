@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $busy;
@@ -19,11 +21,15 @@ class data extends Model
     public $city;
 
     /**
+     * @example 1100101
+     *
      * @var int
      */
     public $cityCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $clientType;
@@ -34,11 +40,15 @@ class data extends Model
     public $district;
 
     /**
+     * @example 18
+     *
      * @var int
      */
     public $netServiceId;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $netServiceName;

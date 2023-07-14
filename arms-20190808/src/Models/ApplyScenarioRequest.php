@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ApplyScenarioRequest extends Model
 {
     /**
+     * @example b590lhguqs@28f515462f******
+     *
      * @var string
      */
     public $appId;
 
     /**
+     * @example {"rpcType":"0","nameMatchType":"EQUALS","service":"/api/pop/test","operator":"and","filterItems":[{"type":"HttpHeaders","key":"uid","opt":"==","value":"123456789"}],"group":{"type":"HttpRequestParameters","key":"name"}}
+     *
      * @var mixed[]
      */
     public $config;
@@ -29,36 +33,50 @@ class ApplyScenarioRequest extends Model
     public $regionId;
 
     /**
+     * @example USER-DEFINED
+     *
      * @var string
      */
     public $scenario;
 
     /**
+     * @example a9f8****
+     *
      * @var string
      */
     public $sign;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $snDump;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $snForce;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $snStat;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $snTransfer;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $updateOption;

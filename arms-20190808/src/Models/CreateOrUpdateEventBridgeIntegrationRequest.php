@@ -9,46 +9,85 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateEventBridgeIntegrationRequest extends Model
 {
     /**
+     * @description The AccessKey ID that is used to connect to EventBridge.
+     *
+     * @example abc******************
+     *
      * @var string
      */
     public $accessKey;
 
     /**
+     * @description The AccessKey secret that is used to connect to EventBridge.
+     *
+     * @example abc******************
+     *
      * @var string
      */
     public $accessSecret;
 
     /**
+     * @description The description of the EventBridge integration.
+     *
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The public endpoint of EventBridge.
+     *
+     * @example http://xxxxx
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description The name of the event bus.
+     *
+     * @example EventBus_Test
+     *
      * @var string
      */
     public $eventBusName;
 
     /**
+     * @description The region ID of the event bus.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $eventBusRegionId;
 
     /**
+     * @description The ID of the EventBridge integration.
+     *
+     *   If you do not specify this parameter, an EventBridge integration is created.
+     *   If you specify this parameter, the specified EventBridge integration is modified.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the EventBridge integration.
+     *
+     * @example EventBridge_Test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The event source.
+     *
+     * @example arms
+     *
      * @var string
      */
     public $source;

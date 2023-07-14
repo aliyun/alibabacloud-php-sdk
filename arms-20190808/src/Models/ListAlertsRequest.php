@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class ListAlertsRequest extends Model
 {
     /**
+     * @example 测试触发的告警
+     *
      * @var string
      */
     public $alertName;
 
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $dispatchRuleId;
 
     /**
+     * @example 2021-12-22 23:59:59
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example ARMS_APP_MON
+     *
      * @var string
      */
     public $integrationType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example P6
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $showActivities;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $showEvents;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example 2021-12-10 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $state;

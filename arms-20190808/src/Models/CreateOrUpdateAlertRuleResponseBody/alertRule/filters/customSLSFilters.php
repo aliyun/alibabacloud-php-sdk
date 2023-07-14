@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class customSLSFilters extends Model
 {
     /**
+     * @description The key of the filter condition.
+     *
+     * @example username
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The logical operator of the filter condition. Valid values:
+     *
+     *   \=: equal to
+     *   not: not equal to
+     *
+     * @example =
+     *
      * @var string
      */
     public $opt;
 
     /**
+     * @description Indicates whether this filter condition was displayed on the frontend.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $show;
 
     /**
+     * @description The log type of Browser Monitoring. This field was not included in other filter conditions.
+     *
+     * @example null
+     *
      * @var string
      */
     public $t;
 
     /**
+     * @description The value of the filter condition.
+     *
+     * @example test
+     *
      * @var string
      */
     public $value;

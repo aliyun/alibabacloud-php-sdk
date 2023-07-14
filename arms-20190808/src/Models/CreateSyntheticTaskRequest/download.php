@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class download extends Model
 {
     /**
+     * @example 200
+     *
      * @var float
      */
     public $connectionTimeout;
@@ -19,11 +21,15 @@ class download extends Model
     public $downloadCustomHeaderContent;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $downloadCustomHost;
 
     /**
+     * @example ipv4:192.168.2.1,192.168.2.5:img.a.com|192.168.2.1[8080]:img.a.com
+     *
      * @var string
      */
     public $downloadCustomHostIp;
@@ -34,6 +40,8 @@ class download extends Model
     public $downloadIgnoreCertificateError;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $downloadKernel;
@@ -54,6 +62,8 @@ class download extends Model
     public $monitorTimeout;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $quickProtocol;
@@ -64,11 +74,15 @@ class download extends Model
     public $validateKeywords;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $verifyWay;
 
     /**
+     * @example [{\"src\":\"211.154.166.174\"}]
+     *
      * @var string
      */
     public $whiteList;

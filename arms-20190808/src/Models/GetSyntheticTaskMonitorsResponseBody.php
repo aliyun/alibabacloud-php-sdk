@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GetSyntheticTaskMonitorsResponseBody extends Model
 {
     /**
+     * @example 1001
+     *
      * @var string
      */
     public $code;
@@ -20,11 +22,15 @@ class GetSyntheticTaskMonitorsResponseBody extends Model
     public $data;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $msg;
 
     /**
+     * @example 21E85B16-75A6-429A-9F65-8AAC9A54****
+     *
      * @var string
      */
     public $requestId;

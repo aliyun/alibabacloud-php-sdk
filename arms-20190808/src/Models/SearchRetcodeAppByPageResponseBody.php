@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SearchRetcodeAppByPageResponseBody extends Model
 {
     /**
+     * @description The returned page information.
+     *
      * @var pageBean
      */
     public $pageBean;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 626037F5-FDEB-45B0-804C-B3C92797A64E
+     *
      * @var string
      */
     public $requestId;

@@ -10,26 +10,52 @@ use AlibabaCloud\Tea\Model;
 class QueryMetricByPageResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned for the request. Valid values:
+     *
+     *   2XX: The request was successful.
+     *   3XX: A redirection message was returned.
+     *   4XX: The request was invalid.
+     *   5XX: A server error occurred.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The information about the array object.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The error message returned if the call fails.
+     *
+     * @example StartTime is mandatory for this action.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 687F9CB7-4798-57BF-A6EE-E6CC76******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   `true`: The call was successful.
+     *   `false`: The call failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @example AVG
+     *
      * @var string
      */
     public $aggregates;
@@ -19,21 +21,29 @@ class rules extends Model
     public $alias;
 
     /**
+     * @example appstat.jvm.SystemDiskFree
+     *
      * @var string
      */
     public $measure;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $NValue;
 
     /**
+     * @example CURRENT_GTE
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @example 30
+     *
      * @var float
      */
     public $value;

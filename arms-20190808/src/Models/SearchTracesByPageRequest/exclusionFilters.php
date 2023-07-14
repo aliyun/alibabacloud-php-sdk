@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class exclusionFilters extends Model
 {
     /**
+     * @description The key that is used to filter the query results.
+     *
+     * @example http.status_code
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the key that is used to filter the query results.
+     *
+     * @example 404
+     *
      * @var string
      */
     public $value;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class dimFilters extends Model
 {
     /**
+     * @example rootIp
+     *
      * @var string
      */
     public $filterKey;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $filterOpt;

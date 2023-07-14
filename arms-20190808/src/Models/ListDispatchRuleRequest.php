@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListDispatchRuleRequest extends Model
 {
     /**
+     * @example Prod
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $system;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetIntegrationStateRequest extends Model
 {
     /**
+     * @example cc7a37ee31aea4ed1a059eff8034b****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example asm
+     *
      * @var string
      */
     public $integration;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

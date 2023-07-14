@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SearchTraceAppByNameResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example F7781D4A-2818-41E7-B7BB-79D809E9****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the monitoring task.
+     *
      * @var traceApps[]
      */
     public $traceApps;

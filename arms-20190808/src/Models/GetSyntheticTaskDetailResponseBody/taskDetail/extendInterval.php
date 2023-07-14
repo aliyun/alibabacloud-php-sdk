@@ -9,36 +9,59 @@ use AlibabaCloud\Tea\Model;
 class extendInterval extends Model
 {
     /**
+     * @description 拨测执行周期。
+     *
+     * - 6：周六
      * @var int[]
      */
     public $days;
 
     /**
+     * @description 当天结束分钟数。
+     *
+     * @example 20
+     *
      * @var int
      */
     public $endMinute;
 
     /**
+     * @example 2022-05-03 11:40
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description 当天结束小时数。
+     *
+     * @example 12
+     *
      * @var int
      */
     public $endhour;
 
     /**
+     * @description 当天开始拨测时间的小时数。
+     *
+     * @example 9
+     *
      * @var int
      */
     public $startHour;
 
     /**
+     * @description 当天开始拨测时间的分钟数。
+     *
+     * @example 20
+     *
      * @var int
      */
     public $startMinute;
 
     /**
+     * @example 2022-02-26 11:40
+     *
      * @var string
      */
     public $startTime;

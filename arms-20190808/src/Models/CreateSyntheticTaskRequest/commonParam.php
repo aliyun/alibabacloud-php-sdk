@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class commonParam extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $alarmFlag;
@@ -20,21 +22,29 @@ class commonParam extends Model
     public $alertList;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $alertNotifierId;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $alertPolicyId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $monitorSamples;
 
     /**
+     * @example 2022-07-20 10
+     *
      * @var int
      */
     public $startExecutionTime;

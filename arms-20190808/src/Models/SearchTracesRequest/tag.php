@@ -9,11 +9,29 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The tag key. The following system preset fields are provided:
+     *
+     *   serverApp: the name of the server application.
+     *   clientApp: the name of the client application.
+     *   service: the name of the operation.
+     *   rpc: the type of the call.
+     *   msOfSpan: the duration exceeds a specific value.
+     *   clientIp: the IP address of the client.
+     *   serverIp: the IP address of the server.
+     *   isError: specifies whether the call is abnormal.
+     *   hasTprof: contains only thread profiling.
+     *
+     * @example http.status_code
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $value;

@@ -9,81 +9,150 @@ use AlibabaCloud\Tea\Model;
 class integration extends Model
 {
     /**
+     * @description The endpoint of the alert integration.
+     *
+     * @example https://alerts.aliyuncs.com/api/v1/integrations/custom/ymQBN******
+     *
      * @var string
      */
     public $apiEndpoint;
 
     /**
+     * @description Indicates whether alert events are automatically cleared. Valid values:
+     *
+     *   true (default)
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoRecover;
 
     /**
+     * @description The description of the alert integration.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The fields whose values are deduplicated.
+     *
+     * @example LABEL.dimensions::LABEL.ruleId
+     *
      * @var string
      */
     public $duplicateKey;
 
     /**
+     * @description The extended mapped fields of the alert source.
+     *
      * @var mixed[][]
      */
     public $extendedFieldRedefineRules;
 
     /**
+     * @description The predefined mapped fields of the alert source.
+     *
      * @var mixed[][]
      */
     public $fieldRedefineRules;
 
     /**
+     * @description The field for clearing alert events. The system queries alert events based on the field of alert clearing events and clears the alert events.
+     *
+     * > Only Log Service supports this parameter.
+     * @example $.status
+     *
      * @var string
      */
     public $initiativeRecoverField;
 
     /**
+     * @description The value of the field for clearing alert events. The system queries alert events based on the field of alert clearing events and clears the alert events.
+     *
+     * > Only Log Service supports this parameter.
+     * @example ok
+     *
      * @var string
      */
     public $initiativeRecoverValue;
 
     /**
+     * @description The ID of the alert integration.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $integrationId;
 
     /**
+     * @description The name of the alert integration.
+     *
+     * @example CloudMonitor integration
+     *
      * @var string
      */
     public $integrationName;
 
     /**
+     * @description The service of the alert integration. Valid values:
+     *
+     *   CLOUD_MONITOR: CloudMonitor
+     *   LOG_SERVICE: Log Service
+     *
+     * @example CLOUD_MONITOR
+     *
      * @var string
      */
     public $integrationProductType;
 
     /**
+     * @description The activity of the alert integration
+     *
+     * @example ready
+     *
      * @var string
      */
     public $liveness;
 
     /**
+     * @description The time when alert events are automatically cleared. Unit: seconds. Default value: 300.
+     *
+     * @example 300
+     *
      * @var int
      */
     public $recoverTime;
 
     /**
+     * @description The authentication token of the alert integration.
+     *
+     * @example ymQBN******
+     *
      * @var string
      */
     public $shortToken;
 
     /**
+     * @description The total number of alert events and the number of abnormal alert events in the last hour.
+     *
      * @var int[]
      */
     public $stat;
 
     /**
+     * @description Indicates whether the alert integration is enabled. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $state;

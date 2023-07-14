@@ -15,6 +15,8 @@ class GetAlertRulesResponseBody extends Model
     public $pageBean;
 
     /**
+     * @example 337B8F7E-0A64-5768-9225-E9B3CF******
+     *
      * @var string
      */
     public $requestId;

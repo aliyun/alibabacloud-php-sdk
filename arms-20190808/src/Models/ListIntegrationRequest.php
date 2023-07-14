@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListIntegrationRequest extends Model
 {
     /**
+     * @example 云监控集成
+     *
      * @var string
      */
     public $integrationName;
 
     /**
+     * @example CLOUD_MONITOR
+     *
      * @var string
      */
     public $integrationProductType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDetail;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $size;

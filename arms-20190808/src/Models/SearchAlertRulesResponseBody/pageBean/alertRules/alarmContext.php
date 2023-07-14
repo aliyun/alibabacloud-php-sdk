@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class alarmContext extends Model
 {
     /**
+     * @example TestSubTitle
+     *
      * @var string
      */
     public $alarmContentSubTitle;
@@ -24,6 +26,8 @@ class alarmContext extends Model
     public $content;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $subTitle;

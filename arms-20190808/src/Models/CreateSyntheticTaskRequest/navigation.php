@@ -19,21 +19,29 @@ class navigation extends Model
     public $elementBlacklist;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $executeActiveX;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $executeApplication;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $executeScript;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $filterInvalidIP;
@@ -49,56 +57,78 @@ class navigation extends Model
     public $flowHijackLogo;
 
     /**
+     * @example 20
+     *
      * @var string
      */
     public $monitorTimeout;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $navAutomaticScrolling;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $navCustomHeader;
 
     /**
+     * @example Host:www.example.com|Referer:www.example.com
+     *
      * @var string
      */
     public $navCustomHeaderContent;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $navCustomHost;
 
     /**
+     * @example ipv4:192.168.2.1,192.168.2.5:img.a.com|192.168.2.1[8080]:img.a.com
+     *
      * @var string
      */
     public $navCustomHostIp;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $navDisableCache;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $navDisableCompression;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $navIgnoreCertificateError;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $navRedirection;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $navReturnElement;
@@ -109,31 +139,43 @@ class navigation extends Model
     public $pageTamper;
 
     /**
+     * @example ssh
+     *
      * @var string
      */
     public $processName;
 
     /**
+     * @example www.example.com
+     *
      * @var string
      */
     public $QUICDomain;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $QUICVersion;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $requestHeader;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $responseHeader;
 
     /**
+     * @example 5
+     *
      * @var float
      */
     public $slowElementThreshold;

@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class stackInfo extends Model
 {
     /**
+     * @description The name of the operation.
+     *
+     * @example Tomcat Servlet Process
+     *
      * @var string
      */
     public $api;
 
     /**
+     * @description The duration. Unit: milliseconds.
+     *
+     * @example 32
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @description The error message.
+     *
+     * @example java.lang.NullPointerException
+     *
      * @var string
      */
     public $exception;
 
     /**
+     * @description The information about the array object.
+     *
      * @var extInfo
      */
     public $extInfo;
 
     /**
+     * @description The number of rows in the method stack information.
+     *
+     * @example 34
+     *
      * @var string
      */
     public $line;
 
     /**
+     * @description The ID of the RPC mode.
+     *
+     * @example 0.1
+     *
      * @var string
      */
     public $rpcId;
 
     /**
+     * @description The name of the service.
+     *
+     * @example /com/test
+     *
      * @var string
      */
     public $serviceName;
 
     /**
+     * @description The start time of the call method.
+     *
+     * @example 1653555396
+     *
      * @var int
      */
     public $startTime;

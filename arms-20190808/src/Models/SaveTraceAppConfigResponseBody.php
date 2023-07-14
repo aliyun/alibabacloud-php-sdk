@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SaveTraceAppConfigResponseBody extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example 78901766-3806-4E96-8E47-CFEF59E4****
+     *
      * @var string
      */
     public $requestId;

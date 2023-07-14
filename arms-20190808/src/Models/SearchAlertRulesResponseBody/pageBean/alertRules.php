@@ -18,6 +18,8 @@ class alertRules extends Model
     public $alarmContext;
 
     /**
+     * @example WARN
+     *
      * @var string
      */
     public $alertLevel;
@@ -28,16 +30,22 @@ class alertRules extends Model
     public $alertRule;
 
     /**
+     * @example TestAlertRule
+     *
      * @var string
      */
     public $alertTitle;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $alertType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $alertVersion;
@@ -48,31 +56,43 @@ class alertRules extends Model
     public $alertWays;
 
     /**
+     * @example {\"continuous\":true,\"dataRevision\":2}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example 381*,572*
+     *
      * @var string
      */
     public $contactGroupIdList;
 
     /**
+     * @example [123, 234]
+     *
      * @var string
      */
     public $contactGroupIds;
 
     /**
+     * @example 1579508519683
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hostByAlertManager;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $id;
@@ -88,36 +108,57 @@ class alertRules extends Model
     public $notice;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxyexli2****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $taskId;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @example AlertTest
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example 1480521600000
+     *
      * @var int
      */
     public $updateTime;
 
     /**
+     * @example 113197164949****
+     *
      * @var string
      */
     public $userId;
@@ -138,6 +179,7 @@ class alertRules extends Model
         'metricParam'        => 'MetricParam',
         'notice'             => 'Notice',
         'regionId'           => 'RegionId',
+        'resourceGroupId'    => 'ResourceGroupId',
         'status'             => 'Status',
         'taskId'             => 'TaskId',
         'taskStatus'         => 'TaskStatus',
@@ -200,6 +242,9 @@ class alertRules extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -280,6 +325,9 @@ class alertRules extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

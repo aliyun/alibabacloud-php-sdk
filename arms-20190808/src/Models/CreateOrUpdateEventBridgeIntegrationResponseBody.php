@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateEventBridgeIntegrationResponseBody extends Model
 {
     /**
+     * @description The information about the EventBridge integration.
+     *
      * @var eventBridgeIntegration
      */
     public $eventBridgeIntegration;
 
     /**
+     * @description The request ID.
+     *
+     * @example 2B289756-E791-5842-BCBD-AD414C******
+     *
      * @var string
      */
     public $requestId;

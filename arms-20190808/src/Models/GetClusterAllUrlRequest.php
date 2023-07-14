@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetClusterAllUrlRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example cc7a37ee31aea4ed1a059eff8034b****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The region ID. Default value: cn-hangzhou.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

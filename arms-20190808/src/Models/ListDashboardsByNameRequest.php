@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListDashboardsByNameRequest extends Model
 {
     /**
+     * @example cc7a37ee31aea4ed1a059eff8034b****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cloud-product-prometheus
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example edas-ingress-url
+     *
      * @var string
      */
     public $dashBoardName;
 
     /**
+     * @example latest
+     *
      * @var string
      */
     public $dashBoardVersion;
 
     /**
+     * @example loki
+     *
      * @var string
      */
     public $dataSourceType;
 
     /**
+     * @example EDAS
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $onlyQuery;
 
     /**
+     * @example edas
+     *
      * @var string
      */
     public $productCode;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
