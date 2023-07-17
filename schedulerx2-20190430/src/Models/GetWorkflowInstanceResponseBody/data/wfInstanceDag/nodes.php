@@ -54,6 +54,11 @@ class nodes extends Model
     public $jobInstanceId;
 
     /**
+     * @var string
+     */
+    public $jobName;
+
+    /**
      * @description The state of the job instance.
      *
      * @example code=200
@@ -99,6 +104,7 @@ class nodes extends Model
         'endTime'       => 'EndTime',
         'jobId'         => 'JobId',
         'jobInstanceId' => 'JobInstanceId',
+        'jobName'       => 'JobName',
         'result'        => 'Result',
         'scheduleTime'  => 'ScheduleTime',
         'startTime'     => 'StartTime',
@@ -127,6 +133,9 @@ class nodes extends Model
         }
         if (null !== $this->jobInstanceId) {
             $res['JobInstanceId'] = $this->jobInstanceId;
+        }
+        if (null !== $this->jobName) {
+            $res['JobName'] = $this->jobName;
         }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
@@ -169,6 +178,9 @@ class nodes extends Model
         }
         if (isset($map['JobInstanceId'])) {
             $model->jobInstanceId = $map['JobInstanceId'];
+        }
+        if (isset($map['JobName'])) {
+            $model->jobName = $map['JobName'];
         }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
