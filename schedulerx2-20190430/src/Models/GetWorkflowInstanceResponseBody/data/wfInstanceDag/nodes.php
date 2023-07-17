@@ -81,6 +81,11 @@ class nodes extends Model
     public $startTime;
 
     /**
+     * @var int
+     */
+    public $status;
+
+    /**
      * @description The server on which the job instance was run.
      *
      * @example 10.163.0.101:34027
@@ -97,6 +102,7 @@ class nodes extends Model
         'result'        => 'Result',
         'scheduleTime'  => 'ScheduleTime',
         'startTime'     => 'StartTime',
+        'status'        => 'Status',
         'workAddr'      => 'WorkAddr',
     ];
 
@@ -130,6 +136,9 @@ class nodes extends Model
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
         if (null !== $this->workAddr) {
             $res['WorkAddr'] = $this->workAddr;
@@ -169,6 +178,9 @@ class nodes extends Model
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
         if (isset($map['WorkAddr'])) {
             $model->workAddr = $map['WorkAddr'];

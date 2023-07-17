@@ -54,6 +54,16 @@ class jobInstanceDetail extends Model
     public $jobId;
 
     /**
+     * @var string
+     */
+    public $jobName;
+
+    /**
+     * @var string
+     */
+    public $parameters;
+
+    /**
      * @description The progress of the job instance.
      *
      * @example complete
@@ -121,6 +131,11 @@ class jobInstanceDetail extends Model
     public $timeType;
 
     /**
+     * @var string
+     */
+    public $traceId;
+
+    /**
      * @description The trigger type of the job instance. Valid values:
      *
      *   **1**: The job instance was triggered at the scheduled time.
@@ -150,12 +165,15 @@ class jobInstanceDetail extends Model
         'executor'     => 'Executor',
         'instanceId'   => 'InstanceId',
         'jobId'        => 'JobId',
+        'jobName'      => 'JobName',
+        'parameters'   => 'Parameters',
         'progress'     => 'Progress',
         'result'       => 'Result',
         'scheduleTime' => 'ScheduleTime',
         'startTime'    => 'StartTime',
         'status'       => 'Status',
         'timeType'     => 'TimeType',
+        'traceId'      => 'TraceId',
         'triggerType'  => 'TriggerType',
         'workAddr'     => 'WorkAddr',
     ];
@@ -182,6 +200,12 @@ class jobInstanceDetail extends Model
         if (null !== $this->jobId) {
             $res['JobId'] = $this->jobId;
         }
+        if (null !== $this->jobName) {
+            $res['JobName'] = $this->jobName;
+        }
+        if (null !== $this->parameters) {
+            $res['Parameters'] = $this->parameters;
+        }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
@@ -199,6 +223,9 @@ class jobInstanceDetail extends Model
         }
         if (null !== $this->timeType) {
             $res['TimeType'] = $this->timeType;
+        }
+        if (null !== $this->traceId) {
+            $res['TraceId'] = $this->traceId;
         }
         if (null !== $this->triggerType) {
             $res['TriggerType'] = $this->triggerType;
@@ -233,6 +260,12 @@ class jobInstanceDetail extends Model
         if (isset($map['JobId'])) {
             $model->jobId = $map['JobId'];
         }
+        if (isset($map['JobName'])) {
+            $model->jobName = $map['JobName'];
+        }
+        if (isset($map['Parameters'])) {
+            $model->parameters = $map['Parameters'];
+        }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
@@ -250,6 +283,9 @@ class jobInstanceDetail extends Model
         }
         if (isset($map['TimeType'])) {
             $model->timeType = $map['TimeType'];
+        }
+        if (isset($map['TraceId'])) {
+            $model->traceId = $map['TraceId'];
         }
         if (isset($map['TriggerType'])) {
             $model->triggerType = $map['TriggerType'];
