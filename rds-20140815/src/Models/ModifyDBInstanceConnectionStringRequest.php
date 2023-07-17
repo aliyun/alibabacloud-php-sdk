@@ -67,6 +67,8 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $ownerId;
 
     /**
+     * @example 6432
+     *
      * @var string
      */
     public $PGBouncerPort;
