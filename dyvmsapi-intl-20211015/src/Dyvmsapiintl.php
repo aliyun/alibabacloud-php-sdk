@@ -155,6 +155,9 @@ class Dyvmsapiintl extends OpenApiClient
         if (!Utils::isUnset($request->countryId)) {
             $query['CountryId'] = $request->countryId;
         }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
@@ -236,6 +239,9 @@ class Dyvmsapiintl extends OpenApiClient
         }
         if (!Utils::isUnset($request->countryId)) {
             $query['CountryId'] = $request->countryId;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
@@ -1875,9 +1881,6 @@ class Dyvmsapiintl extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

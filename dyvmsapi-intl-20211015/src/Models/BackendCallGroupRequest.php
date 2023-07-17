@@ -14,14 +14,23 @@ class BackendCallGroupRequest extends Model
     public $calledNumber;
 
     /**
+     * @example 852****1111
+     *
      * @var string
      */
     public $callerIdNumber;
 
     /**
+     * @example HK
+     *
      * @var string
      */
     public $countryId;
+
+    /**
+     * @var string
+     */
+    public $outId;
 
     /**
      * @var int
@@ -29,6 +38,8 @@ class BackendCallGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $playTimes;
@@ -44,11 +55,15 @@ class BackendCallGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $sendType;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $speed;
@@ -59,21 +74,29 @@ class BackendCallGroupRequest extends Model
     public $taskName;
 
     /**
+     * @example 2022-05-01T08:00:00+08:00
+     *
      * @var string
      */
     public $timingStart;
 
     /**
+     * @example 100001
+     *
      * @var string
      */
     public $ttsCode;
 
     /**
+     * @example 200001
+     *
      * @var string
      */
     public $voiceCode;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $volume;
@@ -81,6 +104,7 @@ class BackendCallGroupRequest extends Model
         'calledNumber'         => 'CalledNumber',
         'callerIdNumber'       => 'CallerIdNumber',
         'countryId'            => 'CountryId',
+        'outId'                => 'OutId',
         'ownerId'              => 'OwnerId',
         'playTimes'            => 'PlayTimes',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -109,6 +133,9 @@ class BackendCallGroupRequest extends Model
         }
         if (null !== $this->countryId) {
             $res['CountryId'] = $this->countryId;
+        }
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -165,6 +192,9 @@ class BackendCallGroupRequest extends Model
         }
         if (isset($map['CountryId'])) {
             $model->countryId = $map['CountryId'];
+        }
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

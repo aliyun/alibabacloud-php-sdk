@@ -9,19 +9,30 @@ use AlibabaCloud\Tea\Model;
 class BackendCallSignalRequest extends Model
 {
     /**
+     * @example 852****0000
+     *
      * @var string
      */
     public $calledNumber;
 
     /**
+     * @example 852****0000
+     *
      * @var string
      */
     public $callerIdNumber;
 
     /**
+     * @example HK
+     *
      * @var string
      */
     public $countryId;
+
+    /**
+     * @var string
+     */
+    public $outId;
 
     /**
      * @var int
@@ -29,6 +40,8 @@ class BackendCallSignalRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $playTimes;
@@ -44,21 +57,29 @@ class BackendCallSignalRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $speed;
 
     /**
+     * @example 1001
+     *
      * @var string
      */
     public $ttsCode;
 
     /**
+     * @example {"code":"1234"}
+     *
      * @var string
      */
     public $ttsParam;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $volume;
@@ -66,6 +87,7 @@ class BackendCallSignalRequest extends Model
         'calledNumber'         => 'CalledNumber',
         'callerIdNumber'       => 'CallerIdNumber',
         'countryId'            => 'CountryId',
+        'outId'                => 'OutId',
         'ownerId'              => 'OwnerId',
         'playTimes'            => 'PlayTimes',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -91,6 +113,9 @@ class BackendCallSignalRequest extends Model
         }
         if (null !== $this->countryId) {
             $res['CountryId'] = $this->countryId;
+        }
+        if (null !== $this->outId) {
+            $res['OutId'] = $this->outId;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -136,6 +161,9 @@ class BackendCallSignalRequest extends Model
         }
         if (isset($map['CountryId'])) {
             $model->countryId = $map['CountryId'];
+        }
+        if (isset($map['OutId'])) {
+            $model->outId = $map['OutId'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

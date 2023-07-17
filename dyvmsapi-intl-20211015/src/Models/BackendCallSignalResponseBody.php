@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class BackendCallSignalResponseBody extends Model
 {
     /**
+     * @example 550e8400-e29b-41d4-a716-446655440000
+     *
      * @var string
      */
     public $callId;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example D9CB3933-9FE3-4870-BA8E-2BEE91B69D23
+     *
      * @var string
      */
     public $requestId;
