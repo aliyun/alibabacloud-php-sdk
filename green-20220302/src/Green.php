@@ -8,6 +8,7 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageResultExtRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\DescribeImageResultExtResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\DescribeUploadTokenResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationRequest;
@@ -121,6 +122,39 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeImageResultExtWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeUploadTokenResponse
+     */
+    public function describeUploadTokenWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeUploadToken',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUploadTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeUploadTokenResponse
+     */
+    public function describeUploadToken()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUploadTokenWithOptions($runtime);
     }
 
     /**
