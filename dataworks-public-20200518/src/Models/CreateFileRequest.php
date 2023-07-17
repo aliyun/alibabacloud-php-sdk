@@ -70,6 +70,11 @@ class CreateFileRequest extends Model
     public $content;
 
     /**
+     * @var bool
+     */
+    public $createFolderIfNotExists;
+
+    /**
      * @description The CRON expression that represents the automatic scheduling policy of the node. This parameter corresponds to the Cron Expression parameter in the Schedule section of the Properties tab in the [DataWorks console](https://workbench.data.aliyun.com/console). After you configure the Scheduling Cycle and Run At parameters in the DataWorks console, DataWorks generates the value of the Cron Expression parameter.
      *
      * Examples:
@@ -334,6 +339,7 @@ class CreateFileRequest extends Model
         'autoRerunTimes'                  => 'AutoRerunTimes',
         'connectionName'                  => 'ConnectionName',
         'content'                         => 'Content',
+        'createFolderIfNotExists'         => 'CreateFolderIfNotExists',
         'cronExpress'                     => 'CronExpress',
         'cycleType'                       => 'CycleType',
         'dependentNodeIdList'             => 'DependentNodeIdList',
@@ -384,6 +390,9 @@ class CreateFileRequest extends Model
         }
         if (null !== $this->content) {
             $res['Content'] = $this->content;
+        }
+        if (null !== $this->createFolderIfNotExists) {
+            $res['CreateFolderIfNotExists'] = $this->createFolderIfNotExists;
         }
         if (null !== $this->cronExpress) {
             $res['CronExpress'] = $this->cronExpress;
@@ -486,6 +495,9 @@ class CreateFileRequest extends Model
         }
         if (isset($map['Content'])) {
             $model->content = $map['Content'];
+        }
+        if (isset($map['CreateFolderIfNotExists'])) {
+            $model->createFolderIfNotExists = $map['CreateFolderIfNotExists'];
         }
         if (isset($map['CronExpress'])) {
             $model->cronExpress = $map['CronExpress'];

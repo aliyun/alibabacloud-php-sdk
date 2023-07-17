@@ -75,6 +75,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateQualityRuleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateQualityRuleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateRemindRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateRemindResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateResourceFileRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateResourceFileResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateTableLevelRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateTableLevelResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CreateTableRequest;
@@ -1860,6 +1862,9 @@ class Dataworkspublic extends OpenApiClient
         if (!Utils::isUnset($request->content)) {
             $body['Content'] = $request->content;
         }
+        if (!Utils::isUnset($request->createFolderIfNotExists)) {
+            $body['CreateFolderIfNotExists'] = $request->createFolderIfNotExists;
+        }
         if (!Utils::isUnset($request->cronExpress)) {
             $body['CronExpress'] = $request->cronExpress;
         }
@@ -2846,6 +2851,82 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param CreateResourceFileRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateResourceFileResponse
+     */
+    public function createResourceFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->content)) {
+            $body['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->fileDescription)) {
+            $body['FileDescription'] = $request->fileDescription;
+        }
+        if (!Utils::isUnset($request->fileFolderPath)) {
+            $body['FileFolderPath'] = $request->fileFolderPath;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $body['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileType)) {
+            $body['FileType'] = $request->fileType;
+        }
+        if (!Utils::isUnset($request->originResourceName)) {
+            $body['OriginResourceName'] = $request->originResourceName;
+        }
+        if (!Utils::isUnset($request->owner)) {
+            $body['Owner'] = $request->owner;
+        }
+        if (!Utils::isUnset($request->projectId)) {
+            $body['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->registerToCalcEngine)) {
+            $body['RegisterToCalcEngine'] = $request->registerToCalcEngine;
+        }
+        if (!Utils::isUnset($request->resourceFile)) {
+            $body['ResourceFile'] = $request->resourceFile;
+        }
+        if (!Utils::isUnset($request->storageURL)) {
+            $body['StorageURL'] = $request->storageURL;
+        }
+        if (!Utils::isUnset($request->uploadMode)) {
+            $body['UploadMode'] = $request->uploadMode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateResourceFile',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateResourceFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateResourceFileRequest $request
+     *
+     * @return CreateResourceFileResponse
+     */
+    public function createResourceFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createResourceFileWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateTableRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -3066,6 +3147,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->cmdDescription)) {
             $body['CmdDescription'] = $request->cmdDescription;
+        }
+        if (!Utils::isUnset($request->createFolderIfNotExists)) {
+            $body['CreateFolderIfNotExists'] = $request->createFolderIfNotExists;
         }
         if (!Utils::isUnset($request->example)) {
             $body['Example'] = $request->example;
@@ -9360,14 +9444,26 @@ class Dataworkspublic extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->exactFileName)) {
+            $body['ExactFileName'] = $request->exactFileName;
+        }
         if (!Utils::isUnset($request->fileFolderPath)) {
             $body['FileFolderPath'] = $request->fileFolderPath;
+        }
+        if (!Utils::isUnset($request->fileIdIn)) {
+            $body['FileIdIn'] = $request->fileIdIn;
         }
         if (!Utils::isUnset($request->fileTypes)) {
             $body['FileTypes'] = $request->fileTypes;
         }
         if (!Utils::isUnset($request->keyword)) {
             $body['Keyword'] = $request->keyword;
+        }
+        if (!Utils::isUnset($request->needAbsoluteFolderPath)) {
+            $body['NeedAbsoluteFolderPath'] = $request->needAbsoluteFolderPath;
+        }
+        if (!Utils::isUnset($request->needContent)) {
+            $body['NeedContent'] = $request->needContent;
         }
         if (!Utils::isUnset($request->nodeId)) {
             $body['NodeId'] = $request->nodeId;

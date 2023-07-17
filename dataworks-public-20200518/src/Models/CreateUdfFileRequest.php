@@ -27,6 +27,11 @@ class CreateUdfFileRequest extends Model
     public $cmdDescription;
 
     /**
+     * @var bool
+     */
+    public $createFolderIfNotExists;
+
+    /**
      * @description The example for calling the function. This parameter corresponds to the Example parameter in the Register Function section of the configuration tab of the function in the DataWorks console.
      *
      * @example StringConcat(\"a\", \"b\", \"c\")
@@ -109,18 +114,19 @@ class CreateUdfFileRequest extends Model
      */
     public $udfDescription;
     protected $_name = [
-        'className'            => 'ClassName',
-        'cmdDescription'       => 'CmdDescription',
-        'example'              => 'Example',
-        'fileFolderPath'       => 'FileFolderPath',
-        'fileName'             => 'FileName',
-        'functionType'         => 'FunctionType',
-        'parameterDescription' => 'ParameterDescription',
-        'projectId'            => 'ProjectId',
-        'projectIdentifier'    => 'ProjectIdentifier',
-        'resources'            => 'Resources',
-        'returnValue'          => 'ReturnValue',
-        'udfDescription'       => 'UdfDescription',
+        'className'               => 'ClassName',
+        'cmdDescription'          => 'CmdDescription',
+        'createFolderIfNotExists' => 'CreateFolderIfNotExists',
+        'example'                 => 'Example',
+        'fileFolderPath'          => 'FileFolderPath',
+        'fileName'                => 'FileName',
+        'functionType'            => 'FunctionType',
+        'parameterDescription'    => 'ParameterDescription',
+        'projectId'               => 'ProjectId',
+        'projectIdentifier'       => 'ProjectIdentifier',
+        'resources'               => 'Resources',
+        'returnValue'             => 'ReturnValue',
+        'udfDescription'          => 'UdfDescription',
     ];
 
     public function validate()
@@ -135,6 +141,9 @@ class CreateUdfFileRequest extends Model
         }
         if (null !== $this->cmdDescription) {
             $res['CmdDescription'] = $this->cmdDescription;
+        }
+        if (null !== $this->createFolderIfNotExists) {
+            $res['CreateFolderIfNotExists'] = $this->createFolderIfNotExists;
         }
         if (null !== $this->example) {
             $res['Example'] = $this->example;
@@ -183,6 +192,9 @@ class CreateUdfFileRequest extends Model
         }
         if (isset($map['CmdDescription'])) {
             $model->cmdDescription = $map['CmdDescription'];
+        }
+        if (isset($map['CreateFolderIfNotExists'])) {
+            $model->createFolderIfNotExists = $map['CreateFolderIfNotExists'];
         }
         if (isset($map['Example'])) {
             $model->example = $map['Example'];

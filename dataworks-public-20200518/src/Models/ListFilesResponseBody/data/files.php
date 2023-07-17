@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class files extends Model
 {
     /**
+     * @var string
+     */
+    public $absoluteFolderPath;
+
+    /**
      * @description Specifies whether the automatic parsing feature is enabled for the file. Valid values:
      *
      *   true: The automatic parsing feature is enabled for the file.
@@ -209,27 +214,28 @@ class files extends Model
      */
     public $useType;
     protected $_name = [
-        'autoParsing'     => 'AutoParsing',
-        'bizId'           => 'BizId',
-        'businessId'      => 'BusinessId',
-        'commitStatus'    => 'CommitStatus',
-        'connectionName'  => 'ConnectionName',
-        'content'         => 'Content',
-        'createTime'      => 'CreateTime',
-        'createUser'      => 'CreateUser',
-        'currentVersion'  => 'CurrentVersion',
-        'fileDescription' => 'FileDescription',
-        'fileFolderId'    => 'FileFolderId',
-        'fileId'          => 'FileId',
-        'fileName'        => 'FileName',
-        'fileType'        => 'FileType',
-        'isMaxCompute'    => 'IsMaxCompute',
-        'lastEditTime'    => 'LastEditTime',
-        'lastEditUser'    => 'LastEditUser',
-        'nodeId'          => 'NodeId',
-        'owner'           => 'Owner',
-        'parentId'        => 'ParentId',
-        'useType'         => 'UseType',
+        'absoluteFolderPath' => 'AbsoluteFolderPath',
+        'autoParsing'        => 'AutoParsing',
+        'bizId'              => 'BizId',
+        'businessId'         => 'BusinessId',
+        'commitStatus'       => 'CommitStatus',
+        'connectionName'     => 'ConnectionName',
+        'content'            => 'Content',
+        'createTime'         => 'CreateTime',
+        'createUser'         => 'CreateUser',
+        'currentVersion'     => 'CurrentVersion',
+        'fileDescription'    => 'FileDescription',
+        'fileFolderId'       => 'FileFolderId',
+        'fileId'             => 'FileId',
+        'fileName'           => 'FileName',
+        'fileType'           => 'FileType',
+        'isMaxCompute'       => 'IsMaxCompute',
+        'lastEditTime'       => 'LastEditTime',
+        'lastEditUser'       => 'LastEditUser',
+        'nodeId'             => 'NodeId',
+        'owner'              => 'Owner',
+        'parentId'           => 'ParentId',
+        'useType'            => 'UseType',
     ];
 
     public function validate()
@@ -239,6 +245,9 @@ class files extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->absoluteFolderPath) {
+            $res['AbsoluteFolderPath'] = $this->absoluteFolderPath;
+        }
         if (null !== $this->autoParsing) {
             $res['AutoParsing'] = $this->autoParsing;
         }
@@ -314,6 +323,9 @@ class files extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AbsoluteFolderPath'])) {
+            $model->absoluteFolderPath = $map['AbsoluteFolderPath'];
+        }
         if (isset($map['AutoParsing'])) {
             $model->autoParsing = $map['AutoParsing'];
         }

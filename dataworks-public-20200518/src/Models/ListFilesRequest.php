@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ListFilesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $exactFileName;
+
+    /**
      * @description The path of the files.
      *
      * @var string
      */
     public $fileFolderPath;
+
+    /**
+     * @var string
+     */
+    public $fileIdIn;
 
     /**
      * @description The types of the code in the files.
@@ -33,6 +43,16 @@ class ListFilesRequest extends Model
      * @var string
      */
     public $keyword;
+
+    /**
+     * @var bool
+     */
+    public $needAbsoluteFolderPath;
+
+    /**
+     * @var bool
+     */
+    public $needContent;
 
     /**
      * @description The ID of the node that is scheduled. You can call the [ListNodes](~~173979~~) operation to query the ID of the node.
@@ -106,16 +126,20 @@ class ListFilesRequest extends Model
      */
     public $useType;
     protected $_name = [
-        'fileFolderPath'    => 'FileFolderPath',
-        'fileTypes'         => 'FileTypes',
-        'keyword'           => 'Keyword',
-        'nodeId'            => 'NodeId',
-        'owner'             => 'Owner',
-        'pageNumber'        => 'PageNumber',
-        'pageSize'          => 'PageSize',
-        'projectId'         => 'ProjectId',
-        'projectIdentifier' => 'ProjectIdentifier',
-        'useType'           => 'UseType',
+        'exactFileName'          => 'ExactFileName',
+        'fileFolderPath'         => 'FileFolderPath',
+        'fileIdIn'               => 'FileIdIn',
+        'fileTypes'              => 'FileTypes',
+        'keyword'                => 'Keyword',
+        'needAbsoluteFolderPath' => 'NeedAbsoluteFolderPath',
+        'needContent'            => 'NeedContent',
+        'nodeId'                 => 'NodeId',
+        'owner'                  => 'Owner',
+        'pageNumber'             => 'PageNumber',
+        'pageSize'               => 'PageSize',
+        'projectId'              => 'ProjectId',
+        'projectIdentifier'      => 'ProjectIdentifier',
+        'useType'                => 'UseType',
     ];
 
     public function validate()
@@ -125,14 +149,26 @@ class ListFilesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->exactFileName) {
+            $res['ExactFileName'] = $this->exactFileName;
+        }
         if (null !== $this->fileFolderPath) {
             $res['FileFolderPath'] = $this->fileFolderPath;
+        }
+        if (null !== $this->fileIdIn) {
+            $res['FileIdIn'] = $this->fileIdIn;
         }
         if (null !== $this->fileTypes) {
             $res['FileTypes'] = $this->fileTypes;
         }
         if (null !== $this->keyword) {
             $res['Keyword'] = $this->keyword;
+        }
+        if (null !== $this->needAbsoluteFolderPath) {
+            $res['NeedAbsoluteFolderPath'] = $this->needAbsoluteFolderPath;
+        }
+        if (null !== $this->needContent) {
+            $res['NeedContent'] = $this->needContent;
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
@@ -167,14 +203,26 @@ class ListFilesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExactFileName'])) {
+            $model->exactFileName = $map['ExactFileName'];
+        }
         if (isset($map['FileFolderPath'])) {
             $model->fileFolderPath = $map['FileFolderPath'];
+        }
+        if (isset($map['FileIdIn'])) {
+            $model->fileIdIn = $map['FileIdIn'];
         }
         if (isset($map['FileTypes'])) {
             $model->fileTypes = $map['FileTypes'];
         }
         if (isset($map['Keyword'])) {
             $model->keyword = $map['Keyword'];
+        }
+        if (isset($map['NeedAbsoluteFolderPath'])) {
+            $model->needAbsoluteFolderPath = $map['NeedAbsoluteFolderPath'];
+        }
+        if (isset($map['NeedContent'])) {
+            $model->needContent = $map['NeedContent'];
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
