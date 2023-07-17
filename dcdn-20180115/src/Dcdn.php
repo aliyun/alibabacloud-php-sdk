@@ -334,6 +334,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSMCertificateResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSSLCertificateRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainSSLCertificateResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainStagingConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnDomainStagingConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\SetDcdnFullDomainsBlockIPRequest;
@@ -9627,8 +9629,11 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * The name of the certificate.
+     * @deprecated : SetDcdnDomainCertificate is deprecated, please use dcdn::2018-01-15::SetDcdnDomainSSLCertificate instead.
+     *   * The name of the certificate.
      *   *
+     * Deprecated
+     *
      * @param SetDcdnDomainCertificateRequest $request SetDcdnDomainCertificateRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
@@ -9687,8 +9692,11 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * The name of the certificate.
+     * @deprecated : SetDcdnDomainCertificate is deprecated, please use dcdn::2018-01-15::SetDcdnDomainSSLCertificate instead.
+     *   * The name of the certificate.
      *   *
+     * Deprecated
+     *
      * @param SetDcdnDomainCertificateRequest $request SetDcdnDomainCertificateRequest
      *
      * @return SetDcdnDomainCertificateResponse SetDcdnDomainCertificateResponse
@@ -9757,6 +9765,76 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setDcdnDomainSMCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetDcdnDomainSSLCertificateRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return SetDcdnDomainSSLCertificateResponse
+     */
+    public function setDcdnDomainSSLCertificateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certId)) {
+            $query['CertId'] = $request->certId;
+        }
+        if (!Utils::isUnset($request->certName)) {
+            $query['CertName'] = $request->certName;
+        }
+        if (!Utils::isUnset($request->certRegion)) {
+            $query['CertRegion'] = $request->certRegion;
+        }
+        if (!Utils::isUnset($request->certType)) {
+            $query['CertType'] = $request->certType;
+        }
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->SSLPri)) {
+            $query['SSLPri'] = $request->SSLPri;
+        }
+        if (!Utils::isUnset($request->SSLProtocol)) {
+            $query['SSLProtocol'] = $request->SSLProtocol;
+        }
+        if (!Utils::isUnset($request->SSLPub)) {
+            $query['SSLPub'] = $request->SSLPub;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDcdnDomainSSLCertificate',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetDcdnDomainSSLCertificateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetDcdnDomainSSLCertificateRequest $request
+     *
+     * @return SetDcdnDomainSSLCertificateResponse
+     */
+    public function setDcdnDomainSSLCertificate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDcdnDomainSSLCertificateWithOptions($request, $runtime);
     }
 
     /**
