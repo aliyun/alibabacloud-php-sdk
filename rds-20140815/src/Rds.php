@@ -81,6 +81,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\CreateOnlineDatabaseTaskRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateOnlineDatabaseTaskResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateParameterGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateParameterGroupResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreatePostgresExtensionsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\CreatePostgresExtensionsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateReadOnlyDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateReadOnlyDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CreateSecretRequest;
@@ -114,6 +116,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteGadInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteGadInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteParameterGroupResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeletePostgresExtensionsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DeletePostgresExtensionsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteSecretRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteSecretResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DeleteSlotRequest;
@@ -280,6 +284,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeParameterTemplatesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeParameterTemplatesResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePGHbaConfigRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePGHbaConfigResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePostgresExtensionsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePostgresExtensionsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribePriceShrinkRequest;
@@ -513,6 +519,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\UnlockAccountRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UnlockAccountResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\UpdatePostgresExtensionsRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\UpdatePostgresExtensionsResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpdateUserBackupFileRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpdateUserBackupFileResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\UpgradeDBInstanceEngineVersionRequest;
@@ -3461,6 +3469,79 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param CreatePostgresExtensionsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreatePostgresExtensionsResponse
+     */
+    public function createPostgresExtensionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountName)) {
+            $query['AccountName'] = $request->accountName;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->DBNames)) {
+            $query['DBNames'] = $request->DBNames;
+        }
+        if (!Utils::isUnset($request->extensions)) {
+            $query['Extensions'] = $request->extensions;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sourceDatabase)) {
+            $query['SourceDatabase'] = $request->sourceDatabase;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePostgresExtensions',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePostgresExtensionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreatePostgresExtensionsRequest $request
+     *
+     * @return CreatePostgresExtensionsResponse
+     */
+    public function createPostgresExtensions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPostgresExtensionsWithOptions($request, $runtime);
+    }
+
+    /**
      * **Before you call this operation, take note of the following limits:**
      *   * *   The primary instance cannot belong to a dedicated cluster and must run one of the following database engine versions and RDS editions:
      *   *     *   MySQL 8.0 on RDS High-availability Edition or RDS Enterprise Edition.
@@ -4596,6 +4677,73 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeletePostgresExtensionsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeletePostgresExtensionsResponse
+     */
+    public function deletePostgresExtensionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->DBNames)) {
+            $query['DBNames'] = $request->DBNames;
+        }
+        if (!Utils::isUnset($request->extensions)) {
+            $query['Extensions'] = $request->extensions;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePostgresExtensions',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePostgresExtensionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeletePostgresExtensionsRequest $request
+     *
+     * @return DeletePostgresExtensionsResponse
+     */
+    public function deletePostgresExtensions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePostgresExtensionsWithOptions($request, $runtime);
     }
 
     /**
@@ -10395,6 +10543,70 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeParametersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePostgresExtensionsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribePostgresExtensionsResponse
+     */
+    public function describePostgresExtensionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->DBName)) {
+            $query['DBName'] = $request->DBName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePostgresExtensions',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePostgresExtensionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePostgresExtensionsRequest $request
+     *
+     * @return DescribePostgresExtensionsResponse
+     */
+    public function describePostgresExtensions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePostgresExtensionsWithOptions($request, $runtime);
     }
 
     /**
@@ -18746,6 +18958,73 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdatePostgresExtensionsRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdatePostgresExtensionsResponse
+     */
+    public function updatePostgresExtensionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->DBNames)) {
+            $query['DBNames'] = $request->DBNames;
+        }
+        if (!Utils::isUnset($request->extensions)) {
+            $query['Extensions'] = $request->extensions;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePostgresExtensions',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePostgresExtensionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdatePostgresExtensionsRequest $request
+     *
+     * @return UpdatePostgresExtensionsResponse
+     */
+    public function updatePostgresExtensions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePostgresExtensionsWithOptions($request, $runtime);
     }
 
     /**
