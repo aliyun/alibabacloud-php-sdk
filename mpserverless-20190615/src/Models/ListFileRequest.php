@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListFileRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $authDelta;
+
+    /**
      * @example id1
      *
      * @var string
@@ -55,6 +60,7 @@ class ListFileRequest extends Model
      */
     public $spaceId;
     protected $_name = [
+        'authDelta' => 'AuthDelta',
         'fileId'    => 'FileId',
         'keyword'   => 'Keyword',
         'mode'      => 'Mode',
@@ -71,6 +77,9 @@ class ListFileRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authDelta) {
+            $res['AuthDelta'] = $this->authDelta;
+        }
         if (null !== $this->fileId) {
             $res['FileId'] = $this->fileId;
         }
@@ -104,6 +113,9 @@ class ListFileRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthDelta'])) {
+            $model->authDelta = $map['AuthDelta'];
+        }
         if (isset($map['FileId'])) {
             $model->fileId = $map['FileId'];
         }

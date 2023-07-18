@@ -54,6 +54,8 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteWechatOpenPlatformConfi
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeleteWechatOpenPlatformConfigResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeployFunctionRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DeployFunctionResponse;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeCdnDomainRequest;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeCdnDomainResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeFCOpenStatusResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeFileUploadSignedUrlRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\DescribeFileUploadSignedUrlResponse;
@@ -151,6 +153,8 @@ use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveAntOpenPlatformConfigRequ
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveAntOpenPlatformConfigResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveAppAuthTokenRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveAppAuthTokenResponse;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveCdnDomainConfigRequest;
+use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveCdnDomainConfigResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveWebHostingCustomDomainConfigRequest;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveWebHostingCustomDomainConfigResponse;
 use AlibabaCloud\SDK\MPServerless\V20190615\Models\SaveWebHostingCustomDomainCorsConfigRequest;
@@ -1369,6 +1373,55 @@ class MPServerless extends OpenApiClient
     }
 
     /**
+     * @param DescribeCdnDomainRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeCdnDomainResponse
+     */
+    public function describeCdnDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnDomain',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCdnDomainRequest $request
+     *
+     * @return DescribeCdnDomainResponse
+     */
+    public function describeCdnDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnDomainWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return DescribeFCOpenStatusResponse
@@ -2312,6 +2365,9 @@ class MPServerless extends OpenApiClient
             $query['NextToken'] = $request->nextToken;
         }
         $body = [];
+        if (!Utils::isUnset($request->authDelta)) {
+            $body['AuthDelta'] = $request->authDelta;
+        }
         if (!Utils::isUnset($request->fileId)) {
             $body['FileId'] = $request->fileId;
         }
@@ -3675,6 +3731,70 @@ class MPServerless extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->saveAppAuthTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SaveCdnDomainConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return SaveCdnDomainConfigResponse
+     */
+    public function saveCdnDomainConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->authConfig)) {
+            $body['AuthConfig'] = $request->authConfig;
+        }
+        if (!Utils::isUnset($request->corsConfig)) {
+            $body['CorsConfig'] = $request->corsConfig;
+        }
+        if (!Utils::isUnset($request->ipConfig)) {
+            $body['IpConfig'] = $request->ipConfig;
+        }
+        if (!Utils::isUnset($request->refererConfig)) {
+            $body['RefererConfig'] = $request->refererConfig;
+        }
+        if (!Utils::isUnset($request->spaceId)) {
+            $body['SpaceId'] = $request->spaceId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $body['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->uaConfig)) {
+            $body['UaConfig'] = $request->uaConfig;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SaveCdnDomainConfig',
+            'version'     => '2019-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SaveCdnDomainConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SaveCdnDomainConfigRequest $request
+     *
+     * @return SaveCdnDomainConfigResponse
+     */
+    public function saveCdnDomainConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->saveCdnDomainConfigWithOptions($request, $runtime);
     }
 
     /**

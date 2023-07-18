@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
+     * @var int
+     */
+    public $authDelta;
+
+    /**
      * @example 2020-01-16T05:45:33.000Z
      *
      * @var string
@@ -57,6 +62,7 @@ class dataList extends Model
      */
     public $url;
     protected $_name = [
+        'authDelta'   => 'AuthDelta',
         'gmtCreate'   => 'GmtCreate',
         'gmtModified' => 'GmtModified',
         'id'          => 'Id',
@@ -73,6 +79,9 @@ class dataList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authDelta) {
+            $res['AuthDelta'] = $this->authDelta;
+        }
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
@@ -106,6 +115,9 @@ class dataList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuthDelta'])) {
+            $model->authDelta = $map['AuthDelta'];
+        }
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
