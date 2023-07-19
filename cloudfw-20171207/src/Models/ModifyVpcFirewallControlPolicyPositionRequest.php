@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyVpcFirewallControlPolicyPositionRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $aclUuid;
+
+    /**
      * @description The natural language of the request and response.
      *
      * Valid values:
@@ -54,6 +59,7 @@ class ModifyVpcFirewallControlPolicyPositionRequest extends Model
      */
     public $vpcFirewallId;
     protected $_name = [
+        'aclUuid'       => 'AclUuid',
         'lang'          => 'Lang',
         'newOrder'      => 'NewOrder',
         'oldOrder'      => 'OldOrder',
@@ -67,6 +73,9 @@ class ModifyVpcFirewallControlPolicyPositionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aclUuid) {
+            $res['AclUuid'] = $this->aclUuid;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
         }
@@ -91,6 +100,9 @@ class ModifyVpcFirewallControlPolicyPositionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AclUuid'])) {
+            $model->aclUuid = $map['AclUuid'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
         }

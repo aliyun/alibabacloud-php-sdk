@@ -4230,6 +4230,9 @@ class Cloudfw extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }

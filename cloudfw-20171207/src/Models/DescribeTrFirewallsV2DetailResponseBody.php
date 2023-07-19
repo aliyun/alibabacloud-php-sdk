@@ -53,11 +53,21 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
     public $firewallStatus;
 
     /**
+     * @var string
+     */
+    public $firewallSubnetCidr;
+
+    /**
      * @example opened
      *
      * @var string
      */
     public $firewallSwitchStatus;
+
+    /**
+     * @var string
+     */
+    public $firewallVpcCidr;
 
     /**
      * @example cn-shanghai
@@ -83,21 +93,35 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
     /**
      * @var string
      */
+    public $trAttachmentMasterCidr;
+
+    /**
+     * @var string
+     */
+    public $trAttachmentSlaveCidr;
+
+    /**
+     * @var string
+     */
     public $transitRouterId;
     protected $_name = [
-        'cenId'                => 'CenId',
-        'firewallDescription'  => 'FirewallDescription',
-        'firewallEniId'        => 'FirewallEniId',
-        'firewallEniVpcId'     => 'FirewallEniVpcId',
-        'firewallEniVswitchId' => 'FirewallEniVswitchId',
-        'firewallId'           => 'FirewallId',
-        'firewallName'         => 'FirewallName',
-        'firewallStatus'       => 'FirewallStatus',
-        'firewallSwitchStatus' => 'FirewallSwitchStatus',
-        'regionNo'             => 'RegionNo',
-        'requestId'            => 'RequestId',
-        'routeMode'            => 'RouteMode',
-        'transitRouterId'      => 'TransitRouterId',
+        'cenId'                  => 'CenId',
+        'firewallDescription'    => 'FirewallDescription',
+        'firewallEniId'          => 'FirewallEniId',
+        'firewallEniVpcId'       => 'FirewallEniVpcId',
+        'firewallEniVswitchId'   => 'FirewallEniVswitchId',
+        'firewallId'             => 'FirewallId',
+        'firewallName'           => 'FirewallName',
+        'firewallStatus'         => 'FirewallStatus',
+        'firewallSubnetCidr'     => 'FirewallSubnetCidr',
+        'firewallSwitchStatus'   => 'FirewallSwitchStatus',
+        'firewallVpcCidr'        => 'FirewallVpcCidr',
+        'regionNo'               => 'RegionNo',
+        'requestId'              => 'RequestId',
+        'routeMode'              => 'RouteMode',
+        'trAttachmentMasterCidr' => 'TrAttachmentMasterCidr',
+        'trAttachmentSlaveCidr'  => 'TrAttachmentSlaveCidr',
+        'transitRouterId'        => 'TransitRouterId',
     ];
 
     public function validate()
@@ -131,8 +155,14 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
         if (null !== $this->firewallStatus) {
             $res['FirewallStatus'] = $this->firewallStatus;
         }
+        if (null !== $this->firewallSubnetCidr) {
+            $res['FirewallSubnetCidr'] = $this->firewallSubnetCidr;
+        }
         if (null !== $this->firewallSwitchStatus) {
             $res['FirewallSwitchStatus'] = $this->firewallSwitchStatus;
+        }
+        if (null !== $this->firewallVpcCidr) {
+            $res['FirewallVpcCidr'] = $this->firewallVpcCidr;
         }
         if (null !== $this->regionNo) {
             $res['RegionNo'] = $this->regionNo;
@@ -142,6 +172,12 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
         }
         if (null !== $this->routeMode) {
             $res['RouteMode'] = $this->routeMode;
+        }
+        if (null !== $this->trAttachmentMasterCidr) {
+            $res['TrAttachmentMasterCidr'] = $this->trAttachmentMasterCidr;
+        }
+        if (null !== $this->trAttachmentSlaveCidr) {
+            $res['TrAttachmentSlaveCidr'] = $this->trAttachmentSlaveCidr;
         }
         if (null !== $this->transitRouterId) {
             $res['TransitRouterId'] = $this->transitRouterId;
@@ -182,8 +218,14 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
         if (isset($map['FirewallStatus'])) {
             $model->firewallStatus = $map['FirewallStatus'];
         }
+        if (isset($map['FirewallSubnetCidr'])) {
+            $model->firewallSubnetCidr = $map['FirewallSubnetCidr'];
+        }
         if (isset($map['FirewallSwitchStatus'])) {
             $model->firewallSwitchStatus = $map['FirewallSwitchStatus'];
+        }
+        if (isset($map['FirewallVpcCidr'])) {
+            $model->firewallVpcCidr = $map['FirewallVpcCidr'];
         }
         if (isset($map['RegionNo'])) {
             $model->regionNo = $map['RegionNo'];
@@ -193,6 +235,12 @@ class DescribeTrFirewallsV2DetailResponseBody extends Model
         }
         if (isset($map['RouteMode'])) {
             $model->routeMode = $map['RouteMode'];
+        }
+        if (isset($map['TrAttachmentMasterCidr'])) {
+            $model->trAttachmentMasterCidr = $map['TrAttachmentMasterCidr'];
+        }
+        if (isset($map['TrAttachmentSlaveCidr'])) {
+            $model->trAttachmentSlaveCidr = $map['TrAttachmentSlaveCidr'];
         }
         if (isset($map['TransitRouterId'])) {
             $model->transitRouterId = $map['TransitRouterId'];
