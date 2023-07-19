@@ -18,6 +18,11 @@ class result extends Model
     /**
      * @var string
      */
+    public $openTime;
+
+    /**
+     * @var string
+     */
     public $reasonCode;
 
     /**
@@ -33,6 +38,7 @@ class result extends Model
     public $status;
     protected $_name = [
         'bizCode'      => 'BizCode',
+        'openTime'     => 'OpenTime',
         'reasonCode'   => 'ReasonCode',
         'reasonDetail' => 'ReasonDetail',
         'status'       => 'Status',
@@ -47,6 +53,9 @@ class result extends Model
         $res = [];
         if (null !== $this->bizCode) {
             $res['BizCode'] = $this->bizCode;
+        }
+        if (null !== $this->openTime) {
+            $res['OpenTime'] = $this->openTime;
         }
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
@@ -71,6 +80,9 @@ class result extends Model
         $model = new self();
         if (isset($map['BizCode'])) {
             $model->bizCode = $map['BizCode'];
+        }
+        if (isset($map['OpenTime'])) {
+            $model->openTime = $map['OpenTime'];
         }
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];
