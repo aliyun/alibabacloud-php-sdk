@@ -87,6 +87,10 @@ class disks extends Model
     public $instanceId;
 
     /**
+     * @description 轻量应用服务器名称。
+     *
+     * @example myInstance
+     *
      * @var string
      */
     public $instanceName;
@@ -101,6 +105,10 @@ class disks extends Model
     public $regionId;
 
     /**
+     * @description 磁盘备注。
+     *
+     * @example remark
+     *
      * @var string
      */
     public $remark;

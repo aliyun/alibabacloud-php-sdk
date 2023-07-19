@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDisksRequest extends Model
 {
     /**
-     * @description The IDs of the disks. The value can be a JSON array that consists of up to 100 disk IDs. Separate the disk IDs with commas (,).
+     * @description The IDs of the disks. The value can be a JSON array that consists of up to 100 disk IDs. Separate multiple disk IDs with commas (,).
      *
      * @example ["d-bp14wq0149cpp2x****", "d-bp14wq0149cpp2y****"]
      *
@@ -18,6 +18,11 @@ class ListDisksRequest extends Model
     public $diskIds;
 
     /**
+     * @description 磁盘类型。可能值：
+     *
+     * 默认全量查询
+     * @example system
+     *
      * @var string
      */
     public $diskType;
@@ -32,7 +37,7 @@ class ListDisksRequest extends Model
     public $instanceId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -42,7 +47,7 @@ class ListDisksRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 10

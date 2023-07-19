@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSnapshotsRequest extends Model
 {
     /**
-     * @description The ID of the source disk.
+     * @description The disk ID.
      *
      * @example d-bp14wq0149cpp2xy****
      *
@@ -27,7 +27,7 @@ class ListSnapshotsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -37,7 +37,7 @@ class ListSnapshotsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100.
+     * @description The number of entries per page. Valid values: 1 to 100.
      *
      * Default value: 10.
      * @example 10
@@ -47,7 +47,7 @@ class ListSnapshotsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the simple application server.
+     * @description The region ID of the simple application server that corresponds to the snapshots.
      *
      * @example cn-hangzhou
      *
@@ -56,7 +56,7 @@ class ListSnapshotsRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of the snapshots. The value can be a JSON array that consists of up to 100 snapshot IDs. Separate the snapshot IDs with commas (,).
+     * @description The snapshot IDs. The value can be a JSON array that consists of up to 100 snapshot IDs. Separate multiple snapshot IDs with commas (,).
      *
      * @example ["s-bp16oazlsold4dks****", "s-bp16oazlsold4abc****"]
      *
@@ -65,6 +65,8 @@ class ListSnapshotsRequest extends Model
     public $snapshotIds;
 
     /**
+     * @example Data
+     *
      * @var string
      */
     public $sourceDiskType;

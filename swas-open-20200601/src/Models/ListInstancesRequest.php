@@ -66,6 +66,11 @@ class ListInstancesRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $status;
     protected $_name = [
         'chargeType'        => 'ChargeType',
         'instanceIds'       => 'InstanceIds',
@@ -73,6 +78,7 @@ class ListInstancesRequest extends Model
         'pageSize'          => 'PageSize',
         'publicIpAddresses' => 'PublicIpAddresses',
         'regionId'          => 'RegionId',
+        'status'            => 'Status',
     ];
 
     public function validate()
@@ -99,6 +105,9 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -129,6 +138,9 @@ class ListInstancesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

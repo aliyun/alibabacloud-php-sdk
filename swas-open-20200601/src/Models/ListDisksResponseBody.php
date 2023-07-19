@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListDisksResponseBody extends Model
 {
     /**
-     * @description Details about the disks.
+     * @description The region ID of the disks.
      *
      * @var disks[]
      */
     public $disks;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class ListDisksResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -44,7 +44,7 @@ class ListDisksResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of disks.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

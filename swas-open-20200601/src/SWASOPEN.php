@@ -127,6 +127,8 @@ use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StartInstanceRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StartInstanceResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StartInstancesRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StartInstancesResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StartTerminalSessionRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StartTerminalSessionResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StopDatabaseInstanceRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StopDatabaseInstanceResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StopInstanceRequest;
@@ -1962,9 +1964,8 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can specify multiple request parameters such as `InstanceId` and `DiskIds`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     * ## Usage notes
+     *   * You can specify multiple request parameters such as `InstanceId` and `DiskIds`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
      *   *
      * @param ListDisksRequest $request ListDisksRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -2012,9 +2013,8 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can specify multiple request parameters such as `InstanceId` and `DiskIds`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     * ## Usage notes
+     *   * You can specify multiple request parameters such as `InstanceId` and `DiskIds`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
      *   *
      * @param ListDisksRequest $request ListDisksRequest
      *
@@ -2286,6 +2286,9 @@ class SWASOPEN extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2477,9 +2480,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can specify multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * ## Description
+     *   * You can configure multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to query snapshots. Configured parameters have logical AND relations. Only the configured parameters are included in the filter conditions.
+     *   * ### QPS limits
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListSnapshotsRequest $request ListSnapshotsRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -2530,9 +2534,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can specify multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to be queried. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * ## Description
+     *   * You can configure multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to query snapshots. Configured parameters have logical AND relations. Only the configured parameters are included in the filter conditions.
+     *   * ### QPS limits
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListSnapshotsRequest $request ListSnapshotsRequest
      *
@@ -3618,6 +3623,52 @@ class SWASOPEN extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->startInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StartTerminalSessionRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StartTerminalSessionResponse
+     */
+    public function startTerminalSessionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartTerminalSession',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartTerminalSessionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartTerminalSessionRequest $request
+     *
+     * @return StartTerminalSessionResponse
+     */
+    public function startTerminalSession($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startTerminalSessionWithOptions($request, $runtime);
     }
 
     /**

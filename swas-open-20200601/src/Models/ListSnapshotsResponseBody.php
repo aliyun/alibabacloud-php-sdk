@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSnapshotsResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class ListSnapshotsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class ListSnapshotsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
      *
@@ -37,14 +37,14 @@ class ListSnapshotsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details about the snapshots.
+     * @description The region ID of the simple application server.
      *
      * @var snapshots[]
      */
     public $snapshots;
 
     /**
-     * @description The total number of snapshots.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

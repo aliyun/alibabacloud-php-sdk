@@ -18,6 +18,8 @@ class snapshots extends Model
     public $creationTime;
 
     /**
+     * @example 2ad1ae67295445f598017499dc****
+     *
      * @var string
      */
     public $instanceId;
@@ -50,6 +52,8 @@ class snapshots extends Model
     public $remark;
 
     /**
+     * @example 2021-03-09T07:12:49Z
+     *
      * @var string
      */
     public $rollbackTime;
