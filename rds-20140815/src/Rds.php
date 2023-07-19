@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\AllocateInstancePublicConnectionReques
 use AlibabaCloud\SDK\Rds\V20140815\Models\AllocateInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AllocateReadWriteSplittingConnectionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\AllocateReadWriteSplittingConnectionResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\AttachWhitelistTemplateToInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\AttachWhitelistTemplateToInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CalculateDBInstanceWeightRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CalculateDBInstanceWeightResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\CancelImportRequest;
@@ -134,6 +136,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeActiveOperationTasksRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeActiveOperationTasksResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeADInfoRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeADInfoResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAllWhitelistTemplateRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAllWhitelistTemplateResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAnalyticdbByPrimaryDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAnalyticdbByPrimaryDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeAvailableClassesRequest;
@@ -258,6 +262,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceCrossBackupPolicyReque
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceCrossBackupPolicyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceKeywordsRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceKeywordsResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceLinkedWhitelistTemplateRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeInstanceLinkedWhitelistTemplateResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLocalAvailableRecoveryTimeRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLocalAvailableRecoveryTimeResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeLogBackupFilesRequest;
@@ -333,10 +339,16 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeUpgradeMajorVersionTasksReques
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeUpgradeMajorVersionTasksResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeVSwitchesRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeVSwitchesResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeWhitelistTemplateLinkedInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeWhitelistTemplateLinkedInstanceResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeWhitelistTemplateRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DescribeWhitelistTemplateResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DestroyDBInstanceRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DestroyDBInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DetachGadInstanceMemberRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\DetachGadInstanceMemberResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DetachWhitelistTemplateToInstanceRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\DetachWhitelistTemplateToInstanceResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GetDBInstanceTopologyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GetDBInstanceTopologyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\GetDbProxyInstanceSslRequest;
@@ -463,6 +475,8 @@ use AlibabaCloud\SDK\Rds\V20140815\Models\ModifySQLCollectorPolicyRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifySQLCollectorPolicyResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifySQLCollectorRetentionRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\ModifySQLCollectorRetentionResponse;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyWhitelistTemplateRequest;
+use AlibabaCloud\SDK\Rds\V20140815\Models\ModifyWhitelistTemplateResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\PurgeDBInstanceLogRequest;
 use AlibabaCloud\SDK\Rds\V20140815\Models\PurgeDBInstanceLogResponse;
 use AlibabaCloud\SDK\Rds\V20140815\Models\QueryNotifyRequest;
@@ -933,6 +947,58 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->allocateReadWriteSplittingConnectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param AttachWhitelistTemplateToInstanceRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return AttachWhitelistTemplateToInstanceResponse
+     */
+    public function attachWhitelistTemplateToInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->insName)) {
+            $query['InsName'] = $request->insName;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachWhitelistTemplateToInstance',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachWhitelistTemplateToInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AttachWhitelistTemplateToInstanceRequest $request
+     *
+     * @return AttachWhitelistTemplateToInstanceResponse
+     */
+    public function attachWhitelistTemplateToInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachWhitelistTemplateToInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -5299,6 +5365,64 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeActiveOperationTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAllWhitelistTemplateRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DescribeAllWhitelistTemplateResponse
+     */
+    public function describeAllWhitelistTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fuzzySearch)) {
+            $query['FuzzySearch'] = $request->fuzzySearch;
+        }
+        if (!Utils::isUnset($request->maxRecordsPerPage)) {
+            $query['MaxRecordsPerPage'] = $request->maxRecordsPerPage;
+        }
+        if (!Utils::isUnset($request->pageNumbers)) {
+            $query['PageNumbers'] = $request->pageNumbers;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAllWhitelistTemplate',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAllWhitelistTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAllWhitelistTemplateRequest $request
+     *
+     * @return DescribeAllWhitelistTemplateResponse
+     */
+    public function describeAllWhitelistTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAllWhitelistTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -9670,6 +9794,55 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeInstanceLinkedWhitelistTemplateRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DescribeInstanceLinkedWhitelistTemplateResponse
+     */
+    public function describeInstanceLinkedWhitelistTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->insName)) {
+            $query['InsName'] = $request->insName;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeInstanceLinkedWhitelistTemplate',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeInstanceLinkedWhitelistTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeInstanceLinkedWhitelistTemplateRequest $request
+     *
+     * @return DescribeInstanceLinkedWhitelistTemplateResponse
+     */
+    public function describeInstanceLinkedWhitelistTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeInstanceLinkedWhitelistTemplateWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeLocalAvailableRecoveryTimeRequest $request
      * @param RuntimeOptions                            $runtime
      *
@@ -12275,6 +12448,106 @@ class Rds extends OpenApiClient
     }
 
     /**
+     * @param DescribeWhitelistTemplateRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeWhitelistTemplateResponse
+     */
+    public function describeWhitelistTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWhitelistTemplate',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWhitelistTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWhitelistTemplateRequest $request
+     *
+     * @return DescribeWhitelistTemplateResponse
+     */
+    public function describeWhitelistTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWhitelistTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeWhitelistTemplateLinkedInstanceRequest $request
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return DescribeWhitelistTemplateLinkedInstanceResponse
+     */
+    public function describeWhitelistTemplateLinkedInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeWhitelistTemplateLinkedInstance',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeWhitelistTemplateLinkedInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeWhitelistTemplateLinkedInstanceRequest $request
+     *
+     * @return DescribeWhitelistTemplateLinkedInstanceResponse
+     */
+    public function describeWhitelistTemplateLinkedInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeWhitelistTemplateLinkedInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * The DestroyDBInstance operation is phased out.
      *   *
      * @param DestroyDBInstanceRequest $request DestroyDBInstanceRequest
@@ -12389,6 +12662,58 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detachGadInstanceMemberWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetachWhitelistTemplateToInstanceRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DetachWhitelistTemplateToInstanceResponse
+     */
+    public function detachWhitelistTemplateToInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->insName)) {
+            $query['InsName'] = $request->insName;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachWhitelistTemplateToInstance',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachWhitelistTemplateToInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetachWhitelistTemplateToInstanceRequest $request
+     *
+     * @return DetachWhitelistTemplateToInstanceResponse
+     */
+    public function detachWhitelistTemplateToInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachWhitelistTemplateToInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -16936,6 +17261,61 @@ class Rds extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifySecurityIpsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyWhitelistTemplateRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ModifyWhitelistTemplateResponse
+     */
+    public function modifyWhitelistTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ipWhitelist)) {
+            $query['IpWhitelist'] = $request->ipWhitelist;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyWhitelistTemplate',
+            'version'     => '2014-08-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyWhitelistTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyWhitelistTemplateRequest $request
+     *
+     * @return ModifyWhitelistTemplateResponse
+     */
+    public function modifyWhitelistTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyWhitelistTemplateWithOptions($request, $runtime);
     }
 
     /**
