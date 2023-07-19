@@ -28,6 +28,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FraudResultCallBackRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FraudResultCallBackResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\InitializeResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -692,6 +694,55 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
+     * @param FraudResultCallBackRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return FraudResultCallBackResponse
+     */
+    public function fraudResultCallBackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certifyId)) {
+            $query['CertifyId'] = $request->certifyId;
+        }
+        if (!Utils::isUnset($request->resultCode)) {
+            $query['ResultCode'] = $request->resultCode;
+        }
+        if (!Utils::isUnset($request->verifyDeployEnv)) {
+            $query['VerifyDeployEnv'] = $request->verifyDeployEnv;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FraudResultCallBack',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FraudResultCallBackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FraudResultCallBackRequest $request
+     *
+     * @return FraudResultCallBackResponse
+     */
+    public function fraudResultCallBack($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->fraudResultCallBackWithOptions($request, $runtime);
+    }
+
+    /**
      * @param InitializeRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -706,6 +757,9 @@ class Cloudauthintl extends OpenApiClient
         }
         if (!Utils::isUnset($request->crop)) {
             $query['Crop'] = $request->crop;
+        }
+        if (!Utils::isUnset($request->docScanMode)) {
+            $query['DocScanMode'] = $request->docScanMode;
         }
         if (!Utils::isUnset($request->docType)) {
             $query['DocType'] = $request->docType;

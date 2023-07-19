@@ -21,6 +21,11 @@ class InitializeRequest extends Model
     public $crop;
 
     /**
+     * @var string
+     */
+    public $docScanMode;
+
+    /**
      * @example 01000000
      *
      * @var string
@@ -143,6 +148,7 @@ class InitializeRequest extends Model
     protected $_name = [
         'authorize'         => 'Authorize',
         'crop'              => 'Crop',
+        'docScanMode'       => 'DocScanMode',
         'docType'           => 'DocType',
         'facePictureBase64' => 'FacePictureBase64',
         'facePictureUrl'    => 'FacePictureUrl',
@@ -174,6 +180,9 @@ class InitializeRequest extends Model
         }
         if (null !== $this->crop) {
             $res['Crop'] = $this->crop;
+        }
+        if (null !== $this->docScanMode) {
+            $res['DocScanMode'] = $this->docScanMode;
         }
         if (null !== $this->docType) {
             $res['DocType'] = $this->docType;
@@ -243,6 +252,9 @@ class InitializeRequest extends Model
         }
         if (isset($map['Crop'])) {
             $model->crop = $map['Crop'];
+        }
+        if (isset($map['DocScanMode'])) {
+            $model->docScanMode = $map['DocScanMode'];
         }
         if (isset($map['DocType'])) {
             $model->docType = $map['DocType'];
