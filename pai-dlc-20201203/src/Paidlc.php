@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodLogsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodLogsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetWebTerminalRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetWebTerminalResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListEcsSpecsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListEcsSpecsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListJobsRequest;
@@ -740,6 +742,56 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->getTensorboardWithOptions($TensorboardId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                $JobId
+     * @param string                $PodId
+     * @param GetWebTerminalRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetWebTerminalResponse
+     */
+    public function getWebTerminalWithOptions($JobId, $PodId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->podUid)) {
+            $query['PodUid'] = $request->podUid;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWebTerminal',
+            'version'     => '2020-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/jobs/' . OpenApiUtilClient::getEncodeParam($JobId) . '/pods/' . OpenApiUtilClient::getEncodeParam($PodId) . '/webterminal',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWebTerminalResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $JobId
+     * @param string                $PodId
+     * @param GetWebTerminalRequest $request
+     *
+     * @return GetWebTerminalResponse
+     */
+    public function getWebTerminal($JobId, $PodId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getWebTerminalWithOptions($JobId, $PodId, $request, $headers, $runtime);
     }
 
     /**
