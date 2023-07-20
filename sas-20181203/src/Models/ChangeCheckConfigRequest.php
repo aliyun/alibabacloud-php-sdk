@@ -4,14 +4,31 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckConfigRequest\addedCheck;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckConfigRequest\removedCheck;
 use AlibabaCloud\Tea\Model;
 
 class ChangeCheckConfigRequest extends Model
 {
     /**
+     * @var addedCheck[]
+     */
+    public $addedCheck;
+
+    /**
      * @var int[]
      */
     public $cycleDays;
+
+    /**
+     * @var bool
+     */
+    public $enableAddCheck;
+
+    /**
+     * @var bool
+     */
+    public $enableAutoCheck;
 
     /**
      * @description The end time of the check. The value specifies a point in time in a day. The time period that is specified by the start time and end time must be one of the following time periods:
@@ -38,6 +55,11 @@ class ChangeCheckConfigRequest extends Model
     public $regionId;
 
     /**
+     * @var removedCheck[]
+     */
+    public $removedCheck;
+
+    /**
      * @description An array that consists of the information about the check item.
      *
      * @var int[]
@@ -53,11 +75,15 @@ class ChangeCheckConfigRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'cycleDays'   => 'CycleDays',
-        'endTime'     => 'EndTime',
-        'regionId'    => 'RegionId',
-        'standardIds' => 'StandardIds',
-        'startTime'   => 'StartTime',
+        'addedCheck'      => 'AddedCheck',
+        'cycleDays'       => 'CycleDays',
+        'enableAddCheck'  => 'EnableAddCheck',
+        'enableAutoCheck' => 'EnableAutoCheck',
+        'endTime'         => 'EndTime',
+        'regionId'        => 'RegionId',
+        'removedCheck'    => 'RemovedCheck',
+        'standardIds'     => 'StandardIds',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -67,14 +93,38 @@ class ChangeCheckConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addedCheck) {
+            $res['AddedCheck'] = [];
+            if (null !== $this->addedCheck && \is_array($this->addedCheck)) {
+                $n = 0;
+                foreach ($this->addedCheck as $item) {
+                    $res['AddedCheck'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->cycleDays) {
             $res['CycleDays'] = $this->cycleDays;
+        }
+        if (null !== $this->enableAddCheck) {
+            $res['EnableAddCheck'] = $this->enableAddCheck;
+        }
+        if (null !== $this->enableAutoCheck) {
+            $res['EnableAutoCheck'] = $this->enableAutoCheck;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->removedCheck) {
+            $res['RemovedCheck'] = [];
+            if (null !== $this->removedCheck && \is_array($this->removedCheck)) {
+                $n = 0;
+                foreach ($this->removedCheck as $item) {
+                    $res['RemovedCheck'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->standardIds) {
             $res['StandardIds'] = $this->standardIds;
@@ -94,16 +144,40 @@ class ChangeCheckConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddedCheck'])) {
+            if (!empty($map['AddedCheck'])) {
+                $model->addedCheck = [];
+                $n                 = 0;
+                foreach ($map['AddedCheck'] as $item) {
+                    $model->addedCheck[$n++] = null !== $item ? addedCheck::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['CycleDays'])) {
             if (!empty($map['CycleDays'])) {
                 $model->cycleDays = $map['CycleDays'];
             }
+        }
+        if (isset($map['EnableAddCheck'])) {
+            $model->enableAddCheck = $map['EnableAddCheck'];
+        }
+        if (isset($map['EnableAutoCheck'])) {
+            $model->enableAutoCheck = $map['EnableAutoCheck'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RemovedCheck'])) {
+            if (!empty($map['RemovedCheck'])) {
+                $model->removedCheck = [];
+                $n                   = 0;
+                foreach ($map['RemovedCheck'] as $item) {
+                    $model->removedCheck[$n++] = null !== $item ? removedCheck::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['StandardIds'])) {
             if (!empty($map['StandardIds'])) {

@@ -30,6 +30,11 @@ class DescribeSuspEventDetailRequest extends Model
     public $lang;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The source IP address of the request.
      *
      * @example 121.33.XX.XX
@@ -47,10 +52,11 @@ class DescribeSuspEventDetailRequest extends Model
      */
     public $suspiciousEventId;
     protected $_name = [
-        'from'              => 'From',
-        'lang'              => 'Lang',
-        'sourceIp'          => 'SourceIp',
-        'suspiciousEventId' => 'SuspiciousEventId',
+        'from'                       => 'From',
+        'lang'                       => 'Lang',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'sourceIp'                   => 'SourceIp',
+        'suspiciousEventId'          => 'SuspiciousEventId',
     ];
 
     public function validate()
@@ -65,6 +71,9 @@ class DescribeSuspEventDetailRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
@@ -89,6 +98,9 @@ class DescribeSuspEventDetailRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];

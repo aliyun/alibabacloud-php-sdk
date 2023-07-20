@@ -21,6 +21,11 @@ class DescribeAssetDetailByUuidsRequest extends Model
     public $lang;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The UUIDs of the ECS instances. Separate multiple UUIDs with commas (,).
      *
      * @example 0687b17f-2a36-4e5****,0687b17f-2a36-4e****
@@ -29,8 +34,9 @@ class DescribeAssetDetailByUuidsRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'lang'  => 'Lang',
-        'uuids' => 'Uuids',
+        'lang'                       => 'Lang',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'uuids'                      => 'Uuids',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class DescribeAssetDetailByUuidsRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->uuids) {
             $res['Uuids'] = $this->uuids;
@@ -60,6 +69,9 @@ class DescribeAssetDetailByUuidsRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['Uuids'])) {
             $model->uuids = $map['Uuids'];

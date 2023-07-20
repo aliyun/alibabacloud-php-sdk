@@ -234,6 +234,11 @@ class DescribeSuspEventsRequest extends Model
     public $remark;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The custom sorting field. Default value: **operateTime**. Valid values:
      *
      *   **lastTime**: the latest occurrence time.
@@ -356,37 +361,38 @@ class DescribeSuspEventsRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'alarmUniqueInfo'      => 'AlarmUniqueInfo',
-        'assetsTypeList'       => 'AssetsTypeList',
-        'clusterId'            => 'ClusterId',
-        'containerFieldName'   => 'ContainerFieldName',
-        'containerFieldValue'  => 'ContainerFieldValue',
-        'currentPage'          => 'CurrentPage',
-        'dealed'               => 'Dealed',
-        'eventNames'           => 'EventNames',
-        'from'                 => 'From',
-        'groupId'              => 'GroupId',
-        'id'                   => 'Id',
-        'lang'                 => 'Lang',
-        'levels'               => 'Levels',
-        'name'                 => 'Name',
-        'operateErrorCodeList' => 'OperateErrorCodeList',
-        'operateTimeEnd'       => 'OperateTimeEnd',
-        'operateTimeStart'     => 'OperateTimeStart',
-        'pageSize'             => 'PageSize',
-        'parentEventTypes'     => 'ParentEventTypes',
-        'remark'               => 'Remark',
-        'sortColumn'           => 'SortColumn',
-        'sortType'             => 'SortType',
-        'source'               => 'Source',
-        'sourceIp'             => 'SourceIp',
-        'status'               => 'Status',
-        'tacticId'             => 'TacticId',
-        'targetType'           => 'TargetType',
-        'timeEnd'              => 'TimeEnd',
-        'timeStart'            => 'TimeStart',
-        'uniqueInfo'           => 'UniqueInfo',
-        'uuids'                => 'Uuids',
+        'alarmUniqueInfo'            => 'AlarmUniqueInfo',
+        'assetsTypeList'             => 'AssetsTypeList',
+        'clusterId'                  => 'ClusterId',
+        'containerFieldName'         => 'ContainerFieldName',
+        'containerFieldValue'        => 'ContainerFieldValue',
+        'currentPage'                => 'CurrentPage',
+        'dealed'                     => 'Dealed',
+        'eventNames'                 => 'EventNames',
+        'from'                       => 'From',
+        'groupId'                    => 'GroupId',
+        'id'                         => 'Id',
+        'lang'                       => 'Lang',
+        'levels'                     => 'Levels',
+        'name'                       => 'Name',
+        'operateErrorCodeList'       => 'OperateErrorCodeList',
+        'operateTimeEnd'             => 'OperateTimeEnd',
+        'operateTimeStart'           => 'OperateTimeStart',
+        'pageSize'                   => 'PageSize',
+        'parentEventTypes'           => 'ParentEventTypes',
+        'remark'                     => 'Remark',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'sortColumn'                 => 'SortColumn',
+        'sortType'                   => 'SortType',
+        'source'                     => 'Source',
+        'sourceIp'                   => 'SourceIp',
+        'status'                     => 'Status',
+        'tacticId'                   => 'TacticId',
+        'targetType'                 => 'TargetType',
+        'timeEnd'                    => 'TimeEnd',
+        'timeStart'                  => 'TimeStart',
+        'uniqueInfo'                 => 'UniqueInfo',
+        'uuids'                      => 'Uuids',
     ];
 
     public function validate()
@@ -455,6 +461,9 @@ class DescribeSuspEventsRequest extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->sortColumn) {
             $res['SortColumn'] = $this->sortColumn;
@@ -564,6 +573,9 @@ class DescribeSuspEventsRequest extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['SortColumn'])) {
             $model->sortColumn = $map['SortColumn'];

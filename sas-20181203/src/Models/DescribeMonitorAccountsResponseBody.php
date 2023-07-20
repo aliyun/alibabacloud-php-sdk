@@ -6,18 +6,22 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ValidateHcWarningsResponseBody extends Model
+class DescribeMonitorAccountsResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 722C4F88-7867-4E7B-8ADE-7451053
+     * @var string[]
+     */
+    public $accountIds;
+
+    /**
+     * @example 028CF634-5268-5660-9575-48C9ED6BF880
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'accountIds' => 'AccountIds',
+        'requestId'  => 'RequestId',
     ];
 
     public function validate()
@@ -27,6 +31,9 @@ class ValidateHcWarningsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accountIds) {
+            $res['AccountIds'] = $this->accountIds;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +44,16 @@ class ValidateHcWarningsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ValidateHcWarningsResponseBody
+     * @return DescribeMonitorAccountsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccountIds'])) {
+            if (!empty($map['AccountIds'])) {
+                $model->accountIds = $map['AccountIds'];
+            }
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

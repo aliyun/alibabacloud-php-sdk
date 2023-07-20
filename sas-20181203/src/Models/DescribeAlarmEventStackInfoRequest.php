@@ -31,6 +31,11 @@ class DescribeAlarmEventStackInfoRequest extends Model
     public $lang;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The source IP address of the request.
      *
      * @example 192.168.XX.XX
@@ -58,11 +63,12 @@ class DescribeAlarmEventStackInfoRequest extends Model
      */
     public $uuid;
     protected $_name = [
-        'eventName'  => 'EventName',
-        'lang'       => 'Lang',
-        'sourceIp'   => 'SourceIp',
-        'uniqueInfo' => 'UniqueInfo',
-        'uuid'       => 'Uuid',
+        'eventName'                  => 'EventName',
+        'lang'                       => 'Lang',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'sourceIp'                   => 'SourceIp',
+        'uniqueInfo'                 => 'UniqueInfo',
+        'uuid'                       => 'Uuid',
     ];
 
     public function validate()
@@ -77,6 +83,9 @@ class DescribeAlarmEventStackInfoRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
@@ -104,6 +113,9 @@ class DescribeAlarmEventStackInfoRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];

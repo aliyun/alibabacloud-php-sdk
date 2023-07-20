@@ -127,6 +127,11 @@ class DescribeGroupedVulRequest extends Model
     public $pageSize;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The tag that is used to filter vulnerabilities. Valid values:
      *
      *   Restart required
@@ -179,20 +184,21 @@ class DescribeGroupedVulRequest extends Model
      */
     public $uuids;
     protected $_name = [
-        'aliasName'          => 'AliasName',
-        'assetType'          => 'AssetType',
-        'attachTypes'        => 'AttachTypes',
-        'containerFieldName' => 'ContainerFieldName',
-        'currentPage'        => 'CurrentPage',
-        'dealed'             => 'Dealed',
-        'groupId'            => 'GroupId',
-        'lang'               => 'Lang',
-        'necessity'          => 'Necessity',
-        'pageSize'           => 'PageSize',
-        'searchTags'         => 'SearchTags',
-        'targetType'         => 'TargetType',
-        'type'               => 'Type',
-        'uuids'              => 'Uuids',
+        'aliasName'                  => 'AliasName',
+        'assetType'                  => 'AssetType',
+        'attachTypes'                => 'AttachTypes',
+        'containerFieldName'         => 'ContainerFieldName',
+        'currentPage'                => 'CurrentPage',
+        'dealed'                     => 'Dealed',
+        'groupId'                    => 'GroupId',
+        'lang'                       => 'Lang',
+        'necessity'                  => 'Necessity',
+        'pageSize'                   => 'PageSize',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'searchTags'                 => 'SearchTags',
+        'targetType'                 => 'TargetType',
+        'type'                       => 'Type',
+        'uuids'                      => 'Uuids',
     ];
 
     public function validate()
@@ -231,6 +237,9 @@ class DescribeGroupedVulRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->searchTags) {
             $res['SearchTags'] = $this->searchTags;
@@ -285,6 +294,9 @@ class DescribeGroupedVulRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['SearchTags'])) {
             $model->searchTags = $map['SearchTags'];

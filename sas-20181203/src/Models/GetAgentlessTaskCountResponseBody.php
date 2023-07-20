@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class GetAgentlessTaskCountResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $baselineCheckCount;
+
+    /**
+     * @var int
+     */
+    public $cveVulCount;
+
+    /**
      * @example 1682577532318
      *
      * @var int
@@ -37,6 +47,11 @@ class GetAgentlessTaskCountResponseBody extends Model
     public $riskMachine;
 
     /**
+     * @var int
+     */
+    public $scaVulCount;
+
+    /**
      * @example 1
      *
      * @var int
@@ -50,12 +65,15 @@ class GetAgentlessTaskCountResponseBody extends Model
      */
     public $vulnerability;
     protected $_name = [
-        'lastTaskTime'  => 'LastTaskTime',
-        'maliciousFile' => 'MaliciousFile',
-        'requestId'     => 'RequestId',
-        'riskMachine'   => 'RiskMachine',
-        'scanMachine'   => 'ScanMachine',
-        'vulnerability' => 'Vulnerability',
+        'baselineCheckCount' => 'BaselineCheckCount',
+        'cveVulCount'        => 'CveVulCount',
+        'lastTaskTime'       => 'LastTaskTime',
+        'maliciousFile'      => 'MaliciousFile',
+        'requestId'          => 'RequestId',
+        'riskMachine'        => 'RiskMachine',
+        'scaVulCount'        => 'ScaVulCount',
+        'scanMachine'        => 'ScanMachine',
+        'vulnerability'      => 'Vulnerability',
     ];
 
     public function validate()
@@ -65,6 +83,12 @@ class GetAgentlessTaskCountResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baselineCheckCount) {
+            $res['BaselineCheckCount'] = $this->baselineCheckCount;
+        }
+        if (null !== $this->cveVulCount) {
+            $res['CveVulCount'] = $this->cveVulCount;
+        }
         if (null !== $this->lastTaskTime) {
             $res['LastTaskTime'] = $this->lastTaskTime;
         }
@@ -76,6 +100,9 @@ class GetAgentlessTaskCountResponseBody extends Model
         }
         if (null !== $this->riskMachine) {
             $res['RiskMachine'] = $this->riskMachine;
+        }
+        if (null !== $this->scaVulCount) {
+            $res['ScaVulCount'] = $this->scaVulCount;
         }
         if (null !== $this->scanMachine) {
             $res['ScanMachine'] = $this->scanMachine;
@@ -95,6 +122,12 @@ class GetAgentlessTaskCountResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaselineCheckCount'])) {
+            $model->baselineCheckCount = $map['BaselineCheckCount'];
+        }
+        if (isset($map['CveVulCount'])) {
+            $model->cveVulCount = $map['CveVulCount'];
+        }
         if (isset($map['LastTaskTime'])) {
             $model->lastTaskTime = $map['LastTaskTime'];
         }
@@ -106,6 +139,9 @@ class GetAgentlessTaskCountResponseBody extends Model
         }
         if (isset($map['RiskMachine'])) {
             $model->riskMachine = $map['RiskMachine'];
+        }
+        if (isset($map['ScaVulCount'])) {
+            $model->scaVulCount = $map['ScaVulCount'];
         }
         if (isset($map['ScanMachine'])) {
             $model->scanMachine = $map['ScanMachine'];

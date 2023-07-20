@@ -9,13 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ValidateHcWarningsRequest extends Model
 {
     /**
+     * @description The IDs of the check items. Separate multiple IDs with commas (,).
+     *
+     * > You can call the [DescribeCheckWarningSummary](~~116179~~) operation to query the IDs of check items.
+     * @example 695,234
+     *
      * @var string
      */
     public $checkIds;
 
     /**
-     * @description The IDs of risk items that you want to verify. Separate multiple IDs with commas (,).
+     * @description The list of IDs of the risk items that you want to verify. Separate multiple IDs with commas (,).
      *
+     * > You can call the [DescribeCheckWarnings](~~DescribeCheckWarnings~~) operation to query the IDs of risk items.
      * @example 43
      *
      * @var string
@@ -23,8 +29,9 @@ class ValidateHcWarningsRequest extends Model
     public $riskIds;
 
     /**
-     * @description The UUIDs of servers on which you want to verify risk items.
+     * @description The UUIDs of the servers on which you want to verify the risk items. Separate multiple UUIDs with commas (,).
      *
+     * > You can call the [DescribeCloudCenterInstances](~~DescribeCloudCenterInstances~~) operation to query the UUIDs of servers.
      * @example 78645c8e-2e89-441b-8eb,a9622a6b-adb5-4dd3-929e,0136460a-1cb5-44e8-****
      *
      * @var string

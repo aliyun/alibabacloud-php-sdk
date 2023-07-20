@@ -6,18 +6,14 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ValidateHcWarningsResponseBody extends Model
+class SubmitCheckRequest extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 722C4F88-7867-4E7B-8ADE-7451053
-     *
      * @var string
      */
-    public $requestId;
+    public $scanRange;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'scanRange' => 'ScanRange',
     ];
 
     public function validate()
@@ -27,8 +23,8 @@ class ValidateHcWarningsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->scanRange) {
+            $res['ScanRange'] = $this->scanRange;
         }
 
         return $res;
@@ -37,13 +33,13 @@ class ValidateHcWarningsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ValidateHcWarningsResponseBody
+     * @return SubmitCheckRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ScanRange'])) {
+            $model->scanRange = $map['ScanRange'];
         }
 
         return $model;

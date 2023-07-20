@@ -139,6 +139,11 @@ class checks extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $statusMessage;
+
+    /**
      * @description The ID of the check task.
      *
      * @example 64
@@ -182,6 +187,7 @@ class checks extends Model
         'lastCheckTime'   => 'LastCheckTime',
         'riskLevel'       => 'RiskLevel',
         'status'          => 'Status',
+        'statusMessage'   => 'StatusMessage',
         'taskId'          => 'TaskId',
         'trialPermission' => 'TrialPermission',
         'vendor'          => 'Vendor',
@@ -224,6 +230,9 @@ class checks extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->statusMessage) {
+            $res['StatusMessage'] = $this->statusMessage;
         }
         if (null !== $this->taskId) {
             $res['TaskId'] = $this->taskId;
@@ -278,6 +287,9 @@ class checks extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StatusMessage'])) {
+            $model->statusMessage = $map['StatusMessage'];
         }
         if (isset($map['TaskId'])) {
             $model->taskId = $map['TaskId'];

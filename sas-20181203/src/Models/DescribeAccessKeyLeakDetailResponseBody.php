@@ -133,6 +133,11 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
     public $source;
 
     /**
+     * @var int
+     */
+    public $tokenValid;
+
+    /**
      * @example AccessKey
      *
      * @var string
@@ -145,6 +150,11 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
      * @var string
      */
     public $whitelistStatus;
+
+    /**
+     * @var int
+     */
+    public $whitelistTime;
     protected $_name = [
         'accesskeyId'          => 'AccesskeyId',
         'asset'                => 'Asset',
@@ -164,8 +174,10 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
         'remark'               => 'Remark',
         'requestId'            => 'RequestId',
         'source'               => 'Source',
+        'tokenValid'           => 'TokenValid',
         'type'                 => 'Type',
         'whitelistStatus'      => 'WhitelistStatus',
+        'whitelistTime'        => 'WhitelistTime',
     ];
 
     public function validate()
@@ -229,11 +241,17 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
         if (null !== $this->source) {
             $res['Source'] = $this->source;
         }
+        if (null !== $this->tokenValid) {
+            $res['TokenValid'] = $this->tokenValid;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
         if (null !== $this->whitelistStatus) {
             $res['WhitelistStatus'] = $this->whitelistStatus;
+        }
+        if (null !== $this->whitelistTime) {
+            $res['WhitelistTime'] = $this->whitelistTime;
         }
 
         return $res;
@@ -301,11 +319,17 @@ class DescribeAccessKeyLeakDetailResponseBody extends Model
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
         }
+        if (isset($map['TokenValid'])) {
+            $model->tokenValid = $map['TokenValid'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
         }
         if (isset($map['WhitelistStatus'])) {
             $model->whitelistStatus = $map['WhitelistStatus'];
+        }
+        if (isset($map['WhitelistTime'])) {
+            $model->whitelistTime = $map['WhitelistTime'];
         }
 
         return $model;

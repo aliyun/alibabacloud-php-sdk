@@ -6,17 +6,31 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ValidateHcWarningsResponseBody extends Model
+class ChangeAssetRefreshTaskConfigResponseBody extends Model
 {
     /**
-     * @description The request ID.
+     * @example true
      *
-     * @example 722C4F88-7867-4E7B-8ADE-7451053
+     * @var bool
+     */
+    public $data;
+
+    /**
+     * @example successful
+     *
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @example BE120DAB-F4E7-4C53-ADC3-A97578ABF384
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'data'      => 'Data',
+        'message'   => 'Message',
         'requestId' => 'RequestId',
     ];
 
@@ -27,6 +41,12 @@ class ValidateHcWarningsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->data) {
+            $res['Data'] = $this->data;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +57,17 @@ class ValidateHcWarningsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ValidateHcWarningsResponseBody
+     * @return ChangeAssetRefreshTaskConfigResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Data'])) {
+            $model->data = $map['Data'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

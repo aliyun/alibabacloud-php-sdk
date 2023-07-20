@@ -111,6 +111,11 @@ class DescribeVulListRequest extends Model
     public $remark;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The type of the vulnerability. Valid values:
      *
      *   **cve**: Linux software vulnerability
@@ -144,19 +149,20 @@ class DescribeVulListRequest extends Model
      */
     public $vpcInstanceIds;
     protected $_name = [
-        'aliasName'      => 'AliasName',
-        'attachTypes'    => 'AttachTypes',
-        'currentPage'    => 'CurrentPage',
-        'dealed'         => 'Dealed',
-        'groupId'        => 'GroupId',
-        'lang'           => 'Lang',
-        'name'           => 'Name',
-        'necessity'      => 'Necessity',
-        'pageSize'       => 'PageSize',
-        'remark'         => 'Remark',
-        'type'           => 'Type',
-        'uuids'          => 'Uuids',
-        'vpcInstanceIds' => 'VpcInstanceIds',
+        'aliasName'                  => 'AliasName',
+        'attachTypes'                => 'AttachTypes',
+        'currentPage'                => 'CurrentPage',
+        'dealed'                     => 'Dealed',
+        'groupId'                    => 'GroupId',
+        'lang'                       => 'Lang',
+        'name'                       => 'Name',
+        'necessity'                  => 'Necessity',
+        'pageSize'                   => 'PageSize',
+        'remark'                     => 'Remark',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'type'                       => 'Type',
+        'uuids'                      => 'Uuids',
+        'vpcInstanceIds'             => 'VpcInstanceIds',
     ];
 
     public function validate()
@@ -195,6 +201,9 @@ class DescribeVulListRequest extends Model
         }
         if (null !== $this->remark) {
             $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -246,6 +255,9 @@ class DescribeVulListRequest extends Model
         }
         if (isset($map['Remark'])) {
             $model->remark = $map['Remark'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

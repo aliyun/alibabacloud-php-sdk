@@ -58,12 +58,18 @@ class basicData extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var string
+     */
+    public $statusMessage;
     protected $_name = [
-        'id'           => 'Id',
-        'instanceId'   => 'InstanceId',
-        'instanceName' => 'InstanceName',
-        'regionId'     => 'RegionId',
-        'status'       => 'Status',
+        'id'            => 'Id',
+        'instanceId'    => 'InstanceId',
+        'instanceName'  => 'InstanceName',
+        'regionId'      => 'RegionId',
+        'status'        => 'Status',
+        'statusMessage' => 'StatusMessage',
     ];
 
     public function validate()
@@ -87,6 +93,9 @@ class basicData extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->statusMessage) {
+            $res['StatusMessage'] = $this->statusMessage;
         }
 
         return $res;
@@ -114,6 +123,9 @@ class basicData extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StatusMessage'])) {
+            $model->statusMessage = $map['StatusMessage'];
         }
 
         return $model;

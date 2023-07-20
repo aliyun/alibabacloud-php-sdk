@@ -16,6 +16,16 @@ class CreateAgentlessScanTaskRequest extends Model
     public $autoDeleteDays;
 
     /**
+     * @var bool
+     */
+    public $releaseAfterScan;
+
+    /**
+     * @var bool
+     */
+    public $scanDataDisk;
+
+    /**
      * @example 2
      *
      * @var int
@@ -27,9 +37,11 @@ class CreateAgentlessScanTaskRequest extends Model
      */
     public $uuidList;
     protected $_name = [
-        'autoDeleteDays' => 'AutoDeleteDays',
-        'targetType'     => 'TargetType',
-        'uuidList'       => 'UuidList',
+        'autoDeleteDays'   => 'AutoDeleteDays',
+        'releaseAfterScan' => 'ReleaseAfterScan',
+        'scanDataDisk'     => 'ScanDataDisk',
+        'targetType'       => 'TargetType',
+        'uuidList'         => 'UuidList',
     ];
 
     public function validate()
@@ -41,6 +53,12 @@ class CreateAgentlessScanTaskRequest extends Model
         $res = [];
         if (null !== $this->autoDeleteDays) {
             $res['AutoDeleteDays'] = $this->autoDeleteDays;
+        }
+        if (null !== $this->releaseAfterScan) {
+            $res['ReleaseAfterScan'] = $this->releaseAfterScan;
+        }
+        if (null !== $this->scanDataDisk) {
+            $res['ScanDataDisk'] = $this->scanDataDisk;
         }
         if (null !== $this->targetType) {
             $res['TargetType'] = $this->targetType;
@@ -62,6 +80,12 @@ class CreateAgentlessScanTaskRequest extends Model
         $model = new self();
         if (isset($map['AutoDeleteDays'])) {
             $model->autoDeleteDays = $map['AutoDeleteDays'];
+        }
+        if (isset($map['ReleaseAfterScan'])) {
+            $model->releaseAfterScan = $map['ReleaseAfterScan'];
+        }
+        if (isset($map['ScanDataDisk'])) {
+            $model->scanDataDisk = $map['ScanDataDisk'];
         }
         if (isset($map['TargetType'])) {
             $model->targetType = $map['TargetType'];

@@ -40,6 +40,11 @@ class DescribeVulDetailsRequest extends Model
     public $name;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @description The type of the vulnerability. Valid values:
      *
      *   **cve**: Linux software vulnerability
@@ -55,10 +60,11 @@ class DescribeVulDetailsRequest extends Model
      */
     public $type;
     protected $_name = [
-        'aliasName' => 'AliasName',
-        'lang'      => 'Lang',
-        'name'      => 'Name',
-        'type'      => 'Type',
+        'aliasName'                  => 'AliasName',
+        'lang'                       => 'Lang',
+        'name'                       => 'Name',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'type'                       => 'Type',
     ];
 
     public function validate()
@@ -76,6 +82,9 @@ class DescribeVulDetailsRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -100,6 +109,9 @@ class DescribeVulDetailsRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

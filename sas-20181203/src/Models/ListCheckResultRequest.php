@@ -27,6 +27,11 @@ class ListCheckResultRequest extends Model
     public $currentPage;
 
     /**
+     * @var bool
+     */
+    public $customParam;
+
+    /**
      * @description The instance IDs of the cloud services that you want to query. Separate multiple IDs with commas (,).
      *
      * @var string[]
@@ -162,6 +167,7 @@ class ListCheckResultRequest extends Model
     protected $_name = [
         'checkKey'       => 'CheckKey',
         'currentPage'    => 'CurrentPage',
+        'customParam'    => 'CustomParam',
         'instanceIds'    => 'InstanceIds',
         'instanceTypes'  => 'InstanceTypes',
         'lang'           => 'Lang',
@@ -188,6 +194,9 @@ class ListCheckResultRequest extends Model
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->customParam) {
+            $res['CustomParam'] = $this->customParam;
         }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
@@ -242,6 +251,9 @@ class ListCheckResultRequest extends Model
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['CustomParam'])) {
+            $model->customParam = $map['CustomParam'];
         }
         if (isset($map['InstanceIds'])) {
             if (!empty($map['InstanceIds'])) {

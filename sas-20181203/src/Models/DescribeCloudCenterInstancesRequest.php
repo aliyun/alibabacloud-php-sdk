@@ -112,21 +112,27 @@ class DescribeCloudCenterInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var bool
      */
     public $useNextToken;
     protected $_name = [
-        'criteria'     => 'Criteria',
-        'currentPage'  => 'CurrentPage',
-        'importance'   => 'Importance',
-        'lang'         => 'Lang',
-        'logicalExp'   => 'LogicalExp',
-        'machineTypes' => 'MachineTypes',
-        'nextToken'    => 'NextToken',
-        'noGroupTrace' => 'NoGroupTrace',
-        'pageSize'     => 'PageSize',
-        'regionId'     => 'RegionId',
-        'useNextToken' => 'UseNextToken',
+        'criteria'                   => 'Criteria',
+        'currentPage'                => 'CurrentPage',
+        'importance'                 => 'Importance',
+        'lang'                       => 'Lang',
+        'logicalExp'                 => 'LogicalExp',
+        'machineTypes'               => 'MachineTypes',
+        'nextToken'                  => 'NextToken',
+        'noGroupTrace'               => 'NoGroupTrace',
+        'pageSize'                   => 'PageSize',
+        'regionId'                   => 'RegionId',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'useNextToken'               => 'UseNextToken',
     ];
 
     public function validate()
@@ -165,6 +171,9 @@ class DescribeCloudCenterInstancesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
         if (null !== $this->useNextToken) {
             $res['UseNextToken'] = $this->useNextToken;
@@ -210,6 +219,9 @@ class DescribeCloudCenterInstancesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
         if (isset($map['UseNextToken'])) {
             $model->useNextToken = $map['UseNextToken'];

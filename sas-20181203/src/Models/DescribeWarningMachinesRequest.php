@@ -54,6 +54,9 @@ class DescribeWarningMachinesRequest extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the new server group to which the servers belong.
+     *
+     * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
      * @example 123
      *
      * @var int

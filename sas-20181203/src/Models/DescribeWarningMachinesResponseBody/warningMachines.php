@@ -37,11 +37,19 @@ class warningMachines extends Model
     public $bind;
 
     /**
+     * @description The ID of the container.
+     *
+     * @example 48a6d9a92435a13ad573372c3f3c63b7e04d106458141df9f92155709d******
+     *
      * @var string
      */
     public $containerId;
 
     /**
+     * @description The name of container.
+     *
+     * @example redis
+     *
      * @var string
      */
     public $containerName;

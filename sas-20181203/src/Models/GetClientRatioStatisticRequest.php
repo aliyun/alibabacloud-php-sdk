@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetClientRatioStatisticRequest extends Model
 {
     /**
+     * @var int
+     */
+    public $resourceDirectoryAccountId;
+
+    /**
      * @var string[]
      */
     public $statisticTypes;
@@ -27,9 +32,10 @@ class GetClientRatioStatisticRequest extends Model
      */
     public $timeStart;
     protected $_name = [
-        'statisticTypes' => 'StatisticTypes',
-        'timeEnd'        => 'TimeEnd',
-        'timeStart'      => 'TimeStart',
+        'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'statisticTypes'             => 'StatisticTypes',
+        'timeEnd'                    => 'TimeEnd',
+        'timeStart'                  => 'TimeStart',
     ];
 
     public function validate()
@@ -39,6 +45,9 @@ class GetClientRatioStatisticRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->resourceDirectoryAccountId) {
+            $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
+        }
         if (null !== $this->statisticTypes) {
             $res['StatisticTypes'] = $this->statisticTypes;
         }
@@ -60,6 +69,9 @@ class GetClientRatioStatisticRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ResourceDirectoryAccountId'])) {
+            $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
+        }
         if (isset($map['StatisticTypes'])) {
             if (!empty($map['StatisticTypes'])) {
                 $model->statisticTypes = $map['StatisticTypes'];

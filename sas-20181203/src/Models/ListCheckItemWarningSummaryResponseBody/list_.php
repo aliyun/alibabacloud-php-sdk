@@ -66,6 +66,10 @@ class list_ extends Model
     public $checkType;
 
     /**
+     * @description Checks if the item belongs to the container runtime category.Valid values:
+     *   **true**
+     *  **false**
+     *
      * @example true
      *
      * @var bool

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckConfigResponseBody\selectedChecks;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckConfigResponseBody\standards;
 use AlibabaCloud\Tea\Model;
 
@@ -15,6 +16,16 @@ class GetCheckConfigResponseBody extends Model
      * @var int[]
      */
     public $cycleDays;
+
+    /**
+     * @var bool
+     */
+    public $enableAddCheck;
+
+    /**
+     * @var bool
+     */
+    public $enableAutoCheck;
 
     /**
      * @description The end time of the check. The value indicates a point in time. The time period that is specified by the start time and end time must be one of the following time periods:
@@ -40,6 +51,11 @@ class GetCheckConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @var selectedChecks[]
+     */
+    public $selectedChecks;
+
+    /**
      * @description An array that consists of the information about the check items.
      *
      * @var standards[]
@@ -55,11 +71,14 @@ class GetCheckConfigResponseBody extends Model
      */
     public $startTime;
     protected $_name = [
-        'cycleDays' => 'CycleDays',
-        'endTime'   => 'EndTime',
-        'requestId' => 'RequestId',
-        'standards' => 'Standards',
-        'startTime' => 'StartTime',
+        'cycleDays'       => 'CycleDays',
+        'enableAddCheck'  => 'EnableAddCheck',
+        'enableAutoCheck' => 'EnableAutoCheck',
+        'endTime'         => 'EndTime',
+        'requestId'       => 'RequestId',
+        'selectedChecks'  => 'SelectedChecks',
+        'standards'       => 'Standards',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -72,11 +91,26 @@ class GetCheckConfigResponseBody extends Model
         if (null !== $this->cycleDays) {
             $res['CycleDays'] = $this->cycleDays;
         }
+        if (null !== $this->enableAddCheck) {
+            $res['EnableAddCheck'] = $this->enableAddCheck;
+        }
+        if (null !== $this->enableAutoCheck) {
+            $res['EnableAutoCheck'] = $this->enableAutoCheck;
+        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->selectedChecks) {
+            $res['SelectedChecks'] = [];
+            if (null !== $this->selectedChecks && \is_array($this->selectedChecks)) {
+                $n = 0;
+                foreach ($this->selectedChecks as $item) {
+                    $res['SelectedChecks'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->standards) {
             $res['Standards'] = [];
@@ -107,11 +141,26 @@ class GetCheckConfigResponseBody extends Model
                 $model->cycleDays = $map['CycleDays'];
             }
         }
+        if (isset($map['EnableAddCheck'])) {
+            $model->enableAddCheck = $map['EnableAddCheck'];
+        }
+        if (isset($map['EnableAutoCheck'])) {
+            $model->enableAutoCheck = $map['EnableAutoCheck'];
+        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['SelectedChecks'])) {
+            if (!empty($map['SelectedChecks'])) {
+                $model->selectedChecks = [];
+                $n                     = 0;
+                foreach ($map['SelectedChecks'] as $item) {
+                    $model->selectedChecks[$n++] = null !== $item ? selectedChecks::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Standards'])) {
             if (!empty($map['Standards'])) {

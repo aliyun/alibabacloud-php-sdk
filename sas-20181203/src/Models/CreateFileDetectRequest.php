@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateFileDetectRequest extends Model
 {
     /**
+     * @description The URL that is used to download the file. You can specify this parameter to trigger file detection without the need to upload the file in advance.
+     *
      * @example https://xxxxxxxx.oss-cn-hangzhou-1.aliyuncs.com/xxxxx/xxxxxxxxxxxxxx?Expires=1671448125&OSSAccessKeyId=xxx
      *
      * @var string
@@ -25,7 +27,7 @@ class CreateFileDetectRequest extends Model
     public $hashKey;
 
     /**
-     * @description The key of the file that is stored in the Object Storage Service (OSS) bucket. You can call the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation to query the keys of files.
+     * @description The key of the file that is stored in the Object Storage Service (OSS) bucket. If you specify the DownloadUrl parameter, you can leave this parameter empty. You can call the [CreateFileDetectUploadUrl](~~CreateFileDetectUploadUrl~~) operation to query the keys of files.
      *
      * @example 1/2022/06/23/15/41/16559701077444693a0c6-33b2-4cc2-a99f-9f38b8b8****
      *

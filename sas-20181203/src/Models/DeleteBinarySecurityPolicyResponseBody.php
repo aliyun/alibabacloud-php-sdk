@@ -6,12 +6,10 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ValidateHcWarningsResponseBody extends Model
+class DeleteBinarySecurityPolicyResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 722C4F88-7867-4E7B-8ADE-7451053
+     * @example A6CFADC0-1167-521A-9284-8CD8034C****
      *
      * @var string
      */
@@ -37,7 +35,7 @@ class ValidateHcWarningsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ValidateHcWarningsResponseBody
+     * @return DeleteBinarySecurityPolicyResponseBody
      */
     public static function fromMap($map = [])
     {

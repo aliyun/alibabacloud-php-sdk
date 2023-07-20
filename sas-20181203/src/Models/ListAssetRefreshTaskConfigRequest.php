@@ -6,18 +6,18 @@ namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ValidateHcWarningsResponseBody extends Model
+class ListAssetRefreshTaskConfigRequest extends Model
 {
     /**
-     * @description The request ID.
+     * @description The region where the Security Center instance is deployed.
      *
-     * @example 722C4F88-7867-4E7B-8ADE-7451053
+     * @example cn-hangzhou
      *
      * @var string
      */
-    public $requestId;
+    public $regionId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -27,8 +27,8 @@ class ValidateHcWarningsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -37,13 +37,13 @@ class ValidateHcWarningsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ValidateHcWarningsResponseBody
+     * @return ListAssetRefreshTaskConfigRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
 
         return $model;
