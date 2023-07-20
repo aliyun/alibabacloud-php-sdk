@@ -48,8 +48,10 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceLogResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeResourceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceAutoScalerResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceCronScalerResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceDiagnosisResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceEventRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceEventResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceInstanceDiagnosisResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceLogRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceLogResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\DescribeServiceMirrorResponse;
@@ -68,6 +70,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceServicesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourceServicesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourcesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListResourcesResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceContainersResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceInstancesRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceInstancesResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServicesRequest;
@@ -77,6 +80,7 @@ use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceVersionsRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ListServiceVersionsResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReleaseServiceRequest;
 use AlibabaCloud\SDK\Eas\V20210701\Models\ReleaseServiceResponse;
+use AlibabaCloud\SDK\Eas\V20210701\Models\RestartServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\StartBenchmarkTaskResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\StartServiceResponse;
 use AlibabaCloud\SDK\Eas\V20210701\Models\StopBenchmarkTaskResponse;
@@ -1005,8 +1009,14 @@ class Eas extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->container)) {
+            $query['Container'] = $request->container;
+        }
         if (!Utils::isUnset($request->instanceList)) {
             $query['InstanceList'] = $request->instanceList;
+        }
+        if (!Utils::isUnset($request->softRestart)) {
+            $query['SoftRestart'] = $request->softRestart;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -1526,6 +1536,48 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @param string         $ClusterId
+     * @param string         $ServiceName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeServiceDiagnosisResponse
+     */
+    public function describeServiceDiagnosisWithOptions($ClusterId, $ServiceName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServiceDiagnosis',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/diagnosis',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeServiceDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $ServiceName
+     *
+     * @return DescribeServiceDiagnosisResponse
+     */
+    public function describeServiceDiagnosis($ClusterId, $ServiceName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeServiceDiagnosisWithOptions($ClusterId, $ServiceName, $headers, $runtime);
+    }
+
+    /**
      * @param string                      $ClusterId
      * @param string                      $ServiceName
      * @param DescribeServiceEventRequest $request
@@ -1588,6 +1640,50 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->describeServiceEventWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string         $ServiceName
+     * @param string         $InstanceName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeServiceInstanceDiagnosisResponse
+     */
+    public function describeServiceInstanceDiagnosisWithOptions($ClusterId, $ServiceName, $InstanceName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeServiceInstanceDiagnosis',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/instances/' . OpenApiUtilClient::getEncodeParam($InstanceName) . '/diagnosis',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeServiceInstanceDiagnosisResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $ServiceName
+     * @param string $InstanceName
+     *
+     * @return DescribeServiceInstanceDiagnosisResponse
+     */
+    public function describeServiceInstanceDiagnosis($ClusterId, $ServiceName, $InstanceName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeServiceInstanceDiagnosisWithOptions($ClusterId, $ServiceName, $InstanceName, $headers, $runtime);
     }
 
     /**
@@ -2104,6 +2200,50 @@ class Eas extends OpenApiClient
     }
 
     /**
+     * @param string         $ClusterId
+     * @param string         $ServiceName
+     * @param string         $InstanceName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListServiceContainersResponse
+     */
+    public function listServiceContainersWithOptions($ClusterId, $ServiceName, $InstanceName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceContainers',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/instances/' . OpenApiUtilClient::getEncodeParam($InstanceName) . '/containers',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListServiceContainersResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $ServiceName
+     * @param string $InstanceName
+     *
+     * @return ListServiceContainersResponse
+     */
+    public function listServiceContainers($ClusterId, $ServiceName, $InstanceName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listServiceContainersWithOptions($ClusterId, $ServiceName, $InstanceName, $headers, $runtime);
+    }
+
+    /**
      * @param string                      $ClusterId
      * @param string                      $ServiceName
      * @param ListServiceInstancesRequest $request
@@ -2380,6 +2520,48 @@ class Eas extends OpenApiClient
         $headers = [];
 
         return $this->releaseServiceWithOptions($ClusterId, $ServiceName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string         $ServiceName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return RestartServiceResponse
+     */
+    public function restartServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'RestartService',
+            'version'     => '2021-07-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/services/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/' . OpenApiUtilClient::getEncodeParam($ServiceName) . '/restart',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return RestartServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     * @param string $ServiceName
+     *
+     * @return RestartServiceResponse
+     */
+    public function restartService($ClusterId, $ServiceName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->restartServiceWithOptions($ClusterId, $ServiceName, $headers, $runtime);
     }
 
     /**

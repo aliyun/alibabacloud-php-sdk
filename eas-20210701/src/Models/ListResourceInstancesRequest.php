@@ -16,11 +16,15 @@ class ListResourceInstancesRequest extends Model
     public $chargeType;
 
     /**
+     * @example 10.224.xx.xx
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @example 10.224.xx.xx
+     *
      * @var string
      */
     public $instanceIP;
@@ -40,11 +44,15 @@ class ListResourceInstancesRequest extends Model
     public $instanceName;
 
     /**
+     * @example Ready
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $order;
@@ -64,6 +72,8 @@ class ListResourceInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @example CreateTime
+     *
      * @var string
      */
     public $sort;

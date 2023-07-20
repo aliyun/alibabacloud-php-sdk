@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ListServiceInstancesRequest extends Model
 {
     /**
+     * @example 10.118.xx.xx
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @example 10.224.xx.xx
+     *
      * @var string
      */
     public $hostIP;
 
     /**
+     * @example 10.224.xx.xx
+     *
      * @var string
      */
     public $instanceIP;
 
     /**
+     * @example foo-bdc5xxxx-8l7rk
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @example ecs.c7.large
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isSpot;
 
     /**
+     * @example desc
+     *
      * @var string
      */
     public $order;
@@ -63,16 +79,22 @@ class ListServiceInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @example PublicResource
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example Queue
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example StartTime
+     *
      * @var string
      */
     public $sort;

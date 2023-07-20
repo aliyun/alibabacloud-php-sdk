@@ -142,6 +142,16 @@ class Service extends Model
     /**
      * @var string
      */
+    public $secondaryInternetEndpoint;
+
+    /**
+     * @var string
+     */
+    public $secondaryIntranetEndpoint;
+
+    /**
+     * @var string
+     */
     public $serviceConfig;
 
     /**
@@ -189,42 +199,44 @@ class Service extends Model
      */
     public $weight;
     protected $_name = [
-        'accessToken'      => 'AccessToken',
-        'callerUid'        => 'CallerUid',
-        'cpu'              => 'Cpu',
-        'createTime'       => 'CreateTime',
-        'currentVersion'   => 'CurrentVersion',
-        'extraData'        => 'ExtraData',
-        'gpu'              => 'Gpu',
-        'image'            => 'Image',
-        'internetEndpoint' => 'InternetEndpoint',
-        'intranetEndpoint' => 'IntranetEndpoint',
-        'labels'           => 'Labels',
-        'latestVersion'    => 'LatestVersion',
-        'memory'           => 'Memory',
-        'message'          => 'Message',
-        'namespace'        => 'Namespace',
-        'parentUid'        => 'ParentUid',
-        'pendingInstance'  => 'PendingInstance',
-        'reason'           => 'Reason',
-        'region'           => 'Region',
-        'requestId'        => 'RequestId',
-        'resource'         => 'Resource',
-        'resourceAlias'    => 'ResourceAlias',
-        'role'             => 'Role',
-        'roleAttrs'        => 'RoleAttrs',
-        'runningInstance'  => 'RunningInstance',
-        'safetyLock'       => 'SafetyLock',
-        'serviceConfig'    => 'ServiceConfig',
-        'serviceGroup'     => 'ServiceGroup',
-        'serviceId'        => 'ServiceId',
-        'serviceName'      => 'ServiceName',
-        'serviceUid'       => 'ServiceUid',
-        'source'           => 'Source',
-        'status'           => 'Status',
-        'totalInstance'    => 'TotalInstance',
-        'updateTime'       => 'UpdateTime',
-        'weight'           => 'Weight',
+        'accessToken'               => 'AccessToken',
+        'callerUid'                 => 'CallerUid',
+        'cpu'                       => 'Cpu',
+        'createTime'                => 'CreateTime',
+        'currentVersion'            => 'CurrentVersion',
+        'extraData'                 => 'ExtraData',
+        'gpu'                       => 'Gpu',
+        'image'                     => 'Image',
+        'internetEndpoint'          => 'InternetEndpoint',
+        'intranetEndpoint'          => 'IntranetEndpoint',
+        'labels'                    => 'Labels',
+        'latestVersion'             => 'LatestVersion',
+        'memory'                    => 'Memory',
+        'message'                   => 'Message',
+        'namespace'                 => 'Namespace',
+        'parentUid'                 => 'ParentUid',
+        'pendingInstance'           => 'PendingInstance',
+        'reason'                    => 'Reason',
+        'region'                    => 'Region',
+        'requestId'                 => 'RequestId',
+        'resource'                  => 'Resource',
+        'resourceAlias'             => 'ResourceAlias',
+        'role'                      => 'Role',
+        'roleAttrs'                 => 'RoleAttrs',
+        'runningInstance'           => 'RunningInstance',
+        'safetyLock'                => 'SafetyLock',
+        'secondaryInternetEndpoint' => 'SecondaryInternetEndpoint',
+        'secondaryIntranetEndpoint' => 'SecondaryIntranetEndpoint',
+        'serviceConfig'             => 'ServiceConfig',
+        'serviceGroup'              => 'ServiceGroup',
+        'serviceId'                 => 'ServiceId',
+        'serviceName'               => 'ServiceName',
+        'serviceUid'                => 'ServiceUid',
+        'source'                    => 'Source',
+        'status'                    => 'Status',
+        'totalInstance'             => 'TotalInstance',
+        'updateTime'                => 'UpdateTime',
+        'weight'                    => 'Weight',
     ];
 
     public function validate()
@@ -317,6 +329,12 @@ class Service extends Model
         }
         if (null !== $this->safetyLock) {
             $res['SafetyLock'] = $this->safetyLock;
+        }
+        if (null !== $this->secondaryInternetEndpoint) {
+            $res['SecondaryInternetEndpoint'] = $this->secondaryInternetEndpoint;
+        }
+        if (null !== $this->secondaryIntranetEndpoint) {
+            $res['SecondaryIntranetEndpoint'] = $this->secondaryIntranetEndpoint;
         }
         if (null !== $this->serviceConfig) {
             $res['ServiceConfig'] = $this->serviceConfig;
@@ -443,6 +461,12 @@ class Service extends Model
         }
         if (isset($map['SafetyLock'])) {
             $model->safetyLock = $map['SafetyLock'];
+        }
+        if (isset($map['SecondaryInternetEndpoint'])) {
+            $model->secondaryInternetEndpoint = $map['SecondaryInternetEndpoint'];
+        }
+        if (isset($map['SecondaryIntranetEndpoint'])) {
+            $model->secondaryIntranetEndpoint = $map['SecondaryIntranetEndpoint'];
         }
         if (isset($map['ServiceConfig'])) {
             $model->serviceConfig = $map['ServiceConfig'];
