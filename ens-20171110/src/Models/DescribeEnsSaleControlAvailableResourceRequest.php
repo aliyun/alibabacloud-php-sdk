@@ -16,9 +16,15 @@ class DescribeEnsSaleControlAvailableResourceRequest extends Model
     /**
      * @var string
      */
+    public $customAccount;
+
+    /**
+     * @var string
+     */
     public $orderType;
     protected $_name = [
         'commodityCode' => 'CommodityCode',
+        'customAccount' => 'CustomAccount',
         'orderType'     => 'OrderType',
     ];
 
@@ -31,6 +37,9 @@ class DescribeEnsSaleControlAvailableResourceRequest extends Model
         $res = [];
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
+        }
+        if (null !== $this->customAccount) {
+            $res['CustomAccount'] = $this->customAccount;
         }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
@@ -49,6 +58,9 @@ class DescribeEnsSaleControlAvailableResourceRequest extends Model
         $model = new self();
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
+        }
+        if (isset($map['CustomAccount'])) {
+            $model->customAccount = $map['CustomAccount'];
         }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];

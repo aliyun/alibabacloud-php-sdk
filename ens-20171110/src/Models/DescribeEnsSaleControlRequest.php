@@ -21,6 +21,11 @@ class DescribeEnsSaleControlRequest extends Model
     /**
      * @var string
      */
+    public $customAccount;
+
+    /**
+     * @var string
+     */
     public $moduleCode;
 
     /**
@@ -30,6 +35,7 @@ class DescribeEnsSaleControlRequest extends Model
     protected $_name = [
         'aliUidAccount' => 'AliUidAccount',
         'commodityCode' => 'CommodityCode',
+        'customAccount' => 'CustomAccount',
         'moduleCode'    => 'ModuleCode',
         'orderType'     => 'OrderType',
     ];
@@ -46,6 +52,9 @@ class DescribeEnsSaleControlRequest extends Model
         }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
+        }
+        if (null !== $this->customAccount) {
+            $res['CustomAccount'] = $this->customAccount;
         }
         if (null !== $this->moduleCode) {
             $res['ModuleCode'] = $this->moduleCode;
@@ -70,6 +79,9 @@ class DescribeEnsSaleControlRequest extends Model
         }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
+        }
+        if (isset($map['CustomAccount'])) {
+            $model->customAccount = $map['CustomAccount'];
         }
         if (isset($map['ModuleCode'])) {
             $model->moduleCode = $map['ModuleCode'];

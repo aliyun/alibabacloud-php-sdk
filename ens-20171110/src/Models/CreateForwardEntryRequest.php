@@ -61,15 +61,21 @@ class CreateForwardEntryRequest extends Model
      * @var string
      */
     public $natGatewayId;
+
+    /**
+     * @var string
+     */
+    public $standbyExternalIp;
     protected $_name = [
-        'externalIp'       => 'ExternalIp',
-        'externalPort'     => 'ExternalPort',
-        'forwardEntryName' => 'ForwardEntryName',
-        'healthCheckPort'  => 'HealthCheckPort',
-        'internalIp'       => 'InternalIp',
-        'internalPort'     => 'InternalPort',
-        'ipProtocol'       => 'IpProtocol',
-        'natGatewayId'     => 'NatGatewayId',
+        'externalIp'        => 'ExternalIp',
+        'externalPort'      => 'ExternalPort',
+        'forwardEntryName'  => 'ForwardEntryName',
+        'healthCheckPort'   => 'HealthCheckPort',
+        'internalIp'        => 'InternalIp',
+        'internalPort'      => 'InternalPort',
+        'ipProtocol'        => 'IpProtocol',
+        'natGatewayId'      => 'NatGatewayId',
+        'standbyExternalIp' => 'StandbyExternalIp',
     ];
 
     public function validate()
@@ -102,6 +108,9 @@ class CreateForwardEntryRequest extends Model
         }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
+        }
+        if (null !== $this->standbyExternalIp) {
+            $res['StandbyExternalIp'] = $this->standbyExternalIp;
         }
 
         return $res;
@@ -138,6 +147,9 @@ class CreateForwardEntryRequest extends Model
         }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
+        }
+        if (isset($map['StandbyExternalIp'])) {
+            $model->standbyExternalIp = $map['StandbyExternalIp'];
         }
 
         return $model;

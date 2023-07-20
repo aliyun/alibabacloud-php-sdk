@@ -72,22 +72,34 @@ class forwardTableEntries extends Model
     public $natGatewayId;
 
     /**
+     * @var string
+     */
+    public $standbyExternalIp;
+
+    /**
+     * @var string
+     */
+    public $standbyStatus;
+
+    /**
      * @example Available
      *
      * @var string
      */
     public $status;
     protected $_name = [
-        'externalIp'       => 'ExternalIp',
-        'externalPort'     => 'ExternalPort',
-        'forwardEntryId'   => 'ForwardEntryId',
-        'forwardEntryName' => 'ForwardEntryName',
-        'healthCheckPort'  => 'HealthCheckPort',
-        'internalIp'       => 'InternalIp',
-        'internalPort'     => 'InternalPort',
-        'ipProtocol'       => 'IpProtocol',
-        'natGatewayId'     => 'NatGatewayId',
-        'status'           => 'Status',
+        'externalIp'        => 'ExternalIp',
+        'externalPort'      => 'ExternalPort',
+        'forwardEntryId'    => 'ForwardEntryId',
+        'forwardEntryName'  => 'ForwardEntryName',
+        'healthCheckPort'   => 'HealthCheckPort',
+        'internalIp'        => 'InternalIp',
+        'internalPort'      => 'InternalPort',
+        'ipProtocol'        => 'IpProtocol',
+        'natGatewayId'      => 'NatGatewayId',
+        'standbyExternalIp' => 'StandbyExternalIp',
+        'standbyStatus'     => 'StandbyStatus',
+        'status'            => 'Status',
     ];
 
     public function validate()
@@ -123,6 +135,12 @@ class forwardTableEntries extends Model
         }
         if (null !== $this->natGatewayId) {
             $res['NatGatewayId'] = $this->natGatewayId;
+        }
+        if (null !== $this->standbyExternalIp) {
+            $res['StandbyExternalIp'] = $this->standbyExternalIp;
+        }
+        if (null !== $this->standbyStatus) {
+            $res['StandbyStatus'] = $this->standbyStatus;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -165,6 +183,12 @@ class forwardTableEntries extends Model
         }
         if (isset($map['NatGatewayId'])) {
             $model->natGatewayId = $map['NatGatewayId'];
+        }
+        if (isset($map['StandbyExternalIp'])) {
+            $model->standbyExternalIp = $map['StandbyExternalIp'];
+        }
+        if (isset($map['StandbyStatus'])) {
+            $model->standbyStatus = $map['StandbyStatus'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

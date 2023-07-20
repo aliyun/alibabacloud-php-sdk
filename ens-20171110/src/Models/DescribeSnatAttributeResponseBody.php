@@ -66,6 +66,16 @@ class DescribeSnatAttributeResponseBody extends Model
     public $sourceCIDR;
 
     /**
+     * @var string
+     */
+    public $standbySnatIp;
+
+    /**
+     * @var string
+     */
+    public $standbyStatus;
+
+    /**
      * @example Available
      *
      * @var string
@@ -80,6 +90,8 @@ class DescribeSnatAttributeResponseBody extends Model
         'snatIp'        => 'SnatIp',
         'snatIps'       => 'SnatIps',
         'sourceCIDR'    => 'SourceCIDR',
+        'standbySnatIp' => 'StandbySnatIp',
+        'standbyStatus' => 'StandbyStatus',
         'status'        => 'Status',
     ];
 
@@ -119,6 +131,12 @@ class DescribeSnatAttributeResponseBody extends Model
         }
         if (null !== $this->sourceCIDR) {
             $res['SourceCIDR'] = $this->sourceCIDR;
+        }
+        if (null !== $this->standbySnatIp) {
+            $res['StandbySnatIp'] = $this->standbySnatIp;
+        }
+        if (null !== $this->standbyStatus) {
+            $res['StandbyStatus'] = $this->standbyStatus;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -164,6 +182,12 @@ class DescribeSnatAttributeResponseBody extends Model
         }
         if (isset($map['SourceCIDR'])) {
             $model->sourceCIDR = $map['SourceCIDR'];
+        }
+        if (isset($map['StandbySnatIp'])) {
+            $model->standbySnatIp = $map['StandbySnatIp'];
+        }
+        if (isset($map['StandbyStatus'])) {
+            $model->standbyStatus = $map['StandbyStatus'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

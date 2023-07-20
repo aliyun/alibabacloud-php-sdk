@@ -79,6 +79,11 @@ class eipAddress extends Model
     public $ipAddress;
 
     /**
+     * @var string
+     */
+    public $ipStatus;
+
+    /**
      * @example cmcc
      *
      * @var string
@@ -91,6 +96,11 @@ class eipAddress extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var bool
+     */
+    public $standby;
 
     /**
      * @example Available
@@ -109,8 +119,10 @@ class eipAddress extends Model
         'instanceType'       => 'InstanceType',
         'internetChargeType' => 'InternetChargeType',
         'ipAddress'          => 'IpAddress',
+        'ipStatus'           => 'IpStatus',
         'isp'                => 'Isp',
         'name'               => 'Name',
+        'standby'            => 'Standby',
         'status'             => 'Status',
     ];
 
@@ -151,11 +163,17 @@ class eipAddress extends Model
         if (null !== $this->ipAddress) {
             $res['IpAddress'] = $this->ipAddress;
         }
+        if (null !== $this->ipStatus) {
+            $res['IpStatus'] = $this->ipStatus;
+        }
         if (null !== $this->isp) {
             $res['Isp'] = $this->isp;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->standby) {
+            $res['Standby'] = $this->standby;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -202,11 +220,17 @@ class eipAddress extends Model
         if (isset($map['IpAddress'])) {
             $model->ipAddress = $map['IpAddress'];
         }
+        if (isset($map['IpStatus'])) {
+            $model->ipStatus = $map['IpStatus'];
+        }
         if (isset($map['Isp'])) {
             $model->isp = $map['Isp'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Standby'])) {
+            $model->standby = $map['Standby'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

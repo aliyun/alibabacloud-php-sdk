@@ -820,6 +820,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->instanceType)) {
             $query['InstanceType'] = $request->instanceType;
         }
+        if (!Utils::isUnset($request->standby)) {
+            $query['Standby'] = $request->standby;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1712,6 +1715,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->natGatewayId)) {
             $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        if (!Utils::isUnset($request->standbyExternalIp)) {
+            $query['StandbyExternalIp'] = $request->standbyExternalIp;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2777,6 +2783,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceVSwitchId)) {
             $query['SourceVSwitchId'] = $request->sourceVSwitchId;
+        }
+        if (!Utils::isUnset($request->standbySnatIp)) {
+            $query['StandbySnatIp'] = $request->standbySnatIp;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -4830,6 +4839,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->standby)) {
+            $query['Standby'] = $request->standby;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -5275,6 +5287,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->commodityCode)) {
             $query['CommodityCode'] = $request->commodityCode;
         }
+        if (!Utils::isUnset($request->customAccount)) {
+            $query['CustomAccount'] = $request->customAccount;
+        }
         if (!Utils::isUnset($request->moduleCode)) {
             $query['ModuleCode'] = $request->moduleCode;
         }
@@ -5324,6 +5339,9 @@ class Ens extends OpenApiClient
         if (!Utils::isUnset($request->commodityCode)) {
             $query['CommodityCode'] = $request->commodityCode;
         }
+        if (!Utils::isUnset($request->customAccount)) {
+            $query['CustomAccount'] = $request->customAccount;
+        }
         if (!Utils::isUnset($request->orderType)) {
             $query['OrderType'] = $request->orderType;
         }
@@ -5372,6 +5390,9 @@ class Ens extends OpenApiClient
         }
         if (!Utils::isUnset($request->commodityCode)) {
             $query['CommodityCode'] = $request->commodityCode;
+        }
+        if (!Utils::isUnset($request->customAccount)) {
+            $query['CustomAccount'] = $request->customAccount;
         }
         if (!Utils::isUnset($request->moduleCode)) {
             $query['ModuleCode'] = $request->moduleCode;
@@ -7637,8 +7658,11 @@ class Ens extends OpenApiClient
     public function describeSnatAttributeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->snatEntryId)) {
+            $query['SnatEntryId'] = $request->snatEntryId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -7646,7 +7670,7 @@ class Ens extends OpenApiClient
             'version'     => '2017-11-10',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',

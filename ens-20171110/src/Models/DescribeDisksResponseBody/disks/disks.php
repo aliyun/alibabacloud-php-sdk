@@ -64,6 +64,11 @@ class disks extends Model
     public $portable;
 
     /**
+     * @var string
+     */
+    public $serialId;
+
+    /**
      * @example 20
      *
      * @var int
@@ -98,6 +103,7 @@ class disks extends Model
         'instanceId'     => 'InstanceId',
         'instanceName'   => 'InstanceName',
         'portable'       => 'Portable',
+        'serialId'       => 'SerialId',
         'size'           => 'Size',
         'snapshotId'     => 'SnapshotId',
         'status'         => 'Status',
@@ -137,6 +143,9 @@ class disks extends Model
         }
         if (null !== $this->portable) {
             $res['Portable'] = $this->portable;
+        }
+        if (null !== $this->serialId) {
+            $res['SerialId'] = $this->serialId;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
@@ -188,6 +197,9 @@ class disks extends Model
         }
         if (isset($map['Portable'])) {
             $model->portable = $map['Portable'];
+        }
+        if (isset($map['SerialId'])) {
+            $model->serialId = $map['SerialId'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];

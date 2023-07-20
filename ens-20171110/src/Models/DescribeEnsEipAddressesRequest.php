@@ -61,6 +61,11 @@ class DescribeEnsEipAddressesRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $standby;
     protected $_name = [
         'allocationId'           => 'AllocationId',
         'associatedInstanceId'   => 'AssociatedInstanceId',
@@ -70,6 +75,7 @@ class DescribeEnsEipAddressesRequest extends Model
         'ensRegionId'            => 'EnsRegionId',
         'pageNumber'             => 'PageNumber',
         'pageSize'               => 'PageSize',
+        'standby'                => 'Standby',
     ];
 
     public function validate()
@@ -102,6 +108,9 @@ class DescribeEnsEipAddressesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->standby) {
+            $res['Standby'] = $this->standby;
         }
 
         return $res;
@@ -138,6 +147,9 @@ class DescribeEnsEipAddressesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Standby'])) {
+            $model->standby = $map['Standby'];
         }
 
         return $model;
