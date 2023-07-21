@@ -9,21 +9,17 @@ use AlibabaCloud\Tea\Model;
 class GetWebTerminalResponseBody extends Model
 {
     /**
-     * @example wss://*****
-     *
-     * @var string
-     */
-    public $URL;
-
-    /**
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
-     *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $webTerminalUrl;
     protected $_name = [
-        'URL'       => 'URL',
-        'requestId' => 'requestId',
+        'requestId'      => 'RequestId',
+        'webTerminalUrl' => 'WebTerminalUrl',
     ];
 
     public function validate()
@@ -33,11 +29,11 @@ class GetWebTerminalResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->URL) {
-            $res['URL'] = $this->URL;
-        }
         if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
+            $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->webTerminalUrl) {
+            $res['WebTerminalUrl'] = $this->webTerminalUrl;
         }
 
         return $res;
@@ -51,11 +47,11 @@ class GetWebTerminalResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['URL'])) {
-            $model->URL = $map['URL'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
+        if (isset($map['WebTerminalUrl'])) {
+            $model->webTerminalUrl = $map['WebTerminalUrl'];
         }
 
         return $model;
