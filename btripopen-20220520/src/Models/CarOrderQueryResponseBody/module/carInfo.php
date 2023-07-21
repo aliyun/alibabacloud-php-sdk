@@ -35,11 +35,21 @@ class carInfo extends Model
     public $carLevel;
 
     /**
+     * @var string
+     */
+    public $driverCard;
+
+    /**
      * @example 1669274251000
      *
      * @var int
      */
     public $driverConfirmTime;
+
+    /**
+     * @var string
+     */
+    public $driverName;
 
     /**
      * @example 2900
@@ -146,7 +156,9 @@ class carInfo extends Model
         'cancelTime'        => 'cancel_time',
         'carInfo'           => 'car_info',
         'carLevel'          => 'car_level',
+        'driverCard'        => 'driver_card',
         'driverConfirmTime' => 'driver_confirm_time',
+        'driverName'        => 'driver_name',
         'estimatePrice'     => 'estimate_price',
         'fromAddress'       => 'from_address',
         'fromCityName'      => 'from_city_name',
@@ -185,8 +197,14 @@ class carInfo extends Model
         if (null !== $this->carLevel) {
             $res['car_level'] = $this->carLevel;
         }
+        if (null !== $this->driverCard) {
+            $res['driver_card'] = $this->driverCard;
+        }
         if (null !== $this->driverConfirmTime) {
             $res['driver_confirm_time'] = $this->driverConfirmTime;
+        }
+        if (null !== $this->driverName) {
+            $res['driver_name'] = $this->driverName;
         }
         if (null !== $this->estimatePrice) {
             $res['estimate_price'] = $this->estimatePrice;
@@ -263,8 +281,14 @@ class carInfo extends Model
         if (isset($map['car_level'])) {
             $model->carLevel = $map['car_level'];
         }
+        if (isset($map['driver_card'])) {
+            $model->driverCard = $map['driver_card'];
+        }
         if (isset($map['driver_confirm_time'])) {
             $model->driverConfirmTime = $map['driver_confirm_time'];
+        }
+        if (isset($map['driver_name'])) {
+            $model->driverName = $map['driver_name'];
         }
         if (isset($map['estimate_price'])) {
             $model->estimatePrice = $map['estimate_price'];

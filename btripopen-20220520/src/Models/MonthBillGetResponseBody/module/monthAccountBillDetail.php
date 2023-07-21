@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class monthAccountBillDetail extends Model
 {
     /**
+     * @var int
+     */
+    public $billConfirmed;
+
+    /**
      * @description 用车金额（单位：元）
      *
      * @example xx.xx
@@ -89,6 +94,7 @@ class monthAccountBillDetail extends Model
      */
     public $trainAmount;
     protected $_name = [
+        'billConfirmed'  => 'billConfirmed',
         'carAmount'      => 'carAmount',
         'damageAmount'   => 'damageAmount',
         'flightAmount'   => 'flightAmount',
@@ -107,6 +113,9 @@ class monthAccountBillDetail extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->billConfirmed) {
+            $res['billConfirmed'] = $this->billConfirmed;
+        }
         if (null !== $this->carAmount) {
             $res['carAmount'] = $this->carAmount;
         }
@@ -146,6 +155,9 @@ class monthAccountBillDetail extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['billConfirmed'])) {
+            $model->billConfirmed = $map['billConfirmed'];
+        }
         if (isset($map['carAmount'])) {
             $model->carAmount = $map['carAmount'];
         }
