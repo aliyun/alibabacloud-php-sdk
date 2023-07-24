@@ -6,29 +6,29 @@ namespace AlibabaCloud\SDK\Sasti\V20200512\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDomainReportRequest extends Model
+class DescribeIpReportRequest extends Model
 {
     /**
-     * @example example.com
-     *
-     * @var string
-     */
-    public $domain;
-
-    /**
-     * @example ThreatTypes,Intelligences,AttackPreferenceTop5,AttackCntByThreatType
+     * @example TagsThreatTypes,Intelligences,AttackPreferenceTop5,AttackCntByThreatType
      *
      * @var string
      */
     public $field;
 
     /**
+     * @example 192.0.XX.XX
+     *
+     * @var string
+     */
+    public $ip;
+
+    /**
      * @var string
      */
     public $serviceLang;
     protected $_name = [
-        'domain'      => 'Domain',
         'field'       => 'Field',
+        'ip'          => 'Ip',
         'serviceLang' => 'ServiceLang',
     ];
 
@@ -39,11 +39,11 @@ class DescribeDomainReportRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->domain) {
-            $res['Domain'] = $this->domain;
-        }
         if (null !== $this->field) {
             $res['Field'] = $this->field;
+        }
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
         if (null !== $this->serviceLang) {
             $res['ServiceLang'] = $this->serviceLang;
@@ -55,16 +55,16 @@ class DescribeDomainReportRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDomainReportRequest
+     * @return DescribeIpReportRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Domain'])) {
-            $model->domain = $map['Domain'];
-        }
         if (isset($map['Field'])) {
             $model->field = $map['Field'];
+        }
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
         if (isset($map['ServiceLang'])) {
             $model->serviceLang = $map['ServiceLang'];
