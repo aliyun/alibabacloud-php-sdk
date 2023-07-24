@@ -10,20 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnUserBillPredictionResponseBody extends Model
 {
     /**
-     * @description The billable region.
+     * @description The estimated bill data.
      *
      * @var billPredictionData
      */
     public $billPredictionData;
-
-    /**
-     * @description The time when the value used as the estimated value is generated. This parameter is returned only if the metering method is pay by 95th percentile, pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00, or pay by 4th peak bandwidth per month.
-     *
-     * @example month_95_overseas
-     *
-     * @var string
-     */
-    public $billType;
 
     /**
      * @description The metering method.
@@ -40,6 +31,15 @@ class DescribeCdnUserBillPredictionResponseBody extends Model
      *   hour_vas: pay by value-added services per hour
      *   day_count: pay by daily requests
      *
+     * @example month_95
+     *
+     * @var string
+     */
+    public $billType;
+
+    /**
+     * @description The end time of the estimation.
+     *
      * @example 2018-10-25T10:00:00Z
      *
      * @var string
@@ -47,7 +47,7 @@ class DescribeCdnUserBillPredictionResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The estimated value.
+     * @description The ID of the request.
      *
      * @example C370DAF1-C838-4288-A1A0-9A87633D248E
      *
@@ -56,7 +56,7 @@ class DescribeCdnUserBillPredictionResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The estimated bill data.
+     * @description The start time of the estimation.
      *
      * @example 2018-09-30T16:00:00Z
      *

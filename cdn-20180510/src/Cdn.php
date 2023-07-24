@@ -130,6 +130,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainCustomLogConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainCustomLogConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainDetailDataByLayerRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainDetailDataByLayerResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainFileSizeProportionDataRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainFileSizeProportionDataResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainHitRateDataRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainHitRateDataResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainHttpCodeDataByLayerRequest;
@@ -2834,18 +2836,13 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The billable region. Valid values:
-     *   * *   **CN**: the Chinese mainland
-     *   * *   **OverSeas**: outside the Chinese mainland
-     *   * *   **AP1**: Asia Pacific 1
-     *   * *   **AP2**: Asia Pacific 2
-     *   * *   **AP3**: Asia Pacific 3
-     *   * *   **NA**: North America
-     *   * *   **SA**: South America
-     *   * *   **EU**: Europe
-     *   * *   **MEAA**: Middle East and Africa
-     *   * By default, the value of this parameter is determined by the metering method that is currently used. Regions inside and outside the Chinese mainland are classified into the **CN** and **OverSeas** billable regions. Billable regions inside the Chinese mainland include **CN**. Billable regions outside the Chinese mainland include **AP1**, **AP2**, **AP3**, **NA**, **SA**, **EU**, and **MEAA**.
-     *   * > For more information about billable regions, see [Billable regions](~~142221~~).
+     * You can call this operation to estimate resource usage of the current month based on the metering method that is specified on the first day of the current month. You can call this operation to estimate resource usage only of the current month within your Alibaba Cloud account. The time range used for the estimation starts at 00:00 on the first day of the current month and ends 2 hours earlier than the current time.
+     *   * *   Pay by monthly 95th percentile: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
+     *   * *   Pay by average daily peak bandwidth per month: Estimated value = Sum of daily peak bandwidth values/Number of days. The current day is excluded.
+     *   * *   Pay by 4th peak bandwidth per month: The estimated value is the 4th peak bandwidth value between the start time and end time. If the time range is less than four days, the estimated value is 0.
+     *   * *   Pay by average daily 95th percentile bandwidth per month: Estimated value = Sum of daily 95th percentile bandwidth values/Number of days. The current day is excluded.
+     *   * *   Pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
+     *   * > You can call this operation only once per second per account.
      *   *
      * @param DescribeCdnUserBillPredictionRequest $request DescribeCdnUserBillPredictionRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -2887,18 +2884,13 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * The billable region. Valid values:
-     *   * *   **CN**: the Chinese mainland
-     *   * *   **OverSeas**: outside the Chinese mainland
-     *   * *   **AP1**: Asia Pacific 1
-     *   * *   **AP2**: Asia Pacific 2
-     *   * *   **AP3**: Asia Pacific 3
-     *   * *   **NA**: North America
-     *   * *   **SA**: South America
-     *   * *   **EU**: Europe
-     *   * *   **MEAA**: Middle East and Africa
-     *   * By default, the value of this parameter is determined by the metering method that is currently used. Regions inside and outside the Chinese mainland are classified into the **CN** and **OverSeas** billable regions. Billable regions inside the Chinese mainland include **CN**. Billable regions outside the Chinese mainland include **AP1**, **AP2**, **AP3**, **NA**, **SA**, **EU**, and **MEAA**.
-     *   * > For more information about billable regions, see [Billable regions](~~142221~~).
+     * You can call this operation to estimate resource usage of the current month based on the metering method that is specified on the first day of the current month. You can call this operation to estimate resource usage only of the current month within your Alibaba Cloud account. The time range used for the estimation starts at 00:00 on the first day of the current month and ends 2 hours earlier than the current time.
+     *   * *   Pay by monthly 95th percentile: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
+     *   * *   Pay by average daily peak bandwidth per month: Estimated value = Sum of daily peak bandwidth values/Number of days. The current day is excluded.
+     *   * *   Pay by 4th peak bandwidth per month: The estimated value is the 4th peak bandwidth value between the start time and end time. If the time range is less than four days, the estimated value is 0.
+     *   * *   Pay by average daily 95th percentile bandwidth per month: Estimated value = Sum of daily 95th percentile bandwidth values/Number of days. The current day is excluded.
+     *   * *   Pay by 95th percentile bandwidth with 50% off from 00:00 to 08:00: The top 5% values between the start time and end time are excluded. The estimated value is the highest value among the remaining values.
+     *   * > You can call this operation only once per second per account.
      *   *
      * @param DescribeCdnUserBillPredictionRequest $request DescribeCdnUserBillPredictionRequest
      *
@@ -3814,8 +3806,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 20 times per second per account.
-     *   * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
+     * You can call this operation up to 20 times per second per account.
      *   *
      * @param DescribeDomainDetailDataByLayerRequest $request DescribeDomainDetailDataByLayerRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -3845,8 +3836,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 20 times per second per account.
-     *   * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last 24 hours. If you set both these parameters, the request returns the data collected within the specified time range.
+     * You can call this operation up to 20 times per second per account.
      *   *
      * @param DescribeDomainDetailDataByLayerRequest $request DescribeDomainDetailDataByLayerRequest
      *
@@ -3857,6 +3847,69 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDomainDetailDataByLayerWithOptions($request, $runtime);
+    }
+
+    /**
+     * >
+     *   * *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify both StartTime and EndTime, the request returns the data collected within the specified time range.
+     *   * *   You can call this operation up to 10 times per second per account.
+     *   *
+     * @param DescribeDomainFileSizeProportionDataRequest $request DescribeDomainFileSizeProportionDataRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDomainFileSizeProportionDataResponse DescribeDomainFileSizeProportionDataResponse
+     */
+    public function describeDomainFileSizeProportionDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDomainFileSizeProportionData',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDomainFileSizeProportionDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * >
+     *   * *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify both StartTime and EndTime, the request returns the data collected within the specified time range.
+     *   * *   You can call this operation up to 10 times per second per account.
+     *   *
+     * @param DescribeDomainFileSizeProportionDataRequest $request DescribeDomainFileSizeProportionDataRequest
+     *
+     * @return DescribeDomainFileSizeProportionDataResponse DescribeDomainFileSizeProportionDataResponse
+     */
+    public function describeDomainFileSizeProportionData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDomainFileSizeProportionDataWithOptions($request, $runtime);
     }
 
     /**
@@ -8453,9 +8506,12 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 10 times per second per user.
+     * @deprecated : SetDomainServerCertificate is deprecated, please use Cdn::2018-05-10::SetCdnDomainSSLCertificate instead.
+     *   * *   You can call this operation up to 10 times per second per user.
      *   * *   Method: POST.
      *   *
+     * Deprecated
+     *
      * @param SetDomainServerCertificateRequest $request SetDomainServerCertificateRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
@@ -8511,9 +8567,12 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 10 times per second per user.
+     * @deprecated : SetDomainServerCertificate is deprecated, please use Cdn::2018-05-10::SetCdnDomainSSLCertificate instead.
+     *   * *   You can call this operation up to 10 times per second per user.
      *   * *   Method: POST.
      *   *
+     * Deprecated
+     *
      * @param SetDomainServerCertificateRequest $request SetDomainServerCertificateRequest
      *
      * @return SetDomainServerCertificateResponse SetDomainServerCertificateResponse

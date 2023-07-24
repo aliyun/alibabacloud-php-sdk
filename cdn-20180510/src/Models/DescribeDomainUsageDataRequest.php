@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainUsageDataRequest extends Model
 {
     /**
-     * @description The ID of the billable region. Valid values:
+     * @description The billable region. Valid values:
      *
      *   **CN** (default): inside the Chinese mainland
      *   **OverSeas**: outside the Chinese mainland
@@ -31,8 +31,8 @@ class DescribeDomainUsageDataRequest extends Model
     /**
      * @description The protocol of the data that you want to query. Valid values:
      *
-     *   **http**: HTTP
-     *   **https**: HTTPS
+     *   **http:** HTTP
+     *   **https:** HTTPS
      *   **quic**: QUIC
      *   **all** (default): HTTP, HTTPS, and QUIC
      *
