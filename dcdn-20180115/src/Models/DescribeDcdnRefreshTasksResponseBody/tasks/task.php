@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
-     * @description The URL of the object to be refreshed.
+     * @description The time when the task was created. The time is displayed in UTC.
      *
      * @example 2014-11-27T08:23:22Z
      *
@@ -18,11 +18,11 @@ class task extends Model
     public $creationTime;
 
     /**
-     * @description The type of the task.
+     * @description The type of error returned when the refresh or prefetch task has failed.
      *
-     *   **file**: URL-based refresh
-     *   **path**: directory-based refresh
-     *   **preload**: URL-based prefetch
+     *   **InternalError**: An internal error occurred.
+     *   **OriginTimeout**: The response from the origin server timed out.
+     *   **OriginReturn StatusCode 5XX**: The origin server returned a 5XX error.
      *
      * @example Internal Error
      *
@@ -31,11 +31,7 @@ class task extends Model
     public $description;
 
     /**
-     * @description The status of the task.
-     *
-     *   **Complete**: The task has completed.
-     *   **Refreshing**: The task is in progress.
-     *   **Failed**: The task failed.
+     * @description The URL of the object refreshed.
      *
      * @example http://example.com/examplefile.txt
      *
@@ -44,7 +40,11 @@ class task extends Model
     public $objectPath;
 
     /**
-     * @description The ID of the task.
+     * @description The type of the task. Valid values:
+     *
+     *   **file**: URL-based refresh
+     *   **path**: directory-based refresh
+     *   **preload**: URL-based prefetch
      *
      * @example file
      *
@@ -53,11 +53,7 @@ class task extends Model
     public $objectType;
 
     /**
-     * @description >
-     *   You can query the status information by task ID or URL.
-     *   You can set both the **TaskId** parameter and the **ObjectPath** parameter to query. If you set neither the **TaskId** parameter nor the **ObjectPath** parameter, the data in the last 3 days on the first page is returned. By default, a maximum of 20 entries can be displayed on each page.
-     *   If you specify the **DomainName** or **Status** parameter, you must also specify the **ObjectType** parameter.
-     *   You can call this operation up to 10 times per second per account.
+     * @description The progress of the task in percentage.
      *
      * @example 10
      *
@@ -66,11 +62,11 @@ class task extends Model
     public $process;
 
     /**
-     * @description The type of error returned when the refresh or prefetch task has failed.
+     * @description The status of the task. Valid values:
      *
-     *   **InternalError**: An internal error occurred.
-     *   **OriginTimeout**: The response from the origin server timed out.
-     *   **OriginReturn StatusCode 5XX**: The origin server returned a 5XX error.
+     *   **Complete**: The task is complete.
+     *   **Refreshing**: The task is in progress.
+     *   **Failed**: The task failed.
      *
      * @example Complete
      *
@@ -79,7 +75,7 @@ class task extends Model
     public $status;
 
     /**
-     * @description The URL of the object to be refreshed.
+     * @description The ID of the task.
      *
      * @example 123
      *

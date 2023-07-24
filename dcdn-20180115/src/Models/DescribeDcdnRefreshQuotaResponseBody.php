@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnRefreshQuotaResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The maximum number of URLs that can be blocked.
      *
      * @example 100
      *
@@ -18,7 +18,7 @@ class DescribeDcdnRefreshQuotaResponseBody extends Model
     public $blockQuota;
 
     /**
-     * @description The remaining number of URLs that can be refreshed each day.
+     * @description The remaining number of URLs that can be blocked on the current day.
      *
      * @example 100
      *
@@ -27,9 +27,7 @@ class DescribeDcdnRefreshQuotaResponseBody extends Model
     public $blockRemain;
 
     /**
-     * @description >
-     *   You can call the **RefreshDcdnObjectCaches** operation to refresh content and call the **PreloadDcdnObjectCaches** operation to prefetch content.
-     *   You can call this operation up to 20 times per second.
+     * @description The maximum number of directories that can be refreshed on the current day.
      *
      * @example 100
      *
@@ -38,7 +36,7 @@ class DescribeDcdnRefreshQuotaResponseBody extends Model
     public $dirQuota;
 
     /**
-     * @description The maximum number of URLs that can be prefetched each day.
+     * @description The remaining number of directories that can be refreshed on the current day.
      *
      * @example 100
      *
@@ -57,7 +55,7 @@ class DescribeDcdnRefreshQuotaResponseBody extends Model
     public $ignoreParamsRemain;
 
     /**
-     * @description The maximum number of URLs that can be blocked.
+     * @description The maximum number of URLs that can be prefetched on the current day.
      *
      * @example 500
      *
@@ -66,7 +64,7 @@ class DescribeDcdnRefreshQuotaResponseBody extends Model
     public $preloadQuota;
 
     /**
-     * @description The maximum number of directories that can be refreshed each day.
+     * @description The remaining number of URLs that can be prefetched on the current day.
      *
      * @example 500
      *
@@ -75,7 +73,7 @@ class DescribeDcdnRefreshQuotaResponseBody extends Model
     public $preloadRemain;
 
     /**
-     * @description The maximum number of URLs that can be refreshed each day.
+     * @description The maximum number of URLs or directories that can be refreshed by using regular expressions on the current day.
      *
      * @example 100
      *
@@ -84,7 +82,7 @@ class DescribeDcdnRefreshQuotaResponseBody extends Model
     public $regexQuota;
 
     /**
-     * @description The remaining number of directories that can be refreshed each day.
+     * @description The remaining number of URLs or directories that can be refreshed by using regular expressions on the current day.
      *
      * @example 100
      *
@@ -93,7 +91,7 @@ class DescribeDcdnRefreshQuotaResponseBody extends Model
     public $regexRemain;
 
     /**
-     * @description The maximum number of URLs that can be refreshed each day.
+     * @description The ID of the request.
      *
      * @example 42E0554B-80F4-4921-AED6-ACFB22CAAAD0
      *
@@ -102,7 +100,7 @@ class DescribeDcdnRefreshQuotaResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The remaining number of URLs that can be blocked each day.
+     * @description The maximum number of URLs that can be refreshed on the current day.
      *
      * @example 2000
      *
@@ -111,7 +109,7 @@ class DescribeDcdnRefreshQuotaResponseBody extends Model
     public $urlQuota;
 
     /**
-     * @description The maximum number of URLs or directories that can be refreshed by using regular expressions each day.
+     * @description The remaining number of URLs that can be refreshed on the current day.
      *
      * @example 2000
      *

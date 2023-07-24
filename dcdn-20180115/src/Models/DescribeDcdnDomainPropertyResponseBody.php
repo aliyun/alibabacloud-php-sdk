@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainPropertyResponseBody extends Model
 {
     /**
-     * @description The name of the protocol. Valid values:
-     *
-     *   **udp**: User Datagram Protocol (UDP)
-     *   **tcp**: Transmission Control Protocol (TCP)
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -21,7 +18,10 @@ class DescribeDcdnDomainPropertyResponseBody extends Model
     public $domainName;
 
     /**
-     * @description >  The maximum number of times that users can call this operation per second is 10.
+     * @description The protocol. Valid values:
+     *
+     *   **udp**
+     *   **tcp**
      *
      * @example udp
      *
@@ -30,7 +30,7 @@ class DescribeDcdnDomainPropertyResponseBody extends Model
     public $protocol;
 
     /**
-     * @description The accelerated domain name that is queried.
+     * @description The request ID.
      *
      * @example 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
      *

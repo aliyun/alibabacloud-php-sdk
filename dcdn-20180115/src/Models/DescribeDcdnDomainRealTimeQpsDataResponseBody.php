@@ -10,19 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeQpsDataResponseBody extends Model
 {
     /**
-     * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+     * @description The information about the backup set.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description - You can call this operation up to 10 times per second per account.
-     * - If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the StartTime and EndTime parameters, the request returns the data collected within the specified time range.
+     * @description The ID of the request.
      *
-     **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *
-     * | 1 hour | 31 days | 186 days | 4 hours |
      * @example 32DC9806-E9F9-4490-BBDC-B3A9E32FCC1D
      *
      * @var string

@@ -10,11 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnRefreshTasksResponseBody extends Model
 {
     /**
-     * @description The status of the task.
-     *
-     *   **Complete**: The task has completed.
-     *   **Refreshing**: The task is in progress.
-     *   **Failed**: The task failed.
+     * @description The number of the returned page.
      *
      * @example 2
      *
@@ -23,7 +19,7 @@ class DescribeDcdnRefreshTasksResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The time when the task was created. The time is displayed in UTC.
+     * @description The number of entries returned per page.
      *
      * @example 2
      *
@@ -32,7 +28,7 @@ class DescribeDcdnRefreshTasksResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description Details about tasks.
+     * @description The ID of the request.
      *
      * @example 174F6032-AA26-470D-B90E-36F0EB205BEE
      *
@@ -41,18 +37,14 @@ class DescribeDcdnRefreshTasksResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The progress of the task, in percentage.
+     * @description Details about tasks.
      *
      * @var tasks
      */
     public $tasks;
 
     /**
-     * @description The type of the task.
-     *
-     *   **file**: URL-based refresh
-     *   **path**: directory-based refresh
-     *   **preload**: URL-based prefetch
+     * @description The number of tasks.
      *
      * @example 20
      *

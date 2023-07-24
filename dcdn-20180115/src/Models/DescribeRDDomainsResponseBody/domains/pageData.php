@@ -15,6 +15,8 @@ class pageData extends Model
     public $bizName;
 
     /**
+     * @description The CNAME assigned to the accelerated domain name.
+     *
      * @example image.developer.aliyundoc.com
      *
      * @var string
@@ -22,6 +24,8 @@ class pageData extends Model
     public $cname;
 
     /**
+     * @description The reason why the accelerated domain name failed the review.
+     *
      * @example audit failed
      *
      * @var string
@@ -29,6 +33,8 @@ class pageData extends Model
     public $description;
 
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -36,6 +42,15 @@ class pageData extends Model
     public $domainName;
 
     /**
+     * @description The status of the accelerated domain name. Valid values:
+     *
+     *   online: The domain name is enabled.
+     *   offline: The domain name is disabled.
+     *   configuring: The domain name is being configured.
+     *   configure_failed: The domain name failed to be configured.
+     *   checking: The domain name is being reviewed.
+     *   check_failed: The domain name failed the review.
+     *
      * @example online
      *
      * @var string
@@ -43,6 +58,8 @@ class pageData extends Model
     public $domainStatus;
 
     /**
+     * @description The time when the accelerated domain name was added to DCDN.
+     *
      * @example 2015-10-27T06:26:34Z
      *
      * @var string
@@ -50,6 +67,8 @@ class pageData extends Model
     public $gmtCreated;
 
     /**
+     * @description The time when the accelerated domain name was modified.
+     *
      * @example 2015-10-23T09:30:00Z
      *
      * @var string
@@ -57,6 +76,8 @@ class pageData extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example abcd1234abcd1234
      *
      * @var string
@@ -64,6 +85,8 @@ class pageData extends Model
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the accelerated domain name was in a sandbox.
+     *
      * @example normal
      *
      * @var string
@@ -76,11 +99,18 @@ class pageData extends Model
     public $serviceCode;
 
     /**
+     * @description The information about the origin server.
+     *
      * @var sources
      */
     public $sources;
 
     /**
+     * @description Indicates whether HTTPS is enabled.
+     *
+     *   on
+     *   off
+     *
      * @example on
      *
      * @var string

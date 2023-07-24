@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnVerifyContentResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The verification result.
      *
      * @example verify_dffeb6610035dcb78b413a59c31cd9**
      *
@@ -18,7 +18,7 @@ class DescribeDcdnVerifyContentResponseBody extends Model
     public $content;
 
     /**
-     * @description >  The maximum number of times that each user can call this operation per second is 100.
+     * @description The request ID.
      *
      * @example 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
      *

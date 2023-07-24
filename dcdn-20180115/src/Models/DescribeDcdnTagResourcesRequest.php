@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnTagResourcesRequest extends Model
 {
     /**
-     * @description The tags of the instance.
+     * @description The list of resource IDs. You can specify a maximum of 50 resource IDs.
      *
      * @example example.com
      *
@@ -19,7 +19,7 @@ class DescribeDcdnTagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The ID of the request.
+     * @description The type of the resource. Set the value to **DOMAIN**.
      *
      * @example DOMAIN
      *
@@ -28,7 +28,7 @@ class DescribeDcdnTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags.
+     * @description The tags. You can specify a maximum of 20 tag values.
      *
      * @var tag[]
      */

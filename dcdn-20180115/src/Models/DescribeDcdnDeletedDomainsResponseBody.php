@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDeletedDomainsResponseBody extends Model
 {
     /**
-     * @description The accelerated domain name.
+     * @description The information about the accelerated domain name.
      *
      * @var domains
      */
     public $domains;
 
     /**
-     * @description The total number of domain names returned.
+     * @description The page number of the returned page, which is the same as the **PageNumber** parameter in request parameters.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeDcdnDeletedDomainsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The list of accelerated domain names and the time each domain name was last modified.
+     * @description The number of domain names returned per page, which is the same as the **PageSize** parameter in request parameters.
      *
      * @example 5
      *
@@ -35,7 +35,7 @@ class DescribeDcdnDeletedDomainsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The number of domain names returned per page, which is the same as the **PageSize** parameter in request parameters.
+     * @description The ID of the request.
      *
      * @example AA75AADB-5E25-4970-B480-EAA1F5658483
      *
@@ -44,7 +44,7 @@ class DescribeDcdnDeletedDomainsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The time when the accelerated domain name was last modified. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC+0.
+     * @description The total number of domain names returned.
      *
      * @example 16
      *

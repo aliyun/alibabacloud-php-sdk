@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRegionDataResponseBody extends Model
 {
     /**
-     * @description The average response time. Unit: milliseconds.
+     * @description The time interval between the data entries returned. Unit: seconds.
      *
      * @example 86400
      *
@@ -19,7 +19,7 @@ class DescribeDcdnDomainRegionDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The average response speed. Unit: byte/s.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -28,7 +28,7 @@ class DescribeDcdnDomainRegionDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The total amount of network traffic.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2015-12-07T12:00:00Z
      *
@@ -37,7 +37,7 @@ class DescribeDcdnDomainRegionDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The region.
+     * @description The ID of the request.
      *
      * @example 2E5AD83F-BD7B-462E-8319-2E30E305519A
      *
@@ -46,7 +46,7 @@ class DescribeDcdnDomainRegionDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The name of the region.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2015-12-05T12:00:00Z
      *
@@ -55,7 +55,7 @@ class DescribeDcdnDomainRegionDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The proportion of requests from the specified region based on the total number of requests in percentile. For example, a value of 90 indicates that 90% of the requests were coming from the specified region.
+     * @description The proportions of requests that were initiated from each region.
      *
      * @var value
      */

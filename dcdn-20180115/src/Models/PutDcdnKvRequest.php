@@ -9,7 +9,17 @@ use AlibabaCloud\Tea\Model;
 class PutDcdnKvRequest extends Model
 {
     /**
-     * @description The length of the key.
+     * @var int
+     */
+    public $expiration;
+
+    /**
+     * @var int
+     */
+    public $expirationTtl;
+
+    /**
+     * @description The key. The key can be up to 512 characters in length, and cannot contain spaces.
      *
      * @example key1
      *
@@ -18,7 +28,7 @@ class PutDcdnKvRequest extends Model
     public $key;
 
     /**
-     * @description The content of the key. The maximum size is 2 MB (2 x 1000 x 1000 bytes).
+     * @description The name of the namespace.
      *
      * @example ns1
      *
@@ -27,7 +37,7 @@ class PutDcdnKvRequest extends Model
     public $namespace;
 
     /**
-     * @description The content of the key. If the value exceeds 256 characters in length, the first 100 characters and the last 100 characters are retained and other characters are discarded.
+     * @description The value of the key. The maximum size is 2 MB (2 x 1000 x 1000 bytes).
      *
      * @example value1
      *
@@ -35,9 +45,11 @@ class PutDcdnKvRequest extends Model
      */
     public $value;
     protected $_name = [
-        'key'       => 'Key',
-        'namespace' => 'Namespace',
-        'value'     => 'Value',
+        'expiration'    => 'Expiration',
+        'expirationTtl' => 'ExpirationTtl',
+        'key'           => 'Key',
+        'namespace'     => 'Namespace',
+        'value'         => 'Value',
     ];
 
     public function validate()
@@ -47,6 +59,12 @@ class PutDcdnKvRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->expiration) {
+            $res['Expiration'] = $this->expiration;
+        }
+        if (null !== $this->expirationTtl) {
+            $res['ExpirationTtl'] = $this->expirationTtl;
+        }
         if (null !== $this->key) {
             $res['Key'] = $this->key;
         }
@@ -68,6 +86,12 @@ class PutDcdnKvRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Expiration'])) {
+            $model->expiration = $map['Expiration'];
+        }
+        if (isset($map['ExpirationTtl'])) {
+            $model->expirationTtl = $map['ExpirationTtl'];
+        }
         if (isset($map['Key'])) {
             $model->key = $map['Key'];
         }

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class realTimeSrcCodeProportionData extends Model
 {
     /**
-     * @description Queries the proportions of HTTP status codes returned during back-to-origin routing.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -18,6 +18,8 @@ class realTimeSrcCodeProportionData extends Model
     public $code;
 
     /**
+     * @description The number of HTTP status codes.
+     *
      * @example 2
      *
      * @var string
@@ -25,6 +27,8 @@ class realTimeSrcCodeProportionData extends Model
     public $count;
 
     /**
+     * @description The proportion of the HTTP status code.
+     *
      * @example 66.046511627907
      *
      * @var string

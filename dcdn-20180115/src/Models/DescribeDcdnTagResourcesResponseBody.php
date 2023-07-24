@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnTagResourcesResponseBody extends Model
 {
     /**
-     * @description >  You can call this operation up to 10 times per second per account.
+     * @description The ID of the request.
      *
      * @example 34AB41F1-04A5-496F-8C8D-634BDBE6A9FB
      *
@@ -19,7 +19,7 @@ class DescribeDcdnTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Queries the tags of one or more resources.
+     * @description The tag of the instance.
      *
      * @var tagResources[]
      */

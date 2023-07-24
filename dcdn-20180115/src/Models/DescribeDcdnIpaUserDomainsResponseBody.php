@@ -10,24 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnIpaUserDomainsResponseBody extends Model
 {
     /**
-     * @description The status of the accelerated domain name. Valid values:
-     *
-     *   **online**: enabled
-     *   **offline**: disabled
-     *   **configuring**: configuring
-     *   **configure_failed**: configuration failed
-     *   **checking**: reviewing
-     *   **check_failed**: review failed
+     * @description The array that consists of multiple PageData parameters. The details about each accelerated domain name are included in a separate PageData parameter.
      *
      * @var domains
      */
     public $domains;
 
     /**
-     * @description The status of HTTPS.
-     *
-     *   **on**
-     *   **off**
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -36,7 +26,7 @@ class DescribeDcdnIpaUserDomainsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the resource group.
+     * @description The number of domain names returned per page.
      *
      * @example 20
      *
@@ -45,7 +35,7 @@ class DescribeDcdnIpaUserDomainsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The reason why the accelerated domain name failed the review.
+     * @description The ID of the request.
      *
      * @example AA75AADB-5E25-4970-B480-EAA1F5658483
      *
@@ -54,7 +44,7 @@ class DescribeDcdnIpaUserDomainsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the accelerated domain name was in a sandbox.
+     * @description The total number of domain names returned.
      *
      * @example 1
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainUsageDataResponseBody extends Model
 {
     /**
-     * @description data.field
+     * @description The billable region where the usage data was collected.
      *
      * @example CN
      *
@@ -19,7 +19,7 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $area;
 
     /**
-     * @description data.area
+     * @description The time interval between the data entries returned. Unit: seconds.
      *
      * @example /
      *
@@ -28,9 +28,8 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The time interval between the data entries to return. Unit: seconds.
+     * @description The accelerated domain name.
      *
-     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
      * @example example.com
      *
      * @var string
@@ -38,7 +37,7 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The accelerated domain name.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2015-12-10T22:00:00Z
      *
@@ -47,7 +46,7 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The type of the content returned.
+     * @description The ID of the request.
      *
      * @example B955107D-E658-4E77-B913-E0AC3D31693E
      *
@@ -56,7 +55,7 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The end of the time range during which data was queried.
+     * @description The beginning of the time range during which data was queried.
      *
      * @example 2015-12-10T20:00:00Z
      *
@@ -65,7 +64,7 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The beginning of the time range during which data was queried.
+     * @description The type of the content returned.
      *
      * @example static
      *
@@ -74,7 +73,7 @@ class DescribeDcdnDomainUsageDataResponseBody extends Model
     public $type;
 
     /**
-     * @description The billable region where the usage data was collected.
+     * @description The network traffic that was collected at each interval.
      *
      * @var usageDataPerInterval
      */

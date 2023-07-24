@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRDDomainConfigRequest extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeRDDomainConfigRequest extends Model
     public $domainName;
 
     /**
+     * @description The name of the feature. Default value: source_group.
+     *
      * @example source_group
      *
      * @var string

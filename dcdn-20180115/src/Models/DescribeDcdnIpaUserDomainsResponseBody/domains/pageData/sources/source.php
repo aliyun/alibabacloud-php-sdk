@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
+     * @description The address of the origin server.
+     *
      * @example *.aliyuncs.com
      *
      * @var string
@@ -16,6 +18,8 @@ class source extends Model
     public $content;
 
     /**
+     * @description The port of the origin server.
+     *
      * @example 80
      *
      * @var int
@@ -23,6 +27,8 @@ class source extends Model
     public $port;
 
     /**
+     * @description The priority.
+     *
      * @example 20
      *
      * @var string
@@ -30,13 +36,17 @@ class source extends Model
     public $priority;
 
     /**
-     * @description Queries information about all domain names that are accelerated by IPA in your account.
-     * Fuzzy search and filtering by domain name status are supported.
+     * @description The type of the origin server.
+     *
+     * @example OSS Domain
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The weight of the origin server if multiple origin servers have been specified.
+     *
      * @example 20
      *
      * @var string

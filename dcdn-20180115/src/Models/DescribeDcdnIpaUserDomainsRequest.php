@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnIpaUserDomainsRequest extends Model
 {
     /**
-     * @description The tag key. Valid values of N: 1 to 20. You can call the TagDcdnResources operation to set a tag for a domain name.
+     * @description Specifies whether to display domain names that are under review, failed the review, or failed to be configured. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -19,7 +22,7 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $checkDomainShow;
 
     /**
-     * @description The ID of the resource group.
+     * @description The domain name that is used as a keyword to filter domain names. Fuzzy match is supported.
      *
      * @example example.com
      *
@@ -28,10 +31,12 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $domainName;
 
     /**
-     * @description The status of the feature.
+     * @description The search method. Default value: full_match. Valid values:
      *
-     *   config: The feature is enabled.
-     *   unconfig: The feature is not enabled.
+     *   **fuzzy_match**: fuzzy match
+     *   **pre_match**: prefix match
+     *   **suf_match**: suffix match
+     *   **full_match**: exact match
      *
      * @example fuzzy_match
      *
@@ -40,7 +45,14 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $domainSearchType;
 
     /**
-     * @description The ID of the feature. For example, a value of 7 specifies the feature of configuring an expiration rule for a specific directory. For more information about feature IDs, see [Parameters for configuring features for domain names](~~410622~~).
+     * @description The status of the domain name. Valid values:
+     *
+     *   **online**: enabled
+     *   **offline**: disabled
+     *   **configuring**: configuring
+     *   **configure_failed**: configuration failed
+     *   **checking**: reviewing
+     *   **check_failed:** review failed
      *
      * @example online
      *
@@ -49,7 +61,10 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $domainStatus;
 
     /**
-     * @description The number of the returned page.
+     * @description The status of the feature.
+     *
+     *   config: The feature is enabled.
+     *   unconfig: The feature is not enabled.
      *
      * @example config
      *
@@ -58,7 +73,7 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $funcFilter;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the feature. For example, a value of 7 specifies the feature of configuring an expiration rule for a specific directory. For more information about feature IDs, see [Parameters for configuring features for domain names](~~410622~~).
      *
      * @example 7
      *
@@ -72,10 +87,7 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to display domain names that are under review, failed the review, or failed to be configured. Valid values:
-     *
-     *   **true**
-     *   **false**
+     * @description The page number of the returned page. Valid values: **1** to **100000**. Default value: **1**.
      *
      * @example 1
      *
@@ -84,12 +96,7 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The search method. Default value: full_match. Valid values:
-     *
-     *   **fuzzy_match**: fuzzy match
-     *   **pre_match**: prefix match
-     *   **suf_match**: suffix match
-     *   **full_match**: exact match
+     * @description The number of domain names to return on each page. Default value: **20**. Maximum value: **500**. Valid values: an integer between **1** and **500**.
      *
      * @example 5
      *
@@ -98,7 +105,7 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The tag value. Valid values of N: 1 to 20.
+     * @description The ID of the resource group.
      *
      * @example ResourceGroupId
      *
@@ -107,7 +114,7 @@ class DescribeDcdnIpaUserDomainsRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The number of domain names returned per page.
+     * @description The tags of the command.
      *
      * @var tag[]
      */

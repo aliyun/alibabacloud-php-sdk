@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRDDomainsResponseBody extends Model
 {
     /**
+     * @description The status information about the accelerated domain name.
+     *
      * @var domains
      */
     public $domains;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeRDDomainsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 5
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeRDDomainsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example AA75AADB-5E25-4970-B480-EAA1F5658483
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeRDDomainsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 16
      *
      * @var int

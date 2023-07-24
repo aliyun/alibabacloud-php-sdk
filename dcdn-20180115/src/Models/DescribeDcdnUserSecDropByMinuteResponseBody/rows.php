@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class rows extends Model
 {
     /**
-     * @description The security feature that blocked the packets.
+     * @description The domain name.
      *
      * @example example.aliyundoc.com
      *
@@ -18,7 +18,7 @@ class rows extends Model
     public $domain;
 
     /**
-     * @description >  The maximum number of times that users can call this operation per second is 50.
+     * @description The number of packets blocked within 5 minutes.
      *
      * @example 264
      *
@@ -27,25 +27,25 @@ class rows extends Model
     public $drops;
 
     /**
-     * @description The total number of entries returned.
+     * @description The object that triggered rate limiting.
      *
-     * @example The number of the page to return. Pages start from page 1.
+     * @example Normal Mode
      *
      * @var string
      */
     public $object;
 
     /**
-     * @description The total number of entries returned.
+     * @description The rule that was triggered.
      *
-     * @example The rule that was triggered.
+     * @example Normal Mode
      *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description The array returned.
+     * @description The security feature that blocked the packets.
      *
      * @example robot
      *
@@ -54,7 +54,7 @@ class rows extends Model
     public $secFunc;
 
     /**
-     * @description The rule that is triggered.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * @example 2021-01-31T15:04:04Z
      *

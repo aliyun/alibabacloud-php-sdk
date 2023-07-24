@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRoutineCanaryEnvsResponseBody extends Model
 {
     /**
-     * @description The ID of the region.
+     * @description The canary release environments that are supported.
      *
      * @example presetCanaryShanghai
      *
@@ -18,7 +18,7 @@ class DescribeRoutineCanaryEnvsResponseBody extends Model
     public $content;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeRoutineCanaryEnvs**.
+     * @description The ID of the request.
      *
      * @example CDCD94C0-F7FE-412F-B8F8-7E3C610C78E5
      *

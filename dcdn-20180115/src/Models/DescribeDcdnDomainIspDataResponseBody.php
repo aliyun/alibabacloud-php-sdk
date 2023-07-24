@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainIspDataResponseBody extends Model
 {
     /**
-     * @description The total amount of network traffic.
+     * @description The time interval between the data entries returned. Unit: seconds.
      *
      * @example 86400
      *
@@ -19,7 +19,7 @@ class DescribeDcdnDomainIspDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The total number of requests.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -28,7 +28,7 @@ class DescribeDcdnDomainIspDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The time interval between the data entries returned. Unit: seconds.
+     * @description The end of the time range during which data was queried.
      *
      * @example 2019-12-06T12:00:00Z
      *
@@ -37,7 +37,7 @@ class DescribeDcdnDomainIspDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The number of queries per second.
+     * @description The ID of the request.
      *
      * @example 2E5AD83F-BD7B-462E-8319-2E30E305519A
      *
@@ -46,7 +46,7 @@ class DescribeDcdnDomainIspDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The access statistics by ISP.
+     * @description The start of the time range during which data was queried.
      *
      * @example 2019-12-05T12:00:00Z
      *
@@ -55,7 +55,7 @@ class DescribeDcdnDomainIspDataResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The average response speed. Unit: byte/ms.
+     * @description The access statistics by ISP.
      *
      * @var value
      */

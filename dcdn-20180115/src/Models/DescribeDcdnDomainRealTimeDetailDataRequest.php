@@ -9,41 +9,88 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeDetailDataRequest extends Model
 {
     /**
+     * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+     *
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * > The end time must be later than the start time, and the maximum time range to query is 10 minutes.
+     * @example 2019-11-30T05:40:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The type of information that you want to query. Separate multiple types with commas (,). Valid values:
+     *
+     *   **qps**: queries per second (QPS)
+     *   **bps**: bandwidth
+     *   **http_code**: HTTP status code
+     *
+     * @example bps
+     *
      * @var string
      */
     public $field;
 
     /**
+     * @description The name of the ISP. You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query the ISP name.
+     *
+     * If you leave this parameter empty, all ISPs are queried.
+     * @example unicom
+     *
      * @var string
      */
     public $ispNameEn;
 
     /**
+     * @description The name of the region. You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query the region name.
+     *
+     * If you leave this parameter empty, all regions are queried.
+     * @example beijing
+     *
      * @var string
      */
     public $locationNameEn;
 
     /**
+     * @description Specifies whether to return a summary value. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * Default value: **false**.
+     * @example true
+     *
      * @var string
      */
     public $merge;
 
     /**
+     * @description Specifies whether to return a summary value of **LocationNameEn** and **IspNameEn**. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * Default value: **false**.
+     * @example true
+     *
      * @var string
      */
     public $mergeLocIsp;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * @example 2019-11-30T05:33:00Z
+     *
      * @var string
      */
     public $startTime;

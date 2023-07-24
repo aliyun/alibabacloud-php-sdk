@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RollbackDcdnStagingConfigResponseBody extends Model
 {
     /**
-     * @description The accelerated domain name. You can specify only one domain name in each call.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafScenesResponseBody extends Model
 {
     /**
-     * @description >You can call this operation up to 20 times per second per account.
+     * @description The types of the protection policies.
      *
      * @var defenseScenes[]
      */
     public $defenseScenes;
 
     /**
-     * @description The type of the protection policy, which is the same as the DefenseScenes parameter in request parameters.
+     * @description The ID of the request.
      *
      * @example 3D7BB13C-DD84-5654-A835-B8E1385DE274
      *

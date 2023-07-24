@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRDDomainConfigResponseBody extends Model
 {
     /**
+     * @description The configuration of the domain name.
+     *
      * @var domainConfigs[]
      */
     public $domainConfigs;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C80705BF-0F76-41FA-BAD1-5B59296A4E59
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateRoutineShrinkRequest extends Model
 {
     /**
-     * @description The configurations of the specified environment.
+     * @description The description of the routine.
      *
      * @example the description of this routine
      *
@@ -18,7 +18,7 @@ class CreateRoutineShrinkRequest extends Model
     public $description;
 
     /**
-     * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
+     * @description The configurations of the specified environment.
      *
      * @example {"staging":{"pecName":"50ms"},"production":{"SpecName":"50ms"}}
      *
@@ -27,10 +27,7 @@ class CreateRoutineShrinkRequest extends Model
     public $envConfShrink;
 
     /**
-     * @description >
-     *   The parameters must comply with the rules of EnvConf. The description of a routine cannot exceed 50 characters in length.
-     *   This operation creates a routine that contains only production and staging environments.
-     *   You can call this operation up to 100 times per second.
+     * @description The name of the routine. The name must be unique among the routines that belong to the same Alibaba Cloud account.
      *
      * @example test
      *

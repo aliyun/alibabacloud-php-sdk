@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
-     * @description The priority of the origin server.
+     * @description The CNAME assigned to the accelerated domain name.
      *
      * @example example.com.*.com
      *
@@ -19,7 +19,7 @@ class pageData extends Model
     public $cname;
 
     /**
-     * @description The time when the accelerated domain name was modified.
+     * @description The reason why the accelerated domain name failed the review.
      *
      * @example audit failed
      *
@@ -28,7 +28,7 @@ class pageData extends Model
     public $description;
 
     /**
-     * @description The address of the origin server.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -37,7 +37,14 @@ class pageData extends Model
     public $domainName;
 
     /**
-     * @description The weight of the origin server if multiple origin servers have been specified.
+     * @description The status of the accelerated domain name. Valid values:
+     *
+     *   **online**: enabled
+     *   **offline**: disabled
+     *   **configuring**: configuring
+     *   **configure_failed**: configuration failed
+     *   **checking**: reviewing
+     *   **check_failed:** review failed
      *
      * @example online
      *
@@ -46,7 +53,7 @@ class pageData extends Model
     public $domainStatus;
 
     /**
-     * @description The CNAME assigned to the accelerated domain name.
+     * @description The time when the accelerated domain name was added to Alibaba Cloud CDN.
      *
      * @example 2015-10-28T09:32:51Z
      *
@@ -55,7 +62,7 @@ class pageData extends Model
     public $gmtCreated;
 
     /**
-     * @description The port of the origin server.
+     * @description The time when the accelerated domain name was modified.
      *
      * @example 2015-10-28T11:05:52Z
      *
@@ -64,7 +71,7 @@ class pageData extends Model
     public $gmtModified;
 
     /**
-     * @description The information about the origin server.
+     * @description The ID of the resource group.
      *
      * @example abcd1234abcd****
      *
@@ -73,7 +80,10 @@ class pageData extends Model
     public $resourceGroupId;
 
     /**
-     * @description The accelerated domain name.
+     * @description The status of HTTPS.
+     *
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -82,7 +92,7 @@ class pageData extends Model
     public $SSLProtocol;
 
     /**
-     * @description The type of the origin server.
+     * @description Indicates whether the accelerated domain name was in a sandbox.
      *
      * @example normal
      *
@@ -91,7 +101,7 @@ class pageData extends Model
     public $sandbox;
 
     /**
-     * @description >  You can call this operation up to 30 times per second per account.
+     * @description The information about the origin server.
      *
      * @var sources
      */

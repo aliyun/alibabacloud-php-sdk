@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetDcdnDomainCertificateRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the SSL certificate. Default value: off. Valid values:
-     *
-     *   **on**: enables the SSL certificate.
-     *   **off**: disables the SSL certificate.
+     * @description The certificate name.
      *
      * @example yourCertName
      *
@@ -21,8 +18,12 @@ class SetDcdnDomainCertificateRequest extends Model
     public $certName;
 
     /**
-     * @description The content of the certificate. This parameter is required only if you enable the SSL certificate.
+     * @description The certificate type.
      *
+     *   **upload**: a user-uploaded SSL certificate.
+     *   **cas**: a certificate that is acquired through Certificate Management Service.
+     *
+     * > If the value of the CertType parameter is **cas**, the **SSLPri** parameter is not required.
      * @example cas
      *
      * @var string
@@ -30,16 +31,9 @@ class SetDcdnDomainCertificateRequest extends Model
     public $certType;
 
     /**
-     * @description The type of the certificate.
+     * @description The accelerated domain name. You can specify only one domain name.
      *
-     *   **upload**: a user-uploaded SSL certificate.
-     *   **cas**: a certificate that is acquired through SSL Certificates Service.
-     *   **free**: a free certificate.
-     *
-     * >
-     *   If the value of the CertType parameter is **cas**, the **SSLPri** parameter is not required.
-     *   If the value of the CertType parameter is **free**, the **SSLPri** and **SSLPub** parameters are not required.
-     *
+     * HTTPS acceleration must be enabled for the accelerated domain name.
      * @example example.com
      *
      * @var string
@@ -47,7 +41,7 @@ class SetDcdnDomainCertificateRequest extends Model
     public $domainName;
 
     /**
-     * @description >  You can call this operation up to 30 times per second per account.
+     * @description Specifies whether to check the certificate name for duplicates. If you set the value to 1, the system does not perform the check and overwrites the information about the existing certificate that uses the same name.
      *
      * @example 1
      *
@@ -61,7 +55,7 @@ class SetDcdnDomainCertificateRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the request.
+     * @description The region. Default value: ch-hangzhou.
      *
      * @example cn-shanghai
      *
@@ -70,7 +64,7 @@ class SetDcdnDomainCertificateRequest extends Model
     public $region;
 
     /**
-     * @description Specifies whether to check the certificate name for duplicates. If you set the value to 1, the system does not perform the check and overwrites the information about the existing certificate that uses the same name.
+     * @description The private key. This parameter is required only if you enable the SSL certificate.
      *
      * @example SSLPri
      *
@@ -79,7 +73,10 @@ class SetDcdnDomainCertificateRequest extends Model
     public $SSLPri;
 
     /**
-     * @description The private key. This parameter is required only if you enable the SSL certificate.
+     * @description Specifies whether to enable the SSL certificate.
+     *
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -88,7 +85,7 @@ class SetDcdnDomainCertificateRequest extends Model
     public $SSLProtocol;
 
     /**
-     * @description The region. Default value: ch-hangzhou.
+     * @description The certificate content. This parameter is required only if you enable the SSL certificate.
      *
      * @example SSLPub
      *

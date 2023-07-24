@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnWafPolicyDomainsResponseBody extends Model
 {
     /**
-     * @description The ID of the protection policy. You can specify only one ID in each request.
+     * @description The accelerated domain names.
      *
      * @var domains[]
      */
     public $domains;
 
     /**
-     * @description >You can call this operation up to 20 times per second per account.
+     * @description The page number of the returned page, which is the same as the PageNumber parameter in request parameters.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeDcdnWafPolicyDomainsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The accelerated domain names.
+     * @description The number of domain names returned per page, which is the same as the PageSize parameter in request parameters.
      *
      * @example 20
      *
@@ -35,7 +35,7 @@ class DescribeDcdnWafPolicyDomainsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The accelerated domain name that was protected by the specified protection policy.
+     * @description The ID of the request.
      *
      * @example 153ca2cd-3c01-44be-b480-64dbc6c88630
      *

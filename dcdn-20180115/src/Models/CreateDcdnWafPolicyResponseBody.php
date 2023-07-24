@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDcdnWafPolicyResponseBody extends Model
 {
     /**
-     * @description The name of the protection policy. The name can be up to 64 characters in length and can contain letters, digits, and underscores (\_).
+     * @description The ID of the protection policy that you created.
      *
      * @example 10000001
      *
@@ -18,10 +18,7 @@ class CreateDcdnWafPolicyResponseBody extends Model
     public $policyId;
 
     /**
-     * @description Specifies whether to set the current policy as the default policy. Valid values:
-     *
-     *   default: sets the current policy as the default policy.
-     *   custom: does not set the current policy as the default policy.
+     * @description The ID of the request.
      *
      * @example CB1A380B-09F0-41BB-A198-72F8FD6DA2FE
      *

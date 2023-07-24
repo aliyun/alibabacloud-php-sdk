@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class pageData extends Model
 {
     /**
-     * @description The total number of domain names returned.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -18,7 +18,7 @@ class pageData extends Model
     public $domainName;
 
     /**
-     * @description >  You can call this operation up to 10 times per second per account.
+     * @description The time when the accelerated domain name was modified. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2015-10-28T11:05:52Z
      *

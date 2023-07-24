@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeDetailDataResponseBody extends Model
 {
     /**
+     * @description The information returned.
+     *
+     * > The value of this parameter is a JSON string. The following table describes the fields in Data.
+     * @example [
+     * ]
      * @var string
      */
     public $data;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A603F324-7A05-4FB3-ADF3-2563233D26CC
+     *
      * @var string
      */
     public $requestId;

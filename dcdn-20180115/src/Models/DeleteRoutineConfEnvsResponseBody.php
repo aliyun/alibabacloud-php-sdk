@@ -18,7 +18,7 @@ class DeleteRoutineConfEnvsResponseBody extends Model
     public $content;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the request.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *

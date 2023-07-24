@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class usageData extends Model
 {
     /**
-     * @description The number of HTTP status codes.
+     * @description The timestamp of the returned data.
      *
      * @example 2019-11-30T05:40:00Z
      *
@@ -19,12 +19,8 @@ class usageData extends Model
     public $timeStamp;
 
     /**
-     * @description - You can call this operation up to 10 times per second per account.
-     * - If you do not set the StartTime or EndTime parameter, data collected over the last one hour is queried. If you set both the StartTime and EndTime parameters, data collected within the specified time range is queried.
+     * @description The proportions of the HTTP status codes.
      *
-     **Time granularity**The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
-     *
-     * | 1 hour | 31 days | 186 days | 4 hours |
      * @var value
      */
     public $value;
