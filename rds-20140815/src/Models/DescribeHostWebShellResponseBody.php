@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHostWebShellResponseBody extends Model
 {
     /**
+     * @description The URL of the webshell.
+     *
      * @example ***
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeHostWebShellResponseBody extends Model
     public $loginUrl;
 
     /**
+     * @description The request ID.
+     *
      * @example 842B73C8-5776-4BD9-9872-69C8C46DD7D3
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHostWebShellRequest extends Model
 {
     /**
+     * @description The username of the account that is used to log on to the host of the instance.
+     *
      * @example testOsAccount1
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeHostWebShellRequest extends Model
     public $accountName;
 
     /**
+     * @description The password of the account.
+     *
      * @example ***
      *
      * @var string
@@ -23,11 +27,17 @@ class DescribeHostWebShellRequest extends Model
     public $accountPassword;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example rm-uf6wjk5xxxxxxx
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The hostname of the instance. You can call the [DescribeDBInstanceIpHostname](~~610525~~) operation to query the hostname.
+     *
      * @example testHost1
      *
      * @var string
@@ -40,6 +50,8 @@ class DescribeHostWebShellRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

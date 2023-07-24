@@ -9549,10 +9549,20 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHostWebShellRequest $request
-     * @param RuntimeOptions              $runtime
+     * > This operation supports only for ApsaraDB RDS for SQL Server instances and is available only to specific customers. If you want to call this operation, contact **Alibaba Cloud technical support**.
+     *   * ### Prerequisites
+     *   * The instance meets the following requirements:
+     *   * *   The instance resides in a region other than the China (Zhangjiakou) region.
+     *   * *   The instance runs RDS Basic Edition, runs SQL Server 2012 or later on RDS High-availability Edition, or runs RDS Cluster Edition.
+     *   * *   The instance belongs to the general-purpose or dedicated instance family. The shared instance family is not supported.
+     *   * *   The instance resides in a virtual private cloud (VPC). For more information about how to change the network type of an instance, see [Change the network type of an ApsaraDB RDS for SQL Server instance](~~95707~~).
+     *   * *   If the instance runs RDS High-availability Edition or RDS Cluster Edition, make sure that the instance is created on or after January 01, 2021. If the instance runs RDS Basic Edition, make sure that the instance is created on or after September 02, 2022. You can view the **Creation Time** parameter of an instance in the **Status** section of the **Basic Information** page in the ApsaraDB RDS console.
+     *   * Your **Alibaba Cloud account** is used for logons.
+     *   *
+     * @param DescribeHostWebShellRequest $request DescribeHostWebShellRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeHostWebShellResponse
+     * @return DescribeHostWebShellResponse DescribeHostWebShellResponse
      */
     public function describeHostWebShellWithOptions($request, $runtime)
     {
@@ -9601,9 +9611,19 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DescribeHostWebShellRequest $request
+     * > This operation supports only for ApsaraDB RDS for SQL Server instances and is available only to specific customers. If you want to call this operation, contact **Alibaba Cloud technical support**.
+     *   * ### Prerequisites
+     *   * The instance meets the following requirements:
+     *   * *   The instance resides in a region other than the China (Zhangjiakou) region.
+     *   * *   The instance runs RDS Basic Edition, runs SQL Server 2012 or later on RDS High-availability Edition, or runs RDS Cluster Edition.
+     *   * *   The instance belongs to the general-purpose or dedicated instance family. The shared instance family is not supported.
+     *   * *   The instance resides in a virtual private cloud (VPC). For more information about how to change the network type of an instance, see [Change the network type of an ApsaraDB RDS for SQL Server instance](~~95707~~).
+     *   * *   If the instance runs RDS High-availability Edition or RDS Cluster Edition, make sure that the instance is created on or after January 01, 2021. If the instance runs RDS Basic Edition, make sure that the instance is created on or after September 02, 2022. You can view the **Creation Time** parameter of an instance in the **Status** section of the **Basic Information** page in the ApsaraDB RDS console.
+     *   * Your **Alibaba Cloud account** is used for logons.
+     *   *
+     * @param DescribeHostWebShellRequest $request DescribeHostWebShellRequest
      *
-     * @return DescribeHostWebShellResponse
+     * @return DescribeHostWebShellResponse DescribeHostWebShellResponse
      */
     public function describeHostWebShell($request)
     {
