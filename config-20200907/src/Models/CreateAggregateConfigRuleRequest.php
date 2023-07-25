@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAggregateConfigRuleRequest extends Model
 {
     /**
-     * @description The way in which the rule is to be created. Valid values:
+     * @description The ID of the account group.
      *
-     *   ALIYUN: The rule is to be created based on a managed rule of Alibaba Cloud.
-     *   CUSTOM_FC: The rule is a custom rule.
-     *
+     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
      * @example ca-a4e5626622af0079****
      *
      * @var string
@@ -21,9 +19,8 @@ class CreateAggregateConfigRuleRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The ID of the resource group to which the rule applies. Separate multiple resource group IDs with commas (,).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
      *
-     * >  This parameter applies only to a managed rule.
      * @example 1594295238-f9361358-5843-4294-8d30-b5183fac****
      *
      * @var string
@@ -31,21 +28,17 @@ class CreateAggregateConfigRuleRequest extends Model
     public $clientToken;
 
     /**
-     * @description The intervals at which the rule is triggered. Valid values:
+     * @description The rule name.
      *
-     *   One_Hour: 1 hour.
-     *   Three_Hours: 3 hours.
-     *   Six_Hours: 6 hours.
-     *   Twelve_Hours: 12 hours.
-     *   TwentyFour_Hours: 24 hours. This is the default value.
-     *
-     * >  This parameter is required if the `ConfigRuleTriggerTypes` parameter is set to `ScheduledNotification`.
      * @var string
      */
     public $configRuleName;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The trigger type of the rule. Valid values:
+     *
+     *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
+     *   ScheduledNotification: The rule is periodically triggered.
      *
      * @example ConfigurationItemChangeNotification
      *
@@ -54,13 +47,16 @@ class CreateAggregateConfigRuleRequest extends Model
     public $configRuleTriggerTypes;
 
     /**
-     * @description The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
+     * @description The description of the rule.
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the member account to which the rule does not apply, which means that the resources within the member account are not evaluated based on the rule. Separate multiple member account IDs with commas (,).
+     *
+     * > This parameter applies only to a managed rule.
      * @example 120886317861****
      *
      * @var string
@@ -68,6 +64,14 @@ class CreateAggregateConfigRuleRequest extends Model
     public $excludeAccountIdsScope;
 
     /**
+     * @description The ID of the resource directory to which the rule does not apply, which means that the resources within member accounts in the resource directory are not evaluated based on the rule. Separate multiple resource directory IDs with commas (,).
+     *
+     * >
+     *
+     *   This parameter applies only to a rule of a global account group.
+     *
+     *   This parameter applies only to a managed rule.
+     *
      * @example fd-pWmkqZ****
      *
      * @var string
@@ -75,9 +79,9 @@ class CreateAggregateConfigRuleRequest extends Model
     public $excludeFolderIdsScope;
 
     /**
-     * @description The tag value used to filter resources. The rule applies only to the resources with the specified tag value.
+     * @description The ID of the resource to be excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
      *
-     * >  This parameter applies only to a managed rule. You must set the `TagKeyScope` and `TagValueScope` parameters at the same time.
+     * > This parameter applies only to a managed rule.
      * @example lb-t4nbowvtbkss7t326****
      *
      * @var string
@@ -85,7 +89,13 @@ class CreateAggregateConfigRuleRequest extends Model
     public $excludeResourceIdsScope;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the resource directory to which the rule applies, which means that the resources within member accounts in the resource directory are evaluated based on the rule.
+     *
+     * >
+     *
+     *   This parameter applies only to a rule of a global account group.
+     *
+     *   This parameter applies only to a managed rule.
      *
      * @example fd-ZtHsRH****
      *
@@ -94,11 +104,7 @@ class CreateAggregateConfigRuleRequest extends Model
     public $folderIdsScope;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rule. Valid values:
-     *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     * @description The input parameter of the rule.
      *
      * @example {"tag1Key":"ECS","tag1Value":"test"}
      *
@@ -107,9 +113,15 @@ class CreateAggregateConfigRuleRequest extends Model
     public $inputParameters;
 
     /**
-     * @description The ID of the region to which the rule applies. Separate multiple region IDs with commas (,).
+     * @description The interval at which the rule is triggered. Valid values:
      *
-     * >  This parameter applies only to a managed rule.
+     *   One_Hour: 1 hour.
+     *   Three_Hours: 3 hours.
+     *   Six_Hours: 6 hours.
+     *   Twelve_Hours: 12 hours.
+     *   TwentyFour_Hours (default): 24 hours.
+     *
+     * > This parameter is required if the `ConfigRuleTriggerTypes` parameter is set to `ScheduledNotification`.
      * @example One_Hour
      *
      * @var string
@@ -117,9 +129,9 @@ class CreateAggregateConfigRuleRequest extends Model
     public $maximumExecutionFrequency;
 
     /**
-     * @description The tag key used to filter resources. The rule applies only to the resources with the specified tag key. Separate multiple parameter values with commas (,).
+     * @description The ID of the region to which the rule applies. Separate multiple region IDs with commas (,).
      *
-     * >  This parameter applies only to a managed rule. You must set the `TagKeyScope` and `TagValueScope` parameters at the same time.
+     * > This parameter applies only to a managed rule.
      * @example cn-hangzhou
      *
      * @var string
@@ -127,12 +139,9 @@ class CreateAggregateConfigRuleRequest extends Model
     public $regionIdsScope;
 
     /**
-     * @description The identifier of the rule.
+     * @description The ID of the resource group to which the rule applies. Separate multiple resource group IDs with commas (,).
      *
-     *   If the SourceOwner parameter is set to ALIYUN, set this parameter to the name of the managed rule.
-     *   If the SourceOwner parameter is set to CUSTOM_FC, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
-     *
-     * For more information about how to query the name of a managed rule, see [Managed rules](~~127404~~).
+     * > This parameter applies only to a managed rule.
      * @example rg-aekzc7r7rhx****
      *
      * @var string
@@ -140,9 +149,8 @@ class CreateAggregateConfigRuleRequest extends Model
     public $resourceGroupIdsScope;
 
     /**
-     * @description The ID of the resource to be excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+     * @description The type of the resource evaluated by the rule. Separate multiple resource types with commas (,).
      *
-     * >  This parameter applies only to a managed rule.
      * @example ACS::ECS::Instance
      *
      * @var string[]
@@ -150,9 +158,12 @@ class CreateAggregateConfigRuleRequest extends Model
     public $resourceTypesScope;
 
     /**
-     * @description The ID of the account group.
+     * @description The risk level of the resources that are not compliant with the rule. Valid values:
      *
-     * For more information about how to query the ID of an account group, see [ListAggregators](~~255797~~).
+     *   1: high risk level
+     *   2: medium risk level
+     *   3: low risk level
+     *
      * @example 1
      *
      * @var int
@@ -160,9 +171,12 @@ class CreateAggregateConfigRuleRequest extends Model
     public $riskLevel;
 
     /**
-     * @description The ID of the member account to which the rule does not apply, which means that the resources within the member account are not evaluated based on the rule. Separate multiple member account IDs with commas (,).
+     * @description The identifier of the rule.
      *
-     * >  This parameter applies only to a managed rule.
+     *   If you set the SourceOwner parameter to ALIYUN, set this parameter to the name of the managed rule.
+     *   If you set the SourceOwner parameter to CUSTOM_FC, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
+     *
+     * For more information about how to query the name of a managed rule, see [Managed rules](~~127404~~).
      * @example required-tags
      *
      * @var string
@@ -170,11 +184,10 @@ class CreateAggregateConfigRuleRequest extends Model
     public $sourceIdentifier;
 
     /**
-     * @description The ID of the resource directory to which the rule does not apply, which means that the resources within member accounts in the resource directory are not evaluated based on the rule. Separate multiple resource directory IDs with commas (,).
+     * @description The type of the rule. Valid values:
      *
-     * >
-     *   This parameter applies only to a rule of a global account group.
-     *   This parameter applies only to a managed rule.
+     *   ALIYUN: a managed rule.
+     *   CUSTOM_FC: a custom rule.
      *
      * @example ALIYUN
      *
@@ -183,7 +196,10 @@ class CreateAggregateConfigRuleRequest extends Model
     public $sourceOwner;
 
     /**
-     * @description The ID of the rule.
+     * @description The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+     *
+     *   AND
+     *   OR
      *
      * @example AND
      *
@@ -192,11 +208,9 @@ class CreateAggregateConfigRuleRequest extends Model
     public $tagKeyLogicScope;
 
     /**
-     * @description The logical relationship among the tag keys if you specify multiple tag keys by using the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and set the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+     * @description The tag key used to filter resources. The rule applies only to the resources with the specified tag key. Separate multiple parameter values with commas (,).
      *
-     *   AND: the logical relationship of AND
-     *   OR: the logical relationship of OR
-     *
+     * > This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
      * @example ECS
      *
      * @var string
@@ -204,12 +218,9 @@ class CreateAggregateConfigRuleRequest extends Model
     public $tagKeyScope;
 
     /**
-     * @description The ID of the resource directory to which the rule applies, which means that the resources within member accounts in the resource directory are evaluated based on the rule.
+     * @description The tag value used to filter resources. The rule applies only to the resources with the specified tag value.
      *
-     * >
-     *   This parameter applies only to a rule of a global account group.
-     *   This parameter applies only to a managed rule.
-     *
+     * > This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
      * @example test
      *
      * @var string

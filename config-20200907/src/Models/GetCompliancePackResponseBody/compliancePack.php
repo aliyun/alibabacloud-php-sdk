@@ -70,9 +70,9 @@ class compliancePack extends Model
     /**
      * @description The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *
@@ -81,7 +81,7 @@ class compliancePack extends Model
     public $riskLevel;
 
     /**
-     * @description The resource group for which the compliance package takes effect.
+     * @description The resource group for which the compliance package took effect.
      *
      * @var scope
      */

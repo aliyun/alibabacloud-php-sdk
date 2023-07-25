@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateResourceRelationsRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
      * @example ca-856a626622af0033****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListAggregateResourceRelationsRequest extends Model
     public $aggregatorId;
 
     /**
+     * @description The maximum number of entries to return for a single request. Valid values: 1 to 1000.
+     *
      * @example 10
      *
      * @var int
@@ -23,6 +27,8 @@ class ListAggregateResourceRelationsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
      * @example AcBjqMYSy0is7zSMGu16****
      *
      * @var string
@@ -30,6 +36,8 @@ class ListAggregateResourceRelationsRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the region where the resource resides.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -37,6 +45,25 @@ class ListAggregateResourceRelationsRequest extends Model
     public $region;
 
     /**
+     * @description The type of the relationship between the resource and the object.
+     *
+     * Valid values:
+     *
+     *   IsContained: The object is included as part of the resource.
+     *
+     * <!-- -->
+     *
+     *   IsAttachedTo: The object is added to the resource.
+     *
+     * <!-- -->
+     *
+     *   IsAssociatedIn: The object is associated with the resource.
+     *
+     * <!-- -->
+     *
+     *   Contains: The object contains the resource.
+     *
+     * <!-- -->
      * @example IsAttachedTo
      *
      * @var string
@@ -44,6 +71,8 @@ class ListAggregateResourceRelationsRequest extends Model
     public $relationType;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource in the account group belongs.
+     *
      * @example 100931896542****
      *
      * @var int
@@ -51,6 +80,8 @@ class ListAggregateResourceRelationsRequest extends Model
     public $resourceAccountId;
 
     /**
+     * @description The resource ID.
+     *
      * @example i-j6cajg9yrfoh4sas****
      *
      * @var string
@@ -58,6 +89,8 @@ class ListAggregateResourceRelationsRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource.
+     *
      * @example ACS::ECS::Instance
      *
      * @var string
@@ -65,6 +98,8 @@ class ListAggregateResourceRelationsRequest extends Model
     public $resourceType;
 
     /**
+     * @description The ID of the resource that is associated with the object.
+     *
      * @example d-j6c8k731qbrc7fxi****
      *
      * @var string
@@ -72,6 +107,8 @@ class ListAggregateResourceRelationsRequest extends Model
     public $targetResourceId;
 
     /**
+     * @description The type of the resource that is associated with the object.
+     *
      * @example ACS::ECS::Disk
      *
      * @var string

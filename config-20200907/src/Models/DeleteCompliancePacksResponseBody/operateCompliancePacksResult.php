@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class operateCompliancePacksResult extends Model
 {
     /**
-     * @description The result of the delete operation.
+     * @description An array that contains compliance packages that are deleted.
      *
      * @var operateCompliancePacks[]
      */

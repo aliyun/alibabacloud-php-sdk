@@ -11,7 +11,7 @@ class DeleteAggregateConfigRulesRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
      * @example ca-a4e5626622af0079****
      *
      * @var string
@@ -19,9 +19,9 @@ class DeleteAggregateConfigRulesRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The ID of the rule. Separate multiple rule IDs with commas (,).
+     * @description The rule ID. Separate multiple rule IDs with commas (,).
      *
-     * You can call the [ListAggregateConfigRules](~~264148~~) operation to obtain the rule ID.
+     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      * @example cr-4e3d626622af0080****
      *
      * @var string

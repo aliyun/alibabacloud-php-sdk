@@ -10,24 +10,32 @@ use AlibabaCloud\Tea\Model;
 class ListRemediationsResponseBody extends Model
 {
     /**
+     * @description 修正列表的页码。起始值：1。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 分页查询时设置的每页行数。取值范围：1~50。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The remediation settings returned.
+     * @description An array that contains the remediation templates.
      *
      * @var remediations[]
      */
     public $remediations;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0146963A-20C0-4E75-B93A-7D622B5FD7C8
      *
@@ -36,6 +44,10 @@ class ListRemediationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description 修正设置总数。
+     *
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

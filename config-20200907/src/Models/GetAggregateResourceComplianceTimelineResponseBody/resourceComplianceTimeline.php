@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class resourceComplianceTimeline extends Model
 {
     /**
-     * @description The timestamp when the compliance evaluation was recorded. Unit: milliseconds.
+     * @description The compliance evaluation records on the compliance timeline.
      *
      * @var complianceList[]
      */
     public $complianceList;
 
     /**
-     * @description The information about the rules that evaluated the resource and the compliance evaluation result.
+     * @description The maximum number of entries returned for a single request.
      *
      * @example 10
      *
@@ -26,7 +26,7 @@ class resourceComplianceTimeline extends Model
     public $maxResults;
 
     /**
-     * @description The ID of the region in which the resource resides.
+     * @description The token that is used to initiate the next request.
      *
      * @example 5OVS5J4I1/UKTkHV5oNs****
      *

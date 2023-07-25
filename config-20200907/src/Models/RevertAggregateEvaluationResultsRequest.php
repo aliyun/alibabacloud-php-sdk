@@ -29,7 +29,7 @@ class RevertAggregateEvaluationResultsRequest extends Model
     public $configRuleId;
 
     /**
-     * @description The resources that are to be reevaluated.
+     * @description The resources that you want to re-evaluate.
      *
      * @var resources[]
      */

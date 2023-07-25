@@ -20,7 +20,7 @@ class DeleteAggregateConfigDeliveryChannelRequest extends Model
     /**
      * @description The ID of the delivery channel.
      *
-     * For information about how to obtain the ID of a delivery channel, see [ListAggregateConfigDeliveryChannels](~~429842~~).
+     * For more information about how to obtain the ID of a delivery channel, see [ListAggregateConfigDeliveryChannels](~~429842~~).
      * @example cdc-38c3013b46c9002c****
      *
      * @var string

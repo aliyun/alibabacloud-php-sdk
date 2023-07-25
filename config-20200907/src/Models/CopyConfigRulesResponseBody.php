@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CopyConfigRulesResponseBody extends Model
 {
     /**
-     * @description Indicates whether the rules are successfully replicated. Valid values:
+     * @description Indicates whether the rules are replicated. Valid values:
      *
      *   true
      *   false
@@ -21,7 +21,7 @@ class CopyConfigRulesResponseBody extends Model
     public $copyRulesResult;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 7BD81ECF-3194-5A6B-8719-9FC283167AD4
      *

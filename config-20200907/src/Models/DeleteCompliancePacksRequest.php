@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteCompliancePacksRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the value is unique among different requests. The value of this parameter can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example AAAAAdDWBF2****
      *
@@ -30,8 +30,8 @@ class DeleteCompliancePacksRequest extends Model
     /**
      * @description Specifies whether to delete the rules in the compliance package. Valid values:
      *
-     *   true: deletes the rules.
-     *   false: retains the rules. This is the default value.
+     *   true: The rules are deleted.
+     *   false (default): The rules are not deleted.
      *
      * @example false
      *

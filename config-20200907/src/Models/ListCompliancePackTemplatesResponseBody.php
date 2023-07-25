@@ -17,7 +17,7 @@ class ListCompliancePackTemplatesResponseBody extends Model
     public $compliancePackTemplatesResult;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D67FC82F-25AE-4268-A94C-3348340748F9
      *

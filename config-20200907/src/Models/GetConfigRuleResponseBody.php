@@ -17,7 +17,7 @@ class GetConfigRuleResponseBody extends Model
     public $configRule;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 811234F4-C3AB-4D15-B90B-F55016D1B5AA
      *

@@ -26,7 +26,7 @@ class compliancePackTemplates extends Model
     public $compliancePackTemplateName;
 
     /**
-     * @description The information about managed rules in the compliance package.
+     * @description An array that contains the managed rules in the compliance package.
      *
      * @var configRules[]
      */
@@ -58,9 +58,9 @@ class compliancePackTemplates extends Model
     /**
      * @description The risk level of the resources that are not compliant with the managed rules in the compliance package. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *

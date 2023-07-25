@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListRemediationsRequest extends Model
 {
     /**
-     * @description The ID of the rule. If you want to specify multiple IDs, separate them with commas (,).
+     * @description The rule ID. Separate multiple rule IDs with commas (,).
      *
-     * You can call the [ListConfigRules](~~169607~~) operation to obtain the rule ID.
+     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
      * @example cr-6b7c626622af00b4****
      *
      * @var string
@@ -19,11 +19,19 @@ class ListRemediationsRequest extends Model
     public $configRuleIds;
 
     /**
+     * @description 资源列表的页码。起始值：1。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 分页查询时设置的每页行数。取值范围：1~50。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

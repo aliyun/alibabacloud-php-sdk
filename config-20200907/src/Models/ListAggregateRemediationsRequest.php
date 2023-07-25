@@ -11,7 +11,7 @@ class ListAggregateRemediationsRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * You can call the [ListAggregators](~~255797~~) operation to obtain the account group ID.
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
      * @example ca-6b4a626622af0012****
      *
      * @var string
@@ -19,9 +19,9 @@ class ListAggregateRemediationsRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The ID of the rule. If you want to specify multiple IDs, separate them with commas (,).
+     * @description The rule IDs. Separate multiple rule IDs with commas (,).
      *
-     * You can call the [ListAggregateConfigRules](~~264148~~) operation to obtain the rule ID.
+     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      * @example cr-6b7c626622af00b4****
      *
      * @var string

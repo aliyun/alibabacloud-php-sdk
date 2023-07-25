@@ -18,7 +18,7 @@ class discoveredResourceProfileList extends Model
     public $accountId;
 
     /**
-     * @description The ID of the zone in which the resource resides.
+     * @description The zone.
      *
      * @example cn-hangzhou-h
      *
@@ -27,7 +27,7 @@ class discoveredResourceProfileList extends Model
     public $availabilityZone;
 
     /**
-     * @description The ID of the region where the resource resides.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -57,7 +57,7 @@ class discoveredResourceProfileList extends Model
     public $resourceDeleted;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * @example eni-hp31cqoba96jagtz****
      *
@@ -75,10 +75,10 @@ class discoveredResourceProfileList extends Model
     public $resourceName;
 
     /**
-     * @description The status of the resource. The value of this parameter varies based on the resource type and may be left empty. Example:
+     * @description The status of the resource. The value of this parameter varies based on the resource type and may be empty. Examples:
      *
      *   If the value of the ResourceType parameter is ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that is in a specific state. In this case, the valid values of this parameter are Running and Stopped.
-     *   If the value of the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is left empty.
+     *   If the value of the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is empty.
      *
      * @example InUse
      *

@@ -79,9 +79,9 @@ class compliancePack extends Model
     /**
      * @description The risk level of the resources that are not compliant with the rules in the compliance package. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *
@@ -99,8 +99,8 @@ class compliancePack extends Model
     /**
      * @description The status of the compliance package. Valid values:
      *
-     *   ACTIVE: The compliance package is normal.
-     *   CREATING: The compliance package is being created.
+     *   ACTIVE: The compliance package was normal.
+     *   CREATING: The compliance package was being created.
      *
      * @example ACTIVE
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class remediations extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud account involved.
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
      *
      * @example 100931896542****
      *
@@ -18,7 +18,7 @@ class remediations extends Model
     public $accountId;
 
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
      * @example cr-6b7c626622af00b4****
      *
@@ -29,10 +29,10 @@ class remediations extends Model
     /**
      * @description The execution mode of the remediation template. Valid values:
      *
-     *   NON_EXECUTION: no execution.
-     *   AUTO_EXECUTION: automatic execution.
-     *   MANUAL_EXECUTION: manual execution.
-     *   NOT_CONFIG: not specified.
+     *   NON_EXECUTION: The remediation template was not executed.
+     *   AUTO_EXECUTION: The remediation template was automatically executed.
+     *   MANUAL_EXECUTION: The remediation template was manually executed.
+     *   NOT_CONFIG: The execution mode was not specified.
      *
      * @example AUTO_EXECUTION
      *
@@ -61,10 +61,10 @@ class remediations extends Model
     /**
      * @description The mode of the last successful execution of the remediation template. Valid values:
      *
-     *   NON_EXECUTION: no execution.
-     *   AUTO_EXECUTION: automatic execution.
-     *   MANUAL_EXECUTION: manual execution.
-     *   NOT_CONFIG: not specified.
+     *   NON_EXECUTION: The remediation template was not executed.
+     *   AUTO_EXECUTION: The remediation template was automatically executed.
+     *   MANUAL_EXECUTION: The remediation template was manually executed.
+     *   NOT_CONFIG: The execution mode was not specified.
      *
      * @example AUTO_EXECUTION
      *
@@ -73,7 +73,7 @@ class remediations extends Model
     public $lastSuccessfulInvocationType;
 
     /**
-     * @description The ID of the remediation setting.
+     * @description The ID of the remediation template.
      *
      * @example crr-6b7c626622af0026****
      *
@@ -82,7 +82,7 @@ class remediations extends Model
     public $remediationId;
 
     /**
-     * @description The converted configuration of the remediation template. This parameter is returned only for an OOS remediation template.
+     * @description The converted configuration of the remediation template. This parameter is available only for an OOS remediation template.
      *
      * @example {"bucketName": "{resourceId}", "regionId": "{regionId}", "permissionName": "private"}
      *
@@ -104,7 +104,7 @@ class remediations extends Model
     public $remediationSourceType;
 
     /**
-     * @description The identifier of the remediation template.
+     * @description The ID of the remediation template.
      *
      * @example ACS-OSS-PutBucketAcl
      *
@@ -113,10 +113,10 @@ class remediations extends Model
     public $remediationTemplateId;
 
     /**
-     * @description The type of remediation to perform. Valid values:
+     * @description The type of the remediation template. Valid values:
      *
-     *   OOS: stands for Operation Orchestration Service and indicates official remediation.
-     *   FC: stands for Function Compute and indicates custom remediation.
+     *   OOS: Operation Orchestration Service (official remediation)
+     *   FC: Function Compute (custom remediation)
      *
      * @example OOS
      *

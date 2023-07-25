@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteRemediationsRequest extends Model
 {
     /**
-     * @description The ID of the remediation setting. If you want to specify multiple IDs, separate them with commas (,).
+     * @description The ID of the remediation template. Separate multiple remediation template IDs with commas (,).
      *
-     * You can call the [ListRemediations](~~270772~~) operation to obtain the remediation setting ID.
+     * For more information about how to obtain the ID of a remediation template, see [ListRemediations](~~270772~~).
      * @example crr-909ba2d4716700eb****
      *
      * @var string

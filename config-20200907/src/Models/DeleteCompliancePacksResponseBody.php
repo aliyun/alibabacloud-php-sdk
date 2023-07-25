@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DeleteCompliancePacksResponseBody extends Model
 {
     /**
-     * @description The results of the delete operations.
+     * @description The returned result.
      *
      * @var operateCompliancePacksResult
      */
     public $operateCompliancePacksResult;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6EC7AED1-172F-42AE-9C12-295BC2ADB751
      *

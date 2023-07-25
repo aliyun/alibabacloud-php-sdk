@@ -12,7 +12,7 @@ class UntagResourcesRequest extends Model
      * @description Specifies whether to remove all tags from the resource. Valid values:
      *
      *   true: All tags are removed from the resource.
-     *   false: Specified tags are removed from the resource.
+     *   false (default): The specified tags are removed from the resource.
      *
      * @example false
      *
@@ -30,15 +30,15 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
-     * You can specify up to 50 resources.
+     * You can remove tags from up to 50 resources at a time.
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description The type of the resource. Valid values:
+     * @description The resource type. Valid values:
      *
      *   `ACS::Config::Rule`
      *   `ACS::Config::AggregateConfigRule`
@@ -53,9 +53,8 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tag keys of the resource.
+     * @description The tags of the resource.
      *
-     * You can specify up to 20 tag keys.
      * @var string[]
      */
     public $tagKey;

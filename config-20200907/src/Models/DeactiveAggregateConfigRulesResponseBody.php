@@ -10,20 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DeactiveAggregateConfigRulesResponseBody extends Model
 {
     /**
-     * @description Indicates whether the operation is successful. Valid values:
-     *
-     *   true: The operation is successful.
-     *   false: The operation fails.
+     * @description The returned result.
      *
      * @var operateRuleResult
      */
     public $operateRuleResult;
 
     /**
-     * @description The error code returned.
-     *
-     *   If the rule is disabled, no error code is returned.
-     *   If the rule fails to be disabled, an error code is returned. For more information about error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Config).
+     * @description The request ID.
      *
      * @example 6EC7AED1-172F-42AE-9C12-295BC2ADB751
      *

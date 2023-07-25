@@ -11,7 +11,7 @@ class CreateAggregateConfigDeliveryChannelRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
      * @example ca-a4e5626622af0079****
      *
      * @var string
@@ -19,9 +19,9 @@ class CreateAggregateConfigDeliveryChannelRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
      *
-     * The value of the `ClientToken` parameter can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](~~25693~~).
+     * The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](~~25693~~)
      * @example 1594295238-f9361358-5843-4294-8d30-b5183fac****
      *
      * @var string
@@ -34,7 +34,7 @@ class CreateAggregateConfigDeliveryChannelRequest extends Model
      *   true: Cloud Config delivers resource change logs.
      *   false: Cloud Config does not deliver resource change logs. This is the default value.
      *
-     * >  This parameter is available for delivery channels of the OSS, SLS, and MNS types.
+     * > This parameter is available for delivery channels of the OSS, SLS, and MNS types.
      * @example false
      *
      * @var bool
@@ -58,15 +58,17 @@ class CreateAggregateConfigDeliveryChannelRequest extends Model
      *
      *   If you set the DeliveryChannelType parameter to MNS, take note of the following settings of the lowest risk level and the resource types of the events to which you want to subscribe:
      *
-     *   The lowest risk level of the events to which you want to subscribe is in the following format: `{"filterType":"RuleRiskLevel","value":"1","multiple":false}`. The `value` field specifies the lowest risk level of the events to which you want to subscribe. Valid values: 1, 2, and 3, where 1 indicates the high risk level, 2 indicates the medium risk level, and 3 indicates the low risk level.
+     *   The lowest risk level of the events to which you want to subscribe is in the following format: `{"filterType":"RuleRiskLevel","value":"1","multiple":false}`.
      *
-     *   The setting of the resource types of the events to which you want to subscribe is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`. The `values` field specifies the resource types of the events to which you want to subscribe. The value of the field is a JSON array.
+     * The `value` field indicates the risk level of the events to which you want to subscribe. Valid values: 1, 2, and 3. The value 1 indicates the high risk level, the value 2 indicates the medium risk level, and the value 3 indicates the low risk level.
      *
-     * Example: `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`.
+     *   The setting of the resource types of the events to which you want to subscribe is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
      *
-     *   If you set the DeliveryChannelType parameter to SLS, the setting of the resource types of the snapshots to which you want to deliver is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`. The `values` field specifies the resource types of the snapshots to which you want to deliver. The value of the field is a JSON array.
+     * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
      *
-     * Example: `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`.
+     *   If you set the DeliveryChannelType parameter to SLS, the setting of the resource types of the snapshots to which you want to deliver is in the following format: `{"filterType":"ResourceType","values":["ACS::ACK::Cluster","ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage"],"multiple":true}`.
+     *
+     * `[{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]`
      * @example [{"filterType":"ResourceType","values":["ACS::ActionTrail::Trail","ACS::CBWP::CommonBandwidthPackage","ACS::CDN::Domain","ACS::CEN::CenBandwidthPackage","ACS::CEN::CenInstance","ACS::CEN::Flowlog","ACS::DdosCoo::Instance"],"multiple":true}]
      *
      * @var string
@@ -76,7 +78,7 @@ class CreateAggregateConfigDeliveryChannelRequest extends Model
     /**
      * @description The name of the delivery channel.
      *
-     * >  If you do not configure this parameter, this parameter is left empty.
+     * > If you do not configure this parameter, this parameter is left empty.
      * @example testoss
      *
      * @var string
@@ -112,7 +114,7 @@ class CreateAggregateConfigDeliveryChannelRequest extends Model
     /**
      * @description The time when you want Cloud Config to deliver scheduled resource snapshots every day.
      *
-     * >  When you enable the scheduled resource delivery feature, you can specify a custom delivery time for this parameter. If you do not configure this parameter, Cloud Config automatically delivers scheduled resource snapshots at `04:00Z` and `16:00Z` every day.
+     * > When you enable the scheduled resource delivery feature, you can configure this parameter to specify a custom delivery time. If you do not configure this parameter, Cloud Config automatically delivers scheduled resource snapshots at `04:00Z` and `16:00Z` every day.
      * @example 09:10Z
      *
      * @var string
@@ -134,7 +136,7 @@ class CreateAggregateConfigDeliveryChannelRequest extends Model
      *   true: Cloud Config delivers resource non-compliance events.
      *   false: Cloud Config does not deliver resource non-compliance events. This is the default value.
      *
-     * >  This parameter is available only for delivery channels of the SLS and MNS types.
+     * > This parameter is available only for delivery channels of the SLS or MNS type.
      * @example false
      *
      * @var bool
@@ -144,7 +146,7 @@ class CreateAggregateConfigDeliveryChannelRequest extends Model
     /**
      * @description The ARN of the OSS bucket to which you want to transfer the delivery data when the size of the data exceeds the specified upper limit of the delivery channel. Format: `acs:oss:{RegionId}:{accountId}:{bucketName}`.
      *
-     * >  This parameter is available only for delivery channels of the SLS or MNS type. The upper limit on the storage size of delivery channels of the SLS type is 1 MB, and the upper limit on the storage size of delivery channels of the MNS type is 64 KB.
+     * > This parameter is available only for delivery channels of the SLS or MNS type. The upper limit on the storage size of delivery channels of the SLS type is 1 MB, and the maximum storage size of delivery channels of the MNS type is 64 KB.
      * @example acs:oss:cn-shanghai:100931896542****:new-bucket
      *
      * @var string

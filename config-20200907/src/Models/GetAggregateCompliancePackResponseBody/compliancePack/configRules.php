@@ -49,11 +49,16 @@ class configRules extends Model
     public $managedRuleIdentifier;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     * @var string
+     */
+    public $resourceTypesScope;
+
+    /**
+     * @description The risk level of the resources that were not compliant with the rule. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *
@@ -66,6 +71,7 @@ class configRules extends Model
         'configRuleParameters'  => 'ConfigRuleParameters',
         'description'           => 'Description',
         'managedRuleIdentifier' => 'ManagedRuleIdentifier',
+        'resourceTypesScope'    => 'ResourceTypesScope',
         'riskLevel'             => 'RiskLevel',
     ];
 
@@ -96,6 +102,9 @@ class configRules extends Model
         }
         if (null !== $this->managedRuleIdentifier) {
             $res['ManagedRuleIdentifier'] = $this->managedRuleIdentifier;
+        }
+        if (null !== $this->resourceTypesScope) {
+            $res['ResourceTypesScope'] = $this->resourceTypesScope;
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
@@ -132,6 +141,9 @@ class configRules extends Model
         }
         if (isset($map['ManagedRuleIdentifier'])) {
             $model->managedRuleIdentifier = $map['ManagedRuleIdentifier'];
+        }
+        if (isset($map['ResourceTypesScope'])) {
+            $model->resourceTypesScope = $map['ResourceTypesScope'];
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];

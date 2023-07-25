@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DeleteAggregatorsResponseBody extends Model
 {
     /**
-     * @description The result for the account group.
+     * @description The returned result.
      *
      * @var operateAggregatorsResult
      */
     public $operateAggregatorsResult;
 
     /**
-     * @description The results of the delete operations.
+     * @description The request ID.
      *
      * @example 8195B664-9565-4685-89AC-8B5F04B44B92
      *

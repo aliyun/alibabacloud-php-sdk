@@ -67,6 +67,11 @@ class configRuleList extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $resourceTypesScope;
+
+    /**
      * @example 1
      *
      * @var int
@@ -92,19 +97,20 @@ class configRuleList extends Model
      */
     public $tags;
     protected $_name = [
-        'accountId'        => 'AccountId',
-        'automationType'   => 'AutomationType',
-        'compliance'       => 'Compliance',
-        'configRuleArn'    => 'ConfigRuleArn',
-        'configRuleId'     => 'ConfigRuleId',
-        'configRuleName'   => 'ConfigRuleName',
-        'configRuleState'  => 'ConfigRuleState',
-        'createBy'         => 'CreateBy',
-        'description'      => 'Description',
-        'riskLevel'        => 'RiskLevel',
-        'sourceIdentifier' => 'SourceIdentifier',
-        'sourceOwner'      => 'SourceOwner',
-        'tags'             => 'Tags',
+        'accountId'          => 'AccountId',
+        'automationType'     => 'AutomationType',
+        'compliance'         => 'Compliance',
+        'configRuleArn'      => 'ConfigRuleArn',
+        'configRuleId'       => 'ConfigRuleId',
+        'configRuleName'     => 'ConfigRuleName',
+        'configRuleState'    => 'ConfigRuleState',
+        'createBy'           => 'CreateBy',
+        'description'        => 'Description',
+        'resourceTypesScope' => 'ResourceTypesScope',
+        'riskLevel'          => 'RiskLevel',
+        'sourceIdentifier'   => 'SourceIdentifier',
+        'sourceOwner'        => 'SourceOwner',
+        'tags'               => 'Tags',
     ];
 
     public function validate()
@@ -140,6 +146,9 @@ class configRuleList extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->resourceTypesScope) {
+            $res['ResourceTypesScope'] = $this->resourceTypesScope;
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
@@ -197,6 +206,9 @@ class configRuleList extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ResourceTypesScope'])) {
+            $model->resourceTypesScope = $map['ResourceTypesScope'];
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];

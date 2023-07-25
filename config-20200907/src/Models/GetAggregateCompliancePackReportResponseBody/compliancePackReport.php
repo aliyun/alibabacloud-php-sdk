@@ -40,7 +40,7 @@ class compliancePackReport extends Model
      *
      *   NONE: The compliance evaluation report is not generated.
      *   CREATING: The compliance evaluation report is being generated.
-     *   COMPLETED: The compliance evaluation report is generated.
+     *   COMPLETE: The compliance evaluation report is generated.
      *
      * @example COMPLETE
      *

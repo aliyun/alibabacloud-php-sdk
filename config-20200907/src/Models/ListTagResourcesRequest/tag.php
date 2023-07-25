@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The tag keys of the resource.
+     * @description The key of the tag that is added to the resource.
      *
-     * You can specify up to 20 tag keys.
+     * You can add up to 20 tag keys to a resource.
      * @example Env
      *
      * @var string
@@ -19,9 +19,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The tag values of the resource.
+     * @description The value of the tag that is added to the resource.
      *
-     * You can specify up to 20 tag values.
+     * You can add up to 20 tag values to a resource.
      * @example prod
      *
      * @var string

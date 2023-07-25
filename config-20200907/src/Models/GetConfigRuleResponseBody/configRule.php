@@ -47,7 +47,7 @@ class configRule extends Model
     public $configRuleEvaluationStatus;
 
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
      * @example cr-7f7d626622af0041****
      *
@@ -56,7 +56,7 @@ class configRule extends Model
     public $configRuleId;
 
     /**
-     * @description The name of the monitoring rule.
+     * @description The name of the defense rule.
      *
      * @var string
      */
@@ -65,10 +65,10 @@ class configRule extends Model
     /**
      * @description The status of the rule. Valid values:
      *
-     *   ACTIVE: The rule is being used to monitor resource configurations.
-     *   DELETING: The rule is being deleted.
-     *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
-     *   INACTIVE: The rule is disabled and is no longer used to monitor resource configurations.
+     *   ACTIVE: The rule was being used to monitor resource configurations.
+     *   DELETING: The rule was being deleted.
+     *   EVALUATING: The rule was triggered and is being used to monitor resource configurations.
+     *   INACTIVE: The rule was disabled.
      *
      * @example ACTIVE
      *
@@ -79,8 +79,8 @@ class configRule extends Model
     /**
      * @description The trigger type of the rule. Valid values:
      *
-     *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
-     *   ScheduledNotification: The managed rule is periodically triggered.
+     *   ConfigurationItemChangeNotification: The rule was triggered by configuration changes.
+     *   ScheduledNotification: The rule was periodically triggered.
      *
      * @example ConfigurationItemChangeNotification
      *
@@ -121,7 +121,7 @@ class configRule extends Model
     public $excludeResourceIdsScope;
 
     /**
-     * @description The input parameters of the rule.
+     * @description The details of the input parameters of the rule.
      *
      * @var mixed[]
      */
@@ -135,15 +135,15 @@ class configRule extends Model
     public $managedRule;
 
     /**
-     * @description The intervals at which the managed rule is triggered. Valid values:
+     * @description The interval at which the rule was triggered. Valid values:
      *
      *   One_Hour: 1 hour.
      *   Three_Hours: 3 hours.
      *   Six_Hours: 6 hours.
-     *   Twelve_Hours: 12 hours
-     *   TwentyFour_Hours: 24 hours
+     *   Twelve_Hours: 12 hours.
+     *   TwentyFour_Hours: 24 hours.
      *
-     * >  This parameter is returned if the managed rule is periodically triggered.
+     * > This parameter is returned if the managed rule is periodically triggered.
      * @example One_Hour
      *
      * @var string
@@ -178,7 +178,7 @@ class configRule extends Model
     public $resourceGroupIdsScope;
 
     /**
-     * @description The type of the resource evaluated by the rule.
+     * @description The type of the resource to be evaluated by the rule.
      *
      * @example ACS::RAM::User
      *
@@ -189,9 +189,9 @@ class configRule extends Model
     /**
      * @description The risk level of the resources that are not compliant with the rule. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *
@@ -214,7 +214,7 @@ class configRule extends Model
     /**
      * @description The ID of the member account to which the rule does not apply, which means that the resources within the member account are not evaluated based on the rule.
      *
-     * >  This parameter applies only to managed rules.
+     * > This parameter applies only to a managed rule.
      * @example 120886317861****
      *
      * @var string
@@ -222,9 +222,9 @@ class configRule extends Model
     public $tagKeyLogicScope;
 
     /**
-     * @description The tag value used to filter resources. The rule applies only to the resources with the specified tag value.
+     * @description The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
      *
-     * >  The `TagKeyScope` and `TagValueScope` parameters are returned at the same time.
+     * > The `TagKeyScope` and `TagValueScope` parameters are returned at the same time.
      * @example RAM
      *
      * @var string
@@ -234,7 +234,7 @@ class configRule extends Model
     /**
      * @description The tag value used to filter resources. The rule applies only to the resources with the specified tag value.
      *
-     * >  The `TagKeyScope` and `TagValueScope` parameters are returned at the same time.
+     * > The `TagKeyScope` and `TagValueScope` parameters are returned at the same time.
      * @example MFA
      *
      * @var string

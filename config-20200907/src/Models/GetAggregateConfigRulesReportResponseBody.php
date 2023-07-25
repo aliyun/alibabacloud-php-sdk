@@ -17,7 +17,7 @@ class GetAggregateConfigRulesReportResponseBody extends Model
     public $configRulesReport;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F0BCC7B2-D0E4-49B0-95D2-6689CFB08D31
      *

@@ -28,7 +28,7 @@ class resources extends Model
     public $resourceAccountId;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * For more information about how to obtain the ID of a resource, see [ListDiscoveredResources](~~169620~~).
      * @example lb-hp3a3b4ztyfm2plgm****
@@ -38,9 +38,9 @@ class resources extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource.
+     * @description The resource type.
      *
-     * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](~~169620~~).
+     * For more information about how to query the type of a resource, see [ListDiscoveredResources](~~169620~~).
      * @example ACS::SLB::LoadBalancer
      *
      * @var string

@@ -18,7 +18,7 @@ class scope extends Model
     public $excludeResourceIdsScope;
 
     /**
-     * @description The ID of the region whose resources are evaluated by using the compliance package.
+     * @description The ID of the region whose resources were evaluated by using the compliance package.
      *
      * @example cn-hangzhou
      *

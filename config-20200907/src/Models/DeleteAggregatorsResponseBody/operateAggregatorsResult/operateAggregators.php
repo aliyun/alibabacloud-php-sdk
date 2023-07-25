@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class operateAggregators extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
      * @example ca-dacf86d8314e00eb****
      *
      * @var string
@@ -16,11 +18,9 @@ class operateAggregators extends Model
     public $aggregatorId;
 
     /**
-     * @description Indicates whether the delete operation is successful. Valid values:
+     * @description The error code returned.
      *
-     *   true: The account group is deleted.
-     *   false: The account group fails to be deleted.
-     *
+     * > No error code is returned for the account group if the account group is deleted.
      * @example AccountNotExisted
      *
      * @var string
@@ -28,7 +28,10 @@ class operateAggregators extends Model
     public $errorCode;
 
     /**
-     * @description The ID of the account group.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true: The request was successful.
+     *   false: The request failed.
      *
      * @example false
      *

@@ -27,7 +27,7 @@ class resourceComplianceResult extends Model
     public $nonCompliantCount;
 
     /**
-     * @description The total number of monitored resources.
+     * @description The total number of resources.
      *
      * @example 10
      *

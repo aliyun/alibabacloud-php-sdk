@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateResourceComplianceTimelineResponseBody extends Model
 {
     /**
-     * @description The type of the resource.
+     * @description The ID of the request.
      *
      * @example 8D53A78F-1EB8-4264-A554-72F07E34FAE6
      *
@@ -19,7 +19,7 @@ class GetAggregateResourceComplianceTimelineResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The timestamp when the resource was created. Unit: milliseconds.
+     * @description The information about the compliance timeline.
      *
      * @var resourceComplianceTimeline
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class accountComplianceResult extends Model
 {
     /**
-     * @description The information about the compliance evaluation result of member account.
+     * @description The compliance evaluation result of member accounts.
      *
      * @var accountCompliances[]
      */
@@ -35,7 +35,7 @@ class accountComplianceResult extends Model
     public $nonCompliantCount;
 
     /**
-     * @description The total number of monitored member accounts.
+     * @description The total number of member accounts.
      *
      * @example 2
      *

@@ -11,7 +11,7 @@ class GetAggregateAccountComplianceByPackRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
      * @example ca-04b3fd170e340007****
      *
      * @var string

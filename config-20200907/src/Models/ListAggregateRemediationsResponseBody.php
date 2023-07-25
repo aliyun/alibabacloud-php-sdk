@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateRemediationsResponseBody extends Model
 {
     /**
-     * @description The remediation settings returned.
+     * @description An array that contains remediation templates.
      *
      * @var remediations[]
      */
     public $remediations;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0146963A-20C0-4E75-B93A-7D622B5FD7C8
      *

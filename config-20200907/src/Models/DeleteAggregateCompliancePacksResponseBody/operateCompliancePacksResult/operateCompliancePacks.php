@@ -18,10 +18,10 @@ class operateCompliancePacks extends Model
     public $compliancePackId;
 
     /**
-     * @description The error code.
+     * @description The error code returned.
      *
      *   If the compliance package is deleted, no error code is returned.
-     *   If the compliance package fails to be deleted, an error code is returned. For more information about error codes, visit the [API Error Center](https://error-center.alibabacloud.com/status/product/Config).
+     *   If the compliance package fails to be deleted, an error code is returned. For more information about error codes, see [Error codes](https://error-center.alibabacloud.com/status/product/Config).
      *
      * @example CompliancePackAlreadyPending
      *
@@ -30,10 +30,10 @@ class operateCompliancePacks extends Model
     public $errorCode;
 
     /**
-     * @description Indicates whether the operation is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The operation is successful.
-     *   false: The operation fails.
+     *   true: The request was successful.
+     *   false: The request failed.
      *
      * @example false
      *

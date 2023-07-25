@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateAccountComplianceByPackResponseBody extends Model
 {
     /**
-     * @description The compliance evaluation results of member accounts monitored by the compliance package.
+     * @description The compliance evaluation results of member accounts for which the compliance package takes effect in an account group.
      *
      * @var accountComplianceResult
      */
     public $accountComplianceResult;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6EC7AED1-172F-42AE-9C12-295BC2ADB751
      *

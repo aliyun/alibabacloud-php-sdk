@@ -11,7 +11,7 @@ class DeleteAggregateRemediationsRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * You can call the [ListAggregators](~~255797~~) operation to obtain the account group ID.
+     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
      * @example ca-6b4a626622af0012****
      *
      * @var string
@@ -19,9 +19,9 @@ class DeleteAggregateRemediationsRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The ID of the remediation setting. If you want to specify multiple IDs, separate them with commas (,).
+     * @description The ID of the remediation template. Separate multiple remediation template IDs with commas (,).
      *
-     * You can call the [ListAggregateRemediations](~~270036~~) operation to obtain the remediation setting ID.
+     * For more information about how to obtain the ID of a remediation template, see [ListAggregateRemediations](~~270036~~).
      * @example crr-909ba2d4716700eb****
      *
      * @var string

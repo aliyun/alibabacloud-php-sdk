@@ -27,7 +27,7 @@ class configRuleParameters extends Model
     public $parameterValue;
 
     /**
-     * @description Indicates whether the input parameter is required. Valid values:
+     * @description Indicates whether the input parameter was required. Valid values:
      *
      *   true: required
      *   false: optional

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceRelationList extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     *
      * @example 100931896542****
      *
      * @var int
@@ -16,6 +18,25 @@ class resourceRelationList extends Model
     public $accountId;
 
     /**
+     * @description The type of the relationship between the resource and the object.
+     *
+     * Valid values:
+     *
+     *   IsContained: The object is included as part of the resource.
+     *
+     * <!-- -->
+     *
+     *   IsAttachedTo: The object is added to the resource.
+     *
+     * <!-- -->
+     *
+     *   IsAssociatedIn: The object is associated with the resource.
+     *
+     * <!-- -->
+     *
+     *   Contains: The object contains the resource.
+     *
+     * <!-- -->
      * @example IsAttachedTo
      *
      * @var string
@@ -23,6 +44,8 @@ class resourceRelationList extends Model
     public $relationType;
 
     /**
+     * @description The resource ID.
+     *
      * @example i-j6cajg9yrfoh4sas****
      *
      * @var string
@@ -30,6 +53,8 @@ class resourceRelationList extends Model
     public $sourceResourceId;
 
     /**
+     * @description The ID of the region to which the current resource belongs.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -37,6 +62,8 @@ class resourceRelationList extends Model
     public $sourceResourceRegionId;
 
     /**
+     * @description The type of the resource.
+     *
      * @example ACS::ECS::Instance
      *
      * @var string
@@ -44,6 +71,8 @@ class resourceRelationList extends Model
     public $sourceResourceType;
 
     /**
+     * @description The ID of the resource that is associated with the object.
+     *
      * @example d-j6c8k731qbrc7fxi****
      *
      * @var string
@@ -51,6 +80,8 @@ class resourceRelationList extends Model
     public $targetResourceId;
 
     /**
+     * @description The type of the resource that is associated with the object.
+     *
      * @example ACS::ECS::Disk
      *
      * @var string

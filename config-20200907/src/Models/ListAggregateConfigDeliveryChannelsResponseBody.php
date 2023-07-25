@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListAggregateConfigDeliveryChannelsResponseBody extends Model
 {
     /**
-     * @description The information about the delivery channel.
+     * @description The information about the delivery channels.
      *
      * @var deliveryChannels[]
      */
     public $deliveryChannels;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example DC300244-FCE3-5061-8214-C27ECB668487
      *

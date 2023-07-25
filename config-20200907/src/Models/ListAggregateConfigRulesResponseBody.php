@@ -17,7 +17,7 @@ class ListAggregateConfigRulesResponseBody extends Model
     public $configRules;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 22EF8287-2C9A-4F1F-80A6-CEFA7612689D
      *

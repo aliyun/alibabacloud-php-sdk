@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListResourceRelationsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 6525F8DE-5A8B-5AD3-A241-BBF5A259E5B2
      *
      * @var string
@@ -17,6 +19,8 @@ class ListResourceRelationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result of the relationship.
+     *
      * @var resourceRelations
      */
     public $resourceRelations;

@@ -11,7 +11,7 @@ class GetAggregateConfigRulesReportRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to query the ID of an account group, see [ListAggregators](~~255797~~).
+     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
      * @example ca-f632626622af0079****
      *
      * @var string

@@ -11,7 +11,7 @@ class CopyConfigRulesRequest extends Model
     /**
      * @description The IDs of the destination account groups into which the rules are replicated. Separate multiple account group IDs with commas (,).
      *
-     * >  If you leave this parameter empty, the compliance packages are replicated under the same account group.
+     * > If you leave this parameter empty, the compliance packages are replicated into the same account group.
      * @example ca-4b4e626622af005d****
      *
      * @var string
@@ -29,7 +29,7 @@ class CopyConfigRulesRequest extends Model
     public $srcAggregatorId;
 
     /**
-     * @description The IDs of the rules. Separate multiple rule IDs with commas (,).
+     * @description The rule IDs. Separate multiple rule IDs with commas (,).
      *
      * @example cr-4b57626622af0065****,cr-47c1626622af0050****
      *

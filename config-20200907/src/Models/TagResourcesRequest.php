@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description The region ID of the tag.
+     * @description The region ID of the tags.
      *
      * @example cn-shanghai
      *
@@ -19,12 +19,14 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource IDs. You can add tags to up to 50 resources.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description The type of the resource. Valid values:
+     * @description The resource type. Valid values:
      *
      *   `ACS::Config::Rule`
      *   `ACS::Config::AggregateConfigRule`
@@ -39,9 +41,9 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags of the resource.
+     * @description The tag value of the resource.
      *
-     * You can specify up to 20 tags.
+     * You can specify up to 20 tag values.
      * @var tag[]
      */
     public $tag;

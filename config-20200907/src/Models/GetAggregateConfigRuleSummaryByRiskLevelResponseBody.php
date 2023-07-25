@@ -17,7 +17,7 @@ class GetAggregateConfigRuleSummaryByRiskLevelResponseBody extends Model
     public $configRuleSummaries;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A3CDD98C-DE65-46AC-B2D2-04A4A9AB5B73
      *

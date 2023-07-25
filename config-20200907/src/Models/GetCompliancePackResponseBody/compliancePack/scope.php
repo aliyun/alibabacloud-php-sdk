@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class scope extends Model
 {
     /**
-     * @description The ID of the resource that is not evaluated by using the compliance package.
+     * @description The ID of the resource that you do not want to evaluate by using the compliance package.
      *
      * @example eip-8vbf3x310fn56ijfd****
      *
@@ -18,7 +18,7 @@ class scope extends Model
     public $excludeResourceIdsScope;
 
     /**
-     * @description The ID of the region whose resources are evaluated by using the compliance package.
+     * @description The ID of the region whose resources you want to evaluate by using the compliance package.
      *
      * @example cn-hangzhou
      *
@@ -27,7 +27,7 @@ class scope extends Model
     public $regionIdsScope;
 
     /**
-     * @description The ID of the resource group whose resources are evaluated by using the compliance package.
+     * @description The ID of the resource group whose resources you want to evaluate by using the compliance package.
      *
      * @example rg-aekzc7r7rhx****
      *
@@ -36,7 +36,7 @@ class scope extends Model
     public $resourceGroupIdsScope;
 
     /**
-     * @description The tag key of the resource that is evaluated by using the compliance package.
+     * @description The tag key of the resource that you want to evaluate by using the compliance package.
      *
      * @example ECS
      *
@@ -45,7 +45,7 @@ class scope extends Model
     public $tagKeyScope;
 
     /**
-     * @description The tag value of the resource that is evaluated by using the compliance package.
+     * @description The tag value of the resource that you want to evaluate by using the compliance package.
      *
      * @example test
      *

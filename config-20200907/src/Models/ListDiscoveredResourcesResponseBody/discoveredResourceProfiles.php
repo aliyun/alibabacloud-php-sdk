@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class discoveredResourceProfiles extends Model
 {
     /**
-     * @description The information about the resources.
+     * @description The details of the resources.
      *
      * @var discoveredResourceProfileList[]
      */
@@ -26,7 +26,7 @@ class discoveredResourceProfiles extends Model
     public $maxResults;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the resources belong.
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
      *
      * @example 161259599160****
      *

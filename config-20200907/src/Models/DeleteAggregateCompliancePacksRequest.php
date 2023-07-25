@@ -11,7 +11,7 @@ class DeleteAggregateCompliancePacksRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
      * @example ca-04b3fd170e340007****
      *
      * @var string
@@ -19,7 +19,7 @@ class DeleteAggregateCompliancePacksRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example 1594295238-f9361358-5843-4294-8d30-b5183fac****
      *
@@ -40,8 +40,8 @@ class DeleteAggregateCompliancePacksRequest extends Model
     /**
      * @description Specifies whether to delete the rules in the compliance package. Valid values:
      *
-     *   true: deletes the rules.
-     *   false: retains the rules. This is the default value.
+     *   true: The rules are deleted.
+     *   false (default): The rules are not deleted.
      *
      * @example false
      *

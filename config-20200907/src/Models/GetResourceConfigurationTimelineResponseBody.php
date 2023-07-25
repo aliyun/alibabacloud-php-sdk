@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetResourceConfigurationTimelineResponseBody extends Model
 {
     /**
-     * @description The configuration changes on the configuration timeline.
+     * @description The ID of the request.
      *
      * @example ED9CD1B3-286C-4E05-A765-5E1E0B9BC2AB
      *
@@ -19,7 +19,7 @@ class GetResourceConfigurationTimelineResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The tags of the resource.
+     * @description The information about the configuration timeline.
      *
      * @var resourceConfigurationTimeline
      */

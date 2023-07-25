@@ -11,7 +11,7 @@ class CreateAggregateRemediationRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * You can call the [ListAggregators](~~255797~~) operation to obtain the account group ID.
+     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
      * @example ca-6b4a626622af0012****
      *
      * @var string
@@ -19,7 +19,7 @@ class CreateAggregateRemediationRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example AAAAAdDWBF2****
      *
@@ -28,9 +28,9 @@ class CreateAggregateRemediationRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
-     * You can call the [ListAggregateConfigRules](~~264148~~) operation to obtain the rule ID.
+     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      * @example cr-6b7c626622af00b4****
      *
      * @var string
@@ -40,10 +40,10 @@ class CreateAggregateRemediationRequest extends Model
     /**
      * @description The execution mode of the remediation template. Valid values:
      *
-     *   NON_EXECUTION: no execution.
-     *   AUTO_EXECUTION: automatic execution.
-     *   MANUAL_EXECUTION: manual execution.
-     *   NOT_CONFIG: not specified.
+     *   NON_EXECUTION: The remediation template is not executed.
+     *   AUTO_EXECUTION: The remediation template is automatically executed.
+     *   MANUAL_EXECUTION: The remediation template is manually executed.
+     *   NOT_CONFIG: The execution mode is not specified.
      *
      * @example MANUAL_EXECUTION
      *
@@ -54,7 +54,7 @@ class CreateAggregateRemediationRequest extends Model
     /**
      * @description The configuration of the remediation template.
      *
-     * You can call the [ListRemediationTemplates](~~416781~~) operation to obtain the remediation template configuration from the `TemplateDefinition` response parameter.
+     * For more information about how to obtain the configuration of the remediation template, see [ListRemediationTemplates](~~416781~~). You can view the `TemplateDefinition` response parameter to obtain the configuration of the remediation template.
      * @example {"bucketName": "{resourceId}", "regionId": "{regionId}", "permissionName": "private"}
      *
      * @var string
@@ -62,9 +62,9 @@ class CreateAggregateRemediationRequest extends Model
     public $params;
 
     /**
-     * @description The identifier of the remediation template.
+     * @description The ID of the remediation template.
      *
-     *   If you set the `RemediationType` parameter to `OOS`, set this parameter to the identifier of the relevant official remediation template, such as `ACS-OSS-PutBucketAcl`. You can call the [ListRemediationTemplates](~~416781~~) operation to obtain the remediation template identifier.
+     *   If you set the `RemediationType` parameter to `OOS`, set this parameter to the identifier of the relevant official remediation template, such as `ACS-OSS-PutBucketAcl`. For more information about how to obtain the remediation template identifier, see [ListRemediationTemplates](~~416781~~).
      *   If you set the `RemediationType` parameter to `FC`, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant Function Compute resource, such as `acs:fc:cn-hangzhou:100931896542****:services/ConfigService.LATEST/functions/test-php`.
      *
      * @example ACS-OSS-PutBucketAcl
@@ -74,7 +74,7 @@ class CreateAggregateRemediationRequest extends Model
     public $remediationTemplateId;
 
     /**
-     * @description The type of remediation to perform. Valid values:
+     * @description The type of the remediation template. Valid values:
      *
      *   OOS: stands for Operation Orchestration Service and indicates official remediation.
      *   FC: stands for Function Compute and indicates custom remediation.
@@ -86,9 +86,9 @@ class CreateAggregateRemediationRequest extends Model
     public $remediationType;
 
     /**
-     * @description The source of remediation. Valid values:
+     * @description The source of remediation template. Valid values:
      *
-     *   ALIYUN: official template. This is the default value.
+     *   ALIYUN (default): official template.
      *   CUSTOM: custom template.
      *   NONE: none.
      *

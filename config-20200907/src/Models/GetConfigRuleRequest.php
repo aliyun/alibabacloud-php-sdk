@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetConfigRuleRequest extends Model
 {
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
-     * For more information about how to query the ID of a rule, see [ListConfigRules](~~169607~~).
+     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
      * @example cr-7f7d626622af0041****
      *
      * @var string

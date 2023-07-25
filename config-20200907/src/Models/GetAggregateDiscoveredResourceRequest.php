@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateDiscoveredResourceRequest extends Model
 {
     /**
-     * @description The type of the resource.
+     * @description The ID of the account group.
      *
+     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
      * @example ca-5885626622af0008****
      *
      * @var string
@@ -18,8 +19,9 @@ class GetAggregateDiscoveredResourceRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The ID of the zone in which the resource resides.
+     * @description The ID of the region in which the resource resides.
      *
+     * For more information about how to query the ID of a region in which the resource resides, see [ListAggregateDiscoveredResources](~~411691~~).
      * @example cn-hangzhou
      *
      * @var string
@@ -27,6 +29,8 @@ class GetAggregateDiscoveredResourceRequest extends Model
     public $region;
 
     /**
+     * @description 账号组内待查询资源所属的阿里云账号ID。
+     * > 参数ResourceAccountId和ResourceOwnerId必须设置其中一个，推荐使用本参数。
      * @example 100931896542****
      *
      * @var int
@@ -34,8 +38,9 @@ class GetAggregateDiscoveredResourceRequest extends Model
     public $resourceAccountId;
 
     /**
-     * @description The ID of the request.
+     * @description The resource ID.
      *
+     * For more information about how to query the ID of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
      * @example new-bucket
      *
      * @var string
@@ -50,8 +55,9 @@ class GetAggregateDiscoveredResourceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The information about the resource.
+     * @description The type of the resource.
      *
+     * For more information about how to obtain the type of a resource, see [ListAggregateDiscoveredResources](~~411691~~).
      * @example ACS::OSS::Bucket
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateDeliveryChannelResponseBody extends Model
 {
     /**
+     * @description The ID of the delivery channel.
+     *
      * @example cdc-8e45ff4e06a3a8****
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateDeliveryChannelResponseBody extends Model
     public $deliveryChannelId;
 
     /**
+     * @description The request ID.
+     *
      * @example A7A0FFF8-0B44-40C6-8BBF-3A185EFDERTHG
      *
      * @var string

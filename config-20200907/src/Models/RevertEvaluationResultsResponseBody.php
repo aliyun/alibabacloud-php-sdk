@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RevertEvaluationResultsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 01ACCBF2-0B0B-59F2-9E84-07B38267BCA1
      *

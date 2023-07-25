@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateRemediationResponseBody extends Model
 {
     /**
-     * @description The ID of the remediation setting.
+     * @description The ID of the remediation template.
      *
      * @example crr-909ba2d4716700eb****
      *
@@ -18,7 +18,7 @@ class CreateRemediationResponseBody extends Model
     public $remediationId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C7817373-78CB-4F9A-8AFA-E7A88E9D64A2
      *

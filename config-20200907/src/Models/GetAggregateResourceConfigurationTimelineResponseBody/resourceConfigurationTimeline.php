@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class resourceConfigurationTimeline extends Model
 {
     /**
-     * @description The timestamp when the resource was created. Unit: milliseconds.
+     * @description The configuration changes on the configuration timeline.
      *
      * @var configurationList[]
      */
     public $configurationList;
 
     /**
-     * @description The type of the resource.
+     * @description The maximum number of entries returned for a single request.
      *
      * @example 10
      *
@@ -26,7 +26,7 @@ class resourceConfigurationTimeline extends Model
     public $maxResults;
 
     /**
-     * @description The ID of the zone in which the resource resides.
+     * @description The token that is used to initiate the next request.
      *
      * @example IWBjqMYSy0is7zSMGu16****
      *

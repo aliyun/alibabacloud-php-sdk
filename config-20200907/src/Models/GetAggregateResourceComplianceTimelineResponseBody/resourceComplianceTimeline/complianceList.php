@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class complianceList extends Model
 {
     /**
-     * @description The ID of the resource.
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
      *
      * @example 100931896542****
      *
@@ -18,7 +18,7 @@ class complianceList extends Model
     public $accountId;
 
     /**
-     * @description The name of the resource.
+     * @description The ID of the zone in which the resource resides.
      *
      * @example cn-hangzhou-f
      *
@@ -27,6 +27,8 @@ class complianceList extends Model
     public $availabilityZone;
 
     /**
+     * @description The timestamp when the compliance evaluation was recorded. Unit: milliseconds.
+     *
      * @example 1625200295276
      *
      * @var int
@@ -34,16 +36,22 @@ class complianceList extends Model
     public $captureTime;
 
     /**
+     * @description The information about the rules that evaluated the resource and the compliance evaluation result.
+     *
      * @var string
      */
     public $configuration;
 
     /**
+     * @description The details of the resource change that triggered the compliance evaluation.
+     *
      * @var string
      */
     public $configurationDiff;
 
     /**
+     * @description The ID of the region in which the resource resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +59,8 @@ class complianceList extends Model
     public $region;
 
     /**
+     * @description The timestamp when the resource was created. Unit: milliseconds.
+     *
      * @example 1624961112000
      *
      * @var int
@@ -58,6 +68,8 @@ class complianceList extends Model
     public $resourceCreateTime;
 
     /**
+     * @description The ID of the resource.
+     *
      * @example new-bucket
      *
      * @var string
@@ -65,6 +77,8 @@ class complianceList extends Model
     public $resourceId;
 
     /**
+     * @description The name of the resource.
+     *
      * @example new-bucket
      *
      * @var string
@@ -72,6 +86,11 @@ class complianceList extends Model
     public $resourceName;
 
     /**
+     * @description The status of the resource. The parameter value varies based on the resource type and may be left empty. Examples:
+     *
+     *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
+     *   If the ResourceType parameter is set to ACS::OSS::Bucket, the resource is an OSS bucket that does not have a specific state. In this case, this parameter is left empty.
+     *
      * @example Running
      *
      * @var string
@@ -79,10 +98,7 @@ class complianceList extends Model
     public $resourceStatus;
 
     /**
-     * @description The status of the resource. The parameter value varies based on the resource type and may be left empty. Examples:
-     *
-     *   If the ResourceType parameter is set to ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
-     *   If the ResourceType parameter is set to ACS::OSS::Bucket, the resource is an OSS bucket that does not have a specific state. In this case, this parameter is left empty.
+     * @description The type of the resource.
      *
      * @example ACS::OSS::Bucket
      *
@@ -91,7 +107,7 @@ class complianceList extends Model
     public $resourceType;
 
     /**
-     * @description The details of the resource change that triggered the compliance evaluation.
+     * @description The tags of the resource.
      *
      * @example {\"\"hc\"\":[\"\"value2\"\"]}
      *

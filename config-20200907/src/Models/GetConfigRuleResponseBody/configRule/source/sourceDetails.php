@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class sourceDetails extends Model
 {
     /**
-     * @description The event source of the managed rule.
+     * @description The event source.
      *
-     * >  Only events related to Cloud Config are supported. The value is fixed to aliyun.config.
+     * > Only events related to Cloud Config are supported. The value is fixed to aliyun.config.
      * @example aliyun.config
      *
      * @var string
@@ -19,15 +19,15 @@ class sourceDetails extends Model
     public $eventSource;
 
     /**
-     * @description The intervals at which the managed rule is triggered. Valid values:
+     * @description The interval at which the rule was triggered. Valid values:
      *
      *   One_Hour: 1 hour.
      *   Three_Hours: 3 hours.
      *   Six_Hours: 6 hours.
-     *   Twelve_Hours: 12 hours
-     *   TwentyFour_Hours: 24 hours
+     *   Twelve_Hours: 12 hours.
+     *   TwentyFour_Hours: 24 hours.
      *
-     * >  This parameter is returned if the rule is periodically triggered.
+     * > This parameter is returned if the managed rule is periodically triggered.
      * @example One_Hour
      *
      * @var string
@@ -37,8 +37,8 @@ class sourceDetails extends Model
     /**
      * @description The trigger type of the rule. Valid values:
      *
-     *   ConfigurationItemChangeNotification: The managed rule is triggered by configuration changes.
-     *   ScheduledNotification: The managed rule is periodically triggered.
+     *   ConfigurationItemChangeNotification: The rule was triggered by configuration changes.
+     *   ScheduledNotification: The rule was periodically triggered.
      *
      * @example ConfigurationItemChangeNotification
      *

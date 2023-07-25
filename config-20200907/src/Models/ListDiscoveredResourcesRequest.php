@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDiscoveredResourcesRequest extends Model
 {
     /**
-     * @description The maximum number of entries to return in a request. Valid values: 1 to 100.
+     * @description The maximum number of entries returned for a single request. Valid values: 1 to 100.
      *
      * @example 10
      *
@@ -18,7 +18,7 @@ class ListDiscoveredResourcesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used to initiate the subsequent request. If the response to the current request is truncated, this token is used to initiate another request and obtain the remaining entries.``
+     * @description The `token` that you want to use to initiate the current request. If the response of the previous request is truncated, you can use this token to initiate another request and obtain the remaining entries.
      *
      * @example IWBjqMYSy0is7zSMGu16****
      *
@@ -48,7 +48,7 @@ class ListDiscoveredResourcesRequest extends Model
     public $resourceDeleted;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * @example eni-hp31cqoba96jagtz****
      *

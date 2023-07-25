@@ -18,7 +18,7 @@ class DeleteConfigDeliveryChannelResponseBody extends Model
     public $deliveryChannelId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 35F1DA37-ECB5-54E9-AC22-0D9111A665AA
      *

@@ -11,7 +11,7 @@ class GenerateAggregateConfigRulesReportRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to query the ID of an account group, see [ListAggregators](~~255797~~).
+     * For more information about how to obtain the ID of the account group, see [ListAggregators](~~255797~~).
      * @example ca-f632626622af0079****
      *
      * @var string
@@ -19,7 +19,7 @@ class GenerateAggregateConfigRulesReportRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example 1594295238-f9361358-5843-4294-8d30-b5183fac****
      *
@@ -28,9 +28,9 @@ class GenerateAggregateConfigRulesReportRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the rule. Separate multiple rule IDs with commas (,).
+     * @description The rule ID. Separate multiple rule IDs with commas (,).
      *
-     * For more information about how to query the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
+     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      * @example cr-25d86457e0d900b5****
      *
      * @var string

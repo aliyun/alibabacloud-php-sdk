@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class aggregatorAccounts extends Model
 {
     /**
-     * @description The ID of the member account.
+     * @description The Alibaba Cloud account ID of the member. For more information about how to obtain the ID of a member account, see [ListAccounts](~~160016~~).
      *
-     * For more information about how to obtain the ID of a member account, see [ListAccounts](~~160016~~).
      * @example 171322098523****
      *
      * @var int
@@ -19,9 +18,8 @@ class aggregatorAccounts extends Model
     public $accountId;
 
     /**
-     * @description The name of the member account.
+     * @description The name of the member account. For more information about how to obtain the name of a member account, see [ListAccounts](~~160016~~).
      *
-     * For more information about how to obtain the name of a member account, see [ListAccounts](~~160016~~).
      * @example Alice
      *
      * @var string
@@ -29,7 +27,7 @@ class aggregatorAccounts extends Model
     public $accountName;
 
     /**
-     * @description The affiliation of the member account. You can set this parameter only to ResourceDirectory.
+     * @description The type of the member account. The value is fixed to ResourceDirectory.
      *
      * @example ResourceDirectory
      *

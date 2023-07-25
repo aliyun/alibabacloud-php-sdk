@@ -17,7 +17,7 @@ class ListConfigDeliveryChannelsResponseBody extends Model
     public $deliveryChannels;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example DC300244-FCE3-5061-8214-C27ECB668487
      *

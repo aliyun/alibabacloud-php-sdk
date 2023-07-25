@@ -30,7 +30,7 @@ class configRuleList extends Model
     public $automationType;
 
     /**
-     * @description The information about the compliance package.
+     * @description The compliance evaluation result.
      *
      * @var compliance
      */
@@ -46,7 +46,7 @@ class configRuleList extends Model
     public $configRuleArn;
 
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
      * @example cr-fdc8626622af00f9****
      *
@@ -90,11 +90,18 @@ class configRuleList extends Model
     public $description;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     * @example ACS::EIP::EipAddress
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     * @var string
+     */
+    public $resourceTypesScope;
+
+    /**
+     * @description The risk level of the resources that do not comply with the rule. Valid values:
+     *
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *
@@ -103,7 +110,7 @@ class configRuleList extends Model
     public $riskLevel;
 
     /**
-     * @description The ID of the rule.
+     * @description The identifier of the rule.
      *
      *   If the rule was created based on a managed rule, the value of this parameter is the name of the managed rule.
      *   If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
@@ -115,10 +122,10 @@ class configRuleList extends Model
     public $sourceIdentifier;
 
     /**
-     * @description The way in which the rule was created. Valid values:
+     * @description The method that is used to create the rule. Valid values:
      *
-     *   CUSTOM_FC: The rule is a custom rule.
-     *   ALIYUN: The rule is created based on a managed rule of Alibaba Cloud.
+     *   CUSTOM_FC: a custom rule.
+     *   ALIYUN: a managed rule.
      *
      * @example ALIYUN
      *
@@ -127,25 +134,26 @@ class configRuleList extends Model
     public $sourceOwner;
 
     /**
-     * @description The tag of the rule.
+     * @description The tags of the rule.
      *
      * @var tags[]
      */
     public $tags;
     protected $_name = [
-        'accountId'        => 'AccountId',
-        'automationType'   => 'AutomationType',
-        'compliance'       => 'Compliance',
-        'configRuleArn'    => 'ConfigRuleArn',
-        'configRuleId'     => 'ConfigRuleId',
-        'configRuleName'   => 'ConfigRuleName',
-        'configRuleState'  => 'ConfigRuleState',
-        'createBy'         => 'CreateBy',
-        'description'      => 'Description',
-        'riskLevel'        => 'RiskLevel',
-        'sourceIdentifier' => 'SourceIdentifier',
-        'sourceOwner'      => 'SourceOwner',
-        'tags'             => 'Tags',
+        'accountId'          => 'AccountId',
+        'automationType'     => 'AutomationType',
+        'compliance'         => 'Compliance',
+        'configRuleArn'      => 'ConfigRuleArn',
+        'configRuleId'       => 'ConfigRuleId',
+        'configRuleName'     => 'ConfigRuleName',
+        'configRuleState'    => 'ConfigRuleState',
+        'createBy'           => 'CreateBy',
+        'description'        => 'Description',
+        'resourceTypesScope' => 'ResourceTypesScope',
+        'riskLevel'          => 'RiskLevel',
+        'sourceIdentifier'   => 'SourceIdentifier',
+        'sourceOwner'        => 'SourceOwner',
+        'tags'               => 'Tags',
     ];
 
     public function validate()
@@ -181,6 +189,9 @@ class configRuleList extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->resourceTypesScope) {
+            $res['ResourceTypesScope'] = $this->resourceTypesScope;
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
@@ -238,6 +249,9 @@ class configRuleList extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['ResourceTypesScope'])) {
+            $model->resourceTypesScope = $map['ResourceTypesScope'];
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];

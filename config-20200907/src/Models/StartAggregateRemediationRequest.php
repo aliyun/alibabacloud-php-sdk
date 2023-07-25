@@ -11,7 +11,7 @@ class StartAggregateRemediationRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * You can call the [ListAggregators](~~255797~~) operation to obtain the account group ID.
+     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
      * @example ca-6b4a626622af0012****
      *
      * @var string
@@ -19,17 +19,25 @@ class StartAggregateRemediationRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
-     * You can call the [ListAggregateConfigRules](~~264148~~) operation to obtain the rule ID.
+     * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      * @example cr-6b7c626622af00b4****
      *
      * @var string
      */
     public $configRuleId;
+
+    /**
+     * @example 100271897542****
+     *
+     * @var int
+     */
+    public $resourceAccountId;
     protected $_name = [
-        'aggregatorId' => 'AggregatorId',
-        'configRuleId' => 'ConfigRuleId',
+        'aggregatorId'      => 'AggregatorId',
+        'configRuleId'      => 'ConfigRuleId',
+        'resourceAccountId' => 'ResourceAccountId',
     ];
 
     public function validate()
@@ -44,6 +52,9 @@ class StartAggregateRemediationRequest extends Model
         }
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
+        }
+        if (null !== $this->resourceAccountId) {
+            $res['ResourceAccountId'] = $this->resourceAccountId;
         }
 
         return $res;
@@ -62,6 +73,9 @@ class StartAggregateRemediationRequest extends Model
         }
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
+        }
+        if (isset($map['ResourceAccountId'])) {
+            $model->resourceAccountId = $map['ResourceAccountId'];
         }
 
         return $model;

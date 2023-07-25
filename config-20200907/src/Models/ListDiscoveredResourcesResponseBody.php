@@ -17,7 +17,7 @@ class ListDiscoveredResourcesResponseBody extends Model
     public $discoveredResourceProfiles;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C7817373-78CB-4F9A-8AFA-E7A88E9D64A2
      *

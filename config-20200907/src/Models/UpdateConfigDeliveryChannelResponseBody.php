@@ -18,7 +18,7 @@ class UpdateConfigDeliveryChannelResponseBody extends Model
     public $deliveryChannelId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A7A0FFF8-0B44-40C6-8BBF-3A185EFDERTHG
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StopConfigurationRecorderResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example AB2E892E-8A43-5B0F-8FE3-B53ADA53CB2D
      *
@@ -18,10 +18,10 @@ class StopConfigurationRecorderResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call was successful.
-     *   false: The call failed.
+     *   true: The request was successful.
+     *   false: The request failed.
      *
      * @example true
      *

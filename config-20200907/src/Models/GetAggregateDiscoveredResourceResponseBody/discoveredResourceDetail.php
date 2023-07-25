@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class discoveredResourceDetail extends Model
 {
     /**
-     * @description The status of the resource. The parameter value varies based on the resource type and may be left empty. Examples:
-     *
-     *   If the value of the ResourceType parameter is ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that has a specific state. In this case, the valid values of this parameter are Running and Stopped.
-     *   If the value of the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that does not have a specific state. In this case, this parameter is left empty.
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
      *
      * @example 100931896542****
      *
@@ -21,7 +18,7 @@ class discoveredResourceDetail extends Model
     public $accountId;
 
     /**
-     * @description The timestamp when the resource was created.
+     * @description The ID of the zone where the resource resides.
      *
      * @example cn-hangzhou-h
      *
@@ -30,7 +27,7 @@ class discoveredResourceDetail extends Model
     public $availabilityZone;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     * @description The configuration of the resource.
      *
      * @example {\"AccessControlList\":{\"Grant\":\"private\"},\"ServerSideEncryptionRule\":{\"SSEAlgorithm\":\"None\"},\"Comment\":\"\",\"CreationDate\":\"2021-06-29T10:05:12.000Z\",\"Owner\":{\"DisplayName\":\"100931896542****\",\"ID\":\"100931896542****\"},\"StorageClass\":\"Standard\",\"DataRedundancyType\":\"LRS\",\"AllowEmptyReferer\":\"true\",\"Name\":\"new-bucket\",\"BucketPolicy\":{\"LogPrefix\":\"\",\"LogBucket\":\"\"},\"ExtranetEndpoint\":\"oss-cn-hangzhou.aliyuncs.com\",\"IntranetEndpoint\":\"oss-cn-hangzhou-internal.aliyuncs.com\",\"Location\":\"oss-cn-hangzhou\"}
      *
@@ -39,7 +36,7 @@ class discoveredResourceDetail extends Model
     public $configuration;
 
     /**
-     * @description The ID of the resource.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -48,10 +45,7 @@ class discoveredResourceDetail extends Model
     public $region;
 
     /**
-     * @description Indicates whether the resource is deleted. Valid values:
-     *
-     *   1: The resource is retained.
-     *   0: The resource is deleted.
+     * @description The timestamp when the resource was created.
      *
      * @example 1624961112000
      *
@@ -60,6 +54,11 @@ class discoveredResourceDetail extends Model
     public $resourceCreationTime;
 
     /**
+     * @description Indicates whether the resource was deleted. Valid values:
+     *
+     *   1: The resource was not deleted.
+     *   0: The resource was deleted.
+     *
      * @example 1
      *
      * @var int
@@ -67,6 +66,8 @@ class discoveredResourceDetail extends Model
     public $resourceDeleted;
 
     /**
+     * @description The resource ID.
+     *
      * @example new-bucket
      *
      * @var string
@@ -74,6 +75,8 @@ class discoveredResourceDetail extends Model
     public $resourceId;
 
     /**
+     * @description The name of the resource.
+     *
      * @example new-bucket
      *
      * @var string
@@ -81,6 +84,11 @@ class discoveredResourceDetail extends Model
     public $resourceName;
 
     /**
+     * @description The status of the resource. The value of this parameter varies based on the resource type and may be empty. Examples:
+     *
+     *   If the value of the ResourceType parameter is ACS::ECS::Instance, the resource is an Elastic Compute Service (ECS) instance that is in a specific state. In this case, the valid values of this parameter are Running and Stopped.
+     *   If the value of the ResourceType parameter is ACS::OSS::Bucket, the resource is an Object Storage Service (OSS) bucket that is not in a specific state. In this case, this parameter is empty.
+     *
      * @example offline
      *
      * @var string
@@ -88,7 +96,7 @@ class discoveredResourceDetail extends Model
     public $resourceStatus;
 
     /**
-     * @description The tags of the resource.
+     * @description The type of the resource.
      *
      * @example ACS::OSS::BucketACS::CDN::Domain
      *
@@ -97,7 +105,7 @@ class discoveredResourceDetail extends Model
     public $resourceType;
 
     /**
-     * @description The name of the resource.
+     * @description The tags of the resource.
      *
      * @example {\"\"hc\"\":[\"\"value2\"\"]}
      *

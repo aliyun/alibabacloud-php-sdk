@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RevertEvaluationResultsShrinkRequest extends Model
 {
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
      * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
      * @example cr-7e72626622af0051****
@@ -19,7 +19,7 @@ class RevertEvaluationResultsShrinkRequest extends Model
     public $configRuleId;
 
     /**
-     * @description The resources that are to be reevaluated.
+     * @description The resources that are to be re-evaluated.
      *
      * @var string
      */

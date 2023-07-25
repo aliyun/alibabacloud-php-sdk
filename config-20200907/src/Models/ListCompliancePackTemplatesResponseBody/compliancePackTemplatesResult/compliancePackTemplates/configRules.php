@@ -28,7 +28,7 @@ class configRules extends Model
     /**
      * @description The ID of the regulation.
      *
-     * >  This parameter is available only for regulation compliance packages.
+     * > This parameter is available only for regulation compliance packages.
      * @example 3.1
      *
      * @var string
@@ -71,11 +71,20 @@ class configRules extends Model
     public $managedRuleName;
 
     /**
+     * @description 规则评估的资源类型。
+     *
+     * @example ACS::SLB::ServerCertificate
+     *
+     * @var string
+     */
+    public $resourceTypesScope;
+
+    /**
      * @description The risk level of the resources that are not compliant with the managed rule. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *
@@ -90,6 +99,7 @@ class configRules extends Model
         'description'           => 'Description',
         'managedRuleIdentifier' => 'ManagedRuleIdentifier',
         'managedRuleName'       => 'ManagedRuleName',
+        'resourceTypesScope'    => 'ResourceTypesScope',
         'riskLevel'             => 'RiskLevel',
     ];
 
@@ -126,6 +136,9 @@ class configRules extends Model
         }
         if (null !== $this->managedRuleName) {
             $res['ManagedRuleName'] = $this->managedRuleName;
+        }
+        if (null !== $this->resourceTypesScope) {
+            $res['ResourceTypesScope'] = $this->resourceTypesScope;
         }
         if (null !== $this->riskLevel) {
             $res['RiskLevel'] = $this->riskLevel;
@@ -168,6 +181,9 @@ class configRules extends Model
         }
         if (isset($map['ManagedRuleName'])) {
             $model->managedRuleName = $map['ManagedRuleName'];
+        }
+        if (isset($map['ResourceTypesScope'])) {
+            $model->resourceTypesScope = $map['ResourceTypesScope'];
         }
         if (isset($map['RiskLevel'])) {
             $model->riskLevel = $map['RiskLevel'];

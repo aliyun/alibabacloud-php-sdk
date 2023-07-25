@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateCompliancePackReportResponseBody extends Model
 {
     /**
-     * @description The information about the compliance evaluation report.
+     * @description The compliance evaluation report that is generated based on a compliance package.
      *
      * @var compliancePackReport
      */
     public $compliancePackReport;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 0D234DAC-1ABD-42E8-9475-BE317857E29B
      *

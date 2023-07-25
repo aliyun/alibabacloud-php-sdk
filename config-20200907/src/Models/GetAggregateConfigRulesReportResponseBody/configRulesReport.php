@@ -47,9 +47,9 @@ class configRulesReport extends Model
     /**
      * @description The status of the compliance evaluation report. Valid values:
      *
-     *   NONE: The compliance evaluation report is not generated.
-     *   CREATING: The compliance evaluation report is being generated.
-     *   COMPLETE: The compliance evaluation report is generated.
+     *   NONE: The compliance evaluation report was not generated.
+     *   CREATING: The compliance evaluation report was being generated.
+     *   COMPLETE: The compliance evaluation report was generated.
      *
      * @example CREATING
      *

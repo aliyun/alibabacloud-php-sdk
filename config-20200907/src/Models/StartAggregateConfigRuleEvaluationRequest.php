@@ -21,7 +21,7 @@ class StartAggregateConfigRuleEvaluationRequest extends Model
     /**
      * @description The ID of the compliance package.
      *
-     * >  You must set either the `CompliancePackId` or `ConfigRuleId` parameter.
+     * > You must configure either the `CompliancePackId` or `ConfigRuleId` parameter.
      * @example cp-ac16626622af0053****
      *
      * @var string
@@ -29,7 +29,7 @@ class StartAggregateConfigRuleEvaluationRequest extends Model
     public $compliancePackId;
 
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
      * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      * @example cr-c169626622af009f****
@@ -39,10 +39,10 @@ class StartAggregateConfigRuleEvaluationRequest extends Model
     public $configRuleId;
 
     /**
-     * @description Specifies whether to re-evaluate the ignored non-compliant resource. Valid values:
+     * @description Specifies whether to re-evaluate the ignored incompliant resource. Valid values:
      *
-     *   true: re-evaluates the ignored non-compliant resource based on the rule.
-     *   false: continues to ignore the resource in the compliance evaluation based on the rule.
+     *   true: The ignored incompliant resource based on the rule are re-evaluated.
+     *   false: The ignored incompliant resource based on the rule are not re-evaluated.
      *
      * @example false
      *

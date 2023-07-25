@@ -27,11 +27,11 @@ class configRuleSummaries extends Model
     public $nonCompliantCount;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rules. Valid values:
+     * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
-     *   1: high risk level.
-     *   2: medium risk level.
-     *   3: low risk level.
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *

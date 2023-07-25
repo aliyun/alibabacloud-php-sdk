@@ -24,7 +24,7 @@ class managedRule extends Model
     public $description;
 
     /**
-     * @description The identifier of the managed rule.
+     * @description The ID of the managed rule.
      *
      * @example ram-user-mfa-check
      *
@@ -33,7 +33,7 @@ class managedRule extends Model
     public $identifier;
 
     /**
-     * @description The tags of the managed rule.
+     * @description The list of rule tags.
      *
      * @var string[]
      */

@@ -29,12 +29,12 @@ class ListAggregateConfigRuleEvaluationResultsRequest extends Model
     public $compliancePackId;
 
     /**
-     * @description The compliance evaluation result of the resources. Valid values:
+     * @description The compliance evaluation results of the resources. Valid values:
      *
      *   COMPLIANT: The resources are evaluated as compliant.
      *   NON_COMPLIANT: The resources are evaluated as non-compliant.
      *   NOT_APPLICABLE: The rule does not apply to the resources.
-     *   INSUFFICIENT_DATA: No resource data is available.
+     *   INSUFFICIENT_DATA: No data is available.
      *   IGNORED: The resources are ignored during compliance evaluation.
      *
      * @example NON_COMPLIANT
@@ -81,6 +81,8 @@ class ListAggregateConfigRuleEvaluationResultsRequest extends Model
     public $regions;
 
     /**
+     * @example 100931896542****
+     *
      * @var int
      */
     public $resourceAccountId;
