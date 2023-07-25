@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDcdnDomainSSLCertificateRequest extends Model
 {
     /**
+     * @description The ID of the certificate. This parameter takes effect only when **CertType** is set to **cas**.
+     *
      * @example 8089870
      *
      * @var int
@@ -16,6 +18,8 @@ class SetDcdnDomainSSLCertificateRequest extends Model
     public $certId;
 
     /**
+     * @description The name of the SSL certificate. You can specify only one certificate name.
+     *
      * @example yourCertName
      *
      * @var string
@@ -23,6 +27,8 @@ class SetDcdnDomainSSLCertificateRequest extends Model
     public $certName;
 
     /**
+     * @description The region of the SSL certificate. This parameter takes effect only when **CertType** is set to **cas**. Default value: **cn-hangzhou**. Valid values: **cn-hangzhou** and **ap-southeast-1**.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +36,11 @@ class SetDcdnDomainSSLCertificateRequest extends Model
     public $certRegion;
 
     /**
+     * @description The type of the certificate. Valid values:
+     *
+     *   **upload**: a user-uploaded SSL certificate.
+     *   **cas**: a certificate that is acquired through Certificate Management Service.
+     *
      * @example upload
      *
      * @var string
@@ -37,6 +48,8 @@ class SetDcdnDomainSSLCertificateRequest extends Model
     public $certType;
 
     /**
+     * @description The domain name that is secured by the SSL certificate.
+     *
      * @example example.com
      *
      * @var string
@@ -49,6 +62,8 @@ class SetDcdnDomainSSLCertificateRequest extends Model
     public $ownerId;
 
     /**
+     * @description The private key. Specify the private key only if you want to enable the SSL certificate.
+     *
      * @example y****
      *
      * @var string
@@ -56,6 +71,11 @@ class SetDcdnDomainSSLCertificateRequest extends Model
     public $SSLPri;
 
     /**
+     * @description Specifies whether to enable the SSL certificate. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
      * @example off
      *
      * @var string
@@ -63,6 +83,8 @@ class SetDcdnDomainSSLCertificateRequest extends Model
     public $SSLProtocol;
 
     /**
+     * @description The content of the SSL certificate. Specify the content of the SSL certificate only if you want to enable the SSL certificate.
+     *
      * @example xxx
      *
      * @var string

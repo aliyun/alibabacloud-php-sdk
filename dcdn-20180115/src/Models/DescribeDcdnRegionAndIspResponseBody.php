@@ -16,11 +16,15 @@ class DescribeDcdnRegionAndIspResponseBody extends Model
     public $isps;
 
     /**
+     * @description The list of regions.
+     *
      * @var regions
      */
     public $regions;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 2387C335-932C-4E1E-862C-1C4363B6DE72
      *
      * @var string

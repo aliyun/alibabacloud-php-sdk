@@ -10,6 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnFullDomainsBlockIPHistoryResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
+     * The value of Code is not 0 in the following scenarios:
+     *
+     *   The format of the IP address is invalid.
+     *   The format of the time is invalid.
+     *   Other abnormal scenarios
+     *
      * @example 0
      *
      * @var int
@@ -17,6 +25,8 @@ class DescribeDcdnFullDomainsBlockIPHistoryResponseBody extends Model
     public $code;
 
     /**
+     * @description The description of the status returned.
+     *
      * @example OK
      *
      * @var string
@@ -24,11 +34,15 @@ class DescribeDcdnFullDomainsBlockIPHistoryResponseBody extends Model
     public $description;
 
     /**
+     * @description The result of the operation.
+     *
      * @var IPBlockInfo[]
      */
     public $IPBlockInfo;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 13A2B792-9212-1CC9-8525-59EBEF3FFE01
      *
      * @var string

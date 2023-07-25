@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnFullDomainsBlockIPConfigRequest extends Model
 {
     /**
+     * @description The IP address or CIDR block to query. Separate multiple values with commas (,). You can specify up to 50 IP addresses or CIDR blocks.
+     *
      * @example 10.XX.XX.10/24
      *
      * @var string

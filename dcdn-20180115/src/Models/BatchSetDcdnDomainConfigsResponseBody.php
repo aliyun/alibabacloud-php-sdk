@@ -9,9 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BatchSetDcdnDomainConfigsResponseBody extends Model
 {
     /**
-     * @description >
-     *   You can specify up to 50 domain names in each request. Separate multiple domain names with commas (,)
-     *   You can call this operation up to 30 times per second per account.
+     * @description The ID of the request.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainBpsDataByLayerRequest extends Model
 {
     /**
+     * @description The accelerated domain name. Separate mutiple domain names with commas (,). You can specify up to 500 domain names in each request. The query results of multiple domain names are aggregated.
+     *
+     * If you do not specify a domain name, data of all domain names is queried.
      * @example example.com
      *
      * @var string
@@ -16,9 +19,9 @@ class DescribeDcdnDomainBpsDataByLayerRequest extends Model
     public $domainName;
 
     /**
-     * @description **
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     ****
+     * >  The end time must be later than the start time.
      * @example 2015-12-10T21:00:00Z
      *
      * @var string
@@ -26,8 +29,9 @@ class DescribeDcdnDomainBpsDataByLayerRequest extends Model
     public $endTime;
 
     /**
-     * @description ****
+     * @description The time granularity of the data entries. Unit: seconds.
      *
+     * The time granularity varies with the maximum time range per query. Valid values: 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Usage notes**.
      * @example 300
      *
      * @var string
@@ -35,6 +39,8 @@ class DescribeDcdnDomainBpsDataByLayerRequest extends Model
     public $interval;
 
     /**
+     * @description The Internet service provider (ISP) name. You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query the ISP name. If you do not specify this parameter, all ISPs are queried.
+     *
      * @example telecom
      *
      * @var string
@@ -42,6 +48,9 @@ class DescribeDcdnDomainBpsDataByLayerRequest extends Model
     public $ispNameEn;
 
     /**
+     * @description The layer at which you want to query the bandwidth data. The network layer supports IPv4 and IPv6. The application layer supports http, https, and quic. You can also set the value to all.
+     *
+     * Default value: all.
      * @example all
      *
      * @var string
@@ -49,6 +58,8 @@ class DescribeDcdnDomainBpsDataByLayerRequest extends Model
     public $layer;
 
     /**
+     * @description The region name. You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query regions. If you do not specify this parameter, all regions are queried.
+     *
      * @example hangzhou
      *
      * @var string
@@ -56,6 +67,9 @@ class DescribeDcdnDomainBpsDataByLayerRequest extends Model
     public $locationNameEn;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * If you do not set this parameter, data in the last 24 hours is queried.
      * @example 2015-12-10T20:00:00Z
      *
      * @var string

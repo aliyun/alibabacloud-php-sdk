@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class dataModule extends Model
 {
     /**
+     * @description The traffic that is used to deliver dynamic content. Unit: bytes.
+     *
      * @var string
      */
     public $dynamicTrafficValue;
 
     /**
+     * @description The bandwidth that is used to deliver dynamic content. Unit: bit/s.
+     *
      * @var string
      */
     public $dynamicValue;
 
     /**
+     * @description The traffic that is used to deliver static content. Unit: bytes.
+     *
      * @var string
      */
     public $staticTrafficValue;
 
     /**
+     * @description The bandwidth that is used to deliver static content. Unit: bit/s.
+     *
      * @var string
      */
     public $staticValue;
 
     /**
+     * @description The timestamp of the data returned.
+     *
      * @example 2015-12-10T21:00:00Z
      *
      * @var string
@@ -36,6 +46,8 @@ class dataModule extends Model
     public $timeStamp;
 
     /**
+     * @description The total traffic. Unit: bytes.
+     *
      * @example 331
      *
      * @var string
@@ -43,6 +55,8 @@ class dataModule extends Model
     public $trafficValue;
 
     /**
+     * @description The total bandwidth. Unit: bit/s.
+     *
      * @example 0.56
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainRealTimeBpsDataRequest extends Model
 {
     /**
+     * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+     *
      * @example example.com
      *
      * @var string
@@ -16,8 +18,9 @@ class DescribeDcdnDomainRealTimeBpsDataRequest extends Model
     public $domainName;
 
     /**
-     * @description The ID of the request.
+     * @description The end of the time range to query.
      *
+     * >  The end time must be later than the start time.
      * @example 2018-01-02T11:00:00Z
      *
      * @var string
@@ -25,9 +28,9 @@ class DescribeDcdnDomainRealTimeBpsDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The beginning of the time range to query.
+     * @description The name of the Internet service provider (ISP).
      *
-     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query ISPs.
      * @example telecom
      *
      * @var string
@@ -35,9 +38,9 @@ class DescribeDcdnDomainRealTimeBpsDataRequest extends Model
     public $ispNameEn;
 
     /**
-     * @description The end of the time range to query.
+     * @description The name of the region.
      *
-     * >  The end time must be later than the start time.
+     * You can call the [DescribeDcdnRegionAndIsp](~~207199~~) operation to query regions.
      * @example beijing
      *
      * @var string
@@ -45,6 +48,9 @@ class DescribeDcdnDomainRealTimeBpsDataRequest extends Model
     public $locationNameEn;
 
     /**
+     * @description The beginning of the time range to query.
+     *
+     * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      * @example 2018-01-02T11:00:00Z
      *
      * @var string

@@ -6,18 +6,26 @@ namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class BatchDeleteDcdnDomainConfigsResponseBody extends Model
+class DescribeDcdnL2IpsResponseBody extends Model
 {
     /**
      * @description The ID of the request.
      *
-     * @example 04F0F334-1335-436C-A1D7-6C044FE73368
+     * @example C370DAF1-C838-4288-A1A0-9A87633D248E
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description The CIDR blocks of the POPs.
+     *
+     * @var string[]
+     */
+    public $vips;
     protected $_name = [
         'requestId' => 'RequestId',
+        'vips'      => 'Vips',
     ];
 
     public function validate()
@@ -30,6 +38,9 @@ class BatchDeleteDcdnDomainConfigsResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->vips) {
+            $res['Vips'] = $this->vips;
+        }
 
         return $res;
     }
@@ -37,13 +48,18 @@ class BatchDeleteDcdnDomainConfigsResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return BatchDeleteDcdnDomainConfigsResponseBody
+     * @return DescribeDcdnL2IpsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Vips'])) {
+            if (!empty($map['Vips'])) {
+                $model->vips = $map['Vips'];
+            }
         }
 
         return $model;

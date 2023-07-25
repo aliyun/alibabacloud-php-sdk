@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class slsInfo extends Model
 {
     /**
+     * @description The endpoint of Log Service.
+     *
      * @example cn-shanghai.log.*.com
      *
      * @var string
@@ -16,6 +18,8 @@ class slsInfo extends Model
     public $endPoint;
 
     /**
+     * @description The Logstore of Log Service.
+     *
      * @example dcdn-edge-trlog
      *
      * @var string
@@ -23,6 +27,8 @@ class slsInfo extends Model
     public $logStore;
 
     /**
+     * @description The project of Log Service.
+     *
      * @example dcdn-edge-rtlog-cn-cfc7****
      *
      * @var string
@@ -30,6 +36,8 @@ class slsInfo extends Model
     public $project;
 
     /**
+     * @description The region where Log Service resides.
+     *
      * @example cn-shanghai
      *
      * @var string

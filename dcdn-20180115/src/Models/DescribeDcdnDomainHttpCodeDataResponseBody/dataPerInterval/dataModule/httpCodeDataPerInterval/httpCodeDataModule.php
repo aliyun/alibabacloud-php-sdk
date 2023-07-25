@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class httpCodeDataModule extends Model
 {
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 404
      *
      * @var int
@@ -16,6 +18,8 @@ class httpCodeDataModule extends Model
     public $code;
 
     /**
+     * @description The count of each HTTP status code.
+     *
      * @example 1
      *
      * @var float
@@ -23,6 +27,8 @@ class httpCodeDataModule extends Model
     public $count;
 
     /**
+     * @description The proportion of the HTTP status code.
+     *
      * @example 33.333333
      *
      * @var float
