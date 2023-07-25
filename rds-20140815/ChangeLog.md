@@ -1,3 +1,7 @@
+2023-07-25 Version: 2.4.2
+- Add error code.
+- Support System param.
+
 2023-07-24 Version: 2.4.1
 - Add error code.
 - Add error code for CreateDBNodes.

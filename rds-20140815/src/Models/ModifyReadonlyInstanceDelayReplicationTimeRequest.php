@@ -34,6 +34,11 @@ class ModifyReadonlyInstanceDelayReplicationTimeRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -44,6 +49,7 @@ class ModifyReadonlyInstanceDelayReplicationTimeRequest extends Model
         'DBInstanceId'           => 'DBInstanceId',
         'ownerId'                => 'OwnerId',
         'readSQLReplicationTime' => 'ReadSQLReplicationTime',
+        'resourceGroupId'        => 'ResourceGroupId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
     ];
@@ -63,6 +69,9 @@ class ModifyReadonlyInstanceDelayReplicationTimeRequest extends Model
         }
         if (null !== $this->readSQLReplicationTime) {
             $res['ReadSQLReplicationTime'] = $this->readSQLReplicationTime;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -90,6 +99,9 @@ class ModifyReadonlyInstanceDelayReplicationTimeRequest extends Model
         }
         if (isset($map['ReadSQLReplicationTime'])) {
             $model->readSQLReplicationTime = $map['ReadSQLReplicationTime'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
