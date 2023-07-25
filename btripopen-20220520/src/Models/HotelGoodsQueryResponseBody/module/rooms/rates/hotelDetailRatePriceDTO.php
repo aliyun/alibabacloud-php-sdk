@@ -37,6 +37,11 @@ class hotelDetailRatePriceDTO extends Model
     public $lastDiscountsPrice;
 
     /**
+     * @var int
+     */
+    public $lastDiscountsRoundingPrice;
+
+    /**
      * @example 1
      *
      * @var int
@@ -57,13 +62,14 @@ class hotelDetailRatePriceDTO extends Model
      */
     public $status;
     protected $_name = [
-        'beforeDiscountPrice' => 'before_discount_price',
-        'breakfast'           => 'breakfast',
-        'discountPrice'       => 'discount_price',
-        'lastDiscountsPrice'  => 'last_discounts_price',
-        'lastNum'             => 'last_num',
-        'rateStartTime'       => 'rate_start_time',
-        'status'              => 'status',
+        'beforeDiscountPrice'        => 'before_discount_price',
+        'breakfast'                  => 'breakfast',
+        'discountPrice'              => 'discount_price',
+        'lastDiscountsPrice'         => 'last_discounts_price',
+        'lastDiscountsRoundingPrice' => 'last_discounts_rounding_price',
+        'lastNum'                    => 'last_num',
+        'rateStartTime'              => 'rate_start_time',
+        'status'                     => 'status',
     ];
 
     public function validate()
@@ -84,6 +90,9 @@ class hotelDetailRatePriceDTO extends Model
         }
         if (null !== $this->lastDiscountsPrice) {
             $res['last_discounts_price'] = $this->lastDiscountsPrice;
+        }
+        if (null !== $this->lastDiscountsRoundingPrice) {
+            $res['last_discounts_rounding_price'] = $this->lastDiscountsRoundingPrice;
         }
         if (null !== $this->lastNum) {
             $res['last_num'] = $this->lastNum;
@@ -117,6 +126,9 @@ class hotelDetailRatePriceDTO extends Model
         }
         if (isset($map['last_discounts_price'])) {
             $model->lastDiscountsPrice = $map['last_discounts_price'];
+        }
+        if (isset($map['last_discounts_rounding_price'])) {
+            $model->lastDiscountsRoundingPrice = $map['last_discounts_rounding_price'];
         }
         if (isset($map['last_num'])) {
             $model->lastNum = $map['last_num'];
