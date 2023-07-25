@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListClustersResponseBody extends Model
 {
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The list of clusters.
      *
      * @var clusters
      */
     public $clusters;
 
     /**
-     * @description The total number of returned entries.
+     * @description The number of the returned page.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class ListClustersResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries returned per page.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class ListClustersResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The number of the returned page.
+     * @description The ID of the request.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
@@ -44,7 +44,7 @@ class ListClustersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of clusters.
+     * @description The total number of returned entries.
      *
      * @example 1
      *

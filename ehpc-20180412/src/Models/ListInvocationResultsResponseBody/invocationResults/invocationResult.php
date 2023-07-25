@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class invocationResult extends Model
 {
     /**
-     * @description The ID of the node on which the command was run.
+     * @description The ID of the command.
      *
      * @example c-hz01v8x80o3****
      *
@@ -18,6 +18,8 @@ class invocationResult extends Model
     public $commandId;
 
     /**
+     * @description The exit code.
+     *
      * @example 0
      *
      * @var int
@@ -25,13 +27,22 @@ class invocationResult extends Model
     public $exitCode;
 
     /**
-     * @description The ID of the command.
+     * @description The time at which the command entered the Finished state.
      *
      * @example 2021-09-06T09:14:56Z
      *
      * @var string
      */
     public $finishedTime;
+
+    /**
+     * @description The ID of the node on which the command was run.
+     *
+     * @example i-uf65bh2113hlqvyr****
+     *
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @description The status of the command. Valid values:
@@ -41,15 +52,6 @@ class invocationResult extends Model
      *   Failed
      *   Stopped
      *
-     * @example i-uf65bh2113hlqvyr****
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @description The exit code.
-     *
      * @example Finished
      *
      * @var string
@@ -57,7 +59,7 @@ class invocationResult extends Model
     public $invokeRecordStatus;
 
     /**
-     * @description The time at which the command entered the Finished state.
+     * @description The output result.
      *
      * @example hello world
      *
@@ -66,7 +68,7 @@ class invocationResult extends Model
     public $message;
 
     /**
-     * @description The output result.
+     * @description Indicates whether the command was run and its result was obtained.
      *
      * @example true
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class totalResources extends Model
 {
     /**
-     * @description The memory size. Unit: MiB.
+     * @description The number of CPU cores. Unit: cores.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class totalResources extends Model
     public $cpu;
 
     /**
-     * @description The number of CPU cores. Unit: cores.
+     * @description The number of GPU cards. Unit: cards.
      *
      * @example 0
      *
@@ -27,7 +27,7 @@ class totalResources extends Model
     public $gpu;
 
     /**
-     * @description The number of consumed resources in the cluster.
+     * @description The memory size. Unit: MiB.
      *
      * @example 1024
      *

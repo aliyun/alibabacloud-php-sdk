@@ -10,14 +10,31 @@ use AlibabaCloud\Tea\Model;
 class ListInvocationResultsRequest extends Model
 {
     /**
-     * @description The ID of the command.
+     * @description The ID of the cluster.
      *
-     * You can call the [ListCommands](~~87388~~) operation to query the command ID.
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
      */
     public $clusterId;
+
+    /**
+     * @description The ID of the command.
+     *
+     * You can call the [ListCommands](~~87388~~) operation to query the command ID.
+     * @example c-hz01v8x80o3****
+     *
+     * @var string
+     */
+    public $commandId;
+
+    /**
+     * @description The information of nodes on which the command is run.
+     *
+     * @var instance[]
+     */
+    public $instance;
 
     /**
      * @description The status of the command that you want to query. Valid values:
@@ -27,21 +44,6 @@ class ListInvocationResultsRequest extends Model
      *   Failed
      *   Stopped
      *
-     * @example c-hz01v8x80o3****
-     *
-     * @var string
-     */
-    public $commandId;
-
-    /**
-     * @var instance[]
-     */
-    public $instance;
-
-    /**
-     * @description The number of the page to return.
-     *
-     * Default value: 1
      * @example Finished
      *
      * @var string
@@ -49,9 +51,9 @@ class ListInvocationResultsRequest extends Model
     public $invokeRecordStatus;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 50.
+     * @description The number of the page to return.
      *
-     * Default value: 10
+     * Default value: 1
      * @example 1
      *
      * @var int
@@ -59,9 +61,9 @@ class ListInvocationResultsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the node on which the command is run.
+     * @description The number of entries to return on each page. Valid values: 1 to 50.
      *
-     * >  The Instance.N.Id parameter specifies the node on which the command is run. If it is not specified, the command is run on all nodes of the cluster.
+     * Default value: 10
      * @example 10
      *
      * @var int

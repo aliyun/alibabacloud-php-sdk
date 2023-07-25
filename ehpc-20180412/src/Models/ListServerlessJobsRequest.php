@@ -40,11 +40,6 @@ class ListServerlessJobsRequest extends Model
     public $pageSize;
 
     /**
-     * @var string[]
-     */
-    public $queues;
-
-    /**
      * @example cn-hangzhou
      *
      * @var string
@@ -77,25 +72,18 @@ class ListServerlessJobsRequest extends Model
      * @var string
      */
     public $submitTimeStart;
-
-    /**
-     * @var string[]
-     */
-    public $users;
     protected $_name = [
         'clusterId'       => 'ClusterId',
         'jobIds'          => 'JobIds',
         'jobNames'        => 'JobNames',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
-        'queues'          => 'Queues',
         'regionId'        => 'RegionId',
         'startOrder'      => 'StartOrder',
         'state'           => 'State',
         'submitOrder'     => 'SubmitOrder',
         'submitTimeEnd'   => 'SubmitTimeEnd',
         'submitTimeStart' => 'SubmitTimeStart',
-        'users'           => 'Users',
     ];
 
     public function validate()
@@ -120,9 +108,6 @@ class ListServerlessJobsRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->queues) {
-            $res['Queues'] = $this->queues;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -140,9 +125,6 @@ class ListServerlessJobsRequest extends Model
         }
         if (null !== $this->submitTimeStart) {
             $res['SubmitTimeStart'] = $this->submitTimeStart;
-        }
-        if (null !== $this->users) {
-            $res['Users'] = $this->users;
         }
 
         return $res;
@@ -175,11 +157,6 @@ class ListServerlessJobsRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['Queues'])) {
-            if (!empty($map['Queues'])) {
-                $model->queues = $map['Queues'];
-            }
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -197,11 +174,6 @@ class ListServerlessJobsRequest extends Model
         }
         if (isset($map['SubmitTimeStart'])) {
             $model->submitTimeStart = $map['SubmitTimeStart'];
-        }
-        if (isset($map['Users'])) {
-            if (!empty($map['Users'])) {
-                $model->users = $map['Users'];
-            }
         }
 
         return $model;

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListSoftwaresRequest extends Model
 {
     /**
-     * @description The image tag of the cluster.
+     * @description The version of the E-HPC client.
      *
-     * You can use the [ListImages](~~87213~~) to query the image tag of the cluster.
+     * You can call the [ListCurrentClientVersion](~~87223~~) operation to query the E-HPC client version.
      * @example 1.0.0
      *
      * @var string
@@ -19,8 +19,9 @@ class ListSoftwaresRequest extends Model
     public $ehpcVersion;
 
     /**
-     * @description The ID of the request.
+     * @description The image tag of the cluster.
      *
+     * You can use the [ListImages](~~87213~~) to query the image tag of the cluster.
      * @example CentOS_7.2_64
      *
      * @var string

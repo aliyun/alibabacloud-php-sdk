@@ -318,7 +318,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to AddContainerApp.
+     * If you select an image for a new containerized application, the image is pulled from Docker Hub by default. However, the version of the image may not be up to date. You can call the [PullImage](~~159052~~) operation to pull the latest image.
      *   *
      * @param AddContainerAppRequest $request AddContainerAppRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -348,7 +348,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to AddContainerApp.
+     * If you select an image for a new containerized application, the image is pulled from Docker Hub by default. However, the version of the image may not be up to date. You can call the [PullImage](~~159052~~) operation to pull the latest image.
      *   *
      * @param AddContainerAppRequest $request AddContainerAppRequest
      *
@@ -3899,9 +3899,6 @@ class EHPC extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->queues)) {
-            $query['Queues'] = $request->queues;
-        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -3919,9 +3916,6 @@ class EHPC extends OpenApiClient
         }
         if (!Utils::isUnset($request->submitTimeStart)) {
             $query['SubmitTimeStart'] = $request->submitTimeStart;
-        }
-        if (!Utils::isUnset($request->users)) {
-            $query['Users'] = $request->users;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

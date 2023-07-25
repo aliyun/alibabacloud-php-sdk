@@ -16,13 +16,6 @@ class jobs extends Model
     public $endTime;
 
     /**
-     * @example 10
-     *
-     * @var string
-     */
-    public $id;
-
-    /**
      * @example True
      *
      * @var bool
@@ -30,18 +23,14 @@ class jobs extends Model
     public $isArrayJob;
 
     /**
-     * @example testjob
-     *
      * @var string
      */
-    public $name;
+    public $jobId;
 
     /**
-     * @example testuser
-     *
      * @var string
      */
-    public $owner;
+    public $jobName;
 
     /**
      * @example 9
@@ -77,17 +66,22 @@ class jobs extends Model
      * @var string
      */
     public $submitTime;
+
+    /**
+     * @var string
+     */
+    public $user;
     protected $_name = [
         'endTime'    => 'EndTime',
-        'id'         => 'Id',
         'isArrayJob' => 'IsArrayJob',
-        'name'       => 'Name',
-        'owner'      => 'Owner',
+        'jobId'      => 'JobId',
+        'jobName'    => 'JobName',
         'priority'   => 'Priority',
         'queue'      => 'Queue',
         'startTime'  => 'StartTime',
         'state'      => 'State',
         'submitTime' => 'SubmitTime',
+        'user'       => 'User',
     ];
 
     public function validate()
@@ -100,17 +94,14 @@ class jobs extends Model
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
         }
-        if (null !== $this->id) {
-            $res['Id'] = $this->id;
-        }
         if (null !== $this->isArrayJob) {
             $res['IsArrayJob'] = $this->isArrayJob;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
-        if (null !== $this->owner) {
-            $res['Owner'] = $this->owner;
+        if (null !== $this->jobName) {
+            $res['JobName'] = $this->jobName;
         }
         if (null !== $this->priority) {
             $res['Priority'] = $this->priority;
@@ -127,6 +118,9 @@ class jobs extends Model
         if (null !== $this->submitTime) {
             $res['SubmitTime'] = $this->submitTime;
         }
+        if (null !== $this->user) {
+            $res['User'] = $this->user;
+        }
 
         return $res;
     }
@@ -142,17 +136,14 @@ class jobs extends Model
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
         }
-        if (isset($map['Id'])) {
-            $model->id = $map['Id'];
-        }
         if (isset($map['IsArrayJob'])) {
             $model->isArrayJob = $map['IsArrayJob'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
-        if (isset($map['Owner'])) {
-            $model->owner = $map['Owner'];
+        if (isset($map['JobName'])) {
+            $model->jobName = $map['JobName'];
         }
         if (isset($map['Priority'])) {
             $model->priority = $map['Priority'];
@@ -168,6 +159,9 @@ class jobs extends Model
         }
         if (isset($map['SubmitTime'])) {
             $model->submitTime = $map['SubmitTime'];
+        }
+        if (isset($map['User'])) {
+            $model->user = $map['User'];
         }
 
         return $model;

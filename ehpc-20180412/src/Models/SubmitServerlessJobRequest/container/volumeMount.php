@@ -4,21 +4,19 @@
 
 namespace AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitServerlessJobRequest\container;
 
-use AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitServerlessJobRequest\container\volumeMount\flexVolume;
-use AlibabaCloud\SDK\EHPC\V20180412\Models\SubmitServerlessJobRequest\container\volumeMount\NFSVolume;
 use AlibabaCloud\Tea\Model;
 
 class volumeMount extends Model
 {
     /**
-     * @var flexVolume
+     * @var string
      */
-    public $flexVolume;
+    public $flexVolumeDriver;
 
     /**
-     * @var NFSVolume
+     * @var string
      */
-    public $NFSVolume;
+    public $flexVolumeOptions;
 
     /**
      * @example /data
@@ -27,9 +25,9 @@ class volumeMount extends Model
      */
     public $mountPath;
     protected $_name = [
-        'flexVolume' => 'FlexVolume',
-        'NFSVolume'  => 'NFSVolume',
-        'mountPath'  => 'MountPath',
+        'flexVolumeDriver'  => 'FlexVolumeDriver',
+        'flexVolumeOptions' => 'FlexVolumeOptions',
+        'mountPath'         => 'MountPath',
     ];
 
     public function validate()
@@ -39,11 +37,11 @@ class volumeMount extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->flexVolume) {
-            $res['FlexVolume'] = null !== $this->flexVolume ? $this->flexVolume->toMap() : null;
+        if (null !== $this->flexVolumeDriver) {
+            $res['FlexVolumeDriver'] = $this->flexVolumeDriver;
         }
-        if (null !== $this->NFSVolume) {
-            $res['NFSVolume'] = null !== $this->NFSVolume ? $this->NFSVolume->toMap() : null;
+        if (null !== $this->flexVolumeOptions) {
+            $res['FlexVolumeOptions'] = $this->flexVolumeOptions;
         }
         if (null !== $this->mountPath) {
             $res['MountPath'] = $this->mountPath;
@@ -60,11 +58,11 @@ class volumeMount extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['FlexVolume'])) {
-            $model->flexVolume = flexVolume::fromMap($map['FlexVolume']);
+        if (isset($map['FlexVolumeDriver'])) {
+            $model->flexVolumeDriver = $map['FlexVolumeDriver'];
         }
-        if (isset($map['NFSVolume'])) {
-            $model->NFSVolume = NFSVolume::fromMap($map['NFSVolume']);
+        if (isset($map['FlexVolumeOptions'])) {
+            $model->flexVolumeOptions = $map['FlexVolumeOptions'];
         }
         if (isset($map['MountPath'])) {
             $model->mountPath = $map['MountPath'];

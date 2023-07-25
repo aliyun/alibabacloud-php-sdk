@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListInvocationResultsResponseBody extends Model
 {
     /**
-     * @description Indicates whether the command was run and its result was obtained.
+     * @description The result of the command.
      *
      * @var invocationResults
      */
     public $invocationResults;
 
     /**
-     * @description The total number of returned entries.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class ListInvocationResultsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class ListInvocationResultsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The page number of the returned page.
+     * @description The ID of the request.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
@@ -44,7 +44,7 @@ class ListInvocationResultsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The result of the command.
+     * @description The total number of returned entries.
      *
      * @example 1
      *

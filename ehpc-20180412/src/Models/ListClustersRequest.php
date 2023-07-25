@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListClustersRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 50.
+     * @description The number of the page to return. Pages start from page 1.
      *
-     * Default value: 10
      * @example 1
      *
      * @var int
@@ -19,8 +18,9 @@ class ListClustersRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries to return on each page. Valid values: 1 to 50.
      *
+     * Default value: 10
      * @example 10
      *
      * @var int
