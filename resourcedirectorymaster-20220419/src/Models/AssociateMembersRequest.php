@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AssociateMembersRequest extends Model
 {
     /**
+     * @description The ID of the contact.
+     *
      * @example c-qL4HqKONzOM7****
      *
      * @var string
@@ -16,6 +18,8 @@ class AssociateMembersRequest extends Model
     public $contactId;
 
     /**
+     * @description The IDs of objects to which you want to bind the contact.
+     *
      * @var string[]
      */
     public $members;

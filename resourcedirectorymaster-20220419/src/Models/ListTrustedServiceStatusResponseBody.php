@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListTrustedServiceStatusResponseBody extends Model
 {
     /**
+     * @description The information about the trusted services that are enabled.
+     *
      * @var enabledServicePrincipals
      */
     public $enabledServicePrincipals;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListTrustedServiceStatusResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class ListTrustedServiceStatusResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CD76D376-2517-4924-92C5-DBC52262F93A
      *
      * @var string
@@ -36,6 +44,8 @@ class ListTrustedServiceStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

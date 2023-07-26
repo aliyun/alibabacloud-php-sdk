@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class account extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member.
+     *
      * @example 181761095690****
      *
      * @var string
@@ -17,6 +19,8 @@ class account extends Model
     public $accountId;
 
     /**
+     * @description The Alibaba Cloud account name of the member.
+     *
      * @example someone@example.com
      *
      * @var string
@@ -24,6 +28,8 @@ class account extends Model
     public $accountName;
 
     /**
+     * @description The display name of the member.
+     *
      * @example admin
      *
      * @var string
@@ -31,6 +37,13 @@ class account extends Model
     public $displayName;
 
     /**
+     * @description The status of the modification for the email address bound to the member. Valid values:
+     *
+     *   If the value of this parameter is empty, no modification is performed for the email address.
+     *   WAIT_MODIFY: The modification is being performed.
+     *   CANCELLED: The modification is canceled.
+     *   EXPIRED: The modification expires.
+     *
      * @example WAIT_MODIFY
      *
      * @var string
@@ -38,6 +51,8 @@ class account extends Model
     public $emailStatus;
 
     /**
+     * @description The ID of the folder.
+     *
      * @example fd-bVaRIG****
      *
      * @var string
@@ -45,6 +60,8 @@ class account extends Model
     public $folderId;
 
     /**
+     * @description The real-name verification information.
+     *
      * @example aliyun-admin
      *
      * @var string
@@ -52,6 +69,11 @@ class account extends Model
     public $identityInformation;
 
     /**
+     * @description The way in which the member joins the resource directory. Valid values:
+     *
+     *   invited: The member is invited to join the resource directory.
+     *   created: The member is directly created in the resource directory.
+     *
      * @example created
      *
      * @var string
@@ -59,6 +81,8 @@ class account extends Model
     public $joinMethod;
 
     /**
+     * @description The time when the member joined the resource directory.
+     *
      * @example 2015-01-23T12:33:18Z
      *
      * @var string
@@ -66,6 +90,8 @@ class account extends Model
     public $joinTime;
 
     /**
+     * @description The location of the member in the resource directory.
+     *
      * @example root/AlRd****\/Z5Aa****
      *
      * @var string
@@ -73,6 +99,8 @@ class account extends Model
     public $location;
 
     /**
+     * @description The time when the member was modified.
+     *
      * @example 2015-01-23T12:33:18Z
      *
      * @var string
@@ -80,6 +108,8 @@ class account extends Model
     public $modifyTime;
 
     /**
+     * @description The ID of the resource directory.
+     *
      * @example rd-k3****
      *
      * @var string
@@ -87,6 +117,8 @@ class account extends Model
     public $resourceDirectoryId;
 
     /**
+     * @description The path of the member in the resource directory.
+     *
      * @example rd-k3****\/r-Wm****\/fd-bVaRIG****\/181761095690****
      *
      * @var string
@@ -94,6 +126,16 @@ class account extends Model
     public $resourceDirectoryPath;
 
     /**
+     * @description The status of the member. Valid values:
+     *
+     *   CreateSuccess: The member is created.
+     *   PromoteVerifying: The upgrade of the member is being confirmed.
+     *   PromoteFailed: The upgrade of the member fails.
+     *   PromoteExpired: The upgrade of the member expires.
+     *   PromoteCancelled: The upgrade of the member is canceled.
+     *   PromoteSuccess: The member is upgraded.
+     *   InviteSuccess: The member accepts the invitation.
+     *
      * @example CreateSuccess
      *
      * @var string
@@ -101,11 +143,18 @@ class account extends Model
     public $status;
 
     /**
+     * @description The tags of the member.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The type of the member. Valid values:
+     *
+     *   CloudAccount: cloud account
+     *   ResourceAccount: resource account
+     *
      * @example ResourceAccount
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMessageContactsRequest extends Model
 {
     /**
+     * @description The ID of the contact.
+     *
      * @example c-qL4HqKONzOM7****
      *
      * @var string
@@ -16,6 +18,12 @@ class ListMessageContactsRequest extends Model
     public $contactId;
 
     /**
+     * @description The ID of the object to which the contact is bound. Valid values:
+     *
+     *   ID of the resource directory
+     *   ID of the folder
+     *   ID of the member
+     *
      * @example fd-ZDNPiT****
      *
      * @var string
@@ -23,6 +31,8 @@ class ListMessageContactsRequest extends Model
     public $member;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +40,8 @@ class ListMessageContactsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int

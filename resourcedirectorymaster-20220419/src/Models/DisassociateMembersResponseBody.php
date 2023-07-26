@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DisassociateMembersResponseBody extends Model
 {
     /**
+     * @description The time when the contact was unbound from the object.
+     *
      * @var members[]
      */
     public $members;
 
     /**
+     * @description The request ID.
+     *
      * @example 95060F1D-6990-4645-8920-A81D1BBFE992
      *
      * @var string

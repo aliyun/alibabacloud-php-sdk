@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetMessageContactRequest extends Model
 {
     /**
+     * @description The ID of the contact.
+     *
      * @example c-qL4HqKONzOM7****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class enabledServicePrincipal extends Model
 {
     /**
+     * @description The time when the trusted service was enabled.
+     *
      * @example 2019-02-18T15:32:10.473Z
      *
      * @var string
@@ -16,6 +18,8 @@ class enabledServicePrincipal extends Model
     public $enableTime;
 
     /**
+     * @description The identifier of the trusted service.
+     *
      * @example config.aliyuncs.com
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SendPhoneVerificationForMessageContactResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example CD76D376-2517-4924-92C5-DBC52262F93A
      *
      * @var string

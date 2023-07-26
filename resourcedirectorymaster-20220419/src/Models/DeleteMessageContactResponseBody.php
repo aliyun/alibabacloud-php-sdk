@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMessageContactResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 9B34724D-54B0-4A51-B34D-4512372FE1BE
      *
      * @var string
@@ -16,6 +18,11 @@ class DeleteMessageContactResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The deletion status of the contact. Valid values:
+     *
+     *   Deleting
+     *   Deleted
+     *
      * @example Deleting
      *
      * @var string

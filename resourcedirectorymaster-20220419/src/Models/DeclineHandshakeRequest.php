@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeclineHandshakeRequest extends Model
 {
     /**
+     * @description The ID of the invitation.
+     *
      * @example h-ycm4rp****
      *
      * @var string

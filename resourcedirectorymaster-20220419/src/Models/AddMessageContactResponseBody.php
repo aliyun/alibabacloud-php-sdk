@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class AddMessageContactResponseBody extends Model
 {
     /**
+     * @description The information about the contact.
+     *
      * @var contact
      */
     public $contact;
 
     /**
+     * @description The request ID.
+     *
      * @example 2DFCE4C9-04A9-4C83-BB14-FE791275EC53
      *
      * @var string

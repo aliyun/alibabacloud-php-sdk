@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class InviteAccountToResourceDirectoryRequest extends Model
 {
     /**
+     * @description The description of the invitation.
+     *
+     * The description can be up to 1,024 characters in length.
+     * @example Welcome
+     *
      * @var string
      */
     public $note;
 
     /**
+     * @description The ID of the parent folder.
+     *
      * @example r-b1****
      *
      * @var string
@@ -22,11 +29,15 @@ class InviteAccountToResourceDirectoryRequest extends Model
     public $parentFolderId;
 
     /**
+     * @description The tag value.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID or logon email address of the account that you want to invite.
+     *
      * @example someone@example.com
      *
      * @var string
@@ -34,6 +45,11 @@ class InviteAccountToResourceDirectoryRequest extends Model
     public $targetEntity;
 
     /**
+     * @description The type of the invited account. Valid values:
+     *
+     *   Account: indicates the ID of the account.
+     *   Email: indicates the logon email address of the account.
+     *
      * @example Email
      *
      * @var string

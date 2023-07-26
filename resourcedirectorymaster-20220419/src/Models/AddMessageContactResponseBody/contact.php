@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class contact extends Model
 {
     /**
+     * @description The ID of the contact.
+     *
      * @example c-qL4HqKONzOM7****
      *
      * @var string
@@ -16,6 +18,8 @@ class contact extends Model
     public $contactId;
 
     /**
+     * @description The time when the contact was created.
+     *
      * @example 2023-03-27 17:19:21
      *
      * @var string

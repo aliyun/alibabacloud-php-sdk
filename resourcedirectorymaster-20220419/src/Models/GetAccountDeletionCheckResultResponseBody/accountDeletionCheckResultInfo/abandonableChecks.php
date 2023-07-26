@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class abandonableChecks extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
      * @example NON_SP_cs
      *
      * @var string
@@ -16,11 +18,19 @@ class abandonableChecks extends Model
     public $checkId;
 
     /**
+     * @description The name of the cloud service to which the check item belongs.
+     *
+     * @example Container Service for Kubernetes
+     *
      * @var string
      */
     public $checkName;
 
     /**
+     * @description The description of the check item.
+     *
+     * @example An instance of a cloud service is running within the member. Submit a ticket to contact Alibaba Cloud technical support.
+     *
      * @var string
      */
     public $description;

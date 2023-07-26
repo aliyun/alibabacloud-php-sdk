@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class contactDeletionStatus extends Model
 {
     /**
+     * @description The ID of the contact.
+     *
      * @example c-qL4HqKONzOM7****
      *
      * @var string
@@ -17,11 +19,18 @@ class contactDeletionStatus extends Model
     public $contactId;
 
     /**
+     * @description The types of messages received by the contact.
+     *
      * @var failReasonList[]
      */
     public $failReasonList;
 
     /**
+     * @description The deletion status of the contact. Valid values:
+     *
+     *   Deleting
+     *   Failed
+     *
      * @example Deleting
      *
      * @var string

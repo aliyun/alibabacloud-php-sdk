@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateMessageContactRequest extends Model
 {
     /**
+     * @description The ID of the contact.
+     *
      * @example c-qL4HqKONzOM7****
      *
      * @var string
@@ -16,6 +18,9 @@ class UpdateMessageContactRequest extends Model
     public $contactId;
 
     /**
+     * @description The email address of the contact.
+     *
+     * After you specify an email address, you need to call [SendEmailVerificationForMessageContact](~~SendEmailVerificationForMessageContact~~) to send verification information to the email address. After the verification is passed, the email address takes effect.
      * @example someone***@example.com
      *
      * @var string
@@ -23,11 +28,15 @@ class UpdateMessageContactRequest extends Model
     public $emailAddress;
 
     /**
+     * @description The types of messages received by the contact.
+     *
      * @var string[]
      */
     public $messageTypes;
 
     /**
+     * @description The name of the contact.
+     *
      * @example tom
      *
      * @var string
@@ -35,6 +44,9 @@ class UpdateMessageContactRequest extends Model
     public $name;
 
     /**
+     * @description The mobile phone number of the contact.
+     *
+     * After you specify a mobile phone number, you need to call [SendPhoneVerificationForMessageContact](~~SendPhoneVerificationForMessageContact~~) to send verification information to the mobile phone number. After the verification is passed, the mobile phone number takes effect.
      * @example 86-139****1234
      *
      * @var string
@@ -42,6 +54,33 @@ class UpdateMessageContactRequest extends Model
     public $phoneNumber;
 
     /**
+     * @description The job title of the contact.
+     *
+     * Valid values:
+     *
+     *   FinanceDirector
+     *
+     * <!-- -->
+     *
+     *   TechnicalDirector
+     *
+     * <!-- -->
+     *
+     *   MaintenanceDirector
+     *
+     * <!-- -->
+     *
+     *   CEO
+     *
+     * <!-- -->
+     *
+     *   ProjectDirector
+     *
+     * <!-- -->
+     *
+     *   Other
+     *
+     * <!-- -->
      * @example TechnicalDirector
      *
      * @var string

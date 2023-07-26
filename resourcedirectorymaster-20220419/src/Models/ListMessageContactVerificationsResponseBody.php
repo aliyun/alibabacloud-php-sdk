@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListMessageContactVerificationsResponseBody extends Model
 {
     /**
+     * @description The record for the contact to be verified.
+     *
      * @var contactVerifications[]
      */
     public $contactVerifications;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListMessageContactVerificationsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class ListMessageContactVerificationsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example CD76D376-2517-4924-92C5-DBC52262F93A
      *
      * @var string
@@ -36,6 +44,8 @@ class ListMessageContactVerificationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 48
      *
      * @var int

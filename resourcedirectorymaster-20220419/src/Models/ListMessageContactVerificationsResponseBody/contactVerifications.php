@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class contactVerifications extends Model
 {
     /**
+     * @description The ID of the contact.
+     *
      * @example c-qL4HqKONzOM7****
      *
      * @var string
@@ -16,6 +18,9 @@ class contactVerifications extends Model
     public $contactId;
 
     /**
+     * @description The object that is used for verification. Valid values:
+     *
+     * - Email address
      * @example someone***@example.com
      *
      * @var string

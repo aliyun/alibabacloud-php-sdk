@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DisassociateMembersRequest extends Model
 {
     /**
+     * @description The ID of the contact.
+     *
      * @example c-qL4HqKONzOM7****
      *
      * @var string
@@ -16,6 +18,8 @@ class DisassociateMembersRequest extends Model
     public $contactId;
 
     /**
+     * @description The IDs of objects from which you want to unbind the contact.
+     *
      * @var string[]
      */
     public $members;

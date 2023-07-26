@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class failReasonList extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member.
+     *
      * @example 199796839435****
      *
      * @var string
@@ -16,6 +18,8 @@ class failReasonList extends Model
     public $accountId;
 
     /**
+     * @description The types of messages received by the contact.
+     *
      * @var string[]
      */
     public $messageTypes;

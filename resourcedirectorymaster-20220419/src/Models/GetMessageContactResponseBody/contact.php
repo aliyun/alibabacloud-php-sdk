@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class contact extends Model
 {
     /**
+     * @description The ID of the contact.
+     *
      * @example c-qL4HqKONzOM7****
      *
      * @var string
@@ -16,6 +18,8 @@ class contact extends Model
     public $contactId;
 
     /**
+     * @description The time when the contact was created.
+     *
      * @example 2023-03-27 17:19:21
      *
      * @var string
@@ -23,6 +27,8 @@ class contact extends Model
     public $createDate;
 
     /**
+     * @description The email address of the contact.
+     *
      * @example someone***@example.com
      *
      * @var string
@@ -30,16 +36,22 @@ class contact extends Model
     public $emailAddress;
 
     /**
+     * @description The IDs of objects to which the contact is bound.
+     *
      * @var string[]
      */
     public $members;
 
     /**
+     * @description The types of messages received by the contact.
+     *
      * @var string[]
      */
     public $messageTypes;
 
     /**
+     * @description The name of the contact.
+     *
      * @example tom
      *
      * @var string
@@ -47,6 +59,8 @@ class contact extends Model
     public $name;
 
     /**
+     * @description The mobile phone number of the contact.
+     *
      * @example 86-139****1234
      *
      * @var string
@@ -54,6 +68,12 @@ class contact extends Model
     public $phoneNumber;
 
     /**
+     * @description The status of the contact. Valid values:
+     *
+     *   Verifying
+     *   Active
+     *   Deleting
+     *
      * @example Active
      *
      * @var string
@@ -61,6 +81,8 @@ class contact extends Model
     public $status;
 
     /**
+     * @description The job title of the contact.
+     *
      * @example TechnicalDirector
      *
      * @var string

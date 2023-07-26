@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class members extends Model
 {
     /**
+     * @description The ID of the contact.
+     *
      * @example c-qL4HqKONzOM7****
      *
      * @var string
@@ -16,6 +18,9 @@ class members extends Model
     public $contactId;
 
     /**
+     * @description The ID of the object. Valid values:
+     *
+     * - ID of the member
      * @example fd-ZDNPiT****
      *
      * @var string
@@ -23,6 +28,8 @@ class members extends Model
     public $memberId;
 
     /**
+     * @description The time when the contact was unbound from the object.
+     *
      * @example 2023-03-27 17:19:21
      *
      * @var string

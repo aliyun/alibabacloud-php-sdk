@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SendEmailVerificationForMessageContactRequest extends Model
 {
     /**
+     * @description The ID of the contact.
+     *
      * @example c-5gsZAGt***PGduDF
      *
      * @var string
@@ -16,6 +18,9 @@ class SendEmailVerificationForMessageContactRequest extends Model
     public $contactId;
 
     /**
+     * @description The email address of the contact.
+     *
+     * The specified email address must be the one you specify when you call [AddMessageContact](~~AddMessageContact~~).
      * @example someone***@example.com
      *
      * @var string

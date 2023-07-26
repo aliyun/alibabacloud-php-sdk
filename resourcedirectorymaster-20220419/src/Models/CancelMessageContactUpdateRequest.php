@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelMessageContactUpdateRequest extends Model
 {
     /**
+     * @description The ID of the contact.
+     *
      * @example c-qL4HqKONzOM7****
      *
      * @var string
@@ -16,6 +18,8 @@ class CancelMessageContactUpdateRequest extends Model
     public $contactId;
 
     /**
+     * @description The email address of the contact.
+     *
      * @example someone***@example.com
      *
      * @var string
@@ -23,6 +27,9 @@ class CancelMessageContactUpdateRequest extends Model
     public $emailAddress;
 
     /**
+     * @description The mobile phone number of the contact.
+     *
+     * Specify the mobile phone number in the `<Country code>-<Mobile phone number>` format.
      * @example 86-139****1234
      *
      * @var string

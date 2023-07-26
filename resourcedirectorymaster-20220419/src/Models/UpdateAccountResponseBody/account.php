@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class account extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member.
+     *
      * @example 12323344****
      *
      * @var string
@@ -16,6 +18,8 @@ class account extends Model
     public $accountId;
 
     /**
+     * @description The Alibaba Cloud account name of the member.
+     *
      * @example ecs-manager@aliyun.com
      *
      * @var string
@@ -23,6 +27,8 @@ class account extends Model
     public $accountName;
 
     /**
+     * @description The display name of the member.
+     *
      * @example admin
      *
      * @var string
@@ -30,6 +36,8 @@ class account extends Model
     public $displayName;
 
     /**
+     * @description The ID of the folder.
+     *
      * @example fd-bVaRIG****
      *
      * @var string
@@ -37,6 +45,11 @@ class account extends Model
     public $folderId;
 
     /**
+     * @description The way in which the member joins the resource directory. Valid values:
+     *
+     *   invited: The member is invited to join the resource directory.
+     *   created: The member is directly created in the resource directory.
+     *
      * @example created
      *
      * @var string
@@ -44,6 +57,8 @@ class account extends Model
     public $joinMethod;
 
     /**
+     * @description The time when the member joined the resource directory. The time is displayed in UTC.
+     *
      * @example 2015-01-23T12:33:18Z
      *
      * @var string
@@ -51,6 +66,8 @@ class account extends Model
     public $joinTime;
 
     /**
+     * @description The time when the member was modified. The time is displayed in UTC.
+     *
      * @example 2015-01-23T12:33:18Z
      *
      * @var string
@@ -58,6 +75,8 @@ class account extends Model
     public $modifyTime;
 
     /**
+     * @description The ID of the resource directory.
+     *
      * @example rd-k3****
      *
      * @var string
@@ -65,6 +84,13 @@ class account extends Model
     public $resourceDirectoryId;
 
     /**
+     * @description The status of the member. Valid values:
+     *
+     *   CreateSuccess: The member is created.
+     *   InviteSuccess: The member accepts the invitation.
+     *   Removed: The member is removed.
+     *   SwitchSuccess: The type of the member is switched.
+     *
      * @example CreateSuccess
      *
      * @var string
@@ -72,6 +98,11 @@ class account extends Model
     public $status;
 
     /**
+     * @description The type of the member. Valid values:
+     *
+     *   CloudAccount: cloud account
+     *   ResourceAccount: resource account
+     *
      * @example ResourceAccount
      *
      * @var string

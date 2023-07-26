@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeAccountEmailRequest extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member.
+     *
      * @example 181761095690****
      *
      * @var string
@@ -16,6 +18,9 @@ class ChangeAccountEmailRequest extends Model
     public $accountId;
 
     /**
+     * @description The email address to be bound to the member.
+     *
+     * > The system automatically sends a verification email to the email address. After the verification is passed, the email address takes effect, and the system changes both the logon email address and secure email address of the member.
      * @example someone@example.com
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetMessageContactDeletionStatusResponseBody extends Model
 {
     /**
+     * @description The deletion information of the contact.
+     *
      * @var contactDeletionStatus
      */
     public $contactDeletionStatus;
 
     /**
+     * @description The request ID.
+     *
      * @example 95060F1D-6990-4645-8920-A81D1BBFE992
      *
      * @var string

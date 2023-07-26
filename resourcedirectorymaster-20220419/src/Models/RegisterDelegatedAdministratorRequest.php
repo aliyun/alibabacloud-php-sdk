@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RegisterDelegatedAdministratorRequest extends Model
 {
     /**
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
      * @example 181761095690****
      *
      * @var string
@@ -16,6 +18,9 @@ class RegisterDelegatedAdministratorRequest extends Model
     public $accountId;
 
     /**
+     * @description The identifier of the trusted service.
+     *
+     * For more information, see the `Trusted service identifier` column in [Supported trusted services](~~208133~~).
      * @example cloudfw.aliyuncs.com
      *
      * @var string

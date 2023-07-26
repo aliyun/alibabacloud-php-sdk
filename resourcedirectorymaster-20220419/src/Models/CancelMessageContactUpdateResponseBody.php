@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CancelMessageContactUpdateResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 9B34724D-54B0-4A51-B34D-4512372FE1BE
      *
      * @var string
