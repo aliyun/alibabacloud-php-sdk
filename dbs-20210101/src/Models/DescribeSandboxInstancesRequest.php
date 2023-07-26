@@ -11,7 +11,7 @@ class DescribeSandboxInstancesRequest extends Model
     /**
      * @description The ID of the backup schedule. You can call the [DescribeBackupPlanList](~~437215~~) operation to obtain the ID of the backup schedule.
      *
-     * >  If your instance is an ApsaraDB RDS for MySQL instance, you can configure [automatic access to the instance](~~193091~~) to automatically add the instance to DBS and obtain the ID of the backup schedule.
+     * > If your instance is an ApsaraDB RDS for MySQL instance, you can [configure automatic access to a data source](~~193091~~) to automatically add the instance to DBS and obtain the ID of the backup schedule.
      * @example 1hxxxx8xxxxxa
      *
      * @var string
@@ -19,7 +19,7 @@ class DescribeSandboxInstancesRequest extends Model
     public $backupPlanId;
 
     /**
-     * @description The ID of the sandbox instance. You can call the [CreateSandboxInstance](~~437252~~) parameter to obtain the ID of the sandbox instance.
+     * @description The ID of the sandbox instance. You can call the [CreateSandboxInstance](~~437252~~) operation to obtain the ID of the sandbox instance.
      *
      * @example 1jxxxxnxxx1xc
      *
@@ -39,7 +39,7 @@ class DescribeSandboxInstancesRequest extends Model
     /**
      * @description The number of entries to return on each page. Valid values:
      *
-     *   30 (default value)
+     *   30\. This is the default value.
      *   50
      *   100
      *

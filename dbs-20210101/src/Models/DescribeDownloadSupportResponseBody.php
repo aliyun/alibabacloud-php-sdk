@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDownloadSupportResponseBody extends Model
 {
     /**
-     * @description The error code.
+     * @description The error code returned if the request failed.
      *
      * @example DBS.ParamIsInValid
      *
@@ -30,7 +30,7 @@ class DescribeDownloadSupportResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned if the request fails.
+     * @description The error code returned if the request failed.
      *
      * @example DBS.ParamIsInValid
      *
@@ -39,7 +39,7 @@ class DescribeDownloadSupportResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message returned if the request fails.
+     * @description The error message returned if the request failed.
      *
      * @example Argument: regionCode Must not be empty
      *
@@ -48,7 +48,7 @@ class DescribeDownloadSupportResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request failed.
      *
      * @example Argument: regionCode Must not be empty
      *
@@ -66,10 +66,10 @@ class DescribeDownloadSupportResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example true
      *

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The expiration time of the URL.
+     * @description The validity period of the URL.
      *
-     * >  The return value is in the timestamp format.
+     * > This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1661329050
      *
      * @var int

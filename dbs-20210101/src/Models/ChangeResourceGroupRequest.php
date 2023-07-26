@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
      * @example dbs
      *
      * @var string
@@ -16,6 +18,8 @@ class ChangeResourceGroupRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the resource group to which you want to move the resource.
+     *
      * @example rg-aekz4kee6******
      *
      * @var string
@@ -23,6 +27,8 @@ class ChangeResourceGroupRequest extends Model
     public $newResourceGroupId;
 
     /**
+     * @description The ID of the resource.
+     *
      * @example dbs1jyajqk******
      *
      * @var string
@@ -30,6 +36,8 @@ class ChangeResourceGroupRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource. Set the value to backupplan.
+     *
      * @example backupplan
      *
      * @var string

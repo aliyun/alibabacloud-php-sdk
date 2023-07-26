@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDownloadRequest extends Model
 {
     /**
-     * @description The ID of the backup set. You can call the [DescribeBackups](~~26273~~) operation to obtain the ID of the backup set.
+     * @description The ID of the backup set. You can call the [DescribeBackups](~~26273~~) operation to query the ID of the backup set.
      *
-     * >  This parameter is required if the BakSetType parameter is set to full.
+     * > This parameter is required if the BakSetType parameter is set to full.
      * @example 146005****
      *
      * @var string
@@ -19,7 +19,7 @@ class CreateDownloadRequest extends Model
     public $bakSetId;
 
     /**
-     * @description The size of the full backup set. You can call the [DescribeBackups](~~26273~~) operation to query the size of the full backup set. Unit: bytes.
+     * @description The size of the full backup set. Unit: bytes. You can call the [DescribeBackups](~~26273~~) operation to query the size of the full backup set.
      *
      * @example 216****
      *
@@ -40,9 +40,9 @@ class CreateDownloadRequest extends Model
     public $bakSetType;
 
     /**
-     * @description The point in time at which the backup set is downloaded. The UNIX timestamp of the LONG type. Unit: milliseconds.
+     * @description The point in time at which the backup set is downloaded. Specify a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
-     * >  This parameter is required if the BakSetType parameter is set to pitr.
+     * > This parameter is required if the BakSetType parameter is set to pitr.
      * @example 1661331864000
      *
      * @var string
@@ -50,13 +50,14 @@ class CreateDownloadRequest extends Model
     public $downloadPointInTime;
 
     /**
-     * @description The destination format to which the downloaded backup set is converted. Valid values:
+     * @description The format to which the downloaded backup set is converted. Valid values:
      *
-     *   **csv**
+     *   **CSV**
      *   **SQL**
      *   **Parquet**
      *
-     * @example csv
+     * > This parameter is required.
+     * @example CSV
      *
      * @var string
      */
@@ -84,7 +85,7 @@ class CreateDownloadRequest extends Model
      * @description The name of the OSS bucket that is used to store the backup set.
      *
      *   This parameter is required if the TargetType parameter is set to OSS.
-     *   Make sure that your account has the **AliyunDBSDefaultRole** permission. For more information, see [Use RAM for resource authorization](~~26307~~). You can also grant permissions based on the operation instructions in the RAM console.
+     *   Make sure that your account is granted the **AliyunDBSDefaultRole** permission. For more information, see [Use RAM for resource authorization](~~26307~~). You can also grant permissions based on the operation instructions in the Resource Access Management (RAM) console.
      *
      * @example test123
      *
@@ -95,7 +96,7 @@ class CreateDownloadRequest extends Model
     /**
      * @description The region in which the OSS bucket resides.
      *
-     * >  This parameter is required if the TargetType parameter is set to OSS.
+     * > This parameter is required if the TargetType parameter is set to OSS.
      * @example cn-beijing
      *
      * @var string
@@ -103,9 +104,9 @@ class CreateDownloadRequest extends Model
     public $targetOssRegion;
 
     /**
-     * @description The destination path of the downloaded data.
+     * @description The destination path to which the backup set is downloaded.
      *
-     * >  This parameter is required if the TargetType parameter is set to OSS.
+     * > This parameter is required if the TargetType parameter is set to OSS.
      * @example test_db/path
      *
      * @var string
@@ -113,7 +114,7 @@ class CreateDownloadRequest extends Model
     public $targetPath;
 
     /**
-     * @description The type of the method in which the backup set is downloaded. Valid values:
+     * @description The type of the destination to which the backup set is downloaded. Valid values:
      *
      *   **OSS**
      *   **URL**

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDownloadBackupSetStorageInfoResponseBody extends Model
 {
     /**
-     * @description The error code.
+     * @description The error code returned if the request failed.
      *
      * @example DBS.ParamIsInValid
      *
@@ -19,14 +19,14 @@ class DescribeDownloadBackupSetStorageInfoResponseBody extends Model
     public $code;
 
     /**
-     * @description The response parameters.
+     * @description The returned data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code.
+     * @description The error code returned if the request failed.
      *
      * @example DBS.ParamIsInValid
      *
@@ -35,7 +35,7 @@ class DescribeDownloadBackupSetStorageInfoResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request failed.
      *
      * @example Argument: regionCode Must not be empty
      *
@@ -44,7 +44,7 @@ class DescribeDownloadBackupSetStorageInfoResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request failed.
      *
      * @example Argument: regionCode Must not be empty
      *
@@ -64,8 +64,8 @@ class DescribeDownloadBackupSetStorageInfoResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**: the request is successful.
-     *   **false**: the request fails.
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example true
      *

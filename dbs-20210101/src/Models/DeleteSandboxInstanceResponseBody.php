@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteSandboxInstanceResponseBody extends Model
 {
     /**
-     * @description The error code.
+     * @description The error code returned if the request failed.
      *
      * @example Param.NotFound
      *
@@ -18,7 +18,7 @@ class DeleteSandboxInstanceResponseBody extends Model
     public $code;
 
     /**
-     * @description The response parameters.
+     * @description The returned data.
      *
      * @example operation forbidden due to sandbox is creating.
      *
@@ -27,7 +27,7 @@ class DeleteSandboxInstanceResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code.
+     * @description The error code returned if the request failed.
      *
      * @example Param.NotFound
      *
@@ -36,7 +36,7 @@ class DeleteSandboxInstanceResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request failed.
      *
      * @example The specified parameter %s value is not valid.
      *
@@ -45,7 +45,7 @@ class DeleteSandboxInstanceResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request failed.
      *
      * @example The specified parameter %s value is not valid.
      *
@@ -63,7 +63,7 @@ class DeleteSandboxInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

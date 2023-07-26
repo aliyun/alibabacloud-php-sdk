@@ -26,17 +26,11 @@ class ModifyDBTablesRecoveryStateRequest extends Model
     /**
      * @var string
      */
-    public $regionId;
-
-    /**
-     * @var string
-     */
     public $retention;
     protected $_name = [
         'category'   => 'Category',
         'instanceId' => 'InstanceId',
         'regionCode' => 'RegionCode',
-        'regionId'   => 'RegionId',
         'retention'  => 'Retention',
     ];
 
@@ -55,9 +49,6 @@ class ModifyDBTablesRecoveryStateRequest extends Model
         }
         if (null !== $this->regionCode) {
             $res['RegionCode'] = $this->regionCode;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->retention) {
             $res['Retention'] = $this->retention;
@@ -82,9 +73,6 @@ class ModifyDBTablesRecoveryStateRequest extends Model
         }
         if (isset($map['RegionCode'])) {
             $model->regionCode = $map['RegionCode'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Retention'])) {
             $model->retention = $map['Retention'];

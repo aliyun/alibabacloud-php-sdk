@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSandboxInstancesResponseBody extends Model
 {
     /**
-     * @description The error code.
+     * @description The error code returned if the request fails.
      *
      * @example Param.NotFound
      *
@@ -39,7 +39,7 @@ class DescribeSandboxInstancesResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code.
+     * @description The error code returned if the request fails.
      *
      * @example Param.NotFound
      *
@@ -48,7 +48,7 @@ class DescribeSandboxInstancesResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request fails.
      *
      * @example The specified parameter %s value is not valid.
      *
@@ -57,7 +57,7 @@ class DescribeSandboxInstancesResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request fails.
      *
      * @example The specified parameter %s value is not valid.
      *
@@ -75,7 +75,7 @@ class DescribeSandboxInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

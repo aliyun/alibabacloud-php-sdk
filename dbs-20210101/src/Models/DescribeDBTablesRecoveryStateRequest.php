@@ -17,15 +17,9 @@ class DescribeDBTablesRecoveryStateRequest extends Model
      * @var string
      */
     public $regionCode;
-
-    /**
-     * @var string
-     */
-    public $regionId;
     protected $_name = [
         'instanceId' => 'InstanceId',
         'regionCode' => 'RegionCode',
-        'regionId'   => 'RegionId',
     ];
 
     public function validate()
@@ -40,9 +34,6 @@ class DescribeDBTablesRecoveryStateRequest extends Model
         }
         if (null !== $this->regionCode) {
             $res['RegionCode'] = $this->regionCode;
-        }
-        if (null !== $this->regionId) {
-            $res['RegionId'] = $this->regionId;
         }
 
         return $res;
@@ -61,9 +52,6 @@ class DescribeDBTablesRecoveryStateRequest extends Model
         }
         if (isset($map['RegionCode'])) {
             $model->regionCode = $map['RegionCode'];
-        }
-        if (isset($map['RegionId'])) {
-            $model->regionId = $map['RegionId'];
         }
 
         return $model;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSandboxBackupSetsResponseBody extends Model
 {
     /**
-     * @description The error code.
+     * @description The error code returned if the request failed.
      *
      * @example Param.NotFound
      *
@@ -18,7 +18,7 @@ class DescribeSandboxBackupSetsResponseBody extends Model
     public $code;
 
     /**
-     * @description The response parameters.
+     * @description The returned data. The following parameters are contained:
      *
      *   **backupSetTime**: the point in time when the snapshot was created. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mm:ssZ format. The time is displayed in UTC.
      *   **backupSetId**: the ID of the backup set.
@@ -32,7 +32,7 @@ class DescribeSandboxBackupSetsResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code.
+     * @description The error code returned if the request failed.
      *
      * @example Param.NotFound
      *
@@ -41,7 +41,7 @@ class DescribeSandboxBackupSetsResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request failed.
      *
      * @example The specified parameter %s value is not valid.
      *
@@ -50,7 +50,7 @@ class DescribeSandboxBackupSetsResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request failed.
      *
      * @example The specified parameter %s value is not valid.
      *
@@ -68,7 +68,7 @@ class DescribeSandboxBackupSetsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

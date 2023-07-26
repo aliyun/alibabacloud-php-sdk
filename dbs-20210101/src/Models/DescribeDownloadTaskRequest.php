@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDownloadTaskRequest extends Model
 {
     /**
-     * @description The ID of the backup set generated when you create the download task. You can call the [DescribeBackups](~~26273~~) operation to query the backup set ID. Unit: bytes.
+     * @description The ID of the backup set generated when you create a download task. You can call the [DescribeBackups](~~26273~~) operation to query the ID.
      *
      * @example 216****
      *
@@ -47,6 +47,7 @@ class DescribeDownloadTaskRequest extends Model
     /**
      * @description The ID of the instance.
      *
+     * > This parameter is required.
      * @example rm-bp1imnmcjxdz7****
      *
      * @var string
@@ -54,7 +55,7 @@ class DescribeDownloadTaskRequest extends Model
     public $instanceName;
 
     /**
-     * @description The column based on which the entries are sorted. By default, the entries are sorted by the creation time. Set the value to **gmt_create**.
+     * @description The column based on which the entries are sorted. By default, the entries are sorted by the time when the download task was created. Set the value to **gmt_create**.
      *
      * @example gmt_create
      *
@@ -65,8 +66,8 @@ class DescribeDownloadTaskRequest extends Model
     /**
      * @description The order in which you want to sort the entries. Valid values:
      *
-     *   **asc**: sorts the retrieved entries by time in ascending order.
-     *   **desc**: sorts the retrieved entries by time in descending order. This is the default value.
+     *   **asc**: the ascending order.
+     *   **desc**: the descending order. This is the default value.
      *
      * @example desc
      *
@@ -102,13 +103,14 @@ class DescribeDownloadTaskRequest extends Model
     public $startTime;
 
     /**
-     * @description The status of the download task. Valid values:
+     * @description The state of the download task. Valid values:
      *
      *   **Initializing**: The download task is being initialized.
      *   **queuing**: The download task is queuing.
      *   **running**: The download task is running.
      *   **failed**: The download task fails.
      *   **finished**: The download task is complete.
+     *   **expired**: The download task expires.
      *
      * @example queueing
      *

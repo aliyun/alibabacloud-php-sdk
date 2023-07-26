@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the backup schedule.
+     * @description The ID of the backup plan.
      *
      * @example 1hxxxx8xxxxxa
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The point in time of the backup set if the task is used to download a backup set at a specific point in time. The value is a timestamp.
+     * @description The point in time of the backup set if the task is used to download a backup set at a specific point in time. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1661373070000
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $bakSetId;
 
     /**
-     * @description The database and table information that is returned if the download task is a database and table filtering task.
+     * @description The database and table information that is returned if databases and tables are filtered by the download task.
      *
      * @example testdb
      *
@@ -36,16 +36,16 @@ class data extends Model
     public $dbList;
 
     /**
-     * @description The status of the download task. Valid values:
+     * @description The state of the download task. Valid values:
      *
-     *   Initializing: The download task is being initialized.
-     *   queuing: The download task is queuing.
-     *   running: The download task is running.
-     *   failed: The download task fails.
-     *   finished: The download task is complete.
-     *   expired: The download task expires.
+     *   initializing: The download task was being initialized.
+     *   queuing: The download task was queuing.
+     *   running: The download task was running.
+     *   failed: The download task failed.
+     *   finished: The download task was complete.
+     *   expired: The download task expired.
      *
-     * >  The download task expires in three days after the task is complete if the TargetType parameter is set to URL.
+     * > If the TargetType parameter is set to URL, the download task expires in three days after the task is complete.
      * @example initializing
      *
      * @var string
@@ -53,7 +53,7 @@ class data extends Model
     public $downloadStatus;
 
     /**
-     * @description The amount of output data. Unit: bytes.
+     * @description The size of the downloaded data. Unit: bytes.
      *
      * @example 0
      *
@@ -64,14 +64,14 @@ class data extends Model
     /**
      * @description The format to which the downloaded data is converted.
      *
-     * @example csv
+     * @example CSV
      *
      * @var string
      */
     public $format;
 
     /**
-     * @description The time when the download task was created. The value is a timestamp.
+     * @description The time when the download task was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1661940917570
      *
@@ -80,7 +80,7 @@ class data extends Model
     public $gmtCreate;
 
     /**
-     * @description The amount of data that is processed. Unit: bytes.
+     * @description The size of the processed data. Unit: bytes.
      *
      * @example 0
      *
@@ -91,7 +91,7 @@ class data extends Model
     /**
      * @description The number of tables that have been downloaded and the total number of tables to be downloaded.
      *
-     * >  If the task is in the preparation stage, 0/0 is returned.
+     * > If the task is in the preparation stage, 0/0 is returned.
      * @example 0/0
      *
      * @var string
@@ -108,9 +108,9 @@ class data extends Model
     public $regionCode;
 
     /**
-     * @description The destination path of the downloaded data.
+     * @description The destination path to which the backup set is downloaded.
      *
-     * >  This parameter is returned if the TargetType parameter is set to OSS.
+     * > This parameter is returned if the TargetType parameter is set to OSS.
      * @example test_db/path
      *
      * @var string
@@ -118,7 +118,7 @@ class data extends Model
     public $targetPath;
 
     /**
-     * @description The type of the method in which the backup set is downloaded.
+     * @description The type of the destination to which the backup set is downloaded.
      *
      * @example URL
      *

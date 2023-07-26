@@ -11,7 +11,7 @@ class CreateSandboxInstanceRequest extends Model
     /**
      * @description The ID of the backup schedule. You can call the [DescribeBackupPlanList](~~437215~~) operation to obtain the ID of the backup schedule.
      *
-     * >  If your instance is an ApsaraDB RDS for MySQL instance, you can configure [automatic access to the instance](~~193091~~) to automatically add the instance to DBS and obtain the ID of the backup schedule.
+     * > If your instance is an ApsaraDB RDS for MySQL instance, you can [configure automatic access to a data source](~~193091~~) to automatically add the instance to DBS and obtain the ID of the backup schedule.
      * @example 1hxxxx8xxxxxa
      *
      * @var string
@@ -21,7 +21,7 @@ class CreateSandboxInstanceRequest extends Model
     /**
      * @description The ID of the backup set to be restored, which is the point in time when a snapshot was created. You can call the [DescribeSandboxBackupSets](~~437256~~) operation to obtain the ID.
      *
-     * >  You need to specify only one of the **BackupSetId** and **RestoreTime** parameters.
+     * > You need to specify only one of the **BackupSetId** and **RestoreTime** parameters.
      * @example 1hxxxx8xxxxxa_20210829064228
      *
      * @var string
@@ -38,7 +38,7 @@ class CreateSandboxInstanceRequest extends Model
     public $restoreTime;
 
     /**
-     * @description The name of the sandbox instance.
+     * @description The custom name of the sandbox instance.
      *
      * @example test_sandbox
      *
@@ -67,7 +67,7 @@ class CreateSandboxInstanceRequest extends Model
      *   **MYSQL\_8C\_16M_SD**: 8 CPU cores and 16 GB of memory.
      *   **MYSQL\_8C\_32M_SD**: 8 CPU cores and 32 GB of memory.
      *
-     * >  Different specifications have little impact on the recovery speed. High-specification instances provide better performance after restoration. For more information, see [Sandbox instance fees](~~201466~~).
+     * > Different specifications have little impact on the recovery speed. High-specification instances provide better performance after restoration. For more information, see [DBS sandbox fees](~~201466~~).
      * @example MYSQL_1C_1M_SD
      *
      * @var string
@@ -86,7 +86,7 @@ class CreateSandboxInstanceRequest extends Model
     /**
      * @description The privileged account created in the sandbox instance.
      *
-     *   After you specify this parameter, the system creates a privileged account in the sandbox instance. The account has the permissions on all databases in the instance.
+     *   After you specify this parameter, the system creates a privileged account in the sandbox instance. The account is granted the permissions on all databases in the instance.
      *
      * The account of the source database is retained in the sandbox instance.
      *
@@ -101,7 +101,7 @@ class CreateSandboxInstanceRequest extends Model
     /**
      * @description The ID of the virtual private cloud (VPC) that is used to connect to the sandbox instance. If you want to connect to the sandbox instance by using Elastic Compute Service (ECS) instances, you must set this parameter to the VPC in which the ECS instances reside.
      *
-     * >  You can set this parameter if you want to use it in a recovery drill scenario.
+     * > You can set this parameter if you want to use it in a recovery drill scenario.
      * @example vpc-bp1dxxxxxjy0xxxxx1xxp
      *
      * @var string

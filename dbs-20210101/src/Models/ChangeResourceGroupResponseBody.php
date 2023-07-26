@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupResponseBody extends Model
 {
     /**
+     * @description The status code returned.
+     *
      * @example Param.NotFound
      *
      * @var string
@@ -16,6 +18,11 @@ class ChangeResourceGroupResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the resource was successfully moved. Valid values:
+     *
+     *   **true**: The resource was successfully moved.
+     *   **false**: The resource failed to be moved.
+     *
      * @example true
      *
      * @var string
@@ -23,6 +30,8 @@ class ChangeResourceGroupResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example Request.Forbidden
      *
      * @var string
@@ -30,6 +39,8 @@ class ChangeResourceGroupResponseBody extends Model
     public $errCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
      * @example RAM DENY
      *
      * @var string
@@ -37,6 +48,8 @@ class ChangeResourceGroupResponseBody extends Model
     public $errMessage;
 
     /**
+     * @description The additional information.
+     *
      * @example The resource group is forbidden to operate
      *
      * @var string
@@ -44,6 +57,8 @@ class ChangeResourceGroupResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 04EBD9F5-F06F-5302-8499-005C72*******
      *
      * @var string
@@ -51,6 +66,11 @@ class ChangeResourceGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var string

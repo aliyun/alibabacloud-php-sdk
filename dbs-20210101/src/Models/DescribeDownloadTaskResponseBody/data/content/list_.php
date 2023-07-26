@@ -27,7 +27,7 @@ class list_ extends Model
     public $bakSetId;
 
     /**
-     * @description The details of the databases.
+     * @description The databases.
      *
      * @example [dbtest]
      *
@@ -36,14 +36,14 @@ class list_ extends Model
     public $dbList;
 
     /**
-     * @description The status of the download task. Valid values:
+     * @description The state of the download task. Valid values:
      *
-     *   **Initializing**: The download task is being initialized.
-     *   **queuing**: The download task is queuing.
-     *   **running**: The download task is running.
-     *   **failed**: The download task fails.
-     *   **finished**: The download task is complete.
-     *   **expired**: The download task expires.
+     *   **Initializing**: The download task was being initialized.
+     *   **queuing**: The download task was queuing.
+     *   **running**: The download task was running.
+     *   **failed**: The download task failed.
+     *   **finished**: The download task was complete.
+     *   **expired**: The download task expired.
      *
      * @example queueing
      *

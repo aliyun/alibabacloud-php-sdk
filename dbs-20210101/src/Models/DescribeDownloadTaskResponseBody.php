@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDownloadTaskResponseBody extends Model
 {
     /**
-     * @description The error code.
+     * @description The error code returned if the request fails.
      *
      * @example DBS.InternalError
      *
@@ -19,14 +19,14 @@ class DescribeDownloadTaskResponseBody extends Model
     public $code;
 
     /**
-     * @description The details of the download tasks.
+     * @description The details of the download task.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The error code.
+     * @description The error code returned if the request fails.
      *
      * @example DBS.InternalError
      *
@@ -35,7 +35,7 @@ class DescribeDownloadTaskResponseBody extends Model
     public $errCode;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request fails.
      *
      * @example instanceName can not be empty
      *
@@ -44,7 +44,7 @@ class DescribeDownloadTaskResponseBody extends Model
     public $errMessage;
 
     /**
-     * @description The error message.
+     * @description The error message returned if the request fails.
      *
      * @example instanceName can not be empty
      *
@@ -62,10 +62,10 @@ class DescribeDownloadTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   **true**: The request is successful.
-     *   **false**: The request fails.
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
      *
      * @example true
      *
