@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The name of the database.
+     *
      * @example adbtest
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $database;
 
     /**
+     * @description The execution duration of the query. Unit: seconds.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class items extends Model
     public $duration;
 
     /**
+     * @description The ID of the query. It is a unique identifier of the query.
+     *
      * @example 2022042612465401000000012903151998970
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $queryID;
 
     /**
+     * @description The SQL statement.
+     *
      * @example SELECT * FROM t1,t2 WHERE t1.id=t2.id;
      *
      * @var string
@@ -37,6 +45,11 @@ class items extends Model
     public $SQLStmt;
 
     /**
+     * @description Indicates whether the SQL statement needs to be truncated. Valid values:
+     *
+     *   **true**: The SQL statement needs to be truncated.
+     *   **false**: The SQL statement does not need to be truncated.
+     *
      * @example false
      *
      * @var bool
@@ -44,6 +57,8 @@ class items extends Model
     public $SQLTruncated;
 
     /**
+     * @description The threshold used to determine whether an SQL statement must be truncated. The value is the number of characters.
+     *
      * @example 5120
      *
      * @var int
@@ -51,6 +66,8 @@ class items extends Model
     public $SQLTruncatedThreshold;
 
     /**
+     * @description The ID of the session that contains the query.
+     *
      * @example 50
      *
      * @var string
@@ -58,6 +75,8 @@ class items extends Model
     public $sessionID;
 
     /**
+     * @description The start time of the query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1651877940000
      *
      * @var int
@@ -65,6 +84,11 @@ class items extends Model
     public $startTime;
 
     /**
+     * @description The execution state of the query. Valid values:
+     *
+     *   **running**: The query is being executed.
+     *   **finished**: The query is complete.
+     *
      * @example finished
      *
      * @var string
@@ -72,6 +96,8 @@ class items extends Model
     public $status;
 
     /**
+     * @description The name of the database account.
+     *
      * @example adbpguser
      *
      * @var string

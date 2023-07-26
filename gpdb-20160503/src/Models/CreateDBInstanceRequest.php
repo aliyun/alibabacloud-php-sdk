@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. For more information, see [Ensure idempotence](~~327176~~).
+     *
      * @example 0c593ea1-3bea-11e9-b96b-88**********
      *
      * @var string
@@ -17,6 +19,12 @@ class CreateDBInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to load a sample dataset after the instance is created. Valid values:
+     *
+     * - **true**
+     * - **false**
+     *
+     * If you do not specify this parameter, no sample dataset is loaded.
      * @example false
      *
      * @var bool
@@ -24,6 +32,12 @@ class CreateDBInstanceRequest extends Model
     public $createSampleData;
 
     /**
+     * @description The edition of the instance. Valid values:
+     *
+     * - **HighAvailability**: High-availability Edition.
+     * - **Basic**: Basic Edition.
+     *
+     * > This parameter must be specified when you create an instance in elastic storage mode.
      * @example HighAvailability
      *
      * @var string
@@ -31,6 +45,9 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceCategory;
 
     /**
+     * @description The instance type of the instance. For information, see [Instance types](~~86942~~).
+     *
+     * > This parameter must be specified when you create an instance in reserved storage mode.
      * @example gpdb.group.segsdx1
      *
      * @var string
@@ -38,6 +55,8 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceClass;
 
     /**
+     * @description The description of the instance.
+     *
      * @example test
      *
      * @var string
@@ -45,6 +64,9 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceDescription;
 
     /**
+     * @description The number of compute groups. Valid values: 2, 4, 8, 12, 16, 24, 32, 64, 96, and 128.
+     *
+     * > This parameter must be specified when you create an instance in reserved storage mode.
      * @example 2
      *
      * @var string
@@ -52,6 +74,13 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceGroupCount;
 
     /**
+     * @description The resource type of the instance. Valid values:
+     *
+     * - **StorageElastic**: elastic storage mode.
+     * - **Serverless**: Serverless mode.
+     * - **Classic**: reserved storage mode.
+     *
+     * > This parameter must be specified.
      * @example StorageElastic
      *
      * @var string
@@ -59,6 +88,31 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceMode;
 
     /**
+     * @description The ID of the encryption key.
+     *
+     * > If EncryptionType is set to CloudDisk, you must specify an encryption key that resides in the same region as the cloud disk that is specified by EncryptionType. Otherwise, leave this parameter empty.
+     * @example 0d2470df-da7b-4786-b981-88888888****
+     *
+     * @var string
+     */
+    public $encryptionKey;
+
+    /**
+     * @description The encryption type. Valid values:
+     *
+     * - **NULL** (default): Encryption is disabled.
+     * - **CloudDisk**: Encryption is enabled on cloud disks, and EncryptionKey is used to specify an encryption key.
+     *
+     * > Disk encryption cannot be disabled after it is enabled.
+     * @example CloudDisk
+     *
+     * @var string
+     */
+    public $encryptionType;
+
+    /**
+     * @description The database engine of the instance. Set the value to gpdb.
+     *
      * @example gpdb
      *
      * @var string
@@ -66,6 +120,9 @@ class CreateDBInstanceRequest extends Model
     public $engine;
 
     /**
+     * @description The version of the database engine. Valid values:
+     *
+     * - 7.0
      * @example 6.0
      *
      * @var string
@@ -73,11 +130,19 @@ class CreateDBInstanceRequest extends Model
     public $engineVersion;
 
     /**
+     * @description The wait time for the instance that has no traffic to become idle. Minimum value: 60. Default value: 600. Unit: seconds.
+     *
+     * > This parameter must be specified only when you create an instance in automatic Serverless mode.
+     * @example 600
+     *
      * @var int
      */
     public $idleTime;
 
     /**
+     * @description The network type of the instance. Set the value to VPC.
+     *
+     * - If you do not specify this parameter, VPC is used.
      * @example VPC
      *
      * @var string
@@ -85,6 +150,27 @@ class CreateDBInstanceRequest extends Model
     public $instanceNetworkType;
 
     /**
+     * @description The specifications of compute nodes.
+     *
+     * Valid values for High-availability Edition instances in elastic storage mode:
+     *
+     * - **2C16G**
+     * - **4C32G**
+     * - **16C128G**
+     *
+     * Valid values for Basic Edition instances in elastic storage mode:
+     *
+     * - **2C8G**
+     * - **4C16G**
+     * - **8C32G**
+     * - **16C64G**
+     *
+     * Valid values for instances in Serverless mode:
+     *
+     * - **4C16G**
+     * - **8C32G**
+     *
+     * > This parameter must be specified when you create an instance in elastic storage mode or Serverless mode.
      * @example 2C16G
      *
      * @var string
@@ -92,6 +178,9 @@ class CreateDBInstanceRequest extends Model
     public $instanceSpec;
 
     /**
+     * @description The number of coordinator nodes. Valid values: 1 and 2.
+     *
+     * > If you do not specify this parameter, 1 is used.
      * @example 1
      *
      * @var string
@@ -104,6 +193,11 @@ class CreateDBInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     * - **Postpaid**: pay-as-you-go.
+     * - **Prepaid**: subscription.
+     * - You can obtain more cost savings if you create a subscription instance for one year or longer. We recommend that you select the billing method that best suits your needs.
      * @example Prepaid
      *
      * @var string
@@ -111,6 +205,11 @@ class CreateDBInstanceRequest extends Model
     public $payType;
 
     /**
+     * @description The unit of the subscription duration. Valid values:
+     *
+     * - **Month**
+     * - **Year**
+     * > This parameter must be specified when PayType is set to Prepaid.
      * @example Month
      *
      * @var string
@@ -118,6 +217,8 @@ class CreateDBInstanceRequest extends Model
     public $period;
 
     /**
+     * @description The private IP address of the instance.
+     *
      * @example 1.1.1.*
      *
      * @var string
@@ -125,6 +226,8 @@ class CreateDBInstanceRequest extends Model
     public $privateIpAddress;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -132,6 +235,8 @@ class CreateDBInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -139,6 +244,9 @@ class CreateDBInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The IP address whitelist of the instance.
+     *
+     * A value of 127.0.0.1 specifies that no IP address is allowed for external access. You can call the [ModifySecurityIps](~~86928~~) operation to modify the IP address whitelist after you create an instance.
      * @example 127.0.0.1
      *
      * @var string
@@ -146,6 +254,22 @@ class CreateDBInstanceRequest extends Model
     public $securityIPList;
 
     /**
+     * @description The performance level of ESSDs. Valid values:
+     *
+     * - **pl0**
+     * - **pl1**
+     * - **pl2**
+     * - If you do not specify this parameter, pl1 is used.
+     * @example pl1
+     *
+     * @var string
+     */
+    public $segDiskPerformanceLevel;
+
+    /**
+     * @description The number of compute nodes.
+     *
+     * > This parameter must be specified when you create an instance in elastic storage mode or Serverless mode.
      * @example 4
      *
      * @var string
@@ -153,6 +277,9 @@ class CreateDBInstanceRequest extends Model
     public $segNodeNum;
 
     /**
+     * @description The disk storage type of the instance. Only enhanced SSDs (ESSDs) are supported. Set the value to cloud_essd.
+     *
+     * > This parameter must be specified when you create an instance in elastic storage mode.
      * @example cloud_essd
      *
      * @var string
@@ -160,16 +287,32 @@ class CreateDBInstanceRequest extends Model
     public $segStorageType;
 
     /**
+     * @description The type of the Serverless mode. Valid values:
+     *
+     * - **Manual** (default): manual scheduling.
+     * - **Auto**: automatic scheduling.
+     *
+     * > This parameter must be specified only when you create an instance in Serverless mode.
+     * @example Auto
+     *
      * @var string
      */
     public $serverlessMode;
 
     /**
+     * @description The threshold of computing resources. Unit: AnalyticDB compute unit (ACU). Valid values: 8 to 32. The value must be in increments of 8 ACUs. Default value: 32.
+     *
+     * > This parameter must be specified only when you create an instance in automatic Serverless mode.
+     * @example 32
+     *
      * @var int
      */
     public $serverlessResource;
 
     /**
+     * @description The storage capacity of the instance. Unit: GB. Valid values: 50 to 4000.
+     *
+     * > This parameter must be specified when you create an instance in elastic storage mode.
      * @example 200
      *
      * @var int
@@ -177,6 +320,8 @@ class CreateDBInstanceRequest extends Model
     public $storageSize;
 
     /**
+     * @description This parameter is no longer used.
+     *
      * @example null
      *
      * @var string
@@ -184,11 +329,16 @@ class CreateDBInstanceRequest extends Model
     public $storageType;
 
     /**
+     * @description The list of tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The subscription duration.
+     *
+     * > This parameter must be specified when PayType is set to Prepaid.
      * @example 1
      *
      * @var string
@@ -196,6 +346,9 @@ class CreateDBInstanceRequest extends Model
     public $usedTime;
 
     /**
+     * @description The VPC ID of the instance.
+     *
+     * - The region where the VPC resides must be the same as the region that is specified by RegionId.
      * @example vpc-bp*******************
      *
      * @var string
@@ -203,6 +356,9 @@ class CreateDBInstanceRequest extends Model
     public $VPCId;
 
     /**
+     * @description The vSwitch ID of the instance.
+     *
+     * - The zone where the vSwitch resides must be the same as the zone that is specified by ZoneId.
      * @example vsw-bp*******************
      *
      * @var string
@@ -210,43 +366,62 @@ class CreateDBInstanceRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description Specifies whether to enable vector engine optimization. Valid values:
+     *
+     * - **enabled**
+     * - **disabled** (default)
+     *
+     * - We recommend that you enable vector engine optimization in AI Generated Content (AIGC) and vector retrieval scenarios that require the vector analysis engine.
+     * @example enabled
+     *
+     * @var string
+     */
+    public $vectorConfigurationStatus;
+
+    /**
+     * @description The zone ID of the read-only instance. You can call the [DescribeRegions](~~86912~~) operation to query the most recent zone list.
+     *
      * @example cn-hangzhou-i
      *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'clientToken'           => 'ClientToken',
-        'createSampleData'      => 'CreateSampleData',
-        'DBInstanceCategory'    => 'DBInstanceCategory',
-        'DBInstanceClass'       => 'DBInstanceClass',
-        'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceGroupCount'  => 'DBInstanceGroupCount',
-        'DBInstanceMode'        => 'DBInstanceMode',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'idleTime'              => 'IdleTime',
-        'instanceNetworkType'   => 'InstanceNetworkType',
-        'instanceSpec'          => 'InstanceSpec',
-        'masterNodeNum'         => 'MasterNodeNum',
-        'ownerId'               => 'OwnerId',
-        'payType'               => 'PayType',
-        'period'                => 'Period',
-        'privateIpAddress'      => 'PrivateIpAddress',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'securityIPList'        => 'SecurityIPList',
-        'segNodeNum'            => 'SegNodeNum',
-        'segStorageType'        => 'SegStorageType',
-        'serverlessMode'        => 'ServerlessMode',
-        'serverlessResource'    => 'ServerlessResource',
-        'storageSize'           => 'StorageSize',
-        'storageType'           => 'StorageType',
-        'tag'                   => 'Tag',
-        'usedTime'              => 'UsedTime',
-        'VPCId'                 => 'VPCId',
-        'vSwitchId'             => 'VSwitchId',
-        'zoneId'                => 'ZoneId',
+        'clientToken'               => 'ClientToken',
+        'createSampleData'          => 'CreateSampleData',
+        'DBInstanceCategory'        => 'DBInstanceCategory',
+        'DBInstanceClass'           => 'DBInstanceClass',
+        'DBInstanceDescription'     => 'DBInstanceDescription',
+        'DBInstanceGroupCount'      => 'DBInstanceGroupCount',
+        'DBInstanceMode'            => 'DBInstanceMode',
+        'encryptionKey'             => 'EncryptionKey',
+        'encryptionType'            => 'EncryptionType',
+        'engine'                    => 'Engine',
+        'engineVersion'             => 'EngineVersion',
+        'idleTime'                  => 'IdleTime',
+        'instanceNetworkType'       => 'InstanceNetworkType',
+        'instanceSpec'              => 'InstanceSpec',
+        'masterNodeNum'             => 'MasterNodeNum',
+        'ownerId'                   => 'OwnerId',
+        'payType'                   => 'PayType',
+        'period'                    => 'Period',
+        'privateIpAddress'          => 'PrivateIpAddress',
+        'regionId'                  => 'RegionId',
+        'resourceGroupId'           => 'ResourceGroupId',
+        'securityIPList'            => 'SecurityIPList',
+        'segDiskPerformanceLevel'   => 'SegDiskPerformanceLevel',
+        'segNodeNum'                => 'SegNodeNum',
+        'segStorageType'            => 'SegStorageType',
+        'serverlessMode'            => 'ServerlessMode',
+        'serverlessResource'        => 'ServerlessResource',
+        'storageSize'               => 'StorageSize',
+        'storageType'               => 'StorageType',
+        'tag'                       => 'Tag',
+        'usedTime'                  => 'UsedTime',
+        'VPCId'                     => 'VPCId',
+        'vSwitchId'                 => 'VSwitchId',
+        'vectorConfigurationStatus' => 'VectorConfigurationStatus',
+        'zoneId'                    => 'ZoneId',
     ];
 
     public function validate()
@@ -276,6 +451,12 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->DBInstanceMode) {
             $res['DBInstanceMode'] = $this->DBInstanceMode;
+        }
+        if (null !== $this->encryptionKey) {
+            $res['EncryptionKey'] = $this->encryptionKey;
+        }
+        if (null !== $this->encryptionType) {
+            $res['EncryptionType'] = $this->encryptionType;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -316,6 +497,9 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
         }
+        if (null !== $this->segDiskPerformanceLevel) {
+            $res['SegDiskPerformanceLevel'] = $this->segDiskPerformanceLevel;
+        }
         if (null !== $this->segNodeNum) {
             $res['SegNodeNum'] = $this->segNodeNum;
         }
@@ -352,6 +536,9 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
+        if (null !== $this->vectorConfigurationStatus) {
+            $res['VectorConfigurationStatus'] = $this->vectorConfigurationStatus;
+        }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
         }
@@ -387,6 +574,12 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['DBInstanceMode'])) {
             $model->DBInstanceMode = $map['DBInstanceMode'];
+        }
+        if (isset($map['EncryptionKey'])) {
+            $model->encryptionKey = $map['EncryptionKey'];
+        }
+        if (isset($map['EncryptionType'])) {
+            $model->encryptionType = $map['EncryptionType'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
@@ -427,6 +620,9 @@ class CreateDBInstanceRequest extends Model
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
         }
+        if (isset($map['SegDiskPerformanceLevel'])) {
+            $model->segDiskPerformanceLevel = $map['SegDiskPerformanceLevel'];
+        }
         if (isset($map['SegNodeNum'])) {
             $model->segNodeNum = $map['SegNodeNum'];
         }
@@ -462,6 +658,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VectorConfigurationStatus'])) {
+            $model->vectorConfigurationStatus = $map['VectorConfigurationStatus'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

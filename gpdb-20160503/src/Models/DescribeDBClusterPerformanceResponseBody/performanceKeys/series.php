@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class series extends Model
 {
     /**
+     * @description The name of the compute node or compute group.
+     *
      * @example standby-********-cpu
      *
      * @var string
@@ -17,6 +19,12 @@ class series extends Model
     public $name;
 
     /**
+     * @description The role of the node. Valid values:
+     *
+     *   **master**: primary coordinator node
+     *   **standby**: standby coordinator node
+     *   **segment**: compute node
+     *
      * @example standby
      *
      * @var string
@@ -24,6 +32,8 @@ class series extends Model
     public $role;
 
     /**
+     * @description The value of the performance metric collected at a point in time.
+     *
      * @var values[]
      */
     public $values;

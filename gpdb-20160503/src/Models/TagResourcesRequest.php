@@ -20,6 +20,8 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~86912~~) operation to query region IDs.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -27,6 +29,8 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of an instance. Valid values of N: 1 to 50.
+     *
      * @example gp-xxxxxxxxxx
      *
      * @var string[]
@@ -44,6 +48,11 @@ class TagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The mode of the instance. Valid values:
+     *
+     *   `instance`: reserved storage mode
+     *   `ALIYUN::GPDB::INSTANCE`: elastic storage mode
+     *
      * @example instance
      *
      * @var string
@@ -51,6 +60,8 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The list of tags.
+     *
      * @var tag[]
      */
     public $tag;

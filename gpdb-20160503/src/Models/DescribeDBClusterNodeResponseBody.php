@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterNodeResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-bp***************
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeDBClusterNodeResponseBody extends Model
     public $DBClusterId;
 
     /**
+     * @description The information of nodes.
+     *
      * @var nodes[]
      */
     public $nodes;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 87E44B48-B306-4AD3-A63B-C8**********
      *
      * @var string

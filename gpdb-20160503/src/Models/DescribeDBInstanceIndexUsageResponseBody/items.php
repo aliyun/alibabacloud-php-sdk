@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The name of the database.
+     *
      * @example adbtest
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $databaseName;
 
     /**
+     * @description The definition of the index.
+     *
      * @example CREATE INDEX idx1 ON schema1.tab1_ptr_2010
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $indexDef;
 
     /**
+     * @description The name of the index.
+     *
      * @example idx1
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $indexName;
 
     /**
+     * @description The number of index scans.
+     *
      * @example 50000
      *
      * @var int
@@ -37,6 +45,8 @@ class items extends Model
     public $indexScanTimes;
 
     /**
+     * @description The size of the index. Unit: bytes.
+     *
      * @example 10000
      *
      * @var string
@@ -44,6 +54,11 @@ class items extends Model
     public $indexSize;
 
     /**
+     * @description Indicates whether the table is a partitioned table. Valid values:
+     *
+     *   **true**: The table is a partitioned table.
+     *   **false**: The table is not a partitioned table.
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +66,8 @@ class items extends Model
     public $isPartitionTable;
 
     /**
+     * @description The name of the parent table.
+     *
      * @example tab1
      *
      * @var string
@@ -58,6 +75,8 @@ class items extends Model
     public $parentTableName;
 
     /**
+     * @description The name of the schema.
+     *
      * @example schema1
      *
      * @var string
@@ -65,6 +84,8 @@ class items extends Model
     public $schemaName;
 
     /**
+     * @description The name of the table.
+     *
      * @example tab1_ptr_2010
      *
      * @var string
@@ -72,6 +93,8 @@ class items extends Model
     public $tableName;
 
     /**
+     * @description The time when the table was last deleted, inserted, or updated.
+     *
      * @example 2022-08-08T20:00:00Z
      *
      * @var string

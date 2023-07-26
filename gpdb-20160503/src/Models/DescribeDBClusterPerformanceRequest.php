@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterPerformanceRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -16,6 +19,9 @@ class DescribeDBClusterPerformanceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDTHH:mmZ` format.
+     *
+     * >  The end time must be later than the start time. The interval cannot be more than seven days.
      * @example 2021-11-03T15:10Z
      *
      * @var string
@@ -23,6 +29,8 @@ class DescribeDBClusterPerformanceRequest extends Model
     public $endTime;
 
     /**
+     * @description The performance metric that you want to query. Separate multiple values with commas (,). For more information, see [Performance parameters](~~86943~~).
+     *
      * @example adbpg_conn_count
      *
      * @var string
@@ -30,6 +38,12 @@ class DescribeDBClusterPerformanceRequest extends Model
     public $key;
 
     /**
+     * @description The node type. Valid values:
+     *
+     *   **master**: coordinator node
+     *   **segment**: compute node
+     *
+     * >  If you do not specify this parameter, the performance metrics of all nodes are returned.
      * @example master
      *
      * @var string
@@ -37,6 +51,15 @@ class DescribeDBClusterPerformanceRequest extends Model
     public $nodeType;
 
     /**
+     * @description The nodes for which you want to query performance metrics. Separate multiple values with commas (,). Example: `master-10******1,master-10******2`. You can call the [DescribeDBClusterNode](~~390136~~) operation to query the names of nodes.
+     *
+     * The nodes can also be filtered based on their metric values. Valid values:
+     *
+     *   **top10**: the 10 nodes that have the highest metric values
+     *   **top20**: the 20 nodes that have the highest metric values
+     *   **bottom10**: the 10 nodes that have the lowest metric values
+     *   **bottom20**: the 20 nodes that have the lowest metric values
+     *
      * @example top10
      *
      * @var string
@@ -44,6 +67,9 @@ class DescribeDBClusterPerformanceRequest extends Model
     public $nodes;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `YYYY-MM-DDTHH:mmZ` format.
+     *
+     * >  You can query monitoring information only within the last 30 days.
      * @example 2021-11-03T15:00Z
      *
      * @var string

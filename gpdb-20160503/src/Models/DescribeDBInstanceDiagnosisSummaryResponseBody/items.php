@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The name of the node.
+     *
      * @example gp-t4np568qe9710****-master-100984919
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $hostname;
 
     /**
+     * @description The IP address of the node.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $nodeAddress;
 
     /**
+     * @description The ID of the node group.
+     *
      * @example -1
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $nodeCID;
 
     /**
+     * @description The ID of the node.
+     *
      * @example 1
      *
      * @var string
@@ -37,6 +45,8 @@ class items extends Model
     public $nodeID;
 
     /**
+     * @description The name of the host where the node resides.
+     *
      * @example ap-southeast-1.i-t4n4c4ryr0yr441d****
      *
      * @var string
@@ -44,6 +54,8 @@ class items extends Model
     public $nodeName;
 
     /**
+     * @description The port number of the node.
+     *
      * @example 3000
      *
      * @var string
@@ -51,6 +63,12 @@ class items extends Model
     public $nodePort;
 
     /**
+     * @description The initial role of the node. Valid values:
+     *
+     *   **primary**: primary node
+     *   **mirror**: secondary node
+     *
+     * If the value of this parameter is the same as that of **NodeRole**, no primary/secondary switchover occurs. If the value of this parameter is not the same as that of **NodeRole**, a primary/secondary switchover occurs.
      * @example primary
      *
      * @var string
@@ -58,6 +76,12 @@ class items extends Model
     public $nodePreferredRole;
 
     /**
+     * @description The data synchronization state of the node. Valid values:
+     *
+     *   **Synced**: The node data is synchronized.
+     *   **Not Syncing**: The node data is not synchronized.
+     *   **No sync required**: Data synchronization is not required. This value may be returned only for the coordinator node.
+     *
      * @example Synced
      *
      * @var string
@@ -65,6 +89,11 @@ class items extends Model
     public $nodeReplicationMode;
 
     /**
+     * @description The current role of the node. Valid values:
+     *
+     *   **primary**: primary node
+     *   **mirror**: secondary node
+     *
      * @example primary
      *
      * @var string
@@ -72,6 +101,11 @@ class items extends Model
     public $nodeRole;
 
     /**
+     * @description The running state of the node. Valid values:
+     *
+     *   **UP**: The node is running.
+     *   **DOWN**: The node is faulty.
+     *
      * @example UP
      *
      * @var string
@@ -79,6 +113,12 @@ class items extends Model
     public $nodeStatus;
 
     /**
+     * @description The type of the node. Valid values:
+     *
+     *   **master**: primary coordinator node
+     *   **slave**: standby coordinator node
+     *   **segment**: compute node
+     *
      * @example master
      *
      * @var string

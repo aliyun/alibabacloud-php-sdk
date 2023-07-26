@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceDataSkewRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeDBInstanceDataSkewRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +28,13 @@ class DescribeDBInstanceDataSkewRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   **20**
+     *   **50**
+     *   **100**
+     *
+     * Default value: **20**.
      * @example 20
      *
      * @var int

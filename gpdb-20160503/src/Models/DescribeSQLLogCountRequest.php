@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogCountRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
      * @example gp-xxxxxxxx
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeSQLLogCountRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
      * @example testdb
      *
      * @var string
@@ -23,6 +28,9 @@ class DescribeSQLLogCountRequest extends Model
     public $database;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+     *
+     * >  The end time must be later than the start time. Their interval cannot be more than seven days.
      * @example 2020-12-14T11:22Z
      *
      * @var string
@@ -30,6 +38,8 @@ class DescribeSQLLogCountRequest extends Model
     public $endTime;
 
     /**
+     * @description The execution duration of the query. Unit: seconds.
+     *
      * @example 100
      *
      * @var string
@@ -37,6 +47,11 @@ class DescribeSQLLogCountRequest extends Model
     public $executeCost;
 
     /**
+     * @description The execution state of the query. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string
@@ -44,6 +59,8 @@ class DescribeSQLLogCountRequest extends Model
     public $executeState;
 
     /**
+     * @description The maximum amount of time consumed by a slow query. Minimum value: 0. Unit: seconds.
+     *
      * @example 1000
      *
      * @var string
@@ -51,6 +68,8 @@ class DescribeSQLLogCountRequest extends Model
     public $maxExecuteCost;
 
     /**
+     * @description The minimum amount of time consumed by a slow query. Minimum value: 0. Unit: seconds.
+     *
      * @example 10
      *
      * @var string
@@ -58,6 +77,14 @@ class DescribeSQLLogCountRequest extends Model
     public $minExecuteCost;
 
     /**
+     * @description The type of the query language. Valid values:
+     *
+     *   **DQL**
+     *   **DML**
+     *   **DDL**
+     *   **DCL**
+     *   **TCL**
+     *
      * @example DQL
      *
      * @var string
@@ -65,6 +92,11 @@ class DescribeSQLLogCountRequest extends Model
     public $operationClass;
 
     /**
+     * @description The type of the SQL statement.
+     *
+     * > *   If the **OperationClass** parameter is specified, the **OperationType** value must belong to the corresponding query language. For example, if the **OperationClass** value is **DQL**, the **OperationType** value must be a **DQL** SQL statement such as **SELECT**.
+     * >*   If the **OperationClass** parameter is not specified, the **OperationType** value can be an SQL statement of all query languages.
+     * >*   If neither of the **OperationClass** and **OperationType** parameters is specified, all types of SQL statements are returned.
      * @example SELECT
      *
      * @var string
@@ -72,6 +104,8 @@ class DescribeSQLLogCountRequest extends Model
     public $operationType;
 
     /**
+     * @description The keywords used to query.
+     *
      * @example test
      *
      * @var string
@@ -79,6 +113,8 @@ class DescribeSQLLogCountRequest extends Model
     public $queryKeywords;
 
     /**
+     * @description The source IP address.
+     *
      * @example 10.**.**.13
      *
      * @var string
@@ -86,6 +122,8 @@ class DescribeSQLLogCountRequest extends Model
     public $sourceIP;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+     *
      * @example 2020-12-12T11:22Z
      *
      * @var string
@@ -93,6 +131,8 @@ class DescribeSQLLogCountRequest extends Model
     public $startTime;
 
     /**
+     * @description The username that is used to log on to the database.
+     *
      * @example adbpgadmin
      *
      * @var string

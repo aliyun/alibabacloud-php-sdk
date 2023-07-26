@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAccountRequest extends Model
 {
     /**
+     * @description The description of the privileged account.
+     *
      * @example testacc02
      *
      * @var string
@@ -16,6 +18,13 @@ class CreateAccountRequest extends Model
     public $accountDescription;
 
     /**
+     * @description The name of the privileged account.
+     *
+     *   The name can contain lowercase letters, digits, and underscores (\_).
+     *   The name must start with a lowercase letter and end with a lowercase letter or a digit.
+     *   The name cannot start with gp.
+     *   The name must be 2 to 16 characters in length.
+     *
      * @example testacc02
      *
      * @var string
@@ -23,6 +32,12 @@ class CreateAccountRequest extends Model
     public $accountName;
 
     /**
+     * @description The password of the privileged account.
+     *
+     *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+     *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
+     *   The password must be 8 to 32 characters in length.
+     *
      * @example Pw123456
      *
      * @var string
@@ -30,6 +45,9 @@ class CreateAccountRequest extends Model
     public $accountPassword;
 
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
      * @example gp-bp***************
      *
      * @var string
@@ -37,6 +55,8 @@ class CreateAccountRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
      * @example test01
      *
      * @var string
@@ -49,6 +69,8 @@ class CreateAccountRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string

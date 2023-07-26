@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogCountResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-xxxxxxxx
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeSQLLogCountResponseBody extends Model
     public $DBClusterId;
 
     /**
+     * @description The end time of the query.
+     *
      * @example 2020-12-14T11:22Z
      *
      * @var string
@@ -24,11 +28,15 @@ class DescribeSQLLogCountResponseBody extends Model
     public $endTime;
 
     /**
+     * @description Details of the audit logs of the instance.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7565770E-7C45-462D-BA4A-8A**********
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeSQLLogCountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The start time of the query.
+     *
      * @example 2020-12-12T11:22Z
      *
      * @var string

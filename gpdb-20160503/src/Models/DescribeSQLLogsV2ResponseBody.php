@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogsV2ResponseBody extends Model
 {
     /**
+     * @description Details of the SQL logs.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeSQLLogsV2ResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeSQLLogsV2ResponseBody extends Model
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A7941C94-B92F-46A0-BD3E-2D**********
      *
      * @var string

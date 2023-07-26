@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePlansRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -21,6 +24,8 @@ class DescribeDBInstancePlansRequest extends Model
     public $ownerId;
 
     /**
+     * @description The time used to filter plans. If you specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format, the plans created before this time are returned. The time must be in UTC. If you do not specify this parameter, all plans are returned.
+     *
      * @example 2022-04-17T23:00Z
      *
      * @var string
@@ -28,6 +33,8 @@ class DescribeDBInstancePlansRequest extends Model
     public $planCreateDate;
 
     /**
+     * @description The description of the plan.
+     *
      * @example this is a test plan
      *
      * @var string
@@ -35,6 +42,9 @@ class DescribeDBInstancePlansRequest extends Model
     public $planDesc;
 
     /**
+     * @description The ID of the plan.
+     *
+     * >  You can call the [DescribeDBInstancePlans](~~449398~~) operation to query the details of plans, including plan IDs.
      * @example 1234
      *
      * @var string
@@ -42,6 +52,11 @@ class DescribeDBInstancePlansRequest extends Model
     public $planId;
 
     /**
+     * @description The execution mode of the plan. Valid values:
+     *
+     *   **Postpone**: The plan is executed later.
+     *   **Regular**: The plan is executed periodically.
+     *
      * @example Regular
      *
      * @var string
@@ -49,6 +64,11 @@ class DescribeDBInstancePlansRequest extends Model
     public $planScheduleType;
 
     /**
+     * @description The type of the plan. Valid values:
+     *
+     *   **PauseResume**: pauses and resumes an instance.
+     *   **Resize**: scales an instance.
+     *
      * @example PauseResume
      *
      * @var string

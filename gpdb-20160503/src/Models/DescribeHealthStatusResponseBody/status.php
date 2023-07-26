@@ -8,6 +8,9 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\stat
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgConnectionStatus;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgDiskStatus;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgDiskUsagePercent;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgInstanceColdDataGb;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgInstanceHotDataGb;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgInstanceTotalDataGb;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgMasterDiskUsagePercentMax;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgMasterStatus;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponseBody\status\adbpgSegmentStatus;
@@ -21,61 +24,105 @@ use AlibabaCloud\Tea\Model;
 class status extends Model
 {
     /**
+     * @description The information of maximum compute node storage usage.
+     *
+     * >  This parameter value is returned only for instances in elastic storage mode.
      * @var adbgpSegmentDiskUsagePercentMax
      */
     public $adbgpSegmentDiskUsagePercentMax;
 
     /**
+     * @description The information of instance connection health status.
+     *
      * @var adbpgConnectionStatus
      */
     public $adbpgConnectionStatus;
 
     /**
+     * @description The information of instance storage status.
+     *
+     * >  This parameter value is returned only for instances in elastic storage mode.
      * @var adbpgDiskStatus
      */
     public $adbpgDiskStatus;
 
     /**
+     * @description The information of instance storage usage.
+     *
+     * >  This parameter value is returned only for instances in elastic storage mode.
      * @var adbpgDiskUsagePercent
      */
     public $adbpgDiskUsagePercent;
 
     /**
+     * @var adbpgInstanceColdDataGb
+     */
+    public $adbpgInstanceColdDataGb;
+
+    /**
+     * @var adbpgInstanceHotDataGb
+     */
+    public $adbpgInstanceHotDataGb;
+
+    /**
+     * @var adbpgInstanceTotalDataGb
+     */
+    public $adbpgInstanceTotalDataGb;
+
+    /**
+     * @description The information of maximum coordinator node storage usage.
+     *
+     * >  This parameter value is returned only for instances in elastic storage mode.
      * @var adbpgMasterDiskUsagePercentMax
      */
     public $adbpgMasterDiskUsagePercentMax;
 
     /**
+     * @description The information of coordinator node availability status.
+     *
      * @var adbpgMasterStatus
      */
     public $adbpgMasterStatus;
 
     /**
+     * @description The information of compute node availability status.
+     *
      * @var adbpgSegmentStatus
      */
     public $adbpgSegmentStatus;
 
     /**
+     * @description The information of instance health status.
+     *
      * @var adbpgStatus
      */
     public $adbpgStatus;
 
     /**
+     * @description The information of coordinator node connection health status.
+     *
      * @var nodeMasterConnectionStatus
      */
     public $nodeMasterConnectionStatus;
 
     /**
+     * @description The information of coordinator node health status.
+     *
      * @var nodeMasterStatus
      */
     public $nodeMasterStatus;
 
     /**
+     * @description The information of compute node connection health status.
+     *
      * @var nodeSegmentConnectionStatus
      */
     public $nodeSegmentConnectionStatus;
 
     /**
+     * @description The information of compute node storage status.
+     *
+     * >  This parameter value is returned only for instances in elastic storage mode.
      * @var nodeSegmentDiskStatus
      */
     public $nodeSegmentDiskStatus;
@@ -84,6 +131,9 @@ class status extends Model
         'adbpgConnectionStatus'           => 'adbpg_connection_status',
         'adbpgDiskStatus'                 => 'adbpg_disk_status',
         'adbpgDiskUsagePercent'           => 'adbpg_disk_usage_percent',
+        'adbpgInstanceColdDataGb'         => 'adbpg_instance_cold_data_gb',
+        'adbpgInstanceHotDataGb'          => 'adbpg_instance_hot_data_gb',
+        'adbpgInstanceTotalDataGb'        => 'adbpg_instance_total_data_gb',
         'adbpgMasterDiskUsagePercentMax'  => 'adbpg_master_disk_usage_percent_max',
         'adbpgMasterStatus'               => 'adbpg_master_status',
         'adbpgSegmentStatus'              => 'adbpg_segment_status',
@@ -112,6 +162,15 @@ class status extends Model
         }
         if (null !== $this->adbpgDiskUsagePercent) {
             $res['adbpg_disk_usage_percent'] = null !== $this->adbpgDiskUsagePercent ? $this->adbpgDiskUsagePercent->toMap() : null;
+        }
+        if (null !== $this->adbpgInstanceColdDataGb) {
+            $res['adbpg_instance_cold_data_gb'] = null !== $this->adbpgInstanceColdDataGb ? $this->adbpgInstanceColdDataGb->toMap() : null;
+        }
+        if (null !== $this->adbpgInstanceHotDataGb) {
+            $res['adbpg_instance_hot_data_gb'] = null !== $this->adbpgInstanceHotDataGb ? $this->adbpgInstanceHotDataGb->toMap() : null;
+        }
+        if (null !== $this->adbpgInstanceTotalDataGb) {
+            $res['adbpg_instance_total_data_gb'] = null !== $this->adbpgInstanceTotalDataGb ? $this->adbpgInstanceTotalDataGb->toMap() : null;
         }
         if (null !== $this->adbpgMasterDiskUsagePercentMax) {
             $res['adbpg_master_disk_usage_percent_max'] = null !== $this->adbpgMasterDiskUsagePercentMax ? $this->adbpgMasterDiskUsagePercentMax->toMap() : null;
@@ -160,6 +219,15 @@ class status extends Model
         }
         if (isset($map['adbpg_disk_usage_percent'])) {
             $model->adbpgDiskUsagePercent = adbpgDiskUsagePercent::fromMap($map['adbpg_disk_usage_percent']);
+        }
+        if (isset($map['adbpg_instance_cold_data_gb'])) {
+            $model->adbpgInstanceColdDataGb = adbpgInstanceColdDataGb::fromMap($map['adbpg_instance_cold_data_gb']);
+        }
+        if (isset($map['adbpg_instance_hot_data_gb'])) {
+            $model->adbpgInstanceHotDataGb = adbpgInstanceHotDataGb::fromMap($map['adbpg_instance_hot_data_gb']);
+        }
+        if (isset($map['adbpg_instance_total_data_gb'])) {
+            $model->adbpgInstanceTotalDataGb = adbpgInstanceTotalDataGb::fromMap($map['adbpg_instance_total_data_gb']);
         }
         if (isset($map['adbpg_master_disk_usage_percent_max'])) {
             $model->adbpgMasterDiskUsagePercentMax = adbpgMasterDiskUsagePercentMax::fromMap($map['adbpg_master_disk_usage_percent_max']);

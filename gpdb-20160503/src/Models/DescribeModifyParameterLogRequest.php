@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeModifyParameterLogRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-xxxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeModifyParameterLogRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The end of the time range to query.
+     *
      * @example 2020-05-05T11:22:22Z
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeModifyParameterLogRequest extends Model
     public $endTime;
 
     /**
+     * @description The beginning of the time range to query.
+     *
      * @example 2020-02-02T11:22:22Z
      *
      * @var string

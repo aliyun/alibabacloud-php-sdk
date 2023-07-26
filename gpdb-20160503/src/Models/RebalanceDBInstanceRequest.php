@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RebalanceDBInstanceRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests.
+     *
+     * For more information, see [How to ensure idempotence](~~134212~~).
      * @example 0c593ea1-3bea-11e9-b96b-88**********
      *
      * @var string
@@ -16,6 +19,8 @@ class RebalanceDBInstanceRequest extends Model
     public $clientToken;
 
     /**
+     * @description The instance ID.
+     *
      * @example gp-bp***************
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSampleDataResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeSampleDataResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The error message returned if an error occurs. This message does not affect the execution of the operation.
+     *
      * @example ******
      *
      * @var string
@@ -23,6 +27,11 @@ class DescribeSampleDataResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description Indicates whether a sample dataset is loaded to the instance. Valid values:
+     *
+     *   **true**: A sample dataset is loaded.
+     *   **false**: No sample dataset is loaded.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +39,8 @@ class DescribeSampleDataResponseBody extends Model
     public $hasSampleData;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 84CD7CAF-FA7B-5178-B19F-D8CDE307D5FA_8111
      *
      * @var string

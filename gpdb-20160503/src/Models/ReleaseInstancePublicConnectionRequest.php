@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ReleaseInstancePublicConnectionRequest extends Model
 {
     /**
+     * @description The type of the endpoint. Default value: primary. Valid values:
+     *
+     *   **primary**: primary endpoint.
+     *   **cluster**: cluster endpoint. This type of endpoints can be created only for instances that have multiple coordinator nodes.
+     *
      * @example Intranet
      *
      * @var string
@@ -16,14 +21,20 @@ class ReleaseInstancePublicConnectionRequest extends Model
     public $addressType;
 
     /**
-     * @example gp-**********.gpdb.rds.aliyuncs.com
+     * @description The public endpoint of the instance.
+     *
+     * You can log on to the AnalyticDB for PostgreSQL console and go to the **Basic Information** page of the instance to view the **public endpoint** in the **Database Connection** section.
+     * @example gp-bp12ga6v69h86****.gpdb.rds.aliyuncs.com
      *
      * @var string
      */
     public $currentConnectionString;
 
     /**
-     * @example gp-**********
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     * @example gp-bp12ga6v69h86****
      *
      * @var string
      */

@@ -9,28 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceConnectionStringRequest extends Model
 {
     /**
-     * @example gp-xxxxxxxx
+     * @description The new endpoint of the instance.
+     *
+     * @example gp-test
      *
      * @var string
      */
     public $connectionStringPrefix;
 
     /**
-     * @example gp-xxxxxxx.gpdb.rds.aliyuncs.com
+     * @description The original endpoint of the instance.
+     *
+     * @example gp-t4n2qg19bnn98****-master.gpdb.rds.aliyuncs.com
      *
      * @var string
      */
     public $currentConnectionString;
 
     /**
-     * @example gp-xxxxxxx
+     * @description The ID of the instance.
+     *
+     * @example gp-t4n2qg19bnn98****
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @example 3432
+     * @description The new port number of the instance.
+     *
+     * @example 5432
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSupportFeaturesResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeSupportFeaturesResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 63E5BE60-91FF-57F1-B873-7F1EB734B93D_2724
      *
      * @var string
@@ -23,6 +27,11 @@ class DescribeSupportFeaturesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The features supported by the instance. Valid values:
+     *
+     *   sample_data: sample dataset. For more information, see [Sample dataset](~~452278~~).
+     *   diagnose_and_optimize: diagnostics and optimization. For more information, see [Diagnostics and optimization](~~323453~~).
+     *
      * @example [ "sample_data", "diagnose_and_optimize" ]
      *
      * @var string

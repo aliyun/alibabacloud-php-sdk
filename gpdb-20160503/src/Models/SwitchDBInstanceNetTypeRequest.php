@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SwitchDBInstanceNetTypeRequest extends Model
 {
     /**
+     * @description The prefix of the custom endpoint. The prefix must be 8 to 64 characters in length and can contain letters and digits. It must start with a lowercase letter. A valid endpoint is in the following format: Prefix.Database engine.rds.aliyuncs.com. Example: test1234.mysql.rds.aliyuncs.com.
+     *
      * @example test1234
      *
      * @var string
@@ -16,6 +18,8 @@ class SwitchDBInstanceNetTypeRequest extends Model
     public $connectionStringPrefix;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example rm-uf6wjk5xxxxxxx
      *
      * @var string
@@ -23,6 +27,11 @@ class SwitchDBInstanceNetTypeRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The port number. Valid values: 3000 to 5999.
+     *
+     * >
+     *   Only ApsaraDB PolarDB MySQL-compatible edition clusters support this parameter. If you leave this parameter empty, the default port 3306 is used.
+     *
      * @example 3306
      *
      * @var string

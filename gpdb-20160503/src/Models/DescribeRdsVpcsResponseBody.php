@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRdsVpcsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 53924AF0-1628-5AA2-9C95-D4**********
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeRdsVpcsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Details of the VPCs.
+     *
      * @var vpcs
      */
     public $vpcs;

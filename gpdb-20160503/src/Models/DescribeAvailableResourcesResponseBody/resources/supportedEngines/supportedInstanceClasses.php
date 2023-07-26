@@ -11,41 +11,64 @@ use AlibabaCloud\Tea\Model;
 class supportedInstanceClasses extends Model
 {
     /**
+     * @description The instance edition. Valid values:
+     *
+     *   **HighAvailability**: High-availability Edition
+     *   **Basic**: Basic Edition
+     *
+     * @example HighAvailability
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The description of compute node specifications.
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @example 4C32G
+     * @description The specifications of each compute node.
+     *
+     * @example 2C16G
      *
      * @var string
      */
     public $displayClass;
 
     /**
-     * @example 4C32G
+     * @description The specifications of each compute node.
+     *
+     * @example 2C16G
      *
      * @var string
      */
     public $instanceClass;
 
     /**
+     * @description Details about the compute nodes.
+     *
      * @var nodeCount
      */
     public $nodeCount;
 
     /**
+     * @description Details about the storage capacity of compute nodes.
+     *
      * @var storageSize
      */
     public $storageSize;
 
     /**
-     * @example cloud_ssd
+     * @description The storage type. Valid values:
+     *
+     *   **cloud_essd**: enhanced SSD (ESSD)
+     *   **cloud_efficiency**: ultra disk
+     *   **oss**: Object Storage Service (OSS)
+     *
+     * @example cloud_essd
      *
      * @var string
      */

@@ -6,38 +6,50 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\AddBuDBInstanceRelationRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\AddBuDBInstanceRelationResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\AllocateInstancePublicConnectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\AllocateInstancePublicConnectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CheckServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateAccountResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateCollectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstancePlanRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstancePlanResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateDBInstanceResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateECSDBInstanceRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateECSDBInstanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateNamespaceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateNamespaceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSampleDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateSampleDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateServiceLinkedRoleRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateServiceLinkedRoleResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDatabaseRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDatabaseResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateVectorIndexRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\CreateVectorIndexResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionDataRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionDataResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteCollectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstancePlanRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstancePlanResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteDBInstanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteNamespaceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteVectorIndexRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DeleteVectorIndexResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAccountsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAvailableResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeAvailableResourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBackupPolicyRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeBackupPolicyResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeCollectionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeCollectionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataBackupsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataBackupsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataReDistributeInfoRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataReDistributeInfoResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataShareInstancesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataShareInstancesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDataSharePerformanceRequest;
@@ -62,14 +74,10 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceIPArrayListRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceIPArrayListResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceNetInfoRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceNetInfoResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceOnECSAttributeRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceOnECSAttributeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePerformanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePerformanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePlansRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancePlansResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSQLPatternsRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstanceSQLPatternsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDBInstancesShrinkRequest;
@@ -85,12 +93,16 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisSQLInfoRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDiagnosisSQLInfoResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadRecordsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadSQLLogsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeDownloadSQLLogsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeHealthStatusResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeLogBackupsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeLogBackupsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModifyParameterLogRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeModifyParameterLogResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeNamespaceRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeNamespaceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeParametersRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeParametersResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVpcsRequest;
@@ -99,30 +111,10 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVSwitchsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRdsVSwitchsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeRegionsResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeResourceUsageRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeResourceUsageResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSampleDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSampleDataResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSlowLogRecordsRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSlowLogRecordsResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSlowSQLLogsRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSlowSQLLogsResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSpecificationRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSpecificationResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLCollectorPolicyRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLCollectorPolicyResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogByQueryIdRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogByQueryIdResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogCountRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogCountResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogFilesRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogFilesResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogRecordsRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogRecordsResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsOnSliceRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsOnSliceResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsV2Request;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSQLLogsV2Response;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeSupportFeaturesRequest;
@@ -137,22 +129,28 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeWaitingSQLRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DescribeWaitingSQLRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadDiagnosisRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadDiagnosisRecordsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GrantCollectionRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\GrantCollectionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListNamespacesRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListNamespacesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyBackupPolicyRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyBackupPolicyResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceConnectionModeRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceConnectionModeResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceConfigRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceConfigResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceConnectionStringRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceConnectionStringResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceDescriptionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceDescriptionResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceMaintainTimeRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceMaintainTimeResponse;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceNetworkTypeRequest;
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceNetworkTypeResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceResourceGroupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceResourceGroupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceSSLRequest;
@@ -163,8 +161,13 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySecurityIpsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySecurityIpsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySQLCollectorPolicyRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySQLCollectorPolicyResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyVectorConfigurationRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyVectorConfigurationResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\PauseInstanceResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RebalanceDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\RebalanceDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ReleaseInstancePublicConnectionRequest;
@@ -194,6 +197,9 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBInstanceRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBInstanceResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBVersionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBVersionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpsertCollectionDataShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -249,67 +255,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @deprecated
+     * You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](~~204879~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
-     * Deprecated
+     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @param AddBuDBInstanceRelationRequest $request AddBuDBInstanceRelationRequest
-     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
-     *
-     * @return AddBuDBInstanceRelationResponse AddBuDBInstanceRelationResponse
-     */
-    public function addBuDBInstanceRelationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->businessUnit)) {
-            $query['BusinessUnit'] = $request->businessUnit;
-        }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'AddBuDBInstanceRelation',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return AddBuDBInstanceRelationResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated
-     *   *
-     * Deprecated
-     *
-     * @param AddBuDBInstanceRelationRequest $request AddBuDBInstanceRelationRequest
-     *
-     * @return AddBuDBInstanceRelationResponse AddBuDBInstanceRelationResponse
-     */
-    public function addBuDBInstanceRelation($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->addBuDBInstanceRelationWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param AllocateInstancePublicConnectionRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return AllocateInstancePublicConnectionResponse
+     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnectionWithOptions($request, $runtime)
     {
@@ -355,9 +308,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param AllocateInstancePublicConnectionRequest $request
+     * You can call this operation to apply for a public endpoint for an AnalyticDB for PostgreSQL instance. Both the primary and instance endpoints of an AnalyticDB for PostgreSQL instance can be public endpoints. For more information, see [Endpoints of an instance and its primary coordinator node](~~204879~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      *
-     * @return AllocateInstancePublicConnectionResponse
+     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnection($request)
     {
@@ -410,10 +367,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * *   Before you can use an AnalyticDB for PostgreSQL instance, you must create a privileged account for the instance.
+     *   * *   You can call this operation to create only privileged accounts. For information about how to create other types of accounts, see [Create a database account](~~50206~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
@@ -459,9 +421,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
+     * *   Before you can use an AnalyticDB for PostgreSQL instance, you must create a privileged account for the instance.
+     *   * *   You can call this operation to create only privileged accounts. For information about how to create other types of accounts, see [Create a database account](~~50206~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateAccountRequest $request CreateAccountRequest
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -471,10 +438,88 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBInstanceRequest $request
+     * @param CreateCollectionRequest $request
      * @param RuntimeOptions          $runtime
      *
-     * @return CreateDBInstanceResponse
+     * @return CreateCollectionResponse
+     */
+    public function createCollectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dimension)) {
+            $query['Dimension'] = $request->dimension;
+        }
+        if (!Utils::isUnset($request->fullTextRetrievalFields)) {
+            $query['FullTextRetrievalFields'] = $request->fullTextRetrievalFields;
+        }
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
+        }
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        }
+        if (!Utils::isUnset($request->metadata)) {
+            $query['Metadata'] = $request->metadata;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parser)) {
+            $query['Parser'] = $request->parser;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCollection',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCollectionRequest $request
+     *
+     * @return CreateCollectionResponse
+     */
+    public function createCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
+     *   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDBInstanceResponse CreateDBInstanceResponse
      */
     public function createDBInstanceWithOptions($request, $runtime)
     {
@@ -500,6 +545,12 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBInstanceMode)) {
             $query['DBInstanceMode'] = $request->DBInstanceMode;
+        }
+        if (!Utils::isUnset($request->encryptionKey)) {
+            $query['EncryptionKey'] = $request->encryptionKey;
+        }
+        if (!Utils::isUnset($request->encryptionType)) {
+            $query['EncryptionType'] = $request->encryptionType;
         }
         if (!Utils::isUnset($request->engine)) {
             $query['Engine'] = $request->engine;
@@ -540,6 +591,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->securityIPList)) {
             $query['SecurityIPList'] = $request->securityIPList;
         }
+        if (!Utils::isUnset($request->segDiskPerformanceLevel)) {
+            $query['SegDiskPerformanceLevel'] = $request->segDiskPerformanceLevel;
+        }
         if (!Utils::isUnset($request->segNodeNum)) {
             $query['SegNodeNum'] = $request->segNodeNum;
         }
@@ -570,6 +624,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
         }
+        if (!Utils::isUnset($request->vectorConfigurationStatus)) {
+            $query['VectorConfigurationStatus'] = $request->vectorConfigurationStatus;
+        }
         if (!Utils::isUnset($request->zoneId)) {
             $query['ZoneId'] = $request->zoneId;
         }
@@ -592,9 +649,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBInstanceRequest $request
+     * You can call this operation when you need to create AnalyticDB for PostgreSQL instances to meet the requirements of new applications or services.
+     *   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param CreateDBInstanceRequest $request CreateDBInstanceRequest
      *
-     * @return CreateDBInstanceResponse
+     * @return CreateDBInstanceResponse CreateDBInstanceResponse
      */
     public function createDBInstance($request)
     {
@@ -604,10 +666,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBInstancePlanRequest $request
-     * @param RuntimeOptions              $runtime
+     * You can call this operation to create a plan for an AnalyticDB for PostgreSQL instance. For example, you can create a plan to pause and resume an instance, change the number of compute nodes, or change compute node specifications.
+     *   * >  This operation is applicable only to pay-as-you-go instances.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateDBInstancePlanRequest $request CreateDBInstancePlanRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDBInstancePlanResponse
+     * @return CreateDBInstancePlanResponse CreateDBInstancePlanResponse
      */
     public function createDBInstancePlanWithOptions($request, $runtime)
     {
@@ -659,9 +726,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBInstancePlanRequest $request
+     * You can call this operation to create a plan for an AnalyticDB for PostgreSQL instance. For example, you can create a plan to pause and resume an instance, change the number of compute nodes, or change compute node specifications.
+     *   * >  This operation is applicable only to pay-as-you-go instances.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateDBInstancePlanRequest $request CreateDBInstancePlanRequest
      *
-     * @return CreateDBInstancePlanResponse
+     * @return CreateDBInstancePlanResponse CreateDBInstancePlanResponse
      */
     public function createDBInstancePlan($request)
     {
@@ -671,101 +743,41 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateECSDBInstanceRequest $request
-     * @param RuntimeOptions             $runtime
+     * @param CreateNamespaceRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @return CreateECSDBInstanceResponse
+     * @return CreateNamespaceResponse
      */
-    public function createECSDBInstanceWithOptions($request, $runtime)
+    public function createNamespaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->backupId)) {
-            $query['BackupId'] = $request->backupId;
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->clientToken)) {
-            $query['ClientToken'] = $request->clientToken;
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
         }
-        if (!Utils::isUnset($request->DBInstanceCategory)) {
-            $query['DBInstanceCategory'] = $request->DBInstanceCategory;
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
         }
-        if (!Utils::isUnset($request->DBInstanceDescription)) {
-            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
-        if (!Utils::isUnset($request->encryptionKey)) {
-            $query['EncryptionKey'] = $request->encryptionKey;
-        }
-        if (!Utils::isUnset($request->encryptionType)) {
-            $query['EncryptionType'] = $request->encryptionType;
-        }
-        if (!Utils::isUnset($request->engine)) {
-            $query['Engine'] = $request->engine;
-        }
-        if (!Utils::isUnset($request->engineVersion)) {
-            $query['EngineVersion'] = $request->engineVersion;
-        }
-        if (!Utils::isUnset($request->instanceNetworkType)) {
-            $query['InstanceNetworkType'] = $request->instanceNetworkType;
-        }
-        if (!Utils::isUnset($request->instanceSpec)) {
-            $query['InstanceSpec'] = $request->instanceSpec;
-        }
-        if (!Utils::isUnset($request->masterNodeNum)) {
-            $query['MasterNodeNum'] = $request->masterNodeNum;
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
-        }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
-        }
-        if (!Utils::isUnset($request->privateIpAddress)) {
-            $query['PrivateIpAddress'] = $request->privateIpAddress;
-        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->securityIPList)) {
-            $query['SecurityIPList'] = $request->securityIPList;
-        }
-        if (!Utils::isUnset($request->segNodeNum)) {
-            $query['SegNodeNum'] = $request->segNodeNum;
-        }
-        if (!Utils::isUnset($request->segStorageType)) {
-            $query['SegStorageType'] = $request->segStorageType;
-        }
-        if (!Utils::isUnset($request->srcDbInstanceName)) {
-            $query['SrcDbInstanceName'] = $request->srcDbInstanceName;
-        }
-        if (!Utils::isUnset($request->storageSize)) {
-            $query['StorageSize'] = $request->storageSize;
-        }
-        if (!Utils::isUnset($request->tag)) {
-            $query['Tag'] = $request->tag;
-        }
-        if (!Utils::isUnset($request->usedTime)) {
-            $query['UsedTime'] = $request->usedTime;
-        }
-        if (!Utils::isUnset($request->VPCId)) {
-            $query['VPCId'] = $request->VPCId;
-        }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
-        }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'CreateECSDBInstance',
+            'action'      => 'CreateNamespace',
             'version'     => '2016-05-03',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -776,26 +788,35 @@ class Gpdb extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return CreateECSDBInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return CreateNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param CreateECSDBInstanceRequest $request
+     * @param CreateNamespaceRequest $request
      *
-     * @return CreateECSDBInstanceResponse
+     * @return CreateNamespaceResponse
      */
-    public function createECSDBInstance($request)
+    public function createNamespace($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->createECSDBInstanceWithOptions($request, $runtime);
+        return $this->createNamespaceWithOptions($request, $runtime);
     }
 
     /**
-     * @param CreateSampleDataRequest $request
-     * @param RuntimeOptions          $runtime
+     * You can call this operation to load a sample dataset to an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](~~452277~~).
+     *   * ## Precautions
+     *   * - If your instance is in elastic storage mode, the sample dataset is supported only for V6.3.10.3 or later. If your instance is in Serverless mode, the sample dataset is supported only for V1.0.4.0 or later. For more information about how to update the minor engine version of an instance, see [Update the minor engine version](/help/en/analyticdb-for-postgresql/latest/upgrade-the-engine-version).
+     *   * - The sample dataset is about 10 GB in size. Make sure that your instance has sufficient storage space.
+     *   * - The sample dataset contains a database named `ADB_SampleData_TPCH`. Make sure that your instance does not have a database with the same name. Otherwise, the dataset may fail to be loaded.
+     *   * - It may take 6 to 8 minutes to load the sample dataset. During this period, operations on your instance such as adding nodes or changing node specifications may be affected.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateSampleDataRequest $request CreateSampleDataRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSampleDataResponse
+     * @return CreateSampleDataResponse CreateSampleDataResponse
      */
     public function createSampleDataWithOptions($request, $runtime)
     {
@@ -826,9 +847,18 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param CreateSampleDataRequest $request
+     * You can call this operation to load a sample dataset to an AnalyticDB for PostgreSQL instance. Then, you can execute query statements on the sample dataset to experience or test your instance. For more information about query statements, see [Dataset information and query examples](~~452277~~).
+     *   * ## Precautions
+     *   * - If your instance is in elastic storage mode, the sample dataset is supported only for V6.3.10.3 or later. If your instance is in Serverless mode, the sample dataset is supported only for V1.0.4.0 or later. For more information about how to update the minor engine version of an instance, see [Update the minor engine version](/help/en/analyticdb-for-postgresql/latest/upgrade-the-engine-version).
+     *   * - The sample dataset is about 10 GB in size. Make sure that your instance has sufficient storage space.
+     *   * - The sample dataset contains a database named `ADB_SampleData_TPCH`. Make sure that your instance does not have a database with the same name. Otherwise, the dataset may fail to be loaded.
+     *   * - It may take 6 to 8 minutes to load the sample dataset. During this period, operations on your instance such as adding nodes or changing node specifications may be affected.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param CreateSampleDataRequest $request CreateSampleDataRequest
      *
-     * @return CreateSampleDataResponse
+     * @return CreateSampleDataResponse CreateSampleDataResponse
      */
     public function createSampleData($request)
     {
@@ -884,10 +914,204 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBInstanceRequest $request
+     * @param CreateVectorIndexRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateVectorIndexResponse
+     */
+    public function createVectorIndexWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->dimension)) {
+            $query['Dimension'] = $request->dimension;
+        }
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
+        }
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        }
+        if (!Utils::isUnset($request->metrics)) {
+            $query['Metrics'] = $request->metrics;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateVectorIndex',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateVectorIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateVectorIndexRequest $request
+     *
+     * @return CreateVectorIndexResponse
+     */
+    public function createVectorIndex($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createVectorIndexWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCollectionRequest $request
      * @param RuntimeOptions          $runtime
      *
-     * @return DeleteDBInstanceResponse
+     * @return DeleteCollectionResponse
+     */
+    public function deleteCollectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCollection',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCollectionRequest $request
+     *
+     * @return DeleteCollectionResponse
+     */
+    public function deleteCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCollectionDataRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteCollectionDataResponse
+     */
+    public function deleteCollectionDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->collectionData)) {
+            $query['CollectionData'] = $request->collectionData;
+        }
+        if (!Utils::isUnset($request->collectionDataFilter)) {
+            $query['CollectionDataFilter'] = $request->collectionDataFilter;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCollectionData',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCollectionDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCollectionDataRequest $request
+     *
+     * @return DeleteCollectionDataResponse
+     */
+    public function deleteCollectionData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCollectionDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * *   Subscription instances cannot be manually released. They are automatically released when they expire.
+     *   * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
      */
     public function deleteDBInstanceWithOptions($request, $runtime)
     {
@@ -924,9 +1148,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBInstanceRequest $request
+     * *   Subscription instances cannot be manually released. They are automatically released when they expire.
+     *   * *   You can call this operation to release pay-as-you-go instances only when they are in the **Running** state.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
      *
-     * @return DeleteDBInstanceResponse
+     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
      */
     public function deleteDBInstance($request)
     {
@@ -936,10 +1165,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBInstancePlanRequest $request
-     * @param RuntimeOptions              $runtime
+     * If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DeleteDBInstancePlanRequest $request DeleteDBInstancePlanRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDBInstancePlanResponse
+     * @return DeleteDBInstancePlanResponse DeleteDBInstancePlanResponse
      */
     public function deleteDBInstancePlanWithOptions($request, $runtime)
     {
@@ -973,9 +1206,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBInstancePlanRequest $request
+     * If you no longer need a plan, you can call this operation to delete the plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DeleteDBInstancePlanRequest $request DeleteDBInstancePlanRequest
      *
-     * @return DeleteDBInstancePlanResponse
+     * @return DeleteDBInstancePlanResponse DeleteDBInstancePlanResponse
      */
     public function deleteDBInstancePlan($request)
     {
@@ -985,33 +1222,38 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @deprecated
-     *   *
-     * Deprecated
+     * @param DeleteNamespaceRequest $request
+     * @param RuntimeOptions         $runtime
      *
-     * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DeleteDatabaseResponse DeleteDatabaseResponse
+     * @return DeleteNamespaceResponse
      */
-    public function deleteDatabaseWithOptions($request, $runtime)
+    public function deleteNamespaceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
-        if (!Utils::isUnset($request->DBName)) {
-            $query['DBName'] = $request->DBName;
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
         }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DeleteDatabase',
+            'action'      => 'DeleteNamespace',
             'version'     => '2016-05-03',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -1022,30 +1264,91 @@ class Gpdb extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DeleteDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @deprecated
-     *   *
-     * Deprecated
+     * @param DeleteNamespaceRequest $request
      *
-     * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
-     *
-     * @return DeleteDatabaseResponse DeleteDatabaseResponse
+     * @return DeleteNamespaceResponse
      */
-    public function deleteDatabase($request)
+    public function deleteNamespace($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->deleteDatabaseWithOptions($request, $runtime);
+        return $this->deleteNamespaceWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeAccountsRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param DeleteVectorIndexRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return DescribeAccountsResponse
+     * @return DeleteVectorIndexResponse
+     */
+    public function deleteVectorIndexWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
+        }
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVectorIndex',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteVectorIndexResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteVectorIndexRequest $request
+     *
+     * @return DeleteVectorIndexResponse
+     */
+    public function deleteVectorIndex($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVectorIndexWithOptions($request, $runtime);
+    }
+
+    /**
+     * This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
+     *   * ## Limit
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccountsWithOptions($request, $runtime)
     {
@@ -1076,9 +1379,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountsRequest $request
+     * This operation is called to query the information of the privileged account in an AnalyticDB for PostgreSQL instance, such as its state, description, and the instance.
+     *   * ## Limit
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccounts($request)
     {
@@ -1088,10 +1395,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourcesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a specific zone.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeAvailableResourcesRequest $request DescribeAvailableResourcesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAvailableResourcesResponse
+     * @return DescribeAvailableResourcesResponse DescribeAvailableResourcesResponse
      */
     public function describeAvailableResourcesWithOptions($request, $runtime)
     {
@@ -1125,9 +1436,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeAvailableResourcesRequest $request
+     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a specific zone.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeAvailableResourcesRequest $request DescribeAvailableResourcesRequest
      *
-     * @return DescribeAvailableResourcesResponse
+     * @return DescribeAvailableResourcesResponse DescribeAvailableResourcesResponse
      */
     public function describeAvailableResources($request)
     {
@@ -1137,10 +1452,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
-     * @param RuntimeOptions              $runtime
+     * You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](~~210095~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicyWithOptions($request, $runtime)
     {
@@ -1168,9 +1487,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupPolicyRequest $request
+     * You can call this operation to query the backup settings of an AnalyticDB for PostgreSQL instance in elastic storage mode. Periodically backing data can prevent data loss. For more information about how to modify backup policies, see [ModifyBackupPolicy](~~210095~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeBackupPolicyRequest $request DescribeBackupPolicyRequest
      *
-     * @return DescribeBackupPolicyResponse
+     * @return DescribeBackupPolicyResponse DescribeBackupPolicyResponse
      */
     public function describeBackupPolicy($request)
     {
@@ -1180,10 +1503,72 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterNodeRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param DescribeCollectionRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return DescribeDBClusterNodeResponse
+     * @return DescribeCollectionResponse
+     */
+    public function describeCollectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCollection',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCollectionRequest $request
+     *
+     * @return DescribeCollectionResponse
+     */
+    public function describeCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * This operation is called to query the information of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBClusterNodeRequest $request DescribeDBClusterNodeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDBClusterNodeResponse DescribeDBClusterNodeResponse
      */
     public function describeDBClusterNodeWithOptions($request, $runtime)
     {
@@ -1214,9 +1599,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterNodeRequest $request
+     * This operation is called to query the information of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBClusterNodeRequest $request DescribeDBClusterNodeRequest
      *
-     * @return DescribeDBClusterNodeResponse
+     * @return DescribeDBClusterNodeResponse DescribeDBClusterNodeResponse
      */
     public function describeDBClusterNode($request)
     {
@@ -1226,10 +1615,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterPerformanceRequest $request
-     * @param RuntimeOptions                      $runtime
+     * This operation is called to query the performance metrics of an AnalyticDB for PostgreSQL instance, such as the number of connections, memory usage, CPU utilization, I/O throughput, read IOPS, write IOPS, and disk space usage.
+     *   * You can query monitoring information only within the last 30 days.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterPerformanceResponse
+     * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
      */
     public function describeDBClusterPerformanceWithOptions($request, $runtime)
     {
@@ -1272,9 +1666,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterPerformanceRequest $request
+     * This operation is called to query the performance metrics of an AnalyticDB for PostgreSQL instance, such as the number of connections, memory usage, CPU utilization, I/O throughput, read IOPS, write IOPS, and disk space usage.
+     *   * You can query monitoring information only within the last 30 days.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      *
-     * @return DescribeDBClusterPerformanceResponse
+     * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
      */
     public function describeDBClusterPerformance($request)
     {
@@ -1284,10 +1683,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceAttributeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceAttributeResponse
+     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttributeWithOptions($request, $runtime)
     {
@@ -1321,9 +1724,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceAttributeRequest $request
+     * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      *
-     * @return DescribeDBInstanceAttributeResponse
+     * @return DescribeDBInstanceAttributeResponse DescribeDBInstanceAttributeResponse
      */
     public function describeDBInstanceAttribute($request)
     {
@@ -1333,10 +1740,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceDataBloatRequest $request
-     * @param RuntimeOptions                     $runtime
+     * You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstanceDataBloatRequest $request DescribeDBInstanceDataBloatRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceDataBloatResponse
+     * @return DescribeDBInstanceDataBloatResponse DescribeDBInstanceDataBloatResponse
      */
     public function describeDBInstanceDataBloatWithOptions($request, $runtime)
     {
@@ -1370,9 +1781,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceDataBloatRequest $request
+     * You can call this operation to query the details of data bloat on an AnalyticDB for PostgreSQL instance in elastic storage mode. The minor version of the instance must be V6.3.10.1 or later. For more information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstanceDataBloatRequest $request DescribeDBInstanceDataBloatRequest
      *
-     * @return DescribeDBInstanceDataBloatResponse
+     * @return DescribeDBInstanceDataBloatResponse DescribeDBInstanceDataBloatResponse
      */
     public function describeDBInstanceDataBloat($request)
     {
@@ -1382,10 +1797,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceDataSkewRequest $request
-     * @param RuntimeOptions                    $runtime
+     * To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstanceDataSkewRequest $request DescribeDBInstanceDataSkewRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceDataSkewResponse
+     * @return DescribeDBInstanceDataSkewResponse DescribeDBInstanceDataSkewResponse
      */
     public function describeDBInstanceDataSkewWithOptions($request, $runtime)
     {
@@ -1419,9 +1838,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceDataSkewRequest $request
+     * To prevent data skew from affecting your database service, you can call this operation to query the details about data skew on an AnalyticDB for PostgreSQL instance.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstanceDataSkewRequest $request DescribeDBInstanceDataSkewRequest
      *
-     * @return DescribeDBInstanceDataSkewResponse
+     * @return DescribeDBInstanceDataSkewResponse DescribeDBInstanceDataSkewResponse
      */
     public function describeDBInstanceDataSkew($request)
     {
@@ -1431,10 +1854,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceDiagnosisSummaryRequest $request
-     * @param RuntimeOptions                            $runtime
+     * You can call this operation to query the distribution and states of coordinator and compute nodes on an AnalyticDB for PostgreSQL instance.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstanceDiagnosisSummaryRequest $request DescribeDBInstanceDiagnosisSummaryRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceDiagnosisSummaryResponse
+     * @return DescribeDBInstanceDiagnosisSummaryResponse DescribeDBInstanceDiagnosisSummaryResponse
      */
     public function describeDBInstanceDiagnosisSummaryWithOptions($request, $runtime)
     {
@@ -1477,9 +1904,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceDiagnosisSummaryRequest $request
+     * You can call this operation to query the distribution and states of coordinator and compute nodes on an AnalyticDB for PostgreSQL instance.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstanceDiagnosisSummaryRequest $request DescribeDBInstanceDiagnosisSummaryRequest
      *
-     * @return DescribeDBInstanceDiagnosisSummaryResponse
+     * @return DescribeDBInstanceDiagnosisSummaryResponse DescribeDBInstanceDiagnosisSummaryResponse
      */
     public function describeDBInstanceDiagnosisSummary($request)
     {
@@ -1489,10 +1920,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceErrorLogRequest $request
-     * @param RuntimeOptions                    $runtime
+     * You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstanceErrorLogRequest $request DescribeDBInstanceErrorLogRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceErrorLogResponse
+     * @return DescribeDBInstanceErrorLogResponse DescribeDBInstanceErrorLogResponse
      */
     public function describeDBInstanceErrorLogWithOptions($request, $runtime)
     {
@@ -1547,9 +1982,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceErrorLogRequest $request
+     * You can call this operation to query the error logs of an AnalyticDB for PostgreSQL instance.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstanceErrorLogRequest $request DescribeDBInstanceErrorLogRequest
      *
-     * @return DescribeDBInstanceErrorLogResponse
+     * @return DescribeDBInstanceErrorLogResponse DescribeDBInstanceErrorLogResponse
      */
     public function describeDBInstanceErrorLog($request)
     {
@@ -1559,10 +1998,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceIPArrayListRequest $request
-     * @param RuntimeOptions                       $runtime
+     * You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstanceIPArrayListRequest $request DescribeDBInstanceIPArrayListRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceIPArrayListResponse
+     * @return DescribeDBInstanceIPArrayListResponse DescribeDBInstanceIPArrayListResponse
      */
     public function describeDBInstanceIPArrayListWithOptions($request, $runtime)
     {
@@ -1593,9 +2036,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceIPArrayListRequest $request
+     * You can call this operation to query the whitelists of IP addresses that are allowed to access an AnalyticDB for PostgreSQL instance.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstanceIPArrayListRequest $request DescribeDBInstanceIPArrayListRequest
      *
-     * @return DescribeDBInstanceIPArrayListResponse
+     * @return DescribeDBInstanceIPArrayListResponse DescribeDBInstanceIPArrayListResponse
      */
     public function describeDBInstanceIPArrayList($request)
     {
@@ -1605,10 +2052,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceIndexUsageRequest $request
-     * @param RuntimeOptions                      $runtime
+     * Appropriate indexes can improve the database query speed. You can call this operation to query the details of index usage on an AnalyticDB for PostgreSQL instance.
+     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstanceIndexUsageRequest $request DescribeDBInstanceIndexUsageRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstanceIndexUsageResponse
+     * @return DescribeDBInstanceIndexUsageResponse DescribeDBInstanceIndexUsageResponse
      */
     public function describeDBInstanceIndexUsageWithOptions($request, $runtime)
     {
@@ -1642,9 +2094,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstanceIndexUsageRequest $request
+     * Appropriate indexes can improve the database query speed. You can call this operation to query the details of index usage on an AnalyticDB for PostgreSQL instance.
+     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstanceIndexUsageRequest $request DescribeDBInstanceIndexUsageRequest
      *
-     * @return DescribeDBInstanceIndexUsageResponse
+     * @return DescribeDBInstanceIndexUsageResponse DescribeDBInstanceIndexUsageResponse
      */
     public function describeDBInstanceIndexUsage($request)
     {
@@ -1694,52 +2151,6 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBInstanceNetInfoWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDBInstanceOnECSAttributeRequest $request
-     * @param RuntimeOptions                          $runtime
-     *
-     * @return DescribeDBInstanceOnECSAttributeResponse
-     */
-    public function describeDBInstanceOnECSAttributeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstanceOnECSAttribute',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDBInstanceOnECSAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDBInstanceOnECSAttributeRequest $request
-     *
-     * @return DescribeDBInstanceOnECSAttributeResponse
-     */
-    public function describeDBInstanceOnECSAttribute($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDBInstanceOnECSAttributeWithOptions($request, $runtime);
     }
 
     /**
@@ -1798,10 +2209,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancePlansRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstancePlansRequest $request DescribeDBInstancePlansRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstancePlansResponse
+     * @return DescribeDBInstancePlansResponse DescribeDBInstancePlansResponse
      */
     public function describeDBInstancePlansWithOptions($request, $runtime)
     {
@@ -1847,76 +2262,19 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancePlansRequest $request
+     * You can call this operation to query the details of plans for an AnalyticDB for PostgreSQL instance in Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstancePlansRequest $request DescribeDBInstancePlansRequest
      *
-     * @return DescribeDBInstancePlansResponse
+     * @return DescribeDBInstancePlansResponse DescribeDBInstancePlansResponse
      */
     public function describeDBInstancePlans($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDBInstancePlansWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeDBInstanceSQLPatternsRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return DescribeDBInstanceSQLPatternsResponse
-     */
-    public function describeDBInstanceSQLPatternsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->database)) {
-            $query['Database'] = $request->database;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->queryKeywords)) {
-            $query['QueryKeywords'] = $request->queryKeywords;
-        }
-        if (!Utils::isUnset($request->sourceIP)) {
-            $query['SourceIP'] = $request->sourceIP;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->user)) {
-            $query['User'] = $request->user;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDBInstanceSQLPatterns',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDBInstanceSQLPatternsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeDBInstanceSQLPatternsRequest $request
-     *
-     * @return DescribeDBInstanceSQLPatternsResponse
-     */
-    public function describeDBInstanceSQLPatterns($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDBInstanceSQLPatternsWithOptions($request, $runtime);
     }
 
     /**
@@ -1963,10 +2321,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancesRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a specific region.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstancesRequest $tmpReq  DescribeDBInstancesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBInstancesResponse
+     * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
      */
     public function describeDBInstancesWithOptions($tmpReq, $runtime)
     {
@@ -2044,9 +2406,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBInstancesRequest $request
+     * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a specific region.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDBInstancesRequest $request DescribeDBInstancesRequest
      *
-     * @return DescribeDBInstancesResponse
+     * @return DescribeDBInstancesResponse DescribeDBInstancesResponse
      */
     public function describeDBInstances($request)
     {
@@ -2123,10 +2489,60 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataShareInstancesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeDataReDistributeInfoRequest $request
+     * @param RuntimeOptions                      $runtime
      *
-     * @return DescribeDataShareInstancesResponse
+     * @return DescribeDataReDistributeInfoResponse
+     */
+    public function describeDataReDistributeInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataReDistributeInfo',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDataReDistributeInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDataReDistributeInfoRequest $request
+     *
+     * @return DescribeDataReDistributeInfoResponse
+     */
+    public function describeDataReDistributeInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataReDistributeInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call this operation to query the state of data sharing for AnalyticDB for PostgreSQL instances in Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDataShareInstancesRequest $request DescribeDataShareInstancesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDataShareInstancesResponse DescribeDataShareInstancesResponse
      */
     public function describeDataShareInstancesWithOptions($request, $runtime)
     {
@@ -2169,9 +2585,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataShareInstancesRequest $request
+     * You can call this operation to query the state of data sharing for AnalyticDB for PostgreSQL instances in Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDataShareInstancesRequest $request DescribeDataShareInstancesRequest
      *
-     * @return DescribeDataShareInstancesResponse
+     * @return DescribeDataShareInstancesResponse DescribeDataShareInstancesResponse
      */
     public function describeDataShareInstances($request)
     {
@@ -2181,10 +2601,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataSharePerformanceRequest $request
-     * @param RuntimeOptions                      $runtime
+     * You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDataSharePerformanceRequest $request DescribeDataSharePerformanceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataSharePerformanceResponse
+     * @return DescribeDataSharePerformanceResponse DescribeDataSharePerformanceResponse
      */
     public function describeDataSharePerformanceWithOptions($request, $runtime)
     {
@@ -2224,9 +2648,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataSharePerformanceRequest $request
+     * You can call this operation to query the details of data sharing performance metrics for an AnalyticDB for PostgreSQL instance in Serverless mode, such as the number of shared topics and the amount of data shared.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDataSharePerformanceRequest $request DescribeDataSharePerformanceRequest
      *
-     * @return DescribeDataSharePerformanceResponse
+     * @return DescribeDataSharePerformanceResponse DescribeDataSharePerformanceResponse
      */
     public function describeDataSharePerformance($request)
     {
@@ -2236,10 +2664,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisDimensionsRequest $request
-     * @param RuntimeOptions                     $runtime
+     * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDiagnosisDimensionsRequest $request DescribeDiagnosisDimensionsRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiagnosisDimensionsResponse
+     * @return DescribeDiagnosisDimensionsResponse DescribeDiagnosisDimensionsResponse
      */
     public function describeDiagnosisDimensionsWithOptions($request, $runtime)
     {
@@ -2267,9 +2699,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisDimensionsRequest $request
+     * To facilitate management, you can call this operation to query all databases and database accounts on an AnalyticDB for PostgreSQL instance.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDiagnosisDimensionsRequest $request DescribeDiagnosisDimensionsRequest
      *
-     * @return DescribeDiagnosisDimensionsResponse
+     * @return DescribeDiagnosisDimensionsResponse DescribeDiagnosisDimensionsResponse
      */
     public function describeDiagnosisDimensions($request)
     {
@@ -2279,10 +2715,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisMonitorPerformanceRequest $request
-     * @param RuntimeOptions                             $runtime
+     * You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDiagnosisMonitorPerformanceRequest $request DescribeDiagnosisMonitorPerformanceRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiagnosisMonitorPerformanceResponse
+     * @return DescribeDiagnosisMonitorPerformanceResponse DescribeDiagnosisMonitorPerformanceResponse
      */
     public function describeDiagnosisMonitorPerformanceWithOptions($request, $runtime)
     {
@@ -2325,9 +2765,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisMonitorPerformanceRequest $request
+     * You can call this operation to query the details of query execution on an AnalyticDB for PostgreSQL instance in elastic storage mode within a specified time range.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDiagnosisMonitorPerformanceRequest $request DescribeDiagnosisMonitorPerformanceRequest
      *
-     * @return DescribeDiagnosisMonitorPerformanceResponse
+     * @return DescribeDiagnosisMonitorPerformanceResponse DescribeDiagnosisMonitorPerformanceResponse
      */
     public function describeDiagnosisMonitorPerformance($request)
     {
@@ -2337,10 +2781,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisRecordsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDiagnosisRecordsRequest $request DescribeDiagnosisRecordsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiagnosisRecordsResponse
+     * @return DescribeDiagnosisRecordsResponse DescribeDiagnosisRecordsResponse
      */
     public function describeDiagnosisRecordsWithOptions($request, $runtime)
     {
@@ -2395,9 +2843,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisRecordsRequest $request
+     * You can call this operation to query the details of SQL queries on an AnalyticDB for PostgreSQL instance within a specified time range.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDiagnosisRecordsRequest $request DescribeDiagnosisRecordsRequest
      *
-     * @return DescribeDiagnosisRecordsResponse
+     * @return DescribeDiagnosisRecordsResponse DescribeDiagnosisRecordsResponse
      */
     public function describeDiagnosisRecords($request)
     {
@@ -2407,10 +2859,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisSQLInfoRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call this operation to query the details of a specified query on an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
+     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDiagnosisSQLInfoRequest $request DescribeDiagnosisSQLInfoRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDiagnosisSQLInfoResponse
+     * @return DescribeDiagnosisSQLInfoResponse DescribeDiagnosisSQLInfoResponse
      */
     public function describeDiagnosisSQLInfoWithOptions($request, $runtime)
     {
@@ -2444,9 +2901,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDiagnosisSQLInfoRequest $request
+     * You can call this operation to query the details of a specified query on an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
+     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDiagnosisSQLInfoRequest $request DescribeDiagnosisSQLInfoRequest
      *
-     * @return DescribeDiagnosisSQLInfoResponse
+     * @return DescribeDiagnosisSQLInfoResponse DescribeDiagnosisSQLInfoResponse
      */
     public function describeDiagnosisSQLInfo($request)
     {
@@ -2456,10 +2918,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDownloadRecordsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You must call the [DownloadDiagnosisRecords](~~447700~~) operation to obtain a download record before you can call this operation to query and download the query diagnostic information.
+     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDownloadRecordsRequest $request DescribeDownloadRecordsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDownloadRecordsResponse
+     * @return DescribeDownloadRecordsResponse DescribeDownloadRecordsResponse
      */
     public function describeDownloadRecordsWithOptions($request, $runtime)
     {
@@ -2487,9 +2954,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDownloadRecordsRequest $request
+     * You must call the [DownloadDiagnosisRecords](~~447700~~) operation to obtain a download record before you can call this operation to query and download the query diagnostic information.
+     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeDownloadRecordsRequest $request DescribeDownloadRecordsRequest
      *
-     * @return DescribeDownloadRecordsResponse
+     * @return DescribeDownloadRecordsResponse DescribeDownloadRecordsResponse
      */
     public function describeDownloadRecords($request)
     {
@@ -2499,10 +2971,57 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeHealthStatusRequest $request
-     * @param RuntimeOptions              $runtime
+     * @param DescribeDownloadSQLLogsRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return DescribeHealthStatusResponse
+     * @return DescribeDownloadSQLLogsResponse
+     */
+    public function describeDownloadSQLLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDownloadSQLLogs',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDownloadSQLLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDownloadSQLLogsRequest $request
+     *
+     * @return DescribeDownloadSQLLogsResponse
+     */
+    public function describeDownloadSQLLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDownloadSQLLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeHealthStatusRequest $request DescribeHealthStatusRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeHealthStatusResponse DescribeHealthStatusResponse
      */
     public function describeHealthStatusWithOptions($request, $runtime)
     {
@@ -2533,9 +3052,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeHealthStatusRequest $request
+     * This operation is called to query the health status of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode and its coordinator and compute nodes.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeHealthStatusRequest $request DescribeHealthStatusRequest
      *
-     * @return DescribeHealthStatusResponse
+     * @return DescribeHealthStatusResponse DescribeHealthStatusResponse
      */
     public function describeHealthStatus($request)
     {
@@ -2649,10 +3172,72 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeParametersRequest $request
-     * @param RuntimeOptions            $runtime
+     * @param DescribeNamespaceRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return DescribeParametersResponse
+     * @return DescribeNamespaceResponse
+     */
+    public function describeNamespaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
+        }
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNamespace',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNamespaceRequest $request
+     *
+     * @return DescribeNamespaceResponse
+     */
+    public function describeNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeParametersRequest $request DescribeParametersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParametersWithOptions($request, $runtime)
     {
@@ -2680,9 +3265,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeParametersRequest $request
+     * This operation can be called to query the details of parameters in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeParametersRequest $request DescribeParametersRequest
      *
-     * @return DescribeParametersResponse
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParameters($request)
     {
@@ -2692,10 +3281,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRdsVSwitchsRequest $request
-     * @param RuntimeOptions             $runtime
+     * When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeRdsVSwitchsRequest $request DescribeRdsVSwitchsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRdsVSwitchsResponse
+     * @return DescribeRdsVSwitchsResponse DescribeRdsVSwitchsResponse
      */
     public function describeRdsVSwitchsWithOptions($request, $runtime)
     {
@@ -2747,9 +3340,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRdsVSwitchsRequest $request
+     * When you create AnalyticDB for PostgreSQL instances, you can call this operation to query the details of vSwitches within a specified region or zone.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeRdsVSwitchsRequest $request DescribeRdsVSwitchsRequest
      *
-     * @return DescribeRdsVSwitchsResponse
+     * @return DescribeRdsVSwitchsResponse DescribeRdsVSwitchsResponse
      */
     public function describeRdsVSwitchs($request)
     {
@@ -2759,10 +3356,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRdsVpcsRequest $request
-     * @param RuntimeOptions         $runtime
+     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeRdsVpcsRequest $request DescribeRdsVpcsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRdsVpcsResponse
+     * @return DescribeRdsVpcsResponse DescribeRdsVpcsResponse
      */
     public function describeRdsVpcsWithOptions($request, $runtime)
     {
@@ -2811,9 +3412,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRdsVpcsRequest $request
+     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available VPCs within a specified region or zone.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeRdsVpcsRequest $request DescribeRdsVpcsRequest
      *
-     * @return DescribeRdsVpcsResponse
+     * @return DescribeRdsVpcsResponse DescribeRdsVpcsResponse
      */
     public function describeRdsVpcs($request)
     {
@@ -2823,10 +3428,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
-     * @param RuntimeOptions         $runtime
+     * Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
+     *   * ## Limit
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegionsWithOptions($request, $runtime)
     {
@@ -2854,147 +3463,19 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * Before you create an AnalyticDB for PostgreSQL instance, you must call this operation to query available regions and zones.
+     *   * ## Limit
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeRegionsRequest $request DescribeRegionsRequest
      *
-     * @return DescribeRegionsResponse
+     * @return DescribeRegionsResponse DescribeRegionsResponse
      */
     public function describeRegions($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRegionsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeResourceUsageRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeResourceUsageResponse
-     */
-    public function describeResourceUsageWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeResourceUsage',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeResourceUsageResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeResourceUsageRequest $request
-     *
-     * @return DescribeResourceUsageResponse
-     */
-    public function describeResourceUsage($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeResourceUsageWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSQLCollectorPolicyRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return DescribeSQLCollectorPolicyResponse
-     */
-    public function describeSQLCollectorPolicyWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSQLCollectorPolicy',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSQLCollectorPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSQLCollectorPolicyRequest $request
-     *
-     * @return DescribeSQLCollectorPolicyResponse
-     */
-    public function describeSQLCollectorPolicy($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSQLCollectorPolicyWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSQLLogByQueryIdRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeSQLLogByQueryIdResponse
-     */
-    public function describeSQLLogByQueryIdWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->queryId)) {
-            $query['QueryId'] = $request->queryId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSQLLogByQueryId',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSQLLogByQueryIdResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSQLLogByQueryIdRequest $request
-     *
-     * @return DescribeSQLLogByQueryIdResponse
-     */
-    public function describeSQLLogByQueryId($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSQLLogByQueryIdWithOptions($request, $runtime);
     }
 
     /**
@@ -3077,278 +3558,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLLogFilesRequest $request
-     * @param RuntimeOptions             $runtime
+     * You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeSQLLogsV2Request $request DescribeSQLLogsV2Request
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSQLLogFilesResponse
-     */
-    public function describeSQLLogFilesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->fileName)) {
-            $query['FileName'] = $request->fileName;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSQLLogFiles',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSQLLogFilesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSQLLogFilesRequest $request
-     *
-     * @return DescribeSQLLogFilesResponse
-     */
-    public function describeSQLLogFiles($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSQLLogFilesWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSQLLogRecordsRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeSQLLogRecordsResponse
-     */
-    public function describeSQLLogRecordsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->database)) {
-            $query['Database'] = $request->database;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->form)) {
-            $query['Form'] = $request->form;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->queryKeywords)) {
-            $query['QueryKeywords'] = $request->queryKeywords;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->user)) {
-            $query['User'] = $request->user;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSQLLogRecords',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSQLLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSQLLogRecordsRequest $request
-     *
-     * @return DescribeSQLLogRecordsResponse
-     */
-    public function describeSQLLogRecords($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSQLLogRecordsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSQLLogsRequest $request
-     * @param RuntimeOptions         $runtime
-     *
-     * @return DescribeSQLLogsResponse
-     */
-    public function describeSQLLogsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->database)) {
-            $query['Database'] = $request->database;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->executeCost)) {
-            $query['ExecuteCost'] = $request->executeCost;
-        }
-        if (!Utils::isUnset($request->executeState)) {
-            $query['ExecuteState'] = $request->executeState;
-        }
-        if (!Utils::isUnset($request->maxExecuteCost)) {
-            $query['MaxExecuteCost'] = $request->maxExecuteCost;
-        }
-        if (!Utils::isUnset($request->minExecuteCost)) {
-            $query['MinExecuteCost'] = $request->minExecuteCost;
-        }
-        if (!Utils::isUnset($request->operationClass)) {
-            $query['OperationClass'] = $request->operationClass;
-        }
-        if (!Utils::isUnset($request->operationType)) {
-            $query['OperationType'] = $request->operationType;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->queryKeywords)) {
-            $query['QueryKeywords'] = $request->queryKeywords;
-        }
-        if (!Utils::isUnset($request->sourceIP)) {
-            $query['SourceIP'] = $request->sourceIP;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->user)) {
-            $query['User'] = $request->user;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSQLLogs',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSQLLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSQLLogsRequest $request
-     *
-     * @return DescribeSQLLogsResponse
-     */
-    public function describeSQLLogs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSQLLogsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSQLLogsOnSliceRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeSQLLogsOnSliceResponse
-     */
-    public function describeSQLLogsOnSliceWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->executeState)) {
-            $query['ExecuteState'] = $request->executeState;
-        }
-        if (!Utils::isUnset($request->maxExecuteCost)) {
-            $query['MaxExecuteCost'] = $request->maxExecuteCost;
-        }
-        if (!Utils::isUnset($request->minExecuteCost)) {
-            $query['MinExecuteCost'] = $request->minExecuteCost;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->queryId)) {
-            $query['QueryId'] = $request->queryId;
-        }
-        if (!Utils::isUnset($request->sliceId)) {
-            $query['SliceId'] = $request->sliceId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSQLLogsOnSlice',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSQLLogsOnSliceResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSQLLogsOnSliceRequest $request
-     *
-     * @return DescribeSQLLogsOnSliceResponse
-     */
-    public function describeSQLLogsOnSlice($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSQLLogsOnSliceWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSQLLogsV2Request $request
-     * @param RuntimeOptions           $runtime
-     *
-     * @return DescribeSQLLogsV2Response
+     * @return DescribeSQLLogsV2Response DescribeSQLLogsV2Response
      */
     public function describeSQLLogsV2WithOptions($request, $runtime)
     {
@@ -3424,9 +3641,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLLogsV2Request $request
+     * You can call this operation to query SQL logs of an AnalyticDB for PostgreSQL instance within a specific time range.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeSQLLogsV2Request $request DescribeSQLLogsV2Request
      *
-     * @return DescribeSQLLogsV2Response
+     * @return DescribeSQLLogsV2Response DescribeSQLLogsV2Response
      */
     public function describeSQLLogsV2($request)
     {
@@ -3436,10 +3657,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSampleDataRequest $request
-     * @param RuntimeOptions            $runtime
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeSampleDataRequest $request DescribeSampleDataRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSampleDataResponse
+     * @return DescribeSampleDataResponse DescribeSampleDataResponse
      */
     public function describeSampleDataWithOptions($request, $runtime)
     {
@@ -3470,213 +3693,17 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSampleDataRequest $request
+     * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeSampleDataRequest $request DescribeSampleDataRequest
      *
-     * @return DescribeSampleDataResponse
+     * @return DescribeSampleDataResponse DescribeSampleDataResponse
      */
     public function describeSampleData($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->describeSampleDataWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSlowLogRecordsRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return DescribeSlowLogRecordsResponse
-     */
-    public function describeSlowLogRecordsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->DBName)) {
-            $query['DBName'] = $request->DBName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->SQLId)) {
-            $query['SQLId'] = $request->SQLId;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSlowLogRecords',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSlowLogRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSlowLogRecordsRequest $request
-     *
-     * @return DescribeSlowLogRecordsResponse
-     */
-    public function describeSlowLogRecords($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSlowLogRecordsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSlowSQLLogsRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return DescribeSlowSQLLogsResponse
-     */
-    public function describeSlowSQLLogsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->database)) {
-            $query['Database'] = $request->database;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->executeState)) {
-            $query['ExecuteState'] = $request->executeState;
-        }
-        if (!Utils::isUnset($request->maxExecuteCost)) {
-            $query['MaxExecuteCost'] = $request->maxExecuteCost;
-        }
-        if (!Utils::isUnset($request->minExecuteCost)) {
-            $query['MinExecuteCost'] = $request->minExecuteCost;
-        }
-        if (!Utils::isUnset($request->operationClass)) {
-            $query['OperationClass'] = $request->operationClass;
-        }
-        if (!Utils::isUnset($request->operationType)) {
-            $query['OperationType'] = $request->operationType;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->queryKeywords)) {
-            $query['QueryKeywords'] = $request->queryKeywords;
-        }
-        if (!Utils::isUnset($request->sourceIP)) {
-            $query['SourceIP'] = $request->sourceIP;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        if (!Utils::isUnset($request->user)) {
-            $query['User'] = $request->user;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSlowSQLLogs',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSlowSQLLogsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSlowSQLLogsRequest $request
-     *
-     * @return DescribeSlowSQLLogsResponse
-     */
-    public function describeSlowSQLLogs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSlowSQLLogsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeSpecificationRequest $request
-     * @param RuntimeOptions               $runtime
-     *
-     * @return DescribeSpecificationResponse
-     */
-    public function describeSpecificationWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->cpuCores)) {
-            $query['CpuCores'] = $request->cpuCores;
-        }
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->storageType)) {
-            $query['StorageType'] = $request->storageType;
-        }
-        if (!Utils::isUnset($request->totalNodeNum)) {
-            $query['TotalNodeNum'] = $request->totalNodeNum;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeSpecification',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeSpecificationResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeSpecificationRequest $request
-     *
-     * @return DescribeSpecificationResponse
-     */
-    public function describeSpecification($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeSpecificationWithOptions($request, $runtime);
     }
 
     /**
@@ -3836,10 +3863,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeWaitingSQLInfoRequest $request
-     * @param RuntimeOptions                $runtime
+     * You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeWaitingSQLInfoRequest $request DescribeWaitingSQLInfoRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWaitingSQLInfoResponse
+     * @return DescribeWaitingSQLInfoResponse DescribeWaitingSQLInfoResponse
      */
     public function describeWaitingSQLInfoWithOptions($request, $runtime)
     {
@@ -3873,9 +3904,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeWaitingSQLInfoRequest $request
+     * You can call this operation to query the details of a lock-waiting query only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeWaitingSQLInfoRequest $request DescribeWaitingSQLInfoRequest
      *
-     * @return DescribeWaitingSQLInfoResponse
+     * @return DescribeWaitingSQLInfoResponse DescribeWaitingSQLInfoResponse
      */
     public function describeWaitingSQLInfo($request)
     {
@@ -3885,10 +3920,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeWaitingSQLRecordsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeWaitingSQLRecordsRequest $request DescribeWaitingSQLRecordsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeWaitingSQLRecordsResponse
+     * @return DescribeWaitingSQLRecordsResponse DescribeWaitingSQLRecordsResponse
      */
     public function describeWaitingSQLRecordsWithOptions($request, $runtime)
     {
@@ -3943,9 +3982,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeWaitingSQLRecordsRequest $request
+     * You can call this operation to query the lock diagnostics records only for an AnalyticDB for PostgreSQL V6.0 instance in elastic storage mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DescribeWaitingSQLRecordsRequest $request DescribeWaitingSQLRecordsRequest
      *
-     * @return DescribeWaitingSQLRecordsResponse
+     * @return DescribeWaitingSQLRecordsResponse DescribeWaitingSQLRecordsResponse
      */
     public function describeWaitingSQLRecords($request)
     {
@@ -3955,10 +3998,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DownloadDiagnosisRecordsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](~~447712~~) operation to query download records and download URLs.
+     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DownloadDiagnosisRecordsRequest $request DownloadDiagnosisRecordsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DownloadDiagnosisRecordsResponse
+     * @return DownloadDiagnosisRecordsResponse DownloadDiagnosisRecordsResponse
      */
     public function downloadDiagnosisRecordsWithOptions($request, $runtime)
     {
@@ -4007,15 +4055,285 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DownloadDiagnosisRecordsRequest $request
+     * You can call this operation to download the query diagnostic information of an AnalyticDB for PostgreSQL instance. After the download is complete, you can call the [DescribeDownloadRecords](~~447712~~) operation to query download records and download URLs.
+     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param DownloadDiagnosisRecordsRequest $request DownloadDiagnosisRecordsRequest
      *
-     * @return DownloadDiagnosisRecordsResponse
+     * @return DownloadDiagnosisRecordsResponse DownloadDiagnosisRecordsResponse
      */
     public function downloadDiagnosisRecords($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->downloadDiagnosisRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DownloadSQLLogsRecordsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DownloadSQLLogsRecordsResponse
+     */
+    public function downloadSQLLogsRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->database)) {
+            $query['Database'] = $request->database;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->executeCost)) {
+            $query['ExecuteCost'] = $request->executeCost;
+        }
+        if (!Utils::isUnset($request->executeState)) {
+            $query['ExecuteState'] = $request->executeState;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->maxExecuteCost)) {
+            $query['MaxExecuteCost'] = $request->maxExecuteCost;
+        }
+        if (!Utils::isUnset($request->minExecuteCost)) {
+            $query['MinExecuteCost'] = $request->minExecuteCost;
+        }
+        if (!Utils::isUnset($request->operationClass)) {
+            $query['OperationClass'] = $request->operationClass;
+        }
+        if (!Utils::isUnset($request->operationType)) {
+            $query['OperationType'] = $request->operationType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryKeywords)) {
+            $query['QueryKeywords'] = $request->queryKeywords;
+        }
+        if (!Utils::isUnset($request->sourceIP)) {
+            $query['SourceIP'] = $request->sourceIP;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->user)) {
+            $query['User'] = $request->user;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DownloadSQLLogsRecords',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DownloadSQLLogsRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DownloadSQLLogsRecordsRequest $request
+     *
+     * @return DownloadSQLLogsRecordsResponse
+     */
+    public function downloadSQLLogsRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->downloadSQLLogsRecordsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GrantCollectionRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GrantCollectionResponse
+     */
+    public function grantCollectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->grantToNamespace)) {
+            $query['GrantToNamespace'] = $request->grantToNamespace;
+        }
+        if (!Utils::isUnset($request->grantType)) {
+            $query['GrantType'] = $request->grantType;
+        }
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
+        }
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GrantCollection',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GrantCollectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GrantCollectionRequest $request
+     *
+     * @return GrantCollectionResponse
+     */
+    public function grantCollection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->grantCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCollectionsRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListCollectionsResponse
+     */
+    public function listCollectionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCollections',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCollectionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCollectionsRequest $request
+     *
+     * @return ListCollectionsResponse
+     */
+    public function listCollections($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCollectionsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListNamespacesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListNamespacesResponse
+     */
+    public function listNamespacesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
+        }
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNamespaces',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListNamespacesRequest $request
+     *
+     * @return ListNamespacesResponse
+     */
+    public function listNamespaces($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNamespacesWithOptions($request, $runtime);
     }
 
     /**
@@ -4193,26 +4511,35 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceConnectionModeRequest $request
-     * @param RuntimeOptions                        $runtime
+     * @param ModifyDBInstanceConfigRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return ModifyDBInstanceConnectionModeResponse
+     * @return ModifyDBInstanceConfigResponse
      */
-    public function modifyDBInstanceConnectionModeWithOptions($request, $runtime)
+    public function modifyDBInstanceConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->connectionMode)) {
-            $query['ConnectionMode'] = $request->connectionMode;
+        if (!Utils::isUnset($request->DBInstanceDescription)) {
+            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
         }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->idleTime)) {
+            $query['IdleTime'] = $request->idleTime;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->serverlessResource)) {
+            $query['ServerlessResource'] = $request->serverlessResource;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyDBInstanceConnectionMode',
+            'action'      => 'ModifyDBInstanceConfig',
             'version'     => '2016-05-03',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -4223,19 +4550,19 @@ class Gpdb extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ModifyDBInstanceConnectionModeResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyDBInstanceConfigResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyDBInstanceConnectionModeRequest $request
+     * @param ModifyDBInstanceConfigRequest $request
      *
-     * @return ModifyDBInstanceConnectionModeResponse
+     * @return ModifyDBInstanceConfigResponse
      */
-    public function modifyDBInstanceConnectionMode($request)
+    public function modifyDBInstanceConfig($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyDBInstanceConnectionModeWithOptions($request, $runtime);
+        return $this->modifyDBInstanceConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -4291,10 +4618,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceDescriptionRequest $request
-     * @param RuntimeOptions                     $runtime
+     * To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceDescriptionResponse
+     * @return ModifyDBInstanceDescriptionResponse ModifyDBInstanceDescriptionResponse
      */
     public function modifyDBInstanceDescriptionWithOptions($request, $runtime)
     {
@@ -4328,9 +4659,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceDescriptionRequest $request
+     * To make it easy to identify AnalyticDB for PostgreSQL instances, you can call this operation to modify the description of instances.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifyDBInstanceDescriptionRequest $request ModifyDBInstanceDescriptionRequest
      *
-     * @return ModifyDBInstanceDescriptionResponse
+     * @return ModifyDBInstanceDescriptionResponse ModifyDBInstanceDescriptionResponse
      */
     public function modifyDBInstanceDescription($request)
     {
@@ -4340,10 +4675,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceMaintainTimeRequest $request
-     * @param RuntimeOptions                      $runtime
+     * The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifyDBInstanceMaintainTimeRequest $request ModifyDBInstanceMaintainTimeRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceMaintainTimeResponse
+     * @return ModifyDBInstanceMaintainTimeResponse ModifyDBInstanceMaintainTimeResponse
      */
     public function modifyDBInstanceMaintainTimeWithOptions($request, $runtime)
     {
@@ -4380,9 +4719,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceMaintainTimeRequest $request
+     * The system maintains AnalyticDB for PostgreSQL instances during the maintenance window that you specify. We recommend that you set the maintenance window to off-peak hours to minimize the impact on your business.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifyDBInstanceMaintainTimeRequest $request ModifyDBInstanceMaintainTimeRequest
      *
-     * @return ModifyDBInstanceMaintainTimeResponse
+     * @return ModifyDBInstanceMaintainTimeResponse ModifyDBInstanceMaintainTimeResponse
      */
     public function modifyDBInstanceMaintainTime($request)
     {
@@ -4392,65 +4735,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceNetworkTypeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475~~).
+     *   *
+     * @param ModifyDBInstanceResourceGroupRequest $request ModifyDBInstanceResourceGroupRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceNetworkTypeResponse
-     */
-    public function modifyDBInstanceNetworkTypeWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->DBInstanceId)) {
-            $query['DBInstanceId'] = $request->DBInstanceId;
-        }
-        if (!Utils::isUnset($request->instanceNetworkType)) {
-            $query['InstanceNetworkType'] = $request->instanceNetworkType;
-        }
-        if (!Utils::isUnset($request->privateIpAddress)) {
-            $query['PrivateIpAddress'] = $request->privateIpAddress;
-        }
-        if (!Utils::isUnset($request->VPCId)) {
-            $query['VPCId'] = $request->VPCId;
-        }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyDBInstanceNetworkType',
-            'version'     => '2016-05-03',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyDBInstanceNetworkTypeResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ModifyDBInstanceNetworkTypeRequest $request
-     *
-     * @return ModifyDBInstanceNetworkTypeResponse
-     */
-    public function modifyDBInstanceNetworkType($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyDBInstanceNetworkTypeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyDBInstanceResourceGroupRequest $request
-     * @param RuntimeOptions                       $runtime
-     *
-     * @return ModifyDBInstanceResourceGroupResponse
+     * @return ModifyDBInstanceResourceGroupResponse ModifyDBInstanceResourceGroupResponse
      */
     public function modifyDBInstanceResourceGroupWithOptions($request, $runtime)
     {
@@ -4496,9 +4786,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceResourceGroupRequest $request
+     * Resource Management allows you to build an organizational structure for resources based on your business requirements. You can use resource directories, folders, accounts, and resource groups to hierarchically organize and manage resources. For more information, see [What is Resource Management?](~~94475~~).
+     *   *
+     * @param ModifyDBInstanceResourceGroupRequest $request ModifyDBInstanceResourceGroupRequest
      *
-     * @return ModifyDBInstanceResourceGroupResponse
+     * @return ModifyDBInstanceResourceGroupResponse ModifyDBInstanceResourceGroupResponse
      */
     public function modifyDBInstanceResourceGroup($request)
     {
@@ -4557,10 +4849,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyParametersRequest $request
-     * @param RuntimeOptions          $runtime
+     * This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifyParametersRequest $request ModifyParametersRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyParametersResponse
+     * @return ModifyParametersResponse ModifyParametersResponse
      */
     public function modifyParametersWithOptions($request, $runtime)
     {
@@ -4594,9 +4890,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyParametersRequest $request
+     * This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifyParametersRequest $request ModifyParametersRequest
      *
-     * @return ModifyParametersResponse
+     * @return ModifyParametersResponse ModifyParametersResponse
      */
     public function modifyParameters($request)
     {
@@ -4652,10 +4952,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityIpsRequest $request
-     * @param RuntimeOptions           $runtime
+     * To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIpsWithOptions($request, $runtime)
     {
@@ -4669,6 +4973,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->modifyMode)) {
+            $query['ModifyMode'] = $request->modifyMode;
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
@@ -4695,9 +5002,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityIpsRequest $request
+     * To ensure the security and stability of AnalyticDB for PostgreSQL instances, the system denies all external IP addresses to access AnalyticDB for PostgreSQL instances by default. Before you can use an AnalyticDB for PostgreSQL instance, you must add the IP address or CIDR block of your client to the IP address whitelist of the instance.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIps($request)
     {
@@ -4707,10 +5018,65 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param PauseInstanceRequest $request
-     * @param RuntimeOptions       $runtime
+     * @param ModifyVectorConfigurationRequest $request
+     * @param RuntimeOptions                   $runtime
      *
-     * @return PauseInstanceResponse
+     * @return ModifyVectorConfigurationResponse
+     */
+    public function modifyVectorConfigurationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->vectorConfigurationStatus)) {
+            $query['VectorConfigurationStatus'] = $request->vectorConfigurationStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyVectorConfiguration',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyVectorConfigurationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyVectorConfigurationRequest $request
+     *
+     * @return ModifyVectorConfigurationResponse
+     */
+    public function modifyVectorConfiguration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyVectorConfigurationWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
+     *   * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+     *   * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PauseInstanceRequest $request PauseInstanceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return PauseInstanceResponse PauseInstanceResponse
      */
     public function pauseInstanceWithOptions($request, $runtime)
     {
@@ -4741,15 +5107,96 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param PauseInstanceRequest $request
+     * You can call this operation to pause an AnalyticDB for PostgreSQL instance that is in the **Running** state.
+     *   * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+     *   * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param PauseInstanceRequest $request PauseInstanceRequest
      *
-     * @return PauseInstanceResponse
+     * @return PauseInstanceResponse PauseInstanceResponse
      */
     public function pauseInstance($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->pauseInstanceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryCollectionDataRequest $tmpReq
+     * @param RuntimeOptions             $runtime
+     *
+     * @return QueryCollectionDataResponse
+     */
+    public function queryCollectionDataWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryCollectionDataShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->vector)) {
+            $request->vectorShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vector, 'Vector', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->content)) {
+            $query['Content'] = $request->content;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->topK)) {
+            $query['TopK'] = $request->topK;
+        }
+        if (!Utils::isUnset($request->vectorShrink)) {
+            $query['Vector'] = $request->vectorShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryCollectionData',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryCollectionDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryCollectionDataRequest $request
+     *
+     * @return QueryCollectionDataResponse
+     */
+    public function queryCollectionData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryCollectionDataWithOptions($request, $runtime);
     }
 
     /**
@@ -4897,10 +5344,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param RestartDBInstanceRequest $request
-     * @param RuntimeOptions           $runtime
+     * A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
+     *   * ## Limit
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartDBInstanceResponse
+     * @return RestartDBInstanceResponse RestartDBInstanceResponse
      */
     public function restartDBInstanceWithOptions($request, $runtime)
     {
@@ -4931,9 +5382,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param RestartDBInstanceRequest $request
+     * A restart takes about 3 to 30 minutes. During the restart, services are unavailable. We recommend that you restart the instance during off-peak hours. After the instance is restarted and enters the running state, you can access the instance.
+     *   * ## Limit
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param RestartDBInstanceRequest $request RestartDBInstanceRequest
      *
-     * @return RestartDBInstanceResponse
+     * @return RestartDBInstanceResponse RestartDBInstanceResponse
      */
     public function restartDBInstance($request)
     {
@@ -4943,10 +5398,16 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ResumeInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
+     *   * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+     *   * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ResumeInstanceRequest $request ResumeInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResumeInstanceResponse
+     * @return ResumeInstanceResponse ResumeInstanceResponse
      */
     public function resumeInstanceWithOptions($request, $runtime)
     {
@@ -4977,9 +5438,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param ResumeInstanceRequest $request
+     * You can call this operation to resume an AnalyticDB for PostgreSQL instance that is in the **Paused** state.
+     *   * This operation is available only for AnalyticDB for PostgreSQL instances in Serverless mode that run V1.0.2.1 or later. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
+     *   * >  Before you call this operation, make sure that you are familiar with the billing methods and pricing of AnalyticDB for PostgreSQL instances. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param ResumeInstanceRequest $request ResumeInstanceRequest
      *
-     * @return ResumeInstanceResponse
+     * @return ResumeInstanceResponse ResumeInstanceResponse
      */
     public function resumeInstance($request)
     {
@@ -4989,10 +5456,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param SetDBInstancePlanStatusRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param SetDBInstancePlanStatusRequest $request SetDBInstancePlanStatusRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDBInstancePlanStatusResponse
+     * @return SetDBInstancePlanStatusResponse SetDBInstancePlanStatusResponse
      */
     public function setDBInstancePlanStatusWithOptions($request, $runtime)
     {
@@ -5029,9 +5500,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param SetDBInstancePlanStatusRequest $request
+     * You can call this operation to enable or disable a specified plan. The plan management feature is supported only for AnalyticDB for PostgreSQL instances in Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param SetDBInstancePlanStatusRequest $request SetDBInstancePlanStatusRequest
      *
-     * @return SetDBInstancePlanStatusResponse
+     * @return SetDBInstancePlanStatusResponse SetDBInstancePlanStatusResponse
      */
     public function setDBInstancePlanStatus($request)
     {
@@ -5041,10 +5516,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param SetDataShareInstanceRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param SetDataShareInstanceRequest $tmpReq  SetDataShareInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetDataShareInstanceResponse
+     * @return SetDataShareInstanceResponse SetDataShareInstanceResponse
      */
     public function setDataShareInstanceWithOptions($tmpReq, $runtime)
     {
@@ -5086,9 +5565,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param SetDataShareInstanceRequest $request
+     * This operation is called to enable or disable data sharing for an AnalyticDB for PostgreSQL instance in Serverless mode.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation.
+     *   *
+     * @param SetDataShareInstanceRequest $request SetDataShareInstanceRequest
      *
-     * @return SetDataShareInstanceResponse
+     * @return SetDataShareInstanceResponse SetDataShareInstanceResponse
      */
     public function setDataShareInstance($request)
     {
@@ -5211,10 +5694,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UnloadSampleDataRequest $request
-     * @param RuntimeOptions          $runtime
+     * You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param UnloadSampleDataRequest $request UnloadSampleDataRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UnloadSampleDataResponse
+     * @return UnloadSampleDataResponse UnloadSampleDataResponse
      */
     public function unloadSampleDataWithOptions($request, $runtime)
     {
@@ -5245,9 +5732,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UnloadSampleDataRequest $request
+     * You can call this operation to release a sample dataset from an AnalyticDB for PostgreSQL instance. You must have already loaded the sample dataset.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param UnloadSampleDataRequest $request UnloadSampleDataRequest
      *
-     * @return UnloadSampleDataResponse
+     * @return UnloadSampleDataResponse UnloadSampleDataResponse
      */
     public function unloadSampleData($request)
     {
@@ -5324,10 +5815,14 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UpdateDBInstancePlanRequest $request
-     * @param RuntimeOptions              $runtime
+     * You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param UpdateDBInstancePlanRequest $request UpdateDBInstancePlanRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDBInstancePlanResponse
+     * @return UpdateDBInstancePlanResponse UpdateDBInstancePlanResponse
      */
     public function updateDBInstancePlanWithOptions($request, $runtime)
     {
@@ -5376,9 +5871,13 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UpdateDBInstancePlanRequest $request
+     * You can call this operation to modify a plan for an AnalyticDB for PostgreSQL instance in Serverless mode. For example, you can modify a plan for periodically pausing and resuming an instance or scaling an instance.
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param UpdateDBInstancePlanRequest $request UpdateDBInstancePlanRequest
      *
-     * @return UpdateDBInstancePlanResponse
+     * @return UpdateDBInstancePlanResponse UpdateDBInstancePlanResponse
      */
     public function updateDBInstancePlan($request)
     {
@@ -5388,10 +5887,16 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UpgradeDBInstanceRequest $request
-     * @param RuntimeOptions           $runtime
+     * You can call this operation to change the configurations of an AnalyticDB for PostgreSQL instance.
+     *   * >  This operation is not supported for instances in reserved storage mode.
+     *   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param UpgradeDBInstanceRequest $request UpgradeDBInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeDBInstanceResponse
+     * @return UpgradeDBInstanceResponse UpgradeDBInstanceResponse
      */
     public function upgradeDBInstanceWithOptions($request, $runtime)
     {
@@ -5424,8 +5929,14 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
+        if (!Utils::isUnset($request->segDiskPerformanceLevel)) {
+            $query['SegDiskPerformanceLevel'] = $request->segDiskPerformanceLevel;
+        }
         if (!Utils::isUnset($request->segNodeNum)) {
             $query['SegNodeNum'] = $request->segNodeNum;
+        }
+        if (!Utils::isUnset($request->segStorageType)) {
+            $query['SegStorageType'] = $request->segStorageType;
         }
         if (!Utils::isUnset($request->storageSize)) {
             $query['StorageSize'] = $request->storageSize;
@@ -5452,9 +5963,15 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param UpgradeDBInstanceRequest $request
+     * You can call this operation to change the configurations of an AnalyticDB for PostgreSQL instance.
+     *   * >  This operation is not supported for instances in reserved storage mode.
+     *   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
+     *   * ## Limits
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     *   *
+     * @param UpgradeDBInstanceRequest $request UpgradeDBInstanceRequest
      *
-     * @return UpgradeDBInstanceResponse
+     * @return UpgradeDBInstanceResponse UpgradeDBInstanceResponse
      */
     public function upgradeDBInstance($request)
     {
@@ -5522,5 +6039,71 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->upgradeDBVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpsertCollectionDataRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return UpsertCollectionDataResponse
+     */
+    public function upsertCollectionDataWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpsertCollectionDataShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->rows)) {
+            $request->rowsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rows, 'Rows', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->rowsShrink)) {
+            $query['Rows'] = $request->rowsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpsertCollectionData',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpsertCollectionDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpsertCollectionDataRequest $request
+     *
+     * @return UpsertCollectionDataResponse
+     */
+    public function upsertCollectionData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->upsertCollectionDataWithOptions($request, $runtime);
     }
 }

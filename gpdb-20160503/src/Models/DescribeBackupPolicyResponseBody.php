@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPolicyResponseBody extends Model
 {
     /**
+     * @description The number of days for which data backup files are retained.
+     *
      * @example 7
      *
      * @var int
@@ -16,6 +18,11 @@ class DescribeBackupPolicyResponseBody extends Model
     public $backupRetentionPeriod;
 
     /**
+     * @description Indicates whether automatic point-in-time backup is enabled. Valid values:
+     *
+     *   **true**: Automatic point-in-time backup is enabled.
+     *   **false**: Automatic point-in-time backup is disabled.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,16 @@ class DescribeBackupPolicyResponseBody extends Model
     public $enableRecoveryPoint;
 
     /**
+     * @description The cycle based on which backups are performed. If more than one day of the week is specified, the days of the week are separated by commas (,). Valid values:
+     *
+     *   **Monday**
+     *   **Tuesday**
+     *   **Wednesday**
+     *   **Thursday**
+     *   **Friday**
+     *   **Saturday**
+     *   **Sunday**
+     *
      * @example Wednesday,Friday
      *
      * @var string
@@ -30,6 +47,8 @@ class DescribeBackupPolicyResponseBody extends Model
     public $preferredBackupPeriod;
 
     /**
+     * @description The backup time. The time is in the HH:mmZ-HH:mmZ format. The time is displayed in UTC.
+     *
      * @example 12:00Z-13:00Z
      *
      * @var string
@@ -37,6 +56,13 @@ class DescribeBackupPolicyResponseBody extends Model
     public $preferredBackupTime;
 
     /**
+     * @description The frequency of the point-in-time backup. Valid values:
+     *
+     *   **1**: per hour
+     *   **2**: per 2 hours
+     *   **4**: per 4 hours
+     *   **8**: per 8 hours
+     *
      * @example 1
      *
      * @var string
@@ -44,6 +70,8 @@ class DescribeBackupPolicyResponseBody extends Model
     public $recoveryPointPeriod;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 9E6B3287-A3E2-5A87-B8D8-E9**********
      *
      * @var string

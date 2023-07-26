@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserEncryptionKeyListRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeUserEncryptionKeyListRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of KMS keys to return on each page. Default value: 10.
+     *
      * @example 10
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeUserEncryptionKeyListRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region.
+     *
      * @example ap-southeast-1
      *
      * @var string

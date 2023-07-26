@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class series extends Model
 {
     /**
+     * @description Details of the audit logs.
+     *
      * @var values[]
      */
     public $values;

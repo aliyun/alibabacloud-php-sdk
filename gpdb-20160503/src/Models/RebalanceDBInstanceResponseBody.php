@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RebalanceDBInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 5414A4E5-4C36-4461-95FC-************
      *
      * @var string

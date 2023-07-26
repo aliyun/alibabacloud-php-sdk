@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class storageSize extends Model
 {
     /**
+     * @description The maximum storage capacity of each compute node.
+     *
      * @example 1000
      *
      * @var string
@@ -16,6 +18,8 @@ class storageSize extends Model
     public $maxCount;
 
     /**
+     * @description The minimum storage capacity of each compute node.
+     *
      * @example 50
      *
      * @var string
@@ -23,6 +27,8 @@ class storageSize extends Model
     public $minCount;
 
     /**
+     * @description The step size for adding storage capacity for compute nodes.
+     *
      * @example 50
      *
      * @var string

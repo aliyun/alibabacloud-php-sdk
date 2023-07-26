@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBInstancePlanResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -16,6 +18,9 @@ class DeleteDBInstancePlanResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The error message returned.
+     *
+     * This parameter is returned only when the operation fails.
      * @example ****
      *
      * @var string
@@ -23,6 +28,8 @@ class DeleteDBInstancePlanResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the plan.
+     *
      * @example 1234
      *
      * @var string
@@ -30,6 +37,8 @@ class DeleteDBInstancePlanResponseBody extends Model
     public $planId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 34b32a0a-08ef-4a87-b6be-cdd988888888
      *
      * @var string
@@ -37,6 +46,9 @@ class DeleteDBInstancePlanResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The state of the operation.
+     *
+     * If the operation is successful, **success** is returned. If the operation fails, this parameter is not returned.
      * @example success
      *
      * @var string

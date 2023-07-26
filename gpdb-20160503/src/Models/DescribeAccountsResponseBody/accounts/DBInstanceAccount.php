@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceAccount extends Model
 {
     /**
+     * @description The description of the account.
+     *
      * @example testuser
      *
      * @var string
@@ -16,6 +18,8 @@ class DBInstanceAccount extends Model
     public $accountDescription;
 
     /**
+     * @description The name of the account.
+     *
      * @example testuser
      *
      * @var string
@@ -23,6 +27,12 @@ class DBInstanceAccount extends Model
     public $accountName;
 
     /**
+     * @description The state of the account.
+     *
+     *   **0**: The account is being created.
+     *   **1**: The account is in use.
+     *   **3**: The account is being deleted.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +40,8 @@ class DBInstanceAccount extends Model
     public $accountStatus;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-bp***************
      *
      * @var string

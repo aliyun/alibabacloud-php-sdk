@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountsResponseBody extends Model
 {
     /**
+     * @description Details of the account.
+     *
      * @var accounts
      */
     public $accounts;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7565770E-7C45-462D-BA4A-8A5396F2CAD1
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class masterStatusInfo extends Model
 {
     /**
+     * @description The number of abnormal nodes.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class masterStatusInfo extends Model
     public $exceptionNodeNum;
 
     /**
+     * @description The number of normal nodes.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +27,8 @@ class masterStatusInfo extends Model
     public $normalNodeNum;
 
     /**
+     * @description The number of nodes whose roles are reversed.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class masterStatusInfo extends Model
     public $notPreferredNodeNum;
 
     /**
+     * @description The number of unsynchronized nodes.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +45,8 @@ class masterStatusInfo extends Model
     public $notSyncingNodeNum;
 
     /**
+     * @description The number of nodes whose roles are normal.
+     *
      * @example 2
      *
      * @var int
@@ -44,6 +54,8 @@ class masterStatusInfo extends Model
     public $preferredNodeNum;
 
     /**
+     * @description The number of synchronized nodes.
+     *
      * @example 1
      *
      * @var int

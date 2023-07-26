@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceResourceGroupRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the instance IDs of all AnalyticDB for PostgreSQL instances in a specific region.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -16,6 +19,8 @@ class ModifyDBInstanceResourceGroupRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The ID of the resource group to which you want to move the instance. For more information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
+     *
      * @example rg-bp67acfmxazb4b****
      *
      * @var string
@@ -33,6 +38,8 @@ class ModifyDBInstanceResourceGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs. For more information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string

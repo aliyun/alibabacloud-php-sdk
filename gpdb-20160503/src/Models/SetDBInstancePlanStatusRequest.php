@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetDBInstancePlanStatusRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -21,6 +24,9 @@ class SetDBInstancePlanStatusRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the plan.
+     *
+     * >  You can call the [DescribeDBInstancePlans](~~449398~~) operation to query the details of plans, including plan IDs.
      * @example 1234
      *
      * @var string
@@ -28,6 +34,11 @@ class SetDBInstancePlanStatusRequest extends Model
     public $planId;
 
     /**
+     * @description Specifies whether to enable or disable the plan. Valid values:
+     *
+     *   **disable**: disables the plan.
+     *   **enable**: enables the plan.
+     *
      * @example disable
      *
      * @var string

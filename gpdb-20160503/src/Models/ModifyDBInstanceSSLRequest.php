@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceSSLRequest extends Model
 {
     /**
+     * @description The encrypted endpoint. By default, the wildcards are used for instances that are hosted on ECS instances. This way, the endpoints that can be resolved to the same IP address are encrypted.
+     *
      * @example gp-xxxxxxxxxxx-master.gpdbmaster.singapore.rds.aliyuncs.com
      *
      * @var string
@@ -16,6 +18,8 @@ class ModifyDBInstanceSSLRequest extends Model
     public $connectionString;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-xxxxxxxxxxx
      *
      * @var string
@@ -23,6 +27,12 @@ class ModifyDBInstanceSSLRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The status of SSL encryption. Valid values:
+     *
+     *   0: disables SSL encryption.
+     *   1: enables SSL encryption.
+     *   2: updates SSL encryption.
+     *
      * @example 1
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class values extends Model
 {
     /**
+     * @description The time when the audit logs were generated and the number of the audit logs.
+     *
      * @var string[]
      */
     public $point;

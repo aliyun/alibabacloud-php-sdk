@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to unbind all tags from an instance. This parameter is valid only when the TagKey.N parameter is not specified. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -26,6 +32,8 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -33,8 +41,6 @@ class UntagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @example gp-xxxxxxxxxxx
-     *
      * @var string[]
      */
     public $resourceId;
@@ -50,6 +56,11 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The storage mode of the instance. Valid values:
+     *
+     *   `instance`: reserved storage mode
+     *   `ALIYUN::GPDB::INSTANCE`: elastic storage mode
+     *
      * @example instance
      *
      * @var string
@@ -57,8 +68,6 @@ class UntagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @example TestKey
-     *
      * @var string[]
      */
     public $tagKey;

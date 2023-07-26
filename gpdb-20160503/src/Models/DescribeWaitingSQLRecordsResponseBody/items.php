@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The name of the database.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $database;
 
     /**
+     * @description The ID of the process that uniquely identifies the query.
+     *
      * @example 100
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $PID;
 
     /**
+     * @description The SQL statement of the query.
+     *
      * @example Select * from t1,t2 where t1.id=t2.id;
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $SQLStmt;
 
     /**
+     * @description The ID of the session that contains the query.
+     *
      * @example 50
      *
      * @var string
@@ -37,6 +45,8 @@ class items extends Model
     public $sessionID;
 
     /**
+     * @description The start time of the query. This value is in the timestamp format. Unit: milliseconds.
+     *
      * @example 1660902033374
      *
      * @var int
@@ -44,6 +54,11 @@ class items extends Model
     public $startTime;
 
     /**
+     * @description The waiting state of the query. Valid values:
+     *
+     *   **LockWaiting**
+     *   **ResourceWaiting**
+     *
      * @example LockWaiting
      *
      * @var string
@@ -51,6 +66,8 @@ class items extends Model
     public $status;
 
     /**
+     * @description The database account that is used to perform the query.
+     *
      * @example testUser
      *
      * @var string
@@ -58,6 +75,8 @@ class items extends Model
     public $user;
 
     /**
+     * @description The waiting period of the query. Unit: milliseconds.
+     *
      * @example 26911000
      *
      * @var int

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class performanceKeys extends Model
 {
     /**
+     * @description The name of the performance metric.
+     *
      * @example adbpg_datashare_topic_count
      *
      * @var string
@@ -17,11 +19,15 @@ class performanceKeys extends Model
     public $name;
 
     /**
+     * @description Details of the performance metric.
+     *
      * @var series[]
      */
     public $series;
 
     /**
+     * @description The unit of the performance metric.
+     *
      * @example int
      *
      * @var string

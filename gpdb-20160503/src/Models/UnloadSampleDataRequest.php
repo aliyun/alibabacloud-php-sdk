@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UnloadSampleDataRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
      * @example gp-bp12ga6v69h86****
      *
      * @var string

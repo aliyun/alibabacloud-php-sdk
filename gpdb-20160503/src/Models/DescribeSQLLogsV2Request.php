@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogsV2Request extends Model
 {
     /**
+     * @description The ID of instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
      * @example gp-xxxxxxxx
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeSQLLogsV2Request extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
      * @example adbpgadmin
      *
      * @var string
@@ -23,6 +28,9 @@ class DescribeSQLLogsV2Request extends Model
     public $database;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
+     *
+     * >  The end time must be later than the start time. The interval cannot be more than 24 hours.
      * @example 2022-03-17T06:30Z
      *
      * @var string
@@ -30,6 +38,8 @@ class DescribeSQLLogsV2Request extends Model
     public $endTime;
 
     /**
+     * @description The execution duration of the query. Unit: seconds.
+     *
      * @example 1
      *
      * @var string
@@ -37,6 +47,11 @@ class DescribeSQLLogsV2Request extends Model
     public $executeCost;
 
     /**
+     * @description The execution state of the query. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string
@@ -44,6 +59,8 @@ class DescribeSQLLogsV2Request extends Model
     public $executeState;
 
     /**
+     * @description The maximum amount of time consumed by a slow query. Minimum value: 0. Unit: seconds.
+     *
      * @example 1000
      *
      * @var string
@@ -51,6 +68,8 @@ class DescribeSQLLogsV2Request extends Model
     public $maxExecuteCost;
 
     /**
+     * @description The minimum amount of time consumed by a slow query. Minimum value: 0. Unit: seconds.
+     *
      * @example 1
      *
      * @var string
@@ -58,6 +77,14 @@ class DescribeSQLLogsV2Request extends Model
     public $minExecuteCost;
 
     /**
+     * @description The type of the query language. Valid values:
+     *
+     *   **DQL**
+     *   **DML**
+     *   **DDL**
+     *   **DCL**
+     *   **TCL**
+     *
      * @example DQL
      *
      * @var string
@@ -65,6 +92,11 @@ class DescribeSQLLogsV2Request extends Model
     public $operationClass;
 
     /**
+     * @description The type of the SQL statement.
+     *
+     * > *   If the **OperationClass** parameter is specified, the **OperationType** value must belong to the corresponding query language. For example, if the **OperationClass** value is **DQL**, the **OperationType** value must be a **DQL** SQL statement such as **SELECT**.
+     * >*   If the **OperationClass** parameter is not specified, the **OperationType** value can be an SQL statement of all query languages.
+     * >*   If neither of the **OperationClass** and **OperationType** parameters is specified, all types of SQL statements are returned.
      * @example SELECT
      *
      * @var string
@@ -72,6 +104,8 @@ class DescribeSQLLogsV2Request extends Model
     public $operationType;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var string
@@ -79,6 +113,8 @@ class DescribeSQLLogsV2Request extends Model
     public $pageNumber;
 
     /**
+     * @description The number of the page to return. The maximum value is 200.
+     *
      * @example 1
      *
      * @var string
@@ -86,6 +122,8 @@ class DescribeSQLLogsV2Request extends Model
     public $pageSize;
 
     /**
+     * @description The keywords of the SQL statement.
+     *
      * @example select 1
      *
      * @var string
@@ -93,6 +131,9 @@ class DescribeSQLLogsV2Request extends Model
     public $queryKeywords;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * >  You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -100,6 +141,8 @@ class DescribeSQLLogsV2Request extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -107,6 +150,8 @@ class DescribeSQLLogsV2Request extends Model
     public $resourceGroupId;
 
     /**
+     * @description The source IP address.
+     *
      * @example 100.XX.XX.90
      *
      * @var string
@@ -114,6 +159,8 @@ class DescribeSQLLogsV2Request extends Model
     public $sourceIP;
 
     /**
+     * @description The beginning of the time range. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
+     *
      * @example 2022-03-10T06:30Z
      *
      * @var string
@@ -121,6 +168,8 @@ class DescribeSQLLogsV2Request extends Model
     public $startTime;
 
     /**
+     * @description The name of the database account.
+     *
      * @example testadmin
      *
      * @var string

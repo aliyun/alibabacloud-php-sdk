@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosisSQLInfoResponseBody extends Model
 {
     /**
+     * @description The name of the database.
+     *
      * @example adbtest
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $database;
 
     /**
+     * @description The execution duration of the query. Unit: seconds.
+     *
      * @example 16
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $duration;
 
     /**
+     * @description The maximum number of output rows.
+     *
      * @example 10
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $maxOutputRows;
 
     /**
+     * @description The ID of the query.
+     *
      * @example 71403480878****
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $queryID;
 
     /**
+     * @description The information of the operator.
+     *
      * @example {\"children\":********\"startTime\":1660719602199}
      *
      * @var string
@@ -44,6 +54,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $queryPlan;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 425AAA6A-63E0-1929-A1CE-3D9036CBC463
      *
      * @var string
@@ -51,6 +63,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The SQL statement.
+     *
      * @example select n_live_tup, n_live_tup + n_dead_tup, pg_relation_size(table_name), last_vacuum from pg_stat_user_tables where relid = table_name::regclass
      *
      * @var string
@@ -58,6 +72,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $SQLStmt;
 
     /**
+     * @description The ID of the session that contains the query.
+     *
      * @example 658****
      *
      * @var string
@@ -65,6 +81,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $sessionID;
 
     /**
+     * @description The sequence of metrics.
+     *
      * @example {\"costSort\":******:\"Seq Scan-9\",\"value\":0.0}]}
      *
      * @var string
@@ -72,6 +90,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $sortedMetrics;
 
     /**
+     * @description The start time of the query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1660719602199
      *
      * @var int
@@ -79,6 +99,11 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $startTime;
 
     /**
+     * @description The execution state of the query. Valid values:
+     *
+     *   **running**: The query is being executed.
+     *   **finished**: The query execution is complete.
+     *
      * @example finished
      *
      * @var string
@@ -86,6 +111,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $status;
 
     /**
+     * @description The information of the execution plan.
+     *
      * @example ******
      *
      * @var string
@@ -93,6 +120,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $textPlan;
 
     /**
+     * @description The name of the database account.
+     *
      * @example adbpguser
      *
      * @var string

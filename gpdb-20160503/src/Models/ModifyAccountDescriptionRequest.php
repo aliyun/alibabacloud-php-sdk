@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountDescriptionRequest extends Model
 {
     /**
+     * @description The description of the account. The description must meet the following requirements:
+     *
+     *   The description must start with a letter.
+     *   The description can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The description cannot start with `http://` or `https://`.
+     *   The description must be 2 to 256 characters in length.
+     *
      * @example testAccoutdescribe
      *
      * @var string
@@ -16,6 +23,9 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountDescription;
 
     /**
+     * @description The name of the database account.
+     *
+     * > You can call the [DescribeAccounts](~~~~) operation to query the information about database accounts in a cluster, including the database account name.
      * @example testAccout
      *
      * @var string
@@ -23,7 +33,9 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountName;
 
     /**
-     * @example gp-xxxxxxxxx
+     * @description The ID of the instance.
+     *
+     * @example gp-bp12ga6v69h86****
      *
      * @var string
      */

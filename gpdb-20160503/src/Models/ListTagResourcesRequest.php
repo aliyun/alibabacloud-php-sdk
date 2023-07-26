@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The token used to perform the next query.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
      * @var string
@@ -27,6 +29,8 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -34,6 +38,8 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of instance N. Valid values of N: 1 to 50.
+     *
      * @example gp-xxxxxxxxxx
      *
      * @var string[]
@@ -51,6 +57,11 @@ class ListTagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The storage mode of the instance. Valid values:
+     *
+     *   `instance`: reserved storage mode
+     *   `ALIYUN::GPDB::INSTANCE`: elastic storage mode
+     *
      * @example instance
      *
      * @var string
@@ -58,6 +69,8 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The list of tags.
+     *
      * @var tag[]
      */
     public $tag;

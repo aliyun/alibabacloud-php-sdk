@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ResumeInstanceRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
      * @example gp-bp12ga6v69h86****
      *
      * @var string

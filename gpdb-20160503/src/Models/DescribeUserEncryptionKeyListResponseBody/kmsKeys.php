@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class kmsKeys extends Model
 {
     /**
+     * @description The ID of the KMS key.
+     *
      * @example 0b8b1825-fd99-418f-875e-e4dec1dd8715
      *
      * @var string

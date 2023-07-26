@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceSSLRequest extends Model
 {
     /**
-     * @example gp-xxxxxxxx
+     * @description The ID of the instance.
+     *
+     * @example gp-bp12ga6v69h86****
      *
      * @var string
      */

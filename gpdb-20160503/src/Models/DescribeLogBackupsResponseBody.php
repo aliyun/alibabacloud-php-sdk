@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogBackupsResponseBody extends Model
 {
     /**
+     * @description Details of the backup sets.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeLogBackupsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of backup sets on the current page.
+     *
      * @example 30
      *
      * @var int
@@ -29,21 +35,27 @@ class DescribeLogBackupsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     * @description The ID of the request.
+     *
+     * @example 24B9FCAF-2CBC-51C3-B563-F1C70D750187
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example 30
+     * @description The total number of entries.
+     *
+     * @example 5
      *
      * @var int
      */
     public $totalCount;
 
     /**
-     * @example 1073741028
+     * @description The total size of logs in the time range. Unit: bytes.
+     *
+     * @example 386748
      *
      * @var int
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vSwitchs extends Model
 {
     /**
+     * @description The CIDR block of the vSwitch.
+     *
      * @example 10.**.**.0/24
      *
      * @var string
@@ -16,6 +18,8 @@ class vSwitchs extends Model
     public $cidrBlock;
 
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
      * @example null
      *
      * @var string
@@ -23,6 +27,8 @@ class vSwitchs extends Model
     public $gmtCreate;
 
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
      * @example null
      *
      * @var string
@@ -30,6 +36,11 @@ class vSwitchs extends Model
     public $gmtModified;
 
     /**
+     * @description Indicates whether the vSwitch is the default vSwitch. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +48,8 @@ class vSwitchs extends Model
     public $isDefault;
 
     /**
+     * @description The ID of the zone to which the vSwitch belongs.
+     *
      * @example cn-hangzhou-i
      *
      * @var string
@@ -44,6 +57,8 @@ class vSwitchs extends Model
     public $izNo;
 
     /**
+     * @description The state of the vSwitch. If **Available** is returned, the vSwitch is available.
+     *
      * @example Available
      *
      * @var string
@@ -51,7 +66,7 @@ class vSwitchs extends Model
     public $status;
 
     /**
-     * @description vSwitch ID。
+     * @description The ID of the vSwitch.
      *
      * @example vsw-bp*******************
      *
@@ -60,6 +75,8 @@ class vSwitchs extends Model
     public $vSwitchId;
 
     /**
+     * @description The name of the vSwitch.
+     *
      * @example vsw-name
      *
      * @var string

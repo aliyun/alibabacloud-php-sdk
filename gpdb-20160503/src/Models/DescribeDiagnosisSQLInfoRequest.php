@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosisSQLInfoRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeDiagnosisSQLInfoRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
      * @example adbtest
      *
      * @var string
@@ -23,6 +28,9 @@ class DescribeDiagnosisSQLInfoRequest extends Model
     public $database;
 
     /**
+     * @description The ID of the query. It is a unique identifier of the query.
+     *
+     * >  You can call the [DescribeDiagnosisRecords](~~450511~~) operation to query the query ID.
      * @example 71403480878****
      *
      * @var string

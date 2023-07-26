@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PauseInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -16,6 +18,9 @@ class PauseInstanceResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The error message returned.
+     *
+     * This parameter is returned only if **false** is returned for the **Status** parameter.
      * @example *******
      *
      * @var string
@@ -23,6 +28,8 @@ class PauseInstanceResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 34b32a0a-08ef-4a87-b6be-cdd9********
      *
      * @var string
@@ -30,6 +37,11 @@ class PauseInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **false**: The request failed.
+     *   **true**: The request was successful.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-bp***************
      *
      * @var string
@@ -16,6 +18,12 @@ class DBInstance extends Model
     public $DBInstanceId;
 
     /**
+     * @description The resource type of the instance. Valid values:
+     *
+     *   **Serverless**: Serverless mode
+     *   **StorageElasic**: elastic storage mode
+     *   **Classic**: reserved storage mode
+     *
      * @example Serverless
      *
      * @var string
@@ -23,6 +31,13 @@ class DBInstance extends Model
     public $DBInstanceMode;
 
     /**
+     * @description The state of data sharing. Valid values:
+     *
+     *   **opening**: Data sharing is being enabled.
+     *   **opened**: Data sharing is enabled.
+     *   **closing**: Data sharing is being disabled.
+     *   **closed**: Data sharing is disabled.
+     *
      * @example opened
      *
      * @var string
@@ -30,6 +45,8 @@ class DBInstance extends Model
     public $dataShareStatus;
 
     /**
+     * @description The description of the instance.
+     *
      * @example gp-bp***************
      *
      * @var string
@@ -37,6 +54,8 @@ class DBInstance extends Model
     public $description;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +63,8 @@ class DBInstance extends Model
     public $regionId;
 
     /**
+     * @description The zone ID of the instance.
+     *
      * @example cn-hangzhou-j
      *
      * @var string

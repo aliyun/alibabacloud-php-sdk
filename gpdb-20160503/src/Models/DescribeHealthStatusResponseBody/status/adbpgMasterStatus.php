@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class adbpgMasterStatus extends Model
 {
     /**
+     * @description The availability status of the coordinator node. Valid values:
+     *
+     *   **critical**: Both the primary and standby coordinator nodes are unavailable. In this case, this metric is marked in red in the console.
+     *   **warning**: The primary or standby coordinator node is unavailable. In this case, this metric is marked in yellow in the console.
+     *   **healthy**: Both the primary and standby coordinator nodes are available. In this case, this metric is marked in green in the console.
+     *
      * @example healthy
      *
      * @var string
@@ -16,6 +22,8 @@ class adbpgMasterStatus extends Model
     public $status;
 
     /**
+     * @description The metric value of coordinator node availability status. Valid values:
+     *
      * @example 1
      *
      * @var float

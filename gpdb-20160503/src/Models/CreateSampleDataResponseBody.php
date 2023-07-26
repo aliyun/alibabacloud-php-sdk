@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSampleDataResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateSampleDataResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The error message returned if an error occurs. This message does not affect the execution of the operation.
+     *
      * @example *********
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateSampleDataResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 15A6881F-AAAB-5E4D-9B3F-6DCC1BDF4F2E_99
      *
      * @var string
@@ -30,6 +36,11 @@ class CreateSampleDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The execution state of the operation. Valid values:
+     *
+     *   **false**: The operation fails.
+     *   **true**: The operation is successful.
+     *
      * @example true
      *
      * @var bool

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DownloadDiagnosisRecordsRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -16,6 +19,8 @@ class DownloadDiagnosisRecordsRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
      * @example adbtest
      *
      * @var string
@@ -23,6 +28,8 @@ class DownloadDiagnosisRecordsRequest extends Model
     public $database;
 
     /**
+     * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
      * @example 2022-05-07T07:59Z
      *
      * @var string
@@ -30,6 +37,13 @@ class DownloadDiagnosisRecordsRequest extends Model
     public $endTime;
 
     /**
+     * @description The language of the file that contains the query diagnostic information. Valid values:
+     *
+     *   **zh**: simplified Chinese
+     *   **en**: English
+     *   **ja**: Japanese
+     *   **zh-tw**: traditional Chinese
+     *
      * @example zh
      *
      * @var string
@@ -37,6 +51,16 @@ class DownloadDiagnosisRecordsRequest extends Model
     public $lang;
 
     /**
+     * @description The filter condition on queries. The value is in the JSON format. Valid values:
+     *
+     *   `{"Type":"maxCost", "Value":"100"}`: filters the top 100 queries that are the most time-consuming.
+     *   `{"Type":"status","Value":"finished"}`: filters completed queries.
+     *   `{"Type":"status","Value":"running"}`: filters running queries.
+     *   `{"Type":"cost","Max":"200"}`: filters the queries that consume less than 200 milliseconds.
+     *   `{"Type":"cost","Min":"200","Max":"60000"}`: filters the queries that consume 200 milliseconds or more and less than 1 minute.
+     *   `{"Type":"cost","Min":"60000"}`: filters the queries that consume 1 minute or more.
+     *   `{"Type":"cost","Min":"30","Max":"50"}`: filters the queries that consume 30 milliseconds or more and less than 50 milliseconds. You can customize a filter condition by setting **Min** and **Max**.
+     *
      * @example { "Type":"maxCost", "Value":"100" }
      *
      * @var string
@@ -44,6 +68,8 @@ class DownloadDiagnosisRecordsRequest extends Model
     public $queryCondition;
 
     /**
+     * @description The ID of the resource group to which the instance belongs. For more information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -51,6 +77,8 @@ class DownloadDiagnosisRecordsRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
      * @example 2022-05-07T06:59Z
      *
      * @var string
@@ -58,6 +86,8 @@ class DownloadDiagnosisRecordsRequest extends Model
     public $startTime;
 
     /**
+     * @description The name of the database account.
+     *
      * @example adbpguser
      *
      * @var string

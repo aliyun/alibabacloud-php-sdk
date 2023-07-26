@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
+     * @description The number of days for which data backup files are retained. Default value: 7. Maximum value: 7. Valid values: 1 to 7.
+     *
      * @example 7
      *
      * @var int
@@ -16,13 +18,21 @@ class ModifyBackupPolicyRequest extends Model
     public $backupRetentionPeriod;
 
     /**
-     * @example gp-xxxxx
+     * @description The ID of the instance.
+     *
+     * @example gp-bp***************
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description Specifies whether to enable automatic point-in-time backup.
+     *
+     *   true
+     *   false
+     *
+     * Default value: true.
      * @example true
      *
      * @var bool
@@ -30,13 +40,25 @@ class ModifyBackupPolicyRequest extends Model
     public $enableRecoveryPoint;
 
     /**
-     * @example Tuesday，Thursday，Saturday
+     * @description The cycle based on which you want to perform a backup. Separate multiple values with commas (,). Valid values:
+     *
+     *   Monday
+     *   Tuesday
+     *   Wednesday
+     *   Thursday
+     *   Friday
+     *   Saturday
+     *   Sunday
+     *
+     * @example Tuesday, Thursday, Saturday
      *
      * @var string
      */
     public $preferredBackupPeriod;
 
     /**
+     * @description The backup window. Specify the backup window in the HH:mmZ-HH:mmZ format. The backup window must be in UTC. Default value: 00:00-01:00.
+     *
      * @example 15:00Z-16:00Z
      *
      * @var string
@@ -44,6 +66,14 @@ class ModifyBackupPolicyRequest extends Model
     public $preferredBackupTime;
 
     /**
+     * @description The frequency of point-in-time backup.
+     *
+     *   1: per hour
+     *   2: per 2 hours
+     *   4: per 4 hours
+     *   8: per 8 hours
+     *
+     * Default value: 8.
      * @example 8
      *
      * @var string

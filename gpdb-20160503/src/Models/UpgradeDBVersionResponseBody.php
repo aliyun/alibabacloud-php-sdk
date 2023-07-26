@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBVersionResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-wz9kmr708m155j***
      *
      * @var string
@@ -16,6 +18,8 @@ class UpgradeDBVersionResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the instance.
+     *
      * @example gp-wz9kmr708m155j***
      *
      * @var string
@@ -23,6 +27,8 @@ class UpgradeDBVersionResponseBody extends Model
     public $DBInstanceName;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 25C11EE5-B7E8-481A-A07C-BD619971A570
      *
      * @var string
@@ -30,6 +36,8 @@ class UpgradeDBVersionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 101450956
      *
      * @var string

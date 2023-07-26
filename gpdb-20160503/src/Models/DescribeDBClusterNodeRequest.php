@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterNodeRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
      * @example gp-bp***************
      *
      * @var string
@@ -16,6 +19,12 @@ class DescribeDBClusterNodeRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The node type. Valid values:
+     *
+     *   **master**: coordinator node
+     *   **segment**: compute node
+     *
+     * >  If you do not specify this parameter, the information of all nodes is returned.
      * @example master
      *
      * @var string

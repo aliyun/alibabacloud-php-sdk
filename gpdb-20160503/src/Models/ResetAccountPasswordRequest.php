@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ResetAccountPasswordRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example testaccount_1
      *
      * @var string
@@ -16,6 +18,8 @@ class ResetAccountPasswordRequest extends Model
     public $accountName;
 
     /**
+     * @description The name of the account.
+     *
      * @example Testaccount_1
      *
      * @var string
@@ -23,7 +27,12 @@ class ResetAccountPasswordRequest extends Model
     public $accountPassword;
 
     /**
-     * @example gp-xxxxxxxxx
+     * @description Before you call this operation, make sure that the following requirements are met:
+     *
+     *   The instance is in the running state.
+     *   The instance is not locked.
+     *
+     * @example gp-t4nf48vf15713****
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePerformanceResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDBInstancePerformanceResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The end time of the query.
+     *
      * @example 2022-07-09T03:47Z
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeDBInstancePerformanceResponseBody extends Model
     public $endTime;
 
     /**
+     * @description The database engine of the instance.
+     *
      * @example gpdb
      *
      * @var string
@@ -30,11 +36,15 @@ class DescribeDBInstancePerformanceResponseBody extends Model
     public $engine;
 
     /**
+     * @description Details of the performance metrics. Format: {perf1, perf2, perf3, …}.
+     *
      * @var string[]
      */
     public $performanceKeys;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 5E85244A-AB47-46A3-A3AD-5F307DCB407E
      *
      * @var string
@@ -42,6 +52,8 @@ class DescribeDBInstancePerformanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The start time of the query.
+     *
      * @example 2022-07-08T03:47Z
      *
      * @var string

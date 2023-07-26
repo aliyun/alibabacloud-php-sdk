@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeWaitingSQLInfoResponseBody extends Model
 {
     /**
+     * @description The name of the database.
+     *
      * @example test
      *
      * @var string
@@ -17,11 +19,15 @@ class DescribeWaitingSQLInfoResponseBody extends Model
     public $database;
 
     /**
+     * @description Details of the lock-waiting query.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string

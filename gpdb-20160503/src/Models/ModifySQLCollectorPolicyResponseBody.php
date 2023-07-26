@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifySQLCollectorPolicyResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 4FA1F1D1-50A6-4F60-9A78-5752F2076A53
      *
      * @var string

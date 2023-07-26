@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SwitchDBInstanceNetTypeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example FA67B751-2A2D-470C-850B-D6B93699D35C
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
+     * @description The current value of the parameter.
+     *
      * @example 10800000
      *
      * @var string
@@ -16,6 +18,11 @@ class parameters extends Model
     public $currentValue;
 
     /**
+     * @description Indicates whether a restart is required for parameter modifications to take effect. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var string
@@ -23,6 +30,11 @@ class parameters extends Model
     public $forceRestartInstance;
 
     /**
+     * @description Indicates whether the parameter can be modified. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var string
@@ -30,6 +42,8 @@ class parameters extends Model
     public $isChangeableConfig;
 
     /**
+     * @description The valid values of the parameter.
+     *
      * @example [0-2147483647]
      *
      * @var string
@@ -37,13 +51,17 @@ class parameters extends Model
     public $optionalRange;
 
     /**
-     * @example Sets the maximum allowed duration of any statement，A value of 0 turns off the timeout.
+     * @description The description of the parameter.
+     *
+     * @example Sets the maximum allowed duration of any statement, A value of 0 turns off the timeout.
      *
      * @var string
      */
     public $parameterDescription;
 
     /**
+     * @description The name of the parameter.
+     *
      * @example statement_timeout
      *
      * @var string
@@ -51,6 +69,8 @@ class parameters extends Model
     public $parameterName;
 
     /**
+     * @description The default value of the parameter.
+     *
      * @example 10800000
      *
      * @var string

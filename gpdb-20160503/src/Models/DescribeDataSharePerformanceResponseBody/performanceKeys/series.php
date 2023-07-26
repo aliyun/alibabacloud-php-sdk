@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class series extends Model
 {
     /**
+     * @description The name of the performance metric.
+     *
      * @example adbpg_datashare_topic_count
      *
      * @var string
@@ -17,6 +19,8 @@ class series extends Model
     public $name;
 
     /**
+     * @description One or more values of the performance metric.
+     *
      * @var values[]
      */
     public $values;

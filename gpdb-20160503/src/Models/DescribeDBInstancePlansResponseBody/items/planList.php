@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class planList extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -16,6 +18,8 @@ class planList extends Model
     public $DBInstanceId;
 
     /**
+     * @description The execution information of the plan.
+     *
      * @example {"pause":{"planCronTime":"0 22 * * 5"},"resume":{"planCronTime":"0 23 * * 5"}}
      *
      * @var string
@@ -23,6 +27,8 @@ class planList extends Model
     public $planConfig;
 
     /**
+     * @description The description of the plan.
+     *
      * @example this is a test plan
      *
      * @var string
@@ -30,6 +36,9 @@ class planList extends Model
     public $planDesc;
 
     /**
+     * @description The end time of the plan. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     *
+     * >  This parameter is returned only for periodically executed plans.
      * @example 2023-04-17T23:00Z
      *
      * @var string
@@ -37,6 +46,8 @@ class planList extends Model
     public $planEndDate;
 
     /**
+     * @description The ID of the plan.
+     *
      * @example 1234
      *
      * @var string
@@ -44,6 +55,8 @@ class planList extends Model
     public $planId;
 
     /**
+     * @description The name of the plan.
+     *
      * @example test-plan
      *
      * @var string
@@ -51,6 +64,11 @@ class planList extends Model
     public $planName;
 
     /**
+     * @description The execution mode of the plan. Valid values:
+     *
+     *   **Postpone**: The plan is executed later.
+     *   **Regular**: The plan is executed periodically.
+     *
      * @example Regular
      *
      * @var string
@@ -58,6 +76,9 @@ class planList extends Model
     public $planScheduleType;
 
     /**
+     * @description The start time of the plan. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     *
+     * >  This parameter is returned only for periodically executed plans.
      * @example 2022-04-17T23:00Z
      *
      * @var string
@@ -65,6 +86,13 @@ class planList extends Model
     public $planStartDate;
 
     /**
+     * @description The state of the plan. Valid values:
+     *
+     *   **active**: The plan is running.
+     *   **cancel**: The plan is canceled.
+     *   **deleted**: The plan is deleted.
+     *   **finished**: The plan execution is complete.
+     *
      * @example active
      *
      * @var string
@@ -72,6 +100,11 @@ class planList extends Model
     public $planStatus;
 
     /**
+     * @description The type of the plan. Valid values:
+     *
+     *   **PauseResume**: pauses and resumes an instance.
+     *   **Resize**: scales an instance.
+     *
      * @example PauseResume
      *
      * @var string

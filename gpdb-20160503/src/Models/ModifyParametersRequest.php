@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyParametersRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
      * @example gp-bp***************
      *
      * @var string
@@ -16,6 +19,11 @@ class ModifyParametersRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description Specifies whether to forcibly restart the instance. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +31,9 @@ class ModifyParametersRequest extends Model
     public $forceRestartInstance;
 
     /**
+     * @description The name and value of the parameter to be modified. Specify the parameter in the `<Parameter name>:<Parameter value>` format.
+     *
+     * You can call the [DescribeParameters](~~208310~~) operation to query the parameters that can be modified.
      * @example {"statement_timeout":"11800010"}
      *
      * @var string

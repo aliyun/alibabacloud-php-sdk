@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetDataShareInstanceResponseBody extends Model
 {
     /**
+     * @description The error message returned if the operation fails.
+     *
      * @example error message
      *
      * @var string
@@ -16,6 +18,8 @@ class SetDataShareInstanceResponseBody extends Model
     public $errMessage;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D5**********
      *
      * @var string
@@ -23,6 +27,11 @@ class SetDataShareInstanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The state of the operation. Valid values:
+     *
+     *   **success**: The operation is successful.
+     *   **failed**: The operation fails.
+     *
      * @example success
      *
      * @var string

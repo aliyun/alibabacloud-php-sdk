@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The name of the database.
+     *
      * @example adbtest
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $database;
 
     /**
+     * @description This parameter is not supported.
+     *
      * @example null
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $host;
 
     /**
+     * @description The content of the error log.
+     *
      * @example unsupported frontend protocol 2689.28208: server supports 1.0 to 3.0
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $logContext;
 
     /**
+     * @description The level of the queried log.
+     *
      * @example FATAL
      *
      * @var string
@@ -37,6 +45,8 @@ class items extends Model
     public $logLevel;
 
     /**
+     * @description The time when the log was generated. The time is displayed in UTC.
+     *
      * @example 2022-04-24 11:28:14
      *
      * @var int
@@ -44,6 +54,8 @@ class items extends Model
     public $time;
 
     /**
+     * @description The name of the database account.
+     *
      * @example adbpguser
      *
      * @var string

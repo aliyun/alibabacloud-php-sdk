@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class records extends Model
 {
     /**
+     * @description The ID of the download record.
+     *
      * @example 1150
      *
      * @var int
@@ -16,6 +18,8 @@ class records extends Model
     public $downloadId;
 
     /**
+     * @description The URL that can be used to download the file.
+     *
      * @example https://perth-download-task.oss-cn-beijing.aliyuncs.com/*****
      *
      * @var string
@@ -23,6 +27,8 @@ class records extends Model
     public $downloadUrl;
 
     /**
+     * @description The error message returned.
+     *
      * @example Error message
      *
      * @var string
@@ -30,6 +36,8 @@ class records extends Model
     public $exceptionMsg;
 
     /**
+     * @description The name of the file.
+     *
      * @example 20220509113448-20220509173448.csv
      *
      * @var string
@@ -37,6 +45,12 @@ class records extends Model
     public $fileName;
 
     /**
+     * @description The state of the upload task. After you call the DownloadDiagnosisRecords operation, query diagnostic information is first uploaded to Object Storage Service (OSS). After the upload task is complete, the query diagnostic information can be downloaded. Valid values:
+     *
+     *   **running**: uploading
+     *   **finished**: uploaded
+     *   **failed**: failed
+     *
      * @example finished
      *
      * @var string

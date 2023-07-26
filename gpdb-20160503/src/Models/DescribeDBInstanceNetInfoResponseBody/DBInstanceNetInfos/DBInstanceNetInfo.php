@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceNetInfo extends Model
 {
     /**
+     * @description The IP address type of the instance.
+     *
      * @example Intranet
      *
      * @var string
@@ -16,6 +18,8 @@ class DBInstanceNetInfo extends Model
     public $addressType;
 
     /**
+     * @description The endpoint used to connect to the instance.
+     *
      * @example gp-xxxxxxx.gpdb.rds.aliyuncs.com
      *
      * @var string
@@ -23,6 +27,8 @@ class DBInstanceNetInfo extends Model
     public $connectionString;
 
     /**
+     * @description The IP address of the instance.
+     *
      * @example 127.0.0.1
      *
      * @var string
@@ -30,6 +36,11 @@ class DBInstanceNetInfo extends Model
     public $IPAddress;
 
     /**
+     * @description The type of IP address.
+     *
+     *   Valid values for instances in the classic network: Inner and Public
+     *   Valid values for instances in a virtual private cloud (VPC): Private and Public
+     *
      * @example Inner
      *
      * @var string
@@ -37,6 +48,8 @@ class DBInstanceNetInfo extends Model
     public $IPType;
 
     /**
+     * @description The port number used to connect to the instance.
+     *
      * @example 3432
      *
      * @var string
@@ -44,7 +57,7 @@ class DBInstanceNetInfo extends Model
     public $port;
 
     /**
-     * @description VPC ID。
+     * @description The ID of the VPC.
      *
      * @example vpc-xxxxxxx
      *
@@ -53,6 +66,8 @@ class DBInstanceNetInfo extends Model
     public $VPCId;
 
     /**
+     * @description The ID of the vSwitch. Multiple IDs are separated by commas (,).
+     *
      * @example vsw-xxxxxxxx
      *
      * @var string
@@ -60,6 +75,8 @@ class DBInstanceNetInfo extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-xxxxxxx
      *
      * @var string

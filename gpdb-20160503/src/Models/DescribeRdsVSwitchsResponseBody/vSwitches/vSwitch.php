@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vSwitch extends Model
 {
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
      * @example null
      *
      * @var string
@@ -16,6 +18,8 @@ class vSwitch extends Model
     public $aliUid;
 
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
      * @example null
      *
      * @var string
@@ -23,6 +27,8 @@ class vSwitch extends Model
     public $bid;
 
     /**
+     * @description The CIDR block of the vSwitch.
+     *
      * @example 192.**.**.0/24
      *
      * @var string
@@ -30,6 +36,8 @@ class vSwitch extends Model
     public $cidrBlock;
 
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
      * @example null
      *
      * @var string
@@ -37,6 +45,8 @@ class vSwitch extends Model
     public $gmtCreate;
 
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
      * @example null
      *
      * @var string
@@ -44,6 +54,11 @@ class vSwitch extends Model
     public $gmtModified;
 
     /**
+     * @description Indicates whether the vSwitch is the default vSwitch. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -51,6 +66,8 @@ class vSwitch extends Model
     public $isDefault;
 
     /**
+     * @description The ID of the zone.
+     *
      * @example cn-hangzhou-h
      *
      * @var string
@@ -58,6 +75,8 @@ class vSwitch extends Model
     public $izNo;
 
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
      * @example null
      *
      * @var string
@@ -65,6 +84,8 @@ class vSwitch extends Model
     public $regionNo;
 
     /**
+     * @description The state of the vSwitch. If **Available** is returned, the vSwitch is available.
+     *
      * @example Available
      *
      * @var string
@@ -72,7 +93,7 @@ class vSwitch extends Model
     public $status;
 
     /**
-     * @description vSwitch ID。
+     * @description The ID of the vSwitch.
      *
      * @example vsw-bp*******************
      *
@@ -81,6 +102,8 @@ class vSwitch extends Model
     public $vSwitchId;
 
     /**
+     * @description The name of the vSwitch.
+     *
      * @example vsw-name
      *
      * @var string

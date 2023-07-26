@@ -9,42 +9,54 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @example 327329803
+     * @description The ID of the backup set.
+     *
+     * @example 12413721782
      *
      * @var string
      */
     public $backupId;
 
     /**
-     * @example gp-xxxxx
+     * @description The ID of the coordinator node.
+     *
+     * @example gp-bp12ga6v69h86****-master
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @example 000000010000000300000006
+     * @description The name of the log backup set that is stored in Object Storage Service (OSS).
+     *
+     * @example 000000010000000400000012
      *
      * @var string
      */
     public $logFileName;
 
     /**
-     * @example 2167808
+     * @description The size of the log backup set. Unit: bytes.
+     *
+     * @example 77350
      *
      * @var int
      */
     public $logFileSize;
 
     /**
-     * @example 2021-02-24T10:55:47Z
+     * @description The timestamp of the log.
+     *
+     * @example 2022-12-12T02:14:26Z
      *
      * @var string
      */
     public $logTime;
 
     /**
-     * @example segment-x
+     * @description The name of the compute node.
+     *
+     * @example segment-0
      *
      * @var string
      */

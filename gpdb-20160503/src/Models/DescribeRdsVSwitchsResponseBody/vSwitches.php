@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class vSwitches extends Model
 {
     /**
+     * @description Details of the vSwitch.
+     *
      * @var vSwitch[]
      */
     public $vSwitch;

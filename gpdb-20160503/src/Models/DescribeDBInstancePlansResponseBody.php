@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePlansResponseBody extends Model
 {
     /**
+     * @description The error message returned.
+     *
+     * This parameter is returned only when the operation fails.
      * @example ****
      *
      * @var string
@@ -17,11 +20,15 @@ class DescribeDBInstancePlansResponseBody extends Model
     public $errorMessage;
 
     /**
+     * @description Details of the plans.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +36,8 @@ class DescribeDBInstancePlansResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
      * @example 1
      *
      * @var int
@@ -36,6 +45,8 @@ class DescribeDBInstancePlansResponseBody extends Model
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 34b32a0a-08ef-4a87-b6be-cdd988888888
      *
      * @var string
@@ -43,6 +54,9 @@ class DescribeDBInstancePlansResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The state of the operation.
+     *
+     * If the operation is successful, **success** is returned. If the operation fails, this parameter is not returned.
      * @example success
      *
      * @var string
@@ -50,6 +64,8 @@ class DescribeDBInstancePlansResponseBody extends Model
     public $status;
 
     /**
+     * @description The total number of entries.
+     *
      * @example 1
      *
      * @var int

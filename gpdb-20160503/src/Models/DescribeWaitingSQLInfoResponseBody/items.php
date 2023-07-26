@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The application that sent the query.
+     *
      * @example DataGrip 2022.1.5
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $application;
 
     /**
+     * @description The application that sent the blocking query.
+     *
      * @example DataGrip 2022.1.5
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $blockedByApplication;
 
     /**
+     * @description The process ID of the blocking query.
+     *
      * @example 110
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $blockedByPID;
 
     /**
+     * @description The SQL statement of the blocking query.
+     *
      * @example Select * from t1;
      *
      * @var string
@@ -37,6 +45,8 @@ class items extends Model
     public $blockedBySQLStmt;
 
     /**
+     * @description The database account that is used to perform the blocking query.
+     *
      * @example testUser1
      *
      * @var string
@@ -44,6 +54,8 @@ class items extends Model
     public $blockedByUser;
 
     /**
+     * @description The authorized locks.
+     *
      * @example ShareLock,AccessExclusiveLock
      *
      * @var string
@@ -51,6 +63,8 @@ class items extends Model
     public $grantLocks;
 
     /**
+     * @description The unauthorized locks.
+     *
      * @example AccessShareLock
      *
      * @var string
@@ -58,6 +72,8 @@ class items extends Model
     public $notGrantLocks;
 
     /**
+     * @description The ID of the process that uniquely identifies the query.
+     *
      * @example 100
      *
      * @var string
@@ -65,6 +81,8 @@ class items extends Model
     public $PID;
 
     /**
+     * @description The SQL statement of the query.
+     *
      * @example Select * from t1,t2 where t1.id=t2.id;
      *
      * @var string
@@ -72,6 +90,8 @@ class items extends Model
     public $SQLStmt;
 
     /**
+     * @description The database account that is used to perform the query.
+     *
      * @example testUser
      *
      * @var string

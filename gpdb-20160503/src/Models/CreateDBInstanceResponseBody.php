@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceResponseBody extends Model
 {
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
+     * You can call the [DescribeDBInstanceAttribute](~~86910~~) operation to query the endpoint that is used to connect to the instance.
      * @example gp-bp***************.gpdb.rds.aliyuncs.com
      *
      * @var string
@@ -16,6 +19,8 @@ class CreateDBInstanceResponseBody extends Model
     public $connectionString;
 
     /**
+     * @description The instance ID.
+     *
      * @example gp-bp***************
      *
      * @var string
@@ -23,6 +28,8 @@ class CreateDBInstanceResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The order ID.
+     *
      * @example 111111111111
      *
      * @var string
@@ -30,13 +37,18 @@ class CreateDBInstanceResponseBody extends Model
     public $orderId;
 
     /**
-     * @example 3432
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
+     * You can call the [DescribeDBInstanceAttribute](~~86910~~) operation to query the port number that is used to connect to the instance.
+     * @example 5432
      *
      * @var string
      */
     public $port;
 
     /**
+     * @description The request ID.
+     *
      * @example 5414A4E5-4C36-4461-95FC-************
      *
      * @var string

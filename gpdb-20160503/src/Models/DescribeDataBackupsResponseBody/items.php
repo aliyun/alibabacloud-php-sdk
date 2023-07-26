@@ -9,20 +9,37 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @example 2011-06-01T17:00Z
+     * @description The UTC time when the backup ended. The time is in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
+     *
+     * @example 2021-12-22T12:01:43Z
      *
      * @var string
      */
     public $backupEndTime;
 
     /**
-     * @example 2011-05-30 03:29:00
+     * @description The local time when the backup ended. The time is in the yyyy-MM-dd HH:mm:ss format. The time is your local time.
+     *
+     * @example 2021-12-22 20:00:25
      *
      * @var string
      */
     public $backupEndTimeLocal;
 
     /**
+     * @description The backup mode.
+     *
+     * Valid values for full backup:
+     *
+     *   Automated: automatic backup
+     *   Manual: manual backup
+     *
+     * Valid values for point-in-time backup:
+     *
+     *   Automated: point-in-time backup after full backup
+     *   Manual: manual point-in-time backup
+     *   Period: point-in-time backup that is triggered by a backup policy
+     *
      * @example Automated
      *
      * @var string
@@ -30,13 +47,17 @@ class items extends Model
     public $backupMode;
 
     /**
-     * @example 327329803
+     * @description The ID of the backup set.
+     *
+     * @example 1111111111
      *
      * @var string
      */
     public $backupSetId;
 
     /**
+     * @description The size of the backup file. Unit: bytes.
+     *
      * @example 2167808
      *
      * @var int
@@ -44,13 +65,17 @@ class items extends Model
     public $backupSize;
 
     /**
-     * @example 2011-06-01T17:00Z
+     * @description The UTC time when the backup started. The time is in the yyyy-MM-ddTHH:mmZ format. The time is displayed in UTC.
+     *
+     * @example 2021-12-22T12:00:25Z
      *
      * @var string
      */
     public $backupStartTime;
 
     /**
+     * @description The local time when the backup started. The time is in the yyyy-MM-dd HH:mm:ss format. The time is your local time.
+     *
      * @example 2011-05-30 03:29:00
      *
      * @var string
@@ -58,6 +83,11 @@ class items extends Model
     public $backupStartTimeLocal;
 
     /**
+     * @description The status of the backup set. Valid values:
+     *
+     *   Success
+     *   Failure
+     *
      * @example Success
      *
      * @var string
@@ -65,13 +95,18 @@ class items extends Model
     public $backupStatus;
 
     /**
-     * @example restorepoint_xxx
+     * @description The name of a point-in-time backup set or the full backup set.
+     *
+     * @example adbpgbackup_555*****_20211222200019
      *
      * @var string
      */
     public $baksetName;
 
     /**
+     * @description *   For full backup, this parameter indicates the point in time at which the data in the data backup file is consistent.
+     *   For point-in-time backup, this parameter indicates that the returned point in time is a timestamp.
+     *
      * @example 1576506856
      *
      * @var int
@@ -79,13 +114,20 @@ class items extends Model
     public $consistentTime;
 
     /**
-     * @example gp-xxxxx
+     * @description The ID of the instance.
+     *
+     * @example gp-bp**************-master
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The type of the backup. Valid values:
+     *
+     *   DATA: full backup
+     *   RESTOREPOI: point-in-time backup
+     *
      * @example DATA
      *
      * @var string

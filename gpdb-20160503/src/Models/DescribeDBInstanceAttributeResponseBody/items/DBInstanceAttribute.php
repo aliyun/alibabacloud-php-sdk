@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceAttribute extends Model
 {
     /**
+     * @description The service availability of the instance. Unit: %.
+     *
+     * >  This parameter is available only for instances in reserved storage mode.
      * @example 100.0%
      *
      * @var string
@@ -17,6 +20,12 @@ class DBInstanceAttribute extends Model
     public $availabilityValue;
 
     /**
+     * @description The access mode of the instance. Valid values:
+     *
+     *   **Performance**: standard mode.
+     *   **Safety**: safe mode.
+     *   **LVS**: Linux Virtual Server (LVS) mode.
+     *
      * @example LVS
      *
      * @var string
@@ -24,6 +33,8 @@ class DBInstanceAttribute extends Model
     public $connectionMode;
 
     /**
+     * @description The endpoint that is used to connect to the instance.
+     *
      * @example gp-bp13ue79qk8y1****-master.gpdb.rds.aliyuncs.com
      *
      * @var string
@@ -31,6 +42,8 @@ class DBInstanceAttribute extends Model
     public $connectionString;
 
     /**
+     * @description The number of the minor version.
+     *
      * @example mm.v6.3.10.1-202207141918
      *
      * @var string
@@ -38,6 +51,8 @@ class DBInstanceAttribute extends Model
     public $coreVersion;
 
     /**
+     * @description The number of CPU cores per compute node.
+     *
      * @example 2
      *
      * @var int
@@ -45,6 +60,9 @@ class DBInstanceAttribute extends Model
     public $cpuCores;
 
     /**
+     * @description The number of CPU cores per node.
+     *
+     * >  This parameter is available only for instances in reserved storage mode.
      * @example 0
      *
      * @var int
@@ -52,6 +70,8 @@ class DBInstanceAttribute extends Model
     public $cpuCoresPerNode;
 
     /**
+     * @description The time when the instance was created.
+     *
      * @example 2022-08-11T09:16:26Z
      *
      * @var string
@@ -59,6 +79,11 @@ class DBInstanceAttribute extends Model
     public $creationTime;
 
     /**
+     * @description The edition of the instance. Valid values:
+     *
+     *   **Basic**: Basic Edition.
+     *   **HighAvailability**: High-availability Edition.
+     *
      * @example HighAvailability
      *
      * @var string
@@ -66,6 +91,9 @@ class DBInstanceAttribute extends Model
     public $DBInstanceCategory;
 
     /**
+     * @description The instance type of the instance.
+     *
+     * >  This parameter is available only for instances in reserved storage mode.
      * @example gpdb.group.segsdx1
      *
      * @var string
@@ -73,6 +101,13 @@ class DBInstanceAttribute extends Model
     public $DBInstanceClass;
 
     /**
+     * @description The instance family of the instance. Valid values:
+     *
+     *   **s**: shared.
+     *   **x**: general-purpose.
+     *   **d**: dedicated.
+     *   **h**: dedicated host.
+     *
      * @example x
      *
      * @var string
@@ -80,6 +115,8 @@ class DBInstanceAttribute extends Model
     public $DBInstanceClassType;
 
     /**
+     * @description The number of CPU cores.
+     *
      * @example 2
      *
      * @var int
@@ -87,6 +124,8 @@ class DBInstanceAttribute extends Model
     public $DBInstanceCpuCores;
 
     /**
+     * @description The description of the instance.
+     *
      * @example gp-bp13ue79qk8y1****
      *
      * @var string
@@ -94,6 +133,9 @@ class DBInstanceAttribute extends Model
     public $DBInstanceDescription;
 
     /**
+     * @description The maximum disk throughput of the compute group. Unit: Mbit/s.
+     *
+     * >  This parameter is available only for instances in reserved storage mode.
      * @example 0
      *
      * @var int
@@ -101,6 +143,9 @@ class DBInstanceAttribute extends Model
     public $DBInstanceDiskMBPS;
 
     /**
+     * @description The number of compute groups.
+     *
+     * >  This parameter is available only for instances in reserved storage mode.
      * @example 0
      *
      * @var string
@@ -108,6 +153,8 @@ class DBInstanceAttribute extends Model
     public $DBInstanceGroupCount;
 
     /**
+     * @description The instance ID.
+     *
      * @example gp-bp13ue79qk8y1****
      *
      * @var string
@@ -115,6 +162,9 @@ class DBInstanceAttribute extends Model
     public $DBInstanceId;
 
     /**
+     * @description The memory capacity per compute node.
+     *
+     * >  For instances in reserved storage mode, the unit of this parameter is MB. For instances in elastic storage mode and Serverless mode, the unit of this parameter is GB.
      * @example 16
      *
      * @var int
@@ -122,6 +172,12 @@ class DBInstanceAttribute extends Model
     public $DBInstanceMemory;
 
     /**
+     * @description The resource type of the instance. Valid values:
+     *
+     *   **Serverless**: Serverless mode.
+     *   **StorageElastic**: elastic storage mode.
+     *   **Classic**: reserved storage mode.
+     *
      * @example StorageElastic
      *
      * @var string
@@ -129,6 +185,12 @@ class DBInstanceAttribute extends Model
     public $DBInstanceMode;
 
     /**
+     * @description The type of the network interface card (NIC) that is used by the instance. Valid values:
+     *
+     *   **0**: Internet.
+     *   **1**: internal network.
+     *   **2**: VPC.
+     *
      * @example 2
      *
      * @var string
@@ -136,6 +198,8 @@ class DBInstanceAttribute extends Model
     public $DBInstanceNetType;
 
     /**
+     * @description The state of the instance. For more information, see [Instance statuses](~~86944~~).
+     *
      * @example Running
      *
      * @var string
@@ -143,6 +207,8 @@ class DBInstanceAttribute extends Model
     public $DBInstanceStatus;
 
     /**
+     * @description The maximum storage capacity per node. Unit: GB.
+     *
      * @example 50
      *
      * @var int
@@ -150,6 +216,9 @@ class DBInstanceAttribute extends Model
     public $DBInstanceStorage;
 
     /**
+     * @description The encryption key.
+     *
+     * >  This parameter is returned only for instances for which disk encryption is enabled.
      * @example 0d2470df-da7b-4786-b981-************
      *
      * @var string
@@ -157,6 +226,11 @@ class DBInstanceAttribute extends Model
     public $encryptionKey;
 
     /**
+     * @description The encryption type. Valid values:
+     *
+     *   **CloudDisk**: disk encryption.
+     *
+     * >  This parameter is returned only for instances for which disk encryption is enabled.
      * @example CloudDisk
      *
      * @var string
@@ -164,6 +238,8 @@ class DBInstanceAttribute extends Model
     public $encryptionType;
 
     /**
+     * @description The database engine of the instance.
+     *
      * @example gpdb
      *
      * @var string
@@ -171,6 +247,8 @@ class DBInstanceAttribute extends Model
     public $engine;
 
     /**
+     * @description The version of the database engine.
+     *
      * @example 6.0
      *
      * @var string
@@ -178,6 +256,9 @@ class DBInstanceAttribute extends Model
     public $engineVersion;
 
     /**
+     * @description The expiration time of the instance. The time is displayed in UTC.
+     *
+     * >  For pay-as-you-go instances, `2999-09-08T16:00:00Z` is returned.
      * @example 2999-09-08T16:00:00Z
      *
      * @var string
@@ -185,6 +266,12 @@ class DBInstanceAttribute extends Model
     public $expireTime;
 
     /**
+     * @description The disk type of the compute group. Valid values:
+     *
+     *   **0**: SSD.
+     *   **1**: HDD.
+     *
+     * >  This parameter is available only for instances in reserved storage mode.
      * @example 0
      *
      * @var string
@@ -192,11 +279,21 @@ class DBInstanceAttribute extends Model
     public $hostType;
 
     /**
+     * @description The wait period for the instance that has no traffic to become idle. Unit: seconds.
+     *
+     * >  This parameter is returned only for instances in automatic Serverless mode.
+     * @example 600
+     *
      * @var int
      */
     public $idleTime;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **Classic**: classic network.
+     *   **VPC**: VPC.
+     *
      * @example VPC
      *
      * @var string
@@ -204,6 +301,14 @@ class DBInstanceAttribute extends Model
     public $instanceNetworkType;
 
     /**
+     * @description The lock mode of the instance. Valid values:
+     *
+     *   **Unlock**: The instance is not locked.
+     *   **ManualLock**: The cluster is manually locked.
+     *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
+     *   **LockByRestoration**: The instance is automatically locked due to instance restoration.
+     *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage.
+     *
      * @example Unlock
      *
      * @var string
@@ -211,6 +316,8 @@ class DBInstanceAttribute extends Model
     public $lockMode;
 
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
      * @example null
      *
      * @var string
@@ -218,6 +325,8 @@ class DBInstanceAttribute extends Model
     public $lockReason;
 
     /**
+     * @description The end time of the maintenance window.
+     *
      * @example 22:00Z
      *
      * @var string
@@ -225,6 +334,8 @@ class DBInstanceAttribute extends Model
     public $maintainEndTime;
 
     /**
+     * @description The start time of the maintenance window.
+     *
      * @example 18:00Z
      *
      * @var string
@@ -232,6 +343,8 @@ class DBInstanceAttribute extends Model
     public $maintainStartTime;
 
     /**
+     * @description The number of coordinator nodes.
+     *
      * @example 1
      *
      * @var int
@@ -239,6 +352,9 @@ class DBInstanceAttribute extends Model
     public $masterNodeNum;
 
     /**
+     * @description The maximum number of concurrent connections to the instance.
+     *
+     * >  This parameter is available only for instances in reserved storage mode.
      * @example 500
      *
      * @var int
@@ -246,6 +362,9 @@ class DBInstanceAttribute extends Model
     public $maxConnections;
 
     /**
+     * @description The memory capacity per node. The unit can be one of the valid values of the **MemoryUnit** parameter.
+     *
+     * >  This parameter is available only for instances in reserved storage mode.
      * @example 0
      *
      * @var int
@@ -253,6 +372,9 @@ class DBInstanceAttribute extends Model
     public $memoryPerNode;
 
     /**
+     * @description The memory capacity per compute node.
+     *
+     * >  For instances in reserved storage mode, the unit of this parameter is MB. For instances in elastic storage mode and Serverless mode, the unit of this parameter is GB.
      * @example 16
      *
      * @var int
@@ -260,6 +382,9 @@ class DBInstanceAttribute extends Model
     public $memorySize;
 
     /**
+     * @description The unit of the memory capacity.
+     *
+     * >  This parameter is available only for instances in reserved storage mode.
      * @example GB
      *
      * @var string
@@ -267,6 +392,8 @@ class DBInstanceAttribute extends Model
     public $memoryUnit;
 
     /**
+     * @description The minor version of the instance.
+     *
      * @example 6.3.10.1-202207141918
      *
      * @var string
@@ -274,6 +401,11 @@ class DBInstanceAttribute extends Model
     public $minorVersion;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
+     *
      * @example Postpaid
      *
      * @var string
@@ -281,6 +413,8 @@ class DBInstanceAttribute extends Model
     public $payType;
 
     /**
+     * @description The port number that is used to connect to the instance.
+     *
      * @example 5432
      *
      * @var string
@@ -288,6 +422,8 @@ class DBInstanceAttribute extends Model
     public $port;
 
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
      * @example null
      *
      * @var string
@@ -295,6 +431,8 @@ class DBInstanceAttribute extends Model
     public $readDelayTime;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -302,6 +440,8 @@ class DBInstanceAttribute extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -309,6 +449,8 @@ class DBInstanceAttribute extends Model
     public $resourceGroupId;
 
     /**
+     * @description The running duration of the instance.
+     *
      * @example 4 days 22:58:55
      *
      * @var string
@@ -316,6 +458,8 @@ class DBInstanceAttribute extends Model
     public $runningTime;
 
     /**
+     * @description The IP address whitelist of the instance.
+     *
      * @example 127.0.0.1
      *
      * @var string
@@ -323,6 +467,18 @@ class DBInstanceAttribute extends Model
     public $securityIPList;
 
     /**
+     * @description The performance level of ESSDs. Only **PL1** is supported.
+     *
+     * @example PL1
+     *
+     * @var string
+     */
+    public $segDiskPerformanceLevel;
+
+    /**
+     * @description The number of compute nodes.
+     *
+     * >  This parameter is available only for instances in elastic storage mode or manual Serverless mode.
      * @example 4
      *
      * @var int
@@ -330,6 +486,9 @@ class DBInstanceAttribute extends Model
     public $segNodeNum;
 
     /**
+     * @description The number of compute groups.
+     *
+     * >  This parameter is available only for instances in reserved storage mode.
      * @example 0
      *
      * @var int
@@ -337,16 +496,31 @@ class DBInstanceAttribute extends Model
     public $segmentCounts;
 
     /**
+     * @description The type of the Serverless mode. Valid values:
+     *
+     *   **Manual**: manual scheduling.
+     *   **Auto**: automatic scheduling.
+     *
+     * >  This parameter is returned only for instances in Serverless mode.
+     * @example Auto
+     *
      * @var string
      */
     public $serverlessMode;
 
     /**
+     * @description The threshold of computing resources. Unit: AnalyticDB compute unit (ACU).
+     *
+     * >  This parameter is returned only for instances in automatic Serverless mode.
+     * @example 32
+     *
      * @var int
      */
     public $serverlessResource;
 
     /**
+     * @description The time when the instance started to run.
+     *
      * @example 2022-08-11T09:26:43Z
      *
      * @var string
@@ -354,6 +528,9 @@ class DBInstanceAttribute extends Model
     public $startTime;
 
     /**
+     * @description The storage capacity per node. The unit can be one of the valid values of the **StorageUnit** parameter.
+     *
+     * >  This parameter is available only for instances in reserved storage mode.
      * @example 0
      *
      * @var int
@@ -361,6 +538,8 @@ class DBInstanceAttribute extends Model
     public $storagePerNode;
 
     /**
+     * @description The storage capacity. Unit: GB.
+     *
      * @example 50
      *
      * @var int
@@ -368,6 +547,12 @@ class DBInstanceAttribute extends Model
     public $storageSize;
 
     /**
+     * @description The storage type of the instance. Valid values:
+     *
+     * - **cloud_essd**: enhanced SSD (ESSD).
+     * - **cloud_efficiency**: ultra disk.
+     *
+     * >  This parameter is available only for instances in elastic storage mode.
      * @example cloud_essd
      *
      * @var string
@@ -375,6 +560,13 @@ class DBInstanceAttribute extends Model
     public $storageType;
 
     /**
+     * @description The unit of the storage capacity. Valid values:
+     *
+     *   **GB SSD**
+     *   **TB SSD**
+     *   **GB HDD**
+     *
+     * >  This parameter is available only for instances in reserved storage mode or Serverless mode.
      * @example GB SSD
      *
      * @var string
@@ -382,6 +574,11 @@ class DBInstanceAttribute extends Model
     public $storageUnit;
 
     /**
+     * @description Indicates whether the instance supports backup and restoration.
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -389,12 +586,14 @@ class DBInstanceAttribute extends Model
     public $supportRestore;
 
     /**
+     * @description The tags of the instance. Each tag is a key-value pair.
+     *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description vSwitch ID。
+     * @description The vSwitch ID of the instance.
      *
      * @example vsw-bp1cpq8mr64paltkb****
      *
@@ -403,7 +602,19 @@ class DBInstanceAttribute extends Model
     public $vSwitchId;
 
     /**
-     * @description VPC ID。
+     * @description Indicates whether vector engine optimization is enabled. Valid values:
+     *
+     *   **enabled**
+     *   **disabled**
+     *
+     * @example enabled
+     *
+     * @var string
+     */
+    public $vectorConfigurationStatus;
+
+    /**
+     * @description The virtual private cloud (VPC) ID of the instance.
      *
      * @example vpc-bp19ame5m1r3oejns****
      *
@@ -412,71 +623,75 @@ class DBInstanceAttribute extends Model
     public $vpcId;
 
     /**
+     * @description The zone ID of the instance.
+     *
      * @example cn-hangzhou-j
      *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'availabilityValue'     => 'AvailabilityValue',
-        'connectionMode'        => 'ConnectionMode',
-        'connectionString'      => 'ConnectionString',
-        'coreVersion'           => 'CoreVersion',
-        'cpuCores'              => 'CpuCores',
-        'cpuCoresPerNode'       => 'CpuCoresPerNode',
-        'creationTime'          => 'CreationTime',
-        'DBInstanceCategory'    => 'DBInstanceCategory',
-        'DBInstanceClass'       => 'DBInstanceClass',
-        'DBInstanceClassType'   => 'DBInstanceClassType',
-        'DBInstanceCpuCores'    => 'DBInstanceCpuCores',
-        'DBInstanceDescription' => 'DBInstanceDescription',
-        'DBInstanceDiskMBPS'    => 'DBInstanceDiskMBPS',
-        'DBInstanceGroupCount'  => 'DBInstanceGroupCount',
-        'DBInstanceId'          => 'DBInstanceId',
-        'DBInstanceMemory'      => 'DBInstanceMemory',
-        'DBInstanceMode'        => 'DBInstanceMode',
-        'DBInstanceNetType'     => 'DBInstanceNetType',
-        'DBInstanceStatus'      => 'DBInstanceStatus',
-        'DBInstanceStorage'     => 'DBInstanceStorage',
-        'encryptionKey'         => 'EncryptionKey',
-        'encryptionType'        => 'EncryptionType',
-        'engine'                => 'Engine',
-        'engineVersion'         => 'EngineVersion',
-        'expireTime'            => 'ExpireTime',
-        'hostType'              => 'HostType',
-        'idleTime'              => 'IdleTime',
-        'instanceNetworkType'   => 'InstanceNetworkType',
-        'lockMode'              => 'LockMode',
-        'lockReason'            => 'LockReason',
-        'maintainEndTime'       => 'MaintainEndTime',
-        'maintainStartTime'     => 'MaintainStartTime',
-        'masterNodeNum'         => 'MasterNodeNum',
-        'maxConnections'        => 'MaxConnections',
-        'memoryPerNode'         => 'MemoryPerNode',
-        'memorySize'            => 'MemorySize',
-        'memoryUnit'            => 'MemoryUnit',
-        'minorVersion'          => 'MinorVersion',
-        'payType'               => 'PayType',
-        'port'                  => 'Port',
-        'readDelayTime'         => 'ReadDelayTime',
-        'regionId'              => 'RegionId',
-        'resourceGroupId'       => 'ResourceGroupId',
-        'runningTime'           => 'RunningTime',
-        'securityIPList'        => 'SecurityIPList',
-        'segNodeNum'            => 'SegNodeNum',
-        'segmentCounts'         => 'SegmentCounts',
-        'serverlessMode'        => 'ServerlessMode',
-        'serverlessResource'    => 'ServerlessResource',
-        'startTime'             => 'StartTime',
-        'storagePerNode'        => 'StoragePerNode',
-        'storageSize'           => 'StorageSize',
-        'storageType'           => 'StorageType',
-        'storageUnit'           => 'StorageUnit',
-        'supportRestore'        => 'SupportRestore',
-        'tags'                  => 'Tags',
-        'vSwitchId'             => 'VSwitchId',
-        'vpcId'                 => 'VpcId',
-        'zoneId'                => 'ZoneId',
+        'availabilityValue'         => 'AvailabilityValue',
+        'connectionMode'            => 'ConnectionMode',
+        'connectionString'          => 'ConnectionString',
+        'coreVersion'               => 'CoreVersion',
+        'cpuCores'                  => 'CpuCores',
+        'cpuCoresPerNode'           => 'CpuCoresPerNode',
+        'creationTime'              => 'CreationTime',
+        'DBInstanceCategory'        => 'DBInstanceCategory',
+        'DBInstanceClass'           => 'DBInstanceClass',
+        'DBInstanceClassType'       => 'DBInstanceClassType',
+        'DBInstanceCpuCores'        => 'DBInstanceCpuCores',
+        'DBInstanceDescription'     => 'DBInstanceDescription',
+        'DBInstanceDiskMBPS'        => 'DBInstanceDiskMBPS',
+        'DBInstanceGroupCount'      => 'DBInstanceGroupCount',
+        'DBInstanceId'              => 'DBInstanceId',
+        'DBInstanceMemory'          => 'DBInstanceMemory',
+        'DBInstanceMode'            => 'DBInstanceMode',
+        'DBInstanceNetType'         => 'DBInstanceNetType',
+        'DBInstanceStatus'          => 'DBInstanceStatus',
+        'DBInstanceStorage'         => 'DBInstanceStorage',
+        'encryptionKey'             => 'EncryptionKey',
+        'encryptionType'            => 'EncryptionType',
+        'engine'                    => 'Engine',
+        'engineVersion'             => 'EngineVersion',
+        'expireTime'                => 'ExpireTime',
+        'hostType'                  => 'HostType',
+        'idleTime'                  => 'IdleTime',
+        'instanceNetworkType'       => 'InstanceNetworkType',
+        'lockMode'                  => 'LockMode',
+        'lockReason'                => 'LockReason',
+        'maintainEndTime'           => 'MaintainEndTime',
+        'maintainStartTime'         => 'MaintainStartTime',
+        'masterNodeNum'             => 'MasterNodeNum',
+        'maxConnections'            => 'MaxConnections',
+        'memoryPerNode'             => 'MemoryPerNode',
+        'memorySize'                => 'MemorySize',
+        'memoryUnit'                => 'MemoryUnit',
+        'minorVersion'              => 'MinorVersion',
+        'payType'                   => 'PayType',
+        'port'                      => 'Port',
+        'readDelayTime'             => 'ReadDelayTime',
+        'regionId'                  => 'RegionId',
+        'resourceGroupId'           => 'ResourceGroupId',
+        'runningTime'               => 'RunningTime',
+        'securityIPList'            => 'SecurityIPList',
+        'segDiskPerformanceLevel'   => 'SegDiskPerformanceLevel',
+        'segNodeNum'                => 'SegNodeNum',
+        'segmentCounts'             => 'SegmentCounts',
+        'serverlessMode'            => 'ServerlessMode',
+        'serverlessResource'        => 'ServerlessResource',
+        'startTime'                 => 'StartTime',
+        'storagePerNode'            => 'StoragePerNode',
+        'storageSize'               => 'StorageSize',
+        'storageType'               => 'StorageType',
+        'storageUnit'               => 'StorageUnit',
+        'supportRestore'            => 'SupportRestore',
+        'tags'                      => 'Tags',
+        'vSwitchId'                 => 'VSwitchId',
+        'vectorConfigurationStatus' => 'VectorConfigurationStatus',
+        'vpcId'                     => 'VpcId',
+        'zoneId'                    => 'ZoneId',
     ];
 
     public function validate()
@@ -621,6 +836,9 @@ class DBInstanceAttribute extends Model
         if (null !== $this->securityIPList) {
             $res['SecurityIPList'] = $this->securityIPList;
         }
+        if (null !== $this->segDiskPerformanceLevel) {
+            $res['SegDiskPerformanceLevel'] = $this->segDiskPerformanceLevel;
+        }
         if (null !== $this->segNodeNum) {
             $res['SegNodeNum'] = $this->segNodeNum;
         }
@@ -656,6 +874,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vectorConfigurationStatus) {
+            $res['VectorConfigurationStatus'] = $this->vectorConfigurationStatus;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -810,6 +1031,9 @@ class DBInstanceAttribute extends Model
         if (isset($map['SecurityIPList'])) {
             $model->securityIPList = $map['SecurityIPList'];
         }
+        if (isset($map['SegDiskPerformanceLevel'])) {
+            $model->segDiskPerformanceLevel = $map['SegDiskPerformanceLevel'];
+        }
         if (isset($map['SegNodeNum'])) {
             $model->segNodeNum = $map['SegNodeNum'];
         }
@@ -845,6 +1069,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VectorConfigurationStatus'])) {
+            $model->vectorConfigurationStatus = $map['VectorConfigurationStatus'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

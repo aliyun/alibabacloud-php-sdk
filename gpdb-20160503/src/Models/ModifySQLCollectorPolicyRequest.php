@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifySQLCollectorPolicyRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-xxxxxxxx
      *
      * @var string
@@ -16,6 +18,11 @@ class ModifySQLCollectorPolicyRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description Specifies whether to enable or disable SQL collection.
+     *
+     *   Enable: enables SQL collection.
+     *   Disabled: disables SQL collection.
+     *
      * @example Enable
      *
      * @var string

@@ -10,13 +10,20 @@ use AlibabaCloud\Tea\Model;
 class supportedEngines extends Model
 {
     /**
-     * @example ECS
+     * @description The instance resource type. Valid values:
+     *
+     *   **ecs**: elastic storage mode
+     *   **serverless**: Serverless mode
+     *
+     * @example ecs
      *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The available engine version.
+     *
      * @example 6.0
      *
      * @var string
@@ -24,6 +31,8 @@ class supportedEngines extends Model
     public $supportedEngineVersion;
 
     /**
+     * @description The available specifications.
+     *
      * @var supportedInstanceClasses[]
      */
     public $supportedInstanceClasses;

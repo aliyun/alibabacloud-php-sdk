@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description The available engine version and specifications.
+     *
      * @var supportedEngines[]
      */
     public $supportedEngines;
 
     /**
+     * @description The ID of the zone.
+     *
      * @example cn-hangzhou-h
      *
      * @var string

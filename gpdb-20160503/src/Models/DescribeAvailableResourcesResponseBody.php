@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourcesResponseBody extends Model
 {
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -17,13 +19,17 @@ class DescribeAvailableResourcesResponseBody extends Model
     public $regionId;
 
     /**
-     * @example 7565770E-7C45-462D-BA4A-8A5396F2CAD1
+     * @description The ID of the request.
+     *
+     * @example 61DC563C-F8E4-593A-8D27-CE**********
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details of the available resources.
+     *
      * @var resources[]
      */
     public $resources;

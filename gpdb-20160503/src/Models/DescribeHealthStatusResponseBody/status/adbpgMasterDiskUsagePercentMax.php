@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class adbpgMasterDiskUsagePercentMax extends Model
 {
     /**
+     * @description The status corresponding to the maximum storage usage of the coordinator node. Valid values:
+     *
+     *   **critical**: The coordinator node storage usage is greater than or equal to 90%. In this case, the instance is locked.
+     *   **warning**: The coordinator node storage usage is greater than or equal to 70% and less than 90%.
+     *   **healthy**: The coordinator node storage usage is less than 70%.
+     *
      * @example healthy
      *
      * @var string
@@ -16,6 +22,9 @@ class adbpgMasterDiskUsagePercentMax extends Model
     public $status;
 
     /**
+     * @description The metric value of maximum coordinator node storage usage.
+     *
+     * Unit: %.
      * @example 1.34
      *
      * @var float

@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The coefficient of data bloat. It is calculated by using the following formula:
+     *
+     * Bloat coefficient = Number of dead rows/Number of active rows.
      * @example 1.03
      *
      * @var string
@@ -16,6 +19,8 @@ class items extends Model
     public $bloatCeoff;
 
     /**
+     * @description The bloat size of the table. It indicates the amount of space that can be released.
+     *
      * @example 0.2MB
      *
      * @var string
@@ -23,6 +28,8 @@ class items extends Model
     public $bloatSize;
 
     /**
+     * @description The name of the database.
+     *
      * @example adbtest
      *
      * @var string
@@ -30,6 +37,9 @@ class items extends Model
     public $databaseName;
 
     /**
+     * @description The expected size of the table.
+     *
+     * It indicates the size of the table that has no data bloat.
      * @example 1MB
      *
      * @var string
@@ -37,6 +47,8 @@ class items extends Model
     public $expectTableSize;
 
     /**
+     * @description The actual size of the table.
+     *
      * @example 1.2MB
      *
      * @var string
@@ -44,6 +56,8 @@ class items extends Model
     public $realTableSize;
 
     /**
+     * @description The name of the schema.
+     *
      * @example schema1
      *
      * @var string
@@ -51,6 +65,8 @@ class items extends Model
     public $schemaName;
 
     /**
+     * @description The sequence number.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +74,11 @@ class items extends Model
     public $sequence;
 
     /**
+     * @description The storage type of the table. Valid values:
+     *
+     *   **Heap**: heap table
+     *   **AO**: append-optimized (AO) table
+     *
      * @example Heap
      *
      * @var string
@@ -65,6 +86,8 @@ class items extends Model
     public $storageType;
 
     /**
+     * @description This parameter is not returned.
+     *
      * @example null
      *
      * @var string
@@ -72,6 +95,8 @@ class items extends Model
     public $suggestedAction;
 
     /**
+     * @description The name of the table.
+     *
      * @example tab1
      *
      * @var string
@@ -79,6 +104,8 @@ class items extends Model
     public $tableName;
 
     /**
+     * @description The time when the table was last deleted, inserted, or updated.
+     *
      * @example 2022-08-08T20:00:00Z
      *
      * @var string
@@ -86,6 +113,8 @@ class items extends Model
     public $timeLastUpdated;
 
     /**
+     * @description The time when the table was last vacuumed. The time is displayed in UTC.
+     *
      * @example 2022-08-08T16:00:00Z
      *
      * @var string

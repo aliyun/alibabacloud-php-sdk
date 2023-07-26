@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class values extends Model
 {
     /**
+     * @description The value of the performance metric and the time when the metric value was collected.
+     *
      * @var string[]
      */
     public $point;

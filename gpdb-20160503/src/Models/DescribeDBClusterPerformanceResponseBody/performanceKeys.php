@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class performanceKeys extends Model
 {
     /**
+     * @description The name of the performance metric. For more information, see [Performance parameters](~~86943~~).
+     *
      * @example adbpg_group_cpu_used_percent
      *
      * @var string
@@ -17,11 +19,15 @@ class performanceKeys extends Model
     public $name;
 
     /**
+     * @description Details of the performance metric of a node.
+     *
      * @var series[]
      */
     public $series;
 
     /**
+     * @description The unit of the performance metric.
+     *
      * @example %
      *
      * @var string

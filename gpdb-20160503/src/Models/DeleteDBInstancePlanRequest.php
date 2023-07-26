@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBInstancePlanRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -21,6 +24,9 @@ class DeleteDBInstancePlanRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the plan.
+     *
+     * >  You can call the [DescribeDBInstancePlans](~~449398~~) operation to query the details of plans, including plan IDs.
      * @example 1234
      *
      * @var string

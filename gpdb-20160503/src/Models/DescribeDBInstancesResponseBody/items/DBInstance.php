@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
+     * You can call the [DescribeDBInstanceAttribute](~~86910~~) operation to query the access mode of an instance.
      * @example null
      *
      * @var string
@@ -17,6 +20,8 @@ class DBInstance extends Model
     public $connectionMode;
 
     /**
+     * @description The time when the instance was created. The time is displayed in UTC.
+     *
      * @example 2021-10-09T04:54:08Z
      *
      * @var string
@@ -24,6 +29,12 @@ class DBInstance extends Model
     public $createTime;
 
     /**
+     * @description The edition of the instance. Valid values:
+     *
+     *   **Basic**: Basic Edition
+     *   **HighAvailability**: High-availability Edition
+     *   **Finance**: Enterprise Edition
+     *
      * @example HighAvailability
      *
      * @var string
@@ -31,20 +42,30 @@ class DBInstance extends Model
     public $DBInstanceCategory;
 
     /**
-     * @example gp-bp***************
+     * @description The description of the instance.
+     *
+     * @example gp-bp12ga6v69h86****
      *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
-     * @example gp-bp***************
+     * @description The ID of the instance.
+     *
+     * @example gp-bp12ga6v69h86****
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The resource type of the instance. Valid values:
+     *
+     *   **Serverless**: Serverless mode
+     *   **StorageElastic**: elastic storage mode
+     *   **Classic**: reserved storage mode
+     *
      * @example StorageElastic
      *
      * @var string
@@ -52,6 +73,12 @@ class DBInstance extends Model
     public $DBInstanceMode;
 
     /**
+     * @description The type of the network interface card (NIC) that is used by the instance. Valid values:
+     *
+     *   **0**: Internet
+     *   **1**: internal network
+     *   **2**: VPC
+     *
      * @example 2
      *
      * @var string
@@ -59,6 +86,8 @@ class DBInstance extends Model
     public $DBInstanceNetType;
 
     /**
+     * @description The state of the instance. For more information, see [Instance statuses](~~86944~~).
+     *
      * @example Running
      *
      * @var string
@@ -66,6 +95,8 @@ class DBInstance extends Model
     public $DBInstanceStatus;
 
     /**
+     * @description The database engine that the instance runs.
+     *
      * @example gpdb
      *
      * @var string
@@ -73,6 +104,8 @@ class DBInstance extends Model
     public $engine;
 
     /**
+     * @description The version of the database engine.
+     *
      * @example 6.0
      *
      * @var string
@@ -80,6 +113,9 @@ class DBInstance extends Model
     public $engineVersion;
 
     /**
+     * @description The expiration time of the instance. The time is displayed in UTC.
+     *
+     * >  For pay-as-you-go instances, `2999-09-08T16:00:00Z` is returned.
      * @example 2999-09-08T16:00:00Z
      *
      * @var string
@@ -87,6 +123,11 @@ class DBInstance extends Model
     public $expireTime;
 
     /**
+     * @description The resource type of the instance. Valid values:
+     *
+     *   **cluster**: elastic storage mode or Serverless mode
+     *   **replicaSet**: reserved storage mode
+     *
      * @example cluster
      *
      * @var string
@@ -94,6 +135,11 @@ class DBInstance extends Model
     public $instanceDeployType;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **Classic**
+     *   **VPC**
+     *
      * @example VPC
      *
      * @var string
@@ -101,6 +147,15 @@ class DBInstance extends Model
     public $instanceNetworkType;
 
     /**
+     * @description The lock mode of the instance. Valid values:
+     *
+     *   **Unlock**: The instance is not locked.
+     *   **ManualLock**: The instance is manually locked.
+     *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
+     *   **LockByRestoration**: The instance is automatically locked due to instance restoration.
+     *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage.
+     *   **LockReadInstanceByDiskQuota**: The instance is a read-only instance and is automatically locked due to exhausted storage.
+     *
      * @example Unlock
      *
      * @var string
@@ -108,6 +163,9 @@ class DBInstance extends Model
     public $lockMode;
 
     /**
+     * @description The reason why the cluster is locked.
+     *
+     * >  This parameter is returned only when the cluster is locked. The value is **instance_expire**.
      * @example 0
      *
      * @var string
@@ -115,6 +173,8 @@ class DBInstance extends Model
     public $lockReason;
 
     /**
+     * @description The number of coordinator nodes.
+     *
      * @example 1
      *
      * @var int
@@ -122,6 +182,11 @@ class DBInstance extends Model
     public $masterNodeNum;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go
+     *   **Prepaid**: subscription
+     *
      * @example Postpaid
      *
      * @var string
@@ -129,6 +194,8 @@ class DBInstance extends Model
     public $payType;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -136,6 +203,8 @@ class DBInstance extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -143,6 +212,8 @@ class DBInstance extends Model
     public $resourceGroupId;
 
     /**
+     * @description The number of compute nodes.
+     *
      * @example 4
      *
      * @var string
@@ -150,11 +221,21 @@ class DBInstance extends Model
     public $segNodeNum;
 
     /**
+     * @description The type of the Serverless mode. Valid values:
+     *
+     *   **Manual**: manual scheduling
+     *   **Auto**: automatic scheduling
+     *
+     * >  This parameter is returned only for instances in Serverless mode.
+     * @example Manual
+     *
      * @var string
      */
     public $serverlessMode;
 
     /**
+     * @description The storage capacity. Unit: GB.
+     *
      * @example 50
      *
      * @var string
@@ -162,6 +243,11 @@ class DBInstance extends Model
     public $storageSize;
 
     /**
+     * @description The storage type of the instance. Valid values:
+     *
+     *   **cloud_essd**: enhanced SSD (ESSD)
+     *   **cloud_efficiency**: ultra disk
+     *
      * @example cloud_essd
      *
      * @var string
@@ -169,29 +255,33 @@ class DBInstance extends Model
     public $storageType;
 
     /**
+     * @description The tags of the instance. Each tag is a key-value pair.
+     *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description vSwitch ID。
+     * @description The ID of the vSwitch.
      *
-     * @example vsw-bp*******************
+     * @example vsw-bp1cpq8mr64paltkb****
      *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description VPC ID。
+     * @description The ID of virtual private cloud (VPC).
      *
-     * @example vpc-bp*******************
+     * @example vpc-bp19ame5m1r3oejns****
      *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The zone ID of the instance.
+     *
      * @example cn-hangzhou-h
      *
      * @var string

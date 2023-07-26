@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceDiagnosisSummaryResponseBody extends Model
 {
     /**
+     * @description Details of instance nodes.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description State statistics of the coordinator node.
+     *
      * @var masterStatusInfo
      */
     public $masterStatusInfo;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeDBInstanceDiagnosisSummaryResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 070534EC-78D5-5519-83CC-E7B1A9213483
      *
      * @var string
@@ -36,11 +44,15 @@ class DescribeDBInstanceDiagnosisSummaryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description State statistics of compute nodes.
+     *
      * @var segmentStatusInfo
      */
     public $segmentStatusInfo;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 6
      *
      * @var string

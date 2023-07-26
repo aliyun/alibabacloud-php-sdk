@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataShareInstancesResponseBody extends Model
 {
     /**
+     * @description Details of the instances.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeDataShareInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeDataShareInstancesResponseBody extends Model
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D5**********
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeDataShareInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

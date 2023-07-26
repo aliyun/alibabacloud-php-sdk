@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The name of the table.
+     *
      * @example gp-xxxxxxxx
      *
      * @var string
@@ -17,6 +19,8 @@ class items extends Model
     public $name;
 
     /**
+     * @description Details of the audit logs.
+     *
      * @var series[]
      */
     public $series;

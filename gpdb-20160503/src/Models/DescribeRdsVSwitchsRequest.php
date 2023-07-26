@@ -19,6 +19,9 @@ class DescribeRdsVSwitchsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region.
+     *
+     * >  You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list and zone list.
      * @example cn-hangzhou
      *
      * @var string
@@ -26,6 +29,8 @@ class DescribeRdsVSwitchsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -48,6 +53,10 @@ class DescribeRdsVSwitchsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of virtual private cloud (VPC).
+     *
+     * > *   You can call the [DescribeRdsVpcs](~~208327~~) operation to query the available VPCs.
+     * > *   This parameter is required.
      * @example vpc-bp*******************
      *
      * @var string
@@ -55,6 +64,9 @@ class DescribeRdsVSwitchsRequest extends Model
     public $vpcId;
 
     /**
+     * @description The ID of the zone.
+     *
+     * >  You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list and zone list.
      * @example cn-hangzhou-h
      *
      * @var string

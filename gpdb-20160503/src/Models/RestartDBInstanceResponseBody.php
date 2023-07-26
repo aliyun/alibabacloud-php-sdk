@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RestartDBInstanceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example A7356493-7141-4393-8951-CDA8AB5D67EC
      *
      * @var string

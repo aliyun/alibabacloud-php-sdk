@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeModifyParameterLogResponseBody extends Model
 {
     /**
+     * @description Details about the parameter reconfiguration logs.
+     *
      * @var changelogs[]
      */
     public $changelogs;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7565770E-7C45-462D-BA4A-8A5396F2CAD1
      *
      * @var string

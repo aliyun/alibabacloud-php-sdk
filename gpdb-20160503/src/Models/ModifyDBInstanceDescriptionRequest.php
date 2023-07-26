@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceDescriptionRequest extends Model
 {
     /**
+     * @description The description of the instance.
+     *
+     * The description must be 2 to 256 characters in length. It cannot start with http:// or https://.
      * @example test
      *
      * @var string
@@ -16,6 +19,9 @@ class ModifyDBInstanceDescriptionRequest extends Model
     public $DBInstanceDescription;
 
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the instance IDs of all AnalyticDB for PostgreSQL instances in a specific region.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -23,6 +29,8 @@ class ModifyDBInstanceDescriptionRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs. For more information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string

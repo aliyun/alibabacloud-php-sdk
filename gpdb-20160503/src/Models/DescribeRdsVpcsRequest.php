@@ -19,6 +19,9 @@ class DescribeRdsVpcsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region.
+     *
+     * >  You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -26,6 +29,8 @@ class DescribeRdsVpcsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -48,6 +53,8 @@ class DescribeRdsVpcsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the zone.
+     *
      * @example cn-hangzhou-h
      *
      * @var string

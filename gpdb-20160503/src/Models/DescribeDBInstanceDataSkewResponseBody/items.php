@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The name of the database.
+     *
      * @example adbtest
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $databaseName;
 
     /**
+     * @description The distribution key of the table.
+     *
      * @example ItemId
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $distributeKey;
 
     /**
+     * @description The owner of the table.
+     *
      * @example adbpguser
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $owner;
 
     /**
+     * @description The name of the schema.
+     *
      * @example schema1
      *
      * @var string
@@ -37,6 +45,8 @@ class items extends Model
     public $schemaName;
 
     /**
+     * @description The sequence number of the data skew case. All data skew cases are sorted by severity in descending order.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class items extends Model
     public $sequence;
 
     /**
+     * @description The name of the table.
+     *
      * @example tab1
      *
      * @var string
@@ -51,6 +63,8 @@ class items extends Model
     public $tableName;
 
     /**
+     * @description The total number of rows in the table.
+     *
      * @example 100000
      *
      * @var string
@@ -58,6 +72,8 @@ class items extends Model
     public $tableSize;
 
     /**
+     * @description The skew ratio of the table. Valid values: 0 to 100. Unit: %. A greater value indicates that the table is more severely skewed. A smaller value indicates less impact on query performance. A value of 0 indicates no data skew.
+     *
      * @example 10.23
      *
      * @var string
@@ -65,6 +81,8 @@ class items extends Model
     public $tableSkew;
 
     /**
+     * @description The time when the table was last deleted, inserted, or updated.
+     *
      * @example 2020-09-08T20:00:00Z
      *
      * @var string

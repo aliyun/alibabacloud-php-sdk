@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataSharePerformanceResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDataSharePerformanceResponseBody extends Model
     public $DBClusterId;
 
     /**
+     * @description The end time of the query.
+     *
      * @example 2022-08-03T15:10Z
      *
      * @var string
@@ -24,11 +28,15 @@ class DescribeDataSharePerformanceResponseBody extends Model
     public $endTime;
 
     /**
+     * @description Details of data sharing performance metrics.
+     *
      * @var performanceKeys[]
      */
     public $performanceKeys;
 
     /**
+     * @description The ID of the request.
+     *
      * @example BBE00C04-A3E8-4114-881D-0480A72CB92E
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeDataSharePerformanceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The start time of the query.
+     *
      * @example 2022-08-03T15:00Z
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class changelogs extends Model
 {
     /**
+     * @description The time when the configuration change takes effect.
+     *
      * @example 2020-05-05T11:22:22Z
      *
      * @var string
@@ -16,6 +18,8 @@ class changelogs extends Model
     public $effectTime;
 
     /**
+     * @description The name of the parameter.
+     *
      * @example testkey
      *
      * @var string
@@ -23,6 +27,8 @@ class changelogs extends Model
     public $parameterName;
 
     /**
+     * @description Indicates whether the configuration change takes effect.
+     *
      * @example true
      *
      * @var string
@@ -30,6 +36,8 @@ class changelogs extends Model
     public $parameterValid;
 
     /**
+     * @description The original value of the parameter.
+     *
      * @example 100
      *
      * @var string
@@ -37,6 +45,8 @@ class changelogs extends Model
     public $parameterValueAfter;
 
     /**
+     * @description The new value of the parameter.
+     *
      * @example 200
      *
      * @var string

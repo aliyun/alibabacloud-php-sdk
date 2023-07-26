@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class vpc extends Model
 {
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
      * @example null
      *
      * @var string
@@ -17,6 +19,8 @@ class vpc extends Model
     public $aliUid;
 
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
      * @example null
      *
      * @var string
@@ -24,6 +28,8 @@ class vpc extends Model
     public $bid;
 
     /**
+     * @description The CIDR block of the VPC.
+     *
      * @example 10.**.**.0/8
      *
      * @var string
@@ -31,6 +37,8 @@ class vpc extends Model
     public $cidrBlock;
 
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
      * @example null
      *
      * @var string
@@ -38,6 +46,8 @@ class vpc extends Model
     public $gmtCreate;
 
     /**
+     * @description An invalid parameter. It is no longer returned when you call this operation.
+     *
      * @example null
      *
      * @var string
@@ -45,6 +55,11 @@ class vpc extends Model
     public $gmtModified;
 
     /**
+     * @description Indicates whether the VPC is the default VPC. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -52,6 +67,8 @@ class vpc extends Model
     public $isDefault;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -59,6 +76,8 @@ class vpc extends Model
     public $regionNo;
 
     /**
+     * @description The state of the VPC. If **Available** is returned, the VPC is available.
+     *
      * @example Available
      *
      * @var string
@@ -66,12 +85,14 @@ class vpc extends Model
     public $status;
 
     /**
+     * @description Details of the vSwitches.
+     *
      * @var vSwitchs[]
      */
     public $vSwitchs;
 
     /**
-     * @description VPC ID。
+     * @description The ID of VPC.
      *
      * @example vpc-bp*******************
      *
@@ -80,6 +101,8 @@ class vpc extends Model
     public $vpcId;
 
     /**
+     * @description The name of the VPC.
+     *
      * @example vpc-name
      *
      * @var string

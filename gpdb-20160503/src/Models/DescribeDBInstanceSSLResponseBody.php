@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceSSLResponseBody extends Model
 {
     /**
+     * @description The name of the SSL certificate.
+     *
      * @example *.gpdbmaster.xxx.rds.aliyuncs.com
      *
      * @var string
@@ -16,20 +18,26 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public $certCommonName;
 
     /**
-     * @example gp-xxxxx
+     * @description The ID of the instance.
+     *
+     * @example gp-bp12ga6v69h86****
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @example gp-xxxxx
+     * @description The name of the instance.
+     *
+     * @example gp-bp12ga6v69h86****
      *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description The ID of the request.
+     *
      * @example D5FF8636-37F6-4CE0-8002-F8734C62C686
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether SSL encryption is enabled.
+     *
      * @example true
      *
      * @var bool
@@ -44,7 +54,9 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public $SSLEnabled;
 
     /**
-     * @example 2020-08-05T09:05:53Z
+     * @description The expiration time of the SSL certificate.
+     *
+     * @example 2023-08-05T09:05:53Z
      *
      * @var string
      */

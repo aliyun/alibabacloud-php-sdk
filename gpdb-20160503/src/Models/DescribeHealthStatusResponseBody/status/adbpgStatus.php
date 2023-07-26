@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class adbpgStatus extends Model
 {
     /**
+     * @description The health status of the instance. Valid values:
+     *
+     *   **critical**: The coordinator node or a compute node is unavailable. In this case, this metric is marked in red in the console.
+     *   **healthy**: All nodes are available. In this case, this metric is marked in green in the console.
+     *
      * @example healthy
      *
      * @var string
@@ -16,6 +21,11 @@ class adbpgStatus extends Model
     public $status;
 
     /**
+     * @description The metric value of instance health status. Valid values:
+     *
+     *   **1**: healthy
+     *   **0**: critical
+     *
      * @example 1
      *
      * @var float

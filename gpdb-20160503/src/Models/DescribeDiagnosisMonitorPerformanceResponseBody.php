@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosisMonitorPerformanceResponseBody extends Model
 {
     /**
+     * @description Details of query execution.
+     *
      * @var performances[]
      */
     public $performances;
 
     /**
+     * @description The threshold for the number of queries.
+     *
      * @example 10000
      *
      * @var int
@@ -22,6 +26,11 @@ class DescribeDiagnosisMonitorPerformanceResponseBody extends Model
     public $performancesThreshold;
 
     /**
+     * @description Indicates whether the queries are truncated when the number of queries exceeds the threshold. Valid values:
+     *
+     *   **true**: The queries are truncated.
+     *   **false**: The queries are not truncated.
+     *
      * @example false
      *
      * @var bool
@@ -29,6 +38,8 @@ class DescribeDiagnosisMonitorPerformanceResponseBody extends Model
     public $performancesTruncated;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string

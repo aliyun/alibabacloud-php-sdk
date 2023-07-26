@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceNetInfoResponseBody extends Model
 {
     /**
+     * @description The connection information of the instance.
+     *
      * @var DBInstanceNetInfos
      */
     public $DBInstanceNetInfos;
 
     /**
+     * @description The network type of the instance.
+     *
+     *   **VPC**: a virtual private cloud (VPC)
+     *   **Classic**: classic network
+     *
      * @example Classic
      *
      * @var string
@@ -22,6 +29,8 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
     public $instanceNetworkType;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7565770E-7C45-462D-BA4A-8A5396F2CAD1
      *
      * @var string

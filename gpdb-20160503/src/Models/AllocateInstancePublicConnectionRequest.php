@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class AllocateInstancePublicConnectionRequest extends Model
 {
     /**
+     * @description The network type of the endpoint. Valid values:
+     *
+     *   **primary**: primary endpoint
+     *   **cluster**: instance endpoint. This value is supported only for an instance that contains multiple coordinator nodes.
+     *
+     * >  The default value is primary.
      * @example primary
      *
      * @var string
@@ -16,6 +22,9 @@ class AllocateInstancePublicConnectionRequest extends Model
     public $addressType;
 
     /**
+     * @description The prefix of the endpoint.
+     *
+     * Specify a prefix for the endpoint. Example: `gp-bp12ga6v69h86****`. In this example, the endpoint is `gp-bp12ga6v69h86****.gpdb.rds.aliyuncs.com`.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -23,6 +32,9 @@ class AllocateInstancePublicConnectionRequest extends Model
     public $connectionStringPrefix;
 
     /**
+     * @description The ID of the instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -35,6 +47,8 @@ class AllocateInstancePublicConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The port number. Example: 5432.
+     *
      * @example 5432
      *
      * @var string

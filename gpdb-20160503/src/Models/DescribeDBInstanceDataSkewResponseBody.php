@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceDataSkewResponseBody extends Model
 {
     /**
+     * @description Details about data skew.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeDBInstanceDataSkewResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeDBInstanceDataSkewResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 100
      *
      * @var int

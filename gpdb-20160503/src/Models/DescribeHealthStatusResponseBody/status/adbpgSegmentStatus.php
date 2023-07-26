@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class adbpgSegmentStatus extends Model
 {
     /**
+     * @description The availability status of compute nodes. Valid values:
+     *
+     *   **critical**: All the primary and secondary compute nodes are unavailable. In this case, this metric is marked in red in the console.
+     *   **warning**: Fifty percent or more than fifty percent of compute nodes are unavailable. In this case, this metric is marked in yellow in the console.
+     *   **healthy**: All compute nodes are available. In this case, this metric is marked in green in the console.
+     *
      * @example healthy
      *
      * @var string
@@ -16,6 +22,8 @@ class adbpgSegmentStatus extends Model
     public $status;
 
     /**
+     * @description The metric value of compute node availability status.
+     *
      * @example 1
      *
      * @var float

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The database account that executes the SQL statement.
+     *
      * @example testadmin
      *
      * @var string
@@ -16,6 +18,8 @@ class items extends Model
     public $accountName;
 
     /**
+     * @description The name of the database.
+     *
      * @example adbpgadmin
      *
      * @var string
@@ -23,6 +27,8 @@ class items extends Model
     public $DBName;
 
     /**
+     * @description The role of the database.
+     *
      * @example master
      *
      * @var string
@@ -30,6 +36,8 @@ class items extends Model
     public $DBRole;
 
     /**
+     * @description The execution duration of the query.
+     *
      * @example 2
      *
      * @var float
@@ -37,6 +45,11 @@ class items extends Model
     public $executeCost;
 
     /**
+     * @description The execution state of the query. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string
@@ -44,6 +57,8 @@ class items extends Model
     public $executeState;
 
     /**
+     * @description The type of the query language.
+     *
      * @example DQL
      *
      * @var string
@@ -51,6 +66,8 @@ class items extends Model
     public $operationClass;
 
     /**
+     * @description The time when the SQL statement was executed.
+     *
      * @example 2021-03-15T17:02:32Z
      *
      * @var string
@@ -58,6 +75,8 @@ class items extends Model
     public $operationExecuteTime;
 
     /**
+     * @description The type of the SQL statement.
+     *
      * @example SELECT
      *
      * @var string
@@ -65,6 +84,8 @@ class items extends Model
     public $operationType;
 
     /**
+     * @description The number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -72,6 +93,8 @@ class items extends Model
     public $returnRowCounts;
 
     /**
+     * @description The SQL statement.
+     *
      * @example select 1
      *
      * @var string
@@ -79,6 +102,8 @@ class items extends Model
     public $SQLText;
 
     /**
+     * @description The number of entries scanned.
+     *
      * @example 1
      *
      * @var int
@@ -86,6 +111,8 @@ class items extends Model
     public $scanRowCounts;
 
     /**
+     * @description The source IP address.
+     *
      * @example 100.**.**.90
      *
      * @var string
@@ -93,6 +120,8 @@ class items extends Model
     public $sourceIP;
 
     /**
+     * @description The number of the source port.
+     *
      * @example 50514
      *
      * @var int

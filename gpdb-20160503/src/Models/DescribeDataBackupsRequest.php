@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataBackupsRequest extends Model
 {
     /**
+     * @description The ID of the backup set. If you specify the BackupId parameter, the details of the backup set are returned.
+     *
      * @example 327329803
      *
      * @var string
@@ -16,6 +18,12 @@ class DescribeDataBackupsRequest extends Model
     public $backupId;
 
     /**
+     * @description The backup mode. Valid values:
+     *
+     *   Automated: automatic backup
+     *   Manual: manual backup
+     *
+     * If you do not specify this parameter, the records of the backup sets in all modes are returned.
      * @example Automated
      *
      * @var string
@@ -23,6 +31,12 @@ class DescribeDataBackupsRequest extends Model
     public $backupMode;
 
     /**
+     * @description The status of the backup set. Valid values:
+     *
+     *   Success: The backup is complete.
+     *   Failed: The backup task fails.
+     *
+     * If you do not specify this parameter, the records of the backup sets in all states are returned.
      * @example Success
      *
      * @var string
@@ -30,13 +44,21 @@ class DescribeDataBackupsRequest extends Model
     public $backupStatus;
 
     /**
-     * @example gp-xxxxx
+     * @description The ID of the instance.
+     *
+     * @example gp-bp***************
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The type of the backup. Valid values:
+     *
+     *   DATA: full backup
+     *   RESTOREPOI: point-in-time backup
+     *
+     * If you do not specify this parameter, the records of the full backup set are returned.
      * @example DATA
      *
      * @var string
@@ -44,6 +66,8 @@ class DescribeDataBackupsRequest extends Model
     public $dataType;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+     *
      * @example 2011-06-01T16:00Z
      *
      * @var string
@@ -51,6 +75,8 @@ class DescribeDataBackupsRequest extends Model
     public $endTime;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is larger than 0. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +84,13 @@ class DescribeDataBackupsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   30
+     *   50
+     *   100
+     *
+     * Default value: 30.
      * @example 30
      *
      * @var int
@@ -65,6 +98,8 @@ class DescribeDataBackupsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+     *
      * @example 2011-06-01T15:00Z
      *
      * @var string
