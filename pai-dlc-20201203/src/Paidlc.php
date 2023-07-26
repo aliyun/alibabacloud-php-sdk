@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodLogsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodLogsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTokenRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTokenResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetWebTerminalRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetWebTerminalResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\ListEcsSpecsRequest;
@@ -742,6 +744,58 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->getTensorboardWithOptions($TensorboardId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetTokenRequest $request
+     * @param string[]        $headers
+     * @param RuntimeOptions  $runtime
+     *
+     * @return GetTokenResponse
+     */
+    public function getTokenWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->expireTime)) {
+            $query['ExpireTime'] = $request->expireTime;
+        }
+        if (!Utils::isUnset($request->targetId)) {
+            $query['TargetId'] = $request->targetId;
+        }
+        if (!Utils::isUnset($request->targetType)) {
+            $query['TargetType'] = $request->targetType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetToken',
+            'version'     => '2020-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/tokens',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTokenRequest $request
+     *
+     * @return GetTokenResponse
+     */
+    public function getToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTokenWithOptions($request, $headers, $runtime);
     }
 
     /**
