@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class destination extends Model
 {
     /**
+     * @description The name of the service defined in the service registry.
+     *
      * @example reviews
      *
      * @var string
@@ -22,6 +24,8 @@ class destination extends Model
     public $port;
 
     /**
+     * @description The name of the service subset.
+     *
      * @example v1
      *
      * @var string

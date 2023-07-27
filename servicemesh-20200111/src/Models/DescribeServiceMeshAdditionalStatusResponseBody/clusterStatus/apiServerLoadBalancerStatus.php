@@ -9,11 +9,10 @@ use AlibabaCloud\Tea\Model;
 class apiServerLoadBalancerStatus extends Model
 {
     /**
-     * @description The check result of the number of SLB instances created for exposing Istio Pilot. Valid values:
+     * @description Indicates whether the SLB instance is locked. Valid values:
      *
-     *   `too_much`: An excessive number of SLB instances are created.
-     *   `num_exact`: A proper number of SLB instances are created.
-     *   `too_little`: The number of SLB instances falls short.
+     *   `true`
+     *   `false`
      *
      * @example false
      *
@@ -22,16 +21,41 @@ class apiServerLoadBalancerStatus extends Model
     public $locked;
 
     /**
-     * @description Indicates whether the SLB instance is reused. Valid values:
+     * @description The billing method of the SLB instance. Valid values:
      *
-     *   `true`: The SLB instance is reused.
-     *   `false`: The SLB instance is not reused.
+     *   `PrePay`: subscription
+     *   `PayOnDemand`: pay-as-you-go
      *
      * @example PrePay
      *
      * @var string
      */
     public $payType;
+
+    /**
+     * @description Indicates whether the SLB instance is reused. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $reused;
+
+    /**
+     * @description The check result of the number of the backend servers of the SLB instance created for exposing Istio Pilot. Valid values:
+     *
+     *   `too_much`: An excessive number of backend servers are created.
+     *   `num_exact`: A proper number of backend servers are created.
+     *   `too_little`: The number of backend servers falls short.
+     *
+     * @example num_exact
+     *
+     * @var string
+     */
+    public $SLBBackEndServerNumStatus;
 
     /**
      * @description The check result of the SLB instance. Valid values:
@@ -41,27 +65,6 @@ class apiServerLoadBalancerStatus extends Model
      *   `conflict`: Conflicts are detected.
      *   `failed`: The check fails.
      *   `time_out`: The check times out.
-     *
-     * @example false
-     *
-     * @var bool
-     */
-    public $reused;
-
-    /**
-     * @description The check results of the SLB instances created for exposing Istio Pilot.
-     *
-     * @example num_exact
-     *
-     * @var string
-     */
-    public $SLBBackEndServerNumStatus;
-
-    /**
-     * @description The billing method of the SLB instance. Valid values:
-     *
-     *   `PrePay`: subscription
-     *   `PayOnDemand`: pay-as-you-go
      *
      * @example exist
      *

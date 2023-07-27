@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshClustersResponseBody extends Model
 {
     /**
-     * @description The point in time when the cluster was last modified.
+     * @description The queried clusters.
      *
      * @var clusters[]
      */
@@ -24,7 +24,7 @@ class DescribeServiceMeshClustersResponseBody extends Model
     public $numberOfClusters;
 
     /**
-     * @description The point in time when the cluster was created.
+     * @description The request ID.
      *
      * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
      *

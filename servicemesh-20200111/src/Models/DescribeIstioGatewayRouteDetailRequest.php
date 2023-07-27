@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeIstioGatewayRouteDetailRequest extends Model
 {
     /**
-     * @description The fixed duration for request delay.
+     * @description The name of the ASM gateway.
      *
      * @example ingressgateway
      *
@@ -18,7 +18,7 @@ class DescribeIstioGatewayRouteDetailRequest extends Model
     public $istioGatewayName;
 
     /**
-     * @description The duration for request delay is expressed as 2 raised to the power of x. You must specify the value of x.
+     * @description The name of the routing rule.
      *
      * @example demo-route
      *
@@ -27,7 +27,7 @@ class DescribeIstioGatewayRouteDetailRequest extends Model
     public $routeName;
 
     /**
-     * @description The duration to delay a request.
+     * @description The ASM instance ID.
      *
      * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
      *

@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesResponseBody extends Model
 {
     /**
-     * @description Indicates whether the vSwitch is the default vSwitch. Valid values:
-     *
-     *   `true`: yes
-     *   `false`: no
+     * @description The maximum number of entries returned.
      *
      * @example 10
      *
@@ -22,10 +19,7 @@ class DescribeVSwitchesResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The status of the vSwitch. Valid values:
-     *
-     *   `Pending`: The vSwitch is being configured.
-     *   `Available`: The vSwitch is available for use.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
      *
      * @example “”
      *
@@ -34,7 +28,7 @@ class DescribeVSwitchesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The request ID.
      *
      * @example BD65C0AD-D3C6-48D3-8D93-38D2015C****
      *
@@ -43,7 +37,7 @@ class DescribeVSwitchesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the VPC in which the vSwitch is deployed.
+     * @description The total number of vSwitches that are deployed in the VPC in the region. This parameter is optional and is not returned by default.
      *
      * @example 10
      *
@@ -52,7 +46,7 @@ class DescribeVSwitchesResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The name of the vSwitch.
+     * @description The available vSwitches.
      *
      * @var vSwitches[]
      */

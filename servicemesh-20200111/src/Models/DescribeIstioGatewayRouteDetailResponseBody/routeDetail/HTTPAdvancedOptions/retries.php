@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class retries extends Model
 {
     /**
-     * @description The priority of the routing rule. The value of this parameter is an integer. A smaller value indicates a higher priority.
+     * @description The number of retries that are allowed for a request.
      *
      * @example 3
      *
@@ -19,9 +19,8 @@ class retries extends Model
     public $attempts;
 
     /**
-     * @description The status of the routing rule. Valid values:
+     * @description The timeout period for each retry.
      *
-     * - `2`: An error occurs during the creation or update of the routing rule.
      * @example 2s
      *
      * @var string
@@ -29,7 +28,7 @@ class retries extends Model
     public $perTryTimeout;
 
     /**
-     * @description The description of the routing rule.
+     * @description The condition for retries. Example: `connect-failure,refused-stream,503`.
      *
      * @example connect-failure,refused-stream,503
      *
@@ -38,6 +37,8 @@ class retries extends Model
     public $retryOn;
 
     /**
+     * @description Specifies whether to allow retries to other localities.
+     *
      * @var retryRemoteLocalities
      */
     public $retryRemoteLocalities;

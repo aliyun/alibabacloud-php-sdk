@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class percentage extends Model
 {
     /**
+     * @description The percentage of requests to which the delay fault is injected, which is expressed as a decimal.
+     *
      * @example 0.1
      *
      * @var float

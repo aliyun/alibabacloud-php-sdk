@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpgradeMeshEditionPartiallyRequest extends Model
 {
     /**
+     * @description Specifies whether to upgrade the ASM gateways for the ASM instance. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var bool
@@ -23,7 +28,16 @@ class UpgradeMeshEditionPartiallyRequest extends Model
     public $expectedVersion;
 
     /**
-     * @description The ID of the request.
+     * @description 执行升级检查。如果该值设置为true，则只会执行升级检查，并不会实际升级。
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $preCheck;
+
+    /**
+     * @description The ASM instance ID.
      *
      * @example ca04bc38979214bf2882be79d39b4****
      *
@@ -32,13 +46,20 @@ class UpgradeMeshEditionPartiallyRequest extends Model
     public $serviceMeshId;
 
     /**
+     * @description *   ``
+     *   ``
+     *
      * @example true
+     *
+     * @deprecated
      *
      * @var bool
      */
     public $switchToPro;
 
     /**
+     * @description Specifies the ASM gateways to be upgraded. Separate multiple ASM gateways with commas (,).
+     *
      * @example ingressgateway1,ingressgateway2
      *
      * @var string
@@ -47,6 +68,7 @@ class UpgradeMeshEditionPartiallyRequest extends Model
     protected $_name = [
         'ASMGatewayContinue'    => 'ASMGatewayContinue',
         'expectedVersion'       => 'ExpectedVersion',
+        'preCheck'              => 'PreCheck',
         'serviceMeshId'         => 'ServiceMeshId',
         'switchToPro'           => 'SwitchToPro',
         'upgradeGatewayRecords' => 'UpgradeGatewayRecords',
@@ -64,6 +86,9 @@ class UpgradeMeshEditionPartiallyRequest extends Model
         }
         if (null !== $this->expectedVersion) {
             $res['ExpectedVersion'] = $this->expectedVersion;
+        }
+        if (null !== $this->preCheck) {
+            $res['PreCheck'] = $this->preCheck;
         }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
@@ -91,6 +116,9 @@ class UpgradeMeshEditionPartiallyRequest extends Model
         }
         if (isset($map['ExpectedVersion'])) {
             $model->expectedVersion = $map['ExpectedVersion'];
+        }
+        if (isset($map['PreCheck'])) {
+            $model->preCheck = $map['PreCheck'];
         }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];

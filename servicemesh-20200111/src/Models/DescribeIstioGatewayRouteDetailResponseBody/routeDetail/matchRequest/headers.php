@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
-     * @description The percentage of requests that are mirrored to another destination except for the original destination, expressed as a decimal.
+     * @description The header value to be matched.
      *
      * @example v1
      *
@@ -18,7 +18,11 @@ class headers extends Model
     public $matchingContent;
 
     /**
-     * @description The percentage of requests that are mirrored to another destination except for the original destination.
+     * @description The matching mode for the header value. Valid values:
+     *
+     *   `exact`: exact match
+     *   `prefix`: match by prefix
+     *   `regex`: match by regular expression
      *
      * @example exact
      *
@@ -27,7 +31,7 @@ class headers extends Model
     public $matchingMode;
 
     /**
-     * @description The name of the service subset.
+     * @description The header key to be matched.
      *
      * @example x-request-id
      *

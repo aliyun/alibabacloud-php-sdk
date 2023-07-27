@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class fault extends Model
 {
     /**
+     * @description The configurations for aborting requests with specified error codes.
+     *
      * @var abort
      */
     public $abort;
 
     /**
+     * @description The duration to delay a request.
+     *
      * @var delay
      */
     public $delay;

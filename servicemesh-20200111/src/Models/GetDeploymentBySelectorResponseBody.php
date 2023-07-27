@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetDeploymentBySelectorResponseBody extends Model
 {
     /**
+     * @description The queried workloads.
+     *
      * @var int[][]
      */
     public $deploymentNameList;
 
     /**
+     * @description The end-of-data marker.
+     *
      * @example eyJ2IjoibWV0YS5rOHMuaW8vdjEiLCJydiI6NTgyMDUzMzk5MCwic3RhcnQiOiJwbXMtYWRhcHRlci1kZGxsXHUwMDA****
      *
      * @var string
@@ -21,6 +25,8 @@ class GetDeploymentBySelectorResponseBody extends Model
     public $mark;
 
     /**
+     * @description The request ID.
+     *
      * @example 946690C2-41D3-55A0-A501-E2FFAB5F****
      *
      * @var string

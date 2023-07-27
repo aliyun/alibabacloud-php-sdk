@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class retryRemoteLocalities extends Model
 {
     /**
+     * @description Specifies whether to allow retries to other localities. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
+     * Default value: `false`.
      * @example false
      *
      * @var bool

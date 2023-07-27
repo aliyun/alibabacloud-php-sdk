@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeNodesInstanceTypeRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the Alibaba Cloud Service Mesh (ASM) instance.
      *
      * @example cb8963379255149cb98c8686f274x****
      *

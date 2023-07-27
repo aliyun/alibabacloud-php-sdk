@@ -18,7 +18,7 @@ class DescribeIstioGatewayRoutesRequest extends Model
     public $istioGatewayName;
 
     /**
-     * @description The routing rules.
+     * @description The ASM instance ID.
      *
      * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
      *

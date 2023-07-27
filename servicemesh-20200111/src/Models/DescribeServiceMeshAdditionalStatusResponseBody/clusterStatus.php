@@ -12,28 +12,18 @@ use AlibabaCloud\Tea\Model;
 class clusterStatus extends Model
 {
     /**
+     * @description Indicates whether access logs exist. Valid values:
+     *
+     *   `exist`: Access logs exist.
+     *   `not_exist`: Access logs do not exist.
+     *   `failed`: The check fails.
+     *   `time_out`: The check times out.
+     *
      * @example exist
      *
      * @var string
      */
     public $accessLogProjectStatus;
-
-    /**
-     * @example exist
-     *
-     * @var string
-     */
-    public $apiServerEIPStatus;
-
-    /**
-     * @description Indicates whether the SLB instance is locked. Valid values:
-     *
-     *   `true`: The SLB instance is locked.
-     *   `false`: The SLB instance is not locked.
-     *
-     * @var apiServerLoadBalancerStatus
-     */
-    public $apiServerLoadBalancerStatus;
 
     /**
      * @description The check result of the EIP associated with the API server. Valid values:
@@ -49,6 +39,25 @@ class clusterStatus extends Model
      *
      * @var string
      */
+    public $apiServerEIPStatus;
+
+    /**
+     * @description The check results of the SLB instance created for exposing the API server.
+     *
+     * @var apiServerLoadBalancerStatus
+     */
+    public $apiServerLoadBalancerStatus;
+
+    /**
+     * @description Indicates whether audit logs exist. Valid values:
+     *
+     *   `exist`
+     *   `not exist`
+     *
+     * @example exist
+     *
+     * @var string
+     */
     public $auditProjectStatus;
 
     /**
@@ -57,6 +66,13 @@ class clusterStatus extends Model
     public $canaryPilotLoadBalancerStatus;
 
     /**
+     * @description Indicates whether control plane logs exist. Valid values:
+     *
+     *   `exist`: Control plane logs exist.
+     *   `not_exist`: Control plane logs do not exist.
+     *   `failed`: The check fails.
+     *   `time_out`: The check times out.
+     *
      * @example exist
      *
      * @var string
@@ -64,12 +80,7 @@ class clusterStatus extends Model
     public $controlPlaneProjectStatus;
 
     /**
-     * @description The check result of access logs. Valid values:
-     *
-     *   `exist`: Access logs exist.
-     *   `not_exist`: Access logs do not exist.
-     *   `failed`: The check fails.
-     *   `time_out`: The check times out.
+     * @description Indicates whether Logtail is installed in clusters on the data plane.
      *
      * @example {   "ca35eae22013e43758a0e26d04****":{     "accessLogDashboards":[       {         "title":"mesh-access-log_details_cn",         "url":"https://sls.console.aliyun.com/lognext/project/****\/dashboard/mesh-access-log_details_cn"       },       {         "title":"mesh-access-log_monitoring_center_cn",         "url":"https://sls.console.aliyun.com/lognext/project/****\/dashboard/mesh-access-log_monitoring_center_cn"       }     ],     "logtailStatus":"exist",     "clusterId":"ca35eae22013e43758a0e26d04****"   } }
      *
@@ -78,16 +89,25 @@ class clusterStatus extends Model
     public $logtailStatusRecord;
 
     /**
-     * @description Indicates whether the SLB instance is locked. Valid values:
-     *
-     *   `true`: The SLB instance is locked.
-     *   `false`: The SLB instance is not locked.
+     * @description The check results of the SLB instance created for exposing Istio Pilot.
      *
      * @var pilotLoadBalancerStatus
      */
     public $pilotLoadBalancerStatus;
 
     /**
+     * @var string
+     */
+    public $RAMApplicationStatus;
+
+    /**
+     * @description Indicates whether the security group is reused. Valid values:
+     *
+     *   `reused`: The security group is reused.
+     *   `not_reused`: The security group is not reused.
+     *   `failed`: The check fails.
+     *   `time_out`: The check times out.
+     *
      * @example reused
      *
      * @var string
@@ -102,6 +122,7 @@ class clusterStatus extends Model
         'controlPlaneProjectStatus'     => 'ControlPlaneProjectStatus',
         'logtailStatusRecord'           => 'LogtailStatusRecord',
         'pilotLoadBalancerStatus'       => 'PilotLoadBalancerStatus',
+        'RAMApplicationStatus'          => 'RAMApplicationStatus',
         'sgStatus'                      => 'SgStatus',
     ];
 
@@ -135,6 +156,9 @@ class clusterStatus extends Model
         }
         if (null !== $this->pilotLoadBalancerStatus) {
             $res['PilotLoadBalancerStatus'] = null !== $this->pilotLoadBalancerStatus ? $this->pilotLoadBalancerStatus->toMap() : null;
+        }
+        if (null !== $this->RAMApplicationStatus) {
+            $res['RAMApplicationStatus'] = $this->RAMApplicationStatus;
         }
         if (null !== $this->sgStatus) {
             $res['SgStatus'] = $this->sgStatus;
@@ -174,6 +198,9 @@ class clusterStatus extends Model
         }
         if (isset($map['PilotLoadBalancerStatus'])) {
             $model->pilotLoadBalancerStatus = pilotLoadBalancerStatus::fromMap($map['PilotLoadBalancerStatus']);
+        }
+        if (isset($map['RAMApplicationStatus'])) {
+            $model->RAMApplicationStatus = $map['RAMApplicationStatus'];
         }
         if (isset($map['SgStatus'])) {
             $model->sgStatus = $map['SgStatus'];

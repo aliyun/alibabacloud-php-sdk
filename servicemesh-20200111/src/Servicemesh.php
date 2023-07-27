@@ -63,8 +63,6 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGuestClusterPodsReques
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeGuestClusterPodsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeImportedServicesDetailRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeImportedServicesDetailResponse;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIngressGatewaysRequest;
-use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIngressGatewaysResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayDomainsRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayDomainsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeIstioGatewayRouteDetailRequest;
@@ -131,6 +129,7 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetVmMetaRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetVmMetaResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GrantUserPermissionsRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GrantUserPermissionsResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GrantUserPermissionsShrinkRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyApiServerEipResourceRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyApiServerEipResourceResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyServiceMeshNameRequest;
@@ -260,10 +259,14 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param AddVMIntoServiceMeshRequest $request
-     * @param RuntimeOptions              $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return AddVMIntoServiceMeshResponse
+     * @param AddVMIntoServiceMeshRequest $request AddVMIntoServiceMeshRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return AddVMIntoServiceMeshResponse AddVMIntoServiceMeshResponse
      */
     public function addVMIntoServiceMeshWithOptions($request, $runtime)
     {
@@ -294,9 +297,13 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param AddVMIntoServiceMeshRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return AddVMIntoServiceMeshResponse
+     * @param AddVMIntoServiceMeshRequest $request AddVMIntoServiceMeshRequest
+     *
+     * @return AddVMIntoServiceMeshResponse AddVMIntoServiceMeshResponse
      */
     public function addVMIntoServiceMesh($request)
     {
@@ -1813,46 +1820,6 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param DescribeIngressGatewaysRequest $request
-     * @param RuntimeOptions                 $runtime
-     *
-     * @return DescribeIngressGatewaysResponse
-     */
-    public function describeIngressGatewaysWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeIngressGateways',
-            'version'     => '2020-01-11',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeIngressGatewaysResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeIngressGatewaysRequest $request
-     *
-     * @return DescribeIngressGatewaysResponse
-     */
-    public function describeIngressGateways($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeIngressGatewaysWithOptions($request, $runtime);
-    }
-
-    /**
      * @param DescribeIstioGatewayDomainsRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -2491,10 +2458,14 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param DescribeServiceMeshVMsRequest $request
-     * @param RuntimeOptions                $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DescribeServiceMeshVMsResponse
+     * @param DescribeServiceMeshVMsRequest $request DescribeServiceMeshVMsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeServiceMeshVMsResponse DescribeServiceMeshVMsResponse
      */
     public function describeServiceMeshVMsWithOptions($request, $runtime)
     {
@@ -2522,9 +2493,13 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param DescribeServiceMeshVMsRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DescribeServiceMeshVMsResponse
+     * @param DescribeServiceMeshVMsRequest $request DescribeServiceMeshVMsRequest
+     *
+     * @return DescribeServiceMeshVMsResponse DescribeServiceMeshVMsResponse
      */
     public function describeServiceMeshVMs($request)
     {
@@ -2696,10 +2671,14 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param DescribeVMsInServiceMeshRequest $request
-     * @param RuntimeOptions                  $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DescribeVMsInServiceMeshResponse
+     * @param DescribeVMsInServiceMeshRequest $request DescribeVMsInServiceMeshRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeVMsInServiceMeshResponse DescribeVMsInServiceMeshResponse
      */
     public function describeVMsInServiceMeshWithOptions($request, $runtime)
     {
@@ -2727,9 +2706,13 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param DescribeVMsInServiceMeshRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DescribeVMsInServiceMeshResponse
+     * @param DescribeVMsInServiceMeshRequest $request DescribeVMsInServiceMeshRequest
+     *
+     * @return DescribeVMsInServiceMeshResponse DescribeVMsInServiceMeshResponse
      */
     public function describeVMsInServiceMesh($request)
     {
@@ -3252,10 +3235,14 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param GetVmAppMeshInfoRequest $request
-     * @param RuntimeOptions          $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetVmAppMeshInfoResponse
+     * @param GetVmAppMeshInfoRequest $request GetVmAppMeshInfoRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetVmAppMeshInfoResponse GetVmAppMeshInfoResponse
      */
     public function getVmAppMeshInfoWithOptions($request, $runtime)
     {
@@ -3280,9 +3267,13 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param GetVmAppMeshInfoRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetVmAppMeshInfoResponse
+     * @param GetVmAppMeshInfoRequest $request GetVmAppMeshInfoRequest
+     *
+     * @return GetVmAppMeshInfoResponse GetVmAppMeshInfoResponse
      */
     public function getVmAppMeshInfo($request)
     {
@@ -3292,10 +3283,14 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param GetVmMetaRequest $request
-     * @param RuntimeOptions   $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetVmMetaResponse
+     * @param GetVmMetaRequest $request GetVmMetaRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetVmMetaResponse GetVmMetaResponse
      */
     public function getVmMetaWithOptions($request, $runtime)
     {
@@ -3320,9 +3315,13 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param GetVmMetaRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetVmMetaResponse
+     * @param GetVmMetaRequest $request GetVmMetaRequest
+     *
+     * @return GetVmMetaResponse GetVmMetaResponse
      */
     public function getVmMeta($request)
     {
@@ -3332,20 +3331,28 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param GrantUserPermissionsRequest $request
+     * @param GrantUserPermissionsRequest $tmpReq
      * @param RuntimeOptions              $runtime
      *
      * @return GrantUserPermissionsResponse
      */
-    public function grantUserPermissionsWithOptions($request, $runtime)
+    public function grantUserPermissionsWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new GrantUserPermissionsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->subAccountUserIds)) {
+            $request->subAccountUserIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->subAccountUserIds, 'SubAccountUserIds', 'json');
+        }
         $body = [];
         if (!Utils::isUnset($request->permissions)) {
             $body['Permissions'] = $request->permissions;
         }
         if (!Utils::isUnset($request->subAccountUserId)) {
             $body['SubAccountUserId'] = $request->subAccountUserId;
+        }
+        if (!Utils::isUnset($request->subAccountUserIdsShrink)) {
+            $body['SubAccountUserIds'] = $request->subAccountUserIdsShrink;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -3572,10 +3579,14 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param RemoveVMFromServiceMeshRequest $request
-     * @param RuntimeOptions                 $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return RemoveVMFromServiceMeshResponse
+     * @param RemoveVMFromServiceMeshRequest $request RemoveVMFromServiceMeshRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return RemoveVMFromServiceMeshResponse RemoveVMFromServiceMeshResponse
      */
     public function removeVMFromServiceMeshWithOptions($request, $runtime)
     {
@@ -3606,9 +3617,13 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param RemoveVMFromServiceMeshRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return RemoveVMFromServiceMeshResponse
+     * @param RemoveVMFromServiceMeshRequest $request RemoveVMFromServiceMeshRequest
+     *
+     * @return RemoveVMFromServiceMeshResponse RemoveVMFromServiceMeshResponse
      */
     public function removeVMFromServiceMesh($request)
     {
@@ -3888,6 +3903,9 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->enableSidecarSetInjection)) {
             $body['EnableSidecarSetInjection'] = $request->enableSidecarSetInjection;
+        }
+        if (!Utils::isUnset($request->istioRev)) {
+            $body['IstioRev'] = $request->istioRev;
         }
         if (!Utils::isUnset($request->namespace_)) {
             $body['Namespace'] = $request->namespace_;
@@ -4187,6 +4205,9 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->kialiEnabled)) {
             $body['KialiEnabled'] = $request->kialiEnabled;
+        }
+        if (!Utils::isUnset($request->kialiServiceAnnotations)) {
+            $body['KialiServiceAnnotations'] = $request->kialiServiceAnnotations;
         }
         if (!Utils::isUnset($request->lifecycle)) {
             $body['Lifecycle'] = $request->lifecycle;
@@ -4645,6 +4666,9 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->expectedVersion)) {
             $body['ExpectedVersion'] = $request->expectedVersion;
         }
+        if (!Utils::isUnset($request->preCheck)) {
+            $body['PreCheck'] = $request->preCheck;
+        }
         if (!Utils::isUnset($request->serviceMeshId)) {
             $body['ServiceMeshId'] = $request->serviceMeshId;
         }
@@ -4694,6 +4718,9 @@ class Servicemesh extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->preCheck)) {
+            $query['PreCheck'] = $request->preCheck;
+        }
         if (!Utils::isUnset($request->serviceMeshId)) {
             $query['ServiceMeshId'] = $request->serviceMeshId;
         }

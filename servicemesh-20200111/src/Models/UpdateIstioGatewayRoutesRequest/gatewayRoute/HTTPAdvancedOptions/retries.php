@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class retries extends Model
 {
     /**
+     * @description The number of retries allowed for a request.
+     *
      * @example 3
      *
      * @var int
@@ -17,6 +19,8 @@ class retries extends Model
     public $attempts;
 
     /**
+     * @description The timeout period for each retry.
+     *
      * @example 2s
      *
      * @var string
@@ -24,6 +28,8 @@ class retries extends Model
     public $perTryTimeout;
 
     /**
+     * @description The condition for retries. Example: `connect-failure,refused-stream,503`.
+     *
      * @example connect-failure,refused-stream,503
      *
      * @var string
@@ -31,6 +37,8 @@ class retries extends Model
     public $retryOn;
 
     /**
+     * @description Specifies whether to allow retries to other localities.
+     *
      * @var retryRemoteLocalities
      */
     public $retryRemoteLocalities;

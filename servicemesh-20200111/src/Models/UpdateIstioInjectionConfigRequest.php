@@ -27,6 +27,11 @@ class UpdateIstioInjectionConfigRequest extends Model
     public $enableSidecarSetInjection;
 
     /**
+     * @var string
+     */
+    public $istioRev;
+
+    /**
      * @description The namespace for which you want to modify the sidecar injection setting.
      *
      * @example default
@@ -46,6 +51,7 @@ class UpdateIstioInjectionConfigRequest extends Model
     protected $_name = [
         'enableIstioInjection'      => 'EnableIstioInjection',
         'enableSidecarSetInjection' => 'EnableSidecarSetInjection',
+        'istioRev'                  => 'IstioRev',
         'namespace'                 => 'Namespace',
         'serviceMeshId'             => 'ServiceMeshId',
     ];
@@ -62,6 +68,9 @@ class UpdateIstioInjectionConfigRequest extends Model
         }
         if (null !== $this->enableSidecarSetInjection) {
             $res['EnableSidecarSetInjection'] = $this->enableSidecarSetInjection;
+        }
+        if (null !== $this->istioRev) {
+            $res['IstioRev'] = $this->istioRev;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -86,6 +95,9 @@ class UpdateIstioInjectionConfigRequest extends Model
         }
         if (isset($map['EnableSidecarSetInjection'])) {
             $model->enableSidecarSetInjection = $map['EnableSidecarSetInjection'];
+        }
+        if (isset($map['IstioRev'])) {
+            $model->istioRev = $map['IstioRev'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

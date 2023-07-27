@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mirrorPercentage extends Model
 {
     /**
+     * @description The percentage of requests that are mirrored to another destination except for the original destination, which is expressed as a decimal.
+     *
      * @example 0.2
      *
      * @var float

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshClustersRequest extends Model
 {
     /**
+     * @description The maximum number of clusters in a cluster list.
+     *
      * @example 30
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeServiceMeshClustersRequest extends Model
     public $limit;
 
     /**
+     * @description The position where the query starts.
+     *
      * @example 20
      *
      * @var int
@@ -23,7 +27,7 @@ class DescribeServiceMeshClustersRequest extends Model
     public $offset;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The ID of the ASM instance.
      *
      * @example cb8963379255149cb98c8686f274x****
      *

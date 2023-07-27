@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateSwimLaneGroupRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The name of the lane group.
      *
      * @example test
      *
@@ -18,6 +18,8 @@ class CreateSwimLaneGroupRequest extends Model
     public $groupName;
 
     /**
+     * @description The name of the ingress gateway.
+     *
      * @example ingressgateway
      *
      * @var string
@@ -25,6 +27,8 @@ class CreateSwimLaneGroupRequest extends Model
     public $ingressGatewayName;
 
     /**
+     * @description The type of the gateway for ingress traffic. Only ASM ingress gateways are supported.
+     *
      * @example ASM
      *
      * @var string
@@ -32,7 +36,7 @@ class CreateSwimLaneGroupRequest extends Model
     public $ingressType;
 
     /**
-     * @description The type of the ingress. Only ingress gateways are supported. Set the value to ASM.
+     * @description The ID of the Alibaba Cloud Service Mesh (ASM) instance.
      *
      * @example xxx
      *
@@ -41,7 +45,7 @@ class CreateSwimLaneGroupRequest extends Model
     public $serviceMeshId;
 
     /**
-     * @description The name of the ingress gateway.
+     * @description A list of services associated with the lane group. The value is a JSON array. The format of a service is `$Cluster name/$Cluster ID/$Namespace/$Service name`.
      *
      * @example [\"sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mocka\",\"sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mockb\",\"sh01/c089443ea9e50403fa4f0a6237d11e0a9/default/mockc\"]
      *

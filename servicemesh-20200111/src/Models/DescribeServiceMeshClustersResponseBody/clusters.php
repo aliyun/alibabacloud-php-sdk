@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class clusters extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The domain name of the cluster.
      *
      * @example c.com
      *
@@ -18,6 +18,8 @@ class clusters extends Model
     public $clusterDomain;
 
     /**
+     * @description The cluster ID.
+     *
      * @example c80f45444b3da447da60a911390c2****
      *
      * @var string
@@ -25,6 +27,8 @@ class clusters extends Model
     public $clusterId;
 
     /**
+     * @description The cluster type.
+     *
      * @example Ask
      *
      * @var string
@@ -32,7 +36,7 @@ class clusters extends Model
     public $clusterType;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The time when the cluster was created.
      *
      * @example 2020-05-12T15:38:16+08:00
      *
@@ -41,7 +45,7 @@ class clusters extends Model
     public $creationTime;
 
     /**
-     * @description The domain name of the cluster.
+     * @description The error message about the cluster.
      *
      * @example fail
      *
@@ -50,6 +54,14 @@ class clusters extends Model
     public $errorMessage;
 
     /**
+     * @description Indicates that the cluster is available or the reason why the cluster cannot be added to the ASM instance. Valid values:
+     *
+     *   `0`: The cluster can be added to the ASM instance.
+     *   `1`: The cluster cannot be added to the ASM instance because you do not have administrator permissions on the cluster.
+     *   `2`: The cluster cannot be added to the ASM instance because the cluster and the ASM instance reside in different VPCs between which no private connections are built.
+     *   `3`: The CIDR block of the cluster conflicts with that of the ASM instance.
+     *   `4`: The cluster has a namespace that is named istio system.
+     *
      * @example 0
      *
      * @var int
@@ -64,6 +76,8 @@ class clusters extends Model
     public $forbiddenInfo;
 
     /**
+     * @description The name of the cluster.
+     *
      * @example ask1
      *
      * @var string
@@ -71,7 +85,7 @@ class clusters extends Model
     public $name;
 
     /**
-     * @description The name of the cluster.
+     * @description The ID of the region in which the cluster resides.
      *
      * @example cn-hangzhou
      *
@@ -80,7 +94,7 @@ class clusters extends Model
     public $regionId;
 
     /**
-     * @description The type of the cluster.
+     * @description The ID of the ASM instance.
      *
      * @example cb8963379255149cb98c8686f274x****
      *
@@ -89,7 +103,7 @@ class clusters extends Model
     public $serviceMeshId;
 
     /**
-     * @description The error message about the cluster.
+     * @description The ID of the security group.
      *
      * @example sg-bp197668l6iupljy****
      *
@@ -98,7 +112,13 @@ class clusters extends Model
     public $sgId;
 
     /**
-     * @description The version number of the cluster.
+     * @description The state of the cluster. Valid values:
+     *
+     *   `running`: The cluster is running.
+     *   `starting`: The cluster is starting.
+     *   `stopping`: The cluster is being stopped.
+     *   `stopped`: The cluster is stopped.
+     *   `failed`: The cluster fails to be run.
      *
      * @example running
      *
@@ -107,7 +127,7 @@ class clusters extends Model
     public $state;
 
     /**
-     * @description The ID of the region in which the cluster resides.
+     * @description The time when the cluster was last modified.
      *
      * @example 2020-05-12T15:38:16+08:00
      *
@@ -116,13 +136,7 @@ class clusters extends Model
     public $updateTime;
 
     /**
-     * @description Indicates that the cluster is available or the reason why the cluster cannot be added to the ASM instance. Valid values:
-     *
-     *   `0`: The cluster can be added to the ASM instance.
-     *   `1`: The cluster cannot be added to the ASM instance because you do not have administrator permissions on the cluster.
-     *   `2`: The cluster cannot be added to the ASM instance because the cluster and the ASM instance reside in different VPCs between which no private connections are built.
-     *   `3`: The CIDR block of the cluster conflicts with that of the ASM instance.
-     *   `4`: The cluster has a namespace that is named istio system.
+     * @description The version number of the cluster.
      *
      * @example v1.16.6-aliyun.1
      *
@@ -131,13 +145,7 @@ class clusters extends Model
     public $version;
 
     /**
-     * @description The status of the cluster. Valid values:
-     *
-     *   `running`: The cluster is running.
-     *   `starting`: The cluster is starting.
-     *   `stopping`: The cluster is being stopped.
-     *   `stopped`: The cluster is stopped.
-     *   `failed`: The cluster fails to be run.
+     * @description The ID of the virtual private cloud (VPC).
      *
      * @example vpc-8vbrwmt95b4zf6wf7****
      *

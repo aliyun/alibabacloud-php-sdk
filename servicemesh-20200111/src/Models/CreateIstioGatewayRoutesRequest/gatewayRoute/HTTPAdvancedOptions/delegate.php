@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class delegate extends Model
 {
     /**
+     * @description The name of the virtual service.
+     *
      * @example reviews
      *
      * @var string
@@ -16,6 +18,8 @@ class delegate extends Model
     public $name;
 
     /**
+     * @description The namespace to which the virtual service belongs.
+     *
      * @example default
      *
      * @var string

@@ -12,21 +12,29 @@ use AlibabaCloud\Tea\Model;
 class matchRequest extends Model
 {
     /**
+     * @description The request headers to be matched.
+     *
      * @var headers[]
      */
     public $headers;
 
     /**
+     * @description The ports.
+     *
      * @var int[]
      */
     public $ports;
 
     /**
+     * @description The matching rule for Transport Layer Security (TLS) traffic.
+     *
      * @var TLSMatchAttributes[]
      */
     public $TLSMatchAttributes;
 
     /**
+     * @description The matching rule for URIs.
+     *
      * @var URI
      */
     public $URI;

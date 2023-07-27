@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DeleteServiceMeshRequest extends Model
 {
     /**
-     * @description A JSON string that can be parsed into a string array. You can use this JSON string to specify the IDs of the resource instances that need to be retained when the ASM instance is deleted.
+     * @description Specifies whether to forcibly delete the ASM instance. Valid values:
      *
+     *   `true`: forcibly deletes the ASM instance.
+     *   `false`: does not forcibly delete the ASM instance.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -18,7 +22,7 @@ class DeleteServiceMeshRequest extends Model
     public $force;
 
     /**
-     * @description The ID of the request.
+     * @description A JSON string that can be parsed into a string array. You can use this JSON string to specify the IDs of the resource instances that need to be retained when the ASM instance is deleted.
      *
      * @example [" lb-bp1fxvl3q8akbj6m*****", "lb-bp1hoxkolggdw0y3*****"]
      *
@@ -27,12 +31,8 @@ class DeleteServiceMeshRequest extends Model
     public $retainResources;
 
     /**
-     * @description Specifies whether to forcibly delete the ASM instance. Valid values:
+     * @description The ID of the ASM instance.
      *
-     *   `true`: forcibly deletes the ASM instance.
-     *   `false`: does not forcibly delete the ASM instance.
-     *
-     * Default value: false.
      * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
      *
      * @var string

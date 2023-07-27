@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class HTTPRedirect extends Model
 {
     /**
-     * @description The request headers to be matched.
+     * @description The value to be used to overwrite the value of the Authority or Host header during redirection.
      *
      * @example newratings.default.svc.cluster.local
      *
@@ -18,7 +18,7 @@ class HTTPRedirect extends Model
     public $authority;
 
     /**
-     * @description The request header to be matched.
+     * @description The HTTP status code to be used to indicate URL redirection. Default value: 301.
      *
      * @example 301
      *
@@ -27,7 +27,7 @@ class HTTPRedirect extends Model
     public $redirectCode;
 
     /**
-     * @description The traffic weight. Valid values: 1 to 100.
+     * @description The value to be used to overwrite the URL path during redirection.
      *
      * @example /v1/getProductRatings
      *

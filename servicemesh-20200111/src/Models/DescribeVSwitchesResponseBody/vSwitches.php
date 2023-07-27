@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class vSwitches extends Model
 {
     /**
+     * @description Indicates whether the vSwitch is the default vSwitch. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example false
      *
      * @var bool
@@ -16,6 +21,11 @@ class vSwitches extends Model
     public $isDefault;
 
     /**
+     * @description The state of the vSwitch. Valid values:
+     *
+     *   `Pending`: The vSwitch is being configured.
+     *   `Available`: The vSwitch is available.
+     *
      * @example Available
      *
      * @var string
@@ -23,6 +33,8 @@ class vSwitches extends Model
     public $status;
 
     /**
+     * @description The vSwitch ID.
+     *
      * @example vsw-bp1g24p9no0iqir46****
      *
      * @var string
@@ -30,6 +42,8 @@ class vSwitches extends Model
     public $vSwitchId;
 
     /**
+     * @description The name of the vSwitch.
+     *
      * @example vsw-test
      *
      * @var string
@@ -37,6 +51,8 @@ class vSwitches extends Model
     public $vSwitchName;
 
     /**
+     * @description The ID of the VPC to which the vSwitch belongs.
+     *
      * @example vpc-bp17gig441u0msmd6****
      *
      * @var string
@@ -44,6 +60,8 @@ class vSwitches extends Model
     public $vpcId;
 
     /**
+     * @description 交换机所属的可用区。
+     *
      * @example cn-hangzhou-k
      *
      * @var string

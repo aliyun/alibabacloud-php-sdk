@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateIstioGatewayRoutesShrinkRequest extends Model
 {
     /**
+     * @description The description of the routing rule.
+     *
      * @example demo route
      *
      * @var string
@@ -16,11 +18,15 @@ class CreateIstioGatewayRoutesShrinkRequest extends Model
     public $description;
 
     /**
+     * @description The information about the routing rule to be created for the ASM gateway.
+     *
      * @var string
      */
     public $gatewayRouteShrink;
 
     /**
+     * @description The name of the ASM gateway.
+     *
      * @example ingressgateway
      *
      * @var string
@@ -28,6 +34,8 @@ class CreateIstioGatewayRoutesShrinkRequest extends Model
     public $istioGatewayName;
 
     /**
+     * @description The priority of the routing rule. The value of this parameter is an integer. A smaller value indicates a higher priority.
+     *
      * @example 1
      *
      * @var int
@@ -35,6 +43,8 @@ class CreateIstioGatewayRoutesShrinkRequest extends Model
     public $priority;
 
     /**
+     * @description The ASM instance ID.
+     *
      * @example c08ba3fd1e6484b0f8cc1ad8fe10d****
      *
      * @var string
@@ -42,6 +52,12 @@ class CreateIstioGatewayRoutesShrinkRequest extends Model
     public $serviceMeshId;
 
     /**
+     * @description The status of the routing rule. Valid values:
+     *
+     *   `0`: The routing rule is valid.
+     *   `1`: The routing rule is invalid.
+     *   `2`: An error occurs during the creation or update of the routing rule.
+     *
      * @example 1
      *
      * @var int

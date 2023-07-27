@@ -34,6 +34,11 @@ class gatewaySecretDetails extends Model
     public $domains;
 
     /**
+     * @var string
+     */
+    public $gatewayCRName;
+
+    /**
      * @description The namespace in which the ASM gateway resides.
      *
      * @example default
@@ -63,6 +68,7 @@ class gatewaySecretDetails extends Model
         'credentialName' => 'CredentialName',
         'detail'         => 'Detail',
         'domains'        => 'Domains',
+        'gatewayCRName'  => 'GatewayCRName',
         'namespace'      => 'Namespace',
         'portName'       => 'PortName',
         'protocol'       => 'Protocol',
@@ -83,6 +89,9 @@ class gatewaySecretDetails extends Model
         }
         if (null !== $this->domains) {
             $res['Domains'] = $this->domains;
+        }
+        if (null !== $this->gatewayCRName) {
+            $res['GatewayCRName'] = $this->gatewayCRName;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -115,6 +124,9 @@ class gatewaySecretDetails extends Model
             if (!empty($map['Domains'])) {
                 $model->domains = $map['Domains'];
             }
+        }
+        if (isset($map['GatewayCRName'])) {
+            $model->gatewayCRName = $map['GatewayCRName'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

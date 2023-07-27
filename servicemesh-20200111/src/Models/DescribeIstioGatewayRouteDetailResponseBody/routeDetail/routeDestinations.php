@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class routeDestinations extends Model
 {
     /**
+     * @description The unique endpoint of the destination service to which the specified requests are sent.
+     *
      * @var destination
      */
     public $destination;
 
     /**
+     * @description The request headers to be matched.
+     *
      * @var headers
      */
     public $headers;
 
     /**
+     * @description The traffic weight. Valid values: 1 to 100.
+     *
      * @example 80
      *
      * @var int

@@ -17,7 +17,7 @@ use AlibabaCloud\Tea\Model;
 class configPatches extends Model
 {
     /**
-     * @description The number of worker threads running in the sidecar proxy.
+     * @description The number of worker threads to run in the istio-proxy container.
      *
      * @example 2
      *
@@ -26,7 +26,7 @@ class configPatches extends Model
     public $concurrency;
 
     /**
-     * @description The port that the inbound traffic of the sidecar proxy does not pass through.
+     * @description The inbound ports to be excluded from redirection to the sidecar proxy in the ASM instance.
      *
      * @example 82
      *
@@ -35,7 +35,7 @@ class configPatches extends Model
     public $excludeInboundPorts;
 
     /**
-     * @description The IP address from which the outbound traffic does not pass through the sidecar proxy.
+     * @description The outbound IP ranges in CIDR form to be excluded from redirection to the sidecar proxy in the ASM instance.
      *
      * @example 192.168.1.3/31
      *
@@ -44,7 +44,7 @@ class configPatches extends Model
     public $excludeOutboundIPRanges;
 
     /**
-     * @description The port that the outbound traffic of the sidecar proxy does not pass through.
+     * @description The outbound ports to be excluded from redirection to the sidecar proxy in the ASM instance.
      *
      * @example 81
      *
@@ -53,10 +53,10 @@ class configPatches extends Model
     public $excludeOutboundPorts;
 
     /**
-     * @description Indicates whether applications can be started only after Istio Proxy starts. Valid values:
+     * @description Indicates whether applications can be started only after the istio-proxy container starts. Valid values:
      *
-     *   `true`: Applications can be started only after Istio Proxy starts.
-     *   false: Applications can be started before Istio Proxy starts.
+     *   `true`
+     *   false
      *
      * @example true
      *
@@ -65,7 +65,7 @@ class configPatches extends Model
     public $holdApplicationUntilProxyStarts;
 
     /**
-     * @description The port that the inbound traffic of the sidecar proxy passes through.
+     * @description The inbound ports for which traffic is to be redirected to the sidecar proxy in the ASM instance.
      *
      * @example 83
      *
@@ -74,7 +74,7 @@ class configPatches extends Model
     public $includeInboundPorts;
 
     /**
-     * @description The IP address from which the outbound traffic passes through the sidecar proxy.
+     * @description The outbound IP ranges in CIDR form for which traffic is to be redirected to the sidecar proxy in the ASM instance.
      *
      * @example 192.168.1.4/31
      *
@@ -83,7 +83,7 @@ class configPatches extends Model
     public $includeOutboundIPRanges;
 
     /**
-     * @description The port that the outbound traffic of the sidecar proxy passes through.
+     * @description The outbound ports for which traffic is to be redirected to the sidecar proxy in the ASM instance.
      *
      * @example 84
      *
@@ -94,8 +94,8 @@ class configPatches extends Model
     /**
      * @description The mode in which the sidecar proxy intercepts inbound traffic. Valid values:
      *
-     *   `REDIRECT`: The sidecar proxy intercepts inbound traffic in the REDIRECT mode.
-     *   `TPROXY`: The sidecar proxy intercepts inbound traffic in the TPROXY mode.
+     *   `REDIRECT` (default): In this mode, source IP addresses are lost during traffic redirection to the sidecar proxy.
+     *   `TPROXY`: In this mode, both the source and destination IP addresses and ports are preserved.
      *
      * @var string
      */
@@ -104,8 +104,8 @@ class configPatches extends Model
     /**
      * @description Indicates whether the Domain Name System (DNS) proxy feature is enabled. Valid values:
      *
-     *   `true`: The DNS proxy feature is enabled.
-     *   `false`: The DNS proxy feature is disabled.
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -137,7 +137,7 @@ class configPatches extends Model
     public $proxyMetadata;
 
     /**
-     * @description The monitoring metrics for data collected by Envoy proxies.
+     * @description The custom Envoy statistics that are reported by the sidecar proxy.
      *
      * @var proxyStatsMatcher
      */
@@ -154,14 +154,14 @@ class configPatches extends Model
     public $sidecarProxyInitAckSloResource;
 
     /**
-     * @description The maximum size of resources that are available to the sidecar proxy init container.
+     * @description The maximum size of resources that are available to the istio-init container in the pod into which the sidecar proxy is injected. The istio-init container is used in this topic.
      *
      * @var sidecarProxyInitResourceLimit
      */
     public $sidecarProxyInitResourceLimit;
 
     /**
-     * @description The minimum size of resources that are requested by the sidecar proxy init container.
+     * @description The minimum size of resources that are required by the istio-init container.
      *
      * @var sidecarProxyInitResourceRequest
      */
@@ -175,14 +175,14 @@ class configPatches extends Model
     public $sidecarProxyResourceLimit;
 
     /**
-     * @description The minimum size of resources that are requested by the sidecar proxy container.
+     * @description The minimum size of resources that are required by the sidecar proxy container.
      *
      * @var sidecarProxyResourceRequest
      */
     public $sidecarProxyResourceRequest;
 
     /**
-     * @description The maximum period of time that the sidecar proxy waits for a request to end.
+     * @description The maximum period of time allowed for connections to complete on sidecar proxy shutdown.
      *
      * @example 6s
      *

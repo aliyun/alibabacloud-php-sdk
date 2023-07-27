@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GrantUserPermissionsRequest extends Model
+class GrantUserPermissionsShrinkRequest extends Model
 {
     /**
      * @description The permissions that are granted to an entity. The content is a string that consists of JSON arrays. You must specify all permissions that you want to grant to an entity. You can add or remove permissions by modifying the content. Field definition of the sample code:
@@ -34,13 +34,13 @@ class GrantUserPermissionsRequest extends Model
     /**
      * @description The ID list of the RAM user or RAM role.
      *
-     * @var string[]
+     * @var string
      */
-    public $subAccountUserIds;
+    public $subAccountUserIdsShrink;
     protected $_name = [
-        'permissions'       => 'Permissions',
-        'subAccountUserId'  => 'SubAccountUserId',
-        'subAccountUserIds' => 'SubAccountUserIds',
+        'permissions'             => 'Permissions',
+        'subAccountUserId'        => 'SubAccountUserId',
+        'subAccountUserIdsShrink' => 'SubAccountUserIds',
     ];
 
     public function validate()
@@ -56,8 +56,8 @@ class GrantUserPermissionsRequest extends Model
         if (null !== $this->subAccountUserId) {
             $res['SubAccountUserId'] = $this->subAccountUserId;
         }
-        if (null !== $this->subAccountUserIds) {
-            $res['SubAccountUserIds'] = $this->subAccountUserIds;
+        if (null !== $this->subAccountUserIdsShrink) {
+            $res['SubAccountUserIds'] = $this->subAccountUserIdsShrink;
         }
 
         return $res;
@@ -66,7 +66,7 @@ class GrantUserPermissionsRequest extends Model
     /**
      * @param array $map
      *
-     * @return GrantUserPermissionsRequest
+     * @return GrantUserPermissionsShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -78,9 +78,7 @@ class GrantUserPermissionsRequest extends Model
             $model->subAccountUserId = $map['SubAccountUserId'];
         }
         if (isset($map['SubAccountUserIds'])) {
-            if (!empty($map['SubAccountUserIds'])) {
-                $model->subAccountUserIds = $map['SubAccountUserIds'];
-            }
+            $model->subAccountUserIdsShrink = $map['SubAccountUserIds'];
         }
 
         return $model;

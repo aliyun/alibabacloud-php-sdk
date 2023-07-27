@@ -16,41 +16,57 @@ use AlibabaCloud\Tea\Model;
 class HTTPAdvancedOptions extends Model
 {
     /**
+     * @description The virtual service that defines traffic routing.
+     *
      * @var delegate
      */
     public $delegate;
 
     /**
+     * @description The configurations of fault injection.
+     *
      * @var fault
      */
     public $fault;
 
     /**
+     * @description The HTTP redirect rule.
+     *
      * @var HTTPRedirect
      */
     public $HTTPRedirect;
 
     /**
+     * @description The configurations for mirroring HTTP traffic to another destination in addition to forwarding requests to the specified destination.
+     *
      * @var mirror
      */
     public $mirror;
 
     /**
+     * @description The percentage of requests that are mirrored to another destination except for the original destination.
+     *
      * @var mirrorPercentage
      */
     public $mirrorPercentage;
 
     /**
+     * @description The configurations of retries for failed requests.
+     *
      * @var retries
      */
     public $retries;
 
     /**
+     * @description The configurations for rewriting the virtual service.
+     *
      * @var rewrite
      */
     public $rewrite;
 
     /**
+     * @description The timeout period for requests.
+     *
      * @example 5s
      *
      * @var string

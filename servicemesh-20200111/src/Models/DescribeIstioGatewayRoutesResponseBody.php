@@ -10,13 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeIstioGatewayRoutesResponseBody extends Model
 {
     /**
-     * @description The name of the routing rule.
+     * @description The routing rules.
      *
      * @var managementRoutes[]
      */
     public $managementRoutes;
 
     /**
+     * @description The request ID.
+     *
      * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class managementRoutes extends Model
 {
     /**
-     * @description The path that is used to match request URLs.
+     * @description The name of the ASM gateway.
      *
      * @example ingressgateway
      *
@@ -18,6 +18,8 @@ class managementRoutes extends Model
     public $ASMGatewayName;
 
     /**
+     * @description The description of the routing rule.
+     *
      * @example demo route
      *
      * @var string
@@ -35,6 +37,8 @@ class managementRoutes extends Model
     public $destinationSubSet;
 
     /**
+     * @description The namespace.
+     *
      * @example istio-demo
      *
      * @var string
@@ -42,7 +46,7 @@ class managementRoutes extends Model
     public $namespace;
 
     /**
-     * @description The ID of the request.
+     * @description The priority of the routing rule. The value of this parameter is an integer. A smaller value indicates a higher priority.
      *
      * @example 1
      *
@@ -51,11 +55,7 @@ class managementRoutes extends Model
     public $priority;
 
     /**
-     * @description The status of the routing rule. Valid values:
-     *
-     *   `0`: The routing rule is valid.
-     *   `1`: The routing rule is invalid.
-     *   `2`: An error occurs during the creation or update of the routing rule.
+     * @description The name of the routing rule.
      *
      * @example http-route
      *
@@ -64,7 +64,7 @@ class managementRoutes extends Model
     public $routeName;
 
     /**
-     * @description The priority of the routing rule. The value of this parameter is an integer. A smaller value indicates a higher priority.
+     * @description The path that is used to match request URLs.
      *
      * @example /reviews/v1
      *
@@ -73,7 +73,11 @@ class managementRoutes extends Model
     public $routePath;
 
     /**
-     * @description The description of the routing rule.
+     * @description The status of the routing rule. Valid values:
+     *
+     *   `0`: The routing rule is valid.
+     *   `1`: The routing rule is invalid.
+     *   `2`: An error occurs during the creation or update of the routing rule.
      *
      * @example 1
      *

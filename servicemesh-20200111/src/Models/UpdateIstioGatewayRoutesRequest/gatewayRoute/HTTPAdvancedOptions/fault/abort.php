@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class abort extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
      * @example 400
      *
      * @var int
@@ -17,6 +19,8 @@ class abort extends Model
     public $httpStatus;
 
     /**
+     * @description The percentage of requests that are aborted with the specified error code.
+     *
      * @var percentage
      */
     public $percentage;

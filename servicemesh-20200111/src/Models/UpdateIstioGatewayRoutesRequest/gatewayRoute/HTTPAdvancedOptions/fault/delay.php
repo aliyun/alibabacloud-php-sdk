@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class delay extends Model
 {
     /**
+     * @description The fixed duration for request delay.
+     *
      * @example 5s
      *
      * @var string
@@ -17,6 +19,8 @@ class delay extends Model
     public $fixedDelay;
 
     /**
+     * @description The percentage of requests to which the delay fault is injected.
+     *
      * @var percentage
      */
     public $percentage;

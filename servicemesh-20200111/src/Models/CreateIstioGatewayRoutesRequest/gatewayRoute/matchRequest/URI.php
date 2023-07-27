@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class URI extends Model
 {
     /**
+     * @description The content to be matched.
+     *
      * @example /ratings/v2/
      *
      * @var string
@@ -16,6 +18,12 @@ class URI extends Model
     public $matchingContent;
 
     /**
+     * @description The matching mode for the routing rule. Valid values:
+     *
+     *   `exact`: exact match
+     *   `prefix`: match by prefix
+     *   `regex`: match by regular expression
+     *
      * @example prefix
      *
      * @var string

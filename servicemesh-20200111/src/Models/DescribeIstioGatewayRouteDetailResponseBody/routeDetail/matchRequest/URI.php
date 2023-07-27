@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class URI extends Model
 {
     /**
-     * @description The configurations for mirroring HTTP traffic to another destination in addition to forwarding requests to the specified destination.
+     * @description The content to be matched.
      *
      * @example /ratings/v2/
      *
@@ -18,7 +18,11 @@ class URI extends Model
     public $matchingContent;
 
     /**
-     * @description The percentage of requests that are aborted with the specified error code, expressed as a decimal.
+     * @description The matching mode. Valid values:
+     *
+     *   `exact`: exact match
+     *   `prefix`: match by prefix
+     *   `regex`: match by regular expression
      *
      * @example prefix
      *

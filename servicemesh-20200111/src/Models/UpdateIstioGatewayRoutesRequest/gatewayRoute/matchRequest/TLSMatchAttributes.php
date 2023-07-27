@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class TLSMatchAttributes extends Model
 {
     /**
+     * @description The Server Name Indication (SNI) values to be matched.
+     *
      * @var string[]
      */
     public $SNIHosts;
 
     /**
+     * @description The TLS port.
+     *
      * @example 443
      *
      * @var int

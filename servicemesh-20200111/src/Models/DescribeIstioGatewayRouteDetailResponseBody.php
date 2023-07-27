@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeIstioGatewayRouteDetailResponseBody extends Model
 {
     /**
+     * @description The description of the routing rule.
+     *
      * @example demo route
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeIstioGatewayRouteDetailResponseBody extends Model
     public $description;
 
     /**
+     * @description The namespace.
+     *
      * @example default
      *
      * @var string
@@ -24,6 +28,8 @@ class DescribeIstioGatewayRouteDetailResponseBody extends Model
     public $namespace;
 
     /**
+     * @description The priority of the routing rule. The value of this parameter is an integer. A smaller value indicates a higher priority.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +37,8 @@ class DescribeIstioGatewayRouteDetailResponseBody extends Model
     public $priority;
 
     /**
+     * @description The request ID.
+     *
      * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
      *
      * @var string
@@ -38,13 +46,19 @@ class DescribeIstioGatewayRouteDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The percentage of requests to which the delay fault is injected.
+     * @description The detailed information about the routing rule.
      *
      * @var routeDetail
      */
     public $routeDetail;
 
     /**
+     * @description The status of the routing rule. Valid values:
+     *
+     *   `0`: The routing rule is valid.
+     *   `1`: The routing rule is invalid.
+     *   `2`: An error occurs during the creation or update of the routing rule.
+     *
      * @example 1
      *
      * @var int

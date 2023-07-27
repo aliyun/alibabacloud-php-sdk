@@ -16,6 +16,11 @@ class instanceTypes extends Model
     public $key;
 
     /**
+     * @description Indicates whether the instance type supports Multi-Buffer acceleration. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +28,8 @@ class instanceTypes extends Model
     public $multiBufferEnabled;
 
     /**
+     * @description The instance type of the node.
+     *
      * @example ecs.g7.xlarge
      *
      * @var string

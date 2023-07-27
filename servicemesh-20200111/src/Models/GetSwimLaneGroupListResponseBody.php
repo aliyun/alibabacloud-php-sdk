@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetSwimLaneGroupListResponseBody extends Model
 {
     /**
-     * @description The ingress type. Traffic routing rules can be configured only in an ingress gateway. Fixed value: ASM.
+     * @description The request ID.
      *
      * @example yyyy
      *
@@ -19,6 +19,8 @@ class GetSwimLaneGroupListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the lane groups.
+     *
      * @var swimLaneGroupList[]
      */
     public $swimLaneGroupList;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mirror extends Model
 {
     /**
+     * @description The name of the service defined in the service registry.
+     *
      * @example reviews.default.svc.cluster.local
      *
      * @var string
@@ -16,6 +18,8 @@ class mirror extends Model
     public $host;
 
     /**
+     * @description The name of the service subset.
+     *
      * @example v1
      *
      * @var string

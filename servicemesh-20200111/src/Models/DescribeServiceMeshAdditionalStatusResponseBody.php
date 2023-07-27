@@ -10,21 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshAdditionalStatusResponseBody extends Model
 {
     /**
-     * @description Indicates whether the SLB instance is reused. Valid values:
-     *
-     *   `true`: The SLB instance is reused.
-     *   `false`: The SLB instance is not reused.
+     * @description The status of the cluster.
      *
      * @var clusterStatus
      */
     public $clusterStatus;
 
     /**
-     * @description The check result of the number of SLB instances created for exposing the API server. Valid values:
-     *
-     *   `too_much`: An excessive number of SLB instances are created.
-     *   `num_exact`: A proper number of SLB instances are created.
-     *   `too_little`: The number of SLB instances falls short.
+     * @description The request ID.
      *
      * @example 11fd0027-c27e-41bb-a565-75583054****
      *

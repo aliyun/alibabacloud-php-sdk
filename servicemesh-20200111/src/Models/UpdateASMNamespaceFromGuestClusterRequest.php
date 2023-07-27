@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateASMNamespaceFromGuestClusterRequest extends Model
 {
     /**
+     * @description The ID of the Kubernetes cluster whose namespace information you want to synchronize to ASM. The Kubernetes cluster is added to the ASM instance that is specified by the ServiceMeshId parameter.
+     *
      * @example c6f6d46583def494ba1f2e2937c8*****
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdateASMNamespaceFromGuestClusterRequest extends Model
     public $k8sClusterId;
 
     /**
+     * @description The ASM instance ID.
+     *
      * @example cbf9ca9e6d5dc4c87a3ecd0ebf1e*****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateASMNamespaceFromGuestClusterResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 9DEC6122-ACEC-183D-8451-8E0A1A******
      *
      * @var string

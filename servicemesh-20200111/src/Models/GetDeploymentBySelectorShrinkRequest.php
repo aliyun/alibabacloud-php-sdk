@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetDeploymentBySelectorShrinkRequest extends Model
 {
     /**
+     * @description The name of the cluster.
+     *
      * @example cbe80a56d07ed45818b4d39273e23****
      *
      * @var string
@@ -16,11 +18,15 @@ class GetDeploymentBySelectorShrinkRequest extends Model
     public $guestCluster;
 
     /**
+     * @description The label selector information.
+     *
      * @var string
      */
     public $labelSelectorShrink;
 
     /**
+     * @description The maximum number of returned data entries.
+     *
      * @example 10
      *
      * @var int
@@ -28,6 +34,8 @@ class GetDeploymentBySelectorShrinkRequest extends Model
     public $limit;
 
     /**
+     * @description The marker of data queried last time.
+     *
      * @example eyJ2IjoibWV0YS5rOHMuaW8vdjEiLCJydiI6NzgxODk3MCwic3RhcnQiOiJuZ2lueDQ1N1x1MDAw****
      *
      * @var string
@@ -35,6 +43,8 @@ class GetDeploymentBySelectorShrinkRequest extends Model
     public $mark;
 
     /**
+     * @description The namespace.
+     *
      * @example default
      *
      * @var string
@@ -42,6 +52,8 @@ class GetDeploymentBySelectorShrinkRequest extends Model
     public $nameSpace;
 
     /**
+     * @description The ID of the Alibaba Cloud Service Mesh (ASM) instance.
+     *
      * @example ce9fc65def2aa4c918747b9360fbd****
      *
      * @var string

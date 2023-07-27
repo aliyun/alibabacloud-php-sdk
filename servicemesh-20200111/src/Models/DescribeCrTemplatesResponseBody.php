@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCrTemplatesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 74E97AE2-2900-55C1-A069-C3C1EA*****
      *

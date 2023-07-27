@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeNamespaceScopeSidecarConfigRequest extends Model
 {
     /**
-     * @description The name of the namespace.
+     * @description The namespace.
      *
      * @example default
      *

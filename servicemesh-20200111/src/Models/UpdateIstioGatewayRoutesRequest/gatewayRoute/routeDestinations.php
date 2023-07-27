@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class routeDestinations extends Model
 {
     /**
+     * @description The unique endpoint of the destination service to which the specified requests are sent.
+     *
      * @var destination
      */
     public $destination;
 
     /**
+     * @description The weight of the service subset.
+     *
      * @example 80
      *
      * @var int

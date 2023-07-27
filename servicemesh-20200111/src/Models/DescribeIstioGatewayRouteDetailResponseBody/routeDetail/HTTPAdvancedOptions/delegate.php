@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class delegate extends Model
 {
     /**
-     * @description The values to be added to the header key.
+     * @description The name of the virtual service.
      *
      * @example reviews
      *
@@ -18,7 +18,7 @@ class delegate extends Model
     public $name;
 
     /**
-     * @description The key to be deleted.
+     * @description The namespace to which the virtual service belongs.
      *
      * @example default
      *

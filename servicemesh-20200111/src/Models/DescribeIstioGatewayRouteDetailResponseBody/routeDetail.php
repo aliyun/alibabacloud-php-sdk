@@ -17,26 +17,38 @@ class routeDetail extends Model
     public $domains;
 
     /**
-     * @description The ports of the specified hosts from which the traffic is routed.
+     * @description The advanced settings for routing HTTP traffic.
      *
      * @var HTTPAdvancedOptions
      */
     public $HTTPAdvancedOptions;
 
     /**
-     * @description The specified HTTP error code.
+     * @var bool
+     */
+    public $hasUnsafeFeatures;
+
+    /**
+     * @description The matching rules for traffic routing.
      *
      * @var matchRequest
      */
     public $matchRequest;
 
     /**
+     * @var string
+     */
+    public $rawVSRoute;
+
+    /**
+     * @description The endpoints of destination services for Layer 4 weighted routing.
+     *
      * @var routeDestinations[]
      */
     public $routeDestinations;
 
     /**
-     * @description The percentage of requests that are aborted with specified error codes, expressed as a decimal.
+     * @description The name of the routing rule.
      *
      * @example demo-route
      *
@@ -45,7 +57,7 @@ class routeDetail extends Model
     public $routeName;
 
     /**
-     * @description The configurations for aborting requests with specified error codes.
+     * @description The type of the traffic to be routed. Valid values: `HTTP`, `TLS`, and `TCP`.
      *
      * @example HTTP
      *
@@ -55,7 +67,9 @@ class routeDetail extends Model
     protected $_name = [
         'domains'             => 'Domains',
         'HTTPAdvancedOptions' => 'HTTPAdvancedOptions',
+        'hasUnsafeFeatures'   => 'HasUnsafeFeatures',
         'matchRequest'        => 'MatchRequest',
+        'rawVSRoute'          => 'RawVSRoute',
         'routeDestinations'   => 'RouteDestinations',
         'routeName'           => 'RouteName',
         'routeType'           => 'RouteType',
@@ -74,8 +88,14 @@ class routeDetail extends Model
         if (null !== $this->HTTPAdvancedOptions) {
             $res['HTTPAdvancedOptions'] = null !== $this->HTTPAdvancedOptions ? $this->HTTPAdvancedOptions->toMap() : null;
         }
+        if (null !== $this->hasUnsafeFeatures) {
+            $res['HasUnsafeFeatures'] = $this->hasUnsafeFeatures;
+        }
         if (null !== $this->matchRequest) {
             $res['MatchRequest'] = null !== $this->matchRequest ? $this->matchRequest->toMap() : null;
+        }
+        if (null !== $this->rawVSRoute) {
+            $res['RawVSRoute'] = $this->rawVSRoute;
         }
         if (null !== $this->routeDestinations) {
             $res['RouteDestinations'] = [];
@@ -112,8 +132,14 @@ class routeDetail extends Model
         if (isset($map['HTTPAdvancedOptions'])) {
             $model->HTTPAdvancedOptions = HTTPAdvancedOptions::fromMap($map['HTTPAdvancedOptions']);
         }
+        if (isset($map['HasUnsafeFeatures'])) {
+            $model->hasUnsafeFeatures = $map['HasUnsafeFeatures'];
+        }
         if (isset($map['MatchRequest'])) {
             $model->matchRequest = matchRequest::fromMap($map['MatchRequest']);
+        }
+        if (isset($map['RawVSRoute'])) {
+            $model->rawVSRoute = $map['RawVSRoute'];
         }
         if (isset($map['RouteDestinations'])) {
             if (!empty($map['RouteDestinations'])) {

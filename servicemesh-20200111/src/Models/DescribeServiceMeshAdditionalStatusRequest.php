@@ -9,13 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshAdditionalStatusRequest extends Model
 {
     /**
-     * @description The check result of the SLB instance. Valid values:
+     * @description The check mode of the ASM instance. Valid values:
      *
-     *   `exist`: The SLB instance exists.
-     *   `not_exist`: The SLB instance does not exist.
-     *   `conflict`: Conflicts are detected.
-     *   `failed`: The check fails.
-     *   `time_out`: The check times out.
+     *   `normal`: checks the Server Load Balancer (SLB) instances created for exposing the API server and Istio Pilot, audit logs, and installation of Logtail for clusters on the data plane.
+     *   `full`: checks control plane logs, access logs, security groups, and the elastic IP addresses (EIPs) of the API server in addition to the check items in normal mode.
      *
      * @example full
      *
@@ -24,7 +21,7 @@ class DescribeServiceMeshAdditionalStatusRequest extends Model
     public $checkMode;
 
     /**
-     * @description The check results of the SLB instances created for exposing the API server.
+     * @description The ID of the ASM instance.
      *
      * @example ca04bc38979214bf2882be79d39b4****
      *

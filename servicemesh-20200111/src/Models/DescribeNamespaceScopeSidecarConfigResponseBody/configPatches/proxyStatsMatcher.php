@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class proxyStatsMatcher extends Model
 {
     /**
-     * @description The prefix of the monitoring metrics for data collected by Envoy proxies.
+     * @description The prefixes of the custom Envoy statistics that are reported by the sidecar proxy.
      *
      * @var string[]
      */
     public $inclusionPrefixes;
 
     /**
-     * @description The regular expression of the monitoring metrics for data collected by Envoy proxies.
+     * @description The regular expressions for specifying the custom Envoy statistics that are reported by the sidecar proxy.
      *
      * @var string[]
      */
     public $inclusionRegexps;
 
     /**
-     * @description The suffix of the monitoring metrics for data collected by Envoy proxies.
+     * @description The suffixes of the custom Envoy statistics that are reported by the sidecar proxy.
      *
      * @var string[]
      */

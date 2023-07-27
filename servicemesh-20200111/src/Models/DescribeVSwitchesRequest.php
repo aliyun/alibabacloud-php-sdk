@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesRequest extends Model
 {
     /**
-     * @description The maximum number of entries returned on a single page.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -18,7 +18,7 @@ class DescribeVSwitchesRequest extends Model
     public $regionId;
 
     /**
-     * @description The list of the queried vSwitches.
+     * @description The VPC ID.
      *
      * @example vpc-bp17gig441u0msmd78****
      *

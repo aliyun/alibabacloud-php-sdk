@@ -16,50 +16,56 @@ use AlibabaCloud\Tea\Model;
 class HTTPAdvancedOptions extends Model
 {
     /**
-     * @description The header key to be used to overwrite the original header key.
+     * @description The virtual service that defines traffic routing.
      *
      * @var delegate
      */
     public $delegate;
 
     /**
+     * @description The configurations of fault injection.
+     *
      * @var fault
      */
     public $fault;
 
     /**
-     * @description The port of the specified host to which the traffic is routed.
+     * @description The HTTP redirection rule.
      *
      * @var HTTPRedirect
      */
     public $HTTPRedirect;
 
     /**
+     * @description The configurations for mirroring HTTP traffic to another destination in addition to forwarding requests to the specified destination.
+     *
      * @var mirror
      */
     public $mirror;
 
     /**
+     * @description The percentage of requests that are aborted with the specified error code.
+     *
      * @var mirrorPercentage
      */
     public $mirrorPercentage;
 
     /**
-     * @description The ID of the request.
+     * @description The configurations of retries for failed requests.
      *
      * @var retries
      */
     public $retries;
 
     /**
-     * @description The processing of the headers of the response that is to be returned.
+     * @description The configurations for rewriting the virtual service.
      *
      * @var rewrite
      */
     public $rewrite;
 
     /**
-     * @description The key to be deleted.
+     * @description The timeout period for requests.
      *
      * @example 5s
      *

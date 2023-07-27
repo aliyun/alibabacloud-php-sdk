@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rewrite extends Model
 {
     /**
+     * @description The value to be used to overwrite the value of the Authority or Host header.
+     *
      * @example newratings.default.svc.cluster.local
      *
      * @var string
@@ -16,6 +18,8 @@ class rewrite extends Model
     public $authority;
 
     /**
+     * @description The value to be used to overwrite the path or prefix of the URI.
+     *
      * @example /v1/getProductRatings
      *
      * @var string

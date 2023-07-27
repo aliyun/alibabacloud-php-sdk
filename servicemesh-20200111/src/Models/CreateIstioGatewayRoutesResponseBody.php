@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateIstioGatewayRoutesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
      *
      * @var string

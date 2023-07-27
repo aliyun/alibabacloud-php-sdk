@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class response extends Model
 {
     /**
+     * @description The values to be added to the header key.
+     *
      * @example key
      *
      * @var mixed[]
@@ -16,11 +18,15 @@ class response extends Model
     public $add;
 
     /**
+     * @description The header value to be deleted.
+     *
      * @var string[]
      */
     public $remove;
 
     /**
+     * @description The header key to be used to overwrite the original header key.
+     *
      * @example key
      *
      * @var mixed[]

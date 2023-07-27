@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @description The header value to be matched.
+     *
      * @example v1
      *
      * @var string
@@ -16,6 +18,12 @@ class headers extends Model
     public $matchingContent;
 
     /**
+     * @description The matching mode for the header value. Valid values:
+     *
+     *   `exact`: exact match
+     *   `prefix`: match by prefix
+     *   `regex`: match by regular expression
+     *
      * @example exact
      *
      * @var string
@@ -23,6 +31,8 @@ class headers extends Model
     public $matchingMode;
 
     /**
+     * @description The header key to be matched.
+     *
      * @example x-request-id
      *
      * @var string

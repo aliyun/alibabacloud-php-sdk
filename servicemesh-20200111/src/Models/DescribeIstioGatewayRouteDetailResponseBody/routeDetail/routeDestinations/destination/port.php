@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class port extends Model
 {
     /**
+     * @description The ports of the specified hosts to which the traffic is routed.
+     *
      * @example 443
      *
      * @var int

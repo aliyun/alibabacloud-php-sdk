@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class headers extends Model
 {
     /**
+     * @description The request header to be matched.
+     *
      * @var request
      */
     public $request;
 
     /**
+     * @description The processing of the headers of the response that is to be returned.
+     *
      * @var response
      */
     public $response;

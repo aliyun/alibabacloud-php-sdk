@@ -17,16 +17,22 @@ class gatewayRoute extends Model
     public $domains;
 
     /**
+     * @description The advanced settings for routing HTTP traffic.
+     *
      * @var HTTPAdvancedOptions
      */
     public $HTTPAdvancedOptions;
 
     /**
+     * @description The matching rules for traffic routing.
+     *
      * @var matchRequest
      */
     public $matchRequest;
 
     /**
+     * @description The name of the namespace.
+     *
      * @example default
      *
      * @var string
@@ -34,11 +40,20 @@ class gatewayRoute extends Model
     public $namespace;
 
     /**
+     * @var mixed
+     */
+    public $rawVSRoute;
+
+    /**
+     * @description The endpoints of destination services for Layer 4 weighted routing.
+     *
      * @var routeDestinations[]
      */
     public $routeDestinations;
 
     /**
+     * @description The name of the routing rule.
+     *
      * @example reviews-v2-routes
      *
      * @var string
@@ -46,6 +61,8 @@ class gatewayRoute extends Model
     public $routeName;
 
     /**
+     * @description The type of the traffic to be routed. Valid values: `HTTP`, `TLS`, and `TCP`.
+     *
      * @example HTTP
      *
      * @var string
@@ -56,6 +73,7 @@ class gatewayRoute extends Model
         'HTTPAdvancedOptions' => 'HTTPAdvancedOptions',
         'matchRequest'        => 'MatchRequest',
         'namespace'           => 'Namespace',
+        'rawVSRoute'          => 'RawVSRoute',
         'routeDestinations'   => 'RouteDestinations',
         'routeName'           => 'RouteName',
         'routeType'           => 'RouteType',
@@ -79,6 +97,9 @@ class gatewayRoute extends Model
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
+        }
+        if (null !== $this->rawVSRoute) {
+            $res['RawVSRoute'] = $this->rawVSRoute;
         }
         if (null !== $this->routeDestinations) {
             $res['RouteDestinations'] = [];
@@ -120,6 +141,9 @@ class gatewayRoute extends Model
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
+        }
+        if (isset($map['RawVSRoute'])) {
+            $model->rawVSRoute = $map['RawVSRoute'];
         }
         if (isset($map['RouteDestinations'])) {
             if (!empty($map['RouteDestinations'])) {

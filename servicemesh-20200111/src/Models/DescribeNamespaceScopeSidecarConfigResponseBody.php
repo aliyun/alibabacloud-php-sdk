@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeNamespaceScopeSidecarConfigResponseBody extends Model
 {
     /**
-     * @description The namespace-level sidecar configurations.
+     * @description The namespace-level sidecar proxy configurations.
      *
      * @var configPatches
      */
     public $configPatches;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 31d3a0f0-07ed-4f6e-9004-1804498c****
      *

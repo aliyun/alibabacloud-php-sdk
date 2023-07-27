@@ -9,12 +9,10 @@ use AlibabaCloud\Tea\Model;
 class pilotLoadBalancerStatus extends Model
 {
     /**
-     * @description The check result of control plane logs. Valid values:
+     * @description Indicates whether the SLB instance is locked. Valid values:
      *
-     *   `exist`: Control plane logs exist.
-     *   `not_exist`: Control plane logs do not exist.
-     *   `failed`: The check fails.
-     *   `time_out`: The check times out.
+     *   `true`
+     *   `false`
      *
      * @example false
      *
@@ -23,12 +21,10 @@ class pilotLoadBalancerStatus extends Model
     public $locked;
 
     /**
-     * @description Indicates whether the security group is reused. Valid values:
+     * @description The billing method of the SLB instance. Valid values:
      *
-     *   `reused`: The security group is reused.
-     *   `not_reused`: The security group is not reused.
-     *   `failed`: The check fails.
-     *   `time_out`: The check times out.
+     *   `PrePay`: subscription
+     *   `PayOnDemand`: pay-as-you-go
      *
      * @example PayOnDemand
      *
@@ -37,7 +33,10 @@ class pilotLoadBalancerStatus extends Model
     public $payType;
 
     /**
-     * @description The check results of the Logtail installation for clusters on the data plane.
+     * @description Indicates whether the SLB instance is reused. Valid values:
+     *
+     *   `true`
+     *   `false`
      *
      * @example true
      *
@@ -46,10 +45,11 @@ class pilotLoadBalancerStatus extends Model
     public $reused;
 
     /**
-     * @description The check result of audit logs. Valid values:
+     * @description The check result of the number of the backend servers of the SLB instance created for exposing Istio Pilot. Valid values:
      *
-     *   `exist`: Audit logs exist.
-     *   `not exist`: Audit logs do not exist.
+     *   `too_much`: An excessive number of backend servers are created.
+     *   `num_exact`: A proper number of backend servers are created.
+     *   `too_little`: The number of backend servers falls short.
      *
      * @example num_exact
      *
@@ -58,10 +58,13 @@ class pilotLoadBalancerStatus extends Model
     public $SLBBackEndServerNumStatus;
 
     /**
-     * @description The billing method of the SLB instance. Valid values:
+     * @description The check result of the SLB instance. Valid values:
      *
-     *   `PrePay`: subscription
-     *   `PayOnDemand`: pay-as-you-go
+     *   `exist`: The SLB instance exists.
+     *   `not_exist`: The SLB instance does not exist.
+     *   `conflict`: Conflicts are detected.
+     *   `failed`: The check fails.
+     *   `time_out`: The check times out.
      *
      * @example exist
      *
