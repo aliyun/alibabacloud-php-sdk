@@ -30,6 +30,8 @@ class role extends Model
     /**
      * @description The description of the RAM role.
      *
+     * @example ECS administrator
+     *
      * @var string
      */
     public $description;

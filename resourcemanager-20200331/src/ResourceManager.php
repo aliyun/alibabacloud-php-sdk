@@ -3489,6 +3489,9 @@ class ResourceManager extends OpenApiClient
         if (!Utils::isUnset($request->resourceType)) {
             $query['ResourceType'] = $request->resourceType;
         }
+        if (!Utils::isUnset($request->resourceTypes)) {
+            $query['ResourceTypes'] = $request->resourceTypes;
+        }
         if (!Utils::isUnset($request->service)) {
             $query['Service'] = $request->service;
         }

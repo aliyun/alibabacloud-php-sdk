@@ -29,6 +29,8 @@ class controlPolicy extends Model
     /**
      * @description The description of the access control policy.
      *
+     * @example System access control policy available for all operations on the cloud
+     *
      * @var string
      */
     public $description;

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ResourceManager\V20200331\Models;
 
+use AlibabaCloud\SDK\ResourceManager\V20200331\Models\ListResourcesRequest\resourceTypes;
 use AlibabaCloud\Tea\Model;
 
 class ListResourcesRequest extends Model
@@ -66,6 +67,11 @@ class ListResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @var resourceTypes[]
+     */
+    public $resourceTypes;
+
+    /**
      * @description The ID of the Alibaba Cloud service.
      *
      * You can obtain the ID from the **Service code** column in [Alibaba Cloud services that support resource groups](~~94479~~).
@@ -81,6 +87,7 @@ class ListResourcesRequest extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'resourceId'      => 'ResourceId',
         'resourceType'    => 'ResourceType',
+        'resourceTypes'   => 'ResourceTypes',
         'service'         => 'Service',
     ];
 
@@ -108,6 +115,15 @@ class ListResourcesRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->resourceTypes) {
+            $res['ResourceTypes'] = [];
+            if (null !== $this->resourceTypes && \is_array($this->resourceTypes)) {
+                $n = 0;
+                foreach ($this->resourceTypes as $item) {
+                    $res['ResourceTypes'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->service) {
             $res['Service'] = $this->service;
@@ -141,6 +157,15 @@ class ListResourcesRequest extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['ResourceTypes'])) {
+            if (!empty($map['ResourceTypes'])) {
+                $model->resourceTypes = [];
+                $n                    = 0;
+                foreach ($map['ResourceTypes'] as $item) {
+                    $model->resourceTypes[$n++] = null !== $item ? resourceTypes::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Service'])) {
             $model->service = $map['Service'];
